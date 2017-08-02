@@ -35,13 +35,13 @@ class HelpFormatterWithLineBreaks(IndentedHelpFormatter):
 def init_logging():
     """ Initialize the logging infra and add a handler """
     logger = logging.getLogger('ydk')
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
     # create file handler
     fh = logging.FileHandler('bgp.log')
     fh.setLevel(logging.DEBUG)
     # create a console logger too
     ch = logging.StreamHandler()
-    ch.setLevel(logging.DEBUG)
+    ch.setLevel(logging.INFO)
     # add the handlers to the logger
     logger.addHandler(fh)
     logger.addHandler(ch)

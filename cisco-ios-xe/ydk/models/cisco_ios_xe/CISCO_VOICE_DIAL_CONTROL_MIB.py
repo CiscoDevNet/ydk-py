@@ -39,22 +39,16 @@ RPH    \- Resource Priority Header
 DSCP   \- Diffserv Code Points
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CvamrnbrtpencapEnum(Enum):
+class Cvamrnbrtpencap(Enum):
     """
-    CvamrnbrtpencapEnum
+    Cvamrnbrtpencap
 
     Represents GSM AMR\-NB codec RTP encapsulation type.
 
@@ -62,18 +56,12 @@ class CvamrnbrtpencapEnum(Enum):
 
     """
 
-    rfc3267 = 1
+    rfc3267 = Enum.YLeaf(1, "rfc3267")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CvamrnbrtpencapEnum']
-
-
-class CvcallconnectiontypeEnum(Enum):
+class Cvcallconnectiontype(Enum):
     """
-    CvcallconnectiontypeEnum
+    Cvcallconnectiontype
 
     Call connection represents the connection/association/session
 
@@ -111,30 +99,24 @@ class CvcallconnectiontypeEnum(Enum):
 
     """
 
-    h323 = 1
+    h323 = Enum.YLeaf(1, "h323")
 
-    sip = 2
+    sip = Enum.YLeaf(2, "sip")
 
-    mgcp = 3
+    mgcp = Enum.YLeaf(3, "mgcp")
 
-    sccp = 4
+    sccp = Enum.YLeaf(4, "sccp")
 
-    multicast = 5
+    multicast = Enum.YLeaf(5, "multicast")
 
-    cacontrol = 6
+    cacontrol = Enum.YLeaf(6, "cacontrol")
 
-    telephony = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CvcallconnectiontypeEnum']
+    telephony = Enum.YLeaf(7, "telephony")
 
 
-class CvcallvolumestatsintvltypeEnum(Enum):
+class Cvcallvolumestatsintvltype(Enum):
     """
-    CvcallvolumestatsintvltypeEnum
+    Cvcallvolumestatsintvltype
 
     Represents the ids of the stats vlolume table
 
@@ -154,22 +136,16 @@ class CvcallvolumestatsintvltypeEnum(Enum):
 
     """
 
-    secondStats = 1
+    secondStats = Enum.YLeaf(1, "secondStats")
 
-    minuteStats = 2
+    minuteStats = Enum.YLeaf(2, "minuteStats")
 
-    hourStats = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CvcallvolumestatsintvltypeEnum']
+    hourStats = Enum.YLeaf(3, "hourStats")
 
 
-class CvcallvolumewmintvltypeEnum(Enum):
+class Cvcallvolumewmintvltype(Enum):
     """
-    CvcallvolumewmintvltypeEnum
+    Cvcallvolumewmintvltype
 
     Represents the Id of the watermark table.
 
@@ -193,24 +169,18 @@ class CvcallvolumewmintvltypeEnum(Enum):
 
     """
 
-    secondStats = 1
+    secondStats = Enum.YLeaf(1, "secondStats")
 
-    minuteStats = 2
+    minuteStats = Enum.YLeaf(2, "minuteStats")
 
-    hourStats = 3
+    hourStats = Enum.YLeaf(3, "hourStats")
 
-    fromReloadStats = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CvcallvolumewmintvltypeEnum']
+    fromReloadStats = Enum.YLeaf(4, "fromReloadStats")
 
 
-class CvilbcframemodeEnum(Enum):
+class Cvilbcframemode(Enum):
     """
-    CvilbcframemodeEnum
+    Cvilbcframemode
 
     This Texatual Convention represents the iLBC codec
 
@@ -232,20 +202,14 @@ class CvilbcframemodeEnum(Enum):
 
     """
 
-    frameMode20 = 20
+    frameMode20 = Enum.YLeaf(20, "frameMode20")
 
-    frameMode30 = 30
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CvilbcframemodeEnum']
+    frameMode30 = Enum.YLeaf(30, "frameMode30")
 
 
-class CvsessionprotocolEnum(Enum):
+class Cvsessionprotocol(Enum):
     """
-    CvsessionprotocolEnum
+    Cvsessionprotocol
 
     Represents a Session Protocol used by Voice calls between a
 
@@ -275,26 +239,20 @@ class CvsessionprotocolEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    cisco = 2
+    cisco = Enum.YLeaf(2, "cisco")
 
-    sdp = 3
+    sdp = Enum.YLeaf(3, "sdp")
 
-    sip = 4
+    sip = Enum.YLeaf(4, "sip")
 
-    multicast = 5
+    multicast = Enum.YLeaf(5, "multicast")
 
-    sccp = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CvsessionprotocolEnum']
+    sccp = Enum.YLeaf(6, "sccp")
 
 
-class Cvamrnbbitratemode(FixedBitsDict):
+class Cvamrnbbitratemode(Bits):
     """
     Cvamrnbbitratemode
 
@@ -309,34 +267,15 @@ class Cvamrnbbitratemode(FixedBitsDict):
     5                     7.95
     6                     10.2
     7                     12.2
-    Keys are:- amrBitRateMode0 , amrBitRateMode2 , amrBitRateMode5 , amrBitRateMode1 , amrBitRateMode7 , amrBitRateMode3 , amrBitRateMode6 , amrBitRateMode4
+    Keys are:- amrBitRateMode4 , amrBitRateMode5 , amrBitRateMode7 , amrBitRateMode1 , amrBitRateMode6 , amrBitRateMode0 , amrBitRateMode3 , amrBitRateMode2
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'amrBitRateMode0':False,
-            'amrBitRateMode2':False,
-            'amrBitRateMode5':False,
-            'amrBitRateMode1':False,
-            'amrBitRateMode7':False,
-            'amrBitRateMode3':False,
-            'amrBitRateMode6':False,
-            'amrBitRateMode4':False,
-        }
-        self._pos_map = { 
-            'amrBitRateMode0':0,
-            'amrBitRateMode2':2,
-            'amrBitRateMode5':5,
-            'amrBitRateMode1':1,
-            'amrBitRateMode7':7,
-            'amrBitRateMode3':3,
-            'amrBitRateMode6':6,
-            'amrBitRateMode4':4,
-        }
+        super(Cvamrnbbitratemode, self).__init__()
 
 
-class CiscoVoiceDialControlMib(object):
+class CiscoVoiceDialControlMib(Entity):
     """
     
     
@@ -468,57 +407,134 @@ class CiscoVoiceDialControlMib(object):
     _revision = '2012-05-15'
 
     def __init__(self):
+        super(CiscoVoiceDialControlMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+        self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
         self.cvactivecallstatstable = CiscoVoiceDialControlMib.Cvactivecallstatstable()
         self.cvactivecallstatstable.parent = self
+        self._children_name_map["cvactivecallstatstable"] = "cvActiveCallStatsTable"
+        self._children_yang_names.add("cvActiveCallStatsTable")
+
         self.cvactivecallwmtable = CiscoVoiceDialControlMib.Cvactivecallwmtable()
         self.cvactivecallwmtable.parent = self
+        self._children_name_map["cvactivecallwmtable"] = "cvActiveCallWMTable"
+        self._children_yang_names.add("cvActiveCallWMTable")
+
         self.cvcallactivetable = CiscoVoiceDialControlMib.Cvcallactivetable()
         self.cvcallactivetable.parent = self
+        self._children_name_map["cvcallactivetable"] = "cvCallActiveTable"
+        self._children_yang_names.add("cvCallActiveTable")
+
         self.cvcalldurationstatstable = CiscoVoiceDialControlMib.Cvcalldurationstatstable()
         self.cvcalldurationstatstable.parent = self
+        self._children_name_map["cvcalldurationstatstable"] = "cvCallDurationStatsTable"
+        self._children_yang_names.add("cvCallDurationStatsTable")
+
         self.cvcallhistorytable = CiscoVoiceDialControlMib.Cvcallhistorytable()
         self.cvcallhistorytable.parent = self
+        self._children_name_map["cvcallhistorytable"] = "cvCallHistoryTable"
+        self._children_yang_names.add("cvCallHistoryTable")
+
         self.cvcalllegratestatstable = CiscoVoiceDialControlMib.Cvcalllegratestatstable()
         self.cvcalllegratestatstable.parent = self
+        self._children_name_map["cvcalllegratestatstable"] = "cvCallLegRateStatsTable"
+        self._children_yang_names.add("cvCallLegRateStatsTable")
+
         self.cvcalllegratewmtable = CiscoVoiceDialControlMib.Cvcalllegratewmtable()
         self.cvcalllegratewmtable.parent = self
+        self._children_name_map["cvcalllegratewmtable"] = "cvCallLegRateWMTable"
+        self._children_yang_names.add("cvCallLegRateWMTable")
+
         self.cvcallratemonitor = CiscoVoiceDialControlMib.Cvcallratemonitor()
         self.cvcallratemonitor.parent = self
+        self._children_name_map["cvcallratemonitor"] = "cvCallRateMonitor"
+        self._children_yang_names.add("cvCallRateMonitor")
+
         self.cvcallratestatstable = CiscoVoiceDialControlMib.Cvcallratestatstable()
         self.cvcallratestatstable.parent = self
+        self._children_name_map["cvcallratestatstable"] = "cvCallRateStatsTable"
+        self._children_yang_names.add("cvCallRateStatsTable")
+
         self.cvcallratewmtable = CiscoVoiceDialControlMib.Cvcallratewmtable()
         self.cvcallratewmtable.parent = self
+        self._children_name_map["cvcallratewmtable"] = "cvCallRateWMTable"
+        self._children_yang_names.add("cvCallRateWMTable")
+
         self.cvcallvolconntable = CiscoVoiceDialControlMib.Cvcallvolconntable()
         self.cvcallvolconntable.parent = self
+        self._children_name_map["cvcallvolconntable"] = "cvCallVolConnTable"
+        self._children_yang_names.add("cvCallVolConnTable")
+
         self.cvcallvoliftable = CiscoVoiceDialControlMib.Cvcallvoliftable()
         self.cvcallvoliftable.parent = self
+        self._children_name_map["cvcallvoliftable"] = "cvCallVolIfTable"
+        self._children_yang_names.add("cvCallVolIfTable")
+
         self.cvcallvolume = CiscoVoiceDialControlMib.Cvcallvolume()
         self.cvcallvolume.parent = self
+        self._children_name_map["cvcallvolume"] = "cvCallVolume"
+        self._children_yang_names.add("cvCallVolume")
+
         self.cvcallvolumestatshistory = CiscoVoiceDialControlMib.Cvcallvolumestatshistory()
         self.cvcallvolumestatshistory.parent = self
+        self._children_name_map["cvcallvolumestatshistory"] = "cvCallVolumeStatsHistory"
+        self._children_yang_names.add("cvCallVolumeStatsHistory")
+
         self.cvgatewaycallactive = CiscoVoiceDialControlMib.Cvgatewaycallactive()
         self.cvgatewaycallactive.parent = self
+        self._children_name_map["cvgatewaycallactive"] = "cvGatewayCallActive"
+        self._children_yang_names.add("cvGatewayCallActive")
+
         self.cvgeneralconfiguration = CiscoVoiceDialControlMib.Cvgeneralconfiguration()
         self.cvgeneralconfiguration.parent = self
+        self._children_name_map["cvgeneralconfiguration"] = "cvGeneralConfiguration"
+        self._children_yang_names.add("cvGeneralConfiguration")
+
         self.cvpeercfgtable = CiscoVoiceDialControlMib.Cvpeercfgtable()
         self.cvpeercfgtable.parent = self
+        self._children_name_map["cvpeercfgtable"] = "cvPeerCfgTable"
+        self._children_yang_names.add("cvPeerCfgTable")
+
         self.cvpeercommoncfgtable = CiscoVoiceDialControlMib.Cvpeercommoncfgtable()
         self.cvpeercommoncfgtable.parent = self
+        self._children_name_map["cvpeercommoncfgtable"] = "cvPeerCommonCfgTable"
+        self._children_yang_names.add("cvPeerCommonCfgTable")
+
         self.cvsipmsgratestatstable = CiscoVoiceDialControlMib.Cvsipmsgratestatstable()
         self.cvsipmsgratestatstable.parent = self
+        self._children_name_map["cvsipmsgratestatstable"] = "cvSipMsgRateStatsTable"
+        self._children_yang_names.add("cvSipMsgRateStatsTable")
+
         self.cvsipmsgratewmtable = CiscoVoiceDialControlMib.Cvsipmsgratewmtable()
         self.cvsipmsgratewmtable.parent = self
+        self._children_name_map["cvsipmsgratewmtable"] = "cvSipMsgRateWMTable"
+        self._children_yang_names.add("cvSipMsgRateWMTable")
+
         self.cvvoicepeercfgtable = CiscoVoiceDialControlMib.Cvvoicepeercfgtable()
         self.cvvoicepeercfgtable.parent = self
+        self._children_name_map["cvvoicepeercfgtable"] = "cvVoicePeerCfgTable"
+        self._children_yang_names.add("cvVoicePeerCfgTable")
+
         self.cvvoipcallactivetable = CiscoVoiceDialControlMib.Cvvoipcallactivetable()
         self.cvvoipcallactivetable.parent = self
+        self._children_name_map["cvvoipcallactivetable"] = "cvVoIPCallActiveTable"
+        self._children_yang_names.add("cvVoIPCallActiveTable")
+
         self.cvvoipcallhistorytable = CiscoVoiceDialControlMib.Cvvoipcallhistorytable()
         self.cvvoipcallhistorytable.parent = self
+        self._children_name_map["cvvoipcallhistorytable"] = "cvVoIPCallHistoryTable"
+        self._children_yang_names.add("cvVoIPCallHistoryTable")
+
         self.cvvoippeercfgtable = CiscoVoiceDialControlMib.Cvvoippeercfgtable()
         self.cvvoippeercfgtable.parent = self
+        self._children_name_map["cvvoippeercfgtable"] = "cvVoIPPeerCfgTable"
+        self._children_yang_names.add("cvVoIPPeerCfgTable")
 
 
-    class Cvgeneralconfiguration(object):
+    class Cvgeneralconfiguration(Entity):
         """
         
         
@@ -550,43 +566,119 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvgeneraldscppolicynotificationenable = None
-            self.cvgeneralfallbacknotificationenable = None
-            self.cvgeneralmediapolicynotificationenable = None
-            self.cvgeneralpoorqovnotificationenable = None
+            super(CiscoVoiceDialControlMib.Cvgeneralconfiguration, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cvGeneralConfiguration"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
 
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvGeneralConfiguration'
+            self.cvgeneraldscppolicynotificationenable = YLeaf(YType.boolean, "cvGeneralDSCPPolicyNotificationEnable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cvgeneralfallbacknotificationenable = YLeaf(YType.boolean, "cvGeneralFallbackNotificationEnable")
+
+            self.cvgeneralmediapolicynotificationenable = YLeaf(YType.boolean, "cvGeneralMediaPolicyNotificationEnable")
+
+            self.cvgeneralpoorqovnotificationenable = YLeaf(YType.boolean, "cvGeneralPoorQoVNotificationEnable")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvgeneraldscppolicynotificationenable",
+                            "cvgeneralfallbacknotificationenable",
+                            "cvgeneralmediapolicynotificationenable",
+                            "cvgeneralpoorqovnotificationenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvgeneralconfiguration, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvgeneralconfiguration, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cvgeneraldscppolicynotificationenable.is_set or
+                self.cvgeneralfallbacknotificationenable.is_set or
+                self.cvgeneralmediapolicynotificationenable.is_set or
+                self.cvgeneralpoorqovnotificationenable.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvgeneraldscppolicynotificationenable.yfilter != YFilter.not_set or
+                self.cvgeneralfallbacknotificationenable.yfilter != YFilter.not_set or
+                self.cvgeneralmediapolicynotificationenable.yfilter != YFilter.not_set or
+                self.cvgeneralpoorqovnotificationenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvGeneralConfiguration" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvgeneraldscppolicynotificationenable.is_set or self.cvgeneraldscppolicynotificationenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvgeneraldscppolicynotificationenable.get_name_leafdata())
+            if (self.cvgeneralfallbacknotificationenable.is_set or self.cvgeneralfallbacknotificationenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvgeneralfallbacknotificationenable.get_name_leafdata())
+            if (self.cvgeneralmediapolicynotificationenable.is_set or self.cvgeneralmediapolicynotificationenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvgeneralmediapolicynotificationenable.get_name_leafdata())
+            if (self.cvgeneralpoorqovnotificationenable.is_set or self.cvgeneralpoorqovnotificationenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvgeneralpoorqovnotificationenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvGeneralDSCPPolicyNotificationEnable" or name == "cvGeneralFallbackNotificationEnable" or name == "cvGeneralMediaPolicyNotificationEnable" or name == "cvGeneralPoorQoVNotificationEnable"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvgeneraldscppolicynotificationenable is not None:
-                return True
-
-            if self.cvgeneralfallbacknotificationenable is not None:
-                return True
-
-            if self.cvgeneralmediapolicynotificationenable is not None:
-                return True
-
-            if self.cvgeneralpoorqovnotificationenable is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvgeneralconfiguration']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvGeneralDSCPPolicyNotificationEnable"):
+                self.cvgeneraldscppolicynotificationenable = value
+                self.cvgeneraldscppolicynotificationenable.value_namespace = name_space
+                self.cvgeneraldscppolicynotificationenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvGeneralFallbackNotificationEnable"):
+                self.cvgeneralfallbacknotificationenable = value
+                self.cvgeneralfallbacknotificationenable.value_namespace = name_space
+                self.cvgeneralfallbacknotificationenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvGeneralMediaPolicyNotificationEnable"):
+                self.cvgeneralmediapolicynotificationenable = value
+                self.cvgeneralmediapolicynotificationenable.value_namespace = name_space
+                self.cvgeneralmediapolicynotificationenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvGeneralPoorQoVNotificationEnable"):
+                self.cvgeneralpoorqovnotificationenable = value
+                self.cvgeneralpoorqovnotificationenable.value_namespace = name_space
+                self.cvgeneralpoorqovnotificationenable.value_namespace_prefix = name_space_prefix
 
 
-    class Cvgatewaycallactive(object):
+    class Cvgatewaycallactive(Entity):
         """
         
         
@@ -635,47 +727,130 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallactiveds0s = None
-            self.cvcallactiveds0shighnotifyenable = None
-            self.cvcallactiveds0shighthreshold = None
-            self.cvcallactiveds0slownotifyenable = None
-            self.cvcallactiveds0slowthreshold = None
+            super(CiscoVoiceDialControlMib.Cvgatewaycallactive, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cvGatewayCallActive"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
 
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvGatewayCallActive'
+            self.cvcallactiveds0s = YLeaf(YType.uint32, "cvCallActiveDS0s")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cvcallactiveds0shighnotifyenable = YLeaf(YType.boolean, "cvCallActiveDS0sHighNotifyEnable")
+
+            self.cvcallactiveds0shighthreshold = YLeaf(YType.uint32, "cvCallActiveDS0sHighThreshold")
+
+            self.cvcallactiveds0slownotifyenable = YLeaf(YType.boolean, "cvCallActiveDS0sLowNotifyEnable")
+
+            self.cvcallactiveds0slowthreshold = YLeaf(YType.uint32, "cvCallActiveDS0sLowThreshold")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvcallactiveds0s",
+                            "cvcallactiveds0shighnotifyenable",
+                            "cvcallactiveds0shighthreshold",
+                            "cvcallactiveds0slownotifyenable",
+                            "cvcallactiveds0slowthreshold") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvgatewaycallactive, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvgatewaycallactive, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cvcallactiveds0s.is_set or
+                self.cvcallactiveds0shighnotifyenable.is_set or
+                self.cvcallactiveds0shighthreshold.is_set or
+                self.cvcallactiveds0slownotifyenable.is_set or
+                self.cvcallactiveds0slowthreshold.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvcallactiveds0s.yfilter != YFilter.not_set or
+                self.cvcallactiveds0shighnotifyenable.yfilter != YFilter.not_set or
+                self.cvcallactiveds0shighthreshold.yfilter != YFilter.not_set or
+                self.cvcallactiveds0slownotifyenable.yfilter != YFilter.not_set or
+                self.cvcallactiveds0slowthreshold.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvGatewayCallActive" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvcallactiveds0s.is_set or self.cvcallactiveds0s.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallactiveds0s.get_name_leafdata())
+            if (self.cvcallactiveds0shighnotifyenable.is_set or self.cvcallactiveds0shighnotifyenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallactiveds0shighnotifyenable.get_name_leafdata())
+            if (self.cvcallactiveds0shighthreshold.is_set or self.cvcallactiveds0shighthreshold.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallactiveds0shighthreshold.get_name_leafdata())
+            if (self.cvcallactiveds0slownotifyenable.is_set or self.cvcallactiveds0slownotifyenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallactiveds0slownotifyenable.get_name_leafdata())
+            if (self.cvcallactiveds0slowthreshold.is_set or self.cvcallactiveds0slowthreshold.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallactiveds0slowthreshold.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallActiveDS0s" or name == "cvCallActiveDS0sHighNotifyEnable" or name == "cvCallActiveDS0sHighThreshold" or name == "cvCallActiveDS0sLowNotifyEnable" or name == "cvCallActiveDS0sLowThreshold"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvcallactiveds0s is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvCallActiveDS0s"):
+                self.cvcallactiveds0s = value
+                self.cvcallactiveds0s.value_namespace = name_space
+                self.cvcallactiveds0s.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallActiveDS0sHighNotifyEnable"):
+                self.cvcallactiveds0shighnotifyenable = value
+                self.cvcallactiveds0shighnotifyenable.value_namespace = name_space
+                self.cvcallactiveds0shighnotifyenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallActiveDS0sHighThreshold"):
+                self.cvcallactiveds0shighthreshold = value
+                self.cvcallactiveds0shighthreshold.value_namespace = name_space
+                self.cvcallactiveds0shighthreshold.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallActiveDS0sLowNotifyEnable"):
+                self.cvcallactiveds0slownotifyenable = value
+                self.cvcallactiveds0slownotifyenable.value_namespace = name_space
+                self.cvcallactiveds0slownotifyenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallActiveDS0sLowThreshold"):
+                self.cvcallactiveds0slowthreshold = value
+                self.cvcallactiveds0slowthreshold.value_namespace = name_space
+                self.cvcallactiveds0slowthreshold.value_namespace_prefix = name_space_prefix
 
-            if self.cvcallactiveds0shighnotifyenable is not None:
-                return True
 
-            if self.cvcallactiveds0shighthreshold is not None:
-                return True
-
-            if self.cvcallactiveds0slownotifyenable is not None:
-                return True
-
-            if self.cvcallactiveds0slowthreshold is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvgatewaycallactive']['meta_info']
-
-
-    class Cvcallvolume(object):
+    class Cvcallvolume(Entity):
         """
         
         
@@ -701,35 +876,97 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallvolconnmaxcallconnectionlicenese = None
-            self.cvcallvolconntotalactiveconnections = None
+            super(CiscoVoiceDialControlMib.Cvcallvolume, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cvCallVolume"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
 
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolume'
+            self.cvcallvolconnmaxcallconnectionlicenese = YLeaf(YType.uint32, "cvCallVolConnMaxCallConnectionLicenese")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cvcallvolconntotalactiveconnections = YLeaf(YType.uint32, "cvCallVolConnTotalActiveConnections")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvcallvolconnmaxcallconnectionlicenese",
+                            "cvcallvolconntotalactiveconnections") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallvolume, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallvolume, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cvcallvolconnmaxcallconnectionlicenese.is_set or
+                self.cvcallvolconntotalactiveconnections.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvcallvolconnmaxcallconnectionlicenese.yfilter != YFilter.not_set or
+                self.cvcallvolconntotalactiveconnections.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallVolume" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvcallvolconnmaxcallconnectionlicenese.is_set or self.cvcallvolconnmaxcallconnectionlicenese.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallvolconnmaxcallconnectionlicenese.get_name_leafdata())
+            if (self.cvcallvolconntotalactiveconnections.is_set or self.cvcallvolconntotalactiveconnections.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallvolconntotalactiveconnections.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallVolConnMaxCallConnectionLicenese" or name == "cvCallVolConnTotalActiveConnections"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvcallvolconnmaxcallconnectionlicenese is not None:
-                return True
-
-            if self.cvcallvolconntotalactiveconnections is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallvolume']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvCallVolConnMaxCallConnectionLicenese"):
+                self.cvcallvolconnmaxcallconnectionlicenese = value
+                self.cvcallvolconnmaxcallconnectionlicenese.value_namespace = name_space
+                self.cvcallvolconnmaxcallconnectionlicenese.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallVolConnTotalActiveConnections"):
+                self.cvcallvolconntotalactiveconnections = value
+                self.cvcallvolconntotalactiveconnections.value_namespace = name_space
+                self.cvcallvolconntotalactiveconnections.value_namespace_prefix = name_space_prefix
 
 
-    class Cvcallratemonitor(object):
+    class Cvcallratemonitor(Entity):
         """
         
         
@@ -769,43 +1006,119 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallrate = None
-            self.cvcallratehiwatermark = None
-            self.cvcallratemonitorenable = None
-            self.cvcallratemonitortime = None
+            super(CiscoVoiceDialControlMib.Cvcallratemonitor, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cvCallRateMonitor"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
 
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateMonitor'
+            self.cvcallrate = YLeaf(YType.uint32, "cvCallRate")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cvcallratehiwatermark = YLeaf(YType.uint32, "cvCallRateHiWaterMark")
+
+            self.cvcallratemonitorenable = YLeaf(YType.boolean, "cvCallRateMonitorEnable")
+
+            self.cvcallratemonitortime = YLeaf(YType.uint32, "cvCallRateMonitorTime")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvcallrate",
+                            "cvcallratehiwatermark",
+                            "cvcallratemonitorenable",
+                            "cvcallratemonitortime") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallratemonitor, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallratemonitor, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cvcallrate.is_set or
+                self.cvcallratehiwatermark.is_set or
+                self.cvcallratemonitorenable.is_set or
+                self.cvcallratemonitortime.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvcallrate.yfilter != YFilter.not_set or
+                self.cvcallratehiwatermark.yfilter != YFilter.not_set or
+                self.cvcallratemonitorenable.yfilter != YFilter.not_set or
+                self.cvcallratemonitortime.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallRateMonitor" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvcallrate.is_set or self.cvcallrate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallrate.get_name_leafdata())
+            if (self.cvcallratehiwatermark.is_set or self.cvcallratehiwatermark.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallratehiwatermark.get_name_leafdata())
+            if (self.cvcallratemonitorenable.is_set or self.cvcallratemonitorenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallratemonitorenable.get_name_leafdata())
+            if (self.cvcallratemonitortime.is_set or self.cvcallratemonitortime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallratemonitortime.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallRate" or name == "cvCallRateHiWaterMark" or name == "cvCallRateMonitorEnable" or name == "cvCallRateMonitorTime"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvcallrate is not None:
-                return True
-
-            if self.cvcallratehiwatermark is not None:
-                return True
-
-            if self.cvcallratemonitorenable is not None:
-                return True
-
-            if self.cvcallratemonitortime is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallratemonitor']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvCallRate"):
+                self.cvcallrate = value
+                self.cvcallrate.value_namespace = name_space
+                self.cvcallrate.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallRateHiWaterMark"):
+                self.cvcallratehiwatermark = value
+                self.cvcallratehiwatermark.value_namespace = name_space
+                self.cvcallratehiwatermark.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallRateMonitorEnable"):
+                self.cvcallratemonitorenable = value
+                self.cvcallratemonitorenable.value_namespace = name_space
+                self.cvcallratemonitorenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallRateMonitorTime"):
+                self.cvcallratemonitortime = value
+                self.cvcallratemonitortime.value_namespace = name_space
+                self.cvcallratemonitortime.value_namespace_prefix = name_space_prefix
 
 
-    class Cvcallvolumestatshistory(object):
+    class Cvcallvolumestatshistory(Entity):
         """
         
         
@@ -833,35 +1146,97 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcalldurationstatsthreshold = None
-            self.cvcallvolumewmtablesize = None
+            super(CiscoVoiceDialControlMib.Cvcallvolumestatshistory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cvCallVolumeStatsHistory"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
 
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolumeStatsHistory'
+            self.cvcalldurationstatsthreshold = YLeaf(YType.uint32, "cvCallDurationStatsThreshold")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cvcallvolumewmtablesize = YLeaf(YType.uint32, "cvCallVolumeWMTableSize")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvcalldurationstatsthreshold",
+                            "cvcallvolumewmtablesize") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallvolumestatshistory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallvolumestatshistory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cvcalldurationstatsthreshold.is_set or
+                self.cvcallvolumewmtablesize.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvcalldurationstatsthreshold.yfilter != YFilter.not_set or
+                self.cvcallvolumewmtablesize.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallVolumeStatsHistory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvcalldurationstatsthreshold.is_set or self.cvcalldurationstatsthreshold.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcalldurationstatsthreshold.get_name_leafdata())
+            if (self.cvcallvolumewmtablesize.is_set or self.cvcallvolumewmtablesize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvcallvolumewmtablesize.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallDurationStatsThreshold" or name == "cvCallVolumeWMTableSize"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvcalldurationstatsthreshold is not None:
-                return True
-
-            if self.cvcallvolumewmtablesize is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallvolumestatshistory']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvCallDurationStatsThreshold"):
+                self.cvcalldurationstatsthreshold = value
+                self.cvcalldurationstatsthreshold.value_namespace = name_space
+                self.cvcalldurationstatsthreshold.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvCallVolumeWMTableSize"):
+                self.cvcallvolumewmtablesize = value
+                self.cvcallvolumewmtablesize.value_namespace = name_space
+                self.cvcallvolumewmtablesize.value_namespace_prefix = name_space_prefix
 
 
-    class Cvpeercfgtable(object):
+    class Cvpeercfgtable(Entity):
         """
         The table contains the Voice Generic Peer information that
         is used to create an ifIndexed row with an appropriate
@@ -881,13 +1256,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvpeercfgentry = YList()
-            self.cvpeercfgentry.parent = self
-            self.cvpeercfgentry.name = 'cvpeercfgentry'
+            super(CiscoVoiceDialControlMib.Cvpeercfgtable, self).__init__()
+
+            self.yang_name = "cvPeerCfgTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvpeercfgentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvpeercfgtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvpeercfgtable, self).__setattr__(name, value)
 
 
-        class Cvpeercfgentry(object):
+        class Cvpeercfgentry(Entity):
             """
             A single voice generic Peer. The creation of this
             entry will create an associated ifEntry with an ifType
@@ -961,17 +1362,17 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvpeercfgpeertype
             
             	Specifies the type of a peer. voice \- peer in voice type to be defined in a voice         gateway for voice calls.  data  \- peer in data type to be defined in gateway         that supports universal ports for modem/data         calls and integrated ports for data calls
-            	**type**\:   :py:class:`CvpeercfgpeertypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry.CvpeercfgpeertypeEnum>`
+            	**type**\:   :py:class:`Cvpeercfgpeertype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgpeertype>`
             
             .. attribute:: cvpeercfgrowstatus
             
             	This object is used to create a new row or modify or delete an existing row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cvpeercfgtype
             
             	Specifies the type of voice related encapsulation. voice \- voice encapsulation (voiceEncap ifType) on the         telephony network. voip  \- VoIP encapsulation (voiceOverIp ifType) on the IP         network. mmail \- Media Mail over IP encapsulation (mediaMailOverIp         ifType) on the IP network. voatm \- VoATM encapsulation (voiceOverATM ifType) on the         ATM network. vofr  \- VoFR encapsulation (voiceOverFR ifType) on the         Frame Relay network
-            	**type**\:   :py:class:`CvpeercfgtypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry.CvpeercfgtypeEnum>`
+            	**type**\:   :py:class:`Cvpeercfgtype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry.Cvpeercfgtype>`
             
             
 
@@ -981,18 +1382,58 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvpeercfgindex = None
-                self.cvcallvolpeerincomingcalls = None
-                self.cvcallvolpeeroutgoingcalls = None
-                self.cvpeercfgifindex = None
-                self.cvpeercfgpeertype = None
-                self.cvpeercfgrowstatus = None
-                self.cvpeercfgtype = None
+                super(CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry, self).__init__()
 
-            class CvpeercfgpeertypeEnum(Enum):
+                self.yang_name = "cvPeerCfgEntry"
+                self.yang_parent_name = "cvPeerCfgTable"
+
+                self.cvpeercfgindex = YLeaf(YType.int32, "cvPeerCfgIndex")
+
+                self.cvcallvolpeerincomingcalls = YLeaf(YType.uint32, "cvCallVolPeerIncomingCalls")
+
+                self.cvcallvolpeeroutgoingcalls = YLeaf(YType.uint32, "cvCallVolPeerOutgoingCalls")
+
+                self.cvpeercfgifindex = YLeaf(YType.int32, "cvPeerCfgIfIndex")
+
+                self.cvpeercfgpeertype = YLeaf(YType.enumeration, "cvPeerCfgPeerType")
+
+                self.cvpeercfgrowstatus = YLeaf(YType.enumeration, "cvPeerCfgRowStatus")
+
+                self.cvpeercfgtype = YLeaf(YType.enumeration, "cvPeerCfgType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpeercfgindex",
+                                "cvcallvolpeerincomingcalls",
+                                "cvcallvolpeeroutgoingcalls",
+                                "cvpeercfgifindex",
+                                "cvpeercfgpeertype",
+                                "cvpeercfgrowstatus",
+                                "cvpeercfgtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry, self).__setattr__(name, value)
+
+            class Cvpeercfgpeertype(Enum):
                 """
-                CvpeercfgpeertypeEnum
+                Cvpeercfgpeertype
 
                 Specifies the type of a peer.
 
@@ -1012,20 +1453,14 @@ class CiscoVoiceDialControlMib(object):
 
                 """
 
-                voice = 1
+                voice = Enum.YLeaf(1, "voice")
 
-                data = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry.CvpeercfgpeertypeEnum']
+                data = Enum.YLeaf(2, "data")
 
 
-            class CvpeercfgtypeEnum(Enum):
+            class Cvpeercfgtype(Enum):
                 """
-                CvpeercfgtypeEnum
+                Cvpeercfgtype
 
                 Specifies the type of voice related encapsulation.
 
@@ -1061,87 +1496,171 @@ class CiscoVoiceDialControlMib(object):
 
                 """
 
-                voice = 1
+                voice = Enum.YLeaf(1, "voice")
 
-                voip = 2
+                voip = Enum.YLeaf(2, "voip")
 
-                mmail = 3
+                mmail = Enum.YLeaf(3, "mmail")
 
-                voatm = 4
+                voatm = Enum.YLeaf(4, "voatm")
 
-                vofr = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry.CvpeercfgtypeEnum']
+                vofr = Enum.YLeaf(5, "vofr")
 
 
-            @property
-            def _common_path(self):
-                if self.cvpeercfgindex is None:
-                    raise YPYModelError('Key property cvpeercfgindex is None')
+            def has_data(self):
+                return (
+                    self.cvpeercfgindex.is_set or
+                    self.cvcallvolpeerincomingcalls.is_set or
+                    self.cvcallvolpeeroutgoingcalls.is_set or
+                    self.cvpeercfgifindex.is_set or
+                    self.cvpeercfgpeertype.is_set or
+                    self.cvpeercfgrowstatus.is_set or
+                    self.cvpeercfgtype.is_set)
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvPeerCfgTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvPeerCfgEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvPeerCfgIndex = ' + str(self.cvpeercfgindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpeercfgindex.yfilter != YFilter.not_set or
+                    self.cvcallvolpeerincomingcalls.yfilter != YFilter.not_set or
+                    self.cvcallvolpeeroutgoingcalls.yfilter != YFilter.not_set or
+                    self.cvpeercfgifindex.yfilter != YFilter.not_set or
+                    self.cvpeercfgpeertype.yfilter != YFilter.not_set or
+                    self.cvpeercfgrowstatus.yfilter != YFilter.not_set or
+                    self.cvpeercfgtype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvPeerCfgEntry" + "[cvPeerCfgIndex='" + self.cvpeercfgindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCfgTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpeercfgindex.is_set or self.cvpeercfgindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercfgindex.get_name_leafdata())
+                if (self.cvcallvolpeerincomingcalls.is_set or self.cvcallvolpeerincomingcalls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallvolpeerincomingcalls.get_name_leafdata())
+                if (self.cvcallvolpeeroutgoingcalls.is_set or self.cvcallvolpeeroutgoingcalls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallvolpeeroutgoingcalls.get_name_leafdata())
+                if (self.cvpeercfgifindex.is_set or self.cvpeercfgifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercfgifindex.get_name_leafdata())
+                if (self.cvpeercfgpeertype.is_set or self.cvpeercfgpeertype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercfgpeertype.get_name_leafdata())
+                if (self.cvpeercfgrowstatus.is_set or self.cvpeercfgrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercfgrowstatus.get_name_leafdata())
+                if (self.cvpeercfgtype.is_set or self.cvpeercfgtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercfgtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvPeerCfgIndex" or name == "cvCallVolPeerIncomingCalls" or name == "cvCallVolPeerOutgoingCalls" or name == "cvPeerCfgIfIndex" or name == "cvPeerCfgPeerType" or name == "cvPeerCfgRowStatus" or name == "cvPeerCfgType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpeercfgindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvPeerCfgIndex"):
+                    self.cvpeercfgindex = value
+                    self.cvpeercfgindex.value_namespace = name_space
+                    self.cvpeercfgindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallVolPeerIncomingCalls"):
+                    self.cvcallvolpeerincomingcalls = value
+                    self.cvcallvolpeerincomingcalls.value_namespace = name_space
+                    self.cvcallvolpeerincomingcalls.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallVolPeerOutgoingCalls"):
+                    self.cvcallvolpeeroutgoingcalls = value
+                    self.cvcallvolpeeroutgoingcalls.value_namespace = name_space
+                    self.cvcallvolpeeroutgoingcalls.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCfgIfIndex"):
+                    self.cvpeercfgifindex = value
+                    self.cvpeercfgifindex.value_namespace = name_space
+                    self.cvpeercfgifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCfgPeerType"):
+                    self.cvpeercfgpeertype = value
+                    self.cvpeercfgpeertype.value_namespace = name_space
+                    self.cvpeercfgpeertype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCfgRowStatus"):
+                    self.cvpeercfgrowstatus = value
+                    self.cvpeercfgrowstatus.value_namespace = name_space
+                    self.cvpeercfgrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCfgType"):
+                    self.cvpeercfgtype = value
+                    self.cvpeercfgtype.value_namespace = name_space
+                    self.cvpeercfgtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpeercfgentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcallvolpeerincomingcalls is not None:
-                    return True
-
-                if self.cvcallvolpeeroutgoingcalls is not None:
-                    return True
-
-                if self.cvpeercfgifindex is not None:
-                    return True
-
-                if self.cvpeercfgpeertype is not None:
-                    return True
-
-                if self.cvpeercfgrowstatus is not None:
-                    return True
-
-                if self.cvpeercfgtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvPeerCfgTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpeercfgentry is not None:
-                for child_ref in self.cvpeercfgentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpeercfgentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvPeerCfgTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvPeerCfgEntry"):
+                for c in self.cvpeercfgentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvpeercfgtable.Cvpeercfgentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpeercfgentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvPeerCfgEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvpeercfgtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvvoicepeercfgtable(object):
+    class Cvvoicepeercfgtable(Entity):
         """
         The table contains the Voice over Telephony peer specific
         information that is required to accept voice calls or to
@@ -1161,13 +1680,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvvoicepeercfgentry = YList()
-            self.cvvoicepeercfgentry.parent = self
-            self.cvvoicepeercfgentry.name = 'cvvoicepeercfgentry'
+            super(CiscoVoiceDialControlMib.Cvvoicepeercfgtable, self).__init__()
+
+            self.yang_name = "cvVoicePeerCfgTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvvoicepeercfgentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvvoicepeercfgtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvvoicepeercfgtable, self).__setattr__(name, value)
 
 
-        class Cvvoicepeercfgentry(object):
+        class Cvvoicepeercfgentry(Entity):
             """
             A single Voice specific Peer. One entry per voice
             encapsulation.
@@ -1207,7 +1752,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoicepeercfgechocancellertest
             
             	This object specifies which, if any, test to run in the echo canceller when a call from the network is connected. echoCancellerTestNone    \- do not run a test. echoCancellerG168Test2A  \- run ITU\-T G.168 Test 2A. echoCancellerG168Test2B  \- run ITU\-T G.168 Test 2B. echoCancellerG168Test2Ca \- run ITU\-T G.168 Test 2C(a). echoCancellerG168Test2Cb \- run ITU\-T G.168 Test 2C(b). echoCancellerG168Test3A  \- run ITU\-T G.168 Test 3A. echoCancellerG168Test3B  \- run ITU\-T G.168 Test 3B. echoCancellerG168Test3C  \- run ITU\-T G.168 Test 3C. echoCancellerG168Test4   \- run ITU\-T G.168 Test 4. echoCancellerG168Test5   \- run ITU\-T G.168 Test 5. echoCancellerG168Test6   \- run ITU\-T G.168 Test 6. echoCancellerG168Test7   \- run ITU\-T G.168 Test 7. echoCancellerG168Test9   \- run ITU\-T G.168 Test 9
-            	**type**\:   :py:class:`CvvoicepeercfgechocancellertestEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry.CvvoicepeercfgechocancellertestEnum>`
+            	**type**\:   :py:class:`Cvvoicepeercfgechocancellertest <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry.Cvvoicepeercfgechocancellertest>`
             
             .. attribute:: cvvoicepeercfgforwarddigits
             
@@ -1236,19 +1781,61 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cvvoicepeercfgcasgroup = None
-                self.cvvoicepeercfgdialdigitsprefix = None
-                self.cvvoicepeercfgdidcallenable = None
-                self.cvvoicepeercfgechocancellertest = None
-                self.cvvoicepeercfgforwarddigits = None
-                self.cvvoicepeercfgregistere164 = None
-                self.cvvoicepeercfgsessiontarget = None
+                super(CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry, self).__init__()
 
-            class CvvoicepeercfgechocancellertestEnum(Enum):
+                self.yang_name = "cvVoicePeerCfgEntry"
+                self.yang_parent_name = "cvVoicePeerCfgTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cvvoicepeercfgcasgroup = YLeaf(YType.int32, "cvVoicePeerCfgCasGroup")
+
+                self.cvvoicepeercfgdialdigitsprefix = YLeaf(YType.str, "cvVoicePeerCfgDialDigitsPrefix")
+
+                self.cvvoicepeercfgdidcallenable = YLeaf(YType.boolean, "cvVoicePeerCfgDIDCallEnable")
+
+                self.cvvoicepeercfgechocancellertest = YLeaf(YType.enumeration, "cvVoicePeerCfgEchoCancellerTest")
+
+                self.cvvoicepeercfgforwarddigits = YLeaf(YType.int32, "cvVoicePeerCfgForwardDigits")
+
+                self.cvvoicepeercfgregistere164 = YLeaf(YType.boolean, "cvVoicePeerCfgRegisterE164")
+
+                self.cvvoicepeercfgsessiontarget = YLeaf(YType.str, "cvVoicePeerCfgSessionTarget")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cvvoicepeercfgcasgroup",
+                                "cvvoicepeercfgdialdigitsprefix",
+                                "cvvoicepeercfgdidcallenable",
+                                "cvvoicepeercfgechocancellertest",
+                                "cvvoicepeercfgforwarddigits",
+                                "cvvoicepeercfgregistere164",
+                                "cvvoicepeercfgsessiontarget") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry, self).__setattr__(name, value)
+
+            class Cvvoicepeercfgechocancellertest(Enum):
                 """
-                CvvoicepeercfgechocancellertestEnum
+                Cvvoicepeercfgechocancellertest
 
                 This object specifies which, if any, test to run in the
 
@@ -1308,106 +1895,195 @@ class CiscoVoiceDialControlMib(object):
 
                 """
 
-                echoCancellerTestNone = 1
+                echoCancellerTestNone = Enum.YLeaf(1, "echoCancellerTestNone")
 
-                echoCancellerG168Test2A = 2
+                echoCancellerG168Test2A = Enum.YLeaf(2, "echoCancellerG168Test2A")
 
-                echoCancellerG168Test2B = 3
+                echoCancellerG168Test2B = Enum.YLeaf(3, "echoCancellerG168Test2B")
 
-                echoCancellerG168Test2Ca = 4
+                echoCancellerG168Test2Ca = Enum.YLeaf(4, "echoCancellerG168Test2Ca")
 
-                echoCancellerG168Test2Cb = 5
+                echoCancellerG168Test2Cb = Enum.YLeaf(5, "echoCancellerG168Test2Cb")
 
-                echoCancellerG168Test3A = 6
+                echoCancellerG168Test3A = Enum.YLeaf(6, "echoCancellerG168Test3A")
 
-                echoCancellerG168Test3B = 7
+                echoCancellerG168Test3B = Enum.YLeaf(7, "echoCancellerG168Test3B")
 
-                echoCancellerG168Test3C = 8
+                echoCancellerG168Test3C = Enum.YLeaf(8, "echoCancellerG168Test3C")
 
-                echoCancellerG168Test4 = 9
+                echoCancellerG168Test4 = Enum.YLeaf(9, "echoCancellerG168Test4")
 
-                echoCancellerG168Test6 = 10
+                echoCancellerG168Test6 = Enum.YLeaf(10, "echoCancellerG168Test6")
 
-                echoCancellerG168Test9 = 11
+                echoCancellerG168Test9 = Enum.YLeaf(11, "echoCancellerG168Test9")
 
-                echoCancellerG168Test5 = 12
+                echoCancellerG168Test5 = Enum.YLeaf(12, "echoCancellerG168Test5")
 
-                echoCancellerG168Test7 = 13
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry.CvvoicepeercfgechocancellertestEnum']
+                echoCancellerG168Test7 = Enum.YLeaf(13, "echoCancellerG168Test7")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cvvoicepeercfgcasgroup.is_set or
+                    self.cvvoicepeercfgdialdigitsprefix.is_set or
+                    self.cvvoicepeercfgdidcallenable.is_set or
+                    self.cvvoicepeercfgechocancellertest.is_set or
+                    self.cvvoicepeercfgforwarddigits.is_set or
+                    self.cvvoicepeercfgregistere164.is_set or
+                    self.cvvoicepeercfgsessiontarget.is_set)
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoicePeerCfgTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoicePeerCfgEntry[CISCO-VOICE-DIAL-CONTROL-MIB:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cvvoicepeercfgcasgroup.yfilter != YFilter.not_set or
+                    self.cvvoicepeercfgdialdigitsprefix.yfilter != YFilter.not_set or
+                    self.cvvoicepeercfgdidcallenable.yfilter != YFilter.not_set or
+                    self.cvvoicepeercfgechocancellertest.yfilter != YFilter.not_set or
+                    self.cvvoicepeercfgforwarddigits.yfilter != YFilter.not_set or
+                    self.cvvoicepeercfgregistere164.yfilter != YFilter.not_set or
+                    self.cvvoicepeercfgsessiontarget.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvVoicePeerCfgEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoicePeerCfgTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cvvoicepeercfgcasgroup.is_set or self.cvvoicepeercfgcasgroup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoicepeercfgcasgroup.get_name_leafdata())
+                if (self.cvvoicepeercfgdialdigitsprefix.is_set or self.cvvoicepeercfgdialdigitsprefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoicepeercfgdialdigitsprefix.get_name_leafdata())
+                if (self.cvvoicepeercfgdidcallenable.is_set or self.cvvoicepeercfgdidcallenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoicepeercfgdidcallenable.get_name_leafdata())
+                if (self.cvvoicepeercfgechocancellertest.is_set or self.cvvoicepeercfgechocancellertest.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoicepeercfgechocancellertest.get_name_leafdata())
+                if (self.cvvoicepeercfgforwarddigits.is_set or self.cvvoicepeercfgforwarddigits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoicepeercfgforwarddigits.get_name_leafdata())
+                if (self.cvvoicepeercfgregistere164.is_set or self.cvvoicepeercfgregistere164.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoicepeercfgregistere164.get_name_leafdata())
+                if (self.cvvoicepeercfgsessiontarget.is_set or self.cvvoicepeercfgsessiontarget.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoicepeercfgsessiontarget.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cvVoicePeerCfgCasGroup" or name == "cvVoicePeerCfgDialDigitsPrefix" or name == "cvVoicePeerCfgDIDCallEnable" or name == "cvVoicePeerCfgEchoCancellerTest" or name == "cvVoicePeerCfgForwardDigits" or name == "cvVoicePeerCfgRegisterE164" or name == "cvVoicePeerCfgSessionTarget"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoicePeerCfgCasGroup"):
+                    self.cvvoicepeercfgcasgroup = value
+                    self.cvvoicepeercfgcasgroup.value_namespace = name_space
+                    self.cvvoicepeercfgcasgroup.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoicePeerCfgDialDigitsPrefix"):
+                    self.cvvoicepeercfgdialdigitsprefix = value
+                    self.cvvoicepeercfgdialdigitsprefix.value_namespace = name_space
+                    self.cvvoicepeercfgdialdigitsprefix.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoicePeerCfgDIDCallEnable"):
+                    self.cvvoicepeercfgdidcallenable = value
+                    self.cvvoicepeercfgdidcallenable.value_namespace = name_space
+                    self.cvvoicepeercfgdidcallenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoicePeerCfgEchoCancellerTest"):
+                    self.cvvoicepeercfgechocancellertest = value
+                    self.cvvoicepeercfgechocancellertest.value_namespace = name_space
+                    self.cvvoicepeercfgechocancellertest.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoicePeerCfgForwardDigits"):
+                    self.cvvoicepeercfgforwarddigits = value
+                    self.cvvoicepeercfgforwarddigits.value_namespace = name_space
+                    self.cvvoicepeercfgforwarddigits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoicePeerCfgRegisterE164"):
+                    self.cvvoicepeercfgregistere164 = value
+                    self.cvvoicepeercfgregistere164.value_namespace = name_space
+                    self.cvvoicepeercfgregistere164.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoicePeerCfgSessionTarget"):
+                    self.cvvoicepeercfgsessiontarget = value
+                    self.cvvoicepeercfgsessiontarget.value_namespace = name_space
+                    self.cvvoicepeercfgsessiontarget.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvvoicepeercfgentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvvoicepeercfgcasgroup is not None:
-                    return True
-
-                if self.cvvoicepeercfgdialdigitsprefix is not None:
-                    return True
-
-                if self.cvvoicepeercfgdidcallenable is not None:
-                    return True
-
-                if self.cvvoicepeercfgechocancellertest is not None:
-                    return True
-
-                if self.cvvoicepeercfgforwarddigits is not None:
-                    return True
-
-                if self.cvvoicepeercfgregistere164 is not None:
-                    return True
-
-                if self.cvvoicepeercfgsessiontarget is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoicePeerCfgTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvvoicepeercfgentry is not None:
-                for child_ref in self.cvvoicepeercfgentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvvoicepeercfgentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvVoicePeerCfgTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvVoicePeerCfgEntry"):
+                for c in self.cvvoicepeercfgentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvvoicepeercfgtable.Cvvoicepeercfgentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvvoicepeercfgentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvVoicePeerCfgEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvvoicepeercfgtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvvoippeercfgtable(object):
+    class Cvvoippeercfgtable(Entity):
         """
         The table contains the Voice over IP (VoIP) peer specific
         information that is required to accept voice calls or to
@@ -1427,13 +2103,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvvoippeercfgentry = YList()
-            self.cvvoippeercfgentry.parent = self
-            self.cvvoippeercfgentry.name = 'cvvoippeercfgentry'
+            super(CiscoVoiceDialControlMib.Cvvoippeercfgtable, self).__init__()
+
+            self.yang_name = "cvVoIPPeerCfgTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvvoippeercfgentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvvoippeercfgtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvvoippeercfgtable, self).__setattr__(name, value)
 
 
-        class Cvvoippeercfgentry(object):
+        class Cvvoippeercfgentry(Entity):
             """
             A single VoIP specific Peer. One entry per VoIP
             encapsulation.
@@ -1475,17 +2177,17 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoippeercfgcodermode
             
             	This object indicates the iLBC codec mode to be used. The value of this object is valid only if  cvVoIPPeerCfgCoderRate is equal to 'iLBC'
-            	**type**\:   :py:class:`CvilbcframemodeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvilbcframemodeEnum>`
+            	**type**\:   :py:class:`Cvilbcframemode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvilbcframemode>`
             
             .. attribute:: cvvoippeercfgcoderrate
             
             	This object specifies the most desirable codec of speech for the VoIP peer
-            	**type**\:   :py:class:`CvcspeechcoderrateEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcspeechcoderrateEnum>`
+            	**type**\:   :py:class:`Cvcspeechcoderrate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvcspeechcoderrate>`
             
             .. attribute:: cvvoippeercfgcodingmode
             
             	This object specifies the coding mode to be used. The object is instantiated only if cvVoIPPeerCfgCoderRate is 'iSAC'. Following coding modes are supported\: adaptive    (1) \- adaptive mode where iSAC performs bandwidth                     estimation and adapts to the available channel                    bandwidth. independent (2) \- independent mode in which no bandwidth estimation                    is performed
-            	**type**\:   :py:class:`CvvoippeercfgcodingmodeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.CvvoippeercfgcodingmodeEnum>`
+            	**type**\:   :py:class:`Cvvoippeercfgcodingmode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgcodingmode>`
             
             .. attribute:: cvvoippeercfgcrc
             
@@ -1495,12 +2197,12 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoippeercfgdesiredqos
             
             	The object specifies the user requested Quality of Service for the call
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INT_SERV_MIB.Qosservice>`
             
             .. attribute:: cvvoippeercfgdesiredqosvideo
             
             	The object specifies the user requested Quality of Service for the video portion of the call
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INT_SERV_MIB.Qosservice>`
             
             .. attribute:: cvvoippeercfgdigitrelay
             
@@ -1533,12 +2235,12 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoippeercfgfaxrate
             
             	This object specifies the default transmit rate of FAX the VoIP peer. If the value of this object is 'none', then the Fax relay feature is disabled; otherwise the Fax relay feature is enabled
-            	**type**\:   :py:class:`CvcfaxtransmitrateEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcfaxtransmitrateEnum>`
+            	**type**\:   :py:class:`Cvcfaxtransmitrate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvcfaxtransmitrate>`
             
             .. attribute:: cvvoippeercfgframesize
             
             	This object specifies the frame size used. The object is instantiated only if cvVoIPPeerCfgCoderRate is 'iSAC'. The frame size can be 30 ms or 60 ms, and it can be fixed for all packets or vary depending on the configuration and bandwidth estimation. Thus it can have the following values\: frameSize30      \- initial frame size of 30 ms frameSize60      \- initial frame size of 60 ms frameSize30fixed \- fixed frame size 30 ms frameSize60fixed \- fixed frame size 60 ms
-            	**type**\:   :py:class:`CvvoippeercfgframesizeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.CvvoippeercfgframesizeEnum>`
+            	**type**\:   :py:class:`Cvvoippeercfgframesize <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgframesize>`
             
             .. attribute:: cvvoippeercfgicpif
             
@@ -1552,7 +2254,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoippeercfginbandsignaling
             
             	This object specifies the type of in\-band signaling that will be used between the end points of the call. It is used by the router to determine how to interpret ABCD signaling bits sent as part of voice payload data
-            	**type**\:   :py:class:`CvcinbandsignalingEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcinbandsignalingEnum>`
+            	**type**\:   :py:class:`Cvcinbandsignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvcinbandsignaling>`
             
             .. attribute:: cvvoippeercfgipprecedence
             
@@ -1569,17 +2271,17 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoippeercfgmediasetting
             
             	This object specifies how the media is to be setup on an IP\-IP Gateway. Two choices are valid\: flow\-through and flow\-around. When in flow\-through mode, which is the default setting, the IP\-IP Gateway will terminate and  then re\-originate the media stream. When flow\-around is configured the Gateway will not be involved with the media, since it will flow\-around the Gateway and will be established directly between the endpoints
-            	**type**\:   :py:class:`CvvoippeercfgmediasettingEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.CvvoippeercfgmediasettingEnum>`
+            	**type**\:   :py:class:`Cvvoippeercfgmediasetting <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgmediasetting>`
             
             .. attribute:: cvvoippeercfgminacceptableqos
             
             	The object specifies the minimally acceptable Quality of Service for the call
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INT_SERV_MIB.Qosservice>`
             
             .. attribute:: cvvoippeercfgminacceptableqosvideo
             
             	The object specifies the minimally acceptable Quality of Service for the video portion of the call
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INT_SERV_MIB.Qosservice>`
             
             .. attribute:: cvvoippeercfgoctetaligned
             
@@ -1599,7 +2301,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoippeercfgsessionprotocol
             
             	The object specifies the session protocol to be used for Internet call between local and remote router via IP backbone
-            	**type**\:   :py:class:`CvsessionprotocolEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvsessionprotocolEnum>`
+            	**type**\:   :py:class:`Cvsessionprotocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvsessionprotocol>`
             
             .. attribute:: cvvoippeercfgsessiontarget
             
@@ -1631,42 +2333,130 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cvvoippeercfgbitrate = None
-                self.cvvoippeercfgbitrates = Cvamrnbbitratemode()
-                self.cvvoippeercfgcoderbytes = None
-                self.cvvoippeercfgcodermode = None
-                self.cvvoippeercfgcoderrate = None
-                self.cvvoippeercfgcodingmode = None
-                self.cvvoippeercfgcrc = None
-                self.cvvoippeercfgdesiredqos = None
-                self.cvvoippeercfgdesiredqosvideo = None
-                self.cvvoippeercfgdigitrelay = CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.Cvvoippeercfgdigitrelay()
-                self.cvvoippeercfgdscppolicynotificationenable = None
-                self.cvvoippeercfgexpectfactor = None
-                self.cvvoippeercfgfaxbytes = None
-                self.cvvoippeercfgfaxrate = None
-                self.cvvoippeercfgframesize = None
-                self.cvvoippeercfgicpif = None
-                self.cvvoippeercfginbandsignaling = None
-                self.cvvoippeercfgipprecedence = None
-                self.cvvoippeercfgmediapolicynotificationenable = None
-                self.cvvoippeercfgmediasetting = None
-                self.cvvoippeercfgminacceptableqos = None
-                self.cvvoippeercfgminacceptableqosvideo = None
-                self.cvvoippeercfgoctetaligned = None
-                self.cvvoippeercfgpoorqovnotificationenable = None
-                self.cvvoippeercfgredirectip2ip = None
-                self.cvvoippeercfgsessionprotocol = None
-                self.cvvoippeercfgsessiontarget = None
-                self.cvvoippeercfgtechprefix = None
-                self.cvvoippeercfgudpchecksumenable = None
-                self.cvvoippeercfgvadenable = None
+                super(CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry, self).__init__()
 
-            class CvvoippeercfgcodingmodeEnum(Enum):
+                self.yang_name = "cvVoIPPeerCfgEntry"
+                self.yang_parent_name = "cvVoIPPeerCfgTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cvvoippeercfgbitrate = YLeaf(YType.uint32, "cvVoIPPeerCfgBitRate")
+
+                self.cvvoippeercfgbitrates = YLeaf(YType.bits, "cvVoIPPeerCfgBitRates")
+
+                self.cvvoippeercfgcoderbytes = YLeaf(YType.int32, "cvVoIPPeerCfgCoderBytes")
+
+                self.cvvoippeercfgcodermode = YLeaf(YType.enumeration, "cvVoIPPeerCfgCoderMode")
+
+                self.cvvoippeercfgcoderrate = YLeaf(YType.enumeration, "cvVoIPPeerCfgCoderRate")
+
+                self.cvvoippeercfgcodingmode = YLeaf(YType.enumeration, "cvVoIPPeerCfgCodingMode")
+
+                self.cvvoippeercfgcrc = YLeaf(YType.boolean, "cvVoIPPeerCfgCRC")
+
+                self.cvvoippeercfgdesiredqos = YLeaf(YType.enumeration, "cvVoIPPeerCfgDesiredQoS")
+
+                self.cvvoippeercfgdesiredqosvideo = YLeaf(YType.enumeration, "cvVoIPPeerCfgDesiredQoSVideo")
+
+                self.cvvoippeercfgdigitrelay = YLeaf(YType.bits, "cvVoIPPeerCfgDigitRelay")
+
+                self.cvvoippeercfgdscppolicynotificationenable = YLeaf(YType.boolean, "cvVoIPPeerCfgDSCPPolicyNotificationEnable")
+
+                self.cvvoippeercfgexpectfactor = YLeaf(YType.int32, "cvVoIPPeerCfgExpectFactor")
+
+                self.cvvoippeercfgfaxbytes = YLeaf(YType.int32, "cvVoIPPeerCfgFaxBytes")
+
+                self.cvvoippeercfgfaxrate = YLeaf(YType.enumeration, "cvVoIPPeerCfgFaxRate")
+
+                self.cvvoippeercfgframesize = YLeaf(YType.enumeration, "cvVoIPPeerCfgFrameSize")
+
+                self.cvvoippeercfgicpif = YLeaf(YType.int32, "cvVoIPPeerCfgIcpif")
+
+                self.cvvoippeercfginbandsignaling = YLeaf(YType.enumeration, "cvVoIPPeerCfgInBandSignaling")
+
+                self.cvvoippeercfgipprecedence = YLeaf(YType.int32, "cvVoIPPeerCfgIPPrecedence")
+
+                self.cvvoippeercfgmediapolicynotificationenable = YLeaf(YType.boolean, "cvVoIPPeerCfgMediaPolicyNotificationEnable")
+
+                self.cvvoippeercfgmediasetting = YLeaf(YType.enumeration, "cvVoIPPeerCfgMediaSetting")
+
+                self.cvvoippeercfgminacceptableqos = YLeaf(YType.enumeration, "cvVoIPPeerCfgMinAcceptableQoS")
+
+                self.cvvoippeercfgminacceptableqosvideo = YLeaf(YType.enumeration, "cvVoIPPeerCfgMinAcceptableQoSVideo")
+
+                self.cvvoippeercfgoctetaligned = YLeaf(YType.boolean, "cvVoIPPeerCfgOctetAligned")
+
+                self.cvvoippeercfgpoorqovnotificationenable = YLeaf(YType.boolean, "cvVoIPPeerCfgPoorQoVNotificationEnable")
+
+                self.cvvoippeercfgredirectip2ip = YLeaf(YType.boolean, "cvVoIPPeerCfgRedirectip2ip")
+
+                self.cvvoippeercfgsessionprotocol = YLeaf(YType.enumeration, "cvVoIPPeerCfgSessionProtocol")
+
+                self.cvvoippeercfgsessiontarget = YLeaf(YType.str, "cvVoIPPeerCfgSessionTarget")
+
+                self.cvvoippeercfgtechprefix = YLeaf(YType.str, "cvVoIPPeerCfgTechPrefix")
+
+                self.cvvoippeercfgudpchecksumenable = YLeaf(YType.boolean, "cvVoIPPeerCfgUDPChecksumEnable")
+
+                self.cvvoippeercfgvadenable = YLeaf(YType.boolean, "cvVoIPPeerCfgVADEnable")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cvvoippeercfgbitrate",
+                                "cvvoippeercfgbitrates",
+                                "cvvoippeercfgcoderbytes",
+                                "cvvoippeercfgcodermode",
+                                "cvvoippeercfgcoderrate",
+                                "cvvoippeercfgcodingmode",
+                                "cvvoippeercfgcrc",
+                                "cvvoippeercfgdesiredqos",
+                                "cvvoippeercfgdesiredqosvideo",
+                                "cvvoippeercfgdigitrelay",
+                                "cvvoippeercfgdscppolicynotificationenable",
+                                "cvvoippeercfgexpectfactor",
+                                "cvvoippeercfgfaxbytes",
+                                "cvvoippeercfgfaxrate",
+                                "cvvoippeercfgframesize",
+                                "cvvoippeercfgicpif",
+                                "cvvoippeercfginbandsignaling",
+                                "cvvoippeercfgipprecedence",
+                                "cvvoippeercfgmediapolicynotificationenable",
+                                "cvvoippeercfgmediasetting",
+                                "cvvoippeercfgminacceptableqos",
+                                "cvvoippeercfgminacceptableqosvideo",
+                                "cvvoippeercfgoctetaligned",
+                                "cvvoippeercfgpoorqovnotificationenable",
+                                "cvvoippeercfgredirectip2ip",
+                                "cvvoippeercfgsessionprotocol",
+                                "cvvoippeercfgsessiontarget",
+                                "cvvoippeercfgtechprefix",
+                                "cvvoippeercfgudpchecksumenable",
+                                "cvvoippeercfgvadenable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry, self).__setattr__(name, value)
+
+            class Cvvoippeercfgcodingmode(Enum):
                 """
-                CvvoippeercfgcodingmodeEnum
+                Cvvoippeercfgcodingmode
 
                 This object specifies the coding mode to be used. The object is
 
@@ -1692,20 +2482,14 @@ class CiscoVoiceDialControlMib(object):
 
                 """
 
-                adaptive = 1
+                adaptive = Enum.YLeaf(1, "adaptive")
 
-                independent = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.CvvoippeercfgcodingmodeEnum']
+                independent = Enum.YLeaf(2, "independent")
 
 
-            class CvvoippeercfgframesizeEnum(Enum):
+            class Cvvoippeercfgframesize(Enum):
                 """
-                CvvoippeercfgframesizeEnum
+                Cvvoippeercfgframesize
 
                 This object specifies the frame size used. The object is
 
@@ -1735,24 +2519,18 @@ class CiscoVoiceDialControlMib(object):
 
                 """
 
-                frameSize30 = 1
+                frameSize30 = Enum.YLeaf(1, "frameSize30")
 
-                frameSize60 = 2
+                frameSize60 = Enum.YLeaf(2, "frameSize60")
 
-                frameSize30fixed = 3
+                frameSize30fixed = Enum.YLeaf(3, "frameSize30fixed")
 
-                frameSize60fixed = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.CvvoippeercfgframesizeEnum']
+                frameSize60fixed = Enum.YLeaf(4, "frameSize60fixed")
 
 
-            class CvvoippeercfgmediasettingEnum(Enum):
+            class Cvvoippeercfgmediasetting(Enum):
                 """
-                CvvoippeercfgmediasettingEnum
+                Cvvoippeercfgmediasetting
 
                 This object specifies how the media is to be setup on
 
@@ -1776,209 +2554,353 @@ class CiscoVoiceDialControlMib(object):
 
                 """
 
-                flowThrough = 1
+                flowThrough = Enum.YLeaf(1, "flowThrough")
 
-                flowAround = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry.CvvoippeercfgmediasettingEnum']
+                flowAround = Enum.YLeaf(2, "flowAround")
 
 
-            class Cvvoippeercfgdigitrelay(FixedBitsDict):
-                """
-                Cvvoippeercfgdigitrelay
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cvvoippeercfgbitrate.is_set or
+                    self.cvvoippeercfgbitrates.is_set or
+                    self.cvvoippeercfgcoderbytes.is_set or
+                    self.cvvoippeercfgcodermode.is_set or
+                    self.cvvoippeercfgcoderrate.is_set or
+                    self.cvvoippeercfgcodingmode.is_set or
+                    self.cvvoippeercfgcrc.is_set or
+                    self.cvvoippeercfgdesiredqos.is_set or
+                    self.cvvoippeercfgdesiredqosvideo.is_set or
+                    self.cvvoippeercfgdigitrelay.is_set or
+                    self.cvvoippeercfgdscppolicynotificationenable.is_set or
+                    self.cvvoippeercfgexpectfactor.is_set or
+                    self.cvvoippeercfgfaxbytes.is_set or
+                    self.cvvoippeercfgfaxrate.is_set or
+                    self.cvvoippeercfgframesize.is_set or
+                    self.cvvoippeercfgicpif.is_set or
+                    self.cvvoippeercfginbandsignaling.is_set or
+                    self.cvvoippeercfgipprecedence.is_set or
+                    self.cvvoippeercfgmediapolicynotificationenable.is_set or
+                    self.cvvoippeercfgmediasetting.is_set or
+                    self.cvvoippeercfgminacceptableqos.is_set or
+                    self.cvvoippeercfgminacceptableqosvideo.is_set or
+                    self.cvvoippeercfgoctetaligned.is_set or
+                    self.cvvoippeercfgpoorqovnotificationenable.is_set or
+                    self.cvvoippeercfgredirectip2ip.is_set or
+                    self.cvvoippeercfgsessionprotocol.is_set or
+                    self.cvvoippeercfgsessiontarget.is_set or
+                    self.cvvoippeercfgtechprefix.is_set or
+                    self.cvvoippeercfgudpchecksumenable.is_set or
+                    self.cvvoippeercfgvadenable.is_set)
 
-                This object specifies the methods to transmit dial digits
-                (DTMF or MF digits) via IP network.
-                rtpCisco       \- Enable capability to transmit dial digits
-                                 with Cisco proprietary RTP payload type.
-                h245Signal     \- Enable capability to transmit dtmf digits
-                                 across the H.245 channel, via the signal
-                                 field of the UserInputIndication message
-                h245Alphanumeric \- Enable capability to transmit dtmf
-                                 digit across the H.245 channel, via the
-                                 string or alphanumeric fields of the
-                                 UserInputIndication message
-                rtpNte         \- Enable capability to transmit dial digits
-                                 using Named Telephony Event per RFC 2833
-                                 section 3.
-                sipNotify      \- Enable capability to transmit dtmf
-                                 digits using unsolicited SIP NOTIFY
-                                 messages. This mechanism is only available
-                                 for SIP dialpeers.
-                sipKpml        \- Enable capability to transmit dtmf
-                                 digits using KPML over SIP SUBSCRIBE
-                                 and NOTIFY messages. This mechanism is
-                                 only available for SIP dialpeers.
-                
-                
-                Modifying the value of cvVoIPPeerCfgSessionProtocol
-                can reset the digit\-relay method associated bits value in
-                this object if the modified session protocol does not
-                support  these digit\-relay methods.
-                Keys are:- rtpCisco , sipNotify , sipKpml , h245Alphanumeric , h245Signal , rtpNte
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgbitrate.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgbitrates.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgcoderbytes.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgcodermode.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgcoderrate.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgcodingmode.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgcrc.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgdesiredqos.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgdesiredqosvideo.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgdigitrelay.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgdscppolicynotificationenable.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgexpectfactor.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgfaxbytes.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgfaxrate.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgframesize.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgicpif.yfilter != YFilter.not_set or
+                    self.cvvoippeercfginbandsignaling.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgipprecedence.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgmediapolicynotificationenable.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgmediasetting.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgminacceptableqos.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgminacceptableqosvideo.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgoctetaligned.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgpoorqovnotificationenable.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgredirectip2ip.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgsessionprotocol.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgsessiontarget.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgtechprefix.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgudpchecksumenable.yfilter != YFilter.not_set or
+                    self.cvvoippeercfgvadenable.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvVoIPPeerCfgEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'rtpCisco':False,
-                        'sipNotify':False,
-                        'sipKpml':False,
-                        'h245Alphanumeric':False,
-                        'h245Signal':False,
-                        'rtpNte':False,
-                    }
-                    self._pos_map = { 
-                        'rtpCisco':0,
-                        'sipNotify':4,
-                        'sipKpml':5,
-                        'h245Alphanumeric':2,
-                        'h245Signal':1,
-                        'rtpNte':3,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPPeerCfgTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPPeerCfgTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPPeerCfgEntry[CISCO-VOICE-DIAL-CONTROL-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cvvoippeercfgbitrate.is_set or self.cvvoippeercfgbitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgbitrate.get_name_leafdata())
+                if (self.cvvoippeercfgbitrates.is_set or self.cvvoippeercfgbitrates.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgbitrates.get_name_leafdata())
+                if (self.cvvoippeercfgcoderbytes.is_set or self.cvvoippeercfgcoderbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgcoderbytes.get_name_leafdata())
+                if (self.cvvoippeercfgcodermode.is_set or self.cvvoippeercfgcodermode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgcodermode.get_name_leafdata())
+                if (self.cvvoippeercfgcoderrate.is_set or self.cvvoippeercfgcoderrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgcoderrate.get_name_leafdata())
+                if (self.cvvoippeercfgcodingmode.is_set or self.cvvoippeercfgcodingmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgcodingmode.get_name_leafdata())
+                if (self.cvvoippeercfgcrc.is_set or self.cvvoippeercfgcrc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgcrc.get_name_leafdata())
+                if (self.cvvoippeercfgdesiredqos.is_set or self.cvvoippeercfgdesiredqos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgdesiredqos.get_name_leafdata())
+                if (self.cvvoippeercfgdesiredqosvideo.is_set or self.cvvoippeercfgdesiredqosvideo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgdesiredqosvideo.get_name_leafdata())
+                if (self.cvvoippeercfgdigitrelay.is_set or self.cvvoippeercfgdigitrelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgdigitrelay.get_name_leafdata())
+                if (self.cvvoippeercfgdscppolicynotificationenable.is_set or self.cvvoippeercfgdscppolicynotificationenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgdscppolicynotificationenable.get_name_leafdata())
+                if (self.cvvoippeercfgexpectfactor.is_set or self.cvvoippeercfgexpectfactor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgexpectfactor.get_name_leafdata())
+                if (self.cvvoippeercfgfaxbytes.is_set or self.cvvoippeercfgfaxbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgfaxbytes.get_name_leafdata())
+                if (self.cvvoippeercfgfaxrate.is_set or self.cvvoippeercfgfaxrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgfaxrate.get_name_leafdata())
+                if (self.cvvoippeercfgframesize.is_set or self.cvvoippeercfgframesize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgframesize.get_name_leafdata())
+                if (self.cvvoippeercfgicpif.is_set or self.cvvoippeercfgicpif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgicpif.get_name_leafdata())
+                if (self.cvvoippeercfginbandsignaling.is_set or self.cvvoippeercfginbandsignaling.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfginbandsignaling.get_name_leafdata())
+                if (self.cvvoippeercfgipprecedence.is_set or self.cvvoippeercfgipprecedence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgipprecedence.get_name_leafdata())
+                if (self.cvvoippeercfgmediapolicynotificationenable.is_set or self.cvvoippeercfgmediapolicynotificationenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgmediapolicynotificationenable.get_name_leafdata())
+                if (self.cvvoippeercfgmediasetting.is_set or self.cvvoippeercfgmediasetting.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgmediasetting.get_name_leafdata())
+                if (self.cvvoippeercfgminacceptableqos.is_set or self.cvvoippeercfgminacceptableqos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgminacceptableqos.get_name_leafdata())
+                if (self.cvvoippeercfgminacceptableqosvideo.is_set or self.cvvoippeercfgminacceptableqosvideo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgminacceptableqosvideo.get_name_leafdata())
+                if (self.cvvoippeercfgoctetaligned.is_set or self.cvvoippeercfgoctetaligned.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgoctetaligned.get_name_leafdata())
+                if (self.cvvoippeercfgpoorqovnotificationenable.is_set or self.cvvoippeercfgpoorqovnotificationenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgpoorqovnotificationenable.get_name_leafdata())
+                if (self.cvvoippeercfgredirectip2ip.is_set or self.cvvoippeercfgredirectip2ip.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgredirectip2ip.get_name_leafdata())
+                if (self.cvvoippeercfgsessionprotocol.is_set or self.cvvoippeercfgsessionprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgsessionprotocol.get_name_leafdata())
+                if (self.cvvoippeercfgsessiontarget.is_set or self.cvvoippeercfgsessiontarget.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgsessiontarget.get_name_leafdata())
+                if (self.cvvoippeercfgtechprefix.is_set or self.cvvoippeercfgtechprefix.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgtechprefix.get_name_leafdata())
+                if (self.cvvoippeercfgudpchecksumenable.is_set or self.cvvoippeercfgudpchecksumenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgudpchecksumenable.get_name_leafdata())
+                if (self.cvvoippeercfgvadenable.is_set or self.cvvoippeercfgvadenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoippeercfgvadenable.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cvVoIPPeerCfgBitRate" or name == "cvVoIPPeerCfgBitRates" or name == "cvVoIPPeerCfgCoderBytes" or name == "cvVoIPPeerCfgCoderMode" or name == "cvVoIPPeerCfgCoderRate" or name == "cvVoIPPeerCfgCodingMode" or name == "cvVoIPPeerCfgCRC" or name == "cvVoIPPeerCfgDesiredQoS" or name == "cvVoIPPeerCfgDesiredQoSVideo" or name == "cvVoIPPeerCfgDigitRelay" or name == "cvVoIPPeerCfgDSCPPolicyNotificationEnable" or name == "cvVoIPPeerCfgExpectFactor" or name == "cvVoIPPeerCfgFaxBytes" or name == "cvVoIPPeerCfgFaxRate" or name == "cvVoIPPeerCfgFrameSize" or name == "cvVoIPPeerCfgIcpif" or name == "cvVoIPPeerCfgInBandSignaling" or name == "cvVoIPPeerCfgIPPrecedence" or name == "cvVoIPPeerCfgMediaPolicyNotificationEnable" or name == "cvVoIPPeerCfgMediaSetting" or name == "cvVoIPPeerCfgMinAcceptableQoS" or name == "cvVoIPPeerCfgMinAcceptableQoSVideo" or name == "cvVoIPPeerCfgOctetAligned" or name == "cvVoIPPeerCfgPoorQoVNotificationEnable" or name == "cvVoIPPeerCfgRedirectip2ip" or name == "cvVoIPPeerCfgSessionProtocol" or name == "cvVoIPPeerCfgSessionTarget" or name == "cvVoIPPeerCfgTechPrefix" or name == "cvVoIPPeerCfgUDPChecksumEnable" or name == "cvVoIPPeerCfgVADEnable"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgBitRate"):
+                    self.cvvoippeercfgbitrate = value
+                    self.cvvoippeercfgbitrate.value_namespace = name_space
+                    self.cvvoippeercfgbitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgBitRates"):
+                    self.cvvoippeercfgbitrates[value] = True
+                if(value_path == "cvVoIPPeerCfgCoderBytes"):
+                    self.cvvoippeercfgcoderbytes = value
+                    self.cvvoippeercfgcoderbytes.value_namespace = name_space
+                    self.cvvoippeercfgcoderbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgCoderMode"):
+                    self.cvvoippeercfgcodermode = value
+                    self.cvvoippeercfgcodermode.value_namespace = name_space
+                    self.cvvoippeercfgcodermode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgCoderRate"):
+                    self.cvvoippeercfgcoderrate = value
+                    self.cvvoippeercfgcoderrate.value_namespace = name_space
+                    self.cvvoippeercfgcoderrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgCodingMode"):
+                    self.cvvoippeercfgcodingmode = value
+                    self.cvvoippeercfgcodingmode.value_namespace = name_space
+                    self.cvvoippeercfgcodingmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgCRC"):
+                    self.cvvoippeercfgcrc = value
+                    self.cvvoippeercfgcrc.value_namespace = name_space
+                    self.cvvoippeercfgcrc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgDesiredQoS"):
+                    self.cvvoippeercfgdesiredqos = value
+                    self.cvvoippeercfgdesiredqos.value_namespace = name_space
+                    self.cvvoippeercfgdesiredqos.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgDesiredQoSVideo"):
+                    self.cvvoippeercfgdesiredqosvideo = value
+                    self.cvvoippeercfgdesiredqosvideo.value_namespace = name_space
+                    self.cvvoippeercfgdesiredqosvideo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgDigitRelay"):
+                    self.cvvoippeercfgdigitrelay[value] = True
+                if(value_path == "cvVoIPPeerCfgDSCPPolicyNotificationEnable"):
+                    self.cvvoippeercfgdscppolicynotificationenable = value
+                    self.cvvoippeercfgdscppolicynotificationenable.value_namespace = name_space
+                    self.cvvoippeercfgdscppolicynotificationenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgExpectFactor"):
+                    self.cvvoippeercfgexpectfactor = value
+                    self.cvvoippeercfgexpectfactor.value_namespace = name_space
+                    self.cvvoippeercfgexpectfactor.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgFaxBytes"):
+                    self.cvvoippeercfgfaxbytes = value
+                    self.cvvoippeercfgfaxbytes.value_namespace = name_space
+                    self.cvvoippeercfgfaxbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgFaxRate"):
+                    self.cvvoippeercfgfaxrate = value
+                    self.cvvoippeercfgfaxrate.value_namespace = name_space
+                    self.cvvoippeercfgfaxrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgFrameSize"):
+                    self.cvvoippeercfgframesize = value
+                    self.cvvoippeercfgframesize.value_namespace = name_space
+                    self.cvvoippeercfgframesize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgIcpif"):
+                    self.cvvoippeercfgicpif = value
+                    self.cvvoippeercfgicpif.value_namespace = name_space
+                    self.cvvoippeercfgicpif.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgInBandSignaling"):
+                    self.cvvoippeercfginbandsignaling = value
+                    self.cvvoippeercfginbandsignaling.value_namespace = name_space
+                    self.cvvoippeercfginbandsignaling.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgIPPrecedence"):
+                    self.cvvoippeercfgipprecedence = value
+                    self.cvvoippeercfgipprecedence.value_namespace = name_space
+                    self.cvvoippeercfgipprecedence.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgMediaPolicyNotificationEnable"):
+                    self.cvvoippeercfgmediapolicynotificationenable = value
+                    self.cvvoippeercfgmediapolicynotificationenable.value_namespace = name_space
+                    self.cvvoippeercfgmediapolicynotificationenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgMediaSetting"):
+                    self.cvvoippeercfgmediasetting = value
+                    self.cvvoippeercfgmediasetting.value_namespace = name_space
+                    self.cvvoippeercfgmediasetting.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgMinAcceptableQoS"):
+                    self.cvvoippeercfgminacceptableqos = value
+                    self.cvvoippeercfgminacceptableqos.value_namespace = name_space
+                    self.cvvoippeercfgminacceptableqos.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgMinAcceptableQoSVideo"):
+                    self.cvvoippeercfgminacceptableqosvideo = value
+                    self.cvvoippeercfgminacceptableqosvideo.value_namespace = name_space
+                    self.cvvoippeercfgminacceptableqosvideo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgOctetAligned"):
+                    self.cvvoippeercfgoctetaligned = value
+                    self.cvvoippeercfgoctetaligned.value_namespace = name_space
+                    self.cvvoippeercfgoctetaligned.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgPoorQoVNotificationEnable"):
+                    self.cvvoippeercfgpoorqovnotificationenable = value
+                    self.cvvoippeercfgpoorqovnotificationenable.value_namespace = name_space
+                    self.cvvoippeercfgpoorqovnotificationenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgRedirectip2ip"):
+                    self.cvvoippeercfgredirectip2ip = value
+                    self.cvvoippeercfgredirectip2ip.value_namespace = name_space
+                    self.cvvoippeercfgredirectip2ip.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgSessionProtocol"):
+                    self.cvvoippeercfgsessionprotocol = value
+                    self.cvvoippeercfgsessionprotocol.value_namespace = name_space
+                    self.cvvoippeercfgsessionprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgSessionTarget"):
+                    self.cvvoippeercfgsessiontarget = value
+                    self.cvvoippeercfgsessiontarget.value_namespace = name_space
+                    self.cvvoippeercfgsessiontarget.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgTechPrefix"):
+                    self.cvvoippeercfgtechprefix = value
+                    self.cvvoippeercfgtechprefix.value_namespace = name_space
+                    self.cvvoippeercfgtechprefix.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgUDPChecksumEnable"):
+                    self.cvvoippeercfgudpchecksumenable = value
+                    self.cvvoippeercfgudpchecksumenable.value_namespace = name_space
+                    self.cvvoippeercfgudpchecksumenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPPeerCfgVADEnable"):
+                    self.cvvoippeercfgvadenable = value
+                    self.cvvoippeercfgvadenable.value_namespace = name_space
+                    self.cvvoippeercfgvadenable.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvvoippeercfgentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvvoippeercfgbitrate is not None:
-                    return True
-
-                if self.cvvoippeercfgbitrates is not None:
-                    if self.cvvoippeercfgbitrates._has_data():
-                        return True
-
-                if self.cvvoippeercfgcoderbytes is not None:
-                    return True
-
-                if self.cvvoippeercfgcodermode is not None:
-                    return True
-
-                if self.cvvoippeercfgcoderrate is not None:
-                    return True
-
-                if self.cvvoippeercfgcodingmode is not None:
-                    return True
-
-                if self.cvvoippeercfgcrc is not None:
-                    return True
-
-                if self.cvvoippeercfgdesiredqos is not None:
-                    return True
-
-                if self.cvvoippeercfgdesiredqosvideo is not None:
-                    return True
-
-                if self.cvvoippeercfgdigitrelay is not None:
-                    if self.cvvoippeercfgdigitrelay._has_data():
-                        return True
-
-                if self.cvvoippeercfgdscppolicynotificationenable is not None:
-                    return True
-
-                if self.cvvoippeercfgexpectfactor is not None:
-                    return True
-
-                if self.cvvoippeercfgfaxbytes is not None:
-                    return True
-
-                if self.cvvoippeercfgfaxrate is not None:
-                    return True
-
-                if self.cvvoippeercfgframesize is not None:
-                    return True
-
-                if self.cvvoippeercfgicpif is not None:
-                    return True
-
-                if self.cvvoippeercfginbandsignaling is not None:
-                    return True
-
-                if self.cvvoippeercfgipprecedence is not None:
-                    return True
-
-                if self.cvvoippeercfgmediapolicynotificationenable is not None:
-                    return True
-
-                if self.cvvoippeercfgmediasetting is not None:
-                    return True
-
-                if self.cvvoippeercfgminacceptableqos is not None:
-                    return True
-
-                if self.cvvoippeercfgminacceptableqosvideo is not None:
-                    return True
-
-                if self.cvvoippeercfgoctetaligned is not None:
-                    return True
-
-                if self.cvvoippeercfgpoorqovnotificationenable is not None:
-                    return True
-
-                if self.cvvoippeercfgredirectip2ip is not None:
-                    return True
-
-                if self.cvvoippeercfgsessionprotocol is not None:
-                    return True
-
-                if self.cvvoippeercfgsessiontarget is not None:
-                    return True
-
-                if self.cvvoippeercfgtechprefix is not None:
-                    return True
-
-                if self.cvvoippeercfgudpchecksumenable is not None:
-                    return True
-
-                if self.cvvoippeercfgvadenable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPPeerCfgTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvvoippeercfgentry is not None:
-                for child_ref in self.cvvoippeercfgentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvvoippeercfgentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvVoIPPeerCfgTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvVoIPPeerCfgEntry"):
+                for c in self.cvvoippeercfgentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvvoippeercfgtable.Cvvoippeercfgentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvvoippeercfgentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvVoIPPeerCfgEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvvoippeercfgtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpeercommoncfgtable(object):
+    class Cvpeercommoncfgtable(Entity):
         """
         The table contains the Voice specific peer common
         configuration information that is required to accept voice
@@ -1998,13 +2920,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvpeercommoncfgentry = YList()
-            self.cvpeercommoncfgentry.parent = self
-            self.cvpeercommoncfgentry.name = 'cvpeercommoncfgentry'
+            super(CiscoVoiceDialControlMib.Cvpeercommoncfgtable, self).__init__()
+
+            self.yang_name = "cvPeerCommonCfgTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvpeercommoncfgentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvpeercommoncfgtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvpeercommoncfgtable, self).__setattr__(name, value)
 
 
-        class Cvpeercommoncfgentry(object):
+        class Cvpeercommoncfgentry(Entity):
             """
             A single Voice specific Peer. One entry per voice related
             encapsulation.
@@ -2088,95 +3036,253 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cvpeercommoncfgapplicationname = None
-                self.cvpeercommoncfgdnismappingname = None
-                self.cvpeercommoncfghuntstop = None
-                self.cvpeercommoncfgincomingdnisdigits = None
-                self.cvpeercommoncfgmaxconnections = None
-                self.cvpeercommoncfgpreference = None
-                self.cvpeercommoncfgsourcecarrierid = None
-                self.cvpeercommoncfgsourcetrunkgrplabel = None
-                self.cvpeercommoncfgtargetcarrierid = None
-                self.cvpeercommoncfgtargettrunkgrplabel = None
+                super(CiscoVoiceDialControlMib.Cvpeercommoncfgtable.Cvpeercommoncfgentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "cvPeerCommonCfgEntry"
+                self.yang_parent_name = "cvPeerCommonCfgTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvPeerCommonCfgTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvPeerCommonCfgEntry[CISCO-VOICE-DIAL-CONTROL-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvpeercommoncfgapplicationname = YLeaf(YType.str, "cvPeerCommonCfgApplicationName")
+
+                self.cvpeercommoncfgdnismappingname = YLeaf(YType.str, "cvPeerCommonCfgDnisMappingName")
+
+                self.cvpeercommoncfghuntstop = YLeaf(YType.boolean, "cvPeerCommonCfgHuntStop")
+
+                self.cvpeercommoncfgincomingdnisdigits = YLeaf(YType.str, "cvPeerCommonCfgIncomingDnisDigits")
+
+                self.cvpeercommoncfgmaxconnections = YLeaf(YType.int32, "cvPeerCommonCfgMaxConnections")
+
+                self.cvpeercommoncfgpreference = YLeaf(YType.int32, "cvPeerCommonCfgPreference")
+
+                self.cvpeercommoncfgsourcecarrierid = YLeaf(YType.str, "cvPeerCommonCfgSourceCarrierId")
+
+                self.cvpeercommoncfgsourcetrunkgrplabel = YLeaf(YType.str, "cvPeerCommonCfgSourceTrunkGrpLabel")
+
+                self.cvpeercommoncfgtargetcarrierid = YLeaf(YType.str, "cvPeerCommonCfgTargetCarrierId")
+
+                self.cvpeercommoncfgtargettrunkgrplabel = YLeaf(YType.str, "cvPeerCommonCfgTargetTrunkGrpLabel")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cvpeercommoncfgapplicationname",
+                                "cvpeercommoncfgdnismappingname",
+                                "cvpeercommoncfghuntstop",
+                                "cvpeercommoncfgincomingdnisdigits",
+                                "cvpeercommoncfgmaxconnections",
+                                "cvpeercommoncfgpreference",
+                                "cvpeercommoncfgsourcecarrierid",
+                                "cvpeercommoncfgsourcetrunkgrplabel",
+                                "cvpeercommoncfgtargetcarrierid",
+                                "cvpeercommoncfgtargettrunkgrplabel") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvpeercommoncfgtable.Cvpeercommoncfgentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvpeercommoncfgtable.Cvpeercommoncfgentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cvpeercommoncfgapplicationname.is_set or
+                    self.cvpeercommoncfgdnismappingname.is_set or
+                    self.cvpeercommoncfghuntstop.is_set or
+                    self.cvpeercommoncfgincomingdnisdigits.is_set or
+                    self.cvpeercommoncfgmaxconnections.is_set or
+                    self.cvpeercommoncfgpreference.is_set or
+                    self.cvpeercommoncfgsourcecarrierid.is_set or
+                    self.cvpeercommoncfgsourcetrunkgrplabel.is_set or
+                    self.cvpeercommoncfgtargetcarrierid.is_set or
+                    self.cvpeercommoncfgtargettrunkgrplabel.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgapplicationname.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgdnismappingname.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfghuntstop.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgincomingdnisdigits.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgmaxconnections.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgpreference.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgsourcecarrierid.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgsourcetrunkgrplabel.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgtargetcarrierid.yfilter != YFilter.not_set or
+                    self.cvpeercommoncfgtargettrunkgrplabel.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvPeerCommonCfgEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCommonCfgTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cvpeercommoncfgapplicationname.is_set or self.cvpeercommoncfgapplicationname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgapplicationname.get_name_leafdata())
+                if (self.cvpeercommoncfgdnismappingname.is_set or self.cvpeercommoncfgdnismappingname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgdnismappingname.get_name_leafdata())
+                if (self.cvpeercommoncfghuntstop.is_set or self.cvpeercommoncfghuntstop.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfghuntstop.get_name_leafdata())
+                if (self.cvpeercommoncfgincomingdnisdigits.is_set or self.cvpeercommoncfgincomingdnisdigits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgincomingdnisdigits.get_name_leafdata())
+                if (self.cvpeercommoncfgmaxconnections.is_set or self.cvpeercommoncfgmaxconnections.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgmaxconnections.get_name_leafdata())
+                if (self.cvpeercommoncfgpreference.is_set or self.cvpeercommoncfgpreference.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgpreference.get_name_leafdata())
+                if (self.cvpeercommoncfgsourcecarrierid.is_set or self.cvpeercommoncfgsourcecarrierid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgsourcecarrierid.get_name_leafdata())
+                if (self.cvpeercommoncfgsourcetrunkgrplabel.is_set or self.cvpeercommoncfgsourcetrunkgrplabel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgsourcetrunkgrplabel.get_name_leafdata())
+                if (self.cvpeercommoncfgtargetcarrierid.is_set or self.cvpeercommoncfgtargetcarrierid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgtargetcarrierid.get_name_leafdata())
+                if (self.cvpeercommoncfgtargettrunkgrplabel.is_set or self.cvpeercommoncfgtargettrunkgrplabel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpeercommoncfgtargettrunkgrplabel.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cvPeerCommonCfgApplicationName" or name == "cvPeerCommonCfgDnisMappingName" or name == "cvPeerCommonCfgHuntStop" or name == "cvPeerCommonCfgIncomingDnisDigits" or name == "cvPeerCommonCfgMaxConnections" or name == "cvPeerCommonCfgPreference" or name == "cvPeerCommonCfgSourceCarrierId" or name == "cvPeerCommonCfgSourceTrunkGrpLabel" or name == "cvPeerCommonCfgTargetCarrierId" or name == "cvPeerCommonCfgTargetTrunkGrpLabel"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgApplicationName"):
+                    self.cvpeercommoncfgapplicationname = value
+                    self.cvpeercommoncfgapplicationname.value_namespace = name_space
+                    self.cvpeercommoncfgapplicationname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgDnisMappingName"):
+                    self.cvpeercommoncfgdnismappingname = value
+                    self.cvpeercommoncfgdnismappingname.value_namespace = name_space
+                    self.cvpeercommoncfgdnismappingname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgHuntStop"):
+                    self.cvpeercommoncfghuntstop = value
+                    self.cvpeercommoncfghuntstop.value_namespace = name_space
+                    self.cvpeercommoncfghuntstop.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgIncomingDnisDigits"):
+                    self.cvpeercommoncfgincomingdnisdigits = value
+                    self.cvpeercommoncfgincomingdnisdigits.value_namespace = name_space
+                    self.cvpeercommoncfgincomingdnisdigits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgMaxConnections"):
+                    self.cvpeercommoncfgmaxconnections = value
+                    self.cvpeercommoncfgmaxconnections.value_namespace = name_space
+                    self.cvpeercommoncfgmaxconnections.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgPreference"):
+                    self.cvpeercommoncfgpreference = value
+                    self.cvpeercommoncfgpreference.value_namespace = name_space
+                    self.cvpeercommoncfgpreference.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgSourceCarrierId"):
+                    self.cvpeercommoncfgsourcecarrierid = value
+                    self.cvpeercommoncfgsourcecarrierid.value_namespace = name_space
+                    self.cvpeercommoncfgsourcecarrierid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgSourceTrunkGrpLabel"):
+                    self.cvpeercommoncfgsourcetrunkgrplabel = value
+                    self.cvpeercommoncfgsourcetrunkgrplabel.value_namespace = name_space
+                    self.cvpeercommoncfgsourcetrunkgrplabel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgTargetCarrierId"):
+                    self.cvpeercommoncfgtargetcarrierid = value
+                    self.cvpeercommoncfgtargetcarrierid.value_namespace = name_space
+                    self.cvpeercommoncfgtargetcarrierid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvPeerCommonCfgTargetTrunkGrpLabel"):
+                    self.cvpeercommoncfgtargettrunkgrplabel = value
+                    self.cvpeercommoncfgtargettrunkgrplabel.value_namespace = name_space
+                    self.cvpeercommoncfgtargettrunkgrplabel.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpeercommoncfgentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpeercommoncfgapplicationname is not None:
-                    return True
-
-                if self.cvpeercommoncfgdnismappingname is not None:
-                    return True
-
-                if self.cvpeercommoncfghuntstop is not None:
-                    return True
-
-                if self.cvpeercommoncfgincomingdnisdigits is not None:
-                    return True
-
-                if self.cvpeercommoncfgmaxconnections is not None:
-                    return True
-
-                if self.cvpeercommoncfgpreference is not None:
-                    return True
-
-                if self.cvpeercommoncfgsourcecarrierid is not None:
-                    return True
-
-                if self.cvpeercommoncfgsourcetrunkgrplabel is not None:
-                    return True
-
-                if self.cvpeercommoncfgtargetcarrierid is not None:
-                    return True
-
-                if self.cvpeercommoncfgtargettrunkgrplabel is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvpeercommoncfgtable.Cvpeercommoncfgentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvPeerCommonCfgTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpeercommoncfgentry is not None:
-                for child_ref in self.cvpeercommoncfgentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpeercommoncfgentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvPeerCommonCfgTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvPeerCommonCfgEntry"):
+                for c in self.cvpeercommoncfgentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvpeercommoncfgtable.Cvpeercommoncfgentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpeercommoncfgentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvPeerCommonCfgEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvpeercommoncfgtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcallactivetable(object):
+    class Cvcallactivetable(Entity):
         """
         This table is the voice extension to the call active table
         of IETF Dial Control MIB. It contains voice encapsulation
@@ -2196,13 +3302,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallactiveentry = YList()
-            self.cvcallactiveentry.parent = self
-            self.cvcallactiveentry.name = 'cvcallactiveentry'
+            super(CiscoVoiceDialControlMib.Cvcallactivetable, self).__init__()
+
+            self.yang_name = "cvCallActiveTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcallactiveentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallactivetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallactivetable, self).__setattr__(name, value)
 
 
-        class Cvcallactiveentry(object):
+        class Cvcallactiveentry(Entity):
             """
             The information regarding a single voice encapsulation
             call leg.
@@ -2270,7 +3402,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcallactivecodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call
-            	**type**\:   :py:class:`CvccodertyperateEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvccodertyperateEnum>`
+            	**type**\:   :py:class:`Cvccodertyperate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvccodertyperate>`
             
             .. attribute:: cvcallactiveconnectionid
             
@@ -2384,133 +3516,352 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.callactivesetuptime = None
-                self.callactiveindex = None
-                self.cvcallactiveaccountcode = None
-                self.cvcallactiveacomlevel = None
-                self.cvcallactivecalleridblock = None
-                self.cvcallactivecallid = None
-                self.cvcallactivecallingname = None
-                self.cvcallactivecodertyperate = None
-                self.cvcallactiveconnectionid = None
-                self.cvcallactiveecanreflectorlocation = None
-                self.cvcallactiveerllevel = None
-                self.cvcallactiveerllevelrev1 = None
-                self.cvcallactivefaxtxduration = None
-                self.cvcallactiveimgpagecount = None
-                self.cvcallactiveinsignallevel = None
-                self.cvcallactivenoiselevel = None
-                self.cvcallactiveoutsignallevel = None
-                self.cvcallactivesessiontarget = None
-                self.cvcallactivetxduration = None
-                self.cvcallactivevoicetxduration = None
+                super(CiscoVoiceDialControlMib.Cvcallactivetable.Cvcallactiveentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.callactivesetuptime is None:
-                    raise YPYModelError('Key property callactivesetuptime is None')
-                if self.callactiveindex is None:
-                    raise YPYModelError('Key property callactiveindex is None')
+                self.yang_name = "cvCallActiveEntry"
+                self.yang_parent_name = "cvCallActiveTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallActiveTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallActiveEntry[CISCO-VOICE-DIAL-CONTROL-MIB:callActiveSetupTime = ' + str(self.callactivesetuptime) + '][CISCO-VOICE-DIAL-CONTROL-MIB:callActiveIndex = ' + str(self.callactiveindex) + ']'
+                self.callactivesetuptime = YLeaf(YType.str, "callActiveSetupTime")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.callactiveindex = YLeaf(YType.str, "callActiveIndex")
+
+                self.cvcallactiveaccountcode = YLeaf(YType.str, "cvCallActiveAccountCode")
+
+                self.cvcallactiveacomlevel = YLeaf(YType.int32, "cvCallActiveACOMLevel")
+
+                self.cvcallactivecalleridblock = YLeaf(YType.boolean, "cvCallActiveCallerIDBlock")
+
+                self.cvcallactivecallid = YLeaf(YType.uint32, "cvCallActiveCallId")
+
+                self.cvcallactivecallingname = YLeaf(YType.str, "cvCallActiveCallingName")
+
+                self.cvcallactivecodertyperate = YLeaf(YType.enumeration, "cvCallActiveCoderTypeRate")
+
+                self.cvcallactiveconnectionid = YLeaf(YType.str, "cvCallActiveConnectionId")
+
+                self.cvcallactiveecanreflectorlocation = YLeaf(YType.int32, "cvCallActiveEcanReflectorLocation")
+
+                self.cvcallactiveerllevel = YLeaf(YType.int32, "cvCallActiveERLLevel")
+
+                self.cvcallactiveerllevelrev1 = YLeaf(YType.int32, "cvCallActiveERLLevelRev1")
+
+                self.cvcallactivefaxtxduration = YLeaf(YType.uint32, "cvCallActiveFaxTxDuration")
+
+                self.cvcallactiveimgpagecount = YLeaf(YType.uint32, "cvCallActiveImgPageCount")
+
+                self.cvcallactiveinsignallevel = YLeaf(YType.int32, "cvCallActiveInSignalLevel")
+
+                self.cvcallactivenoiselevel = YLeaf(YType.int32, "cvCallActiveNoiseLevel")
+
+                self.cvcallactiveoutsignallevel = YLeaf(YType.int32, "cvCallActiveOutSignalLevel")
+
+                self.cvcallactivesessiontarget = YLeaf(YType.str, "cvCallActiveSessionTarget")
+
+                self.cvcallactivetxduration = YLeaf(YType.uint32, "cvCallActiveTxDuration")
+
+                self.cvcallactivevoicetxduration = YLeaf(YType.uint32, "cvCallActiveVoiceTxDuration")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("callactivesetuptime",
+                                "callactiveindex",
+                                "cvcallactiveaccountcode",
+                                "cvcallactiveacomlevel",
+                                "cvcallactivecalleridblock",
+                                "cvcallactivecallid",
+                                "cvcallactivecallingname",
+                                "cvcallactivecodertyperate",
+                                "cvcallactiveconnectionid",
+                                "cvcallactiveecanreflectorlocation",
+                                "cvcallactiveerllevel",
+                                "cvcallactiveerllevelrev1",
+                                "cvcallactivefaxtxduration",
+                                "cvcallactiveimgpagecount",
+                                "cvcallactiveinsignallevel",
+                                "cvcallactivenoiselevel",
+                                "cvcallactiveoutsignallevel",
+                                "cvcallactivesessiontarget",
+                                "cvcallactivetxduration",
+                                "cvcallactivevoicetxduration") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcallactivetable.Cvcallactiveentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcallactivetable.Cvcallactiveentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.callactivesetuptime.is_set or
+                    self.callactiveindex.is_set or
+                    self.cvcallactiveaccountcode.is_set or
+                    self.cvcallactiveacomlevel.is_set or
+                    self.cvcallactivecalleridblock.is_set or
+                    self.cvcallactivecallid.is_set or
+                    self.cvcallactivecallingname.is_set or
+                    self.cvcallactivecodertyperate.is_set or
+                    self.cvcallactiveconnectionid.is_set or
+                    self.cvcallactiveecanreflectorlocation.is_set or
+                    self.cvcallactiveerllevel.is_set or
+                    self.cvcallactiveerllevelrev1.is_set or
+                    self.cvcallactivefaxtxduration.is_set or
+                    self.cvcallactiveimgpagecount.is_set or
+                    self.cvcallactiveinsignallevel.is_set or
+                    self.cvcallactivenoiselevel.is_set or
+                    self.cvcallactiveoutsignallevel.is_set or
+                    self.cvcallactivesessiontarget.is_set or
+                    self.cvcallactivetxduration.is_set or
+                    self.cvcallactivevoicetxduration.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.callactivesetuptime.yfilter != YFilter.not_set or
+                    self.callactiveindex.yfilter != YFilter.not_set or
+                    self.cvcallactiveaccountcode.yfilter != YFilter.not_set or
+                    self.cvcallactiveacomlevel.yfilter != YFilter.not_set or
+                    self.cvcallactivecalleridblock.yfilter != YFilter.not_set or
+                    self.cvcallactivecallid.yfilter != YFilter.not_set or
+                    self.cvcallactivecallingname.yfilter != YFilter.not_set or
+                    self.cvcallactivecodertyperate.yfilter != YFilter.not_set or
+                    self.cvcallactiveconnectionid.yfilter != YFilter.not_set or
+                    self.cvcallactiveecanreflectorlocation.yfilter != YFilter.not_set or
+                    self.cvcallactiveerllevel.yfilter != YFilter.not_set or
+                    self.cvcallactiveerllevelrev1.yfilter != YFilter.not_set or
+                    self.cvcallactivefaxtxduration.yfilter != YFilter.not_set or
+                    self.cvcallactiveimgpagecount.yfilter != YFilter.not_set or
+                    self.cvcallactiveinsignallevel.yfilter != YFilter.not_set or
+                    self.cvcallactivenoiselevel.yfilter != YFilter.not_set or
+                    self.cvcallactiveoutsignallevel.yfilter != YFilter.not_set or
+                    self.cvcallactivesessiontarget.yfilter != YFilter.not_set or
+                    self.cvcallactivetxduration.yfilter != YFilter.not_set or
+                    self.cvcallactivevoicetxduration.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallActiveTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.callactivesetuptime.is_set or self.callactivesetuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.callactivesetuptime.get_name_leafdata())
+                if (self.callactiveindex.is_set or self.callactiveindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.callactiveindex.get_name_leafdata())
+                if (self.cvcallactiveaccountcode.is_set or self.cvcallactiveaccountcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveaccountcode.get_name_leafdata())
+                if (self.cvcallactiveacomlevel.is_set or self.cvcallactiveacomlevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveacomlevel.get_name_leafdata())
+                if (self.cvcallactivecalleridblock.is_set or self.cvcallactivecalleridblock.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivecalleridblock.get_name_leafdata())
+                if (self.cvcallactivecallid.is_set or self.cvcallactivecallid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivecallid.get_name_leafdata())
+                if (self.cvcallactivecallingname.is_set or self.cvcallactivecallingname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivecallingname.get_name_leafdata())
+                if (self.cvcallactivecodertyperate.is_set or self.cvcallactivecodertyperate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivecodertyperate.get_name_leafdata())
+                if (self.cvcallactiveconnectionid.is_set or self.cvcallactiveconnectionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveconnectionid.get_name_leafdata())
+                if (self.cvcallactiveecanreflectorlocation.is_set or self.cvcallactiveecanreflectorlocation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveecanreflectorlocation.get_name_leafdata())
+                if (self.cvcallactiveerllevel.is_set or self.cvcallactiveerllevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveerllevel.get_name_leafdata())
+                if (self.cvcallactiveerllevelrev1.is_set or self.cvcallactiveerllevelrev1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveerllevelrev1.get_name_leafdata())
+                if (self.cvcallactivefaxtxduration.is_set or self.cvcallactivefaxtxduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivefaxtxduration.get_name_leafdata())
+                if (self.cvcallactiveimgpagecount.is_set or self.cvcallactiveimgpagecount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveimgpagecount.get_name_leafdata())
+                if (self.cvcallactiveinsignallevel.is_set or self.cvcallactiveinsignallevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveinsignallevel.get_name_leafdata())
+                if (self.cvcallactivenoiselevel.is_set or self.cvcallactivenoiselevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivenoiselevel.get_name_leafdata())
+                if (self.cvcallactiveoutsignallevel.is_set or self.cvcallactiveoutsignallevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactiveoutsignallevel.get_name_leafdata())
+                if (self.cvcallactivesessiontarget.is_set or self.cvcallactivesessiontarget.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivesessiontarget.get_name_leafdata())
+                if (self.cvcallactivetxduration.is_set or self.cvcallactivetxduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivetxduration.get_name_leafdata())
+                if (self.cvcallactivevoicetxduration.is_set or self.cvcallactivevoicetxduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallactivevoicetxduration.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "callActiveSetupTime" or name == "callActiveIndex" or name == "cvCallActiveAccountCode" or name == "cvCallActiveACOMLevel" or name == "cvCallActiveCallerIDBlock" or name == "cvCallActiveCallId" or name == "cvCallActiveCallingName" or name == "cvCallActiveCoderTypeRate" or name == "cvCallActiveConnectionId" or name == "cvCallActiveEcanReflectorLocation" or name == "cvCallActiveERLLevel" or name == "cvCallActiveERLLevelRev1" or name == "cvCallActiveFaxTxDuration" or name == "cvCallActiveImgPageCount" or name == "cvCallActiveInSignalLevel" or name == "cvCallActiveNoiseLevel" or name == "cvCallActiveOutSignalLevel" or name == "cvCallActiveSessionTarget" or name == "cvCallActiveTxDuration" or name == "cvCallActiveVoiceTxDuration"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.callactivesetuptime is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "callActiveSetupTime"):
+                    self.callactivesetuptime = value
+                    self.callactivesetuptime.value_namespace = name_space
+                    self.callactivesetuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "callActiveIndex"):
+                    self.callactiveindex = value
+                    self.callactiveindex.value_namespace = name_space
+                    self.callactiveindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveAccountCode"):
+                    self.cvcallactiveaccountcode = value
+                    self.cvcallactiveaccountcode.value_namespace = name_space
+                    self.cvcallactiveaccountcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveACOMLevel"):
+                    self.cvcallactiveacomlevel = value
+                    self.cvcallactiveacomlevel.value_namespace = name_space
+                    self.cvcallactiveacomlevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveCallerIDBlock"):
+                    self.cvcallactivecalleridblock = value
+                    self.cvcallactivecalleridblock.value_namespace = name_space
+                    self.cvcallactivecalleridblock.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveCallId"):
+                    self.cvcallactivecallid = value
+                    self.cvcallactivecallid.value_namespace = name_space
+                    self.cvcallactivecallid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveCallingName"):
+                    self.cvcallactivecallingname = value
+                    self.cvcallactivecallingname.value_namespace = name_space
+                    self.cvcallactivecallingname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveCoderTypeRate"):
+                    self.cvcallactivecodertyperate = value
+                    self.cvcallactivecodertyperate.value_namespace = name_space
+                    self.cvcallactivecodertyperate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveConnectionId"):
+                    self.cvcallactiveconnectionid = value
+                    self.cvcallactiveconnectionid.value_namespace = name_space
+                    self.cvcallactiveconnectionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveEcanReflectorLocation"):
+                    self.cvcallactiveecanreflectorlocation = value
+                    self.cvcallactiveecanreflectorlocation.value_namespace = name_space
+                    self.cvcallactiveecanreflectorlocation.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveERLLevel"):
+                    self.cvcallactiveerllevel = value
+                    self.cvcallactiveerllevel.value_namespace = name_space
+                    self.cvcallactiveerllevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveERLLevelRev1"):
+                    self.cvcallactiveerllevelrev1 = value
+                    self.cvcallactiveerllevelrev1.value_namespace = name_space
+                    self.cvcallactiveerllevelrev1.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveFaxTxDuration"):
+                    self.cvcallactivefaxtxduration = value
+                    self.cvcallactivefaxtxduration.value_namespace = name_space
+                    self.cvcallactivefaxtxduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveImgPageCount"):
+                    self.cvcallactiveimgpagecount = value
+                    self.cvcallactiveimgpagecount.value_namespace = name_space
+                    self.cvcallactiveimgpagecount.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveInSignalLevel"):
+                    self.cvcallactiveinsignallevel = value
+                    self.cvcallactiveinsignallevel.value_namespace = name_space
+                    self.cvcallactiveinsignallevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveNoiseLevel"):
+                    self.cvcallactivenoiselevel = value
+                    self.cvcallactivenoiselevel.value_namespace = name_space
+                    self.cvcallactivenoiselevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveOutSignalLevel"):
+                    self.cvcallactiveoutsignallevel = value
+                    self.cvcallactiveoutsignallevel.value_namespace = name_space
+                    self.cvcallactiveoutsignallevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveSessionTarget"):
+                    self.cvcallactivesessiontarget = value
+                    self.cvcallactivesessiontarget.value_namespace = name_space
+                    self.cvcallactivesessiontarget.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveTxDuration"):
+                    self.cvcallactivetxduration = value
+                    self.cvcallactivetxduration.value_namespace = name_space
+                    self.cvcallactivetxduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallActiveVoiceTxDuration"):
+                    self.cvcallactivevoicetxduration = value
+                    self.cvcallactivevoicetxduration.value_namespace = name_space
+                    self.cvcallactivevoicetxduration.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcallactiveentry:
+                if (c.has_data()):
                     return True
-
-                if self.callactiveindex is not None:
-                    return True
-
-                if self.cvcallactiveaccountcode is not None:
-                    return True
-
-                if self.cvcallactiveacomlevel is not None:
-                    return True
-
-                if self.cvcallactivecalleridblock is not None:
-                    return True
-
-                if self.cvcallactivecallid is not None:
-                    return True
-
-                if self.cvcallactivecallingname is not None:
-                    return True
-
-                if self.cvcallactivecodertyperate is not None:
-                    return True
-
-                if self.cvcallactiveconnectionid is not None:
-                    return True
-
-                if self.cvcallactiveecanreflectorlocation is not None:
-                    return True
-
-                if self.cvcallactiveerllevel is not None:
-                    return True
-
-                if self.cvcallactiveerllevelrev1 is not None:
-                    return True
-
-                if self.cvcallactivefaxtxduration is not None:
-                    return True
-
-                if self.cvcallactiveimgpagecount is not None:
-                    return True
-
-                if self.cvcallactiveinsignallevel is not None:
-                    return True
-
-                if self.cvcallactivenoiselevel is not None:
-                    return True
-
-                if self.cvcallactiveoutsignallevel is not None:
-                    return True
-
-                if self.cvcallactivesessiontarget is not None:
-                    return True
-
-                if self.cvcallactivetxduration is not None:
-                    return True
-
-                if self.cvcallactivevoicetxduration is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcallactivetable.Cvcallactiveentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallActiveTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcallactiveentry is not None:
-                for child_ref in self.cvcallactiveentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcallactiveentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallActiveTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallActiveEntry"):
+                for c in self.cvcallactiveentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcallactivetable.Cvcallactiveentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcallactiveentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallActiveEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallactivetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvvoipcallactivetable(object):
+    class Cvvoipcallactivetable(Entity):
         """
         This table is the VoIP extension to the call active table of
         IETF Dial Control MIB. It contains VoIP call leg
@@ -2530,13 +3881,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvvoipcallactiveentry = YList()
-            self.cvvoipcallactiveentry.parent = self
-            self.cvvoipcallactiveentry.name = 'cvvoipcallactiveentry'
+            super(CiscoVoiceDialControlMib.Cvvoipcallactivetable, self).__init__()
+
+            self.yang_name = "cvVoIPCallActiveTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvvoipcallactiveentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvvoipcallactivetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvvoipcallactivetable, self).__setattr__(name, value)
 
 
-        class Cvvoipcallactiveentry(object):
+        class Cvvoipcallactiveentry(Entity):
             """
             The information regarding a single VoIP call leg.
             The call leg entry is identified by using the same index
@@ -2604,14 +3981,14 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallactivecodermode
             
             	The object indicates the iLBC codec mode. The value of this object is valid only if  cvVoIPCallActiveCoderTypeRate is equal to  'iLBC'
-            	**type**\:   :py:class:`CvilbcframemodeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvilbcframemodeEnum>`
+            	**type**\:   :py:class:`Cvilbcframemode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvilbcframemode>`
             
             	**units**\: milliseconds
             
             .. attribute:: cvvoipcallactivecodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call. This rate is different from the configuration rate because of rate negotiation during the call
-            	**type**\:   :py:class:`CvccodertyperateEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvccodertyperateEnum>`
+            	**type**\:   :py:class:`Cvccodertyperate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvccodertyperate>`
             
             	**status**\: deprecated
             
@@ -2639,7 +4016,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallactiveencap
             
             	The object indicates the RTP encapsulation type. Supported RTP encapsulation type is RFC3267. This object is not instantiated when the object cvVoIPCallActiveCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:   :py:class:`CvamrnbrtpencapEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvamrnbrtpencapEnum>`
+            	**type**\:   :py:class:`Cvamrnbrtpencap <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvamrnbrtpencap>`
             
             .. attribute:: cvvoipcallactivegapfillwithinterpolation
             
@@ -2792,7 +4169,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallactiveremmediaipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallActiveRemMediaIPAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvvoipcallactiveremmediaport
             
@@ -2829,7 +4206,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallactiveremsigipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallActiveRemSigIPAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvvoipcallactiveremsigport
             
@@ -2860,7 +4237,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallactiveselectedqos
             
             	The selected RSVP QoS for the voice call
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INT_SERV_MIB.Qosservice>`
             
             .. attribute:: cvvoipcallactivesessionid
             
@@ -2872,7 +4249,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallactivesessionprotocol
             
             	The object specifies the session protocol to be used for Internet call between local and remote router via IP backbone
-            	**type**\:   :py:class:`CvsessionprotocolEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvsessionprotocolEnum>`
+            	**type**\:   :py:class:`Cvsessionprotocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvsessionprotocol>`
             
             .. attribute:: cvvoipcallactivesessiontarget
             
@@ -2906,246 +4283,658 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.callactivesetuptime = None
-                self.callactiveindex = None
-                self.ccvoipcallactivepolicyname = None
-                self.cvvoipcallactivebitrates = Cvamrnbbitratemode()
-                self.cvvoipcallactivecallid = None
-                self.cvvoipcallactivecallreferenceid = None
-                self.cvvoipcallactivechannels = None
-                self.cvvoipcallactivecodermode = None
-                self.cvvoipcallactivecodertyperate = None
-                self.cvvoipcallactiveconnectionid = None
-                self.cvvoipcallactivecrc = None
-                self.cvvoipcallactiveearlypackets = None
-                self.cvvoipcallactiveencap = None
-                self.cvvoipcallactivegapfillwithinterpolation = None
-                self.cvvoipcallactivegapfillwithprediction = None
-                self.cvvoipcallactivegapfillwithredundancy = None
-                self.cvvoipcallactivegapfillwithsilence = None
-                self.cvvoipcallactivehiwaterplayoutdelay = None
-                self.cvvoipcallactiveinterleaving = None
-                self.cvvoipcallactivelatepackets = None
-                self.cvvoipcallactivelostpackets = None
-                self.cvvoipcallactivelowaterplayoutdelay = None
-                self.cvvoipcallactivemaxptime = None
-                self.cvvoipcallactivemodechgneighbor = None
-                self.cvvoipcallactivemodechgperiod = None
-                self.cvvoipcallactiveoctetaligned = None
-                self.cvvoipcallactiveontimervplayout = None
-                self.cvvoipcallactiveprotocolcallid = None
-                self.cvvoipcallactiveptime = None
-                self.cvvoipcallactivereceivedelay = None
-                self.cvvoipcallactiveremmediaipaddr = None
-                self.cvvoipcallactiveremmediaipaddrt = None
-                self.cvvoipcallactiveremmediaport = None
-                self.cvvoipcallactiveremoteipaddress = None
-                self.cvvoipcallactiveremoteudpport = None
-                self.cvvoipcallactiveremsigipaddr = None
-                self.cvvoipcallactiveremsigipaddrt = None
-                self.cvvoipcallactiveremsigport = None
-                self.cvvoipcallactivereverseddirectionpeeraddress = None
-                self.cvvoipcallactiverobustsorting = None
-                self.cvvoipcallactiveroundtripdelay = None
-                self.cvvoipcallactiveselectedqos = None
-                self.cvvoipcallactivesessionid = None
-                self.cvvoipcallactivesessionprotocol = None
-                self.cvvoipcallactivesessiontarget = None
-                self.cvvoipcallactivesrtpenable = None
-                self.cvvoipcallactiveusername = None
-                self.cvvoipcallactivevadenable = None
+                super(CiscoVoiceDialControlMib.Cvvoipcallactivetable.Cvvoipcallactiveentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.callactivesetuptime is None:
-                    raise YPYModelError('Key property callactivesetuptime is None')
-                if self.callactiveindex is None:
-                    raise YPYModelError('Key property callactiveindex is None')
+                self.yang_name = "cvVoIPCallActiveEntry"
+                self.yang_parent_name = "cvVoIPCallActiveTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPCallActiveTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPCallActiveEntry[CISCO-VOICE-DIAL-CONTROL-MIB:callActiveSetupTime = ' + str(self.callactivesetuptime) + '][CISCO-VOICE-DIAL-CONTROL-MIB:callActiveIndex = ' + str(self.callactiveindex) + ']'
+                self.callactivesetuptime = YLeaf(YType.str, "callActiveSetupTime")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.callactiveindex = YLeaf(YType.str, "callActiveIndex")
+
+                self.ccvoipcallactivepolicyname = YLeaf(YType.str, "ccVoIPCallActivePolicyName")
+
+                self.cvvoipcallactivebitrates = YLeaf(YType.bits, "cvVoIPCallActiveBitRates")
+
+                self.cvvoipcallactivecallid = YLeaf(YType.uint32, "cvVoIPCallActiveCallId")
+
+                self.cvvoipcallactivecallreferenceid = YLeaf(YType.uint32, "cvVoIPCallActiveCallReferenceId")
+
+                self.cvvoipcallactivechannels = YLeaf(YType.int32, "cvVoIPCallActiveChannels")
+
+                self.cvvoipcallactivecodermode = YLeaf(YType.enumeration, "cvVoIPCallActiveCoderMode")
+
+                self.cvvoipcallactivecodertyperate = YLeaf(YType.enumeration, "cvVoIPCallActiveCoderTypeRate")
+
+                self.cvvoipcallactiveconnectionid = YLeaf(YType.str, "cvVoIPCallActiveConnectionId")
+
+                self.cvvoipcallactivecrc = YLeaf(YType.boolean, "cvVoIPCallActiveCRC")
+
+                self.cvvoipcallactiveearlypackets = YLeaf(YType.uint32, "cvVoIPCallActiveEarlyPackets")
+
+                self.cvvoipcallactiveencap = YLeaf(YType.enumeration, "cvVoIPCallActiveEncap")
+
+                self.cvvoipcallactivegapfillwithinterpolation = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithInterpolation")
+
+                self.cvvoipcallactivegapfillwithprediction = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithPrediction")
+
+                self.cvvoipcallactivegapfillwithredundancy = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithRedundancy")
+
+                self.cvvoipcallactivegapfillwithsilence = YLeaf(YType.uint32, "cvVoIPCallActiveGapFillWithSilence")
+
+                self.cvvoipcallactivehiwaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallActiveHiWaterPlayoutDelay")
+
+                self.cvvoipcallactiveinterleaving = YLeaf(YType.int32, "cvVoIPCallActiveInterleaving")
+
+                self.cvvoipcallactivelatepackets = YLeaf(YType.uint32, "cvVoIPCallActiveLatePackets")
+
+                self.cvvoipcallactivelostpackets = YLeaf(YType.uint32, "cvVoIPCallActiveLostPackets")
+
+                self.cvvoipcallactivelowaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallActiveLoWaterPlayoutDelay")
+
+                self.cvvoipcallactivemaxptime = YLeaf(YType.int32, "cvVoIPCallActiveMaxPtime")
+
+                self.cvvoipcallactivemodechgneighbor = YLeaf(YType.boolean, "cvVoIPCallActiveModeChgNeighbor")
+
+                self.cvvoipcallactivemodechgperiod = YLeaf(YType.int32, "cvVoIPCallActiveModeChgPeriod")
+
+                self.cvvoipcallactiveoctetaligned = YLeaf(YType.boolean, "cvVoIPCallActiveOctetAligned")
+
+                self.cvvoipcallactiveontimervplayout = YLeaf(YType.uint32, "cvVoIPCallActiveOnTimeRvPlayout")
+
+                self.cvvoipcallactiveprotocolcallid = YLeaf(YType.str, "cvVoIPCallActiveProtocolCallId")
+
+                self.cvvoipcallactiveptime = YLeaf(YType.int32, "cvVoIPCallActivePtime")
+
+                self.cvvoipcallactivereceivedelay = YLeaf(YType.uint32, "cvVoIPCallActiveReceiveDelay")
+
+                self.cvvoipcallactiveremmediaipaddr = YLeaf(YType.str, "cvVoIPCallActiveRemMediaIPAddr")
+
+                self.cvvoipcallactiveremmediaipaddrt = YLeaf(YType.enumeration, "cvVoIPCallActiveRemMediaIPAddrT")
+
+                self.cvvoipcallactiveremmediaport = YLeaf(YType.int32, "cvVoIPCallActiveRemMediaPort")
+
+                self.cvvoipcallactiveremoteipaddress = YLeaf(YType.str, "cvVoIPCallActiveRemoteIPAddress")
+
+                self.cvvoipcallactiveremoteudpport = YLeaf(YType.int32, "cvVoIPCallActiveRemoteUDPPort")
+
+                self.cvvoipcallactiveremsigipaddr = YLeaf(YType.str, "cvVoIPCallActiveRemSigIPAddr")
+
+                self.cvvoipcallactiveremsigipaddrt = YLeaf(YType.enumeration, "cvVoIPCallActiveRemSigIPAddrT")
+
+                self.cvvoipcallactiveremsigport = YLeaf(YType.int32, "cvVoIPCallActiveRemSigPort")
+
+                self.cvvoipcallactivereverseddirectionpeeraddress = YLeaf(YType.str, "cvVoIPCallActiveReversedDirectionPeerAddress")
+
+                self.cvvoipcallactiverobustsorting = YLeaf(YType.boolean, "cvVoIPCallActiveRobustSorting")
+
+                self.cvvoipcallactiveroundtripdelay = YLeaf(YType.uint32, "cvVoIPCallActiveRoundTripDelay")
+
+                self.cvvoipcallactiveselectedqos = YLeaf(YType.enumeration, "cvVoIPCallActiveSelectedQoS")
+
+                self.cvvoipcallactivesessionid = YLeaf(YType.uint32, "cvVoIPCallActiveSessionId")
+
+                self.cvvoipcallactivesessionprotocol = YLeaf(YType.enumeration, "cvVoIPCallActiveSessionProtocol")
+
+                self.cvvoipcallactivesessiontarget = YLeaf(YType.str, "cvVoIPCallActiveSessionTarget")
+
+                self.cvvoipcallactivesrtpenable = YLeaf(YType.boolean, "cvVoIPCallActiveSRTPEnable")
+
+                self.cvvoipcallactiveusername = YLeaf(YType.str, "cvVoIPCallActiveUsername")
+
+                self.cvvoipcallactivevadenable = YLeaf(YType.boolean, "cvVoIPCallActiveVADEnable")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("callactivesetuptime",
+                                "callactiveindex",
+                                "ccvoipcallactivepolicyname",
+                                "cvvoipcallactivebitrates",
+                                "cvvoipcallactivecallid",
+                                "cvvoipcallactivecallreferenceid",
+                                "cvvoipcallactivechannels",
+                                "cvvoipcallactivecodermode",
+                                "cvvoipcallactivecodertyperate",
+                                "cvvoipcallactiveconnectionid",
+                                "cvvoipcallactivecrc",
+                                "cvvoipcallactiveearlypackets",
+                                "cvvoipcallactiveencap",
+                                "cvvoipcallactivegapfillwithinterpolation",
+                                "cvvoipcallactivegapfillwithprediction",
+                                "cvvoipcallactivegapfillwithredundancy",
+                                "cvvoipcallactivegapfillwithsilence",
+                                "cvvoipcallactivehiwaterplayoutdelay",
+                                "cvvoipcallactiveinterleaving",
+                                "cvvoipcallactivelatepackets",
+                                "cvvoipcallactivelostpackets",
+                                "cvvoipcallactivelowaterplayoutdelay",
+                                "cvvoipcallactivemaxptime",
+                                "cvvoipcallactivemodechgneighbor",
+                                "cvvoipcallactivemodechgperiod",
+                                "cvvoipcallactiveoctetaligned",
+                                "cvvoipcallactiveontimervplayout",
+                                "cvvoipcallactiveprotocolcallid",
+                                "cvvoipcallactiveptime",
+                                "cvvoipcallactivereceivedelay",
+                                "cvvoipcallactiveremmediaipaddr",
+                                "cvvoipcallactiveremmediaipaddrt",
+                                "cvvoipcallactiveremmediaport",
+                                "cvvoipcallactiveremoteipaddress",
+                                "cvvoipcallactiveremoteudpport",
+                                "cvvoipcallactiveremsigipaddr",
+                                "cvvoipcallactiveremsigipaddrt",
+                                "cvvoipcallactiveremsigport",
+                                "cvvoipcallactivereverseddirectionpeeraddress",
+                                "cvvoipcallactiverobustsorting",
+                                "cvvoipcallactiveroundtripdelay",
+                                "cvvoipcallactiveselectedqos",
+                                "cvvoipcallactivesessionid",
+                                "cvvoipcallactivesessionprotocol",
+                                "cvvoipcallactivesessiontarget",
+                                "cvvoipcallactivesrtpenable",
+                                "cvvoipcallactiveusername",
+                                "cvvoipcallactivevadenable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvvoipcallactivetable.Cvvoipcallactiveentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvvoipcallactivetable.Cvvoipcallactiveentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.callactivesetuptime.is_set or
+                    self.callactiveindex.is_set or
+                    self.ccvoipcallactivepolicyname.is_set or
+                    self.cvvoipcallactivebitrates.is_set or
+                    self.cvvoipcallactivecallid.is_set or
+                    self.cvvoipcallactivecallreferenceid.is_set or
+                    self.cvvoipcallactivechannels.is_set or
+                    self.cvvoipcallactivecodermode.is_set or
+                    self.cvvoipcallactivecodertyperate.is_set or
+                    self.cvvoipcallactiveconnectionid.is_set or
+                    self.cvvoipcallactivecrc.is_set or
+                    self.cvvoipcallactiveearlypackets.is_set or
+                    self.cvvoipcallactiveencap.is_set or
+                    self.cvvoipcallactivegapfillwithinterpolation.is_set or
+                    self.cvvoipcallactivegapfillwithprediction.is_set or
+                    self.cvvoipcallactivegapfillwithredundancy.is_set or
+                    self.cvvoipcallactivegapfillwithsilence.is_set or
+                    self.cvvoipcallactivehiwaterplayoutdelay.is_set or
+                    self.cvvoipcallactiveinterleaving.is_set or
+                    self.cvvoipcallactivelatepackets.is_set or
+                    self.cvvoipcallactivelostpackets.is_set or
+                    self.cvvoipcallactivelowaterplayoutdelay.is_set or
+                    self.cvvoipcallactivemaxptime.is_set or
+                    self.cvvoipcallactivemodechgneighbor.is_set or
+                    self.cvvoipcallactivemodechgperiod.is_set or
+                    self.cvvoipcallactiveoctetaligned.is_set or
+                    self.cvvoipcallactiveontimervplayout.is_set or
+                    self.cvvoipcallactiveprotocolcallid.is_set or
+                    self.cvvoipcallactiveptime.is_set or
+                    self.cvvoipcallactivereceivedelay.is_set or
+                    self.cvvoipcallactiveremmediaipaddr.is_set or
+                    self.cvvoipcallactiveremmediaipaddrt.is_set or
+                    self.cvvoipcallactiveremmediaport.is_set or
+                    self.cvvoipcallactiveremoteipaddress.is_set or
+                    self.cvvoipcallactiveremoteudpport.is_set or
+                    self.cvvoipcallactiveremsigipaddr.is_set or
+                    self.cvvoipcallactiveremsigipaddrt.is_set or
+                    self.cvvoipcallactiveremsigport.is_set or
+                    self.cvvoipcallactivereverseddirectionpeeraddress.is_set or
+                    self.cvvoipcallactiverobustsorting.is_set or
+                    self.cvvoipcallactiveroundtripdelay.is_set or
+                    self.cvvoipcallactiveselectedqos.is_set or
+                    self.cvvoipcallactivesessionid.is_set or
+                    self.cvvoipcallactivesessionprotocol.is_set or
+                    self.cvvoipcallactivesessiontarget.is_set or
+                    self.cvvoipcallactivesrtpenable.is_set or
+                    self.cvvoipcallactiveusername.is_set or
+                    self.cvvoipcallactivevadenable.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.callactivesetuptime.yfilter != YFilter.not_set or
+                    self.callactiveindex.yfilter != YFilter.not_set or
+                    self.ccvoipcallactivepolicyname.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivebitrates.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivecallid.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivecallreferenceid.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivechannels.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivecodermode.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivecodertyperate.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveconnectionid.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivecrc.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveearlypackets.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveencap.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivegapfillwithinterpolation.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivegapfillwithprediction.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivegapfillwithredundancy.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivegapfillwithsilence.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivehiwaterplayoutdelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveinterleaving.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivelatepackets.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivelostpackets.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivelowaterplayoutdelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivemaxptime.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivemodechgneighbor.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivemodechgperiod.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveoctetaligned.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveontimervplayout.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveprotocolcallid.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveptime.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivereceivedelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremmediaipaddr.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremmediaipaddrt.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremmediaport.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremoteipaddress.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremoteudpport.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremsigipaddr.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremsigipaddrt.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveremsigport.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivereverseddirectionpeeraddress.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiverobustsorting.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveroundtripdelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveselectedqos.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivesessionid.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivesessionprotocol.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivesessiontarget.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivesrtpenable.yfilter != YFilter.not_set or
+                    self.cvvoipcallactiveusername.yfilter != YFilter.not_set or
+                    self.cvvoipcallactivevadenable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvVoIPCallActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallActiveTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.callactivesetuptime.is_set or self.callactivesetuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.callactivesetuptime.get_name_leafdata())
+                if (self.callactiveindex.is_set or self.callactiveindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.callactiveindex.get_name_leafdata())
+                if (self.ccvoipcallactivepolicyname.is_set or self.ccvoipcallactivepolicyname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccvoipcallactivepolicyname.get_name_leafdata())
+                if (self.cvvoipcallactivebitrates.is_set or self.cvvoipcallactivebitrates.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivebitrates.get_name_leafdata())
+                if (self.cvvoipcallactivecallid.is_set or self.cvvoipcallactivecallid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivecallid.get_name_leafdata())
+                if (self.cvvoipcallactivecallreferenceid.is_set or self.cvvoipcallactivecallreferenceid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivecallreferenceid.get_name_leafdata())
+                if (self.cvvoipcallactivechannels.is_set or self.cvvoipcallactivechannels.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivechannels.get_name_leafdata())
+                if (self.cvvoipcallactivecodermode.is_set or self.cvvoipcallactivecodermode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivecodermode.get_name_leafdata())
+                if (self.cvvoipcallactivecodertyperate.is_set or self.cvvoipcallactivecodertyperate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivecodertyperate.get_name_leafdata())
+                if (self.cvvoipcallactiveconnectionid.is_set or self.cvvoipcallactiveconnectionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveconnectionid.get_name_leafdata())
+                if (self.cvvoipcallactivecrc.is_set or self.cvvoipcallactivecrc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivecrc.get_name_leafdata())
+                if (self.cvvoipcallactiveearlypackets.is_set or self.cvvoipcallactiveearlypackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveearlypackets.get_name_leafdata())
+                if (self.cvvoipcallactiveencap.is_set or self.cvvoipcallactiveencap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveencap.get_name_leafdata())
+                if (self.cvvoipcallactivegapfillwithinterpolation.is_set or self.cvvoipcallactivegapfillwithinterpolation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivegapfillwithinterpolation.get_name_leafdata())
+                if (self.cvvoipcallactivegapfillwithprediction.is_set or self.cvvoipcallactivegapfillwithprediction.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivegapfillwithprediction.get_name_leafdata())
+                if (self.cvvoipcallactivegapfillwithredundancy.is_set or self.cvvoipcallactivegapfillwithredundancy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivegapfillwithredundancy.get_name_leafdata())
+                if (self.cvvoipcallactivegapfillwithsilence.is_set or self.cvvoipcallactivegapfillwithsilence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivegapfillwithsilence.get_name_leafdata())
+                if (self.cvvoipcallactivehiwaterplayoutdelay.is_set or self.cvvoipcallactivehiwaterplayoutdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivehiwaterplayoutdelay.get_name_leafdata())
+                if (self.cvvoipcallactiveinterleaving.is_set or self.cvvoipcallactiveinterleaving.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveinterleaving.get_name_leafdata())
+                if (self.cvvoipcallactivelatepackets.is_set or self.cvvoipcallactivelatepackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivelatepackets.get_name_leafdata())
+                if (self.cvvoipcallactivelostpackets.is_set or self.cvvoipcallactivelostpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivelostpackets.get_name_leafdata())
+                if (self.cvvoipcallactivelowaterplayoutdelay.is_set or self.cvvoipcallactivelowaterplayoutdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivelowaterplayoutdelay.get_name_leafdata())
+                if (self.cvvoipcallactivemaxptime.is_set or self.cvvoipcallactivemaxptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivemaxptime.get_name_leafdata())
+                if (self.cvvoipcallactivemodechgneighbor.is_set or self.cvvoipcallactivemodechgneighbor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivemodechgneighbor.get_name_leafdata())
+                if (self.cvvoipcallactivemodechgperiod.is_set or self.cvvoipcallactivemodechgperiod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivemodechgperiod.get_name_leafdata())
+                if (self.cvvoipcallactiveoctetaligned.is_set or self.cvvoipcallactiveoctetaligned.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveoctetaligned.get_name_leafdata())
+                if (self.cvvoipcallactiveontimervplayout.is_set or self.cvvoipcallactiveontimervplayout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveontimervplayout.get_name_leafdata())
+                if (self.cvvoipcallactiveprotocolcallid.is_set or self.cvvoipcallactiveprotocolcallid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveprotocolcallid.get_name_leafdata())
+                if (self.cvvoipcallactiveptime.is_set or self.cvvoipcallactiveptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveptime.get_name_leafdata())
+                if (self.cvvoipcallactivereceivedelay.is_set or self.cvvoipcallactivereceivedelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivereceivedelay.get_name_leafdata())
+                if (self.cvvoipcallactiveremmediaipaddr.is_set or self.cvvoipcallactiveremmediaipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremmediaipaddr.get_name_leafdata())
+                if (self.cvvoipcallactiveremmediaipaddrt.is_set or self.cvvoipcallactiveremmediaipaddrt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremmediaipaddrt.get_name_leafdata())
+                if (self.cvvoipcallactiveremmediaport.is_set or self.cvvoipcallactiveremmediaport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremmediaport.get_name_leafdata())
+                if (self.cvvoipcallactiveremoteipaddress.is_set or self.cvvoipcallactiveremoteipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremoteipaddress.get_name_leafdata())
+                if (self.cvvoipcallactiveremoteudpport.is_set or self.cvvoipcallactiveremoteudpport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremoteudpport.get_name_leafdata())
+                if (self.cvvoipcallactiveremsigipaddr.is_set or self.cvvoipcallactiveremsigipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremsigipaddr.get_name_leafdata())
+                if (self.cvvoipcallactiveremsigipaddrt.is_set or self.cvvoipcallactiveremsigipaddrt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremsigipaddrt.get_name_leafdata())
+                if (self.cvvoipcallactiveremsigport.is_set or self.cvvoipcallactiveremsigport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveremsigport.get_name_leafdata())
+                if (self.cvvoipcallactivereverseddirectionpeeraddress.is_set or self.cvvoipcallactivereverseddirectionpeeraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivereverseddirectionpeeraddress.get_name_leafdata())
+                if (self.cvvoipcallactiverobustsorting.is_set or self.cvvoipcallactiverobustsorting.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiverobustsorting.get_name_leafdata())
+                if (self.cvvoipcallactiveroundtripdelay.is_set or self.cvvoipcallactiveroundtripdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveroundtripdelay.get_name_leafdata())
+                if (self.cvvoipcallactiveselectedqos.is_set or self.cvvoipcallactiveselectedqos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveselectedqos.get_name_leafdata())
+                if (self.cvvoipcallactivesessionid.is_set or self.cvvoipcallactivesessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivesessionid.get_name_leafdata())
+                if (self.cvvoipcallactivesessionprotocol.is_set or self.cvvoipcallactivesessionprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivesessionprotocol.get_name_leafdata())
+                if (self.cvvoipcallactivesessiontarget.is_set or self.cvvoipcallactivesessiontarget.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivesessiontarget.get_name_leafdata())
+                if (self.cvvoipcallactivesrtpenable.is_set or self.cvvoipcallactivesrtpenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivesrtpenable.get_name_leafdata())
+                if (self.cvvoipcallactiveusername.is_set or self.cvvoipcallactiveusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactiveusername.get_name_leafdata())
+                if (self.cvvoipcallactivevadenable.is_set or self.cvvoipcallactivevadenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallactivevadenable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "callActiveSetupTime" or name == "callActiveIndex" or name == "ccVoIPCallActivePolicyName" or name == "cvVoIPCallActiveBitRates" or name == "cvVoIPCallActiveCallId" or name == "cvVoIPCallActiveCallReferenceId" or name == "cvVoIPCallActiveChannels" or name == "cvVoIPCallActiveCoderMode" or name == "cvVoIPCallActiveCoderTypeRate" or name == "cvVoIPCallActiveConnectionId" or name == "cvVoIPCallActiveCRC" or name == "cvVoIPCallActiveEarlyPackets" or name == "cvVoIPCallActiveEncap" or name == "cvVoIPCallActiveGapFillWithInterpolation" or name == "cvVoIPCallActiveGapFillWithPrediction" or name == "cvVoIPCallActiveGapFillWithRedundancy" or name == "cvVoIPCallActiveGapFillWithSilence" or name == "cvVoIPCallActiveHiWaterPlayoutDelay" or name == "cvVoIPCallActiveInterleaving" or name == "cvVoIPCallActiveLatePackets" or name == "cvVoIPCallActiveLostPackets" or name == "cvVoIPCallActiveLoWaterPlayoutDelay" or name == "cvVoIPCallActiveMaxPtime" or name == "cvVoIPCallActiveModeChgNeighbor" or name == "cvVoIPCallActiveModeChgPeriod" or name == "cvVoIPCallActiveOctetAligned" or name == "cvVoIPCallActiveOnTimeRvPlayout" or name == "cvVoIPCallActiveProtocolCallId" or name == "cvVoIPCallActivePtime" or name == "cvVoIPCallActiveReceiveDelay" or name == "cvVoIPCallActiveRemMediaIPAddr" or name == "cvVoIPCallActiveRemMediaIPAddrT" or name == "cvVoIPCallActiveRemMediaPort" or name == "cvVoIPCallActiveRemoteIPAddress" or name == "cvVoIPCallActiveRemoteUDPPort" or name == "cvVoIPCallActiveRemSigIPAddr" or name == "cvVoIPCallActiveRemSigIPAddrT" or name == "cvVoIPCallActiveRemSigPort" or name == "cvVoIPCallActiveReversedDirectionPeerAddress" or name == "cvVoIPCallActiveRobustSorting" or name == "cvVoIPCallActiveRoundTripDelay" or name == "cvVoIPCallActiveSelectedQoS" or name == "cvVoIPCallActiveSessionId" or name == "cvVoIPCallActiveSessionProtocol" or name == "cvVoIPCallActiveSessionTarget" or name == "cvVoIPCallActiveSRTPEnable" or name == "cvVoIPCallActiveUsername" or name == "cvVoIPCallActiveVADEnable"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.callactivesetuptime is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "callActiveSetupTime"):
+                    self.callactivesetuptime = value
+                    self.callactivesetuptime.value_namespace = name_space
+                    self.callactivesetuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "callActiveIndex"):
+                    self.callactiveindex = value
+                    self.callactiveindex.value_namespace = name_space
+                    self.callactiveindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccVoIPCallActivePolicyName"):
+                    self.ccvoipcallactivepolicyname = value
+                    self.ccvoipcallactivepolicyname.value_namespace = name_space
+                    self.ccvoipcallactivepolicyname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveBitRates"):
+                    self.cvvoipcallactivebitrates[value] = True
+                if(value_path == "cvVoIPCallActiveCallId"):
+                    self.cvvoipcallactivecallid = value
+                    self.cvvoipcallactivecallid.value_namespace = name_space
+                    self.cvvoipcallactivecallid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveCallReferenceId"):
+                    self.cvvoipcallactivecallreferenceid = value
+                    self.cvvoipcallactivecallreferenceid.value_namespace = name_space
+                    self.cvvoipcallactivecallreferenceid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveChannels"):
+                    self.cvvoipcallactivechannels = value
+                    self.cvvoipcallactivechannels.value_namespace = name_space
+                    self.cvvoipcallactivechannels.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveCoderMode"):
+                    self.cvvoipcallactivecodermode = value
+                    self.cvvoipcallactivecodermode.value_namespace = name_space
+                    self.cvvoipcallactivecodermode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveCoderTypeRate"):
+                    self.cvvoipcallactivecodertyperate = value
+                    self.cvvoipcallactivecodertyperate.value_namespace = name_space
+                    self.cvvoipcallactivecodertyperate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveConnectionId"):
+                    self.cvvoipcallactiveconnectionid = value
+                    self.cvvoipcallactiveconnectionid.value_namespace = name_space
+                    self.cvvoipcallactiveconnectionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveCRC"):
+                    self.cvvoipcallactivecrc = value
+                    self.cvvoipcallactivecrc.value_namespace = name_space
+                    self.cvvoipcallactivecrc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveEarlyPackets"):
+                    self.cvvoipcallactiveearlypackets = value
+                    self.cvvoipcallactiveearlypackets.value_namespace = name_space
+                    self.cvvoipcallactiveearlypackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveEncap"):
+                    self.cvvoipcallactiveencap = value
+                    self.cvvoipcallactiveencap.value_namespace = name_space
+                    self.cvvoipcallactiveencap.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveGapFillWithInterpolation"):
+                    self.cvvoipcallactivegapfillwithinterpolation = value
+                    self.cvvoipcallactivegapfillwithinterpolation.value_namespace = name_space
+                    self.cvvoipcallactivegapfillwithinterpolation.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveGapFillWithPrediction"):
+                    self.cvvoipcallactivegapfillwithprediction = value
+                    self.cvvoipcallactivegapfillwithprediction.value_namespace = name_space
+                    self.cvvoipcallactivegapfillwithprediction.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveGapFillWithRedundancy"):
+                    self.cvvoipcallactivegapfillwithredundancy = value
+                    self.cvvoipcallactivegapfillwithredundancy.value_namespace = name_space
+                    self.cvvoipcallactivegapfillwithredundancy.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveGapFillWithSilence"):
+                    self.cvvoipcallactivegapfillwithsilence = value
+                    self.cvvoipcallactivegapfillwithsilence.value_namespace = name_space
+                    self.cvvoipcallactivegapfillwithsilence.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveHiWaterPlayoutDelay"):
+                    self.cvvoipcallactivehiwaterplayoutdelay = value
+                    self.cvvoipcallactivehiwaterplayoutdelay.value_namespace = name_space
+                    self.cvvoipcallactivehiwaterplayoutdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveInterleaving"):
+                    self.cvvoipcallactiveinterleaving = value
+                    self.cvvoipcallactiveinterleaving.value_namespace = name_space
+                    self.cvvoipcallactiveinterleaving.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveLatePackets"):
+                    self.cvvoipcallactivelatepackets = value
+                    self.cvvoipcallactivelatepackets.value_namespace = name_space
+                    self.cvvoipcallactivelatepackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveLostPackets"):
+                    self.cvvoipcallactivelostpackets = value
+                    self.cvvoipcallactivelostpackets.value_namespace = name_space
+                    self.cvvoipcallactivelostpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveLoWaterPlayoutDelay"):
+                    self.cvvoipcallactivelowaterplayoutdelay = value
+                    self.cvvoipcallactivelowaterplayoutdelay.value_namespace = name_space
+                    self.cvvoipcallactivelowaterplayoutdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveMaxPtime"):
+                    self.cvvoipcallactivemaxptime = value
+                    self.cvvoipcallactivemaxptime.value_namespace = name_space
+                    self.cvvoipcallactivemaxptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveModeChgNeighbor"):
+                    self.cvvoipcallactivemodechgneighbor = value
+                    self.cvvoipcallactivemodechgneighbor.value_namespace = name_space
+                    self.cvvoipcallactivemodechgneighbor.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveModeChgPeriod"):
+                    self.cvvoipcallactivemodechgperiod = value
+                    self.cvvoipcallactivemodechgperiod.value_namespace = name_space
+                    self.cvvoipcallactivemodechgperiod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveOctetAligned"):
+                    self.cvvoipcallactiveoctetaligned = value
+                    self.cvvoipcallactiveoctetaligned.value_namespace = name_space
+                    self.cvvoipcallactiveoctetaligned.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveOnTimeRvPlayout"):
+                    self.cvvoipcallactiveontimervplayout = value
+                    self.cvvoipcallactiveontimervplayout.value_namespace = name_space
+                    self.cvvoipcallactiveontimervplayout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveProtocolCallId"):
+                    self.cvvoipcallactiveprotocolcallid = value
+                    self.cvvoipcallactiveprotocolcallid.value_namespace = name_space
+                    self.cvvoipcallactiveprotocolcallid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActivePtime"):
+                    self.cvvoipcallactiveptime = value
+                    self.cvvoipcallactiveptime.value_namespace = name_space
+                    self.cvvoipcallactiveptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveReceiveDelay"):
+                    self.cvvoipcallactivereceivedelay = value
+                    self.cvvoipcallactivereceivedelay.value_namespace = name_space
+                    self.cvvoipcallactivereceivedelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemMediaIPAddr"):
+                    self.cvvoipcallactiveremmediaipaddr = value
+                    self.cvvoipcallactiveremmediaipaddr.value_namespace = name_space
+                    self.cvvoipcallactiveremmediaipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemMediaIPAddrT"):
+                    self.cvvoipcallactiveremmediaipaddrt = value
+                    self.cvvoipcallactiveremmediaipaddrt.value_namespace = name_space
+                    self.cvvoipcallactiveremmediaipaddrt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemMediaPort"):
+                    self.cvvoipcallactiveremmediaport = value
+                    self.cvvoipcallactiveremmediaport.value_namespace = name_space
+                    self.cvvoipcallactiveremmediaport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemoteIPAddress"):
+                    self.cvvoipcallactiveremoteipaddress = value
+                    self.cvvoipcallactiveremoteipaddress.value_namespace = name_space
+                    self.cvvoipcallactiveremoteipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemoteUDPPort"):
+                    self.cvvoipcallactiveremoteudpport = value
+                    self.cvvoipcallactiveremoteudpport.value_namespace = name_space
+                    self.cvvoipcallactiveremoteudpport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemSigIPAddr"):
+                    self.cvvoipcallactiveremsigipaddr = value
+                    self.cvvoipcallactiveremsigipaddr.value_namespace = name_space
+                    self.cvvoipcallactiveremsigipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemSigIPAddrT"):
+                    self.cvvoipcallactiveremsigipaddrt = value
+                    self.cvvoipcallactiveremsigipaddrt.value_namespace = name_space
+                    self.cvvoipcallactiveremsigipaddrt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRemSigPort"):
+                    self.cvvoipcallactiveremsigport = value
+                    self.cvvoipcallactiveremsigport.value_namespace = name_space
+                    self.cvvoipcallactiveremsigport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveReversedDirectionPeerAddress"):
+                    self.cvvoipcallactivereverseddirectionpeeraddress = value
+                    self.cvvoipcallactivereverseddirectionpeeraddress.value_namespace = name_space
+                    self.cvvoipcallactivereverseddirectionpeeraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRobustSorting"):
+                    self.cvvoipcallactiverobustsorting = value
+                    self.cvvoipcallactiverobustsorting.value_namespace = name_space
+                    self.cvvoipcallactiverobustsorting.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveRoundTripDelay"):
+                    self.cvvoipcallactiveroundtripdelay = value
+                    self.cvvoipcallactiveroundtripdelay.value_namespace = name_space
+                    self.cvvoipcallactiveroundtripdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveSelectedQoS"):
+                    self.cvvoipcallactiveselectedqos = value
+                    self.cvvoipcallactiveselectedqos.value_namespace = name_space
+                    self.cvvoipcallactiveselectedqos.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveSessionId"):
+                    self.cvvoipcallactivesessionid = value
+                    self.cvvoipcallactivesessionid.value_namespace = name_space
+                    self.cvvoipcallactivesessionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveSessionProtocol"):
+                    self.cvvoipcallactivesessionprotocol = value
+                    self.cvvoipcallactivesessionprotocol.value_namespace = name_space
+                    self.cvvoipcallactivesessionprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveSessionTarget"):
+                    self.cvvoipcallactivesessiontarget = value
+                    self.cvvoipcallactivesessiontarget.value_namespace = name_space
+                    self.cvvoipcallactivesessiontarget.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveSRTPEnable"):
+                    self.cvvoipcallactivesrtpenable = value
+                    self.cvvoipcallactivesrtpenable.value_namespace = name_space
+                    self.cvvoipcallactivesrtpenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveUsername"):
+                    self.cvvoipcallactiveusername = value
+                    self.cvvoipcallactiveusername.value_namespace = name_space
+                    self.cvvoipcallactiveusername.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallActiveVADEnable"):
+                    self.cvvoipcallactivevadenable = value
+                    self.cvvoipcallactivevadenable.value_namespace = name_space
+                    self.cvvoipcallactivevadenable.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvvoipcallactiveentry:
+                if (c.has_data()):
                     return True
-
-                if self.callactiveindex is not None:
-                    return True
-
-                if self.ccvoipcallactivepolicyname is not None:
-                    return True
-
-                if self.cvvoipcallactivebitrates is not None:
-                    if self.cvvoipcallactivebitrates._has_data():
-                        return True
-
-                if self.cvvoipcallactivecallid is not None:
-                    return True
-
-                if self.cvvoipcallactivecallreferenceid is not None:
-                    return True
-
-                if self.cvvoipcallactivechannels is not None:
-                    return True
-
-                if self.cvvoipcallactivecodermode is not None:
-                    return True
-
-                if self.cvvoipcallactivecodertyperate is not None:
-                    return True
-
-                if self.cvvoipcallactiveconnectionid is not None:
-                    return True
-
-                if self.cvvoipcallactivecrc is not None:
-                    return True
-
-                if self.cvvoipcallactiveearlypackets is not None:
-                    return True
-
-                if self.cvvoipcallactiveencap is not None:
-                    return True
-
-                if self.cvvoipcallactivegapfillwithinterpolation is not None:
-                    return True
-
-                if self.cvvoipcallactivegapfillwithprediction is not None:
-                    return True
-
-                if self.cvvoipcallactivegapfillwithredundancy is not None:
-                    return True
-
-                if self.cvvoipcallactivegapfillwithsilence is not None:
-                    return True
-
-                if self.cvvoipcallactivehiwaterplayoutdelay is not None:
-                    return True
-
-                if self.cvvoipcallactiveinterleaving is not None:
-                    return True
-
-                if self.cvvoipcallactivelatepackets is not None:
-                    return True
-
-                if self.cvvoipcallactivelostpackets is not None:
-                    return True
-
-                if self.cvvoipcallactivelowaterplayoutdelay is not None:
-                    return True
-
-                if self.cvvoipcallactivemaxptime is not None:
-                    return True
-
-                if self.cvvoipcallactivemodechgneighbor is not None:
-                    return True
-
-                if self.cvvoipcallactivemodechgperiod is not None:
-                    return True
-
-                if self.cvvoipcallactiveoctetaligned is not None:
-                    return True
-
-                if self.cvvoipcallactiveontimervplayout is not None:
-                    return True
-
-                if self.cvvoipcallactiveprotocolcallid is not None:
-                    return True
-
-                if self.cvvoipcallactiveptime is not None:
-                    return True
-
-                if self.cvvoipcallactivereceivedelay is not None:
-                    return True
-
-                if self.cvvoipcallactiveremmediaipaddr is not None:
-                    return True
-
-                if self.cvvoipcallactiveremmediaipaddrt is not None:
-                    return True
-
-                if self.cvvoipcallactiveremmediaport is not None:
-                    return True
-
-                if self.cvvoipcallactiveremoteipaddress is not None:
-                    return True
-
-                if self.cvvoipcallactiveremoteudpport is not None:
-                    return True
-
-                if self.cvvoipcallactiveremsigipaddr is not None:
-                    return True
-
-                if self.cvvoipcallactiveremsigipaddrt is not None:
-                    return True
-
-                if self.cvvoipcallactiveremsigport is not None:
-                    return True
-
-                if self.cvvoipcallactivereverseddirectionpeeraddress is not None:
-                    return True
-
-                if self.cvvoipcallactiverobustsorting is not None:
-                    return True
-
-                if self.cvvoipcallactiveroundtripdelay is not None:
-                    return True
-
-                if self.cvvoipcallactiveselectedqos is not None:
-                    return True
-
-                if self.cvvoipcallactivesessionid is not None:
-                    return True
-
-                if self.cvvoipcallactivesessionprotocol is not None:
-                    return True
-
-                if self.cvvoipcallactivesessiontarget is not None:
-                    return True
-
-                if self.cvvoipcallactivesrtpenable is not None:
-                    return True
-
-                if self.cvvoipcallactiveusername is not None:
-                    return True
-
-                if self.cvvoipcallactivevadenable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvvoipcallactivetable.Cvvoipcallactiveentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPCallActiveTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvvoipcallactiveentry is not None:
-                for child_ref in self.cvvoipcallactiveentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvvoipcallactiveentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvVoIPCallActiveTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvVoIPCallActiveEntry"):
+                for c in self.cvvoipcallactiveentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvvoipcallactivetable.Cvvoipcallactiveentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvvoipcallactiveentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvVoIPCallActiveEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvvoipcallactivetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcallvolconntable(object):
+    class Cvcallvolconntable(Entity):
         """
         This table represents the number of active
         call connections for each call connection type
@@ -3164,13 +4953,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallvolconnentry = YList()
-            self.cvcallvolconnentry.parent = self
-            self.cvcallvolconnentry.name = 'cvcallvolconnentry'
+            super(CiscoVoiceDialControlMib.Cvcallvolconntable, self).__init__()
+
+            self.yang_name = "cvCallVolConnTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcallvolconnentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallvolconntable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallvolconntable, self).__setattr__(name, value)
 
 
-        class Cvcallvolconnentry(object):
+        class Cvcallvolconnentry(Entity):
             """
             An entry in the cvCallVolConnTable indicates
             number of active calls for a call connection type
@@ -3179,7 +4994,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcallvolconnindex  <key>
             
             	This object represents index to the cvCallVolConnTable
-            	**type**\:   :py:class:`CvcallconnectiontypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallconnectiontypeEnum>`
+            	**type**\:   :py:class:`Cvcallconnectiontype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallconnectiontype>`
             
             .. attribute:: cvcallvolconnactiveconnection
             
@@ -3196,59 +5011,154 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvcallvolconnindex = None
-                self.cvcallvolconnactiveconnection = None
+                super(CiscoVoiceDialControlMib.Cvcallvolconntable.Cvcallvolconnentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvcallvolconnindex is None:
-                    raise YPYModelError('Key property cvcallvolconnindex is None')
+                self.yang_name = "cvCallVolConnEntry"
+                self.yang_parent_name = "cvCallVolConnTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolConnTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolConnEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolConnIndex = ' + str(self.cvcallvolconnindex) + ']'
+                self.cvcallvolconnindex = YLeaf(YType.enumeration, "cvCallVolConnIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcallvolconnactiveconnection = YLeaf(YType.uint32, "cvCallVolConnActiveConnection")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvcallvolconnindex",
+                                "cvcallvolconnactiveconnection") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcallvolconntable.Cvcallvolconnentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcallvolconntable.Cvcallvolconnentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvcallvolconnindex.is_set or
+                    self.cvcallvolconnactiveconnection.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvcallvolconnindex.yfilter != YFilter.not_set or
+                    self.cvcallvolconnactiveconnection.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallVolConnEntry" + "[cvCallVolConnIndex='" + self.cvcallvolconnindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolConnTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvcallvolconnindex.is_set or self.cvcallvolconnindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallvolconnindex.get_name_leafdata())
+                if (self.cvcallvolconnactiveconnection.is_set or self.cvcallvolconnactiveconnection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallvolconnactiveconnection.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvCallVolConnIndex" or name == "cvCallVolConnActiveConnection"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvcallvolconnindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvCallVolConnIndex"):
+                    self.cvcallvolconnindex = value
+                    self.cvcallvolconnindex.value_namespace = name_space
+                    self.cvcallvolconnindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallVolConnActiveConnection"):
+                    self.cvcallvolconnactiveconnection = value
+                    self.cvcallvolconnactiveconnection.value_namespace = name_space
+                    self.cvcallvolconnactiveconnection.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcallvolconnentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcallvolconnactiveconnection is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcallvolconntable.Cvcallvolconnentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolConnTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcallvolconnentry is not None:
-                for child_ref in self.cvcallvolconnentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcallvolconnentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallVolConnTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallVolConnEntry"):
+                for c in self.cvcallvolconnentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcallvolconntable.Cvcallvolconnentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcallvolconnentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallVolConnEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallvolconntable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcallvoliftable(object):
+    class Cvcallvoliftable(Entity):
         """
         This table represents the information about
         the usage of an IP interface in a voice
@@ -3271,13 +5181,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallvolifentry = YList()
-            self.cvcallvolifentry.parent = self
-            self.cvcallvolifentry.name = 'cvcallvolifentry'
+            super(CiscoVoiceDialControlMib.Cvcallvoliftable, self).__init__()
+
+            self.yang_name = "cvCallVolIfTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcallvolifentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallvoliftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallvoliftable, self).__setattr__(name, value)
 
 
-        class Cvcallvolifentry(object):
+        class Cvcallvolifentry(Entity):
             """
             Each entry represents a row in cvCallVolIfTable
             and corresponds to the information about an IP 
@@ -3314,63 +5250,165 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cvcallvolmediaincomingcalls = None
-                self.cvcallvolmediaoutgoingcalls = None
+                super(CiscoVoiceDialControlMib.Cvcallvoliftable.Cvcallvolifentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "cvCallVolIfEntry"
+                self.yang_parent_name = "cvCallVolIfTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolIfTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolIfEntry[CISCO-VOICE-DIAL-CONTROL-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcallvolmediaincomingcalls = YLeaf(YType.uint32, "cvCallVolMediaIncomingCalls")
+
+                self.cvcallvolmediaoutgoingcalls = YLeaf(YType.uint32, "cvCallVolMediaOutgoingCalls")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cvcallvolmediaincomingcalls",
+                                "cvcallvolmediaoutgoingcalls") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcallvoliftable.Cvcallvolifentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcallvoliftable.Cvcallvolifentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cvcallvolmediaincomingcalls.is_set or
+                    self.cvcallvolmediaoutgoingcalls.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cvcallvolmediaincomingcalls.yfilter != YFilter.not_set or
+                    self.cvcallvolmediaoutgoingcalls.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallVolIfEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolIfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cvcallvolmediaincomingcalls.is_set or self.cvcallvolmediaincomingcalls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallvolmediaincomingcalls.get_name_leafdata())
+                if (self.cvcallvolmediaoutgoingcalls.is_set or self.cvcallvolmediaoutgoingcalls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallvolmediaoutgoingcalls.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cvCallVolMediaIncomingCalls" or name == "cvCallVolMediaOutgoingCalls"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallVolMediaIncomingCalls"):
+                    self.cvcallvolmediaincomingcalls = value
+                    self.cvcallvolmediaincomingcalls.value_namespace = name_space
+                    self.cvcallvolmediaincomingcalls.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallVolMediaOutgoingCalls"):
+                    self.cvcallvolmediaoutgoingcalls = value
+                    self.cvcallvolmediaoutgoingcalls.value_namespace = name_space
+                    self.cvcallvolmediaoutgoingcalls.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcallvolifentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcallvolmediaincomingcalls is not None:
-                    return True
-
-                if self.cvcallvolmediaoutgoingcalls is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcallvoliftable.Cvcallvolifentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallVolIfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcallvolifentry is not None:
-                for child_ref in self.cvcallvolifentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcallvolifentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallVolIfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallVolIfEntry"):
+                for c in self.cvcallvolifentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcallvoliftable.Cvcallvolifentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcallvolifentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallVolIfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallvoliftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcallhistorytable(object):
+    class Cvcallhistorytable(Entity):
         """
         This table is the voice extension to the call history table
         of IETF Dial Control MIB. It contains voice encapsulation
@@ -3390,13 +5428,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallhistoryentry = YList()
-            self.cvcallhistoryentry.parent = self
-            self.cvcallhistoryentry.name = 'cvcallhistoryentry'
+            super(CiscoVoiceDialControlMib.Cvcallhistorytable, self).__init__()
+
+            self.yang_name = "cvCallHistoryTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcallhistoryentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallhistorytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallhistorytable, self).__setattr__(name, value)
 
 
-        class Cvcallhistoryentry(object):
+        class Cvcallhistoryentry(Entity):
             """
             The information regarding a single voice encapsulation
             call leg.
@@ -3455,7 +5519,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcallhistorycodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call
-            	**type**\:   :py:class:`CvccodertyperateEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvccodertyperateEnum>`
+            	**type**\:   :py:class:`Cvccodertyperate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvccodertyperate>`
             
             .. attribute:: cvcallhistoryconnectionid
             
@@ -3524,107 +5588,286 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.ccallhistoryindex = None
-                self.cvcallhistoryaccountcode = None
-                self.cvcallhistoryacomlevel = None
-                self.cvcallhistorycalleridblock = None
-                self.cvcallhistorycallid = None
-                self.cvcallhistorycallingname = None
-                self.cvcallhistorycodertyperate = None
-                self.cvcallhistoryconnectionid = None
-                self.cvcallhistoryfaxtxduration = None
-                self.cvcallhistoryimgpagecount = None
-                self.cvcallhistorynoiselevel = None
-                self.cvcallhistorysessiontarget = None
-                self.cvcallhistorytxduration = None
-                self.cvcallhistoryvoicetxduration = None
+                super(CiscoVoiceDialControlMib.Cvcallhistorytable.Cvcallhistoryentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccallhistoryindex is None:
-                    raise YPYModelError('Key property ccallhistoryindex is None')
+                self.yang_name = "cvCallHistoryEntry"
+                self.yang_parent_name = "cvCallHistoryTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallHistoryTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallHistoryEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cCallHistoryIndex = ' + str(self.ccallhistoryindex) + ']'
+                self.ccallhistoryindex = YLeaf(YType.str, "cCallHistoryIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcallhistoryaccountcode = YLeaf(YType.str, "cvCallHistoryAccountCode")
+
+                self.cvcallhistoryacomlevel = YLeaf(YType.int32, "cvCallHistoryACOMLevel")
+
+                self.cvcallhistorycalleridblock = YLeaf(YType.boolean, "cvCallHistoryCallerIDBlock")
+
+                self.cvcallhistorycallid = YLeaf(YType.uint32, "cvCallHistoryCallId")
+
+                self.cvcallhistorycallingname = YLeaf(YType.str, "cvCallHistoryCallingName")
+
+                self.cvcallhistorycodertyperate = YLeaf(YType.enumeration, "cvCallHistoryCoderTypeRate")
+
+                self.cvcallhistoryconnectionid = YLeaf(YType.str, "cvCallHistoryConnectionId")
+
+                self.cvcallhistoryfaxtxduration = YLeaf(YType.uint32, "cvCallHistoryFaxTxDuration")
+
+                self.cvcallhistoryimgpagecount = YLeaf(YType.uint32, "cvCallHistoryImgPageCount")
+
+                self.cvcallhistorynoiselevel = YLeaf(YType.int32, "cvCallHistoryNoiseLevel")
+
+                self.cvcallhistorysessiontarget = YLeaf(YType.str, "cvCallHistorySessionTarget")
+
+                self.cvcallhistorytxduration = YLeaf(YType.uint32, "cvCallHistoryTxDuration")
+
+                self.cvcallhistoryvoicetxduration = YLeaf(YType.uint32, "cvCallHistoryVoiceTxDuration")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccallhistoryindex",
+                                "cvcallhistoryaccountcode",
+                                "cvcallhistoryacomlevel",
+                                "cvcallhistorycalleridblock",
+                                "cvcallhistorycallid",
+                                "cvcallhistorycallingname",
+                                "cvcallhistorycodertyperate",
+                                "cvcallhistoryconnectionid",
+                                "cvcallhistoryfaxtxduration",
+                                "cvcallhistoryimgpagecount",
+                                "cvcallhistorynoiselevel",
+                                "cvcallhistorysessiontarget",
+                                "cvcallhistorytxduration",
+                                "cvcallhistoryvoicetxduration") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcallhistorytable.Cvcallhistoryentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcallhistorytable.Cvcallhistoryentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccallhistoryindex.is_set or
+                    self.cvcallhistoryaccountcode.is_set or
+                    self.cvcallhistoryacomlevel.is_set or
+                    self.cvcallhistorycalleridblock.is_set or
+                    self.cvcallhistorycallid.is_set or
+                    self.cvcallhistorycallingname.is_set or
+                    self.cvcallhistorycodertyperate.is_set or
+                    self.cvcallhistoryconnectionid.is_set or
+                    self.cvcallhistoryfaxtxduration.is_set or
+                    self.cvcallhistoryimgpagecount.is_set or
+                    self.cvcallhistorynoiselevel.is_set or
+                    self.cvcallhistorysessiontarget.is_set or
+                    self.cvcallhistorytxduration.is_set or
+                    self.cvcallhistoryvoicetxduration.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccallhistoryindex.yfilter != YFilter.not_set or
+                    self.cvcallhistoryaccountcode.yfilter != YFilter.not_set or
+                    self.cvcallhistoryacomlevel.yfilter != YFilter.not_set or
+                    self.cvcallhistorycalleridblock.yfilter != YFilter.not_set or
+                    self.cvcallhistorycallid.yfilter != YFilter.not_set or
+                    self.cvcallhistorycallingname.yfilter != YFilter.not_set or
+                    self.cvcallhistorycodertyperate.yfilter != YFilter.not_set or
+                    self.cvcallhistoryconnectionid.yfilter != YFilter.not_set or
+                    self.cvcallhistoryfaxtxduration.yfilter != YFilter.not_set or
+                    self.cvcallhistoryimgpagecount.yfilter != YFilter.not_set or
+                    self.cvcallhistorynoiselevel.yfilter != YFilter.not_set or
+                    self.cvcallhistorysessiontarget.yfilter != YFilter.not_set or
+                    self.cvcallhistorytxduration.yfilter != YFilter.not_set or
+                    self.cvcallhistoryvoicetxduration.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallHistoryTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccallhistoryindex.is_set or self.ccallhistoryindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryindex.get_name_leafdata())
+                if (self.cvcallhistoryaccountcode.is_set or self.cvcallhistoryaccountcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistoryaccountcode.get_name_leafdata())
+                if (self.cvcallhistoryacomlevel.is_set or self.cvcallhistoryacomlevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistoryacomlevel.get_name_leafdata())
+                if (self.cvcallhistorycalleridblock.is_set or self.cvcallhistorycalleridblock.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistorycalleridblock.get_name_leafdata())
+                if (self.cvcallhistorycallid.is_set or self.cvcallhistorycallid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistorycallid.get_name_leafdata())
+                if (self.cvcallhistorycallingname.is_set or self.cvcallhistorycallingname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistorycallingname.get_name_leafdata())
+                if (self.cvcallhistorycodertyperate.is_set or self.cvcallhistorycodertyperate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistorycodertyperate.get_name_leafdata())
+                if (self.cvcallhistoryconnectionid.is_set or self.cvcallhistoryconnectionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistoryconnectionid.get_name_leafdata())
+                if (self.cvcallhistoryfaxtxduration.is_set or self.cvcallhistoryfaxtxduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistoryfaxtxduration.get_name_leafdata())
+                if (self.cvcallhistoryimgpagecount.is_set or self.cvcallhistoryimgpagecount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistoryimgpagecount.get_name_leafdata())
+                if (self.cvcallhistorynoiselevel.is_set or self.cvcallhistorynoiselevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistorynoiselevel.get_name_leafdata())
+                if (self.cvcallhistorysessiontarget.is_set or self.cvcallhistorysessiontarget.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistorysessiontarget.get_name_leafdata())
+                if (self.cvcallhistorytxduration.is_set or self.cvcallhistorytxduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistorytxduration.get_name_leafdata())
+                if (self.cvcallhistoryvoicetxduration.is_set or self.cvcallhistoryvoicetxduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallhistoryvoicetxduration.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cCallHistoryIndex" or name == "cvCallHistoryAccountCode" or name == "cvCallHistoryACOMLevel" or name == "cvCallHistoryCallerIDBlock" or name == "cvCallHistoryCallId" or name == "cvCallHistoryCallingName" or name == "cvCallHistoryCoderTypeRate" or name == "cvCallHistoryConnectionId" or name == "cvCallHistoryFaxTxDuration" or name == "cvCallHistoryImgPageCount" or name == "cvCallHistoryNoiseLevel" or name == "cvCallHistorySessionTarget" or name == "cvCallHistoryTxDuration" or name == "cvCallHistoryVoiceTxDuration"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccallhistoryindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cCallHistoryIndex"):
+                    self.ccallhistoryindex = value
+                    self.ccallhistoryindex.value_namespace = name_space
+                    self.ccallhistoryindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryAccountCode"):
+                    self.cvcallhistoryaccountcode = value
+                    self.cvcallhistoryaccountcode.value_namespace = name_space
+                    self.cvcallhistoryaccountcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryACOMLevel"):
+                    self.cvcallhistoryacomlevel = value
+                    self.cvcallhistoryacomlevel.value_namespace = name_space
+                    self.cvcallhistoryacomlevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryCallerIDBlock"):
+                    self.cvcallhistorycalleridblock = value
+                    self.cvcallhistorycalleridblock.value_namespace = name_space
+                    self.cvcallhistorycalleridblock.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryCallId"):
+                    self.cvcallhistorycallid = value
+                    self.cvcallhistorycallid.value_namespace = name_space
+                    self.cvcallhistorycallid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryCallingName"):
+                    self.cvcallhistorycallingname = value
+                    self.cvcallhistorycallingname.value_namespace = name_space
+                    self.cvcallhistorycallingname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryCoderTypeRate"):
+                    self.cvcallhistorycodertyperate = value
+                    self.cvcallhistorycodertyperate.value_namespace = name_space
+                    self.cvcallhistorycodertyperate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryConnectionId"):
+                    self.cvcallhistoryconnectionid = value
+                    self.cvcallhistoryconnectionid.value_namespace = name_space
+                    self.cvcallhistoryconnectionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryFaxTxDuration"):
+                    self.cvcallhistoryfaxtxduration = value
+                    self.cvcallhistoryfaxtxduration.value_namespace = name_space
+                    self.cvcallhistoryfaxtxduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryImgPageCount"):
+                    self.cvcallhistoryimgpagecount = value
+                    self.cvcallhistoryimgpagecount.value_namespace = name_space
+                    self.cvcallhistoryimgpagecount.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryNoiseLevel"):
+                    self.cvcallhistorynoiselevel = value
+                    self.cvcallhistorynoiselevel.value_namespace = name_space
+                    self.cvcallhistorynoiselevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistorySessionTarget"):
+                    self.cvcallhistorysessiontarget = value
+                    self.cvcallhistorysessiontarget.value_namespace = name_space
+                    self.cvcallhistorysessiontarget.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryTxDuration"):
+                    self.cvcallhistorytxduration = value
+                    self.cvcallhistorytxduration.value_namespace = name_space
+                    self.cvcallhistorytxduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallHistoryVoiceTxDuration"):
+                    self.cvcallhistoryvoicetxduration = value
+                    self.cvcallhistoryvoicetxduration.value_namespace = name_space
+                    self.cvcallhistoryvoicetxduration.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcallhistoryentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcallhistoryaccountcode is not None:
-                    return True
-
-                if self.cvcallhistoryacomlevel is not None:
-                    return True
-
-                if self.cvcallhistorycalleridblock is not None:
-                    return True
-
-                if self.cvcallhistorycallid is not None:
-                    return True
-
-                if self.cvcallhistorycallingname is not None:
-                    return True
-
-                if self.cvcallhistorycodertyperate is not None:
-                    return True
-
-                if self.cvcallhistoryconnectionid is not None:
-                    return True
-
-                if self.cvcallhistoryfaxtxduration is not None:
-                    return True
-
-                if self.cvcallhistoryimgpagecount is not None:
-                    return True
-
-                if self.cvcallhistorynoiselevel is not None:
-                    return True
-
-                if self.cvcallhistorysessiontarget is not None:
-                    return True
-
-                if self.cvcallhistorytxduration is not None:
-                    return True
-
-                if self.cvcallhistoryvoicetxduration is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcallhistorytable.Cvcallhistoryentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallHistoryTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcallhistoryentry is not None:
-                for child_ref in self.cvcallhistoryentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcallhistoryentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallHistoryTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallHistoryEntry"):
+                for c in self.cvcallhistoryentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcallhistorytable.Cvcallhistoryentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcallhistoryentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallHistoryEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallhistorytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvvoipcallhistorytable(object):
+    class Cvvoipcallhistorytable(Entity):
         """
         This table is the VoIP extension to the call history table
         of IETF Dial Control MIB. It contains VoIP call leg
@@ -3644,13 +5887,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvvoipcallhistoryentry = YList()
-            self.cvvoipcallhistoryentry.parent = self
-            self.cvvoipcallhistoryentry.name = 'cvvoipcallhistoryentry'
+            super(CiscoVoiceDialControlMib.Cvvoipcallhistorytable, self).__init__()
+
+            self.yang_name = "cvVoIPCallHistoryTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvvoipcallhistoryentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvvoipcallhistorytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvvoipcallhistorytable, self).__setattr__(name, value)
 
 
-        class Cvvoipcallhistoryentry(object):
+        class Cvvoipcallhistoryentry(Entity):
             """
             The information regarding a single VoIP call leg.
             The call leg entry is identified by using the same index
@@ -3704,14 +5973,14 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallhistorycodermode
             
             	The object indicates the iLBC mode. The value of this object is valid only if  cvVoIPCallHistoryCoderTypeRate is equal to  'iLBC'
-            	**type**\:   :py:class:`CvilbcframemodeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvilbcframemodeEnum>`
+            	**type**\:   :py:class:`Cvilbcframemode <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvilbcframemode>`
             
             	**units**\: milliseconds
             
             .. attribute:: cvvoipcallhistorycodertyperate
             
             	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for the call. This rate is different from the configuration rate because of rate negotiation during the call
-            	**type**\:   :py:class:`CvccodertyperateEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvccodertyperateEnum>`
+            	**type**\:   :py:class:`Cvccodertyperate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.Cvccodertyperate>`
             
             	**status**\: deprecated
             
@@ -3739,7 +6008,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallhistoryencap
             
             	The object indicates the RTP encapsulation type. Supported RTP encapsulation type is RFC3267. This object is not instantiated when the object cvVoIPCallHistoryCoderTypeRate is not equal to gsmAmrNb enum
-            	**type**\:   :py:class:`CvamrnbrtpencapEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvamrnbrtpencapEnum>`
+            	**type**\:   :py:class:`Cvamrnbrtpencap <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvamrnbrtpencap>`
             
             .. attribute:: cvvoipcallhistoryfallbackdelay
             
@@ -3922,7 +6191,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallhistoryremmediaipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallHistoryRemMediaIPAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvvoipcallhistoryremmediaport
             
@@ -3959,7 +6228,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallhistoryremsigipaddrt
             
             	This object specifies the type of address contained in the associated instance of cvVoIPCallHistoryRemSigIPAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvvoipcallhistoryremsigport
             
@@ -3985,7 +6254,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallhistoryselectedqos
             
             	The selected RSVP QoS for the call
-            	**type**\:   :py:class:`QosserviceEnum <ydk.models.cisco_ios_xe.INT_SERV_MIB.QosserviceEnum>`
+            	**type**\:   :py:class:`Qosservice <ydk.models.cisco_ios_xe.INT_SERV_MIB.Qosservice>`
             
             .. attribute:: cvvoipcallhistorysessionid
             
@@ -3997,7 +6266,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvvoipcallhistorysessionprotocol
             
             	The object specifies the session protocol to be used for Internet call between local and remote router via IP backbone
-            	**type**\:   :py:class:`CvsessionprotocolEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvsessionprotocolEnum>`
+            	**type**\:   :py:class:`Cvsessionprotocol <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvsessionprotocol>`
             
             .. attribute:: cvvoipcallhistorysessiontarget
             
@@ -4031,248 +6300,669 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.ccallhistoryindex = None
-                self.cvvoipcallhistorybitrates = Cvamrnbbitratemode()
-                self.cvvoipcallhistorycallid = None
-                self.cvvoipcallhistorycallreferenceid = None
-                self.cvvoipcallhistorychannels = None
-                self.cvvoipcallhistorycodermode = None
-                self.cvvoipcallhistorycodertyperate = None
-                self.cvvoipcallhistoryconnectionid = None
-                self.cvvoipcallhistorycrc = None
-                self.cvvoipcallhistoryearlypackets = None
-                self.cvvoipcallhistoryencap = None
-                self.cvvoipcallhistoryfallbackdelay = None
-                self.cvvoipcallhistoryfallbackicpif = None
-                self.cvvoipcallhistoryfallbackloss = None
-                self.cvvoipcallhistorygapfillwithinterpolation = None
-                self.cvvoipcallhistorygapfillwithprediction = None
-                self.cvvoipcallhistorygapfillwithredundancy = None
-                self.cvvoipcallhistorygapfillwithsilence = None
-                self.cvvoipcallhistoryhiwaterplayoutdelay = None
-                self.cvvoipcallhistoryicpif = None
-                self.cvvoipcallhistoryinterleaving = None
-                self.cvvoipcallhistorylatepackets = None
-                self.cvvoipcallhistorylostpackets = None
-                self.cvvoipcallhistorylowaterplayoutdelay = None
-                self.cvvoipcallhistorymaxptime = None
-                self.cvvoipcallhistorymodechgneighbor = None
-                self.cvvoipcallhistorymodechgperiod = None
-                self.cvvoipcallhistoryoctetaligned = None
-                self.cvvoipcallhistoryontimervplayout = None
-                self.cvvoipcallhistoryprotocolcallid = None
-                self.cvvoipcallhistoryptime = None
-                self.cvvoipcallhistoryreceivedelay = None
-                self.cvvoipcallhistoryremmediaipaddr = None
-                self.cvvoipcallhistoryremmediaipaddrt = None
-                self.cvvoipcallhistoryremmediaport = None
-                self.cvvoipcallhistoryremoteipaddress = None
-                self.cvvoipcallhistoryremoteudpport = None
-                self.cvvoipcallhistoryremsigipaddr = None
-                self.cvvoipcallhistoryremsigipaddrt = None
-                self.cvvoipcallhistoryremsigport = None
-                self.cvvoipcallhistoryrobustsorting = None
-                self.cvvoipcallhistoryroundtripdelay = None
-                self.cvvoipcallhistoryselectedqos = None
-                self.cvvoipcallhistorysessionid = None
-                self.cvvoipcallhistorysessionprotocol = None
-                self.cvvoipcallhistorysessiontarget = None
-                self.cvvoipcallhistorysrtpenable = None
-                self.cvvoipcallhistoryusername = None
-                self.cvvoipcallhistoryvadenable = None
+                super(CiscoVoiceDialControlMib.Cvvoipcallhistorytable.Cvvoipcallhistoryentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccallhistoryindex is None:
-                    raise YPYModelError('Key property ccallhistoryindex is None')
+                self.yang_name = "cvVoIPCallHistoryEntry"
+                self.yang_parent_name = "cvVoIPCallHistoryTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPCallHistoryTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPCallHistoryEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cCallHistoryIndex = ' + str(self.ccallhistoryindex) + ']'
+                self.ccallhistoryindex = YLeaf(YType.str, "cCallHistoryIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvvoipcallhistorybitrates = YLeaf(YType.bits, "cvVoIPCallHistoryBitRates")
+
+                self.cvvoipcallhistorycallid = YLeaf(YType.uint32, "cvVoIPCallHistoryCallId")
+
+                self.cvvoipcallhistorycallreferenceid = YLeaf(YType.uint32, "cvVoIPCallHistoryCallReferenceId")
+
+                self.cvvoipcallhistorychannels = YLeaf(YType.int32, "cvVoIPCallHistoryChannels")
+
+                self.cvvoipcallhistorycodermode = YLeaf(YType.enumeration, "cvVoIPCallHistoryCoderMode")
+
+                self.cvvoipcallhistorycodertyperate = YLeaf(YType.enumeration, "cvVoIPCallHistoryCoderTypeRate")
+
+                self.cvvoipcallhistoryconnectionid = YLeaf(YType.str, "cvVoIPCallHistoryConnectionId")
+
+                self.cvvoipcallhistorycrc = YLeaf(YType.boolean, "cvVoIPCallHistoryCRC")
+
+                self.cvvoipcallhistoryearlypackets = YLeaf(YType.uint32, "cvVoIPCallHistoryEarlyPackets")
+
+                self.cvvoipcallhistoryencap = YLeaf(YType.enumeration, "cvVoIPCallHistoryEncap")
+
+                self.cvvoipcallhistoryfallbackdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryFallbackDelay")
+
+                self.cvvoipcallhistoryfallbackicpif = YLeaf(YType.int32, "cvVoIPCallHistoryFallbackIcpif")
+
+                self.cvvoipcallhistoryfallbackloss = YLeaf(YType.uint32, "cvVoIPCallHistoryFallbackLoss")
+
+                self.cvvoipcallhistorygapfillwithinterpolation = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithInterpolation")
+
+                self.cvvoipcallhistorygapfillwithprediction = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithPrediction")
+
+                self.cvvoipcallhistorygapfillwithredundancy = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithRedundancy")
+
+                self.cvvoipcallhistorygapfillwithsilence = YLeaf(YType.uint32, "cvVoIPCallHistoryGapFillWithSilence")
+
+                self.cvvoipcallhistoryhiwaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryHiWaterPlayoutDelay")
+
+                self.cvvoipcallhistoryicpif = YLeaf(YType.int32, "cvVoIPCallHistoryIcpif")
+
+                self.cvvoipcallhistoryinterleaving = YLeaf(YType.int32, "cvVoIPCallHistoryInterleaving")
+
+                self.cvvoipcallhistorylatepackets = YLeaf(YType.uint32, "cvVoIPCallHistoryLatePackets")
+
+                self.cvvoipcallhistorylostpackets = YLeaf(YType.uint32, "cvVoIPCallHistoryLostPackets")
+
+                self.cvvoipcallhistorylowaterplayoutdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryLoWaterPlayoutDelay")
+
+                self.cvvoipcallhistorymaxptime = YLeaf(YType.int32, "cvVoIPCallHistoryMaxPtime")
+
+                self.cvvoipcallhistorymodechgneighbor = YLeaf(YType.boolean, "cvVoIPCallHistoryModeChgNeighbor")
+
+                self.cvvoipcallhistorymodechgperiod = YLeaf(YType.int32, "cvVoIPCallHistoryModeChgPeriod")
+
+                self.cvvoipcallhistoryoctetaligned = YLeaf(YType.boolean, "cvVoIPCallHistoryOctetAligned")
+
+                self.cvvoipcallhistoryontimervplayout = YLeaf(YType.uint32, "cvVoIPCallHistoryOnTimeRvPlayout")
+
+                self.cvvoipcallhistoryprotocolcallid = YLeaf(YType.str, "cvVoIPCallHistoryProtocolCallId")
+
+                self.cvvoipcallhistoryptime = YLeaf(YType.int32, "cvVoIPCallHistoryPtime")
+
+                self.cvvoipcallhistoryreceivedelay = YLeaf(YType.uint32, "cvVoIPCallHistoryReceiveDelay")
+
+                self.cvvoipcallhistoryremmediaipaddr = YLeaf(YType.str, "cvVoIPCallHistoryRemMediaIPAddr")
+
+                self.cvvoipcallhistoryremmediaipaddrt = YLeaf(YType.enumeration, "cvVoIPCallHistoryRemMediaIPAddrT")
+
+                self.cvvoipcallhistoryremmediaport = YLeaf(YType.int32, "cvVoIPCallHistoryRemMediaPort")
+
+                self.cvvoipcallhistoryremoteipaddress = YLeaf(YType.str, "cvVoIPCallHistoryRemoteIPAddress")
+
+                self.cvvoipcallhistoryremoteudpport = YLeaf(YType.int32, "cvVoIPCallHistoryRemoteUDPPort")
+
+                self.cvvoipcallhistoryremsigipaddr = YLeaf(YType.str, "cvVoIPCallHistoryRemSigIPAddr")
+
+                self.cvvoipcallhistoryremsigipaddrt = YLeaf(YType.enumeration, "cvVoIPCallHistoryRemSigIPAddrT")
+
+                self.cvvoipcallhistoryremsigport = YLeaf(YType.int32, "cvVoIPCallHistoryRemSigPort")
+
+                self.cvvoipcallhistoryrobustsorting = YLeaf(YType.boolean, "cvVoIPCallHistoryRobustSorting")
+
+                self.cvvoipcallhistoryroundtripdelay = YLeaf(YType.uint32, "cvVoIPCallHistoryRoundTripDelay")
+
+                self.cvvoipcallhistoryselectedqos = YLeaf(YType.enumeration, "cvVoIPCallHistorySelectedQoS")
+
+                self.cvvoipcallhistorysessionid = YLeaf(YType.uint32, "cvVoIPCallHistorySessionId")
+
+                self.cvvoipcallhistorysessionprotocol = YLeaf(YType.enumeration, "cvVoIPCallHistorySessionProtocol")
+
+                self.cvvoipcallhistorysessiontarget = YLeaf(YType.str, "cvVoIPCallHistorySessionTarget")
+
+                self.cvvoipcallhistorysrtpenable = YLeaf(YType.boolean, "cvVoIPCallHistorySRTPEnable")
+
+                self.cvvoipcallhistoryusername = YLeaf(YType.str, "cvVoIPCallHistoryUsername")
+
+                self.cvvoipcallhistoryvadenable = YLeaf(YType.boolean, "cvVoIPCallHistoryVADEnable")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccallhistoryindex",
+                                "cvvoipcallhistorybitrates",
+                                "cvvoipcallhistorycallid",
+                                "cvvoipcallhistorycallreferenceid",
+                                "cvvoipcallhistorychannels",
+                                "cvvoipcallhistorycodermode",
+                                "cvvoipcallhistorycodertyperate",
+                                "cvvoipcallhistoryconnectionid",
+                                "cvvoipcallhistorycrc",
+                                "cvvoipcallhistoryearlypackets",
+                                "cvvoipcallhistoryencap",
+                                "cvvoipcallhistoryfallbackdelay",
+                                "cvvoipcallhistoryfallbackicpif",
+                                "cvvoipcallhistoryfallbackloss",
+                                "cvvoipcallhistorygapfillwithinterpolation",
+                                "cvvoipcallhistorygapfillwithprediction",
+                                "cvvoipcallhistorygapfillwithredundancy",
+                                "cvvoipcallhistorygapfillwithsilence",
+                                "cvvoipcallhistoryhiwaterplayoutdelay",
+                                "cvvoipcallhistoryicpif",
+                                "cvvoipcallhistoryinterleaving",
+                                "cvvoipcallhistorylatepackets",
+                                "cvvoipcallhistorylostpackets",
+                                "cvvoipcallhistorylowaterplayoutdelay",
+                                "cvvoipcallhistorymaxptime",
+                                "cvvoipcallhistorymodechgneighbor",
+                                "cvvoipcallhistorymodechgperiod",
+                                "cvvoipcallhistoryoctetaligned",
+                                "cvvoipcallhistoryontimervplayout",
+                                "cvvoipcallhistoryprotocolcallid",
+                                "cvvoipcallhistoryptime",
+                                "cvvoipcallhistoryreceivedelay",
+                                "cvvoipcallhistoryremmediaipaddr",
+                                "cvvoipcallhistoryremmediaipaddrt",
+                                "cvvoipcallhistoryremmediaport",
+                                "cvvoipcallhistoryremoteipaddress",
+                                "cvvoipcallhistoryremoteudpport",
+                                "cvvoipcallhistoryremsigipaddr",
+                                "cvvoipcallhistoryremsigipaddrt",
+                                "cvvoipcallhistoryremsigport",
+                                "cvvoipcallhistoryrobustsorting",
+                                "cvvoipcallhistoryroundtripdelay",
+                                "cvvoipcallhistoryselectedqos",
+                                "cvvoipcallhistorysessionid",
+                                "cvvoipcallhistorysessionprotocol",
+                                "cvvoipcallhistorysessiontarget",
+                                "cvvoipcallhistorysrtpenable",
+                                "cvvoipcallhistoryusername",
+                                "cvvoipcallhistoryvadenable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvvoipcallhistorytable.Cvvoipcallhistoryentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvvoipcallhistorytable.Cvvoipcallhistoryentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccallhistoryindex.is_set or
+                    self.cvvoipcallhistorybitrates.is_set or
+                    self.cvvoipcallhistorycallid.is_set or
+                    self.cvvoipcallhistorycallreferenceid.is_set or
+                    self.cvvoipcallhistorychannels.is_set or
+                    self.cvvoipcallhistorycodermode.is_set or
+                    self.cvvoipcallhistorycodertyperate.is_set or
+                    self.cvvoipcallhistoryconnectionid.is_set or
+                    self.cvvoipcallhistorycrc.is_set or
+                    self.cvvoipcallhistoryearlypackets.is_set or
+                    self.cvvoipcallhistoryencap.is_set or
+                    self.cvvoipcallhistoryfallbackdelay.is_set or
+                    self.cvvoipcallhistoryfallbackicpif.is_set or
+                    self.cvvoipcallhistoryfallbackloss.is_set or
+                    self.cvvoipcallhistorygapfillwithinterpolation.is_set or
+                    self.cvvoipcallhistorygapfillwithprediction.is_set or
+                    self.cvvoipcallhistorygapfillwithredundancy.is_set or
+                    self.cvvoipcallhistorygapfillwithsilence.is_set or
+                    self.cvvoipcallhistoryhiwaterplayoutdelay.is_set or
+                    self.cvvoipcallhistoryicpif.is_set or
+                    self.cvvoipcallhistoryinterleaving.is_set or
+                    self.cvvoipcallhistorylatepackets.is_set or
+                    self.cvvoipcallhistorylostpackets.is_set or
+                    self.cvvoipcallhistorylowaterplayoutdelay.is_set or
+                    self.cvvoipcallhistorymaxptime.is_set or
+                    self.cvvoipcallhistorymodechgneighbor.is_set or
+                    self.cvvoipcallhistorymodechgperiod.is_set or
+                    self.cvvoipcallhistoryoctetaligned.is_set or
+                    self.cvvoipcallhistoryontimervplayout.is_set or
+                    self.cvvoipcallhistoryprotocolcallid.is_set or
+                    self.cvvoipcallhistoryptime.is_set or
+                    self.cvvoipcallhistoryreceivedelay.is_set or
+                    self.cvvoipcallhistoryremmediaipaddr.is_set or
+                    self.cvvoipcallhistoryremmediaipaddrt.is_set or
+                    self.cvvoipcallhistoryremmediaport.is_set or
+                    self.cvvoipcallhistoryremoteipaddress.is_set or
+                    self.cvvoipcallhistoryremoteudpport.is_set or
+                    self.cvvoipcallhistoryremsigipaddr.is_set or
+                    self.cvvoipcallhistoryremsigipaddrt.is_set or
+                    self.cvvoipcallhistoryremsigport.is_set or
+                    self.cvvoipcallhistoryrobustsorting.is_set or
+                    self.cvvoipcallhistoryroundtripdelay.is_set or
+                    self.cvvoipcallhistoryselectedqos.is_set or
+                    self.cvvoipcallhistorysessionid.is_set or
+                    self.cvvoipcallhistorysessionprotocol.is_set or
+                    self.cvvoipcallhistorysessiontarget.is_set or
+                    self.cvvoipcallhistorysrtpenable.is_set or
+                    self.cvvoipcallhistoryusername.is_set or
+                    self.cvvoipcallhistoryvadenable.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccallhistoryindex.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorybitrates.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorycallid.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorycallreferenceid.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorychannels.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorycodermode.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorycodertyperate.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryconnectionid.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorycrc.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryearlypackets.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryencap.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryfallbackdelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryfallbackicpif.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryfallbackloss.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorygapfillwithinterpolation.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorygapfillwithprediction.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorygapfillwithredundancy.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorygapfillwithsilence.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryhiwaterplayoutdelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryicpif.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryinterleaving.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorylatepackets.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorylostpackets.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorylowaterplayoutdelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorymaxptime.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorymodechgneighbor.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorymodechgperiod.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryoctetaligned.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryontimervplayout.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryprotocolcallid.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryptime.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryreceivedelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremmediaipaddr.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremmediaipaddrt.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremmediaport.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremoteipaddress.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremoteudpport.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremsigipaddr.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremsigipaddrt.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryremsigport.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryrobustsorting.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryroundtripdelay.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryselectedqos.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorysessionid.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorysessionprotocol.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorysessiontarget.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistorysrtpenable.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryusername.yfilter != YFilter.not_set or
+                    self.cvvoipcallhistoryvadenable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvVoIPCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallHistoryTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccallhistoryindex.is_set or self.ccallhistoryindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccallhistoryindex.get_name_leafdata())
+                if (self.cvvoipcallhistorybitrates.is_set or self.cvvoipcallhistorybitrates.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorybitrates.get_name_leafdata())
+                if (self.cvvoipcallhistorycallid.is_set or self.cvvoipcallhistorycallid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorycallid.get_name_leafdata())
+                if (self.cvvoipcallhistorycallreferenceid.is_set or self.cvvoipcallhistorycallreferenceid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorycallreferenceid.get_name_leafdata())
+                if (self.cvvoipcallhistorychannels.is_set or self.cvvoipcallhistorychannels.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorychannels.get_name_leafdata())
+                if (self.cvvoipcallhistorycodermode.is_set or self.cvvoipcallhistorycodermode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorycodermode.get_name_leafdata())
+                if (self.cvvoipcallhistorycodertyperate.is_set or self.cvvoipcallhistorycodertyperate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorycodertyperate.get_name_leafdata())
+                if (self.cvvoipcallhistoryconnectionid.is_set or self.cvvoipcallhistoryconnectionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryconnectionid.get_name_leafdata())
+                if (self.cvvoipcallhistorycrc.is_set or self.cvvoipcallhistorycrc.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorycrc.get_name_leafdata())
+                if (self.cvvoipcallhistoryearlypackets.is_set or self.cvvoipcallhistoryearlypackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryearlypackets.get_name_leafdata())
+                if (self.cvvoipcallhistoryencap.is_set or self.cvvoipcallhistoryencap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryencap.get_name_leafdata())
+                if (self.cvvoipcallhistoryfallbackdelay.is_set or self.cvvoipcallhistoryfallbackdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryfallbackdelay.get_name_leafdata())
+                if (self.cvvoipcallhistoryfallbackicpif.is_set or self.cvvoipcallhistoryfallbackicpif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryfallbackicpif.get_name_leafdata())
+                if (self.cvvoipcallhistoryfallbackloss.is_set or self.cvvoipcallhistoryfallbackloss.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryfallbackloss.get_name_leafdata())
+                if (self.cvvoipcallhistorygapfillwithinterpolation.is_set or self.cvvoipcallhistorygapfillwithinterpolation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorygapfillwithinterpolation.get_name_leafdata())
+                if (self.cvvoipcallhistorygapfillwithprediction.is_set or self.cvvoipcallhistorygapfillwithprediction.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorygapfillwithprediction.get_name_leafdata())
+                if (self.cvvoipcallhistorygapfillwithredundancy.is_set or self.cvvoipcallhistorygapfillwithredundancy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorygapfillwithredundancy.get_name_leafdata())
+                if (self.cvvoipcallhistorygapfillwithsilence.is_set or self.cvvoipcallhistorygapfillwithsilence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorygapfillwithsilence.get_name_leafdata())
+                if (self.cvvoipcallhistoryhiwaterplayoutdelay.is_set or self.cvvoipcallhistoryhiwaterplayoutdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryhiwaterplayoutdelay.get_name_leafdata())
+                if (self.cvvoipcallhistoryicpif.is_set or self.cvvoipcallhistoryicpif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryicpif.get_name_leafdata())
+                if (self.cvvoipcallhistoryinterleaving.is_set or self.cvvoipcallhistoryinterleaving.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryinterleaving.get_name_leafdata())
+                if (self.cvvoipcallhistorylatepackets.is_set or self.cvvoipcallhistorylatepackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorylatepackets.get_name_leafdata())
+                if (self.cvvoipcallhistorylostpackets.is_set or self.cvvoipcallhistorylostpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorylostpackets.get_name_leafdata())
+                if (self.cvvoipcallhistorylowaterplayoutdelay.is_set or self.cvvoipcallhistorylowaterplayoutdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorylowaterplayoutdelay.get_name_leafdata())
+                if (self.cvvoipcallhistorymaxptime.is_set or self.cvvoipcallhistorymaxptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorymaxptime.get_name_leafdata())
+                if (self.cvvoipcallhistorymodechgneighbor.is_set or self.cvvoipcallhistorymodechgneighbor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorymodechgneighbor.get_name_leafdata())
+                if (self.cvvoipcallhistorymodechgperiod.is_set or self.cvvoipcallhistorymodechgperiod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorymodechgperiod.get_name_leafdata())
+                if (self.cvvoipcallhistoryoctetaligned.is_set or self.cvvoipcallhistoryoctetaligned.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryoctetaligned.get_name_leafdata())
+                if (self.cvvoipcallhistoryontimervplayout.is_set or self.cvvoipcallhistoryontimervplayout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryontimervplayout.get_name_leafdata())
+                if (self.cvvoipcallhistoryprotocolcallid.is_set or self.cvvoipcallhistoryprotocolcallid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryprotocolcallid.get_name_leafdata())
+                if (self.cvvoipcallhistoryptime.is_set or self.cvvoipcallhistoryptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryptime.get_name_leafdata())
+                if (self.cvvoipcallhistoryreceivedelay.is_set or self.cvvoipcallhistoryreceivedelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryreceivedelay.get_name_leafdata())
+                if (self.cvvoipcallhistoryremmediaipaddr.is_set or self.cvvoipcallhistoryremmediaipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremmediaipaddr.get_name_leafdata())
+                if (self.cvvoipcallhistoryremmediaipaddrt.is_set or self.cvvoipcallhistoryremmediaipaddrt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremmediaipaddrt.get_name_leafdata())
+                if (self.cvvoipcallhistoryremmediaport.is_set or self.cvvoipcallhistoryremmediaport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremmediaport.get_name_leafdata())
+                if (self.cvvoipcallhistoryremoteipaddress.is_set or self.cvvoipcallhistoryremoteipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremoteipaddress.get_name_leafdata())
+                if (self.cvvoipcallhistoryremoteudpport.is_set or self.cvvoipcallhistoryremoteudpport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremoteudpport.get_name_leafdata())
+                if (self.cvvoipcallhistoryremsigipaddr.is_set or self.cvvoipcallhistoryremsigipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremsigipaddr.get_name_leafdata())
+                if (self.cvvoipcallhistoryremsigipaddrt.is_set or self.cvvoipcallhistoryremsigipaddrt.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremsigipaddrt.get_name_leafdata())
+                if (self.cvvoipcallhistoryremsigport.is_set or self.cvvoipcallhistoryremsigport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryremsigport.get_name_leafdata())
+                if (self.cvvoipcallhistoryrobustsorting.is_set or self.cvvoipcallhistoryrobustsorting.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryrobustsorting.get_name_leafdata())
+                if (self.cvvoipcallhistoryroundtripdelay.is_set or self.cvvoipcallhistoryroundtripdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryroundtripdelay.get_name_leafdata())
+                if (self.cvvoipcallhistoryselectedqos.is_set or self.cvvoipcallhistoryselectedqos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryselectedqos.get_name_leafdata())
+                if (self.cvvoipcallhistorysessionid.is_set or self.cvvoipcallhistorysessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorysessionid.get_name_leafdata())
+                if (self.cvvoipcallhistorysessionprotocol.is_set or self.cvvoipcallhistorysessionprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorysessionprotocol.get_name_leafdata())
+                if (self.cvvoipcallhistorysessiontarget.is_set or self.cvvoipcallhistorysessiontarget.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorysessiontarget.get_name_leafdata())
+                if (self.cvvoipcallhistorysrtpenable.is_set or self.cvvoipcallhistorysrtpenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistorysrtpenable.get_name_leafdata())
+                if (self.cvvoipcallhistoryusername.is_set or self.cvvoipcallhistoryusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryusername.get_name_leafdata())
+                if (self.cvvoipcallhistoryvadenable.is_set or self.cvvoipcallhistoryvadenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvvoipcallhistoryvadenable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cCallHistoryIndex" or name == "cvVoIPCallHistoryBitRates" or name == "cvVoIPCallHistoryCallId" or name == "cvVoIPCallHistoryCallReferenceId" or name == "cvVoIPCallHistoryChannels" or name == "cvVoIPCallHistoryCoderMode" or name == "cvVoIPCallHistoryCoderTypeRate" or name == "cvVoIPCallHistoryConnectionId" or name == "cvVoIPCallHistoryCRC" or name == "cvVoIPCallHistoryEarlyPackets" or name == "cvVoIPCallHistoryEncap" or name == "cvVoIPCallHistoryFallbackDelay" or name == "cvVoIPCallHistoryFallbackIcpif" or name == "cvVoIPCallHistoryFallbackLoss" or name == "cvVoIPCallHistoryGapFillWithInterpolation" or name == "cvVoIPCallHistoryGapFillWithPrediction" or name == "cvVoIPCallHistoryGapFillWithRedundancy" or name == "cvVoIPCallHistoryGapFillWithSilence" or name == "cvVoIPCallHistoryHiWaterPlayoutDelay" or name == "cvVoIPCallHistoryIcpif" or name == "cvVoIPCallHistoryInterleaving" or name == "cvVoIPCallHistoryLatePackets" or name == "cvVoIPCallHistoryLostPackets" or name == "cvVoIPCallHistoryLoWaterPlayoutDelay" or name == "cvVoIPCallHistoryMaxPtime" or name == "cvVoIPCallHistoryModeChgNeighbor" or name == "cvVoIPCallHistoryModeChgPeriod" or name == "cvVoIPCallHistoryOctetAligned" or name == "cvVoIPCallHistoryOnTimeRvPlayout" or name == "cvVoIPCallHistoryProtocolCallId" or name == "cvVoIPCallHistoryPtime" or name == "cvVoIPCallHistoryReceiveDelay" or name == "cvVoIPCallHistoryRemMediaIPAddr" or name == "cvVoIPCallHistoryRemMediaIPAddrT" or name == "cvVoIPCallHistoryRemMediaPort" or name == "cvVoIPCallHistoryRemoteIPAddress" or name == "cvVoIPCallHistoryRemoteUDPPort" or name == "cvVoIPCallHistoryRemSigIPAddr" or name == "cvVoIPCallHistoryRemSigIPAddrT" or name == "cvVoIPCallHistoryRemSigPort" or name == "cvVoIPCallHistoryRobustSorting" or name == "cvVoIPCallHistoryRoundTripDelay" or name == "cvVoIPCallHistorySelectedQoS" or name == "cvVoIPCallHistorySessionId" or name == "cvVoIPCallHistorySessionProtocol" or name == "cvVoIPCallHistorySessionTarget" or name == "cvVoIPCallHistorySRTPEnable" or name == "cvVoIPCallHistoryUsername" or name == "cvVoIPCallHistoryVADEnable"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccallhistoryindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cCallHistoryIndex"):
+                    self.ccallhistoryindex = value
+                    self.ccallhistoryindex.value_namespace = name_space
+                    self.ccallhistoryindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryBitRates"):
+                    self.cvvoipcallhistorybitrates[value] = True
+                if(value_path == "cvVoIPCallHistoryCallId"):
+                    self.cvvoipcallhistorycallid = value
+                    self.cvvoipcallhistorycallid.value_namespace = name_space
+                    self.cvvoipcallhistorycallid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryCallReferenceId"):
+                    self.cvvoipcallhistorycallreferenceid = value
+                    self.cvvoipcallhistorycallreferenceid.value_namespace = name_space
+                    self.cvvoipcallhistorycallreferenceid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryChannels"):
+                    self.cvvoipcallhistorychannels = value
+                    self.cvvoipcallhistorychannels.value_namespace = name_space
+                    self.cvvoipcallhistorychannels.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryCoderMode"):
+                    self.cvvoipcallhistorycodermode = value
+                    self.cvvoipcallhistorycodermode.value_namespace = name_space
+                    self.cvvoipcallhistorycodermode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryCoderTypeRate"):
+                    self.cvvoipcallhistorycodertyperate = value
+                    self.cvvoipcallhistorycodertyperate.value_namespace = name_space
+                    self.cvvoipcallhistorycodertyperate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryConnectionId"):
+                    self.cvvoipcallhistoryconnectionid = value
+                    self.cvvoipcallhistoryconnectionid.value_namespace = name_space
+                    self.cvvoipcallhistoryconnectionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryCRC"):
+                    self.cvvoipcallhistorycrc = value
+                    self.cvvoipcallhistorycrc.value_namespace = name_space
+                    self.cvvoipcallhistorycrc.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryEarlyPackets"):
+                    self.cvvoipcallhistoryearlypackets = value
+                    self.cvvoipcallhistoryearlypackets.value_namespace = name_space
+                    self.cvvoipcallhistoryearlypackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryEncap"):
+                    self.cvvoipcallhistoryencap = value
+                    self.cvvoipcallhistoryencap.value_namespace = name_space
+                    self.cvvoipcallhistoryencap.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryFallbackDelay"):
+                    self.cvvoipcallhistoryfallbackdelay = value
+                    self.cvvoipcallhistoryfallbackdelay.value_namespace = name_space
+                    self.cvvoipcallhistoryfallbackdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryFallbackIcpif"):
+                    self.cvvoipcallhistoryfallbackicpif = value
+                    self.cvvoipcallhistoryfallbackicpif.value_namespace = name_space
+                    self.cvvoipcallhistoryfallbackicpif.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryFallbackLoss"):
+                    self.cvvoipcallhistoryfallbackloss = value
+                    self.cvvoipcallhistoryfallbackloss.value_namespace = name_space
+                    self.cvvoipcallhistoryfallbackloss.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryGapFillWithInterpolation"):
+                    self.cvvoipcallhistorygapfillwithinterpolation = value
+                    self.cvvoipcallhistorygapfillwithinterpolation.value_namespace = name_space
+                    self.cvvoipcallhistorygapfillwithinterpolation.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryGapFillWithPrediction"):
+                    self.cvvoipcallhistorygapfillwithprediction = value
+                    self.cvvoipcallhistorygapfillwithprediction.value_namespace = name_space
+                    self.cvvoipcallhistorygapfillwithprediction.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryGapFillWithRedundancy"):
+                    self.cvvoipcallhistorygapfillwithredundancy = value
+                    self.cvvoipcallhistorygapfillwithredundancy.value_namespace = name_space
+                    self.cvvoipcallhistorygapfillwithredundancy.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryGapFillWithSilence"):
+                    self.cvvoipcallhistorygapfillwithsilence = value
+                    self.cvvoipcallhistorygapfillwithsilence.value_namespace = name_space
+                    self.cvvoipcallhistorygapfillwithsilence.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryHiWaterPlayoutDelay"):
+                    self.cvvoipcallhistoryhiwaterplayoutdelay = value
+                    self.cvvoipcallhistoryhiwaterplayoutdelay.value_namespace = name_space
+                    self.cvvoipcallhistoryhiwaterplayoutdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryIcpif"):
+                    self.cvvoipcallhistoryicpif = value
+                    self.cvvoipcallhistoryicpif.value_namespace = name_space
+                    self.cvvoipcallhistoryicpif.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryInterleaving"):
+                    self.cvvoipcallhistoryinterleaving = value
+                    self.cvvoipcallhistoryinterleaving.value_namespace = name_space
+                    self.cvvoipcallhistoryinterleaving.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryLatePackets"):
+                    self.cvvoipcallhistorylatepackets = value
+                    self.cvvoipcallhistorylatepackets.value_namespace = name_space
+                    self.cvvoipcallhistorylatepackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryLostPackets"):
+                    self.cvvoipcallhistorylostpackets = value
+                    self.cvvoipcallhistorylostpackets.value_namespace = name_space
+                    self.cvvoipcallhistorylostpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryLoWaterPlayoutDelay"):
+                    self.cvvoipcallhistorylowaterplayoutdelay = value
+                    self.cvvoipcallhistorylowaterplayoutdelay.value_namespace = name_space
+                    self.cvvoipcallhistorylowaterplayoutdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryMaxPtime"):
+                    self.cvvoipcallhistorymaxptime = value
+                    self.cvvoipcallhistorymaxptime.value_namespace = name_space
+                    self.cvvoipcallhistorymaxptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryModeChgNeighbor"):
+                    self.cvvoipcallhistorymodechgneighbor = value
+                    self.cvvoipcallhistorymodechgneighbor.value_namespace = name_space
+                    self.cvvoipcallhistorymodechgneighbor.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryModeChgPeriod"):
+                    self.cvvoipcallhistorymodechgperiod = value
+                    self.cvvoipcallhistorymodechgperiod.value_namespace = name_space
+                    self.cvvoipcallhistorymodechgperiod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryOctetAligned"):
+                    self.cvvoipcallhistoryoctetaligned = value
+                    self.cvvoipcallhistoryoctetaligned.value_namespace = name_space
+                    self.cvvoipcallhistoryoctetaligned.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryOnTimeRvPlayout"):
+                    self.cvvoipcallhistoryontimervplayout = value
+                    self.cvvoipcallhistoryontimervplayout.value_namespace = name_space
+                    self.cvvoipcallhistoryontimervplayout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryProtocolCallId"):
+                    self.cvvoipcallhistoryprotocolcallid = value
+                    self.cvvoipcallhistoryprotocolcallid.value_namespace = name_space
+                    self.cvvoipcallhistoryprotocolcallid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryPtime"):
+                    self.cvvoipcallhistoryptime = value
+                    self.cvvoipcallhistoryptime.value_namespace = name_space
+                    self.cvvoipcallhistoryptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryReceiveDelay"):
+                    self.cvvoipcallhistoryreceivedelay = value
+                    self.cvvoipcallhistoryreceivedelay.value_namespace = name_space
+                    self.cvvoipcallhistoryreceivedelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemMediaIPAddr"):
+                    self.cvvoipcallhistoryremmediaipaddr = value
+                    self.cvvoipcallhistoryremmediaipaddr.value_namespace = name_space
+                    self.cvvoipcallhistoryremmediaipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemMediaIPAddrT"):
+                    self.cvvoipcallhistoryremmediaipaddrt = value
+                    self.cvvoipcallhistoryremmediaipaddrt.value_namespace = name_space
+                    self.cvvoipcallhistoryremmediaipaddrt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemMediaPort"):
+                    self.cvvoipcallhistoryremmediaport = value
+                    self.cvvoipcallhistoryremmediaport.value_namespace = name_space
+                    self.cvvoipcallhistoryremmediaport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemoteIPAddress"):
+                    self.cvvoipcallhistoryremoteipaddress = value
+                    self.cvvoipcallhistoryremoteipaddress.value_namespace = name_space
+                    self.cvvoipcallhistoryremoteipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemoteUDPPort"):
+                    self.cvvoipcallhistoryremoteudpport = value
+                    self.cvvoipcallhistoryremoteudpport.value_namespace = name_space
+                    self.cvvoipcallhistoryremoteudpport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemSigIPAddr"):
+                    self.cvvoipcallhistoryremsigipaddr = value
+                    self.cvvoipcallhistoryremsigipaddr.value_namespace = name_space
+                    self.cvvoipcallhistoryremsigipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemSigIPAddrT"):
+                    self.cvvoipcallhistoryremsigipaddrt = value
+                    self.cvvoipcallhistoryremsigipaddrt.value_namespace = name_space
+                    self.cvvoipcallhistoryremsigipaddrt.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRemSigPort"):
+                    self.cvvoipcallhistoryremsigport = value
+                    self.cvvoipcallhistoryremsigport.value_namespace = name_space
+                    self.cvvoipcallhistoryremsigport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRobustSorting"):
+                    self.cvvoipcallhistoryrobustsorting = value
+                    self.cvvoipcallhistoryrobustsorting.value_namespace = name_space
+                    self.cvvoipcallhistoryrobustsorting.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryRoundTripDelay"):
+                    self.cvvoipcallhistoryroundtripdelay = value
+                    self.cvvoipcallhistoryroundtripdelay.value_namespace = name_space
+                    self.cvvoipcallhistoryroundtripdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistorySelectedQoS"):
+                    self.cvvoipcallhistoryselectedqos = value
+                    self.cvvoipcallhistoryselectedqos.value_namespace = name_space
+                    self.cvvoipcallhistoryselectedqos.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistorySessionId"):
+                    self.cvvoipcallhistorysessionid = value
+                    self.cvvoipcallhistorysessionid.value_namespace = name_space
+                    self.cvvoipcallhistorysessionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistorySessionProtocol"):
+                    self.cvvoipcallhistorysessionprotocol = value
+                    self.cvvoipcallhistorysessionprotocol.value_namespace = name_space
+                    self.cvvoipcallhistorysessionprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistorySessionTarget"):
+                    self.cvvoipcallhistorysessiontarget = value
+                    self.cvvoipcallhistorysessiontarget.value_namespace = name_space
+                    self.cvvoipcallhistorysessiontarget.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistorySRTPEnable"):
+                    self.cvvoipcallhistorysrtpenable = value
+                    self.cvvoipcallhistorysrtpenable.value_namespace = name_space
+                    self.cvvoipcallhistorysrtpenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryUsername"):
+                    self.cvvoipcallhistoryusername = value
+                    self.cvvoipcallhistoryusername.value_namespace = name_space
+                    self.cvvoipcallhistoryusername.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvVoIPCallHistoryVADEnable"):
+                    self.cvvoipcallhistoryvadenable = value
+                    self.cvvoipcallhistoryvadenable.value_namespace = name_space
+                    self.cvvoipcallhistoryvadenable.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvvoipcallhistoryentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvvoipcallhistorybitrates is not None:
-                    if self.cvvoipcallhistorybitrates._has_data():
-                        return True
-
-                if self.cvvoipcallhistorycallid is not None:
-                    return True
-
-                if self.cvvoipcallhistorycallreferenceid is not None:
-                    return True
-
-                if self.cvvoipcallhistorychannels is not None:
-                    return True
-
-                if self.cvvoipcallhistorycodermode is not None:
-                    return True
-
-                if self.cvvoipcallhistorycodertyperate is not None:
-                    return True
-
-                if self.cvvoipcallhistoryconnectionid is not None:
-                    return True
-
-                if self.cvvoipcallhistorycrc is not None:
-                    return True
-
-                if self.cvvoipcallhistoryearlypackets is not None:
-                    return True
-
-                if self.cvvoipcallhistoryencap is not None:
-                    return True
-
-                if self.cvvoipcallhistoryfallbackdelay is not None:
-                    return True
-
-                if self.cvvoipcallhistoryfallbackicpif is not None:
-                    return True
-
-                if self.cvvoipcallhistoryfallbackloss is not None:
-                    return True
-
-                if self.cvvoipcallhistorygapfillwithinterpolation is not None:
-                    return True
-
-                if self.cvvoipcallhistorygapfillwithprediction is not None:
-                    return True
-
-                if self.cvvoipcallhistorygapfillwithredundancy is not None:
-                    return True
-
-                if self.cvvoipcallhistorygapfillwithsilence is not None:
-                    return True
-
-                if self.cvvoipcallhistoryhiwaterplayoutdelay is not None:
-                    return True
-
-                if self.cvvoipcallhistoryicpif is not None:
-                    return True
-
-                if self.cvvoipcallhistoryinterleaving is not None:
-                    return True
-
-                if self.cvvoipcallhistorylatepackets is not None:
-                    return True
-
-                if self.cvvoipcallhistorylostpackets is not None:
-                    return True
-
-                if self.cvvoipcallhistorylowaterplayoutdelay is not None:
-                    return True
-
-                if self.cvvoipcallhistorymaxptime is not None:
-                    return True
-
-                if self.cvvoipcallhistorymodechgneighbor is not None:
-                    return True
-
-                if self.cvvoipcallhistorymodechgperiod is not None:
-                    return True
-
-                if self.cvvoipcallhistoryoctetaligned is not None:
-                    return True
-
-                if self.cvvoipcallhistoryontimervplayout is not None:
-                    return True
-
-                if self.cvvoipcallhistoryprotocolcallid is not None:
-                    return True
-
-                if self.cvvoipcallhistoryptime is not None:
-                    return True
-
-                if self.cvvoipcallhistoryreceivedelay is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremmediaipaddr is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremmediaipaddrt is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremmediaport is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremoteipaddress is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremoteudpport is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremsigipaddr is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremsigipaddrt is not None:
-                    return True
-
-                if self.cvvoipcallhistoryremsigport is not None:
-                    return True
-
-                if self.cvvoipcallhistoryrobustsorting is not None:
-                    return True
-
-                if self.cvvoipcallhistoryroundtripdelay is not None:
-                    return True
-
-                if self.cvvoipcallhistoryselectedqos is not None:
-                    return True
-
-                if self.cvvoipcallhistorysessionid is not None:
-                    return True
-
-                if self.cvvoipcallhistorysessionprotocol is not None:
-                    return True
-
-                if self.cvvoipcallhistorysessiontarget is not None:
-                    return True
-
-                if self.cvvoipcallhistorysrtpenable is not None:
-                    return True
-
-                if self.cvvoipcallhistoryusername is not None:
-                    return True
-
-                if self.cvvoipcallhistoryvadenable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvvoipcallhistorytable.Cvvoipcallhistoryentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvVoIPCallHistoryTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvvoipcallhistoryentry is not None:
-                for child_ref in self.cvvoipcallhistoryentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvvoipcallhistoryentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvVoIPCallHistoryTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvVoIPCallHistoryEntry"):
+                for c in self.cvvoipcallhistoryentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvvoipcallhistorytable.Cvvoipcallhistoryentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvvoipcallhistoryentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvVoIPCallHistoryEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvvoipcallhistorytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcallratestatstable(object):
+    class Cvcallratestatstable(Entity):
         """
         This table represents voice call rate measurement in various
         interval lengths defined by the 
@@ -4294,13 +6984,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallratestatsentry = YList()
-            self.cvcallratestatsentry.parent = self
-            self.cvcallratestatsentry.name = 'cvcallratestatsentry'
+            super(CiscoVoiceDialControlMib.Cvcallratestatstable, self).__init__()
+
+            self.yang_name = "cvCallRateStatsTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcallratestatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallratestatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallratestatstable, self).__setattr__(name, value)
 
 
-        class Cvcallratestatsentry(object):
+        class Cvcallratestatsentry(Entity):
             """
             This is a conceptual\-row in cvCallRateStatsTable
             This entry is created at the system initialization and is
@@ -4309,7 +7025,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcallratestatsintvldurunits  <key>
             
             	The Object indexes in Call Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvcallvolumestatsintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumestatsintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumestatsintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumestatsintvltype>`
             
             .. attribute:: cvcallratestatsintvldur  <key>
             
@@ -4344,69 +7060,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvcallratestatsintvldurunits = None
-                self.cvcallratestatsintvldur = None
-                self.cvcallratestatsavgval = None
-                self.cvcallratestatsmaxval = None
+                super(CiscoVoiceDialControlMib.Cvcallratestatstable.Cvcallratestatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvcallratestatsintvldurunits is None:
-                    raise YPYModelError('Key property cvcallratestatsintvldurunits is None')
-                if self.cvcallratestatsintvldur is None:
-                    raise YPYModelError('Key property cvcallratestatsintvldur is None')
+                self.yang_name = "cvCallRateStatsEntry"
+                self.yang_parent_name = "cvCallRateStatsTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateStatsTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateStatsEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateStatsIntvlDurUnits = ' + str(self.cvcallratestatsintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateStatsIntvlDur = ' + str(self.cvcallratestatsintvldur) + ']'
+                self.cvcallratestatsintvldurunits = YLeaf(YType.enumeration, "cvCallRateStatsIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcallratestatsintvldur = YLeaf(YType.uint32, "cvCallRateStatsIntvlDur")
+
+                self.cvcallratestatsavgval = YLeaf(YType.uint32, "cvCallRateStatsAvgVal")
+
+                self.cvcallratestatsmaxval = YLeaf(YType.uint32, "cvCallRateStatsMaxVal")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvcallratestatsintvldurunits",
+                                "cvcallratestatsintvldur",
+                                "cvcallratestatsavgval",
+                                "cvcallratestatsmaxval") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcallratestatstable.Cvcallratestatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcallratestatstable.Cvcallratestatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvcallratestatsintvldurunits.is_set or
+                    self.cvcallratestatsintvldur.is_set or
+                    self.cvcallratestatsavgval.is_set or
+                    self.cvcallratestatsmaxval.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvcallratestatsintvldurunits.yfilter != YFilter.not_set or
+                    self.cvcallratestatsintvldur.yfilter != YFilter.not_set or
+                    self.cvcallratestatsavgval.yfilter != YFilter.not_set or
+                    self.cvcallratestatsmaxval.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallRateStatsEntry" + "[cvCallRateStatsIntvlDurUnits='" + self.cvcallratestatsintvldurunits.get() + "']" + "[cvCallRateStatsIntvlDur='" + self.cvcallratestatsintvldur.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvcallratestatsintvldurunits.is_set or self.cvcallratestatsintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratestatsintvldurunits.get_name_leafdata())
+                if (self.cvcallratestatsintvldur.is_set or self.cvcallratestatsintvldur.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratestatsintvldur.get_name_leafdata())
+                if (self.cvcallratestatsavgval.is_set or self.cvcallratestatsavgval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratestatsavgval.get_name_leafdata())
+                if (self.cvcallratestatsmaxval.is_set or self.cvcallratestatsmaxval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratestatsmaxval.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvCallRateStatsIntvlDurUnits" or name == "cvCallRateStatsIntvlDur" or name == "cvCallRateStatsAvgVal" or name == "cvCallRateStatsMaxVal"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvcallratestatsintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvCallRateStatsIntvlDurUnits"):
+                    self.cvcallratestatsintvldurunits = value
+                    self.cvcallratestatsintvldurunits.value_namespace = name_space
+                    self.cvcallratestatsintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallRateStatsIntvlDur"):
+                    self.cvcallratestatsintvldur = value
+                    self.cvcallratestatsintvldur.value_namespace = name_space
+                    self.cvcallratestatsintvldur.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallRateStatsAvgVal"):
+                    self.cvcallratestatsavgval = value
+                    self.cvcallratestatsavgval.value_namespace = name_space
+                    self.cvcallratestatsavgval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallRateStatsMaxVal"):
+                    self.cvcallratestatsmaxval = value
+                    self.cvcallratestatsmaxval.value_namespace = name_space
+                    self.cvcallratestatsmaxval.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcallratestatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcallratestatsintvldur is not None:
-                    return True
-
-                if self.cvcallratestatsavgval is not None:
-                    return True
-
-                if self.cvcallratestatsmaxval is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcallratestatstable.Cvcallratestatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcallratestatsentry is not None:
-                for child_ref in self.cvcallratestatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcallratestatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallRateStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallRateStatsEntry"):
+                for c in self.cvcallratestatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcallratestatstable.Cvcallratestatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcallratestatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallRateStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallratestatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcalllegratestatstable(object):
+    class Cvcalllegratestatstable(Entity):
         """
         cvCallLegRateStatsTable table represents voice call leg rate
         measurement in various interval lengths defined by 
@@ -4427,13 +7250,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcalllegratestatsentry = YList()
-            self.cvcalllegratestatsentry.parent = self
-            self.cvcalllegratestatsentry.name = 'cvcalllegratestatsentry'
+            super(CiscoVoiceDialControlMib.Cvcalllegratestatstable, self).__init__()
+
+            self.yang_name = "cvCallLegRateStatsTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcalllegratestatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcalllegratestatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcalllegratestatstable, self).__setattr__(name, value)
 
 
-        class Cvcalllegratestatsentry(object):
+        class Cvcalllegratestatsentry(Entity):
             """
             This is a conceptual\-row in cvCallLegRateStatsTable
             This entry is created at the system initialization and is
@@ -4442,7 +7291,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcalllegratestatsintvldurunits  <key>
             
             	The Object indexes in Call Leg Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvcallvolumestatsintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumestatsintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumestatsintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumestatsintvltype>`
             
             .. attribute:: cvcalllegratestatsintvldur  <key>
             
@@ -4477,69 +7326,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvcalllegratestatsintvldurunits = None
-                self.cvcalllegratestatsintvldur = None
-                self.cvcalllegratestatsavgval = None
-                self.cvcalllegratestatsmaxval = None
+                super(CiscoVoiceDialControlMib.Cvcalllegratestatstable.Cvcalllegratestatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvcalllegratestatsintvldurunits is None:
-                    raise YPYModelError('Key property cvcalllegratestatsintvldurunits is None')
-                if self.cvcalllegratestatsintvldur is None:
-                    raise YPYModelError('Key property cvcalllegratestatsintvldur is None')
+                self.yang_name = "cvCallLegRateStatsEntry"
+                self.yang_parent_name = "cvCallLegRateStatsTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateStatsTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateStatsEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateStatsIntvlDurUnits = ' + str(self.cvcalllegratestatsintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateStatsIntvlDur = ' + str(self.cvcalllegratestatsintvldur) + ']'
+                self.cvcalllegratestatsintvldurunits = YLeaf(YType.enumeration, "cvCallLegRateStatsIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcalllegratestatsintvldur = YLeaf(YType.uint32, "cvCallLegRateStatsIntvlDur")
+
+                self.cvcalllegratestatsavgval = YLeaf(YType.uint32, "cvCallLegRateStatsAvgVal")
+
+                self.cvcalllegratestatsmaxval = YLeaf(YType.uint32, "cvCallLegRateStatsMaxVal")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvcalllegratestatsintvldurunits",
+                                "cvcalllegratestatsintvldur",
+                                "cvcalllegratestatsavgval",
+                                "cvcalllegratestatsmaxval") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcalllegratestatstable.Cvcalllegratestatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcalllegratestatstable.Cvcalllegratestatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvcalllegratestatsintvldurunits.is_set or
+                    self.cvcalllegratestatsintvldur.is_set or
+                    self.cvcalllegratestatsavgval.is_set or
+                    self.cvcalllegratestatsmaxval.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvcalllegratestatsintvldurunits.yfilter != YFilter.not_set or
+                    self.cvcalllegratestatsintvldur.yfilter != YFilter.not_set or
+                    self.cvcalllegratestatsavgval.yfilter != YFilter.not_set or
+                    self.cvcalllegratestatsmaxval.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallLegRateStatsEntry" + "[cvCallLegRateStatsIntvlDurUnits='" + self.cvcalllegratestatsintvldurunits.get() + "']" + "[cvCallLegRateStatsIntvlDur='" + self.cvcalllegratestatsintvldur.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvcalllegratestatsintvldurunits.is_set or self.cvcalllegratestatsintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratestatsintvldurunits.get_name_leafdata())
+                if (self.cvcalllegratestatsintvldur.is_set or self.cvcalllegratestatsintvldur.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratestatsintvldur.get_name_leafdata())
+                if (self.cvcalllegratestatsavgval.is_set or self.cvcalllegratestatsavgval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratestatsavgval.get_name_leafdata())
+                if (self.cvcalllegratestatsmaxval.is_set or self.cvcalllegratestatsmaxval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratestatsmaxval.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvCallLegRateStatsIntvlDurUnits" or name == "cvCallLegRateStatsIntvlDur" or name == "cvCallLegRateStatsAvgVal" or name == "cvCallLegRateStatsMaxVal"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvcalllegratestatsintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvCallLegRateStatsIntvlDurUnits"):
+                    self.cvcalllegratestatsintvldurunits = value
+                    self.cvcalllegratestatsintvldurunits.value_namespace = name_space
+                    self.cvcalllegratestatsintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallLegRateStatsIntvlDur"):
+                    self.cvcalllegratestatsintvldur = value
+                    self.cvcalllegratestatsintvldur.value_namespace = name_space
+                    self.cvcalllegratestatsintvldur.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallLegRateStatsAvgVal"):
+                    self.cvcalllegratestatsavgval = value
+                    self.cvcalllegratestatsavgval.value_namespace = name_space
+                    self.cvcalllegratestatsavgval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallLegRateStatsMaxVal"):
+                    self.cvcalllegratestatsmaxval = value
+                    self.cvcalllegratestatsmaxval.value_namespace = name_space
+                    self.cvcalllegratestatsmaxval.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcalllegratestatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcalllegratestatsintvldur is not None:
-                    return True
-
-                if self.cvcalllegratestatsavgval is not None:
-                    return True
-
-                if self.cvcalllegratestatsmaxval is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcalllegratestatstable.Cvcalllegratestatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcalllegratestatsentry is not None:
-                for child_ref in self.cvcalllegratestatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcalllegratestatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallLegRateStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallLegRateStatsEntry"):
+                for c in self.cvcalllegratestatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcalllegratestatstable.Cvcalllegratestatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcalllegratestatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallLegRateStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcalllegratestatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvactivecallstatstable(object):
+    class Cvactivecallstatstable(Entity):
         """
         This table represents the active voice calls in various
         interval lengths defined by the 
@@ -4561,13 +7517,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvactivecallstatsentry = YList()
-            self.cvactivecallstatsentry.parent = self
-            self.cvactivecallstatsentry.name = 'cvactivecallstatsentry'
+            super(CiscoVoiceDialControlMib.Cvactivecallstatstable, self).__init__()
+
+            self.yang_name = "cvActiveCallStatsTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvactivecallstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvactivecallstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvactivecallstatstable, self).__setattr__(name, value)
 
 
-        class Cvactivecallstatsentry(object):
+        class Cvactivecallstatsentry(Entity):
             """
             This is a conceptual\-row in cvActiveCallStatsTable
             This entry is created at the system initialization and is
@@ -4576,7 +7558,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvactivecallstatsintvldurunits  <key>
             
             	The Object indexes in Active Call Rate Table (con\-current calls table) to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvcallvolumestatsintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumestatsintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumestatsintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumestatsintvltype>`
             
             .. attribute:: cvactivecallstatsintvldur  <key>
             
@@ -4611,69 +7593,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvactivecallstatsintvldurunits = None
-                self.cvactivecallstatsintvldur = None
-                self.cvactivecallstatsavgval = None
-                self.cvactivecallstatsmaxval = None
+                super(CiscoVoiceDialControlMib.Cvactivecallstatstable.Cvactivecallstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvactivecallstatsintvldurunits is None:
-                    raise YPYModelError('Key property cvactivecallstatsintvldurunits is None')
-                if self.cvactivecallstatsintvldur is None:
-                    raise YPYModelError('Key property cvactivecallstatsintvldur is None')
+                self.yang_name = "cvActiveCallStatsEntry"
+                self.yang_parent_name = "cvActiveCallStatsTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallStatsTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallStatsEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallStatsIntvlDurUnits = ' + str(self.cvactivecallstatsintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallStatsIntvlDur = ' + str(self.cvactivecallstatsintvldur) + ']'
+                self.cvactivecallstatsintvldurunits = YLeaf(YType.enumeration, "cvActiveCallStatsIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvactivecallstatsintvldur = YLeaf(YType.uint32, "cvActiveCallStatsIntvlDur")
+
+                self.cvactivecallstatsavgval = YLeaf(YType.uint32, "cvActiveCallStatsAvgVal")
+
+                self.cvactivecallstatsmaxval = YLeaf(YType.uint32, "cvActiveCallStatsMaxVal")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvactivecallstatsintvldurunits",
+                                "cvactivecallstatsintvldur",
+                                "cvactivecallstatsavgval",
+                                "cvactivecallstatsmaxval") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvactivecallstatstable.Cvactivecallstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvactivecallstatstable.Cvactivecallstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvactivecallstatsintvldurunits.is_set or
+                    self.cvactivecallstatsintvldur.is_set or
+                    self.cvactivecallstatsavgval.is_set or
+                    self.cvactivecallstatsmaxval.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvactivecallstatsintvldurunits.yfilter != YFilter.not_set or
+                    self.cvactivecallstatsintvldur.yfilter != YFilter.not_set or
+                    self.cvactivecallstatsavgval.yfilter != YFilter.not_set or
+                    self.cvactivecallstatsmaxval.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvActiveCallStatsEntry" + "[cvActiveCallStatsIntvlDurUnits='" + self.cvactivecallstatsintvldurunits.get() + "']" + "[cvActiveCallStatsIntvlDur='" + self.cvactivecallstatsintvldur.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvactivecallstatsintvldurunits.is_set or self.cvactivecallstatsintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallstatsintvldurunits.get_name_leafdata())
+                if (self.cvactivecallstatsintvldur.is_set or self.cvactivecallstatsintvldur.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallstatsintvldur.get_name_leafdata())
+                if (self.cvactivecallstatsavgval.is_set or self.cvactivecallstatsavgval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallstatsavgval.get_name_leafdata())
+                if (self.cvactivecallstatsmaxval.is_set or self.cvactivecallstatsmaxval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallstatsmaxval.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvActiveCallStatsIntvlDurUnits" or name == "cvActiveCallStatsIntvlDur" or name == "cvActiveCallStatsAvgVal" or name == "cvActiveCallStatsMaxVal"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvactivecallstatsintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvActiveCallStatsIntvlDurUnits"):
+                    self.cvactivecallstatsintvldurunits = value
+                    self.cvactivecallstatsintvldurunits.value_namespace = name_space
+                    self.cvactivecallstatsintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvActiveCallStatsIntvlDur"):
+                    self.cvactivecallstatsintvldur = value
+                    self.cvactivecallstatsintvldur.value_namespace = name_space
+                    self.cvactivecallstatsintvldur.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvActiveCallStatsAvgVal"):
+                    self.cvactivecallstatsavgval = value
+                    self.cvactivecallstatsavgval.value_namespace = name_space
+                    self.cvactivecallstatsavgval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvActiveCallStatsMaxVal"):
+                    self.cvactivecallstatsmaxval = value
+                    self.cvactivecallstatsmaxval.value_namespace = name_space
+                    self.cvactivecallstatsmaxval.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvactivecallstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvactivecallstatsintvldur is not None:
-                    return True
-
-                if self.cvactivecallstatsavgval is not None:
-                    return True
-
-                if self.cvactivecallstatsmaxval is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvactivecallstatstable.Cvactivecallstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvactivecallstatsentry is not None:
-                for child_ref in self.cvactivecallstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvactivecallstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvActiveCallStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvActiveCallStatsEntry"):
+                for c in self.cvactivecallstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvactivecallstatstable.Cvactivecallstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvactivecallstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvActiveCallStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvactivecallstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcalldurationstatstable(object):
+    class Cvcalldurationstatstable(Entity):
         """
         This table represents the number of calls below a specific
         duration in various interval length defined by 
@@ -4698,13 +7787,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcalldurationstatsentry = YList()
-            self.cvcalldurationstatsentry.parent = self
-            self.cvcalldurationstatsentry.name = 'cvcalldurationstatsentry'
+            super(CiscoVoiceDialControlMib.Cvcalldurationstatstable, self).__init__()
+
+            self.yang_name = "cvCallDurationStatsTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcalldurationstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcalldurationstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcalldurationstatstable, self).__setattr__(name, value)
 
 
-        class Cvcalldurationstatsentry(object):
+        class Cvcalldurationstatsentry(Entity):
             """
             This is a conceptual\-row in cvCallDurationStatsTable
             This entry is created at the system initialization and is
@@ -4713,7 +7828,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcalldurationstatsintvldurunits  <key>
             
             	The Object indexes in Call Duration Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvcallvolumestatsintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumestatsintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumestatsintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumestatsintvltype>`
             
             .. attribute:: cvcalldurationstatsintvldur  <key>
             
@@ -4748,69 +7863,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvcalldurationstatsintvldurunits = None
-                self.cvcalldurationstatsintvldur = None
-                self.cvcalldurationstatsavgval = None
-                self.cvcalldurationstatsmaxval = None
+                super(CiscoVoiceDialControlMib.Cvcalldurationstatstable.Cvcalldurationstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvcalldurationstatsintvldurunits is None:
-                    raise YPYModelError('Key property cvcalldurationstatsintvldurunits is None')
-                if self.cvcalldurationstatsintvldur is None:
-                    raise YPYModelError('Key property cvcalldurationstatsintvldur is None')
+                self.yang_name = "cvCallDurationStatsEntry"
+                self.yang_parent_name = "cvCallDurationStatsTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallDurationStatsTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallDurationStatsEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvCallDurationStatsIntvlDurUnits = ' + str(self.cvcalldurationstatsintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvCallDurationStatsIntvlDur = ' + str(self.cvcalldurationstatsintvldur) + ']'
+                self.cvcalldurationstatsintvldurunits = YLeaf(YType.enumeration, "cvCallDurationStatsIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcalldurationstatsintvldur = YLeaf(YType.uint32, "cvCallDurationStatsIntvlDur")
+
+                self.cvcalldurationstatsavgval = YLeaf(YType.uint32, "cvCallDurationStatsAvgVal")
+
+                self.cvcalldurationstatsmaxval = YLeaf(YType.uint32, "cvCallDurationStatsMaxVal")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvcalldurationstatsintvldurunits",
+                                "cvcalldurationstatsintvldur",
+                                "cvcalldurationstatsavgval",
+                                "cvcalldurationstatsmaxval") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcalldurationstatstable.Cvcalldurationstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcalldurationstatstable.Cvcalldurationstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvcalldurationstatsintvldurunits.is_set or
+                    self.cvcalldurationstatsintvldur.is_set or
+                    self.cvcalldurationstatsavgval.is_set or
+                    self.cvcalldurationstatsmaxval.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvcalldurationstatsintvldurunits.yfilter != YFilter.not_set or
+                    self.cvcalldurationstatsintvldur.yfilter != YFilter.not_set or
+                    self.cvcalldurationstatsavgval.yfilter != YFilter.not_set or
+                    self.cvcalldurationstatsmaxval.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallDurationStatsEntry" + "[cvCallDurationStatsIntvlDurUnits='" + self.cvcalldurationstatsintvldurunits.get() + "']" + "[cvCallDurationStatsIntvlDur='" + self.cvcalldurationstatsintvldur.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallDurationStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvcalldurationstatsintvldurunits.is_set or self.cvcalldurationstatsintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalldurationstatsintvldurunits.get_name_leafdata())
+                if (self.cvcalldurationstatsintvldur.is_set or self.cvcalldurationstatsintvldur.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalldurationstatsintvldur.get_name_leafdata())
+                if (self.cvcalldurationstatsavgval.is_set or self.cvcalldurationstatsavgval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalldurationstatsavgval.get_name_leafdata())
+                if (self.cvcalldurationstatsmaxval.is_set or self.cvcalldurationstatsmaxval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalldurationstatsmaxval.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvCallDurationStatsIntvlDurUnits" or name == "cvCallDurationStatsIntvlDur" or name == "cvCallDurationStatsAvgVal" or name == "cvCallDurationStatsMaxVal"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvcalldurationstatsintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvCallDurationStatsIntvlDurUnits"):
+                    self.cvcalldurationstatsintvldurunits = value
+                    self.cvcalldurationstatsintvldurunits.value_namespace = name_space
+                    self.cvcalldurationstatsintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallDurationStatsIntvlDur"):
+                    self.cvcalldurationstatsintvldur = value
+                    self.cvcalldurationstatsintvldur.value_namespace = name_space
+                    self.cvcalldurationstatsintvldur.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallDurationStatsAvgVal"):
+                    self.cvcalldurationstatsavgval = value
+                    self.cvcalldurationstatsavgval.value_namespace = name_space
+                    self.cvcalldurationstatsavgval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallDurationStatsMaxVal"):
+                    self.cvcalldurationstatsmaxval = value
+                    self.cvcalldurationstatsmaxval.value_namespace = name_space
+                    self.cvcalldurationstatsmaxval.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcalldurationstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcalldurationstatsintvldur is not None:
-                    return True
-
-                if self.cvcalldurationstatsavgval is not None:
-                    return True
-
-                if self.cvcalldurationstatsmaxval is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcalldurationstatstable.Cvcalldurationstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallDurationStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcalldurationstatsentry is not None:
-                for child_ref in self.cvcalldurationstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcalldurationstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallDurationStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallDurationStatsEntry"):
+                for c in self.cvcalldurationstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcalldurationstatstable.Cvcalldurationstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcalldurationstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallDurationStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcalldurationstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvsipmsgratestatstable(object):
+    class Cvsipmsgratestatstable(Entity):
         """
         This table represents the SIP message rate measurement in
         various interval length defined by the 
@@ -4832,13 +8054,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvsipmsgratestatsentry = YList()
-            self.cvsipmsgratestatsentry.parent = self
-            self.cvsipmsgratestatsentry.name = 'cvsipmsgratestatsentry'
+            super(CiscoVoiceDialControlMib.Cvsipmsgratestatstable, self).__init__()
+
+            self.yang_name = "cvSipMsgRateStatsTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvsipmsgratestatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvsipmsgratestatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvsipmsgratestatstable, self).__setattr__(name, value)
 
 
-        class Cvsipmsgratestatsentry(object):
+        class Cvsipmsgratestatsentry(Entity):
             """
             This is a conceptual\-row in cvSipMsgRateStatsTable
             This entry is created at the system initialization and is
@@ -4847,7 +8095,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvsipmsgratestatsintvldurunits  <key>
             
             	The Object indexes in SIP Message Rate Table to select one among three interval\-tables.  The different types in this table are represented by  CvCallVolumeStatsIntvlType
-            	**type**\:   :py:class:`CvcallvolumestatsintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumestatsintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumestatsintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumestatsintvltype>`
             
             .. attribute:: cvsipmsgratestatsintvldur  <key>
             
@@ -4882,69 +8130,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvsipmsgratestatsintvldurunits = None
-                self.cvsipmsgratestatsintvldur = None
-                self.cvsipmsgratestatsavgval = None
-                self.cvsipmsgratestatsmaxval = None
+                super(CiscoVoiceDialControlMib.Cvsipmsgratestatstable.Cvsipmsgratestatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvsipmsgratestatsintvldurunits is None:
-                    raise YPYModelError('Key property cvsipmsgratestatsintvldurunits is None')
-                if self.cvsipmsgratestatsintvldur is None:
-                    raise YPYModelError('Key property cvsipmsgratestatsintvldur is None')
+                self.yang_name = "cvSipMsgRateStatsEntry"
+                self.yang_parent_name = "cvSipMsgRateStatsTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateStatsTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateStatsEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateStatsIntvlDurUnits = ' + str(self.cvsipmsgratestatsintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateStatsIntvlDur = ' + str(self.cvsipmsgratestatsintvldur) + ']'
+                self.cvsipmsgratestatsintvldurunits = YLeaf(YType.enumeration, "cvSipMsgRateStatsIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvsipmsgratestatsintvldur = YLeaf(YType.uint32, "cvSipMsgRateStatsIntvlDur")
+
+                self.cvsipmsgratestatsavgval = YLeaf(YType.uint32, "cvSipMsgRateStatsAvgVal")
+
+                self.cvsipmsgratestatsmaxval = YLeaf(YType.uint32, "cvSipMsgRateStatsMaxVal")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvsipmsgratestatsintvldurunits",
+                                "cvsipmsgratestatsintvldur",
+                                "cvsipmsgratestatsavgval",
+                                "cvsipmsgratestatsmaxval") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvsipmsgratestatstable.Cvsipmsgratestatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvsipmsgratestatstable.Cvsipmsgratestatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvsipmsgratestatsintvldurunits.is_set or
+                    self.cvsipmsgratestatsintvldur.is_set or
+                    self.cvsipmsgratestatsavgval.is_set or
+                    self.cvsipmsgratestatsmaxval.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvsipmsgratestatsintvldurunits.yfilter != YFilter.not_set or
+                    self.cvsipmsgratestatsintvldur.yfilter != YFilter.not_set or
+                    self.cvsipmsgratestatsavgval.yfilter != YFilter.not_set or
+                    self.cvsipmsgratestatsmaxval.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvSipMsgRateStatsEntry" + "[cvSipMsgRateStatsIntvlDurUnits='" + self.cvsipmsgratestatsintvldurunits.get() + "']" + "[cvSipMsgRateStatsIntvlDur='" + self.cvsipmsgratestatsintvldur.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvsipmsgratestatsintvldurunits.is_set or self.cvsipmsgratestatsintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratestatsintvldurunits.get_name_leafdata())
+                if (self.cvsipmsgratestatsintvldur.is_set or self.cvsipmsgratestatsintvldur.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratestatsintvldur.get_name_leafdata())
+                if (self.cvsipmsgratestatsavgval.is_set or self.cvsipmsgratestatsavgval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratestatsavgval.get_name_leafdata())
+                if (self.cvsipmsgratestatsmaxval.is_set or self.cvsipmsgratestatsmaxval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratestatsmaxval.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvSipMsgRateStatsIntvlDurUnits" or name == "cvSipMsgRateStatsIntvlDur" or name == "cvSipMsgRateStatsAvgVal" or name == "cvSipMsgRateStatsMaxVal"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvsipmsgratestatsintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvSipMsgRateStatsIntvlDurUnits"):
+                    self.cvsipmsgratestatsintvldurunits = value
+                    self.cvsipmsgratestatsintvldurunits.value_namespace = name_space
+                    self.cvsipmsgratestatsintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvSipMsgRateStatsIntvlDur"):
+                    self.cvsipmsgratestatsintvldur = value
+                    self.cvsipmsgratestatsintvldur.value_namespace = name_space
+                    self.cvsipmsgratestatsintvldur.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvSipMsgRateStatsAvgVal"):
+                    self.cvsipmsgratestatsavgval = value
+                    self.cvsipmsgratestatsavgval.value_namespace = name_space
+                    self.cvsipmsgratestatsavgval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvSipMsgRateStatsMaxVal"):
+                    self.cvsipmsgratestatsmaxval = value
+                    self.cvsipmsgratestatsmaxval.value_namespace = name_space
+                    self.cvsipmsgratestatsmaxval.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvsipmsgratestatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvsipmsgratestatsintvldur is not None:
-                    return True
-
-                if self.cvsipmsgratestatsavgval is not None:
-                    return True
-
-                if self.cvsipmsgratestatsmaxval is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvsipmsgratestatstable.Cvsipmsgratestatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvsipmsgratestatsentry is not None:
-                for child_ref in self.cvsipmsgratestatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvsipmsgratestatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvSipMsgRateStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvSipMsgRateStatsEntry"):
+                for c in self.cvsipmsgratestatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvsipmsgratestatstable.Cvsipmsgratestatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvsipmsgratestatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvSipMsgRateStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvsipmsgratestatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcallratewmtable(object):
+    class Cvcallratewmtable(Entity):
         """
         This table represents high watermarks achieved
         by call rate in various interval length defined 
@@ -4966,13 +8321,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcallratewmentry = YList()
-            self.cvcallratewmentry.parent = self
-            self.cvcallratewmentry.name = 'cvcallratewmentry'
+            super(CiscoVoiceDialControlMib.Cvcallratewmtable, self).__init__()
+
+            self.yang_name = "cvCallRateWMTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcallratewmentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcallratewmtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcallratewmtable, self).__setattr__(name, value)
 
 
-        class Cvcallratewmentry(object):
+        class Cvcallratewmentry(Entity):
             """
             This is a conceptual\-row in cvCallRateWMTable
             This entry is created at the system initialization and is
@@ -4985,7 +8366,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcallratewmintvldurunits  <key>
             
             	The Object indexes in call rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvcallvolumewmintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumewmintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumewmintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumewmintvltype>`
             
             .. attribute:: cvcallratewmindex  <key>
             
@@ -5016,69 +8397,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvcallratewmintvldurunits = None
-                self.cvcallratewmindex = None
-                self.cvcallratewmts = None
-                self.cvcallratewmvalue = None
+                super(CiscoVoiceDialControlMib.Cvcallratewmtable.Cvcallratewmentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvcallratewmintvldurunits is None:
-                    raise YPYModelError('Key property cvcallratewmintvldurunits is None')
-                if self.cvcallratewmindex is None:
-                    raise YPYModelError('Key property cvcallratewmindex is None')
+                self.yang_name = "cvCallRateWMEntry"
+                self.yang_parent_name = "cvCallRateWMTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateWMTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateWMEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateWMIntvlDurUnits = ' + str(self.cvcallratewmintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateWMIndex = ' + str(self.cvcallratewmindex) + ']'
+                self.cvcallratewmintvldurunits = YLeaf(YType.enumeration, "cvCallRateWMIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcallratewmindex = YLeaf(YType.uint32, "cvCallRateWMIndex")
+
+                self.cvcallratewmts = YLeaf(YType.str, "cvCallRateWMts")
+
+                self.cvcallratewmvalue = YLeaf(YType.uint32, "cvCallRateWMValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvcallratewmintvldurunits",
+                                "cvcallratewmindex",
+                                "cvcallratewmts",
+                                "cvcallratewmvalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcallratewmtable.Cvcallratewmentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcallratewmtable.Cvcallratewmentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvcallratewmintvldurunits.is_set or
+                    self.cvcallratewmindex.is_set or
+                    self.cvcallratewmts.is_set or
+                    self.cvcallratewmvalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvcallratewmintvldurunits.yfilter != YFilter.not_set or
+                    self.cvcallratewmindex.yfilter != YFilter.not_set or
+                    self.cvcallratewmts.yfilter != YFilter.not_set or
+                    self.cvcallratewmvalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallRateWMEntry" + "[cvCallRateWMIntvlDurUnits='" + self.cvcallratewmintvldurunits.get() + "']" + "[cvCallRateWMIndex='" + self.cvcallratewmindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateWMTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvcallratewmintvldurunits.is_set or self.cvcallratewmintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratewmintvldurunits.get_name_leafdata())
+                if (self.cvcallratewmindex.is_set or self.cvcallratewmindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratewmindex.get_name_leafdata())
+                if (self.cvcallratewmts.is_set or self.cvcallratewmts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratewmts.get_name_leafdata())
+                if (self.cvcallratewmvalue.is_set or self.cvcallratewmvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcallratewmvalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvCallRateWMIntvlDurUnits" or name == "cvCallRateWMIndex" or name == "cvCallRateWMts" or name == "cvCallRateWMValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvcallratewmintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvCallRateWMIntvlDurUnits"):
+                    self.cvcallratewmintvldurunits = value
+                    self.cvcallratewmintvldurunits.value_namespace = name_space
+                    self.cvcallratewmintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallRateWMIndex"):
+                    self.cvcallratewmindex = value
+                    self.cvcallratewmindex.value_namespace = name_space
+                    self.cvcallratewmindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallRateWMts"):
+                    self.cvcallratewmts = value
+                    self.cvcallratewmts.value_namespace = name_space
+                    self.cvcallratewmts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallRateWMValue"):
+                    self.cvcallratewmvalue = value
+                    self.cvcallratewmvalue.value_namespace = name_space
+                    self.cvcallratewmvalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcallratewmentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcallratewmindex is not None:
-                    return True
-
-                if self.cvcallratewmts is not None:
-                    return True
-
-                if self.cvcallratewmvalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcallratewmtable.Cvcallratewmentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallRateWMTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcallratewmentry is not None:
-                for child_ref in self.cvcallratewmentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcallratewmentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallRateWMTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallRateWMEntry"):
+                for c in self.cvcallratewmentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcallratewmtable.Cvcallratewmentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcallratewmentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallRateWMEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcallratewmtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvcalllegratewmtable(object):
+    class Cvcalllegratewmtable(Entity):
         """
         cvCallLegRateWMTable table represents high watermarks achieved
         by call\-leg rate in various interval length defined 
@@ -5100,13 +8588,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvcalllegratewmentry = YList()
-            self.cvcalllegratewmentry.parent = self
-            self.cvcalllegratewmentry.name = 'cvcalllegratewmentry'
+            super(CiscoVoiceDialControlMib.Cvcalllegratewmtable, self).__init__()
+
+            self.yang_name = "cvCallLegRateWMTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvcalllegratewmentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvcalllegratewmtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvcalllegratewmtable, self).__setattr__(name, value)
 
 
-        class Cvcalllegratewmentry(object):
+        class Cvcalllegratewmentry(Entity):
             """
             This is a conceptual\-row in cvCallLegRateWMTable
             This entry is created at the system initialization and is
@@ -5119,7 +8633,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvcalllegratewmintvldurunits  <key>
             
             	The Object indexes in call leg rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvcallvolumewmintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumewmintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumewmintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumewmintvltype>`
             
             .. attribute:: cvcalllegratewmindex  <key>
             
@@ -5150,69 +8664,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvcalllegratewmintvldurunits = None
-                self.cvcalllegratewmindex = None
-                self.cvcalllegratewmts = None
-                self.cvcalllegratewmvalue = None
+                super(CiscoVoiceDialControlMib.Cvcalllegratewmtable.Cvcalllegratewmentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvcalllegratewmintvldurunits is None:
-                    raise YPYModelError('Key property cvcalllegratewmintvldurunits is None')
-                if self.cvcalllegratewmindex is None:
-                    raise YPYModelError('Key property cvcalllegratewmindex is None')
+                self.yang_name = "cvCallLegRateWMEntry"
+                self.yang_parent_name = "cvCallLegRateWMTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateWMTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateWMEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateWMIntvlDurUnits = ' + str(self.cvcalllegratewmintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateWMIndex = ' + str(self.cvcalllegratewmindex) + ']'
+                self.cvcalllegratewmintvldurunits = YLeaf(YType.enumeration, "cvCallLegRateWMIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvcalllegratewmindex = YLeaf(YType.uint32, "cvCallLegRateWMIndex")
+
+                self.cvcalllegratewmts = YLeaf(YType.str, "cvCallLegRateWMts")
+
+                self.cvcalllegratewmvalue = YLeaf(YType.uint32, "cvCallLegRateWMValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvcalllegratewmintvldurunits",
+                                "cvcalllegratewmindex",
+                                "cvcalllegratewmts",
+                                "cvcalllegratewmvalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvcalllegratewmtable.Cvcalllegratewmentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvcalllegratewmtable.Cvcalllegratewmentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvcalllegratewmintvldurunits.is_set or
+                    self.cvcalllegratewmindex.is_set or
+                    self.cvcalllegratewmts.is_set or
+                    self.cvcalllegratewmvalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvcalllegratewmintvldurunits.yfilter != YFilter.not_set or
+                    self.cvcalllegratewmindex.yfilter != YFilter.not_set or
+                    self.cvcalllegratewmts.yfilter != YFilter.not_set or
+                    self.cvcalllegratewmvalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvCallLegRateWMEntry" + "[cvCallLegRateWMIntvlDurUnits='" + self.cvcalllegratewmintvldurunits.get() + "']" + "[cvCallLegRateWMIndex='" + self.cvcalllegratewmindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateWMTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvcalllegratewmintvldurunits.is_set or self.cvcalllegratewmintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratewmintvldurunits.get_name_leafdata())
+                if (self.cvcalllegratewmindex.is_set or self.cvcalllegratewmindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratewmindex.get_name_leafdata())
+                if (self.cvcalllegratewmts.is_set or self.cvcalllegratewmts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratewmts.get_name_leafdata())
+                if (self.cvcalllegratewmvalue.is_set or self.cvcalllegratewmvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvcalllegratewmvalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvCallLegRateWMIntvlDurUnits" or name == "cvCallLegRateWMIndex" or name == "cvCallLegRateWMts" or name == "cvCallLegRateWMValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvcalllegratewmintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvCallLegRateWMIntvlDurUnits"):
+                    self.cvcalllegratewmintvldurunits = value
+                    self.cvcalllegratewmintvldurunits.value_namespace = name_space
+                    self.cvcalllegratewmintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallLegRateWMIndex"):
+                    self.cvcalllegratewmindex = value
+                    self.cvcalllegratewmindex.value_namespace = name_space
+                    self.cvcalllegratewmindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallLegRateWMts"):
+                    self.cvcalllegratewmts = value
+                    self.cvcalllegratewmts.value_namespace = name_space
+                    self.cvcalllegratewmts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvCallLegRateWMValue"):
+                    self.cvcalllegratewmvalue = value
+                    self.cvcalllegratewmvalue.value_namespace = name_space
+                    self.cvcalllegratewmvalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvcalllegratewmentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvcalllegratewmindex is not None:
-                    return True
-
-                if self.cvcalllegratewmts is not None:
-                    return True
-
-                if self.cvcalllegratewmvalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvcalllegratewmtable.Cvcalllegratewmentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvCallLegRateWMTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvcalllegratewmentry is not None:
-                for child_ref in self.cvcalllegratewmentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvcalllegratewmentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvCallLegRateWMTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvCallLegRateWMEntry"):
+                for c in self.cvcalllegratewmentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvcalllegratewmtable.Cvcalllegratewmentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvcalllegratewmentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvCallLegRateWMEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvcalllegratewmtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvactivecallwmtable(object):
+    class Cvactivecallwmtable(Entity):
         """
         This table represents high watermarks achieved
         by active calls in various interval length defined 
@@ -5234,13 +8855,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvactivecallwmentry = YList()
-            self.cvactivecallwmentry.parent = self
-            self.cvactivecallwmentry.name = 'cvactivecallwmentry'
+            super(CiscoVoiceDialControlMib.Cvactivecallwmtable, self).__init__()
+
+            self.yang_name = "cvActiveCallWMTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvactivecallwmentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvactivecallwmtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvactivecallwmtable, self).__setattr__(name, value)
 
 
-        class Cvactivecallwmentry(object):
+        class Cvactivecallwmentry(Entity):
             """
             This is a conceptual\-row in cvActiveCallWMTable
             This entry is created at the system initialization and is
@@ -5253,7 +8900,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvactivecallwmintvldurunits  <key>
             
             	The Object indexes in active call Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvcallvolumewmintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumewmintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumewmintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumewmintvltype>`
             
             .. attribute:: cvactivecallwmindex  <key>
             
@@ -5284,69 +8931,176 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvactivecallwmintvldurunits = None
-                self.cvactivecallwmindex = None
-                self.cvactivecallwmts = None
-                self.cvactivecallwmvalue = None
+                super(CiscoVoiceDialControlMib.Cvactivecallwmtable.Cvactivecallwmentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvactivecallwmintvldurunits is None:
-                    raise YPYModelError('Key property cvactivecallwmintvldurunits is None')
-                if self.cvactivecallwmindex is None:
-                    raise YPYModelError('Key property cvactivecallwmindex is None')
+                self.yang_name = "cvActiveCallWMEntry"
+                self.yang_parent_name = "cvActiveCallWMTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallWMTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallWMEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallWMIntvlDurUnits = ' + str(self.cvactivecallwmintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallWMIndex = ' + str(self.cvactivecallwmindex) + ']'
+                self.cvactivecallwmintvldurunits = YLeaf(YType.enumeration, "cvActiveCallWMIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvactivecallwmindex = YLeaf(YType.uint32, "cvActiveCallWMIndex")
+
+                self.cvactivecallwmts = YLeaf(YType.str, "cvActiveCallWMts")
+
+                self.cvactivecallwmvalue = YLeaf(YType.uint32, "cvActiveCallWMValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvactivecallwmintvldurunits",
+                                "cvactivecallwmindex",
+                                "cvactivecallwmts",
+                                "cvactivecallwmvalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvactivecallwmtable.Cvactivecallwmentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvactivecallwmtable.Cvactivecallwmentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvactivecallwmintvldurunits.is_set or
+                    self.cvactivecallwmindex.is_set or
+                    self.cvactivecallwmts.is_set or
+                    self.cvactivecallwmvalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvactivecallwmintvldurunits.yfilter != YFilter.not_set or
+                    self.cvactivecallwmindex.yfilter != YFilter.not_set or
+                    self.cvactivecallwmts.yfilter != YFilter.not_set or
+                    self.cvactivecallwmvalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvActiveCallWMEntry" + "[cvActiveCallWMIntvlDurUnits='" + self.cvactivecallwmintvldurunits.get() + "']" + "[cvActiveCallWMIndex='" + self.cvactivecallwmindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallWMTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvactivecallwmintvldurunits.is_set or self.cvactivecallwmintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallwmintvldurunits.get_name_leafdata())
+                if (self.cvactivecallwmindex.is_set or self.cvactivecallwmindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallwmindex.get_name_leafdata())
+                if (self.cvactivecallwmts.is_set or self.cvactivecallwmts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallwmts.get_name_leafdata())
+                if (self.cvactivecallwmvalue.is_set or self.cvactivecallwmvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvactivecallwmvalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvActiveCallWMIntvlDurUnits" or name == "cvActiveCallWMIndex" or name == "cvActiveCallWMts" or name == "cvActiveCallWMValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvactivecallwmintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvActiveCallWMIntvlDurUnits"):
+                    self.cvactivecallwmintvldurunits = value
+                    self.cvactivecallwmintvldurunits.value_namespace = name_space
+                    self.cvactivecallwmintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvActiveCallWMIndex"):
+                    self.cvactivecallwmindex = value
+                    self.cvactivecallwmindex.value_namespace = name_space
+                    self.cvactivecallwmindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvActiveCallWMts"):
+                    self.cvactivecallwmts = value
+                    self.cvactivecallwmts.value_namespace = name_space
+                    self.cvactivecallwmts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvActiveCallWMValue"):
+                    self.cvactivecallwmvalue = value
+                    self.cvactivecallwmvalue.value_namespace = name_space
+                    self.cvactivecallwmvalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvactivecallwmentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvactivecallwmindex is not None:
-                    return True
-
-                if self.cvactivecallwmts is not None:
-                    return True
-
-                if self.cvactivecallwmvalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvactivecallwmtable.Cvactivecallwmentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvActiveCallWMTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvactivecallwmentry is not None:
-                for child_ref in self.cvactivecallwmentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvactivecallwmentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvActiveCallWMTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvActiveCallWMEntry"):
+                for c in self.cvactivecallwmentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvactivecallwmtable.Cvactivecallwmentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvactivecallwmentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvActiveCallWMEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvactivecallwmtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvsipmsgratewmtable(object):
+    class Cvsipmsgratewmtable(Entity):
         """
         This table represents of high watermarks achieved
         by SIP message rate in various interval length defined 
@@ -5368,13 +9122,39 @@ class CiscoVoiceDialControlMib(object):
         _revision = '2012-05-15'
 
         def __init__(self):
-            self.parent = None
-            self.cvsipmsgratewmentry = YList()
-            self.cvsipmsgratewmentry.parent = self
-            self.cvsipmsgratewmentry.name = 'cvsipmsgratewmentry'
+            super(CiscoVoiceDialControlMib.Cvsipmsgratewmtable, self).__init__()
+
+            self.yang_name = "cvSipMsgRateWMTable"
+            self.yang_parent_name = "CISCO-VOICE-DIAL-CONTROL-MIB"
+
+            self.cvsipmsgratewmentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDialControlMib.Cvsipmsgratewmtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDialControlMib.Cvsipmsgratewmtable, self).__setattr__(name, value)
 
 
-        class Cvsipmsgratewmentry(object):
+        class Cvsipmsgratewmentry(Entity):
             """
             This is a conceptual\-row in cvSipMsgRateWMTable.
             This entry is created at the system initialization and is
@@ -5387,7 +9167,7 @@ class CiscoVoiceDialControlMib(object):
             .. attribute:: cvsipmsgratewmintvldurunits  <key>
             
             	The Object indexes in SIP Message rate Water mark Table to select one among four interval\-tables.  The different types in this table are represented by  CvCallVolumeWMIntvlType
-            	**type**\:   :py:class:`CvcallvolumewmintvltypeEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.CvcallvolumewmintvltypeEnum>`
+            	**type**\:   :py:class:`Cvcallvolumewmintvltype <ydk.models.cisco_ios_xe.CISCO_VOICE_DIAL_CONTROL_MIB.Cvcallvolumewmintvltype>`
             
             .. attribute:: cvsipmsgratewmindex  <key>
             
@@ -5418,154 +9198,430 @@ class CiscoVoiceDialControlMib(object):
             _revision = '2012-05-15'
 
             def __init__(self):
-                self.parent = None
-                self.cvsipmsgratewmintvldurunits = None
-                self.cvsipmsgratewmindex = None
-                self.cvsipmsgratewmts = None
-                self.cvsipmsgratewmvalue = None
+                super(CiscoVoiceDialControlMib.Cvsipmsgratewmtable.Cvsipmsgratewmentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvsipmsgratewmintvldurunits is None:
-                    raise YPYModelError('Key property cvsipmsgratewmintvldurunits is None')
-                if self.cvsipmsgratewmindex is None:
-                    raise YPYModelError('Key property cvsipmsgratewmindex is None')
+                self.yang_name = "cvSipMsgRateWMEntry"
+                self.yang_parent_name = "cvSipMsgRateWMTable"
 
-                return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateWMTable/CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateWMEntry[CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateWMIntvlDurUnits = ' + str(self.cvsipmsgratewmintvldurunits) + '][CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateWMIndex = ' + str(self.cvsipmsgratewmindex) + ']'
+                self.cvsipmsgratewmintvldurunits = YLeaf(YType.enumeration, "cvSipMsgRateWMIntvlDurUnits")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvsipmsgratewmindex = YLeaf(YType.uint32, "cvSipMsgRateWMIndex")
+
+                self.cvsipmsgratewmts = YLeaf(YType.str, "cvSipMsgRateWMts")
+
+                self.cvsipmsgratewmvalue = YLeaf(YType.uint32, "cvSipMsgRateWMValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvsipmsgratewmintvldurunits",
+                                "cvsipmsgratewmindex",
+                                "cvsipmsgratewmts",
+                                "cvsipmsgratewmvalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDialControlMib.Cvsipmsgratewmtable.Cvsipmsgratewmentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDialControlMib.Cvsipmsgratewmtable.Cvsipmsgratewmentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvsipmsgratewmintvldurunits.is_set or
+                    self.cvsipmsgratewmindex.is_set or
+                    self.cvsipmsgratewmts.is_set or
+                    self.cvsipmsgratewmvalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvsipmsgratewmintvldurunits.yfilter != YFilter.not_set or
+                    self.cvsipmsgratewmindex.yfilter != YFilter.not_set or
+                    self.cvsipmsgratewmts.yfilter != YFilter.not_set or
+                    self.cvsipmsgratewmvalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvSipMsgRateWMEntry" + "[cvSipMsgRateWMIntvlDurUnits='" + self.cvsipmsgratewmintvldurunits.get() + "']" + "[cvSipMsgRateWMIndex='" + self.cvsipmsgratewmindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateWMTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvsipmsgratewmintvldurunits.is_set or self.cvsipmsgratewmintvldurunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratewmintvldurunits.get_name_leafdata())
+                if (self.cvsipmsgratewmindex.is_set or self.cvsipmsgratewmindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratewmindex.get_name_leafdata())
+                if (self.cvsipmsgratewmts.is_set or self.cvsipmsgratewmts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratewmts.get_name_leafdata())
+                if (self.cvsipmsgratewmvalue.is_set or self.cvsipmsgratewmvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvsipmsgratewmvalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvSipMsgRateWMIntvlDurUnits" or name == "cvSipMsgRateWMIndex" or name == "cvSipMsgRateWMts" or name == "cvSipMsgRateWMValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvsipmsgratewmintvldurunits is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvSipMsgRateWMIntvlDurUnits"):
+                    self.cvsipmsgratewmintvldurunits = value
+                    self.cvsipmsgratewmintvldurunits.value_namespace = name_space
+                    self.cvsipmsgratewmintvldurunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvSipMsgRateWMIndex"):
+                    self.cvsipmsgratewmindex = value
+                    self.cvsipmsgratewmindex.value_namespace = name_space
+                    self.cvsipmsgratewmindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvSipMsgRateWMts"):
+                    self.cvsipmsgratewmts = value
+                    self.cvsipmsgratewmts.value_namespace = name_space
+                    self.cvsipmsgratewmts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvSipMsgRateWMValue"):
+                    self.cvsipmsgratewmvalue = value
+                    self.cvsipmsgratewmvalue.value_namespace = name_space
+                    self.cvsipmsgratewmvalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvsipmsgratewmentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvsipmsgratewmindex is not None:
-                    return True
-
-                if self.cvsipmsgratewmts is not None:
-                    return True
-
-                if self.cvsipmsgratewmvalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-                return meta._meta_table['CiscoVoiceDialControlMib.Cvsipmsgratewmtable.Cvsipmsgratewmentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/CISCO-VOICE-DIAL-CONTROL-MIB:cvSipMsgRateWMTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvsipmsgratewmentry is not None:
-                for child_ref in self.cvsipmsgratewmentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvsipmsgratewmentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvSipMsgRateWMTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvSipMsgRateWMEntry"):
+                for c in self.cvsipmsgratewmentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDialControlMib.Cvsipmsgratewmtable.Cvsipmsgratewmentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvsipmsgratewmentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvSipMsgRateWMEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-            return meta._meta_table['CiscoVoiceDialControlMib.Cvsipmsgratewmtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cvactivecallstatstable is not None and self.cvactivecallstatstable.has_data()) or
+            (self.cvactivecallwmtable is not None and self.cvactivecallwmtable.has_data()) or
+            (self.cvcallactivetable is not None and self.cvcallactivetable.has_data()) or
+            (self.cvcalldurationstatstable is not None and self.cvcalldurationstatstable.has_data()) or
+            (self.cvcallhistorytable is not None and self.cvcallhistorytable.has_data()) or
+            (self.cvcalllegratestatstable is not None and self.cvcalllegratestatstable.has_data()) or
+            (self.cvcalllegratewmtable is not None and self.cvcalllegratewmtable.has_data()) or
+            (self.cvcallratemonitor is not None and self.cvcallratemonitor.has_data()) or
+            (self.cvcallratestatstable is not None and self.cvcallratestatstable.has_data()) or
+            (self.cvcallratewmtable is not None and self.cvcallratewmtable.has_data()) or
+            (self.cvcallvolconntable is not None and self.cvcallvolconntable.has_data()) or
+            (self.cvcallvoliftable is not None and self.cvcallvoliftable.has_data()) or
+            (self.cvcallvolume is not None and self.cvcallvolume.has_data()) or
+            (self.cvcallvolumestatshistory is not None and self.cvcallvolumestatshistory.has_data()) or
+            (self.cvgatewaycallactive is not None and self.cvgatewaycallactive.has_data()) or
+            (self.cvgeneralconfiguration is not None and self.cvgeneralconfiguration.has_data()) or
+            (self.cvpeercfgtable is not None and self.cvpeercfgtable.has_data()) or
+            (self.cvpeercommoncfgtable is not None and self.cvpeercommoncfgtable.has_data()) or
+            (self.cvsipmsgratestatstable is not None and self.cvsipmsgratestatstable.has_data()) or
+            (self.cvsipmsgratewmtable is not None and self.cvsipmsgratewmtable.has_data()) or
+            (self.cvvoicepeercfgtable is not None and self.cvvoicepeercfgtable.has_data()) or
+            (self.cvvoipcallactivetable is not None and self.cvvoipcallactivetable.has_data()) or
+            (self.cvvoipcallhistorytable is not None and self.cvvoipcallhistorytable.has_data()) or
+            (self.cvvoippeercfgtable is not None and self.cvvoippeercfgtable.has_data()))
 
-        return '/CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cvactivecallstatstable is not None and self.cvactivecallstatstable.has_operation()) or
+            (self.cvactivecallwmtable is not None and self.cvactivecallwmtable.has_operation()) or
+            (self.cvcallactivetable is not None and self.cvcallactivetable.has_operation()) or
+            (self.cvcalldurationstatstable is not None and self.cvcalldurationstatstable.has_operation()) or
+            (self.cvcallhistorytable is not None and self.cvcallhistorytable.has_operation()) or
+            (self.cvcalllegratestatstable is not None and self.cvcalllegratestatstable.has_operation()) or
+            (self.cvcalllegratewmtable is not None and self.cvcalllegratewmtable.has_operation()) or
+            (self.cvcallratemonitor is not None and self.cvcallratemonitor.has_operation()) or
+            (self.cvcallratestatstable is not None and self.cvcallratestatstable.has_operation()) or
+            (self.cvcallratewmtable is not None and self.cvcallratewmtable.has_operation()) or
+            (self.cvcallvolconntable is not None and self.cvcallvolconntable.has_operation()) or
+            (self.cvcallvoliftable is not None and self.cvcallvoliftable.has_operation()) or
+            (self.cvcallvolume is not None and self.cvcallvolume.has_operation()) or
+            (self.cvcallvolumestatshistory is not None and self.cvcallvolumestatshistory.has_operation()) or
+            (self.cvgatewaycallactive is not None and self.cvgatewaycallactive.has_operation()) or
+            (self.cvgeneralconfiguration is not None and self.cvgeneralconfiguration.has_operation()) or
+            (self.cvpeercfgtable is not None and self.cvpeercfgtable.has_operation()) or
+            (self.cvpeercommoncfgtable is not None and self.cvpeercommoncfgtable.has_operation()) or
+            (self.cvsipmsgratestatstable is not None and self.cvsipmsgratestatstable.has_operation()) or
+            (self.cvsipmsgratewmtable is not None and self.cvsipmsgratewmtable.has_operation()) or
+            (self.cvvoicepeercfgtable is not None and self.cvvoicepeercfgtable.has_operation()) or
+            (self.cvvoipcallactivetable is not None and self.cvvoipcallactivetable.has_operation()) or
+            (self.cvvoipcallhistorytable is not None and self.cvvoipcallhistorytable.has_operation()) or
+            (self.cvvoippeercfgtable is not None and self.cvvoippeercfgtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cvActiveCallStatsTable"):
+            if (self.cvactivecallstatstable is None):
+                self.cvactivecallstatstable = CiscoVoiceDialControlMib.Cvactivecallstatstable()
+                self.cvactivecallstatstable.parent = self
+                self._children_name_map["cvactivecallstatstable"] = "cvActiveCallStatsTable"
+            return self.cvactivecallstatstable
+
+        if (child_yang_name == "cvActiveCallWMTable"):
+            if (self.cvactivecallwmtable is None):
+                self.cvactivecallwmtable = CiscoVoiceDialControlMib.Cvactivecallwmtable()
+                self.cvactivecallwmtable.parent = self
+                self._children_name_map["cvactivecallwmtable"] = "cvActiveCallWMTable"
+            return self.cvactivecallwmtable
+
+        if (child_yang_name == "cvCallActiveTable"):
+            if (self.cvcallactivetable is None):
+                self.cvcallactivetable = CiscoVoiceDialControlMib.Cvcallactivetable()
+                self.cvcallactivetable.parent = self
+                self._children_name_map["cvcallactivetable"] = "cvCallActiveTable"
+            return self.cvcallactivetable
+
+        if (child_yang_name == "cvCallDurationStatsTable"):
+            if (self.cvcalldurationstatstable is None):
+                self.cvcalldurationstatstable = CiscoVoiceDialControlMib.Cvcalldurationstatstable()
+                self.cvcalldurationstatstable.parent = self
+                self._children_name_map["cvcalldurationstatstable"] = "cvCallDurationStatsTable"
+            return self.cvcalldurationstatstable
+
+        if (child_yang_name == "cvCallHistoryTable"):
+            if (self.cvcallhistorytable is None):
+                self.cvcallhistorytable = CiscoVoiceDialControlMib.Cvcallhistorytable()
+                self.cvcallhistorytable.parent = self
+                self._children_name_map["cvcallhistorytable"] = "cvCallHistoryTable"
+            return self.cvcallhistorytable
+
+        if (child_yang_name == "cvCallLegRateStatsTable"):
+            if (self.cvcalllegratestatstable is None):
+                self.cvcalllegratestatstable = CiscoVoiceDialControlMib.Cvcalllegratestatstable()
+                self.cvcalllegratestatstable.parent = self
+                self._children_name_map["cvcalllegratestatstable"] = "cvCallLegRateStatsTable"
+            return self.cvcalllegratestatstable
+
+        if (child_yang_name == "cvCallLegRateWMTable"):
+            if (self.cvcalllegratewmtable is None):
+                self.cvcalllegratewmtable = CiscoVoiceDialControlMib.Cvcalllegratewmtable()
+                self.cvcalllegratewmtable.parent = self
+                self._children_name_map["cvcalllegratewmtable"] = "cvCallLegRateWMTable"
+            return self.cvcalllegratewmtable
+
+        if (child_yang_name == "cvCallRateMonitor"):
+            if (self.cvcallratemonitor is None):
+                self.cvcallratemonitor = CiscoVoiceDialControlMib.Cvcallratemonitor()
+                self.cvcallratemonitor.parent = self
+                self._children_name_map["cvcallratemonitor"] = "cvCallRateMonitor"
+            return self.cvcallratemonitor
+
+        if (child_yang_name == "cvCallRateStatsTable"):
+            if (self.cvcallratestatstable is None):
+                self.cvcallratestatstable = CiscoVoiceDialControlMib.Cvcallratestatstable()
+                self.cvcallratestatstable.parent = self
+                self._children_name_map["cvcallratestatstable"] = "cvCallRateStatsTable"
+            return self.cvcallratestatstable
+
+        if (child_yang_name == "cvCallRateWMTable"):
+            if (self.cvcallratewmtable is None):
+                self.cvcallratewmtable = CiscoVoiceDialControlMib.Cvcallratewmtable()
+                self.cvcallratewmtable.parent = self
+                self._children_name_map["cvcallratewmtable"] = "cvCallRateWMTable"
+            return self.cvcallratewmtable
+
+        if (child_yang_name == "cvCallVolConnTable"):
+            if (self.cvcallvolconntable is None):
+                self.cvcallvolconntable = CiscoVoiceDialControlMib.Cvcallvolconntable()
+                self.cvcallvolconntable.parent = self
+                self._children_name_map["cvcallvolconntable"] = "cvCallVolConnTable"
+            return self.cvcallvolconntable
+
+        if (child_yang_name == "cvCallVolIfTable"):
+            if (self.cvcallvoliftable is None):
+                self.cvcallvoliftable = CiscoVoiceDialControlMib.Cvcallvoliftable()
+                self.cvcallvoliftable.parent = self
+                self._children_name_map["cvcallvoliftable"] = "cvCallVolIfTable"
+            return self.cvcallvoliftable
+
+        if (child_yang_name == "cvCallVolume"):
+            if (self.cvcallvolume is None):
+                self.cvcallvolume = CiscoVoiceDialControlMib.Cvcallvolume()
+                self.cvcallvolume.parent = self
+                self._children_name_map["cvcallvolume"] = "cvCallVolume"
+            return self.cvcallvolume
+
+        if (child_yang_name == "cvCallVolumeStatsHistory"):
+            if (self.cvcallvolumestatshistory is None):
+                self.cvcallvolumestatshistory = CiscoVoiceDialControlMib.Cvcallvolumestatshistory()
+                self.cvcallvolumestatshistory.parent = self
+                self._children_name_map["cvcallvolumestatshistory"] = "cvCallVolumeStatsHistory"
+            return self.cvcallvolumestatshistory
+
+        if (child_yang_name == "cvGatewayCallActive"):
+            if (self.cvgatewaycallactive is None):
+                self.cvgatewaycallactive = CiscoVoiceDialControlMib.Cvgatewaycallactive()
+                self.cvgatewaycallactive.parent = self
+                self._children_name_map["cvgatewaycallactive"] = "cvGatewayCallActive"
+            return self.cvgatewaycallactive
+
+        if (child_yang_name == "cvGeneralConfiguration"):
+            if (self.cvgeneralconfiguration is None):
+                self.cvgeneralconfiguration = CiscoVoiceDialControlMib.Cvgeneralconfiguration()
+                self.cvgeneralconfiguration.parent = self
+                self._children_name_map["cvgeneralconfiguration"] = "cvGeneralConfiguration"
+            return self.cvgeneralconfiguration
+
+        if (child_yang_name == "cvPeerCfgTable"):
+            if (self.cvpeercfgtable is None):
+                self.cvpeercfgtable = CiscoVoiceDialControlMib.Cvpeercfgtable()
+                self.cvpeercfgtable.parent = self
+                self._children_name_map["cvpeercfgtable"] = "cvPeerCfgTable"
+            return self.cvpeercfgtable
+
+        if (child_yang_name == "cvPeerCommonCfgTable"):
+            if (self.cvpeercommoncfgtable is None):
+                self.cvpeercommoncfgtable = CiscoVoiceDialControlMib.Cvpeercommoncfgtable()
+                self.cvpeercommoncfgtable.parent = self
+                self._children_name_map["cvpeercommoncfgtable"] = "cvPeerCommonCfgTable"
+            return self.cvpeercommoncfgtable
+
+        if (child_yang_name == "cvSipMsgRateStatsTable"):
+            if (self.cvsipmsgratestatstable is None):
+                self.cvsipmsgratestatstable = CiscoVoiceDialControlMib.Cvsipmsgratestatstable()
+                self.cvsipmsgratestatstable.parent = self
+                self._children_name_map["cvsipmsgratestatstable"] = "cvSipMsgRateStatsTable"
+            return self.cvsipmsgratestatstable
+
+        if (child_yang_name == "cvSipMsgRateWMTable"):
+            if (self.cvsipmsgratewmtable is None):
+                self.cvsipmsgratewmtable = CiscoVoiceDialControlMib.Cvsipmsgratewmtable()
+                self.cvsipmsgratewmtable.parent = self
+                self._children_name_map["cvsipmsgratewmtable"] = "cvSipMsgRateWMTable"
+            return self.cvsipmsgratewmtable
+
+        if (child_yang_name == "cvVoicePeerCfgTable"):
+            if (self.cvvoicepeercfgtable is None):
+                self.cvvoicepeercfgtable = CiscoVoiceDialControlMib.Cvvoicepeercfgtable()
+                self.cvvoicepeercfgtable.parent = self
+                self._children_name_map["cvvoicepeercfgtable"] = "cvVoicePeerCfgTable"
+            return self.cvvoicepeercfgtable
+
+        if (child_yang_name == "cvVoIPCallActiveTable"):
+            if (self.cvvoipcallactivetable is None):
+                self.cvvoipcallactivetable = CiscoVoiceDialControlMib.Cvvoipcallactivetable()
+                self.cvvoipcallactivetable.parent = self
+                self._children_name_map["cvvoipcallactivetable"] = "cvVoIPCallActiveTable"
+            return self.cvvoipcallactivetable
+
+        if (child_yang_name == "cvVoIPCallHistoryTable"):
+            if (self.cvvoipcallhistorytable is None):
+                self.cvvoipcallhistorytable = CiscoVoiceDialControlMib.Cvvoipcallhistorytable()
+                self.cvvoipcallhistorytable.parent = self
+                self._children_name_map["cvvoipcallhistorytable"] = "cvVoIPCallHistoryTable"
+            return self.cvvoipcallhistorytable
+
+        if (child_yang_name == "cvVoIPPeerCfgTable"):
+            if (self.cvvoippeercfgtable is None):
+                self.cvvoippeercfgtable = CiscoVoiceDialControlMib.Cvvoippeercfgtable()
+                self.cvvoippeercfgtable.parent = self
+                self._children_name_map["cvvoippeercfgtable"] = "cvVoIPPeerCfgTable"
+            return self.cvvoippeercfgtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cvActiveCallStatsTable" or name == "cvActiveCallWMTable" or name == "cvCallActiveTable" or name == "cvCallDurationStatsTable" or name == "cvCallHistoryTable" or name == "cvCallLegRateStatsTable" or name == "cvCallLegRateWMTable" or name == "cvCallRateMonitor" or name == "cvCallRateStatsTable" or name == "cvCallRateWMTable" or name == "cvCallVolConnTable" or name == "cvCallVolIfTable" or name == "cvCallVolume" or name == "cvCallVolumeStatsHistory" or name == "cvGatewayCallActive" or name == "cvGeneralConfiguration" or name == "cvPeerCfgTable" or name == "cvPeerCommonCfgTable" or name == "cvSipMsgRateStatsTable" or name == "cvSipMsgRateWMTable" or name == "cvVoicePeerCfgTable" or name == "cvVoIPCallActiveTable" or name == "cvVoIPCallHistoryTable" or name == "cvVoIPPeerCfgTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cvactivecallstatstable is not None and self.cvactivecallstatstable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cvactivecallwmtable is not None and self.cvactivecallwmtable._has_data():
-            return True
-
-        if self.cvcallactivetable is not None and self.cvcallactivetable._has_data():
-            return True
-
-        if self.cvcalldurationstatstable is not None and self.cvcalldurationstatstable._has_data():
-            return True
-
-        if self.cvcallhistorytable is not None and self.cvcallhistorytable._has_data():
-            return True
-
-        if self.cvcalllegratestatstable is not None and self.cvcalllegratestatstable._has_data():
-            return True
-
-        if self.cvcalllegratewmtable is not None and self.cvcalllegratewmtable._has_data():
-            return True
-
-        if self.cvcallratemonitor is not None and self.cvcallratemonitor._has_data():
-            return True
-
-        if self.cvcallratestatstable is not None and self.cvcallratestatstable._has_data():
-            return True
-
-        if self.cvcallratewmtable is not None and self.cvcallratewmtable._has_data():
-            return True
-
-        if self.cvcallvolconntable is not None and self.cvcallvolconntable._has_data():
-            return True
-
-        if self.cvcallvoliftable is not None and self.cvcallvoliftable._has_data():
-            return True
-
-        if self.cvcallvolume is not None and self.cvcallvolume._has_data():
-            return True
-
-        if self.cvcallvolumestatshistory is not None and self.cvcallvolumestatshistory._has_data():
-            return True
-
-        if self.cvgatewaycallactive is not None and self.cvgatewaycallactive._has_data():
-            return True
-
-        if self.cvgeneralconfiguration is not None and self.cvgeneralconfiguration._has_data():
-            return True
-
-        if self.cvpeercfgtable is not None and self.cvpeercfgtable._has_data():
-            return True
-
-        if self.cvpeercommoncfgtable is not None and self.cvpeercommoncfgtable._has_data():
-            return True
-
-        if self.cvsipmsgratestatstable is not None and self.cvsipmsgratestatstable._has_data():
-            return True
-
-        if self.cvsipmsgratewmtable is not None and self.cvsipmsgratewmtable._has_data():
-            return True
-
-        if self.cvvoicepeercfgtable is not None and self.cvvoicepeercfgtable._has_data():
-            return True
-
-        if self.cvvoipcallactivetable is not None and self.cvvoipcallactivetable._has_data():
-            return True
-
-        if self.cvvoipcallhistorytable is not None and self.cvvoipcallhistorytable._has_data():
-            return True
-
-        if self.cvvoippeercfgtable is not None and self.cvvoippeercfgtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DIAL_CONTROL_MIB as meta
-        return meta._meta_table['CiscoVoiceDialControlMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoVoiceDialControlMib()
+        return self._top_entity
 

@@ -7,28 +7,22 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class KeyGenerateRsaGeneralKeysRpc(object):
+class KeyGenerateRsaGeneralKeys(Entity):
     """
     Generate a general purpose RSA key pair for signing and encryption
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaGeneralKeysRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaGeneralKeys.Input>`
     
     
 
@@ -38,13 +32,19 @@ class KeyGenerateRsaGeneralKeysRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = KeyGenerateRsaGeneralKeysRpc.Input()
+        super(KeyGenerateRsaGeneralKeys, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-generate-rsa-general-keys"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = KeyGenerateRsaGeneralKeys.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -70,64 +70,154 @@ class KeyGenerateRsaGeneralKeysRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.key_label = None
-            self.key_modulus = None
+            super(KeyGenerateRsaGeneralKeys.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "key-generate-rsa-general-keys"
 
-            return '/Cisco-IOS-XR-crypto-act:key-generate-rsa-general-keys/Cisco-IOS-XR-crypto-act:input'
+            self.key_label = YLeaf(YType.str, "key-label")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.key_modulus = YLeaf(YType.int32, "key-modulus")
 
-        def _has_data(self):
-            if self.key_label is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("key_label",
+                            "key_modulus") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(KeyGenerateRsaGeneralKeys.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(KeyGenerateRsaGeneralKeys.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.key_label.is_set or
+                self.key_modulus.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.key_label.yfilter != YFilter.not_set or
+                self.key_modulus.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-rsa-general-keys/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.key_label.is_set or self.key_label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_label.get_name_leafdata())
+            if (self.key_modulus.is_set or self.key_modulus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_modulus.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "key-label" or name == "key-modulus"):
                 return True
-
-            if self.key_modulus is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['KeyGenerateRsaGeneralKeysRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "key-label"):
+                self.key_label = value
+                self.key_label.value_namespace = name_space
+                self.key_label.value_namespace_prefix = name_space_prefix
+            if(value_path == "key-modulus"):
+                self.key_modulus = value
+                self.key_modulus.value_namespace = name_space
+                self.key_modulus.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:key-generate-rsa-general-keys'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-rsa-general-keys" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = KeyGenerateRsaGeneralKeys.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyGenerateRsaGeneralKeysRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = KeyGenerateRsaGeneralKeys()
+        return self._top_entity
 
-class KeyGenerateRsaUsageKeysRpc(object):
+class KeyGenerateRsaUsageKeys(Entity):
     """
     Generate seperate RSA key pairs for signing and encryption
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaUsageKeysRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaUsageKeys.Input>`
     
     
 
@@ -137,13 +227,19 @@ class KeyGenerateRsaUsageKeysRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = KeyGenerateRsaUsageKeysRpc.Input()
+        super(KeyGenerateRsaUsageKeys, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-generate-rsa-usage-keys"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = KeyGenerateRsaUsageKeys.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -169,64 +265,154 @@ class KeyGenerateRsaUsageKeysRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.key_label = None
-            self.key_modulus = None
+            super(KeyGenerateRsaUsageKeys.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "key-generate-rsa-usage-keys"
 
-            return '/Cisco-IOS-XR-crypto-act:key-generate-rsa-usage-keys/Cisco-IOS-XR-crypto-act:input'
+            self.key_label = YLeaf(YType.str, "key-label")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.key_modulus = YLeaf(YType.int32, "key-modulus")
 
-        def _has_data(self):
-            if self.key_label is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("key_label",
+                            "key_modulus") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(KeyGenerateRsaUsageKeys.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(KeyGenerateRsaUsageKeys.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.key_label.is_set or
+                self.key_modulus.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.key_label.yfilter != YFilter.not_set or
+                self.key_modulus.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-rsa-usage-keys/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.key_label.is_set or self.key_label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_label.get_name_leafdata())
+            if (self.key_modulus.is_set or self.key_modulus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_modulus.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "key-label" or name == "key-modulus"):
                 return True
-
-            if self.key_modulus is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['KeyGenerateRsaUsageKeysRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "key-label"):
+                self.key_label = value
+                self.key_label.value_namespace = name_space
+                self.key_label.value_namespace_prefix = name_space_prefix
+            if(value_path == "key-modulus"):
+                self.key_modulus = value
+                self.key_modulus.value_namespace = name_space
+                self.key_modulus.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:key-generate-rsa-usage-keys'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-rsa-usage-keys" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = KeyGenerateRsaUsageKeys.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyGenerateRsaUsageKeysRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = KeyGenerateRsaUsageKeys()
+        return self._top_entity
 
-class KeyGenerateRsaRpc(object):
+class KeyGenerateRsa(Entity):
     """
     Generate seperate RSA key pairs for signing and encryption
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsaRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateRsa.Input>`
     
     
 
@@ -236,13 +422,19 @@ class KeyGenerateRsaRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = KeyGenerateRsaRpc.Input()
+        super(KeyGenerateRsa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-generate-rsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = KeyGenerateRsa.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -268,64 +460,154 @@ class KeyGenerateRsaRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.key_label = None
-            self.key_modulus = None
+            super(KeyGenerateRsa.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "key-generate-rsa"
 
-            return '/Cisco-IOS-XR-crypto-act:key-generate-rsa/Cisco-IOS-XR-crypto-act:input'
+            self.key_label = YLeaf(YType.str, "key-label")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.key_modulus = YLeaf(YType.int32, "key-modulus")
 
-        def _has_data(self):
-            if self.key_label is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("key_label",
+                            "key_modulus") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(KeyGenerateRsa.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(KeyGenerateRsa.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.key_label.is_set or
+                self.key_modulus.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.key_label.yfilter != YFilter.not_set or
+                self.key_modulus.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-rsa/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.key_label.is_set or self.key_label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_label.get_name_leafdata())
+            if (self.key_modulus.is_set or self.key_modulus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_modulus.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "key-label" or name == "key-modulus"):
                 return True
-
-            if self.key_modulus is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['KeyGenerateRsaRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "key-label"):
+                self.key_label = value
+                self.key_label.value_namespace = name_space
+                self.key_label.value_namespace_prefix = name_space_prefix
+            if(value_path == "key-modulus"):
+                self.key_modulus = value
+                self.key_modulus.value_namespace = name_space
+                self.key_modulus.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:key-generate-rsa'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-rsa" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = KeyGenerateRsa.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyGenerateRsaRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = KeyGenerateRsa()
+        return self._top_entity
 
-class KeyGenerateDsaRpc(object):
+class KeyGenerateDsa(Entity):
     """
     Generate DSA keys
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateDsaRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyGenerateDsa.Input>`
     
     
 
@@ -335,13 +617,19 @@ class KeyGenerateDsaRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = KeyGenerateDsaRpc.Input()
+        super(KeyGenerateDsa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-generate-dsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = KeyGenerateDsa.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -362,60 +650,142 @@ class KeyGenerateDsaRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.key_modulus = None
+            super(KeyGenerateDsa.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "key-generate-dsa"
 
-            return '/Cisco-IOS-XR-crypto-act:key-generate-dsa/Cisco-IOS-XR-crypto-act:input'
+            self.key_modulus = YLeaf(YType.int32, "key-modulus")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("key_modulus") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(KeyGenerateDsa.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(KeyGenerateDsa.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.key_modulus is not None:
+        def has_data(self):
+            return self.key_modulus.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.key_modulus.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-dsa/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.key_modulus.is_set or self.key_modulus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_modulus.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "key-modulus"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['KeyGenerateDsaRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "key-modulus"):
+                self.key_modulus = value
+                self.key_modulus.value_namespace = name_space
+                self.key_modulus.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:key-generate-dsa'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-generate-dsa" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = KeyGenerateDsa.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyGenerateDsaRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = KeyGenerateDsa()
+        return self._top_entity
 
-class KeyZeroizeRsaRpc(object):
+class KeyZeroizeRsa(Entity):
     """
     Remove RSA keys
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyZeroizeRsaRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyZeroizeRsa.Input>`
     
     
 
@@ -425,13 +795,19 @@ class KeyZeroizeRsaRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = KeyZeroizeRsaRpc.Input()
+        super(KeyZeroizeRsa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-zeroize-rsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = KeyZeroizeRsa.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -448,53 +824,135 @@ class KeyZeroizeRsaRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.key_label = None
+            super(KeyZeroizeRsa.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "key-zeroize-rsa"
 
-            return '/Cisco-IOS-XR-crypto-act:key-zeroize-rsa/Cisco-IOS-XR-crypto-act:input'
+            self.key_label = YLeaf(YType.str, "key-label")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("key_label") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(KeyZeroizeRsa.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(KeyZeroizeRsa.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.key_label is not None:
+        def has_data(self):
+            return self.key_label.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.key_label.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:key-zeroize-rsa/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.key_label.is_set or self.key_label.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_label.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "key-label"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['KeyZeroizeRsaRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "key-label"):
+                self.key_label = value
+                self.key_label.value_namespace = name_space
+                self.key_label.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:key-zeroize-rsa'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-zeroize-rsa" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = KeyZeroizeRsa.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyZeroizeRsaRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = KeyZeroizeRsa()
+        return self._top_entity
 
-class KeyZeroizeDsaRpc(object):
+class KeyZeroizeDsa(Entity):
     """
     Remove DSA keys
     
@@ -506,28 +964,53 @@ class KeyZeroizeDsaRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
+        super(KeyZeroizeDsa, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "key-zeroize-dsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-crypto-act:key-zeroize-dsa'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyZeroizeDsaRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-zeroize-dsa" + path_buffer
 
-class KeyZeroizeAuthenticationRsaRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = KeyZeroizeDsa()
+        return self._top_entity
+
+class KeyZeroizeAuthenticationRsa(Entity):
     """
     Remove RSA authentication key
     
@@ -539,35 +1022,60 @@ class KeyZeroizeAuthenticationRsaRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
+        super(KeyZeroizeAuthenticationRsa, self).__init__()
+        self._top_entity = None
 
-        self.is_rpc = True
+        self.yang_name = "key-zeroize-authentication-rsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
+    def has_data(self):
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyZeroizeAuthenticationRsaRpc']['meta_info']
+    def has_operation(self):
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-zeroize-authentication-rsa" + path_buffer
 
-class KeyImportAuthenticationRsaRpc(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = KeyZeroizeAuthenticationRsa()
+        return self._top_entity
+
+class KeyImportAuthenticationRsa(Entity):
     """
     Remove RSA authentication key
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyImportAuthenticationRsaRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.KeyImportAuthenticationRsa.Input>`
     
     
 
@@ -577,13 +1085,19 @@ class KeyImportAuthenticationRsaRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = KeyImportAuthenticationRsaRpc.Input()
+        super(KeyImportAuthenticationRsa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "key-import-authentication-rsa"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = KeyImportAuthenticationRsa.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -602,60 +1116,142 @@ class KeyImportAuthenticationRsaRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.path = None
+            super(KeyImportAuthenticationRsa.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "key-import-authentication-rsa"
 
-            return '/Cisco-IOS-XR-crypto-act:key-import-authentication-rsa/Cisco-IOS-XR-crypto-act:input'
+            self.path = YLeaf(YType.str, "path")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("path") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(KeyImportAuthenticationRsa.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(KeyImportAuthenticationRsa.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.path is not None:
+        def has_data(self):
+            return self.path.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.path.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:key-import-authentication-rsa/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.path.is_set or self.path.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.path.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "path"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['KeyImportAuthenticationRsaRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "path"):
+                self.path = value
+                self.path.value_namespace = name_space
+                self.path.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:key-import-authentication-rsa'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:key-import-authentication-rsa" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = KeyImportAuthenticationRsa.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['KeyImportAuthenticationRsaRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = KeyImportAuthenticationRsa()
+        return self._top_entity
 
-class CaAuthenticateRpc(object):
+class CaAuthenticate(Entity):
     """
     Get the certification authority certificate
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaAuthenticateRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaAuthenticate.Input>`
     
     
 
@@ -665,13 +1261,19 @@ class CaAuthenticateRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = CaAuthenticateRpc.Input()
+        super(CaAuthenticate, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ca-authenticate"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = CaAuthenticate.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -690,60 +1292,142 @@ class CaAuthenticateRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.server_name = None
+            super(CaAuthenticate.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "ca-authenticate"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-authenticate/Cisco-IOS-XR-crypto-act:input'
+            self.server_name = YLeaf(YType.str, "server-name")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("server_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaAuthenticate.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaAuthenticate.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.server_name is not None:
+        def has_data(self):
+            return self.server_name.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.server_name.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-authenticate/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.server_name.is_set or self.server_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.server_name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "server-name"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaAuthenticateRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "server-name"):
+                self.server_name = value
+                self.server_name.value_namespace = name_space
+                self.server_name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:ca-authenticate'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:ca-authenticate" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = CaAuthenticate.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['CaAuthenticateRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CaAuthenticate()
+        return self._top_entity
 
-class CaEnrollRpc(object):
+class CaEnroll(Entity):
     """
     Request a certificate from a CA
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaEnrollRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaEnroll.Input>`
     
     
 
@@ -753,13 +1437,19 @@ class CaEnrollRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = CaEnrollRpc.Input()
+        super(CaEnroll, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ca-enroll"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = CaEnroll.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -778,60 +1468,142 @@ class CaEnrollRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.server_name = None
+            super(CaEnroll.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "ca-enroll"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-enroll/Cisco-IOS-XR-crypto-act:input'
+            self.server_name = YLeaf(YType.str, "server-name")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("server_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaEnroll.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaEnroll.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.server_name is not None:
+        def has_data(self):
+            return self.server_name.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.server_name.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-enroll/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.server_name.is_set or self.server_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.server_name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "server-name"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaEnrollRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "server-name"):
+                self.server_name = value
+                self.server_name.value_namespace = name_space
+                self.server_name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:ca-enroll'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:ca-enroll" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = CaEnroll.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['CaEnrollRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CaEnroll()
+        return self._top_entity
 
-class CaImportCertificateRpc(object):
+class CaImportCertificate(Entity):
     """
     Import a certificate from a s/tftp server or the terminal
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaImportCertificateRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaImportCertificate.Input>`
     
     
 
@@ -841,13 +1613,19 @@ class CaImportCertificateRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = CaImportCertificateRpc.Input()
+        super(CaImportCertificate, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ca-import-certificate"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = CaImportCertificate.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -866,60 +1644,142 @@ class CaImportCertificateRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.server_name = None
+            super(CaImportCertificate.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "ca-import-certificate"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-import-certificate/Cisco-IOS-XR-crypto-act:input'
+            self.server_name = YLeaf(YType.str, "server-name")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("server_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaImportCertificate.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaImportCertificate.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.server_name is not None:
+        def has_data(self):
+            return self.server_name.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.server_name.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-import-certificate/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.server_name.is_set or self.server_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.server_name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "server-name"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaImportCertificateRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "server-name"):
+                self.server_name = value
+                self.server_name.value_namespace = name_space
+                self.server_name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:ca-import-certificate'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:ca-import-certificate" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = CaImportCertificate.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['CaImportCertificateRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CaImportCertificate()
+        return self._top_entity
 
-class CaCancelEnrollRpc(object):
+class CaCancelEnroll(Entity):
     """
     Cancel enrollment from a CA
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCancelEnrollRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCancelEnroll.Input>`
     
     
 
@@ -929,13 +1789,19 @@ class CaCancelEnrollRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = CaCancelEnrollRpc.Input()
+        super(CaCancelEnroll, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ca-cancel-enroll"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = CaCancelEnroll.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -954,65 +1820,147 @@ class CaCancelEnrollRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.server_name = None
+            super(CaCancelEnroll.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "ca-cancel-enroll"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-cancel-enroll/Cisco-IOS-XR-crypto-act:input'
+            self.server_name = YLeaf(YType.str, "server-name")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("server_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaCancelEnroll.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaCancelEnroll.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.server_name is not None:
+        def has_data(self):
+            return self.server_name.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.server_name.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-cancel-enroll/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.server_name.is_set or self.server_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.server_name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "server-name"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaCancelEnrollRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "server-name"):
+                self.server_name = value
+                self.server_name.value_namespace = name_space
+                self.server_name.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:ca-cancel-enroll'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:ca-cancel-enroll" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = CaCancelEnroll.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['CaCancelEnrollRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CaCancelEnroll()
+        return self._top_entity
 
-class CaCrlRequestRpc(object):
+class CaCrlRequest(Entity):
     """
     Actions on certificate revocation lists
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequestRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequest.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequestRpc.Output>`
+    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaCrlRequest.Output>`
     
     
 
@@ -1022,15 +1970,24 @@ class CaCrlRequestRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = CaCrlRequestRpc.Input()
+        super(CaCrlRequest, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ca-crl-request"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = CaCrlRequest.Input()
         self.input.parent = self
-        self.output = CaCrlRequestRpc.Output()
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = CaCrlRequest.Output()
         self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1049,33 +2006,85 @@ class CaCrlRequestRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.uri = None
+            super(CaCrlRequest.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "ca-crl-request"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-crl-request/Cisco-IOS-XR-crypto-act:input'
+            self.uri = YLeaf(YType.str, "uri")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("uri") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaCrlRequest.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaCrlRequest.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.uri is not None:
+        def has_data(self):
+            return self.uri.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.uri.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-crl-request/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.uri.is_set or self.uri.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.uri.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "uri"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaCrlRequestRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "uri"):
+                self.uri = value
+                self.uri.value_namespace = name_space
+                self.uri.value_namespace_prefix = name_space_prefix
 
 
-    class Output(object):
+    class Output(Entity):
         """
         
         
@@ -1094,63 +2103,152 @@ class CaCrlRequestRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.certificate = None
+            super(CaCrlRequest.Output, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "output"
+            self.yang_parent_name = "ca-crl-request"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-crl-request/Cisco-IOS-XR-crypto-act:output'
+            self.certificate = YLeaf(YType.str, "certificate")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("certificate") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaCrlRequest.Output, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaCrlRequest.Output, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.certificate is not None:
+        def has_data(self):
+            return self.certificate.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.certificate.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "output" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-crl-request/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.certificate.is_set or self.certificate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.certificate.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "certificate"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaCrlRequestRpc.Output']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "certificate"):
+                self.certificate = value
+                self.certificate.value_namespace = name_space
+                self.certificate.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.input is not None and self.input.has_data()) or
+            (self.output is not None and self.output.has_data()))
 
-        return '/Cisco-IOS-XR-crypto-act:ca-crl-request'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()) or
+            (self.output is not None and self.output.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:ca-crl-request" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = CaCrlRequest.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        if (child_yang_name == "output"):
+            if (self.output is None):
+                self.output = CaCrlRequest.Output()
+                self.output.parent = self
+                self._children_name_map["output"] = "output"
+            return self.output
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input" or name == "output"):
             return True
-
-        if self.output is not None and self.output._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['CaCrlRequestRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CaCrlRequest()
+        return self._top_entity
 
-class CaTrustpoolImportUrlRpc(object):
+class CaTrustpoolImportUrl(Entity):
     """
     Manual import trustpool certificates from URL
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrlRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrl.Input>`
     
     
 
@@ -1160,13 +2258,19 @@ class CaTrustpoolImportUrlRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = CaTrustpoolImportUrlRpc.Input()
+        super(CaTrustpoolImportUrl, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ca-trustpool-import-url"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = CaTrustpoolImportUrl.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1183,60 +2287,142 @@ class CaTrustpoolImportUrlRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.url = None
+            super(CaTrustpoolImportUrl.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "ca-trustpool-import-url"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-trustpool-import-url/Cisco-IOS-XR-crypto-act:input'
+            self.url = YLeaf(YType.str, "url")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("url") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaTrustpoolImportUrl.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaTrustpoolImportUrl.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.url is not None:
+        def has_data(self):
+            return self.url.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.url.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.url.is_set or self.url.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.url.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "url"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaTrustpoolImportUrlRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "url"):
+                self.url = value
+                self.url.value_namespace = name_space
+                self.url.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:ca-trustpool-import-url'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = CaTrustpoolImportUrl.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['CaTrustpoolImportUrlRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CaTrustpoolImportUrl()
+        return self._top_entity
 
-class CaTrustpoolImportUrlCleanRpc(object):
+class CaTrustpoolImportUrlClean(Entity):
     """
     Remove downloaded certificates in trustpool
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrlCleanRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act.CaTrustpoolImportUrlClean.Input>`
     
     
 
@@ -1246,13 +2432,19 @@ class CaTrustpoolImportUrlCleanRpc(object):
     _revision = '2016-04-17'
 
     def __init__(self):
-        self.input = CaTrustpoolImportUrlCleanRpc.Input()
+        super(CaTrustpoolImportUrlClean, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ca-trustpool-import-url-clean"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-act"
+
+        self.input = CaTrustpoolImportUrlClean.Input()
         self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
@@ -1269,49 +2461,131 @@ class CaTrustpoolImportUrlCleanRpc(object):
         _revision = '2016-04-17'
 
         def __init__(self):
-            self.parent = None
-            self.url = None
+            super(CaTrustpoolImportUrlClean.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "ca-trustpool-import-url-clean"
 
-            return '/Cisco-IOS-XR-crypto-act:ca-trustpool-import-url-clean/Cisco-IOS-XR-crypto-act:input'
+            self.url = YLeaf(YType.str, "url")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("url") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CaTrustpoolImportUrlClean.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CaTrustpoolImportUrlClean.Input, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.url is not None:
+        def has_data(self):
+            return self.url.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.url.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url-clean/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.url.is_set or self.url.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.url.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "url"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-            return meta._meta_table['CaTrustpoolImportUrlCleanRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "url"):
+                self.url = value
+                self.url.value_namespace = name_space
+                self.url.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.input is not None and self.input.has_data())
 
-        return '/Cisco-IOS-XR-crypto-act:ca-trustpool-import-url-clean'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-act:ca-trustpool-import-url-clean" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = CaTrustpoolImportUrlClean.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_act as meta
-        return meta._meta_table['CaTrustpoolImportUrlCleanRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CaTrustpoolImportUrlClean()
+        return self._top_entity
 

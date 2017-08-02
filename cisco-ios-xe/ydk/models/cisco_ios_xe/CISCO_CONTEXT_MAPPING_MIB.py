@@ -55,21 +55,15 @@ identifiers to identify the context. Then we would need
 to add those additional identifiers into the mapping.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoContextMappingMib(object):
+class CiscoContextMappingMib(Entity):
     """
     
     
@@ -101,17 +95,34 @@ class CiscoContextMappingMib(object):
     _revision = '2008-11-22'
 
     def __init__(self):
+        super(CiscoContextMappingMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-CONTEXT-MAPPING-MIB"
+        self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
+
         self.ccontextmappingbridgedomaintable = CiscoContextMappingMib.Ccontextmappingbridgedomaintable()
         self.ccontextmappingbridgedomaintable.parent = self
+        self._children_name_map["ccontextmappingbridgedomaintable"] = "cContextMappingBridgeDomainTable"
+        self._children_yang_names.add("cContextMappingBridgeDomainTable")
+
         self.ccontextmappingbridgeinstancetable = CiscoContextMappingMib.Ccontextmappingbridgeinstancetable()
         self.ccontextmappingbridgeinstancetable.parent = self
+        self._children_name_map["ccontextmappingbridgeinstancetable"] = "cContextMappingBridgeInstanceTable"
+        self._children_yang_names.add("cContextMappingBridgeInstanceTable")
+
         self.ccontextmappinglicensegrouptable = CiscoContextMappingMib.Ccontextmappinglicensegrouptable()
         self.ccontextmappinglicensegrouptable.parent = self
+        self._children_name_map["ccontextmappinglicensegrouptable"] = "cContextMappingLicenseGroupTable"
+        self._children_yang_names.add("cContextMappingLicenseGroupTable")
+
         self.ccontextmappingtable = CiscoContextMappingMib.Ccontextmappingtable()
         self.ccontextmappingtable.parent = self
+        self._children_name_map["ccontextmappingtable"] = "cContextMappingTable"
+        self._children_yang_names.add("cContextMappingTable")
 
 
-    class Ccontextmappingtable(object):
+    class Ccontextmappingtable(Entity):
         """
         This table contains information on which
         cContextMappingVacmContextName is mapped to
@@ -145,13 +156,39 @@ class CiscoContextMappingMib(object):
         _revision = '2008-11-22'
 
         def __init__(self):
-            self.parent = None
-            self.ccontextmappingentry = YList()
-            self.ccontextmappingentry.parent = self
-            self.ccontextmappingentry.name = 'ccontextmappingentry'
+            super(CiscoContextMappingMib.Ccontextmappingtable, self).__init__()
+
+            self.yang_name = "cContextMappingTable"
+            self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
+
+            self.ccontextmappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoContextMappingMib.Ccontextmappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoContextMappingMib.Ccontextmappingtable, self).__setattr__(name, value)
 
 
-        class Ccontextmappingentry(object):
+        class Ccontextmappingentry(Entity):
             """
             Information relating to a single mapping of
             cContextMappingVacmContextName to the corresponding VRF,
@@ -175,12 +212,12 @@ class CiscoContextMappingMib(object):
             .. attribute:: ccontextmappingrowstatus
             
             	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ccontextmappingstoragetype
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: ccontextmappingtopologyname
             
@@ -204,75 +241,198 @@ class CiscoContextMappingMib(object):
             _revision = '2008-11-22'
 
             def __init__(self):
-                self.parent = None
-                self.ccontextmappingvacmcontextname = None
-                self.ccontextmappingprotoinstname = None
-                self.ccontextmappingrowstatus = None
-                self.ccontextmappingstoragetype = None
-                self.ccontextmappingtopologyname = None
-                self.ccontextmappingvrfname = None
+                super(CiscoContextMappingMib.Ccontextmappingtable.Ccontextmappingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccontextmappingvacmcontextname is None:
-                    raise YPYModelError('Key property ccontextmappingvacmcontextname is None')
+                self.yang_name = "cContextMappingEntry"
+                self.yang_parent_name = "cContextMappingTable"
 
-                return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingTable/CISCO-CONTEXT-MAPPING-MIB:cContextMappingEntry[CISCO-CONTEXT-MAPPING-MIB:cContextMappingVacmContextName = ' + str(self.ccontextmappingvacmcontextname) + ']'
+                self.ccontextmappingvacmcontextname = YLeaf(YType.str, "cContextMappingVacmContextName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ccontextmappingprotoinstname = YLeaf(YType.str, "cContextMappingProtoInstName")
+
+                self.ccontextmappingrowstatus = YLeaf(YType.enumeration, "cContextMappingRowStatus")
+
+                self.ccontextmappingstoragetype = YLeaf(YType.enumeration, "cContextMappingStorageType")
+
+                self.ccontextmappingtopologyname = YLeaf(YType.str, "cContextMappingTopologyName")
+
+                self.ccontextmappingvrfname = YLeaf(YType.str, "cContextMappingVrfName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccontextmappingvacmcontextname",
+                                "ccontextmappingprotoinstname",
+                                "ccontextmappingrowstatus",
+                                "ccontextmappingstoragetype",
+                                "ccontextmappingtopologyname",
+                                "ccontextmappingvrfname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoContextMappingMib.Ccontextmappingtable.Ccontextmappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoContextMappingMib.Ccontextmappingtable.Ccontextmappingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccontextmappingvacmcontextname.is_set or
+                    self.ccontextmappingprotoinstname.is_set or
+                    self.ccontextmappingrowstatus.is_set or
+                    self.ccontextmappingstoragetype.is_set or
+                    self.ccontextmappingtopologyname.is_set or
+                    self.ccontextmappingvrfname.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set or
+                    self.ccontextmappingprotoinstname.yfilter != YFilter.not_set or
+                    self.ccontextmappingrowstatus.yfilter != YFilter.not_set or
+                    self.ccontextmappingstoragetype.yfilter != YFilter.not_set or
+                    self.ccontextmappingtopologyname.yfilter != YFilter.not_set or
+                    self.ccontextmappingvrfname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cContextMappingEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccontextmappingvacmcontextname.is_set or self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingvacmcontextname.get_name_leafdata())
+                if (self.ccontextmappingprotoinstname.is_set or self.ccontextmappingprotoinstname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingprotoinstname.get_name_leafdata())
+                if (self.ccontextmappingrowstatus.is_set or self.ccontextmappingrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingrowstatus.get_name_leafdata())
+                if (self.ccontextmappingstoragetype.is_set or self.ccontextmappingstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingstoragetype.get_name_leafdata())
+                if (self.ccontextmappingtopologyname.is_set or self.ccontextmappingtopologyname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingtopologyname.get_name_leafdata())
+                if (self.ccontextmappingvrfname.is_set or self.ccontextmappingvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingvrfname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cContextMappingVacmContextName" or name == "cContextMappingProtoInstName" or name == "cContextMappingRowStatus" or name == "cContextMappingStorageType" or name == "cContextMappingTopologyName" or name == "cContextMappingVrfName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccontextmappingvacmcontextname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cContextMappingVacmContextName"):
+                    self.ccontextmappingvacmcontextname = value
+                    self.ccontextmappingvacmcontextname.value_namespace = name_space
+                    self.ccontextmappingvacmcontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingProtoInstName"):
+                    self.ccontextmappingprotoinstname = value
+                    self.ccontextmappingprotoinstname.value_namespace = name_space
+                    self.ccontextmappingprotoinstname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingRowStatus"):
+                    self.ccontextmappingrowstatus = value
+                    self.ccontextmappingrowstatus.value_namespace = name_space
+                    self.ccontextmappingrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingStorageType"):
+                    self.ccontextmappingstoragetype = value
+                    self.ccontextmappingstoragetype.value_namespace = name_space
+                    self.ccontextmappingstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingTopologyName"):
+                    self.ccontextmappingtopologyname = value
+                    self.ccontextmappingtopologyname.value_namespace = name_space
+                    self.ccontextmappingtopologyname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingVrfName"):
+                    self.ccontextmappingvrfname = value
+                    self.ccontextmappingvrfname.value_namespace = name_space
+                    self.ccontextmappingvrfname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccontextmappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.ccontextmappingprotoinstname is not None:
-                    return True
-
-                if self.ccontextmappingrowstatus is not None:
-                    return True
-
-                if self.ccontextmappingstoragetype is not None:
-                    return True
-
-                if self.ccontextmappingtopologyname is not None:
-                    return True
-
-                if self.ccontextmappingvrfname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-                return meta._meta_table['CiscoContextMappingMib.Ccontextmappingtable.Ccontextmappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccontextmappingentry is not None:
-                for child_ref in self.ccontextmappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccontextmappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cContextMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cContextMappingEntry"):
+                for c in self.ccontextmappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoContextMappingMib.Ccontextmappingtable.Ccontextmappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccontextmappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cContextMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-            return meta._meta_table['CiscoContextMappingMib.Ccontextmappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ccontextmappingbridgedomaintable(object):
+    class Ccontextmappingbridgedomaintable(Entity):
         """
         This table contains information on which
         cContextMappingVacmContextName is mapped to
@@ -301,13 +461,39 @@ class CiscoContextMappingMib(object):
         _revision = '2008-11-22'
 
         def __init__(self):
-            self.parent = None
-            self.ccontextmappingbridgedomainentry = YList()
-            self.ccontextmappingbridgedomainentry.parent = self
-            self.ccontextmappingbridgedomainentry.name = 'ccontextmappingbridgedomainentry'
+            super(CiscoContextMappingMib.Ccontextmappingbridgedomaintable, self).__init__()
+
+            self.yang_name = "cContextMappingBridgeDomainTable"
+            self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
+
+            self.ccontextmappingbridgedomainentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoContextMappingMib.Ccontextmappingbridgedomaintable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoContextMappingMib.Ccontextmappingbridgedomaintable, self).__setattr__(name, value)
 
 
-        class Ccontextmappingbridgedomainentry(object):
+        class Ccontextmappingbridgedomainentry(Entity):
             """
             Information relating to a single mapping of
             cContextMappingVacmContextName to the 
@@ -339,12 +525,12 @@ class CiscoContextMappingMib(object):
             .. attribute:: ccontextmappingbridgedomainrowstatus
             
             	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ccontextmappingbridgedomainstoragetype
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             
 
@@ -354,67 +540,176 @@ class CiscoContextMappingMib(object):
             _revision = '2008-11-22'
 
             def __init__(self):
-                self.parent = None
-                self.ccontextmappingvacmcontextname = None
-                self.ccontextmappingbridgedomainidentifier = None
-                self.ccontextmappingbridgedomainrowstatus = None
-                self.ccontextmappingbridgedomainstoragetype = None
+                super(CiscoContextMappingMib.Ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccontextmappingvacmcontextname is None:
-                    raise YPYModelError('Key property ccontextmappingvacmcontextname is None')
+                self.yang_name = "cContextMappingBridgeDomainEntry"
+                self.yang_parent_name = "cContextMappingBridgeDomainTable"
 
-                return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingBridgeDomainTable/CISCO-CONTEXT-MAPPING-MIB:cContextMappingBridgeDomainEntry[CISCO-CONTEXT-MAPPING-MIB:cContextMappingVacmContextName = ' + str(self.ccontextmappingvacmcontextname) + ']'
+                self.ccontextmappingvacmcontextname = YLeaf(YType.str, "cContextMappingVacmContextName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ccontextmappingbridgedomainidentifier = YLeaf(YType.uint32, "cContextMappingBridgeDomainIdentifier")
+
+                self.ccontextmappingbridgedomainrowstatus = YLeaf(YType.enumeration, "cContextMappingBridgeDomainRowStatus")
+
+                self.ccontextmappingbridgedomainstoragetype = YLeaf(YType.enumeration, "cContextMappingBridgeDomainStorageType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccontextmappingvacmcontextname",
+                                "ccontextmappingbridgedomainidentifier",
+                                "ccontextmappingbridgedomainrowstatus",
+                                "ccontextmappingbridgedomainstoragetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoContextMappingMib.Ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoContextMappingMib.Ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccontextmappingvacmcontextname.is_set or
+                    self.ccontextmappingbridgedomainidentifier.is_set or
+                    self.ccontextmappingbridgedomainrowstatus.is_set or
+                    self.ccontextmappingbridgedomainstoragetype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set or
+                    self.ccontextmappingbridgedomainidentifier.yfilter != YFilter.not_set or
+                    self.ccontextmappingbridgedomainrowstatus.yfilter != YFilter.not_set or
+                    self.ccontextmappingbridgedomainstoragetype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cContextMappingBridgeDomainEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeDomainTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccontextmappingvacmcontextname.is_set or self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingvacmcontextname.get_name_leafdata())
+                if (self.ccontextmappingbridgedomainidentifier.is_set or self.ccontextmappingbridgedomainidentifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingbridgedomainidentifier.get_name_leafdata())
+                if (self.ccontextmappingbridgedomainrowstatus.is_set or self.ccontextmappingbridgedomainrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingbridgedomainrowstatus.get_name_leafdata())
+                if (self.ccontextmappingbridgedomainstoragetype.is_set or self.ccontextmappingbridgedomainstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingbridgedomainstoragetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cContextMappingVacmContextName" or name == "cContextMappingBridgeDomainIdentifier" or name == "cContextMappingBridgeDomainRowStatus" or name == "cContextMappingBridgeDomainStorageType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccontextmappingvacmcontextname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cContextMappingVacmContextName"):
+                    self.ccontextmappingvacmcontextname = value
+                    self.ccontextmappingvacmcontextname.value_namespace = name_space
+                    self.ccontextmappingvacmcontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingBridgeDomainIdentifier"):
+                    self.ccontextmappingbridgedomainidentifier = value
+                    self.ccontextmappingbridgedomainidentifier.value_namespace = name_space
+                    self.ccontextmappingbridgedomainidentifier.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingBridgeDomainRowStatus"):
+                    self.ccontextmappingbridgedomainrowstatus = value
+                    self.ccontextmappingbridgedomainrowstatus.value_namespace = name_space
+                    self.ccontextmappingbridgedomainrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingBridgeDomainStorageType"):
+                    self.ccontextmappingbridgedomainstoragetype = value
+                    self.ccontextmappingbridgedomainstoragetype.value_namespace = name_space
+                    self.ccontextmappingbridgedomainstoragetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccontextmappingbridgedomainentry:
+                if (c.has_data()):
                     return True
-
-                if self.ccontextmappingbridgedomainidentifier is not None:
-                    return True
-
-                if self.ccontextmappingbridgedomainrowstatus is not None:
-                    return True
-
-                if self.ccontextmappingbridgedomainstoragetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-                return meta._meta_table['CiscoContextMappingMib.Ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingBridgeDomainTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccontextmappingbridgedomainentry is not None:
-                for child_ref in self.ccontextmappingbridgedomainentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccontextmappingbridgedomainentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cContextMappingBridgeDomainTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cContextMappingBridgeDomainEntry"):
+                for c in self.ccontextmappingbridgedomainentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoContextMappingMib.Ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccontextmappingbridgedomainentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cContextMappingBridgeDomainEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-            return meta._meta_table['CiscoContextMappingMib.Ccontextmappingbridgedomaintable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ccontextmappingbridgeinstancetable(object):
+    class Ccontextmappingbridgeinstancetable(Entity):
         """
         This table contains information on mapping between
         cContextMappingVacmContextName and bridge instance.
@@ -441,13 +736,39 @@ class CiscoContextMappingMib(object):
         _revision = '2008-11-22'
 
         def __init__(self):
-            self.parent = None
-            self.ccontextmappingbridgeinstanceentry = YList()
-            self.ccontextmappingbridgeinstanceentry.parent = self
-            self.ccontextmappingbridgeinstanceentry.name = 'ccontextmappingbridgeinstanceentry'
+            super(CiscoContextMappingMib.Ccontextmappingbridgeinstancetable, self).__init__()
+
+            self.yang_name = "cContextMappingBridgeInstanceTable"
+            self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
+
+            self.ccontextmappingbridgeinstanceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoContextMappingMib.Ccontextmappingbridgeinstancetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoContextMappingMib.Ccontextmappingbridgeinstancetable, self).__setattr__(name, value)
 
 
-        class Ccontextmappingbridgeinstanceentry(object):
+        class Ccontextmappingbridgeinstanceentry(Entity):
             """
             Information relating to a single mapping of
             cContextMappingVacmContextName to the 
@@ -477,12 +798,12 @@ class CiscoContextMappingMib(object):
             .. attribute:: ccontextmappingbridgeinstrowstatus
             
             	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ccontextmappingbridgeinststoragetype
             
             	The storage type for this conceptual row.  Value of this object cannot be changed when the  RowStatus object in the same row is 'active'.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             
 
@@ -492,67 +813,176 @@ class CiscoContextMappingMib(object):
             _revision = '2008-11-22'
 
             def __init__(self):
-                self.parent = None
-                self.ccontextmappingvacmcontextname = None
-                self.ccontextmappingbridgeinstname = None
-                self.ccontextmappingbridgeinstrowstatus = None
-                self.ccontextmappingbridgeinststoragetype = None
+                super(CiscoContextMappingMib.Ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccontextmappingvacmcontextname is None:
-                    raise YPYModelError('Key property ccontextmappingvacmcontextname is None')
+                self.yang_name = "cContextMappingBridgeInstanceEntry"
+                self.yang_parent_name = "cContextMappingBridgeInstanceTable"
 
-                return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingBridgeInstanceTable/CISCO-CONTEXT-MAPPING-MIB:cContextMappingBridgeInstanceEntry[CISCO-CONTEXT-MAPPING-MIB:cContextMappingVacmContextName = ' + str(self.ccontextmappingvacmcontextname) + ']'
+                self.ccontextmappingvacmcontextname = YLeaf(YType.str, "cContextMappingVacmContextName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ccontextmappingbridgeinstname = YLeaf(YType.str, "cContextMappingBridgeInstName")
+
+                self.ccontextmappingbridgeinstrowstatus = YLeaf(YType.enumeration, "cContextMappingBridgeInstRowStatus")
+
+                self.ccontextmappingbridgeinststoragetype = YLeaf(YType.enumeration, "cContextMappingBridgeInstStorageType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccontextmappingvacmcontextname",
+                                "ccontextmappingbridgeinstname",
+                                "ccontextmappingbridgeinstrowstatus",
+                                "ccontextmappingbridgeinststoragetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoContextMappingMib.Ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoContextMappingMib.Ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccontextmappingvacmcontextname.is_set or
+                    self.ccontextmappingbridgeinstname.is_set or
+                    self.ccontextmappingbridgeinstrowstatus.is_set or
+                    self.ccontextmappingbridgeinststoragetype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set or
+                    self.ccontextmappingbridgeinstname.yfilter != YFilter.not_set or
+                    self.ccontextmappingbridgeinstrowstatus.yfilter != YFilter.not_set or
+                    self.ccontextmappingbridgeinststoragetype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cContextMappingBridgeInstanceEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeInstanceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccontextmappingvacmcontextname.is_set or self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingvacmcontextname.get_name_leafdata())
+                if (self.ccontextmappingbridgeinstname.is_set or self.ccontextmappingbridgeinstname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingbridgeinstname.get_name_leafdata())
+                if (self.ccontextmappingbridgeinstrowstatus.is_set or self.ccontextmappingbridgeinstrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingbridgeinstrowstatus.get_name_leafdata())
+                if (self.ccontextmappingbridgeinststoragetype.is_set or self.ccontextmappingbridgeinststoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingbridgeinststoragetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cContextMappingVacmContextName" or name == "cContextMappingBridgeInstName" or name == "cContextMappingBridgeInstRowStatus" or name == "cContextMappingBridgeInstStorageType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccontextmappingvacmcontextname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cContextMappingVacmContextName"):
+                    self.ccontextmappingvacmcontextname = value
+                    self.ccontextmappingvacmcontextname.value_namespace = name_space
+                    self.ccontextmappingvacmcontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingBridgeInstName"):
+                    self.ccontextmappingbridgeinstname = value
+                    self.ccontextmappingbridgeinstname.value_namespace = name_space
+                    self.ccontextmappingbridgeinstname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingBridgeInstRowStatus"):
+                    self.ccontextmappingbridgeinstrowstatus = value
+                    self.ccontextmappingbridgeinstrowstatus.value_namespace = name_space
+                    self.ccontextmappingbridgeinstrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingBridgeInstStorageType"):
+                    self.ccontextmappingbridgeinststoragetype = value
+                    self.ccontextmappingbridgeinststoragetype.value_namespace = name_space
+                    self.ccontextmappingbridgeinststoragetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccontextmappingbridgeinstanceentry:
+                if (c.has_data()):
                     return True
-
-                if self.ccontextmappingbridgeinstname is not None:
-                    return True
-
-                if self.ccontextmappingbridgeinstrowstatus is not None:
-                    return True
-
-                if self.ccontextmappingbridgeinststoragetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-                return meta._meta_table['CiscoContextMappingMib.Ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingBridgeInstanceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccontextmappingbridgeinstanceentry is not None:
-                for child_ref in self.ccontextmappingbridgeinstanceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccontextmappingbridgeinstanceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cContextMappingBridgeInstanceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cContextMappingBridgeInstanceEntry"):
+                for c in self.ccontextmappingbridgeinstanceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoContextMappingMib.Ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccontextmappingbridgeinstanceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cContextMappingBridgeInstanceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-            return meta._meta_table['CiscoContextMappingMib.Ccontextmappingbridgeinstancetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ccontextmappinglicensegrouptable(object):
+    class Ccontextmappinglicensegrouptable(Entity):
         """
         This table contains information on which
         cContextMappingVacmContextName is mapped to
@@ -573,13 +1003,39 @@ class CiscoContextMappingMib(object):
         _revision = '2008-11-22'
 
         def __init__(self):
-            self.parent = None
-            self.ccontextmappinglicensegroupentry = YList()
-            self.ccontextmappinglicensegroupentry.parent = self
-            self.ccontextmappinglicensegroupentry.name = 'ccontextmappinglicensegroupentry'
+            super(CiscoContextMappingMib.Ccontextmappinglicensegrouptable, self).__init__()
+
+            self.yang_name = "cContextMappingLicenseGroupTable"
+            self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
+
+            self.ccontextmappinglicensegroupentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoContextMappingMib.Ccontextmappinglicensegrouptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoContextMappingMib.Ccontextmappinglicensegrouptable, self).__setattr__(name, value)
 
 
-        class Ccontextmappinglicensegroupentry(object):
+        class Ccontextmappinglicensegroupentry(Entity):
             """
             Information relating to a single mapping of
             CContextMappingVacmContextName to the
@@ -604,12 +1060,12 @@ class CiscoContextMappingMib(object):
             .. attribute:: ccontextmappinglicensegrouprowstatus
             
             	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ccontextmappinglicensegroupstoragetype
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             
 
@@ -619,92 +1075,250 @@ class CiscoContextMappingMib(object):
             _revision = '2008-11-22'
 
             def __init__(self):
-                self.parent = None
-                self.ccontextmappingvacmcontextname = None
-                self.ccontextmappinglicensegroupname = None
-                self.ccontextmappinglicensegrouprowstatus = None
-                self.ccontextmappinglicensegroupstoragetype = None
+                super(CiscoContextMappingMib.Ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccontextmappingvacmcontextname is None:
-                    raise YPYModelError('Key property ccontextmappingvacmcontextname is None')
+                self.yang_name = "cContextMappingLicenseGroupEntry"
+                self.yang_parent_name = "cContextMappingLicenseGroupTable"
 
-                return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingLicenseGroupTable/CISCO-CONTEXT-MAPPING-MIB:cContextMappingLicenseGroupEntry[CISCO-CONTEXT-MAPPING-MIB:cContextMappingVacmContextName = ' + str(self.ccontextmappingvacmcontextname) + ']'
+                self.ccontextmappingvacmcontextname = YLeaf(YType.str, "cContextMappingVacmContextName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ccontextmappinglicensegroupname = YLeaf(YType.str, "cContextMappingLicenseGroupName")
+
+                self.ccontextmappinglicensegrouprowstatus = YLeaf(YType.enumeration, "cContextMappingLicenseGroupRowStatus")
+
+                self.ccontextmappinglicensegroupstoragetype = YLeaf(YType.enumeration, "cContextMappingLicenseGroupStorageType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccontextmappingvacmcontextname",
+                                "ccontextmappinglicensegroupname",
+                                "ccontextmappinglicensegrouprowstatus",
+                                "ccontextmappinglicensegroupstoragetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoContextMappingMib.Ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoContextMappingMib.Ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccontextmappingvacmcontextname.is_set or
+                    self.ccontextmappinglicensegroupname.is_set or
+                    self.ccontextmappinglicensegrouprowstatus.is_set or
+                    self.ccontextmappinglicensegroupstoragetype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set or
+                    self.ccontextmappinglicensegroupname.yfilter != YFilter.not_set or
+                    self.ccontextmappinglicensegrouprowstatus.yfilter != YFilter.not_set or
+                    self.ccontextmappinglicensegroupstoragetype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cContextMappingLicenseGroupEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingLicenseGroupTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccontextmappingvacmcontextname.is_set or self.ccontextmappingvacmcontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappingvacmcontextname.get_name_leafdata())
+                if (self.ccontextmappinglicensegroupname.is_set or self.ccontextmappinglicensegroupname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappinglicensegroupname.get_name_leafdata())
+                if (self.ccontextmappinglicensegrouprowstatus.is_set or self.ccontextmappinglicensegrouprowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappinglicensegrouprowstatus.get_name_leafdata())
+                if (self.ccontextmappinglicensegroupstoragetype.is_set or self.ccontextmappinglicensegroupstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccontextmappinglicensegroupstoragetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cContextMappingVacmContextName" or name == "cContextMappingLicenseGroupName" or name == "cContextMappingLicenseGroupRowStatus" or name == "cContextMappingLicenseGroupStorageType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccontextmappingvacmcontextname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cContextMappingVacmContextName"):
+                    self.ccontextmappingvacmcontextname = value
+                    self.ccontextmappingvacmcontextname.value_namespace = name_space
+                    self.ccontextmappingvacmcontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingLicenseGroupName"):
+                    self.ccontextmappinglicensegroupname = value
+                    self.ccontextmappinglicensegroupname.value_namespace = name_space
+                    self.ccontextmappinglicensegroupname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingLicenseGroupRowStatus"):
+                    self.ccontextmappinglicensegrouprowstatus = value
+                    self.ccontextmappinglicensegrouprowstatus.value_namespace = name_space
+                    self.ccontextmappinglicensegrouprowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cContextMappingLicenseGroupStorageType"):
+                    self.ccontextmappinglicensegroupstoragetype = value
+                    self.ccontextmappinglicensegroupstoragetype.value_namespace = name_space
+                    self.ccontextmappinglicensegroupstoragetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccontextmappinglicensegroupentry:
+                if (c.has_data()):
                     return True
-
-                if self.ccontextmappinglicensegroupname is not None:
-                    return True
-
-                if self.ccontextmappinglicensegrouprowstatus is not None:
-                    return True
-
-                if self.ccontextmappinglicensegroupstoragetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-                return meta._meta_table['CiscoContextMappingMib.Ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/CISCO-CONTEXT-MAPPING-MIB:cContextMappingLicenseGroupTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccontextmappinglicensegroupentry is not None:
-                for child_ref in self.ccontextmappinglicensegroupentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccontextmappinglicensegroupentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cContextMappingLicenseGroupTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cContextMappingLicenseGroupEntry"):
+                for c in self.ccontextmappinglicensegroupentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoContextMappingMib.Ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccontextmappinglicensegroupentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cContextMappingLicenseGroupEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-            return meta._meta_table['CiscoContextMappingMib.Ccontextmappinglicensegrouptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ccontextmappingbridgedomaintable is not None and self.ccontextmappingbridgedomaintable.has_data()) or
+            (self.ccontextmappingbridgeinstancetable is not None and self.ccontextmappingbridgeinstancetable.has_data()) or
+            (self.ccontextmappinglicensegrouptable is not None and self.ccontextmappinglicensegrouptable.has_data()) or
+            (self.ccontextmappingtable is not None and self.ccontextmappingtable.has_data()))
 
-        return '/CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ccontextmappingbridgedomaintable is not None and self.ccontextmappingbridgedomaintable.has_operation()) or
+            (self.ccontextmappingbridgeinstancetable is not None and self.ccontextmappingbridgeinstancetable.has_operation()) or
+            (self.ccontextmappinglicensegrouptable is not None and self.ccontextmappinglicensegrouptable.has_operation()) or
+            (self.ccontextmappingtable is not None and self.ccontextmappingtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cContextMappingBridgeDomainTable"):
+            if (self.ccontextmappingbridgedomaintable is None):
+                self.ccontextmappingbridgedomaintable = CiscoContextMappingMib.Ccontextmappingbridgedomaintable()
+                self.ccontextmappingbridgedomaintable.parent = self
+                self._children_name_map["ccontextmappingbridgedomaintable"] = "cContextMappingBridgeDomainTable"
+            return self.ccontextmappingbridgedomaintable
+
+        if (child_yang_name == "cContextMappingBridgeInstanceTable"):
+            if (self.ccontextmappingbridgeinstancetable is None):
+                self.ccontextmappingbridgeinstancetable = CiscoContextMappingMib.Ccontextmappingbridgeinstancetable()
+                self.ccontextmappingbridgeinstancetable.parent = self
+                self._children_name_map["ccontextmappingbridgeinstancetable"] = "cContextMappingBridgeInstanceTable"
+            return self.ccontextmappingbridgeinstancetable
+
+        if (child_yang_name == "cContextMappingLicenseGroupTable"):
+            if (self.ccontextmappinglicensegrouptable is None):
+                self.ccontextmappinglicensegrouptable = CiscoContextMappingMib.Ccontextmappinglicensegrouptable()
+                self.ccontextmappinglicensegrouptable.parent = self
+                self._children_name_map["ccontextmappinglicensegrouptable"] = "cContextMappingLicenseGroupTable"
+            return self.ccontextmappinglicensegrouptable
+
+        if (child_yang_name == "cContextMappingTable"):
+            if (self.ccontextmappingtable is None):
+                self.ccontextmappingtable = CiscoContextMappingMib.Ccontextmappingtable()
+                self.ccontextmappingtable.parent = self
+                self._children_name_map["ccontextmappingtable"] = "cContextMappingTable"
+            return self.ccontextmappingtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cContextMappingBridgeDomainTable" or name == "cContextMappingBridgeInstanceTable" or name == "cContextMappingLicenseGroupTable" or name == "cContextMappingTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ccontextmappingbridgedomaintable is not None and self.ccontextmappingbridgedomaintable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ccontextmappingbridgeinstancetable is not None and self.ccontextmappingbridgeinstancetable._has_data():
-            return True
-
-        if self.ccontextmappinglicensegrouptable is not None and self.ccontextmappinglicensegrouptable._has_data():
-            return True
-
-        if self.ccontextmappingtable is not None and self.ccontextmappingtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONTEXT_MAPPING_MIB as meta
-        return meta._meta_table['CiscoContextMappingMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoContextMappingMib()
+        return self._top_entity
 

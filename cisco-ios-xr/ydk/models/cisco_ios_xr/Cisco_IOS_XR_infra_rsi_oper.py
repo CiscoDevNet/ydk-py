@@ -13,22 +13,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class PriorityEnum(Enum):
+class Priority(Enum):
     """
-    PriorityEnum
+    Priority
 
     Priority
 
@@ -54,26 +48,20 @@ class PriorityEnum(Enum):
 
     """
 
-    critical = 0
+    critical = Enum.YLeaf(0, "critical")
 
-    high = 1
+    high = Enum.YLeaf(1, "high")
 
-    medium = 2
+    medium = Enum.YLeaf(2, "medium")
 
-    low = 3
+    low = Enum.YLeaf(3, "low")
 
-    very_low = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-        return meta._meta_table['PriorityEnum']
+    very_low = Enum.YLeaf(4, "very-low")
 
 
-class SourceEnum(Enum):
+class Source(Enum):
     """
-    SourceEnum
+    Source
 
     Source
 
@@ -111,31 +99,25 @@ class SourceEnum(Enum):
 
     """
 
-    configured = 1
+    configured = Enum.YLeaf(1, "configured")
 
-    from_group = 2
+    from_group = Enum.YLeaf(2, "from-group")
 
-    inherited = 4
+    inherited = Enum.YLeaf(4, "inherited")
 
-    from_optical = 8
+    from_optical = Enum.YLeaf(8, "from-optical")
 
-    configured_and_notified = 17
+    configured_and_notified = Enum.YLeaf(17, "configured-and-notified")
 
-    from_group_and_notified = 18
+    from_group_and_notified = Enum.YLeaf(18, "from-group-and-notified")
 
-    inherited_and_notified = 20
+    inherited_and_notified = Enum.YLeaf(20, "inherited-and-notified")
 
-    from_optical_and_notified = 24
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-        return meta._meta_table['SourceEnum']
+    from_optical_and_notified = Enum.YLeaf(24, "from-optical-and-notified")
 
 
 
-class VrfGroup(object):
+class VrfGroup(Entity):
     """
     VRF group operational data
     
@@ -152,11 +134,19 @@ class VrfGroup(object):
     _revision = '2015-01-07'
 
     def __init__(self):
+        super(VrfGroup, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "vrf-group"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-rsi-oper"
+
         self.nodes = VrfGroup.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         Node operational data
         
@@ -173,13 +163,39 @@ class VrfGroup(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(VrfGroup.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "vrf-group"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(VrfGroup.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(VrfGroup.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             Node details
             
@@ -203,13 +219,44 @@ class VrfGroup(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(VrfGroup.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.groups = VrfGroup.Nodes.Node.Groups()
                 self.groups.parent = self
+                self._children_name_map["groups"] = "groups"
+                self._children_yang_names.add("groups")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VrfGroup.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VrfGroup.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Groups(object):
+            class Groups(Entity):
                 """
                 Group operational data
                 
@@ -226,13 +273,39 @@ class VrfGroup(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.group = YList()
-                    self.group.parent = self
-                    self.group.name = 'group'
+                    super(VrfGroup.Nodes.Node.Groups, self).__init__()
+
+                    self.yang_name = "groups"
+                    self.yang_parent_name = "node"
+
+                    self.group = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VrfGroup.Nodes.Node.Groups, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VrfGroup.Nodes.Node.Groups, self).__setattr__(name, value)
 
 
-                class Group(object):
+                class Group(Entity):
                     """
                     Group details
                     
@@ -268,16 +341,47 @@ class VrfGroup(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.group_name = None
-                        self.forward_reference = None
-                        self.vr_fs = None
-                        self.vrf = YList()
-                        self.vrf.parent = self
-                        self.vrf.name = 'vrf'
+                        super(VrfGroup.Nodes.Node.Groups.Group, self).__init__()
+
+                        self.yang_name = "group"
+                        self.yang_parent_name = "groups"
+
+                        self.group_name = YLeaf(YType.str, "group-name")
+
+                        self.forward_reference = YLeaf(YType.boolean, "forward-reference")
+
+                        self.vr_fs = YLeaf(YType.uint32, "vr-fs")
+
+                        self.vrf = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("group_name",
+                                        "forward_reference",
+                                        "vr_fs") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(VrfGroup.Nodes.Node.Groups.Group, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(VrfGroup.Nodes.Node.Groups.Group, self).__setattr__(name, value)
 
 
-                    class Vrf(object):
+                    class Vrf(Entity):
                         """
                         VRF group's VRF
                         
@@ -294,159 +398,386 @@ class VrfGroup(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.vrf_name = None
+                            super(VrfGroup.Nodes.Node.Groups.Group.Vrf, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "vrf"
+                            self.yang_parent_name = "group"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:vrf'
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("vrf_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(VrfGroup.Nodes.Node.Groups.Group.Vrf, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(VrfGroup.Nodes.Node.Groups.Group.Vrf, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return self.vrf_name.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.vrf_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "vrf" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "vrf-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.vrf_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "vrf-name"):
+                                self.vrf_name = value
+                                self.vrf_name.value_namespace = name_space
+                                self.vrf_name.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.vrf:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.group_name.is_set or
+                            self.forward_reference.is_set or
+                            self.vr_fs.is_set)
 
-                            return False
+                    def has_operation(self):
+                        for c in self.vrf:
+                            if (c.has_operation()):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.group_name.yfilter != YFilter.not_set or
+                            self.forward_reference.yfilter != YFilter.not_set or
+                            self.vr_fs.yfilter != YFilter.not_set)
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                            return meta._meta_table['VrfGroup.Nodes.Node.Groups.Group.Vrf']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "group" + "[group-name='" + self.group_name.get() + "']" + path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.group_name is None:
-                            raise YPYModelError('Key property group_name is None')
+                        return path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:group[Cisco-IOS-XR-infra-rsi-oper:group-name = ' + str(self.group_name) + ']'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        leaf_name_data = LeafDataList()
+                        if (self.group_name.is_set or self.group_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_name.get_name_leafdata())
+                        if (self.forward_reference.is_set or self.forward_reference.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.forward_reference.get_name_leafdata())
+                        if (self.vr_fs.is_set or self.vr_fs.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vr_fs.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "vrf"):
+                            for c in self.vrf:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = VrfGroup.Nodes.Node.Groups.Group.Vrf()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.vrf.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "vrf" or name == "group-name" or name == "forward-reference" or name == "vr-fs"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.group_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "group-name"):
+                            self.group_name = value
+                            self.group_name.value_namespace = name_space
+                            self.group_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "forward-reference"):
+                            self.forward_reference = value
+                            self.forward_reference.value_namespace = name_space
+                            self.forward_reference.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vr-fs"):
+                            self.vr_fs = value
+                            self.vr_fs.value_namespace = name_space
+                            self.vr_fs.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.group:
+                        if (c.has_data()):
                             return True
-
-                        if self.forward_reference is not None:
-                            return True
-
-                        if self.vr_fs is not None:
-                            return True
-
-                        if self.vrf is not None:
-                            for child_ref in self.vrf:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['VrfGroup.Nodes.Node.Groups.Group']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:groups'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.group is not None:
-                        for child_ref in self.group:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.group:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "groups" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['VrfGroup.Nodes.Node.Groups']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-infra-rsi-oper:vrf-group/Cisco-IOS-XR-infra-rsi-oper:nodes/Cisco-IOS-XR-infra-rsi-oper:node[Cisco-IOS-XR-infra-rsi-oper:node-name = ' + str(self.node_name) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.node_name is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.groups is not None and self.groups._has_data():
-                    return True
+                    if (child_yang_name == "group"):
+                        for c in self.group:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = VrfGroup.Nodes.Node.Groups.Group()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.group.append(c)
+                        return c
 
-                return False
+                    return None
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                return meta._meta_table['VrfGroup.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-rsi-oper:vrf-group/Cisco-IOS-XR-infra-rsi-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "group"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.groups is not None and self.groups.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.groups is not None and self.groups.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-rsi-oper:vrf-group/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "groups"):
+                    if (self.groups is None):
+                        self.groups = VrfGroup.Nodes.Node.Groups()
+                        self.groups.parent = self
+                        self._children_name_map["groups"] = "groups"
+                    return self.groups
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "groups" or name == "node-name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-            return meta._meta_table['VrfGroup.Nodes']['meta_info']
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
 
-        return '/Cisco-IOS-XR-infra-rsi-oper:vrf-group'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-rsi-oper:vrf-group/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = VrfGroup.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-rsi-oper:vrf-group" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = VrfGroup.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-        return meta._meta_table['VrfGroup']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = VrfGroup()
+        return self._top_entity
 
-class Srlg(object):
+class Srlg(Entity):
     """
     srlg
     
@@ -473,15 +804,29 @@ class Srlg(object):
     _revision = '2015-01-07'
 
     def __init__(self):
+        super(Srlg, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "srlg"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-rsi-oper"
+
         self.interface_srlg_names = Srlg.InterfaceSrlgNames()
         self.interface_srlg_names.parent = self
+        self._children_name_map["interface_srlg_names"] = "interface-srlg-names"
+        self._children_yang_names.add("interface-srlg-names")
+
         self.nodes = Srlg.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
+
         self.srlg_maps = Srlg.SrlgMaps()
         self.srlg_maps.parent = self
+        self._children_name_map["srlg_maps"] = "srlg-maps"
+        self._children_yang_names.add("srlg-maps")
 
 
-    class SrlgMaps(object):
+    class SrlgMaps(Entity):
         """
         Set of SRLG name, value maps configured
         
@@ -498,13 +843,39 @@ class Srlg(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.srlg_map = YList()
-            self.srlg_map.parent = self
-            self.srlg_map.name = 'srlg_map'
+            super(Srlg.SrlgMaps, self).__init__()
+
+            self.yang_name = "srlg-maps"
+            self.yang_parent_name = "srlg"
+
+            self.srlg_map = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Srlg.SrlgMaps, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Srlg.SrlgMaps, self).__setattr__(name, value)
 
 
-        class SrlgMap(object):
+        class SrlgMap(Entity):
             """
             Configured SRLG name details 
             
@@ -535,63 +906,165 @@ class Srlg(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.srlg_name = None
-                self.srlg_name_xr = None
-                self.srlg_value = None
+                super(Srlg.SrlgMaps.SrlgMap, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.srlg_name is None:
-                    raise YPYModelError('Key property srlg_name is None')
+                self.yang_name = "srlg-map"
+                self.yang_parent_name = "srlg-maps"
 
-                return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:srlg-maps/Cisco-IOS-XR-infra-rsi-oper:srlg-map[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
+                self.srlg_name = YLeaf(YType.str, "srlg-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
+
+                self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("srlg_name",
+                                "srlg_name_xr",
+                                "srlg_value") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Srlg.SrlgMaps.SrlgMap, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Srlg.SrlgMaps.SrlgMap, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.srlg_name.is_set or
+                    self.srlg_name_xr.is_set or
+                    self.srlg_value.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.srlg_name.yfilter != YFilter.not_set or
+                    self.srlg_name_xr.yfilter != YFilter.not_set or
+                    self.srlg_value.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "srlg-map" + "[srlg-name='" + self.srlg_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-rsi-oper:srlg/srlg-maps/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.srlg_name.is_set or self.srlg_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.srlg_name.get_name_leafdata())
+                if (self.srlg_name_xr.is_set or self.srlg_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.srlg_name_xr.get_name_leafdata())
+                if (self.srlg_value.is_set or self.srlg_value.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.srlg_value.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "srlg-name" or name == "srlg-name-xr" or name == "srlg-value"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.srlg_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "srlg-name"):
+                    self.srlg_name = value
+                    self.srlg_name.value_namespace = name_space
+                    self.srlg_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "srlg-name-xr"):
+                    self.srlg_name_xr = value
+                    self.srlg_name_xr.value_namespace = name_space
+                    self.srlg_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "srlg-value"):
+                    self.srlg_value = value
+                    self.srlg_value.value_namespace = name_space
+                    self.srlg_value.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.srlg_map:
+                if (c.has_data()):
                     return True
-
-                if self.srlg_name_xr is not None:
-                    return True
-
-                if self.srlg_value is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                return meta._meta_table['Srlg.SrlgMaps.SrlgMap']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:srlg-maps'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.srlg_map is not None:
-                for child_ref in self.srlg_map:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.srlg_map:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "srlg-maps" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-rsi-oper:srlg/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "srlg-map"):
+                for c in self.srlg_map:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Srlg.SrlgMaps.SrlgMap()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.srlg_map.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "srlg-map"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-            return meta._meta_table['Srlg.SrlgMaps']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         RSI SRLG operational data
         
@@ -608,13 +1081,39 @@ class Srlg(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(Srlg.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "srlg"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Srlg.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Srlg.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             RSI SRLG operational data
             
@@ -668,25 +1167,74 @@ class Srlg(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(Srlg.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.groups = Srlg.Nodes.Node.Groups()
                 self.groups.parent = self
+                self._children_name_map["groups"] = "groups"
+                self._children_yang_names.add("groups")
+
                 self.inherit_nodes = Srlg.Nodes.Node.InheritNodes()
                 self.inherit_nodes.parent = self
+                self._children_name_map["inherit_nodes"] = "inherit-nodes"
+                self._children_yang_names.add("inherit-nodes")
+
                 self.interface_details = Srlg.Nodes.Node.InterfaceDetails()
                 self.interface_details.parent = self
+                self._children_name_map["interface_details"] = "interface-details"
+                self._children_yang_names.add("interface-details")
+
                 self.interface_srlg_names = Srlg.Nodes.Node.InterfaceSrlgNames()
                 self.interface_srlg_names.parent = self
+                self._children_name_map["interface_srlg_names"] = "interface-srlg-names"
+                self._children_yang_names.add("interface-srlg-names")
+
                 self.interfaces = Srlg.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
                 self.srlg_maps = Srlg.Nodes.Node.SrlgMaps()
                 self.srlg_maps.parent = self
+                self._children_name_map["srlg_maps"] = "srlg-maps"
+                self._children_yang_names.add("srlg-maps")
+
                 self.srlg_values = Srlg.Nodes.Node.SrlgValues()
                 self.srlg_values.parent = self
+                self._children_name_map["srlg_values"] = "srlg-values"
+                self._children_yang_names.add("srlg-values")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Srlg.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Srlg.Nodes.Node, self).__setattr__(name, value)
 
 
-            class SrlgMaps(object):
+            class SrlgMaps(Entity):
                 """
                 Set of SRLG name, value maps configured
                 
@@ -703,13 +1251,39 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.srlg_map = YList()
-                    self.srlg_map.parent = self
-                    self.srlg_map.name = 'srlg_map'
+                    super(Srlg.Nodes.Node.SrlgMaps, self).__init__()
+
+                    self.yang_name = "srlg-maps"
+                    self.yang_parent_name = "node"
+
+                    self.srlg_map = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.Nodes.Node.SrlgMaps, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.Nodes.Node.SrlgMaps, self).__setattr__(name, value)
 
 
-                class SrlgMap(object):
+                class SrlgMap(Entity):
                     """
                     Configured SRLG name details 
                     
@@ -740,67 +1314,165 @@ class Srlg(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.srlg_name = None
-                        self.srlg_name_xr = None
-                        self.srlg_value = None
+                        super(Srlg.Nodes.Node.SrlgMaps.SrlgMap, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.srlg_name is None:
-                            raise YPYModelError('Key property srlg_name is None')
+                        self.yang_name = "srlg-map"
+                        self.yang_parent_name = "srlg-maps"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-map[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
+                        self.srlg_name = YLeaf(YType.str, "srlg-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
+
+                        self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("srlg_name",
+                                        "srlg_name_xr",
+                                        "srlg_value") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Srlg.Nodes.Node.SrlgMaps.SrlgMap, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Srlg.Nodes.Node.SrlgMaps.SrlgMap, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.srlg_name.is_set or
+                            self.srlg_name_xr.is_set or
+                            self.srlg_value.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.srlg_name.yfilter != YFilter.not_set or
+                            self.srlg_name_xr.yfilter != YFilter.not_set or
+                            self.srlg_value.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "srlg-map" + "[srlg-name='" + self.srlg_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.srlg_name.is_set or self.srlg_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.srlg_name.get_name_leafdata())
+                        if (self.srlg_name_xr.is_set or self.srlg_name_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.srlg_name_xr.get_name_leafdata())
+                        if (self.srlg_value.is_set or self.srlg_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.srlg_value.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "srlg-name" or name == "srlg-name-xr" or name == "srlg-value"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.srlg_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "srlg-name"):
+                            self.srlg_name = value
+                            self.srlg_name.value_namespace = name_space
+                            self.srlg_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "srlg-name-xr"):
+                            self.srlg_name_xr = value
+                            self.srlg_name_xr.value_namespace = name_space
+                            self.srlg_name_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "srlg-value"):
+                            self.srlg_value = value
+                            self.srlg_value.value_namespace = name_space
+                            self.srlg_value.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.srlg_map:
+                        if (c.has_data()):
                             return True
-
-                        if self.srlg_name_xr is not None:
-                            return True
-
-                        if self.srlg_value is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['Srlg.Nodes.Node.SrlgMaps.SrlgMap']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-maps'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.srlg_map is not None:
-                        for child_ref in self.srlg_map:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.srlg_map:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "srlg-maps" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "srlg-map"):
+                        for c in self.srlg_map:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Srlg.Nodes.Node.SrlgMaps.SrlgMap()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.srlg_map.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "srlg-map"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.Nodes.Node.SrlgMaps']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Groups(object):
+            class Groups(Entity):
                 """
                 Set of Groups configured for SRLG
                 
@@ -817,13 +1489,39 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.group = YList()
-                    self.group.parent = self
-                    self.group.name = 'group'
+                    super(Srlg.Nodes.Node.Groups, self).__init__()
+
+                    self.yang_name = "groups"
+                    self.yang_parent_name = "node"
+
+                    self.group = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.Nodes.Node.Groups, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.Nodes.Node.Groups, self).__setattr__(name, value)
 
 
-                class Group(object):
+                class Group(Entity):
                     """
                     SRLG group details
                     
@@ -859,23 +1557,54 @@ class Srlg(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.group_name = None
-                        self.group_name_xr = None
-                        self.group_values = None
-                        self.srlg_attribute = YList()
-                        self.srlg_attribute.parent = self
-                        self.srlg_attribute.name = 'srlg_attribute'
+                        super(Srlg.Nodes.Node.Groups.Group, self).__init__()
+
+                        self.yang_name = "group"
+                        self.yang_parent_name = "groups"
+
+                        self.group_name = YLeaf(YType.str, "group-name")
+
+                        self.group_name_xr = YLeaf(YType.str, "group-name-xr")
+
+                        self.group_values = YLeaf(YType.uint32, "group-values")
+
+                        self.srlg_attribute = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("group_name",
+                                        "group_name_xr",
+                                        "group_values") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Srlg.Nodes.Node.Groups.Group, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Srlg.Nodes.Node.Groups.Group, self).__setattr__(name, value)
 
 
-                    class SrlgAttribute(object):
+                    class SrlgAttribute(Entity):
                         """
                         SRLG attribute
                         
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\:   :py:class:`PriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.PriorityEnum>`
+                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
                         
                         .. attribute:: srlg_index
                         
@@ -899,100 +1628,246 @@ class Srlg(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.priority = None
-                            self.srlg_index = None
-                            self.srlg_value = None
+                            super(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "srlg-attribute"
+                            self.yang_parent_name = "group"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-attribute'
+                            self.priority = YLeaf(YType.enumeration, "priority")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.srlg_index = YLeaf(YType.uint16, "srlg-index")
+
+                            self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("priority",
+                                            "srlg_index",
+                                            "srlg_value") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Srlg.Nodes.Node.Groups.Group.SrlgAttribute, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.priority.is_set or
+                                self.srlg_index.is_set or
+                                self.srlg_value.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.priority.yfilter != YFilter.not_set or
+                                self.srlg_index.yfilter != YFilter.not_set or
+                                self.srlg_value.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "srlg-attribute" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.priority.get_name_leafdata())
+                            if (self.srlg_index.is_set or self.srlg_index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.srlg_index.get_name_leafdata())
+                            if (self.srlg_value.is_set or self.srlg_value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.srlg_value.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "priority" or name == "srlg-index" or name == "srlg-value"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.priority is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "priority"):
+                                self.priority = value
+                                self.priority.value_namespace = name_space
+                                self.priority.value_namespace_prefix = name_space_prefix
+                            if(value_path == "srlg-index"):
+                                self.srlg_index = value
+                                self.srlg_index.value_namespace = name_space
+                                self.srlg_index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "srlg-value"):
+                                self.srlg_value = value
+                                self.srlg_value.value_namespace = name_space
+                                self.srlg_value.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.srlg_attribute:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.group_name.is_set or
+                            self.group_name_xr.is_set or
+                            self.group_values.is_set)
 
-                            if self.srlg_index is not None:
+                    def has_operation(self):
+                        for c in self.srlg_attribute:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.group_name.yfilter != YFilter.not_set or
+                            self.group_name_xr.yfilter != YFilter.not_set or
+                            self.group_values.yfilter != YFilter.not_set)
 
-                            if self.srlg_value is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "group" + "[group-name='" + self.group_name.get() + "']" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                            return meta._meta_table['Srlg.Nodes.Node.Groups.Group.SrlgAttribute']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.group_name is None:
-                            raise YPYModelError('Key property group_name is None')
+                        leaf_name_data = LeafDataList()
+                        if (self.group_name.is_set or self.group_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_name.get_name_leafdata())
+                        if (self.group_name_xr.is_set or self.group_name_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_name_xr.get_name_leafdata())
+                        if (self.group_values.is_set or self.group_values.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_values.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:group[Cisco-IOS-XR-infra-rsi-oper:group-name = ' + str(self.group_name) + ']'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "srlg-attribute"):
+                            for c in self.srlg_attribute:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Srlg.Nodes.Node.Groups.Group.SrlgAttribute()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.srlg_attribute.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "srlg-attribute" or name == "group-name" or name == "group-name-xr" or name == "group-values"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.group_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "group-name"):
+                            self.group_name = value
+                            self.group_name.value_namespace = name_space
+                            self.group_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "group-name-xr"):
+                            self.group_name_xr = value
+                            self.group_name_xr.value_namespace = name_space
+                            self.group_name_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "group-values"):
+                            self.group_values = value
+                            self.group_values.value_namespace = name_space
+                            self.group_values.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.group:
+                        if (c.has_data()):
                             return True
-
-                        if self.group_name_xr is not None:
-                            return True
-
-                        if self.group_values is not None:
-                            return True
-
-                        if self.srlg_attribute is not None:
-                            for child_ref in self.srlg_attribute:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['Srlg.Nodes.Node.Groups.Group']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:groups'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.group is not None:
-                        for child_ref in self.group:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.group:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "groups" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "group"):
+                        for c in self.group:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Srlg.Nodes.Node.Groups.Group()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.group.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "group"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.Nodes.Node.Groups']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class InheritNodes(object):
+            class InheritNodes(Entity):
                 """
                 Set of inherit locations configured for SRLG
                 
@@ -1009,13 +1884,39 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.inherit_node = YList()
-                    self.inherit_node.parent = self
-                    self.inherit_node.name = 'inherit_node'
+                    super(Srlg.Nodes.Node.InheritNodes, self).__init__()
+
+                    self.yang_name = "inherit-nodes"
+                    self.yang_parent_name = "node"
+
+                    self.inherit_node = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.Nodes.Node.InheritNodes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.Nodes.Node.InheritNodes, self).__setattr__(name, value)
 
 
-                class InheritNode(object):
+                class InheritNode(Entity):
                     """
                     SRLG inherit location details
                     
@@ -1051,23 +1952,54 @@ class Srlg(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.inherit_node_name = None
-                        self.node_name = None
-                        self.node_values = None
-                        self.srlg_attribute = YList()
-                        self.srlg_attribute.parent = self
-                        self.srlg_attribute.name = 'srlg_attribute'
+                        super(Srlg.Nodes.Node.InheritNodes.InheritNode, self).__init__()
+
+                        self.yang_name = "inherit-node"
+                        self.yang_parent_name = "inherit-nodes"
+
+                        self.inherit_node_name = YLeaf(YType.str, "inherit-node-name")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.node_values = YLeaf(YType.uint32, "node-values")
+
+                        self.srlg_attribute = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("inherit_node_name",
+                                        "node_name",
+                                        "node_values") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Srlg.Nodes.Node.InheritNodes.InheritNode, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Srlg.Nodes.Node.InheritNodes.InheritNode, self).__setattr__(name, value)
 
 
-                    class SrlgAttribute(object):
+                    class SrlgAttribute(Entity):
                         """
                         SRLG attribute
                         
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\:   :py:class:`PriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.PriorityEnum>`
+                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
                         
                         .. attribute:: srlg_index
                         
@@ -1091,100 +2023,246 @@ class Srlg(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.priority = None
-                            self.srlg_index = None
-                            self.srlg_value = None
+                            super(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "srlg-attribute"
+                            self.yang_parent_name = "inherit-node"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-attribute'
+                            self.priority = YLeaf(YType.enumeration, "priority")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.srlg_index = YLeaf(YType.uint16, "srlg-index")
+
+                            self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("priority",
+                                            "srlg_index",
+                                            "srlg_value") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.priority.is_set or
+                                self.srlg_index.is_set or
+                                self.srlg_value.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.priority.yfilter != YFilter.not_set or
+                                self.srlg_index.yfilter != YFilter.not_set or
+                                self.srlg_value.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "srlg-attribute" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.priority.get_name_leafdata())
+                            if (self.srlg_index.is_set or self.srlg_index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.srlg_index.get_name_leafdata())
+                            if (self.srlg_value.is_set or self.srlg_value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.srlg_value.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "priority" or name == "srlg-index" or name == "srlg-value"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.priority is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "priority"):
+                                self.priority = value
+                                self.priority.value_namespace = name_space
+                                self.priority.value_namespace_prefix = name_space_prefix
+                            if(value_path == "srlg-index"):
+                                self.srlg_index = value
+                                self.srlg_index.value_namespace = name_space
+                                self.srlg_index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "srlg-value"):
+                                self.srlg_value = value
+                                self.srlg_value.value_namespace = name_space
+                                self.srlg_value.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.srlg_attribute:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.inherit_node_name.is_set or
+                            self.node_name.is_set or
+                            self.node_values.is_set)
 
-                            if self.srlg_index is not None:
+                    def has_operation(self):
+                        for c in self.srlg_attribute:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.inherit_node_name.yfilter != YFilter.not_set or
+                            self.node_name.yfilter != YFilter.not_set or
+                            self.node_values.yfilter != YFilter.not_set)
 
-                            if self.srlg_value is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "inherit-node" + "[inherit-node-name='" + self.inherit_node_name.get() + "']" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                            return meta._meta_table['Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.inherit_node_name is None:
-                            raise YPYModelError('Key property inherit_node_name is None')
+                        leaf_name_data = LeafDataList()
+                        if (self.inherit_node_name.is_set or self.inherit_node_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inherit_node_name.get_name_leafdata())
+                        if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.node_name.get_name_leafdata())
+                        if (self.node_values.is_set or self.node_values.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.node_values.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:inherit-node[Cisco-IOS-XR-infra-rsi-oper:inherit-node-name = ' + str(self.inherit_node_name) + ']'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "srlg-attribute"):
+                            for c in self.srlg_attribute:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Srlg.Nodes.Node.InheritNodes.InheritNode.SrlgAttribute()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.srlg_attribute.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "srlg-attribute" or name == "inherit-node-name" or name == "node-name" or name == "node-values"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.inherit_node_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "inherit-node-name"):
+                            self.inherit_node_name = value
+                            self.inherit_node_name.value_namespace = name_space
+                            self.inherit_node_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "node-name"):
+                            self.node_name = value
+                            self.node_name.value_namespace = name_space
+                            self.node_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "node-values"):
+                            self.node_values = value
+                            self.node_values.value_namespace = name_space
+                            self.node_values.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.inherit_node:
+                        if (c.has_data()):
                             return True
-
-                        if self.node_name is not None:
-                            return True
-
-                        if self.node_values is not None:
-                            return True
-
-                        if self.srlg_attribute is not None:
-                            for child_ref in self.srlg_attribute:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['Srlg.Nodes.Node.InheritNodes.InheritNode']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:inherit-nodes'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.inherit_node is not None:
-                        for child_ref in self.inherit_node:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.inherit_node:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "inherit-nodes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "inherit-node"):
+                        for c in self.inherit_node:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Srlg.Nodes.Node.InheritNodes.InheritNode()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.inherit_node.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "inherit-node"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.Nodes.Node.InheritNodes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Interfaces(object):
+            class Interfaces(Entity):
                 """
                 Set of interfaces configured for SRLG
                 
@@ -1201,13 +2279,39 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
+                    super(Srlg.Nodes.Node.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "node"
+
+                    self.interface = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.Nodes.Node.Interfaces, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.Nodes.Node.Interfaces, self).__setattr__(name, value)
 
 
-                class Interface(object):
+                class Interface(Entity):
                     """
                     SRLG interface summary
                     
@@ -1252,79 +2356,190 @@ class Srlg(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.interface_name_xr = None
-                        self.registrations = None
-                        self.srlg_value = YLeafList()
-                        self.srlg_value.parent = self
-                        self.srlg_value.name = 'srlg_value'
-                        self.value_count = None
+                        super(Srlg.Nodes.Node.Interfaces.Interface, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYModelError('Key property interface_name is None')
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface[Cisco-IOS-XR-infra-rsi-oper:interface-name = ' + str(self.interface_name) + ']'
+                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                        self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
 
-                    def _has_data(self):
-                        if self.interface_name is not None:
-                            return True
+                        self.registrations = YLeaf(YType.uint32, "registrations")
 
-                        if self.interface_name_xr is not None:
-                            return True
+                        self.srlg_value = YLeafList(YType.uint32, "srlg-value")
 
-                        if self.registrations is not None:
-                            return True
+                        self.value_count = YLeaf(YType.uint32, "value-count")
 
-                        if self.srlg_value is not None:
-                            for child in self.srlg_value:
-                                if child is not None:
-                                    return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface_name",
+                                        "interface_name_xr",
+                                        "registrations",
+                                        "srlg_value",
+                                        "value_count") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Srlg.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Srlg.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
 
-                        if self.value_count is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['Srlg.Nodes.Node.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
+                    def has_data(self):
+                        for leaf in self.srlg_value.getYLeafs():
+                            if (leaf.yfilter != YFilter.not_set):
                                 return True
+                        return (
+                            self.interface_name.is_set or
+                            self.interface_name_xr.is_set or
+                            self.registrations.is_set or
+                            self.value_count.is_set)
 
+                    def has_operation(self):
+                        for leaf in self.srlg_value.getYLeafs():
+                            if (leaf.is_set):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.interface_name_xr.yfilter != YFilter.not_set or
+                            self.registrations.yfilter != YFilter.not_set or
+                            self.srlg_value.yfilter != YFilter.not_set or
+                            self.value_count.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                        if (self.registrations.is_set or self.registrations.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.registrations.get_name_leafdata())
+                        if (self.value_count.is_set or self.value_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.value_count.get_name_leafdata())
+
+                        leaf_name_data.extend(self.srlg_value.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface-name" or name == "interface-name-xr" or name == "registrations" or name == "srlg-value" or name == "value-count"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name-xr"):
+                            self.interface_name_xr = value
+                            self.interface_name_xr.value_namespace = name_space
+                            self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "registrations"):
+                            self.registrations = value
+                            self.registrations.value_namespace = name_space
+                            self.registrations.value_namespace_prefix = name_space_prefix
+                        if(value_path == "srlg-value"):
+                            self.srlg_value.append(value)
+                        if(value_path == "value-count"):
+                            self.value_count = value
+                            self.value_count.value_namespace = name_space
+                            self.value_count.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.Nodes.Node.Interfaces']['meta_info']
+                def has_operation(self):
+                    for c in self.interface:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interface"):
+                        for c in self.interface:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Srlg.Nodes.Node.Interfaces.Interface()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class InterfaceDetails(object):
+            class InterfaceDetails(Entity):
                 """
                 Set of interfaces configured for SRLG
                 
@@ -1341,13 +2556,39 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_detail = YList()
-                    self.interface_detail.parent = self
-                    self.interface_detail.name = 'interface_detail'
+                    super(Srlg.Nodes.Node.InterfaceDetails, self).__init__()
+
+                    self.yang_name = "interface-details"
+                    self.yang_parent_name = "node"
+
+                    self.interface_detail = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.Nodes.Node.InterfaceDetails, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.Nodes.Node.InterfaceDetails, self).__setattr__(name, value)
 
 
-                class InterfaceDetail(object):
+                class InterfaceDetail(Entity):
                     """
                     SRLG interface details
                     
@@ -1385,28 +2626,59 @@ class Srlg(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.groups = None
-                        self.nodes = None
-                        self.srlg_attribute = YList()
-                        self.srlg_attribute.parent = self
-                        self.srlg_attribute.name = 'srlg_attribute'
+                        super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, self).__init__()
+
+                        self.yang_name = "interface-detail"
+                        self.yang_parent_name = "interface-details"
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.groups = YLeaf(YType.uint32, "groups")
+
+                        self.nodes = YLeaf(YType.uint32, "nodes")
+
+                        self.srlg_attribute = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface_name",
+                                        "groups",
+                                        "nodes") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail, self).__setattr__(name, value)
 
 
-                    class SrlgAttribute(object):
+                    class SrlgAttribute(Entity):
                         """
                         SRLG attributes
                         
                         .. attribute:: priority
                         
                         	Priority
-                        	**type**\:   :py:class:`PriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.PriorityEnum>`
+                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Priority>`
                         
                         .. attribute:: source
                         
                         	Source
-                        	**type**\:   :py:class:`SourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.SourceEnum>`
+                        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_oper.Source>`
                         
                         .. attribute:: source_name
                         
@@ -1435,108 +2707,268 @@ class Srlg(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.priority = None
-                            self.source = None
-                            self.source_name = None
-                            self.srlg_index = None
-                            self.srlg_value = None
+                            super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "srlg-attribute"
+                            self.yang_parent_name = "interface-detail"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-attribute'
+                            self.priority = YLeaf(YType.enumeration, "priority")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.source = YLeaf(YType.enumeration, "source")
+
+                            self.source_name = YLeaf(YType.str, "source-name")
+
+                            self.srlg_index = YLeaf(YType.uint16, "srlg-index")
+
+                            self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("priority",
+                                            "source",
+                                            "source_name",
+                                            "srlg_index",
+                                            "srlg_value") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.priority.is_set or
+                                self.source.is_set or
+                                self.source_name.is_set or
+                                self.srlg_index.is_set or
+                                self.srlg_value.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.priority.yfilter != YFilter.not_set or
+                                self.source.yfilter != YFilter.not_set or
+                                self.source_name.yfilter != YFilter.not_set or
+                                self.srlg_index.yfilter != YFilter.not_set or
+                                self.srlg_value.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "srlg-attribute" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.priority.get_name_leafdata())
+                            if (self.source.is_set or self.source.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source.get_name_leafdata())
+                            if (self.source_name.is_set or self.source_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_name.get_name_leafdata())
+                            if (self.srlg_index.is_set or self.srlg_index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.srlg_index.get_name_leafdata())
+                            if (self.srlg_value.is_set or self.srlg_value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.srlg_value.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "priority" or name == "source" or name == "source-name" or name == "srlg-index" or name == "srlg-value"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.priority is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "priority"):
+                                self.priority = value
+                                self.priority.value_namespace = name_space
+                                self.priority.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source"):
+                                self.source = value
+                                self.source.value_namespace = name_space
+                                self.source.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source-name"):
+                                self.source_name = value
+                                self.source_name.value_namespace = name_space
+                                self.source_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "srlg-index"):
+                                self.srlg_index = value
+                                self.srlg_index.value_namespace = name_space
+                                self.srlg_index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "srlg-value"):
+                                self.srlg_value = value
+                                self.srlg_value.value_namespace = name_space
+                                self.srlg_value.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.srlg_attribute:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.interface_name.is_set or
+                            self.groups.is_set or
+                            self.nodes.is_set)
 
-                            if self.source is not None:
+                    def has_operation(self):
+                        for c in self.srlg_attribute:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.groups.yfilter != YFilter.not_set or
+                            self.nodes.yfilter != YFilter.not_set)
 
-                            if self.source_name is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface-detail" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                            if self.srlg_index is not None:
-                                return True
+                        return path_buffer
 
-                            if self.srlg_value is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return False
+                        leaf_name_data = LeafDataList()
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.groups.is_set or self.groups.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.groups.get_name_leafdata())
+                        if (self.nodes.is_set or self.nodes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nodes.get_name_leafdata())
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                            return meta._meta_table['Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute']['meta_info']
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYModelError('Key property interface_name is None')
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-detail[Cisco-IOS-XR-infra-rsi-oper:interface-name = ' + str(self.interface_name) + ']'
+                        if (child_yang_name == "srlg-attribute"):
+                            for c in self.srlg_attribute:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail.SrlgAttribute()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.srlg_attribute.append(c)
+                            return c
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "srlg-attribute" or name == "interface-name" or name == "groups" or name == "nodes"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "groups"):
+                            self.groups = value
+                            self.groups.value_namespace = name_space
+                            self.groups.value_namespace_prefix = name_space_prefix
+                        if(value_path == "nodes"):
+                            self.nodes = value
+                            self.nodes.value_namespace = name_space
+                            self.nodes.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface_detail:
+                        if (c.has_data()):
                             return True
-
-                        if self.groups is not None:
-                            return True
-
-                        if self.nodes is not None:
-                            return True
-
-                        if self.srlg_attribute is not None:
-                            for child_ref in self.srlg_attribute:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-details'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.interface_detail is not None:
-                        for child_ref in self.interface_detail:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.interface_detail:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface-details" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interface-detail"):
+                        for c in self.interface_detail:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Srlg.Nodes.Node.InterfaceDetails.InterfaceDetail()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface_detail.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-detail"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.Nodes.Node.InterfaceDetails']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class SrlgValues(object):
+            class SrlgValues(Entity):
                 """
                 Set of SRLG values configured
                 
@@ -1553,13 +2985,39 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.srlg_value = YList()
-                    self.srlg_value.parent = self
-                    self.srlg_value.name = 'srlg_value'
+                    super(Srlg.Nodes.Node.SrlgValues, self).__init__()
+
+                    self.yang_name = "srlg-values"
+                    self.yang_parent_name = "node"
+
+                    self.srlg_value = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.Nodes.Node.SrlgValues, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.Nodes.Node.SrlgValues, self).__setattr__(name, value)
 
 
-                class SrlgValue(object):
+                class SrlgValue(Entity):
                     """
                     Configured SRLG value details 
                     
@@ -1583,67 +3041,156 @@ class Srlg(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.value = None
-                        self.interface_name = YLeafList()
-                        self.interface_name.parent = self
-                        self.interface_name.name = 'interface_name'
+                        super(Srlg.Nodes.Node.SrlgValues.SrlgValue, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.value is None:
-                            raise YPYModelError('Key property value is None')
+                        self.yang_name = "srlg-value"
+                        self.yang_parent_name = "srlg-values"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-value[Cisco-IOS-XR-infra-rsi-oper:value = ' + str(self.value) + ']'
+                        self.value = YLeaf(YType.int32, "value")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                        self.interface_name = YLeafList(YType.str, "interface-name")
 
-                    def _has_data(self):
-                        if self.value is not None:
-                            return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("value",
+                                        "interface_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Srlg.Nodes.Node.SrlgValues.SrlgValue, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Srlg.Nodes.Node.SrlgValues.SrlgValue, self).__setattr__(name, value)
 
-                        if self.interface_name is not None:
-                            for child in self.interface_name:
-                                if child is not None:
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['Srlg.Nodes.Node.SrlgValues.SrlgValue']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:srlg-values'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.srlg_value is not None:
-                        for child_ref in self.srlg_value:
-                            if child_ref._has_data():
+                    def has_data(self):
+                        for leaf in self.interface_name.getYLeafs():
+                            if (leaf.yfilter != YFilter.not_set):
                                 return True
+                        return self.value.is_set
 
+                    def has_operation(self):
+                        for leaf in self.interface_name.getYLeafs():
+                            if (leaf.is_set):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.value.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "srlg-value" + "[value='" + self.value.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.value.is_set or self.value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.value.get_name_leafdata())
+
+                        leaf_name_data.extend(self.interface_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "value" or name == "interface-name"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "value"):
+                            self.value = value
+                            self.value.value_namespace = name_space
+                            self.value.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name"):
+                            self.interface_name.append(value)
+
+                def has_data(self):
+                    for c in self.srlg_value:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.Nodes.Node.SrlgValues']['meta_info']
+                def has_operation(self):
+                    for c in self.srlg_value:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "srlg-values" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "srlg-value"):
+                        for c in self.srlg_value:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Srlg.Nodes.Node.SrlgValues.SrlgValue()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.srlg_value.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "srlg-value"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class InterfaceSrlgNames(object):
+            class InterfaceSrlgNames(Entity):
                 """
                 Set of SRLG names configured
                 
@@ -1660,13 +3207,39 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_srlg_name = YList()
-                    self.interface_srlg_name.parent = self
-                    self.interface_srlg_name.name = 'interface_srlg_name'
+                    super(Srlg.Nodes.Node.InterfaceSrlgNames, self).__init__()
+
+                    self.yang_name = "interface-srlg-names"
+                    self.yang_parent_name = "node"
+
+                    self.interface_srlg_name = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.Nodes.Node.InterfaceSrlgNames, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.Nodes.Node.InterfaceSrlgNames, self).__setattr__(name, value)
 
 
-                class InterfaceSrlgName(object):
+                class InterfaceSrlgName(Entity):
                     """
                     Configured SRLG name details 
                     
@@ -1702,15 +3275,50 @@ class Srlg(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.srlg_name = None
+                        super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
+
+                        self.yang_name = "interface-srlg-name"
+                        self.yang_parent_name = "interface-srlg-names"
+
+                        self.srlg_name = YLeaf(YType.str, "srlg-name")
+
+                        self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
+
+                        self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+
                         self.interfaces = Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces()
                         self.interfaces.parent = self
-                        self.srlg_name_xr = None
-                        self.srlg_value = None
+                        self._children_name_map["interfaces"] = "interfaces"
+                        self._children_yang_names.add("interfaces")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("srlg_name",
+                                        "srlg_name_xr",
+                                        "srlg_value") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName, self).__setattr__(name, value)
 
 
-                    class Interfaces(object):
+                    class Interfaces(Entity):
                         """
                         Interfaces information
                         
@@ -1727,159 +3335,385 @@ class Srlg(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface_name = YLeafList()
-                            self.interface_name.parent = self
-                            self.interface_name.name = 'interface_name'
+                            super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "interfaces"
+                            self.yang_parent_name = "interface-srlg-name"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interfaces'
+                            self.interface_name = YLeafList(YType.str, "interface-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            for leaf in self.interface_name.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
                             return False
 
-                        def _has_data(self):
-                            if self.interface_name is not None:
-                                for child in self.interface_name:
-                                    if child is not None:
-                                        return True
+                        def has_operation(self):
+                            for leaf in self.interface_name.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set)
 
-                            return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interfaces" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                            return meta._meta_table['Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces']['meta_info']
+                            return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.srlg_name is None:
-                            raise YPYModelError('Key property srlg_name is None')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-name[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
+                            leaf_name_data = LeafDataList()
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                            leaf_name_data.extend(self.interface_name.get_name_leafdata())
 
-                    def _has_data(self):
-                        if self.srlg_name is not None:
-                            return True
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                        if self.interfaces is not None and self.interfaces._has_data():
-                            return True
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
 
-                        if self.srlg_name_xr is not None:
-                            return True
+                            return None
 
-                        if self.srlg_value is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                        return meta._meta_table['Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-names'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface_srlg_name is not None:
-                        for child_ref in self.interface_srlg_name:
-                            if child_ref._has_data():
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-name"):
                                 return True
+                            return False
 
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface-name"):
+                                self.interface_name.append(value)
+
+                    def has_data(self):
+                        return (
+                            self.srlg_name.is_set or
+                            self.srlg_name_xr.is_set or
+                            self.srlg_value.is_set or
+                            (self.interfaces is not None and self.interfaces.has_data()))
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.srlg_name.yfilter != YFilter.not_set or
+                            self.srlg_name_xr.yfilter != YFilter.not_set or
+                            self.srlg_value.yfilter != YFilter.not_set or
+                            (self.interfaces is not None and self.interfaces.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface-srlg-name" + "[srlg-name='" + self.srlg_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.srlg_name.is_set or self.srlg_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.srlg_name.get_name_leafdata())
+                        if (self.srlg_name_xr.is_set or self.srlg_name_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.srlg_name_xr.get_name_leafdata())
+                        if (self.srlg_value.is_set or self.srlg_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.srlg_value.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "interfaces"):
+                            if (self.interfaces is None):
+                                self.interfaces = Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName.Interfaces()
+                                self.interfaces.parent = self
+                                self._children_name_map["interfaces"] = "interfaces"
+                            return self.interfaces
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interfaces" or name == "srlg-name" or name == "srlg-name-xr" or name == "srlg-value"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "srlg-name"):
+                            self.srlg_name = value
+                            self.srlg_name.value_namespace = name_space
+                            self.srlg_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "srlg-name-xr"):
+                            self.srlg_name_xr = value
+                            self.srlg_name_xr.value_namespace = name_space
+                            self.srlg_name_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "srlg-value"):
+                            self.srlg_value = value
+                            self.srlg_value.value_namespace = name_space
+                            self.srlg_value.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface_srlg_name:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.Nodes.Node.InterfaceSrlgNames']['meta_info']
+                def has_operation(self):
+                    for c in self.interface_srlg_name:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface-srlg-names" + path_buffer
 
-                return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:nodes/Cisco-IOS-XR-infra-rsi-oper:node[Cisco-IOS-XR-infra-rsi-oper:node-name = ' + str(self.node_name) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.node_name is not None:
-                    return True
+                    leaf_name_data = LeafDataList()
 
-                if self.groups is not None and self.groups._has_data():
-                    return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                if self.inherit_nodes is not None and self.inherit_nodes._has_data():
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.interface_details is not None and self.interface_details._has_data():
-                    return True
+                    if (child_yang_name == "interface-srlg-name"):
+                        for c in self.interface_srlg_name:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Srlg.Nodes.Node.InterfaceSrlgNames.InterfaceSrlgName()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface_srlg_name.append(c)
+                        return c
 
-                if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
-                    return True
+                    return None
 
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                if self.srlg_maps is not None and self.srlg_maps._has_data():
-                    return True
-
-                if self.srlg_values is not None and self.srlg_values._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                return meta._meta_table['Srlg.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-srlg-name"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.groups is not None and self.groups.has_data()) or
+                    (self.inherit_nodes is not None and self.inherit_nodes.has_data()) or
+                    (self.interface_details is not None and self.interface_details.has_data()) or
+                    (self.interface_srlg_names is not None and self.interface_srlg_names.has_data()) or
+                    (self.interfaces is not None and self.interfaces.has_data()) or
+                    (self.srlg_maps is not None and self.srlg_maps.has_data()) or
+                    (self.srlg_values is not None and self.srlg_values.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.groups is not None and self.groups.has_operation()) or
+                    (self.inherit_nodes is not None and self.inherit_nodes.has_operation()) or
+                    (self.interface_details is not None and self.interface_details.has_operation()) or
+                    (self.interface_srlg_names is not None and self.interface_srlg_names.has_operation()) or
+                    (self.interfaces is not None and self.interfaces.has_operation()) or
+                    (self.srlg_maps is not None and self.srlg_maps.has_operation()) or
+                    (self.srlg_values is not None and self.srlg_values.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-rsi-oper:srlg/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "groups"):
+                    if (self.groups is None):
+                        self.groups = Srlg.Nodes.Node.Groups()
+                        self.groups.parent = self
+                        self._children_name_map["groups"] = "groups"
+                    return self.groups
+
+                if (child_yang_name == "inherit-nodes"):
+                    if (self.inherit_nodes is None):
+                        self.inherit_nodes = Srlg.Nodes.Node.InheritNodes()
+                        self.inherit_nodes.parent = self
+                        self._children_name_map["inherit_nodes"] = "inherit-nodes"
+                    return self.inherit_nodes
+
+                if (child_yang_name == "interface-details"):
+                    if (self.interface_details is None):
+                        self.interface_details = Srlg.Nodes.Node.InterfaceDetails()
+                        self.interface_details.parent = self
+                        self._children_name_map["interface_details"] = "interface-details"
+                    return self.interface_details
+
+                if (child_yang_name == "interface-srlg-names"):
+                    if (self.interface_srlg_names is None):
+                        self.interface_srlg_names = Srlg.Nodes.Node.InterfaceSrlgNames()
+                        self.interface_srlg_names.parent = self
+                        self._children_name_map["interface_srlg_names"] = "interface-srlg-names"
+                    return self.interface_srlg_names
+
+                if (child_yang_name == "interfaces"):
+                    if (self.interfaces is None):
+                        self.interfaces = Srlg.Nodes.Node.Interfaces()
+                        self.interfaces.parent = self
+                        self._children_name_map["interfaces"] = "interfaces"
+                    return self.interfaces
+
+                if (child_yang_name == "srlg-maps"):
+                    if (self.srlg_maps is None):
+                        self.srlg_maps = Srlg.Nodes.Node.SrlgMaps()
+                        self.srlg_maps.parent = self
+                        self._children_name_map["srlg_maps"] = "srlg-maps"
+                    return self.srlg_maps
+
+                if (child_yang_name == "srlg-values"):
+                    if (self.srlg_values is None):
+                        self.srlg_values = Srlg.Nodes.Node.SrlgValues()
+                        self.srlg_values.parent = self
+                        self._children_name_map["srlg_values"] = "srlg-values"
+                    return self.srlg_values
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "groups" or name == "inherit-nodes" or name == "interface-details" or name == "interface-srlg-names" or name == "interfaces" or name == "srlg-maps" or name == "srlg-values" or name == "node-name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-            return meta._meta_table['Srlg.Nodes']['meta_info']
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-rsi-oper:srlg/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Srlg.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class InterfaceSrlgNames(object):
+    class InterfaceSrlgNames(Entity):
         """
         Set of SRLG names configured
         
@@ -1896,13 +3730,39 @@ class Srlg(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.interface_srlg_name = YList()
-            self.interface_srlg_name.parent = self
-            self.interface_srlg_name.name = 'interface_srlg_name'
+            super(Srlg.InterfaceSrlgNames, self).__init__()
+
+            self.yang_name = "interface-srlg-names"
+            self.yang_parent_name = "srlg"
+
+            self.interface_srlg_name = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Srlg.InterfaceSrlgNames, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Srlg.InterfaceSrlgNames, self).__setattr__(name, value)
 
 
-        class InterfaceSrlgName(object):
+        class InterfaceSrlgName(Entity):
             """
             Configured SRLG name details 
             
@@ -1938,15 +3798,50 @@ class Srlg(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.srlg_name = None
+                super(Srlg.InterfaceSrlgNames.InterfaceSrlgName, self).__init__()
+
+                self.yang_name = "interface-srlg-name"
+                self.yang_parent_name = "interface-srlg-names"
+
+                self.srlg_name = YLeaf(YType.str, "srlg-name")
+
+                self.srlg_name_xr = YLeaf(YType.str, "srlg-name-xr")
+
+                self.srlg_value = YLeaf(YType.uint32, "srlg-value")
+
                 self.interfaces = Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces()
                 self.interfaces.parent = self
-                self.srlg_name_xr = None
-                self.srlg_value = None
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("srlg_name",
+                                "srlg_name_xr",
+                                "srlg_value") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Srlg.InterfaceSrlgNames.InterfaceSrlgName, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Srlg.InterfaceSrlgNames.InterfaceSrlgName, self).__setattr__(name, value)
 
 
-            class Interfaces(object):
+            class Interfaces(Entity):
                 """
                 Interfaces information
                 
@@ -1963,116 +3858,287 @@ class Srlg(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = YLeafList()
-                    self.interface_name.parent = self
-                    self.interface_name.name = 'interface_name'
+                    super(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "interface-srlg-name"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-rsi-oper:interfaces'
+                    self.interface_name = YLeafList(YType.str, "interface-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces, self).__setattr__(name, value)
+
+                def has_data(self):
+                    for leaf in self.interface_name.getYLeafs():
+                        if (leaf.yfilter != YFilter.not_set):
+                            return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_name is not None:
-                        for child in self.interface_name:
-                            if child is not None:
-                                return True
+                def has_operation(self):
+                    for leaf in self.interface_name.getYLeafs():
+                        if (leaf.is_set):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set)
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                    return meta._meta_table['Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.srlg_name is None:
-                    raise YPYModelError('Key property srlg_name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-names/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-name[Cisco-IOS-XR-infra-rsi-oper:srlg-name = ' + str(self.srlg_name) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    leaf_name_data.extend(self.interface_name.get_name_leafdata())
 
-            def _has_data(self):
-                if self.srlg_name is not None:
-                    return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.srlg_name_xr is not None:
-                    return True
+                    return None
 
-                if self.srlg_value is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-                return meta._meta_table['Srlg.InterfaceSrlgNames.InterfaceSrlgName']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-rsi-oper:srlg/Cisco-IOS-XR-infra-rsi-oper:interface-srlg-names'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.interface_srlg_name is not None:
-                for child_ref in self.interface_srlg_name:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-name"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name.append(value)
+
+            def has_data(self):
+                return (
+                    self.srlg_name.is_set or
+                    self.srlg_name_xr.is_set or
+                    self.srlg_value.is_set or
+                    (self.interfaces is not None and self.interfaces.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.srlg_name.yfilter != YFilter.not_set or
+                    self.srlg_name_xr.yfilter != YFilter.not_set or
+                    self.srlg_value.yfilter != YFilter.not_set or
+                    (self.interfaces is not None and self.interfaces.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interface-srlg-name" + "[srlg-name='" + self.srlg_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-rsi-oper:srlg/interface-srlg-names/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.srlg_name.is_set or self.srlg_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.srlg_name.get_name_leafdata())
+                if (self.srlg_name_xr.is_set or self.srlg_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.srlg_name_xr.get_name_leafdata())
+                if (self.srlg_value.is_set or self.srlg_value.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.srlg_value.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interfaces"):
+                    if (self.interfaces is None):
+                        self.interfaces = Srlg.InterfaceSrlgNames.InterfaceSrlgName.Interfaces()
+                        self.interfaces.parent = self
+                        self._children_name_map["interfaces"] = "interfaces"
+                    return self.interfaces
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interfaces" or name == "srlg-name" or name == "srlg-name-xr" or name == "srlg-value"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "srlg-name"):
+                    self.srlg_name = value
+                    self.srlg_name.value_namespace = name_space
+                    self.srlg_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "srlg-name-xr"):
+                    self.srlg_name_xr = value
+                    self.srlg_name_xr.value_namespace = name_space
+                    self.srlg_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "srlg-value"):
+                    self.srlg_value = value
+                    self.srlg_value.value_namespace = name_space
+                    self.srlg_value.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.interface_srlg_name:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-            return meta._meta_table['Srlg.InterfaceSrlgNames']['meta_info']
+        def has_operation(self):
+            for c in self.interface_srlg_name:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "interface-srlg-names" + path_buffer
 
-        return '/Cisco-IOS-XR-infra-rsi-oper:srlg'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-rsi-oper:srlg/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interface-srlg-name"):
+                for c in self.interface_srlg_name:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Srlg.InterfaceSrlgNames.InterfaceSrlgName()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.interface_srlg_name.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interface-srlg-name"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            (self.interface_srlg_names is not None and self.interface_srlg_names.has_data()) or
+            (self.nodes is not None and self.nodes.has_data()) or
+            (self.srlg_maps is not None and self.srlg_maps.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.interface_srlg_names is not None and self.interface_srlg_names.has_operation()) or
+            (self.nodes is not None and self.nodes.has_operation()) or
+            (self.srlg_maps is not None and self.srlg_maps.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-rsi-oper:srlg" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "interface-srlg-names"):
+            if (self.interface_srlg_names is None):
+                self.interface_srlg_names = Srlg.InterfaceSrlgNames()
+                self.interface_srlg_names.parent = self
+                self._children_name_map["interface_srlg_names"] = "interface-srlg-names"
+            return self.interface_srlg_names
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = Srlg.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        if (child_yang_name == "srlg-maps"):
+            if (self.srlg_maps is None):
+                self.srlg_maps = Srlg.SrlgMaps()
+                self.srlg_maps.parent = self
+                self._children_name_map["srlg_maps"] = "srlg-maps"
+            return self.srlg_maps
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "interface-srlg-names" or name == "nodes" or name == "srlg-maps"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.interface_srlg_names is not None and self.interface_srlg_names._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.nodes is not None and self.nodes._has_data():
-            return True
+    def clone_ptr(self):
+        self._top_entity = Srlg()
+        return self._top_entity
 
-        if self.srlg_maps is not None and self.srlg_maps._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-        return meta._meta_table['Srlg']['meta_info']
-
-
-class SelectiveVrfDownload(object):
+class SelectiveVrfDownload(Entity):
     """
     selective vrf download
     
@@ -2089,11 +4155,19 @@ class SelectiveVrfDownload(object):
     _revision = '2015-01-07'
 
     def __init__(self):
+        super(SelectiveVrfDownload, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "selective-vrf-download"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-rsi-oper"
+
         self.state = SelectiveVrfDownload.State()
         self.state.parent = self
+        self._children_name_map["state"] = "state"
+        self._children_yang_names.add("state")
 
 
-    class State(object):
+    class State(Entity):
         """
         Selective VRF Download feature state details
         
@@ -2115,51 +4189,143 @@ class SelectiveVrfDownload(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.is_svd_enabled = None
-            self.is_svd_enabled_cfg = None
+            super(SelectiveVrfDownload.State, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "state"
+            self.yang_parent_name = "selective-vrf-download"
 
-            return '/Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download/Cisco-IOS-XR-infra-rsi-oper:state'
+            self.is_svd_enabled = YLeaf(YType.boolean, "is-svd-enabled")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.is_svd_enabled_cfg = YLeaf(YType.boolean, "is-svd-enabled-cfg")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("is_svd_enabled",
+                            "is_svd_enabled_cfg") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SelectiveVrfDownload.State, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SelectiveVrfDownload.State, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.is_svd_enabled.is_set or
+                self.is_svd_enabled_cfg.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.is_svd_enabled.yfilter != YFilter.not_set or
+                self.is_svd_enabled_cfg.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "state" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.is_svd_enabled.is_set or self.is_svd_enabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.is_svd_enabled.get_name_leafdata())
+            if (self.is_svd_enabled_cfg.is_set or self.is_svd_enabled_cfg.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.is_svd_enabled_cfg.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "is-svd-enabled" or name == "is-svd-enabled-cfg"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.is_svd_enabled is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "is-svd-enabled"):
+                self.is_svd_enabled = value
+                self.is_svd_enabled.value_namespace = name_space
+                self.is_svd_enabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "is-svd-enabled-cfg"):
+                self.is_svd_enabled_cfg = value
+                self.is_svd_enabled_cfg.value_namespace = name_space
+                self.is_svd_enabled_cfg.value_namespace_prefix = name_space_prefix
 
-            if self.is_svd_enabled_cfg is not None:
-                return True
+    def has_data(self):
+        return (self.state is not None and self.state.has_data())
 
-            return False
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.state is not None and self.state.has_operation()))
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-            return meta._meta_table['SelectiveVrfDownload.State']['meta_info']
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download" + path_buffer
 
-    @property
-    def _common_path(self):
+        return path_buffer
 
-        return '/Cisco-IOS-XR-infra-rsi-oper:selective-vrf-download'
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-    def _has_data(self):
-        if self.state is not None and self.state._has_data():
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "state"):
+            if (self.state is None):
+                self.state = SelectiveVrfDownload.State()
+                self.state.parent = self
+                self._children_name_map["state"] = "state"
+            return self.state
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "state"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_oper as meta
-        return meta._meta_table['SelectiveVrfDownload']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SelectiveVrfDownload()
+        return self._top_entity
 

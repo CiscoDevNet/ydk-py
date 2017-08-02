@@ -7,21 +7,15 @@ of this MIB module is part of RFC 3592;  see the RFC
 itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class SonetMib(object):
+class SonetMib(Entity):
     """
     
     
@@ -113,48 +107,101 @@ class SonetMib(object):
     _revision = '2003-08-11'
 
     def __init__(self):
+        super(SonetMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "SONET-MIB"
+        self.yang_parent_name = "SONET-MIB"
+
         self.sonetfarendlinecurrenttable = SonetMib.Sonetfarendlinecurrenttable()
         self.sonetfarendlinecurrenttable.parent = self
+        self._children_name_map["sonetfarendlinecurrenttable"] = "sonetFarEndLineCurrentTable"
+        self._children_yang_names.add("sonetFarEndLineCurrentTable")
+
         self.sonetfarendlineintervaltable = SonetMib.Sonetfarendlineintervaltable()
         self.sonetfarendlineintervaltable.parent = self
+        self._children_name_map["sonetfarendlineintervaltable"] = "sonetFarEndLineIntervalTable"
+        self._children_yang_names.add("sonetFarEndLineIntervalTable")
+
         self.sonetfarendpathcurrenttable = SonetMib.Sonetfarendpathcurrenttable()
         self.sonetfarendpathcurrenttable.parent = self
+        self._children_name_map["sonetfarendpathcurrenttable"] = "sonetFarEndPathCurrentTable"
+        self._children_yang_names.add("sonetFarEndPathCurrentTable")
+
         self.sonetfarendpathintervaltable = SonetMib.Sonetfarendpathintervaltable()
         self.sonetfarendpathintervaltable.parent = self
+        self._children_name_map["sonetfarendpathintervaltable"] = "sonetFarEndPathIntervalTable"
+        self._children_yang_names.add("sonetFarEndPathIntervalTable")
+
         self.sonetfarendvtcurrenttable = SonetMib.Sonetfarendvtcurrenttable()
         self.sonetfarendvtcurrenttable.parent = self
+        self._children_name_map["sonetfarendvtcurrenttable"] = "sonetFarEndVTCurrentTable"
+        self._children_yang_names.add("sonetFarEndVTCurrentTable")
+
         self.sonetfarendvtintervaltable = SonetMib.Sonetfarendvtintervaltable()
         self.sonetfarendvtintervaltable.parent = self
+        self._children_name_map["sonetfarendvtintervaltable"] = "sonetFarEndVTIntervalTable"
+        self._children_yang_names.add("sonetFarEndVTIntervalTable")
+
         self.sonetlinecurrenttable = SonetMib.Sonetlinecurrenttable()
         self.sonetlinecurrenttable.parent = self
+        self._children_name_map["sonetlinecurrenttable"] = "sonetLineCurrentTable"
+        self._children_yang_names.add("sonetLineCurrentTable")
+
         self.sonetlineintervaltable = SonetMib.Sonetlineintervaltable()
         self.sonetlineintervaltable.parent = self
+        self._children_name_map["sonetlineintervaltable"] = "sonetLineIntervalTable"
+        self._children_yang_names.add("sonetLineIntervalTable")
+
         self.sonetmedium = SonetMib.Sonetmedium()
         self.sonetmedium.parent = self
+        self._children_name_map["sonetmedium"] = "sonetMedium"
+        self._children_yang_names.add("sonetMedium")
+
         self.sonetmediumtable = SonetMib.Sonetmediumtable()
         self.sonetmediumtable.parent = self
+        self._children_name_map["sonetmediumtable"] = "sonetMediumTable"
+        self._children_yang_names.add("sonetMediumTable")
+
         self.sonetpathcurrenttable = SonetMib.Sonetpathcurrenttable()
         self.sonetpathcurrenttable.parent = self
+        self._children_name_map["sonetpathcurrenttable"] = "sonetPathCurrentTable"
+        self._children_yang_names.add("sonetPathCurrentTable")
+
         self.sonetpathintervaltable = SonetMib.Sonetpathintervaltable()
         self.sonetpathintervaltable.parent = self
+        self._children_name_map["sonetpathintervaltable"] = "sonetPathIntervalTable"
+        self._children_yang_names.add("sonetPathIntervalTable")
+
         self.sonetsectioncurrenttable = SonetMib.Sonetsectioncurrenttable()
         self.sonetsectioncurrenttable.parent = self
+        self._children_name_map["sonetsectioncurrenttable"] = "sonetSectionCurrentTable"
+        self._children_yang_names.add("sonetSectionCurrentTable")
+
         self.sonetsectionintervaltable = SonetMib.Sonetsectionintervaltable()
         self.sonetsectionintervaltable.parent = self
+        self._children_name_map["sonetsectionintervaltable"] = "sonetSectionIntervalTable"
+        self._children_yang_names.add("sonetSectionIntervalTable")
+
         self.sonetvtcurrenttable = SonetMib.Sonetvtcurrenttable()
         self.sonetvtcurrenttable.parent = self
+        self._children_name_map["sonetvtcurrenttable"] = "sonetVTCurrentTable"
+        self._children_yang_names.add("sonetVTCurrentTable")
+
         self.sonetvtintervaltable = SonetMib.Sonetvtintervaltable()
         self.sonetvtintervaltable.parent = self
+        self._children_name_map["sonetvtintervaltable"] = "sonetVTIntervalTable"
+        self._children_yang_names.add("sonetVTIntervalTable")
 
 
-    class Sonetmedium(object):
+    class Sonetmedium(Entity):
         """
         
         
         .. attribute:: sonetsesthresholdset
         
         	An enumerated integer indicating which recognized set of SES thresholds that the agent uses for determining severely errored seconds and unavailable time.  other(1)   None of the following.  bellcore1991(2)   Bellcore TR\-NWT\-000253, 1991 [TR253], or   ANSI T1M1.3/93\-005R2, 1993 [T1M1.3].   See also Appendix B.  ansi1993(3)   ANSI T1.231, 1993 [T1.231a], or   Bellcore GR\-253\-CORE, Issue 2, 1995 [GR253]  itu1995(4)   ITU Recommendation G.826, 1995 [G.826]  ansi1997(5)   ANSI T1.231, 1997 [T1.231b]  If a manager changes the value of this object then the SES statistics collected prior to this change must be invalidated
-        	**type**\:   :py:class:`SonetsesthresholdsetEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmedium.SonetsesthresholdsetEnum>`
+        	**type**\:   :py:class:`Sonetsesthresholdset <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmedium.Sonetsesthresholdset>`
         
         
 
@@ -164,12 +211,40 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetsesthresholdset = None
+            super(SonetMib.Sonetmedium, self).__init__()
 
-        class SonetsesthresholdsetEnum(Enum):
+            self.yang_name = "sonetMedium"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetsesthresholdset = YLeaf(YType.enumeration, "sonetSESthresholdSet")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("sonetsesthresholdset") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetmedium, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetmedium, self).__setattr__(name, value)
+
+        class Sonetsesthresholdset(Enum):
             """
-            SonetsesthresholdsetEnum
+            Sonetsesthresholdset
 
             An enumerated integer indicating which
 
@@ -223,45 +298,65 @@ class SonetMib(object):
 
             """
 
-            other = 1
+            other = Enum.YLeaf(1, "other")
 
-            bellcore1991 = 2
+            bellcore1991 = Enum.YLeaf(2, "bellcore1991")
 
-            ansi1993 = 3
+            ansi1993 = Enum.YLeaf(3, "ansi1993")
 
-            itu1995 = 4
+            itu1995 = Enum.YLeaf(4, "itu1995")
 
-            ansi1997 = 5
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetmedium.SonetsesthresholdsetEnum']
+            ansi1997 = Enum.YLeaf(5, "ansi1997")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return self.sonetsesthresholdset.is_set
 
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetMedium'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.sonetsesthresholdset.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetMedium" + path_buffer
 
-        def _has_data(self):
-            if self.sonetsesthresholdset is not None:
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.sonetsesthresholdset.is_set or self.sonetsesthresholdset.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sonetsesthresholdset.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetSESthresholdSet"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetmedium']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "sonetSESthresholdSet"):
+                self.sonetsesthresholdset = value
+                self.sonetsesthresholdset.value_namespace = name_space
+                self.sonetsesthresholdset.value_namespace_prefix = name_space_prefix
 
 
-    class Sonetmediumtable(object):
+    class Sonetmediumtable(Entity):
         """
         The SONET/SDH Medium table.
         
@@ -278,13 +373,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetmediumentry = YList()
-            self.sonetmediumentry.parent = self
-            self.sonetmediumentry.name = 'sonetmediumentry'
+            super(SonetMib.Sonetmediumtable, self).__init__()
+
+            self.yang_name = "sonetMediumTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetmediumentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetmediumtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetmediumtable, self).__setattr__(name, value)
 
 
-        class Sonetmediumentry(object):
+        class Sonetmediumentry(Entity):
             """
             An entry in the SONET/SDH Medium table.
             
@@ -314,12 +435,12 @@ class SonetMib(object):
             .. attribute:: sonetmediumlinecoding
             
             	This variable describes the line coding for this interface. The B3ZS and CMI are used for electrical SONET/SDH signals (STS\-1 and STS\-3). The Non\-Return to Zero (NRZ) and the Return to Zero are used for optical SONET/SDH signals
-            	**type**\:   :py:class:`SonetmediumlinecodingEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmediumtable.Sonetmediumentry.SonetmediumlinecodingEnum>`
+            	**type**\:   :py:class:`Sonetmediumlinecoding <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmediumtable.Sonetmediumentry.Sonetmediumlinecoding>`
             
             .. attribute:: sonetmediumlinetype
             
             	This variable describes the line type for this interface. The line types are Short and Long Range Single Mode fiber or Multi\-Mode fiber interfaces, and coax and UTP for electrical interfaces.  The value sonetOther should be used when the Line Type is not one of the listed values
-            	**type**\:   :py:class:`SonetmediumlinetypeEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmediumtable.Sonetmediumentry.SonetmediumlinetypeEnum>`
+            	**type**\:   :py:class:`Sonetmediumlinetype <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmediumtable.Sonetmediumentry.Sonetmediumlinetype>`
             
             .. attribute:: sonetmediumloopbackconfig
             
@@ -336,7 +457,7 @@ class SonetMib(object):
             .. attribute:: sonetmediumtype
             
             	This variable identifies whether a SONET or a SDH signal is used across this interface
-            	**type**\:   :py:class:`SonetmediumtypeEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmediumtable.Sonetmediumentry.SonetmediumtypeEnum>`
+            	**type**\:   :py:class:`Sonetmediumtype <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetmediumtable.Sonetmediumentry.Sonetmediumtype>`
             
             .. attribute:: sonetmediumvalidintervals
             
@@ -353,20 +474,64 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetmediumcircuitidentifier = None
-                self.sonetmediuminvalidintervals = None
-                self.sonetmediumlinecoding = None
-                self.sonetmediumlinetype = None
-                self.sonetmediumloopbackconfig = SonetMib.Sonetmediumtable.Sonetmediumentry.Sonetmediumloopbackconfig()
-                self.sonetmediumtimeelapsed = None
-                self.sonetmediumtype = None
-                self.sonetmediumvalidintervals = None
+                super(SonetMib.Sonetmediumtable.Sonetmediumentry, self).__init__()
 
-            class SonetmediumlinecodingEnum(Enum):
+                self.yang_name = "sonetMediumEntry"
+                self.yang_parent_name = "sonetMediumTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.sonetmediumcircuitidentifier = YLeaf(YType.str, "sonetMediumCircuitIdentifier")
+
+                self.sonetmediuminvalidintervals = YLeaf(YType.int32, "sonetMediumInvalidIntervals")
+
+                self.sonetmediumlinecoding = YLeaf(YType.enumeration, "sonetMediumLineCoding")
+
+                self.sonetmediumlinetype = YLeaf(YType.enumeration, "sonetMediumLineType")
+
+                self.sonetmediumloopbackconfig = YLeaf(YType.bits, "sonetMediumLoopbackConfig")
+
+                self.sonetmediumtimeelapsed = YLeaf(YType.int32, "sonetMediumTimeElapsed")
+
+                self.sonetmediumtype = YLeaf(YType.enumeration, "sonetMediumType")
+
+                self.sonetmediumvalidintervals = YLeaf(YType.int32, "sonetMediumValidIntervals")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetmediumcircuitidentifier",
+                                "sonetmediuminvalidintervals",
+                                "sonetmediumlinecoding",
+                                "sonetmediumlinetype",
+                                "sonetmediumloopbackconfig",
+                                "sonetmediumtimeelapsed",
+                                "sonetmediumtype",
+                                "sonetmediumvalidintervals") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetmediumtable.Sonetmediumentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetmediumtable.Sonetmediumentry, self).__setattr__(name, value)
+
+            class Sonetmediumlinecoding(Enum):
                 """
-                SonetmediumlinecodingEnum
+                Sonetmediumlinecoding
 
                 This variable describes the line coding for
 
@@ -390,26 +555,20 @@ class SonetMib(object):
 
                 """
 
-                sonetMediumOther = 1
+                sonetMediumOther = Enum.YLeaf(1, "sonetMediumOther")
 
-                sonetMediumB3ZS = 2
+                sonetMediumB3ZS = Enum.YLeaf(2, "sonetMediumB3ZS")
 
-                sonetMediumCMI = 3
+                sonetMediumCMI = Enum.YLeaf(3, "sonetMediumCMI")
 
-                sonetMediumNRZ = 4
+                sonetMediumNRZ = Enum.YLeaf(4, "sonetMediumNRZ")
 
-                sonetMediumRZ = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetmediumtable.Sonetmediumentry.SonetmediumlinecodingEnum']
+                sonetMediumRZ = Enum.YLeaf(5, "sonetMediumRZ")
 
 
-            class SonetmediumlinetypeEnum(Enum):
+            class Sonetmediumlinetype(Enum):
                 """
-                SonetmediumlinetypeEnum
+                Sonetmediumlinetype
 
                 This variable describes the line type for
 
@@ -439,28 +598,22 @@ class SonetMib(object):
 
                 """
 
-                sonetOther = 1
+                sonetOther = Enum.YLeaf(1, "sonetOther")
 
-                sonetShortSingleMode = 2
+                sonetShortSingleMode = Enum.YLeaf(2, "sonetShortSingleMode")
 
-                sonetLongSingleMode = 3
+                sonetLongSingleMode = Enum.YLeaf(3, "sonetLongSingleMode")
 
-                sonetMultiMode = 4
+                sonetMultiMode = Enum.YLeaf(4, "sonetMultiMode")
 
-                sonetCoax = 5
+                sonetCoax = Enum.YLeaf(5, "sonetCoax")
 
-                sonetUTP = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetmediumtable.Sonetmediumentry.SonetmediumlinetypeEnum']
+                sonetUTP = Enum.YLeaf(6, "sonetUTP")
 
 
-            class SonetmediumtypeEnum(Enum):
+            class Sonetmediumtype(Enum):
                 """
-                SonetmediumtypeEnum
+                Sonetmediumtype
 
                 This variable identifies whether a SONET
 
@@ -472,129 +625,179 @@ class SonetMib(object):
 
                 """
 
-                sonet = 1
+                sonet = Enum.YLeaf(1, "sonet")
 
-                sdh = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetmediumtable.Sonetmediumentry.SonetmediumtypeEnum']
+                sdh = Enum.YLeaf(2, "sdh")
 
 
-            class Sonetmediumloopbackconfig(FixedBitsDict):
-                """
-                Sonetmediumloopbackconfig
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetmediumcircuitidentifier.is_set or
+                    self.sonetmediuminvalidintervals.is_set or
+                    self.sonetmediumlinecoding.is_set or
+                    self.sonetmediumlinetype.is_set or
+                    self.sonetmediumloopbackconfig.is_set or
+                    self.sonetmediumtimeelapsed.is_set or
+                    self.sonetmediumtype.is_set or
+                    self.sonetmediumvalidintervals.is_set)
 
-                The current loopback state of the SONET/SDH interface.  The
-                values mean\:
-                
-                  sonetNoLoop
-                     Not in the loopback state. A device that is not
-                     capable of performing a loopback on this interface
-                     shall always return this value.
-                
-                  sonetFacilityLoop
-                     The received signal at this interface is looped back
-                     out through the corresponding transmitter in the return
-                     direction.
-                
-                  sonetTerminalLoop
-                     The signal that is about to be transmitted is connected
-                     to the associated incoming receiver.
-                
-                  sonetOtherLoop
-                     Loopbacks that are not defined here.
-                Keys are:- sonetTerminalLoop , sonetFacilityLoop , sonetOtherLoop , sonetNoLoop
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetmediumcircuitidentifier.yfilter != YFilter.not_set or
+                    self.sonetmediuminvalidintervals.yfilter != YFilter.not_set or
+                    self.sonetmediumlinecoding.yfilter != YFilter.not_set or
+                    self.sonetmediumlinetype.yfilter != YFilter.not_set or
+                    self.sonetmediumloopbackconfig.yfilter != YFilter.not_set or
+                    self.sonetmediumtimeelapsed.yfilter != YFilter.not_set or
+                    self.sonetmediumtype.yfilter != YFilter.not_set or
+                    self.sonetmediumvalidintervals.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetMediumEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'sonetTerminalLoop':False,
-                        'sonetFacilityLoop':False,
-                        'sonetOtherLoop':False,
-                        'sonetNoLoop':False,
-                    }
-                    self._pos_map = { 
-                        'sonetTerminalLoop':2,
-                        'sonetFacilityLoop':1,
-                        'sonetOtherLoop':3,
-                        'sonetNoLoop':0,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetMediumTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetMediumTable/SONET-MIB:sonetMediumEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetmediumcircuitidentifier.is_set or self.sonetmediumcircuitidentifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediumcircuitidentifier.get_name_leafdata())
+                if (self.sonetmediuminvalidintervals.is_set or self.sonetmediuminvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediuminvalidintervals.get_name_leafdata())
+                if (self.sonetmediumlinecoding.is_set or self.sonetmediumlinecoding.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediumlinecoding.get_name_leafdata())
+                if (self.sonetmediumlinetype.is_set or self.sonetmediumlinetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediumlinetype.get_name_leafdata())
+                if (self.sonetmediumloopbackconfig.is_set or self.sonetmediumloopbackconfig.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediumloopbackconfig.get_name_leafdata())
+                if (self.sonetmediumtimeelapsed.is_set or self.sonetmediumtimeelapsed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediumtimeelapsed.get_name_leafdata())
+                if (self.sonetmediumtype.is_set or self.sonetmediumtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediumtype.get_name_leafdata())
+                if (self.sonetmediumvalidintervals.is_set or self.sonetmediumvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetmediumvalidintervals.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetMediumCircuitIdentifier" or name == "sonetMediumInvalidIntervals" or name == "sonetMediumLineCoding" or name == "sonetMediumLineType" or name == "sonetMediumLoopbackConfig" or name == "sonetMediumTimeElapsed" or name == "sonetMediumType" or name == "sonetMediumValidIntervals"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetMediumCircuitIdentifier"):
+                    self.sonetmediumcircuitidentifier = value
+                    self.sonetmediumcircuitidentifier.value_namespace = name_space
+                    self.sonetmediumcircuitidentifier.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetMediumInvalidIntervals"):
+                    self.sonetmediuminvalidintervals = value
+                    self.sonetmediuminvalidintervals.value_namespace = name_space
+                    self.sonetmediuminvalidintervals.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetMediumLineCoding"):
+                    self.sonetmediumlinecoding = value
+                    self.sonetmediumlinecoding.value_namespace = name_space
+                    self.sonetmediumlinecoding.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetMediumLineType"):
+                    self.sonetmediumlinetype = value
+                    self.sonetmediumlinetype.value_namespace = name_space
+                    self.sonetmediumlinetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetMediumLoopbackConfig"):
+                    self.sonetmediumloopbackconfig[value] = True
+                if(value_path == "sonetMediumTimeElapsed"):
+                    self.sonetmediumtimeelapsed = value
+                    self.sonetmediumtimeelapsed.value_namespace = name_space
+                    self.sonetmediumtimeelapsed.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetMediumType"):
+                    self.sonetmediumtype = value
+                    self.sonetmediumtype.value_namespace = name_space
+                    self.sonetmediumtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetMediumValidIntervals"):
+                    self.sonetmediumvalidintervals = value
+                    self.sonetmediumvalidintervals.value_namespace = name_space
+                    self.sonetmediumvalidintervals.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetmediumentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetmediumcircuitidentifier is not None:
-                    return True
-
-                if self.sonetmediuminvalidintervals is not None:
-                    return True
-
-                if self.sonetmediumlinecoding is not None:
-                    return True
-
-                if self.sonetmediumlinetype is not None:
-                    return True
-
-                if self.sonetmediumloopbackconfig is not None:
-                    if self.sonetmediumloopbackconfig._has_data():
-                        return True
-
-                if self.sonetmediumtimeelapsed is not None:
-                    return True
-
-                if self.sonetmediumtype is not None:
-                    return True
-
-                if self.sonetmediumvalidintervals is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetmediumtable.Sonetmediumentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetMediumTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetmediumentry is not None:
-                for child_ref in self.sonetmediumentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetmediumentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetMediumTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetMediumEntry"):
+                for c in self.sonetmediumentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetmediumtable.Sonetmediumentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetmediumentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetMediumEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetmediumtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetsectioncurrenttable(object):
+    class Sonetsectioncurrenttable(Entity):
         """
         The SONET/SDH Section Current table.
         
@@ -611,13 +814,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetsectioncurrententry = YList()
-            self.sonetsectioncurrententry.parent = self
-            self.sonetsectioncurrententry.name = 'sonetsectioncurrententry'
+            super(SonetMib.Sonetsectioncurrenttable, self).__init__()
+
+            self.yang_name = "sonetSectionCurrentTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetsectioncurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetsectioncurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetsectioncurrenttable, self).__setattr__(name, value)
 
 
-        class Sonetsectioncurrententry(object):
+        class Sonetsectioncurrententry(Entity):
             """
             An entry in the SONET/SDH Section Current table.
             
@@ -673,75 +902,198 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetsectioncurrentcvs = None
-                self.sonetsectioncurrentess = None
-                self.sonetsectioncurrentsefss = None
-                self.sonetsectioncurrentsess = None
-                self.sonetsectioncurrentstatus = None
+                super(SonetMib.Sonetsectioncurrenttable.Sonetsectioncurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "sonetSectionCurrentEntry"
+                self.yang_parent_name = "sonetSectionCurrentTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetSectionCurrentTable/SONET-MIB:sonetSectionCurrentEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetsectioncurrentcvs = YLeaf(YType.uint32, "sonetSectionCurrentCVs")
+
+                self.sonetsectioncurrentess = YLeaf(YType.uint32, "sonetSectionCurrentESs")
+
+                self.sonetsectioncurrentsefss = YLeaf(YType.uint32, "sonetSectionCurrentSEFSs")
+
+                self.sonetsectioncurrentsess = YLeaf(YType.uint32, "sonetSectionCurrentSESs")
+
+                self.sonetsectioncurrentstatus = YLeaf(YType.int32, "sonetSectionCurrentStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetsectioncurrentcvs",
+                                "sonetsectioncurrentess",
+                                "sonetsectioncurrentsefss",
+                                "sonetsectioncurrentsess",
+                                "sonetsectioncurrentstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetsectioncurrenttable.Sonetsectioncurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetsectioncurrenttable.Sonetsectioncurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetsectioncurrentcvs.is_set or
+                    self.sonetsectioncurrentess.is_set or
+                    self.sonetsectioncurrentsefss.is_set or
+                    self.sonetsectioncurrentsess.is_set or
+                    self.sonetsectioncurrentstatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetsectioncurrentcvs.yfilter != YFilter.not_set or
+                    self.sonetsectioncurrentess.yfilter != YFilter.not_set or
+                    self.sonetsectioncurrentsefss.yfilter != YFilter.not_set or
+                    self.sonetsectioncurrentsess.yfilter != YFilter.not_set or
+                    self.sonetsectioncurrentstatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetSectionCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetSectionCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetsectioncurrentcvs.is_set or self.sonetsectioncurrentcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectioncurrentcvs.get_name_leafdata())
+                if (self.sonetsectioncurrentess.is_set or self.sonetsectioncurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectioncurrentess.get_name_leafdata())
+                if (self.sonetsectioncurrentsefss.is_set or self.sonetsectioncurrentsefss.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectioncurrentsefss.get_name_leafdata())
+                if (self.sonetsectioncurrentsess.is_set or self.sonetsectioncurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectioncurrentsess.get_name_leafdata())
+                if (self.sonetsectioncurrentstatus.is_set or self.sonetsectioncurrentstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectioncurrentstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetSectionCurrentCVs" or name == "sonetSectionCurrentESs" or name == "sonetSectionCurrentSEFSs" or name == "sonetSectionCurrentSESs" or name == "sonetSectionCurrentStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionCurrentCVs"):
+                    self.sonetsectioncurrentcvs = value
+                    self.sonetsectioncurrentcvs.value_namespace = name_space
+                    self.sonetsectioncurrentcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionCurrentESs"):
+                    self.sonetsectioncurrentess = value
+                    self.sonetsectioncurrentess.value_namespace = name_space
+                    self.sonetsectioncurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionCurrentSEFSs"):
+                    self.sonetsectioncurrentsefss = value
+                    self.sonetsectioncurrentsefss.value_namespace = name_space
+                    self.sonetsectioncurrentsefss.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionCurrentSESs"):
+                    self.sonetsectioncurrentsess = value
+                    self.sonetsectioncurrentsess.value_namespace = name_space
+                    self.sonetsectioncurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionCurrentStatus"):
+                    self.sonetsectioncurrentstatus = value
+                    self.sonetsectioncurrentstatus.value_namespace = name_space
+                    self.sonetsectioncurrentstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetsectioncurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetsectioncurrentcvs is not None:
-                    return True
-
-                if self.sonetsectioncurrentess is not None:
-                    return True
-
-                if self.sonetsectioncurrentsefss is not None:
-                    return True
-
-                if self.sonetsectioncurrentsess is not None:
-                    return True
-
-                if self.sonetsectioncurrentstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetsectioncurrenttable.Sonetsectioncurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetSectionCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetsectioncurrententry is not None:
-                for child_ref in self.sonetsectioncurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetsectioncurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetSectionCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetSectionCurrentEntry"):
+                for c in self.sonetsectioncurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetsectioncurrenttable.Sonetsectioncurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetsectioncurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetSectionCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetsectioncurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetsectionintervaltable(object):
+    class Sonetsectionintervaltable(Entity):
         """
         The SONET/SDH Section Interval table.
         
@@ -758,13 +1110,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetsectionintervalentry = YList()
-            self.sonetsectionintervalentry.parent = self
-            self.sonetsectionintervalentry.name = 'sonetsectionintervalentry'
+            super(SonetMib.Sonetsectionintervaltable, self).__init__()
+
+            self.yang_name = "sonetSectionIntervalTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetsectionintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetsectionintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetsectionintervaltable, self).__setattr__(name, value)
 
 
-        class Sonetsectionintervalentry(object):
+        class Sonetsectionintervalentry(Entity):
             """
             An entry in the SONET/SDH Section Interval table.
             
@@ -825,81 +1203,209 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetsectionintervalnumber = None
-                self.sonetsectionintervalcvs = None
-                self.sonetsectionintervaless = None
-                self.sonetsectionintervalsefss = None
-                self.sonetsectionintervalsess = None
-                self.sonetsectionintervalvaliddata = None
+                super(SonetMib.Sonetsectionintervaltable.Sonetsectionintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.sonetsectionintervalnumber is None:
-                    raise YPYModelError('Key property sonetsectionintervalnumber is None')
+                self.yang_name = "sonetSectionIntervalEntry"
+                self.yang_parent_name = "sonetSectionIntervalTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetSectionIntervalTable/SONET-MIB:sonetSectionIntervalEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + '][SONET-MIB:sonetSectionIntervalNumber = ' + str(self.sonetsectionintervalnumber) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetsectionintervalnumber = YLeaf(YType.int32, "sonetSectionIntervalNumber")
+
+                self.sonetsectionintervalcvs = YLeaf(YType.uint32, "sonetSectionIntervalCVs")
+
+                self.sonetsectionintervaless = YLeaf(YType.uint32, "sonetSectionIntervalESs")
+
+                self.sonetsectionintervalsefss = YLeaf(YType.uint32, "sonetSectionIntervalSEFSs")
+
+                self.sonetsectionintervalsess = YLeaf(YType.uint32, "sonetSectionIntervalSESs")
+
+                self.sonetsectionintervalvaliddata = YLeaf(YType.boolean, "sonetSectionIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetsectionintervalnumber",
+                                "sonetsectionintervalcvs",
+                                "sonetsectionintervaless",
+                                "sonetsectionintervalsefss",
+                                "sonetsectionintervalsess",
+                                "sonetsectionintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetsectionintervaltable.Sonetsectionintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetsectionintervaltable.Sonetsectionintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetsectionintervalnumber.is_set or
+                    self.sonetsectionintervalcvs.is_set or
+                    self.sonetsectionintervaless.is_set or
+                    self.sonetsectionintervalsefss.is_set or
+                    self.sonetsectionintervalsess.is_set or
+                    self.sonetsectionintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetsectionintervalnumber.yfilter != YFilter.not_set or
+                    self.sonetsectionintervalcvs.yfilter != YFilter.not_set or
+                    self.sonetsectionintervaless.yfilter != YFilter.not_set or
+                    self.sonetsectionintervalsefss.yfilter != YFilter.not_set or
+                    self.sonetsectionintervalsess.yfilter != YFilter.not_set or
+                    self.sonetsectionintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetSectionIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetSectionIntervalNumber='" + self.sonetsectionintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetSectionIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetsectionintervalnumber.is_set or self.sonetsectionintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectionintervalnumber.get_name_leafdata())
+                if (self.sonetsectionintervalcvs.is_set or self.sonetsectionintervalcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectionintervalcvs.get_name_leafdata())
+                if (self.sonetsectionintervaless.is_set or self.sonetsectionintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectionintervaless.get_name_leafdata())
+                if (self.sonetsectionintervalsefss.is_set or self.sonetsectionintervalsefss.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectionintervalsefss.get_name_leafdata())
+                if (self.sonetsectionintervalsess.is_set or self.sonetsectionintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectionintervalsess.get_name_leafdata())
+                if (self.sonetsectionintervalvaliddata.is_set or self.sonetsectionintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetsectionintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetSectionIntervalNumber" or name == "sonetSectionIntervalCVs" or name == "sonetSectionIntervalESs" or name == "sonetSectionIntervalSEFSs" or name == "sonetSectionIntervalSESs" or name == "sonetSectionIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionIntervalNumber"):
+                    self.sonetsectionintervalnumber = value
+                    self.sonetsectionintervalnumber.value_namespace = name_space
+                    self.sonetsectionintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionIntervalCVs"):
+                    self.sonetsectionintervalcvs = value
+                    self.sonetsectionintervalcvs.value_namespace = name_space
+                    self.sonetsectionintervalcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionIntervalESs"):
+                    self.sonetsectionintervaless = value
+                    self.sonetsectionintervaless.value_namespace = name_space
+                    self.sonetsectionintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionIntervalSEFSs"):
+                    self.sonetsectionintervalsefss = value
+                    self.sonetsectionintervalsefss.value_namespace = name_space
+                    self.sonetsectionintervalsefss.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionIntervalSESs"):
+                    self.sonetsectionintervalsess = value
+                    self.sonetsectionintervalsess.value_namespace = name_space
+                    self.sonetsectionintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetSectionIntervalValidData"):
+                    self.sonetsectionintervalvaliddata = value
+                    self.sonetsectionintervalvaliddata.value_namespace = name_space
+                    self.sonetsectionintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetsectionintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetsectionintervalnumber is not None:
-                    return True
-
-                if self.sonetsectionintervalcvs is not None:
-                    return True
-
-                if self.sonetsectionintervaless is not None:
-                    return True
-
-                if self.sonetsectionintervalsefss is not None:
-                    return True
-
-                if self.sonetsectionintervalsess is not None:
-                    return True
-
-                if self.sonetsectionintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetsectionintervaltable.Sonetsectionintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetSectionIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetsectionintervalentry is not None:
-                for child_ref in self.sonetsectionintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetsectionintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetSectionIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetSectionIntervalEntry"):
+                for c in self.sonetsectionintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetsectionintervaltable.Sonetsectionintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetsectionintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetSectionIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetsectionintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetlinecurrenttable(object):
+    class Sonetlinecurrenttable(Entity):
         """
         The SONET/SDH Line Current table.
         
@@ -916,13 +1422,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetlinecurrententry = YList()
-            self.sonetlinecurrententry.parent = self
-            self.sonetlinecurrententry.name = 'sonetlinecurrententry'
+            super(SonetMib.Sonetlinecurrenttable, self).__init__()
+
+            self.yang_name = "sonetLineCurrentTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetlinecurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetlinecurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetlinecurrenttable, self).__setattr__(name, value)
 
 
-        class Sonetlinecurrententry(object):
+        class Sonetlinecurrententry(Entity):
             """
             An entry in the SONET/SDH Line Current table.
             
@@ -978,75 +1510,198 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetlinecurrentcvs = None
-                self.sonetlinecurrentess = None
-                self.sonetlinecurrentsess = None
-                self.sonetlinecurrentstatus = None
-                self.sonetlinecurrentuass = None
+                super(SonetMib.Sonetlinecurrenttable.Sonetlinecurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "sonetLineCurrentEntry"
+                self.yang_parent_name = "sonetLineCurrentTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetLineCurrentTable/SONET-MIB:sonetLineCurrentEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetlinecurrentcvs = YLeaf(YType.uint32, "sonetLineCurrentCVs")
+
+                self.sonetlinecurrentess = YLeaf(YType.uint32, "sonetLineCurrentESs")
+
+                self.sonetlinecurrentsess = YLeaf(YType.uint32, "sonetLineCurrentSESs")
+
+                self.sonetlinecurrentstatus = YLeaf(YType.int32, "sonetLineCurrentStatus")
+
+                self.sonetlinecurrentuass = YLeaf(YType.uint32, "sonetLineCurrentUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetlinecurrentcvs",
+                                "sonetlinecurrentess",
+                                "sonetlinecurrentsess",
+                                "sonetlinecurrentstatus",
+                                "sonetlinecurrentuass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetlinecurrenttable.Sonetlinecurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetlinecurrenttable.Sonetlinecurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetlinecurrentcvs.is_set or
+                    self.sonetlinecurrentess.is_set or
+                    self.sonetlinecurrentsess.is_set or
+                    self.sonetlinecurrentstatus.is_set or
+                    self.sonetlinecurrentuass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetlinecurrentcvs.yfilter != YFilter.not_set or
+                    self.sonetlinecurrentess.yfilter != YFilter.not_set or
+                    self.sonetlinecurrentsess.yfilter != YFilter.not_set or
+                    self.sonetlinecurrentstatus.yfilter != YFilter.not_set or
+                    self.sonetlinecurrentuass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetLineCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetLineCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetlinecurrentcvs.is_set or self.sonetlinecurrentcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlinecurrentcvs.get_name_leafdata())
+                if (self.sonetlinecurrentess.is_set or self.sonetlinecurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlinecurrentess.get_name_leafdata())
+                if (self.sonetlinecurrentsess.is_set or self.sonetlinecurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlinecurrentsess.get_name_leafdata())
+                if (self.sonetlinecurrentstatus.is_set or self.sonetlinecurrentstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlinecurrentstatus.get_name_leafdata())
+                if (self.sonetlinecurrentuass.is_set or self.sonetlinecurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlinecurrentuass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetLineCurrentCVs" or name == "sonetLineCurrentESs" or name == "sonetLineCurrentSESs" or name == "sonetLineCurrentStatus" or name == "sonetLineCurrentUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineCurrentCVs"):
+                    self.sonetlinecurrentcvs = value
+                    self.sonetlinecurrentcvs.value_namespace = name_space
+                    self.sonetlinecurrentcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineCurrentESs"):
+                    self.sonetlinecurrentess = value
+                    self.sonetlinecurrentess.value_namespace = name_space
+                    self.sonetlinecurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineCurrentSESs"):
+                    self.sonetlinecurrentsess = value
+                    self.sonetlinecurrentsess.value_namespace = name_space
+                    self.sonetlinecurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineCurrentStatus"):
+                    self.sonetlinecurrentstatus = value
+                    self.sonetlinecurrentstatus.value_namespace = name_space
+                    self.sonetlinecurrentstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineCurrentUASs"):
+                    self.sonetlinecurrentuass = value
+                    self.sonetlinecurrentuass.value_namespace = name_space
+                    self.sonetlinecurrentuass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetlinecurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetlinecurrentcvs is not None:
-                    return True
-
-                if self.sonetlinecurrentess is not None:
-                    return True
-
-                if self.sonetlinecurrentsess is not None:
-                    return True
-
-                if self.sonetlinecurrentstatus is not None:
-                    return True
-
-                if self.sonetlinecurrentuass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetlinecurrenttable.Sonetlinecurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetLineCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetlinecurrententry is not None:
-                for child_ref in self.sonetlinecurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetlinecurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetLineCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetLineCurrentEntry"):
+                for c in self.sonetlinecurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetlinecurrenttable.Sonetlinecurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetlinecurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetLineCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetlinecurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetlineintervaltable(object):
+    class Sonetlineintervaltable(Entity):
         """
         The SONET/SDH Line Interval table.
         
@@ -1063,13 +1718,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetlineintervalentry = YList()
-            self.sonetlineintervalentry.parent = self
-            self.sonetlineintervalentry.name = 'sonetlineintervalentry'
+            super(SonetMib.Sonetlineintervaltable, self).__init__()
+
+            self.yang_name = "sonetLineIntervalTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetlineintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetlineintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetlineintervaltable, self).__setattr__(name, value)
 
 
-        class Sonetlineintervalentry(object):
+        class Sonetlineintervalentry(Entity):
             """
             An entry in the SONET/SDH Line Interval table.
             
@@ -1130,81 +1811,209 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetlineintervalnumber = None
-                self.sonetlineintervalcvs = None
-                self.sonetlineintervaless = None
-                self.sonetlineintervalsess = None
-                self.sonetlineintervaluass = None
-                self.sonetlineintervalvaliddata = None
+                super(SonetMib.Sonetlineintervaltable.Sonetlineintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.sonetlineintervalnumber is None:
-                    raise YPYModelError('Key property sonetlineintervalnumber is None')
+                self.yang_name = "sonetLineIntervalEntry"
+                self.yang_parent_name = "sonetLineIntervalTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetLineIntervalTable/SONET-MIB:sonetLineIntervalEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + '][SONET-MIB:sonetLineIntervalNumber = ' + str(self.sonetlineintervalnumber) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetlineintervalnumber = YLeaf(YType.int32, "sonetLineIntervalNumber")
+
+                self.sonetlineintervalcvs = YLeaf(YType.uint32, "sonetLineIntervalCVs")
+
+                self.sonetlineintervaless = YLeaf(YType.uint32, "sonetLineIntervalESs")
+
+                self.sonetlineintervalsess = YLeaf(YType.uint32, "sonetLineIntervalSESs")
+
+                self.sonetlineintervaluass = YLeaf(YType.uint32, "sonetLineIntervalUASs")
+
+                self.sonetlineintervalvaliddata = YLeaf(YType.boolean, "sonetLineIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetlineintervalnumber",
+                                "sonetlineintervalcvs",
+                                "sonetlineintervaless",
+                                "sonetlineintervalsess",
+                                "sonetlineintervaluass",
+                                "sonetlineintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetlineintervaltable.Sonetlineintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetlineintervaltable.Sonetlineintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetlineintervalnumber.is_set or
+                    self.sonetlineintervalcvs.is_set or
+                    self.sonetlineintervaless.is_set or
+                    self.sonetlineintervalsess.is_set or
+                    self.sonetlineintervaluass.is_set or
+                    self.sonetlineintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetlineintervalnumber.yfilter != YFilter.not_set or
+                    self.sonetlineintervalcvs.yfilter != YFilter.not_set or
+                    self.sonetlineintervaless.yfilter != YFilter.not_set or
+                    self.sonetlineintervalsess.yfilter != YFilter.not_set or
+                    self.sonetlineintervaluass.yfilter != YFilter.not_set or
+                    self.sonetlineintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetLineIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetLineIntervalNumber='" + self.sonetlineintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetLineIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetlineintervalnumber.is_set or self.sonetlineintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlineintervalnumber.get_name_leafdata())
+                if (self.sonetlineintervalcvs.is_set or self.sonetlineintervalcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlineintervalcvs.get_name_leafdata())
+                if (self.sonetlineintervaless.is_set or self.sonetlineintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlineintervaless.get_name_leafdata())
+                if (self.sonetlineintervalsess.is_set or self.sonetlineintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlineintervalsess.get_name_leafdata())
+                if (self.sonetlineintervaluass.is_set or self.sonetlineintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlineintervaluass.get_name_leafdata())
+                if (self.sonetlineintervalvaliddata.is_set or self.sonetlineintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetlineintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetLineIntervalNumber" or name == "sonetLineIntervalCVs" or name == "sonetLineIntervalESs" or name == "sonetLineIntervalSESs" or name == "sonetLineIntervalUASs" or name == "sonetLineIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineIntervalNumber"):
+                    self.sonetlineintervalnumber = value
+                    self.sonetlineintervalnumber.value_namespace = name_space
+                    self.sonetlineintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineIntervalCVs"):
+                    self.sonetlineintervalcvs = value
+                    self.sonetlineintervalcvs.value_namespace = name_space
+                    self.sonetlineintervalcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineIntervalESs"):
+                    self.sonetlineintervaless = value
+                    self.sonetlineintervaless.value_namespace = name_space
+                    self.sonetlineintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineIntervalSESs"):
+                    self.sonetlineintervalsess = value
+                    self.sonetlineintervalsess.value_namespace = name_space
+                    self.sonetlineintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineIntervalUASs"):
+                    self.sonetlineintervaluass = value
+                    self.sonetlineintervaluass.value_namespace = name_space
+                    self.sonetlineintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetLineIntervalValidData"):
+                    self.sonetlineintervalvaliddata = value
+                    self.sonetlineintervalvaliddata.value_namespace = name_space
+                    self.sonetlineintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetlineintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetlineintervalnumber is not None:
-                    return True
-
-                if self.sonetlineintervalcvs is not None:
-                    return True
-
-                if self.sonetlineintervaless is not None:
-                    return True
-
-                if self.sonetlineintervalsess is not None:
-                    return True
-
-                if self.sonetlineintervaluass is not None:
-                    return True
-
-                if self.sonetlineintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetlineintervaltable.Sonetlineintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetLineIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetlineintervalentry is not None:
-                for child_ref in self.sonetlineintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetlineintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetLineIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetLineIntervalEntry"):
+                for c in self.sonetlineintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetlineintervaltable.Sonetlineintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetlineintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetLineIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetlineintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetfarendlinecurrenttable(object):
+    class Sonetfarendlinecurrenttable(Entity):
         """
         The SONET/SDH Far End Line Current table.
         
@@ -1221,13 +2030,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetfarendlinecurrententry = YList()
-            self.sonetfarendlinecurrententry.parent = self
-            self.sonetfarendlinecurrententry.name = 'sonetfarendlinecurrententry'
+            super(SonetMib.Sonetfarendlinecurrenttable, self).__init__()
+
+            self.yang_name = "sonetFarEndLineCurrentTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetfarendlinecurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetfarendlinecurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetfarendlinecurrenttable, self).__setattr__(name, value)
 
 
-        class Sonetfarendlinecurrententry(object):
+        class Sonetfarendlinecurrententry(Entity):
             """
             An entry in the SONET/SDH Far End Line Current table.
             
@@ -1276,71 +2111,187 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetfarendlinecurrentcvs = None
-                self.sonetfarendlinecurrentess = None
-                self.sonetfarendlinecurrentsess = None
-                self.sonetfarendlinecurrentuass = None
+                super(SonetMib.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "sonetFarEndLineCurrentEntry"
+                self.yang_parent_name = "sonetFarEndLineCurrentTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndLineCurrentTable/SONET-MIB:sonetFarEndLineCurrentEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetfarendlinecurrentcvs = YLeaf(YType.uint32, "sonetFarEndLineCurrentCVs")
+
+                self.sonetfarendlinecurrentess = YLeaf(YType.uint32, "sonetFarEndLineCurrentESs")
+
+                self.sonetfarendlinecurrentsess = YLeaf(YType.uint32, "sonetFarEndLineCurrentSESs")
+
+                self.sonetfarendlinecurrentuass = YLeaf(YType.uint32, "sonetFarEndLineCurrentUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetfarendlinecurrentcvs",
+                                "sonetfarendlinecurrentess",
+                                "sonetfarendlinecurrentsess",
+                                "sonetfarendlinecurrentuass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetfarendlinecurrentcvs.is_set or
+                    self.sonetfarendlinecurrentess.is_set or
+                    self.sonetfarendlinecurrentsess.is_set or
+                    self.sonetfarendlinecurrentuass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetfarendlinecurrentcvs.yfilter != YFilter.not_set or
+                    self.sonetfarendlinecurrentess.yfilter != YFilter.not_set or
+                    self.sonetfarendlinecurrentsess.yfilter != YFilter.not_set or
+                    self.sonetfarendlinecurrentuass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetFarEndLineCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetFarEndLineCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetfarendlinecurrentcvs.is_set or self.sonetfarendlinecurrentcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlinecurrentcvs.get_name_leafdata())
+                if (self.sonetfarendlinecurrentess.is_set or self.sonetfarendlinecurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlinecurrentess.get_name_leafdata())
+                if (self.sonetfarendlinecurrentsess.is_set or self.sonetfarendlinecurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlinecurrentsess.get_name_leafdata())
+                if (self.sonetfarendlinecurrentuass.is_set or self.sonetfarendlinecurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlinecurrentuass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetFarEndLineCurrentCVs" or name == "sonetFarEndLineCurrentESs" or name == "sonetFarEndLineCurrentSESs" or name == "sonetFarEndLineCurrentUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineCurrentCVs"):
+                    self.sonetfarendlinecurrentcvs = value
+                    self.sonetfarendlinecurrentcvs.value_namespace = name_space
+                    self.sonetfarendlinecurrentcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineCurrentESs"):
+                    self.sonetfarendlinecurrentess = value
+                    self.sonetfarendlinecurrentess.value_namespace = name_space
+                    self.sonetfarendlinecurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineCurrentSESs"):
+                    self.sonetfarendlinecurrentsess = value
+                    self.sonetfarendlinecurrentsess.value_namespace = name_space
+                    self.sonetfarendlinecurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineCurrentUASs"):
+                    self.sonetfarendlinecurrentuass = value
+                    self.sonetfarendlinecurrentuass.value_namespace = name_space
+                    self.sonetfarendlinecurrentuass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetfarendlinecurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetfarendlinecurrentcvs is not None:
-                    return True
-
-                if self.sonetfarendlinecurrentess is not None:
-                    return True
-
-                if self.sonetfarendlinecurrentsess is not None:
-                    return True
-
-                if self.sonetfarendlinecurrentuass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndLineCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetfarendlinecurrententry is not None:
-                for child_ref in self.sonetfarendlinecurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetfarendlinecurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetFarEndLineCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetFarEndLineCurrentEntry"):
+                for c in self.sonetfarendlinecurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetfarendlinecurrenttable.Sonetfarendlinecurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetfarendlinecurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetFarEndLineCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetfarendlinecurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetfarendlineintervaltable(object):
+    class Sonetfarendlineintervaltable(Entity):
         """
         The SONET/SDH Far End Line Interval table.
         
@@ -1357,13 +2308,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetfarendlineintervalentry = YList()
-            self.sonetfarendlineintervalentry.parent = self
-            self.sonetfarendlineintervalentry.name = 'sonetfarendlineintervalentry'
+            super(SonetMib.Sonetfarendlineintervaltable, self).__init__()
+
+            self.yang_name = "sonetFarEndLineIntervalTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetfarendlineintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetfarendlineintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetfarendlineintervaltable, self).__setattr__(name, value)
 
 
-        class Sonetfarendlineintervalentry(object):
+        class Sonetfarendlineintervalentry(Entity):
             """
             An entry in the SONET/SDH Far
             End Line Interval table.
@@ -1425,81 +2402,209 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetfarendlineintervalnumber = None
-                self.sonetfarendlineintervalcvs = None
-                self.sonetfarendlineintervaless = None
-                self.sonetfarendlineintervalsess = None
-                self.sonetfarendlineintervaluass = None
-                self.sonetfarendlineintervalvaliddata = None
+                super(SonetMib.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.sonetfarendlineintervalnumber is None:
-                    raise YPYModelError('Key property sonetfarendlineintervalnumber is None')
+                self.yang_name = "sonetFarEndLineIntervalEntry"
+                self.yang_parent_name = "sonetFarEndLineIntervalTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndLineIntervalTable/SONET-MIB:sonetFarEndLineIntervalEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + '][SONET-MIB:sonetFarEndLineIntervalNumber = ' + str(self.sonetfarendlineintervalnumber) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetfarendlineintervalnumber = YLeaf(YType.int32, "sonetFarEndLineIntervalNumber")
+
+                self.sonetfarendlineintervalcvs = YLeaf(YType.uint32, "sonetFarEndLineIntervalCVs")
+
+                self.sonetfarendlineintervaless = YLeaf(YType.uint32, "sonetFarEndLineIntervalESs")
+
+                self.sonetfarendlineintervalsess = YLeaf(YType.uint32, "sonetFarEndLineIntervalSESs")
+
+                self.sonetfarendlineintervaluass = YLeaf(YType.uint32, "sonetFarEndLineIntervalUASs")
+
+                self.sonetfarendlineintervalvaliddata = YLeaf(YType.boolean, "sonetFarEndLineIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetfarendlineintervalnumber",
+                                "sonetfarendlineintervalcvs",
+                                "sonetfarendlineintervaless",
+                                "sonetfarendlineintervalsess",
+                                "sonetfarendlineintervaluass",
+                                "sonetfarendlineintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetfarendlineintervalnumber.is_set or
+                    self.sonetfarendlineintervalcvs.is_set or
+                    self.sonetfarendlineintervaless.is_set or
+                    self.sonetfarendlineintervalsess.is_set or
+                    self.sonetfarendlineintervaluass.is_set or
+                    self.sonetfarendlineintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetfarendlineintervalnumber.yfilter != YFilter.not_set or
+                    self.sonetfarendlineintervalcvs.yfilter != YFilter.not_set or
+                    self.sonetfarendlineintervaless.yfilter != YFilter.not_set or
+                    self.sonetfarendlineintervalsess.yfilter != YFilter.not_set or
+                    self.sonetfarendlineintervaluass.yfilter != YFilter.not_set or
+                    self.sonetfarendlineintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetFarEndLineIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetFarEndLineIntervalNumber='" + self.sonetfarendlineintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetFarEndLineIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetfarendlineintervalnumber.is_set or self.sonetfarendlineintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlineintervalnumber.get_name_leafdata())
+                if (self.sonetfarendlineintervalcvs.is_set or self.sonetfarendlineintervalcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlineintervalcvs.get_name_leafdata())
+                if (self.sonetfarendlineintervaless.is_set or self.sonetfarendlineintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlineintervaless.get_name_leafdata())
+                if (self.sonetfarendlineintervalsess.is_set or self.sonetfarendlineintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlineintervalsess.get_name_leafdata())
+                if (self.sonetfarendlineintervaluass.is_set or self.sonetfarendlineintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlineintervaluass.get_name_leafdata())
+                if (self.sonetfarendlineintervalvaliddata.is_set or self.sonetfarendlineintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendlineintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetFarEndLineIntervalNumber" or name == "sonetFarEndLineIntervalCVs" or name == "sonetFarEndLineIntervalESs" or name == "sonetFarEndLineIntervalSESs" or name == "sonetFarEndLineIntervalUASs" or name == "sonetFarEndLineIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineIntervalNumber"):
+                    self.sonetfarendlineintervalnumber = value
+                    self.sonetfarendlineintervalnumber.value_namespace = name_space
+                    self.sonetfarendlineintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineIntervalCVs"):
+                    self.sonetfarendlineintervalcvs = value
+                    self.sonetfarendlineintervalcvs.value_namespace = name_space
+                    self.sonetfarendlineintervalcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineIntervalESs"):
+                    self.sonetfarendlineintervaless = value
+                    self.sonetfarendlineintervaless.value_namespace = name_space
+                    self.sonetfarendlineintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineIntervalSESs"):
+                    self.sonetfarendlineintervalsess = value
+                    self.sonetfarendlineintervalsess.value_namespace = name_space
+                    self.sonetfarendlineintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineIntervalUASs"):
+                    self.sonetfarendlineintervaluass = value
+                    self.sonetfarendlineintervaluass.value_namespace = name_space
+                    self.sonetfarendlineintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndLineIntervalValidData"):
+                    self.sonetfarendlineintervalvaliddata = value
+                    self.sonetfarendlineintervalvaliddata.value_namespace = name_space
+                    self.sonetfarendlineintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetfarendlineintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetfarendlineintervalnumber is not None:
-                    return True
-
-                if self.sonetfarendlineintervalcvs is not None:
-                    return True
-
-                if self.sonetfarendlineintervaless is not None:
-                    return True
-
-                if self.sonetfarendlineintervalsess is not None:
-                    return True
-
-                if self.sonetfarendlineintervaluass is not None:
-                    return True
-
-                if self.sonetfarendlineintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndLineIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetfarendlineintervalentry is not None:
-                for child_ref in self.sonetfarendlineintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetfarendlineintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetFarEndLineIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetFarEndLineIntervalEntry"):
+                for c in self.sonetfarendlineintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetfarendlineintervaltable.Sonetfarendlineintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetfarendlineintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetFarEndLineIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetfarendlineintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetpathcurrenttable(object):
+    class Sonetpathcurrenttable(Entity):
         """
         The SONET/SDH Path Current table.
         
@@ -1516,13 +2621,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetpathcurrententry = YList()
-            self.sonetpathcurrententry.parent = self
-            self.sonetpathcurrententry.name = 'sonetpathcurrententry'
+            super(SonetMib.Sonetpathcurrenttable, self).__init__()
+
+            self.yang_name = "sonetPathCurrentTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetpathcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetpathcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetpathcurrenttable, self).__setattr__(name, value)
 
 
-        class Sonetpathcurrententry(object):
+        class Sonetpathcurrententry(Entity):
             """
             An entry in the SONET/SDH Path Current table.
             
@@ -1538,22 +2669,22 @@ class SonetMib(object):
             .. attribute:: cspsignallingtransportmode
             
             	This object represents the mode used to transport DS0  Signalling information for T1 byteSynchronous mapping (GR253). In signallingTransferMode(2), the robbed\-bit signalling  is transferred to the VT header. In clearMode(3), only  the framing bit is transferred to the VT header.           The initial value is signallingTransferMode(2)  if csTributaryMappingType is byteSynchronous.  For asynchronous mapping, it is  notApplicable(1).  The value notApplicable(1) can not be set
-            	**type**\:   :py:class:`CspsignallingtransportmodeEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CspsignallingtransportmodeEnum>`
+            	**type**\:   :py:class:`Cspsignallingtransportmode <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.Cspsignallingtransportmode>`
             
             .. attribute:: cspsonetpathpayload
             
             	Specifies the payload carried by the SONET/SDH Path. The payload specification corresponds to C2 (Signal Label) overhead byte in SONET/SDH Path Overhead\: unequipped(1)    \: Path is not provisioned to carry any payload. unspecified(2)   \: Path is carrying an unspecifed payload. ds3(3)           \: Path is carrying a DS3 path as payload. vt15vc11(4)      \: Path is carrying SONET\-VT1.5/SDH\-VC11 payload. vt2vc12(5)       \: Path is carrying SONET\-VT2/SDH\-VC12 as payload. atmCell(6)       \: Path is carrying ATM Cells as payload. hdlcFr(7)        \: Path is carrying Frame Relay (HDLC) payload. e3(8)            \: Path is carrying an E3 path as payload. vtStructured(9)  \: Path is carrying VTGs/TUG3s/TUG2s which may                    each carry a different payload.  A write operation on this object will result in update to C2 overhead byte in the Path Overhead
-            	**type**\:   :py:class:`CspsonetpathpayloadEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CspsonetpathpayloadEnum>`
+            	**type**\:   :py:class:`Cspsonetpathpayload <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.Cspsonetpathpayload>`
             
             .. attribute:: csptributarygroupingtype
             
             	This object represents the method used to group VCs into an STM\-1 signal. Applicable only to SDH.  au3Grouping\: STM1<\-AU\-3<\-TUG\-2<\-TU\-12<\-VC12 or              STM1<\-AU\-3<\-TUG\-2<\-TU\-11<\-VC11.  au4Grouping\: STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-12<\-VC12 or              STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-11<\-VC11.  The initial value is au3Grouping(2) for SDH and  notApplicable(1) for SONET
-            	**type**\:   :py:class:`CsptributarygroupingtypeEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CsptributarygroupingtypeEnum>`
+            	**type**\:   :py:class:`Csptributarygroupingtype <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.Csptributarygroupingtype>`
             
             .. attribute:: csptributarymappingtype
             
             	This object represents the VT/VC mapping type. asynchronous\: In this mode, the channel structure of                DS1/E1 is neither visible nor preserved.  byteSynchronous\: In this mode, the DS0 signals inside                   the VT/VC can be found and extracted                   from the frame. The initial value is asynchronous(1)
-            	**type**\:   :py:class:`CsptributarymappingtypeEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CsptributarymappingtypeEnum>`
+            	**type**\:   :py:class:`Csptributarymappingtype <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.Csptributarymappingtype>`
             
             .. attribute:: sonetpathcurrentcvs
             
@@ -1593,7 +2724,7 @@ class SonetMib(object):
             .. attribute:: sonetpathcurrentwidth
             
             	A value that indicates the type of the SONET/SDH Path.  For SONET, the assigned types are the STS\-Nc SPEs, where N = 1, 3, 12, 24, 48, 192 and 768. STS\-1 is equal to 51.84 Mbps.  For SDH, the assigned types are the STM\-Nc VCs, where N = 1, 4, 16, 64 and 256
-            	**type**\:   :py:class:`SonetpathcurrentwidthEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.SonetpathcurrentwidthEnum>`
+            	**type**\:   :py:class:`Sonetpathcurrentwidth <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.Sonetpathcurrentwidth>`
             
             
 
@@ -1603,22 +2734,70 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cspsignallingtransportmode = None
-                self.cspsonetpathpayload = None
-                self.csptributarygroupingtype = None
-                self.csptributarymappingtype = None
-                self.sonetpathcurrentcvs = None
-                self.sonetpathcurrentess = None
-                self.sonetpathcurrentsess = None
-                self.sonetpathcurrentstatus = None
-                self.sonetpathcurrentuass = None
-                self.sonetpathcurrentwidth = None
+                super(SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry, self).__init__()
 
-            class CspsignallingtransportmodeEnum(Enum):
+                self.yang_name = "sonetPathCurrentEntry"
+                self.yang_parent_name = "sonetPathCurrentTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cspsignallingtransportmode = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspSignallingTransportMode")
+
+                self.cspsonetpathpayload = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspSonetPathPayload")
+
+                self.csptributarygroupingtype = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspTributaryGroupingType")
+
+                self.csptributarymappingtype = YLeaf(YType.enumeration, "CISCO-SONET-MIB:cspTributaryMappingType")
+
+                self.sonetpathcurrentcvs = YLeaf(YType.uint32, "sonetPathCurrentCVs")
+
+                self.sonetpathcurrentess = YLeaf(YType.uint32, "sonetPathCurrentESs")
+
+                self.sonetpathcurrentsess = YLeaf(YType.uint32, "sonetPathCurrentSESs")
+
+                self.sonetpathcurrentstatus = YLeaf(YType.int32, "sonetPathCurrentStatus")
+
+                self.sonetpathcurrentuass = YLeaf(YType.uint32, "sonetPathCurrentUASs")
+
+                self.sonetpathcurrentwidth = YLeaf(YType.enumeration, "sonetPathCurrentWidth")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cspsignallingtransportmode",
+                                "cspsonetpathpayload",
+                                "csptributarygroupingtype",
+                                "csptributarymappingtype",
+                                "sonetpathcurrentcvs",
+                                "sonetpathcurrentess",
+                                "sonetpathcurrentsess",
+                                "sonetpathcurrentstatus",
+                                "sonetpathcurrentuass",
+                                "sonetpathcurrentwidth") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry, self).__setattr__(name, value)
+
+            class Cspsignallingtransportmode(Enum):
                 """
-                CspsignallingtransportmodeEnum
+                Cspsignallingtransportmode
 
                 This object represents the mode used to transport DS0 
 
@@ -1650,22 +2829,16 @@ class SonetMib(object):
 
                 """
 
-                notApplicable = 1
+                notApplicable = Enum.YLeaf(1, "notApplicable")
 
-                signallingTransferMode = 2
+                signallingTransferMode = Enum.YLeaf(2, "signallingTransferMode")
 
-                clearMode = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CspsignallingtransportmodeEnum']
+                clearMode = Enum.YLeaf(3, "clearMode")
 
 
-            class CspsonetpathpayloadEnum(Enum):
+            class Cspsonetpathpayload(Enum):
                 """
-                CspsonetpathpayloadEnum
+                Cspsonetpathpayload
 
                 Specifies the payload carried by the SONET/SDH Path.
 
@@ -1717,34 +2890,28 @@ class SonetMib(object):
 
                 """
 
-                unequipped = 1
+                unequipped = Enum.YLeaf(1, "unequipped")
 
-                unspecified = 2
+                unspecified = Enum.YLeaf(2, "unspecified")
 
-                ds3 = 3
+                ds3 = Enum.YLeaf(3, "ds3")
 
-                vt15vc11 = 4
+                vt15vc11 = Enum.YLeaf(4, "vt15vc11")
 
-                vt2vc12 = 5
+                vt2vc12 = Enum.YLeaf(5, "vt2vc12")
 
-                atmCell = 6
+                atmCell = Enum.YLeaf(6, "atmCell")
 
-                hdlcFr = 7
+                hdlcFr = Enum.YLeaf(7, "hdlcFr")
 
-                e3 = 8
+                e3 = Enum.YLeaf(8, "e3")
 
-                vtStructured = 9
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CspsonetpathpayloadEnum']
+                vtStructured = Enum.YLeaf(9, "vtStructured")
 
 
-            class CsptributarygroupingtypeEnum(Enum):
+            class Csptributarygroupingtype(Enum):
                 """
-                CsptributarygroupingtypeEnum
+                Csptributarygroupingtype
 
                 This object represents the method used to group VCs into
 
@@ -1770,22 +2937,16 @@ class SonetMib(object):
 
                 """
 
-                notApplicable = 1
+                notApplicable = Enum.YLeaf(1, "notApplicable")
 
-                au3Grouping = 2
+                au3Grouping = Enum.YLeaf(2, "au3Grouping")
 
-                au4Grouping = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CsptributarygroupingtypeEnum']
+                au4Grouping = Enum.YLeaf(3, "au4Grouping")
 
 
-            class CsptributarymappingtypeEnum(Enum):
+            class Csptributarymappingtype(Enum):
                 """
-                CsptributarymappingtypeEnum
+                Csptributarymappingtype
 
                 This object represents the VT/VC mapping type.
 
@@ -1807,20 +2968,14 @@ class SonetMib(object):
 
                 """
 
-                asynchronous = 1
+                asynchronous = Enum.YLeaf(1, "asynchronous")
 
-                byteSynchronous = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.CsptributarymappingtypeEnum']
+                byteSynchronous = Enum.YLeaf(2, "byteSynchronous")
 
 
-            class SonetpathcurrentwidthEnum(Enum):
+            class Sonetpathcurrentwidth(Enum):
                 """
-                SonetpathcurrentwidthEnum
+                Sonetpathcurrentwidth
 
                 A value that indicates the type of the SONET/SDH
 
@@ -1848,103 +3003,207 @@ class SonetMib(object):
 
                 """
 
-                sts1 = 1
+                sts1 = Enum.YLeaf(1, "sts1")
 
-                sts3cSTM1 = 2
+                sts3cSTM1 = Enum.YLeaf(2, "sts3cSTM1")
 
-                sts12cSTM4 = 3
+                sts12cSTM4 = Enum.YLeaf(3, "sts12cSTM4")
 
-                sts24c = 4
+                sts24c = Enum.YLeaf(4, "sts24c")
 
-                sts48cSTM16 = 5
+                sts48cSTM16 = Enum.YLeaf(5, "sts48cSTM16")
 
-                sts192cSTM64 = 6
+                sts192cSTM64 = Enum.YLeaf(6, "sts192cSTM64")
 
-                sts768cSTM256 = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry.SonetpathcurrentwidthEnum']
+                sts768cSTM256 = Enum.YLeaf(7, "sts768cSTM256")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cspsignallingtransportmode.is_set or
+                    self.cspsonetpathpayload.is_set or
+                    self.csptributarygroupingtype.is_set or
+                    self.csptributarymappingtype.is_set or
+                    self.sonetpathcurrentcvs.is_set or
+                    self.sonetpathcurrentess.is_set or
+                    self.sonetpathcurrentsess.is_set or
+                    self.sonetpathcurrentstatus.is_set or
+                    self.sonetpathcurrentuass.is_set or
+                    self.sonetpathcurrentwidth.is_set)
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetPathCurrentTable/SONET-MIB:sonetPathCurrentEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cspsignallingtransportmode.yfilter != YFilter.not_set or
+                    self.cspsonetpathpayload.yfilter != YFilter.not_set or
+                    self.csptributarygroupingtype.yfilter != YFilter.not_set or
+                    self.csptributarymappingtype.yfilter != YFilter.not_set or
+                    self.sonetpathcurrentcvs.yfilter != YFilter.not_set or
+                    self.sonetpathcurrentess.yfilter != YFilter.not_set or
+                    self.sonetpathcurrentsess.yfilter != YFilter.not_set or
+                    self.sonetpathcurrentstatus.yfilter != YFilter.not_set or
+                    self.sonetpathcurrentuass.yfilter != YFilter.not_set or
+                    self.sonetpathcurrentwidth.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetPathCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cspsignallingtransportmode.is_set or self.cspsignallingtransportmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cspsignallingtransportmode.get_name_leafdata())
+                if (self.cspsonetpathpayload.is_set or self.cspsonetpathpayload.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cspsonetpathpayload.get_name_leafdata())
+                if (self.csptributarygroupingtype.is_set or self.csptributarygroupingtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csptributarygroupingtype.get_name_leafdata())
+                if (self.csptributarymappingtype.is_set or self.csptributarymappingtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.csptributarymappingtype.get_name_leafdata())
+                if (self.sonetpathcurrentcvs.is_set or self.sonetpathcurrentcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathcurrentcvs.get_name_leafdata())
+                if (self.sonetpathcurrentess.is_set or self.sonetpathcurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathcurrentess.get_name_leafdata())
+                if (self.sonetpathcurrentsess.is_set or self.sonetpathcurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathcurrentsess.get_name_leafdata())
+                if (self.sonetpathcurrentstatus.is_set or self.sonetpathcurrentstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathcurrentstatus.get_name_leafdata())
+                if (self.sonetpathcurrentuass.is_set or self.sonetpathcurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathcurrentuass.get_name_leafdata())
+                if (self.sonetpathcurrentwidth.is_set or self.sonetpathcurrentwidth.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathcurrentwidth.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cspSignallingTransportMode" or name == "cspSonetPathPayload" or name == "cspTributaryGroupingType" or name == "cspTributaryMappingType" or name == "sonetPathCurrentCVs" or name == "sonetPathCurrentESs" or name == "sonetPathCurrentSESs" or name == "sonetPathCurrentStatus" or name == "sonetPathCurrentUASs" or name == "sonetPathCurrentWidth"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cspSignallingTransportMode"):
+                    self.cspsignallingtransportmode = value
+                    self.cspsignallingtransportmode.value_namespace = name_space
+                    self.cspsignallingtransportmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cspSonetPathPayload"):
+                    self.cspsonetpathpayload = value
+                    self.cspsonetpathpayload.value_namespace = name_space
+                    self.cspsonetpathpayload.value_namespace_prefix = name_space_prefix
+                if(value_path == "cspTributaryGroupingType"):
+                    self.csptributarygroupingtype = value
+                    self.csptributarygroupingtype.value_namespace = name_space
+                    self.csptributarygroupingtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cspTributaryMappingType"):
+                    self.csptributarymappingtype = value
+                    self.csptributarymappingtype.value_namespace = name_space
+                    self.csptributarymappingtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathCurrentCVs"):
+                    self.sonetpathcurrentcvs = value
+                    self.sonetpathcurrentcvs.value_namespace = name_space
+                    self.sonetpathcurrentcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathCurrentESs"):
+                    self.sonetpathcurrentess = value
+                    self.sonetpathcurrentess.value_namespace = name_space
+                    self.sonetpathcurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathCurrentSESs"):
+                    self.sonetpathcurrentsess = value
+                    self.sonetpathcurrentsess.value_namespace = name_space
+                    self.sonetpathcurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathCurrentStatus"):
+                    self.sonetpathcurrentstatus = value
+                    self.sonetpathcurrentstatus.value_namespace = name_space
+                    self.sonetpathcurrentstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathCurrentUASs"):
+                    self.sonetpathcurrentuass = value
+                    self.sonetpathcurrentuass.value_namespace = name_space
+                    self.sonetpathcurrentuass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathCurrentWidth"):
+                    self.sonetpathcurrentwidth = value
+                    self.sonetpathcurrentwidth.value_namespace = name_space
+                    self.sonetpathcurrentwidth.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetpathcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.cspsignallingtransportmode is not None:
-                    return True
-
-                if self.cspsonetpathpayload is not None:
-                    return True
-
-                if self.csptributarygroupingtype is not None:
-                    return True
-
-                if self.csptributarymappingtype is not None:
-                    return True
-
-                if self.sonetpathcurrentcvs is not None:
-                    return True
-
-                if self.sonetpathcurrentess is not None:
-                    return True
-
-                if self.sonetpathcurrentsess is not None:
-                    return True
-
-                if self.sonetpathcurrentstatus is not None:
-                    return True
-
-                if self.sonetpathcurrentuass is not None:
-                    return True
-
-                if self.sonetpathcurrentwidth is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetPathCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetpathcurrententry is not None:
-                for child_ref in self.sonetpathcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetpathcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetPathCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetPathCurrentEntry"):
+                for c in self.sonetpathcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetpathcurrenttable.Sonetpathcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetpathcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetPathCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetpathcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetpathintervaltable(object):
+    class Sonetpathintervaltable(Entity):
         """
         The SONET/SDH Path Interval table.
         
@@ -1961,13 +3220,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetpathintervalentry = YList()
-            self.sonetpathintervalentry.parent = self
-            self.sonetpathintervalentry.name = 'sonetpathintervalentry'
+            super(SonetMib.Sonetpathintervaltable, self).__init__()
+
+            self.yang_name = "sonetPathIntervalTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetpathintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetpathintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetpathintervaltable, self).__setattr__(name, value)
 
 
-        class Sonetpathintervalentry(object):
+        class Sonetpathintervalentry(Entity):
             """
             An entry in the SONET/SDH Path Interval table.
             
@@ -2028,81 +3313,209 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetpathintervalnumber = None
-                self.sonetpathintervalcvs = None
-                self.sonetpathintervaless = None
-                self.sonetpathintervalsess = None
-                self.sonetpathintervaluass = None
-                self.sonetpathintervalvaliddata = None
+                super(SonetMib.Sonetpathintervaltable.Sonetpathintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.sonetpathintervalnumber is None:
-                    raise YPYModelError('Key property sonetpathintervalnumber is None')
+                self.yang_name = "sonetPathIntervalEntry"
+                self.yang_parent_name = "sonetPathIntervalTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetPathIntervalTable/SONET-MIB:sonetPathIntervalEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + '][SONET-MIB:sonetPathIntervalNumber = ' + str(self.sonetpathintervalnumber) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetpathintervalnumber = YLeaf(YType.int32, "sonetPathIntervalNumber")
+
+                self.sonetpathintervalcvs = YLeaf(YType.uint32, "sonetPathIntervalCVs")
+
+                self.sonetpathintervaless = YLeaf(YType.uint32, "sonetPathIntervalESs")
+
+                self.sonetpathintervalsess = YLeaf(YType.uint32, "sonetPathIntervalSESs")
+
+                self.sonetpathintervaluass = YLeaf(YType.uint32, "sonetPathIntervalUASs")
+
+                self.sonetpathintervalvaliddata = YLeaf(YType.boolean, "sonetPathIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetpathintervalnumber",
+                                "sonetpathintervalcvs",
+                                "sonetpathintervaless",
+                                "sonetpathintervalsess",
+                                "sonetpathintervaluass",
+                                "sonetpathintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetpathintervaltable.Sonetpathintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetpathintervaltable.Sonetpathintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetpathintervalnumber.is_set or
+                    self.sonetpathintervalcvs.is_set or
+                    self.sonetpathintervaless.is_set or
+                    self.sonetpathintervalsess.is_set or
+                    self.sonetpathintervaluass.is_set or
+                    self.sonetpathintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetpathintervalnumber.yfilter != YFilter.not_set or
+                    self.sonetpathintervalcvs.yfilter != YFilter.not_set or
+                    self.sonetpathintervaless.yfilter != YFilter.not_set or
+                    self.sonetpathintervalsess.yfilter != YFilter.not_set or
+                    self.sonetpathintervaluass.yfilter != YFilter.not_set or
+                    self.sonetpathintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetPathIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetPathIntervalNumber='" + self.sonetpathintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetPathIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetpathintervalnumber.is_set or self.sonetpathintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathintervalnumber.get_name_leafdata())
+                if (self.sonetpathintervalcvs.is_set or self.sonetpathintervalcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathintervalcvs.get_name_leafdata())
+                if (self.sonetpathintervaless.is_set or self.sonetpathintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathintervaless.get_name_leafdata())
+                if (self.sonetpathintervalsess.is_set or self.sonetpathintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathintervalsess.get_name_leafdata())
+                if (self.sonetpathintervaluass.is_set or self.sonetpathintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathintervaluass.get_name_leafdata())
+                if (self.sonetpathintervalvaliddata.is_set or self.sonetpathintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetpathintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetPathIntervalNumber" or name == "sonetPathIntervalCVs" or name == "sonetPathIntervalESs" or name == "sonetPathIntervalSESs" or name == "sonetPathIntervalUASs" or name == "sonetPathIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathIntervalNumber"):
+                    self.sonetpathintervalnumber = value
+                    self.sonetpathintervalnumber.value_namespace = name_space
+                    self.sonetpathintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathIntervalCVs"):
+                    self.sonetpathintervalcvs = value
+                    self.sonetpathintervalcvs.value_namespace = name_space
+                    self.sonetpathintervalcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathIntervalESs"):
+                    self.sonetpathintervaless = value
+                    self.sonetpathintervaless.value_namespace = name_space
+                    self.sonetpathintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathIntervalSESs"):
+                    self.sonetpathintervalsess = value
+                    self.sonetpathintervalsess.value_namespace = name_space
+                    self.sonetpathintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathIntervalUASs"):
+                    self.sonetpathintervaluass = value
+                    self.sonetpathintervaluass.value_namespace = name_space
+                    self.sonetpathintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetPathIntervalValidData"):
+                    self.sonetpathintervalvaliddata = value
+                    self.sonetpathintervalvaliddata.value_namespace = name_space
+                    self.sonetpathintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetpathintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetpathintervalnumber is not None:
-                    return True
-
-                if self.sonetpathintervalcvs is not None:
-                    return True
-
-                if self.sonetpathintervaless is not None:
-                    return True
-
-                if self.sonetpathintervalsess is not None:
-                    return True
-
-                if self.sonetpathintervaluass is not None:
-                    return True
-
-                if self.sonetpathintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetpathintervaltable.Sonetpathintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetPathIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetpathintervalentry is not None:
-                for child_ref in self.sonetpathintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetpathintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetPathIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetPathIntervalEntry"):
+                for c in self.sonetpathintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetpathintervaltable.Sonetpathintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetpathintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetPathIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetpathintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetfarendpathcurrenttable(object):
+    class Sonetfarendpathcurrenttable(Entity):
         """
         The SONET/SDH Far End Path Current table.
         
@@ -2119,13 +3532,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetfarendpathcurrententry = YList()
-            self.sonetfarendpathcurrententry.parent = self
-            self.sonetfarendpathcurrententry.name = 'sonetfarendpathcurrententry'
+            super(SonetMib.Sonetfarendpathcurrenttable, self).__init__()
+
+            self.yang_name = "sonetFarEndPathCurrentTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetfarendpathcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetfarendpathcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetfarendpathcurrenttable, self).__setattr__(name, value)
 
 
-        class Sonetfarendpathcurrententry(object):
+        class Sonetfarendpathcurrententry(Entity):
             """
             An entry in the SONET/SDH Far End Path Current table.
             
@@ -2174,71 +3613,187 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetfarendpathcurrentcvs = None
-                self.sonetfarendpathcurrentess = None
-                self.sonetfarendpathcurrentsess = None
-                self.sonetfarendpathcurrentuass = None
+                super(SonetMib.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "sonetFarEndPathCurrentEntry"
+                self.yang_parent_name = "sonetFarEndPathCurrentTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndPathCurrentTable/SONET-MIB:sonetFarEndPathCurrentEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetfarendpathcurrentcvs = YLeaf(YType.uint32, "sonetFarEndPathCurrentCVs")
+
+                self.sonetfarendpathcurrentess = YLeaf(YType.uint32, "sonetFarEndPathCurrentESs")
+
+                self.sonetfarendpathcurrentsess = YLeaf(YType.uint32, "sonetFarEndPathCurrentSESs")
+
+                self.sonetfarendpathcurrentuass = YLeaf(YType.uint32, "sonetFarEndPathCurrentUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetfarendpathcurrentcvs",
+                                "sonetfarendpathcurrentess",
+                                "sonetfarendpathcurrentsess",
+                                "sonetfarendpathcurrentuass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetfarendpathcurrentcvs.is_set or
+                    self.sonetfarendpathcurrentess.is_set or
+                    self.sonetfarendpathcurrentsess.is_set or
+                    self.sonetfarendpathcurrentuass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetfarendpathcurrentcvs.yfilter != YFilter.not_set or
+                    self.sonetfarendpathcurrentess.yfilter != YFilter.not_set or
+                    self.sonetfarendpathcurrentsess.yfilter != YFilter.not_set or
+                    self.sonetfarendpathcurrentuass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetFarEndPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetFarEndPathCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetfarendpathcurrentcvs.is_set or self.sonetfarendpathcurrentcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathcurrentcvs.get_name_leafdata())
+                if (self.sonetfarendpathcurrentess.is_set or self.sonetfarendpathcurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathcurrentess.get_name_leafdata())
+                if (self.sonetfarendpathcurrentsess.is_set or self.sonetfarendpathcurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathcurrentsess.get_name_leafdata())
+                if (self.sonetfarendpathcurrentuass.is_set or self.sonetfarendpathcurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathcurrentuass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetFarEndPathCurrentCVs" or name == "sonetFarEndPathCurrentESs" or name == "sonetFarEndPathCurrentSESs" or name == "sonetFarEndPathCurrentUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathCurrentCVs"):
+                    self.sonetfarendpathcurrentcvs = value
+                    self.sonetfarendpathcurrentcvs.value_namespace = name_space
+                    self.sonetfarendpathcurrentcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathCurrentESs"):
+                    self.sonetfarendpathcurrentess = value
+                    self.sonetfarendpathcurrentess.value_namespace = name_space
+                    self.sonetfarendpathcurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathCurrentSESs"):
+                    self.sonetfarendpathcurrentsess = value
+                    self.sonetfarendpathcurrentsess.value_namespace = name_space
+                    self.sonetfarendpathcurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathCurrentUASs"):
+                    self.sonetfarendpathcurrentuass = value
+                    self.sonetfarendpathcurrentuass.value_namespace = name_space
+                    self.sonetfarendpathcurrentuass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetfarendpathcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetfarendpathcurrentcvs is not None:
-                    return True
-
-                if self.sonetfarendpathcurrentess is not None:
-                    return True
-
-                if self.sonetfarendpathcurrentsess is not None:
-                    return True
-
-                if self.sonetfarendpathcurrentuass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndPathCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetfarendpathcurrententry is not None:
-                for child_ref in self.sonetfarendpathcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetfarendpathcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetFarEndPathCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetFarEndPathCurrentEntry"):
+                for c in self.sonetfarendpathcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetfarendpathcurrenttable.Sonetfarendpathcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetfarendpathcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetFarEndPathCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetfarendpathcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetfarendpathintervaltable(object):
+    class Sonetfarendpathintervaltable(Entity):
         """
         The SONET/SDH Far End Path Interval table.
         
@@ -2255,13 +3810,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetfarendpathintervalentry = YList()
-            self.sonetfarendpathintervalentry.parent = self
-            self.sonetfarendpathintervalentry.name = 'sonetfarendpathintervalentry'
+            super(SonetMib.Sonetfarendpathintervaltable, self).__init__()
+
+            self.yang_name = "sonetFarEndPathIntervalTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetfarendpathintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetfarendpathintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetfarendpathintervaltable, self).__setattr__(name, value)
 
 
-        class Sonetfarendpathintervalentry(object):
+        class Sonetfarendpathintervalentry(Entity):
             """
             An entry in the SONET/SDH Far
             End Path Interval table.
@@ -2323,81 +3904,209 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetfarendpathintervalnumber = None
-                self.sonetfarendpathintervalcvs = None
-                self.sonetfarendpathintervaless = None
-                self.sonetfarendpathintervalsess = None
-                self.sonetfarendpathintervaluass = None
-                self.sonetfarendpathintervalvaliddata = None
+                super(SonetMib.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.sonetfarendpathintervalnumber is None:
-                    raise YPYModelError('Key property sonetfarendpathintervalnumber is None')
+                self.yang_name = "sonetFarEndPathIntervalEntry"
+                self.yang_parent_name = "sonetFarEndPathIntervalTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndPathIntervalTable/SONET-MIB:sonetFarEndPathIntervalEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + '][SONET-MIB:sonetFarEndPathIntervalNumber = ' + str(self.sonetfarendpathintervalnumber) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetfarendpathintervalnumber = YLeaf(YType.int32, "sonetFarEndPathIntervalNumber")
+
+                self.sonetfarendpathintervalcvs = YLeaf(YType.uint32, "sonetFarEndPathIntervalCVs")
+
+                self.sonetfarendpathintervaless = YLeaf(YType.uint32, "sonetFarEndPathIntervalESs")
+
+                self.sonetfarendpathintervalsess = YLeaf(YType.uint32, "sonetFarEndPathIntervalSESs")
+
+                self.sonetfarendpathintervaluass = YLeaf(YType.uint32, "sonetFarEndPathIntervalUASs")
+
+                self.sonetfarendpathintervalvaliddata = YLeaf(YType.boolean, "sonetFarEndPathIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetfarendpathintervalnumber",
+                                "sonetfarendpathintervalcvs",
+                                "sonetfarendpathintervaless",
+                                "sonetfarendpathintervalsess",
+                                "sonetfarendpathintervaluass",
+                                "sonetfarendpathintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetfarendpathintervalnumber.is_set or
+                    self.sonetfarendpathintervalcvs.is_set or
+                    self.sonetfarendpathintervaless.is_set or
+                    self.sonetfarendpathintervalsess.is_set or
+                    self.sonetfarendpathintervaluass.is_set or
+                    self.sonetfarendpathintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetfarendpathintervalnumber.yfilter != YFilter.not_set or
+                    self.sonetfarendpathintervalcvs.yfilter != YFilter.not_set or
+                    self.sonetfarendpathintervaless.yfilter != YFilter.not_set or
+                    self.sonetfarendpathintervalsess.yfilter != YFilter.not_set or
+                    self.sonetfarendpathintervaluass.yfilter != YFilter.not_set or
+                    self.sonetfarendpathintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetFarEndPathIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetFarEndPathIntervalNumber='" + self.sonetfarendpathintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetFarEndPathIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetfarendpathintervalnumber.is_set or self.sonetfarendpathintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathintervalnumber.get_name_leafdata())
+                if (self.sonetfarendpathintervalcvs.is_set or self.sonetfarendpathintervalcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathintervalcvs.get_name_leafdata())
+                if (self.sonetfarendpathintervaless.is_set or self.sonetfarendpathintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathintervaless.get_name_leafdata())
+                if (self.sonetfarendpathintervalsess.is_set or self.sonetfarendpathintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathintervalsess.get_name_leafdata())
+                if (self.sonetfarendpathintervaluass.is_set or self.sonetfarendpathintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathintervaluass.get_name_leafdata())
+                if (self.sonetfarendpathintervalvaliddata.is_set or self.sonetfarendpathintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendpathintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetFarEndPathIntervalNumber" or name == "sonetFarEndPathIntervalCVs" or name == "sonetFarEndPathIntervalESs" or name == "sonetFarEndPathIntervalSESs" or name == "sonetFarEndPathIntervalUASs" or name == "sonetFarEndPathIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathIntervalNumber"):
+                    self.sonetfarendpathintervalnumber = value
+                    self.sonetfarendpathintervalnumber.value_namespace = name_space
+                    self.sonetfarendpathintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathIntervalCVs"):
+                    self.sonetfarendpathintervalcvs = value
+                    self.sonetfarendpathintervalcvs.value_namespace = name_space
+                    self.sonetfarendpathintervalcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathIntervalESs"):
+                    self.sonetfarendpathintervaless = value
+                    self.sonetfarendpathintervaless.value_namespace = name_space
+                    self.sonetfarendpathintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathIntervalSESs"):
+                    self.sonetfarendpathintervalsess = value
+                    self.sonetfarendpathintervalsess.value_namespace = name_space
+                    self.sonetfarendpathintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathIntervalUASs"):
+                    self.sonetfarendpathintervaluass = value
+                    self.sonetfarendpathintervaluass.value_namespace = name_space
+                    self.sonetfarendpathintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndPathIntervalValidData"):
+                    self.sonetfarendpathintervalvaliddata = value
+                    self.sonetfarendpathintervalvaliddata.value_namespace = name_space
+                    self.sonetfarendpathintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetfarendpathintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetfarendpathintervalnumber is not None:
-                    return True
-
-                if self.sonetfarendpathintervalcvs is not None:
-                    return True
-
-                if self.sonetfarendpathintervaless is not None:
-                    return True
-
-                if self.sonetfarendpathintervalsess is not None:
-                    return True
-
-                if self.sonetfarendpathintervaluass is not None:
-                    return True
-
-                if self.sonetfarendpathintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndPathIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetfarendpathintervalentry is not None:
-                for child_ref in self.sonetfarendpathintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetfarendpathintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetFarEndPathIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetFarEndPathIntervalEntry"):
+                for c in self.sonetfarendpathintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetfarendpathintervaltable.Sonetfarendpathintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetfarendpathintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetFarEndPathIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetfarendpathintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetvtcurrenttable(object):
+    class Sonetvtcurrenttable(Entity):
         """
         The SONET/SDH VT Current table.
         
@@ -2414,13 +4123,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetvtcurrententry = YList()
-            self.sonetvtcurrententry.parent = self
-            self.sonetvtcurrententry.name = 'sonetvtcurrententry'
+            super(SonetMib.Sonetvtcurrenttable, self).__init__()
+
+            self.yang_name = "sonetVTCurrentTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetvtcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetvtcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetvtcurrenttable, self).__setattr__(name, value)
 
 
-        class Sonetvtcurrententry(object):
+        class Sonetvtcurrententry(Entity):
             """
             An entry in the SONET/SDH VT Current table.
             
@@ -2471,7 +4206,7 @@ class SonetMib(object):
             .. attribute:: sonetvtcurrentwidth
             
             	A value that indicates the type of the SONET VT and SDH VC.  Assigned widths are VT1.5/VC11, VT2/VC12, VT3, VT6/VC2, and VT6c
-            	**type**\:   :py:class:`SonetvtcurrentwidthEnum <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry.SonetvtcurrentwidthEnum>`
+            	**type**\:   :py:class:`Sonetvtcurrentwidth <ydk.models.cisco_ios_xe.SONET_MIB.SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry.Sonetvtcurrentwidth>`
             
             
 
@@ -2481,18 +4216,58 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetvtcurrentcvs = None
-                self.sonetvtcurrentess = None
-                self.sonetvtcurrentsess = None
-                self.sonetvtcurrentstatus = None
-                self.sonetvtcurrentuass = None
-                self.sonetvtcurrentwidth = None
+                super(SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry, self).__init__()
 
-            class SonetvtcurrentwidthEnum(Enum):
+                self.yang_name = "sonetVTCurrentEntry"
+                self.yang_parent_name = "sonetVTCurrentTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.sonetvtcurrentcvs = YLeaf(YType.uint32, "sonetVTCurrentCVs")
+
+                self.sonetvtcurrentess = YLeaf(YType.uint32, "sonetVTCurrentESs")
+
+                self.sonetvtcurrentsess = YLeaf(YType.uint32, "sonetVTCurrentSESs")
+
+                self.sonetvtcurrentstatus = YLeaf(YType.int32, "sonetVTCurrentStatus")
+
+                self.sonetvtcurrentuass = YLeaf(YType.uint32, "sonetVTCurrentUASs")
+
+                self.sonetvtcurrentwidth = YLeaf(YType.enumeration, "sonetVTCurrentWidth")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetvtcurrentcvs",
+                                "sonetvtcurrentess",
+                                "sonetvtcurrentsess",
+                                "sonetvtcurrentstatus",
+                                "sonetvtcurrentuass",
+                                "sonetvtcurrentwidth") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry, self).__setattr__(name, value)
+
+            class Sonetvtcurrentwidth(Enum):
                 """
-                SonetvtcurrentwidthEnum
+                Sonetvtcurrentwidth
 
                 A value that indicates the type of the SONET
 
@@ -2512,87 +4287,171 @@ class SonetMib(object):
 
                 """
 
-                vtWidth15VC11 = 1
+                vtWidth15VC11 = Enum.YLeaf(1, "vtWidth15VC11")
 
-                vtWidth2VC12 = 2
+                vtWidth2VC12 = Enum.YLeaf(2, "vtWidth2VC12")
 
-                vtWidth3 = 3
+                vtWidth3 = Enum.YLeaf(3, "vtWidth3")
 
-                vtWidth6VC2 = 4
+                vtWidth6VC2 = Enum.YLeaf(4, "vtWidth6VC2")
 
-                vtWidth6c = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                    return meta._meta_table['SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry.SonetvtcurrentwidthEnum']
+                vtWidth6c = Enum.YLeaf(5, "vtWidth6c")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetvtcurrentcvs.is_set or
+                    self.sonetvtcurrentess.is_set or
+                    self.sonetvtcurrentsess.is_set or
+                    self.sonetvtcurrentstatus.is_set or
+                    self.sonetvtcurrentuass.is_set or
+                    self.sonetvtcurrentwidth.is_set)
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetVTCurrentTable/SONET-MIB:sonetVTCurrentEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetvtcurrentcvs.yfilter != YFilter.not_set or
+                    self.sonetvtcurrentess.yfilter != YFilter.not_set or
+                    self.sonetvtcurrentsess.yfilter != YFilter.not_set or
+                    self.sonetvtcurrentstatus.yfilter != YFilter.not_set or
+                    self.sonetvtcurrentuass.yfilter != YFilter.not_set or
+                    self.sonetvtcurrentwidth.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetVTCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetVTCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetvtcurrentcvs.is_set or self.sonetvtcurrentcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtcurrentcvs.get_name_leafdata())
+                if (self.sonetvtcurrentess.is_set or self.sonetvtcurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtcurrentess.get_name_leafdata())
+                if (self.sonetvtcurrentsess.is_set or self.sonetvtcurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtcurrentsess.get_name_leafdata())
+                if (self.sonetvtcurrentstatus.is_set or self.sonetvtcurrentstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtcurrentstatus.get_name_leafdata())
+                if (self.sonetvtcurrentuass.is_set or self.sonetvtcurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtcurrentuass.get_name_leafdata())
+                if (self.sonetvtcurrentwidth.is_set or self.sonetvtcurrentwidth.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtcurrentwidth.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetVTCurrentCVs" or name == "sonetVTCurrentESs" or name == "sonetVTCurrentSESs" or name == "sonetVTCurrentStatus" or name == "sonetVTCurrentUASs" or name == "sonetVTCurrentWidth"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTCurrentCVs"):
+                    self.sonetvtcurrentcvs = value
+                    self.sonetvtcurrentcvs.value_namespace = name_space
+                    self.sonetvtcurrentcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTCurrentESs"):
+                    self.sonetvtcurrentess = value
+                    self.sonetvtcurrentess.value_namespace = name_space
+                    self.sonetvtcurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTCurrentSESs"):
+                    self.sonetvtcurrentsess = value
+                    self.sonetvtcurrentsess.value_namespace = name_space
+                    self.sonetvtcurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTCurrentStatus"):
+                    self.sonetvtcurrentstatus = value
+                    self.sonetvtcurrentstatus.value_namespace = name_space
+                    self.sonetvtcurrentstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTCurrentUASs"):
+                    self.sonetvtcurrentuass = value
+                    self.sonetvtcurrentuass.value_namespace = name_space
+                    self.sonetvtcurrentuass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTCurrentWidth"):
+                    self.sonetvtcurrentwidth = value
+                    self.sonetvtcurrentwidth.value_namespace = name_space
+                    self.sonetvtcurrentwidth.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetvtcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetvtcurrentcvs is not None:
-                    return True
-
-                if self.sonetvtcurrentess is not None:
-                    return True
-
-                if self.sonetvtcurrentsess is not None:
-                    return True
-
-                if self.sonetvtcurrentstatus is not None:
-                    return True
-
-                if self.sonetvtcurrentuass is not None:
-                    return True
-
-                if self.sonetvtcurrentwidth is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetVTCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetvtcurrententry is not None:
-                for child_ref in self.sonetvtcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetvtcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetVTCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetVTCurrentEntry"):
+                for c in self.sonetvtcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetvtcurrenttable.Sonetvtcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetvtcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetVTCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetvtcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetvtintervaltable(object):
+    class Sonetvtintervaltable(Entity):
         """
         The SONET/SDH VT Interval table.
         
@@ -2609,13 +4468,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetvtintervalentry = YList()
-            self.sonetvtintervalentry.parent = self
-            self.sonetvtintervalentry.name = 'sonetvtintervalentry'
+            super(SonetMib.Sonetvtintervaltable, self).__init__()
+
+            self.yang_name = "sonetVTIntervalTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetvtintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetvtintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetvtintervaltable, self).__setattr__(name, value)
 
 
-        class Sonetvtintervalentry(object):
+        class Sonetvtintervalentry(Entity):
             """
             An entry in the SONET/SDH VT Interval table.
             
@@ -2676,81 +4561,209 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetvtintervalnumber = None
-                self.sonetvtintervalcvs = None
-                self.sonetvtintervaless = None
-                self.sonetvtintervalsess = None
-                self.sonetvtintervaluass = None
-                self.sonetvtintervalvaliddata = None
+                super(SonetMib.Sonetvtintervaltable.Sonetvtintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.sonetvtintervalnumber is None:
-                    raise YPYModelError('Key property sonetvtintervalnumber is None')
+                self.yang_name = "sonetVTIntervalEntry"
+                self.yang_parent_name = "sonetVTIntervalTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetVTIntervalTable/SONET-MIB:sonetVTIntervalEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + '][SONET-MIB:sonetVTIntervalNumber = ' + str(self.sonetvtintervalnumber) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetvtintervalnumber = YLeaf(YType.int32, "sonetVTIntervalNumber")
+
+                self.sonetvtintervalcvs = YLeaf(YType.uint32, "sonetVTIntervalCVs")
+
+                self.sonetvtintervaless = YLeaf(YType.uint32, "sonetVTIntervalESs")
+
+                self.sonetvtintervalsess = YLeaf(YType.uint32, "sonetVTIntervalSESs")
+
+                self.sonetvtintervaluass = YLeaf(YType.uint32, "sonetVTIntervalUASs")
+
+                self.sonetvtintervalvaliddata = YLeaf(YType.boolean, "sonetVTIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetvtintervalnumber",
+                                "sonetvtintervalcvs",
+                                "sonetvtintervaless",
+                                "sonetvtintervalsess",
+                                "sonetvtintervaluass",
+                                "sonetvtintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetvtintervaltable.Sonetvtintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetvtintervaltable.Sonetvtintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetvtintervalnumber.is_set or
+                    self.sonetvtintervalcvs.is_set or
+                    self.sonetvtintervaless.is_set or
+                    self.sonetvtintervalsess.is_set or
+                    self.sonetvtintervaluass.is_set or
+                    self.sonetvtintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetvtintervalnumber.yfilter != YFilter.not_set or
+                    self.sonetvtintervalcvs.yfilter != YFilter.not_set or
+                    self.sonetvtintervaless.yfilter != YFilter.not_set or
+                    self.sonetvtintervalsess.yfilter != YFilter.not_set or
+                    self.sonetvtintervaluass.yfilter != YFilter.not_set or
+                    self.sonetvtintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetVTIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetVTIntervalNumber='" + self.sonetvtintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetVTIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetvtintervalnumber.is_set or self.sonetvtintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtintervalnumber.get_name_leafdata())
+                if (self.sonetvtintervalcvs.is_set or self.sonetvtintervalcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtintervalcvs.get_name_leafdata())
+                if (self.sonetvtintervaless.is_set or self.sonetvtintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtintervaless.get_name_leafdata())
+                if (self.sonetvtintervalsess.is_set or self.sonetvtintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtintervalsess.get_name_leafdata())
+                if (self.sonetvtintervaluass.is_set or self.sonetvtintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtintervaluass.get_name_leafdata())
+                if (self.sonetvtintervalvaliddata.is_set or self.sonetvtintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetvtintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetVTIntervalNumber" or name == "sonetVTIntervalCVs" or name == "sonetVTIntervalESs" or name == "sonetVTIntervalSESs" or name == "sonetVTIntervalUASs" or name == "sonetVTIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTIntervalNumber"):
+                    self.sonetvtintervalnumber = value
+                    self.sonetvtintervalnumber.value_namespace = name_space
+                    self.sonetvtintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTIntervalCVs"):
+                    self.sonetvtintervalcvs = value
+                    self.sonetvtintervalcvs.value_namespace = name_space
+                    self.sonetvtintervalcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTIntervalESs"):
+                    self.sonetvtintervaless = value
+                    self.sonetvtintervaless.value_namespace = name_space
+                    self.sonetvtintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTIntervalSESs"):
+                    self.sonetvtintervalsess = value
+                    self.sonetvtintervalsess.value_namespace = name_space
+                    self.sonetvtintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTIntervalUASs"):
+                    self.sonetvtintervaluass = value
+                    self.sonetvtintervaluass.value_namespace = name_space
+                    self.sonetvtintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetVTIntervalValidData"):
+                    self.sonetvtintervalvaliddata = value
+                    self.sonetvtintervalvaliddata.value_namespace = name_space
+                    self.sonetvtintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetvtintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetvtintervalnumber is not None:
-                    return True
-
-                if self.sonetvtintervalcvs is not None:
-                    return True
-
-                if self.sonetvtintervaless is not None:
-                    return True
-
-                if self.sonetvtintervalsess is not None:
-                    return True
-
-                if self.sonetvtintervaluass is not None:
-                    return True
-
-                if self.sonetvtintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetvtintervaltable.Sonetvtintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetVTIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetvtintervalentry is not None:
-                for child_ref in self.sonetvtintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetvtintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetVTIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetVTIntervalEntry"):
+                for c in self.sonetvtintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetvtintervaltable.Sonetvtintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetvtintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetVTIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetvtintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetfarendvtcurrenttable(object):
+    class Sonetfarendvtcurrenttable(Entity):
         """
         The SONET/SDH Far End VT Current table.
         
@@ -2767,13 +4780,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetfarendvtcurrententry = YList()
-            self.sonetfarendvtcurrententry.parent = self
-            self.sonetfarendvtcurrententry.name = 'sonetfarendvtcurrententry'
+            super(SonetMib.Sonetfarendvtcurrenttable, self).__init__()
+
+            self.yang_name = "sonetFarEndVTCurrentTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetfarendvtcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetfarendvtcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetfarendvtcurrenttable, self).__setattr__(name, value)
 
 
-        class Sonetfarendvtcurrententry(object):
+        class Sonetfarendvtcurrententry(Entity):
             """
             An entry in the SONET/SDH Far End VT Current table.
             
@@ -2822,71 +4861,187 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetfarendvtcurrentcvs = None
-                self.sonetfarendvtcurrentess = None
-                self.sonetfarendvtcurrentsess = None
-                self.sonetfarendvtcurrentuass = None
+                super(SonetMib.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "sonetFarEndVTCurrentEntry"
+                self.yang_parent_name = "sonetFarEndVTCurrentTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndVTCurrentTable/SONET-MIB:sonetFarEndVTCurrentEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetfarendvtcurrentcvs = YLeaf(YType.uint32, "sonetFarEndVTCurrentCVs")
+
+                self.sonetfarendvtcurrentess = YLeaf(YType.uint32, "sonetFarEndVTCurrentESs")
+
+                self.sonetfarendvtcurrentsess = YLeaf(YType.uint32, "sonetFarEndVTCurrentSESs")
+
+                self.sonetfarendvtcurrentuass = YLeaf(YType.uint32, "sonetFarEndVTCurrentUASs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetfarendvtcurrentcvs",
+                                "sonetfarendvtcurrentess",
+                                "sonetfarendvtcurrentsess",
+                                "sonetfarendvtcurrentuass") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetfarendvtcurrentcvs.is_set or
+                    self.sonetfarendvtcurrentess.is_set or
+                    self.sonetfarendvtcurrentsess.is_set or
+                    self.sonetfarendvtcurrentuass.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetfarendvtcurrentcvs.yfilter != YFilter.not_set or
+                    self.sonetfarendvtcurrentess.yfilter != YFilter.not_set or
+                    self.sonetfarendvtcurrentsess.yfilter != YFilter.not_set or
+                    self.sonetfarendvtcurrentuass.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetFarEndVTCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetFarEndVTCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetfarendvtcurrentcvs.is_set or self.sonetfarendvtcurrentcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtcurrentcvs.get_name_leafdata())
+                if (self.sonetfarendvtcurrentess.is_set or self.sonetfarendvtcurrentess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtcurrentess.get_name_leafdata())
+                if (self.sonetfarendvtcurrentsess.is_set or self.sonetfarendvtcurrentsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtcurrentsess.get_name_leafdata())
+                if (self.sonetfarendvtcurrentuass.is_set or self.sonetfarendvtcurrentuass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtcurrentuass.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetFarEndVTCurrentCVs" or name == "sonetFarEndVTCurrentESs" or name == "sonetFarEndVTCurrentSESs" or name == "sonetFarEndVTCurrentUASs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTCurrentCVs"):
+                    self.sonetfarendvtcurrentcvs = value
+                    self.sonetfarendvtcurrentcvs.value_namespace = name_space
+                    self.sonetfarendvtcurrentcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTCurrentESs"):
+                    self.sonetfarendvtcurrentess = value
+                    self.sonetfarendvtcurrentess.value_namespace = name_space
+                    self.sonetfarendvtcurrentess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTCurrentSESs"):
+                    self.sonetfarendvtcurrentsess = value
+                    self.sonetfarendvtcurrentsess.value_namespace = name_space
+                    self.sonetfarendvtcurrentsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTCurrentUASs"):
+                    self.sonetfarendvtcurrentuass = value
+                    self.sonetfarendvtcurrentuass.value_namespace = name_space
+                    self.sonetfarendvtcurrentuass.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetfarendvtcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetfarendvtcurrentcvs is not None:
-                    return True
-
-                if self.sonetfarendvtcurrentess is not None:
-                    return True
-
-                if self.sonetfarendvtcurrentsess is not None:
-                    return True
-
-                if self.sonetfarendvtcurrentuass is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndVTCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetfarendvtcurrententry is not None:
-                for child_ref in self.sonetfarendvtcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetfarendvtcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetFarEndVTCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetFarEndVTCurrentEntry"):
+                for c in self.sonetfarendvtcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetfarendvtcurrenttable.Sonetfarendvtcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetfarendvtcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetFarEndVTCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetfarendvtcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sonetfarendvtintervaltable(object):
+    class Sonetfarendvtintervaltable(Entity):
         """
         The SONET/SDH Far End VT Interval table.
         
@@ -2903,13 +5058,39 @@ class SonetMib(object):
         _revision = '2003-08-11'
 
         def __init__(self):
-            self.parent = None
-            self.sonetfarendvtintervalentry = YList()
-            self.sonetfarendvtintervalentry.parent = self
-            self.sonetfarendvtintervalentry.name = 'sonetfarendvtintervalentry'
+            super(SonetMib.Sonetfarendvtintervaltable, self).__init__()
+
+            self.yang_name = "sonetFarEndVTIntervalTable"
+            self.yang_parent_name = "SONET-MIB"
+
+            self.sonetfarendvtintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SonetMib.Sonetfarendvtintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SonetMib.Sonetfarendvtintervaltable, self).__setattr__(name, value)
 
 
-        class Sonetfarendvtintervalentry(object):
+        class Sonetfarendvtintervalentry(Entity):
             """
             An entry in the SONET/SDH Far
             End VT Interval table.
@@ -2971,142 +5152,391 @@ class SonetMib(object):
             _revision = '2003-08-11'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.sonetfarendvtintervalnumber = None
-                self.sonetfarendvtintervalcvs = None
-                self.sonetfarendvtintervaless = None
-                self.sonetfarendvtintervalsess = None
-                self.sonetfarendvtintervaluass = None
-                self.sonetfarendvtintervalvaliddata = None
+                super(SonetMib.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.sonetfarendvtintervalnumber is None:
-                    raise YPYModelError('Key property sonetfarendvtintervalnumber is None')
+                self.yang_name = "sonetFarEndVTIntervalEntry"
+                self.yang_parent_name = "sonetFarEndVTIntervalTable"
 
-                return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndVTIntervalTable/SONET-MIB:sonetFarEndVTIntervalEntry[SONET-MIB:ifIndex = ' + str(self.ifindex) + '][SONET-MIB:sonetFarEndVTIntervalNumber = ' + str(self.sonetfarendvtintervalnumber) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sonetfarendvtintervalnumber = YLeaf(YType.int32, "sonetFarEndVTIntervalNumber")
+
+                self.sonetfarendvtintervalcvs = YLeaf(YType.uint32, "sonetFarEndVTIntervalCVs")
+
+                self.sonetfarendvtintervaless = YLeaf(YType.uint32, "sonetFarEndVTIntervalESs")
+
+                self.sonetfarendvtintervalsess = YLeaf(YType.uint32, "sonetFarEndVTIntervalSESs")
+
+                self.sonetfarendvtintervaluass = YLeaf(YType.uint32, "sonetFarEndVTIntervalUASs")
+
+                self.sonetfarendvtintervalvaliddata = YLeaf(YType.boolean, "sonetFarEndVTIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "sonetfarendvtintervalnumber",
+                                "sonetfarendvtintervalcvs",
+                                "sonetfarendvtintervaless",
+                                "sonetfarendvtintervalsess",
+                                "sonetfarendvtintervaluass",
+                                "sonetfarendvtintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SonetMib.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SonetMib.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.sonetfarendvtintervalnumber.is_set or
+                    self.sonetfarendvtintervalcvs.is_set or
+                    self.sonetfarendvtintervaless.is_set or
+                    self.sonetfarendvtintervalsess.is_set or
+                    self.sonetfarendvtintervaluass.is_set or
+                    self.sonetfarendvtintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.sonetfarendvtintervalnumber.yfilter != YFilter.not_set or
+                    self.sonetfarendvtintervalcvs.yfilter != YFilter.not_set or
+                    self.sonetfarendvtintervaless.yfilter != YFilter.not_set or
+                    self.sonetfarendvtintervalsess.yfilter != YFilter.not_set or
+                    self.sonetfarendvtintervaluass.yfilter != YFilter.not_set or
+                    self.sonetfarendvtintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sonetFarEndVTIntervalEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[sonetFarEndVTIntervalNumber='" + self.sonetfarendvtintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SONET-MIB:SONET-MIB/sonetFarEndVTIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.sonetfarendvtintervalnumber.is_set or self.sonetfarendvtintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtintervalnumber.get_name_leafdata())
+                if (self.sonetfarendvtintervalcvs.is_set or self.sonetfarendvtintervalcvs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtintervalcvs.get_name_leafdata())
+                if (self.sonetfarendvtintervaless.is_set or self.sonetfarendvtintervaless.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtintervaless.get_name_leafdata())
+                if (self.sonetfarendvtintervalsess.is_set or self.sonetfarendvtintervalsess.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtintervalsess.get_name_leafdata())
+                if (self.sonetfarendvtintervaluass.is_set or self.sonetfarendvtintervaluass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtintervaluass.get_name_leafdata())
+                if (self.sonetfarendvtintervalvaliddata.is_set or self.sonetfarendvtintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sonetfarendvtintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "sonetFarEndVTIntervalNumber" or name == "sonetFarEndVTIntervalCVs" or name == "sonetFarEndVTIntervalESs" or name == "sonetFarEndVTIntervalSESs" or name == "sonetFarEndVTIntervalUASs" or name == "sonetFarEndVTIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTIntervalNumber"):
+                    self.sonetfarendvtintervalnumber = value
+                    self.sonetfarendvtintervalnumber.value_namespace = name_space
+                    self.sonetfarendvtintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTIntervalCVs"):
+                    self.sonetfarendvtintervalcvs = value
+                    self.sonetfarendvtintervalcvs.value_namespace = name_space
+                    self.sonetfarendvtintervalcvs.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTIntervalESs"):
+                    self.sonetfarendvtintervaless = value
+                    self.sonetfarendvtintervaless.value_namespace = name_space
+                    self.sonetfarendvtintervaless.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTIntervalSESs"):
+                    self.sonetfarendvtintervalsess = value
+                    self.sonetfarendvtintervalsess.value_namespace = name_space
+                    self.sonetfarendvtintervalsess.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTIntervalUASs"):
+                    self.sonetfarendvtintervaluass = value
+                    self.sonetfarendvtintervaluass.value_namespace = name_space
+                    self.sonetfarendvtintervaluass.value_namespace_prefix = name_space_prefix
+                if(value_path == "sonetFarEndVTIntervalValidData"):
+                    self.sonetfarendvtintervalvaliddata = value
+                    self.sonetfarendvtintervalvaliddata.value_namespace = name_space
+                    self.sonetfarendvtintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sonetfarendvtintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.sonetfarendvtintervalnumber is not None:
-                    return True
-
-                if self.sonetfarendvtintervalcvs is not None:
-                    return True
-
-                if self.sonetfarendvtintervaless is not None:
-                    return True
-
-                if self.sonetfarendvtintervalsess is not None:
-                    return True
-
-                if self.sonetfarendvtintervaluass is not None:
-                    return True
-
-                if self.sonetfarendvtintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-                return meta._meta_table['SonetMib.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SONET-MIB:SONET-MIB/SONET-MIB:sonetFarEndVTIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sonetfarendvtintervalentry is not None:
-                for child_ref in self.sonetfarendvtintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sonetfarendvtintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sonetFarEndVTIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SONET-MIB:SONET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sonetFarEndVTIntervalEntry"):
+                for c in self.sonetfarendvtintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SonetMib.Sonetfarendvtintervaltable.Sonetfarendvtintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sonetfarendvtintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sonetFarEndVTIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-            return meta._meta_table['SonetMib.Sonetfarendvtintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.sonetfarendlinecurrenttable is not None and self.sonetfarendlinecurrenttable.has_data()) or
+            (self.sonetfarendlineintervaltable is not None and self.sonetfarendlineintervaltable.has_data()) or
+            (self.sonetfarendpathcurrenttable is not None and self.sonetfarendpathcurrenttable.has_data()) or
+            (self.sonetfarendpathintervaltable is not None and self.sonetfarendpathintervaltable.has_data()) or
+            (self.sonetfarendvtcurrenttable is not None and self.sonetfarendvtcurrenttable.has_data()) or
+            (self.sonetfarendvtintervaltable is not None and self.sonetfarendvtintervaltable.has_data()) or
+            (self.sonetlinecurrenttable is not None and self.sonetlinecurrenttable.has_data()) or
+            (self.sonetlineintervaltable is not None and self.sonetlineintervaltable.has_data()) or
+            (self.sonetmedium is not None and self.sonetmedium.has_data()) or
+            (self.sonetmediumtable is not None and self.sonetmediumtable.has_data()) or
+            (self.sonetpathcurrenttable is not None and self.sonetpathcurrenttable.has_data()) or
+            (self.sonetpathintervaltable is not None and self.sonetpathintervaltable.has_data()) or
+            (self.sonetsectioncurrenttable is not None and self.sonetsectioncurrenttable.has_data()) or
+            (self.sonetsectionintervaltable is not None and self.sonetsectionintervaltable.has_data()) or
+            (self.sonetvtcurrenttable is not None and self.sonetvtcurrenttable.has_data()) or
+            (self.sonetvtintervaltable is not None and self.sonetvtintervaltable.has_data()))
 
-        return '/SONET-MIB:SONET-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.sonetfarendlinecurrenttable is not None and self.sonetfarendlinecurrenttable.has_operation()) or
+            (self.sonetfarendlineintervaltable is not None and self.sonetfarendlineintervaltable.has_operation()) or
+            (self.sonetfarendpathcurrenttable is not None and self.sonetfarendpathcurrenttable.has_operation()) or
+            (self.sonetfarendpathintervaltable is not None and self.sonetfarendpathintervaltable.has_operation()) or
+            (self.sonetfarendvtcurrenttable is not None and self.sonetfarendvtcurrenttable.has_operation()) or
+            (self.sonetfarendvtintervaltable is not None and self.sonetfarendvtintervaltable.has_operation()) or
+            (self.sonetlinecurrenttable is not None and self.sonetlinecurrenttable.has_operation()) or
+            (self.sonetlineintervaltable is not None and self.sonetlineintervaltable.has_operation()) or
+            (self.sonetmedium is not None and self.sonetmedium.has_operation()) or
+            (self.sonetmediumtable is not None and self.sonetmediumtable.has_operation()) or
+            (self.sonetpathcurrenttable is not None and self.sonetpathcurrenttable.has_operation()) or
+            (self.sonetpathintervaltable is not None and self.sonetpathintervaltable.has_operation()) or
+            (self.sonetsectioncurrenttable is not None and self.sonetsectioncurrenttable.has_operation()) or
+            (self.sonetsectionintervaltable is not None and self.sonetsectionintervaltable.has_operation()) or
+            (self.sonetvtcurrenttable is not None and self.sonetvtcurrenttable.has_operation()) or
+            (self.sonetvtintervaltable is not None and self.sonetvtintervaltable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "SONET-MIB:SONET-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "sonetFarEndLineCurrentTable"):
+            if (self.sonetfarendlinecurrenttable is None):
+                self.sonetfarendlinecurrenttable = SonetMib.Sonetfarendlinecurrenttable()
+                self.sonetfarendlinecurrenttable.parent = self
+                self._children_name_map["sonetfarendlinecurrenttable"] = "sonetFarEndLineCurrentTable"
+            return self.sonetfarendlinecurrenttable
+
+        if (child_yang_name == "sonetFarEndLineIntervalTable"):
+            if (self.sonetfarendlineintervaltable is None):
+                self.sonetfarendlineintervaltable = SonetMib.Sonetfarendlineintervaltable()
+                self.sonetfarendlineintervaltable.parent = self
+                self._children_name_map["sonetfarendlineintervaltable"] = "sonetFarEndLineIntervalTable"
+            return self.sonetfarendlineintervaltable
+
+        if (child_yang_name == "sonetFarEndPathCurrentTable"):
+            if (self.sonetfarendpathcurrenttable is None):
+                self.sonetfarendpathcurrenttable = SonetMib.Sonetfarendpathcurrenttable()
+                self.sonetfarendpathcurrenttable.parent = self
+                self._children_name_map["sonetfarendpathcurrenttable"] = "sonetFarEndPathCurrentTable"
+            return self.sonetfarendpathcurrenttable
+
+        if (child_yang_name == "sonetFarEndPathIntervalTable"):
+            if (self.sonetfarendpathintervaltable is None):
+                self.sonetfarendpathintervaltable = SonetMib.Sonetfarendpathintervaltable()
+                self.sonetfarendpathintervaltable.parent = self
+                self._children_name_map["sonetfarendpathintervaltable"] = "sonetFarEndPathIntervalTable"
+            return self.sonetfarendpathintervaltable
+
+        if (child_yang_name == "sonetFarEndVTCurrentTable"):
+            if (self.sonetfarendvtcurrenttable is None):
+                self.sonetfarendvtcurrenttable = SonetMib.Sonetfarendvtcurrenttable()
+                self.sonetfarendvtcurrenttable.parent = self
+                self._children_name_map["sonetfarendvtcurrenttable"] = "sonetFarEndVTCurrentTable"
+            return self.sonetfarendvtcurrenttable
+
+        if (child_yang_name == "sonetFarEndVTIntervalTable"):
+            if (self.sonetfarendvtintervaltable is None):
+                self.sonetfarendvtintervaltable = SonetMib.Sonetfarendvtintervaltable()
+                self.sonetfarendvtintervaltable.parent = self
+                self._children_name_map["sonetfarendvtintervaltable"] = "sonetFarEndVTIntervalTable"
+            return self.sonetfarendvtintervaltable
+
+        if (child_yang_name == "sonetLineCurrentTable"):
+            if (self.sonetlinecurrenttable is None):
+                self.sonetlinecurrenttable = SonetMib.Sonetlinecurrenttable()
+                self.sonetlinecurrenttable.parent = self
+                self._children_name_map["sonetlinecurrenttable"] = "sonetLineCurrentTable"
+            return self.sonetlinecurrenttable
+
+        if (child_yang_name == "sonetLineIntervalTable"):
+            if (self.sonetlineintervaltable is None):
+                self.sonetlineintervaltable = SonetMib.Sonetlineintervaltable()
+                self.sonetlineintervaltable.parent = self
+                self._children_name_map["sonetlineintervaltable"] = "sonetLineIntervalTable"
+            return self.sonetlineintervaltable
+
+        if (child_yang_name == "sonetMedium"):
+            if (self.sonetmedium is None):
+                self.sonetmedium = SonetMib.Sonetmedium()
+                self.sonetmedium.parent = self
+                self._children_name_map["sonetmedium"] = "sonetMedium"
+            return self.sonetmedium
+
+        if (child_yang_name == "sonetMediumTable"):
+            if (self.sonetmediumtable is None):
+                self.sonetmediumtable = SonetMib.Sonetmediumtable()
+                self.sonetmediumtable.parent = self
+                self._children_name_map["sonetmediumtable"] = "sonetMediumTable"
+            return self.sonetmediumtable
+
+        if (child_yang_name == "sonetPathCurrentTable"):
+            if (self.sonetpathcurrenttable is None):
+                self.sonetpathcurrenttable = SonetMib.Sonetpathcurrenttable()
+                self.sonetpathcurrenttable.parent = self
+                self._children_name_map["sonetpathcurrenttable"] = "sonetPathCurrentTable"
+            return self.sonetpathcurrenttable
+
+        if (child_yang_name == "sonetPathIntervalTable"):
+            if (self.sonetpathintervaltable is None):
+                self.sonetpathintervaltable = SonetMib.Sonetpathintervaltable()
+                self.sonetpathintervaltable.parent = self
+                self._children_name_map["sonetpathintervaltable"] = "sonetPathIntervalTable"
+            return self.sonetpathintervaltable
+
+        if (child_yang_name == "sonetSectionCurrentTable"):
+            if (self.sonetsectioncurrenttable is None):
+                self.sonetsectioncurrenttable = SonetMib.Sonetsectioncurrenttable()
+                self.sonetsectioncurrenttable.parent = self
+                self._children_name_map["sonetsectioncurrenttable"] = "sonetSectionCurrentTable"
+            return self.sonetsectioncurrenttable
+
+        if (child_yang_name == "sonetSectionIntervalTable"):
+            if (self.sonetsectionintervaltable is None):
+                self.sonetsectionintervaltable = SonetMib.Sonetsectionintervaltable()
+                self.sonetsectionintervaltable.parent = self
+                self._children_name_map["sonetsectionintervaltable"] = "sonetSectionIntervalTable"
+            return self.sonetsectionintervaltable
+
+        if (child_yang_name == "sonetVTCurrentTable"):
+            if (self.sonetvtcurrenttable is None):
+                self.sonetvtcurrenttable = SonetMib.Sonetvtcurrenttable()
+                self.sonetvtcurrenttable.parent = self
+                self._children_name_map["sonetvtcurrenttable"] = "sonetVTCurrentTable"
+            return self.sonetvtcurrenttable
+
+        if (child_yang_name == "sonetVTIntervalTable"):
+            if (self.sonetvtintervaltable is None):
+                self.sonetvtintervaltable = SonetMib.Sonetvtintervaltable()
+                self.sonetvtintervaltable.parent = self
+                self._children_name_map["sonetvtintervaltable"] = "sonetVTIntervalTable"
+            return self.sonetvtintervaltable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "sonetFarEndLineCurrentTable" or name == "sonetFarEndLineIntervalTable" or name == "sonetFarEndPathCurrentTable" or name == "sonetFarEndPathIntervalTable" or name == "sonetFarEndVTCurrentTable" or name == "sonetFarEndVTIntervalTable" or name == "sonetLineCurrentTable" or name == "sonetLineIntervalTable" or name == "sonetMedium" or name == "sonetMediumTable" or name == "sonetPathCurrentTable" or name == "sonetPathIntervalTable" or name == "sonetSectionCurrentTable" or name == "sonetSectionIntervalTable" or name == "sonetVTCurrentTable" or name == "sonetVTIntervalTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.sonetfarendlinecurrenttable is not None and self.sonetfarendlinecurrenttable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.sonetfarendlineintervaltable is not None and self.sonetfarendlineintervaltable._has_data():
-            return True
-
-        if self.sonetfarendpathcurrenttable is not None and self.sonetfarendpathcurrenttable._has_data():
-            return True
-
-        if self.sonetfarendpathintervaltable is not None and self.sonetfarendpathintervaltable._has_data():
-            return True
-
-        if self.sonetfarendvtcurrenttable is not None and self.sonetfarendvtcurrenttable._has_data():
-            return True
-
-        if self.sonetfarendvtintervaltable is not None and self.sonetfarendvtintervaltable._has_data():
-            return True
-
-        if self.sonetlinecurrenttable is not None and self.sonetlinecurrenttable._has_data():
-            return True
-
-        if self.sonetlineintervaltable is not None and self.sonetlineintervaltable._has_data():
-            return True
-
-        if self.sonetmedium is not None and self.sonetmedium._has_data():
-            return True
-
-        if self.sonetmediumtable is not None and self.sonetmediumtable._has_data():
-            return True
-
-        if self.sonetpathcurrenttable is not None and self.sonetpathcurrenttable._has_data():
-            return True
-
-        if self.sonetpathintervaltable is not None and self.sonetpathintervaltable._has_data():
-            return True
-
-        if self.sonetsectioncurrenttable is not None and self.sonetsectioncurrenttable._has_data():
-            return True
-
-        if self.sonetsectionintervaltable is not None and self.sonetsectionintervaltable._has_data():
-            return True
-
-        if self.sonetvtcurrenttable is not None and self.sonetvtcurrenttable._has_data():
-            return True
-
-        if self.sonetvtintervaltable is not None and self.sonetvtintervaltable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SONET_MIB as meta
-        return meta._meta_table['SonetMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = SonetMib()
+        return self._top_entity
 

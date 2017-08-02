@@ -3,26 +3,20 @@
 This module contains a collection of IOS\-XR derived YANG data 
 types.
     
-Copyright (c) 2013\-2016 by Cisco Systems, Inc.
+Copyright (c) 2013\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EncryptionTypeEnum(Enum):
+class EncryptionType(Enum):
     """
-    EncryptionTypeEnum
+    EncryptionType
 
     The type of encryption used on a password string.
 
@@ -40,19 +34,21 @@ class EncryptionTypeEnum(Enum):
 
     	password encryption.
 
+    .. data:: type6 = 3
+
+    	The password is encrypted using Cisco type 6 
+
+    	password encryption.
+
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    md5 = 1
+    md5 = Enum.YLeaf(1, "md5")
 
-    proprietary = 2
+    proprietary = Enum.YLeaf(2, "proprietary")
 
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_types as meta
-        return meta._meta_table['EncryptionTypeEnum']
+    type6 = Enum.YLeaf(3, "type6")
 
 
 

@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class PppoeEa(object):
+class PppoeEa(Entity):
     """
     PPPoE Ea data
     
@@ -42,11 +36,19 @@ class PppoeEa(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(PppoeEa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "pppoe-ea"
+        self.yang_parent_name = "Cisco-IOS-XR-pppoe-ea-oper"
+
         self.nodes = PppoeEa.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         PPPOE\_EA list of nodes
         
@@ -63,13 +65,39 @@ class PppoeEa(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(PppoeEa.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "pppoe-ea"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(PppoeEa.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(PppoeEa.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             PPPOE\-EA operational data for a particular node
             
@@ -98,15 +126,49 @@ class PppoeEa(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(PppoeEa.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.interface_ids = PppoeEa.Nodes.Node.InterfaceIds()
                 self.interface_ids.parent = self
+                self._children_name_map["interface_ids"] = "interface-ids"
+                self._children_yang_names.add("interface-ids")
+
                 self.parent_interface_ids = PppoeEa.Nodes.Node.ParentInterfaceIds()
                 self.parent_interface_ids.parent = self
+                self._children_name_map["parent_interface_ids"] = "parent-interface-ids"
+                self._children_yang_names.add("parent-interface-ids")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(PppoeEa.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(PppoeEa.Nodes.Node, self).__setattr__(name, value)
 
 
-            class ParentInterfaceIds(object):
+            class ParentInterfaceIds(Entity):
                 """
                 PPPoE parent interface info
                 
@@ -123,13 +185,39 @@ class PppoeEa(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.parent_interface_id = YList()
-                    self.parent_interface_id.parent = self
-                    self.parent_interface_id.name = 'parent_interface_id'
+                    super(PppoeEa.Nodes.Node.ParentInterfaceIds, self).__init__()
+
+                    self.yang_name = "parent-interface-ids"
+                    self.yang_parent_name = "node"
+
+                    self.parent_interface_id = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(PppoeEa.Nodes.Node.ParentInterfaceIds, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(PppoeEa.Nodes.Node.ParentInterfaceIds, self).__setattr__(name, value)
 
 
-                class ParentInterfaceId(object):
+                class ParentInterfaceId(Entity):
                     """
                     PPPoE parent interface info
                     
@@ -165,15 +253,50 @@ class PppoeEa(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.parent_interface_name = None
-                        self.interface = None
-                        self.is_in_sync = None
+                        super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, self).__init__()
+
+                        self.yang_name = "parent-interface-id"
+                        self.yang_parent_name = "parent-interface-ids"
+
+                        self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.is_in_sync = YLeaf(YType.boolean, "is-in-sync")
+
                         self.srgv_mac = PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac()
                         self.srgv_mac.parent = self
+                        self._children_name_map["srgv_mac"] = "srgv-mac"
+                        self._children_yang_names.add("srgv-mac")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("parent_interface_name",
+                                        "interface",
+                                        "is_in_sync") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, self).__setattr__(name, value)
 
 
-                    class SrgvMac(object):
+                    class SrgvMac(Entity):
                         """
                         SRG VMac\-address
                         
@@ -192,90 +315,214 @@ class PppoeEa(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.macaddr = None
+                            super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "srgv-mac"
+                            self.yang_parent_name = "parent-interface-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:srgv-mac'
+                            self.macaddr = YLeaf(YType.str, "macaddr")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("macaddr") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return self.macaddr.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.macaddr.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "srgv-mac" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.macaddr.is_set or self.macaddr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.macaddr.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "macaddr"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.macaddr is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "macaddr"):
+                                self.macaddr = value
+                                self.macaddr.value_namespace = name_space
+                                self.macaddr.value_namespace_prefix = name_space_prefix
 
-                            return False
+                    def has_data(self):
+                        return (
+                            self.parent_interface_name.is_set or
+                            self.interface.is_set or
+                            self.is_in_sync.is_set or
+                            (self.srgv_mac is not None and self.srgv_mac.has_data()))
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                            return meta._meta_table['PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac']['meta_info']
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.parent_interface_name.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.is_in_sync.yfilter != YFilter.not_set or
+                            (self.srgv_mac is not None and self.srgv_mac.has_operation()))
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.parent_interface_name is None:
-                            raise YPYModelError('Key property parent_interface_name is None')
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "parent-interface-id" + "[parent-interface-name='" + self.parent_interface_name.get() + "']" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:parent-interface-id[Cisco-IOS-XR-pppoe-ea-oper:parent-interface-name = ' + str(self.parent_interface_name) + ']'
+                        return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.parent_interface_name.is_set or self.parent_interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parent_interface_name.get_name_leafdata())
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.is_in_sync.is_set or self.is_in_sync.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_in_sync.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "srgv-mac"):
+                            if (self.srgv_mac is None):
+                                self.srgv_mac = PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac()
+                                self.srgv_mac.parent = self
+                                self._children_name_map["srgv_mac"] = "srgv-mac"
+                            return self.srgv_mac
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "srgv-mac" or name == "parent-interface-name" or name == "interface" or name == "is-in-sync"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.parent_interface_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "parent-interface-name"):
+                            self.parent_interface_name = value
+                            self.parent_interface_name.value_namespace = name_space
+                            self.parent_interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-in-sync"):
+                            self.is_in_sync = value
+                            self.is_in_sync.value_namespace = name_space
+                            self.is_in_sync.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.parent_interface_id:
+                        if (c.has_data()):
                             return True
-
-                        if self.interface is not None:
-                            return True
-
-                        if self.is_in_sync is not None:
-                            return True
-
-                        if self.srgv_mac is not None and self.srgv_mac._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                        return meta._meta_table['PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:parent-interface-ids'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.parent_interface_id is not None:
-                        for child_ref in self.parent_interface_id:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.parent_interface_id:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "parent-interface-ids" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "parent-interface-id"):
+                        for c in self.parent_interface_id:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.parent_interface_id.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "parent-interface-id"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                    return meta._meta_table['PppoeEa.Nodes.Node.ParentInterfaceIds']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class InterfaceIds(object):
+            class InterfaceIds(Entity):
                 """
                 PPPoE interface info
                 
@@ -292,13 +539,39 @@ class PppoeEa(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_id = YList()
-                    self.interface_id.parent = self
-                    self.interface_id.name = 'interface_id'
+                    super(PppoeEa.Nodes.Node.InterfaceIds, self).__init__()
+
+                    self.yang_name = "interface-ids"
+                    self.yang_parent_name = "node"
+
+                    self.interface_id = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(PppoeEa.Nodes.Node.InterfaceIds, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(PppoeEa.Nodes.Node.InterfaceIds, self).__setattr__(name, value)
 
 
-                class InterfaceId(object):
+                class InterfaceId(Entity):
                     """
                     PPPoE interface info
                     
@@ -382,27 +655,78 @@ class PppoeEa(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.interface = None
-                        self.is_in_sync = None
-                        self.is_platform_created = None
-                        self.is_priority_set = None
+                        super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, self).__init__()
+
+                        self.yang_name = "interface-id"
+                        self.yang_parent_name = "interface-ids"
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.is_in_sync = YLeaf(YType.boolean, "is-in-sync")
+
+                        self.is_platform_created = YLeaf(YType.boolean, "is-platform-created")
+
+                        self.is_priority_set = YLeaf(YType.boolean, "is-priority-set")
+
+                        self.parent_interface = YLeaf(YType.str, "parent-interface")
+
+                        self.priority = YLeaf(YType.uint8, "priority")
+
+                        self.session_id = YLeaf(YType.uint16, "session-id")
+
+                        self.vlanid = YLeafList(YType.uint16, "vlanid")
+
                         self.local_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac()
                         self.local_mac.parent = self
-                        self.parent_interface = None
+                        self._children_name_map["local_mac"] = "local-mac"
+                        self._children_yang_names.add("local-mac")
+
                         self.peer_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac()
                         self.peer_mac.parent = self
-                        self.priority = None
-                        self.session_id = None
+                        self._children_name_map["peer_mac"] = "peer-mac"
+                        self._children_yang_names.add("peer-mac")
+
                         self.srgv_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac()
                         self.srgv_mac.parent = self
-                        self.vlanid = YLeafList()
-                        self.vlanid.parent = self
-                        self.vlanid.name = 'vlanid'
+                        self._children_name_map["srgv_mac"] = "srgv-mac"
+                        self._children_yang_names.add("srgv-mac")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface_name",
+                                        "interface",
+                                        "is_in_sync",
+                                        "is_platform_created",
+                                        "is_priority_set",
+                                        "parent_interface",
+                                        "priority",
+                                        "session_id",
+                                        "vlanid") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, self).__setattr__(name, value)
 
 
-                    class PeerMac(object):
+                    class PeerMac(Entity):
                         """
                         Peer Mac\-address
                         
@@ -421,33 +745,85 @@ class PppoeEa(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.macaddr = None
+                            super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "peer-mac"
+                            self.yang_parent_name = "interface-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:peer-mac'
+                            self.macaddr = YLeaf(YType.str, "macaddr")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("macaddr") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.macaddr is not None:
+                        def has_data(self):
+                            return self.macaddr.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.macaddr.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "peer-mac" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.macaddr.is_set or self.macaddr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.macaddr.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "macaddr"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                            return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "macaddr"):
+                                self.macaddr = value
+                                self.macaddr.value_namespace = name_space
+                                self.macaddr.value_namespace_prefix = name_space_prefix
 
 
-                    class LocalMac(object):
+                    class LocalMac(Entity):
                         """
                         Local Mac\-address
                         
@@ -466,33 +842,85 @@ class PppoeEa(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.macaddr = None
+                            super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "local-mac"
+                            self.yang_parent_name = "interface-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:local-mac'
+                            self.macaddr = YLeaf(YType.str, "macaddr")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("macaddr") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.macaddr is not None:
+                        def has_data(self):
+                            return self.macaddr.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.macaddr.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "local-mac" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.macaddr.is_set or self.macaddr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.macaddr.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "macaddr"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                            return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "macaddr"):
+                                self.macaddr = value
+                                self.macaddr.value_namespace = name_space
+                                self.macaddr.value_namespace_prefix = name_space_prefix
 
 
-                    class SrgvMac(object):
+                    class SrgvMac(Entity):
                         """
                         SRG VMac\-address
                         
@@ -511,182 +939,451 @@ class PppoeEa(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.macaddr = None
+                            super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "srgv-mac"
+                            self.yang_parent_name = "interface-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:srgv-mac'
+                            self.macaddr = YLeaf(YType.str, "macaddr")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("macaddr") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return self.macaddr.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.macaddr.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "srgv-mac" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.macaddr.is_set or self.macaddr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.macaddr.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "macaddr"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.macaddr is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "macaddr"):
+                                self.macaddr = value
+                                self.macaddr.value_namespace = name_space
+                                self.macaddr.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for leaf in self.vlanid.getYLeafs():
+                            if (leaf.yfilter != YFilter.not_set):
                                 return True
+                        return (
+                            self.interface_name.is_set or
+                            self.interface.is_set or
+                            self.is_in_sync.is_set or
+                            self.is_platform_created.is_set or
+                            self.is_priority_set.is_set or
+                            self.parent_interface.is_set or
+                            self.priority.is_set or
+                            self.session_id.is_set or
+                            (self.local_mac is not None and self.local_mac.has_data()) or
+                            (self.peer_mac is not None and self.peer_mac.has_data()) or
+                            (self.srgv_mac is not None and self.srgv_mac.has_data()))
 
-                            return False
+                    def has_operation(self):
+                        for leaf in self.vlanid.getYLeafs():
+                            if (leaf.is_set):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.is_in_sync.yfilter != YFilter.not_set or
+                            self.is_platform_created.yfilter != YFilter.not_set or
+                            self.is_priority_set.yfilter != YFilter.not_set or
+                            self.parent_interface.yfilter != YFilter.not_set or
+                            self.priority.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.vlanid.yfilter != YFilter.not_set or
+                            (self.local_mac is not None and self.local_mac.has_operation()) or
+                            (self.peer_mac is not None and self.peer_mac.has_operation()) or
+                            (self.srgv_mac is not None and self.srgv_mac.has_operation()))
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                            return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface-id" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYModelError('Key property interface_name is None')
+                        return path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:interface-id[Cisco-IOS-XR-pppoe-ea-oper:interface-name = ' + str(self.interface_name) + ']'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        leaf_name_data = LeafDataList()
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.is_in_sync.is_set or self.is_in_sync.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_in_sync.get_name_leafdata())
+                        if (self.is_platform_created.is_set or self.is_platform_created.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_platform_created.get_name_leafdata())
+                        if (self.is_priority_set.is_set or self.is_priority_set.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_priority_set.get_name_leafdata())
+                        if (self.parent_interface.is_set or self.parent_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parent_interface.get_name_leafdata())
+                        if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.priority.get_name_leafdata())
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+
+                        leaf_name_data.extend(self.vlanid.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "local-mac"):
+                            if (self.local_mac is None):
+                                self.local_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac()
+                                self.local_mac.parent = self
+                                self._children_name_map["local_mac"] = "local-mac"
+                            return self.local_mac
+
+                        if (child_yang_name == "peer-mac"):
+                            if (self.peer_mac is None):
+                                self.peer_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac()
+                                self.peer_mac.parent = self
+                                self._children_name_map["peer_mac"] = "peer-mac"
+                            return self.peer_mac
+
+                        if (child_yang_name == "srgv-mac"):
+                            if (self.srgv_mac is None):
+                                self.srgv_mac = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac()
+                                self.srgv_mac.parent = self
+                                self._children_name_map["srgv_mac"] = "srgv-mac"
+                            return self.srgv_mac
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "local-mac" or name == "peer-mac" or name == "srgv-mac" or name == "interface-name" or name == "interface" or name == "is-in-sync" or name == "is-platform-created" or name == "is-priority-set" or name == "parent-interface" or name == "priority" or name == "session-id" or name == "vlanid"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-in-sync"):
+                            self.is_in_sync = value
+                            self.is_in_sync.value_namespace = name_space
+                            self.is_in_sync.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-platform-created"):
+                            self.is_platform_created = value
+                            self.is_platform_created.value_namespace = name_space
+                            self.is_platform_created.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-priority-set"):
+                            self.is_priority_set = value
+                            self.is_priority_set.value_namespace = name_space
+                            self.is_priority_set.value_namespace_prefix = name_space_prefix
+                        if(value_path == "parent-interface"):
+                            self.parent_interface = value
+                            self.parent_interface.value_namespace = name_space
+                            self.parent_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "priority"):
+                            self.priority = value
+                            self.priority.value_namespace = name_space
+                            self.priority.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vlanid"):
+                            self.vlanid.append(value)
+
+                def has_data(self):
+                    for c in self.interface_id:
+                        if (c.has_data()):
                             return True
-
-                        if self.interface is not None:
-                            return True
-
-                        if self.is_in_sync is not None:
-                            return True
-
-                        if self.is_platform_created is not None:
-                            return True
-
-                        if self.is_priority_set is not None:
-                            return True
-
-                        if self.local_mac is not None and self.local_mac._has_data():
-                            return True
-
-                        if self.parent_interface is not None:
-                            return True
-
-                        if self.peer_mac is not None and self.peer_mac._has_data():
-                            return True
-
-                        if self.priority is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        if self.srgv_mac is not None and self.srgv_mac._has_data():
-                            return True
-
-                        if self.vlanid is not None:
-                            for child in self.vlanid:
-                                if child is not None:
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                        return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds.InterfaceId']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-pppoe-ea-oper:interface-ids'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.interface_id is not None:
-                        for child_ref in self.interface_id:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.interface_id:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface-ids" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                    return meta._meta_table['PppoeEa.Nodes.Node.InterfaceIds']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/Cisco-IOS-XR-pppoe-ea-oper:nodes/Cisco-IOS-XR-pppoe-ea-oper:node[Cisco-IOS-XR-pppoe-ea-oper:node-name = ' + str(self.node_name) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.node_name is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.interface_ids is not None and self.interface_ids._has_data():
-                    return True
+                    if (child_yang_name == "interface-id"):
+                        for c in self.interface_id:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = PppoeEa.Nodes.Node.InterfaceIds.InterfaceId()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface_id.append(c)
+                        return c
 
-                if self.parent_interface_ids is not None and self.parent_interface_ids._has_data():
-                    return True
+                    return None
 
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-                return meta._meta_table['PppoeEa.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/Cisco-IOS-XR-pppoe-ea-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-id"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.interface_ids is not None and self.interface_ids.has_data()) or
+                    (self.parent_interface_ids is not None and self.parent_interface_ids.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.interface_ids is not None and self.interface_ids.has_operation()) or
+                    (self.parent_interface_ids is not None and self.parent_interface_ids.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface-ids"):
+                    if (self.interface_ids is None):
+                        self.interface_ids = PppoeEa.Nodes.Node.InterfaceIds()
+                        self.interface_ids.parent = self
+                        self._children_name_map["interface_ids"] = "interface-ids"
+                    return self.interface_ids
+
+                if (child_yang_name == "parent-interface-ids"):
+                    if (self.parent_interface_ids is None):
+                        self.parent_interface_ids = PppoeEa.Nodes.Node.ParentInterfaceIds()
+                        self.parent_interface_ids.parent = self
+                        self._children_name_map["parent_interface_ids"] = "parent-interface-ids"
+                    return self.parent_interface_ids
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-ids" or name == "parent-interface-ids" or name == "node-name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-            return meta._meta_table['PppoeEa.Nodes']['meta_info']
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
 
-        return '/Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = PppoeEa.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = PppoeEa.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_pppoe_ea_oper as meta
-        return meta._meta_table['PppoeEa']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = PppoeEa()
+        return self._top_entity
 

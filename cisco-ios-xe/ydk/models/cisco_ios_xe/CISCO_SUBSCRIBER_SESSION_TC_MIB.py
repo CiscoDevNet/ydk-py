@@ -4,22 +4,16 @@ This MIB module defines textual conventions describing
 subscriber sessions.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SubsessionredundancymodeEnum(Enum):
+class Subsessionredundancymode(Enum):
     """
-    SubsessionredundancymodeEnum
+    Subsessionredundancymode
 
     An enumerated integer\-value describing the redundancy mode in
 
@@ -65,24 +59,18 @@ class SubsessionredundancymodeEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    other = 2
+    other = Enum.YLeaf(2, "other")
 
-    active = 3
+    active = Enum.YLeaf(3, "active")
 
-    standby = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_TC_MIB as meta
-        return meta._meta_table['SubsessionredundancymodeEnum']
+    standby = Enum.YLeaf(4, "standby")
 
 
-class SubsessionstateEnum(Enum):
+class Subsessionstate(Enum):
     """
-    SubsessionstateEnum
+    Subsessionstate
 
     An enumerated integer\-value describing the state of a
 
@@ -120,22 +108,16 @@ class SubsessionstateEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    pending = 2
+    pending = Enum.YLeaf(2, "pending")
 
-    up = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_TC_MIB as meta
-        return meta._meta_table['SubsessionstateEnum']
+    up = Enum.YLeaf(3, "up")
 
 
-class SubsessiontypeEnum(Enum):
+class Subsessiontype(Enum):
     """
-    SubsessiontypeEnum
+    Subsessiontype
 
     An enumerated integer\-value describing the type of subscriber
 
@@ -315,40 +297,34 @@ class SubsessiontypeEnum(Enum):
 
     """
 
-    all = 1
+    all = Enum.YLeaf(1, "all")
 
-    other = 2
+    other = Enum.YLeaf(2, "other")
 
-    pppSubscriber = 3
+    pppSubscriber = Enum.YLeaf(3, "pppSubscriber")
 
-    pppoeSubscriber = 4
+    pppoeSubscriber = Enum.YLeaf(4, "pppoeSubscriber")
 
-    l2tpSubscriber = 5
+    l2tpSubscriber = Enum.YLeaf(5, "l2tpSubscriber")
 
-    l2fSubscriber = 6
+    l2fSubscriber = Enum.YLeaf(6, "l2fSubscriber")
 
-    ipInterfaceSubscriber = 7
+    ipInterfaceSubscriber = Enum.YLeaf(7, "ipInterfaceSubscriber")
 
-    ipPktSubscriber = 8
+    ipPktSubscriber = Enum.YLeaf(8, "ipPktSubscriber")
 
-    ipDhcpv4Subscriber = 9
+    ipDhcpv4Subscriber = Enum.YLeaf(9, "ipDhcpv4Subscriber")
 
-    ipRadiusSubscriber = 10
+    ipRadiusSubscriber = Enum.YLeaf(10, "ipRadiusSubscriber")
 
-    l2MacSubscriber = 11
+    l2MacSubscriber = Enum.YLeaf(11, "l2MacSubscriber")
 
-    l2Dhcpv4Subscriber = 12
+    l2Dhcpv4Subscriber = Enum.YLeaf(12, "l2Dhcpv4Subscriber")
 
-    l2RadiusSubscriber = 13
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_SESSION_TC_MIB as meta
-        return meta._meta_table['SubsessiontypeEnum']
+    l2RadiusSubscriber = Enum.YLeaf(13, "l2RadiusSubscriber")
 
 
-class Subsessiontypes(FixedBitsDict):
+class Subsessiontypes(Bits):
     """
     Subsessiontypes
 
@@ -404,36 +380,11 @@ class Subsessiontypes(FixedBitsDict):
     For more details regarding subscriber session types, see the
     descriptive text associated with the SubSessionType textual
     convention.
-    Keys are:- l2fSubscriber , l2RadiusSubscriber , pppSubscriber , ipPktSubscriber , ipInterfaceSubscriber , ipDhcpv4Subscriber , l2Dhcpv4Subscriber , pppoeSubscriber , l2MacSubscriber , l2tpSubscriber , ipRadiusSubscriber
+    Keys are:- ipInterfaceSubscriber , l2tpSubscriber , l2fSubscriber , pppoeSubscriber , l2RadiusSubscriber , l2MacSubscriber , ipPktSubscriber , pppSubscriber , l2Dhcpv4Subscriber , ipRadiusSubscriber , ipDhcpv4Subscriber
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'l2fSubscriber':False,
-            'l2RadiusSubscriber':False,
-            'pppSubscriber':False,
-            'ipPktSubscriber':False,
-            'ipInterfaceSubscriber':False,
-            'ipDhcpv4Subscriber':False,
-            'l2Dhcpv4Subscriber':False,
-            'pppoeSubscriber':False,
-            'l2MacSubscriber':False,
-            'l2tpSubscriber':False,
-            'ipRadiusSubscriber':False,
-        }
-        self._pos_map = { 
-            'l2fSubscriber':3,
-            'l2RadiusSubscriber':10,
-            'pppSubscriber':0,
-            'ipPktSubscriber':5,
-            'ipInterfaceSubscriber':4,
-            'ipDhcpv4Subscriber':6,
-            'l2Dhcpv4Subscriber':9,
-            'pppoeSubscriber':1,
-            'l2MacSubscriber':8,
-            'l2tpSubscriber':2,
-            'ipRadiusSubscriber':7,
-        }
+        super(Subsessiontypes, self).__init__()
 
 

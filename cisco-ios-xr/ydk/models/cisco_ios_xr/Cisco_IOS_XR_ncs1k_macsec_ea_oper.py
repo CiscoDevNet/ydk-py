@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class Ncs1KCipherSuitEnum(Enum):
+class Ncs1KCipherSuit(Enum):
     """
-    Ncs1KCipherSuitEnum
+    Ncs1KCipherSuit
 
     Ncs1k cipher suit
 
@@ -44,21 +38,15 @@ class Ncs1KCipherSuitEnum(Enum):
 
     """
 
-    gcm_aes_256 = 0
+    gcm_aes_256 = Enum.YLeaf(0, "gcm-aes-256")
 
-    gcm_aes_128 = 1
+    gcm_aes_128 = Enum.YLeaf(1, "gcm-aes-128")
 
-    gcm_aes_xpn_256 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-        return meta._meta_table['Ncs1KCipherSuitEnum']
+    gcm_aes_xpn_256 = Enum.YLeaf(2, "gcm-aes-xpn-256")
 
 
 
-class Ncs1KMacsecOper(object):
+class Ncs1KMacsecOper(Entity):
     """
     Macsec data
     
@@ -75,11 +63,19 @@ class Ncs1KMacsecOper(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Ncs1KMacsecOper, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ncs1k-macsec-oper"
+        self.yang_parent_name = "Cisco-IOS-XR-ncs1k-macsec-ea-oper"
+
         self.ncs1k_macsec_ctrlr_names = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames()
         self.ncs1k_macsec_ctrlr_names.parent = self
+        self._children_name_map["ncs1k_macsec_ctrlr_names"] = "ncs1k-macsec-ctrlr-names"
+        self._children_yang_names.add("ncs1k-macsec-ctrlr-names")
 
 
-    class Ncs1KMacsecCtrlrNames(object):
+    class Ncs1KMacsecCtrlrNames(Entity):
         """
         All Macsec operational data
         
@@ -96,13 +92,39 @@ class Ncs1KMacsecOper(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.ncs1k_macsec_ctrlr_name = YList()
-            self.ncs1k_macsec_ctrlr_name.parent = self
-            self.ncs1k_macsec_ctrlr_name.name = 'ncs1k_macsec_ctrlr_name'
+            super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames, self).__init__()
+
+            self.yang_name = "ncs1k-macsec-ctrlr-names"
+            self.yang_parent_name = "ncs1k-macsec-oper"
+
+            self.ncs1k_macsec_ctrlr_name = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames, self).__setattr__(name, value)
 
 
-        class Ncs1KMacsecCtrlrName(object):
+        class Ncs1KMacsecCtrlrName(Entity):
             """
             Interface name
             
@@ -126,13 +148,44 @@ class Ncs1KMacsecOper(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.name = None
+                super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName, self).__init__()
+
+                self.yang_name = "ncs1k-macsec-ctrlr-name"
+                self.yang_parent_name = "ncs1k-macsec-ctrlr-names"
+
+                self.name = YLeaf(YType.str, "name")
+
                 self.ncs1k_status_info = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo()
                 self.ncs1k_status_info.parent = self
+                self._children_name_map["ncs1k_status_info"] = "ncs1k-status-info"
+                self._children_yang_names.add("ncs1k-status-info")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName, self).__setattr__(name, value)
 
 
-            class Ncs1KStatusInfo(object):
+            class Ncs1KStatusInfo(Entity):
                 """
                 controller data
                 
@@ -173,17 +226,55 @@ class Ncs1KMacsecOper(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo, self).__init__()
+
+                    self.yang_name = "ncs1k-status-info"
+                    self.yang_parent_name = "ncs1k-macsec-ctrlr-name"
+
+                    self.must_secure = YLeaf(YType.boolean, "must-secure")
+
+                    self.replay_window_size = YLeaf(YType.uint32, "replay-window-size")
+
+                    self.secure_mode = YLeaf(YType.uint32, "secure-mode")
+
                     self.decrypt_sc_status = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus()
                     self.decrypt_sc_status.parent = self
+                    self._children_name_map["decrypt_sc_status"] = "decrypt-sc-status"
+                    self._children_yang_names.add("decrypt-sc-status")
+
                     self.encrypt_sc_status = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus()
                     self.encrypt_sc_status.parent = self
-                    self.must_secure = None
-                    self.replay_window_size = None
-                    self.secure_mode = None
+                    self._children_name_map["encrypt_sc_status"] = "encrypt-sc-status"
+                    self._children_yang_names.add("encrypt-sc-status")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("must_secure",
+                                    "replay_window_size",
+                                    "secure_mode") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo, self).__setattr__(name, value)
 
 
-                class EncryptScStatus(object):
+                class EncryptScStatus(Entity):
                     """
                     Encrypt Secure Channel Status
                     
@@ -195,7 +286,7 @@ class Ncs1KMacsecOper(object):
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:   :py:class:`Ncs1KCipherSuitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KCipherSuitEnum>`
+                    	**type**\:   :py:class:`Ncs1KCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KCipherSuit>`
                     
                     .. attribute:: confidentiality_offset
                     
@@ -252,21 +343,62 @@ class Ncs1KMacsecOper(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active_association = YList()
-                        self.active_association.parent = self
-                        self.active_association.name = 'active_association'
-                        self.cipher_suite = None
-                        self.confidentiality_offset = None
-                        self.initial_packet_number = None
-                        self.max_packet_number = None
-                        self.protection_enabled = None
-                        self.recent_packet_number = None
-                        self.secure_channel_id = None
-                        self.secure_tag_length = None
+                        super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus, self).__init__()
+
+                        self.yang_name = "encrypt-sc-status"
+                        self.yang_parent_name = "ncs1k-status-info"
+
+                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
+
+                        self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
+
+                        self.initial_packet_number = YLeaf(YType.uint64, "initial-packet-number")
+
+                        self.max_packet_number = YLeaf(YType.uint64, "max-packet-number")
+
+                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
+
+                        self.recent_packet_number = YLeaf(YType.uint64, "recent-packet-number")
+
+                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
+
+                        self.secure_tag_length = YLeaf(YType.uint32, "secure-tag-length")
+
+                        self.active_association = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("cipher_suite",
+                                        "confidentiality_offset",
+                                        "initial_packet_number",
+                                        "max_packet_number",
+                                        "protection_enabled",
+                                        "recent_packet_number",
+                                        "secure_channel_id",
+                                        "secure_tag_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus, self).__setattr__(name, value)
 
 
-                    class ActiveAssociation(object):
+                    class ActiveAssociation(Entity):
                         """
                         Active Associations
                         
@@ -320,105 +452,265 @@ class Ncs1KMacsecOper(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.association_number = None
-                            self.device_association_number = None
-                            self.key_crc = None
-                            self.programmed_time = None
-                            self.short_secure_channel_id = None
-                            self.xpn_salt = YLeafList()
-                            self.xpn_salt.parent = self
-                            self.xpn_salt.name = 'xpn_salt'
+                            super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "active-association"
+                            self.yang_parent_name = "encrypt-sc-status"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-macsec-ea-oper:active-association'
+                            self.association_number = YLeaf(YType.uint8, "association-number")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            self.device_association_number = YLeaf(YType.uint8, "device-association-number")
 
-                        def _has_data(self):
-                            if self.association_number is not None:
-                                return True
+                            self.key_crc = YLeaf(YType.str, "key-crc")
 
-                            if self.device_association_number is not None:
-                                return True
+                            self.programmed_time = YLeaf(YType.str, "programmed-time")
 
-                            if self.key_crc is not None:
-                                return True
+                            self.short_secure_channel_id = YLeaf(YType.uint32, "short-secure-channel-id")
 
-                            if self.programmed_time is not None:
-                                return True
+                            self.xpn_salt = YLeafList(YType.str, "xpn-salt")
 
-                            if self.short_secure_channel_id is not None:
-                                return True
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("association_number",
+                                            "device_association_number",
+                                            "key_crc",
+                                            "programmed_time",
+                                            "short_secure_channel_id",
+                                            "xpn_salt") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation, self).__setattr__(name, value)
 
-                            if self.xpn_salt is not None:
-                                for child in self.xpn_salt:
-                                    if child is not None:
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-                            return meta._meta_table['Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-macsec-ea-oper:encrypt-sc-status'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.active_association is not None:
-                            for child_ref in self.active_association:
-                                if child_ref._has_data():
+                        def has_data(self):
+                            for leaf in self.xpn_salt.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
                                     return True
+                            return (
+                                self.association_number.is_set or
+                                self.device_association_number.is_set or
+                                self.key_crc.is_set or
+                                self.programmed_time.is_set or
+                                self.short_secure_channel_id.is_set)
 
-                        if self.cipher_suite is not None:
+                        def has_operation(self):
+                            for leaf in self.xpn_salt.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.association_number.yfilter != YFilter.not_set or
+                                self.device_association_number.yfilter != YFilter.not_set or
+                                self.key_crc.yfilter != YFilter.not_set or
+                                self.programmed_time.yfilter != YFilter.not_set or
+                                self.short_secure_channel_id.yfilter != YFilter.not_set or
+                                self.xpn_salt.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "active-association" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.association_number.is_set or self.association_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.association_number.get_name_leafdata())
+                            if (self.device_association_number.is_set or self.device_association_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.device_association_number.get_name_leafdata())
+                            if (self.key_crc.is_set or self.key_crc.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.key_crc.get_name_leafdata())
+                            if (self.programmed_time.is_set or self.programmed_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.programmed_time.get_name_leafdata())
+                            if (self.short_secure_channel_id.is_set or self.short_secure_channel_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.short_secure_channel_id.get_name_leafdata())
+
+                            leaf_name_data.extend(self.xpn_salt.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "association-number" or name == "device-association-number" or name == "key-crc" or name == "programmed-time" or name == "short-secure-channel-id" or name == "xpn-salt"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "association-number"):
+                                self.association_number = value
+                                self.association_number.value_namespace = name_space
+                                self.association_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "device-association-number"):
+                                self.device_association_number = value
+                                self.device_association_number.value_namespace = name_space
+                                self.device_association_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "key-crc"):
+                                self.key_crc = value
+                                self.key_crc.value_namespace = name_space
+                                self.key_crc.value_namespace_prefix = name_space_prefix
+                            if(value_path == "programmed-time"):
+                                self.programmed_time = value
+                                self.programmed_time.value_namespace = name_space
+                                self.programmed_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "short-secure-channel-id"):
+                                self.short_secure_channel_id = value
+                                self.short_secure_channel_id.value_namespace = name_space
+                                self.short_secure_channel_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "xpn-salt"):
+                                self.xpn_salt.append(value)
+
+                    def has_data(self):
+                        for c in self.active_association:
+                            if (c.has_data()):
+                                return True
+                        return (
+                            self.cipher_suite.is_set or
+                            self.confidentiality_offset.is_set or
+                            self.initial_packet_number.is_set or
+                            self.max_packet_number.is_set or
+                            self.protection_enabled.is_set or
+                            self.recent_packet_number.is_set or
+                            self.secure_channel_id.is_set or
+                            self.secure_tag_length.is_set)
+
+                    def has_operation(self):
+                        for c in self.active_association:
+                            if (c.has_operation()):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.cipher_suite.yfilter != YFilter.not_set or
+                            self.confidentiality_offset.yfilter != YFilter.not_set or
+                            self.initial_packet_number.yfilter != YFilter.not_set or
+                            self.max_packet_number.yfilter != YFilter.not_set or
+                            self.protection_enabled.yfilter != YFilter.not_set or
+                            self.recent_packet_number.yfilter != YFilter.not_set or
+                            self.secure_channel_id.yfilter != YFilter.not_set or
+                            self.secure_tag_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "encrypt-sc-status" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.cipher_suite.is_set or self.cipher_suite.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.cipher_suite.get_name_leafdata())
+                        if (self.confidentiality_offset.is_set or self.confidentiality_offset.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.confidentiality_offset.get_name_leafdata())
+                        if (self.initial_packet_number.is_set or self.initial_packet_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.initial_packet_number.get_name_leafdata())
+                        if (self.max_packet_number.is_set or self.max_packet_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_packet_number.get_name_leafdata())
+                        if (self.protection_enabled.is_set or self.protection_enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.protection_enabled.get_name_leafdata())
+                        if (self.recent_packet_number.is_set or self.recent_packet_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.recent_packet_number.get_name_leafdata())
+                        if (self.secure_channel_id.is_set or self.secure_channel_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.secure_channel_id.get_name_leafdata())
+                        if (self.secure_tag_length.is_set or self.secure_tag_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.secure_tag_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "active-association"):
+                            for c in self.active_association:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus.ActiveAssociation()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.active_association.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "active-association" or name == "cipher-suite" or name == "confidentiality-offset" or name == "initial-packet-number" or name == "max-packet-number" or name == "protection-enabled" or name == "recent-packet-number" or name == "secure-channel-id" or name == "secure-tag-length"):
                             return True
-
-                        if self.confidentiality_offset is not None:
-                            return True
-
-                        if self.initial_packet_number is not None:
-                            return True
-
-                        if self.max_packet_number is not None:
-                            return True
-
-                        if self.protection_enabled is not None:
-                            return True
-
-                        if self.recent_packet_number is not None:
-                            return True
-
-                        if self.secure_channel_id is not None:
-                            return True
-
-                        if self.secure_tag_length is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-                        return meta._meta_table['Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "cipher-suite"):
+                            self.cipher_suite = value
+                            self.cipher_suite.value_namespace = name_space
+                            self.cipher_suite.value_namespace_prefix = name_space_prefix
+                        if(value_path == "confidentiality-offset"):
+                            self.confidentiality_offset = value
+                            self.confidentiality_offset.value_namespace = name_space
+                            self.confidentiality_offset.value_namespace_prefix = name_space_prefix
+                        if(value_path == "initial-packet-number"):
+                            self.initial_packet_number = value
+                            self.initial_packet_number.value_namespace = name_space
+                            self.initial_packet_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-packet-number"):
+                            self.max_packet_number = value
+                            self.max_packet_number.value_namespace = name_space
+                            self.max_packet_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "protection-enabled"):
+                            self.protection_enabled = value
+                            self.protection_enabled.value_namespace = name_space
+                            self.protection_enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "recent-packet-number"):
+                            self.recent_packet_number = value
+                            self.recent_packet_number.value_namespace = name_space
+                            self.recent_packet_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "secure-channel-id"):
+                            self.secure_channel_id = value
+                            self.secure_channel_id.value_namespace = name_space
+                            self.secure_channel_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "secure-tag-length"):
+                            self.secure_tag_length = value
+                            self.secure_tag_length.value_namespace = name_space
+                            self.secure_tag_length.value_namespace_prefix = name_space_prefix
 
 
-                class DecryptScStatus(object):
+                class DecryptScStatus(Entity):
                     """
                     Decrypt Secure Channel Status
                     
@@ -430,7 +722,7 @@ class Ncs1KMacsecOper(object):
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
-                    	**type**\:   :py:class:`Ncs1KCipherSuitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KCipherSuitEnum>`
+                    	**type**\:   :py:class:`Ncs1KCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1KCipherSuit>`
                     
                     .. attribute:: confidentiality_offset
                     
@@ -487,21 +779,62 @@ class Ncs1KMacsecOper(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active_association = YList()
-                        self.active_association.parent = self
-                        self.active_association.name = 'active_association'
-                        self.cipher_suite = None
-                        self.confidentiality_offset = None
-                        self.initial_packet_number = None
-                        self.max_packet_number = None
-                        self.protection_enabled = None
-                        self.recent_packet_number = None
-                        self.secure_channel_id = None
-                        self.secure_tag_length = None
+                        super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus, self).__init__()
+
+                        self.yang_name = "decrypt-sc-status"
+                        self.yang_parent_name = "ncs1k-status-info"
+
+                        self.cipher_suite = YLeaf(YType.enumeration, "cipher-suite")
+
+                        self.confidentiality_offset = YLeaf(YType.uint32, "confidentiality-offset")
+
+                        self.initial_packet_number = YLeaf(YType.uint64, "initial-packet-number")
+
+                        self.max_packet_number = YLeaf(YType.uint64, "max-packet-number")
+
+                        self.protection_enabled = YLeaf(YType.boolean, "protection-enabled")
+
+                        self.recent_packet_number = YLeaf(YType.uint64, "recent-packet-number")
+
+                        self.secure_channel_id = YLeaf(YType.str, "secure-channel-id")
+
+                        self.secure_tag_length = YLeaf(YType.uint32, "secure-tag-length")
+
+                        self.active_association = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("cipher_suite",
+                                        "confidentiality_offset",
+                                        "initial_packet_number",
+                                        "max_packet_number",
+                                        "protection_enabled",
+                                        "recent_packet_number",
+                                        "secure_channel_id",
+                                        "secure_tag_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus, self).__setattr__(name, value)
 
 
-                    class ActiveAssociation(object):
+                    class ActiveAssociation(Entity):
                         """
                         Active Associations
                         
@@ -555,202 +888,505 @@ class Ncs1KMacsecOper(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.association_number = None
-                            self.device_association_number = None
-                            self.key_crc = None
-                            self.programmed_time = None
-                            self.short_secure_channel_id = None
-                            self.xpn_salt = YLeafList()
-                            self.xpn_salt.parent = self
-                            self.xpn_salt.name = 'xpn_salt'
+                            super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus.ActiveAssociation, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "active-association"
+                            self.yang_parent_name = "decrypt-sc-status"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-macsec-ea-oper:active-association'
+                            self.association_number = YLeaf(YType.uint8, "association-number")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            self.device_association_number = YLeaf(YType.uint8, "device-association-number")
 
-                        def _has_data(self):
-                            if self.association_number is not None:
-                                return True
+                            self.key_crc = YLeaf(YType.str, "key-crc")
 
-                            if self.device_association_number is not None:
-                                return True
+                            self.programmed_time = YLeaf(YType.str, "programmed-time")
 
-                            if self.key_crc is not None:
-                                return True
+                            self.short_secure_channel_id = YLeaf(YType.uint32, "short-secure-channel-id")
 
-                            if self.programmed_time is not None:
-                                return True
+                            self.xpn_salt = YLeafList(YType.str, "xpn-salt")
 
-                            if self.short_secure_channel_id is not None:
-                                return True
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("association_number",
+                                            "device_association_number",
+                                            "key_crc",
+                                            "programmed_time",
+                                            "short_secure_channel_id",
+                                            "xpn_salt") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus.ActiveAssociation, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus.ActiveAssociation, self).__setattr__(name, value)
 
-                            if self.xpn_salt is not None:
-                                for child in self.xpn_salt:
-                                    if child is not None:
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-                            return meta._meta_table['Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus.ActiveAssociation']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-macsec-ea-oper:decrypt-sc-status'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.active_association is not None:
-                            for child_ref in self.active_association:
-                                if child_ref._has_data():
+                        def has_data(self):
+                            for leaf in self.xpn_salt.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
                                     return True
+                            return (
+                                self.association_number.is_set or
+                                self.device_association_number.is_set or
+                                self.key_crc.is_set or
+                                self.programmed_time.is_set or
+                                self.short_secure_channel_id.is_set)
 
-                        if self.cipher_suite is not None:
+                        def has_operation(self):
+                            for leaf in self.xpn_salt.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.association_number.yfilter != YFilter.not_set or
+                                self.device_association_number.yfilter != YFilter.not_set or
+                                self.key_crc.yfilter != YFilter.not_set or
+                                self.programmed_time.yfilter != YFilter.not_set or
+                                self.short_secure_channel_id.yfilter != YFilter.not_set or
+                                self.xpn_salt.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "active-association" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.association_number.is_set or self.association_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.association_number.get_name_leafdata())
+                            if (self.device_association_number.is_set or self.device_association_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.device_association_number.get_name_leafdata())
+                            if (self.key_crc.is_set or self.key_crc.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.key_crc.get_name_leafdata())
+                            if (self.programmed_time.is_set or self.programmed_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.programmed_time.get_name_leafdata())
+                            if (self.short_secure_channel_id.is_set or self.short_secure_channel_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.short_secure_channel_id.get_name_leafdata())
+
+                            leaf_name_data.extend(self.xpn_salt.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "association-number" or name == "device-association-number" or name == "key-crc" or name == "programmed-time" or name == "short-secure-channel-id" or name == "xpn-salt"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "association-number"):
+                                self.association_number = value
+                                self.association_number.value_namespace = name_space
+                                self.association_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "device-association-number"):
+                                self.device_association_number = value
+                                self.device_association_number.value_namespace = name_space
+                                self.device_association_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "key-crc"):
+                                self.key_crc = value
+                                self.key_crc.value_namespace = name_space
+                                self.key_crc.value_namespace_prefix = name_space_prefix
+                            if(value_path == "programmed-time"):
+                                self.programmed_time = value
+                                self.programmed_time.value_namespace = name_space
+                                self.programmed_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "short-secure-channel-id"):
+                                self.short_secure_channel_id = value
+                                self.short_secure_channel_id.value_namespace = name_space
+                                self.short_secure_channel_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "xpn-salt"):
+                                self.xpn_salt.append(value)
+
+                    def has_data(self):
+                        for c in self.active_association:
+                            if (c.has_data()):
+                                return True
+                        return (
+                            self.cipher_suite.is_set or
+                            self.confidentiality_offset.is_set or
+                            self.initial_packet_number.is_set or
+                            self.max_packet_number.is_set or
+                            self.protection_enabled.is_set or
+                            self.recent_packet_number.is_set or
+                            self.secure_channel_id.is_set or
+                            self.secure_tag_length.is_set)
+
+                    def has_operation(self):
+                        for c in self.active_association:
+                            if (c.has_operation()):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.cipher_suite.yfilter != YFilter.not_set or
+                            self.confidentiality_offset.yfilter != YFilter.not_set or
+                            self.initial_packet_number.yfilter != YFilter.not_set or
+                            self.max_packet_number.yfilter != YFilter.not_set or
+                            self.protection_enabled.yfilter != YFilter.not_set or
+                            self.recent_packet_number.yfilter != YFilter.not_set or
+                            self.secure_channel_id.yfilter != YFilter.not_set or
+                            self.secure_tag_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "decrypt-sc-status" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.cipher_suite.is_set or self.cipher_suite.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.cipher_suite.get_name_leafdata())
+                        if (self.confidentiality_offset.is_set or self.confidentiality_offset.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.confidentiality_offset.get_name_leafdata())
+                        if (self.initial_packet_number.is_set or self.initial_packet_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.initial_packet_number.get_name_leafdata())
+                        if (self.max_packet_number.is_set or self.max_packet_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_packet_number.get_name_leafdata())
+                        if (self.protection_enabled.is_set or self.protection_enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.protection_enabled.get_name_leafdata())
+                        if (self.recent_packet_number.is_set or self.recent_packet_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.recent_packet_number.get_name_leafdata())
+                        if (self.secure_channel_id.is_set or self.secure_channel_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.secure_channel_id.get_name_leafdata())
+                        if (self.secure_tag_length.is_set or self.secure_tag_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.secure_tag_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "active-association"):
+                            for c in self.active_association:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus.ActiveAssociation()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.active_association.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "active-association" or name == "cipher-suite" or name == "confidentiality-offset" or name == "initial-packet-number" or name == "max-packet-number" or name == "protection-enabled" or name == "recent-packet-number" or name == "secure-channel-id" or name == "secure-tag-length"):
                             return True
-
-                        if self.confidentiality_offset is not None:
-                            return True
-
-                        if self.initial_packet_number is not None:
-                            return True
-
-                        if self.max_packet_number is not None:
-                            return True
-
-                        if self.protection_enabled is not None:
-                            return True
-
-                        if self.recent_packet_number is not None:
-                            return True
-
-                        if self.secure_channel_id is not None:
-                            return True
-
-                        if self.secure_tag_length is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-                        return meta._meta_table['Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "cipher-suite"):
+                            self.cipher_suite = value
+                            self.cipher_suite.value_namespace = name_space
+                            self.cipher_suite.value_namespace_prefix = name_space_prefix
+                        if(value_path == "confidentiality-offset"):
+                            self.confidentiality_offset = value
+                            self.confidentiality_offset.value_namespace = name_space
+                            self.confidentiality_offset.value_namespace_prefix = name_space_prefix
+                        if(value_path == "initial-packet-number"):
+                            self.initial_packet_number = value
+                            self.initial_packet_number.value_namespace = name_space
+                            self.initial_packet_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-packet-number"):
+                            self.max_packet_number = value
+                            self.max_packet_number.value_namespace = name_space
+                            self.max_packet_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "protection-enabled"):
+                            self.protection_enabled = value
+                            self.protection_enabled.value_namespace = name_space
+                            self.protection_enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "recent-packet-number"):
+                            self.recent_packet_number = value
+                            self.recent_packet_number.value_namespace = name_space
+                            self.recent_packet_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "secure-channel-id"):
+                            self.secure_channel_id = value
+                            self.secure_channel_id.value_namespace = name_space
+                            self.secure_channel_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "secure-tag-length"):
+                            self.secure_tag_length = value
+                            self.secure_tag_length.value_namespace = name_space
+                            self.secure_tag_length.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.must_secure.is_set or
+                        self.replay_window_size.is_set or
+                        self.secure_mode.is_set or
+                        (self.decrypt_sc_status is not None and self.decrypt_sc_status.has_data()) or
+                        (self.encrypt_sc_status is not None and self.encrypt_sc_status.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-status-info'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.must_secure.yfilter != YFilter.not_set or
+                        self.replay_window_size.yfilter != YFilter.not_set or
+                        self.secure_mode.yfilter != YFilter.not_set or
+                        (self.decrypt_sc_status is not None and self.decrypt_sc_status.has_operation()) or
+                        (self.encrypt_sc_status is not None and self.encrypt_sc_status.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ncs1k-status-info" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.must_secure.is_set or self.must_secure.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.must_secure.get_name_leafdata())
+                    if (self.replay_window_size.is_set or self.replay_window_size.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.replay_window_size.get_name_leafdata())
+                    if (self.secure_mode.is_set or self.secure_mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.secure_mode.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "decrypt-sc-status"):
+                        if (self.decrypt_sc_status is None):
+                            self.decrypt_sc_status = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.DecryptScStatus()
+                            self.decrypt_sc_status.parent = self
+                            self._children_name_map["decrypt_sc_status"] = "decrypt-sc-status"
+                        return self.decrypt_sc_status
+
+                    if (child_yang_name == "encrypt-sc-status"):
+                        if (self.encrypt_sc_status is None):
+                            self.encrypt_sc_status = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo.EncryptScStatus()
+                            self.encrypt_sc_status.parent = self
+                            self._children_name_map["encrypt_sc_status"] = "encrypt-sc-status"
+                        return self.encrypt_sc_status
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "decrypt-sc-status" or name == "encrypt-sc-status" or name == "must-secure" or name == "replay-window-size" or name == "secure-mode"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.decrypt_sc_status is not None and self.decrypt_sc_status._has_data():
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "must-secure"):
+                        self.must_secure = value
+                        self.must_secure.value_namespace = name_space
+                        self.must_secure.value_namespace_prefix = name_space_prefix
+                    if(value_path == "replay-window-size"):
+                        self.replay_window_size = value
+                        self.replay_window_size.value_namespace = name_space
+                        self.replay_window_size.value_namespace_prefix = name_space_prefix
+                    if(value_path == "secure-mode"):
+                        self.secure_mode = value
+                        self.secure_mode.value_namespace = name_space
+                        self.secure_mode.value_namespace_prefix = name_space_prefix
 
-                    if self.encrypt_sc_status is not None and self.encrypt_sc_status._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.name.is_set or
+                    (self.ncs1k_status_info is not None and self.ncs1k_status_info.has_data()))
 
-                    if self.must_secure is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.name.yfilter != YFilter.not_set or
+                    (self.ncs1k_status_info is not None and self.ncs1k_status_info.has_operation()))
 
-                    if self.replay_window_size is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ncs1k-macsec-ctrlr-name" + "[name='" + self.name.get() + "']" + path_buffer
 
-                    if self.secure_mode is not None:
-                        return True
+                return path_buffer
 
-                    return False
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/ncs1k-macsec-ctrlr-names/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-                    return meta._meta_table['Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo']['meta_info']
+                leaf_name_data = LeafDataList()
+                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.name.get_name_leafdata())
 
-            @property
-            def _common_path(self):
-                if self.name is None:
-                    raise YPYModelError('Key property name is None')
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                return '/Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-ctrlr-names/Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-ctrlr-name[Cisco-IOS-XR-ncs1k-macsec-ea-oper:name = ' + str(self.name) + ']'
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                if (child_yang_name == "ncs1k-status-info"):
+                    if (self.ncs1k_status_info is None):
+                        self.ncs1k_status_info = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName.Ncs1KStatusInfo()
+                        self.ncs1k_status_info.parent = self
+                        self._children_name_map["ncs1k_status_info"] = "ncs1k-status-info"
+                    return self.ncs1k_status_info
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ncs1k-status-info" or name == "name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "name"):
+                    self.name = value
+                    self.name.value_namespace = name_space
+                    self.name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ncs1k_macsec_ctrlr_name:
+                if (c.has_data()):
                     return True
-
-                if self.ncs1k_status_info is not None and self.ncs1k_status_info._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-                return meta._meta_table['Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-ctrlr-names'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ncs1k_macsec_ctrlr_name is not None:
-                for child_ref in self.ncs1k_macsec_ctrlr_name:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ncs1k_macsec_ctrlr_name:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ncs1k-macsec-ctrlr-names" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ncs1k-macsec-ctrlr-name"):
+                for c in self.ncs1k_macsec_ctrlr_name:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames.Ncs1KMacsecCtrlrName()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ncs1k_macsec_ctrlr_name.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ncs1k-macsec-ctrlr-name"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-            return meta._meta_table['Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.ncs1k_macsec_ctrlr_names is not None and self.ncs1k_macsec_ctrlr_names.has_data())
 
-        return '/Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ncs1k_macsec_ctrlr_names is not None and self.ncs1k_macsec_ctrlr_names.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper" + path_buffer
 
-    def _has_data(self):
-        if self.ncs1k_macsec_ctrlr_names is not None and self.ncs1k_macsec_ctrlr_names._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ncs1k-macsec-ctrlr-names"):
+            if (self.ncs1k_macsec_ctrlr_names is None):
+                self.ncs1k_macsec_ctrlr_names = Ncs1KMacsecOper.Ncs1KMacsecCtrlrNames()
+                self.ncs1k_macsec_ctrlr_names.parent = self
+                self._children_name_map["ncs1k_macsec_ctrlr_names"] = "ncs1k-macsec-ctrlr-names"
+            return self.ncs1k_macsec_ctrlr_names
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ncs1k-macsec-ctrlr-names"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_macsec_ea_oper as meta
-        return meta._meta_table['Ncs1KMacsecOper']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Ncs1KMacsecOper()
+        return self._top_entity
 

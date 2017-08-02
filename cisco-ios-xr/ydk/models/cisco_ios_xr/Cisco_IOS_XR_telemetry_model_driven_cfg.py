@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EncodeTypeEnum(Enum):
+class EncodeType(Enum):
     """
-    EncodeTypeEnum
+    EncodeType
 
     Encode type
 
@@ -40,20 +34,14 @@ class EncodeTypeEnum(Enum):
 
     """
 
-    gpb = 2
+    gpb = Enum.YLeaf(2, "gpb")
 
-    self_describing_gpb = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-        return meta._meta_table['EncodeTypeEnum']
+    self_describing_gpb = Enum.YLeaf(3, "self-describing-gpb")
 
 
-class ProtoTypeEnum(Enum):
+class ProtoType(Enum):
     """
-    ProtoTypeEnum
+    ProtoType
 
     Proto type
 
@@ -67,19 +55,13 @@ class ProtoTypeEnum(Enum):
 
     """
 
-    grpc = 1
+    grpc = Enum.YLeaf(1, "grpc")
 
-    tcp = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-        return meta._meta_table['ProtoTypeEnum']
+    tcp = Enum.YLeaf(2, "tcp")
 
 
 
-class TelemetryModelDriven(object):
+class TelemetryModelDriven(Entity):
     """
     Model Driven Telemetry configuration
     
@@ -108,19 +90,58 @@ class TelemetryModelDriven(object):
     """
 
     _prefix = 'telemetry-model-driven-cfg'
-    _revision = '2016-10-20'
+    _revision = '2017-01-30'
 
     def __init__(self):
+        super(TelemetryModelDriven, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "telemetry-model-driven"
+        self.yang_parent_name = "Cisco-IOS-XR-telemetry-model-driven-cfg"
+
+        self.enable = YLeaf(YType.empty, "enable")
+
         self.destination_groups = TelemetryModelDriven.DestinationGroups()
         self.destination_groups.parent = self
-        self.enable = None
+        self._children_name_map["destination_groups"] = "destination-groups"
+        self._children_yang_names.add("destination-groups")
+
         self.sensor_groups = TelemetryModelDriven.SensorGroups()
         self.sensor_groups.parent = self
+        self._children_name_map["sensor_groups"] = "sensor-groups"
+        self._children_yang_names.add("sensor-groups")
+
         self.subscriptions = TelemetryModelDriven.Subscriptions()
         self.subscriptions.parent = self
+        self._children_name_map["subscriptions"] = "subscriptions"
+        self._children_yang_names.add("subscriptions")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("enable") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(TelemetryModelDriven, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(TelemetryModelDriven, self).__setattr__(name, value)
 
 
-    class SensorGroups(object):
+    class SensorGroups(Entity):
         """
         Sensor group configuration
         
@@ -134,16 +155,42 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2016-10-20'
+        _revision = '2017-01-30'
 
         def __init__(self):
-            self.parent = None
-            self.sensor_group = YList()
-            self.sensor_group.parent = self
-            self.sensor_group.name = 'sensor_group'
+            super(TelemetryModelDriven.SensorGroups, self).__init__()
+
+            self.yang_name = "sensor-groups"
+            self.yang_parent_name = "telemetry-model-driven"
+
+            self.sensor_group = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TelemetryModelDriven.SensorGroups, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TelemetryModelDriven.SensorGroups, self).__setattr__(name, value)
 
 
-        class SensorGroup(object):
+        class SensorGroup(Entity):
             """
             Sensor group configuration
             
@@ -164,16 +211,47 @@ class TelemetryModelDriven(object):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2016-10-20'
+            _revision = '2017-01-30'
 
             def __init__(self):
-                self.parent = None
-                self.sensor_group_identifier = None
+                super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__init__()
+
+                self.yang_name = "sensor-group"
+                self.yang_parent_name = "sensor-groups"
+
+                self.sensor_group_identifier = YLeaf(YType.str, "sensor-group-identifier")
+
                 self.sensor_paths = TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths()
                 self.sensor_paths.parent = self
+                self._children_name_map["sensor_paths"] = "sensor-paths"
+                self._children_yang_names.add("sensor-paths")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("sensor_group_identifier") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__setattr__(name, value)
 
 
-            class SensorPaths(object):
+            class SensorPaths(Entity):
                 """
                 Sensor path configuration
                 
@@ -187,16 +265,42 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2016-10-20'
+                _revision = '2017-01-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.sensor_path = YList()
-                    self.sensor_path.parent = self
-                    self.sensor_path.name = 'sensor_path'
+                    super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths, self).__init__()
+
+                    self.yang_name = "sensor-paths"
+                    self.yang_parent_name = "sensor-group"
+
+                    self.sensor_path = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths, self).__setattr__(name, value)
 
 
-                class SensorPath(object):
+                class SensorPath(Entity):
                     """
                     Sensor path configuration
                     
@@ -210,109 +314,258 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2016-10-20'
+                    _revision = '2017-01-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.telemetry_sensor_path = None
+                        super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.telemetry_sensor_path is None:
-                            raise YPYModelError('Key property telemetry_sensor_path is None')
+                        self.yang_name = "sensor-path"
+                        self.yang_parent_name = "sensor-paths"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-path[Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-sensor-path = ' + str(self.telemetry_sensor_path) + ']'
+                        self.telemetry_sensor_path = YLeaf(YType.str, "telemetry-sensor-path")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("telemetry_sensor_path") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.telemetry_sensor_path is not None:
+                    def has_data(self):
+                        return self.telemetry_sensor_path.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.telemetry_sensor_path.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "sensor-path" + "[telemetry-sensor-path='" + self.telemetry_sensor_path.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.telemetry_sensor_path.is_set or self.telemetry_sensor_path.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.telemetry_sensor_path.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "telemetry-sensor-path"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                        return meta._meta_table['TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "telemetry-sensor-path"):
+                            self.telemetry_sensor_path = value
+                            self.telemetry_sensor_path.value_namespace = name_space
+                            self.telemetry_sensor_path.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-paths'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.sensor_path is not None:
-                        for child_ref in self.sensor_path:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.sensor_path:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                    return meta._meta_table['TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths']['meta_info']
+                def has_operation(self):
+                    for c in self.sensor_path:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.sensor_group_identifier is None:
-                    raise YPYModelError('Key property sensor_group_identifier is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sensor-paths" + path_buffer
 
-                return '/Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-groups/Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-group[Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-group-identifier = ' + str(self.sensor_group_identifier) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.sensor_group_identifier is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "sensor-path"):
+                        for c in self.sensor_path:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.sensor_path.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "sensor-path"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.sensor_group_identifier.is_set or
+                    (self.sensor_paths is not None and self.sensor_paths.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.sensor_group_identifier.yfilter != YFilter.not_set or
+                    (self.sensor_paths is not None and self.sensor_paths.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sensor-group" + "[sensor-group-identifier='" + self.sensor_group_identifier.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/sensor-groups/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.sensor_group_identifier.is_set or self.sensor_group_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sensor_group_identifier.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sensor-paths"):
+                    if (self.sensor_paths is None):
+                        self.sensor_paths = TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths()
+                        self.sensor_paths.parent = self
+                        self._children_name_map["sensor_paths"] = "sensor-paths"
+                    return self.sensor_paths
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sensor-paths" or name == "sensor-group-identifier"):
                     return True
-
-                if self.sensor_paths is not None and self.sensor_paths._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                return meta._meta_table['TelemetryModelDriven.SensorGroups.SensorGroup']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "sensor-group-identifier"):
+                    self.sensor_group_identifier = value
+                    self.sensor_group_identifier.value_namespace = name_space
+                    self.sensor_group_identifier.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-groups'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.sensor_group is not None:
-                for child_ref in self.sensor_group:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.sensor_group:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-            return meta._meta_table['TelemetryModelDriven.SensorGroups']['meta_info']
+        def has_operation(self):
+            for c in self.sensor_group:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sensor-groups" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sensor-group"):
+                for c in self.sensor_group:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TelemetryModelDriven.SensorGroups.SensorGroup()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sensor_group.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sensor-group"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Subscriptions(object):
+    class Subscriptions(Entity):
         """
         Streaming Telemetry Subscription
         
@@ -326,16 +579,42 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2016-10-20'
+        _revision = '2017-01-30'
 
         def __init__(self):
-            self.parent = None
-            self.subscription = YList()
-            self.subscription.parent = self
-            self.subscription.name = 'subscription'
+            super(TelemetryModelDriven.Subscriptions, self).__init__()
+
+            self.yang_name = "subscriptions"
+            self.yang_parent_name = "telemetry-model-driven"
+
+            self.subscription = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TelemetryModelDriven.Subscriptions, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TelemetryModelDriven.Subscriptions, self).__setattr__(name, value)
 
 
-        class Subscription(object):
+        class Subscription(Entity):
             """
             Streaming Telemetry Subscription
             
@@ -356,23 +635,67 @@ class TelemetryModelDriven(object):
             	Associate Sensor Groups with Subscription
             	**type**\:   :py:class:`SensorProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles>`
             
+            .. attribute:: source_interface
+            
+            	Source address to use for streaming telemetry information
+            	**type**\:  str
+            
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            
             
 
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2016-10-20'
+            _revision = '2017-01-30'
 
             def __init__(self):
-                self.parent = None
-                self.subscription_identifier = None
+                super(TelemetryModelDriven.Subscriptions.Subscription, self).__init__()
+
+                self.yang_name = "subscription"
+                self.yang_parent_name = "subscriptions"
+
+                self.subscription_identifier = YLeaf(YType.str, "subscription-identifier")
+
+                self.source_interface = YLeaf(YType.str, "source-interface")
+
                 self.destination_profiles = TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles()
                 self.destination_profiles.parent = self
+                self._children_name_map["destination_profiles"] = "destination-profiles"
+                self._children_yang_names.add("destination-profiles")
+
                 self.sensor_profiles = TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles()
                 self.sensor_profiles.parent = self
+                self._children_name_map["sensor_profiles"] = "sensor-profiles"
+                self._children_yang_names.add("sensor-profiles")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("subscription_identifier",
+                                "source_interface") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TelemetryModelDriven.Subscriptions.Subscription, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TelemetryModelDriven.Subscriptions.Subscription, self).__setattr__(name, value)
 
 
-            class SensorProfiles(object):
+            class SensorProfiles(Entity):
                 """
                 Associate Sensor Groups with Subscription
                 
@@ -386,16 +709,42 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2016-10-20'
+                _revision = '2017-01-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.sensor_profile = YList()
-                    self.sensor_profile.parent = self
-                    self.sensor_profile.name = 'sensor_profile'
+                    super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles, self).__init__()
+
+                    self.yang_name = "sensor-profiles"
+                    self.yang_parent_name = "subscription"
+
+                    self.sensor_profile = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles, self).__setattr__(name, value)
 
 
-                class SensorProfile(object):
+                class SensorProfile(Entity):
                     """
                     Associate Sensor Group with Subscription
                     
@@ -415,71 +764,178 @@ class TelemetryModelDriven(object):
                     
                     	**units**\: millisecond
                     
+                    .. attribute:: strict_timer
+                    
+                    	use strict timer
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
                     
 
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2016-10-20'
+                    _revision = '2017-01-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.sensorgroupid = None
-                        self.sample_interval = None
+                        super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.sensorgroupid is None:
-                            raise YPYModelError('Key property sensorgroupid is None')
+                        self.yang_name = "sensor-profile"
+                        self.yang_parent_name = "sensor-profiles"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-profile[Cisco-IOS-XR-telemetry-model-driven-cfg:sensorgroupid = ' + str(self.sensorgroupid) + ']'
+                        self.sensorgroupid = YLeaf(YType.str, "sensorgroupid")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.sample_interval = YLeaf(YType.uint32, "sample-interval")
 
-                    def _has_data(self):
-                        if self.sensorgroupid is not None:
+                        self.strict_timer = YLeaf(YType.empty, "strict-timer")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("sensorgroupid",
+                                        "sample_interval",
+                                        "strict_timer") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.sensorgroupid.is_set or
+                            self.sample_interval.is_set or
+                            self.strict_timer.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.sensorgroupid.yfilter != YFilter.not_set or
+                            self.sample_interval.yfilter != YFilter.not_set or
+                            self.strict_timer.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "sensor-profile" + "[sensorgroupid='" + self.sensorgroupid.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.sensorgroupid.is_set or self.sensorgroupid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sensorgroupid.get_name_leafdata())
+                        if (self.sample_interval.is_set or self.sample_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sample_interval.get_name_leafdata())
+                        if (self.strict_timer.is_set or self.strict_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.strict_timer.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "sensorgroupid" or name == "sample-interval" or name == "strict-timer"):
                             return True
-
-                        if self.sample_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "sensorgroupid"):
+                            self.sensorgroupid = value
+                            self.sensorgroupid.value_namespace = name_space
+                            self.sensorgroupid.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sample-interval"):
+                            self.sample_interval = value
+                            self.sample_interval.value_namespace = name_space
+                            self.sample_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "strict-timer"):
+                            self.strict_timer = value
+                            self.strict_timer.value_namespace = name_space
+                            self.strict_timer.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:sensor-profiles'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.sensor_profile is not None:
-                        for child_ref in self.sensor_profile:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.sensor_profile:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                    return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles']['meta_info']
+                def has_operation(self):
+                    for c in self.sensor_profile:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sensor-profiles" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "sensor-profile"):
+                        for c in self.sensor_profile:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.sensor_profile.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "sensor-profile"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class DestinationProfiles(object):
+            class DestinationProfiles(Entity):
                 """
                 Associate Destination Groups with Subscription
                 
@@ -493,16 +949,42 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2016-10-20'
+                _revision = '2017-01-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.destination_profile = YList()
-                    self.destination_profile.parent = self
-                    self.destination_profile.name = 'destination_profile'
+                    super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles, self).__init__()
+
+                    self.yang_name = "destination-profiles"
+                    self.yang_parent_name = "subscription"
+
+                    self.destination_profile = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles, self).__setattr__(name, value)
 
 
-                class DestinationProfile(object):
+                class DestinationProfile(Entity):
                     """
                     Associate Destination Group with Subscription
                     
@@ -518,112 +1000,275 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2016-10-20'
+                    _revision = '2017-01-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.destination_id = None
+                        super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.destination_id is None:
-                            raise YPYModelError('Key property destination_id is None')
+                        self.yang_name = "destination-profile"
+                        self.yang_parent_name = "destination-profiles"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:destination-profile[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-id = ' + str(self.destination_id) + ']'
+                        self.destination_id = YLeaf(YType.str, "destination-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("destination_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.destination_id is not None:
+                    def has_data(self):
+                        return self.destination_id.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.destination_id.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "destination-profile" + "[destination-id='" + self.destination_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.destination_id.is_set or self.destination_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_id.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "destination-id"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                        return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "destination-id"):
+                            self.destination_id = value
+                            self.destination_id.value_namespace = name_space
+                            self.destination_id.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:destination-profiles'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.destination_profile is not None:
-                        for child_ref in self.destination_profile:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.destination_profile:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                    return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles']['meta_info']
+                def has_operation(self):
+                    for c in self.destination_profile:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.subscription_identifier is None:
-                    raise YPYModelError('Key property subscription_identifier is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "destination-profiles" + path_buffer
 
-                return '/Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/Cisco-IOS-XR-telemetry-model-driven-cfg:subscriptions/Cisco-IOS-XR-telemetry-model-driven-cfg:subscription[Cisco-IOS-XR-telemetry-model-driven-cfg:subscription-identifier = ' + str(self.subscription_identifier) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.subscription_identifier is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "destination-profile"):
+                        for c in self.destination_profile:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.destination_profile.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "destination-profile"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.subscription_identifier.is_set or
+                    self.source_interface.is_set or
+                    (self.destination_profiles is not None and self.destination_profiles.has_data()) or
+                    (self.sensor_profiles is not None and self.sensor_profiles.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.subscription_identifier.yfilter != YFilter.not_set or
+                    self.source_interface.yfilter != YFilter.not_set or
+                    (self.destination_profiles is not None and self.destination_profiles.has_operation()) or
+                    (self.sensor_profiles is not None and self.sensor_profiles.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "subscription" + "[subscription-identifier='" + self.subscription_identifier.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/subscriptions/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.subscription_identifier.is_set or self.subscription_identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.subscription_identifier.get_name_leafdata())
+                if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_interface.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "destination-profiles"):
+                    if (self.destination_profiles is None):
+                        self.destination_profiles = TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles()
+                        self.destination_profiles.parent = self
+                        self._children_name_map["destination_profiles"] = "destination-profiles"
+                    return self.destination_profiles
+
+                if (child_yang_name == "sensor-profiles"):
+                    if (self.sensor_profiles is None):
+                        self.sensor_profiles = TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles()
+                        self.sensor_profiles.parent = self
+                        self._children_name_map["sensor_profiles"] = "sensor-profiles"
+                    return self.sensor_profiles
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "destination-profiles" or name == "sensor-profiles" or name == "subscription-identifier" or name == "source-interface"):
                     return True
-
-                if self.destination_profiles is not None and self.destination_profiles._has_data():
-                    return True
-
-                if self.sensor_profiles is not None and self.sensor_profiles._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "subscription-identifier"):
+                    self.subscription_identifier = value
+                    self.subscription_identifier.value_namespace = name_space
+                    self.subscription_identifier.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-interface"):
+                    self.source_interface = value
+                    self.source_interface.value_namespace = name_space
+                    self.source_interface.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/Cisco-IOS-XR-telemetry-model-driven-cfg:subscriptions'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.subscription is not None:
-                for child_ref in self.subscription:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.subscription:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-            return meta._meta_table['TelemetryModelDriven.Subscriptions']['meta_info']
+        def has_operation(self):
+            for c in self.subscription:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "subscriptions" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "subscription"):
+                for c in self.subscription:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TelemetryModelDriven.Subscriptions.Subscription()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.subscription.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "subscription"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class DestinationGroups(object):
+    class DestinationGroups(Entity):
         """
         Destination Group configuration
         
@@ -637,16 +1282,42 @@ class TelemetryModelDriven(object):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2016-10-20'
+        _revision = '2017-01-30'
 
         def __init__(self):
-            self.parent = None
-            self.destination_group = YList()
-            self.destination_group.parent = self
-            self.destination_group.name = 'destination_group'
+            super(TelemetryModelDriven.DestinationGroups, self).__init__()
+
+            self.yang_name = "destination-groups"
+            self.yang_parent_name = "telemetry-model-driven"
+
+            self.destination_group = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(TelemetryModelDriven.DestinationGroups, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(TelemetryModelDriven.DestinationGroups, self).__setattr__(name, value)
 
 
-        class DestinationGroup(object):
+        class DestinationGroup(Entity):
             """
             Destination Group
             
@@ -667,23 +1338,67 @@ class TelemetryModelDriven(object):
             	Destination address configuration
             	**type**\:   :py:class:`Ipv6Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations>`
             
+            .. attribute:: vrf
+            
+            	Vrf for the destination group
+            	**type**\:  str
+            
+            	**length:** 1..32
+            
             
 
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2016-10-20'
+            _revision = '2017-01-30'
 
             def __init__(self):
-                self.parent = None
-                self.destination_id = None
+                super(TelemetryModelDriven.DestinationGroups.DestinationGroup, self).__init__()
+
+                self.yang_name = "destination-group"
+                self.yang_parent_name = "destination-groups"
+
+                self.destination_id = YLeaf(YType.str, "destination-id")
+
+                self.vrf = YLeaf(YType.str, "vrf")
+
                 self.ipv4_destinations = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations()
                 self.ipv4_destinations.parent = self
+                self._children_name_map["ipv4_destinations"] = "ipv4-destinations"
+                self._children_yang_names.add("ipv4-destinations")
+
                 self.ipv6_destinations = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations()
                 self.ipv6_destinations.parent = self
+                self._children_name_map["ipv6_destinations"] = "ipv6-destinations"
+                self._children_yang_names.add("ipv6-destinations")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("destination_id",
+                                "vrf") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(TelemetryModelDriven.DestinationGroups.DestinationGroup, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(TelemetryModelDriven.DestinationGroups.DestinationGroup, self).__setattr__(name, value)
 
 
-            class Ipv6Destinations(object):
+            class Ipv6Destinations(Entity):
                 """
                 Destination address configuration
                 
@@ -697,16 +1412,42 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2016-10-20'
+                _revision = '2017-01-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.ipv6_destination = YList()
-                    self.ipv6_destination.parent = self
-                    self.ipv6_destination.name = 'ipv6_destination'
+                    super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations, self).__init__()
+
+                    self.yang_name = "ipv6-destinations"
+                    self.yang_parent_name = "destination-group"
+
+                    self.ipv6_destination = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations, self).__setattr__(name, value)
 
 
-                class Ipv6Destination(object):
+                class Ipv6Destination(Entity):
                     """
                     destination IP address
                     
@@ -727,7 +1468,7 @@ class TelemetryModelDriven(object):
                     .. attribute:: encoding
                     
                     	Encoding used to transmit telemetry data to the collector
-                    	**type**\:   :py:class:`EncodeTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeTypeEnum>`
+                    	**type**\:   :py:class:`EncodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeType>`
                     
                     .. attribute:: protocol
                     
@@ -741,17 +1482,52 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2016-10-20'
+                    _revision = '2017-01-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ipv6_address = None
-                        self.destination_port = None
-                        self.encoding = None
+                        super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination, self).__init__()
+
+                        self.yang_name = "ipv6-destination"
+                        self.yang_parent_name = "ipv6-destinations"
+
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        self.destination_port = YLeaf(YType.uint16, "destination-port")
+
+                        self.encoding = YLeaf(YType.enumeration, "encoding")
+
                         self.protocol = None
+                        self._children_name_map["protocol"] = "protocol"
+                        self._children_yang_names.add("protocol")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ipv6_address",
+                                        "destination_port",
+                                        "encoding") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination, self).__setattr__(name, value)
 
 
-                    class Protocol(object):
+                    class Protocol(Entity):
                         """
                         Transport Protocol used to transmit telemetry
                         data to the collector
@@ -765,10 +1541,19 @@ class TelemetryModelDriven(object):
                         
                         	**default value**\: 0
                         
+                        .. attribute:: packetsize
+                        
+                        	udp packetsize
+                        	**type**\:  int
+                        
+                        	**range:** 484..65507
+                        
+                        	**default value**\: 1472
+                        
                         .. attribute:: protocol
                         
                         	protocol
-                        	**type**\:   :py:class:`ProtoTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoTypeEnum>`
+                        	**type**\:   :py:class:`ProtoType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoType>`
                         
                         	**mandatory**\: True
                         
@@ -777,11 +1562,6 @@ class TelemetryModelDriven(object):
                         	tls hostname
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -789,106 +1569,252 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2016-10-20'
+                        _revision = '2017-01-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.no_tls = None
-                            self.protocol = None
-                            self.tls_hostname = None
+                            super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "protocol"
+                            self.yang_parent_name = "ipv6-destination"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:protocol'
+                            self.no_tls = YLeaf(YType.int32, "no-tls")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.packetsize = YLeaf(YType.uint32, "packetsize")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.protocol = YLeaf(YType.enumeration, "protocol")
+
+                            self.tls_hostname = YLeaf(YType.str, "tls-hostname")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("no_tls",
+                                            "packetsize",
+                                            "protocol",
+                                            "tls_hostname") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.no_tls.is_set or
+                                self.packetsize.is_set or
+                                self.protocol.is_set or
+                                self.tls_hostname.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.no_tls.yfilter != YFilter.not_set or
+                                self.packetsize.yfilter != YFilter.not_set or
+                                self.protocol.yfilter != YFilter.not_set or
+                                self.tls_hostname.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "protocol" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.no_tls.is_set or self.no_tls.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.no_tls.get_name_leafdata())
+                            if (self.packetsize.is_set or self.packetsize.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packetsize.get_name_leafdata())
+                            if (self.protocol.is_set or self.protocol.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol.get_name_leafdata())
+                            if (self.tls_hostname.is_set or self.tls_hostname.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.tls_hostname.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "no-tls" or name == "packetsize" or name == "protocol" or name == "tls-hostname"):
                                 return True
-                            if self.no_tls is not None:
-                                return True
-
-                            if self.protocol is not None:
-                                return True
-
-                            if self.tls_hostname is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                            return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "no-tls"):
+                                self.no_tls = value
+                                self.no_tls.value_namespace = name_space
+                                self.no_tls.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packetsize"):
+                                self.packetsize = value
+                                self.packetsize.value_namespace = name_space
+                                self.packetsize.value_namespace_prefix = name_space_prefix
+                            if(value_path == "protocol"):
+                                self.protocol = value
+                                self.protocol.value_namespace = name_space
+                                self.protocol.value_namespace_prefix = name_space_prefix
+                            if(value_path == "tls-hostname"):
+                                self.tls_hostname = value
+                                self.tls_hostname.value_namespace = name_space
+                                self.tls_hostname.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.ipv6_address is None:
-                            raise YPYModelError('Key property ipv6_address is None')
-                        if self.destination_port is None:
-                            raise YPYModelError('Key property destination_port is None')
+                    def has_data(self):
+                        return (
+                            self.ipv6_address.is_set or
+                            self.destination_port.is_set or
+                            self.encoding.is_set or
+                            (self.protocol is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-address = ' + str(self.ipv6_address) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ipv6_address.yfilter != YFilter.not_set or
+                            self.destination_port.yfilter != YFilter.not_set or
+                            self.encoding.yfilter != YFilter.not_set or
+                            (self.protocol is not None and self.protocol.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipv6-destination" + "[ipv6-address='" + self.ipv6_address.get() + "']" + "[destination-port='" + self.destination_port.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.ipv6_address is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                        if (self.destination_port.is_set or self.destination_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_port.get_name_leafdata())
+                        if (self.encoding.is_set or self.encoding.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.encoding.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "protocol"):
+                            if (self.protocol is None):
+                                self.protocol = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol()
+                                self.protocol.parent = self
+                                self._children_name_map["protocol"] = "protocol"
+                            return self.protocol
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "protocol" or name == "ipv6-address" or name == "destination-port" or name == "encoding"):
                             return True
-
-                        if self.destination_port is not None:
-                            return True
-
-                        if self.encoding is not None:
-                            return True
-
-                        if self.protocol is not None and self.protocol._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                        return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ipv6-address"):
+                            self.ipv6_address = value
+                            self.ipv6_address.value_namespace = name_space
+                            self.ipv6_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-port"):
+                            self.destination_port = value
+                            self.destination_port.value_namespace = name_space
+                            self.destination_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "encoding"):
+                            self.encoding = value
+                            self.encoding.value_namespace = name_space
+                            self.encoding.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-destinations'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.ipv6_destination is not None:
-                        for child_ref in self.ipv6_destination:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.ipv6_destination:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                    return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations']['meta_info']
+                def has_operation(self):
+                    for c in self.ipv6_destination:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv6-destinations" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "ipv6-destination"):
+                        for c in self.ipv6_destination:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.ipv6_destination.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ipv6-destination"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv4Destinations(object):
+            class Ipv4Destinations(Entity):
                 """
                 Destination address configuration
                 
@@ -902,16 +1828,42 @@ class TelemetryModelDriven(object):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2016-10-20'
+                _revision = '2017-01-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.ipv4_destination = YList()
-                    self.ipv4_destination.parent = self
-                    self.ipv4_destination.name = 'ipv4_destination'
+                    super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations, self).__init__()
+
+                    self.yang_name = "ipv4-destinations"
+                    self.yang_parent_name = "destination-group"
+
+                    self.ipv4_destination = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations, self).__setattr__(name, value)
 
 
-                class Ipv4Destination(object):
+                class Ipv4Destination(Entity):
                     """
                     destination IP address
                     
@@ -932,7 +1884,7 @@ class TelemetryModelDriven(object):
                     .. attribute:: encoding
                     
                     	Encoding used to transmit telemetry data to the collector
-                    	**type**\:   :py:class:`EncodeTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeTypeEnum>`
+                    	**type**\:   :py:class:`EncodeType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeType>`
                     
                     .. attribute:: protocol
                     
@@ -946,17 +1898,52 @@ class TelemetryModelDriven(object):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2016-10-20'
+                    _revision = '2017-01-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ipv4_address = None
-                        self.destination_port = None
-                        self.encoding = None
+                        super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination, self).__init__()
+
+                        self.yang_name = "ipv4-destination"
+                        self.yang_parent_name = "ipv4-destinations"
+
+                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                        self.destination_port = YLeaf(YType.uint16, "destination-port")
+
+                        self.encoding = YLeaf(YType.enumeration, "encoding")
+
                         self.protocol = None
+                        self._children_name_map["protocol"] = "protocol"
+                        self._children_yang_names.add("protocol")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ipv4_address",
+                                        "destination_port",
+                                        "encoding") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination, self).__setattr__(name, value)
 
 
-                    class Protocol(object):
+                    class Protocol(Entity):
                         """
                         Transport Protocol used to transmit telemetry
                         data to the collector
@@ -970,10 +1957,19 @@ class TelemetryModelDriven(object):
                         
                         	**default value**\: 0
                         
+                        .. attribute:: packetsize
+                        
+                        	udp packetsize
+                        	**type**\:  int
+                        
+                        	**range:** 484..65507
+                        
+                        	**default value**\: 1472
+                        
                         .. attribute:: protocol
                         
                         	protocol
-                        	**type**\:   :py:class:`ProtoTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoTypeEnum>`
+                        	**type**\:   :py:class:`ProtoType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoType>`
                         
                         	**mandatory**\: True
                         
@@ -982,11 +1978,6 @@ class TelemetryModelDriven(object):
                         	tls hostname
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -994,181 +1985,454 @@ class TelemetryModelDriven(object):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2016-10-20'
+                        _revision = '2017-01-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.no_tls = None
-                            self.protocol = None
-                            self.tls_hostname = None
+                            super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "protocol"
+                            self.yang_parent_name = "ipv4-destination"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:protocol'
+                            self.no_tls = YLeaf(YType.int32, "no-tls")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.packetsize = YLeaf(YType.uint32, "packetsize")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.protocol = YLeaf(YType.enumeration, "protocol")
+
+                            self.tls_hostname = YLeaf(YType.str, "tls-hostname")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("no_tls",
+                                            "packetsize",
+                                            "protocol",
+                                            "tls_hostname") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.no_tls.is_set or
+                                self.packetsize.is_set or
+                                self.protocol.is_set or
+                                self.tls_hostname.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.no_tls.yfilter != YFilter.not_set or
+                                self.packetsize.yfilter != YFilter.not_set or
+                                self.protocol.yfilter != YFilter.not_set or
+                                self.tls_hostname.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "protocol" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.no_tls.is_set or self.no_tls.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.no_tls.get_name_leafdata())
+                            if (self.packetsize.is_set or self.packetsize.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packetsize.get_name_leafdata())
+                            if (self.protocol.is_set or self.protocol.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol.get_name_leafdata())
+                            if (self.tls_hostname.is_set or self.tls_hostname.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.tls_hostname.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "no-tls" or name == "packetsize" or name == "protocol" or name == "tls-hostname"):
                                 return True
-                            if self.no_tls is not None:
-                                return True
-
-                            if self.protocol is not None:
-                                return True
-
-                            if self.tls_hostname is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                            return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "no-tls"):
+                                self.no_tls = value
+                                self.no_tls.value_namespace = name_space
+                                self.no_tls.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packetsize"):
+                                self.packetsize = value
+                                self.packetsize.value_namespace = name_space
+                                self.packetsize.value_namespace_prefix = name_space_prefix
+                            if(value_path == "protocol"):
+                                self.protocol = value
+                                self.protocol.value_namespace = name_space
+                                self.protocol.value_namespace_prefix = name_space_prefix
+                            if(value_path == "tls-hostname"):
+                                self.tls_hostname = value
+                                self.tls_hostname.value_namespace = name_space
+                                self.tls_hostname.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.ipv4_address is None:
-                            raise YPYModelError('Key property ipv4_address is None')
-                        if self.destination_port is None:
-                            raise YPYModelError('Key property destination_port is None')
+                    def has_data(self):
+                        return (
+                            self.ipv4_address.is_set or
+                            self.destination_port.is_set or
+                            self.encoding.is_set or
+                            (self.protocol is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-address = ' + str(self.ipv4_address) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ipv4_address.yfilter != YFilter.not_set or
+                            self.destination_port.yfilter != YFilter.not_set or
+                            self.encoding.yfilter != YFilter.not_set or
+                            (self.protocol is not None and self.protocol.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipv4-destination" + "[ipv4-address='" + self.ipv4_address.get() + "']" + "[destination-port='" + self.destination_port.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.ipv4_address is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                        if (self.destination_port.is_set or self.destination_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_port.get_name_leafdata())
+                        if (self.encoding.is_set or self.encoding.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.encoding.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "protocol"):
+                            if (self.protocol is None):
+                                self.protocol = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol()
+                                self.protocol.parent = self
+                                self._children_name_map["protocol"] = "protocol"
+                            return self.protocol
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "protocol" or name == "ipv4-address" or name == "destination-port" or name == "encoding"):
                             return True
-
-                        if self.destination_port is not None:
-                            return True
-
-                        if self.encoding is not None:
-                            return True
-
-                        if self.protocol is not None and self.protocol._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                        return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ipv4-address"):
+                            self.ipv4_address = value
+                            self.ipv4_address.value_namespace = name_space
+                            self.ipv4_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-port"):
+                            self.destination_port = value
+                            self.destination_port.value_namespace = name_space
+                            self.destination_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "encoding"):
+                            self.encoding = value
+                            self.encoding.value_namespace = name_space
+                            self.encoding.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-destinations'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.ipv4_destination is not None:
-                        for child_ref in self.ipv4_destination:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.ipv4_destination:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                    return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations']['meta_info']
+                def has_operation(self):
+                    for c in self.ipv4_destination:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.destination_id is None:
-                    raise YPYModelError('Key property destination_id is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv4-destinations" + path_buffer
 
-                return '/Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/Cisco-IOS-XR-telemetry-model-driven-cfg:destination-groups/Cisco-IOS-XR-telemetry-model-driven-cfg:destination-group[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-id = ' + str(self.destination_id) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.destination_id is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "ipv4-destination"):
+                        for c in self.ipv4_destination:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.ipv4_destination.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ipv4-destination"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.destination_id.is_set or
+                    self.vrf.is_set or
+                    (self.ipv4_destinations is not None and self.ipv4_destinations.has_data()) or
+                    (self.ipv6_destinations is not None and self.ipv6_destinations.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.destination_id.yfilter != YFilter.not_set or
+                    self.vrf.yfilter != YFilter.not_set or
+                    (self.ipv4_destinations is not None and self.ipv4_destinations.has_operation()) or
+                    (self.ipv6_destinations is not None and self.ipv6_destinations.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "destination-group" + "[destination-id='" + self.destination_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/destination-groups/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.destination_id.is_set or self.destination_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.destination_id.get_name_leafdata())
+                if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "ipv4-destinations"):
+                    if (self.ipv4_destinations is None):
+                        self.ipv4_destinations = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations()
+                        self.ipv4_destinations.parent = self
+                        self._children_name_map["ipv4_destinations"] = "ipv4-destinations"
+                    return self.ipv4_destinations
+
+                if (child_yang_name == "ipv6-destinations"):
+                    if (self.ipv6_destinations is None):
+                        self.ipv6_destinations = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations()
+                        self.ipv6_destinations.parent = self
+                        self._children_name_map["ipv6_destinations"] = "ipv6-destinations"
+                    return self.ipv6_destinations
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ipv4-destinations" or name == "ipv6-destinations" or name == "destination-id" or name == "vrf"):
                     return True
-
-                if self.ipv4_destinations is not None and self.ipv4_destinations._has_data():
-                    return True
-
-                if self.ipv6_destinations is not None and self.ipv6_destinations._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "destination-id"):
+                    self.destination_id = value
+                    self.destination_id.value_namespace = name_space
+                    self.destination_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf"):
+                    self.vrf = value
+                    self.vrf.value_namespace = name_space
+                    self.vrf.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/Cisco-IOS-XR-telemetry-model-driven-cfg:destination-groups'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.destination_group is not None:
-                for child_ref in self.destination_group:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.destination_group:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-            return meta._meta_table['TelemetryModelDriven.DestinationGroups']['meta_info']
+        def has_operation(self):
+            for c in self.destination_group:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "destination-groups" + path_buffer
 
-        return '/Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.destination_groups is not None and self.destination_groups._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "destination-group"):
+                for c in self.destination_group:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = TelemetryModelDriven.DestinationGroups.DestinationGroup()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.destination_group.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "destination-group"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            self.enable.is_set or
+            (self.destination_groups is not None and self.destination_groups.has_data()) or
+            (self.sensor_groups is not None and self.sensor_groups.has_data()) or
+            (self.subscriptions is not None and self.subscriptions.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.enable.yfilter != YFilter.not_set or
+            (self.destination_groups is not None and self.destination_groups.has_operation()) or
+            (self.sensor_groups is not None and self.sensor_groups.has_operation()) or
+            (self.subscriptions is not None and self.subscriptions.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.enable.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "destination-groups"):
+            if (self.destination_groups is None):
+                self.destination_groups = TelemetryModelDriven.DestinationGroups()
+                self.destination_groups.parent = self
+                self._children_name_map["destination_groups"] = "destination-groups"
+            return self.destination_groups
+
+        if (child_yang_name == "sensor-groups"):
+            if (self.sensor_groups is None):
+                self.sensor_groups = TelemetryModelDriven.SensorGroups()
+                self.sensor_groups.parent = self
+                self._children_name_map["sensor_groups"] = "sensor-groups"
+            return self.sensor_groups
+
+        if (child_yang_name == "subscriptions"):
+            if (self.subscriptions is None):
+                self.subscriptions = TelemetryModelDriven.Subscriptions()
+                self.subscriptions.parent = self
+                self._children_name_map["subscriptions"] = "subscriptions"
+            return self.subscriptions
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "destination-groups" or name == "sensor-groups" or name == "subscriptions" or name == "enable"):
             return True
-
-        if self.enable is not None:
-            return True
-
-        if self.sensor_groups is not None and self.sensor_groups._has_data():
-            return True
-
-        if self.subscriptions is not None and self.subscriptions._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-        return meta._meta_table['TelemetryModelDriven']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "enable"):
+            self.enable = value
+            self.enable.value_namespace = name_space
+            self.enable.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = TelemetryModelDriven()
+        return self._top_entity
 

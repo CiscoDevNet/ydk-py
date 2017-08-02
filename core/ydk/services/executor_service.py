@@ -13,50 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ------------------------------------------------------------------
-""" executor_service.py
-
-   The Executor Service class.
-
-"""
-from __future__ import absolute_import
-from .service import Service
-from ydk.errors import YPYServiceError
-from .meta_service import MetaService
-import logging
+from ydk.ext.services import ExecutorService as _ExecutorService
+from ydk.errors import YPYServiceError as _YPYServiceError
+from ydk.errors.error_handler import handle_runtime_error as _handle_error
 
 
-class ExecutorService(Service):
-    """ Executor Service class for executing RPCs containing entities """
+class ExecutorService(_ExecutorService):
+    """ Python wrapper for ExecutorService
+    """
     def __init__(self):
-        self.service_logger = logging.getLogger(__name__)
+        self._es = _ExecutorService()
 
-    def execute_rpc(self, provider, rpc):
-        """ Execute the RPC
+    def execute_rpc(self, provider, entity, top_entity=None):
+        if None in (provider, entity):
+            raise _YPYServiceError("provider and entity cannot be None")
 
-            Args:
-                provider: An instance of ydk.providers.ServiceProvider
-                rpc: An instance of an RPC class defined under the ydk.models package or subpackages
-
-           Returns:
-                 None
-
-           Raises:
-              `YPYModelError <ydk.errors.html#ydk.errors.YPYModelError>`_ if validation.
-              `YPYServiceError <ydk.errors.html#ydk.errors.YPYServiceError>`_ if other error has occurred. Possible errors could be
-                  - a server side error
-                  - if there isn't enough information in the entity to prepare the message (missing keys for example)
-        """
-        if None in (provider, rpc):
-            self.service_logger.error('Passed in a None arg')
-            err_msg = "'provider' and 'rpc' cannot be None"
-            raise YPYServiceError(error_msg=err_msg)
-        try:
-            rpc = MetaService.normalize_meta(provider._get_capabilities(), rpc)
-            self.service_logger.info('Executor operation initiated')
-            result = provider.execute(
-                                    provider.sp_instance.encode_rpc(rpc),
-                                    ''
-                                    )
-            return provider.decode(result, rpc)
-        finally:
-            self.service_logger.info('Executor operation completed')
+        with _handle_error():
+            return self._es.execute_rpc(provider, entity, top_entity)

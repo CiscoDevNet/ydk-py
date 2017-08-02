@@ -12,21 +12,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class XrXml(object):
+class XrXml(Entity):
     """
     XML
     
@@ -43,11 +37,19 @@ class XrXml(object):
     _revision = '2015-07-30'
 
     def __init__(self):
+        super(XrXml, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "xr-xml"
+        self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
+
         self.agent = XrXml.Agent()
         self.agent.parent = self
+        self._children_name_map["agent"] = "agent"
+        self._children_yang_names.add("agent")
 
 
-    class Agent(object):
+    class Agent(Entity):
         """
         XML agent
         
@@ -74,16 +76,28 @@ class XrXml(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
+            super(XrXml.Agent, self).__init__()
+
+            self.yang_name = "agent"
+            self.yang_parent_name = "xr-xml"
+
             self.default = XrXml.Agent.Default()
             self.default.parent = self
+            self._children_name_map["default"] = "default"
+            self._children_yang_names.add("default")
+
             self.ssl = XrXml.Agent.Ssl()
             self.ssl.parent = self
+            self._children_name_map["ssl"] = "ssl"
+            self._children_yang_names.add("ssl")
+
             self.tty = XrXml.Agent.Tty()
             self.tty.parent = self
+            self._children_name_map["tty"] = "tty"
+            self._children_yang_names.add("tty")
 
 
-        class Default(object):
+        class Default(Entity):
             """
             XML default dedicated agent
             
@@ -145,21 +159,66 @@ class XrXml(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.enable = None
-                self.ipv4_disable = None
-                self.ipv6_enable = None
-                self.iteration_size = None
+                super(XrXml.Agent.Default, self).__init__()
+
+                self.yang_name = "default"
+                self.yang_parent_name = "agent"
+
+                self.enable = YLeaf(YType.empty, "enable")
+
+                self.ipv4_disable = YLeaf(YType.boolean, "ipv4-disable")
+
+                self.ipv6_enable = YLeaf(YType.boolean, "ipv6-enable")
+
+                self.iteration_size = YLeaf(YType.uint32, "iteration-size")
+
+                self.streaming_size = YLeaf(YType.uint32, "streaming-size")
+
                 self.session = XrXml.Agent.Default.Session()
                 self.session.parent = self
-                self.streaming_size = None
+                self._children_name_map["session"] = "session"
+                self._children_yang_names.add("session")
+
                 self.throttle = XrXml.Agent.Default.Throttle()
                 self.throttle.parent = self
+                self._children_name_map["throttle"] = "throttle"
+                self._children_yang_names.add("throttle")
+
                 self.vrfs = XrXml.Agent.Default.Vrfs()
                 self.vrfs.parent = self
+                self._children_name_map["vrfs"] = "vrfs"
+                self._children_yang_names.add("vrfs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("enable",
+                                "ipv4_disable",
+                                "ipv6_enable",
+                                "iteration_size",
+                                "streaming_size") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(XrXml.Agent.Default, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(XrXml.Agent.Default, self).__setattr__(name, value)
 
 
-            class Session(object):
+            class Session(Entity):
                 """
                 Session attributes
                 
@@ -180,31 +239,85 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.timeout = None
+                    super(XrXml.Agent.Default.Session, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "session"
+                    self.yang_parent_name = "default"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:default/Cisco-IOS-XR-man-xml-ttyagent-cfg:session'
+                    self.timeout = YLeaf(YType.uint32, "timeout")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("timeout") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Default.Session, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Default.Session, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.timeout is not None:
+                def has_data(self):
+                    return self.timeout.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.timeout.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "session" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "timeout"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Default.Session']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "timeout"):
+                        self.timeout = value
+                        self.timeout.value_namespace = name_space
+                        self.timeout.value_namespace_prefix = name_space_prefix
 
 
-            class Throttle(object):
+            class Throttle(Entity):
                 """
                 XML agent throttling
                 
@@ -234,35 +347,97 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.memory = None
-                    self.process_rate = None
+                    super(XrXml.Agent.Default.Throttle, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "throttle"
+                    self.yang_parent_name = "default"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:default/Cisco-IOS-XR-man-xml-ttyagent-cfg:throttle'
+                    self.memory = YLeaf(YType.uint32, "memory")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.process_rate = YLeaf(YType.uint32, "process-rate")
 
-                def _has_data(self):
-                    if self.memory is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("memory",
+                                    "process_rate") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Default.Throttle, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Default.Throttle, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.memory.is_set or
+                        self.process_rate.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.memory.yfilter != YFilter.not_set or
+                        self.process_rate.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "throttle" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.memory.is_set or self.memory.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory.get_name_leafdata())
+                    if (self.process_rate.is_set or self.process_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.process_rate.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "memory" or name == "process-rate"):
                         return True
-
-                    if self.process_rate is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Default.Throttle']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "memory"):
+                        self.memory = value
+                        self.memory.value_namespace = name_space
+                        self.memory.value_namespace_prefix = name_space_prefix
+                    if(value_path == "process-rate"):
+                        self.process_rate = value
+                        self.process_rate.value_namespace = name_space
+                        self.process_rate.value_namespace_prefix = name_space_prefix
 
 
-            class Vrfs(object):
+            class Vrfs(Entity):
                 """
                 List of VRFs
                 
@@ -279,13 +454,39 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.vrf = YList()
-                    self.vrf.parent = self
-                    self.vrf.name = 'vrf'
+                    super(XrXml.Agent.Default.Vrfs, self).__init__()
+
+                    self.yang_name = "vrfs"
+                    self.yang_parent_name = "default"
+
+                    self.vrf = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Default.Vrfs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Default.Vrfs, self).__setattr__(name, value)
 
 
-                class Vrf(object):
+                class Vrf(Entity):
                     """
                     A specific VRF
                     
@@ -330,112 +531,293 @@ class XrXml(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.vrf_name = None
-                        self.access_list = None
-                        self.ipv4_access_list = None
-                        self.ipv6_access_list = None
-                        self.shutdown = None
+                        super(XrXml.Agent.Default.Vrfs.Vrf, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.vrf_name is None:
-                            raise YPYModelError('Key property vrf_name is None')
+                        self.yang_name = "vrf"
+                        self.yang_parent_name = "vrfs"
 
-                        return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:default/Cisco-IOS-XR-man-xml-ttyagent-cfg:vrfs/Cisco-IOS-XR-man-xml-ttyagent-cfg:vrf[Cisco-IOS-XR-man-xml-ttyagent-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.access_list = YLeaf(YType.str, "access-list")
 
-                    def _has_data(self):
-                        if self.vrf_name is not None:
+                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
+
+                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
+
+                        self.shutdown = YLeaf(YType.empty, "shutdown")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("vrf_name",
+                                        "access_list",
+                                        "ipv4_access_list",
+                                        "ipv6_access_list",
+                                        "shutdown") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(XrXml.Agent.Default.Vrfs.Vrf, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(XrXml.Agent.Default.Vrfs.Vrf, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.vrf_name.is_set or
+                            self.access_list.is_set or
+                            self.ipv4_access_list.is_set or
+                            self.ipv6_access_list.is_set or
+                            self.shutdown.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set or
+                            self.access_list.yfilter != YFilter.not_set or
+                            self.ipv4_access_list.yfilter != YFilter.not_set or
+                            self.ipv6_access_list.yfilter != YFilter.not_set or
+                            self.shutdown.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/vrfs/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                        if (self.access_list.is_set or self.access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.access_list.get_name_leafdata())
+                        if (self.ipv4_access_list.is_set or self.ipv4_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_access_list.get_name_leafdata())
+                        if (self.ipv6_access_list.is_set or self.ipv6_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_access_list.get_name_leafdata())
+                        if (self.shutdown.is_set or self.shutdown.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.shutdown.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "vrf-name" or name == "access-list" or name == "ipv4-access-list" or name == "ipv6-access-list" or name == "shutdown"):
                             return True
-
-                        if self.access_list is not None:
-                            return True
-
-                        if self.ipv4_access_list is not None:
-                            return True
-
-                        if self.ipv6_access_list is not None:
-                            return True
-
-                        if self.shutdown is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                        return meta._meta_table['XrXml.Agent.Default.Vrfs.Vrf']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "access-list"):
+                            self.access_list = value
+                            self.access_list.value_namespace = name_space
+                            self.access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-access-list"):
+                            self.ipv4_access_list = value
+                            self.ipv4_access_list.value_namespace = name_space
+                            self.ipv4_access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv6-access-list"):
+                            self.ipv6_access_list = value
+                            self.ipv6_access_list.value_namespace = name_space
+                            self.ipv6_access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "shutdown"):
+                            self.shutdown = value
+                            self.shutdown.value_namespace = name_space
+                            self.shutdown.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:default/Cisco-IOS-XR-man-xml-ttyagent-cfg:vrfs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.vrf is not None:
-                        for child_ref in self.vrf:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.vrf:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Default.Vrfs']['meta_info']
+                def has_operation(self):
+                    for c in self.vrf:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vrfs" + path_buffer
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:default'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.enable is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "vrf"):
+                        for c in self.vrf:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = XrXml.Agent.Default.Vrfs.Vrf()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.vrf.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "vrf"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.enable.is_set or
+                    self.ipv4_disable.is_set or
+                    self.ipv6_enable.is_set or
+                    self.iteration_size.is_set or
+                    self.streaming_size.is_set or
+                    (self.session is not None and self.session.has_data()) or
+                    (self.throttle is not None and self.throttle.has_data()) or
+                    (self.vrfs is not None and self.vrfs.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    self.ipv4_disable.yfilter != YFilter.not_set or
+                    self.ipv6_enable.yfilter != YFilter.not_set or
+                    self.iteration_size.yfilter != YFilter.not_set or
+                    self.streaming_size.yfilter != YFilter.not_set or
+                    (self.session is not None and self.session.has_operation()) or
+                    (self.throttle is not None and self.throttle.has_operation()) or
+                    (self.vrfs is not None and self.vrfs.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "default" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+                if (self.ipv4_disable.is_set or self.ipv4_disable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ipv4_disable.get_name_leafdata())
+                if (self.ipv6_enable.is_set or self.ipv6_enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ipv6_enable.get_name_leafdata())
+                if (self.iteration_size.is_set or self.iteration_size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.iteration_size.get_name_leafdata())
+                if (self.streaming_size.is_set or self.streaming_size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.streaming_size.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "session"):
+                    if (self.session is None):
+                        self.session = XrXml.Agent.Default.Session()
+                        self.session.parent = self
+                        self._children_name_map["session"] = "session"
+                    return self.session
+
+                if (child_yang_name == "throttle"):
+                    if (self.throttle is None):
+                        self.throttle = XrXml.Agent.Default.Throttle()
+                        self.throttle.parent = self
+                        self._children_name_map["throttle"] = "throttle"
+                    return self.throttle
+
+                if (child_yang_name == "vrfs"):
+                    if (self.vrfs is None):
+                        self.vrfs = XrXml.Agent.Default.Vrfs()
+                        self.vrfs.parent = self
+                        self._children_name_map["vrfs"] = "vrfs"
+                    return self.vrfs
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "session" or name == "throttle" or name == "vrfs" or name == "enable" or name == "ipv4-disable" or name == "ipv6-enable" or name == "iteration-size" or name == "streaming-size"):
                     return True
-
-                if self.ipv4_disable is not None:
-                    return True
-
-                if self.ipv6_enable is not None:
-                    return True
-
-                if self.iteration_size is not None:
-                    return True
-
-                if self.session is not None and self.session._has_data():
-                    return True
-
-                if self.streaming_size is not None:
-                    return True
-
-                if self.throttle is not None and self.throttle._has_data():
-                    return True
-
-                if self.vrfs is not None and self.vrfs._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                return meta._meta_table['XrXml.Agent.Default']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
+                if(value_path == "ipv4-disable"):
+                    self.ipv4_disable = value
+                    self.ipv4_disable.value_namespace = name_space
+                    self.ipv4_disable.value_namespace_prefix = name_space_prefix
+                if(value_path == "ipv6-enable"):
+                    self.ipv6_enable = value
+                    self.ipv6_enable.value_namespace = name_space
+                    self.ipv6_enable.value_namespace_prefix = name_space_prefix
+                if(value_path == "iteration-size"):
+                    self.iteration_size = value
+                    self.iteration_size.value_namespace = name_space
+                    self.iteration_size.value_namespace_prefix = name_space_prefix
+                if(value_path == "streaming-size"):
+                    self.streaming_size = value
+                    self.streaming_size.value_namespace = name_space
+                    self.streaming_size.value_namespace_prefix = name_space_prefix
 
 
-        class Tty(object):
+        class Tty(Entity):
             """
             XML TTY agent
             
@@ -482,17 +864,55 @@ class XrXml(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.enable = None
-                self.iteration_size = None
+                super(XrXml.Agent.Tty, self).__init__()
+
+                self.yang_name = "tty"
+                self.yang_parent_name = "agent"
+
+                self.enable = YLeaf(YType.empty, "enable")
+
+                self.iteration_size = YLeaf(YType.uint32, "iteration-size")
+
+                self.streaming_size = YLeaf(YType.uint32, "streaming-size")
+
                 self.session = XrXml.Agent.Tty.Session()
                 self.session.parent = self
-                self.streaming_size = None
+                self._children_name_map["session"] = "session"
+                self._children_yang_names.add("session")
+
                 self.throttle = XrXml.Agent.Tty.Throttle()
                 self.throttle.parent = self
+                self._children_name_map["throttle"] = "throttle"
+                self._children_yang_names.add("throttle")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("enable",
+                                "iteration_size",
+                                "streaming_size") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(XrXml.Agent.Tty, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(XrXml.Agent.Tty, self).__setattr__(name, value)
 
 
-            class Session(object):
+            class Session(Entity):
                 """
                 Session attributes
                 
@@ -513,31 +933,85 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.timeout = None
+                    super(XrXml.Agent.Tty.Session, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "session"
+                    self.yang_parent_name = "tty"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:session'
+                    self.timeout = YLeaf(YType.uint32, "timeout")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("timeout") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Tty.Session, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Tty.Session, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.timeout is not None:
+                def has_data(self):
+                    return self.timeout.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.timeout.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "session" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/tty/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "timeout"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Tty.Session']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "timeout"):
+                        self.timeout = value
+                        self.timeout.value_namespace = name_space
+                        self.timeout.value_namespace_prefix = name_space_prefix
 
 
-            class Throttle(object):
+            class Throttle(Entity):
                 """
                 XML agent throttling
                 
@@ -567,67 +1041,178 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.memory = None
-                    self.process_rate = None
+                    super(XrXml.Agent.Tty.Throttle, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "throttle"
+                    self.yang_parent_name = "tty"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:throttle'
+                    self.memory = YLeaf(YType.uint32, "memory")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.process_rate = YLeaf(YType.uint32, "process-rate")
 
-                def _has_data(self):
-                    if self.memory is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("memory",
+                                    "process_rate") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Tty.Throttle, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Tty.Throttle, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.memory.is_set or
+                        self.process_rate.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.memory.yfilter != YFilter.not_set or
+                        self.process_rate.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "throttle" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/tty/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.memory.is_set or self.memory.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory.get_name_leafdata())
+                    if (self.process_rate.is_set or self.process_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.process_rate.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "memory" or name == "process-rate"):
                         return True
-
-                    if self.process_rate is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Tty.Throttle']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "memory"):
+                        self.memory = value
+                        self.memory.value_namespace = name_space
+                        self.memory.value_namespace_prefix = name_space_prefix
+                    if(value_path == "process-rate"):
+                        self.process_rate = value
+                        self.process_rate.value_namespace = name_space
+                        self.process_rate.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    self.enable.is_set or
+                    self.iteration_size.is_set or
+                    self.streaming_size.is_set or
+                    (self.session is not None and self.session.has_data()) or
+                    (self.throttle is not None and self.throttle.has_data()))
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    self.iteration_size.yfilter != YFilter.not_set or
+                    self.streaming_size.yfilter != YFilter.not_set or
+                    (self.session is not None and self.session.has_operation()) or
+                    (self.throttle is not None and self.throttle.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "tty" + path_buffer
 
-            def _has_data(self):
-                if self.enable is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+                if (self.iteration_size.is_set or self.iteration_size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.iteration_size.get_name_leafdata())
+                if (self.streaming_size.is_set or self.streaming_size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.streaming_size.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "session"):
+                    if (self.session is None):
+                        self.session = XrXml.Agent.Tty.Session()
+                        self.session.parent = self
+                        self._children_name_map["session"] = "session"
+                    return self.session
+
+                if (child_yang_name == "throttle"):
+                    if (self.throttle is None):
+                        self.throttle = XrXml.Agent.Tty.Throttle()
+                        self.throttle.parent = self
+                        self._children_name_map["throttle"] = "throttle"
+                    return self.throttle
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "session" or name == "throttle" or name == "enable" or name == "iteration-size" or name == "streaming-size"):
                     return True
-
-                if self.iteration_size is not None:
-                    return True
-
-                if self.session is not None and self.session._has_data():
-                    return True
-
-                if self.streaming_size is not None:
-                    return True
-
-                if self.throttle is not None and self.throttle._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                return meta._meta_table['XrXml.Agent.Tty']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
+                if(value_path == "iteration-size"):
+                    self.iteration_size = value
+                    self.iteration_size.value_namespace = name_space
+                    self.iteration_size.value_namespace_prefix = name_space_prefix
+                if(value_path == "streaming-size"):
+                    self.streaming_size = value
+                    self.streaming_size.value_namespace = name_space
+                    self.streaming_size.value_namespace_prefix = name_space_prefix
 
 
-        class Ssl(object):
+        class Ssl(Entity):
             """
             XML SSL agent
             
@@ -679,19 +1264,60 @@ class XrXml(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.enable = None
-                self.iteration_size = None
+                super(XrXml.Agent.Ssl, self).__init__()
+
+                self.yang_name = "ssl"
+                self.yang_parent_name = "agent"
+
+                self.enable = YLeaf(YType.empty, "enable")
+
+                self.iteration_size = YLeaf(YType.uint32, "iteration-size")
+
+                self.streaming_size = YLeaf(YType.uint32, "streaming-size")
+
                 self.session = XrXml.Agent.Ssl.Session()
                 self.session.parent = self
-                self.streaming_size = None
+                self._children_name_map["session"] = "session"
+                self._children_yang_names.add("session")
+
                 self.throttle = XrXml.Agent.Ssl.Throttle()
                 self.throttle.parent = self
+                self._children_name_map["throttle"] = "throttle"
+                self._children_yang_names.add("throttle")
+
                 self.vrfs = XrXml.Agent.Ssl.Vrfs()
                 self.vrfs.parent = self
+                self._children_name_map["vrfs"] = "vrfs"
+                self._children_yang_names.add("vrfs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("enable",
+                                "iteration_size",
+                                "streaming_size") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(XrXml.Agent.Ssl, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(XrXml.Agent.Ssl, self).__setattr__(name, value)
 
 
-            class Session(object):
+            class Session(Entity):
                 """
                 Session attributes
                 
@@ -712,31 +1338,85 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.timeout = None
+                    super(XrXml.Agent.Ssl.Session, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "session"
+                    self.yang_parent_name = "ssl"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:ssl/Cisco-IOS-XR-man-xml-ttyagent-cfg:session'
+                    self.timeout = YLeaf(YType.uint32, "timeout")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("timeout") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Ssl.Session, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Ssl.Session, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.timeout is not None:
+                def has_data(self):
+                    return self.timeout.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.timeout.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "session" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "timeout"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Ssl.Session']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "timeout"):
+                        self.timeout = value
+                        self.timeout.value_namespace = name_space
+                        self.timeout.value_namespace_prefix = name_space_prefix
 
 
-            class Throttle(object):
+            class Throttle(Entity):
                 """
                 XML agent throttling
                 
@@ -766,35 +1446,97 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.memory = None
-                    self.process_rate = None
+                    super(XrXml.Agent.Ssl.Throttle, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "throttle"
+                    self.yang_parent_name = "ssl"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:ssl/Cisco-IOS-XR-man-xml-ttyagent-cfg:throttle'
+                    self.memory = YLeaf(YType.uint32, "memory")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.process_rate = YLeaf(YType.uint32, "process-rate")
 
-                def _has_data(self):
-                    if self.memory is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("memory",
+                                    "process_rate") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Ssl.Throttle, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Ssl.Throttle, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.memory.is_set or
+                        self.process_rate.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.memory.yfilter != YFilter.not_set or
+                        self.process_rate.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "throttle" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.memory.is_set or self.memory.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory.get_name_leafdata())
+                    if (self.process_rate.is_set or self.process_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.process_rate.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "memory" or name == "process-rate"):
                         return True
-
-                    if self.process_rate is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Ssl.Throttle']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "memory"):
+                        self.memory = value
+                        self.memory.value_namespace = name_space
+                        self.memory.value_namespace_prefix = name_space_prefix
+                    if(value_path == "process-rate"):
+                        self.process_rate = value
+                        self.process_rate.value_namespace = name_space
+                        self.process_rate.value_namespace_prefix = name_space_prefix
 
 
-            class Vrfs(object):
+            class Vrfs(Entity):
                 """
                 List of VRFs
                 
@@ -811,13 +1553,39 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.vrf = YList()
-                    self.vrf.parent = self
-                    self.vrf.name = 'vrf'
+                    super(XrXml.Agent.Ssl.Vrfs, self).__init__()
+
+                    self.yang_name = "vrfs"
+                    self.yang_parent_name = "ssl"
+
+                    self.vrf = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Ssl.Vrfs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Ssl.Vrfs, self).__setattr__(name, value)
 
 
-                class Vrf(object):
+                class Vrf(Entity):
                     """
                     A specific VRF
                     
@@ -862,152 +1630,394 @@ class XrXml(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.vrf_name = None
-                        self.access_list = None
-                        self.ipv4_access_list = None
-                        self.ipv6_access_list = None
-                        self.shutdown = None
+                        super(XrXml.Agent.Ssl.Vrfs.Vrf, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.vrf_name is None:
-                            raise YPYModelError('Key property vrf_name is None')
+                        self.yang_name = "vrf"
+                        self.yang_parent_name = "vrfs"
 
-                        return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:ssl/Cisco-IOS-XR-man-xml-ttyagent-cfg:vrfs/Cisco-IOS-XR-man-xml-ttyagent-cfg:vrf[Cisco-IOS-XR-man-xml-ttyagent-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.access_list = YLeaf(YType.str, "access-list")
 
-                    def _has_data(self):
-                        if self.vrf_name is not None:
+                        self.ipv4_access_list = YLeaf(YType.str, "ipv4-access-list")
+
+                        self.ipv6_access_list = YLeaf(YType.str, "ipv6-access-list")
+
+                        self.shutdown = YLeaf(YType.empty, "shutdown")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("vrf_name",
+                                        "access_list",
+                                        "ipv4_access_list",
+                                        "ipv6_access_list",
+                                        "shutdown") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(XrXml.Agent.Ssl.Vrfs.Vrf, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(XrXml.Agent.Ssl.Vrfs.Vrf, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.vrf_name.is_set or
+                            self.access_list.is_set or
+                            self.ipv4_access_list.is_set or
+                            self.ipv6_access_list.is_set or
+                            self.shutdown.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set or
+                            self.access_list.yfilter != YFilter.not_set or
+                            self.ipv4_access_list.yfilter != YFilter.not_set or
+                            self.ipv6_access_list.yfilter != YFilter.not_set or
+                            self.shutdown.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/vrfs/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                        if (self.access_list.is_set or self.access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.access_list.get_name_leafdata())
+                        if (self.ipv4_access_list.is_set or self.ipv4_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_access_list.get_name_leafdata())
+                        if (self.ipv6_access_list.is_set or self.ipv6_access_list.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_access_list.get_name_leafdata())
+                        if (self.shutdown.is_set or self.shutdown.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.shutdown.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "vrf-name" or name == "access-list" or name == "ipv4-access-list" or name == "ipv6-access-list" or name == "shutdown"):
                             return True
-
-                        if self.access_list is not None:
-                            return True
-
-                        if self.ipv4_access_list is not None:
-                            return True
-
-                        if self.ipv6_access_list is not None:
-                            return True
-
-                        if self.shutdown is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                        return meta._meta_table['XrXml.Agent.Ssl.Vrfs.Vrf']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "access-list"):
+                            self.access_list = value
+                            self.access_list.value_namespace = name_space
+                            self.access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-access-list"):
+                            self.ipv4_access_list = value
+                            self.ipv4_access_list.value_namespace = name_space
+                            self.ipv4_access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv6-access-list"):
+                            self.ipv6_access_list = value
+                            self.ipv6_access_list.value_namespace = name_space
+                            self.ipv6_access_list.value_namespace_prefix = name_space_prefix
+                        if(value_path == "shutdown"):
+                            self.shutdown = value
+                            self.shutdown.value_namespace = name_space
+                            self.shutdown.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:ssl/Cisco-IOS-XR-man-xml-ttyagent-cfg:vrfs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.vrf is not None:
-                        for child_ref in self.vrf:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.vrf:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['XrXml.Agent.Ssl.Vrfs']['meta_info']
+                def has_operation(self):
+                    for c in self.vrf:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vrfs" + path_buffer
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:ssl'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.enable is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "vrf"):
+                        for c in self.vrf:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = XrXml.Agent.Ssl.Vrfs.Vrf()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.vrf.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "vrf"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.enable.is_set or
+                    self.iteration_size.is_set or
+                    self.streaming_size.is_set or
+                    (self.session is not None and self.session.has_data()) or
+                    (self.throttle is not None and self.throttle.has_data()) or
+                    (self.vrfs is not None and self.vrfs.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    self.iteration_size.yfilter != YFilter.not_set or
+                    self.streaming_size.yfilter != YFilter.not_set or
+                    (self.session is not None and self.session.has_operation()) or
+                    (self.throttle is not None and self.throttle.has_operation()) or
+                    (self.vrfs is not None and self.vrfs.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ssl" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+                if (self.iteration_size.is_set or self.iteration_size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.iteration_size.get_name_leafdata())
+                if (self.streaming_size.is_set or self.streaming_size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.streaming_size.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "session"):
+                    if (self.session is None):
+                        self.session = XrXml.Agent.Ssl.Session()
+                        self.session.parent = self
+                        self._children_name_map["session"] = "session"
+                    return self.session
+
+                if (child_yang_name == "throttle"):
+                    if (self.throttle is None):
+                        self.throttle = XrXml.Agent.Ssl.Throttle()
+                        self.throttle.parent = self
+                        self._children_name_map["throttle"] = "throttle"
+                    return self.throttle
+
+                if (child_yang_name == "vrfs"):
+                    if (self.vrfs is None):
+                        self.vrfs = XrXml.Agent.Ssl.Vrfs()
+                        self.vrfs.parent = self
+                        self._children_name_map["vrfs"] = "vrfs"
+                    return self.vrfs
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "session" or name == "throttle" or name == "vrfs" or name == "enable" or name == "iteration-size" or name == "streaming-size"):
                     return True
-
-                if self.iteration_size is not None:
-                    return True
-
-                if self.session is not None and self.session._has_data():
-                    return True
-
-                if self.streaming_size is not None:
-                    return True
-
-                if self.throttle is not None and self.throttle._has_data():
-                    return True
-
-                if self.vrfs is not None and self.vrfs._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                return meta._meta_table['XrXml.Agent.Ssl']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
+                if(value_path == "iteration-size"):
+                    self.iteration_size = value
+                    self.iteration_size.value_namespace = name_space
+                    self.iteration_size.value_namespace_prefix = name_space_prefix
+                if(value_path == "streaming-size"):
+                    self.streaming_size = value
+                    self.streaming_size.value_namespace = name_space
+                    self.streaming_size.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.default is not None and self.default.has_data()) or
+                (self.ssl is not None and self.ssl.has_data()) or
+                (self.tty is not None and self.tty.has_data()))
 
-            return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.default is not None and self.default.has_operation()) or
+                (self.ssl is not None and self.ssl.has_operation()) or
+                (self.tty is not None and self.tty.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "agent" + path_buffer
 
-        def _has_data(self):
-            if self.default is not None and self.default._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "default"):
+                if (self.default is None):
+                    self.default = XrXml.Agent.Default()
+                    self.default.parent = self
+                    self._children_name_map["default"] = "default"
+                return self.default
+
+            if (child_yang_name == "ssl"):
+                if (self.ssl is None):
+                    self.ssl = XrXml.Agent.Ssl()
+                    self.ssl.parent = self
+                    self._children_name_map["ssl"] = "ssl"
+                return self.ssl
+
+            if (child_yang_name == "tty"):
+                if (self.tty is None):
+                    self.tty = XrXml.Agent.Tty()
+                    self.tty.parent = self
+                    self._children_name_map["tty"] = "tty"
+                return self.tty
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "default" or name == "ssl" or name == "tty"):
                 return True
-
-            if self.ssl is not None and self.ssl._has_data():
-                return True
-
-            if self.tty is not None and self.tty._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-            return meta._meta_table['XrXml.Agent']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.agent is not None and self.agent.has_data())
 
-        return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.agent is not None and self.agent.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml" + path_buffer
 
-    def _has_data(self):
-        if self.agent is not None and self.agent._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "agent"):
+            if (self.agent is None):
+                self.agent = XrXml.Agent()
+                self.agent.parent = self
+                self._children_name_map["agent"] = "agent"
+            return self.agent
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "agent"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-        return meta._meta_table['XrXml']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = XrXml()
+        return self._top_entity
 
-class Netconf(object):
+class Netconf(Entity):
     """
     netconf
     
@@ -1024,11 +2034,19 @@ class Netconf(object):
     _revision = '2015-07-30'
 
     def __init__(self):
+        super(Netconf, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "netconf"
+        self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
+
         self.agent = Netconf.Agent()
         self.agent.parent = self
+        self._children_name_map["agent"] = "agent"
+        self._children_yang_names.add("agent")
 
 
-    class Agent(object):
+    class Agent(Entity):
         """
         XML agent
         
@@ -1045,12 +2063,18 @@ class Netconf(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
+            super(Netconf.Agent, self).__init__()
+
+            self.yang_name = "agent"
+            self.yang_parent_name = "netconf"
+
             self.tty = Netconf.Agent.Tty()
             self.tty.parent = self
+            self._children_name_map["tty"] = "tty"
+            self._children_yang_names.add("tty")
 
 
-        class Tty(object):
+        class Tty(Entity):
             """
             NETCONF agent over TTY
             
@@ -1077,15 +2101,49 @@ class Netconf(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.enable = None
+                super(Netconf.Agent.Tty, self).__init__()
+
+                self.yang_name = "tty"
+                self.yang_parent_name = "agent"
+
+                self.enable = YLeaf(YType.empty, "enable")
+
                 self.session = Netconf.Agent.Tty.Session()
                 self.session.parent = self
+                self._children_name_map["session"] = "session"
+                self._children_yang_names.add("session")
+
                 self.throttle = Netconf.Agent.Tty.Throttle()
                 self.throttle.parent = self
+                self._children_name_map["throttle"] = "throttle"
+                self._children_yang_names.add("throttle")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("enable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Netconf.Agent.Tty, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Netconf.Agent.Tty, self).__setattr__(name, value)
 
 
-            class Throttle(object):
+            class Throttle(Entity):
                 """
                 NETCONF agent throttling
                 
@@ -1126,39 +2184,108 @@ class Netconf(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.memory = None
-                    self.offload_memory = None
-                    self.process_rate = None
+                    super(Netconf.Agent.Tty.Throttle, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "throttle"
+                    self.yang_parent_name = "tty"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:throttle'
+                    self.memory = YLeaf(YType.uint32, "memory")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.offload_memory = YLeaf(YType.uint32, "offload-memory")
 
-                def _has_data(self):
-                    if self.memory is not None:
+                    self.process_rate = YLeaf(YType.uint32, "process-rate")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("memory",
+                                    "offload_memory",
+                                    "process_rate") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Netconf.Agent.Tty.Throttle, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Netconf.Agent.Tty.Throttle, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.memory.is_set or
+                        self.offload_memory.is_set or
+                        self.process_rate.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.memory.yfilter != YFilter.not_set or
+                        self.offload_memory.yfilter != YFilter.not_set or
+                        self.process_rate.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "throttle" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/tty/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.memory.is_set or self.memory.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory.get_name_leafdata())
+                    if (self.offload_memory.is_set or self.offload_memory.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.offload_memory.get_name_leafdata())
+                    if (self.process_rate.is_set or self.process_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.process_rate.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "memory" or name == "offload-memory" or name == "process-rate"):
                         return True
-
-                    if self.offload_memory is not None:
-                        return True
-
-                    if self.process_rate is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['Netconf.Agent.Tty.Throttle']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "memory"):
+                        self.memory = value
+                        self.memory.value_namespace = name_space
+                        self.memory.value_namespace_prefix = name_space_prefix
+                    if(value_path == "offload-memory"):
+                        self.offload_memory = value
+                        self.offload_memory.value_namespace = name_space
+                        self.offload_memory.value_namespace_prefix = name_space_prefix
+                    if(value_path == "process-rate"):
+                        self.process_rate = value
+                        self.process_rate.value_namespace = name_space
+                        self.process_rate.value_namespace_prefix = name_space_prefix
 
 
-            class Session(object):
+            class Session(Entity):
                 """
                 Session attributes
                 
@@ -1179,93 +2306,244 @@ class Netconf(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.timeout = None
+                    super(Netconf.Agent.Tty.Session, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "session"
+                    self.yang_parent_name = "tty"
 
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:session'
+                    self.timeout = YLeaf(YType.uint32, "timeout")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("timeout") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Netconf.Agent.Tty.Session, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Netconf.Agent.Tty.Session, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.timeout is not None:
+                def has_data(self):
+                    return self.timeout.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.timeout.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "session" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/tty/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "timeout"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                    return meta._meta_table['Netconf.Agent.Tty.Session']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "timeout"):
+                        self.timeout = value
+                        self.timeout.value_namespace = name_space
+                        self.timeout.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    self.enable.is_set or
+                    (self.session is not None and self.session.has_data()) or
+                    (self.throttle is not None and self.throttle.has_data()))
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    (self.session is not None and self.session.has_operation()) or
+                    (self.throttle is not None and self.throttle.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "tty" + path_buffer
 
-            def _has_data(self):
-                if self.enable is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "session"):
+                    if (self.session is None):
+                        self.session = Netconf.Agent.Tty.Session()
+                        self.session.parent = self
+                        self._children_name_map["session"] = "session"
+                    return self.session
+
+                if (child_yang_name == "throttle"):
+                    if (self.throttle is None):
+                        self.throttle = Netconf.Agent.Tty.Throttle()
+                        self.throttle.parent = self
+                        self._children_name_map["throttle"] = "throttle"
+                    return self.throttle
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "session" or name == "throttle" or name == "enable"):
                     return True
-
-                if self.session is not None and self.session._has_data():
-                    return True
-
-                if self.throttle is not None and self.throttle._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-                return meta._meta_table['Netconf.Agent.Tty']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.tty is not None and self.tty.has_data())
 
-            return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.tty is not None and self.tty.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "agent" + path_buffer
 
-        def _has_data(self):
-            if self.tty is not None and self.tty._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "tty"):
+                if (self.tty is None):
+                    self.tty = Netconf.Agent.Tty()
+                    self.tty.parent = self
+                    self._children_name_map["tty"] = "tty"
+                return self.tty
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "tty"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-            return meta._meta_table['Netconf.Agent']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.agent is not None and self.agent.has_data())
 
-        return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.agent is not None and self.agent.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf" + path_buffer
 
-    def _has_data(self):
-        if self.agent is not None and self.agent._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "agent"):
+            if (self.agent is None):
+                self.agent = Netconf.Agent()
+                self.agent.parent = self
+                self._children_name_map["agent"] = "agent"
+            return self.agent
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "agent"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
-        return meta._meta_table['Netconf']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Netconf()
+        return self._top_entity
 

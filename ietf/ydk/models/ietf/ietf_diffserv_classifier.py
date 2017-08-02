@@ -17,21 +17,15 @@ This version of this YANG module is part of RFC XXXX; see
 the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class FilterTypeIdentity(object):
+class FilterType(Identity):
     """
      This is identity of base filter\-type
     
@@ -43,15 +37,10 @@ class FilterTypeIdentity(object):
     _revision = '2015-04-07'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['FilterTypeIdentity']['meta_info']
+        super(FilterType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:filter-type")
 
 
-class ClassifierEntryFilterOperationTypeIdentity(object):
+class ClassifierEntryFilterOperationType(Identity):
     """
     Classifier entry filter logical operation
     
@@ -63,15 +52,10 @@ class ClassifierEntryFilterOperationTypeIdentity(object):
     _revision = '2015-04-07'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['ClassifierEntryFilterOperationTypeIdentity']['meta_info']
+        super(ClassifierEntryFilterOperationType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:classifier-entry-filter-operation-type")
 
 
-class Classifiers(object):
+class Classifiers(Entity):
     """
     list of classifier entry
     
@@ -88,12 +72,40 @@ class Classifiers(object):
     _revision = '2015-04-07'
 
     def __init__(self):
-        self.classifier_entry = YList()
-        self.classifier_entry.parent = self
-        self.classifier_entry.name = 'classifier_entry'
+        super(Classifiers, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "classifiers"
+        self.yang_parent_name = "ietf-diffserv-classifier"
+
+        self.classifier_entry = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Classifiers, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Classifiers, self).__setattr__(name, value)
 
 
-    class ClassifierEntry(object):
+    class ClassifierEntry(Entity):
         """
         classifier entry template
         
@@ -110,7 +122,7 @@ class Classifiers(object):
         .. attribute:: classifier_entry_filter_operation
         
         	Filters are applicable as any or all filters
-        	**type**\:   :py:class:`ClassifierEntryFilterOperationTypeIdentity <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationTypeIdentity>`
+        	**type**\:   :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
         
         	**default value**\: match-any-filter
         
@@ -127,23 +139,54 @@ class Classifiers(object):
         _revision = '2015-04-07'
 
         def __init__(self):
-            self.parent = None
-            self.classifier_entry_name = None
-            self.classifier_entry_descr = None
-            self.classifier_entry_filter_operation = None
-            self.filter_entry = YList()
-            self.filter_entry.parent = self
-            self.filter_entry.name = 'filter_entry'
+            super(Classifiers.ClassifierEntry, self).__init__()
+
+            self.yang_name = "classifier-entry"
+            self.yang_parent_name = "classifiers"
+
+            self.classifier_entry_name = YLeaf(YType.str, "classifier-entry-name")
+
+            self.classifier_entry_descr = YLeaf(YType.str, "classifier-entry-descr")
+
+            self.classifier_entry_filter_operation = YLeaf(YType.identityref, "classifier-entry-filter-operation")
+
+            self.filter_entry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("classifier_entry_name",
+                            "classifier_entry_descr",
+                            "classifier_entry_filter_operation") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Classifiers.ClassifierEntry, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Classifiers.ClassifierEntry, self).__setattr__(name, value)
 
 
-        class FilterEntry(object):
+        class FilterEntry(Entity):
             """
             Filter configuration
             
             .. attribute:: filter_type  <key>
             
             	This leaf defines type of the filter
-            	**type**\:   :py:class:`FilterTypeIdentity <ydk.models.ietf.ietf_diffserv_classifier.FilterTypeIdentity>`
+            	**type**\:   :py:class:`FilterType <ydk.models.ietf.ietf_diffserv_classifier.FilterType>`
             
             .. attribute:: filter_logical_not  <key>
             
@@ -188,30 +231,49 @@ class Classifiers(object):
             _revision = '2015-04-07'
 
             def __init__(self):
-                self.parent = None
-                self.filter_type = None
-                self.filter_logical_not = None
-                self.destination_ip_address_cfg = YList()
-                self.destination_ip_address_cfg.parent = self
-                self.destination_ip_address_cfg.name = 'destination_ip_address_cfg'
-                self.destination_port_cfg = YList()
-                self.destination_port_cfg.parent = self
-                self.destination_port_cfg.name = 'destination_port_cfg'
-                self.dscp_cfg = YList()
-                self.dscp_cfg.parent = self
-                self.dscp_cfg.name = 'dscp_cfg'
-                self.protocol_cfg = YList()
-                self.protocol_cfg.parent = self
-                self.protocol_cfg.name = 'protocol_cfg'
-                self.source_ip_address_cfg = YList()
-                self.source_ip_address_cfg.parent = self
-                self.source_ip_address_cfg.name = 'source_ip_address_cfg'
-                self.source_port_cfg = YList()
-                self.source_port_cfg.parent = self
-                self.source_port_cfg.name = 'source_port_cfg'
+                super(Classifiers.ClassifierEntry.FilterEntry, self).__init__()
+
+                self.yang_name = "filter-entry"
+                self.yang_parent_name = "classifier-entry"
+
+                self.filter_type = YLeaf(YType.identityref, "filter-type")
+
+                self.filter_logical_not = YLeaf(YType.boolean, "filter-logical-not")
+
+                self.destination_ip_address_cfg = YList(self)
+                self.destination_port_cfg = YList(self)
+                self.dscp_cfg = YList(self)
+                self.protocol_cfg = YList(self)
+                self.source_ip_address_cfg = YList(self)
+                self.source_port_cfg = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("filter_type",
+                                "filter_logical_not") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Classifiers.ClassifierEntry.FilterEntry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Classifiers.ClassifierEntry.FilterEntry, self).__setattr__(name, value)
 
 
-            class DscpCfg(object):
+            class DscpCfg(Entity):
                 """
                 list of dscp ranges
                 
@@ -237,41 +299,97 @@ class Classifiers(object):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.dscp_min = None
-                    self.dscp_max = None
+                    super(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.dscp_min is None:
-                        raise YPYModelError('Key property dscp_min is None')
-                    if self.dscp_max is None:
-                        raise YPYModelError('Key property dscp_max is None')
+                    self.yang_name = "dscp-cfg"
+                    self.yang_parent_name = "filter-entry"
 
-                    return self.parent._common_path +'/ietf-diffserv-classifier:dscp-cfg[ietf-diffserv-classifier:dscp-min = ' + str(self.dscp_min) + '][ietf-diffserv-classifier:dscp-max = ' + str(self.dscp_max) + ']'
+                    self.dscp_min = YLeaf(YType.uint8, "dscp-min")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.dscp_max = YLeaf(YType.uint8, "dscp-max")
 
-                def _has_data(self):
-                    if self.dscp_min is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("dscp_min",
+                                    "dscp_max") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Classifiers.ClassifierEntry.FilterEntry.DscpCfg, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.dscp_min.is_set or
+                        self.dscp_max.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.dscp_min.yfilter != YFilter.not_set or
+                        self.dscp_max.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "dscp-cfg" + "[dscp-min='" + self.dscp_min.get() + "']" + "[dscp-max='" + self.dscp_max.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.dscp_min.is_set or self.dscp_min.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dscp_min.get_name_leafdata())
+                    if (self.dscp_max.is_set or self.dscp_max.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dscp_max.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "dscp-min" or name == "dscp-max"):
                         return True
-
-                    if self.dscp_max is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-                    return meta._meta_table['Classifiers.ClassifierEntry.FilterEntry.DscpCfg']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "dscp-min"):
+                        self.dscp_min = value
+                        self.dscp_min.value_namespace = name_space
+                        self.dscp_min.value_namespace_prefix = name_space_prefix
+                    if(value_path == "dscp-max"):
+                        self.dscp_max = value
+                        self.dscp_max.value_namespace = name_space
+                        self.dscp_max.value_namespace_prefix = name_space_prefix
 
 
-            class SourceIpAddressCfg(object):
+            class SourceIpAddressCfg(Entity):
                 """
                 list of source ip address
                 
@@ -300,35 +418,85 @@ class Classifiers(object):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.source_ip_addr = None
+                    super(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.source_ip_addr is None:
-                        raise YPYModelError('Key property source_ip_addr is None')
+                    self.yang_name = "source-ip-address-cfg"
+                    self.yang_parent_name = "filter-entry"
 
-                    return self.parent._common_path +'/ietf-diffserv-classifier:source-ip-address-cfg[ietf-diffserv-classifier:source-ip-addr = ' + str(self.source_ip_addr) + ']'
+                    self.source_ip_addr = YLeaf(YType.str, "source-ip-addr")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("source_ip_addr") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.source_ip_addr is not None:
+                def has_data(self):
+                    return self.source_ip_addr.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.source_ip_addr.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "source-ip-address-cfg" + "[source-ip-addr='" + self.source_ip_addr.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.source_ip_addr.is_set or self.source_ip_addr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.source_ip_addr.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "source-ip-addr"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-                    return meta._meta_table['Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "source-ip-addr"):
+                        self.source_ip_addr = value
+                        self.source_ip_addr.value_namespace = name_space
+                        self.source_ip_addr.value_namespace_prefix = name_space_prefix
 
 
-            class DestinationIpAddressCfg(object):
+            class DestinationIpAddressCfg(Entity):
                 """
                 list of destination ip address
                 
@@ -357,35 +525,85 @@ class Classifiers(object):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.destination_ip_addr = None
+                    super(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.destination_ip_addr is None:
-                        raise YPYModelError('Key property destination_ip_addr is None')
+                    self.yang_name = "destination-ip-address-cfg"
+                    self.yang_parent_name = "filter-entry"
 
-                    return self.parent._common_path +'/ietf-diffserv-classifier:destination-ip-address-cfg[ietf-diffserv-classifier:destination-ip-addr = ' + str(self.destination_ip_addr) + ']'
+                    self.destination_ip_addr = YLeaf(YType.str, "destination-ip-addr")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("destination_ip_addr") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.destination_ip_addr is not None:
+                def has_data(self):
+                    return self.destination_ip_addr.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.destination_ip_addr.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "destination-ip-address-cfg" + "[destination-ip-addr='" + self.destination_ip_addr.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.destination_ip_addr.is_set or self.destination_ip_addr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_ip_addr.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "destination-ip-addr"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-                    return meta._meta_table['Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "destination-ip-addr"):
+                        self.destination_ip_addr = value
+                        self.destination_ip_addr.value_namespace = name_space
+                        self.destination_ip_addr.value_namespace_prefix = name_space_prefix
 
 
-            class SourcePortCfg(object):
+            class SourcePortCfg(Entity):
                 """
                 list of ranges of source port
                 
@@ -411,41 +629,97 @@ class Classifiers(object):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.source_port_min = None
-                    self.source_port_max = None
+                    super(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.source_port_min is None:
-                        raise YPYModelError('Key property source_port_min is None')
-                    if self.source_port_max is None:
-                        raise YPYModelError('Key property source_port_max is None')
+                    self.yang_name = "source-port-cfg"
+                    self.yang_parent_name = "filter-entry"
 
-                    return self.parent._common_path +'/ietf-diffserv-classifier:source-port-cfg[ietf-diffserv-classifier:source-port-min = ' + str(self.source_port_min) + '][ietf-diffserv-classifier:source-port-max = ' + str(self.source_port_max) + ']'
+                    self.source_port_min = YLeaf(YType.uint16, "source-port-min")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.source_port_max = YLeaf(YType.uint16, "source-port-max")
 
-                def _has_data(self):
-                    if self.source_port_min is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("source_port_min",
+                                    "source_port_max") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.source_port_min.is_set or
+                        self.source_port_max.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.source_port_min.yfilter != YFilter.not_set or
+                        self.source_port_max.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "source-port-cfg" + "[source-port-min='" + self.source_port_min.get() + "']" + "[source-port-max='" + self.source_port_max.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.source_port_min.is_set or self.source_port_min.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.source_port_min.get_name_leafdata())
+                    if (self.source_port_max.is_set or self.source_port_max.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.source_port_max.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "source-port-min" or name == "source-port-max"):
                         return True
-
-                    if self.source_port_max is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-                    return meta._meta_table['Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "source-port-min"):
+                        self.source_port_min = value
+                        self.source_port_min.value_namespace = name_space
+                        self.source_port_min.value_namespace_prefix = name_space_prefix
+                    if(value_path == "source-port-max"):
+                        self.source_port_max = value
+                        self.source_port_max.value_namespace = name_space
+                        self.source_port_max.value_namespace_prefix = name_space_prefix
 
 
-            class DestinationPortCfg(object):
+            class DestinationPortCfg(Entity):
                 """
                 list of ranges of destination port
                 
@@ -471,41 +745,97 @@ class Classifiers(object):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.destination_port_min = None
-                    self.destination_port_max = None
+                    super(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.destination_port_min is None:
-                        raise YPYModelError('Key property destination_port_min is None')
-                    if self.destination_port_max is None:
-                        raise YPYModelError('Key property destination_port_max is None')
+                    self.yang_name = "destination-port-cfg"
+                    self.yang_parent_name = "filter-entry"
 
-                    return self.parent._common_path +'/ietf-diffserv-classifier:destination-port-cfg[ietf-diffserv-classifier:destination-port-min = ' + str(self.destination_port_min) + '][ietf-diffserv-classifier:destination-port-max = ' + str(self.destination_port_max) + ']'
+                    self.destination_port_min = YLeaf(YType.uint16, "destination-port-min")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.destination_port_max = YLeaf(YType.uint16, "destination-port-max")
 
-                def _has_data(self):
-                    if self.destination_port_min is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("destination_port_min",
+                                    "destination_port_max") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.destination_port_min.is_set or
+                        self.destination_port_max.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.destination_port_min.yfilter != YFilter.not_set or
+                        self.destination_port_max.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "destination-port-cfg" + "[destination-port-min='" + self.destination_port_min.get() + "']" + "[destination-port-max='" + self.destination_port_max.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.destination_port_min.is_set or self.destination_port_min.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_port_min.get_name_leafdata())
+                    if (self.destination_port_max.is_set or self.destination_port_max.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_port_max.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "destination-port-min" or name == "destination-port-max"):
                         return True
-
-                    if self.destination_port_max is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-                    return meta._meta_table['Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "destination-port-min"):
+                        self.destination_port_min = value
+                        self.destination_port_min.value_namespace = name_space
+                        self.destination_port_min.value_namespace_prefix = name_space_prefix
+                    if(value_path == "destination-port-max"):
+                        self.destination_port_max = value
+                        self.destination_port_max.value_namespace = name_space
+                        self.destination_port_max.value_namespace_prefix = name_space_prefix
 
 
-            class ProtocolCfg(object):
+            class ProtocolCfg(Entity):
                 """
                 list of ranges of protocol values
                 
@@ -531,195 +861,400 @@ class Classifiers(object):
                 _revision = '2015-04-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.protocol_min = None
-                    self.protocol_max = None
+                    super(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.protocol_min is None:
-                        raise YPYModelError('Key property protocol_min is None')
-                    if self.protocol_max is None:
-                        raise YPYModelError('Key property protocol_max is None')
+                    self.yang_name = "protocol-cfg"
+                    self.yang_parent_name = "filter-entry"
 
-                    return self.parent._common_path +'/ietf-diffserv-classifier:protocol-cfg[ietf-diffserv-classifier:protocol-min = ' + str(self.protocol_min) + '][ietf-diffserv-classifier:protocol-max = ' + str(self.protocol_max) + ']'
+                    self.protocol_min = YLeaf(YType.uint8, "protocol-min")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.protocol_max = YLeaf(YType.uint8, "protocol-max")
 
-                def _has_data(self):
-                    if self.protocol_min is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("protocol_min",
+                                    "protocol_max") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.protocol_min.is_set or
+                        self.protocol_max.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.protocol_min.yfilter != YFilter.not_set or
+                        self.protocol_max.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "protocol-cfg" + "[protocol-min='" + self.protocol_min.get() + "']" + "[protocol-max='" + self.protocol_max.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.protocol_min.is_set or self.protocol_min.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.protocol_min.get_name_leafdata())
+                    if (self.protocol_max.is_set or self.protocol_max.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.protocol_max.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "protocol-min" or name == "protocol-max"):
                         return True
-
-                    if self.protocol_max is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-                    return meta._meta_table['Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "protocol-min"):
+                        self.protocol_min = value
+                        self.protocol_min.value_namespace = name_space
+                        self.protocol_min.value_namespace_prefix = name_space_prefix
+                    if(value_path == "protocol-max"):
+                        self.protocol_max = value
+                        self.protocol_max.value_namespace = name_space
+                        self.protocol_max.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-                if self.filter_type is None:
-                    raise YPYModelError('Key property filter_type is None')
-                if self.filter_logical_not is None:
-                    raise YPYModelError('Key property filter_logical_not is None')
+            def has_data(self):
+                for c in self.destination_ip_address_cfg:
+                    if (c.has_data()):
+                        return True
+                for c in self.destination_port_cfg:
+                    if (c.has_data()):
+                        return True
+                for c in self.dscp_cfg:
+                    if (c.has_data()):
+                        return True
+                for c in self.protocol_cfg:
+                    if (c.has_data()):
+                        return True
+                for c in self.source_ip_address_cfg:
+                    if (c.has_data()):
+                        return True
+                for c in self.source_port_cfg:
+                    if (c.has_data()):
+                        return True
+                return (
+                    self.filter_type.is_set or
+                    self.filter_logical_not.is_set)
 
-                return self.parent._common_path +'/ietf-diffserv-classifier:filter-entry[ietf-diffserv-classifier:filter-type = ' + str(self.filter_type) + '][ietf-diffserv-classifier:filter-logical-not = ' + str(self.filter_logical_not) + ']'
+            def has_operation(self):
+                for c in self.destination_ip_address_cfg:
+                    if (c.has_operation()):
+                        return True
+                for c in self.destination_port_cfg:
+                    if (c.has_operation()):
+                        return True
+                for c in self.dscp_cfg:
+                    if (c.has_operation()):
+                        return True
+                for c in self.protocol_cfg:
+                    if (c.has_operation()):
+                        return True
+                for c in self.source_ip_address_cfg:
+                    if (c.has_operation()):
+                        return True
+                for c in self.source_port_cfg:
+                    if (c.has_operation()):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.filter_type.yfilter != YFilter.not_set or
+                    self.filter_logical_not.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "filter-entry" + "[filter-type='" + self.filter_type.get() + "']" + "[filter-logical-not='" + self.filter_logical_not.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.filter_type is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.filter_type.is_set or self.filter_type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.filter_type.get_name_leafdata())
+                if (self.filter_logical_not.is_set or self.filter_logical_not.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.filter_logical_not.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "destination-ip-address-cfg"):
+                    for c in self.destination_ip_address_cfg:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Classifiers.ClassifierEntry.FilterEntry.DestinationIpAddressCfg()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.destination_ip_address_cfg.append(c)
+                    return c
+
+                if (child_yang_name == "destination-port-cfg"):
+                    for c in self.destination_port_cfg:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Classifiers.ClassifierEntry.FilterEntry.DestinationPortCfg()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.destination_port_cfg.append(c)
+                    return c
+
+                if (child_yang_name == "dscp-cfg"):
+                    for c in self.dscp_cfg:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Classifiers.ClassifierEntry.FilterEntry.DscpCfg()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.dscp_cfg.append(c)
+                    return c
+
+                if (child_yang_name == "protocol-cfg"):
+                    for c in self.protocol_cfg:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Classifiers.ClassifierEntry.FilterEntry.ProtocolCfg()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.protocol_cfg.append(c)
+                    return c
+
+                if (child_yang_name == "source-ip-address-cfg"):
+                    for c in self.source_ip_address_cfg:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Classifiers.ClassifierEntry.FilterEntry.SourceIpAddressCfg()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.source_ip_address_cfg.append(c)
+                    return c
+
+                if (child_yang_name == "source-port-cfg"):
+                    for c in self.source_port_cfg:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Classifiers.ClassifierEntry.FilterEntry.SourcePortCfg()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.source_port_cfg.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "destination-ip-address-cfg" or name == "destination-port-cfg" or name == "dscp-cfg" or name == "protocol-cfg" or name == "source-ip-address-cfg" or name == "source-port-cfg" or name == "filter-type" or name == "filter-logical-not"):
                     return True
-
-                if self.filter_logical_not is not None:
-                    return True
-
-                if self.destination_ip_address_cfg is not None:
-                    for child_ref in self.destination_ip_address_cfg:
-                        if child_ref._has_data():
-                            return True
-
-                if self.destination_port_cfg is not None:
-                    for child_ref in self.destination_port_cfg:
-                        if child_ref._has_data():
-                            return True
-
-                if self.dscp_cfg is not None:
-                    for child_ref in self.dscp_cfg:
-                        if child_ref._has_data():
-                            return True
-
-                if self.protocol_cfg is not None:
-                    for child_ref in self.protocol_cfg:
-                        if child_ref._has_data():
-                            return True
-
-                if self.source_ip_address_cfg is not None:
-                    for child_ref in self.source_ip_address_cfg:
-                        if child_ref._has_data():
-                            return True
-
-                if self.source_port_cfg is not None:
-                    for child_ref in self.source_port_cfg:
-                        if child_ref._has_data():
-                            return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-                return meta._meta_table['Classifiers.ClassifierEntry.FilterEntry']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "filter-type"):
+                    self.filter_type = value
+                    self.filter_type.value_namespace = name_space
+                    self.filter_type.value_namespace_prefix = name_space_prefix
+                if(value_path == "filter-logical-not"):
+                    self.filter_logical_not = value
+                    self.filter_logical_not.value_namespace = name_space
+                    self.filter_logical_not.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-            if self.classifier_entry_name is None:
-                raise YPYModelError('Key property classifier_entry_name is None')
+        def has_data(self):
+            for c in self.filter_entry:
+                if (c.has_data()):
+                    return True
+            return (
+                self.classifier_entry_name.is_set or
+                self.classifier_entry_descr.is_set or
+                self.classifier_entry_filter_operation.is_set)
 
-            return '/ietf-diffserv-classifier:classifiers/ietf-diffserv-classifier:classifier-entry[ietf-diffserv-classifier:classifier-entry-name = ' + str(self.classifier_entry_name) + ']'
+        def has_operation(self):
+            for c in self.filter_entry:
+                if (c.has_operation()):
+                    return True
+            return (
+                self.yfilter != YFilter.not_set or
+                self.classifier_entry_name.yfilter != YFilter.not_set or
+                self.classifier_entry_descr.yfilter != YFilter.not_set or
+                self.classifier_entry_filter_operation.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "classifier-entry" + "[classifier-entry-name='" + self.classifier_entry_name.get() + "']" + path_buffer
 
-        def _has_data(self):
-            if self.classifier_entry_name is not None:
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-diffserv-classifier:classifiers/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.classifier_entry_name.is_set or self.classifier_entry_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.classifier_entry_name.get_name_leafdata())
+            if (self.classifier_entry_descr.is_set or self.classifier_entry_descr.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.classifier_entry_descr.get_name_leafdata())
+            if (self.classifier_entry_filter_operation.is_set or self.classifier_entry_filter_operation.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.classifier_entry_filter_operation.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "filter-entry"):
+                for c in self.filter_entry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Classifiers.ClassifierEntry.FilterEntry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.filter_entry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "filter-entry" or name == "classifier-entry-name" or name == "classifier-entry-descr" or name == "classifier-entry-filter-operation"):
                 return True
-
-            if self.classifier_entry_descr is not None:
-                return True
-
-            if self.classifier_entry_filter_operation is not None:
-                return True
-
-            if self.filter_entry is not None:
-                for child_ref in self.filter_entry:
-                    if child_ref._has_data():
-                        return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-            return meta._meta_table['Classifiers.ClassifierEntry']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "classifier-entry-name"):
+                self.classifier_entry_name = value
+                self.classifier_entry_name.value_namespace = name_space
+                self.classifier_entry_name.value_namespace_prefix = name_space_prefix
+            if(value_path == "classifier-entry-descr"):
+                self.classifier_entry_descr = value
+                self.classifier_entry_descr.value_namespace = name_space
+                self.classifier_entry_descr.value_namespace_prefix = name_space_prefix
+            if(value_path == "classifier-entry-filter-operation"):
+                self.classifier_entry_filter_operation = value
+                self.classifier_entry_filter_operation.value_namespace = name_space
+                self.classifier_entry_filter_operation.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
-
-        return '/ietf-diffserv-classifier:classifiers'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if self.classifier_entry is not None:
-            for child_ref in self.classifier_entry:
-                if child_ref._has_data():
-                    return True
-
+    def has_data(self):
+        for c in self.classifier_entry:
+            if (c.has_data()):
+                return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['Classifiers']['meta_info']
+    def has_operation(self):
+        for c in self.classifier_entry:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "ietf-diffserv-classifier:classifiers" + path_buffer
 
-class ProtocolIdentity(FilterTypeIdentity):
-    """
-    protocol filter\-type
-    
-    
+        return path_buffer
 
-    """
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['ProtocolIdentity']['meta_info']
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
+        if (child_yang_name == "classifier-entry"):
+            for c in self.classifier_entry:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = Classifiers.ClassifierEntry()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.classifier_entry.append(c)
+            return c
 
-class DestinationIpAddressIdentity(FilterTypeIdentity):
-    """
-    destination\-ip\-address filter\-type
-    
-    
+        return None
 
-    """
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "classifier-entry"):
+            return True
+        return False
 
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
+    def clone_ptr(self):
+        self._top_entity = Classifiers()
+        return self._top_entity
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['DestinationIpAddressIdentity']['meta_info']
-
-
-class MatchAnyFilterIdentity(ClassifierEntryFilterOperationTypeIdentity):
+class MatchAnyFilter(Identity):
     """
     Classifier entry filter logical OR operation
     
@@ -731,35 +1266,10 @@ class MatchAnyFilterIdentity(ClassifierEntryFilterOperationTypeIdentity):
     _revision = '2015-04-07'
 
     def __init__(self):
-        ClassifierEntryFilterOperationTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['MatchAnyFilterIdentity']['meta_info']
+        super(MatchAnyFilter, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:match-any-filter")
 
 
-class SourcePortIdentity(FilterTypeIdentity):
-    """
-    source\-port filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['SourcePortIdentity']['meta_info']
-
-
-class DscpIdentity(FilterTypeIdentity):
+class Dscp(Identity):
     """
     DSCP filter\-type
     
@@ -771,35 +1281,10 @@ class DscpIdentity(FilterTypeIdentity):
     _revision = '2015-04-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['DscpIdentity']['meta_info']
+        super(Dscp, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:dscp")
 
 
-class DestinationPortIdentity(FilterTypeIdentity):
-    """
-    destination\-port filter\-type
-    
-    
-
-    """
-
-    _prefix = 'classifier'
-    _revision = '2015-04-07'
-
-    def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['DestinationPortIdentity']['meta_info']
-
-
-class SourceIpAddressIdentity(FilterTypeIdentity):
+class SourceIpAddress(Identity):
     """
     source\-ip\-address filter\-type
     
@@ -811,15 +1296,25 @@ class SourceIpAddressIdentity(FilterTypeIdentity):
     _revision = '2015-04-07'
 
     def __init__(self):
-        FilterTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['SourceIpAddressIdentity']['meta_info']
+        super(SourceIpAddress, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:source-ip-address")
 
 
-class MatchAllFilterIdentity(ClassifierEntryFilterOperationTypeIdentity):
+class DestinationIpAddress(Identity):
+    """
+    destination\-ip\-address filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(DestinationIpAddress, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:destination-ip-address")
+
+
+class MatchAllFilter(Identity):
     """
     Classifier entry filter logical AND operation
     
@@ -831,11 +1326,51 @@ class MatchAllFilterIdentity(ClassifierEntryFilterOperationTypeIdentity):
     _revision = '2015-04-07'
 
     def __init__(self):
-        ClassifierEntryFilterOperationTypeIdentity.__init__(self)
+        super(MatchAllFilter, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:match-all-filter")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_diffserv_classifier as meta
-        return meta._meta_table['MatchAllFilterIdentity']['meta_info']
+
+class SourcePort(Identity):
+    """
+    source\-port filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(SourcePort, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:source-port")
+
+
+class DestinationPort(Identity):
+    """
+    destination\-port filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(DestinationPort, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:destination-port")
+
+
+class Protocol(Identity):
+    """
+    protocol filter\-type
+    
+    
+
+    """
+
+    _prefix = 'classifier'
+    _revision = '2015-04-07'
+
+    def __init__(self):
+        super(Protocol, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier", "ietf-diffserv-classifier", "ietf-diffserv-classifier:protocol")
 
 

@@ -21,23 +21,16 @@ MTU (mtu) Maximum Transmission Unit
 
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-from ydk.models.ietf.ietf_routing import RoutingProtocolIdentity
-
-class IfStateTypeEnum(Enum):
+class IfStateType(Enum):
     """
-    IfStateTypeEnum
+    IfStateType
 
     OSPF interface state type.
 
@@ -71,30 +64,24 @@ class IfStateTypeEnum(Enum):
 
     """
 
-    Down = 1
+    Down = Enum.YLeaf(1, "Down")
 
-    Loopback = 2
+    Loopback = Enum.YLeaf(2, "Loopback")
 
-    Waiting = 3
+    Waiting = Enum.YLeaf(3, "Waiting")
 
-    Point_to_Point = 4
+    Point_to_Point = Enum.YLeaf(4, "Point-to-Point")
 
-    DR = 5
+    DR = Enum.YLeaf(5, "DR")
 
-    BDR = 6
+    BDR = Enum.YLeaf(6, "BDR")
 
-    DR_Other = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['IfStateTypeEnum']
+    DR_Other = Enum.YLeaf(7, "DR-Other")
 
 
-class NbrStateTypeEnum(Enum):
+class NbrStateType(Enum):
     """
-    NbrStateTypeEnum
+    NbrStateType
 
     OSPF neighbor state type.
 
@@ -132,32 +119,26 @@ class NbrStateTypeEnum(Enum):
 
     """
 
-    Down = 1
+    Down = Enum.YLeaf(1, "Down")
 
-    Attempt = 2
+    Attempt = Enum.YLeaf(2, "Attempt")
 
-    Init = 3
+    Init = Enum.YLeaf(3, "Init")
 
-    Y_2_Way = 4
+    Y_2_Way = Enum.YLeaf(4, "2-Way")
 
-    ExStart = 5
+    ExStart = Enum.YLeaf(5, "ExStart")
 
-    Exchange = 6
+    Exchange = Enum.YLeaf(6, "Exchange")
 
-    Loading = 7
+    Loading = Enum.YLeaf(7, "Loading")
 
-    Full = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['NbrStateTypeEnum']
+    Full = Enum.YLeaf(8, "Full")
 
 
-class NssaTranslatorStateTypeEnum(Enum):
+class NssaTranslatorStateType(Enum):
     """
-    NssaTranslatorStateTypeEnum
+    NssaTranslatorStateType
 
     OSPF NSSA translator state type.
 
@@ -175,22 +156,16 @@ class NssaTranslatorStateTypeEnum(Enum):
 
     """
 
-    Enabled = 1
+    Enabled = Enum.YLeaf(1, "Enabled")
 
-    Elected = 2
+    Elected = Enum.YLeaf(2, "Elected")
 
-    Disabled = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['NssaTranslatorStateTypeEnum']
+    Disabled = Enum.YLeaf(3, "Disabled")
 
 
-class PacketTypeEnum(Enum):
+class PacketType(Enum):
     """
-    PacketTypeEnum
+    PacketType
 
     OSPF packet type.
 
@@ -216,26 +191,20 @@ class PacketTypeEnum(Enum):
 
     """
 
-    Hello = 1
+    Hello = Enum.YLeaf(1, "Hello")
 
-    Database_Descripton = 2
+    Database_Descripton = Enum.YLeaf(2, "Database-Descripton")
 
-    Link_State_Request = 3
+    Link_State_Request = Enum.YLeaf(3, "Link-State-Request")
 
-    Link_State_Update = 4
+    Link_State_Update = Enum.YLeaf(4, "Link-State-Update")
 
-    Link_State_Ack = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['PacketTypeEnum']
+    Link_State_Ack = Enum.YLeaf(5, "Link-State-Ack")
 
 
-class RestartExitReasonTypeEnum(Enum):
+class RestartExitReasonType(Enum):
     """
-    RestartExitReasonTypeEnum
+    RestartExitReasonType
 
     Describes the outcome of the last attempt at a
 
@@ -265,26 +234,20 @@ class RestartExitReasonTypeEnum(Enum):
 
     """
 
-    None_ = 1
+    None_ = Enum.YLeaf(1, "None")
 
-    InProgress = 2
+    InProgress = Enum.YLeaf(2, "InProgress")
 
-    Completed = 3
+    Completed = Enum.YLeaf(3, "Completed")
 
-    TimedOut = 4
+    TimedOut = Enum.YLeaf(4, "TimedOut")
 
-    TopologyChanged = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['RestartExitReasonTypeEnum']
+    TopologyChanged = Enum.YLeaf(5, "TopologyChanged")
 
 
-class RestartHelperStatusTypeEnum(Enum):
+class RestartHelperStatusType(Enum):
     """
-    RestartHelperStatusTypeEnum
+    RestartHelperStatusType
 
     Restart helper status type.
 
@@ -298,20 +261,14 @@ class RestartHelperStatusTypeEnum(Enum):
 
     """
 
-    Not_Helping = 1
+    Not_Helping = Enum.YLeaf(1, "Not-Helping")
 
-    Helping = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['RestartHelperStatusTypeEnum']
+    Helping = Enum.YLeaf(2, "Helping")
 
 
-class RestartStatusTypeEnum(Enum):
+class RestartStatusType(Enum):
     """
-    RestartStatusTypeEnum
+    RestartStatusType
 
     OSPF graceful restart status type.
 
@@ -329,21 +286,15 @@ class RestartStatusTypeEnum(Enum):
 
     """
 
-    Not_Restarting = 1
+    Not_Restarting = Enum.YLeaf(1, "Not-Restarting")
 
-    Planned_Restart = 2
+    Planned_Restart = Enum.YLeaf(2, "Planned-Restart")
 
-    Unplanned_Restart = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['RestartStatusTypeEnum']
+    Unplanned_Restart = Enum.YLeaf(3, "Unplanned-Restart")
 
 
 
-class Ospfv3Identity(RoutingProtocolIdentity):
+class Ospfv3(Identity):
     """
     OSPFv3
     
@@ -355,55 +306,10 @@ class Ospfv3Identity(RoutingProtocolIdentity):
     _revision = '2015-03-09'
 
     def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['Ospfv3Identity']['meta_info']
+        super(Ospfv3, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospfv3")
 
 
-class OperationModeIdentity(object):
-    """
-    OSPF operation mode.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['OperationModeIdentity']['meta_info']
-
-
-class Ospfv2Identity(RoutingProtocolIdentity):
-    """
-    OSPFv2
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['Ospfv2Identity']['meta_info']
-
-
-class IfLinkTypeIdentity(object):
+class IfLinkType(Identity):
     """
     Base identity for OSPF interface link type.
     
@@ -415,15 +321,10 @@ class IfLinkTypeIdentity(object):
     _revision = '2015-03-09'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['IfLinkTypeIdentity']['meta_info']
+        super(IfLinkType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type")
 
 
-class OspfIdentity(RoutingProtocolIdentity):
+class Ospf(Identity):
     """
     OSPF Protocol
     
@@ -435,15 +336,10 @@ class OspfIdentity(RoutingProtocolIdentity):
     _revision = '2015-03-09'
 
     def __init__(self):
-        RoutingProtocolIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['OspfIdentity']['meta_info']
+        super(Ospf, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospf")
 
 
-class AreaTypeIdentity(object):
+class AreaType(Identity):
     """
     Base identity for OSPF area type.
     
@@ -455,17 +351,12 @@ class AreaTypeIdentity(object):
     _revision = '2015-03-09'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['AreaTypeIdentity']['meta_info']
+        super(AreaType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:area-type")
 
 
-class IfLinkTypeShamLinkIdentity(IfLinkTypeIdentity):
+class OperationMode(Identity):
     """
-    OSPF interface link type sham link.
+    OSPF operation mode.
     
     
 
@@ -475,15 +366,40 @@ class IfLinkTypeShamLinkIdentity(IfLinkTypeIdentity):
     _revision = '2015-03-09'
 
     def __init__(self):
-        IfLinkTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['IfLinkTypeShamLinkIdentity']['meta_info']
+        super(OperationMode, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:operation-mode")
 
 
-class ShipsInTheNightIdentity(OperationModeIdentity):
+class Ospfv2(Identity):
+    """
+    OSPFv2
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(Ospfv2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ospfv2")
+
+
+class Normal(Identity):
+    """
+    OSPF normal area.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(Normal, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:normal")
+
+
+class ShipsInTheNight(Identity):
     """
     Ships\-in\-the\-night operation mode in which
     each OSPF instance carries only one address family
@@ -496,55 +412,10 @@ class ShipsInTheNightIdentity(OperationModeIdentity):
     _revision = '2015-03-09'
 
     def __init__(self):
-        OperationModeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['ShipsInTheNightIdentity']['meta_info']
+        super(ShipsInTheNight, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:ships-in-the-night")
 
 
-class NormalIdentity(AreaTypeIdentity):
-    """
-    OSPF normal area.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        AreaTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['NormalIdentity']['meta_info']
-
-
-class StubIdentity(AreaTypeIdentity):
-    """
-    OSPF stub area.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        AreaTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['StubIdentity']['meta_info']
-
-
-class NssaIdentity(AreaTypeIdentity):
+class Nssa(Identity):
     """
     OSPF NSSA area.
     
@@ -556,35 +427,10 @@ class NssaIdentity(AreaTypeIdentity):
     _revision = '2015-03-09'
 
     def __init__(self):
-        AreaTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['NssaIdentity']['meta_info']
+        super(Nssa, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:nssa")
 
 
-class IfLinkTypeNormalIdentity(IfLinkTypeIdentity):
-    """
-    OSPF interface link type normal.
-    
-    
-
-    """
-
-    _prefix = 'ospf'
-    _revision = '2015-03-09'
-
-    def __init__(self):
-        IfLinkTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['IfLinkTypeNormalIdentity']['meta_info']
-
-
-class IfLinkTypeVirtualLinkIdentity(IfLinkTypeIdentity):
+class IfLinkTypeVirtualLink(Identity):
     """
     OSPF interface link type virtual link.
     
@@ -596,11 +442,51 @@ class IfLinkTypeVirtualLinkIdentity(IfLinkTypeIdentity):
     _revision = '2015-03-09'
 
     def __init__(self):
-        IfLinkTypeIdentity.__init__(self)
+        super(IfLinkTypeVirtualLink, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-virtual-link")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_ospf as meta
-        return meta._meta_table['IfLinkTypeVirtualLinkIdentity']['meta_info']
+
+class IfLinkTypeShamLink(Identity):
+    """
+    OSPF interface link type sham link.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(IfLinkTypeShamLink, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-sham-link")
+
+
+class Stub(Identity):
+    """
+    OSPF stub area.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(Stub, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:stub")
+
+
+class IfLinkTypeNormal(Identity):
+    """
+    OSPF interface link type normal.
+    
+    
+
+    """
+
+    _prefix = 'ospf'
+    _revision = '2015-03-09'
+
+    def __init__(self):
+        super(IfLinkTypeNormal, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ospf", "ietf-ospf", "ietf-ospf:if-link-type-normal")
 
 

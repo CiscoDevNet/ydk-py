@@ -13,22 +13,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SergPeerStatusEnum(Enum):
+class SergPeerStatus(Enum):
     """
-    SergPeerStatusEnum
+    SergPeerStatus
 
     SERG Peer Status
 
@@ -70,34 +64,28 @@ class SergPeerStatusEnum(Enum):
 
     """
 
-    not_configured = 0
+    not_configured = Enum.YLeaf(0, "not-configured")
 
-    initialize = 1
+    initialize = Enum.YLeaf(1, "initialize")
 
-    retry = 2
+    retry = Enum.YLeaf(2, "retry")
 
-    connect = 3
+    connect = Enum.YLeaf(3, "connect")
 
-    listen = 4
+    listen = Enum.YLeaf(4, "listen")
 
-    registration = 5
+    registration = Enum.YLeaf(5, "registration")
 
-    cleanup = 6
+    cleanup = Enum.YLeaf(6, "cleanup")
 
-    connected = 7
+    connected = Enum.YLeaf(7, "connected")
 
-    established = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergPeerStatusEnum']
+    established = Enum.YLeaf(8, "established")
 
 
-class SergShowCompEnum(Enum):
+class SergShowComp(Enum):
     """
-    SergShowCompEnum
+    SergShowComp
 
     SERG Components
 
@@ -115,22 +103,16 @@ class SergShowCompEnum(Enum):
 
     """
 
-    serga = 0
+    serga = Enum.YLeaf(0, "serga")
 
-    ipv6nd = 1
+    ipv6nd = Enum.YLeaf(1, "ipv6nd")
 
-    dhcpv6 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowCompEnum']
+    dhcpv6 = Enum.YLeaf(2, "dhcpv6")
 
 
-class SergShowImRoleEnum(Enum):
+class SergShowImRole(Enum):
     """
-    SergShowImRoleEnum
+    SergShowImRole
 
     SERG Interface Management Role
 
@@ -148,22 +130,16 @@ class SergShowImRoleEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    master = 1
+    master = Enum.YLeaf(1, "master")
 
-    slave = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowImRoleEnum']
+    slave = Enum.YLeaf(2, "slave")
 
 
-class SergShowMemEnum(Enum):
+class SergShowMem(Enum):
     """
-    SergShowMemEnum
+    SergShowMem
 
     SERG Memory Manager type
 
@@ -193,28 +169,22 @@ class SergShowMemEnum(Enum):
 
     """
 
-    standard = 0
+    standard = Enum.YLeaf(0, "standard")
 
-    chunk = 1
+    chunk = Enum.YLeaf(1, "chunk")
 
-    edm = 2
+    edm = Enum.YLeaf(2, "edm")
 
-    string = 3
+    string = Enum.YLeaf(3, "string")
 
-    static = 4
+    static = Enum.YLeaf(4, "static")
 
-    unknown = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowMemEnum']
+    unknown = Enum.YLeaf(5, "unknown")
 
 
-class SergShowRoleEnum(Enum):
+class SergShowRole(Enum):
     """
-    SergShowRoleEnum
+    SergShowRole
 
     SERG Role
 
@@ -232,22 +202,16 @@ class SergShowRoleEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    master = 1
+    master = Enum.YLeaf(1, "master")
 
-    slave = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowRoleEnum']
+    slave = Enum.YLeaf(2, "slave")
 
 
-class SergShowSessionErrorEnum(Enum):
+class SergShowSessionError(Enum):
     """
-    SergShowSessionErrorEnum
+    SergShowSessionError
 
     SERG Session Error Operation
 
@@ -265,22 +229,16 @@ class SergShowSessionErrorEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    hard = 1
+    hard = Enum.YLeaf(1, "hard")
 
-    soft = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowSessionErrorEnum']
+    soft = Enum.YLeaf(2, "soft")
 
 
-class SergShowSessionOperationEnum(Enum):
+class SergShowSessionOperation(Enum):
     """
-    SergShowSessionOperationEnum
+    SergShowSessionOperation
 
     SERG Session Operation
 
@@ -302,24 +260,18 @@ class SergShowSessionOperationEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    update = 1
+    update = Enum.YLeaf(1, "update")
 
-    delete = 2
+    delete = Enum.YLeaf(2, "delete")
 
-    in_sync = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowSessionOperationEnum']
+    in_sync = Enum.YLeaf(3, "in-sync")
 
 
-class SergShowSlaveModeEnum(Enum):
+class SergShowSlaveMode(Enum):
     """
-    SergShowSlaveModeEnum
+    SergShowSlaveMode
 
     SERG Slave Mode
 
@@ -337,22 +289,16 @@ class SergShowSlaveModeEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    warm = 1
+    warm = Enum.YLeaf(1, "warm")
 
-    hot = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowSlaveModeEnum']
+    hot = Enum.YLeaf(2, "hot")
 
 
-class SergShowSoReasonEnum(Enum):
+class SergShowSoReason(Enum):
     """
-    SergShowSoReasonEnum
+    SergShowSoReason
 
     Session Redundancy Switchover Reason
 
@@ -382,27 +328,21 @@ class SergShowSoReasonEnum(Enum):
 
     """
 
-    internal = 0
+    internal = Enum.YLeaf(0, "internal")
 
-    admin = 1
+    admin = Enum.YLeaf(1, "admin")
 
-    peer_up = 2
+    peer_up = Enum.YLeaf(2, "peer-up")
 
-    peer_down = 3
+    peer_down = Enum.YLeaf(3, "peer-down")
 
-    object_tracking_status_change = 4
+    object_tracking_status_change = Enum.YLeaf(4, "object-tracking-status-change")
 
-    serg_show_so_reason_max = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SergShowSoReasonEnum']
+    serg_show_so_reason_max = Enum.YLeaf(5, "serg-show-so-reason-max")
 
 
 
-class SessionRedundancyManager(object):
+class SessionRedundancyManager(Entity):
     """
     Session Redundancy Manager information
     
@@ -429,15 +369,29 @@ class SessionRedundancyManager(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(SessionRedundancyManager, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "session-redundancy-manager"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-serg-oper"
+
         self.groups = SessionRedundancyManager.Groups()
         self.groups.parent = self
+        self._children_name_map["groups"] = "groups"
+        self._children_yang_names.add("groups")
+
         self.interfaces = SessionRedundancyManager.Interfaces()
         self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
+
         self.summary = SessionRedundancyManager.Summary()
         self.summary.parent = self
+        self._children_name_map["summary"] = "summary"
+        self._children_yang_names.add("summary")
 
 
-    class Interfaces(object):
+    class Interfaces(Entity):
         """
         Subscriber Redundancy Manager interface table
         
@@ -454,13 +408,39 @@ class SessionRedundancyManager(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.interface = YList()
-            self.interface.parent = self
-            self.interface.name = 'interface'
+            super(SessionRedundancyManager.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "session-redundancy-manager"
+
+            self.interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SessionRedundancyManager.Interfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SessionRedundancyManager.Interfaces, self).__setattr__(name, value)
 
 
-        class Interface(object):
+        class Interface(Entity):
             """
             interface redundancy manager interface
             
@@ -498,7 +478,7 @@ class SessionRedundancyManager(object):
             .. attribute:: role
             
             	SERG Role
-            	**type**\:   :py:class:`SergShowImRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRoleEnum>`
+            	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
             
             
 
@@ -508,75 +488,198 @@ class SessionRedundancyManager(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface = None
-                self.forward_referenced = None
-                self.group_id = None
-                self.interface_mapping_id = None
-                self.interface_name = None
-                self.role = None
+                super(SessionRedundancyManager.Interfaces.Interface, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.interface is None:
-                    raise YPYModelError('Key property interface is None')
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
 
-                return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/Cisco-IOS-XR-infra-serg-oper:interfaces/Cisco-IOS-XR-infra-serg-oper:interface[Cisco-IOS-XR-infra-serg-oper:interface = ' + str(self.interface) + ']'
+                self.interface = YLeaf(YType.str, "interface")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.forward_referenced = YLeaf(YType.boolean, "forward-referenced")
+
+                self.group_id = YLeaf(YType.uint32, "group-id")
+
+                self.interface_mapping_id = YLeaf(YType.uint32, "interface-mapping-id")
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.role = YLeaf(YType.enumeration, "role")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface",
+                                "forward_referenced",
+                                "group_id",
+                                "interface_mapping_id",
+                                "interface_name",
+                                "role") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SessionRedundancyManager.Interfaces.Interface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SessionRedundancyManager.Interfaces.Interface, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.interface.is_set or
+                    self.forward_referenced.is_set or
+                    self.group_id.is_set or
+                    self.interface_mapping_id.is_set or
+                    self.interface_name.is_set or
+                    self.role.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface.yfilter != YFilter.not_set or
+                    self.forward_referenced.yfilter != YFilter.not_set or
+                    self.group_id.yfilter != YFilter.not_set or
+                    self.interface_mapping_id.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.role.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interface" + "[interface='" + self.interface.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface.get_name_leafdata())
+                if (self.forward_referenced.is_set or self.forward_referenced.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.forward_referenced.get_name_leafdata())
+                if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.group_id.get_name_leafdata())
+                if (self.interface_mapping_id.is_set or self.interface_mapping_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_mapping_id.get_name_leafdata())
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.role.is_set or self.role.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.role.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface" or name == "forward-referenced" or name == "group-id" or name == "interface-mapping-id" or name == "interface-name" or name == "role"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface"):
+                    self.interface = value
+                    self.interface.value_namespace = name_space
+                    self.interface.value_namespace_prefix = name_space_prefix
+                if(value_path == "forward-referenced"):
+                    self.forward_referenced = value
+                    self.forward_referenced.value_namespace = name_space
+                    self.forward_referenced.value_namespace_prefix = name_space_prefix
+                if(value_path == "group-id"):
+                    self.group_id = value
+                    self.group_id.value_namespace = name_space
+                    self.group_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-mapping-id"):
+                    self.interface_mapping_id = value
+                    self.interface_mapping_id.value_namespace = name_space
+                    self.interface_mapping_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "role"):
+                    self.role = value
+                    self.role.value_namespace = name_space
+                    self.role.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.interface:
+                if (c.has_data()):
                     return True
-
-                if self.forward_referenced is not None:
-                    return True
-
-                if self.group_id is not None:
-                    return True
-
-                if self.interface_mapping_id is not None:
-                    return True
-
-                if self.interface_name is not None:
-                    return True
-
-                if self.role is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                return meta._meta_table['SessionRedundancyManager.Interfaces.Interface']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/Cisco-IOS-XR-infra-serg-oper:interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.interface is not None:
-                for child_ref in self.interface:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "interfaces" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interface"):
+                for c in self.interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SessionRedundancyManager.Interfaces.Interface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interface"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-            return meta._meta_table['SessionRedundancyManager.Interfaces']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Groups(object):
+    class Groups(Entity):
         """
         Session Redundancy Manager group table
         
@@ -593,13 +696,39 @@ class SessionRedundancyManager(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.group = YList()
-            self.group.parent = self
-            self.group.name = 'group'
+            super(SessionRedundancyManager.Groups, self).__init__()
+
+            self.yang_name = "groups"
+            self.yang_parent_name = "session-redundancy-manager"
+
+            self.group = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SessionRedundancyManager.Groups, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SessionRedundancyManager.Groups, self).__setattr__(name, value)
 
 
-        class Group(object):
+        class Group(Entity):
             """
             Session redundancy manager group
             
@@ -661,17 +790,17 @@ class SessionRedundancyManager(object):
             .. attribute:: preferred_role
             
             	Preferred Role
-            	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+            	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
             
             .. attribute:: role
             
             	SERG Role
-            	**type**\:   :py:class:`SergShowImRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRoleEnum>`
+            	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
             
             .. attribute:: slave_mode
             
             	Slave Mode
-            	**type**\:   :py:class:`SergShowSlaveModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveModeEnum>`
+            	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
             
             
 
@@ -681,99 +810,264 @@ class SessionRedundancyManager(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.group = None
-                self.description = None
-                self.disabled = None
-                self.group_id = None
-                self.interface_count = None
-                self.node_name = None
-                self.object_tracking_status = None
-                self.peer_ipv4_address = None
-                self.peer_ipv6_address = None
-                self.preferred_role = None
-                self.role = None
-                self.slave_mode = None
+                super(SessionRedundancyManager.Groups.Group, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.group is None:
-                    raise YPYModelError('Key property group is None')
+                self.yang_name = "group"
+                self.yang_parent_name = "groups"
 
-                return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/Cisco-IOS-XR-infra-serg-oper:groups/Cisco-IOS-XR-infra-serg-oper:group[Cisco-IOS-XR-infra-serg-oper:group = ' + str(self.group) + ']'
+                self.group = YLeaf(YType.str, "group")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.description = YLeaf(YType.str, "description")
+
+                self.disabled = YLeaf(YType.boolean, "disabled")
+
+                self.group_id = YLeaf(YType.uint32, "group-id")
+
+                self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
+                self.object_tracking_status = YLeaf(YType.boolean, "object-tracking-status")
+
+                self.peer_ipv4_address = YLeaf(YType.str, "peer-ipv4-address")
+
+                self.peer_ipv6_address = YLeaf(YType.str, "peer-ipv6-address")
+
+                self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
+
+                self.role = YLeaf(YType.enumeration, "role")
+
+                self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("group",
+                                "description",
+                                "disabled",
+                                "group_id",
+                                "interface_count",
+                                "node_name",
+                                "object_tracking_status",
+                                "peer_ipv4_address",
+                                "peer_ipv6_address",
+                                "preferred_role",
+                                "role",
+                                "slave_mode") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SessionRedundancyManager.Groups.Group, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SessionRedundancyManager.Groups.Group, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.group.is_set or
+                    self.description.is_set or
+                    self.disabled.is_set or
+                    self.group_id.is_set or
+                    self.interface_count.is_set or
+                    self.node_name.is_set or
+                    self.object_tracking_status.is_set or
+                    self.peer_ipv4_address.is_set or
+                    self.peer_ipv6_address.is_set or
+                    self.preferred_role.is_set or
+                    self.role.is_set or
+                    self.slave_mode.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.group.yfilter != YFilter.not_set or
+                    self.description.yfilter != YFilter.not_set or
+                    self.disabled.yfilter != YFilter.not_set or
+                    self.group_id.yfilter != YFilter.not_set or
+                    self.interface_count.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    self.object_tracking_status.yfilter != YFilter.not_set or
+                    self.peer_ipv4_address.yfilter != YFilter.not_set or
+                    self.peer_ipv6_address.yfilter != YFilter.not_set or
+                    self.preferred_role.yfilter != YFilter.not_set or
+                    self.role.yfilter != YFilter.not_set or
+                    self.slave_mode.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "group" + "[group='" + self.group.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/groups/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.group.is_set or self.group.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.group.get_name_leafdata())
+                if (self.description.is_set or self.description.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.description.get_name_leafdata())
+                if (self.disabled.is_set or self.disabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.disabled.get_name_leafdata())
+                if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.group_id.get_name_leafdata())
+                if (self.interface_count.is_set or self.interface_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_count.get_name_leafdata())
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+                if (self.object_tracking_status.is_set or self.object_tracking_status.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.object_tracking_status.get_name_leafdata())
+                if (self.peer_ipv4_address.is_set or self.peer_ipv4_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.peer_ipv4_address.get_name_leafdata())
+                if (self.peer_ipv6_address.is_set or self.peer_ipv6_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.peer_ipv6_address.get_name_leafdata())
+                if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.preferred_role.get_name_leafdata())
+                if (self.role.is_set or self.role.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.role.get_name_leafdata())
+                if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.slave_mode.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "group" or name == "description" or name == "disabled" or name == "group-id" or name == "interface-count" or name == "node-name" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "preferred-role" or name == "role" or name == "slave-mode"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.group is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "group"):
+                    self.group = value
+                    self.group.value_namespace = name_space
+                    self.group.value_namespace_prefix = name_space_prefix
+                if(value_path == "description"):
+                    self.description = value
+                    self.description.value_namespace = name_space
+                    self.description.value_namespace_prefix = name_space_prefix
+                if(value_path == "disabled"):
+                    self.disabled = value
+                    self.disabled.value_namespace = name_space
+                    self.disabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "group-id"):
+                    self.group_id = value
+                    self.group_id.value_namespace = name_space
+                    self.group_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-count"):
+                    self.interface_count = value
+                    self.interface_count.value_namespace = name_space
+                    self.interface_count.value_namespace_prefix = name_space_prefix
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "object-tracking-status"):
+                    self.object_tracking_status = value
+                    self.object_tracking_status.value_namespace = name_space
+                    self.object_tracking_status.value_namespace_prefix = name_space_prefix
+                if(value_path == "peer-ipv4-address"):
+                    self.peer_ipv4_address = value
+                    self.peer_ipv4_address.value_namespace = name_space
+                    self.peer_ipv4_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "peer-ipv6-address"):
+                    self.peer_ipv6_address = value
+                    self.peer_ipv6_address.value_namespace = name_space
+                    self.peer_ipv6_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "preferred-role"):
+                    self.preferred_role = value
+                    self.preferred_role.value_namespace = name_space
+                    self.preferred_role.value_namespace_prefix = name_space_prefix
+                if(value_path == "role"):
+                    self.role = value
+                    self.role.value_namespace = name_space
+                    self.role.value_namespace_prefix = name_space_prefix
+                if(value_path == "slave-mode"):
+                    self.slave_mode = value
+                    self.slave_mode.value_namespace = name_space
+                    self.slave_mode.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.group:
+                if (c.has_data()):
                     return True
-
-                if self.description is not None:
-                    return True
-
-                if self.disabled is not None:
-                    return True
-
-                if self.group_id is not None:
-                    return True
-
-                if self.interface_count is not None:
-                    return True
-
-                if self.node_name is not None:
-                    return True
-
-                if self.object_tracking_status is not None:
-                    return True
-
-                if self.peer_ipv4_address is not None:
-                    return True
-
-                if self.peer_ipv6_address is not None:
-                    return True
-
-                if self.preferred_role is not None:
-                    return True
-
-                if self.role is not None:
-                    return True
-
-                if self.slave_mode is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                return meta._meta_table['SessionRedundancyManager.Groups.Group']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/Cisco-IOS-XR-infra-serg-oper:groups'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.group is not None:
-                for child_ref in self.group:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.group:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "groups" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "group"):
+                for c in self.group:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SessionRedundancyManager.Groups.Group()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.group.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "group"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-            return meta._meta_table['SessionRedundancyManager.Groups']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Summary(object):
+    class Summary(Entity):
         """
         Session redundancy manager summary
         
@@ -832,7 +1126,7 @@ class SessionRedundancyManager(object):
         .. attribute:: preferred_role
         
         	Preferred Role
-        	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+        	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
         
         .. attribute:: slave_group_count
         
@@ -851,7 +1145,7 @@ class SessionRedundancyManager(object):
         .. attribute:: slave_mode
         
         	Slave Mode
-        	**type**\:   :py:class:`SergShowSlaveModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveModeEnum>`
+        	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
         
         .. attribute:: source_interface_ipv4_address
         
@@ -885,117 +1179,320 @@ class SessionRedundancyManager(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.active_state = None
-            self.disabled = None
-            self.disabled_group_count = None
-            self.group_count = None
-            self.hold_timer = None
-            self.interface_count = None
-            self.master_group_count = None
-            self.master_interface_count = None
-            self.preferred_role = None
-            self.slave_group_count = None
-            self.slave_interface_count = None
-            self.slave_mode = None
-            self.source_interface_ipv4_address = None
-            self.source_interface_ipv6_address = None
-            self.source_interface_name = None
-            self.vrf_name = None
+            super(SessionRedundancyManager.Summary, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "summary"
+            self.yang_parent_name = "session-redundancy-manager"
 
-            return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/Cisco-IOS-XR-infra-serg-oper:summary'
+            self.active_state = YLeaf(YType.boolean, "active-state")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.disabled = YLeaf(YType.boolean, "disabled")
+
+            self.disabled_group_count = YLeaf(YType.uint32, "disabled-group-count")
+
+            self.group_count = YLeaf(YType.uint32, "group-count")
+
+            self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+
+            self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+            self.master_group_count = YLeaf(YType.uint32, "master-group-count")
+
+            self.master_interface_count = YLeaf(YType.uint32, "master-interface-count")
+
+            self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
+
+            self.slave_group_count = YLeaf(YType.uint32, "slave-group-count")
+
+            self.slave_interface_count = YLeaf(YType.uint32, "slave-interface-count")
+
+            self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+
+            self.source_interface_ipv4_address = YLeaf(YType.str, "source-interface-ipv4-address")
+
+            self.source_interface_ipv6_address = YLeaf(YType.str, "source-interface-ipv6-address")
+
+            self.source_interface_name = YLeaf(YType.str, "source-interface-name")
+
+            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("active_state",
+                            "disabled",
+                            "disabled_group_count",
+                            "group_count",
+                            "hold_timer",
+                            "interface_count",
+                            "master_group_count",
+                            "master_interface_count",
+                            "preferred_role",
+                            "slave_group_count",
+                            "slave_interface_count",
+                            "slave_mode",
+                            "source_interface_ipv4_address",
+                            "source_interface_ipv6_address",
+                            "source_interface_name",
+                            "vrf_name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SessionRedundancyManager.Summary, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SessionRedundancyManager.Summary, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.active_state.is_set or
+                self.disabled.is_set or
+                self.disabled_group_count.is_set or
+                self.group_count.is_set or
+                self.hold_timer.is_set or
+                self.interface_count.is_set or
+                self.master_group_count.is_set or
+                self.master_interface_count.is_set or
+                self.preferred_role.is_set or
+                self.slave_group_count.is_set or
+                self.slave_interface_count.is_set or
+                self.slave_mode.is_set or
+                self.source_interface_ipv4_address.is_set or
+                self.source_interface_ipv6_address.is_set or
+                self.source_interface_name.is_set or
+                self.vrf_name.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.active_state.yfilter != YFilter.not_set or
+                self.disabled.yfilter != YFilter.not_set or
+                self.disabled_group_count.yfilter != YFilter.not_set or
+                self.group_count.yfilter != YFilter.not_set or
+                self.hold_timer.yfilter != YFilter.not_set or
+                self.interface_count.yfilter != YFilter.not_set or
+                self.master_group_count.yfilter != YFilter.not_set or
+                self.master_interface_count.yfilter != YFilter.not_set or
+                self.preferred_role.yfilter != YFilter.not_set or
+                self.slave_group_count.yfilter != YFilter.not_set or
+                self.slave_interface_count.yfilter != YFilter.not_set or
+                self.slave_mode.yfilter != YFilter.not_set or
+                self.source_interface_ipv4_address.yfilter != YFilter.not_set or
+                self.source_interface_ipv6_address.yfilter != YFilter.not_set or
+                self.source_interface_name.yfilter != YFilter.not_set or
+                self.vrf_name.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "summary" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.active_state.is_set or self.active_state.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.active_state.get_name_leafdata())
+            if (self.disabled.is_set or self.disabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.disabled.get_name_leafdata())
+            if (self.disabled_group_count.is_set or self.disabled_group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.disabled_group_count.get_name_leafdata())
+            if (self.group_count.is_set or self.group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.group_count.get_name_leafdata())
+            if (self.hold_timer.is_set or self.hold_timer.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.hold_timer.get_name_leafdata())
+            if (self.interface_count.is_set or self.interface_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.interface_count.get_name_leafdata())
+            if (self.master_group_count.is_set or self.master_group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.master_group_count.get_name_leafdata())
+            if (self.master_interface_count.is_set or self.master_interface_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.master_interface_count.get_name_leafdata())
+            if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.preferred_role.get_name_leafdata())
+            if (self.slave_group_count.is_set or self.slave_group_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.slave_group_count.get_name_leafdata())
+            if (self.slave_interface_count.is_set or self.slave_interface_count.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.slave_interface_count.get_name_leafdata())
+            if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.slave_mode.get_name_leafdata())
+            if (self.source_interface_ipv4_address.is_set or self.source_interface_ipv4_address.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source_interface_ipv4_address.get_name_leafdata())
+            if (self.source_interface_ipv6_address.is_set or self.source_interface_ipv6_address.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source_interface_ipv6_address.get_name_leafdata())
+            if (self.source_interface_name.is_set or self.source_interface_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.source_interface_name.get_name_leafdata())
+            if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "active-state" or name == "disabled" or name == "disabled-group-count" or name == "group-count" or name == "hold-timer" or name == "interface-count" or name == "master-group-count" or name == "master-interface-count" or name == "preferred-role" or name == "slave-group-count" or name == "slave-interface-count" or name == "slave-mode" or name == "source-interface-ipv4-address" or name == "source-interface-ipv6-address" or name == "source-interface-name" or name == "vrf-name"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.active_state is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "active-state"):
+                self.active_state = value
+                self.active_state.value_namespace = name_space
+                self.active_state.value_namespace_prefix = name_space_prefix
+            if(value_path == "disabled"):
+                self.disabled = value
+                self.disabled.value_namespace = name_space
+                self.disabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "disabled-group-count"):
+                self.disabled_group_count = value
+                self.disabled_group_count.value_namespace = name_space
+                self.disabled_group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "group-count"):
+                self.group_count = value
+                self.group_count.value_namespace = name_space
+                self.group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "hold-timer"):
+                self.hold_timer = value
+                self.hold_timer.value_namespace = name_space
+                self.hold_timer.value_namespace_prefix = name_space_prefix
+            if(value_path == "interface-count"):
+                self.interface_count = value
+                self.interface_count.value_namespace = name_space
+                self.interface_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "master-group-count"):
+                self.master_group_count = value
+                self.master_group_count.value_namespace = name_space
+                self.master_group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "master-interface-count"):
+                self.master_interface_count = value
+                self.master_interface_count.value_namespace = name_space
+                self.master_interface_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "preferred-role"):
+                self.preferred_role = value
+                self.preferred_role.value_namespace = name_space
+                self.preferred_role.value_namespace_prefix = name_space_prefix
+            if(value_path == "slave-group-count"):
+                self.slave_group_count = value
+                self.slave_group_count.value_namespace = name_space
+                self.slave_group_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "slave-interface-count"):
+                self.slave_interface_count = value
+                self.slave_interface_count.value_namespace = name_space
+                self.slave_interface_count.value_namespace_prefix = name_space_prefix
+            if(value_path == "slave-mode"):
+                self.slave_mode = value
+                self.slave_mode.value_namespace = name_space
+                self.slave_mode.value_namespace_prefix = name_space_prefix
+            if(value_path == "source-interface-ipv4-address"):
+                self.source_interface_ipv4_address = value
+                self.source_interface_ipv4_address.value_namespace = name_space
+                self.source_interface_ipv4_address.value_namespace_prefix = name_space_prefix
+            if(value_path == "source-interface-ipv6-address"):
+                self.source_interface_ipv6_address = value
+                self.source_interface_ipv6_address.value_namespace = name_space
+                self.source_interface_ipv6_address.value_namespace_prefix = name_space_prefix
+            if(value_path == "source-interface-name"):
+                self.source_interface_name = value
+                self.source_interface_name.value_namespace = name_space
+                self.source_interface_name.value_namespace_prefix = name_space_prefix
+            if(value_path == "vrf-name"):
+                self.vrf_name = value
+                self.vrf_name.value_namespace = name_space
+                self.vrf_name.value_namespace_prefix = name_space_prefix
 
-            if self.disabled is not None:
-                return True
+    def has_data(self):
+        return (
+            (self.groups is not None and self.groups.has_data()) or
+            (self.interfaces is not None and self.interfaces.has_data()) or
+            (self.summary is not None and self.summary.has_data()))
 
-            if self.disabled_group_count is not None:
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.groups is not None and self.groups.has_operation()) or
+            (self.interfaces is not None and self.interfaces.has_operation()) or
+            (self.summary is not None and self.summary.has_operation()))
 
-            if self.group_count is not None:
-                return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager" + path_buffer
 
-            if self.hold_timer is not None:
-                return True
+        return path_buffer
 
-            if self.interface_count is not None:
-                return True
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-            if self.master_group_count is not None:
-                return True
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-            if self.master_interface_count is not None:
-                return True
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-            if self.preferred_role is not None:
-                return True
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-            if self.slave_group_count is not None:
-                return True
+        if (child_yang_name == "groups"):
+            if (self.groups is None):
+                self.groups = SessionRedundancyManager.Groups()
+                self.groups.parent = self
+                self._children_name_map["groups"] = "groups"
+            return self.groups
 
-            if self.slave_interface_count is not None:
-                return True
+        if (child_yang_name == "interfaces"):
+            if (self.interfaces is None):
+                self.interfaces = SessionRedundancyManager.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+            return self.interfaces
 
-            if self.slave_mode is not None:
-                return True
+        if (child_yang_name == "summary"):
+            if (self.summary is None):
+                self.summary = SessionRedundancyManager.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+            return self.summary
 
-            if self.source_interface_ipv4_address is not None:
-                return True
+        return None
 
-            if self.source_interface_ipv6_address is not None:
-                return True
-
-            if self.source_interface_name is not None:
-                return True
-
-            if self.vrf_name is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-            return meta._meta_table['SessionRedundancyManager.Summary']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "groups" or name == "interfaces" or name == "summary"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.groups is not None and self.groups._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.interfaces is not None and self.interfaces._has_data():
-            return True
+    def clone_ptr(self):
+        self._top_entity = SessionRedundancyManager()
+        return self._top_entity
 
-        if self.summary is not None and self.summary._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SessionRedundancyManager']['meta_info']
-
-
-class SessionRedundancyAgent(object):
+class SessionRedundancyAgent(Entity):
     """
     session redundancy agent
     
@@ -1012,11 +1509,19 @@ class SessionRedundancyAgent(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(SessionRedundancyAgent, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "session-redundancy-agent"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-serg-oper"
+
         self.nodes = SessionRedundancyAgent.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         List of nodes for which session data is
         collected
@@ -1034,13 +1539,39 @@ class SessionRedundancyAgent(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(SessionRedundancyAgent.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "session-redundancy-agent"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SessionRedundancyAgent.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SessionRedundancyAgent.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             Session data for a particular node
             
@@ -1094,25 +1625,74 @@ class SessionRedundancyAgent(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(SessionRedundancyAgent.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.client_ids = SessionRedundancyAgent.Nodes.Node.ClientIds()
                 self.client_ids.parent = self
+                self._children_name_map["client_ids"] = "client-ids"
+                self._children_yang_names.add("client-ids")
+
                 self.group_id_xr = SessionRedundancyAgent.Nodes.Node.GroupIdXr()
                 self.group_id_xr.parent = self
+                self._children_name_map["group_id_xr"] = "group-id-xr"
+                self._children_yang_names.add("group-id-xr")
+
                 self.group_ids = SessionRedundancyAgent.Nodes.Node.GroupIds()
                 self.group_ids.parent = self
+                self._children_name_map["group_ids"] = "group-ids"
+                self._children_yang_names.add("group-ids")
+
                 self.group_summaries = SessionRedundancyAgent.Nodes.Node.GroupSummaries()
                 self.group_summaries.parent = self
+                self._children_name_map["group_summaries"] = "group-summaries"
+                self._children_yang_names.add("group-summaries")
+
                 self.interfaces = SessionRedundancyAgent.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
                 self.memory = SessionRedundancyAgent.Nodes.Node.Memory()
                 self.memory.parent = self
+                self._children_name_map["memory"] = "memory"
+                self._children_yang_names.add("memory")
+
                 self.stats_global = SessionRedundancyAgent.Nodes.Node.StatsGlobal()
                 self.stats_global.parent = self
+                self._children_name_map["stats_global"] = "stats-global"
+                self._children_yang_names.add("stats-global")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SessionRedundancyAgent.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SessionRedundancyAgent.Nodes.Node, self).__setattr__(name, value)
 
 
-            class GroupIdXr(object):
+            class GroupIdXr(Entity):
                 """
                 Data for particular subscriber group session
                 
@@ -1129,13 +1709,39 @@ class SessionRedundancyAgent(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.group_id = YList()
-                    self.group_id.parent = self
-                    self.group_id.name = 'group_id'
+                    super(SessionRedundancyAgent.Nodes.Node.GroupIdXr, self).__init__()
+
+                    self.yang_name = "group-id-xr"
+                    self.yang_parent_name = "node"
+
+                    self.group_id = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIdXr, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIdXr, self).__setattr__(name, value)
 
 
-                class GroupId(object):
+                class GroupId(Entity):
                     """
                     Group id for subscriber group session
                     
@@ -1191,29 +1797,64 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.group_id = None
-                        self.group_id_xr = None
-                        self.interface_name = None
-                        self.key_index = None
-                        self.negative_acknowledgement_update_all = None
-                        self.role_master = None
-                        self.session_detailed_information = YList()
-                        self.session_detailed_information.parent = self
-                        self.session_detailed_information.name = 'session_detailed_information'
-                        self.session_sync_error_information = YList()
-                        self.session_sync_error_information.parent = self
-                        self.session_sync_error_information.name = 'session_sync_error_information'
+                        super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__init__()
+
+                        self.yang_name = "group-id"
+                        self.yang_parent_name = "group-id-xr"
+
+                        self.group_id = YLeaf(YType.str, "group-id")
+
+                        self.group_id_xr = YLeaf(YType.uint32, "group-id-xr")
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.key_index = YLeaf(YType.str, "key-index")
+
+                        self.negative_acknowledgement_update_all = YLeaf(YType.boolean, "negative-acknowledgement-update-all")
+
+                        self.role_master = YLeaf(YType.boolean, "role-master")
+
+                        self.session_detailed_information = YList(self)
+                        self.session_sync_error_information = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("group_id",
+                                        "group_id_xr",
+                                        "interface_name",
+                                        "key_index",
+                                        "negative_acknowledgement_update_all",
+                                        "role_master") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, self).__setattr__(name, value)
 
 
-                    class SessionDetailedInformation(object):
+                    class SessionDetailedInformation(Entity):
                         """
                         More Session Information
                         
                         .. attribute:: component
                         
                         	Component
-                        	**type**\:   :py:class:`SergShowCompEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowCompEnum>`
+                        	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
                         .. attribute:: marked_for_cleanup
                         
@@ -1225,10 +1866,10 @@ class SessionRedundancyAgent(object):
                         	Marked For Sweeping
                         	**type**\:  bool
                         
-                        .. attribute:: operation
+                        .. attribute:: operation_
                         
                         	Operation Code
-                        	**type**\:   :py:class:`SergShowSessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionOperationEnum>`
+                        	**type**\:   :py:class:`SergShowSessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionOperation>`
                         
                         .. attribute:: tx_list_queue_fail
                         
@@ -1243,49 +1884,130 @@ class SessionRedundancyAgent(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.component = None
-                            self.marked_for_cleanup = None
-                            self.marked_for_sweeping = None
-                            self.operation = None
-                            self.tx_list_queue_fail = None
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "session-detailed-information"
+                            self.yang_parent_name = "group-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:session-detailed-information'
+                            self.component = YLeaf(YType.enumeration, "component")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.marked_for_cleanup = YLeaf(YType.boolean, "marked-for-cleanup")
+
+                            self.marked_for_sweeping = YLeaf(YType.boolean, "marked-for-sweeping")
+
+                            self.operation_ = YLeaf(YType.enumeration, "operation")
+
+                            self.tx_list_queue_fail = YLeaf(YType.boolean, "tx-list-queue-fail")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("component",
+                                            "marked_for_cleanup",
+                                            "marked_for_sweeping",
+                                            "operation_",
+                                            "tx_list_queue_fail") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.component.is_set or
+                                self.marked_for_cleanup.is_set or
+                                self.marked_for_sweeping.is_set or
+                                self.operation_.is_set or
+                                self.tx_list_queue_fail.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.component.yfilter != YFilter.not_set or
+                                self.marked_for_cleanup.yfilter != YFilter.not_set or
+                                self.marked_for_sweeping.yfilter != YFilter.not_set or
+                                self.operation_.yfilter != YFilter.not_set or
+                                self.tx_list_queue_fail.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "session-detailed-information" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.component.is_set or self.component.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.component.get_name_leafdata())
+                            if (self.marked_for_cleanup.is_set or self.marked_for_cleanup.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.marked_for_cleanup.get_name_leafdata())
+                            if (self.marked_for_sweeping.is_set or self.marked_for_sweeping.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.marked_for_sweeping.get_name_leafdata())
+                            if (self.operation_.is_set or self.operation_.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.operation_.get_name_leafdata())
+                            if (self.tx_list_queue_fail.is_set or self.tx_list_queue_fail.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.tx_list_queue_fail.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "component" or name == "marked-for-cleanup" or name == "marked-for-sweeping" or name == "operation" or name == "tx-list-queue-fail"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.component is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "component"):
+                                self.component = value
+                                self.component.value_namespace = name_space
+                                self.component.value_namespace_prefix = name_space_prefix
+                            if(value_path == "marked-for-cleanup"):
+                                self.marked_for_cleanup = value
+                                self.marked_for_cleanup.value_namespace = name_space
+                                self.marked_for_cleanup.value_namespace_prefix = name_space_prefix
+                            if(value_path == "marked-for-sweeping"):
+                                self.marked_for_sweeping = value
+                                self.marked_for_sweeping.value_namespace = name_space
+                                self.marked_for_sweeping.value_namespace_prefix = name_space_prefix
+                            if(value_path == "operation"):
+                                self.operation_ = value
+                                self.operation_.value_namespace = name_space
+                                self.operation_.value_namespace_prefix = name_space_prefix
+                            if(value_path == "tx-list-queue-fail"):
+                                self.tx_list_queue_fail = value
+                                self.tx_list_queue_fail.value_namespace = name_space
+                                self.tx_list_queue_fail.value_namespace_prefix = name_space_prefix
 
-                            if self.marked_for_cleanup is not None:
-                                return True
 
-                            if self.marked_for_sweeping is not None:
-                                return True
-
-                            if self.operation is not None:
-                                return True
-
-                            if self.tx_list_queue_fail is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation']['meta_info']
-
-
-                    class SessionSyncErrorInformation(object):
+                    class SessionSyncErrorInformation(Entity):
                         """
                         Session Synchroniation Error Information
                         
@@ -1299,7 +2021,7 @@ class SessionRedundancyAgent(object):
                         .. attribute:: last_error_type
                         
                         	Last Error Type
-                        	**type**\:   :py:class:`SergShowSessionErrorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionErrorEnum>`
+                        	**type**\:   :py:class:`SergShowSessionError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSessionError>`
                         
                         .. attribute:: sync_error_count
                         
@@ -1316,114 +2038,288 @@ class SessionRedundancyAgent(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.last_error_code = None
-                            self.last_error_type = None
-                            self.sync_error_count = None
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "session-sync-error-information"
+                            self.yang_parent_name = "group-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:session-sync-error-information'
+                            self.last_error_code = YLeaf(YType.uint32, "last-error-code")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.last_error_type = YLeaf(YType.enumeration, "last-error-type")
+
+                            self.sync_error_count = YLeaf(YType.uint16, "sync-error-count")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("last_error_code",
+                                            "last_error_type",
+                                            "sync_error_count") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.last_error_code.is_set or
+                                self.last_error_type.is_set or
+                                self.sync_error_count.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.last_error_code.yfilter != YFilter.not_set or
+                                self.last_error_type.yfilter != YFilter.not_set or
+                                self.sync_error_count.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "session-sync-error-information" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.last_error_code.is_set or self.last_error_code.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_error_code.get_name_leafdata())
+                            if (self.last_error_type.is_set or self.last_error_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_error_type.get_name_leafdata())
+                            if (self.sync_error_count.is_set or self.sync_error_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sync_error_count.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "last-error-code" or name == "last-error-type" or name == "sync-error-count"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.last_error_code is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "last-error-code"):
+                                self.last_error_code = value
+                                self.last_error_code.value_namespace = name_space
+                                self.last_error_code.value_namespace_prefix = name_space_prefix
+                            if(value_path == "last-error-type"):
+                                self.last_error_type = value
+                                self.last_error_type.value_namespace = name_space
+                                self.last_error_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sync-error-count"):
+                                self.sync_error_count = value
+                                self.sync_error_count.value_namespace = name_space
+                                self.sync_error_count.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.session_detailed_information:
+                            if (c.has_data()):
                                 return True
-
-                            if self.last_error_type is not None:
+                        for c in self.session_sync_error_information:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.group_id.is_set or
+                            self.group_id_xr.is_set or
+                            self.interface_name.is_set or
+                            self.key_index.is_set or
+                            self.negative_acknowledgement_update_all.is_set or
+                            self.role_master.is_set)
 
-                            if self.sync_error_count is not None:
+                    def has_operation(self):
+                        for c in self.session_detailed_information:
+                            if (c.has_operation()):
                                 return True
+                        for c in self.session_sync_error_information:
+                            if (c.has_operation()):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.group_id.yfilter != YFilter.not_set or
+                            self.group_id_xr.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.key_index.yfilter != YFilter.not_set or
+                            self.negative_acknowledgement_update_all.yfilter != YFilter.not_set or
+                            self.role_master.yfilter != YFilter.not_set)
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "group-id" + "[group-id='" + self.group_id.get() + "']" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.group_id is None:
-                            raise YPYModelError('Key property group_id is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:group-id[Cisco-IOS-XR-infra-serg-oper:group-id = ' + str(self.group_id) + ']'
+                        leaf_name_data = LeafDataList()
+                        if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_id.get_name_leafdata())
+                        if (self.group_id_xr.is_set or self.group_id_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_id_xr.get_name_leafdata())
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.key_index.is_set or self.key_index.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.key_index.get_name_leafdata())
+                        if (self.negative_acknowledgement_update_all.is_set or self.negative_acknowledgement_update_all.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.negative_acknowledgement_update_all.get_name_leafdata())
+                        if (self.role_master.is_set or self.role_master.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.role_master.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "session-detailed-information"):
+                            for c in self.session_detailed_information:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.session_detailed_information.append(c)
+                            return c
+
+                        if (child_yang_name == "session-sync-error-information"):
+                            for c in self.session_sync_error_information:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.session_sync_error_information.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-detailed-information" or name == "session-sync-error-information" or name == "group-id" or name == "group-id-xr" or name == "interface-name" or name == "key-index" or name == "negative-acknowledgement-update-all" or name == "role-master"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.group_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "group-id"):
+                            self.group_id = value
+                            self.group_id.value_namespace = name_space
+                            self.group_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "group-id-xr"):
+                            self.group_id_xr = value
+                            self.group_id_xr.value_namespace = name_space
+                            self.group_id_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "key-index"):
+                            self.key_index = value
+                            self.key_index.value_namespace = name_space
+                            self.key_index.value_namespace_prefix = name_space_prefix
+                        if(value_path == "negative-acknowledgement-update-all"):
+                            self.negative_acknowledgement_update_all = value
+                            self.negative_acknowledgement_update_all.value_namespace = name_space
+                            self.negative_acknowledgement_update_all.value_namespace_prefix = name_space_prefix
+                        if(value_path == "role-master"):
+                            self.role_master = value
+                            self.role_master.value_namespace = name_space
+                            self.role_master.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.group_id:
+                        if (c.has_data()):
                             return True
-
-                        if self.group_id_xr is not None:
-                            return True
-
-                        if self.interface_name is not None:
-                            return True
-
-                        if self.key_index is not None:
-                            return True
-
-                        if self.negative_acknowledgement_update_all is not None:
-                            return True
-
-                        if self.role_master is not None:
-                            return True
-
-                        if self.session_detailed_information is not None:
-                            for child_ref in self.session_detailed_information:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.session_sync_error_information is not None:
-                            for child_ref in self.session_sync_error_information:
-                                if child_ref._has_data():
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:group-id-xr'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.group_id is not None:
-                        for child_ref in self.group_id:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.group_id:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "group-id-xr" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "group-id"):
+                        for c in self.group_id:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.group_id.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "group-id"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIdXr']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class ClientIds(object):
+            class ClientIds(Entity):
                 """
                 Stats Client
                 
@@ -1440,13 +2336,39 @@ class SessionRedundancyAgent(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.client_id = YList()
-                    self.client_id.parent = self
-                    self.client_id.name = 'client_id'
+                    super(SessionRedundancyAgent.Nodes.Node.ClientIds, self).__init__()
+
+                    self.yang_name = "client-ids"
+                    self.yang_parent_name = "node"
+
+                    self.client_id = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancyAgent.Nodes.Node.ClientIds, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancyAgent.Nodes.Node.ClientIds, self).__setattr__(name, value)
 
 
-                class ClientId(object):
+                class ClientId(Entity):
                     """
                     Specify stats client
                     
@@ -1794,247 +2716,660 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.stats_client_id = None
-                        self.clean_call_back = None
-                        self.last_replay_all_count = None
-                        self.tx_list_active_not_ok = None
-                        self.tx_list_active_ok = None
-                        self.tx_list_clear_all_add_not_ok = None
-                        self.tx_list_clear_all_add_ok = None
-                        self.tx_list_clear_selected_add_not_ok = None
-                        self.tx_list_clear_selected_add_ok = None
-                        self.tx_list_client_cleanup = None
-                        self.tx_list_client_connection_down = None
-                        self.tx_list_client_de_registration = None
-                        self.tx_list_client_registration_not_ok = None
-                        self.tx_list_client_registration_ok = None
-                        self.tx_list_de_active_not_ok = None
-                        self.tx_list_de_active_ok = None
-                        self.tx_list_encode_session_session_ok = None
-                        self.tx_list_encode_session_session_partial_write = None
-                        self.tx_list_end_of_download_add_not_ok = None
-                        self.tx_list_end_of_download_add_ok = None
-                        self.tx_list_end_of_message_add_not_ok = None
-                        self.tx_list_end_of_message_add_ok = None
-                        self.tx_list_receive_command_replay_all = None
-                        self.tx_list_receive_command_replay_selected = None
-                        self.tx_list_receive_session_session_clear_all = None
-                        self.tx_list_receive_session_session_clear_selected = None
-                        self.tx_list_receive_session_session_delete_invalid = None
-                        self.tx_list_receive_session_session_delete_valid = None
-                        self.tx_list_receive_session_session_eod_all = None
-                        self.tx_list_receive_session_session_eod_selected = None
-                        self.tx_list_receive_session_session_eoms = None
-                        self.tx_list_receive_session_session_neg_ack = None
-                        self.tx_list_receive_session_session_neg_ack_not_ok = None
-                        self.tx_list_receive_session_session_sod_all = None
-                        self.tx_list_receive_session_session_sod_selected = None
-                        self.tx_list_receive_session_session_update_invalid = None
-                        self.tx_list_receive_session_session_update_valid = None
-                        self.tx_list_replay_all_add_not_ok = None
-                        self.tx_list_replay_all_add_ok = None
-                        self.tx_list_replay_selected_add_not_ok = None
-                        self.tx_list_replay_selected_add_ok = None
-                        self.tx_list_session_session_add_not_ok = None
-                        self.tx_list_session_session_add_ok = None
-                        self.tx_list_session_session_delete = None
-                        self.tx_list_session_session_update_not_ok = None
-                        self.tx_list_session_session_update_ok = None
-                        self.tx_list_start_of_download_add_not_ok = None
-                        self.tx_list_start_of_download_add_ok = None
+                        super(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.stats_client_id is None:
-                            raise YPYModelError('Key property stats_client_id is None')
+                        self.yang_name = "client-id"
+                        self.yang_parent_name = "client-ids"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:client-id[Cisco-IOS-XR-infra-serg-oper:stats-client-id = ' + str(self.stats_client_id) + ']'
+                        self.stats_client_id = YLeaf(YType.int32, "stats-client-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.clean_call_back = YLeaf(YType.uint32, "clean-call-back")
+
+                        self.last_replay_all_count = YLeaf(YType.uint32, "last-replay-all-count")
+
+                        self.tx_list_active_not_ok = YLeaf(YType.uint32, "tx-list-active-not-ok")
+
+                        self.tx_list_active_ok = YLeaf(YType.uint32, "tx-list-active-ok")
+
+                        self.tx_list_clear_all_add_not_ok = YLeaf(YType.uint32, "tx-list-clear-all-add-not-ok")
+
+                        self.tx_list_clear_all_add_ok = YLeaf(YType.uint32, "tx-list-clear-all-add-ok")
+
+                        self.tx_list_clear_selected_add_not_ok = YLeaf(YType.uint32, "tx-list-clear-selected-add-not-ok")
+
+                        self.tx_list_clear_selected_add_ok = YLeaf(YType.uint32, "tx-list-clear-selected-add-ok")
+
+                        self.tx_list_client_cleanup = YLeaf(YType.uint32, "tx-list-client-cleanup")
+
+                        self.tx_list_client_connection_down = YLeaf(YType.uint32, "tx-list-client-connection-down")
+
+                        self.tx_list_client_de_registration = YLeaf(YType.uint32, "tx-list-client-de-registration")
+
+                        self.tx_list_client_registration_not_ok = YLeaf(YType.uint32, "tx-list-client-registration-not-ok")
+
+                        self.tx_list_client_registration_ok = YLeaf(YType.uint32, "tx-list-client-registration-ok")
+
+                        self.tx_list_de_active_not_ok = YLeaf(YType.uint32, "tx-list-de-active-not-ok")
+
+                        self.tx_list_de_active_ok = YLeaf(YType.uint32, "tx-list-de-active-ok")
+
+                        self.tx_list_encode_session_session_ok = YLeaf(YType.uint32, "tx-list-encode-session-session-ok")
+
+                        self.tx_list_encode_session_session_partial_write = YLeaf(YType.uint32, "tx-list-encode-session-session-partial-write")
+
+                        self.tx_list_end_of_download_add_not_ok = YLeaf(YType.uint32, "tx-list-end-of-download-add-not-ok")
+
+                        self.tx_list_end_of_download_add_ok = YLeaf(YType.uint32, "tx-list-end-of-download-add-ok")
+
+                        self.tx_list_end_of_message_add_not_ok = YLeaf(YType.uint32, "tx-list-end-of-message-add-not-ok")
+
+                        self.tx_list_end_of_message_add_ok = YLeaf(YType.uint32, "tx-list-end-of-message-add-ok")
+
+                        self.tx_list_receive_command_replay_all = YLeaf(YType.uint32, "tx-list-receive-command-replay-all")
+
+                        self.tx_list_receive_command_replay_selected = YLeaf(YType.uint32, "tx-list-receive-command-replay-selected")
+
+                        self.tx_list_receive_session_session_clear_all = YLeaf(YType.uint32, "tx-list-receive-session-session-clear-all")
+
+                        self.tx_list_receive_session_session_clear_selected = YLeaf(YType.uint32, "tx-list-receive-session-session-clear-selected")
+
+                        self.tx_list_receive_session_session_delete_invalid = YLeaf(YType.uint32, "tx-list-receive-session-session-delete-invalid")
+
+                        self.tx_list_receive_session_session_delete_valid = YLeaf(YType.uint32, "tx-list-receive-session-session-delete-valid")
+
+                        self.tx_list_receive_session_session_eod_all = YLeaf(YType.uint32, "tx-list-receive-session-session-eod-all")
+
+                        self.tx_list_receive_session_session_eod_selected = YLeaf(YType.uint32, "tx-list-receive-session-session-eod-selected")
+
+                        self.tx_list_receive_session_session_eoms = YLeaf(YType.uint32, "tx-list-receive-session-session-eoms")
+
+                        self.tx_list_receive_session_session_neg_ack = YLeaf(YType.uint32, "tx-list-receive-session-session-neg-ack")
+
+                        self.tx_list_receive_session_session_neg_ack_not_ok = YLeaf(YType.uint32, "tx-list-receive-session-session-neg-ack-not-ok")
+
+                        self.tx_list_receive_session_session_sod_all = YLeaf(YType.uint32, "tx-list-receive-session-session-sod-all")
+
+                        self.tx_list_receive_session_session_sod_selected = YLeaf(YType.uint32, "tx-list-receive-session-session-sod-selected")
+
+                        self.tx_list_receive_session_session_update_invalid = YLeaf(YType.uint32, "tx-list-receive-session-session-update-invalid")
+
+                        self.tx_list_receive_session_session_update_valid = YLeaf(YType.uint32, "tx-list-receive-session-session-update-valid")
+
+                        self.tx_list_replay_all_add_not_ok = YLeaf(YType.uint32, "tx-list-replay-all-add-not-ok")
+
+                        self.tx_list_replay_all_add_ok = YLeaf(YType.uint32, "tx-list-replay-all-add-ok")
+
+                        self.tx_list_replay_selected_add_not_ok = YLeaf(YType.uint32, "tx-list-replay-selected-add-not-ok")
+
+                        self.tx_list_replay_selected_add_ok = YLeaf(YType.uint32, "tx-list-replay-selected-add-ok")
+
+                        self.tx_list_session_session_add_not_ok = YLeaf(YType.uint32, "tx-list-session-session-add-not-ok")
+
+                        self.tx_list_session_session_add_ok = YLeaf(YType.uint32, "tx-list-session-session-add-ok")
+
+                        self.tx_list_session_session_delete = YLeaf(YType.uint32, "tx-list-session-session-delete")
+
+                        self.tx_list_session_session_update_not_ok = YLeaf(YType.uint32, "tx-list-session-session-update-not-ok")
+
+                        self.tx_list_session_session_update_ok = YLeaf(YType.uint32, "tx-list-session-session-update-ok")
+
+                        self.tx_list_start_of_download_add_not_ok = YLeaf(YType.uint32, "tx-list-start-of-download-add-not-ok")
+
+                        self.tx_list_start_of_download_add_ok = YLeaf(YType.uint32, "tx-list-start-of-download-add-ok")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("stats_client_id",
+                                        "clean_call_back",
+                                        "last_replay_all_count",
+                                        "tx_list_active_not_ok",
+                                        "tx_list_active_ok",
+                                        "tx_list_clear_all_add_not_ok",
+                                        "tx_list_clear_all_add_ok",
+                                        "tx_list_clear_selected_add_not_ok",
+                                        "tx_list_clear_selected_add_ok",
+                                        "tx_list_client_cleanup",
+                                        "tx_list_client_connection_down",
+                                        "tx_list_client_de_registration",
+                                        "tx_list_client_registration_not_ok",
+                                        "tx_list_client_registration_ok",
+                                        "tx_list_de_active_not_ok",
+                                        "tx_list_de_active_ok",
+                                        "tx_list_encode_session_session_ok",
+                                        "tx_list_encode_session_session_partial_write",
+                                        "tx_list_end_of_download_add_not_ok",
+                                        "tx_list_end_of_download_add_ok",
+                                        "tx_list_end_of_message_add_not_ok",
+                                        "tx_list_end_of_message_add_ok",
+                                        "tx_list_receive_command_replay_all",
+                                        "tx_list_receive_command_replay_selected",
+                                        "tx_list_receive_session_session_clear_all",
+                                        "tx_list_receive_session_session_clear_selected",
+                                        "tx_list_receive_session_session_delete_invalid",
+                                        "tx_list_receive_session_session_delete_valid",
+                                        "tx_list_receive_session_session_eod_all",
+                                        "tx_list_receive_session_session_eod_selected",
+                                        "tx_list_receive_session_session_eoms",
+                                        "tx_list_receive_session_session_neg_ack",
+                                        "tx_list_receive_session_session_neg_ack_not_ok",
+                                        "tx_list_receive_session_session_sod_all",
+                                        "tx_list_receive_session_session_sod_selected",
+                                        "tx_list_receive_session_session_update_invalid",
+                                        "tx_list_receive_session_session_update_valid",
+                                        "tx_list_replay_all_add_not_ok",
+                                        "tx_list_replay_all_add_ok",
+                                        "tx_list_replay_selected_add_not_ok",
+                                        "tx_list_replay_selected_add_ok",
+                                        "tx_list_session_session_add_not_ok",
+                                        "tx_list_session_session_add_ok",
+                                        "tx_list_session_session_delete",
+                                        "tx_list_session_session_update_not_ok",
+                                        "tx_list_session_session_update_ok",
+                                        "tx_list_start_of_download_add_not_ok",
+                                        "tx_list_start_of_download_add_ok") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.stats_client_id.is_set or
+                            self.clean_call_back.is_set or
+                            self.last_replay_all_count.is_set or
+                            self.tx_list_active_not_ok.is_set or
+                            self.tx_list_active_ok.is_set or
+                            self.tx_list_clear_all_add_not_ok.is_set or
+                            self.tx_list_clear_all_add_ok.is_set or
+                            self.tx_list_clear_selected_add_not_ok.is_set or
+                            self.tx_list_clear_selected_add_ok.is_set or
+                            self.tx_list_client_cleanup.is_set or
+                            self.tx_list_client_connection_down.is_set or
+                            self.tx_list_client_de_registration.is_set or
+                            self.tx_list_client_registration_not_ok.is_set or
+                            self.tx_list_client_registration_ok.is_set or
+                            self.tx_list_de_active_not_ok.is_set or
+                            self.tx_list_de_active_ok.is_set or
+                            self.tx_list_encode_session_session_ok.is_set or
+                            self.tx_list_encode_session_session_partial_write.is_set or
+                            self.tx_list_end_of_download_add_not_ok.is_set or
+                            self.tx_list_end_of_download_add_ok.is_set or
+                            self.tx_list_end_of_message_add_not_ok.is_set or
+                            self.tx_list_end_of_message_add_ok.is_set or
+                            self.tx_list_receive_command_replay_all.is_set or
+                            self.tx_list_receive_command_replay_selected.is_set or
+                            self.tx_list_receive_session_session_clear_all.is_set or
+                            self.tx_list_receive_session_session_clear_selected.is_set or
+                            self.tx_list_receive_session_session_delete_invalid.is_set or
+                            self.tx_list_receive_session_session_delete_valid.is_set or
+                            self.tx_list_receive_session_session_eod_all.is_set or
+                            self.tx_list_receive_session_session_eod_selected.is_set or
+                            self.tx_list_receive_session_session_eoms.is_set or
+                            self.tx_list_receive_session_session_neg_ack.is_set or
+                            self.tx_list_receive_session_session_neg_ack_not_ok.is_set or
+                            self.tx_list_receive_session_session_sod_all.is_set or
+                            self.tx_list_receive_session_session_sod_selected.is_set or
+                            self.tx_list_receive_session_session_update_invalid.is_set or
+                            self.tx_list_receive_session_session_update_valid.is_set or
+                            self.tx_list_replay_all_add_not_ok.is_set or
+                            self.tx_list_replay_all_add_ok.is_set or
+                            self.tx_list_replay_selected_add_not_ok.is_set or
+                            self.tx_list_replay_selected_add_ok.is_set or
+                            self.tx_list_session_session_add_not_ok.is_set or
+                            self.tx_list_session_session_add_ok.is_set or
+                            self.tx_list_session_session_delete.is_set or
+                            self.tx_list_session_session_update_not_ok.is_set or
+                            self.tx_list_session_session_update_ok.is_set or
+                            self.tx_list_start_of_download_add_not_ok.is_set or
+                            self.tx_list_start_of_download_add_ok.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.stats_client_id.yfilter != YFilter.not_set or
+                            self.clean_call_back.yfilter != YFilter.not_set or
+                            self.last_replay_all_count.yfilter != YFilter.not_set or
+                            self.tx_list_active_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_active_ok.yfilter != YFilter.not_set or
+                            self.tx_list_clear_all_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_clear_all_add_ok.yfilter != YFilter.not_set or
+                            self.tx_list_clear_selected_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_clear_selected_add_ok.yfilter != YFilter.not_set or
+                            self.tx_list_client_cleanup.yfilter != YFilter.not_set or
+                            self.tx_list_client_connection_down.yfilter != YFilter.not_set or
+                            self.tx_list_client_de_registration.yfilter != YFilter.not_set or
+                            self.tx_list_client_registration_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_client_registration_ok.yfilter != YFilter.not_set or
+                            self.tx_list_de_active_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_de_active_ok.yfilter != YFilter.not_set or
+                            self.tx_list_encode_session_session_ok.yfilter != YFilter.not_set or
+                            self.tx_list_encode_session_session_partial_write.yfilter != YFilter.not_set or
+                            self.tx_list_end_of_download_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_end_of_download_add_ok.yfilter != YFilter.not_set or
+                            self.tx_list_end_of_message_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_end_of_message_add_ok.yfilter != YFilter.not_set or
+                            self.tx_list_receive_command_replay_all.yfilter != YFilter.not_set or
+                            self.tx_list_receive_command_replay_selected.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_clear_all.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_clear_selected.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_delete_invalid.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_delete_valid.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_eod_all.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_eod_selected.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_eoms.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_neg_ack.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_neg_ack_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_sod_all.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_sod_selected.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_update_invalid.yfilter != YFilter.not_set or
+                            self.tx_list_receive_session_session_update_valid.yfilter != YFilter.not_set or
+                            self.tx_list_replay_all_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_replay_all_add_ok.yfilter != YFilter.not_set or
+                            self.tx_list_replay_selected_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_replay_selected_add_ok.yfilter != YFilter.not_set or
+                            self.tx_list_session_session_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_session_session_add_ok.yfilter != YFilter.not_set or
+                            self.tx_list_session_session_delete.yfilter != YFilter.not_set or
+                            self.tx_list_session_session_update_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_session_session_update_ok.yfilter != YFilter.not_set or
+                            self.tx_list_start_of_download_add_not_ok.yfilter != YFilter.not_set or
+                            self.tx_list_start_of_download_add_ok.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "client-id" + "[stats-client-id='" + self.stats_client_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.stats_client_id.is_set or self.stats_client_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.stats_client_id.get_name_leafdata())
+                        if (self.clean_call_back.is_set or self.clean_call_back.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.clean_call_back.get_name_leafdata())
+                        if (self.last_replay_all_count.is_set or self.last_replay_all_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_replay_all_count.get_name_leafdata())
+                        if (self.tx_list_active_not_ok.is_set or self.tx_list_active_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_active_not_ok.get_name_leafdata())
+                        if (self.tx_list_active_ok.is_set or self.tx_list_active_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_active_ok.get_name_leafdata())
+                        if (self.tx_list_clear_all_add_not_ok.is_set or self.tx_list_clear_all_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_clear_all_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_clear_all_add_ok.is_set or self.tx_list_clear_all_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_clear_all_add_ok.get_name_leafdata())
+                        if (self.tx_list_clear_selected_add_not_ok.is_set or self.tx_list_clear_selected_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_clear_selected_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_clear_selected_add_ok.is_set or self.tx_list_clear_selected_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_clear_selected_add_ok.get_name_leafdata())
+                        if (self.tx_list_client_cleanup.is_set or self.tx_list_client_cleanup.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_client_cleanup.get_name_leafdata())
+                        if (self.tx_list_client_connection_down.is_set or self.tx_list_client_connection_down.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_client_connection_down.get_name_leafdata())
+                        if (self.tx_list_client_de_registration.is_set or self.tx_list_client_de_registration.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_client_de_registration.get_name_leafdata())
+                        if (self.tx_list_client_registration_not_ok.is_set or self.tx_list_client_registration_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_client_registration_not_ok.get_name_leafdata())
+                        if (self.tx_list_client_registration_ok.is_set or self.tx_list_client_registration_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_client_registration_ok.get_name_leafdata())
+                        if (self.tx_list_de_active_not_ok.is_set or self.tx_list_de_active_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_de_active_not_ok.get_name_leafdata())
+                        if (self.tx_list_de_active_ok.is_set or self.tx_list_de_active_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_de_active_ok.get_name_leafdata())
+                        if (self.tx_list_encode_session_session_ok.is_set or self.tx_list_encode_session_session_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_session_session_ok.get_name_leafdata())
+                        if (self.tx_list_encode_session_session_partial_write.is_set or self.tx_list_encode_session_session_partial_write.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_session_session_partial_write.get_name_leafdata())
+                        if (self.tx_list_end_of_download_add_not_ok.is_set or self.tx_list_end_of_download_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_end_of_download_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_end_of_download_add_ok.is_set or self.tx_list_end_of_download_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_end_of_download_add_ok.get_name_leafdata())
+                        if (self.tx_list_end_of_message_add_not_ok.is_set or self.tx_list_end_of_message_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_end_of_message_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_end_of_message_add_ok.is_set or self.tx_list_end_of_message_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_end_of_message_add_ok.get_name_leafdata())
+                        if (self.tx_list_receive_command_replay_all.is_set or self.tx_list_receive_command_replay_all.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_command_replay_all.get_name_leafdata())
+                        if (self.tx_list_receive_command_replay_selected.is_set or self.tx_list_receive_command_replay_selected.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_command_replay_selected.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_clear_all.is_set or self.tx_list_receive_session_session_clear_all.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_clear_all.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_clear_selected.is_set or self.tx_list_receive_session_session_clear_selected.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_clear_selected.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_delete_invalid.is_set or self.tx_list_receive_session_session_delete_invalid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_delete_invalid.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_delete_valid.is_set or self.tx_list_receive_session_session_delete_valid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_delete_valid.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_eod_all.is_set or self.tx_list_receive_session_session_eod_all.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_eod_all.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_eod_selected.is_set or self.tx_list_receive_session_session_eod_selected.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_eod_selected.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_eoms.is_set or self.tx_list_receive_session_session_eoms.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_eoms.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_neg_ack.is_set or self.tx_list_receive_session_session_neg_ack.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_neg_ack.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_neg_ack_not_ok.is_set or self.tx_list_receive_session_session_neg_ack_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_neg_ack_not_ok.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_sod_all.is_set or self.tx_list_receive_session_session_sod_all.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_sod_all.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_sod_selected.is_set or self.tx_list_receive_session_session_sod_selected.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_sod_selected.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_update_invalid.is_set or self.tx_list_receive_session_session_update_invalid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_update_invalid.get_name_leafdata())
+                        if (self.tx_list_receive_session_session_update_valid.is_set or self.tx_list_receive_session_session_update_valid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_receive_session_session_update_valid.get_name_leafdata())
+                        if (self.tx_list_replay_all_add_not_ok.is_set or self.tx_list_replay_all_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_replay_all_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_replay_all_add_ok.is_set or self.tx_list_replay_all_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_replay_all_add_ok.get_name_leafdata())
+                        if (self.tx_list_replay_selected_add_not_ok.is_set or self.tx_list_replay_selected_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_replay_selected_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_replay_selected_add_ok.is_set or self.tx_list_replay_selected_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_replay_selected_add_ok.get_name_leafdata())
+                        if (self.tx_list_session_session_add_not_ok.is_set or self.tx_list_session_session_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_session_session_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_session_session_add_ok.is_set or self.tx_list_session_session_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_session_session_add_ok.get_name_leafdata())
+                        if (self.tx_list_session_session_delete.is_set or self.tx_list_session_session_delete.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_session_session_delete.get_name_leafdata())
+                        if (self.tx_list_session_session_update_not_ok.is_set or self.tx_list_session_session_update_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_session_session_update_not_ok.get_name_leafdata())
+                        if (self.tx_list_session_session_update_ok.is_set or self.tx_list_session_session_update_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_session_session_update_ok.get_name_leafdata())
+                        if (self.tx_list_start_of_download_add_not_ok.is_set or self.tx_list_start_of_download_add_not_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_start_of_download_add_not_ok.get_name_leafdata())
+                        if (self.tx_list_start_of_download_add_ok.is_set or self.tx_list_start_of_download_add_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_start_of_download_add_ok.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "stats-client-id" or name == "clean-call-back" or name == "last-replay-all-count" or name == "tx-list-active-not-ok" or name == "tx-list-active-ok" or name == "tx-list-clear-all-add-not-ok" or name == "tx-list-clear-all-add-ok" or name == "tx-list-clear-selected-add-not-ok" or name == "tx-list-clear-selected-add-ok" or name == "tx-list-client-cleanup" or name == "tx-list-client-connection-down" or name == "tx-list-client-de-registration" or name == "tx-list-client-registration-not-ok" or name == "tx-list-client-registration-ok" or name == "tx-list-de-active-not-ok" or name == "tx-list-de-active-ok" or name == "tx-list-encode-session-session-ok" or name == "tx-list-encode-session-session-partial-write" or name == "tx-list-end-of-download-add-not-ok" or name == "tx-list-end-of-download-add-ok" or name == "tx-list-end-of-message-add-not-ok" or name == "tx-list-end-of-message-add-ok" or name == "tx-list-receive-command-replay-all" or name == "tx-list-receive-command-replay-selected" or name == "tx-list-receive-session-session-clear-all" or name == "tx-list-receive-session-session-clear-selected" or name == "tx-list-receive-session-session-delete-invalid" or name == "tx-list-receive-session-session-delete-valid" or name == "tx-list-receive-session-session-eod-all" or name == "tx-list-receive-session-session-eod-selected" or name == "tx-list-receive-session-session-eoms" or name == "tx-list-receive-session-session-neg-ack" or name == "tx-list-receive-session-session-neg-ack-not-ok" or name == "tx-list-receive-session-session-sod-all" or name == "tx-list-receive-session-session-sod-selected" or name == "tx-list-receive-session-session-update-invalid" or name == "tx-list-receive-session-session-update-valid" or name == "tx-list-replay-all-add-not-ok" or name == "tx-list-replay-all-add-ok" or name == "tx-list-replay-selected-add-not-ok" or name == "tx-list-replay-selected-add-ok" or name == "tx-list-session-session-add-not-ok" or name == "tx-list-session-session-add-ok" or name == "tx-list-session-session-delete" or name == "tx-list-session-session-update-not-ok" or name == "tx-list-session-session-update-ok" or name == "tx-list-start-of-download-add-not-ok" or name == "tx-list-start-of-download-add-ok"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.stats_client_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "stats-client-id"):
+                            self.stats_client_id = value
+                            self.stats_client_id.value_namespace = name_space
+                            self.stats_client_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "clean-call-back"):
+                            self.clean_call_back = value
+                            self.clean_call_back.value_namespace = name_space
+                            self.clean_call_back.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-replay-all-count"):
+                            self.last_replay_all_count = value
+                            self.last_replay_all_count.value_namespace = name_space
+                            self.last_replay_all_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-active-not-ok"):
+                            self.tx_list_active_not_ok = value
+                            self.tx_list_active_not_ok.value_namespace = name_space
+                            self.tx_list_active_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-active-ok"):
+                            self.tx_list_active_ok = value
+                            self.tx_list_active_ok.value_namespace = name_space
+                            self.tx_list_active_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-clear-all-add-not-ok"):
+                            self.tx_list_clear_all_add_not_ok = value
+                            self.tx_list_clear_all_add_not_ok.value_namespace = name_space
+                            self.tx_list_clear_all_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-clear-all-add-ok"):
+                            self.tx_list_clear_all_add_ok = value
+                            self.tx_list_clear_all_add_ok.value_namespace = name_space
+                            self.tx_list_clear_all_add_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-clear-selected-add-not-ok"):
+                            self.tx_list_clear_selected_add_not_ok = value
+                            self.tx_list_clear_selected_add_not_ok.value_namespace = name_space
+                            self.tx_list_clear_selected_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-clear-selected-add-ok"):
+                            self.tx_list_clear_selected_add_ok = value
+                            self.tx_list_clear_selected_add_ok.value_namespace = name_space
+                            self.tx_list_clear_selected_add_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-client-cleanup"):
+                            self.tx_list_client_cleanup = value
+                            self.tx_list_client_cleanup.value_namespace = name_space
+                            self.tx_list_client_cleanup.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-client-connection-down"):
+                            self.tx_list_client_connection_down = value
+                            self.tx_list_client_connection_down.value_namespace = name_space
+                            self.tx_list_client_connection_down.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-client-de-registration"):
+                            self.tx_list_client_de_registration = value
+                            self.tx_list_client_de_registration.value_namespace = name_space
+                            self.tx_list_client_de_registration.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-client-registration-not-ok"):
+                            self.tx_list_client_registration_not_ok = value
+                            self.tx_list_client_registration_not_ok.value_namespace = name_space
+                            self.tx_list_client_registration_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-client-registration-ok"):
+                            self.tx_list_client_registration_ok = value
+                            self.tx_list_client_registration_ok.value_namespace = name_space
+                            self.tx_list_client_registration_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-de-active-not-ok"):
+                            self.tx_list_de_active_not_ok = value
+                            self.tx_list_de_active_not_ok.value_namespace = name_space
+                            self.tx_list_de_active_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-de-active-ok"):
+                            self.tx_list_de_active_ok = value
+                            self.tx_list_de_active_ok.value_namespace = name_space
+                            self.tx_list_de_active_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-session-session-ok"):
+                            self.tx_list_encode_session_session_ok = value
+                            self.tx_list_encode_session_session_ok.value_namespace = name_space
+                            self.tx_list_encode_session_session_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-session-session-partial-write"):
+                            self.tx_list_encode_session_session_partial_write = value
+                            self.tx_list_encode_session_session_partial_write.value_namespace = name_space
+                            self.tx_list_encode_session_session_partial_write.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-end-of-download-add-not-ok"):
+                            self.tx_list_end_of_download_add_not_ok = value
+                            self.tx_list_end_of_download_add_not_ok.value_namespace = name_space
+                            self.tx_list_end_of_download_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-end-of-download-add-ok"):
+                            self.tx_list_end_of_download_add_ok = value
+                            self.tx_list_end_of_download_add_ok.value_namespace = name_space
+                            self.tx_list_end_of_download_add_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-end-of-message-add-not-ok"):
+                            self.tx_list_end_of_message_add_not_ok = value
+                            self.tx_list_end_of_message_add_not_ok.value_namespace = name_space
+                            self.tx_list_end_of_message_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-end-of-message-add-ok"):
+                            self.tx_list_end_of_message_add_ok = value
+                            self.tx_list_end_of_message_add_ok.value_namespace = name_space
+                            self.tx_list_end_of_message_add_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-command-replay-all"):
+                            self.tx_list_receive_command_replay_all = value
+                            self.tx_list_receive_command_replay_all.value_namespace = name_space
+                            self.tx_list_receive_command_replay_all.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-command-replay-selected"):
+                            self.tx_list_receive_command_replay_selected = value
+                            self.tx_list_receive_command_replay_selected.value_namespace = name_space
+                            self.tx_list_receive_command_replay_selected.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-clear-all"):
+                            self.tx_list_receive_session_session_clear_all = value
+                            self.tx_list_receive_session_session_clear_all.value_namespace = name_space
+                            self.tx_list_receive_session_session_clear_all.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-clear-selected"):
+                            self.tx_list_receive_session_session_clear_selected = value
+                            self.tx_list_receive_session_session_clear_selected.value_namespace = name_space
+                            self.tx_list_receive_session_session_clear_selected.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-delete-invalid"):
+                            self.tx_list_receive_session_session_delete_invalid = value
+                            self.tx_list_receive_session_session_delete_invalid.value_namespace = name_space
+                            self.tx_list_receive_session_session_delete_invalid.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-delete-valid"):
+                            self.tx_list_receive_session_session_delete_valid = value
+                            self.tx_list_receive_session_session_delete_valid.value_namespace = name_space
+                            self.tx_list_receive_session_session_delete_valid.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-eod-all"):
+                            self.tx_list_receive_session_session_eod_all = value
+                            self.tx_list_receive_session_session_eod_all.value_namespace = name_space
+                            self.tx_list_receive_session_session_eod_all.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-eod-selected"):
+                            self.tx_list_receive_session_session_eod_selected = value
+                            self.tx_list_receive_session_session_eod_selected.value_namespace = name_space
+                            self.tx_list_receive_session_session_eod_selected.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-eoms"):
+                            self.tx_list_receive_session_session_eoms = value
+                            self.tx_list_receive_session_session_eoms.value_namespace = name_space
+                            self.tx_list_receive_session_session_eoms.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-neg-ack"):
+                            self.tx_list_receive_session_session_neg_ack = value
+                            self.tx_list_receive_session_session_neg_ack.value_namespace = name_space
+                            self.tx_list_receive_session_session_neg_ack.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-neg-ack-not-ok"):
+                            self.tx_list_receive_session_session_neg_ack_not_ok = value
+                            self.tx_list_receive_session_session_neg_ack_not_ok.value_namespace = name_space
+                            self.tx_list_receive_session_session_neg_ack_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-sod-all"):
+                            self.tx_list_receive_session_session_sod_all = value
+                            self.tx_list_receive_session_session_sod_all.value_namespace = name_space
+                            self.tx_list_receive_session_session_sod_all.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-sod-selected"):
+                            self.tx_list_receive_session_session_sod_selected = value
+                            self.tx_list_receive_session_session_sod_selected.value_namespace = name_space
+                            self.tx_list_receive_session_session_sod_selected.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-update-invalid"):
+                            self.tx_list_receive_session_session_update_invalid = value
+                            self.tx_list_receive_session_session_update_invalid.value_namespace = name_space
+                            self.tx_list_receive_session_session_update_invalid.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-receive-session-session-update-valid"):
+                            self.tx_list_receive_session_session_update_valid = value
+                            self.tx_list_receive_session_session_update_valid.value_namespace = name_space
+                            self.tx_list_receive_session_session_update_valid.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-replay-all-add-not-ok"):
+                            self.tx_list_replay_all_add_not_ok = value
+                            self.tx_list_replay_all_add_not_ok.value_namespace = name_space
+                            self.tx_list_replay_all_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-replay-all-add-ok"):
+                            self.tx_list_replay_all_add_ok = value
+                            self.tx_list_replay_all_add_ok.value_namespace = name_space
+                            self.tx_list_replay_all_add_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-replay-selected-add-not-ok"):
+                            self.tx_list_replay_selected_add_not_ok = value
+                            self.tx_list_replay_selected_add_not_ok.value_namespace = name_space
+                            self.tx_list_replay_selected_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-replay-selected-add-ok"):
+                            self.tx_list_replay_selected_add_ok = value
+                            self.tx_list_replay_selected_add_ok.value_namespace = name_space
+                            self.tx_list_replay_selected_add_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-session-session-add-not-ok"):
+                            self.tx_list_session_session_add_not_ok = value
+                            self.tx_list_session_session_add_not_ok.value_namespace = name_space
+                            self.tx_list_session_session_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-session-session-add-ok"):
+                            self.tx_list_session_session_add_ok = value
+                            self.tx_list_session_session_add_ok.value_namespace = name_space
+                            self.tx_list_session_session_add_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-session-session-delete"):
+                            self.tx_list_session_session_delete = value
+                            self.tx_list_session_session_delete.value_namespace = name_space
+                            self.tx_list_session_session_delete.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-session-session-update-not-ok"):
+                            self.tx_list_session_session_update_not_ok = value
+                            self.tx_list_session_session_update_not_ok.value_namespace = name_space
+                            self.tx_list_session_session_update_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-session-session-update-ok"):
+                            self.tx_list_session_session_update_ok = value
+                            self.tx_list_session_session_update_ok.value_namespace = name_space
+                            self.tx_list_session_session_update_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-start-of-download-add-not-ok"):
+                            self.tx_list_start_of_download_add_not_ok = value
+                            self.tx_list_start_of_download_add_not_ok.value_namespace = name_space
+                            self.tx_list_start_of_download_add_not_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-start-of-download-add-ok"):
+                            self.tx_list_start_of_download_add_ok = value
+                            self.tx_list_start_of_download_add_ok.value_namespace = name_space
+                            self.tx_list_start_of_download_add_ok.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.client_id:
+                        if (c.has_data()):
                             return True
-
-                        if self.clean_call_back is not None:
-                            return True
-
-                        if self.last_replay_all_count is not None:
-                            return True
-
-                        if self.tx_list_active_not_ok is not None:
-                            return True
-
-                        if self.tx_list_active_ok is not None:
-                            return True
-
-                        if self.tx_list_clear_all_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_clear_all_add_ok is not None:
-                            return True
-
-                        if self.tx_list_clear_selected_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_clear_selected_add_ok is not None:
-                            return True
-
-                        if self.tx_list_client_cleanup is not None:
-                            return True
-
-                        if self.tx_list_client_connection_down is not None:
-                            return True
-
-                        if self.tx_list_client_de_registration is not None:
-                            return True
-
-                        if self.tx_list_client_registration_not_ok is not None:
-                            return True
-
-                        if self.tx_list_client_registration_ok is not None:
-                            return True
-
-                        if self.tx_list_de_active_not_ok is not None:
-                            return True
-
-                        if self.tx_list_de_active_ok is not None:
-                            return True
-
-                        if self.tx_list_encode_session_session_ok is not None:
-                            return True
-
-                        if self.tx_list_encode_session_session_partial_write is not None:
-                            return True
-
-                        if self.tx_list_end_of_download_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_end_of_download_add_ok is not None:
-                            return True
-
-                        if self.tx_list_end_of_message_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_end_of_message_add_ok is not None:
-                            return True
-
-                        if self.tx_list_receive_command_replay_all is not None:
-                            return True
-
-                        if self.tx_list_receive_command_replay_selected is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_clear_all is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_clear_selected is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_delete_invalid is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_delete_valid is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_eod_all is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_eod_selected is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_eoms is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_neg_ack is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_neg_ack_not_ok is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_sod_all is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_sod_selected is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_update_invalid is not None:
-                            return True
-
-                        if self.tx_list_receive_session_session_update_valid is not None:
-                            return True
-
-                        if self.tx_list_replay_all_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_replay_all_add_ok is not None:
-                            return True
-
-                        if self.tx_list_replay_selected_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_replay_selected_add_ok is not None:
-                            return True
-
-                        if self.tx_list_session_session_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_session_session_add_ok is not None:
-                            return True
-
-                        if self.tx_list_session_session_delete is not None:
-                            return True
-
-                        if self.tx_list_session_session_update_not_ok is not None:
-                            return True
-
-                        if self.tx_list_session_session_update_ok is not None:
-                            return True
-
-                        if self.tx_list_start_of_download_add_not_ok is not None:
-                            return True
-
-                        if self.tx_list_start_of_download_add_ok is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:client-ids'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.client_id is not None:
-                        for child_ref in self.client_id:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.client_id:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "client-ids" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "client-id"):
+                        for c in self.client_id:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.client_id.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "client-id"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.ClientIds']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Memory(object):
+            class Memory(Entity):
                 """
                 Show Memory
                 
@@ -2061,19 +3396,41 @@ class SessionRedundancyAgent(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.edm_memory_info = YList()
-                    self.edm_memory_info.parent = self
-                    self.edm_memory_info.name = 'edm_memory_info'
-                    self.memory_info = YList()
-                    self.memory_info.parent = self
-                    self.memory_info.name = 'memory_info'
-                    self.string_memory_info = YList()
-                    self.string_memory_info.parent = self
-                    self.string_memory_info.name = 'string_memory_info'
+                    super(SessionRedundancyAgent.Nodes.Node.Memory, self).__init__()
+
+                    self.yang_name = "memory"
+                    self.yang_parent_name = "node"
+
+                    self.edm_memory_info = YList(self)
+                    self.memory_info = YList(self)
+                    self.string_memory_info = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancyAgent.Nodes.Node.Memory, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancyAgent.Nodes.Node.Memory, self).__setattr__(name, value)
 
 
-                class MemoryInfo(object):
+                class MemoryInfo(Entity):
                     """
                     Memory Info
                     
@@ -2108,7 +3465,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: memory_type
                     
                     	Memory Type
-                    	**type**\:   :py:class:`SergShowMemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowMemEnum>`
+                    	**type**\:   :py:class:`SergShowMem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowMem>`
                     
                     .. attribute:: size
                     
@@ -2130,57 +3487,152 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.alloc_count = None
-                        self.alloc_fails = None
-                        self.current_count = None
-                        self.freed_count = None
-                        self.memory_type = None
-                        self.size = None
-                        self.structure_name = None
+                        super(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "memory-info"
+                        self.yang_parent_name = "memory"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:memory-info'
+                        self.alloc_count = YLeaf(YType.uint32, "alloc-count")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.alloc_fails = YLeaf(YType.uint32, "alloc-fails")
+
+                        self.current_count = YLeaf(YType.uint32, "current-count")
+
+                        self.freed_count = YLeaf(YType.uint32, "freed-count")
+
+                        self.memory_type = YLeaf(YType.enumeration, "memory-type")
+
+                        self.size = YLeaf(YType.uint32, "size")
+
+                        self.structure_name = YLeaf(YType.str, "structure-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("alloc_count",
+                                        "alloc_fails",
+                                        "current_count",
+                                        "freed_count",
+                                        "memory_type",
+                                        "size",
+                                        "structure_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.alloc_count.is_set or
+                            self.alloc_fails.is_set or
+                            self.current_count.is_set or
+                            self.freed_count.is_set or
+                            self.memory_type.is_set or
+                            self.size.is_set or
+                            self.structure_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.alloc_count.yfilter != YFilter.not_set or
+                            self.alloc_fails.yfilter != YFilter.not_set or
+                            self.current_count.yfilter != YFilter.not_set or
+                            self.freed_count.yfilter != YFilter.not_set or
+                            self.memory_type.yfilter != YFilter.not_set or
+                            self.size.yfilter != YFilter.not_set or
+                            self.structure_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "memory-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.alloc_count.is_set or self.alloc_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.alloc_count.get_name_leafdata())
+                        if (self.alloc_fails.is_set or self.alloc_fails.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.alloc_fails.get_name_leafdata())
+                        if (self.current_count.is_set or self.current_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.current_count.get_name_leafdata())
+                        if (self.freed_count.is_set or self.freed_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.freed_count.get_name_leafdata())
+                        if (self.memory_type.is_set or self.memory_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.memory_type.get_name_leafdata())
+                        if (self.size.is_set or self.size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.size.get_name_leafdata())
+                        if (self.structure_name.is_set or self.structure_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.structure_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "alloc-count" or name == "alloc-fails" or name == "current-count" or name == "freed-count" or name == "memory-type" or name == "size" or name == "structure-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.alloc_count is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "alloc-count"):
+                            self.alloc_count = value
+                            self.alloc_count.value_namespace = name_space
+                            self.alloc_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "alloc-fails"):
+                            self.alloc_fails = value
+                            self.alloc_fails.value_namespace = name_space
+                            self.alloc_fails.value_namespace_prefix = name_space_prefix
+                        if(value_path == "current-count"):
+                            self.current_count = value
+                            self.current_count.value_namespace = name_space
+                            self.current_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "freed-count"):
+                            self.freed_count = value
+                            self.freed_count.value_namespace = name_space
+                            self.freed_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "memory-type"):
+                            self.memory_type = value
+                            self.memory_type.value_namespace = name_space
+                            self.memory_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "size"):
+                            self.size = value
+                            self.size.value_namespace = name_space
+                            self.size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "structure-name"):
+                            self.structure_name = value
+                            self.structure_name.value_namespace = name_space
+                            self.structure_name.value_namespace_prefix = name_space_prefix
 
-                        if self.alloc_fails is not None:
-                            return True
 
-                        if self.current_count is not None:
-                            return True
-
-                        if self.freed_count is not None:
-                            return True
-
-                        if self.memory_type is not None:
-                            return True
-
-                        if self.size is not None:
-                            return True
-
-                        if self.structure_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo']['meta_info']
-
-
-                class EdmMemoryInfo(object):
+                class EdmMemoryInfo(Entity):
                     """
                     EDM Memory Info
                     
@@ -2220,45 +3672,119 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.failure = None
-                        self.size = None
-                        self.success = None
-                        self.total = None
+                        super(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "edm-memory-info"
+                        self.yang_parent_name = "memory"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:edm-memory-info'
+                        self.failure = YLeaf(YType.uint32, "failure")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.size = YLeaf(YType.uint32, "size")
+
+                        self.success = YLeaf(YType.uint32, "success")
+
+                        self.total = YLeaf(YType.uint32, "total")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("failure",
+                                        "size",
+                                        "success",
+                                        "total") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.failure.is_set or
+                            self.size.is_set or
+                            self.success.is_set or
+                            self.total.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.failure.yfilter != YFilter.not_set or
+                            self.size.yfilter != YFilter.not_set or
+                            self.success.yfilter != YFilter.not_set or
+                            self.total.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "edm-memory-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.failure.is_set or self.failure.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.failure.get_name_leafdata())
+                        if (self.size.is_set or self.size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.size.get_name_leafdata())
+                        if (self.success.is_set or self.success.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.success.get_name_leafdata())
+                        if (self.total.is_set or self.total.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.total.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "failure" or name == "size" or name == "success" or name == "total"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.failure is not None:
-                            return True
-
-                        if self.size is not None:
-                            return True
-
-                        if self.success is not None:
-                            return True
-
-                        if self.total is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "failure"):
+                            self.failure = value
+                            self.failure.value_namespace = name_space
+                            self.failure.value_namespace_prefix = name_space_prefix
+                        if(value_path == "size"):
+                            self.size = value
+                            self.size.value_namespace = name_space
+                            self.size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "success"):
+                            self.success = value
+                            self.success.value_namespace = name_space
+                            self.success.value_namespace_prefix = name_space_prefix
+                        if(value_path == "total"):
+                            self.total = value
+                            self.total.value_namespace = name_space
+                            self.total.value_namespace_prefix = name_space_prefix
 
 
-                class StringMemoryInfo(object):
+                class StringMemoryInfo(Entity):
                     """
                     String Memory Info
                     
@@ -2298,79 +3824,212 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.failure = None
-                        self.size = None
-                        self.success = None
-                        self.total = None
+                        super(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "string-memory-info"
+                        self.yang_parent_name = "memory"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:string-memory-info'
+                        self.failure = YLeaf(YType.uint32, "failure")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.size = YLeaf(YType.uint32, "size")
+
+                        self.success = YLeaf(YType.uint32, "success")
+
+                        self.total = YLeaf(YType.uint32, "total")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("failure",
+                                        "size",
+                                        "success",
+                                        "total") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.failure.is_set or
+                            self.size.is_set or
+                            self.success.is_set or
+                            self.total.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.failure.yfilter != YFilter.not_set or
+                            self.size.yfilter != YFilter.not_set or
+                            self.success.yfilter != YFilter.not_set or
+                            self.total.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "string-memory-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.failure.is_set or self.failure.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.failure.get_name_leafdata())
+                        if (self.size.is_set or self.size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.size.get_name_leafdata())
+                        if (self.success.is_set or self.success.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.success.get_name_leafdata())
+                        if (self.total.is_set or self.total.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.total.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "failure" or name == "size" or name == "success" or name == "total"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.failure is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "failure"):
+                            self.failure = value
+                            self.failure.value_namespace = name_space
+                            self.failure.value_namespace_prefix = name_space_prefix
+                        if(value_path == "size"):
+                            self.size = value
+                            self.size.value_namespace = name_space
+                            self.size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "success"):
+                            self.success = value
+                            self.success.value_namespace = name_space
+                            self.success.value_namespace_prefix = name_space_prefix
+                        if(value_path == "total"):
+                            self.total = value
+                            self.total.value_namespace = name_space
+                            self.total.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.edm_memory_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.size is not None:
+                    for c in self.memory_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.success is not None:
+                    for c in self.string_memory_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.total is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:memory'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.edm_memory_info is not None:
-                        for child_ref in self.edm_memory_info:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.edm_memory_info:
+                        if (c.has_operation()):
+                            return True
+                    for c in self.memory_info:
+                        if (c.has_operation()):
+                            return True
+                    for c in self.string_memory_info:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    if self.memory_info is not None:
-                        for child_ref in self.memory_info:
-                            if child_ref._has_data():
-                                return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "memory" + path_buffer
 
-                    if self.string_memory_info is not None:
-                        for child_ref in self.string_memory_info:
-                            if child_ref._has_data():
-                                return True
+                    return path_buffer
 
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "edm-memory-info"):
+                        for c in self.edm_memory_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.edm_memory_info.append(c)
+                        return c
+
+                    if (child_yang_name == "memory-info"):
+                        for c in self.memory_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.memory_info.append(c)
+                        return c
+
+                    if (child_yang_name == "string-memory-info"):
+                        for c in self.string_memory_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.string_memory_info.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "edm-memory-info" or name == "memory-info" or name == "string-memory-info"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Memory']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class GroupIds(object):
+            class GroupIds(Entity):
                 """
                 Data for particular subscriber group 
                 
@@ -2387,13 +4046,39 @@ class SessionRedundancyAgent(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.group_id = YList()
-                    self.group_id.parent = self
-                    self.group_id.name = 'group_id'
+                    super(SessionRedundancyAgent.Nodes.Node.GroupIds, self).__init__()
+
+                    self.yang_name = "group-ids"
+                    self.yang_parent_name = "node"
+
+                    self.group_id = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIds, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIds, self).__setattr__(name, value)
 
 
-                class GroupId(object):
+                class GroupId(Entity):
                     """
                     Group id for subscriber group
                     
@@ -2432,7 +4117,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: current_role
                     
                     	Current Role
-                    	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: description
                     
@@ -2461,7 +4146,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: init_role
                     
                     	Preferred Init Role
-                    	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: interface
                     
@@ -2478,7 +4163,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: last_switchover_reason
                     
                     	Last Switchover Reason
-                    	**type**\:   :py:class:`SergShowSoReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSoReasonEnum>`
+                    	**type**\:   :py:class:`SergShowSoReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSoReason>`
                     
                     .. attribute:: last_switchover_time
                     
@@ -2488,7 +4173,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: negotiating_role
                     
                     	Negotiating Role
-                    	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: object_tracking_status
                     
@@ -2498,12 +4183,12 @@ class SessionRedundancyAgent(object):
                     .. attribute:: peer_current_role
                     
                     	Peer Current Role
-                    	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: peer_init_role
                     
                     	Peer Preferred Init Role
-                    	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: peer_ipv4_address
                     
@@ -2537,7 +4222,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: peer_negotiating_role
                     
                     	Peer Negotiating Role
-                    	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: peer_object_tracking_status
                     
@@ -2547,7 +4232,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: peer_status
                     
                     	Peer Status
-                    	**type**\:   :py:class:`SergPeerStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatusEnum>`
+                    	**type**\:   :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
                     
                     .. attribute:: pending_session_delete_count
                     
@@ -2580,7 +4265,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: slave_mode
                     
                     	Slave Mode
-                    	**type**\:   :py:class:`SergShowSlaveModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveModeEnum>`
+                    	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
                     
                     .. attribute:: slave_update_failure_count
                     
@@ -2622,58 +4307,151 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.group_id = None
-                        self.access_tracking_object_name = None
-                        self.access_tracking_object_status = None
-                        self.client_session_count = YList()
-                        self.client_session_count.parent = self
-                        self.client_session_count.name = 'client_session_count'
-                        self.core_tracking_object_name = None
-                        self.core_tracking_object_status = None
-                        self.current_role = None
-                        self.description = None
-                        self.disabled = None
-                        self.group_id_xr = None
-                        self.hold_timer = None
-                        self.init_role = None
-                        self.interface = YList()
-                        self.interface.parent = self
-                        self.interface.name = 'interface'
-                        self.interface_count = None
-                        self.last_switchover_reason = None
-                        self.last_switchover_time = None
-                        self.negotiating_role = None
-                        self.object_tracking_status = None
-                        self.peer_current_role = None
-                        self.peer_init_role = None
-                        self.peer_ipv4_address = None
-                        self.peer_ipv6_address = None
-                        self.peer_last_down_time = None
-                        self.peer_last_negotiation_time = None
-                        self.peer_last_up_time = None
-                        self.peer_negotiating_role = None
-                        self.peer_object_tracking_status = None
-                        self.peer_status = None
-                        self.pending_session_delete_count = None
-                        self.pending_session_update_count = None
-                        self.revertive_timer = None
-                        self.session_count = None
-                        self.slave_mode = None
-                        self.slave_update_failure_count = None
-                        self.switchover_count = None
-                        self.switchover_hold_time = None
-                        self.switchover_revert_time = None
+                        super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__init__()
+
+                        self.yang_name = "group-id"
+                        self.yang_parent_name = "group-ids"
+
+                        self.group_id = YLeaf(YType.str, "group-id")
+
+                        self.access_tracking_object_name = YLeaf(YType.str, "access-tracking-object-name")
+
+                        self.access_tracking_object_status = YLeaf(YType.boolean, "access-tracking-object-status")
+
+                        self.core_tracking_object_name = YLeaf(YType.str, "core-tracking-object-name")
+
+                        self.core_tracking_object_status = YLeaf(YType.boolean, "core-tracking-object-status")
+
+                        self.current_role = YLeaf(YType.enumeration, "current-role")
+
+                        self.description = YLeaf(YType.str, "description")
+
+                        self.disabled = YLeaf(YType.boolean, "disabled")
+
+                        self.group_id_xr = YLeaf(YType.uint32, "group-id-xr")
+
+                        self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+
+                        self.init_role = YLeaf(YType.enumeration, "init-role")
+
+                        self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+                        self.last_switchover_reason = YLeaf(YType.enumeration, "last-switchover-reason")
+
+                        self.last_switchover_time = YLeaf(YType.str, "last-switchover-time")
+
+                        self.negotiating_role = YLeaf(YType.enumeration, "negotiating-role")
+
+                        self.object_tracking_status = YLeaf(YType.boolean, "object-tracking-status")
+
+                        self.peer_current_role = YLeaf(YType.enumeration, "peer-current-role")
+
+                        self.peer_init_role = YLeaf(YType.enumeration, "peer-init-role")
+
+                        self.peer_ipv4_address = YLeaf(YType.str, "peer-ipv4-address")
+
+                        self.peer_ipv6_address = YLeaf(YType.str, "peer-ipv6-address")
+
+                        self.peer_last_down_time = YLeaf(YType.str, "peer-last-down-time")
+
+                        self.peer_last_negotiation_time = YLeaf(YType.str, "peer-last-negotiation-time")
+
+                        self.peer_last_up_time = YLeaf(YType.str, "peer-last-up-time")
+
+                        self.peer_negotiating_role = YLeaf(YType.enumeration, "peer-negotiating-role")
+
+                        self.peer_object_tracking_status = YLeaf(YType.boolean, "peer-object-tracking-status")
+
+                        self.peer_status = YLeaf(YType.enumeration, "peer-status")
+
+                        self.pending_session_delete_count = YLeaf(YType.uint32, "pending-session-delete-count")
+
+                        self.pending_session_update_count = YLeaf(YType.uint32, "pending-session-update-count")
+
+                        self.revertive_timer = YLeaf(YType.uint32, "revertive-timer")
+
+                        self.session_count = YLeaf(YType.uint32, "session-count")
+
+                        self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+
+                        self.slave_update_failure_count = YLeaf(YType.uint32, "slave-update-failure-count")
+
+                        self.switchover_count = YLeaf(YType.uint32, "switchover-count")
+
+                        self.switchover_hold_time = YLeaf(YType.uint32, "switchover-hold-time")
+
+                        self.switchover_revert_time = YLeaf(YType.uint32, "switchover-revert-time")
+
+                        self.client_session_count = YList(self)
+                        self.interface = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("group_id",
+                                        "access_tracking_object_name",
+                                        "access_tracking_object_status",
+                                        "core_tracking_object_name",
+                                        "core_tracking_object_status",
+                                        "current_role",
+                                        "description",
+                                        "disabled",
+                                        "group_id_xr",
+                                        "hold_timer",
+                                        "init_role",
+                                        "interface_count",
+                                        "last_switchover_reason",
+                                        "last_switchover_time",
+                                        "negotiating_role",
+                                        "object_tracking_status",
+                                        "peer_current_role",
+                                        "peer_init_role",
+                                        "peer_ipv4_address",
+                                        "peer_ipv6_address",
+                                        "peer_last_down_time",
+                                        "peer_last_negotiation_time",
+                                        "peer_last_up_time",
+                                        "peer_negotiating_role",
+                                        "peer_object_tracking_status",
+                                        "peer_status",
+                                        "pending_session_delete_count",
+                                        "pending_session_update_count",
+                                        "revertive_timer",
+                                        "session_count",
+                                        "slave_mode",
+                                        "slave_update_failure_count",
+                                        "switchover_count",
+                                        "switchover_hold_time",
+                                        "switchover_revert_time") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, self).__setattr__(name, value)
 
 
-                    class ClientSessionCount(object):
+                    class ClientSessionCount(Entity):
                         """
                         Client Session Count
                         
                         .. attribute:: component
                         
                         	Component
-                        	**type**\:   :py:class:`SergShowCompEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowCompEnum>`
+                        	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
                         .. attribute:: session_count
                         
@@ -2690,37 +4468,97 @@ class SessionRedundancyAgent(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.component = None
-                            self.session_count = None
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "client-session-count"
+                            self.yang_parent_name = "group-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:client-session-count'
+                            self.component = YLeaf(YType.enumeration, "component")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.session_count = YLeaf(YType.uint32, "session-count")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("component",
+                                            "session_count") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.component.is_set or
+                                self.session_count.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.component.yfilter != YFilter.not_set or
+                                self.session_count.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "client-session-count" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.component.is_set or self.component.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.component.get_name_leafdata())
+                            if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_count.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "component" or name == "session-count"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.component is not None:
-                                return True
-
-                            if self.session_count is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "component"):
+                                self.component = value
+                                self.component.value_namespace = name_space
+                                self.component.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-count"):
+                                self.session_count = value
+                                self.session_count.value_namespace = name_space
+                                self.session_count.value_namespace_prefix = name_space_prefix
 
 
-                    class Interface(object):
+                    class Interface(Entity):
                         """
                         Interface List
                         
@@ -2756,205 +4594,531 @@ class SessionRedundancyAgent(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.forward_referenced = None
-                            self.interface_name = None
-                            self.interface_synchronization_id = None
-                            self.session_count = None
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "group-id"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:interface'
+                            self.forward_referenced = YLeaf(YType.boolean, "forward-referenced")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.interface_synchronization_id = YLeaf(YType.uint32, "interface-synchronization-id")
+
+                            self.session_count = YLeaf(YType.uint32, "session-count")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("forward_referenced",
+                                            "interface_name",
+                                            "interface_synchronization_id",
+                                            "session_count") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.forward_referenced.is_set or
+                                self.interface_name.is_set or
+                                self.interface_synchronization_id.is_set or
+                                self.session_count.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.forward_referenced.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.interface_synchronization_id.yfilter != YFilter.not_set or
+                                self.session_count.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.forward_referenced.is_set or self.forward_referenced.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.forward_referenced.get_name_leafdata())
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.interface_synchronization_id.is_set or self.interface_synchronization_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_synchronization_id.get_name_leafdata())
+                            if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_count.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "forward-referenced" or name == "interface-name" or name == "interface-synchronization-id" or name == "session-count"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.forward_referenced is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "forward-referenced"):
+                                self.forward_referenced = value
+                                self.forward_referenced.value_namespace = name_space
+                                self.forward_referenced.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-synchronization-id"):
+                                self.interface_synchronization_id = value
+                                self.interface_synchronization_id.value_namespace = name_space
+                                self.interface_synchronization_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-count"):
+                                self.session_count = value
+                                self.session_count.value_namespace = name_space
+                                self.session_count.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.client_session_count:
+                            if (c.has_data()):
                                 return True
-
-                            if self.interface_name is not None:
+                        for c in self.interface:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.group_id.is_set or
+                            self.access_tracking_object_name.is_set or
+                            self.access_tracking_object_status.is_set or
+                            self.core_tracking_object_name.is_set or
+                            self.core_tracking_object_status.is_set or
+                            self.current_role.is_set or
+                            self.description.is_set or
+                            self.disabled.is_set or
+                            self.group_id_xr.is_set or
+                            self.hold_timer.is_set or
+                            self.init_role.is_set or
+                            self.interface_count.is_set or
+                            self.last_switchover_reason.is_set or
+                            self.last_switchover_time.is_set or
+                            self.negotiating_role.is_set or
+                            self.object_tracking_status.is_set or
+                            self.peer_current_role.is_set or
+                            self.peer_init_role.is_set or
+                            self.peer_ipv4_address.is_set or
+                            self.peer_ipv6_address.is_set or
+                            self.peer_last_down_time.is_set or
+                            self.peer_last_negotiation_time.is_set or
+                            self.peer_last_up_time.is_set or
+                            self.peer_negotiating_role.is_set or
+                            self.peer_object_tracking_status.is_set or
+                            self.peer_status.is_set or
+                            self.pending_session_delete_count.is_set or
+                            self.pending_session_update_count.is_set or
+                            self.revertive_timer.is_set or
+                            self.session_count.is_set or
+                            self.slave_mode.is_set or
+                            self.slave_update_failure_count.is_set or
+                            self.switchover_count.is_set or
+                            self.switchover_hold_time.is_set or
+                            self.switchover_revert_time.is_set)
 
-                            if self.interface_synchronization_id is not None:
+                    def has_operation(self):
+                        for c in self.client_session_count:
+                            if (c.has_operation()):
                                 return True
-
-                            if self.session_count is not None:
+                        for c in self.interface:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.group_id.yfilter != YFilter.not_set or
+                            self.access_tracking_object_name.yfilter != YFilter.not_set or
+                            self.access_tracking_object_status.yfilter != YFilter.not_set or
+                            self.core_tracking_object_name.yfilter != YFilter.not_set or
+                            self.core_tracking_object_status.yfilter != YFilter.not_set or
+                            self.current_role.yfilter != YFilter.not_set or
+                            self.description.yfilter != YFilter.not_set or
+                            self.disabled.yfilter != YFilter.not_set or
+                            self.group_id_xr.yfilter != YFilter.not_set or
+                            self.hold_timer.yfilter != YFilter.not_set or
+                            self.init_role.yfilter != YFilter.not_set or
+                            self.interface_count.yfilter != YFilter.not_set or
+                            self.last_switchover_reason.yfilter != YFilter.not_set or
+                            self.last_switchover_time.yfilter != YFilter.not_set or
+                            self.negotiating_role.yfilter != YFilter.not_set or
+                            self.object_tracking_status.yfilter != YFilter.not_set or
+                            self.peer_current_role.yfilter != YFilter.not_set or
+                            self.peer_init_role.yfilter != YFilter.not_set or
+                            self.peer_ipv4_address.yfilter != YFilter.not_set or
+                            self.peer_ipv6_address.yfilter != YFilter.not_set or
+                            self.peer_last_down_time.yfilter != YFilter.not_set or
+                            self.peer_last_negotiation_time.yfilter != YFilter.not_set or
+                            self.peer_last_up_time.yfilter != YFilter.not_set or
+                            self.peer_negotiating_role.yfilter != YFilter.not_set or
+                            self.peer_object_tracking_status.yfilter != YFilter.not_set or
+                            self.peer_status.yfilter != YFilter.not_set or
+                            self.pending_session_delete_count.yfilter != YFilter.not_set or
+                            self.pending_session_update_count.yfilter != YFilter.not_set or
+                            self.revertive_timer.yfilter != YFilter.not_set or
+                            self.session_count.yfilter != YFilter.not_set or
+                            self.slave_mode.yfilter != YFilter.not_set or
+                            self.slave_update_failure_count.yfilter != YFilter.not_set or
+                            self.switchover_count.yfilter != YFilter.not_set or
+                            self.switchover_hold_time.yfilter != YFilter.not_set or
+                            self.switchover_revert_time.yfilter != YFilter.not_set)
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "group-id" + "[group-id='" + self.group_id.get() + "']" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.group_id is None:
-                            raise YPYModelError('Key property group_id is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:group-id[Cisco-IOS-XR-infra-serg-oper:group-id = ' + str(self.group_id) + ']'
+                        leaf_name_data = LeafDataList()
+                        if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_id.get_name_leafdata())
+                        if (self.access_tracking_object_name.is_set or self.access_tracking_object_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.access_tracking_object_name.get_name_leafdata())
+                        if (self.access_tracking_object_status.is_set or self.access_tracking_object_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.access_tracking_object_status.get_name_leafdata())
+                        if (self.core_tracking_object_name.is_set or self.core_tracking_object_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.core_tracking_object_name.get_name_leafdata())
+                        if (self.core_tracking_object_status.is_set or self.core_tracking_object_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.core_tracking_object_status.get_name_leafdata())
+                        if (self.current_role.is_set or self.current_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.current_role.get_name_leafdata())
+                        if (self.description.is_set or self.description.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.description.get_name_leafdata())
+                        if (self.disabled.is_set or self.disabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.disabled.get_name_leafdata())
+                        if (self.group_id_xr.is_set or self.group_id_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_id_xr.get_name_leafdata())
+                        if (self.hold_timer.is_set or self.hold_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_timer.get_name_leafdata())
+                        if (self.init_role.is_set or self.init_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.init_role.get_name_leafdata())
+                        if (self.interface_count.is_set or self.interface_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_count.get_name_leafdata())
+                        if (self.last_switchover_reason.is_set or self.last_switchover_reason.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_switchover_reason.get_name_leafdata())
+                        if (self.last_switchover_time.is_set or self.last_switchover_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_switchover_time.get_name_leafdata())
+                        if (self.negotiating_role.is_set or self.negotiating_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.negotiating_role.get_name_leafdata())
+                        if (self.object_tracking_status.is_set or self.object_tracking_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.object_tracking_status.get_name_leafdata())
+                        if (self.peer_current_role.is_set or self.peer_current_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_current_role.get_name_leafdata())
+                        if (self.peer_init_role.is_set or self.peer_init_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_init_role.get_name_leafdata())
+                        if (self.peer_ipv4_address.is_set or self.peer_ipv4_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_ipv4_address.get_name_leafdata())
+                        if (self.peer_ipv6_address.is_set or self.peer_ipv6_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_ipv6_address.get_name_leafdata())
+                        if (self.peer_last_down_time.is_set or self.peer_last_down_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_last_down_time.get_name_leafdata())
+                        if (self.peer_last_negotiation_time.is_set or self.peer_last_negotiation_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_last_negotiation_time.get_name_leafdata())
+                        if (self.peer_last_up_time.is_set or self.peer_last_up_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_last_up_time.get_name_leafdata())
+                        if (self.peer_negotiating_role.is_set or self.peer_negotiating_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_negotiating_role.get_name_leafdata())
+                        if (self.peer_object_tracking_status.is_set or self.peer_object_tracking_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_object_tracking_status.get_name_leafdata())
+                        if (self.peer_status.is_set or self.peer_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_status.get_name_leafdata())
+                        if (self.pending_session_delete_count.is_set or self.pending_session_delete_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pending_session_delete_count.get_name_leafdata())
+                        if (self.pending_session_update_count.is_set or self.pending_session_update_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pending_session_update_count.get_name_leafdata())
+                        if (self.revertive_timer.is_set or self.revertive_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.revertive_timer.get_name_leafdata())
+                        if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_count.get_name_leafdata())
+                        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.slave_mode.get_name_leafdata())
+                        if (self.slave_update_failure_count.is_set or self.slave_update_failure_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.slave_update_failure_count.get_name_leafdata())
+                        if (self.switchover_count.is_set or self.switchover_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.switchover_count.get_name_leafdata())
+                        if (self.switchover_hold_time.is_set or self.switchover_hold_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.switchover_hold_time.get_name_leafdata())
+                        if (self.switchover_revert_time.is_set or self.switchover_revert_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.switchover_revert_time.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "client-session-count"):
+                            for c in self.client_session_count:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.client_session_count.append(c)
+                            return c
+
+                        if (child_yang_name == "interface"):
+                            for c in self.interface:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.interface.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "client-session-count" or name == "interface" or name == "group-id" or name == "access-tracking-object-name" or name == "access-tracking-object-status" or name == "core-tracking-object-name" or name == "core-tracking-object-status" or name == "current-role" or name == "description" or name == "disabled" or name == "group-id-xr" or name == "hold-timer" or name == "init-role" or name == "interface-count" or name == "last-switchover-reason" or name == "last-switchover-time" or name == "negotiating-role" or name == "object-tracking-status" or name == "peer-current-role" or name == "peer-init-role" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-last-down-time" or name == "peer-last-negotiation-time" or name == "peer-last-up-time" or name == "peer-negotiating-role" or name == "peer-object-tracking-status" or name == "peer-status" or name == "pending-session-delete-count" or name == "pending-session-update-count" or name == "revertive-timer" or name == "session-count" or name == "slave-mode" or name == "slave-update-failure-count" or name == "switchover-count" or name == "switchover-hold-time" or name == "switchover-revert-time"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.group_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "group-id"):
+                            self.group_id = value
+                            self.group_id.value_namespace = name_space
+                            self.group_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "access-tracking-object-name"):
+                            self.access_tracking_object_name = value
+                            self.access_tracking_object_name.value_namespace = name_space
+                            self.access_tracking_object_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "access-tracking-object-status"):
+                            self.access_tracking_object_status = value
+                            self.access_tracking_object_status.value_namespace = name_space
+                            self.access_tracking_object_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "core-tracking-object-name"):
+                            self.core_tracking_object_name = value
+                            self.core_tracking_object_name.value_namespace = name_space
+                            self.core_tracking_object_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "core-tracking-object-status"):
+                            self.core_tracking_object_status = value
+                            self.core_tracking_object_status.value_namespace = name_space
+                            self.core_tracking_object_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "current-role"):
+                            self.current_role = value
+                            self.current_role.value_namespace = name_space
+                            self.current_role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "description"):
+                            self.description = value
+                            self.description.value_namespace = name_space
+                            self.description.value_namespace_prefix = name_space_prefix
+                        if(value_path == "disabled"):
+                            self.disabled = value
+                            self.disabled.value_namespace = name_space
+                            self.disabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "group-id-xr"):
+                            self.group_id_xr = value
+                            self.group_id_xr.value_namespace = name_space
+                            self.group_id_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-timer"):
+                            self.hold_timer = value
+                            self.hold_timer.value_namespace = name_space
+                            self.hold_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "init-role"):
+                            self.init_role = value
+                            self.init_role.value_namespace = name_space
+                            self.init_role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-count"):
+                            self.interface_count = value
+                            self.interface_count.value_namespace = name_space
+                            self.interface_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-switchover-reason"):
+                            self.last_switchover_reason = value
+                            self.last_switchover_reason.value_namespace = name_space
+                            self.last_switchover_reason.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-switchover-time"):
+                            self.last_switchover_time = value
+                            self.last_switchover_time.value_namespace = name_space
+                            self.last_switchover_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "negotiating-role"):
+                            self.negotiating_role = value
+                            self.negotiating_role.value_namespace = name_space
+                            self.negotiating_role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "object-tracking-status"):
+                            self.object_tracking_status = value
+                            self.object_tracking_status.value_namespace = name_space
+                            self.object_tracking_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-current-role"):
+                            self.peer_current_role = value
+                            self.peer_current_role.value_namespace = name_space
+                            self.peer_current_role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-init-role"):
+                            self.peer_init_role = value
+                            self.peer_init_role.value_namespace = name_space
+                            self.peer_init_role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-ipv4-address"):
+                            self.peer_ipv4_address = value
+                            self.peer_ipv4_address.value_namespace = name_space
+                            self.peer_ipv4_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-ipv6-address"):
+                            self.peer_ipv6_address = value
+                            self.peer_ipv6_address.value_namespace = name_space
+                            self.peer_ipv6_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-last-down-time"):
+                            self.peer_last_down_time = value
+                            self.peer_last_down_time.value_namespace = name_space
+                            self.peer_last_down_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-last-negotiation-time"):
+                            self.peer_last_negotiation_time = value
+                            self.peer_last_negotiation_time.value_namespace = name_space
+                            self.peer_last_negotiation_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-last-up-time"):
+                            self.peer_last_up_time = value
+                            self.peer_last_up_time.value_namespace = name_space
+                            self.peer_last_up_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-negotiating-role"):
+                            self.peer_negotiating_role = value
+                            self.peer_negotiating_role.value_namespace = name_space
+                            self.peer_negotiating_role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-object-tracking-status"):
+                            self.peer_object_tracking_status = value
+                            self.peer_object_tracking_status.value_namespace = name_space
+                            self.peer_object_tracking_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-status"):
+                            self.peer_status = value
+                            self.peer_status.value_namespace = name_space
+                            self.peer_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pending-session-delete-count"):
+                            self.pending_session_delete_count = value
+                            self.pending_session_delete_count.value_namespace = name_space
+                            self.pending_session_delete_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pending-session-update-count"):
+                            self.pending_session_update_count = value
+                            self.pending_session_update_count.value_namespace = name_space
+                            self.pending_session_update_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "revertive-timer"):
+                            self.revertive_timer = value
+                            self.revertive_timer.value_namespace = name_space
+                            self.revertive_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-count"):
+                            self.session_count = value
+                            self.session_count.value_namespace = name_space
+                            self.session_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "slave-mode"):
+                            self.slave_mode = value
+                            self.slave_mode.value_namespace = name_space
+                            self.slave_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "slave-update-failure-count"):
+                            self.slave_update_failure_count = value
+                            self.slave_update_failure_count.value_namespace = name_space
+                            self.slave_update_failure_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "switchover-count"):
+                            self.switchover_count = value
+                            self.switchover_count.value_namespace = name_space
+                            self.switchover_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "switchover-hold-time"):
+                            self.switchover_hold_time = value
+                            self.switchover_hold_time.value_namespace = name_space
+                            self.switchover_hold_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "switchover-revert-time"):
+                            self.switchover_revert_time = value
+                            self.switchover_revert_time.value_namespace = name_space
+                            self.switchover_revert_time.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.group_id:
+                        if (c.has_data()):
                             return True
-
-                        if self.access_tracking_object_name is not None:
-                            return True
-
-                        if self.access_tracking_object_status is not None:
-                            return True
-
-                        if self.client_session_count is not None:
-                            for child_ref in self.client_session_count:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.core_tracking_object_name is not None:
-                            return True
-
-                        if self.core_tracking_object_status is not None:
-                            return True
-
-                        if self.current_role is not None:
-                            return True
-
-                        if self.description is not None:
-                            return True
-
-                        if self.disabled is not None:
-                            return True
-
-                        if self.group_id_xr is not None:
-                            return True
-
-                        if self.hold_timer is not None:
-                            return True
-
-                        if self.init_role is not None:
-                            return True
-
-                        if self.interface is not None:
-                            for child_ref in self.interface:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.interface_count is not None:
-                            return True
-
-                        if self.last_switchover_reason is not None:
-                            return True
-
-                        if self.last_switchover_time is not None:
-                            return True
-
-                        if self.negotiating_role is not None:
-                            return True
-
-                        if self.object_tracking_status is not None:
-                            return True
-
-                        if self.peer_current_role is not None:
-                            return True
-
-                        if self.peer_init_role is not None:
-                            return True
-
-                        if self.peer_ipv4_address is not None:
-                            return True
-
-                        if self.peer_ipv6_address is not None:
-                            return True
-
-                        if self.peer_last_down_time is not None:
-                            return True
-
-                        if self.peer_last_negotiation_time is not None:
-                            return True
-
-                        if self.peer_last_up_time is not None:
-                            return True
-
-                        if self.peer_negotiating_role is not None:
-                            return True
-
-                        if self.peer_object_tracking_status is not None:
-                            return True
-
-                        if self.peer_status is not None:
-                            return True
-
-                        if self.pending_session_delete_count is not None:
-                            return True
-
-                        if self.pending_session_update_count is not None:
-                            return True
-
-                        if self.revertive_timer is not None:
-                            return True
-
-                        if self.session_count is not None:
-                            return True
-
-                        if self.slave_mode is not None:
-                            return True
-
-                        if self.slave_update_failure_count is not None:
-                            return True
-
-                        if self.switchover_count is not None:
-                            return True
-
-                        if self.switchover_hold_time is not None:
-                            return True
-
-                        if self.switchover_revert_time is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:group-ids'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.group_id is not None:
-                        for child_ref in self.group_id:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.group_id:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "group-ids" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "group-id"):
+                        for c in self.group_id:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.group_id.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "group-id"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupIds']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Interfaces(object):
+            class Interfaces(Entity):
                 """
                 List of interfaces
                 
@@ -2971,13 +5135,39 @@ class SessionRedundancyAgent(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
+                    super(SessionRedundancyAgent.Nodes.Node.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "node"
+
+                    self.interface = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancyAgent.Nodes.Node.Interfaces, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancyAgent.Nodes.Node.Interfaces, self).__setattr__(name, value)
 
 
-                class Interface(object):
+                class Interface(Entity):
                     """
                     Specify interface name
                     
@@ -3065,7 +5255,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: role
                     
                     	SERG Role
-                    	**type**\:   :py:class:`SergShowImRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRoleEnum>`
+                    	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
                     
                     .. attribute:: session_count
                     
@@ -3082,29 +5272,84 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.client_status = YList()
-                        self.client_status.parent = self
-                        self.client_status.name = 'client_status'
-                        self.forward_referenced = None
-                        self.group_id = None
-                        self.interface_attribute_update_error_count = None
-                        self.interface_caps_add_error_count = None
-                        self.interface_caps_remove_error_count = None
-                        self.interface_disable_error_count = None
-                        self.interface_enable_error_count = None
-                        self.interface_name = None
+                        super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.forward_referenced = YLeaf(YType.boolean, "forward-referenced")
+
+                        self.group_id = YLeaf(YType.uint32, "group-id")
+
+                        self.interface_attribute_update_error_count = YLeaf(YType.uint32, "interface-attribute-update-error-count")
+
+                        self.interface_caps_add_error_count = YLeaf(YType.uint32, "interface-caps-add-error-count")
+
+                        self.interface_caps_remove_error_count = YLeaf(YType.uint32, "interface-caps-remove-error-count")
+
+                        self.interface_disable_error_count = YLeaf(YType.uint32, "interface-disable-error-count")
+
+                        self.interface_enable_error_count = YLeaf(YType.uint32, "interface-enable-error-count")
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.interface_synchronization_id = YLeaf(YType.uint32, "interface-synchronization-id")
+
+                        self.role = YLeaf(YType.enumeration, "role")
+
+                        self.session_count = YLeaf(YType.uint32, "session-count")
+
                         self.interface_oper = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper()
                         self.interface_oper.parent = self
+                        self._children_name_map["interface_oper"] = "interface-oper"
+                        self._children_yang_names.add("interface-oper")
+
                         self.interface_status = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus()
                         self.interface_status.parent = self
-                        self.interface_synchronization_id = None
-                        self.role = None
-                        self.session_count = None
+                        self._children_name_map["interface_status"] = "interface-status"
+                        self._children_yang_names.add("interface-status")
+
+                        self.client_status = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface",
+                                        "forward_referenced",
+                                        "group_id",
+                                        "interface_attribute_update_error_count",
+                                        "interface_caps_add_error_count",
+                                        "interface_caps_remove_error_count",
+                                        "interface_disable_error_count",
+                                        "interface_enable_error_count",
+                                        "interface_name",
+                                        "interface_synchronization_id",
+                                        "role",
+                                        "session_count") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                    class InterfaceOper(object):
+                    class InterfaceOper(Entity):
                         """
                         Interface Batch Operation
                         
@@ -3141,49 +5386,130 @@ class SessionRedundancyAgent(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.idb_oper_attr_update = None
-                            self.idb_oper_caps_add = None
-                            self.idb_oper_caps_remove = None
-                            self.idb_oper_reg_disable = None
-                            self.idb_oper_reg_enable = None
+                            super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "interface-oper"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:interface-oper'
+                            self.idb_oper_attr_update = YLeaf(YType.boolean, "idb-oper-attr-update")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.idb_oper_caps_add = YLeaf(YType.boolean, "idb-oper-caps-add")
+
+                            self.idb_oper_caps_remove = YLeaf(YType.boolean, "idb-oper-caps-remove")
+
+                            self.idb_oper_reg_disable = YLeaf(YType.boolean, "idb-oper-reg-disable")
+
+                            self.idb_oper_reg_enable = YLeaf(YType.boolean, "idb-oper-reg-enable")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("idb_oper_attr_update",
+                                            "idb_oper_caps_add",
+                                            "idb_oper_caps_remove",
+                                            "idb_oper_reg_disable",
+                                            "idb_oper_reg_enable") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.idb_oper_attr_update.is_set or
+                                self.idb_oper_caps_add.is_set or
+                                self.idb_oper_caps_remove.is_set or
+                                self.idb_oper_reg_disable.is_set or
+                                self.idb_oper_reg_enable.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.idb_oper_attr_update.yfilter != YFilter.not_set or
+                                self.idb_oper_caps_add.yfilter != YFilter.not_set or
+                                self.idb_oper_caps_remove.yfilter != YFilter.not_set or
+                                self.idb_oper_reg_disable.yfilter != YFilter.not_set or
+                                self.idb_oper_reg_enable.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface-oper" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.idb_oper_attr_update.is_set or self.idb_oper_attr_update.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_oper_attr_update.get_name_leafdata())
+                            if (self.idb_oper_caps_add.is_set or self.idb_oper_caps_add.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_oper_caps_add.get_name_leafdata())
+                            if (self.idb_oper_caps_remove.is_set or self.idb_oper_caps_remove.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_oper_caps_remove.get_name_leafdata())
+                            if (self.idb_oper_reg_disable.is_set or self.idb_oper_reg_disable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_oper_reg_disable.get_name_leafdata())
+                            if (self.idb_oper_reg_enable.is_set or self.idb_oper_reg_enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_oper_reg_enable.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "idb-oper-attr-update" or name == "idb-oper-caps-add" or name == "idb-oper-caps-remove" or name == "idb-oper-reg-disable" or name == "idb-oper-reg-enable"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.idb_oper_attr_update is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "idb-oper-attr-update"):
+                                self.idb_oper_attr_update = value
+                                self.idb_oper_attr_update.value_namespace = name_space
+                                self.idb_oper_attr_update.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-oper-caps-add"):
+                                self.idb_oper_caps_add = value
+                                self.idb_oper_caps_add.value_namespace = name_space
+                                self.idb_oper_caps_add.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-oper-caps-remove"):
+                                self.idb_oper_caps_remove = value
+                                self.idb_oper_caps_remove.value_namespace = name_space
+                                self.idb_oper_caps_remove.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-oper-reg-disable"):
+                                self.idb_oper_reg_disable = value
+                                self.idb_oper_reg_disable.value_namespace = name_space
+                                self.idb_oper_reg_disable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-oper-reg-enable"):
+                                self.idb_oper_reg_enable = value
+                                self.idb_oper_reg_enable.value_namespace = name_space
+                                self.idb_oper_reg_enable.value_namespace_prefix = name_space_prefix
 
-                            if self.idb_oper_caps_add is not None:
-                                return True
 
-                            if self.idb_oper_caps_remove is not None:
-                                return True
-
-                            if self.idb_oper_reg_disable is not None:
-                                return True
-
-                            if self.idb_oper_reg_enable is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper']['meta_info']
-
-
-                    class InterfaceStatus(object):
+                    class InterfaceStatus(Entity):
                         """
                         Interface Status
                         
@@ -3235,68 +5561,170 @@ class SessionRedundancyAgent(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.idb_client_eoms_pending = None
-                            self.idb_state_caps_added = None
-                            self.idb_state_fwd_ref = None
-                            self.idb_state_owned_re_source = None
-                            self.idb_state_p_end_caps_rem = None
-                            self.idb_state_p_end_reg_disable = None
-                            self.idb_state_registered = None
-                            self.idb_state_stale = None
+                            super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "interface-status"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:interface-status'
+                            self.idb_client_eoms_pending = YLeaf(YType.boolean, "idb-client-eoms-pending")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.idb_state_caps_added = YLeaf(YType.boolean, "idb-state-caps-added")
+
+                            self.idb_state_fwd_ref = YLeaf(YType.boolean, "idb-state-fwd-ref")
+
+                            self.idb_state_owned_re_source = YLeaf(YType.boolean, "idb-state-owned-re-source")
+
+                            self.idb_state_p_end_caps_rem = YLeaf(YType.boolean, "idb-state-p-end-caps-rem")
+
+                            self.idb_state_p_end_reg_disable = YLeaf(YType.boolean, "idb-state-p-end-reg-disable")
+
+                            self.idb_state_registered = YLeaf(YType.boolean, "idb-state-registered")
+
+                            self.idb_state_stale = YLeaf(YType.boolean, "idb-state-stale")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("idb_client_eoms_pending",
+                                            "idb_state_caps_added",
+                                            "idb_state_fwd_ref",
+                                            "idb_state_owned_re_source",
+                                            "idb_state_p_end_caps_rem",
+                                            "idb_state_p_end_reg_disable",
+                                            "idb_state_registered",
+                                            "idb_state_stale") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.idb_client_eoms_pending.is_set or
+                                self.idb_state_caps_added.is_set or
+                                self.idb_state_fwd_ref.is_set or
+                                self.idb_state_owned_re_source.is_set or
+                                self.idb_state_p_end_caps_rem.is_set or
+                                self.idb_state_p_end_reg_disable.is_set or
+                                self.idb_state_registered.is_set or
+                                self.idb_state_stale.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.idb_client_eoms_pending.yfilter != YFilter.not_set or
+                                self.idb_state_caps_added.yfilter != YFilter.not_set or
+                                self.idb_state_fwd_ref.yfilter != YFilter.not_set or
+                                self.idb_state_owned_re_source.yfilter != YFilter.not_set or
+                                self.idb_state_p_end_caps_rem.yfilter != YFilter.not_set or
+                                self.idb_state_p_end_reg_disable.yfilter != YFilter.not_set or
+                                self.idb_state_registered.yfilter != YFilter.not_set or
+                                self.idb_state_stale.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface-status" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.idb_client_eoms_pending.is_set or self.idb_client_eoms_pending.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_client_eoms_pending.get_name_leafdata())
+                            if (self.idb_state_caps_added.is_set or self.idb_state_caps_added.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_state_caps_added.get_name_leafdata())
+                            if (self.idb_state_fwd_ref.is_set or self.idb_state_fwd_ref.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_state_fwd_ref.get_name_leafdata())
+                            if (self.idb_state_owned_re_source.is_set or self.idb_state_owned_re_source.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_state_owned_re_source.get_name_leafdata())
+                            if (self.idb_state_p_end_caps_rem.is_set or self.idb_state_p_end_caps_rem.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_state_p_end_caps_rem.get_name_leafdata())
+                            if (self.idb_state_p_end_reg_disable.is_set or self.idb_state_p_end_reg_disable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_state_p_end_reg_disable.get_name_leafdata())
+                            if (self.idb_state_registered.is_set or self.idb_state_registered.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_state_registered.get_name_leafdata())
+                            if (self.idb_state_stale.is_set or self.idb_state_stale.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idb_state_stale.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "idb-client-eoms-pending" or name == "idb-state-caps-added" or name == "idb-state-fwd-ref" or name == "idb-state-owned-re-source" or name == "idb-state-p-end-caps-rem" or name == "idb-state-p-end-reg-disable" or name == "idb-state-registered" or name == "idb-state-stale"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.idb_client_eoms_pending is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "idb-client-eoms-pending"):
+                                self.idb_client_eoms_pending = value
+                                self.idb_client_eoms_pending.value_namespace = name_space
+                                self.idb_client_eoms_pending.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-state-caps-added"):
+                                self.idb_state_caps_added = value
+                                self.idb_state_caps_added.value_namespace = name_space
+                                self.idb_state_caps_added.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-state-fwd-ref"):
+                                self.idb_state_fwd_ref = value
+                                self.idb_state_fwd_ref.value_namespace = name_space
+                                self.idb_state_fwd_ref.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-state-owned-re-source"):
+                                self.idb_state_owned_re_source = value
+                                self.idb_state_owned_re_source.value_namespace = name_space
+                                self.idb_state_owned_re_source.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-state-p-end-caps-rem"):
+                                self.idb_state_p_end_caps_rem = value
+                                self.idb_state_p_end_caps_rem.value_namespace = name_space
+                                self.idb_state_p_end_caps_rem.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-state-p-end-reg-disable"):
+                                self.idb_state_p_end_reg_disable = value
+                                self.idb_state_p_end_reg_disable.value_namespace = name_space
+                                self.idb_state_p_end_reg_disable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-state-registered"):
+                                self.idb_state_registered = value
+                                self.idb_state_registered.value_namespace = name_space
+                                self.idb_state_registered.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idb-state-stale"):
+                                self.idb_state_stale = value
+                                self.idb_state_stale.value_namespace = name_space
+                                self.idb_state_stale.value_namespace_prefix = name_space_prefix
 
-                            if self.idb_state_caps_added is not None:
-                                return True
 
-                            if self.idb_state_fwd_ref is not None:
-                                return True
-
-                            if self.idb_state_owned_re_source is not None:
-                                return True
-
-                            if self.idb_state_p_end_caps_rem is not None:
-                                return True
-
-                            if self.idb_state_p_end_reg_disable is not None:
-                                return True
-
-                            if self.idb_state_registered is not None:
-                                return True
-
-                            if self.idb_state_stale is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus']['meta_info']
-
-
-                    class ClientStatus(object):
+                    class ClientStatus(Entity):
                         """
                         Interface status for each client
                         
                         .. attribute:: component
                         
                         	Component
-                        	**type**\:   :py:class:`SergShowCompEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowCompEnum>`
+                        	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                         
                         .. attribute:: serg_show_idb_client_eoms_pending
                         
@@ -3323,137 +5751,347 @@ class SessionRedundancyAgent(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.component = None
-                            self.serg_show_idb_client_eoms_pending = None
-                            self.serg_show_idb_client_sync_eod_pending = None
-                            self.session_count = None
+                            super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "client-status"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:client-status'
+                            self.component = YLeaf(YType.enumeration, "component")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.serg_show_idb_client_eoms_pending = YLeaf(YType.boolean, "serg-show-idb-client-eoms-pending")
+
+                            self.serg_show_idb_client_sync_eod_pending = YLeaf(YType.boolean, "serg-show-idb-client-sync-eod-pending")
+
+                            self.session_count = YLeaf(YType.uint32, "session-count")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("component",
+                                            "serg_show_idb_client_eoms_pending",
+                                            "serg_show_idb_client_sync_eod_pending",
+                                            "session_count") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.component.is_set or
+                                self.serg_show_idb_client_eoms_pending.is_set or
+                                self.serg_show_idb_client_sync_eod_pending.is_set or
+                                self.session_count.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.component.yfilter != YFilter.not_set or
+                                self.serg_show_idb_client_eoms_pending.yfilter != YFilter.not_set or
+                                self.serg_show_idb_client_sync_eod_pending.yfilter != YFilter.not_set or
+                                self.session_count.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "client-status" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.component.is_set or self.component.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.component.get_name_leafdata())
+                            if (self.serg_show_idb_client_eoms_pending.is_set or self.serg_show_idb_client_eoms_pending.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.serg_show_idb_client_eoms_pending.get_name_leafdata())
+                            if (self.serg_show_idb_client_sync_eod_pending.is_set or self.serg_show_idb_client_sync_eod_pending.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.serg_show_idb_client_sync_eod_pending.get_name_leafdata())
+                            if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_count.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "component" or name == "serg-show-idb-client-eoms-pending" or name == "serg-show-idb-client-sync-eod-pending" or name == "session-count"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.component is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "component"):
+                                self.component = value
+                                self.component.value_namespace = name_space
+                                self.component.value_namespace_prefix = name_space_prefix
+                            if(value_path == "serg-show-idb-client-eoms-pending"):
+                                self.serg_show_idb_client_eoms_pending = value
+                                self.serg_show_idb_client_eoms_pending.value_namespace = name_space
+                                self.serg_show_idb_client_eoms_pending.value_namespace_prefix = name_space_prefix
+                            if(value_path == "serg-show-idb-client-sync-eod-pending"):
+                                self.serg_show_idb_client_sync_eod_pending = value
+                                self.serg_show_idb_client_sync_eod_pending.value_namespace = name_space
+                                self.serg_show_idb_client_sync_eod_pending.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-count"):
+                                self.session_count = value
+                                self.session_count.value_namespace = name_space
+                                self.session_count.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.client_status:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.interface.is_set or
+                            self.forward_referenced.is_set or
+                            self.group_id.is_set or
+                            self.interface_attribute_update_error_count.is_set or
+                            self.interface_caps_add_error_count.is_set or
+                            self.interface_caps_remove_error_count.is_set or
+                            self.interface_disable_error_count.is_set or
+                            self.interface_enable_error_count.is_set or
+                            self.interface_name.is_set or
+                            self.interface_synchronization_id.is_set or
+                            self.role.is_set or
+                            self.session_count.is_set or
+                            (self.interface_oper is not None and self.interface_oper.has_data()) or
+                            (self.interface_status is not None and self.interface_status.has_data()))
 
-                            if self.serg_show_idb_client_eoms_pending is not None:
+                    def has_operation(self):
+                        for c in self.client_status:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.forward_referenced.yfilter != YFilter.not_set or
+                            self.group_id.yfilter != YFilter.not_set or
+                            self.interface_attribute_update_error_count.yfilter != YFilter.not_set or
+                            self.interface_caps_add_error_count.yfilter != YFilter.not_set or
+                            self.interface_caps_remove_error_count.yfilter != YFilter.not_set or
+                            self.interface_disable_error_count.yfilter != YFilter.not_set or
+                            self.interface_enable_error_count.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.interface_synchronization_id.yfilter != YFilter.not_set or
+                            self.role.yfilter != YFilter.not_set or
+                            self.session_count.yfilter != YFilter.not_set or
+                            (self.interface_oper is not None and self.interface_oper.has_operation()) or
+                            (self.interface_status is not None and self.interface_status.has_operation()))
 
-                            if self.serg_show_idb_client_sync_eod_pending is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface" + "[interface='" + self.interface.get() + "']" + path_buffer
 
-                            if self.session_count is not None:
-                                return True
+                        return path_buffer
 
-                            return False
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                            return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus']['meta_info']
+                        leaf_name_data = LeafDataList()
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.forward_referenced.is_set or self.forward_referenced.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.forward_referenced.get_name_leafdata())
+                        if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_id.get_name_leafdata())
+                        if (self.interface_attribute_update_error_count.is_set or self.interface_attribute_update_error_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_attribute_update_error_count.get_name_leafdata())
+                        if (self.interface_caps_add_error_count.is_set or self.interface_caps_add_error_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_caps_add_error_count.get_name_leafdata())
+                        if (self.interface_caps_remove_error_count.is_set or self.interface_caps_remove_error_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_caps_remove_error_count.get_name_leafdata())
+                        if (self.interface_disable_error_count.is_set or self.interface_disable_error_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_disable_error_count.get_name_leafdata())
+                        if (self.interface_enable_error_count.is_set or self.interface_enable_error_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_enable_error_count.get_name_leafdata())
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.interface_synchronization_id.is_set or self.interface_synchronization_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_synchronization_id.get_name_leafdata())
+                        if (self.role.is_set or self.role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.role.get_name_leafdata())
+                        if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_count.get_name_leafdata())
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:interface[Cisco-IOS-XR-infra-serg-oper:interface = ' + str(self.interface) + ']'
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        if (child_yang_name == "client-status"):
+                            for c in self.client_status:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.client_status.append(c)
+                            return c
+
+                        if (child_yang_name == "interface-oper"):
+                            if (self.interface_oper is None):
+                                self.interface_oper = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper()
+                                self.interface_oper.parent = self
+                                self._children_name_map["interface_oper"] = "interface-oper"
+                            return self.interface_oper
+
+                        if (child_yang_name == "interface-status"):
+                            if (self.interface_status is None):
+                                self.interface_status = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus()
+                                self.interface_status.parent = self
+                                self._children_name_map["interface_status"] = "interface-status"
+                            return self.interface_status
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "client-status" or name == "interface-oper" or name == "interface-status" or name == "interface" or name == "forward-referenced" or name == "group-id" or name == "interface-attribute-update-error-count" or name == "interface-caps-add-error-count" or name == "interface-caps-remove-error-count" or name == "interface-disable-error-count" or name == "interface-enable-error-count" or name == "interface-name" or name == "interface-synchronization-id" or name == "role" or name == "session-count"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "forward-referenced"):
+                            self.forward_referenced = value
+                            self.forward_referenced.value_namespace = name_space
+                            self.forward_referenced.value_namespace_prefix = name_space_prefix
+                        if(value_path == "group-id"):
+                            self.group_id = value
+                            self.group_id.value_namespace = name_space
+                            self.group_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-attribute-update-error-count"):
+                            self.interface_attribute_update_error_count = value
+                            self.interface_attribute_update_error_count.value_namespace = name_space
+                            self.interface_attribute_update_error_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-caps-add-error-count"):
+                            self.interface_caps_add_error_count = value
+                            self.interface_caps_add_error_count.value_namespace = name_space
+                            self.interface_caps_add_error_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-caps-remove-error-count"):
+                            self.interface_caps_remove_error_count = value
+                            self.interface_caps_remove_error_count.value_namespace = name_space
+                            self.interface_caps_remove_error_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-disable-error-count"):
+                            self.interface_disable_error_count = value
+                            self.interface_disable_error_count.value_namespace = name_space
+                            self.interface_disable_error_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-enable-error-count"):
+                            self.interface_enable_error_count = value
+                            self.interface_enable_error_count.value_namespace = name_space
+                            self.interface_enable_error_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-synchronization-id"):
+                            self.interface_synchronization_id = value
+                            self.interface_synchronization_id.value_namespace = name_space
+                            self.interface_synchronization_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "role"):
+                            self.role = value
+                            self.role.value_namespace = name_space
+                            self.role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-count"):
+                            self.session_count = value
+                            self.session_count.value_namespace = name_space
+                            self.session_count.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface:
+                        if (c.has_data()):
                             return True
-
-                        if self.client_status is not None:
-                            for child_ref in self.client_status:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.forward_referenced is not None:
-                            return True
-
-                        if self.group_id is not None:
-                            return True
-
-                        if self.interface_attribute_update_error_count is not None:
-                            return True
-
-                        if self.interface_caps_add_error_count is not None:
-                            return True
-
-                        if self.interface_caps_remove_error_count is not None:
-                            return True
-
-                        if self.interface_disable_error_count is not None:
-                            return True
-
-                        if self.interface_enable_error_count is not None:
-                            return True
-
-                        if self.interface_name is not None:
-                            return True
-
-                        if self.interface_oper is not None and self.interface_oper._has_data():
-                            return True
-
-                        if self.interface_status is not None and self.interface_status._has_data():
-                            return True
-
-                        if self.interface_synchronization_id is not None:
-                            return True
-
-                        if self.role is not None:
-                            return True
-
-                        if self.session_count is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.interface:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interface"):
+                        for c in self.interface:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.Interfaces.Interface()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.Interfaces']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class StatsGlobal(object):
+            class StatsGlobal(Entity):
                 """
                 Stats Global
                 
@@ -3716,57 +6354,152 @@ class SessionRedundancyAgent(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.client_init_sync_time_stamp = None
-                    self.client_status = YList()
-                    self.client_status.parent = self
-                    self.client_status.name = 'client_status'
+                    super(SessionRedundancyAgent.Nodes.Node.StatsGlobal, self).__init__()
+
+                    self.yang_name = "stats-global"
+                    self.yang_parent_name = "node"
+
+                    self.client_init_sync_time_stamp = YLeaf(YType.str, "client-init-sync-time-stamp")
+
+                    self.peer_action_timer = YLeaf(YType.uint32, "peer-action-timer")
+
+                    self.peer_init_sync_time_stamp = YLeaf(YType.str, "peer-init-sync-time-stamp")
+
+                    self.redundancy_role = YLeaf(YType.str, "redundancy-role")
+
+                    self.restart_client_sync_in_progress = YLeaf(YType.boolean, "restart-client-sync-in-progress")
+
+                    self.restart_peer_sync_in_progress = YLeaf(YType.boolean, "restart-peer-sync-in-progress")
+
+                    self.retry_timer_remaining = YLeaf(YType.uint32, "retry-timer-remaining")
+
+                    self.source_interface_ipv4_address = YLeaf(YType.str, "source-interface-ipv4-address")
+
+                    self.source_interface_ipv6_address = YLeaf(YType.str, "source-interface-ipv6-address")
+
+                    self.source_interface_name = YLeaf(YType.str, "source-interface-name")
+
+                    self.sync_in_progress = YLeaf(YType.boolean, "sync-in-progress")
+
+                    self.tx_list_client_connection_down = YLeaf(YType.uint32, "tx-list-client-connection-down")
+
+                    self.tx_list_client_connection_up = YLeaf(YType.uint32, "tx-list-client-connection-up")
+
+                    self.tx_list_client_de_registration_invalid = YLeaf(YType.uint32, "tx-list-client-de-registration-invalid")
+
+                    self.tx_list_client_message_call_back = YLeaf(YType.uint32, "tx-list-client-message-call-back")
+
+                    self.tx_list_client_peer_done = YLeaf(YType.uint32, "tx-list-client-peer-done")
+
+                    self.tx_list_client_receive_command_invalid = YLeaf(YType.uint32, "tx-list-client-receive-command-invalid")
+
+                    self.tx_list_client_receive_command_valid = YLeaf(YType.uint32, "tx-list-client-receive-command-valid")
+
+                    self.tx_list_client_receive_invalid = YLeaf(YType.uint32, "tx-list-client-receive-invalid")
+
+                    self.tx_list_client_receive_session_session_invalid = YLeaf(YType.uint32, "tx-list-client-receive-session-session-invalid")
+
+                    self.tx_list_client_receive_session_sessionvalid = YLeaf(YType.uint32, "tx-list-client-receive-session-sessionvalid")
+
+                    self.tx_list_client_receive_valid = YLeaf(YType.uint32, "tx-list-client-receive-valid")
+
+                    self.tx_list_client_registration_invalid = YLeaf(YType.uint32, "tx-list-client-registration-invalid")
+
+                    self.tx_list_peer_cmd_connection_down_not_ok = YLeaf(YType.uint32, "tx-list-peer-cmd-connection-down-not-ok")
+
+                    self.tx_list_peer_cmd_connection_up_not_ok = YLeaf(YType.uint32, "tx-list-peer-cmd-connection-up-not-ok")
+
+                    self.tx_list_peer_de_registration_invalid = YLeaf(YType.uint32, "tx-list-peer-de-registration-invalid")
+
+                    self.tx_list_peer_done = YLeaf(YType.uint32, "tx-list-peer-done")
+
+                    self.tx_list_peer_message_call_back_invalid = YLeaf(YType.uint32, "tx-list-peer-message-call-back-invalid")
+
+                    self.tx_list_peer_message_call_back_valid = YLeaf(YType.uint32, "tx-list-peer-message-call-back-valid")
+
+                    self.tx_list_peer_registration_invalid = YLeaf(YType.uint32, "tx-list-peer-registration-invalid")
+
+                    self.tx_list_peer_session_connection_down_not_ok = YLeaf(YType.uint32, "tx-list-peer-session-connection-down-not-ok")
+
+                    self.tx_list_peer_session_connection_up_not_ok = YLeaf(YType.uint32, "tx-list-peer-session-connection-up-not-ok")
+
+                    self.tx_list_peer_timer_handler = YLeaf(YType.uint32, "tx-list-peer-timer-handler")
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                     self.intf_status_statistics = SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics()
                     self.intf_status_statistics.parent = self
-                    self.opaque_memory_status = YList()
-                    self.opaque_memory_status.parent = self
-                    self.opaque_memory_status.name = 'opaque_memory_status'
-                    self.peer_action_timer = None
-                    self.peer_init_sync_time_stamp = None
-                    self.redundancy_role = None
-                    self.restart_client_sync_in_progress = None
-                    self.restart_peer_sync_in_progress = None
-                    self.retry_timer_remaining = None
-                    self.source_interface_ipv4_address = None
-                    self.source_interface_ipv6_address = None
-                    self.source_interface_name = None
-                    self.sync_in_progress = None
-                    self.tx_list_client_connection_down = None
-                    self.tx_list_client_connection_up = None
-                    self.tx_list_client_de_registration_invalid = None
-                    self.tx_list_client_message_call_back = None
-                    self.tx_list_client_peer_done = None
-                    self.tx_list_client_receive_command_invalid = None
-                    self.tx_list_client_receive_command_valid = None
-                    self.tx_list_client_receive_invalid = None
-                    self.tx_list_client_receive_session_session_invalid = None
-                    self.tx_list_client_receive_session_sessionvalid = None
-                    self.tx_list_client_receive_valid = None
-                    self.tx_list_client_registration_invalid = None
-                    self.tx_list_over_tcp_status = YList()
-                    self.tx_list_over_tcp_status.parent = self
-                    self.tx_list_over_tcp_status.name = 'tx_list_over_tcp_status'
-                    self.tx_list_peer_cmd_connection_down_not_ok = None
-                    self.tx_list_peer_cmd_connection_up_not_ok = None
-                    self.tx_list_peer_de_registration_invalid = None
-                    self.tx_list_peer_done = None
-                    self.tx_list_peer_message_call_back_invalid = None
-                    self.tx_list_peer_message_call_back_valid = None
-                    self.tx_list_peer_registration_invalid = None
-                    self.tx_list_peer_session_connection_down_not_ok = None
-                    self.tx_list_peer_session_connection_up_not_ok = None
-                    self.tx_list_peer_timer_handler = None
+                    self._children_name_map["intf_status_statistics"] = "intf-status-statistics"
+                    self._children_yang_names.add("intf-status-statistics")
+
                     self.tx_list_statistics = SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics()
                     self.tx_list_statistics.parent = self
-                    self.vrf_name = None
+                    self._children_name_map["tx_list_statistics"] = "tx-list-statistics"
+                    self._children_yang_names.add("tx-list-statistics")
+
+                    self.client_status = YList(self)
+                    self.opaque_memory_status = YList(self)
+                    self.tx_list_over_tcp_status = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("client_init_sync_time_stamp",
+                                    "peer_action_timer",
+                                    "peer_init_sync_time_stamp",
+                                    "redundancy_role",
+                                    "restart_client_sync_in_progress",
+                                    "restart_peer_sync_in_progress",
+                                    "retry_timer_remaining",
+                                    "source_interface_ipv4_address",
+                                    "source_interface_ipv6_address",
+                                    "source_interface_name",
+                                    "sync_in_progress",
+                                    "tx_list_client_connection_down",
+                                    "tx_list_client_connection_up",
+                                    "tx_list_client_de_registration_invalid",
+                                    "tx_list_client_message_call_back",
+                                    "tx_list_client_peer_done",
+                                    "tx_list_client_receive_command_invalid",
+                                    "tx_list_client_receive_command_valid",
+                                    "tx_list_client_receive_invalid",
+                                    "tx_list_client_receive_session_session_invalid",
+                                    "tx_list_client_receive_session_sessionvalid",
+                                    "tx_list_client_receive_valid",
+                                    "tx_list_client_registration_invalid",
+                                    "tx_list_peer_cmd_connection_down_not_ok",
+                                    "tx_list_peer_cmd_connection_up_not_ok",
+                                    "tx_list_peer_de_registration_invalid",
+                                    "tx_list_peer_done",
+                                    "tx_list_peer_message_call_back_invalid",
+                                    "tx_list_peer_message_call_back_valid",
+                                    "tx_list_peer_registration_invalid",
+                                    "tx_list_peer_session_connection_down_not_ok",
+                                    "tx_list_peer_session_connection_up_not_ok",
+                                    "tx_list_peer_timer_handler",
+                                    "vrf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancyAgent.Nodes.Node.StatsGlobal, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancyAgent.Nodes.Node.StatsGlobal, self).__setattr__(name, value)
 
 
-                class IntfStatusStatistics(object):
+                class IntfStatusStatistics(Entity):
                     """
                     intf status statistics
                     
@@ -3813,49 +6546,130 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.grp_bound_cnt = None
-                        self.non_stale_cnt = None
-                        self.pend_caps_rem_cnt = None
-                        self.pend_other_batch_oper_cnt = None
-                        self.pend_reg_disable_cnt = None
+                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "intf-status-statistics"
+                        self.yang_parent_name = "stats-global"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:intf-status-statistics'
+                        self.grp_bound_cnt = YLeaf(YType.uint32, "grp-bound-cnt")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.non_stale_cnt = YLeaf(YType.uint32, "non-stale-cnt")
+
+                        self.pend_caps_rem_cnt = YLeaf(YType.uint32, "pend-caps-rem-cnt")
+
+                        self.pend_other_batch_oper_cnt = YLeaf(YType.uint32, "pend-other-batch-oper-cnt")
+
+                        self.pend_reg_disable_cnt = YLeaf(YType.uint32, "pend-reg-disable-cnt")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("grp_bound_cnt",
+                                        "non_stale_cnt",
+                                        "pend_caps_rem_cnt",
+                                        "pend_other_batch_oper_cnt",
+                                        "pend_reg_disable_cnt") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.grp_bound_cnt.is_set or
+                            self.non_stale_cnt.is_set or
+                            self.pend_caps_rem_cnt.is_set or
+                            self.pend_other_batch_oper_cnt.is_set or
+                            self.pend_reg_disable_cnt.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.grp_bound_cnt.yfilter != YFilter.not_set or
+                            self.non_stale_cnt.yfilter != YFilter.not_set or
+                            self.pend_caps_rem_cnt.yfilter != YFilter.not_set or
+                            self.pend_other_batch_oper_cnt.yfilter != YFilter.not_set or
+                            self.pend_reg_disable_cnt.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "intf-status-statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.grp_bound_cnt.is_set or self.grp_bound_cnt.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.grp_bound_cnt.get_name_leafdata())
+                        if (self.non_stale_cnt.is_set or self.non_stale_cnt.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.non_stale_cnt.get_name_leafdata())
+                        if (self.pend_caps_rem_cnt.is_set or self.pend_caps_rem_cnt.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pend_caps_rem_cnt.get_name_leafdata())
+                        if (self.pend_other_batch_oper_cnt.is_set or self.pend_other_batch_oper_cnt.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pend_other_batch_oper_cnt.get_name_leafdata())
+                        if (self.pend_reg_disable_cnt.is_set or self.pend_reg_disable_cnt.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pend_reg_disable_cnt.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "grp-bound-cnt" or name == "non-stale-cnt" or name == "pend-caps-rem-cnt" or name == "pend-other-batch-oper-cnt" or name == "pend-reg-disable-cnt"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.grp_bound_cnt is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "grp-bound-cnt"):
+                            self.grp_bound_cnt = value
+                            self.grp_bound_cnt.value_namespace = name_space
+                            self.grp_bound_cnt.value_namespace_prefix = name_space_prefix
+                        if(value_path == "non-stale-cnt"):
+                            self.non_stale_cnt = value
+                            self.non_stale_cnt.value_namespace = name_space
+                            self.non_stale_cnt.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pend-caps-rem-cnt"):
+                            self.pend_caps_rem_cnt = value
+                            self.pend_caps_rem_cnt.value_namespace = name_space
+                            self.pend_caps_rem_cnt.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pend-other-batch-oper-cnt"):
+                            self.pend_other_batch_oper_cnt = value
+                            self.pend_other_batch_oper_cnt.value_namespace = name_space
+                            self.pend_other_batch_oper_cnt.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pend-reg-disable-cnt"):
+                            self.pend_reg_disable_cnt = value
+                            self.pend_reg_disable_cnt.value_namespace = name_space
+                            self.pend_reg_disable_cnt.value_namespace_prefix = name_space_prefix
 
-                        if self.non_stale_cnt is not None:
-                            return True
 
-                        if self.pend_caps_rem_cnt is not None:
-                            return True
-
-                        if self.pend_other_batch_oper_cnt is not None:
-                            return True
-
-                        if self.pend_reg_disable_cnt is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics']['meta_info']
-
-
-                class TxListStatistics(object):
+                class TxListStatistics(Entity):
                     """
                     tx list statistics
                     
@@ -3930,65 +6744,174 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.tx_list_clean_command = None
-                        self.tx_list_clean_marker = None
-                        self.tx_list_clean_negotiation = None
-                        self.tx_list_encode_command_ok = None
-                        self.tx_list_encode_command_partial_write = None
-                        self.tx_list_encode_marker_ok = None
-                        self.tx_list_encode_marker_partial_write = None
-                        self.tx_list_encode_negotiation_ok = None
-                        self.tx_list_encode_negotiation_partial_write = None
+                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "tx-list-statistics"
+                        self.yang_parent_name = "stats-global"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:tx-list-statistics'
+                        self.tx_list_clean_command = YLeaf(YType.uint32, "tx-list-clean-command")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.tx_list_clean_marker = YLeaf(YType.uint32, "tx-list-clean-marker")
+
+                        self.tx_list_clean_negotiation = YLeaf(YType.uint32, "tx-list-clean-negotiation")
+
+                        self.tx_list_encode_command_ok = YLeaf(YType.uint32, "tx-list-encode-command-ok")
+
+                        self.tx_list_encode_command_partial_write = YLeaf(YType.uint32, "tx-list-encode-command-partial-write")
+
+                        self.tx_list_encode_marker_ok = YLeaf(YType.uint32, "tx-list-encode-marker-ok")
+
+                        self.tx_list_encode_marker_partial_write = YLeaf(YType.uint32, "tx-list-encode-marker-partial-write")
+
+                        self.tx_list_encode_negotiation_ok = YLeaf(YType.uint32, "tx-list-encode-negotiation-ok")
+
+                        self.tx_list_encode_negotiation_partial_write = YLeaf(YType.uint32, "tx-list-encode-negotiation-partial-write")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("tx_list_clean_command",
+                                        "tx_list_clean_marker",
+                                        "tx_list_clean_negotiation",
+                                        "tx_list_encode_command_ok",
+                                        "tx_list_encode_command_partial_write",
+                                        "tx_list_encode_marker_ok",
+                                        "tx_list_encode_marker_partial_write",
+                                        "tx_list_encode_negotiation_ok",
+                                        "tx_list_encode_negotiation_partial_write") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.tx_list_clean_command.is_set or
+                            self.tx_list_clean_marker.is_set or
+                            self.tx_list_clean_negotiation.is_set or
+                            self.tx_list_encode_command_ok.is_set or
+                            self.tx_list_encode_command_partial_write.is_set or
+                            self.tx_list_encode_marker_ok.is_set or
+                            self.tx_list_encode_marker_partial_write.is_set or
+                            self.tx_list_encode_negotiation_ok.is_set or
+                            self.tx_list_encode_negotiation_partial_write.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.tx_list_clean_command.yfilter != YFilter.not_set or
+                            self.tx_list_clean_marker.yfilter != YFilter.not_set or
+                            self.tx_list_clean_negotiation.yfilter != YFilter.not_set or
+                            self.tx_list_encode_command_ok.yfilter != YFilter.not_set or
+                            self.tx_list_encode_command_partial_write.yfilter != YFilter.not_set or
+                            self.tx_list_encode_marker_ok.yfilter != YFilter.not_set or
+                            self.tx_list_encode_marker_partial_write.yfilter != YFilter.not_set or
+                            self.tx_list_encode_negotiation_ok.yfilter != YFilter.not_set or
+                            self.tx_list_encode_negotiation_partial_write.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "tx-list-statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.tx_list_clean_command.is_set or self.tx_list_clean_command.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_clean_command.get_name_leafdata())
+                        if (self.tx_list_clean_marker.is_set or self.tx_list_clean_marker.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_clean_marker.get_name_leafdata())
+                        if (self.tx_list_clean_negotiation.is_set or self.tx_list_clean_negotiation.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_clean_negotiation.get_name_leafdata())
+                        if (self.tx_list_encode_command_ok.is_set or self.tx_list_encode_command_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_command_ok.get_name_leafdata())
+                        if (self.tx_list_encode_command_partial_write.is_set or self.tx_list_encode_command_partial_write.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_command_partial_write.get_name_leafdata())
+                        if (self.tx_list_encode_marker_ok.is_set or self.tx_list_encode_marker_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_marker_ok.get_name_leafdata())
+                        if (self.tx_list_encode_marker_partial_write.is_set or self.tx_list_encode_marker_partial_write.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_marker_partial_write.get_name_leafdata())
+                        if (self.tx_list_encode_negotiation_ok.is_set or self.tx_list_encode_negotiation_ok.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_negotiation_ok.get_name_leafdata())
+                        if (self.tx_list_encode_negotiation_partial_write.is_set or self.tx_list_encode_negotiation_partial_write.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tx_list_encode_negotiation_partial_write.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "tx-list-clean-command" or name == "tx-list-clean-marker" or name == "tx-list-clean-negotiation" or name == "tx-list-encode-command-ok" or name == "tx-list-encode-command-partial-write" or name == "tx-list-encode-marker-ok" or name == "tx-list-encode-marker-partial-write" or name == "tx-list-encode-negotiation-ok" or name == "tx-list-encode-negotiation-partial-write"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.tx_list_clean_command is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "tx-list-clean-command"):
+                            self.tx_list_clean_command = value
+                            self.tx_list_clean_command.value_namespace = name_space
+                            self.tx_list_clean_command.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-clean-marker"):
+                            self.tx_list_clean_marker = value
+                            self.tx_list_clean_marker.value_namespace = name_space
+                            self.tx_list_clean_marker.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-clean-negotiation"):
+                            self.tx_list_clean_negotiation = value
+                            self.tx_list_clean_negotiation.value_namespace = name_space
+                            self.tx_list_clean_negotiation.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-command-ok"):
+                            self.tx_list_encode_command_ok = value
+                            self.tx_list_encode_command_ok.value_namespace = name_space
+                            self.tx_list_encode_command_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-command-partial-write"):
+                            self.tx_list_encode_command_partial_write = value
+                            self.tx_list_encode_command_partial_write.value_namespace = name_space
+                            self.tx_list_encode_command_partial_write.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-marker-ok"):
+                            self.tx_list_encode_marker_ok = value
+                            self.tx_list_encode_marker_ok.value_namespace = name_space
+                            self.tx_list_encode_marker_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-marker-partial-write"):
+                            self.tx_list_encode_marker_partial_write = value
+                            self.tx_list_encode_marker_partial_write.value_namespace = name_space
+                            self.tx_list_encode_marker_partial_write.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-negotiation-ok"):
+                            self.tx_list_encode_negotiation_ok = value
+                            self.tx_list_encode_negotiation_ok.value_namespace = name_space
+                            self.tx_list_encode_negotiation_ok.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tx-list-encode-negotiation-partial-write"):
+                            self.tx_list_encode_negotiation_partial_write = value
+                            self.tx_list_encode_negotiation_partial_write.value_namespace = name_space
+                            self.tx_list_encode_negotiation_partial_write.value_namespace_prefix = name_space_prefix
 
-                        if self.tx_list_clean_marker is not None:
-                            return True
 
-                        if self.tx_list_clean_negotiation is not None:
-                            return True
-
-                        if self.tx_list_encode_command_ok is not None:
-                            return True
-
-                        if self.tx_list_encode_command_partial_write is not None:
-                            return True
-
-                        if self.tx_list_encode_marker_ok is not None:
-                            return True
-
-                        if self.tx_list_encode_marker_partial_write is not None:
-                            return True
-
-                        if self.tx_list_encode_negotiation_ok is not None:
-                            return True
-
-                        if self.tx_list_encode_negotiation_partial_write is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics']['meta_info']
-
-
-                class ClientStatus(object):
+                class ClientStatus(Entity):
                     """
                     Client Status
                     
@@ -4019,7 +6942,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: component
                     
                     	Component
-                    	**type**\:   :py:class:`SergShowCompEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowCompEnum>`
+                    	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                     
                     .. attribute:: down_time_stamp
                     
@@ -4039,64 +6962,159 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.clean_up_timer_remaining = None
-                        self.client_connection_status = None
-                        self.client_initialization_synchronization_pending = None
-                        self.client_synchronization_end_of_download_pending = None
-                        self.component = None
-                        self.down_time_stamp = None
-                        self.up_time_stamp = None
+                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "client-status"
+                        self.yang_parent_name = "stats-global"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:client-status'
+                        self.clean_up_timer_remaining = YLeaf(YType.uint32, "clean-up-timer-remaining")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.client_connection_status = YLeaf(YType.boolean, "client-connection-status")
+
+                        self.client_initialization_synchronization_pending = YLeaf(YType.boolean, "client-initialization-synchronization-pending")
+
+                        self.client_synchronization_end_of_download_pending = YLeaf(YType.boolean, "client-synchronization-end-of-download-pending")
+
+                        self.component = YLeaf(YType.enumeration, "component")
+
+                        self.down_time_stamp = YLeaf(YType.str, "down-time-stamp")
+
+                        self.up_time_stamp = YLeaf(YType.str, "up-time-stamp")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("clean_up_timer_remaining",
+                                        "client_connection_status",
+                                        "client_initialization_synchronization_pending",
+                                        "client_synchronization_end_of_download_pending",
+                                        "component",
+                                        "down_time_stamp",
+                                        "up_time_stamp") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.clean_up_timer_remaining.is_set or
+                            self.client_connection_status.is_set or
+                            self.client_initialization_synchronization_pending.is_set or
+                            self.client_synchronization_end_of_download_pending.is_set or
+                            self.component.is_set or
+                            self.down_time_stamp.is_set or
+                            self.up_time_stamp.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.clean_up_timer_remaining.yfilter != YFilter.not_set or
+                            self.client_connection_status.yfilter != YFilter.not_set or
+                            self.client_initialization_synchronization_pending.yfilter != YFilter.not_set or
+                            self.client_synchronization_end_of_download_pending.yfilter != YFilter.not_set or
+                            self.component.yfilter != YFilter.not_set or
+                            self.down_time_stamp.yfilter != YFilter.not_set or
+                            self.up_time_stamp.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "client-status" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.clean_up_timer_remaining.is_set or self.clean_up_timer_remaining.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.clean_up_timer_remaining.get_name_leafdata())
+                        if (self.client_connection_status.is_set or self.client_connection_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_connection_status.get_name_leafdata())
+                        if (self.client_initialization_synchronization_pending.is_set or self.client_initialization_synchronization_pending.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_initialization_synchronization_pending.get_name_leafdata())
+                        if (self.client_synchronization_end_of_download_pending.is_set or self.client_synchronization_end_of_download_pending.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_synchronization_end_of_download_pending.get_name_leafdata())
+                        if (self.component.is_set or self.component.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.component.get_name_leafdata())
+                        if (self.down_time_stamp.is_set or self.down_time_stamp.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.down_time_stamp.get_name_leafdata())
+                        if (self.up_time_stamp.is_set or self.up_time_stamp.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.up_time_stamp.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "clean-up-timer-remaining" or name == "client-connection-status" or name == "client-initialization-synchronization-pending" or name == "client-synchronization-end-of-download-pending" or name == "component" or name == "down-time-stamp" or name == "up-time-stamp"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.clean_up_timer_remaining is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "clean-up-timer-remaining"):
+                            self.clean_up_timer_remaining = value
+                            self.clean_up_timer_remaining.value_namespace = name_space
+                            self.clean_up_timer_remaining.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-connection-status"):
+                            self.client_connection_status = value
+                            self.client_connection_status.value_namespace = name_space
+                            self.client_connection_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-initialization-synchronization-pending"):
+                            self.client_initialization_synchronization_pending = value
+                            self.client_initialization_synchronization_pending.value_namespace = name_space
+                            self.client_initialization_synchronization_pending.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-synchronization-end-of-download-pending"):
+                            self.client_synchronization_end_of_download_pending = value
+                            self.client_synchronization_end_of_download_pending.value_namespace = name_space
+                            self.client_synchronization_end_of_download_pending.value_namespace_prefix = name_space_prefix
+                        if(value_path == "component"):
+                            self.component = value
+                            self.component.value_namespace = name_space
+                            self.component.value_namespace_prefix = name_space_prefix
+                        if(value_path == "down-time-stamp"):
+                            self.down_time_stamp = value
+                            self.down_time_stamp.value_namespace = name_space
+                            self.down_time_stamp.value_namespace_prefix = name_space_prefix
+                        if(value_path == "up-time-stamp"):
+                            self.up_time_stamp = value
+                            self.up_time_stamp.value_namespace = name_space
+                            self.up_time_stamp.value_namespace_prefix = name_space_prefix
 
-                        if self.client_connection_status is not None:
-                            return True
 
-                        if self.client_initialization_synchronization_pending is not None:
-                            return True
-
-                        if self.client_synchronization_end_of_download_pending is not None:
-                            return True
-
-                        if self.component is not None:
-                            return True
-
-                        if self.down_time_stamp is not None:
-                            return True
-
-                        if self.up_time_stamp is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus']['meta_info']
-
-
-                class OpaqueMemoryStatus(object):
+                class OpaqueMemoryStatus(Entity):
                     """
                     Opaque memory Stats
                     
                     .. attribute:: component
                     
                     	Component
-                    	**type**\:   :py:class:`SergShowCompEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowCompEnum>`
+                    	**type**\:   :py:class:`SergShowComp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowComp>`
                     
                     .. attribute:: opaque_data_size
                     
@@ -4134,49 +7152,130 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.component = None
-                        self.opaque_data_size = None
-                        self.opaque_high_size = None
-                        self.opaque_size = None
-                        self.session_count = None
+                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "opaque-memory-status"
+                        self.yang_parent_name = "stats-global"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:opaque-memory-status'
+                        self.component = YLeaf(YType.enumeration, "component")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.opaque_data_size = YLeaf(YType.uint32, "opaque-data-size")
+
+                        self.opaque_high_size = YLeaf(YType.uint32, "opaque-high-size")
+
+                        self.opaque_size = YLeaf(YType.uint32, "opaque-size")
+
+                        self.session_count = YLeaf(YType.uint32, "session-count")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("component",
+                                        "opaque_data_size",
+                                        "opaque_high_size",
+                                        "opaque_size",
+                                        "session_count") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.component.is_set or
+                            self.opaque_data_size.is_set or
+                            self.opaque_high_size.is_set or
+                            self.opaque_size.is_set or
+                            self.session_count.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.component.yfilter != YFilter.not_set or
+                            self.opaque_data_size.yfilter != YFilter.not_set or
+                            self.opaque_high_size.yfilter != YFilter.not_set or
+                            self.opaque_size.yfilter != YFilter.not_set or
+                            self.session_count.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "opaque-memory-status" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.component.is_set or self.component.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.component.get_name_leafdata())
+                        if (self.opaque_data_size.is_set or self.opaque_data_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.opaque_data_size.get_name_leafdata())
+                        if (self.opaque_high_size.is_set or self.opaque_high_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.opaque_high_size.get_name_leafdata())
+                        if (self.opaque_size.is_set or self.opaque_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.opaque_size.get_name_leafdata())
+                        if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_count.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "component" or name == "opaque-data-size" or name == "opaque-high-size" or name == "opaque-size" or name == "session-count"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.component is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "component"):
+                            self.component = value
+                            self.component.value_namespace = name_space
+                            self.component.value_namespace_prefix = name_space_prefix
+                        if(value_path == "opaque-data-size"):
+                            self.opaque_data_size = value
+                            self.opaque_data_size.value_namespace = name_space
+                            self.opaque_data_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "opaque-high-size"):
+                            self.opaque_high_size = value
+                            self.opaque_high_size.value_namespace = name_space
+                            self.opaque_high_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "opaque-size"):
+                            self.opaque_size = value
+                            self.opaque_size.value_namespace = name_space
+                            self.opaque_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-count"):
+                            self.session_count = value
+                            self.session_count.value_namespace = name_space
+                            self.session_count.value_namespace_prefix = name_space_prefix
 
-                        if self.opaque_data_size is not None:
-                            return True
 
-                        if self.opaque_high_size is not None:
-                            return True
-
-                        if self.opaque_size is not None:
-                            return True
-
-                        if self.session_count is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus']['meta_info']
-
-
-                class TxListOverTcpStatus(object):
+                class TxListOverTcpStatus(Entity):
                     """
                     TCP TxList Statistics
                     
@@ -4346,259 +7445,700 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.accept_count = None
-                        self.active_socket_count = None
-                        self.blocked_connect_count = None
-                        self.buffer_cache_hit = None
-                        self.buffer_cache_miss = None
-                        self.buffer_freed_count = None
-                        self.buffer_full_occurence_count = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.connect_count = None
-                        self.connect_retry_count = None
-                        self.maximum_received_message_size = None
-                        self.maximum_requested_buffer_size = None
-                        self.maximum_sent_message_size = None
-                        self.mem_move_bytes_count = None
-                        self.mem_move_message_count = None
-                        self.messages_received = None
-                        self.messages_sent = None
-                        self.peer_pause_count = None
-                        self.remote_node_down_count = None
-                        self.socket_read_count = None
-                        self.socket_write_count = None
+                        super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "tx-list-over-tcp-status"
+                        self.yang_parent_name = "stats-global"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:tx-list-over-tcp-status'
+                        self.accept_count = YLeaf(YType.uint32, "accept-count")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.active_socket_count = YLeaf(YType.uint16, "active-socket-count")
+
+                        self.blocked_connect_count = YLeaf(YType.uint32, "blocked-connect-count")
+
+                        self.buffer_cache_hit = YLeaf(YType.uint16, "buffer-cache-hit")
+
+                        self.buffer_cache_miss = YLeaf(YType.uint16, "buffer-cache-miss")
+
+                        self.buffer_freed_count = YLeaf(YType.uint16, "buffer-freed-count")
+
+                        self.buffer_full_occurence_count = YLeaf(YType.uint32, "buffer-full-occurence-count")
+
+                        self.bytes_received = YLeaf(YType.uint32, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint32, "bytes-sent")
+
+                        self.connect_count = YLeaf(YType.uint32, "connect-count")
+
+                        self.connect_retry_count = YLeaf(YType.uint32, "connect-retry-count")
+
+                        self.maximum_received_message_size = YLeaf(YType.uint32, "maximum-received-message-size")
+
+                        self.maximum_requested_buffer_size = YLeaf(YType.uint32, "maximum-requested-buffer-size")
+
+                        self.maximum_sent_message_size = YLeaf(YType.uint32, "maximum-sent-message-size")
+
+                        self.mem_move_bytes_count = YLeaf(YType.uint32, "mem-move-bytes-count")
+
+                        self.mem_move_message_count = YLeaf(YType.uint32, "mem-move-message-count")
+
+                        self.messages_received = YLeaf(YType.uint32, "messages-received")
+
+                        self.messages_sent = YLeaf(YType.uint32, "messages-sent")
+
+                        self.peer_pause_count = YLeaf(YType.uint32, "peer-pause-count")
+
+                        self.remote_node_down_count = YLeaf(YType.uint32, "remote-node-down-count")
+
+                        self.socket_read_count = YLeaf(YType.uint32, "socket-read-count")
+
+                        self.socket_write_count = YLeaf(YType.uint32, "socket-write-count")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("accept_count",
+                                        "active_socket_count",
+                                        "blocked_connect_count",
+                                        "buffer_cache_hit",
+                                        "buffer_cache_miss",
+                                        "buffer_freed_count",
+                                        "buffer_full_occurence_count",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "connect_count",
+                                        "connect_retry_count",
+                                        "maximum_received_message_size",
+                                        "maximum_requested_buffer_size",
+                                        "maximum_sent_message_size",
+                                        "mem_move_bytes_count",
+                                        "mem_move_message_count",
+                                        "messages_received",
+                                        "messages_sent",
+                                        "peer_pause_count",
+                                        "remote_node_down_count",
+                                        "socket_read_count",
+                                        "socket_write_count") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.accept_count.is_set or
+                            self.active_socket_count.is_set or
+                            self.blocked_connect_count.is_set or
+                            self.buffer_cache_hit.is_set or
+                            self.buffer_cache_miss.is_set or
+                            self.buffer_freed_count.is_set or
+                            self.buffer_full_occurence_count.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.connect_count.is_set or
+                            self.connect_retry_count.is_set or
+                            self.maximum_received_message_size.is_set or
+                            self.maximum_requested_buffer_size.is_set or
+                            self.maximum_sent_message_size.is_set or
+                            self.mem_move_bytes_count.is_set or
+                            self.mem_move_message_count.is_set or
+                            self.messages_received.is_set or
+                            self.messages_sent.is_set or
+                            self.peer_pause_count.is_set or
+                            self.remote_node_down_count.is_set or
+                            self.socket_read_count.is_set or
+                            self.socket_write_count.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.accept_count.yfilter != YFilter.not_set or
+                            self.active_socket_count.yfilter != YFilter.not_set or
+                            self.blocked_connect_count.yfilter != YFilter.not_set or
+                            self.buffer_cache_hit.yfilter != YFilter.not_set or
+                            self.buffer_cache_miss.yfilter != YFilter.not_set or
+                            self.buffer_freed_count.yfilter != YFilter.not_set or
+                            self.buffer_full_occurence_count.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.connect_count.yfilter != YFilter.not_set or
+                            self.connect_retry_count.yfilter != YFilter.not_set or
+                            self.maximum_received_message_size.yfilter != YFilter.not_set or
+                            self.maximum_requested_buffer_size.yfilter != YFilter.not_set or
+                            self.maximum_sent_message_size.yfilter != YFilter.not_set or
+                            self.mem_move_bytes_count.yfilter != YFilter.not_set or
+                            self.mem_move_message_count.yfilter != YFilter.not_set or
+                            self.messages_received.yfilter != YFilter.not_set or
+                            self.messages_sent.yfilter != YFilter.not_set or
+                            self.peer_pause_count.yfilter != YFilter.not_set or
+                            self.remote_node_down_count.yfilter != YFilter.not_set or
+                            self.socket_read_count.yfilter != YFilter.not_set or
+                            self.socket_write_count.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "tx-list-over-tcp-status" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.accept_count.is_set or self.accept_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.accept_count.get_name_leafdata())
+                        if (self.active_socket_count.is_set or self.active_socket_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active_socket_count.get_name_leafdata())
+                        if (self.blocked_connect_count.is_set or self.blocked_connect_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.blocked_connect_count.get_name_leafdata())
+                        if (self.buffer_cache_hit.is_set or self.buffer_cache_hit.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.buffer_cache_hit.get_name_leafdata())
+                        if (self.buffer_cache_miss.is_set or self.buffer_cache_miss.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.buffer_cache_miss.get_name_leafdata())
+                        if (self.buffer_freed_count.is_set or self.buffer_freed_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.buffer_freed_count.get_name_leafdata())
+                        if (self.buffer_full_occurence_count.is_set or self.buffer_full_occurence_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.buffer_full_occurence_count.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.connect_count.is_set or self.connect_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.connect_count.get_name_leafdata())
+                        if (self.connect_retry_count.is_set or self.connect_retry_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.connect_retry_count.get_name_leafdata())
+                        if (self.maximum_received_message_size.is_set or self.maximum_received_message_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.maximum_received_message_size.get_name_leafdata())
+                        if (self.maximum_requested_buffer_size.is_set or self.maximum_requested_buffer_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.maximum_requested_buffer_size.get_name_leafdata())
+                        if (self.maximum_sent_message_size.is_set or self.maximum_sent_message_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.maximum_sent_message_size.get_name_leafdata())
+                        if (self.mem_move_bytes_count.is_set or self.mem_move_bytes_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mem_move_bytes_count.get_name_leafdata())
+                        if (self.mem_move_message_count.is_set or self.mem_move_message_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mem_move_message_count.get_name_leafdata())
+                        if (self.messages_received.is_set or self.messages_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.messages_received.get_name_leafdata())
+                        if (self.messages_sent.is_set or self.messages_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.messages_sent.get_name_leafdata())
+                        if (self.peer_pause_count.is_set or self.peer_pause_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_pause_count.get_name_leafdata())
+                        if (self.remote_node_down_count.is_set or self.remote_node_down_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_node_down_count.get_name_leafdata())
+                        if (self.socket_read_count.is_set or self.socket_read_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.socket_read_count.get_name_leafdata())
+                        if (self.socket_write_count.is_set or self.socket_write_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.socket_write_count.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "accept-count" or name == "active-socket-count" or name == "blocked-connect-count" or name == "buffer-cache-hit" or name == "buffer-cache-miss" or name == "buffer-freed-count" or name == "buffer-full-occurence-count" or name == "bytes-received" or name == "bytes-sent" or name == "connect-count" or name == "connect-retry-count" or name == "maximum-received-message-size" or name == "maximum-requested-buffer-size" or name == "maximum-sent-message-size" or name == "mem-move-bytes-count" or name == "mem-move-message-count" or name == "messages-received" or name == "messages-sent" or name == "peer-pause-count" or name == "remote-node-down-count" or name == "socket-read-count" or name == "socket-write-count"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.accept_count is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "accept-count"):
+                            self.accept_count = value
+                            self.accept_count.value_namespace = name_space
+                            self.accept_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "active-socket-count"):
+                            self.active_socket_count = value
+                            self.active_socket_count.value_namespace = name_space
+                            self.active_socket_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "blocked-connect-count"):
+                            self.blocked_connect_count = value
+                            self.blocked_connect_count.value_namespace = name_space
+                            self.blocked_connect_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "buffer-cache-hit"):
+                            self.buffer_cache_hit = value
+                            self.buffer_cache_hit.value_namespace = name_space
+                            self.buffer_cache_hit.value_namespace_prefix = name_space_prefix
+                        if(value_path == "buffer-cache-miss"):
+                            self.buffer_cache_miss = value
+                            self.buffer_cache_miss.value_namespace = name_space
+                            self.buffer_cache_miss.value_namespace_prefix = name_space_prefix
+                        if(value_path == "buffer-freed-count"):
+                            self.buffer_freed_count = value
+                            self.buffer_freed_count.value_namespace = name_space
+                            self.buffer_freed_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "buffer-full-occurence-count"):
+                            self.buffer_full_occurence_count = value
+                            self.buffer_full_occurence_count.value_namespace = name_space
+                            self.buffer_full_occurence_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "connect-count"):
+                            self.connect_count = value
+                            self.connect_count.value_namespace = name_space
+                            self.connect_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "connect-retry-count"):
+                            self.connect_retry_count = value
+                            self.connect_retry_count.value_namespace = name_space
+                            self.connect_retry_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "maximum-received-message-size"):
+                            self.maximum_received_message_size = value
+                            self.maximum_received_message_size.value_namespace = name_space
+                            self.maximum_received_message_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "maximum-requested-buffer-size"):
+                            self.maximum_requested_buffer_size = value
+                            self.maximum_requested_buffer_size.value_namespace = name_space
+                            self.maximum_requested_buffer_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "maximum-sent-message-size"):
+                            self.maximum_sent_message_size = value
+                            self.maximum_sent_message_size.value_namespace = name_space
+                            self.maximum_sent_message_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mem-move-bytes-count"):
+                            self.mem_move_bytes_count = value
+                            self.mem_move_bytes_count.value_namespace = name_space
+                            self.mem_move_bytes_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mem-move-message-count"):
+                            self.mem_move_message_count = value
+                            self.mem_move_message_count.value_namespace = name_space
+                            self.mem_move_message_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "messages-received"):
+                            self.messages_received = value
+                            self.messages_received.value_namespace = name_space
+                            self.messages_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "messages-sent"):
+                            self.messages_sent = value
+                            self.messages_sent.value_namespace = name_space
+                            self.messages_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-pause-count"):
+                            self.peer_pause_count = value
+                            self.peer_pause_count.value_namespace = name_space
+                            self.peer_pause_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-node-down-count"):
+                            self.remote_node_down_count = value
+                            self.remote_node_down_count.value_namespace = name_space
+                            self.remote_node_down_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "socket-read-count"):
+                            self.socket_read_count = value
+                            self.socket_read_count.value_namespace = name_space
+                            self.socket_read_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "socket-write-count"):
+                            self.socket_write_count = value
+                            self.socket_write_count.value_namespace = name_space
+                            self.socket_write_count.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.client_status:
+                        if (c.has_data()):
                             return True
-
-                        if self.active_socket_count is not None:
+                    for c in self.opaque_memory_status:
+                        if (c.has_data()):
                             return True
-
-                        if self.blocked_connect_count is not None:
+                    for c in self.tx_list_over_tcp_status:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.client_init_sync_time_stamp.is_set or
+                        self.peer_action_timer.is_set or
+                        self.peer_init_sync_time_stamp.is_set or
+                        self.redundancy_role.is_set or
+                        self.restart_client_sync_in_progress.is_set or
+                        self.restart_peer_sync_in_progress.is_set or
+                        self.retry_timer_remaining.is_set or
+                        self.source_interface_ipv4_address.is_set or
+                        self.source_interface_ipv6_address.is_set or
+                        self.source_interface_name.is_set or
+                        self.sync_in_progress.is_set or
+                        self.tx_list_client_connection_down.is_set or
+                        self.tx_list_client_connection_up.is_set or
+                        self.tx_list_client_de_registration_invalid.is_set or
+                        self.tx_list_client_message_call_back.is_set or
+                        self.tx_list_client_peer_done.is_set or
+                        self.tx_list_client_receive_command_invalid.is_set or
+                        self.tx_list_client_receive_command_valid.is_set or
+                        self.tx_list_client_receive_invalid.is_set or
+                        self.tx_list_client_receive_session_session_invalid.is_set or
+                        self.tx_list_client_receive_session_sessionvalid.is_set or
+                        self.tx_list_client_receive_valid.is_set or
+                        self.tx_list_client_registration_invalid.is_set or
+                        self.tx_list_peer_cmd_connection_down_not_ok.is_set or
+                        self.tx_list_peer_cmd_connection_up_not_ok.is_set or
+                        self.tx_list_peer_de_registration_invalid.is_set or
+                        self.tx_list_peer_done.is_set or
+                        self.tx_list_peer_message_call_back_invalid.is_set or
+                        self.tx_list_peer_message_call_back_valid.is_set or
+                        self.tx_list_peer_registration_invalid.is_set or
+                        self.tx_list_peer_session_connection_down_not_ok.is_set or
+                        self.tx_list_peer_session_connection_up_not_ok.is_set or
+                        self.tx_list_peer_timer_handler.is_set or
+                        self.vrf_name.is_set or
+                        (self.intf_status_statistics is not None and self.intf_status_statistics.has_data()) or
+                        (self.tx_list_statistics is not None and self.tx_list_statistics.has_data()))
 
-                        if self.buffer_cache_hit is not None:
+                def has_operation(self):
+                    for c in self.client_status:
+                        if (c.has_operation()):
                             return True
-
-                        if self.buffer_cache_miss is not None:
+                    for c in self.opaque_memory_status:
+                        if (c.has_operation()):
                             return True
-
-                        if self.buffer_freed_count is not None:
+                    for c in self.tx_list_over_tcp_status:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.client_init_sync_time_stamp.yfilter != YFilter.not_set or
+                        self.peer_action_timer.yfilter != YFilter.not_set or
+                        self.peer_init_sync_time_stamp.yfilter != YFilter.not_set or
+                        self.redundancy_role.yfilter != YFilter.not_set or
+                        self.restart_client_sync_in_progress.yfilter != YFilter.not_set or
+                        self.restart_peer_sync_in_progress.yfilter != YFilter.not_set or
+                        self.retry_timer_remaining.yfilter != YFilter.not_set or
+                        self.source_interface_ipv4_address.yfilter != YFilter.not_set or
+                        self.source_interface_ipv6_address.yfilter != YFilter.not_set or
+                        self.source_interface_name.yfilter != YFilter.not_set or
+                        self.sync_in_progress.yfilter != YFilter.not_set or
+                        self.tx_list_client_connection_down.yfilter != YFilter.not_set or
+                        self.tx_list_client_connection_up.yfilter != YFilter.not_set or
+                        self.tx_list_client_de_registration_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_client_message_call_back.yfilter != YFilter.not_set or
+                        self.tx_list_client_peer_done.yfilter != YFilter.not_set or
+                        self.tx_list_client_receive_command_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_client_receive_command_valid.yfilter != YFilter.not_set or
+                        self.tx_list_client_receive_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_client_receive_session_session_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_client_receive_session_sessionvalid.yfilter != YFilter.not_set or
+                        self.tx_list_client_receive_valid.yfilter != YFilter.not_set or
+                        self.tx_list_client_registration_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_peer_cmd_connection_down_not_ok.yfilter != YFilter.not_set or
+                        self.tx_list_peer_cmd_connection_up_not_ok.yfilter != YFilter.not_set or
+                        self.tx_list_peer_de_registration_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_peer_done.yfilter != YFilter.not_set or
+                        self.tx_list_peer_message_call_back_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_peer_message_call_back_valid.yfilter != YFilter.not_set or
+                        self.tx_list_peer_registration_invalid.yfilter != YFilter.not_set or
+                        self.tx_list_peer_session_connection_down_not_ok.yfilter != YFilter.not_set or
+                        self.tx_list_peer_session_connection_up_not_ok.yfilter != YFilter.not_set or
+                        self.tx_list_peer_timer_handler.yfilter != YFilter.not_set or
+                        self.vrf_name.yfilter != YFilter.not_set or
+                        (self.intf_status_statistics is not None and self.intf_status_statistics.has_operation()) or
+                        (self.tx_list_statistics is not None and self.tx_list_statistics.has_operation()))
 
-                        if self.buffer_full_occurence_count is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "stats-global" + path_buffer
 
-                        if self.bytes_received is not None:
-                            return True
+                    return path_buffer
 
-                        if self.bytes_sent is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.connect_count is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.client_init_sync_time_stamp.is_set or self.client_init_sync_time_stamp.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.client_init_sync_time_stamp.get_name_leafdata())
+                    if (self.peer_action_timer.is_set or self.peer_action_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.peer_action_timer.get_name_leafdata())
+                    if (self.peer_init_sync_time_stamp.is_set or self.peer_init_sync_time_stamp.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.peer_init_sync_time_stamp.get_name_leafdata())
+                    if (self.redundancy_role.is_set or self.redundancy_role.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redundancy_role.get_name_leafdata())
+                    if (self.restart_client_sync_in_progress.is_set or self.restart_client_sync_in_progress.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.restart_client_sync_in_progress.get_name_leafdata())
+                    if (self.restart_peer_sync_in_progress.is_set or self.restart_peer_sync_in_progress.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.restart_peer_sync_in_progress.get_name_leafdata())
+                    if (self.retry_timer_remaining.is_set or self.retry_timer_remaining.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.retry_timer_remaining.get_name_leafdata())
+                    if (self.source_interface_ipv4_address.is_set or self.source_interface_ipv4_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.source_interface_ipv4_address.get_name_leafdata())
+                    if (self.source_interface_ipv6_address.is_set or self.source_interface_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.source_interface_ipv6_address.get_name_leafdata())
+                    if (self.source_interface_name.is_set or self.source_interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.source_interface_name.get_name_leafdata())
+                    if (self.sync_in_progress.is_set or self.sync_in_progress.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sync_in_progress.get_name_leafdata())
+                    if (self.tx_list_client_connection_down.is_set or self.tx_list_client_connection_down.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_connection_down.get_name_leafdata())
+                    if (self.tx_list_client_connection_up.is_set or self.tx_list_client_connection_up.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_connection_up.get_name_leafdata())
+                    if (self.tx_list_client_de_registration_invalid.is_set or self.tx_list_client_de_registration_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_de_registration_invalid.get_name_leafdata())
+                    if (self.tx_list_client_message_call_back.is_set or self.tx_list_client_message_call_back.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_message_call_back.get_name_leafdata())
+                    if (self.tx_list_client_peer_done.is_set or self.tx_list_client_peer_done.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_peer_done.get_name_leafdata())
+                    if (self.tx_list_client_receive_command_invalid.is_set or self.tx_list_client_receive_command_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_receive_command_invalid.get_name_leafdata())
+                    if (self.tx_list_client_receive_command_valid.is_set or self.tx_list_client_receive_command_valid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_receive_command_valid.get_name_leafdata())
+                    if (self.tx_list_client_receive_invalid.is_set or self.tx_list_client_receive_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_receive_invalid.get_name_leafdata())
+                    if (self.tx_list_client_receive_session_session_invalid.is_set or self.tx_list_client_receive_session_session_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_receive_session_session_invalid.get_name_leafdata())
+                    if (self.tx_list_client_receive_session_sessionvalid.is_set or self.tx_list_client_receive_session_sessionvalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_receive_session_sessionvalid.get_name_leafdata())
+                    if (self.tx_list_client_receive_valid.is_set or self.tx_list_client_receive_valid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_receive_valid.get_name_leafdata())
+                    if (self.tx_list_client_registration_invalid.is_set or self.tx_list_client_registration_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_client_registration_invalid.get_name_leafdata())
+                    if (self.tx_list_peer_cmd_connection_down_not_ok.is_set or self.tx_list_peer_cmd_connection_down_not_ok.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_cmd_connection_down_not_ok.get_name_leafdata())
+                    if (self.tx_list_peer_cmd_connection_up_not_ok.is_set or self.tx_list_peer_cmd_connection_up_not_ok.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_cmd_connection_up_not_ok.get_name_leafdata())
+                    if (self.tx_list_peer_de_registration_invalid.is_set or self.tx_list_peer_de_registration_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_de_registration_invalid.get_name_leafdata())
+                    if (self.tx_list_peer_done.is_set or self.tx_list_peer_done.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_done.get_name_leafdata())
+                    if (self.tx_list_peer_message_call_back_invalid.is_set or self.tx_list_peer_message_call_back_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_message_call_back_invalid.get_name_leafdata())
+                    if (self.tx_list_peer_message_call_back_valid.is_set or self.tx_list_peer_message_call_back_valid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_message_call_back_valid.get_name_leafdata())
+                    if (self.tx_list_peer_registration_invalid.is_set or self.tx_list_peer_registration_invalid.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_registration_invalid.get_name_leafdata())
+                    if (self.tx_list_peer_session_connection_down_not_ok.is_set or self.tx_list_peer_session_connection_down_not_ok.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_session_connection_down_not_ok.get_name_leafdata())
+                    if (self.tx_list_peer_session_connection_up_not_ok.is_set or self.tx_list_peer_session_connection_up_not_ok.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_session_connection_up_not_ok.get_name_leafdata())
+                    if (self.tx_list_peer_timer_handler.is_set or self.tx_list_peer_timer_handler.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_list_peer_timer_handler.get_name_leafdata())
+                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
 
-                        if self.connect_retry_count is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.maximum_received_message_size is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.maximum_requested_buffer_size is not None:
-                            return True
+                    if (child_yang_name == "client-status"):
+                        for c in self.client_status:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.client_status.append(c)
+                        return c
 
-                        if self.maximum_sent_message_size is not None:
-                            return True
+                    if (child_yang_name == "intf-status-statistics"):
+                        if (self.intf_status_statistics is None):
+                            self.intf_status_statistics = SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics()
+                            self.intf_status_statistics.parent = self
+                            self._children_name_map["intf_status_statistics"] = "intf-status-statistics"
+                        return self.intf_status_statistics
 
-                        if self.mem_move_bytes_count is not None:
-                            return True
+                    if (child_yang_name == "opaque-memory-status"):
+                        for c in self.opaque_memory_status:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.opaque_memory_status.append(c)
+                        return c
 
-                        if self.mem_move_message_count is not None:
-                            return True
+                    if (child_yang_name == "tx-list-over-tcp-status"):
+                        for c in self.tx_list_over_tcp_status:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.tx_list_over_tcp_status.append(c)
+                        return c
 
-                        if self.messages_received is not None:
-                            return True
+                    if (child_yang_name == "tx-list-statistics"):
+                        if (self.tx_list_statistics is None):
+                            self.tx_list_statistics = SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics()
+                            self.tx_list_statistics.parent = self
+                            self._children_name_map["tx_list_statistics"] = "tx-list-statistics"
+                        return self.tx_list_statistics
 
-                        if self.messages_sent is not None:
-                            return True
+                    return None
 
-                        if self.peer_pause_count is not None:
-                            return True
-
-                        if self.remote_node_down_count is not None:
-                            return True
-
-                        if self.socket_read_count is not None:
-                            return True
-
-                        if self.socket_write_count is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:stats-global'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "client-status" or name == "intf-status-statistics" or name == "opaque-memory-status" or name == "tx-list-over-tcp-status" or name == "tx-list-statistics" or name == "client-init-sync-time-stamp" or name == "peer-action-timer" or name == "peer-init-sync-time-stamp" or name == "redundancy-role" or name == "restart-client-sync-in-progress" or name == "restart-peer-sync-in-progress" or name == "retry-timer-remaining" or name == "source-interface-ipv4-address" or name == "source-interface-ipv6-address" or name == "source-interface-name" or name == "sync-in-progress" or name == "tx-list-client-connection-down" or name == "tx-list-client-connection-up" or name == "tx-list-client-de-registration-invalid" or name == "tx-list-client-message-call-back" or name == "tx-list-client-peer-done" or name == "tx-list-client-receive-command-invalid" or name == "tx-list-client-receive-command-valid" or name == "tx-list-client-receive-invalid" or name == "tx-list-client-receive-session-session-invalid" or name == "tx-list-client-receive-session-sessionvalid" or name == "tx-list-client-receive-valid" or name == "tx-list-client-registration-invalid" or name == "tx-list-peer-cmd-connection-down-not-ok" or name == "tx-list-peer-cmd-connection-up-not-ok" or name == "tx-list-peer-de-registration-invalid" or name == "tx-list-peer-done" or name == "tx-list-peer-message-call-back-invalid" or name == "tx-list-peer-message-call-back-valid" or name == "tx-list-peer-registration-invalid" or name == "tx-list-peer-session-connection-down-not-ok" or name == "tx-list-peer-session-connection-up-not-ok" or name == "tx-list-peer-timer-handler" or name == "vrf-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.client_init_sync_time_stamp is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "client-init-sync-time-stamp"):
+                        self.client_init_sync_time_stamp = value
+                        self.client_init_sync_time_stamp.value_namespace = name_space
+                        self.client_init_sync_time_stamp.value_namespace_prefix = name_space_prefix
+                    if(value_path == "peer-action-timer"):
+                        self.peer_action_timer = value
+                        self.peer_action_timer.value_namespace = name_space
+                        self.peer_action_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "peer-init-sync-time-stamp"):
+                        self.peer_init_sync_time_stamp = value
+                        self.peer_init_sync_time_stamp.value_namespace = name_space
+                        self.peer_init_sync_time_stamp.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redundancy-role"):
+                        self.redundancy_role = value
+                        self.redundancy_role.value_namespace = name_space
+                        self.redundancy_role.value_namespace_prefix = name_space_prefix
+                    if(value_path == "restart-client-sync-in-progress"):
+                        self.restart_client_sync_in_progress = value
+                        self.restart_client_sync_in_progress.value_namespace = name_space
+                        self.restart_client_sync_in_progress.value_namespace_prefix = name_space_prefix
+                    if(value_path == "restart-peer-sync-in-progress"):
+                        self.restart_peer_sync_in_progress = value
+                        self.restart_peer_sync_in_progress.value_namespace = name_space
+                        self.restart_peer_sync_in_progress.value_namespace_prefix = name_space_prefix
+                    if(value_path == "retry-timer-remaining"):
+                        self.retry_timer_remaining = value
+                        self.retry_timer_remaining.value_namespace = name_space
+                        self.retry_timer_remaining.value_namespace_prefix = name_space_prefix
+                    if(value_path == "source-interface-ipv4-address"):
+                        self.source_interface_ipv4_address = value
+                        self.source_interface_ipv4_address.value_namespace = name_space
+                        self.source_interface_ipv4_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "source-interface-ipv6-address"):
+                        self.source_interface_ipv6_address = value
+                        self.source_interface_ipv6_address.value_namespace = name_space
+                        self.source_interface_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "source-interface-name"):
+                        self.source_interface_name = value
+                        self.source_interface_name.value_namespace = name_space
+                        self.source_interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "sync-in-progress"):
+                        self.sync_in_progress = value
+                        self.sync_in_progress.value_namespace = name_space
+                        self.sync_in_progress.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-connection-down"):
+                        self.tx_list_client_connection_down = value
+                        self.tx_list_client_connection_down.value_namespace = name_space
+                        self.tx_list_client_connection_down.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-connection-up"):
+                        self.tx_list_client_connection_up = value
+                        self.tx_list_client_connection_up.value_namespace = name_space
+                        self.tx_list_client_connection_up.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-de-registration-invalid"):
+                        self.tx_list_client_de_registration_invalid = value
+                        self.tx_list_client_de_registration_invalid.value_namespace = name_space
+                        self.tx_list_client_de_registration_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-message-call-back"):
+                        self.tx_list_client_message_call_back = value
+                        self.tx_list_client_message_call_back.value_namespace = name_space
+                        self.tx_list_client_message_call_back.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-peer-done"):
+                        self.tx_list_client_peer_done = value
+                        self.tx_list_client_peer_done.value_namespace = name_space
+                        self.tx_list_client_peer_done.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-receive-command-invalid"):
+                        self.tx_list_client_receive_command_invalid = value
+                        self.tx_list_client_receive_command_invalid.value_namespace = name_space
+                        self.tx_list_client_receive_command_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-receive-command-valid"):
+                        self.tx_list_client_receive_command_valid = value
+                        self.tx_list_client_receive_command_valid.value_namespace = name_space
+                        self.tx_list_client_receive_command_valid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-receive-invalid"):
+                        self.tx_list_client_receive_invalid = value
+                        self.tx_list_client_receive_invalid.value_namespace = name_space
+                        self.tx_list_client_receive_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-receive-session-session-invalid"):
+                        self.tx_list_client_receive_session_session_invalid = value
+                        self.tx_list_client_receive_session_session_invalid.value_namespace = name_space
+                        self.tx_list_client_receive_session_session_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-receive-session-sessionvalid"):
+                        self.tx_list_client_receive_session_sessionvalid = value
+                        self.tx_list_client_receive_session_sessionvalid.value_namespace = name_space
+                        self.tx_list_client_receive_session_sessionvalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-receive-valid"):
+                        self.tx_list_client_receive_valid = value
+                        self.tx_list_client_receive_valid.value_namespace = name_space
+                        self.tx_list_client_receive_valid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-client-registration-invalid"):
+                        self.tx_list_client_registration_invalid = value
+                        self.tx_list_client_registration_invalid.value_namespace = name_space
+                        self.tx_list_client_registration_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-cmd-connection-down-not-ok"):
+                        self.tx_list_peer_cmd_connection_down_not_ok = value
+                        self.tx_list_peer_cmd_connection_down_not_ok.value_namespace = name_space
+                        self.tx_list_peer_cmd_connection_down_not_ok.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-cmd-connection-up-not-ok"):
+                        self.tx_list_peer_cmd_connection_up_not_ok = value
+                        self.tx_list_peer_cmd_connection_up_not_ok.value_namespace = name_space
+                        self.tx_list_peer_cmd_connection_up_not_ok.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-de-registration-invalid"):
+                        self.tx_list_peer_de_registration_invalid = value
+                        self.tx_list_peer_de_registration_invalid.value_namespace = name_space
+                        self.tx_list_peer_de_registration_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-done"):
+                        self.tx_list_peer_done = value
+                        self.tx_list_peer_done.value_namespace = name_space
+                        self.tx_list_peer_done.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-message-call-back-invalid"):
+                        self.tx_list_peer_message_call_back_invalid = value
+                        self.tx_list_peer_message_call_back_invalid.value_namespace = name_space
+                        self.tx_list_peer_message_call_back_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-message-call-back-valid"):
+                        self.tx_list_peer_message_call_back_valid = value
+                        self.tx_list_peer_message_call_back_valid.value_namespace = name_space
+                        self.tx_list_peer_message_call_back_valid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-registration-invalid"):
+                        self.tx_list_peer_registration_invalid = value
+                        self.tx_list_peer_registration_invalid.value_namespace = name_space
+                        self.tx_list_peer_registration_invalid.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-session-connection-down-not-ok"):
+                        self.tx_list_peer_session_connection_down_not_ok = value
+                        self.tx_list_peer_session_connection_down_not_ok.value_namespace = name_space
+                        self.tx_list_peer_session_connection_down_not_ok.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-session-connection-up-not-ok"):
+                        self.tx_list_peer_session_connection_up_not_ok = value
+                        self.tx_list_peer_session_connection_up_not_ok.value_namespace = name_space
+                        self.tx_list_peer_session_connection_up_not_ok.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-list-peer-timer-handler"):
+                        self.tx_list_peer_timer_handler = value
+                        self.tx_list_peer_timer_handler.value_namespace = name_space
+                        self.tx_list_peer_timer_handler.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vrf-name"):
+                        self.vrf_name = value
+                        self.vrf_name.value_namespace = name_space
+                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                    if self.client_status is not None:
-                        for child_ref in self.client_status:
-                            if child_ref._has_data():
-                                return True
 
-                    if self.intf_status_statistics is not None and self.intf_status_statistics._has_data():
-                        return True
-
-                    if self.opaque_memory_status is not None:
-                        for child_ref in self.opaque_memory_status:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.peer_action_timer is not None:
-                        return True
-
-                    if self.peer_init_sync_time_stamp is not None:
-                        return True
-
-                    if self.redundancy_role is not None:
-                        return True
-
-                    if self.restart_client_sync_in_progress is not None:
-                        return True
-
-                    if self.restart_peer_sync_in_progress is not None:
-                        return True
-
-                    if self.retry_timer_remaining is not None:
-                        return True
-
-                    if self.source_interface_ipv4_address is not None:
-                        return True
-
-                    if self.source_interface_ipv6_address is not None:
-                        return True
-
-                    if self.source_interface_name is not None:
-                        return True
-
-                    if self.sync_in_progress is not None:
-                        return True
-
-                    if self.tx_list_client_connection_down is not None:
-                        return True
-
-                    if self.tx_list_client_connection_up is not None:
-                        return True
-
-                    if self.tx_list_client_de_registration_invalid is not None:
-                        return True
-
-                    if self.tx_list_client_message_call_back is not None:
-                        return True
-
-                    if self.tx_list_client_peer_done is not None:
-                        return True
-
-                    if self.tx_list_client_receive_command_invalid is not None:
-                        return True
-
-                    if self.tx_list_client_receive_command_valid is not None:
-                        return True
-
-                    if self.tx_list_client_receive_invalid is not None:
-                        return True
-
-                    if self.tx_list_client_receive_session_session_invalid is not None:
-                        return True
-
-                    if self.tx_list_client_receive_session_sessionvalid is not None:
-                        return True
-
-                    if self.tx_list_client_receive_valid is not None:
-                        return True
-
-                    if self.tx_list_client_registration_invalid is not None:
-                        return True
-
-                    if self.tx_list_over_tcp_status is not None:
-                        for child_ref in self.tx_list_over_tcp_status:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.tx_list_peer_cmd_connection_down_not_ok is not None:
-                        return True
-
-                    if self.tx_list_peer_cmd_connection_up_not_ok is not None:
-                        return True
-
-                    if self.tx_list_peer_de_registration_invalid is not None:
-                        return True
-
-                    if self.tx_list_peer_done is not None:
-                        return True
-
-                    if self.tx_list_peer_message_call_back_invalid is not None:
-                        return True
-
-                    if self.tx_list_peer_message_call_back_valid is not None:
-                        return True
-
-                    if self.tx_list_peer_registration_invalid is not None:
-                        return True
-
-                    if self.tx_list_peer_session_connection_down_not_ok is not None:
-                        return True
-
-                    if self.tx_list_peer_session_connection_up_not_ok is not None:
-                        return True
-
-                    if self.tx_list_peer_timer_handler is not None:
-                        return True
-
-                    if self.tx_list_statistics is not None and self.tx_list_statistics._has_data():
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.StatsGlobal']['meta_info']
-
-
-            class GroupSummaries(object):
+            class GroupSummaries(Entity):
                 """
                 Session data for a particular node
                 
@@ -4615,13 +8155,39 @@ class SessionRedundancyAgent(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.group_summary = YList()
-                    self.group_summary.parent = self
-                    self.group_summary.name = 'group_summary'
+                    super(SessionRedundancyAgent.Nodes.Node.GroupSummaries, self).__init__()
+
+                    self.yang_name = "group-summaries"
+                    self.yang_parent_name = "node"
+
+                    self.group_summary = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancyAgent.Nodes.Node.GroupSummaries, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancyAgent.Nodes.Node.GroupSummaries, self).__setattr__(name, value)
 
 
-                class GroupSummary(object):
+                class GroupSummary(Entity):
                     """
                     Session redundancy agent group summary
                     
@@ -4673,7 +8239,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: peer_status
                     
                     	Peer Status
-                    	**type**\:   :py:class:`SergPeerStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatusEnum>`
+                    	**type**\:   :py:class:`SergPeerStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergPeerStatus>`
                     
                     .. attribute:: pending_add_session_count
                     
@@ -4685,12 +8251,12 @@ class SessionRedundancyAgent(object):
                     .. attribute:: preferred_role
                     
                     	Preferred Role
-                    	**type**\:   :py:class:`SergShowRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRoleEnum>`
+                    	**type**\:   :py:class:`SergShowRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowRole>`
                     
                     .. attribute:: role
                     
                     	SERG Role
-                    	**type**\:   :py:class:`SergShowImRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRoleEnum>`
+                    	**type**\:   :py:class:`SergShowImRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowImRole>`
                     
                     .. attribute:: session_count
                     
@@ -4702,7 +8268,7 @@ class SessionRedundancyAgent(object):
                     .. attribute:: slave_mode
                     
                     	Slave Mode
-                    	**type**\:   :py:class:`SergShowSlaveModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveModeEnum>`
+                    	**type**\:   :py:class:`SergShowSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SergShowSlaveMode>`
                     
                     
 
@@ -4712,188 +8278,488 @@ class SessionRedundancyAgent(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.group_id = None
-                        self.disabled = None
-                        self.group_id_xr = None
-                        self.interface_count = None
-                        self.object_tracking_status = None
-                        self.peer_ipv4_address = None
-                        self.peer_ipv6_address = None
-                        self.peer_status = None
-                        self.pending_add_session_count = None
-                        self.preferred_role = None
-                        self.role = None
-                        self.session_count = None
-                        self.slave_mode = None
+                        super(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.group_id is None:
-                            raise YPYModelError('Key property group_id is None')
+                        self.yang_name = "group-summary"
+                        self.yang_parent_name = "group-summaries"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:group-summary[Cisco-IOS-XR-infra-serg-oper:group-id = ' + str(self.group_id) + ']'
+                        self.group_id = YLeaf(YType.str, "group-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.disabled = YLeaf(YType.boolean, "disabled")
+
+                        self.group_id_xr = YLeaf(YType.uint32, "group-id-xr")
+
+                        self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+                        self.object_tracking_status = YLeaf(YType.boolean, "object-tracking-status")
+
+                        self.peer_ipv4_address = YLeaf(YType.str, "peer-ipv4-address")
+
+                        self.peer_ipv6_address = YLeaf(YType.str, "peer-ipv6-address")
+
+                        self.peer_status = YLeaf(YType.enumeration, "peer-status")
+
+                        self.pending_add_session_count = YLeaf(YType.uint32, "pending-add-session-count")
+
+                        self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
+
+                        self.role = YLeaf(YType.enumeration, "role")
+
+                        self.session_count = YLeaf(YType.uint32, "session-count")
+
+                        self.slave_mode = YLeaf(YType.enumeration, "slave-mode")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("group_id",
+                                        "disabled",
+                                        "group_id_xr",
+                                        "interface_count",
+                                        "object_tracking_status",
+                                        "peer_ipv4_address",
+                                        "peer_ipv6_address",
+                                        "peer_status",
+                                        "pending_add_session_count",
+                                        "preferred_role",
+                                        "role",
+                                        "session_count",
+                                        "slave_mode") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.group_id.is_set or
+                            self.disabled.is_set or
+                            self.group_id_xr.is_set or
+                            self.interface_count.is_set or
+                            self.object_tracking_status.is_set or
+                            self.peer_ipv4_address.is_set or
+                            self.peer_ipv6_address.is_set or
+                            self.peer_status.is_set or
+                            self.pending_add_session_count.is_set or
+                            self.preferred_role.is_set or
+                            self.role.is_set or
+                            self.session_count.is_set or
+                            self.slave_mode.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.group_id.yfilter != YFilter.not_set or
+                            self.disabled.yfilter != YFilter.not_set or
+                            self.group_id_xr.yfilter != YFilter.not_set or
+                            self.interface_count.yfilter != YFilter.not_set or
+                            self.object_tracking_status.yfilter != YFilter.not_set or
+                            self.peer_ipv4_address.yfilter != YFilter.not_set or
+                            self.peer_ipv6_address.yfilter != YFilter.not_set or
+                            self.peer_status.yfilter != YFilter.not_set or
+                            self.pending_add_session_count.yfilter != YFilter.not_set or
+                            self.preferred_role.yfilter != YFilter.not_set or
+                            self.role.yfilter != YFilter.not_set or
+                            self.session_count.yfilter != YFilter.not_set or
+                            self.slave_mode.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "group-summary" + "[group-id='" + self.group_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_id.get_name_leafdata())
+                        if (self.disabled.is_set or self.disabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.disabled.get_name_leafdata())
+                        if (self.group_id_xr.is_set or self.group_id_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.group_id_xr.get_name_leafdata())
+                        if (self.interface_count.is_set or self.interface_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_count.get_name_leafdata())
+                        if (self.object_tracking_status.is_set or self.object_tracking_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.object_tracking_status.get_name_leafdata())
+                        if (self.peer_ipv4_address.is_set or self.peer_ipv4_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_ipv4_address.get_name_leafdata())
+                        if (self.peer_ipv6_address.is_set or self.peer_ipv6_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_ipv6_address.get_name_leafdata())
+                        if (self.peer_status.is_set or self.peer_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_status.get_name_leafdata())
+                        if (self.pending_add_session_count.is_set or self.pending_add_session_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pending_add_session_count.get_name_leafdata())
+                        if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.preferred_role.get_name_leafdata())
+                        if (self.role.is_set or self.role.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.role.get_name_leafdata())
+                        if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_count.get_name_leafdata())
+                        if (self.slave_mode.is_set or self.slave_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.slave_mode.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "group-id" or name == "disabled" or name == "group-id-xr" or name == "interface-count" or name == "object-tracking-status" or name == "peer-ipv4-address" or name == "peer-ipv6-address" or name == "peer-status" or name == "pending-add-session-count" or name == "preferred-role" or name == "role" or name == "session-count" or name == "slave-mode"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.group_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "group-id"):
+                            self.group_id = value
+                            self.group_id.value_namespace = name_space
+                            self.group_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "disabled"):
+                            self.disabled = value
+                            self.disabled.value_namespace = name_space
+                            self.disabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "group-id-xr"):
+                            self.group_id_xr = value
+                            self.group_id_xr.value_namespace = name_space
+                            self.group_id_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-count"):
+                            self.interface_count = value
+                            self.interface_count.value_namespace = name_space
+                            self.interface_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "object-tracking-status"):
+                            self.object_tracking_status = value
+                            self.object_tracking_status.value_namespace = name_space
+                            self.object_tracking_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-ipv4-address"):
+                            self.peer_ipv4_address = value
+                            self.peer_ipv4_address.value_namespace = name_space
+                            self.peer_ipv4_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-ipv6-address"):
+                            self.peer_ipv6_address = value
+                            self.peer_ipv6_address.value_namespace = name_space
+                            self.peer_ipv6_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-status"):
+                            self.peer_status = value
+                            self.peer_status.value_namespace = name_space
+                            self.peer_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pending-add-session-count"):
+                            self.pending_add_session_count = value
+                            self.pending_add_session_count.value_namespace = name_space
+                            self.pending_add_session_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "preferred-role"):
+                            self.preferred_role = value
+                            self.preferred_role.value_namespace = name_space
+                            self.preferred_role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "role"):
+                            self.role = value
+                            self.role.value_namespace = name_space
+                            self.role.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-count"):
+                            self.session_count = value
+                            self.session_count.value_namespace = name_space
+                            self.session_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "slave-mode"):
+                            self.slave_mode = value
+                            self.slave_mode.value_namespace = name_space
+                            self.slave_mode.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.group_summary:
+                        if (c.has_data()):
                             return True
-
-                        if self.disabled is not None:
-                            return True
-
-                        if self.group_id_xr is not None:
-                            return True
-
-                        if self.interface_count is not None:
-                            return True
-
-                        if self.object_tracking_status is not None:
-                            return True
-
-                        if self.peer_ipv4_address is not None:
-                            return True
-
-                        if self.peer_ipv6_address is not None:
-                            return True
-
-                        if self.peer_status is not None:
-                            return True
-
-                        if self.pending_add_session_count is not None:
-                            return True
-
-                        if self.preferred_role is not None:
-                            return True
-
-                        if self.role is not None:
-                            return True
-
-                        if self.session_count is not None:
-                            return True
-
-                        if self.slave_mode is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                        return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-oper:group-summaries'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.group_summary is not None:
-                        for child_ref in self.group_summary:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.group_summary:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "group-summaries" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                    return meta._meta_table['SessionRedundancyAgent.Nodes.Node.GroupSummaries']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/Cisco-IOS-XR-infra-serg-oper:nodes/Cisco-IOS-XR-infra-serg-oper:node[Cisco-IOS-XR-infra-serg-oper:node-name = ' + str(self.node_name) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.node_name is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.client_ids is not None and self.client_ids._has_data():
-                    return True
+                    if (child_yang_name == "group-summary"):
+                        for c in self.group_summary:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.group_summary.append(c)
+                        return c
 
-                if self.group_id_xr is not None and self.group_id_xr._has_data():
-                    return True
+                    return None
 
-                if self.group_ids is not None and self.group_ids._has_data():
-                    return True
-
-                if self.group_summaries is not None and self.group_summaries._has_data():
-                    return True
-
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                if self.memory is not None and self.memory._has_data():
-                    return True
-
-                if self.stats_global is not None and self.stats_global._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-                return meta._meta_table['SessionRedundancyAgent.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/Cisco-IOS-XR-infra-serg-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "group-summary"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.client_ids is not None and self.client_ids.has_data()) or
+                    (self.group_id_xr is not None and self.group_id_xr.has_data()) or
+                    (self.group_ids is not None and self.group_ids.has_data()) or
+                    (self.group_summaries is not None and self.group_summaries.has_data()) or
+                    (self.interfaces is not None and self.interfaces.has_data()) or
+                    (self.memory is not None and self.memory.has_data()) or
+                    (self.stats_global is not None and self.stats_global.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.client_ids is not None and self.client_ids.has_operation()) or
+                    (self.group_id_xr is not None and self.group_id_xr.has_operation()) or
+                    (self.group_ids is not None and self.group_ids.has_operation()) or
+                    (self.group_summaries is not None and self.group_summaries.has_operation()) or
+                    (self.interfaces is not None and self.interfaces.has_operation()) or
+                    (self.memory is not None and self.memory.has_operation()) or
+                    (self.stats_global is not None and self.stats_global.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "client-ids"):
+                    if (self.client_ids is None):
+                        self.client_ids = SessionRedundancyAgent.Nodes.Node.ClientIds()
+                        self.client_ids.parent = self
+                        self._children_name_map["client_ids"] = "client-ids"
+                    return self.client_ids
+
+                if (child_yang_name == "group-id-xr"):
+                    if (self.group_id_xr is None):
+                        self.group_id_xr = SessionRedundancyAgent.Nodes.Node.GroupIdXr()
+                        self.group_id_xr.parent = self
+                        self._children_name_map["group_id_xr"] = "group-id-xr"
+                    return self.group_id_xr
+
+                if (child_yang_name == "group-ids"):
+                    if (self.group_ids is None):
+                        self.group_ids = SessionRedundancyAgent.Nodes.Node.GroupIds()
+                        self.group_ids.parent = self
+                        self._children_name_map["group_ids"] = "group-ids"
+                    return self.group_ids
+
+                if (child_yang_name == "group-summaries"):
+                    if (self.group_summaries is None):
+                        self.group_summaries = SessionRedundancyAgent.Nodes.Node.GroupSummaries()
+                        self.group_summaries.parent = self
+                        self._children_name_map["group_summaries"] = "group-summaries"
+                    return self.group_summaries
+
+                if (child_yang_name == "interfaces"):
+                    if (self.interfaces is None):
+                        self.interfaces = SessionRedundancyAgent.Nodes.Node.Interfaces()
+                        self.interfaces.parent = self
+                        self._children_name_map["interfaces"] = "interfaces"
+                    return self.interfaces
+
+                if (child_yang_name == "memory"):
+                    if (self.memory is None):
+                        self.memory = SessionRedundancyAgent.Nodes.Node.Memory()
+                        self.memory.parent = self
+                        self._children_name_map["memory"] = "memory"
+                    return self.memory
+
+                if (child_yang_name == "stats-global"):
+                    if (self.stats_global is None):
+                        self.stats_global = SessionRedundancyAgent.Nodes.Node.StatsGlobal()
+                        self.stats_global.parent = self
+                        self._children_name_map["stats_global"] = "stats-global"
+                    return self.stats_global
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "client-ids" or name == "group-id-xr" or name == "group-ids" or name == "group-summaries" or name == "interfaces" or name == "memory" or name == "stats-global" or name == "node-name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-            return meta._meta_table['SessionRedundancyAgent.Nodes']['meta_info']
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
 
-        return '/Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SessionRedundancyAgent.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = SessionRedundancyAgent.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_oper as meta
-        return meta._meta_table['SessionRedundancyAgent']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SessionRedundancyAgent()
+        return self._top_entity
 

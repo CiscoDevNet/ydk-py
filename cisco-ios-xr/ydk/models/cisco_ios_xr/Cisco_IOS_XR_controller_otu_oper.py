@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class GmplsOtuTtiModeEnum(Enum):
+class GmplsOtuTtiMode(Enum):
     """
-    GmplsOtuTtiModeEnum
+    GmplsOtuTtiMode
 
     Gmpls otu tti mode
 
@@ -48,24 +42,18 @@ class GmplsOtuTtiModeEnum(Enum):
 
     """
 
-    gmpls_otu_tti_mode_none = 0
+    gmpls_otu_tti_mode_none = Enum.YLeaf(0, "gmpls-otu-tti-mode-none")
 
-    gmpls_otu_tti_mode_sm = 1
+    gmpls_otu_tti_mode_sm = Enum.YLeaf(1, "gmpls-otu-tti-mode-sm")
 
-    gmpls_otu_tti_mode_pm = 2
+    gmpls_otu_tti_mode_pm = Enum.YLeaf(2, "gmpls-otu-tti-mode-pm")
 
-    gmpls_otu_tti_mode_tcm = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['GmplsOtuTtiModeEnum']
+    gmpls_otu_tti_mode_tcm = Enum.YLeaf(3, "gmpls-otu-tti-mode-tcm")
 
 
-class OtuDerStateEnum(Enum):
+class OtuDerState(Enum):
     """
-    OtuDerStateEnum
+    OtuDerState
 
     Otu der state
 
@@ -87,24 +75,18 @@ class OtuDerStateEnum(Enum):
 
     """
 
-    out_of_service = 0
+    out_of_service = Enum.YLeaf(0, "out-of-service")
 
-    in_service = 1
+    in_service = Enum.YLeaf(1, "in-service")
 
-    maintenance = 2
+    maintenance = Enum.YLeaf(2, "maintenance")
 
-    ais = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuDerStateEnum']
+    ais = Enum.YLeaf(3, "ais")
 
 
-class OtuG709FecModeEnum(Enum):
+class OtuG709FecMode(Enum):
     """
-    OtuG709FecModeEnum
+    OtuG709FecMode
 
     Otu g709fec mode
 
@@ -150,36 +132,30 @@ class OtuG709FecModeEnum(Enum):
 
     """
 
-    otu_bag_none_fec = 1
+    otu_bag_none_fec = Enum.YLeaf(1, "otu-bag-none-fec")
 
-    otu_bag_standard_fec = 2
+    otu_bag_standard_fec = Enum.YLeaf(2, "otu-bag-standard-fec")
 
-    otu_bag_1_i_7_fec = 4
+    otu_bag_1_i_7_fec = Enum.YLeaf(4, "otu-bag-1-i-7-fec")
 
-    otu_bag_1_i_4_fec = 8
+    otu_bag_1_i_4_fec = Enum.YLeaf(8, "otu-bag-1-i-4-fec")
 
-    otu_bag_swizzle_fec = 16
+    otu_bag_swizzle_fec = Enum.YLeaf(16, "otu-bag-swizzle-fec")
 
-    otu_bag_hg20_fec = 32
+    otu_bag_hg20_fec = Enum.YLeaf(32, "otu-bag-hg20-fec")
 
-    otu_bag_enhanced_hg7_fec = 64
+    otu_bag_enhanced_hg7_fec = Enum.YLeaf(64, "otu-bag-enhanced-hg7-fec")
 
-    otu_bag_sd20_fec = 128
+    otu_bag_sd20_fec = Enum.YLeaf(128, "otu-bag-sd20-fec")
 
-    otu_bag_sd7_fec = 256
+    otu_bag_sd7_fec = Enum.YLeaf(256, "otu-bag-sd7-fec")
 
-    otu_bag_all_fec = 512
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuG709FecModeEnum']
+    otu_bag_all_fec = Enum.YLeaf(512, "otu-bag-all-fec")
 
 
-class OtuLoopBackModeEnum(Enum):
+class OtuLoopBackMode(Enum):
     """
-    OtuLoopBackModeEnum
+    OtuLoopBackMode
 
     Otu loop back mode
 
@@ -197,22 +173,16 @@ class OtuLoopBackModeEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    line = 2
+    line = Enum.YLeaf(2, "line")
 
-    internal = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuLoopBackModeEnum']
+    internal = Enum.YLeaf(4, "internal")
 
 
-class OtuPerMonEnum(Enum):
+class OtuPerMon(Enum):
     """
-    OtuPerMonEnum
+    OtuPerMon
 
     Otu per mon
 
@@ -226,20 +196,14 @@ class OtuPerMonEnum(Enum):
 
     """
 
-    disable = 0
+    disable = Enum.YLeaf(0, "disable")
 
-    enable = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuPerMonEnum']
+    enable = Enum.YLeaf(1, "enable")
 
 
-class OtuPpFsmStateEnum(Enum):
+class OtuPpFsmState(Enum):
     """
-    OtuPpFsmStateEnum
+    OtuPpFsmState
 
     Otu pp fsm state
 
@@ -289,38 +253,32 @@ class OtuPpFsmStateEnum(Enum):
 
     """
 
-    otu_in_active = 0
+    otu_in_active = Enum.YLeaf(0, "otu-in-active")
 
-    otu_disabled = 1
+    otu_disabled = Enum.YLeaf(1, "otu-disabled")
 
-    otu_normal_state = 2
+    otu_normal_state = Enum.YLeaf(2, "otu-normal-state")
 
-    otu_local_failing = 3
+    otu_local_failing = Enum.YLeaf(3, "otu-local-failing")
 
-    otu_remote_failing = 4
+    otu_remote_failing = Enum.YLeaf(4, "otu-remote-failing")
 
-    otu_main_t_failing = 5
+    otu_main_t_failing = Enum.YLeaf(5, "otu-main-t-failing")
 
-    otu_regen_failing = 6
+    otu_regen_failing = Enum.YLeaf(6, "otu-regen-failing")
 
-    otu_local_failed = 7
+    otu_local_failed = Enum.YLeaf(7, "otu-local-failed")
 
-    otu_remote_failed = 8
+    otu_remote_failed = Enum.YLeaf(8, "otu-remote-failed")
 
-    otu_main_t_failed = 9
+    otu_main_t_failed = Enum.YLeaf(9, "otu-main-t-failed")
 
-    otu_regen_failed = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuPpFsmStateEnum']
+    otu_regen_failed = Enum.YLeaf(10, "otu-regen-failed")
 
 
-class OtuPpIntfStateEnum(Enum):
+class OtuPpIntfState(Enum):
     """
-    OtuPpIntfStateEnum
+    OtuPpIntfState
 
     Otu pp intf state
 
@@ -338,22 +296,16 @@ class OtuPpIntfStateEnum(Enum):
 
     """
 
-    otu_pp_intf_up = 0
+    otu_pp_intf_up = Enum.YLeaf(0, "otu-pp-intf-up")
 
-    otu_pp_intf_failing = 1
+    otu_pp_intf_failing = Enum.YLeaf(1, "otu-pp-intf-failing")
 
-    otu_pp_intf_down = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuPpIntfStateEnum']
+    otu_pp_intf_down = Enum.YLeaf(2, "otu-pp-intf-down")
 
 
-class OtuSecStateEnum(Enum):
+class OtuSecState(Enum):
     """
-    OtuSecStateEnum
+    OtuSecState
 
     Otu sec state
 
@@ -371,22 +323,16 @@ class OtuSecStateEnum(Enum):
 
     """
 
-    normal = 0
+    normal = Enum.YLeaf(0, "normal")
 
-    maintenance = 1
+    maintenance = Enum.YLeaf(1, "maintenance")
 
-    ais = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuSecStateEnum']
+    ais = Enum.YLeaf(2, "ais")
 
 
-class OtuStateEtEnum(Enum):
+class OtuStateEt(Enum):
     """
-    OtuStateEtEnum
+    OtuStateEt
 
     Otu state et
 
@@ -468,54 +414,48 @@ class OtuStateEtEnum(Enum):
 
     """
 
-    not_ready = 0
+    not_ready = Enum.YLeaf(0, "not-ready")
 
-    admin_down = 1
+    admin_down = Enum.YLeaf(1, "admin-down")
 
-    down = 2
+    down = Enum.YLeaf(2, "down")
 
-    up = 3
+    up = Enum.YLeaf(3, "up")
 
-    shutdown = 4
+    shutdown = Enum.YLeaf(4, "shutdown")
 
-    error_disable = 5
+    error_disable = Enum.YLeaf(5, "error-disable")
 
-    down_immediate = 6
+    down_immediate = Enum.YLeaf(6, "down-immediate")
 
-    down_immediate_admin = 7
+    down_immediate_admin = Enum.YLeaf(7, "down-immediate-admin")
 
-    down_graceful = 8
+    down_graceful = Enum.YLeaf(8, "down-graceful")
 
-    begin_shutdown = 9
+    begin_shutdown = Enum.YLeaf(9, "begin-shutdown")
 
-    end_shutdown = 10
+    end_shutdown = Enum.YLeaf(10, "end-shutdown")
 
-    begin_error_disable = 11
+    begin_error_disable = Enum.YLeaf(11, "begin-error-disable")
 
-    end_error_disable = 12
+    end_error_disable = Enum.YLeaf(12, "end-error-disable")
 
-    begin_down_graceful = 13
+    begin_down_graceful = Enum.YLeaf(13, "begin-down-graceful")
 
-    reset = 14
+    reset = Enum.YLeaf(14, "reset")
 
-    operational = 15
+    operational = Enum.YLeaf(15, "operational")
 
-    not_operational = 16
+    not_operational = Enum.YLeaf(16, "not-operational")
 
-    unknown = 17
+    unknown = Enum.YLeaf(17, "unknown")
 
-    last = 18
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuStateEtEnum']
+    last = Enum.YLeaf(18, "last")
 
 
-class OtuTtiEtEnum(Enum):
+class OtuTtiEt(Enum):
     """
-    OtuTtiEtEnum
+    OtuTtiEt
 
     Otu tti et
 
@@ -537,23 +477,17 @@ class OtuTtiEtEnum(Enum):
 
     """
 
-    ascii = 0
+    ascii = Enum.YLeaf(0, "ascii")
 
-    hex = 1
+    hex = Enum.YLeaf(1, "hex")
 
-    full_ascii = 2
+    full_ascii = Enum.YLeaf(2, "full-ascii")
 
-    full_hex = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['OtuTtiEtEnum']
+    full_hex = Enum.YLeaf(3, "full-hex")
 
 
 
-class Otu(object):
+class Otu(Entity):
     """
     OTU operational data
     
@@ -570,11 +504,19 @@ class Otu(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Otu, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "otu"
+        self.yang_parent_name = "Cisco-IOS-XR-controller-otu-oper"
+
         self.controllers = Otu.Controllers()
         self.controllers.parent = self
+        self._children_name_map["controllers"] = "controllers"
+        self._children_yang_names.add("controllers")
 
 
-    class Controllers(object):
+    class Controllers(Entity):
         """
         All OTU Port operational data
         
@@ -591,13 +533,39 @@ class Otu(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.controller = YList()
-            self.controller.parent = self
-            self.controller.name = 'controller'
+            super(Otu.Controllers, self).__init__()
+
+            self.yang_name = "controllers"
+            self.yang_parent_name = "otu"
+
+            self.controller = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Otu.Controllers, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Otu.Controllers, self).__setattr__(name, value)
 
 
-        class Controller(object):
+        class Controller(Entity):
             """
             OTU Port operational data
             
@@ -621,13 +589,44 @@ class Otu(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.controller_name = None
+                super(Otu.Controllers.Controller, self).__init__()
+
+                self.yang_name = "controller"
+                self.yang_parent_name = "controllers"
+
+                self.controller_name = YLeaf(YType.str, "controller-name")
+
                 self.info = Otu.Controllers.Controller.Info()
                 self.info.parent = self
+                self._children_name_map["info"] = "info"
+                self._children_yang_names.add("info")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("controller_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Otu.Controllers.Controller, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Otu.Controllers.Controller, self).__setattr__(name, value)
 
 
-            class Info(object):
+            class Info(Entity):
                 """
                 OTU port operational data
                 
@@ -639,12 +638,12 @@ class Otu(object):
                 .. attribute:: config_sec_state
                 
                 	Sec State
-                	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                 
                 .. attribute:: derivedstate_mode
                 
                 	Derived State
-                	**type**\:   :py:class:`OtuDerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerStateEnum>`
+                	**type**\:   :py:class:`OtuDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerState>`
                 
                 .. attribute:: ec
                 
@@ -661,7 +660,7 @@ class Otu(object):
                 .. attribute:: fec_mode
                 
                 	FEC
-                	**type**\:   :py:class:`OtuG709FecModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecModeEnum>`
+                	**type**\:   :py:class:`OtuG709FecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecMode>`
                 
                 .. attribute:: gcc_mode
                 
@@ -671,7 +670,7 @@ class Otu(object):
                 .. attribute:: gmpls_tti_mode
                 
                 	GMPLS TTI MODE
-                	**type**\:   :py:class:`GmplsOtuTtiModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiModeEnum>`
+                	**type**\:   :py:class:`GmplsOtuTtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiMode>`
                 
                 .. attribute:: gmpls_tvm_id
                 
@@ -683,7 +682,7 @@ class Otu(object):
                 .. attribute:: inherit_sec_state
                 
                 	Sec State
-                	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                 
                 .. attribute:: local
                 
@@ -693,7 +692,7 @@ class Otu(object):
                 .. attribute:: loopback_mode
                 
                 	Loopback
-                	**type**\:   :py:class:`OtuLoopBackModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackModeEnum>`
+                	**type**\:   :py:class:`OtuLoopBackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackMode>`
                 
                 .. attribute:: name
                 
@@ -723,7 +722,7 @@ class Otu(object):
                 .. attribute:: performance_monitoring
                 
                 	Performance Monitoring
-                	**type**\:   :py:class:`OtuPerMonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMonEnum>`
+                	**type**\:   :py:class:`OtuPerMon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMon>`
                 
                 .. attribute:: pre_fec_ber_mantissa
                 
@@ -790,7 +789,7 @@ class Otu(object):
                 .. attribute:: state
                 
                 	Admin State
-                	**type**\:   :py:class:`OtuStateEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEtEnum>`
+                	**type**\:   :py:class:`OtuStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEt>`
                 
                 .. attribute:: tti_mode
                 
@@ -817,49 +816,146 @@ class Otu(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.auto_tti_flag = None
-                    self.config_sec_state = None
-                    self.derivedstate_mode = None
-                    self.ec = None
-                    self.ec_value = None
-                    self.fec_mode = None
-                    self.gcc_mode = None
-                    self.gmpls_tti_mode = None
-                    self.gmpls_tvm_id = None
-                    self.inherit_sec_state = None
+                    super(Otu.Controllers.Controller.Info, self).__init__()
+
+                    self.yang_name = "info"
+                    self.yang_parent_name = "controller"
+
+                    self.auto_tti_flag = YLeaf(YType.boolean, "auto-tti-flag")
+
+                    self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
+
+                    self.derivedstate_mode = YLeaf(YType.enumeration, "derivedstate-mode")
+
+                    self.ec = YLeaf(YType.uint64, "ec")
+
+                    self.ec_value = YLeaf(YType.boolean, "ec-value")
+
+                    self.fec_mode = YLeaf(YType.enumeration, "fec-mode")
+
+                    self.gcc_mode = YLeaf(YType.boolean, "gcc-mode")
+
+                    self.gmpls_tti_mode = YLeaf(YType.enumeration, "gmpls-tti-mode")
+
+                    self.gmpls_tvm_id = YLeaf(YType.uint8, "gmpls-tvm-id")
+
+                    self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
+
+                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.nv_optical_support = YLeaf(YType.boolean, "nv-optical-support")
+
+                    self.performance_monitoring = YLeaf(YType.enumeration, "performance-monitoring")
+
+                    self.pre_fec_ber_mantissa = YLeaf(YType.boolean, "pre-fec-ber-mantissa")
+
+                    self.pre_fec_ber_value = YLeaf(YType.boolean, "pre-fec-ber-value")
+
+                    self.pre_fec_mantissa = YLeaf(YType.int8, "pre-fec-mantissa")
+
+                    self.pre_fec_val = YLeaf(YType.int32, "pre-fec-val")
+
+                    self.q = YLeaf(YType.uint64, "q")
+
+                    self.q_margin = YLeaf(YType.uint64, "q-margin")
+
+                    self.sd = YLeaf(YType.uint8, "sd")
+
+                    self.sf = YLeaf(YType.uint8, "sf")
+
+                    self.state = YLeaf(YType.enumeration, "state")
+
+                    self.uc = YLeaf(YType.uint64, "uc")
+
+                    self.uc_value = YLeaf(YType.boolean, "uc-value")
+
                     self.local = Otu.Controllers.Controller.Info.Local()
                     self.local.parent = self
-                    self.loopback_mode = None
-                    self.name = None
+                    self._children_name_map["local"] = "local"
+                    self._children_yang_names.add("local")
+
                     self.network_srlg = Otu.Controllers.Controller.Info.NetworkSrlg()
                     self.network_srlg.parent = self
-                    self.nv_optical_support = None
+                    self._children_name_map["network_srlg"] = "network-srlg"
+                    self._children_yang_names.add("network-srlg")
+
                     self.otu_alarm_info = Otu.Controllers.Controller.Info.OtuAlarmInfo()
                     self.otu_alarm_info.parent = self
+                    self._children_name_map["otu_alarm_info"] = "otu-alarm-info"
+                    self._children_yang_names.add("otu-alarm-info")
+
                     self.otu_fec_satistics = Otu.Controllers.Controller.Info.OtuFecSatistics()
                     self.otu_fec_satistics.parent = self
-                    self.performance_monitoring = None
-                    self.pre_fec_ber_mantissa = None
-                    self.pre_fec_ber_value = None
-                    self.pre_fec_mantissa = None
-                    self.pre_fec_val = None
+                    self._children_name_map["otu_fec_satistics"] = "otu-fec-satistics"
+                    self._children_yang_names.add("otu-fec-satistics")
+
                     self.proactive = Otu.Controllers.Controller.Info.Proactive()
                     self.proactive.parent = self
-                    self.q = None
-                    self.q_margin = None
+                    self._children_name_map["proactive"] = "proactive"
+                    self._children_yang_names.add("proactive")
+
                     self.remote = Otu.Controllers.Controller.Info.Remote()
                     self.remote.parent = self
-                    self.sd = None
-                    self.sf = None
-                    self.state = None
+                    self._children_name_map["remote"] = "remote"
+                    self._children_yang_names.add("remote")
+
                     self.tti_mode = Otu.Controllers.Controller.Info.TtiMode()
                     self.tti_mode.parent = self
-                    self.uc = None
-                    self.uc_value = None
+                    self._children_name_map["tti_mode"] = "tti-mode"
+                    self._children_yang_names.add("tti-mode")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("auto_tti_flag",
+                                    "config_sec_state",
+                                    "derivedstate_mode",
+                                    "ec",
+                                    "ec_value",
+                                    "fec_mode",
+                                    "gcc_mode",
+                                    "gmpls_tti_mode",
+                                    "gmpls_tvm_id",
+                                    "inherit_sec_state",
+                                    "loopback_mode",
+                                    "name",
+                                    "nv_optical_support",
+                                    "performance_monitoring",
+                                    "pre_fec_ber_mantissa",
+                                    "pre_fec_ber_value",
+                                    "pre_fec_mantissa",
+                                    "pre_fec_val",
+                                    "q",
+                                    "q_margin",
+                                    "sd",
+                                    "sf",
+                                    "state",
+                                    "uc",
+                                    "uc_value") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Otu.Controllers.Controller.Info, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Otu.Controllers.Controller.Info, self).__setattr__(name, value)
 
 
-                class Local(object):
+                class Local(Entity):
                     """
                     TTI
                     
@@ -885,37 +981,97 @@ class Otu(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.if_index = None
-                        self.router_id = None
+                        super(Otu.Controllers.Controller.Info.Local, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "local"
+                        self.yang_parent_name = "info"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:local'
+                        self.if_index = YLeaf(YType.uint32, "if-index")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.router_id = YLeaf(YType.uint32, "router-id")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("if_index",
+                                        "router_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Otu.Controllers.Controller.Info.Local, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Otu.Controllers.Controller.Info.Local, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.if_index.is_set or
+                            self.router_id.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.if_index.yfilter != YFilter.not_set or
+                            self.router_id.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "local" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.if_index.get_name_leafdata())
+                        if (self.router_id.is_set or self.router_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.router_id.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "if-index" or name == "router-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.if_index is not None:
-                            return True
-
-                        if self.router_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                        return meta._meta_table['Otu.Controllers.Controller.Info.Local']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "if-index"):
+                            self.if_index = value
+                            self.if_index.value_namespace = name_space
+                            self.if_index.value_namespace_prefix = name_space_prefix
+                        if(value_path == "router-id"):
+                            self.router_id = value
+                            self.router_id.value_namespace = name_space
+                            self.router_id.value_namespace_prefix = name_space_prefix
 
 
-                class Remote(object):
+                class Remote(Entity):
                     """
                     Remote
                     
@@ -941,37 +1097,97 @@ class Otu(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.if_index = None
-                        self.router_id = None
+                        super(Otu.Controllers.Controller.Info.Remote, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "remote"
+                        self.yang_parent_name = "info"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:remote'
+                        self.if_index = YLeaf(YType.uint32, "if-index")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.router_id = YLeaf(YType.uint32, "router-id")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("if_index",
+                                        "router_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Otu.Controllers.Controller.Info.Remote, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Otu.Controllers.Controller.Info.Remote, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.if_index.is_set or
+                            self.router_id.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.if_index.yfilter != YFilter.not_set or
+                            self.router_id.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "remote" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.if_index.get_name_leafdata())
+                        if (self.router_id.is_set or self.router_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.router_id.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "if-index" or name == "router-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.if_index is not None:
-                            return True
-
-                        if self.router_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                        return meta._meta_table['Otu.Controllers.Controller.Info.Remote']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "if-index"):
+                            self.if_index = value
+                            self.if_index.value_namespace = name_space
+                            self.if_index.value_namespace_prefix = name_space_prefix
+                        if(value_path == "router-id"):
+                            self.router_id = value
+                            self.router_id.value_namespace = name_space
+                            self.router_id.value_namespace_prefix = name_space_prefix
 
 
-                class TtiMode(object):
+                class TtiMode(Entity):
                     """
                     OTU TTI
                     
@@ -983,17 +1199,17 @@ class Otu(object):
                     .. attribute:: g709tti_exp_mode
                     
                     	G709TTI Expected
-                    	**type**\:   :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
+                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
                     
                     .. attribute:: g709tti_rec_mode
                     
                     	G709TTI Recieved
-                    	**type**\:   :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
+                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
                     
                     .. attribute:: g709tti_sent_mode
                     
                     	G709TTI sent
-                    	**type**\:   :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
+                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
                     
                     .. attribute:: rec
                     
@@ -1028,22 +1244,69 @@ class Otu(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Otu.Controllers.Controller.Info.TtiMode, self).__init__()
+
+                        self.yang_name = "tti-mode"
+                        self.yang_parent_name = "info"
+
+                        self.g709tti_exp_mode = YLeaf(YType.enumeration, "g709tti-exp-mode")
+
+                        self.g709tti_rec_mode = YLeaf(YType.enumeration, "g709tti-rec-mode")
+
+                        self.g709tti_sent_mode = YLeaf(YType.enumeration, "g709tti-sent-mode")
+
+                        self.remote_host_name = YLeaf(YType.str, "remote-host-name")
+
+                        self.remote_interface = YLeaf(YType.str, "remote-interface")
+
+                        self.remote_ip_addr = YLeaf(YType.str, "remote-ip-addr")
+
                         self.exp = Otu.Controllers.Controller.Info.TtiMode.Exp()
                         self.exp.parent = self
-                        self.g709tti_exp_mode = None
-                        self.g709tti_rec_mode = None
-                        self.g709tti_sent_mode = None
+                        self._children_name_map["exp"] = "exp"
+                        self._children_yang_names.add("exp")
+
                         self.rec = Otu.Controllers.Controller.Info.TtiMode.Rec()
                         self.rec.parent = self
-                        self.remote_host_name = None
-                        self.remote_interface = None
-                        self.remote_ip_addr = None
+                        self._children_name_map["rec"] = "rec"
+                        self._children_yang_names.add("rec")
+
                         self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
                         self.tx.parent = self
+                        self._children_name_map["tx"] = "tx"
+                        self._children_yang_names.add("tx")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("g709tti_exp_mode",
+                                        "g709tti_rec_mode",
+                                        "g709tti_sent_mode",
+                                        "remote_host_name",
+                                        "remote_interface",
+                                        "remote_ip_addr") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Otu.Controllers.Controller.Info.TtiMode, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Otu.Controllers.Controller.Info.TtiMode, self).__setattr__(name, value)
 
 
-                    class Tx(object):
+                    class Tx(Entity):
                         """
                         String Sent
                         
@@ -1081,57 +1344,127 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dapi = YLeafList()
-                            self.dapi.parent = self
-                            self.dapi.name = 'dapi'
-                            self.full_tti_ascii_string = None
-                            self.operator_specific = YLeafList()
-                            self.operator_specific.parent = self
-                            self.operator_specific.name = 'operator_specific'
-                            self.sapi = YLeafList()
-                            self.sapi.parent = self
-                            self.sapi.name = 'sapi'
+                            super(Otu.Controllers.Controller.Info.TtiMode.Tx, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "tx"
+                            self.yang_parent_name = "tti-mode"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:tx'
+                            self.dapi = YLeafList(YType.uint8, "dapi")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
 
-                        def _has_data(self):
-                            if self.dapi is not None:
-                                for child in self.dapi:
-                                    if child is not None:
-                                        return True
+                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
 
-                            if self.full_tti_ascii_string is not None:
+                            self.sapi = YLeafList(YType.uint8, "sapi")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dapi",
+                                            "full_tti_ascii_string",
+                                            "operator_specific",
+                                            "sapi") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.TtiMode.Tx, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Tx, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            for leaf in self.dapi.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            for leaf in self.operator_specific.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            for leaf in self.sapi.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            return self.full_tti_ascii_string.is_set
+
+                        def has_operation(self):
+                            for leaf in self.dapi.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            for leaf in self.operator_specific.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            for leaf in self.sapi.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dapi.yfilter != YFilter.not_set or
+                                self.full_tti_ascii_string.yfilter != YFilter.not_set or
+                                self.operator_specific.yfilter != YFilter.not_set or
+                                self.sapi.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "tx" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.full_tti_ascii_string.is_set or self.full_tti_ascii_string.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.full_tti_ascii_string.get_name_leafdata())
+
+                            leaf_name_data.extend(self.dapi.get_name_leafdata())
+
+                            leaf_name_data.extend(self.operator_specific.get_name_leafdata())
+
+                            leaf_name_data.extend(self.sapi.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dapi" or name == "full-tti-ascii-string" or name == "operator-specific" or name == "sapi"):
                                 return True
-
-                            if self.operator_specific is not None:
-                                for child in self.operator_specific:
-                                    if child is not None:
-                                        return True
-
-                            if self.sapi is not None:
-                                for child in self.sapi:
-                                    if child is not None:
-                                        return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Tx']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dapi"):
+                                self.dapi.append(value)
+                            if(value_path == "full-tti-ascii-string"):
+                                self.full_tti_ascii_string = value
+                                self.full_tti_ascii_string.value_namespace = name_space
+                                self.full_tti_ascii_string.value_namespace_prefix = name_space_prefix
+                            if(value_path == "operator-specific"):
+                                self.operator_specific.append(value)
+                            if(value_path == "sapi"):
+                                self.sapi.append(value)
 
 
-                    class Exp(object):
+                    class Exp(Entity):
                         """
                         String Expected
                         
@@ -1169,57 +1502,127 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dapi = YLeafList()
-                            self.dapi.parent = self
-                            self.dapi.name = 'dapi'
-                            self.full_tti_ascii_string = None
-                            self.operator_specific = YLeafList()
-                            self.operator_specific.parent = self
-                            self.operator_specific.name = 'operator_specific'
-                            self.sapi = YLeafList()
-                            self.sapi.parent = self
-                            self.sapi.name = 'sapi'
+                            super(Otu.Controllers.Controller.Info.TtiMode.Exp, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "exp"
+                            self.yang_parent_name = "tti-mode"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:exp'
+                            self.dapi = YLeafList(YType.uint8, "dapi")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
 
-                        def _has_data(self):
-                            if self.dapi is not None:
-                                for child in self.dapi:
-                                    if child is not None:
-                                        return True
+                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
 
-                            if self.full_tti_ascii_string is not None:
+                            self.sapi = YLeafList(YType.uint8, "sapi")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dapi",
+                                            "full_tti_ascii_string",
+                                            "operator_specific",
+                                            "sapi") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.TtiMode.Exp, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Exp, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            for leaf in self.dapi.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            for leaf in self.operator_specific.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            for leaf in self.sapi.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            return self.full_tti_ascii_string.is_set
+
+                        def has_operation(self):
+                            for leaf in self.dapi.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            for leaf in self.operator_specific.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            for leaf in self.sapi.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dapi.yfilter != YFilter.not_set or
+                                self.full_tti_ascii_string.yfilter != YFilter.not_set or
+                                self.operator_specific.yfilter != YFilter.not_set or
+                                self.sapi.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "exp" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.full_tti_ascii_string.is_set or self.full_tti_ascii_string.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.full_tti_ascii_string.get_name_leafdata())
+
+                            leaf_name_data.extend(self.dapi.get_name_leafdata())
+
+                            leaf_name_data.extend(self.operator_specific.get_name_leafdata())
+
+                            leaf_name_data.extend(self.sapi.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dapi" or name == "full-tti-ascii-string" or name == "operator-specific" or name == "sapi"):
                                 return True
-
-                            if self.operator_specific is not None:
-                                for child in self.operator_specific:
-                                    if child is not None:
-                                        return True
-
-                            if self.sapi is not None:
-                                for child in self.sapi:
-                                    if child is not None:
-                                        return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Exp']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dapi"):
+                                self.dapi.append(value)
+                            if(value_path == "full-tti-ascii-string"):
+                                self.full_tti_ascii_string = value
+                                self.full_tti_ascii_string.value_namespace = name_space
+                                self.full_tti_ascii_string.value_namespace_prefix = name_space_prefix
+                            if(value_path == "operator-specific"):
+                                self.operator_specific.append(value)
+                            if(value_path == "sapi"):
+                                self.sapi.append(value)
 
 
-                    class Rec(object):
+                    class Rec(Entity):
                         """
                         String Received
                         
@@ -1257,103 +1660,241 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dapi = YLeafList()
-                            self.dapi.parent = self
-                            self.dapi.name = 'dapi'
-                            self.full_tti_ascii_string = None
-                            self.operator_specific = YLeafList()
-                            self.operator_specific.parent = self
-                            self.operator_specific.name = 'operator_specific'
-                            self.sapi = YLeafList()
-                            self.sapi.parent = self
-                            self.sapi.name = 'sapi'
+                            super(Otu.Controllers.Controller.Info.TtiMode.Rec, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "rec"
+                            self.yang_parent_name = "tti-mode"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:rec'
+                            self.dapi = YLeafList(YType.uint8, "dapi")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
 
-                        def _has_data(self):
-                            if self.dapi is not None:
-                                for child in self.dapi:
-                                    if child is not None:
-                                        return True
+                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
 
-                            if self.full_tti_ascii_string is not None:
+                            self.sapi = YLeafList(YType.uint8, "sapi")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dapi",
+                                            "full_tti_ascii_string",
+                                            "operator_specific",
+                                            "sapi") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.TtiMode.Rec, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.TtiMode.Rec, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            for leaf in self.dapi.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            for leaf in self.operator_specific.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            for leaf in self.sapi.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
+                            return self.full_tti_ascii_string.is_set
+
+                        def has_operation(self):
+                            for leaf in self.dapi.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            for leaf in self.operator_specific.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            for leaf in self.sapi.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dapi.yfilter != YFilter.not_set or
+                                self.full_tti_ascii_string.yfilter != YFilter.not_set or
+                                self.operator_specific.yfilter != YFilter.not_set or
+                                self.sapi.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "rec" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.full_tti_ascii_string.is_set or self.full_tti_ascii_string.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.full_tti_ascii_string.get_name_leafdata())
+
+                            leaf_name_data.extend(self.dapi.get_name_leafdata())
+
+                            leaf_name_data.extend(self.operator_specific.get_name_leafdata())
+
+                            leaf_name_data.extend(self.sapi.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dapi" or name == "full-tti-ascii-string" or name == "operator-specific" or name == "sapi"):
                                 return True
-
-                            if self.operator_specific is not None:
-                                for child in self.operator_specific:
-                                    if child is not None:
-                                        return True
-
-                            if self.sapi is not None:
-                                for child in self.sapi:
-                                    if child is not None:
-                                        return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode.Rec']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dapi"):
+                                self.dapi.append(value)
+                            if(value_path == "full-tti-ascii-string"):
+                                self.full_tti_ascii_string = value
+                                self.full_tti_ascii_string.value_namespace = name_space
+                                self.full_tti_ascii_string.value_namespace_prefix = name_space_prefix
+                            if(value_path == "operator-specific"):
+                                self.operator_specific.append(value)
+                            if(value_path == "sapi"):
+                                self.sapi.append(value)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            self.g709tti_exp_mode.is_set or
+                            self.g709tti_rec_mode.is_set or
+                            self.g709tti_sent_mode.is_set or
+                            self.remote_host_name.is_set or
+                            self.remote_interface.is_set or
+                            self.remote_ip_addr.is_set or
+                            (self.exp is not None and self.exp.has_data()) or
+                            (self.rec is not None and self.rec.has_data()) or
+                            (self.tx is not None and self.tx.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:tti-mode'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.g709tti_exp_mode.yfilter != YFilter.not_set or
+                            self.g709tti_rec_mode.yfilter != YFilter.not_set or
+                            self.g709tti_sent_mode.yfilter != YFilter.not_set or
+                            self.remote_host_name.yfilter != YFilter.not_set or
+                            self.remote_interface.yfilter != YFilter.not_set or
+                            self.remote_ip_addr.yfilter != YFilter.not_set or
+                            (self.exp is not None and self.exp.has_operation()) or
+                            (self.rec is not None and self.rec.has_operation()) or
+                            (self.tx is not None and self.tx.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "tti-mode" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.g709tti_exp_mode.is_set or self.g709tti_exp_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.g709tti_exp_mode.get_name_leafdata())
+                        if (self.g709tti_rec_mode.is_set or self.g709tti_rec_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.g709tti_rec_mode.get_name_leafdata())
+                        if (self.g709tti_sent_mode.is_set or self.g709tti_sent_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.g709tti_sent_mode.get_name_leafdata())
+                        if (self.remote_host_name.is_set or self.remote_host_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_host_name.get_name_leafdata())
+                        if (self.remote_interface.is_set or self.remote_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_interface.get_name_leafdata())
+                        if (self.remote_ip_addr.is_set or self.remote_ip_addr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_ip_addr.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "exp"):
+                            if (self.exp is None):
+                                self.exp = Otu.Controllers.Controller.Info.TtiMode.Exp()
+                                self.exp.parent = self
+                                self._children_name_map["exp"] = "exp"
+                            return self.exp
+
+                        if (child_yang_name == "rec"):
+                            if (self.rec is None):
+                                self.rec = Otu.Controllers.Controller.Info.TtiMode.Rec()
+                                self.rec.parent = self
+                                self._children_name_map["rec"] = "rec"
+                            return self.rec
+
+                        if (child_yang_name == "tx"):
+                            if (self.tx is None):
+                                self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
+                                self.tx.parent = self
+                                self._children_name_map["tx"] = "tx"
+                            return self.tx
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "exp" or name == "rec" or name == "tx" or name == "g709tti-exp-mode" or name == "g709tti-rec-mode" or name == "g709tti-sent-mode" or name == "remote-host-name" or name == "remote-interface" or name == "remote-ip-addr"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.exp is not None and self.exp._has_data():
-                            return True
-
-                        if self.g709tti_exp_mode is not None:
-                            return True
-
-                        if self.g709tti_rec_mode is not None:
-                            return True
-
-                        if self.g709tti_sent_mode is not None:
-                            return True
-
-                        if self.rec is not None and self.rec._has_data():
-                            return True
-
-                        if self.remote_host_name is not None:
-                            return True
-
-                        if self.remote_interface is not None:
-                            return True
-
-                        if self.remote_ip_addr is not None:
-                            return True
-
-                        if self.tx is not None and self.tx._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                        return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "g709tti-exp-mode"):
+                            self.g709tti_exp_mode = value
+                            self.g709tti_exp_mode.value_namespace = name_space
+                            self.g709tti_exp_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "g709tti-rec-mode"):
+                            self.g709tti_rec_mode = value
+                            self.g709tti_rec_mode.value_namespace = name_space
+                            self.g709tti_rec_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "g709tti-sent-mode"):
+                            self.g709tti_sent_mode = value
+                            self.g709tti_sent_mode.value_namespace = name_space
+                            self.g709tti_sent_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-host-name"):
+                            self.remote_host_name = value
+                            self.remote_host_name.value_namespace = name_space
+                            self.remote_host_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-interface"):
+                            self.remote_interface = value
+                            self.remote_interface.value_namespace = name_space
+                            self.remote_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-ip-addr"):
+                            self.remote_ip_addr = value
+                            self.remote_ip_addr.value_namespace = name_space
+                            self.remote_ip_addr.value_namespace_prefix = name_space_prefix
 
 
-                class NetworkSrlg(object):
+                class NetworkSrlg(Entity):
                     """
                     Network Shared Risk Link Group information
                     
@@ -1370,13 +1911,39 @@ class Otu(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.srlg_info = YList()
-                        self.srlg_info.parent = self
-                        self.srlg_info.name = 'srlg_info'
+                        super(Otu.Controllers.Controller.Info.NetworkSrlg, self).__init__()
+
+                        self.yang_name = "network-srlg"
+                        self.yang_parent_name = "info"
+
+                        self.srlg_info = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Otu.Controllers.Controller.Info.NetworkSrlg, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Otu.Controllers.Controller.Info.NetworkSrlg, self).__setattr__(name, value)
 
 
-                    class SrlgInfo(object):
+                    class SrlgInfo(Entity):
                         """
                         Array of Network Shared Risk Link Group
                         information
@@ -1403,65 +1970,156 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.set_id = None
-                            self.srlg = YLeafList()
-                            self.srlg.parent = self
-                            self.srlg.name = 'srlg'
+                            super(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "srlg-info"
+                            self.yang_parent_name = "network-srlg"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:srlg-info'
+                            self.set_id = YLeaf(YType.uint32, "set-id")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            self.srlg = YLeafList(YType.uint32, "srlg")
 
-                        def _has_data(self):
-                            if self.set_id is not None:
-                                return True
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("set_id",
+                                            "srlg") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, self).__setattr__(name, value)
 
-                            if self.srlg is not None:
-                                for child in self.srlg:
-                                    if child is not None:
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:network-srlg'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.srlg_info is not None:
-                            for child_ref in self.srlg_info:
-                                if child_ref._has_data():
+                        def has_data(self):
+                            for leaf in self.srlg.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
                                     return True
+                            return self.set_id.is_set
 
+                        def has_operation(self):
+                            for leaf in self.srlg.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.set_id.yfilter != YFilter.not_set or
+                                self.srlg.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "srlg-info" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.set_id.is_set or self.set_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.set_id.get_name_leafdata())
+
+                            leaf_name_data.extend(self.srlg.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "set-id" or name == "srlg"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "set-id"):
+                                self.set_id = value
+                                self.set_id.value_namespace = name_space
+                                self.set_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "srlg"):
+                                self.srlg.append(value)
+
+                    def has_data(self):
+                        for c in self.srlg_info:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                        return meta._meta_table['Otu.Controllers.Controller.Info.NetworkSrlg']['meta_info']
+                    def has_operation(self):
+                        for c in self.srlg_info:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "network-srlg" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "srlg-info"):
+                            for c in self.srlg_info:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.srlg_info.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "srlg-info"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class OtuAlarmInfo(object):
+                class OtuAlarmInfo(Entity):
                     """
                     OTU layer alarm Information
                     
@@ -1558,44 +2216,98 @@ class Otu(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo, self).__init__()
+
+                        self.yang_name = "otu-alarm-info"
+                        self.yang_parent_name = "info"
+
                         self.ais = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais()
                         self.ais.parent = self
+                        self._children_name_map["ais"] = "ais"
+                        self._children_yang_names.add("ais")
+
                         self.bdi = Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi()
                         self.bdi.parent = self
+                        self._children_name_map["bdi"] = "bdi"
+                        self._children_yang_names.add("bdi")
+
                         self.biae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae()
                         self.biae.parent = self
+                        self._children_name_map["biae"] = "biae"
+                        self._children_yang_names.add("biae")
+
                         self.ec = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec()
                         self.ec.parent = self
+                        self._children_name_map["ec"] = "ec"
+                        self._children_yang_names.add("ec")
+
                         self.eoc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc()
                         self.eoc.parent = self
+                        self._children_name_map["eoc"] = "eoc"
+                        self._children_yang_names.add("eoc")
+
                         self.fec_mismatch = Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch()
                         self.fec_mismatch.parent = self
+                        self._children_name_map["fec_mismatch"] = "fec-mismatch"
+                        self._children_yang_names.add("fec-mismatch")
+
                         self.fecunc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc()
                         self.fecunc.parent = self
+                        self._children_name_map["fecunc"] = "fecunc"
+                        self._children_yang_names.add("fecunc")
+
                         self.iae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae()
                         self.iae.parent = self
+                        self._children_name_map["iae"] = "iae"
+                        self._children_yang_names.add("iae")
+
                         self.lof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof()
                         self.lof.parent = self
+                        self._children_name_map["lof"] = "lof"
+                        self._children_yang_names.add("lof")
+
                         self.lom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom()
                         self.lom.parent = self
+                        self._children_name_map["lom"] = "lom"
+                        self._children_yang_names.add("lom")
+
                         self.los = Otu.Controllers.Controller.Info.OtuAlarmInfo.Los()
                         self.los.parent = self
+                        self._children_name_map["los"] = "los"
+                        self._children_yang_names.add("los")
+
                         self.oof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof()
                         self.oof.parent = self
+                        self._children_name_map["oof"] = "oof"
+                        self._children_yang_names.add("oof")
+
                         self.oom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom()
                         self.oom.parent = self
+                        self._children_name_map["oom"] = "oom"
+                        self._children_yang_names.add("oom")
+
                         self.sd_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer()
                         self.sd_ber.parent = self
+                        self._children_name_map["sd_ber"] = "sd-ber"
+                        self._children_yang_names.add("sd-ber")
+
                         self.sf_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer()
                         self.sf_ber.parent = self
+                        self._children_name_map["sf_ber"] = "sf-ber"
+                        self._children_yang_names.add("sf-ber")
+
                         self.tim = Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim()
                         self.tim.parent = self
+                        self._children_name_map["tim"] = "tim"
+                        self._children_yang_names.add("tim")
+
                         self.uc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc()
                         self.uc.parent = self
+                        self._children_name_map["uc"] = "uc"
+                        self._children_yang_names.add("uc")
 
 
-                    class Los(object):
+                    class Los(Entity):
                         """
                         Loss of Signal
                         
@@ -1629,45 +2341,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "los"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:los'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "los" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Los']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Lof(object):
+                    class Lof(Entity):
                         """
                         Loss of Frame
                         
@@ -1701,45 +2487,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "lof"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:lof'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "lof" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Lom(object):
+                    class Lom(Entity):
                         """
                         Loss of MultiFrame
                         
@@ -1773,45 +2633,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "lom"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:lom'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "lom" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Oof(object):
+                    class Oof(Entity):
                         """
                         Out of Frame
                         
@@ -1845,45 +2779,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "oof"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:oof'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "oof" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Oom(object):
+                    class Oom(Entity):
                         """
                         Out of MultiFrame
                         
@@ -1917,45 +2925,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "oom"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:oom'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "oom" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Ais(object):
+                    class Ais(Entity):
                         """
                         Alarm Indication Signal
                         
@@ -1989,45 +3071,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "ais"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:ais'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ais" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Iae(object):
+                    class Iae(Entity):
                         """
                         Incoming Alignment Error
                         
@@ -2061,45 +3217,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "iae"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:iae'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "iae" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Biae(object):
+                    class Biae(Entity):
                         """
                         Backward Incoming Alignment Error
                         
@@ -2133,45 +3363,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "biae"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:biae'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "biae" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Bdi(object):
+                    class Bdi(Entity):
                         """
                         Backward Defect Indication
                         
@@ -2205,45 +3509,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "bdi"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:bdi'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "bdi" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Tim(object):
+                    class Tim(Entity):
                         """
                         Trace Identifier Mismatch
                         
@@ -2277,45 +3655,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "tim"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:tim'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "tim" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Eoc(object):
+                    class Eoc(Entity):
                         """
                         GCC End of Channel
                         
@@ -2349,45 +3801,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "eoc"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:eoc'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "eoc" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class FecMismatch(object):
+                    class FecMismatch(Entity):
                         """
                         FEC mismatch alarm
                         
@@ -2421,45 +3947,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "fec-mismatch"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:fec-mismatch'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "fec-mismatch" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class SfBer(object):
+                    class SfBer(Entity):
                         """
                         SF BER alarm
                         
@@ -2493,45 +4093,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sf-ber"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:sf-ber'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sf-ber" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class SdBer(object):
+                    class SdBer(Entity):
                         """
                         SD BER alarm
                         
@@ -2565,45 +4239,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "sd-ber"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:sd-ber'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "sd-ber" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Ec(object):
+                    class Ec(Entity):
                         """
                         EC alarm
                         
@@ -2637,45 +4385,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "ec"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:ec'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ec" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Uc(object):
+                    class Uc(Entity):
                         """
                         UC alarm
                         
@@ -2709,45 +4531,119 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "uc"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:uc'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "uc" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
-
-                            if self.is_asserted is not None:
-                                return True
-
-                            if self.is_detected is not None:
-                                return True
-
-                            if self.reporting_enabled is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Fecunc(object):
+                    class Fecunc(Entity):
                         """
                         FEC UnCorrected Word
                         
@@ -2781,137 +4677,334 @@ class Otu(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.counter = None
-                            self.is_asserted = None
-                            self.is_detected = None
-                            self.reporting_enabled = None
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "fecunc"
+                            self.yang_parent_name = "otu-alarm-info"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:fecunc'
+                            self.counter = YLeaf(YType.uint64, "counter")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("counter",
+                                            "is_asserted",
+                                            "is_detected",
+                                            "reporting_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.counter.is_set or
+                                self.is_asserted.is_set or
+                                self.is_detected.is_set or
+                                self.reporting_enabled.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.counter.yfilter != YFilter.not_set or
+                                self.is_asserted.yfilter != YFilter.not_set or
+                                self.is_detected.yfilter != YFilter.not_set or
+                                self.reporting_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "fecunc" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.counter.is_set or self.counter.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter.get_name_leafdata())
+                            if (self.is_asserted.is_set or self.is_asserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_asserted.get_name_leafdata())
+                            if (self.is_detected.is_set or self.is_detected.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_detected.get_name_leafdata())
+                            if (self.reporting_enabled.is_set or self.reporting_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.reporting_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "counter" or name == "is-asserted" or name == "is-detected" or name == "reporting-enabled"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.counter is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "counter"):
+                                self.counter = value
+                                self.counter.value_namespace = name_space
+                                self.counter.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-asserted"):
+                                self.is_asserted = value
+                                self.is_asserted.value_namespace = name_space
+                                self.is_asserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-detected"):
+                                self.is_detected = value
+                                self.is_detected.value_namespace = name_space
+                                self.is_detected.value_namespace_prefix = name_space_prefix
+                            if(value_path == "reporting-enabled"):
+                                self.reporting_enabled = value
+                                self.reporting_enabled.value_namespace = name_space
+                                self.reporting_enabled.value_namespace_prefix = name_space_prefix
 
-                            if self.is_asserted is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            (self.ais is not None and self.ais.has_data()) or
+                            (self.bdi is not None and self.bdi.has_data()) or
+                            (self.biae is not None and self.biae.has_data()) or
+                            (self.ec is not None and self.ec.has_data()) or
+                            (self.eoc is not None and self.eoc.has_data()) or
+                            (self.fec_mismatch is not None and self.fec_mismatch.has_data()) or
+                            (self.fecunc is not None and self.fecunc.has_data()) or
+                            (self.iae is not None and self.iae.has_data()) or
+                            (self.lof is not None and self.lof.has_data()) or
+                            (self.lom is not None and self.lom.has_data()) or
+                            (self.los is not None and self.los.has_data()) or
+                            (self.oof is not None and self.oof.has_data()) or
+                            (self.oom is not None and self.oom.has_data()) or
+                            (self.sd_ber is not None and self.sd_ber.has_data()) or
+                            (self.sf_ber is not None and self.sf_ber.has_data()) or
+                            (self.tim is not None and self.tim.has_data()) or
+                            (self.uc is not None and self.uc.has_data()))
 
-                            if self.is_detected is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.ais is not None and self.ais.has_operation()) or
+                            (self.bdi is not None and self.bdi.has_operation()) or
+                            (self.biae is not None and self.biae.has_operation()) or
+                            (self.ec is not None and self.ec.has_operation()) or
+                            (self.eoc is not None and self.eoc.has_operation()) or
+                            (self.fec_mismatch is not None and self.fec_mismatch.has_operation()) or
+                            (self.fecunc is not None and self.fecunc.has_operation()) or
+                            (self.iae is not None and self.iae.has_operation()) or
+                            (self.lof is not None and self.lof.has_operation()) or
+                            (self.lom is not None and self.lom.has_operation()) or
+                            (self.los is not None and self.los.has_operation()) or
+                            (self.oof is not None and self.oof.has_operation()) or
+                            (self.oom is not None and self.oom.has_operation()) or
+                            (self.sd_ber is not None and self.sd_ber.has_operation()) or
+                            (self.sf_ber is not None and self.sf_ber.has_operation()) or
+                            (self.tim is not None and self.tim.has_operation()) or
+                            (self.uc is not None and self.uc.has_operation()))
 
-                            if self.reporting_enabled is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "otu-alarm-info" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                            return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:otu-alarm-info'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "ais"):
+                            if (self.ais is None):
+                                self.ais = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais()
+                                self.ais.parent = self
+                                self._children_name_map["ais"] = "ais"
+                            return self.ais
+
+                        if (child_yang_name == "bdi"):
+                            if (self.bdi is None):
+                                self.bdi = Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi()
+                                self.bdi.parent = self
+                                self._children_name_map["bdi"] = "bdi"
+                            return self.bdi
+
+                        if (child_yang_name == "biae"):
+                            if (self.biae is None):
+                                self.biae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae()
+                                self.biae.parent = self
+                                self._children_name_map["biae"] = "biae"
+                            return self.biae
+
+                        if (child_yang_name == "ec"):
+                            if (self.ec is None):
+                                self.ec = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec()
+                                self.ec.parent = self
+                                self._children_name_map["ec"] = "ec"
+                            return self.ec
+
+                        if (child_yang_name == "eoc"):
+                            if (self.eoc is None):
+                                self.eoc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc()
+                                self.eoc.parent = self
+                                self._children_name_map["eoc"] = "eoc"
+                            return self.eoc
+
+                        if (child_yang_name == "fec-mismatch"):
+                            if (self.fec_mismatch is None):
+                                self.fec_mismatch = Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch()
+                                self.fec_mismatch.parent = self
+                                self._children_name_map["fec_mismatch"] = "fec-mismatch"
+                            return self.fec_mismatch
+
+                        if (child_yang_name == "fecunc"):
+                            if (self.fecunc is None):
+                                self.fecunc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc()
+                                self.fecunc.parent = self
+                                self._children_name_map["fecunc"] = "fecunc"
+                            return self.fecunc
+
+                        if (child_yang_name == "iae"):
+                            if (self.iae is None):
+                                self.iae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae()
+                                self.iae.parent = self
+                                self._children_name_map["iae"] = "iae"
+                            return self.iae
+
+                        if (child_yang_name == "lof"):
+                            if (self.lof is None):
+                                self.lof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof()
+                                self.lof.parent = self
+                                self._children_name_map["lof"] = "lof"
+                            return self.lof
+
+                        if (child_yang_name == "lom"):
+                            if (self.lom is None):
+                                self.lom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom()
+                                self.lom.parent = self
+                                self._children_name_map["lom"] = "lom"
+                            return self.lom
+
+                        if (child_yang_name == "los"):
+                            if (self.los is None):
+                                self.los = Otu.Controllers.Controller.Info.OtuAlarmInfo.Los()
+                                self.los.parent = self
+                                self._children_name_map["los"] = "los"
+                            return self.los
+
+                        if (child_yang_name == "oof"):
+                            if (self.oof is None):
+                                self.oof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof()
+                                self.oof.parent = self
+                                self._children_name_map["oof"] = "oof"
+                            return self.oof
+
+                        if (child_yang_name == "oom"):
+                            if (self.oom is None):
+                                self.oom = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom()
+                                self.oom.parent = self
+                                self._children_name_map["oom"] = "oom"
+                            return self.oom
+
+                        if (child_yang_name == "sd-ber"):
+                            if (self.sd_ber is None):
+                                self.sd_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer()
+                                self.sd_ber.parent = self
+                                self._children_name_map["sd_ber"] = "sd-ber"
+                            return self.sd_ber
+
+                        if (child_yang_name == "sf-ber"):
+                            if (self.sf_ber is None):
+                                self.sf_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer()
+                                self.sf_ber.parent = self
+                                self._children_name_map["sf_ber"] = "sf-ber"
+                            return self.sf_ber
+
+                        if (child_yang_name == "tim"):
+                            if (self.tim is None):
+                                self.tim = Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim()
+                                self.tim.parent = self
+                                self._children_name_map["tim"] = "tim"
+                            return self.tim
+
+                        if (child_yang_name == "uc"):
+                            if (self.uc is None):
+                                self.uc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc()
+                                self.uc.parent = self
+                                self._children_name_map["uc"] = "uc"
+                            return self.uc
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ais" or name == "bdi" or name == "biae" or name == "ec" or name == "eoc" or name == "fec-mismatch" or name == "fecunc" or name == "iae" or name == "lof" or name == "lom" or name == "los" or name == "oof" or name == "oom" or name == "sd-ber" or name == "sf-ber" or name == "tim" or name == "uc"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.ais is not None and self.ais._has_data():
-                            return True
-
-                        if self.bdi is not None and self.bdi._has_data():
-                            return True
-
-                        if self.biae is not None and self.biae._has_data():
-                            return True
-
-                        if self.ec is not None and self.ec._has_data():
-                            return True
-
-                        if self.eoc is not None and self.eoc._has_data():
-                            return True
-
-                        if self.fec_mismatch is not None and self.fec_mismatch._has_data():
-                            return True
-
-                        if self.fecunc is not None and self.fecunc._has_data():
-                            return True
-
-                        if self.iae is not None and self.iae._has_data():
-                            return True
-
-                        if self.lof is not None and self.lof._has_data():
-                            return True
-
-                        if self.lom is not None and self.lom._has_data():
-                            return True
-
-                        if self.los is not None and self.los._has_data():
-                            return True
-
-                        if self.oof is not None and self.oof._has_data():
-                            return True
-
-                        if self.oom is not None and self.oom._has_data():
-                            return True
-
-                        if self.sd_ber is not None and self.sd_ber._has_data():
-                            return True
-
-                        if self.sf_ber is not None and self.sf_ber._has_data():
-                            return True
-
-                        if self.tim is not None and self.tim._has_data():
-                            return True
-
-                        if self.uc is not None and self.uc._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                        return meta._meta_table['Otu.Controllers.Controller.Info.OtuAlarmInfo']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Proactive(object):
+                class Proactive(Entity):
                     """
                     Proactive Protection
                     
                     .. attribute:: config_sec_state
                     
                     	Sec State
-                    	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                     
                     .. attribute:: inherit_sec_state
                     
                     	Secondary Admin State
-                    	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                     
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
-                    	**type**\:   :py:class:`OtuPpIntfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfStateEnum>`
+                    	**type**\:   :py:class:`OtuPpIntfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfState>`
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
-                    	**type**\:   :py:class:`OtuPpFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmStateEnum>`
+                    	**type**\:   :py:class:`OtuPpFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmState>`
                     
                     .. attribute:: proactive_status
                     
@@ -2968,73 +5061,196 @@ class Otu(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.config_sec_state = None
-                        self.inherit_sec_state = None
-                        self.proactive_fsm_if_state = None
-                        self.proactive_fsm_state = None
-                        self.proactive_status = None
-                        self.revert_window = None
-                        self.rvrt_thresh_coeff = None
-                        self.rvrt_thresh_power = None
-                        self.trig_thresh_coeff = None
-                        self.trig_thresh_power = None
-                        self.trigger_window = None
+                        super(Otu.Controllers.Controller.Info.Proactive, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "proactive"
+                        self.yang_parent_name = "info"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:proactive'
+                        self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
+
+                        self.proactive_fsm_if_state = YLeaf(YType.enumeration, "proactive-fsm-if-state")
+
+                        self.proactive_fsm_state = YLeaf(YType.enumeration, "proactive-fsm-state")
+
+                        self.proactive_status = YLeaf(YType.boolean, "proactive-status")
+
+                        self.revert_window = YLeaf(YType.uint32, "revert-window")
+
+                        self.rvrt_thresh_coeff = YLeaf(YType.uint8, "rvrt-thresh-coeff")
+
+                        self.rvrt_thresh_power = YLeaf(YType.uint8, "rvrt-thresh-power")
+
+                        self.trig_thresh_coeff = YLeaf(YType.uint8, "trig-thresh-coeff")
+
+                        self.trig_thresh_power = YLeaf(YType.uint8, "trig-thresh-power")
+
+                        self.trigger_window = YLeaf(YType.uint32, "trigger-window")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("config_sec_state",
+                                        "inherit_sec_state",
+                                        "proactive_fsm_if_state",
+                                        "proactive_fsm_state",
+                                        "proactive_status",
+                                        "revert_window",
+                                        "rvrt_thresh_coeff",
+                                        "rvrt_thresh_power",
+                                        "trig_thresh_coeff",
+                                        "trig_thresh_power",
+                                        "trigger_window") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Otu.Controllers.Controller.Info.Proactive, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Otu.Controllers.Controller.Info.Proactive, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.config_sec_state.is_set or
+                            self.inherit_sec_state.is_set or
+                            self.proactive_fsm_if_state.is_set or
+                            self.proactive_fsm_state.is_set or
+                            self.proactive_status.is_set or
+                            self.revert_window.is_set or
+                            self.rvrt_thresh_coeff.is_set or
+                            self.rvrt_thresh_power.is_set or
+                            self.trig_thresh_coeff.is_set or
+                            self.trig_thresh_power.is_set or
+                            self.trigger_window.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.config_sec_state.yfilter != YFilter.not_set or
+                            self.inherit_sec_state.yfilter != YFilter.not_set or
+                            self.proactive_fsm_if_state.yfilter != YFilter.not_set or
+                            self.proactive_fsm_state.yfilter != YFilter.not_set or
+                            self.proactive_status.yfilter != YFilter.not_set or
+                            self.revert_window.yfilter != YFilter.not_set or
+                            self.rvrt_thresh_coeff.yfilter != YFilter.not_set or
+                            self.rvrt_thresh_power.yfilter != YFilter.not_set or
+                            self.trig_thresh_coeff.yfilter != YFilter.not_set or
+                            self.trig_thresh_power.yfilter != YFilter.not_set or
+                            self.trigger_window.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "proactive" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.config_sec_state.is_set or self.config_sec_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.config_sec_state.get_name_leafdata())
+                        if (self.inherit_sec_state.is_set or self.inherit_sec_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inherit_sec_state.get_name_leafdata())
+                        if (self.proactive_fsm_if_state.is_set or self.proactive_fsm_if_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.proactive_fsm_if_state.get_name_leafdata())
+                        if (self.proactive_fsm_state.is_set or self.proactive_fsm_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.proactive_fsm_state.get_name_leafdata())
+                        if (self.proactive_status.is_set or self.proactive_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.proactive_status.get_name_leafdata())
+                        if (self.revert_window.is_set or self.revert_window.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.revert_window.get_name_leafdata())
+                        if (self.rvrt_thresh_coeff.is_set or self.rvrt_thresh_coeff.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rvrt_thresh_coeff.get_name_leafdata())
+                        if (self.rvrt_thresh_power.is_set or self.rvrt_thresh_power.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rvrt_thresh_power.get_name_leafdata())
+                        if (self.trig_thresh_coeff.is_set or self.trig_thresh_coeff.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.trig_thresh_coeff.get_name_leafdata())
+                        if (self.trig_thresh_power.is_set or self.trig_thresh_power.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.trig_thresh_power.get_name_leafdata())
+                        if (self.trigger_window.is_set or self.trigger_window.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.trigger_window.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "config-sec-state" or name == "inherit-sec-state" or name == "proactive-fsm-if-state" or name == "proactive-fsm-state" or name == "proactive-status" or name == "revert-window" or name == "rvrt-thresh-coeff" or name == "rvrt-thresh-power" or name == "trig-thresh-coeff" or name == "trig-thresh-power" or name == "trigger-window"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.config_sec_state is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "config-sec-state"):
+                            self.config_sec_state = value
+                            self.config_sec_state.value_namespace = name_space
+                            self.config_sec_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "inherit-sec-state"):
+                            self.inherit_sec_state = value
+                            self.inherit_sec_state.value_namespace = name_space
+                            self.inherit_sec_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "proactive-fsm-if-state"):
+                            self.proactive_fsm_if_state = value
+                            self.proactive_fsm_if_state.value_namespace = name_space
+                            self.proactive_fsm_if_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "proactive-fsm-state"):
+                            self.proactive_fsm_state = value
+                            self.proactive_fsm_state.value_namespace = name_space
+                            self.proactive_fsm_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "proactive-status"):
+                            self.proactive_status = value
+                            self.proactive_status.value_namespace = name_space
+                            self.proactive_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "revert-window"):
+                            self.revert_window = value
+                            self.revert_window.value_namespace = name_space
+                            self.revert_window.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rvrt-thresh-coeff"):
+                            self.rvrt_thresh_coeff = value
+                            self.rvrt_thresh_coeff.value_namespace = name_space
+                            self.rvrt_thresh_coeff.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rvrt-thresh-power"):
+                            self.rvrt_thresh_power = value
+                            self.rvrt_thresh_power.value_namespace = name_space
+                            self.rvrt_thresh_power.value_namespace_prefix = name_space_prefix
+                        if(value_path == "trig-thresh-coeff"):
+                            self.trig_thresh_coeff = value
+                            self.trig_thresh_coeff.value_namespace = name_space
+                            self.trig_thresh_coeff.value_namespace_prefix = name_space_prefix
+                        if(value_path == "trig-thresh-power"):
+                            self.trig_thresh_power = value
+                            self.trig_thresh_power.value_namespace = name_space
+                            self.trig_thresh_power.value_namespace_prefix = name_space_prefix
+                        if(value_path == "trigger-window"):
+                            self.trigger_window = value
+                            self.trigger_window.value_namespace = name_space
+                            self.trigger_window.value_namespace_prefix = name_space_prefix
 
-                        if self.inherit_sec_state is not None:
-                            return True
 
-                        if self.proactive_fsm_if_state is not None:
-                            return True
-
-                        if self.proactive_fsm_state is not None:
-                            return True
-
-                        if self.proactive_status is not None:
-                            return True
-
-                        if self.revert_window is not None:
-                            return True
-
-                        if self.rvrt_thresh_coeff is not None:
-                            return True
-
-                        if self.rvrt_thresh_power is not None:
-                            return True
-
-                        if self.trig_thresh_coeff is not None:
-                            return True
-
-                        if self.trig_thresh_power is not None:
-                            return True
-
-                        if self.trigger_window is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                        return meta._meta_table['Otu.Controllers.Controller.Info.Proactive']['meta_info']
-
-
-                class OtuFecSatistics(object):
+                class OtuFecSatistics(Entity):
                     """
                     OTU FEC Statistics
                     
@@ -3056,215 +5272,558 @@ class Otu(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.post_fec_ber = None
-                        self.pre_fec_ber = None
+                        super(Otu.Controllers.Controller.Info.OtuFecSatistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "otu-fec-satistics"
+                        self.yang_parent_name = "info"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:otu-fec-satistics'
+                        self.post_fec_ber = YLeaf(YType.str, "post-fec-ber")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.pre_fec_ber = YLeaf(YType.str, "pre-fec-ber")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("post_fec_ber",
+                                        "pre_fec_ber") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Otu.Controllers.Controller.Info.OtuFecSatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Otu.Controllers.Controller.Info.OtuFecSatistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.post_fec_ber.is_set or
+                            self.pre_fec_ber.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.post_fec_ber.yfilter != YFilter.not_set or
+                            self.pre_fec_ber.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "otu-fec-satistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.post_fec_ber.is_set or self.post_fec_ber.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.post_fec_ber.get_name_leafdata())
+                        if (self.pre_fec_ber.is_set or self.pre_fec_ber.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pre_fec_ber.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "post-fec-ber" or name == "pre-fec-ber"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.post_fec_ber is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "post-fec-ber"):
+                            self.post_fec_ber = value
+                            self.post_fec_ber.value_namespace = name_space
+                            self.post_fec_ber.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pre-fec-ber"):
+                            self.pre_fec_ber = value
+                            self.pre_fec_ber.value_namespace = name_space
+                            self.pre_fec_ber.value_namespace_prefix = name_space_prefix
 
-                        if self.pre_fec_ber is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        self.auto_tti_flag.is_set or
+                        self.config_sec_state.is_set or
+                        self.derivedstate_mode.is_set or
+                        self.ec.is_set or
+                        self.ec_value.is_set or
+                        self.fec_mode.is_set or
+                        self.gcc_mode.is_set or
+                        self.gmpls_tti_mode.is_set or
+                        self.gmpls_tvm_id.is_set or
+                        self.inherit_sec_state.is_set or
+                        self.loopback_mode.is_set or
+                        self.name.is_set or
+                        self.nv_optical_support.is_set or
+                        self.performance_monitoring.is_set or
+                        self.pre_fec_ber_mantissa.is_set or
+                        self.pre_fec_ber_value.is_set or
+                        self.pre_fec_mantissa.is_set or
+                        self.pre_fec_val.is_set or
+                        self.q.is_set or
+                        self.q_margin.is_set or
+                        self.sd.is_set or
+                        self.sf.is_set or
+                        self.state.is_set or
+                        self.uc.is_set or
+                        self.uc_value.is_set or
+                        (self.local is not None and self.local.has_data()) or
+                        (self.network_srlg is not None and self.network_srlg.has_data()) or
+                        (self.otu_alarm_info is not None and self.otu_alarm_info.has_data()) or
+                        (self.otu_fec_satistics is not None and self.otu_fec_satistics.has_data()) or
+                        (self.proactive is not None and self.proactive.has_data()) or
+                        (self.remote is not None and self.remote.has_data()) or
+                        (self.tti_mode is not None and self.tti_mode.has_data()))
 
-                        return False
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.auto_tti_flag.yfilter != YFilter.not_set or
+                        self.config_sec_state.yfilter != YFilter.not_set or
+                        self.derivedstate_mode.yfilter != YFilter.not_set or
+                        self.ec.yfilter != YFilter.not_set or
+                        self.ec_value.yfilter != YFilter.not_set or
+                        self.fec_mode.yfilter != YFilter.not_set or
+                        self.gcc_mode.yfilter != YFilter.not_set or
+                        self.gmpls_tti_mode.yfilter != YFilter.not_set or
+                        self.gmpls_tvm_id.yfilter != YFilter.not_set or
+                        self.inherit_sec_state.yfilter != YFilter.not_set or
+                        self.loopback_mode.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        self.nv_optical_support.yfilter != YFilter.not_set or
+                        self.performance_monitoring.yfilter != YFilter.not_set or
+                        self.pre_fec_ber_mantissa.yfilter != YFilter.not_set or
+                        self.pre_fec_ber_value.yfilter != YFilter.not_set or
+                        self.pre_fec_mantissa.yfilter != YFilter.not_set or
+                        self.pre_fec_val.yfilter != YFilter.not_set or
+                        self.q.yfilter != YFilter.not_set or
+                        self.q_margin.yfilter != YFilter.not_set or
+                        self.sd.yfilter != YFilter.not_set or
+                        self.sf.yfilter != YFilter.not_set or
+                        self.state.yfilter != YFilter.not_set or
+                        self.uc.yfilter != YFilter.not_set or
+                        self.uc_value.yfilter != YFilter.not_set or
+                        (self.local is not None and self.local.has_operation()) or
+                        (self.network_srlg is not None and self.network_srlg.has_operation()) or
+                        (self.otu_alarm_info is not None and self.otu_alarm_info.has_operation()) or
+                        (self.otu_fec_satistics is not None and self.otu_fec_satistics.has_operation()) or
+                        (self.proactive is not None and self.proactive.has_operation()) or
+                        (self.remote is not None and self.remote.has_operation()) or
+                        (self.tti_mode is not None and self.tti_mode.has_operation()))
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                        return meta._meta_table['Otu.Controllers.Controller.Info.OtuFecSatistics']['meta_info']
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "info" + path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    return path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:info'
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    leaf_name_data = LeafDataList()
+                    if (self.auto_tti_flag.is_set or self.auto_tti_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.auto_tti_flag.get_name_leafdata())
+                    if (self.config_sec_state.is_set or self.config_sec_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.config_sec_state.get_name_leafdata())
+                    if (self.derivedstate_mode.is_set or self.derivedstate_mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.derivedstate_mode.get_name_leafdata())
+                    if (self.ec.is_set or self.ec.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ec.get_name_leafdata())
+                    if (self.ec_value.is_set or self.ec_value.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ec_value.get_name_leafdata())
+                    if (self.fec_mode.is_set or self.fec_mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.fec_mode.get_name_leafdata())
+                    if (self.gcc_mode.is_set or self.gcc_mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.gcc_mode.get_name_leafdata())
+                    if (self.gmpls_tti_mode.is_set or self.gmpls_tti_mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.gmpls_tti_mode.get_name_leafdata())
+                    if (self.gmpls_tvm_id.is_set or self.gmpls_tvm_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.gmpls_tvm_id.get_name_leafdata())
+                    if (self.inherit_sec_state.is_set or self.inherit_sec_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.inherit_sec_state.get_name_leafdata())
+                    if (self.loopback_mode.is_set or self.loopback_mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.loopback_mode.get_name_leafdata())
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
+                    if (self.nv_optical_support.is_set or self.nv_optical_support.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nv_optical_support.get_name_leafdata())
+                    if (self.performance_monitoring.is_set or self.performance_monitoring.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.performance_monitoring.get_name_leafdata())
+                    if (self.pre_fec_ber_mantissa.is_set or self.pre_fec_ber_mantissa.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pre_fec_ber_mantissa.get_name_leafdata())
+                    if (self.pre_fec_ber_value.is_set or self.pre_fec_ber_value.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pre_fec_ber_value.get_name_leafdata())
+                    if (self.pre_fec_mantissa.is_set or self.pre_fec_mantissa.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pre_fec_mantissa.get_name_leafdata())
+                    if (self.pre_fec_val.is_set or self.pre_fec_val.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pre_fec_val.get_name_leafdata())
+                    if (self.q.is_set or self.q.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.q.get_name_leafdata())
+                    if (self.q_margin.is_set or self.q_margin.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.q_margin.get_name_leafdata())
+                    if (self.sd.is_set or self.sd.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sd.get_name_leafdata())
+                    if (self.sf.is_set or self.sf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sf.get_name_leafdata())
+                    if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state.get_name_leafdata())
+                    if (self.uc.is_set or self.uc.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.uc.get_name_leafdata())
+                    if (self.uc_value.is_set or self.uc_value.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.uc_value.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "local"):
+                        if (self.local is None):
+                            self.local = Otu.Controllers.Controller.Info.Local()
+                            self.local.parent = self
+                            self._children_name_map["local"] = "local"
+                        return self.local
+
+                    if (child_yang_name == "network-srlg"):
+                        if (self.network_srlg is None):
+                            self.network_srlg = Otu.Controllers.Controller.Info.NetworkSrlg()
+                            self.network_srlg.parent = self
+                            self._children_name_map["network_srlg"] = "network-srlg"
+                        return self.network_srlg
+
+                    if (child_yang_name == "otu-alarm-info"):
+                        if (self.otu_alarm_info is None):
+                            self.otu_alarm_info = Otu.Controllers.Controller.Info.OtuAlarmInfo()
+                            self.otu_alarm_info.parent = self
+                            self._children_name_map["otu_alarm_info"] = "otu-alarm-info"
+                        return self.otu_alarm_info
+
+                    if (child_yang_name == "otu-fec-satistics"):
+                        if (self.otu_fec_satistics is None):
+                            self.otu_fec_satistics = Otu.Controllers.Controller.Info.OtuFecSatistics()
+                            self.otu_fec_satistics.parent = self
+                            self._children_name_map["otu_fec_satistics"] = "otu-fec-satistics"
+                        return self.otu_fec_satistics
+
+                    if (child_yang_name == "proactive"):
+                        if (self.proactive is None):
+                            self.proactive = Otu.Controllers.Controller.Info.Proactive()
+                            self.proactive.parent = self
+                            self._children_name_map["proactive"] = "proactive"
+                        return self.proactive
+
+                    if (child_yang_name == "remote"):
+                        if (self.remote is None):
+                            self.remote = Otu.Controllers.Controller.Info.Remote()
+                            self.remote.parent = self
+                            self._children_name_map["remote"] = "remote"
+                        return self.remote
+
+                    if (child_yang_name == "tti-mode"):
+                        if (self.tti_mode is None):
+                            self.tti_mode = Otu.Controllers.Controller.Info.TtiMode()
+                            self.tti_mode.parent = self
+                            self._children_name_map["tti_mode"] = "tti-mode"
+                        return self.tti_mode
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "local" or name == "network-srlg" or name == "otu-alarm-info" or name == "otu-fec-satistics" or name == "proactive" or name == "remote" or name == "tti-mode" or name == "auto-tti-flag" or name == "config-sec-state" or name == "derivedstate-mode" or name == "ec" or name == "ec-value" or name == "fec-mode" or name == "gcc-mode" or name == "gmpls-tti-mode" or name == "gmpls-tvm-id" or name == "inherit-sec-state" or name == "loopback-mode" or name == "name" or name == "nv-optical-support" or name == "performance-monitoring" or name == "pre-fec-ber-mantissa" or name == "pre-fec-ber-value" or name == "pre-fec-mantissa" or name == "pre-fec-val" or name == "q" or name == "q-margin" or name == "sd" or name == "sf" or name == "state" or name == "uc" or name == "uc-value"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.auto_tti_flag is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "auto-tti-flag"):
+                        self.auto_tti_flag = value
+                        self.auto_tti_flag.value_namespace = name_space
+                        self.auto_tti_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "config-sec-state"):
+                        self.config_sec_state = value
+                        self.config_sec_state.value_namespace = name_space
+                        self.config_sec_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "derivedstate-mode"):
+                        self.derivedstate_mode = value
+                        self.derivedstate_mode.value_namespace = name_space
+                        self.derivedstate_mode.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ec"):
+                        self.ec = value
+                        self.ec.value_namespace = name_space
+                        self.ec.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ec-value"):
+                        self.ec_value = value
+                        self.ec_value.value_namespace = name_space
+                        self.ec_value.value_namespace_prefix = name_space_prefix
+                    if(value_path == "fec-mode"):
+                        self.fec_mode = value
+                        self.fec_mode.value_namespace = name_space
+                        self.fec_mode.value_namespace_prefix = name_space_prefix
+                    if(value_path == "gcc-mode"):
+                        self.gcc_mode = value
+                        self.gcc_mode.value_namespace = name_space
+                        self.gcc_mode.value_namespace_prefix = name_space_prefix
+                    if(value_path == "gmpls-tti-mode"):
+                        self.gmpls_tti_mode = value
+                        self.gmpls_tti_mode.value_namespace = name_space
+                        self.gmpls_tti_mode.value_namespace_prefix = name_space_prefix
+                    if(value_path == "gmpls-tvm-id"):
+                        self.gmpls_tvm_id = value
+                        self.gmpls_tvm_id.value_namespace = name_space
+                        self.gmpls_tvm_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "inherit-sec-state"):
+                        self.inherit_sec_state = value
+                        self.inherit_sec_state.value_namespace = name_space
+                        self.inherit_sec_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "loopback-mode"):
+                        self.loopback_mode = value
+                        self.loopback_mode.value_namespace = name_space
+                        self.loopback_mode.value_namespace_prefix = name_space_prefix
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nv-optical-support"):
+                        self.nv_optical_support = value
+                        self.nv_optical_support.value_namespace = name_space
+                        self.nv_optical_support.value_namespace_prefix = name_space_prefix
+                    if(value_path == "performance-monitoring"):
+                        self.performance_monitoring = value
+                        self.performance_monitoring.value_namespace = name_space
+                        self.performance_monitoring.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pre-fec-ber-mantissa"):
+                        self.pre_fec_ber_mantissa = value
+                        self.pre_fec_ber_mantissa.value_namespace = name_space
+                        self.pre_fec_ber_mantissa.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pre-fec-ber-value"):
+                        self.pre_fec_ber_value = value
+                        self.pre_fec_ber_value.value_namespace = name_space
+                        self.pre_fec_ber_value.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pre-fec-mantissa"):
+                        self.pre_fec_mantissa = value
+                        self.pre_fec_mantissa.value_namespace = name_space
+                        self.pre_fec_mantissa.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pre-fec-val"):
+                        self.pre_fec_val = value
+                        self.pre_fec_val.value_namespace = name_space
+                        self.pre_fec_val.value_namespace_prefix = name_space_prefix
+                    if(value_path == "q"):
+                        self.q = value
+                        self.q.value_namespace = name_space
+                        self.q.value_namespace_prefix = name_space_prefix
+                    if(value_path == "q-margin"):
+                        self.q_margin = value
+                        self.q_margin.value_namespace = name_space
+                        self.q_margin.value_namespace_prefix = name_space_prefix
+                    if(value_path == "sd"):
+                        self.sd = value
+                        self.sd.value_namespace = name_space
+                        self.sd.value_namespace_prefix = name_space_prefix
+                    if(value_path == "sf"):
+                        self.sf = value
+                        self.sf.value_namespace = name_space
+                        self.sf.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state"):
+                        self.state = value
+                        self.state.value_namespace = name_space
+                        self.state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "uc"):
+                        self.uc = value
+                        self.uc.value_namespace = name_space
+                        self.uc.value_namespace_prefix = name_space_prefix
+                    if(value_path == "uc-value"):
+                        self.uc_value = value
+                        self.uc_value.value_namespace = name_space
+                        self.uc_value.value_namespace_prefix = name_space_prefix
 
-                    if self.config_sec_state is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.controller_name.is_set or
+                    (self.info is not None and self.info.has_data()))
 
-                    if self.derivedstate_mode is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.controller_name.yfilter != YFilter.not_set or
+                    (self.info is not None and self.info.has_operation()))
 
-                    if self.ec is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "controller" + "[controller-name='" + self.controller_name.get() + "']" + path_buffer
 
-                    if self.ec_value is not None:
-                        return True
+                return path_buffer
 
-                    if self.fec_mode is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.gcc_mode is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.controller_name.is_set or self.controller_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.controller_name.get_name_leafdata())
 
-                    if self.gmpls_tti_mode is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.gmpls_tvm_id is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.inherit_sec_state is not None:
-                        return True
+                if (child_yang_name == "info"):
+                    if (self.info is None):
+                        self.info = Otu.Controllers.Controller.Info()
+                        self.info.parent = self
+                        self._children_name_map["info"] = "info"
+                    return self.info
 
-                    if self.local is not None and self.local._has_data():
-                        return True
+                return None
 
-                    if self.loopback_mode is not None:
-                        return True
-
-                    if self.name is not None:
-                        return True
-
-                    if self.network_srlg is not None and self.network_srlg._has_data():
-                        return True
-
-                    if self.nv_optical_support is not None:
-                        return True
-
-                    if self.otu_alarm_info is not None and self.otu_alarm_info._has_data():
-                        return True
-
-                    if self.otu_fec_satistics is not None and self.otu_fec_satistics._has_data():
-                        return True
-
-                    if self.performance_monitoring is not None:
-                        return True
-
-                    if self.pre_fec_ber_mantissa is not None:
-                        return True
-
-                    if self.pre_fec_ber_value is not None:
-                        return True
-
-                    if self.pre_fec_mantissa is not None:
-                        return True
-
-                    if self.pre_fec_val is not None:
-                        return True
-
-                    if self.proactive is not None and self.proactive._has_data():
-                        return True
-
-                    if self.q is not None:
-                        return True
-
-                    if self.q_margin is not None:
-                        return True
-
-                    if self.remote is not None and self.remote._has_data():
-                        return True
-
-                    if self.sd is not None:
-                        return True
-
-                    if self.sf is not None:
-                        return True
-
-                    if self.state is not None:
-                        return True
-
-                    if self.tti_mode is not None and self.tti_mode._has_data():
-                        return True
-
-                    if self.uc is not None:
-                        return True
-
-                    if self.uc_value is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                    return meta._meta_table['Otu.Controllers.Controller.Info']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.controller_name is None:
-                    raise YPYModelError('Key property controller_name is None')
-
-                return '/Cisco-IOS-XR-controller-otu-oper:otu/Cisco-IOS-XR-controller-otu-oper:controllers/Cisco-IOS-XR-controller-otu-oper:controller[Cisco-IOS-XR-controller-otu-oper:controller-name = ' + str(self.controller_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "info" or name == "controller-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.controller_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "controller-name"):
+                    self.controller_name = value
+                    self.controller_name.value_namespace = name_space
+                    self.controller_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.controller:
+                if (c.has_data()):
                     return True
-
-                if self.info is not None and self.info._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-                return meta._meta_table['Otu.Controllers.Controller']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-controller-otu-oper:otu/Cisco-IOS-XR-controller-otu-oper:controllers'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.controller is not None:
-                for child_ref in self.controller:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.controller:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "controllers" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-controller-otu-oper:otu/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "controller"):
+                for c in self.controller:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Otu.Controllers.Controller()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.controller.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "controller"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-            return meta._meta_table['Otu.Controllers']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.controllers is not None and self.controllers.has_data())
 
-        return '/Cisco-IOS-XR-controller-otu-oper:otu'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.controllers is not None and self.controllers.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-controller-otu-oper:otu" + path_buffer
 
-    def _has_data(self):
-        if self.controllers is not None and self.controllers._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "controllers"):
+            if (self.controllers is None):
+                self.controllers = Otu.Controllers()
+                self.controllers.parent = self
+                self._children_name_map["controllers"] = "controllers"
+            return self.controllers
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "controllers"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
-        return meta._meta_table['Otu']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Otu()
+        return self._top_entity
 

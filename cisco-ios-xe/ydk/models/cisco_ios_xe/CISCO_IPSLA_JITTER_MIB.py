@@ -13,21 +13,15 @@ latency by sending ICMP Timestamp stream to the destination
 devices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoIpslaJitterMib(object):
+class CiscoIpslaJitterMib(Entity):
     """
     
     
@@ -49,13 +43,24 @@ class CiscoIpslaJitterMib(object):
     _revision = '2007-07-24'
 
     def __init__(self):
+        super(CiscoIpslaJitterMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IPSLA-JITTER-MIB"
+        self.yang_parent_name = "CISCO-IPSLA-JITTER-MIB"
+
         self.cipslaicmpjittertmpltable = CiscoIpslaJitterMib.Cipslaicmpjittertmpltable()
         self.cipslaicmpjittertmpltable.parent = self
+        self._children_name_map["cipslaicmpjittertmpltable"] = "cipslaIcmpJitterTmplTable"
+        self._children_yang_names.add("cipslaIcmpJitterTmplTable")
+
         self.cipslaudpjittertmpltable = CiscoIpslaJitterMib.Cipslaudpjittertmpltable()
         self.cipslaudpjittertmpltable.parent = self
+        self._children_name_map["cipslaudpjittertmpltable"] = "cipslaUdpJitterTmplTable"
+        self._children_yang_names.add("cipslaUdpJitterTmplTable")
 
 
-    class Cipslaudpjittertmpltable(object):
+    class Cipslaudpjittertmpltable(Entity):
         """
         A table that contains UDP jitter template specific definitions.
         
@@ -72,13 +77,39 @@ class CiscoIpslaJitterMib(object):
         _revision = '2007-07-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipslaudpjittertmplentry = YList()
-            self.cipslaudpjittertmplentry.parent = self
-            self.cipslaudpjittertmplentry.name = 'cipslaudpjittertmplentry'
+            super(CiscoIpslaJitterMib.Cipslaudpjittertmpltable, self).__init__()
+
+            self.yang_name = "cipslaUdpJitterTmplTable"
+            self.yang_parent_name = "CISCO-IPSLA-JITTER-MIB"
+
+            self.cipslaudpjittertmplentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpslaJitterMib.Cipslaudpjittertmpltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpslaJitterMib.Cipslaudpjittertmpltable, self).__setattr__(name, value)
 
 
-        class Cipslaudpjittertmplentry(object):
+        class Cipslaudpjittertmplentry(Entity):
             """
             A row entry representing an IPSLA UDP jitter template.
             
@@ -119,7 +150,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaudpjittertmplcodectype
             
             	Specifies the codec type to be used with UDP jitter operation.  If codec\-type is configured the following parameters cannot be  configured. cipslaUdpJitterReqDataSize cipslaUdpJitterInterval cipslaUdpJitterNumPkts
-            	**type**\:   :py:class:`IpslacodectypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB.IpslacodectypeEnum>`
+            	**type**\:   :py:class:`Ipslacodectype <ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB.Ipslacodectype>`
             
             .. attribute:: cipslaudpjittertmplcontrolenable
             
@@ -184,7 +215,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaudpjittertmplntptoltype
             
             	This object specifies whether the value specified for oneway NTP sync tolerance is absolute value or percent value.  percent(1)  \- The value for oneway NTP sync tolerance is                absolute value. absolute(2) \- The value for oneway NTP sync tolerance is                percent value
-            	**type**\:   :py:class:`CipslaudpjittertmplntptoltypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.CipslaudpjittertmplntptoltypeEnum>`
+            	**type**\:   :py:class:`Cipslaudpjittertmplntptoltype <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.Cipslaudpjittertmplntptoltype>`
             
             .. attribute:: cipslaudpjittertmplnumpkts
             
@@ -198,12 +229,12 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaudpjittertmplpktpriority
             
             	This object specifies the priority that will be assigned to operation packet.  normal(1) \- The packet is of normal priority. high(2)   \- The packet is of high priority
-            	**type**\:   :py:class:`CipslaudpjittertmplpktpriorityEnum <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.CipslaudpjittertmplpktpriorityEnum>`
+            	**type**\:   :py:class:`Cipslaudpjittertmplpktpriority <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.Cipslaudpjittertmplpktpriority>`
             
             .. attribute:: cipslaudpjittertmplprecision
             
             	This object specifies the accuracy of jitter statistics in rttMonJitterStatsTable that needs to be calculated. milliseconds(1) \- The accuracy of stats will be of milliseconds. microseconds(2) \- The accuracy of stats will be in microseconds
-            	**type**\:   :py:class:`CipslaudpjittertmplprecisionEnum <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.CipslaudpjittertmplprecisionEnum>`
+            	**type**\:   :py:class:`Cipslaudpjittertmplprecision <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.Cipslaudpjittertmplprecision>`
             
             .. attribute:: cipslaudpjittertmplreqdatasize
             
@@ -217,7 +248,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaudpjittertmplrowstatus
             
             	The status of the conceptual UDP Jitter template control row. When the status is active, all the read\-create objects in that  row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cipslaudpjittertmplsrcaddr
             
@@ -229,7 +260,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaudpjittertmplsrcaddrtype
             
             	An enumerated value which specifies the IP address type of the source. It must be used along with the cipslaUdpJitterTmplSrcAddr object
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cipslaudpjittertmplsrcport
             
@@ -250,7 +281,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaudpjittertmplstoragetype
             
             	The storage type of this conceptual row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cipslaudpjittertmplthreshold
             
@@ -297,40 +328,124 @@ class CiscoIpslaJitterMib(object):
             _revision = '2007-07-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipslaudpjittertmplname = None
-                self.cipslaudpjittertmplcodecinterval = None
-                self.cipslaudpjittertmplcodecnumpkts = None
-                self.cipslaudpjittertmplcodecpayload = None
-                self.cipslaudpjittertmplcodectype = None
-                self.cipslaudpjittertmplcontrolenable = None
-                self.cipslaudpjittertmpldescription = None
-                self.cipslaudpjittertmpldistbuckets = None
-                self.cipslaudpjittertmpldistinterval = None
-                self.cipslaudpjittertmplicpiffactor = None
-                self.cipslaudpjittertmplinterval = None
-                self.cipslaudpjittertmplntptolabs = None
-                self.cipslaudpjittertmplntptolpct = None
-                self.cipslaudpjittertmplntptoltype = None
-                self.cipslaudpjittertmplnumpkts = None
-                self.cipslaudpjittertmplpktpriority = None
-                self.cipslaudpjittertmplprecision = None
-                self.cipslaudpjittertmplreqdatasize = None
-                self.cipslaudpjittertmplrowstatus = None
-                self.cipslaudpjittertmplsrcaddr = None
-                self.cipslaudpjittertmplsrcaddrtype = None
-                self.cipslaudpjittertmplsrcport = None
-                self.cipslaudpjittertmplstatshours = None
-                self.cipslaudpjittertmplstoragetype = None
-                self.cipslaudpjittertmplthreshold = None
-                self.cipslaudpjittertmpltimeout = None
-                self.cipslaudpjittertmpltos = None
-                self.cipslaudpjittertmplverifydata = None
-                self.cipslaudpjittertmplvrfname = None
+                super(CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry, self).__init__()
 
-            class CipslaudpjittertmplntptoltypeEnum(Enum):
+                self.yang_name = "cipslaUdpJitterTmplEntry"
+                self.yang_parent_name = "cipslaUdpJitterTmplTable"
+
+                self.cipslaudpjittertmplname = YLeaf(YType.str, "cipslaUdpJitterTmplName")
+
+                self.cipslaudpjittertmplcodecinterval = YLeaf(YType.uint32, "cipslaUdpJitterTmplCodecInterval")
+
+                self.cipslaudpjittertmplcodecnumpkts = YLeaf(YType.uint32, "cipslaUdpJitterTmplCodecNumPkts")
+
+                self.cipslaudpjittertmplcodecpayload = YLeaf(YType.uint32, "cipslaUdpJitterTmplCodecPayload")
+
+                self.cipslaudpjittertmplcodectype = YLeaf(YType.enumeration, "cipslaUdpJitterTmplCodecType")
+
+                self.cipslaudpjittertmplcontrolenable = YLeaf(YType.boolean, "cipslaUdpJitterTmplControlEnable")
+
+                self.cipslaudpjittertmpldescription = YLeaf(YType.str, "cipslaUdpJitterTmplDescription")
+
+                self.cipslaudpjittertmpldistbuckets = YLeaf(YType.uint32, "cipslaUdpJitterTmplDistBuckets")
+
+                self.cipslaudpjittertmpldistinterval = YLeaf(YType.uint32, "cipslaUdpJitterTmplDistInterval")
+
+                self.cipslaudpjittertmplicpiffactor = YLeaf(YType.uint32, "cipslaUdpJitterTmplIcpifFactor")
+
+                self.cipslaudpjittertmplinterval = YLeaf(YType.uint32, "cipslaUdpJitterTmplInterval")
+
+                self.cipslaudpjittertmplntptolabs = YLeaf(YType.uint32, "cipslaUdpJitterTmplNTPTolAbs")
+
+                self.cipslaudpjittertmplntptolpct = YLeaf(YType.uint32, "cipslaUdpJitterTmplNTPTolPct")
+
+                self.cipslaudpjittertmplntptoltype = YLeaf(YType.enumeration, "cipslaUdpJitterTmplNTPTolType")
+
+                self.cipslaudpjittertmplnumpkts = YLeaf(YType.uint32, "cipslaUdpJitterTmplNumPkts")
+
+                self.cipslaudpjittertmplpktpriority = YLeaf(YType.enumeration, "cipslaUdpJitterTmplPktPriority")
+
+                self.cipslaudpjittertmplprecision = YLeaf(YType.enumeration, "cipslaUdpJitterTmplPrecision")
+
+                self.cipslaudpjittertmplreqdatasize = YLeaf(YType.uint32, "cipslaUdpJitterTmplReqDataSize")
+
+                self.cipslaudpjittertmplrowstatus = YLeaf(YType.enumeration, "cipslaUdpJitterTmplRowStatus")
+
+                self.cipslaudpjittertmplsrcaddr = YLeaf(YType.str, "cipslaUdpJitterTmplSrcAddr")
+
+                self.cipslaudpjittertmplsrcaddrtype = YLeaf(YType.enumeration, "cipslaUdpJitterTmplSrcAddrType")
+
+                self.cipslaudpjittertmplsrcport = YLeaf(YType.uint16, "cipslaUdpJitterTmplSrcPort")
+
+                self.cipslaudpjittertmplstatshours = YLeaf(YType.uint32, "cipslaUdpJitterTmplStatsHours")
+
+                self.cipslaudpjittertmplstoragetype = YLeaf(YType.enumeration, "cipslaUdpJitterTmplStorageType")
+
+                self.cipslaudpjittertmplthreshold = YLeaf(YType.uint32, "cipslaUdpJitterTmplThreshold")
+
+                self.cipslaudpjittertmpltimeout = YLeaf(YType.uint32, "cipslaUdpJitterTmplTimeOut")
+
+                self.cipslaudpjittertmpltos = YLeaf(YType.uint32, "cipslaUdpJitterTmplTOS")
+
+                self.cipslaudpjittertmplverifydata = YLeaf(YType.boolean, "cipslaUdpJitterTmplVerifyData")
+
+                self.cipslaudpjittertmplvrfname = YLeaf(YType.str, "cipslaUdpJitterTmplVrfName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipslaudpjittertmplname",
+                                "cipslaudpjittertmplcodecinterval",
+                                "cipslaudpjittertmplcodecnumpkts",
+                                "cipslaudpjittertmplcodecpayload",
+                                "cipslaudpjittertmplcodectype",
+                                "cipslaudpjittertmplcontrolenable",
+                                "cipslaudpjittertmpldescription",
+                                "cipslaudpjittertmpldistbuckets",
+                                "cipslaudpjittertmpldistinterval",
+                                "cipslaudpjittertmplicpiffactor",
+                                "cipslaudpjittertmplinterval",
+                                "cipslaudpjittertmplntptolabs",
+                                "cipslaudpjittertmplntptolpct",
+                                "cipslaudpjittertmplntptoltype",
+                                "cipslaudpjittertmplnumpkts",
+                                "cipslaudpjittertmplpktpriority",
+                                "cipslaudpjittertmplprecision",
+                                "cipslaudpjittertmplreqdatasize",
+                                "cipslaudpjittertmplrowstatus",
+                                "cipslaudpjittertmplsrcaddr",
+                                "cipslaudpjittertmplsrcaddrtype",
+                                "cipslaudpjittertmplsrcport",
+                                "cipslaudpjittertmplstatshours",
+                                "cipslaudpjittertmplstoragetype",
+                                "cipslaudpjittertmplthreshold",
+                                "cipslaudpjittertmpltimeout",
+                                "cipslaudpjittertmpltos",
+                                "cipslaudpjittertmplverifydata",
+                                "cipslaudpjittertmplvrfname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry, self).__setattr__(name, value)
+
+            class Cipslaudpjittertmplntptoltype(Enum):
                 """
-                CipslaudpjittertmplntptoltypeEnum
+                Cipslaudpjittertmplntptoltype
 
                 This object specifies whether the value specified for oneway
 
@@ -350,20 +465,14 @@ class CiscoIpslaJitterMib(object):
 
                 """
 
-                percent = 1
+                percent = Enum.YLeaf(1, "percent")
 
-                absolute = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-                    return meta._meta_table['CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.CipslaudpjittertmplntptoltypeEnum']
+                absolute = Enum.YLeaf(2, "absolute")
 
 
-            class CipslaudpjittertmplpktpriorityEnum(Enum):
+            class Cipslaudpjittertmplpktpriority(Enum):
                 """
-                CipslaudpjittertmplpktpriorityEnum
+                Cipslaudpjittertmplpktpriority
 
                 This object specifies the priority that will be assigned
 
@@ -379,20 +488,14 @@ class CiscoIpslaJitterMib(object):
 
                 """
 
-                normal = 1
+                normal = Enum.YLeaf(1, "normal")
 
-                high = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-                    return meta._meta_table['CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.CipslaudpjittertmplpktpriorityEnum']
+                high = Enum.YLeaf(2, "high")
 
 
-            class CipslaudpjittertmplprecisionEnum(Enum):
+            class Cipslaudpjittertmplprecision(Enum):
                 """
-                CipslaudpjittertmplprecisionEnum
+                Cipslaudpjittertmplprecision
 
                 This object specifies the accuracy of jitter statistics in
 
@@ -408,147 +511,341 @@ class CiscoIpslaJitterMib(object):
 
                 """
 
-                milliseconds = 1
+                milliseconds = Enum.YLeaf(1, "milliseconds")
 
-                microseconds = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-                    return meta._meta_table['CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry.CipslaudpjittertmplprecisionEnum']
+                microseconds = Enum.YLeaf(2, "microseconds")
 
 
-            @property
-            def _common_path(self):
-                if self.cipslaudpjittertmplname is None:
-                    raise YPYModelError('Key property cipslaudpjittertmplname is None')
+            def has_data(self):
+                return (
+                    self.cipslaudpjittertmplname.is_set or
+                    self.cipslaudpjittertmplcodecinterval.is_set or
+                    self.cipslaudpjittertmplcodecnumpkts.is_set or
+                    self.cipslaudpjittertmplcodecpayload.is_set or
+                    self.cipslaudpjittertmplcodectype.is_set or
+                    self.cipslaudpjittertmplcontrolenable.is_set or
+                    self.cipslaudpjittertmpldescription.is_set or
+                    self.cipslaudpjittertmpldistbuckets.is_set or
+                    self.cipslaudpjittertmpldistinterval.is_set or
+                    self.cipslaudpjittertmplicpiffactor.is_set or
+                    self.cipslaudpjittertmplinterval.is_set or
+                    self.cipslaudpjittertmplntptolabs.is_set or
+                    self.cipslaudpjittertmplntptolpct.is_set or
+                    self.cipslaudpjittertmplntptoltype.is_set or
+                    self.cipslaudpjittertmplnumpkts.is_set or
+                    self.cipslaudpjittertmplpktpriority.is_set or
+                    self.cipslaudpjittertmplprecision.is_set or
+                    self.cipslaudpjittertmplreqdatasize.is_set or
+                    self.cipslaudpjittertmplrowstatus.is_set or
+                    self.cipslaudpjittertmplsrcaddr.is_set or
+                    self.cipslaudpjittertmplsrcaddrtype.is_set or
+                    self.cipslaudpjittertmplsrcport.is_set or
+                    self.cipslaudpjittertmplstatshours.is_set or
+                    self.cipslaudpjittertmplstoragetype.is_set or
+                    self.cipslaudpjittertmplthreshold.is_set or
+                    self.cipslaudpjittertmpltimeout.is_set or
+                    self.cipslaudpjittertmpltos.is_set or
+                    self.cipslaudpjittertmplverifydata.is_set or
+                    self.cipslaudpjittertmplvrfname.is_set)
 
-                return '/CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/CISCO-IPSLA-JITTER-MIB:cipslaUdpJitterTmplTable/CISCO-IPSLA-JITTER-MIB:cipslaUdpJitterTmplEntry[CISCO-IPSLA-JITTER-MIB:cipslaUdpJitterTmplName = ' + str(self.cipslaudpjittertmplname) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplname.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplcodecinterval.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplcodecnumpkts.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplcodecpayload.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplcodectype.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplcontrolenable.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmpldescription.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmpldistbuckets.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmpldistinterval.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplicpiffactor.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplinterval.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplntptolabs.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplntptolpct.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplntptoltype.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplnumpkts.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplpktpriority.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplprecision.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplreqdatasize.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplrowstatus.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplsrcaddr.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplsrcaddrtype.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplsrcport.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplstatshours.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplstoragetype.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplthreshold.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmpltimeout.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmpltos.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplverifydata.yfilter != YFilter.not_set or
+                    self.cipslaudpjittertmplvrfname.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipslaUdpJitterTmplEntry" + "[cipslaUdpJitterTmplName='" + self.cipslaudpjittertmplname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaUdpJitterTmplTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipslaudpjittertmplname.is_set or self.cipslaudpjittertmplname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplname.get_name_leafdata())
+                if (self.cipslaudpjittertmplcodecinterval.is_set or self.cipslaudpjittertmplcodecinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplcodecinterval.get_name_leafdata())
+                if (self.cipslaudpjittertmplcodecnumpkts.is_set or self.cipslaudpjittertmplcodecnumpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplcodecnumpkts.get_name_leafdata())
+                if (self.cipslaudpjittertmplcodecpayload.is_set or self.cipslaudpjittertmplcodecpayload.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplcodecpayload.get_name_leafdata())
+                if (self.cipslaudpjittertmplcodectype.is_set or self.cipslaudpjittertmplcodectype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplcodectype.get_name_leafdata())
+                if (self.cipslaudpjittertmplcontrolenable.is_set or self.cipslaudpjittertmplcontrolenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplcontrolenable.get_name_leafdata())
+                if (self.cipslaudpjittertmpldescription.is_set or self.cipslaudpjittertmpldescription.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmpldescription.get_name_leafdata())
+                if (self.cipslaudpjittertmpldistbuckets.is_set or self.cipslaudpjittertmpldistbuckets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmpldistbuckets.get_name_leafdata())
+                if (self.cipslaudpjittertmpldistinterval.is_set or self.cipslaudpjittertmpldistinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmpldistinterval.get_name_leafdata())
+                if (self.cipslaudpjittertmplicpiffactor.is_set or self.cipslaudpjittertmplicpiffactor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplicpiffactor.get_name_leafdata())
+                if (self.cipslaudpjittertmplinterval.is_set or self.cipslaudpjittertmplinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplinterval.get_name_leafdata())
+                if (self.cipslaudpjittertmplntptolabs.is_set or self.cipslaudpjittertmplntptolabs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplntptolabs.get_name_leafdata())
+                if (self.cipslaudpjittertmplntptolpct.is_set or self.cipslaudpjittertmplntptolpct.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplntptolpct.get_name_leafdata())
+                if (self.cipslaudpjittertmplntptoltype.is_set or self.cipslaudpjittertmplntptoltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplntptoltype.get_name_leafdata())
+                if (self.cipslaudpjittertmplnumpkts.is_set or self.cipslaudpjittertmplnumpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplnumpkts.get_name_leafdata())
+                if (self.cipslaudpjittertmplpktpriority.is_set or self.cipslaudpjittertmplpktpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplpktpriority.get_name_leafdata())
+                if (self.cipslaudpjittertmplprecision.is_set or self.cipslaudpjittertmplprecision.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplprecision.get_name_leafdata())
+                if (self.cipslaudpjittertmplreqdatasize.is_set or self.cipslaudpjittertmplreqdatasize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplreqdatasize.get_name_leafdata())
+                if (self.cipslaudpjittertmplrowstatus.is_set or self.cipslaudpjittertmplrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplrowstatus.get_name_leafdata())
+                if (self.cipslaudpjittertmplsrcaddr.is_set or self.cipslaudpjittertmplsrcaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplsrcaddr.get_name_leafdata())
+                if (self.cipslaudpjittertmplsrcaddrtype.is_set or self.cipslaudpjittertmplsrcaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplsrcaddrtype.get_name_leafdata())
+                if (self.cipslaudpjittertmplsrcport.is_set or self.cipslaudpjittertmplsrcport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplsrcport.get_name_leafdata())
+                if (self.cipslaudpjittertmplstatshours.is_set or self.cipslaudpjittertmplstatshours.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplstatshours.get_name_leafdata())
+                if (self.cipslaudpjittertmplstoragetype.is_set or self.cipslaudpjittertmplstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplstoragetype.get_name_leafdata())
+                if (self.cipslaudpjittertmplthreshold.is_set or self.cipslaudpjittertmplthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplthreshold.get_name_leafdata())
+                if (self.cipslaudpjittertmpltimeout.is_set or self.cipslaudpjittertmpltimeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmpltimeout.get_name_leafdata())
+                if (self.cipslaudpjittertmpltos.is_set or self.cipslaudpjittertmpltos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmpltos.get_name_leafdata())
+                if (self.cipslaudpjittertmplverifydata.is_set or self.cipslaudpjittertmplverifydata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplverifydata.get_name_leafdata())
+                if (self.cipslaudpjittertmplvrfname.is_set or self.cipslaudpjittertmplvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaudpjittertmplvrfname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipslaUdpJitterTmplName" or name == "cipslaUdpJitterTmplCodecInterval" or name == "cipslaUdpJitterTmplCodecNumPkts" or name == "cipslaUdpJitterTmplCodecPayload" or name == "cipslaUdpJitterTmplCodecType" or name == "cipslaUdpJitterTmplControlEnable" or name == "cipslaUdpJitterTmplDescription" or name == "cipslaUdpJitterTmplDistBuckets" or name == "cipslaUdpJitterTmplDistInterval" or name == "cipslaUdpJitterTmplIcpifFactor" or name == "cipslaUdpJitterTmplInterval" or name == "cipslaUdpJitterTmplNTPTolAbs" or name == "cipslaUdpJitterTmplNTPTolPct" or name == "cipslaUdpJitterTmplNTPTolType" or name == "cipslaUdpJitterTmplNumPkts" or name == "cipslaUdpJitterTmplPktPriority" or name == "cipslaUdpJitterTmplPrecision" or name == "cipslaUdpJitterTmplReqDataSize" or name == "cipslaUdpJitterTmplRowStatus" or name == "cipslaUdpJitterTmplSrcAddr" or name == "cipslaUdpJitterTmplSrcAddrType" or name == "cipslaUdpJitterTmplSrcPort" or name == "cipslaUdpJitterTmplStatsHours" or name == "cipslaUdpJitterTmplStorageType" or name == "cipslaUdpJitterTmplThreshold" or name == "cipslaUdpJitterTmplTimeOut" or name == "cipslaUdpJitterTmplTOS" or name == "cipslaUdpJitterTmplVerifyData" or name == "cipslaUdpJitterTmplVrfName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipslaudpjittertmplname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipslaUdpJitterTmplName"):
+                    self.cipslaudpjittertmplname = value
+                    self.cipslaudpjittertmplname.value_namespace = name_space
+                    self.cipslaudpjittertmplname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplCodecInterval"):
+                    self.cipslaudpjittertmplcodecinterval = value
+                    self.cipslaudpjittertmplcodecinterval.value_namespace = name_space
+                    self.cipslaudpjittertmplcodecinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplCodecNumPkts"):
+                    self.cipslaudpjittertmplcodecnumpkts = value
+                    self.cipslaudpjittertmplcodecnumpkts.value_namespace = name_space
+                    self.cipslaudpjittertmplcodecnumpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplCodecPayload"):
+                    self.cipslaudpjittertmplcodecpayload = value
+                    self.cipslaudpjittertmplcodecpayload.value_namespace = name_space
+                    self.cipslaudpjittertmplcodecpayload.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplCodecType"):
+                    self.cipslaudpjittertmplcodectype = value
+                    self.cipslaudpjittertmplcodectype.value_namespace = name_space
+                    self.cipslaudpjittertmplcodectype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplControlEnable"):
+                    self.cipslaudpjittertmplcontrolenable = value
+                    self.cipslaudpjittertmplcontrolenable.value_namespace = name_space
+                    self.cipslaudpjittertmplcontrolenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplDescription"):
+                    self.cipslaudpjittertmpldescription = value
+                    self.cipslaudpjittertmpldescription.value_namespace = name_space
+                    self.cipslaudpjittertmpldescription.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplDistBuckets"):
+                    self.cipslaudpjittertmpldistbuckets = value
+                    self.cipslaudpjittertmpldistbuckets.value_namespace = name_space
+                    self.cipslaudpjittertmpldistbuckets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplDistInterval"):
+                    self.cipslaudpjittertmpldistinterval = value
+                    self.cipslaudpjittertmpldistinterval.value_namespace = name_space
+                    self.cipslaudpjittertmpldistinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplIcpifFactor"):
+                    self.cipslaudpjittertmplicpiffactor = value
+                    self.cipslaudpjittertmplicpiffactor.value_namespace = name_space
+                    self.cipslaudpjittertmplicpiffactor.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplInterval"):
+                    self.cipslaudpjittertmplinterval = value
+                    self.cipslaudpjittertmplinterval.value_namespace = name_space
+                    self.cipslaudpjittertmplinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplNTPTolAbs"):
+                    self.cipslaudpjittertmplntptolabs = value
+                    self.cipslaudpjittertmplntptolabs.value_namespace = name_space
+                    self.cipslaudpjittertmplntptolabs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplNTPTolPct"):
+                    self.cipslaudpjittertmplntptolpct = value
+                    self.cipslaudpjittertmplntptolpct.value_namespace = name_space
+                    self.cipslaudpjittertmplntptolpct.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplNTPTolType"):
+                    self.cipslaudpjittertmplntptoltype = value
+                    self.cipslaudpjittertmplntptoltype.value_namespace = name_space
+                    self.cipslaudpjittertmplntptoltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplNumPkts"):
+                    self.cipslaudpjittertmplnumpkts = value
+                    self.cipslaudpjittertmplnumpkts.value_namespace = name_space
+                    self.cipslaudpjittertmplnumpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplPktPriority"):
+                    self.cipslaudpjittertmplpktpriority = value
+                    self.cipslaudpjittertmplpktpriority.value_namespace = name_space
+                    self.cipslaudpjittertmplpktpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplPrecision"):
+                    self.cipslaudpjittertmplprecision = value
+                    self.cipslaudpjittertmplprecision.value_namespace = name_space
+                    self.cipslaudpjittertmplprecision.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplReqDataSize"):
+                    self.cipslaudpjittertmplreqdatasize = value
+                    self.cipslaudpjittertmplreqdatasize.value_namespace = name_space
+                    self.cipslaudpjittertmplreqdatasize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplRowStatus"):
+                    self.cipslaudpjittertmplrowstatus = value
+                    self.cipslaudpjittertmplrowstatus.value_namespace = name_space
+                    self.cipslaudpjittertmplrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplSrcAddr"):
+                    self.cipslaudpjittertmplsrcaddr = value
+                    self.cipslaudpjittertmplsrcaddr.value_namespace = name_space
+                    self.cipslaudpjittertmplsrcaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplSrcAddrType"):
+                    self.cipslaudpjittertmplsrcaddrtype = value
+                    self.cipslaudpjittertmplsrcaddrtype.value_namespace = name_space
+                    self.cipslaudpjittertmplsrcaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplSrcPort"):
+                    self.cipslaudpjittertmplsrcport = value
+                    self.cipslaudpjittertmplsrcport.value_namespace = name_space
+                    self.cipslaudpjittertmplsrcport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplStatsHours"):
+                    self.cipslaudpjittertmplstatshours = value
+                    self.cipslaudpjittertmplstatshours.value_namespace = name_space
+                    self.cipslaudpjittertmplstatshours.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplStorageType"):
+                    self.cipslaudpjittertmplstoragetype = value
+                    self.cipslaudpjittertmplstoragetype.value_namespace = name_space
+                    self.cipslaudpjittertmplstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplThreshold"):
+                    self.cipslaudpjittertmplthreshold = value
+                    self.cipslaudpjittertmplthreshold.value_namespace = name_space
+                    self.cipslaudpjittertmplthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplTimeOut"):
+                    self.cipslaudpjittertmpltimeout = value
+                    self.cipslaudpjittertmpltimeout.value_namespace = name_space
+                    self.cipslaudpjittertmpltimeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplTOS"):
+                    self.cipslaudpjittertmpltos = value
+                    self.cipslaudpjittertmpltos.value_namespace = name_space
+                    self.cipslaudpjittertmpltos.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplVerifyData"):
+                    self.cipslaudpjittertmplverifydata = value
+                    self.cipslaudpjittertmplverifydata.value_namespace = name_space
+                    self.cipslaudpjittertmplverifydata.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaUdpJitterTmplVrfName"):
+                    self.cipslaudpjittertmplvrfname = value
+                    self.cipslaudpjittertmplvrfname.value_namespace = name_space
+                    self.cipslaudpjittertmplvrfname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipslaudpjittertmplentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipslaudpjittertmplcodecinterval is not None:
-                    return True
-
-                if self.cipslaudpjittertmplcodecnumpkts is not None:
-                    return True
-
-                if self.cipslaudpjittertmplcodecpayload is not None:
-                    return True
-
-                if self.cipslaudpjittertmplcodectype is not None:
-                    return True
-
-                if self.cipslaudpjittertmplcontrolenable is not None:
-                    return True
-
-                if self.cipslaudpjittertmpldescription is not None:
-                    return True
-
-                if self.cipslaudpjittertmpldistbuckets is not None:
-                    return True
-
-                if self.cipslaudpjittertmpldistinterval is not None:
-                    return True
-
-                if self.cipslaudpjittertmplicpiffactor is not None:
-                    return True
-
-                if self.cipslaudpjittertmplinterval is not None:
-                    return True
-
-                if self.cipslaudpjittertmplntptolabs is not None:
-                    return True
-
-                if self.cipslaudpjittertmplntptolpct is not None:
-                    return True
-
-                if self.cipslaudpjittertmplntptoltype is not None:
-                    return True
-
-                if self.cipslaudpjittertmplnumpkts is not None:
-                    return True
-
-                if self.cipslaudpjittertmplpktpriority is not None:
-                    return True
-
-                if self.cipslaudpjittertmplprecision is not None:
-                    return True
-
-                if self.cipslaudpjittertmplreqdatasize is not None:
-                    return True
-
-                if self.cipslaudpjittertmplrowstatus is not None:
-                    return True
-
-                if self.cipslaudpjittertmplsrcaddr is not None:
-                    return True
-
-                if self.cipslaudpjittertmplsrcaddrtype is not None:
-                    return True
-
-                if self.cipslaudpjittertmplsrcport is not None:
-                    return True
-
-                if self.cipslaudpjittertmplstatshours is not None:
-                    return True
-
-                if self.cipslaudpjittertmplstoragetype is not None:
-                    return True
-
-                if self.cipslaudpjittertmplthreshold is not None:
-                    return True
-
-                if self.cipslaudpjittertmpltimeout is not None:
-                    return True
-
-                if self.cipslaudpjittertmpltos is not None:
-                    return True
-
-                if self.cipslaudpjittertmplverifydata is not None:
-                    return True
-
-                if self.cipslaudpjittertmplvrfname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-                return meta._meta_table['CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/CISCO-IPSLA-JITTER-MIB:cipslaUdpJitterTmplTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipslaudpjittertmplentry is not None:
-                for child_ref in self.cipslaudpjittertmplentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipslaudpjittertmplentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipslaUdpJitterTmplTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipslaUdpJitterTmplEntry"):
+                for c in self.cipslaudpjittertmplentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpslaJitterMib.Cipslaudpjittertmpltable.Cipslaudpjittertmplentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipslaudpjittertmplentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipslaUdpJitterTmplEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-            return meta._meta_table['CiscoIpslaJitterMib.Cipslaudpjittertmpltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipslaicmpjittertmpltable(object):
+    class Cipslaicmpjittertmpltable(Entity):
         """
         A table that contains ICMP jitter template specific definitions.
         
@@ -565,13 +862,39 @@ class CiscoIpslaJitterMib(object):
         _revision = '2007-07-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipslaicmpjittertmplentry = YList()
-            self.cipslaicmpjittertmplentry.parent = self
-            self.cipslaicmpjittertmplentry.name = 'cipslaicmpjittertmplentry'
+            super(CiscoIpslaJitterMib.Cipslaicmpjittertmpltable, self).__init__()
+
+            self.yang_name = "cipslaIcmpJitterTmplTable"
+            self.yang_parent_name = "CISCO-IPSLA-JITTER-MIB"
+
+            self.cipslaicmpjittertmplentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpslaJitterMib.Cipslaicmpjittertmpltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpslaJitterMib.Cipslaicmpjittertmpltable, self).__setattr__(name, value)
 
 
-        class Cipslaicmpjittertmplentry(object):
+        class Cipslaicmpjittertmplentry(Entity):
             """
             A row entry representing an IP SLA ICMP Jitter template.
             
@@ -626,7 +949,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaicmpjittertmplrowstatus
             
             	The status of the conceptual ICMP jitter template control row. When the status is active, all the read\-create objects in  that row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cipslaicmpjittertmplsrcaddr
             
@@ -638,7 +961,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaicmpjittertmplsrcaddrtype
             
             	An enumerated value which specifies the IP address type of the source. It must be used along with the cipslaIcmpJitterTmplSrcAddr object
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cipslaicmpjittertmplstatshours
             
@@ -652,7 +975,7 @@ class CiscoIpslaJitterMib(object):
             .. attribute:: cipslaicmpjittertmplstoragetype
             
             	The storage type of this conceptual row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cipslaicmpjittertmplthreshold
             
@@ -699,134 +1022,364 @@ class CiscoIpslaJitterMib(object):
             _revision = '2007-07-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipslaicmpjittertmplname = None
-                self.cipslaicmpjittertmpldescription = None
-                self.cipslaicmpjittertmpldistbuckets = None
-                self.cipslaicmpjittertmpldistinterval = None
-                self.cipslaicmpjittertmplinterval = None
-                self.cipslaicmpjittertmplnumpkts = None
-                self.cipslaicmpjittertmplrowstatus = None
-                self.cipslaicmpjittertmplsrcaddr = None
-                self.cipslaicmpjittertmplsrcaddrtype = None
-                self.cipslaicmpjittertmplstatshours = None
-                self.cipslaicmpjittertmplstoragetype = None
-                self.cipslaicmpjittertmplthreshold = None
-                self.cipslaicmpjittertmpltimeout = None
-                self.cipslaicmpjittertmpltos = None
-                self.cipslaicmpjittertmplverifydata = None
-                self.cipslaicmpjittertmplvrfname = None
+                super(CiscoIpslaJitterMib.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cipslaicmpjittertmplname is None:
-                    raise YPYModelError('Key property cipslaicmpjittertmplname is None')
+                self.yang_name = "cipslaIcmpJitterTmplEntry"
+                self.yang_parent_name = "cipslaIcmpJitterTmplTable"
 
-                return '/CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/CISCO-IPSLA-JITTER-MIB:cipslaIcmpJitterTmplTable/CISCO-IPSLA-JITTER-MIB:cipslaIcmpJitterTmplEntry[CISCO-IPSLA-JITTER-MIB:cipslaIcmpJitterTmplName = ' + str(self.cipslaicmpjittertmplname) + ']'
+                self.cipslaicmpjittertmplname = YLeaf(YType.str, "cipslaIcmpJitterTmplName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cipslaicmpjittertmpldescription = YLeaf(YType.str, "cipslaIcmpJitterTmplDescription")
+
+                self.cipslaicmpjittertmpldistbuckets = YLeaf(YType.uint32, "cipslaIcmpJitterTmplDistBuckets")
+
+                self.cipslaicmpjittertmpldistinterval = YLeaf(YType.uint32, "cipslaIcmpJitterTmplDistInterval")
+
+                self.cipslaicmpjittertmplinterval = YLeaf(YType.uint32, "cipslaIcmpJitterTmplInterval")
+
+                self.cipslaicmpjittertmplnumpkts = YLeaf(YType.uint32, "cipslaIcmpJitterTmplNumPkts")
+
+                self.cipslaicmpjittertmplrowstatus = YLeaf(YType.enumeration, "cipslaIcmpJitterTmplRowStatus")
+
+                self.cipslaicmpjittertmplsrcaddr = YLeaf(YType.str, "cipslaIcmpJitterTmplSrcAddr")
+
+                self.cipslaicmpjittertmplsrcaddrtype = YLeaf(YType.enumeration, "cipslaIcmpJitterTmplSrcAddrType")
+
+                self.cipslaicmpjittertmplstatshours = YLeaf(YType.uint32, "cipslaIcmpJitterTmplStatsHours")
+
+                self.cipslaicmpjittertmplstoragetype = YLeaf(YType.enumeration, "cipslaIcmpJitterTmplStorageType")
+
+                self.cipslaicmpjittertmplthreshold = YLeaf(YType.uint32, "cipslaIcmpJitterTmplThreshold")
+
+                self.cipslaicmpjittertmpltimeout = YLeaf(YType.uint32, "cipslaIcmpJitterTmplTimeOut")
+
+                self.cipslaicmpjittertmpltos = YLeaf(YType.uint32, "cipslaIcmpJitterTmplTOS")
+
+                self.cipslaicmpjittertmplverifydata = YLeaf(YType.boolean, "cipslaIcmpJitterTmplVerifyData")
+
+                self.cipslaicmpjittertmplvrfname = YLeaf(YType.str, "cipslaIcmpJitterTmplVrfName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipslaicmpjittertmplname",
+                                "cipslaicmpjittertmpldescription",
+                                "cipslaicmpjittertmpldistbuckets",
+                                "cipslaicmpjittertmpldistinterval",
+                                "cipslaicmpjittertmplinterval",
+                                "cipslaicmpjittertmplnumpkts",
+                                "cipslaicmpjittertmplrowstatus",
+                                "cipslaicmpjittertmplsrcaddr",
+                                "cipslaicmpjittertmplsrcaddrtype",
+                                "cipslaicmpjittertmplstatshours",
+                                "cipslaicmpjittertmplstoragetype",
+                                "cipslaicmpjittertmplthreshold",
+                                "cipslaicmpjittertmpltimeout",
+                                "cipslaicmpjittertmpltos",
+                                "cipslaicmpjittertmplverifydata",
+                                "cipslaicmpjittertmplvrfname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpslaJitterMib.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpslaJitterMib.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cipslaicmpjittertmplname.is_set or
+                    self.cipslaicmpjittertmpldescription.is_set or
+                    self.cipslaicmpjittertmpldistbuckets.is_set or
+                    self.cipslaicmpjittertmpldistinterval.is_set or
+                    self.cipslaicmpjittertmplinterval.is_set or
+                    self.cipslaicmpjittertmplnumpkts.is_set or
+                    self.cipslaicmpjittertmplrowstatus.is_set or
+                    self.cipslaicmpjittertmplsrcaddr.is_set or
+                    self.cipslaicmpjittertmplsrcaddrtype.is_set or
+                    self.cipslaicmpjittertmplstatshours.is_set or
+                    self.cipslaicmpjittertmplstoragetype.is_set or
+                    self.cipslaicmpjittertmplthreshold.is_set or
+                    self.cipslaicmpjittertmpltimeout.is_set or
+                    self.cipslaicmpjittertmpltos.is_set or
+                    self.cipslaicmpjittertmplverifydata.is_set or
+                    self.cipslaicmpjittertmplvrfname.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplname.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmpldescription.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmpldistbuckets.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmpldistinterval.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplinterval.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplnumpkts.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplrowstatus.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplsrcaddr.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplsrcaddrtype.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplstatshours.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplstoragetype.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplthreshold.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmpltimeout.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmpltos.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplverifydata.yfilter != YFilter.not_set or
+                    self.cipslaicmpjittertmplvrfname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipslaIcmpJitterTmplEntry" + "[cipslaIcmpJitterTmplName='" + self.cipslaicmpjittertmplname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaIcmpJitterTmplTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipslaicmpjittertmplname.is_set or self.cipslaicmpjittertmplname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplname.get_name_leafdata())
+                if (self.cipslaicmpjittertmpldescription.is_set or self.cipslaicmpjittertmpldescription.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmpldescription.get_name_leafdata())
+                if (self.cipslaicmpjittertmpldistbuckets.is_set or self.cipslaicmpjittertmpldistbuckets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmpldistbuckets.get_name_leafdata())
+                if (self.cipslaicmpjittertmpldistinterval.is_set or self.cipslaicmpjittertmpldistinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmpldistinterval.get_name_leafdata())
+                if (self.cipslaicmpjittertmplinterval.is_set or self.cipslaicmpjittertmplinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplinterval.get_name_leafdata())
+                if (self.cipslaicmpjittertmplnumpkts.is_set or self.cipslaicmpjittertmplnumpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplnumpkts.get_name_leafdata())
+                if (self.cipslaicmpjittertmplrowstatus.is_set or self.cipslaicmpjittertmplrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplrowstatus.get_name_leafdata())
+                if (self.cipslaicmpjittertmplsrcaddr.is_set or self.cipslaicmpjittertmplsrcaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplsrcaddr.get_name_leafdata())
+                if (self.cipslaicmpjittertmplsrcaddrtype.is_set or self.cipslaicmpjittertmplsrcaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplsrcaddrtype.get_name_leafdata())
+                if (self.cipslaicmpjittertmplstatshours.is_set or self.cipslaicmpjittertmplstatshours.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplstatshours.get_name_leafdata())
+                if (self.cipslaicmpjittertmplstoragetype.is_set or self.cipslaicmpjittertmplstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplstoragetype.get_name_leafdata())
+                if (self.cipslaicmpjittertmplthreshold.is_set or self.cipslaicmpjittertmplthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplthreshold.get_name_leafdata())
+                if (self.cipslaicmpjittertmpltimeout.is_set or self.cipslaicmpjittertmpltimeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmpltimeout.get_name_leafdata())
+                if (self.cipslaicmpjittertmpltos.is_set or self.cipslaicmpjittertmpltos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmpltos.get_name_leafdata())
+                if (self.cipslaicmpjittertmplverifydata.is_set or self.cipslaicmpjittertmplverifydata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplverifydata.get_name_leafdata())
+                if (self.cipslaicmpjittertmplvrfname.is_set or self.cipslaicmpjittertmplvrfname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipslaicmpjittertmplvrfname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipslaIcmpJitterTmplName" or name == "cipslaIcmpJitterTmplDescription" or name == "cipslaIcmpJitterTmplDistBuckets" or name == "cipslaIcmpJitterTmplDistInterval" or name == "cipslaIcmpJitterTmplInterval" or name == "cipslaIcmpJitterTmplNumPkts" or name == "cipslaIcmpJitterTmplRowStatus" or name == "cipslaIcmpJitterTmplSrcAddr" or name == "cipslaIcmpJitterTmplSrcAddrType" or name == "cipslaIcmpJitterTmplStatsHours" or name == "cipslaIcmpJitterTmplStorageType" or name == "cipslaIcmpJitterTmplThreshold" or name == "cipslaIcmpJitterTmplTimeOut" or name == "cipslaIcmpJitterTmplTOS" or name == "cipslaIcmpJitterTmplVerifyData" or name == "cipslaIcmpJitterTmplVrfName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipslaicmpjittertmplname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipslaIcmpJitterTmplName"):
+                    self.cipslaicmpjittertmplname = value
+                    self.cipslaicmpjittertmplname.value_namespace = name_space
+                    self.cipslaicmpjittertmplname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplDescription"):
+                    self.cipslaicmpjittertmpldescription = value
+                    self.cipslaicmpjittertmpldescription.value_namespace = name_space
+                    self.cipslaicmpjittertmpldescription.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplDistBuckets"):
+                    self.cipslaicmpjittertmpldistbuckets = value
+                    self.cipslaicmpjittertmpldistbuckets.value_namespace = name_space
+                    self.cipslaicmpjittertmpldistbuckets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplDistInterval"):
+                    self.cipslaicmpjittertmpldistinterval = value
+                    self.cipslaicmpjittertmpldistinterval.value_namespace = name_space
+                    self.cipslaicmpjittertmpldistinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplInterval"):
+                    self.cipslaicmpjittertmplinterval = value
+                    self.cipslaicmpjittertmplinterval.value_namespace = name_space
+                    self.cipslaicmpjittertmplinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplNumPkts"):
+                    self.cipslaicmpjittertmplnumpkts = value
+                    self.cipslaicmpjittertmplnumpkts.value_namespace = name_space
+                    self.cipslaicmpjittertmplnumpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplRowStatus"):
+                    self.cipslaicmpjittertmplrowstatus = value
+                    self.cipslaicmpjittertmplrowstatus.value_namespace = name_space
+                    self.cipslaicmpjittertmplrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplSrcAddr"):
+                    self.cipslaicmpjittertmplsrcaddr = value
+                    self.cipslaicmpjittertmplsrcaddr.value_namespace = name_space
+                    self.cipslaicmpjittertmplsrcaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplSrcAddrType"):
+                    self.cipslaicmpjittertmplsrcaddrtype = value
+                    self.cipslaicmpjittertmplsrcaddrtype.value_namespace = name_space
+                    self.cipslaicmpjittertmplsrcaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplStatsHours"):
+                    self.cipslaicmpjittertmplstatshours = value
+                    self.cipslaicmpjittertmplstatshours.value_namespace = name_space
+                    self.cipslaicmpjittertmplstatshours.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplStorageType"):
+                    self.cipslaicmpjittertmplstoragetype = value
+                    self.cipslaicmpjittertmplstoragetype.value_namespace = name_space
+                    self.cipslaicmpjittertmplstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplThreshold"):
+                    self.cipslaicmpjittertmplthreshold = value
+                    self.cipslaicmpjittertmplthreshold.value_namespace = name_space
+                    self.cipslaicmpjittertmplthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplTimeOut"):
+                    self.cipslaicmpjittertmpltimeout = value
+                    self.cipslaicmpjittertmpltimeout.value_namespace = name_space
+                    self.cipslaicmpjittertmpltimeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplTOS"):
+                    self.cipslaicmpjittertmpltos = value
+                    self.cipslaicmpjittertmpltos.value_namespace = name_space
+                    self.cipslaicmpjittertmpltos.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplVerifyData"):
+                    self.cipslaicmpjittertmplverifydata = value
+                    self.cipslaicmpjittertmplverifydata.value_namespace = name_space
+                    self.cipslaicmpjittertmplverifydata.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipslaIcmpJitterTmplVrfName"):
+                    self.cipslaicmpjittertmplvrfname = value
+                    self.cipslaicmpjittertmplvrfname.value_namespace = name_space
+                    self.cipslaicmpjittertmplvrfname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipslaicmpjittertmplentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipslaicmpjittertmpldescription is not None:
-                    return True
-
-                if self.cipslaicmpjittertmpldistbuckets is not None:
-                    return True
-
-                if self.cipslaicmpjittertmpldistinterval is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplinterval is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplnumpkts is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplrowstatus is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplsrcaddr is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplsrcaddrtype is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplstatshours is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplstoragetype is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplthreshold is not None:
-                    return True
-
-                if self.cipslaicmpjittertmpltimeout is not None:
-                    return True
-
-                if self.cipslaicmpjittertmpltos is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplverifydata is not None:
-                    return True
-
-                if self.cipslaicmpjittertmplvrfname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-                return meta._meta_table['CiscoIpslaJitterMib.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/CISCO-IPSLA-JITTER-MIB:cipslaIcmpJitterTmplTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipslaicmpjittertmplentry is not None:
-                for child_ref in self.cipslaicmpjittertmplentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipslaicmpjittertmplentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipslaIcmpJitterTmplTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipslaIcmpJitterTmplEntry"):
+                for c in self.cipslaicmpjittertmplentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpslaJitterMib.Cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipslaicmpjittertmplentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipslaIcmpJitterTmplEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-            return meta._meta_table['CiscoIpslaJitterMib.Cipslaicmpjittertmpltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cipslaicmpjittertmpltable is not None and self.cipslaicmpjittertmpltable.has_data()) or
+            (self.cipslaudpjittertmpltable is not None and self.cipslaudpjittertmpltable.has_data()))
 
-        return '/CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cipslaicmpjittertmpltable is not None and self.cipslaicmpjittertmpltable.has_operation()) or
+            (self.cipslaudpjittertmpltable is not None and self.cipslaudpjittertmpltable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cipslaIcmpJitterTmplTable"):
+            if (self.cipslaicmpjittertmpltable is None):
+                self.cipslaicmpjittertmpltable = CiscoIpslaJitterMib.Cipslaicmpjittertmpltable()
+                self.cipslaicmpjittertmpltable.parent = self
+                self._children_name_map["cipslaicmpjittertmpltable"] = "cipslaIcmpJitterTmplTable"
+            return self.cipslaicmpjittertmpltable
+
+        if (child_yang_name == "cipslaUdpJitterTmplTable"):
+            if (self.cipslaudpjittertmpltable is None):
+                self.cipslaudpjittertmpltable = CiscoIpslaJitterMib.Cipslaudpjittertmpltable()
+                self.cipslaudpjittertmpltable.parent = self
+                self._children_name_map["cipslaudpjittertmpltable"] = "cipslaUdpJitterTmplTable"
+            return self.cipslaudpjittertmpltable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cipslaIcmpJitterTmplTable" or name == "cipslaUdpJitterTmplTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cipslaicmpjittertmpltable is not None and self.cipslaicmpjittertmpltable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cipslaudpjittertmpltable is not None and self.cipslaudpjittertmpltable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSLA_JITTER_MIB as meta
-        return meta._meta_table['CiscoIpslaJitterMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIpslaJitterMib()
+        return self._top_entity
 

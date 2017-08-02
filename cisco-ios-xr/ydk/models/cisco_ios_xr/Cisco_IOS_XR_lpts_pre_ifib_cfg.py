@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class LptsFlowEnum(Enum):
+class LptsFlow(Enum):
     """
-    LptsFlowEnum
+    LptsFlow
 
     Lpts flow
 
@@ -495,210 +489,204 @@ class LptsFlowEnum(Enum):
 
     """
 
-    config_default = 0
+    config_default = Enum.YLeaf(0, "config-default")
 
-    l2tpv2_fragment = 1
+    l2tpv2_fragment = Enum.YLeaf(1, "l2tpv2-fragment")
 
-    fragment = 2
+    fragment = Enum.YLeaf(2, "fragment")
 
-    ospf_multicast_known = 3
+    ospf_multicast_known = Enum.YLeaf(3, "ospf-multicast-known")
 
-    ospf_multicast_default = 4
+    ospf_multicast_default = Enum.YLeaf(4, "ospf-multicast-default")
 
-    ospf_unicast_known = 5
+    ospf_unicast_known = Enum.YLeaf(5, "ospf-unicast-known")
 
-    ospf_unicast_default = 6
+    ospf_unicast_default = Enum.YLeaf(6, "ospf-unicast-default")
 
-    isis_known = 7
+    isis_known = Enum.YLeaf(7, "isis-known")
 
-    isis_default = 8
+    isis_default = Enum.YLeaf(8, "isis-default")
 
-    bfd_known = 9
+    bfd_known = Enum.YLeaf(9, "bfd-known")
 
-    bfd_default = 10
+    bfd_default = Enum.YLeaf(10, "bfd-default")
 
-    bfd_multipath_known = 11
+    bfd_multipath_known = Enum.YLeaf(11, "bfd-multipath-known")
 
-    bfd_multipath0 = 12
+    bfd_multipath0 = Enum.YLeaf(12, "bfd-multipath0")
 
-    bfd_blb_known = 13
+    bfd_blb_known = Enum.YLeaf(13, "bfd-blb-known")
 
-    bfd_blb0 = 14
+    bfd_blb0 = Enum.YLeaf(14, "bfd-blb0")
 
-    bfd_sp0 = 15
+    bfd_sp0 = Enum.YLeaf(15, "bfd-sp0")
 
-    bgp_known = 16
+    bgp_known = Enum.YLeaf(16, "bgp-known")
 
-    bgp_config_peer = 17
+    bgp_config_peer = Enum.YLeaf(17, "bgp-config-peer")
 
-    bgp_default = 18
+    bgp_default = Enum.YLeaf(18, "bgp-default")
 
-    pim_multicast_default = 19
+    pim_multicast_default = Enum.YLeaf(19, "pim-multicast-default")
 
-    pim_multicast_known = 20
+    pim_multicast_known = Enum.YLeaf(20, "pim-multicast-known")
 
-    pim_unicast = 21
+    pim_unicast = Enum.YLeaf(21, "pim-unicast")
 
-    igmp = 22
+    igmp = Enum.YLeaf(22, "igmp")
 
-    icmp_local = 23
+    icmp_local = Enum.YLeaf(23, "icmp-local")
 
-    icmp_app = 24
+    icmp_app = Enum.YLeaf(24, "icmp-app")
 
-    icmp_control = 25
+    icmp_control = Enum.YLeaf(25, "icmp-control")
 
-    icmp_default = 26
+    icmp_default = Enum.YLeaf(26, "icmp-default")
 
-    icmp_app_default = 27
+    icmp_app_default = Enum.YLeaf(27, "icmp-app-default")
 
-    ldp_tcp_known = 28
+    ldp_tcp_known = Enum.YLeaf(28, "ldp-tcp-known")
 
-    ldp_tcp_config_peer = 29
+    ldp_tcp_config_peer = Enum.YLeaf(29, "ldp-tcp-config-peer")
 
-    ldp_tcp_default = 30
+    ldp_tcp_default = Enum.YLeaf(30, "ldp-tcp-default")
 
-    ldp_udp = 31
+    ldp_udp = Enum.YLeaf(31, "ldp-udp")
 
-    all_routers = 32
+    all_routers = Enum.YLeaf(32, "all-routers")
 
-    lmp_tcp_known = 33
+    lmp_tcp_known = Enum.YLeaf(33, "lmp-tcp-known")
 
-    lmp_tcp_config_peer = 34
+    lmp_tcp_config_peer = Enum.YLeaf(34, "lmp-tcp-config-peer")
 
-    lmp_tcp_default = 35
+    lmp_tcp_default = Enum.YLeaf(35, "lmp-tcp-default")
 
-    lmp_udp = 36
+    lmp_udp = Enum.YLeaf(36, "lmp-udp")
 
-    rsvp_udp = 37
+    rsvp_udp = Enum.YLeaf(37, "rsvp-udp")
 
-    rsvp_default = 38
+    rsvp_default = Enum.YLeaf(38, "rsvp-default")
 
-    rsvp_known = 39
+    rsvp_known = Enum.YLeaf(39, "rsvp-known")
 
-    ike = 40
+    ike = Enum.YLeaf(40, "ike")
 
-    ipsec_known = 41
+    ipsec_known = Enum.YLeaf(41, "ipsec-known")
 
-    ipsec_default = 42
+    ipsec_default = Enum.YLeaf(42, "ipsec-default")
 
-    ipsec_fragment = 43
+    ipsec_fragment = Enum.YLeaf(43, "ipsec-fragment")
 
-    msdp_known = 44
+    msdp_known = Enum.YLeaf(44, "msdp-known")
 
-    msdp_config_peer = 45
+    msdp_config_peer = Enum.YLeaf(45, "msdp-config-peer")
 
-    msdp_default = 46
+    msdp_default = Enum.YLeaf(46, "msdp-default")
 
-    snmp = 47
+    snmp = Enum.YLeaf(47, "snmp")
 
-    ssh_known = 48
+    ssh_known = Enum.YLeaf(48, "ssh-known")
 
-    ssh_default = 49
+    ssh_default = Enum.YLeaf(49, "ssh-default")
 
-    http_known = 50
+    http_known = Enum.YLeaf(50, "http-known")
 
-    http_default = 51
+    http_default = Enum.YLeaf(51, "http-default")
 
-    shttp_known = 52
+    shttp_known = Enum.YLeaf(52, "shttp-known")
 
-    shttp_default = 53
+    shttp_default = Enum.YLeaf(53, "shttp-default")
 
-    telnet_known = 54
+    telnet_known = Enum.YLeaf(54, "telnet-known")
 
-    telnet_default = 55
+    telnet_default = Enum.YLeaf(55, "telnet-default")
 
-    css_known = 56
+    css_known = Enum.YLeaf(56, "css-known")
 
-    css_default = 57
+    css_default = Enum.YLeaf(57, "css-default")
 
-    rsh_known = 58
+    rsh_known = Enum.YLeaf(58, "rsh-known")
 
-    rsh_default = 59
+    rsh_default = Enum.YLeaf(59, "rsh-default")
 
-    udp_known = 60
+    udp_known = Enum.YLeaf(60, "udp-known")
 
-    udp_listen = 61
+    udp_listen = Enum.YLeaf(61, "udp-listen")
 
-    udp_config_peer = 62
+    udp_config_peer = Enum.YLeaf(62, "udp-config-peer")
 
-    udp_default = 63
+    udp_default = Enum.YLeaf(63, "udp-default")
 
-    tcp_known = 64
+    tcp_known = Enum.YLeaf(64, "tcp-known")
 
-    tcp_listen = 65
+    tcp_listen = Enum.YLeaf(65, "tcp-listen")
 
-    tcp_config_peer = 66
+    tcp_config_peer = Enum.YLeaf(66, "tcp-config-peer")
 
-    tcp_default = 67
+    tcp_default = Enum.YLeaf(67, "tcp-default")
 
-    multicast_known = 68
+    multicast_known = Enum.YLeaf(68, "multicast-known")
 
-    multicast_default = 69
+    multicast_default = Enum.YLeaf(69, "multicast-default")
 
-    raw_listen = 70
+    raw_listen = Enum.YLeaf(70, "raw-listen")
 
-    raw_default = 71
+    raw_default = Enum.YLeaf(71, "raw-default")
 
-    ipsla = 72
+    ipsla = Enum.YLeaf(72, "ipsla")
 
-    eigrp = 73
+    eigrp = Enum.YLeaf(73, "eigrp")
 
-    rip = 74
+    rip = Enum.YLeaf(74, "rip")
 
-    l2tpv3 = 75
+    l2tpv3 = Enum.YLeaf(75, "l2tpv3")
 
-    pcep_tcp_default = 76
+    pcep_tcp_default = Enum.YLeaf(76, "pcep-tcp-default")
 
-    gre = 77
+    gre = Enum.YLeaf(77, "gre")
 
-    vrrp = 78
+    vrrp = Enum.YLeaf(78, "vrrp")
 
-    hsrp = 79
+    hsrp = Enum.YLeaf(79, "hsrp")
 
-    mpls_ping = 80
+    mpls_ping = Enum.YLeaf(80, "mpls-ping")
 
-    l2tpv2_default = 81
+    l2tpv2_default = Enum.YLeaf(81, "l2tpv2-default")
 
-    l2tpv2_known = 82
+    l2tpv2_known = Enum.YLeaf(82, "l2tpv2-known")
 
-    dns = 83
+    dns = Enum.YLeaf(83, "dns")
 
-    radius = 84
+    radius = Enum.YLeaf(84, "radius")
 
-    tacacs = 85
+    tacacs = Enum.YLeaf(85, "tacacs")
 
-    ntp_default = 86
+    ntp_default = Enum.YLeaf(86, "ntp-default")
 
-    ntp_known = 87
+    ntp_known = Enum.YLeaf(87, "ntp-known")
 
-    mobile_ipv6 = 88
+    mobile_ipv6 = Enum.YLeaf(88, "mobile-ipv6")
 
-    amt = 89
+    amt = Enum.YLeaf(89, "amt")
 
-    sdac_tcp = 90
+    sdac_tcp = Enum.YLeaf(90, "sdac-tcp")
 
-    radius_coa = 91
+    radius_coa = Enum.YLeaf(91, "radius-coa")
 
-    rel_udp = 92
+    rel_udp = Enum.YLeaf(92, "rel-udp")
 
-    dhcp4 = 93
+    dhcp4 = Enum.YLeaf(93, "dhcp4")
 
-    dhcp6 = 94
+    dhcp6 = Enum.YLeaf(94, "dhcp6")
 
-    onepk = 95
+    onepk = Enum.YLeaf(95, "onepk")
 
-    exr = 96
+    exr = Enum.YLeaf(96, "exr")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_cfg as meta
-        return meta._meta_table['LptsFlowEnum']
-
-
-class LptsPreIFibPrecedenceNumberEnum(Enum):
+class LptsPreIFibPrecedenceNumber(Enum):
     """
-    LptsPreIFibPrecedenceNumberEnum
+    LptsPreIFibPrecedenceNumber
 
     Lpts pre i fib precedence number
 
@@ -738,27 +726,21 @@ class LptsPreIFibPrecedenceNumberEnum(Enum):
 
     """
 
-    critical = 5
+    critical = Enum.YLeaf(5, "critical")
 
-    flash = 3
+    flash = Enum.YLeaf(3, "flash")
 
-    flash_override = 4
+    flash_override = Enum.YLeaf(4, "flash-override")
 
-    immediate = 2
+    immediate = Enum.YLeaf(2, "immediate")
 
-    internet = 6
+    internet = Enum.YLeaf(6, "internet")
 
-    network = 7
+    network = Enum.YLeaf(7, "network")
 
-    priority = 1
+    priority = Enum.YLeaf(1, "priority")
 
-    routine = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lpts_pre_ifib_cfg as meta
-        return meta._meta_table['LptsPreIFibPrecedenceNumberEnum']
+    routine = Enum.YLeaf(0, "routine")
 
 
 

@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class HsrpBAfEnum(Enum):
+class HsrpBAf(Enum):
     """
-    HsrpBAfEnum
+    HsrpBAf
 
     Hsrp b af
 
@@ -44,22 +38,16 @@ class HsrpBAfEnum(Enum):
 
     """
 
-    ipv4 = 0
+    ipv4 = Enum.YLeaf(0, "ipv4")
 
-    ipv6 = 1
+    ipv6 = Enum.YLeaf(1, "ipv6")
 
-    count = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-        return meta._meta_table['HsrpBAfEnum']
+    count = Enum.YLeaf(2, "count")
 
 
-class HsrpBfdSessionStateEnum(Enum):
+class HsrpBfdSessionState(Enum):
     """
-    HsrpBfdSessionStateEnum
+    HsrpBfdSessionState
 
     Hsrp bfd session state
 
@@ -81,24 +69,18 @@ class HsrpBfdSessionStateEnum(Enum):
 
     """
 
-    bfd_state_none = 0
+    bfd_state_none = Enum.YLeaf(0, "bfd-state-none")
 
-    bfd_state_inactive = 1
+    bfd_state_inactive = Enum.YLeaf(1, "bfd-state-inactive")
 
-    bfd_state_up = 2
+    bfd_state_up = Enum.YLeaf(2, "bfd-state-up")
 
-    bfd_state_down = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-        return meta._meta_table['HsrpBfdSessionStateEnum']
+    bfd_state_down = Enum.YLeaf(3, "bfd-state-down")
 
 
-class HsrpStateChangeReasonEnum(Enum):
+class HsrpStateChangeReason(Enum):
     """
-    HsrpStateChangeReasonEnum
+    HsrpStateChangeReason
 
     Hsrp state change reason
 
@@ -208,68 +190,62 @@ class HsrpStateChangeReasonEnum(Enum):
 
     """
 
-    state_change_bfd_down = 0
+    state_change_bfd_down = Enum.YLeaf(0, "state-change-bfd-down")
 
-    state_change_vip_learnt = 1
+    state_change_vip_learnt = Enum.YLeaf(1, "state-change-vip-learnt")
 
-    state_change_interface_ip = 2
+    state_change_interface_ip = Enum.YLeaf(2, "state-change-interface-ip")
 
-    state_change_delay_timer = 3
+    state_change_delay_timer = Enum.YLeaf(3, "state-change-delay-timer")
 
-    state_change_startup = 4
+    state_change_startup = Enum.YLeaf(4, "state-change-startup")
 
-    state_change_shutdown = 5
+    state_change_shutdown = Enum.YLeaf(5, "state-change-shutdown")
 
-    state_change_interface_up = 6
+    state_change_interface_up = Enum.YLeaf(6, "state-change-interface-up")
 
-    state_change_interface_down = 7
+    state_change_interface_down = Enum.YLeaf(7, "state-change-interface-down")
 
-    state_change_active_timer = 8
+    state_change_active_timer = Enum.YLeaf(8, "state-change-active-timer")
 
-    state_change_standby_timer = 9
+    state_change_standby_timer = Enum.YLeaf(9, "state-change-standby-timer")
 
-    state_change_resign = 10
+    state_change_resign = Enum.YLeaf(10, "state-change-resign")
 
-    state_change_coup = 11
+    state_change_coup = Enum.YLeaf(11, "state-change-coup")
 
-    state_change_higher_priority_speak = 12
+    state_change_higher_priority_speak = Enum.YLeaf(12, "state-change-higher-priority-speak")
 
-    state_change_higher_priority_standby = 13
+    state_change_higher_priority_standby = Enum.YLeaf(13, "state-change-higher-priority-standby")
 
-    state_change_lower_priority_standby = 14
+    state_change_lower_priority_standby = Enum.YLeaf(14, "state-change-lower-priority-standby")
 
-    state_change_higher_priority_active = 15
+    state_change_higher_priority_active = Enum.YLeaf(15, "state-change-higher-priority-active")
 
-    state_change_lower_priority_active = 16
+    state_change_lower_priority_active = Enum.YLeaf(16, "state-change-lower-priority-active")
 
-    state_change_virtual_ip_configured = 17
+    state_change_virtual_ip_configured = Enum.YLeaf(17, "state-change-virtual-ip-configured")
 
-    state_change_virtual_ip_lost = 18
+    state_change_virtual_ip_lost = Enum.YLeaf(18, "state-change-virtual-ip-lost")
 
-    state_change_recovered_from_checkpoint = 19
+    state_change_recovered_from_checkpoint = Enum.YLeaf(19, "state-change-recovered-from-checkpoint")
 
-    state_change_mac_update = 20
+    state_change_mac_update = Enum.YLeaf(20, "state-change-mac-update")
 
-    state_change_admin = 21
+    state_change_admin = Enum.YLeaf(21, "state-change-admin")
 
-    state_change_parent = 22
+    state_change_parent = Enum.YLeaf(22, "state-change-parent")
 
-    state_change_chkpt_update = 23
+    state_change_chkpt_update = Enum.YLeaf(23, "state-change-chkpt-update")
 
-    state_change_issu_resync = 24
+    state_change_issu_resync = Enum.YLeaf(24, "state-change-issu-resync")
 
-    state_change_max = 25
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-        return meta._meta_table['HsrpStateChangeReasonEnum']
+    state_change_max = Enum.YLeaf(25, "state-change-max")
 
 
-class HsrpVmacStateEnum(Enum):
+class HsrpVmacState(Enum):
     """
-    HsrpVmacStateEnum
+    HsrpVmacState
 
     Hsrp vmac state
 
@@ -291,24 +267,18 @@ class HsrpVmacStateEnum(Enum):
 
     """
 
-    stored = 0
+    stored = Enum.YLeaf(0, "stored")
 
-    reserved = 1
+    reserved = Enum.YLeaf(1, "reserved")
 
-    active = 2
+    active = Enum.YLeaf(2, "active")
 
-    reserving = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-        return meta._meta_table['HsrpVmacStateEnum']
+    reserving = Enum.YLeaf(3, "reserving")
 
 
-class StandbyGrpStateEnum(Enum):
+class StandbyGrpState(Enum):
     """
-    StandbyGrpStateEnum
+    StandbyGrpState
 
     Standby grp state
 
@@ -338,27 +308,21 @@ class StandbyGrpStateEnum(Enum):
 
     """
 
-    state_initial = 1
+    state_initial = Enum.YLeaf(1, "state-initial")
 
-    state_learn = 2
+    state_learn = Enum.YLeaf(2, "state-learn")
 
-    state_listen = 3
+    state_listen = Enum.YLeaf(3, "state-listen")
 
-    state_speak = 4
+    state_speak = Enum.YLeaf(4, "state-speak")
 
-    state_standby = 5
+    state_standby = Enum.YLeaf(5, "state-standby")
 
-    state_active = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-        return meta._meta_table['StandbyGrpStateEnum']
+    state_active = Enum.YLeaf(6, "state-active")
 
 
 
-class Hsrp(object):
+class Hsrp(Entity):
     """
     HSRP operational data
     
@@ -395,19 +359,39 @@ class Hsrp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Hsrp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "hsrp"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv4-hsrp-oper"
+
         self.bfd_sessions = Hsrp.BfdSessions()
         self.bfd_sessions.parent = self
+        self._children_name_map["bfd_sessions"] = "bfd-sessions"
+        self._children_yang_names.add("bfd-sessions")
+
         self.ipv4 = Hsrp.Ipv4()
         self.ipv4.parent = self
+        self._children_name_map["ipv4"] = "ipv4"
+        self._children_yang_names.add("ipv4")
+
         self.ipv6 = Hsrp.Ipv6()
         self.ipv6.parent = self
+        self._children_name_map["ipv6"] = "ipv6"
+        self._children_yang_names.add("ipv6")
+
         self.mgo_sessions = Hsrp.MgoSessions()
         self.mgo_sessions.parent = self
+        self._children_name_map["mgo_sessions"] = "mgo-sessions"
+        self._children_yang_names.add("mgo-sessions")
+
         self.summary = Hsrp.Summary()
         self.summary.parent = self
+        self._children_name_map["summary"] = "summary"
+        self._children_yang_names.add("summary")
 
 
-    class Ipv4(object):
+    class Ipv4(Entity):
         """
         IPv4 HSRP information
         
@@ -434,16 +418,28 @@ class Hsrp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Hsrp.Ipv4, self).__init__()
+
+            self.yang_name = "ipv4"
+            self.yang_parent_name = "hsrp"
+
             self.groups = Hsrp.Ipv4.Groups()
             self.groups.parent = self
+            self._children_name_map["groups"] = "groups"
+            self._children_yang_names.add("groups")
+
             self.interfaces = Hsrp.Ipv4.Interfaces()
             self.interfaces.parent = self
+            self._children_name_map["interfaces"] = "interfaces"
+            self._children_yang_names.add("interfaces")
+
             self.tracked_interfaces = Hsrp.Ipv4.TrackedInterfaces()
             self.tracked_interfaces.parent = self
+            self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+            self._children_yang_names.add("tracked-interfaces")
 
 
-        class Groups(object):
+        class Groups(Entity):
             """
             The HSRP standby group table
             
@@ -460,13 +456,39 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.group = YList()
-                self.group.parent = self
-                self.group.name = 'group'
+                super(Hsrp.Ipv4.Groups, self).__init__()
+
+                self.yang_name = "groups"
+                self.yang_parent_name = "ipv4"
+
+                self.group = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.Ipv4.Groups, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.Ipv4.Groups, self).__setattr__(name, value)
 
 
-            class Group(object):
+            class Group(Entity):
                 """
                 An HSRP standby group
                 
@@ -538,7 +560,7 @@ class Hsrp(object):
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+                	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
                 
                 .. attribute:: authentication_string
                 
@@ -590,7 +612,7 @@ class Hsrp(object):
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:   :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
+                	**type**\:   :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
                 
                 .. attribute:: configured_mac_address
                 
@@ -714,7 +736,7 @@ class Hsrp(object):
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
-                	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                 
                 .. attribute:: interface
                 
@@ -958,7 +980,7 @@ class Hsrp(object):
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:   :py:class:`HsrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacStateEnum>`
+                	**type**\:   :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
                 
                 
 
@@ -968,93 +990,259 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.group_number = None
-                    self.active_ip_address = None
-                    self.active_ipv6_address = None
-                    self.active_mac_address = None
-                    self.active_priority = None
-                    self.active_timer_flag = None
-                    self.active_timer_msecs = None
-                    self.active_timer_secs = None
-                    self.address_family = None
-                    self.authentication_string = None
-                    self.bfd_enabled = None
-                    self.bfd_interface = None
-                    self.bfd_interval = None
-                    self.bfd_multiplier = None
-                    self.bfd_peer_ip_address = None
-                    self.bfd_peer_ipv6_address = None
-                    self.bfd_session_state = None
-                    self.configured_mac_address = None
-                    self.configured_priority = None
-                    self.configured_timers = None
+                    super(Hsrp.Ipv4.Groups.Group, self).__init__()
+
+                    self.yang_name = "group"
+                    self.yang_parent_name = "groups"
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.group_number = YLeaf(YType.int32, "group-number")
+
+                    self.active_ip_address = YLeaf(YType.str, "active-ip-address")
+
+                    self.active_ipv6_address = YLeaf(YType.str, "active-ipv6-address")
+
+                    self.active_mac_address = YLeaf(YType.str, "active-mac-address")
+
+                    self.active_priority = YLeaf(YType.uint8, "active-priority")
+
+                    self.active_timer_flag = YLeaf(YType.boolean, "active-timer-flag")
+
+                    self.active_timer_msecs = YLeaf(YType.uint32, "active-timer-msecs")
+
+                    self.active_timer_secs = YLeaf(YType.uint32, "active-timer-secs")
+
+                    self.address_family = YLeaf(YType.enumeration, "address-family")
+
+                    self.authentication_string = YLeaf(YType.str, "authentication-string")
+
+                    self.bfd_enabled = YLeaf(YType.boolean, "bfd-enabled")
+
+                    self.bfd_interface = YLeaf(YType.str, "bfd-interface")
+
+                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
+
+                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
+
+                    self.bfd_peer_ip_address = YLeaf(YType.str, "bfd-peer-ip-address")
+
+                    self.bfd_peer_ipv6_address = YLeaf(YType.str, "bfd-peer-ipv6-address")
+
+                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
+
+                    self.configured_mac_address = YLeaf(YType.boolean, "configured-mac-address")
+
+                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
+
+                    self.configured_timers = YLeaf(YType.boolean, "configured-timers")
+
+                    self.current_state_timer_secs = YLeaf(YType.uint32, "current-state-timer-secs")
+
+                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
+
+                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
+
+                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
+
+                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
+
+                    self.hello_time = YLeaf(YType.uint32, "hello-time")
+
+                    self.hello_timer_flag = YLeaf(YType.boolean, "hello-timer-flag")
+
+                    self.hello_timer_msecs = YLeaf(YType.uint32, "hello-timer-msecs")
+
+                    self.hello_timer_secs = YLeaf(YType.uint32, "hello-timer-secs")
+
+                    self.hold_time = YLeaf(YType.uint32, "hold-time")
+
+                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
+
+                    self.hsrp_router_state = YLeaf(YType.enumeration, "hsrp-router-state")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                    self.is_slave = YLeaf(YType.boolean, "is-slave")
+
+                    self.learned_hello_time = YLeaf(YType.uint32, "learned-hello-time")
+
+                    self.learned_hold_time = YLeaf(YType.uint32, "learned-hold-time")
+
+                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
+
+                    self.preempt_delay = YLeaf(YType.uint32, "preempt-delay")
+
+                    self.preempt_enabled = YLeaf(YType.boolean, "preempt-enabled")
+
+                    self.preempt_timer_secs = YLeaf(YType.uint32, "preempt-timer-secs")
+
+                    self.redirects_disabled = YLeaf(YType.boolean, "redirects-disabled")
+
+                    self.reload_delay_time = YLeaf(YType.uint32, "reload-delay-time")
+
+                    self.router_priority = YLeaf(YType.uint8, "router-priority")
+
+                    self.secondary_address = YLeafList(YType.str, "secondary-address")
+
+                    self.session_name = YLeaf(YType.str, "session-name")
+
+                    self.slaves = YLeaf(YType.uint32, "slaves")
+
+                    self.standby_ip_address = YLeaf(YType.str, "standby-ip-address")
+
+                    self.standby_ipv6_address = YLeaf(YType.str, "standby-ipv6-address")
+
+                    self.standby_mac_address = YLeaf(YType.str, "standby-mac-address")
+
+                    self.standby_timer_flag = YLeaf(YType.boolean, "standby-timer-flag")
+
+                    self.standby_timer_msecs = YLeaf(YType.uint32, "standby-timer-msecs")
+
+                    self.standby_timer_secs = YLeaf(YType.uint32, "standby-timer-secs")
+
+                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
+
+                    self.tracked_interface_count = YLeaf(YType.uint32, "tracked-interface-count")
+
+                    self.tracked_interface_up_count = YLeaf(YType.uint32, "tracked-interface-up-count")
+
+                    self.use_bia_configured = YLeaf(YType.boolean, "use-bia-configured")
+
+                    self.use_configured_timers = YLeaf(YType.boolean, "use-configured-timers")
+
+                    self.use_configured_virtual_ip = YLeaf(YType.boolean, "use-configured-virtual-ip")
+
+                    self.version = YLeaf(YType.uint8, "version")
+
+                    self.virtual_ip_address = YLeaf(YType.str, "virtual-ip-address")
+
+                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
+
+                    self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
+                    self.virtual_mac_address_state = YLeaf(YType.enumeration, "virtual-mac-address-state")
+
                     self.coup_received_time = Hsrp.Ipv4.Groups.Group.CoupReceivedTime()
                     self.coup_received_time.parent = self
+                    self._children_name_map["coup_received_time"] = "coup-received-time"
+                    self._children_yang_names.add("coup-received-time")
+
                     self.coup_sent_time = Hsrp.Ipv4.Groups.Group.CoupSentTime()
                     self.coup_sent_time.parent = self
-                    self.current_state_timer_secs = None
-                    self.delay_timer_flag = None
-                    self.delay_timer_msecs = None
-                    self.delay_timer_secs = None
-                    self.followed_session_name = None
-                    self.global_address = YList()
-                    self.global_address.parent = self
-                    self.global_address.name = 'global_address'
-                    self.hello_time = None
-                    self.hello_timer_flag = None
-                    self.hello_timer_msecs = None
-                    self.hello_timer_secs = None
-                    self.hold_time = None
-                    self.hsrp_group_number = None
-                    self.hsrp_router_state = None
-                    self.interface = None
-                    self.interface_name_xr = None
-                    self.is_slave = None
-                    self.learned_hello_time = None
-                    self.learned_hold_time = None
-                    self.min_delay_time = None
-                    self.preempt_delay = None
-                    self.preempt_enabled = None
-                    self.preempt_timer_secs = None
-                    self.redirects_disabled = None
-                    self.reload_delay_time = None
+                    self._children_name_map["coup_sent_time"] = "coup-sent-time"
+                    self._children_yang_names.add("coup-sent-time")
+
                     self.resign_received_time = Hsrp.Ipv4.Groups.Group.ResignReceivedTime()
                     self.resign_received_time.parent = self
+                    self._children_name_map["resign_received_time"] = "resign-received-time"
+                    self._children_yang_names.add("resign-received-time")
+
                     self.resign_sent_time = Hsrp.Ipv4.Groups.Group.ResignSentTime()
                     self.resign_sent_time.parent = self
-                    self.router_priority = None
-                    self.secondary_address = YLeafList()
-                    self.secondary_address.parent = self
-                    self.secondary_address.name = 'secondary_address'
-                    self.session_name = None
-                    self.slaves = None
-                    self.standby_ip_address = None
-                    self.standby_ipv6_address = None
-                    self.standby_mac_address = None
-                    self.standby_timer_flag = None
-                    self.standby_timer_msecs = None
-                    self.standby_timer_secs = None
-                    self.state_change_count = None
-                    self.state_change_history = YList()
-                    self.state_change_history.parent = self
-                    self.state_change_history.name = 'state_change_history'
+                    self._children_name_map["resign_sent_time"] = "resign-sent-time"
+                    self._children_yang_names.add("resign-sent-time")
+
                     self.statistics = Hsrp.Ipv4.Groups.Group.Statistics()
                     self.statistics.parent = self
-                    self.tracked_interface_count = None
-                    self.tracked_interface_up_count = None
-                    self.use_bia_configured = None
-                    self.use_configured_timers = None
-                    self.use_configured_virtual_ip = None
-                    self.version = None
-                    self.virtual_ip_address = None
-                    self.virtual_linklocal_ipv6_address = None
-                    self.virtual_mac_address = None
-                    self.virtual_mac_address_state = None
+                    self._children_name_map["statistics"] = "statistics"
+                    self._children_yang_names.add("statistics")
+
+                    self.global_address = YList(self)
+                    self.state_change_history = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "group_number",
+                                    "active_ip_address",
+                                    "active_ipv6_address",
+                                    "active_mac_address",
+                                    "active_priority",
+                                    "active_timer_flag",
+                                    "active_timer_msecs",
+                                    "active_timer_secs",
+                                    "address_family",
+                                    "authentication_string",
+                                    "bfd_enabled",
+                                    "bfd_interface",
+                                    "bfd_interval",
+                                    "bfd_multiplier",
+                                    "bfd_peer_ip_address",
+                                    "bfd_peer_ipv6_address",
+                                    "bfd_session_state",
+                                    "configured_mac_address",
+                                    "configured_priority",
+                                    "configured_timers",
+                                    "current_state_timer_secs",
+                                    "delay_timer_flag",
+                                    "delay_timer_msecs",
+                                    "delay_timer_secs",
+                                    "followed_session_name",
+                                    "hello_time",
+                                    "hello_timer_flag",
+                                    "hello_timer_msecs",
+                                    "hello_timer_secs",
+                                    "hold_time",
+                                    "hsrp_group_number",
+                                    "hsrp_router_state",
+                                    "interface",
+                                    "interface_name_xr",
+                                    "is_slave",
+                                    "learned_hello_time",
+                                    "learned_hold_time",
+                                    "min_delay_time",
+                                    "preempt_delay",
+                                    "preempt_enabled",
+                                    "preempt_timer_secs",
+                                    "redirects_disabled",
+                                    "reload_delay_time",
+                                    "router_priority",
+                                    "secondary_address",
+                                    "session_name",
+                                    "slaves",
+                                    "standby_ip_address",
+                                    "standby_ipv6_address",
+                                    "standby_mac_address",
+                                    "standby_timer_flag",
+                                    "standby_timer_msecs",
+                                    "standby_timer_secs",
+                                    "state_change_count",
+                                    "tracked_interface_count",
+                                    "tracked_interface_up_count",
+                                    "use_bia_configured",
+                                    "use_configured_timers",
+                                    "use_configured_virtual_ip",
+                                    "version",
+                                    "virtual_ip_address",
+                                    "virtual_linklocal_ipv6_address",
+                                    "virtual_mac_address",
+                                    "virtual_mac_address_state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Ipv4.Groups.Group, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Ipv4.Groups.Group, self).__setattr__(name, value)
 
 
-                class ResignSentTime(object):
+                class ResignSentTime(Entity):
                     """
                     Time last resign was sent
                     
@@ -1084,37 +1272,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv4.Groups.Group.ResignSentTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "resign-sent-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:resign-sent-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Groups.Group.ResignSentTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Groups.Group.ResignSentTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "resign-sent-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.ResignSentTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class ResignReceivedTime(object):
+                class ResignReceivedTime(Entity):
                     """
                     Time last resign was received
                     
@@ -1144,37 +1392,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "resign-received-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:resign-received-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "resign-received-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.ResignReceivedTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class CoupSentTime(object):
+                class CoupSentTime(Entity):
                     """
                     Time last coup was sent
                     
@@ -1204,37 +1512,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv4.Groups.Group.CoupSentTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "coup-sent-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:coup-sent-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Groups.Group.CoupSentTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Groups.Group.CoupSentTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "coup-sent-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.CoupSentTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class CoupReceivedTime(object):
+                class CoupReceivedTime(Entity):
                     """
                     Time last coup was received
                     
@@ -1264,37 +1632,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "coup-received-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:coup-received-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "coup-received-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.CoupReceivedTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class Statistics(object):
+                class Statistics(Entity):
                     """
                     HSRP Group statistics
                     
@@ -1411,89 +1839,240 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active_transitions = None
-                        self.auth_fail_received = None
-                        self.coup_packets_received = None
-                        self.coup_packets_sent = None
-                        self.hello_packets_received = None
-                        self.hello_packets_sent = None
-                        self.init_transitions = None
-                        self.invalid_timer_received = None
-                        self.learn_transitions = None
-                        self.listen_transitions = None
-                        self.mismatch_virtual_ip_address_received = None
-                        self.resign_packets_received = None
-                        self.resign_packets_sent = None
-                        self.speak_transitions = None
-                        self.standby_transitions = None
+                        super(Hsrp.Ipv4.Groups.Group.Statistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "statistics"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:statistics'
+                        self.active_transitions = YLeaf(YType.uint32, "active-transitions")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.auth_fail_received = YLeaf(YType.uint32, "auth-fail-received")
+
+                        self.coup_packets_received = YLeaf(YType.uint32, "coup-packets-received")
+
+                        self.coup_packets_sent = YLeaf(YType.uint32, "coup-packets-sent")
+
+                        self.hello_packets_received = YLeaf(YType.uint32, "hello-packets-received")
+
+                        self.hello_packets_sent = YLeaf(YType.uint32, "hello-packets-sent")
+
+                        self.init_transitions = YLeaf(YType.uint32, "init-transitions")
+
+                        self.invalid_timer_received = YLeaf(YType.uint32, "invalid-timer-received")
+
+                        self.learn_transitions = YLeaf(YType.uint32, "learn-transitions")
+
+                        self.listen_transitions = YLeaf(YType.uint32, "listen-transitions")
+
+                        self.mismatch_virtual_ip_address_received = YLeaf(YType.uint32, "mismatch-virtual-ip-address-received")
+
+                        self.resign_packets_received = YLeaf(YType.uint32, "resign-packets-received")
+
+                        self.resign_packets_sent = YLeaf(YType.uint32, "resign-packets-sent")
+
+                        self.speak_transitions = YLeaf(YType.uint32, "speak-transitions")
+
+                        self.standby_transitions = YLeaf(YType.uint32, "standby-transitions")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("active_transitions",
+                                        "auth_fail_received",
+                                        "coup_packets_received",
+                                        "coup_packets_sent",
+                                        "hello_packets_received",
+                                        "hello_packets_sent",
+                                        "init_transitions",
+                                        "invalid_timer_received",
+                                        "learn_transitions",
+                                        "listen_transitions",
+                                        "mismatch_virtual_ip_address_received",
+                                        "resign_packets_received",
+                                        "resign_packets_sent",
+                                        "speak_transitions",
+                                        "standby_transitions") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Groups.Group.Statistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Groups.Group.Statistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.active_transitions.is_set or
+                            self.auth_fail_received.is_set or
+                            self.coup_packets_received.is_set or
+                            self.coup_packets_sent.is_set or
+                            self.hello_packets_received.is_set or
+                            self.hello_packets_sent.is_set or
+                            self.init_transitions.is_set or
+                            self.invalid_timer_received.is_set or
+                            self.learn_transitions.is_set or
+                            self.listen_transitions.is_set or
+                            self.mismatch_virtual_ip_address_received.is_set or
+                            self.resign_packets_received.is_set or
+                            self.resign_packets_sent.is_set or
+                            self.speak_transitions.is_set or
+                            self.standby_transitions.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.active_transitions.yfilter != YFilter.not_set or
+                            self.auth_fail_received.yfilter != YFilter.not_set or
+                            self.coup_packets_received.yfilter != YFilter.not_set or
+                            self.coup_packets_sent.yfilter != YFilter.not_set or
+                            self.hello_packets_received.yfilter != YFilter.not_set or
+                            self.hello_packets_sent.yfilter != YFilter.not_set or
+                            self.init_transitions.yfilter != YFilter.not_set or
+                            self.invalid_timer_received.yfilter != YFilter.not_set or
+                            self.learn_transitions.yfilter != YFilter.not_set or
+                            self.listen_transitions.yfilter != YFilter.not_set or
+                            self.mismatch_virtual_ip_address_received.yfilter != YFilter.not_set or
+                            self.resign_packets_received.yfilter != YFilter.not_set or
+                            self.resign_packets_sent.yfilter != YFilter.not_set or
+                            self.speak_transitions.yfilter != YFilter.not_set or
+                            self.standby_transitions.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.active_transitions.is_set or self.active_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active_transitions.get_name_leafdata())
+                        if (self.auth_fail_received.is_set or self.auth_fail_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_fail_received.get_name_leafdata())
+                        if (self.coup_packets_received.is_set or self.coup_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.coup_packets_received.get_name_leafdata())
+                        if (self.coup_packets_sent.is_set or self.coup_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.coup_packets_sent.get_name_leafdata())
+                        if (self.hello_packets_received.is_set or self.hello_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hello_packets_received.get_name_leafdata())
+                        if (self.hello_packets_sent.is_set or self.hello_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hello_packets_sent.get_name_leafdata())
+                        if (self.init_transitions.is_set or self.init_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.init_transitions.get_name_leafdata())
+                        if (self.invalid_timer_received.is_set or self.invalid_timer_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_timer_received.get_name_leafdata())
+                        if (self.learn_transitions.is_set or self.learn_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.learn_transitions.get_name_leafdata())
+                        if (self.listen_transitions.is_set or self.listen_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.listen_transitions.get_name_leafdata())
+                        if (self.mismatch_virtual_ip_address_received.is_set or self.mismatch_virtual_ip_address_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mismatch_virtual_ip_address_received.get_name_leafdata())
+                        if (self.resign_packets_received.is_set or self.resign_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resign_packets_received.get_name_leafdata())
+                        if (self.resign_packets_sent.is_set or self.resign_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resign_packets_sent.get_name_leafdata())
+                        if (self.speak_transitions.is_set or self.speak_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.speak_transitions.get_name_leafdata())
+                        if (self.standby_transitions.is_set or self.standby_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.standby_transitions.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "active-transitions" or name == "auth-fail-received" or name == "coup-packets-received" or name == "coup-packets-sent" or name == "hello-packets-received" or name == "hello-packets-sent" or name == "init-transitions" or name == "invalid-timer-received" or name == "learn-transitions" or name == "listen-transitions" or name == "mismatch-virtual-ip-address-received" or name == "resign-packets-received" or name == "resign-packets-sent" or name == "speak-transitions" or name == "standby-transitions"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active_transitions is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "active-transitions"):
+                            self.active_transitions = value
+                            self.active_transitions.value_namespace = name_space
+                            self.active_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-fail-received"):
+                            self.auth_fail_received = value
+                            self.auth_fail_received.value_namespace = name_space
+                            self.auth_fail_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "coup-packets-received"):
+                            self.coup_packets_received = value
+                            self.coup_packets_received.value_namespace = name_space
+                            self.coup_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "coup-packets-sent"):
+                            self.coup_packets_sent = value
+                            self.coup_packets_sent.value_namespace = name_space
+                            self.coup_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hello-packets-received"):
+                            self.hello_packets_received = value
+                            self.hello_packets_received.value_namespace = name_space
+                            self.hello_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hello-packets-sent"):
+                            self.hello_packets_sent = value
+                            self.hello_packets_sent.value_namespace = name_space
+                            self.hello_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "init-transitions"):
+                            self.init_transitions = value
+                            self.init_transitions.value_namespace = name_space
+                            self.init_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-timer-received"):
+                            self.invalid_timer_received = value
+                            self.invalid_timer_received.value_namespace = name_space
+                            self.invalid_timer_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "learn-transitions"):
+                            self.learn_transitions = value
+                            self.learn_transitions.value_namespace = name_space
+                            self.learn_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "listen-transitions"):
+                            self.listen_transitions = value
+                            self.listen_transitions.value_namespace = name_space
+                            self.listen_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mismatch-virtual-ip-address-received"):
+                            self.mismatch_virtual_ip_address_received = value
+                            self.mismatch_virtual_ip_address_received.value_namespace = name_space
+                            self.mismatch_virtual_ip_address_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resign-packets-received"):
+                            self.resign_packets_received = value
+                            self.resign_packets_received.value_namespace = name_space
+                            self.resign_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resign-packets-sent"):
+                            self.resign_packets_sent = value
+                            self.resign_packets_sent.value_namespace = name_space
+                            self.resign_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "speak-transitions"):
+                            self.speak_transitions = value
+                            self.speak_transitions.value_namespace = name_space
+                            self.speak_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "standby-transitions"):
+                            self.standby_transitions = value
+                            self.standby_transitions.value_namespace = name_space
+                            self.standby_transitions.value_namespace_prefix = name_space_prefix
 
-                        if self.auth_fail_received is not None:
-                            return True
 
-                        if self.coup_packets_received is not None:
-                            return True
-
-                        if self.coup_packets_sent is not None:
-                            return True
-
-                        if self.hello_packets_received is not None:
-                            return True
-
-                        if self.hello_packets_sent is not None:
-                            return True
-
-                        if self.init_transitions is not None:
-                            return True
-
-                        if self.invalid_timer_received is not None:
-                            return True
-
-                        if self.learn_transitions is not None:
-                            return True
-
-                        if self.listen_transitions is not None:
-                            return True
-
-                        if self.mismatch_virtual_ip_address_received is not None:
-                            return True
-
-                        if self.resign_packets_received is not None:
-                            return True
-
-                        if self.resign_packets_sent is not None:
-                            return True
-
-                        if self.speak_transitions is not None:
-                            return True
-
-                        if self.standby_transitions is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.Statistics']['meta_info']
-
-
-                class GlobalAddress(object):
+                class GlobalAddress(Entity):
                     """
                     Global virtual IPv6 addresses
                     
@@ -1512,50 +2091,102 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ipv6_address = None
+                        super(Hsrp.Ipv4.Groups.Group.GlobalAddress, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "global-address"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:global-address'
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ipv6_address") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Groups.Group.GlobalAddress, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Groups.Group.GlobalAddress, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.ipv6_address is not None:
+                    def has_data(self):
+                        return self.ipv6_address.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ipv6_address.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "global-address" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ipv6-address"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.GlobalAddress']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ipv6-address"):
+                            self.ipv6_address = value
+                            self.ipv6_address.value_namespace = name_space
+                            self.ipv6_address.value_namespace_prefix = name_space_prefix
 
 
-                class StateChangeHistory(object):
+                class StateChangeHistory(Entity):
                     """
                     State change history
                     
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:   :py:class:`HsrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReasonEnum>`
+                    	**type**\:   :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
                     
                     .. attribute:: time
                     
@@ -1570,15 +2201,50 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.new_state = None
-                        self.old_state = None
-                        self.reason = None
+                        super(Hsrp.Ipv4.Groups.Group.StateChangeHistory, self).__init__()
+
+                        self.yang_name = "state-change-history"
+                        self.yang_parent_name = "group"
+
+                        self.new_state = YLeaf(YType.enumeration, "new-state")
+
+                        self.old_state = YLeaf(YType.enumeration, "old-state")
+
+                        self.reason = YLeaf(YType.enumeration, "reason")
+
                         self.time = Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time()
                         self.time.parent = self
+                        self._children_name_map["time"] = "time"
+                        self._children_yang_names.add("time")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("new_state",
+                                        "old_state",
+                                        "reason") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Groups.Group.StateChangeHistory, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Groups.Group.StateChangeHistory, self).__setattr__(name, value)
 
 
-                    class Time(object):
+                    class Time(Entity):
                         """
                         Time of state change
                         
@@ -1608,333 +2274,869 @@ class Hsrp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.nanoseconds = None
-                            self.seconds = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:time'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if self.nanoseconds is not None:
-                                return True
-
-                            if self.seconds is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                            return meta._meta_table['Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:state-change-history'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.new_state is not None:
-                            return True
-
-                        if self.old_state is not None:
-                            return True
-
-                        if self.reason is not None:
-                            return True
-
-                        if self.time is not None and self.time._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Groups.Group.StateChangeHistory']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
-
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:groups/Cisco-IOS-XR-ipv4-hsrp-oper:group[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface_name is not None:
-                        return True
-
-                    if self.group_number is not None:
-                        return True
-
-                    if self.active_ip_address is not None:
-                        return True
-
-                    if self.active_ipv6_address is not None:
-                        return True
-
-                    if self.active_mac_address is not None:
-                        return True
-
-                    if self.active_priority is not None:
-                        return True
-
-                    if self.active_timer_flag is not None:
-                        return True
-
-                    if self.active_timer_msecs is not None:
-                        return True
-
-                    if self.active_timer_secs is not None:
-                        return True
-
-                    if self.address_family is not None:
-                        return True
-
-                    if self.authentication_string is not None:
-                        return True
-
-                    if self.bfd_enabled is not None:
-                        return True
-
-                    if self.bfd_interface is not None:
-                        return True
-
-                    if self.bfd_interval is not None:
-                        return True
-
-                    if self.bfd_multiplier is not None:
-                        return True
-
-                    if self.bfd_peer_ip_address is not None:
-                        return True
-
-                    if self.bfd_peer_ipv6_address is not None:
-                        return True
-
-                    if self.bfd_session_state is not None:
-                        return True
-
-                    if self.configured_mac_address is not None:
-                        return True
-
-                    if self.configured_priority is not None:
-                        return True
-
-                    if self.configured_timers is not None:
-                        return True
-
-                    if self.coup_received_time is not None and self.coup_received_time._has_data():
-                        return True
-
-                    if self.coup_sent_time is not None and self.coup_sent_time._has_data():
-                        return True
-
-                    if self.current_state_timer_secs is not None:
-                        return True
-
-                    if self.delay_timer_flag is not None:
-                        return True
-
-                    if self.delay_timer_msecs is not None:
-                        return True
-
-                    if self.delay_timer_secs is not None:
-                        return True
-
-                    if self.followed_session_name is not None:
-                        return True
-
-                    if self.global_address is not None:
-                        for child_ref in self.global_address:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.hello_time is not None:
-                        return True
-
-                    if self.hello_timer_flag is not None:
-                        return True
-
-                    if self.hello_timer_msecs is not None:
-                        return True
-
-                    if self.hello_timer_secs is not None:
-                        return True
-
-                    if self.hold_time is not None:
-                        return True
-
-                    if self.hsrp_group_number is not None:
-                        return True
-
-                    if self.hsrp_router_state is not None:
-                        return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.interface_name_xr is not None:
-                        return True
-
-                    if self.is_slave is not None:
-                        return True
-
-                    if self.learned_hello_time is not None:
-                        return True
-
-                    if self.learned_hold_time is not None:
-                        return True
-
-                    if self.min_delay_time is not None:
-                        return True
-
-                    if self.preempt_delay is not None:
-                        return True
-
-                    if self.preempt_enabled is not None:
-                        return True
-
-                    if self.preempt_timer_secs is not None:
-                        return True
-
-                    if self.redirects_disabled is not None:
-                        return True
-
-                    if self.reload_delay_time is not None:
-                        return True
-
-                    if self.resign_received_time is not None and self.resign_received_time._has_data():
-                        return True
-
-                    if self.resign_sent_time is not None and self.resign_sent_time._has_data():
-                        return True
-
-                    if self.router_priority is not None:
-                        return True
-
-                    if self.secondary_address is not None:
-                        for child in self.secondary_address:
+                            super(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, self).__init__()
+
+                            self.yang_name = "time"
+                            self.yang_parent_name = "state-change-history"
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("nanoseconds",
+                                            "seconds") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.nanoseconds.is_set or
+                                self.seconds.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.nanoseconds.yfilter != YFilter.not_set or
+                                self.seconds.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "time" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                            if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
                             if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "nanoseconds" or name == "seconds"):
                                 return True
+                            return False
 
-                    if self.session_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "nanoseconds"):
+                                self.nanoseconds = value
+                                self.nanoseconds.value_namespace = name_space
+                                self.nanoseconds.value_namespace_prefix = name_space_prefix
+                            if(value_path == "seconds"):
+                                self.seconds = value
+                                self.seconds.value_namespace = name_space
+                                self.seconds.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        return (
+                            self.new_state.is_set or
+                            self.old_state.is_set or
+                            self.reason.is_set or
+                            (self.time is not None and self.time.has_data()))
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.new_state.yfilter != YFilter.not_set or
+                            self.old_state.yfilter != YFilter.not_set or
+                            self.reason.yfilter != YFilter.not_set or
+                            (self.time is not None and self.time.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "state-change-history" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.new_state.is_set or self.new_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.new_state.get_name_leafdata())
+                        if (self.old_state.is_set or self.old_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.old_state.get_name_leafdata())
+                        if (self.reason.is_set or self.reason.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reason.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "time"):
+                            if (self.time is None):
+                                self.time = Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time()
+                                self.time.parent = self
+                                self._children_name_map["time"] = "time"
+                            return self.time
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "time" or name == "new-state" or name == "old-state" or name == "reason"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "new-state"):
+                            self.new_state = value
+                            self.new_state.value_namespace = name_space
+                            self.new_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "old-state"):
+                            self.old_state = value
+                            self.old_state.value_namespace = name_space
+                            self.old_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reason"):
+                            self.reason = value
+                            self.reason.value_namespace = name_space
+                            self.reason.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.global_address:
+                        if (c.has_data()):
+                            return True
+                    for c in self.state_change_history:
+                        if (c.has_data()):
+                            return True
+                    for leaf in self.secondary_address.getYLeafs():
+                        if (leaf.yfilter != YFilter.not_set):
+                            return True
+                    return (
+                        self.interface_name.is_set or
+                        self.group_number.is_set or
+                        self.active_ip_address.is_set or
+                        self.active_ipv6_address.is_set or
+                        self.active_mac_address.is_set or
+                        self.active_priority.is_set or
+                        self.active_timer_flag.is_set or
+                        self.active_timer_msecs.is_set or
+                        self.active_timer_secs.is_set or
+                        self.address_family.is_set or
+                        self.authentication_string.is_set or
+                        self.bfd_enabled.is_set or
+                        self.bfd_interface.is_set or
+                        self.bfd_interval.is_set or
+                        self.bfd_multiplier.is_set or
+                        self.bfd_peer_ip_address.is_set or
+                        self.bfd_peer_ipv6_address.is_set or
+                        self.bfd_session_state.is_set or
+                        self.configured_mac_address.is_set or
+                        self.configured_priority.is_set or
+                        self.configured_timers.is_set or
+                        self.current_state_timer_secs.is_set or
+                        self.delay_timer_flag.is_set or
+                        self.delay_timer_msecs.is_set or
+                        self.delay_timer_secs.is_set or
+                        self.followed_session_name.is_set or
+                        self.hello_time.is_set or
+                        self.hello_timer_flag.is_set or
+                        self.hello_timer_msecs.is_set or
+                        self.hello_timer_secs.is_set or
+                        self.hold_time.is_set or
+                        self.hsrp_group_number.is_set or
+                        self.hsrp_router_state.is_set or
+                        self.interface.is_set or
+                        self.interface_name_xr.is_set or
+                        self.is_slave.is_set or
+                        self.learned_hello_time.is_set or
+                        self.learned_hold_time.is_set or
+                        self.min_delay_time.is_set or
+                        self.preempt_delay.is_set or
+                        self.preempt_enabled.is_set or
+                        self.preempt_timer_secs.is_set or
+                        self.redirects_disabled.is_set or
+                        self.reload_delay_time.is_set or
+                        self.router_priority.is_set or
+                        self.session_name.is_set or
+                        self.slaves.is_set or
+                        self.standby_ip_address.is_set or
+                        self.standby_ipv6_address.is_set or
+                        self.standby_mac_address.is_set or
+                        self.standby_timer_flag.is_set or
+                        self.standby_timer_msecs.is_set or
+                        self.standby_timer_secs.is_set or
+                        self.state_change_count.is_set or
+                        self.tracked_interface_count.is_set or
+                        self.tracked_interface_up_count.is_set or
+                        self.use_bia_configured.is_set or
+                        self.use_configured_timers.is_set or
+                        self.use_configured_virtual_ip.is_set or
+                        self.version.is_set or
+                        self.virtual_ip_address.is_set or
+                        self.virtual_linklocal_ipv6_address.is_set or
+                        self.virtual_mac_address.is_set or
+                        self.virtual_mac_address_state.is_set or
+                        (self.coup_received_time is not None and self.coup_received_time.has_data()) or
+                        (self.coup_sent_time is not None and self.coup_sent_time.has_data()) or
+                        (self.resign_received_time is not None and self.resign_received_time.has_data()) or
+                        (self.resign_sent_time is not None and self.resign_sent_time.has_data()) or
+                        (self.statistics is not None and self.statistics.has_data()))
+
+                def has_operation(self):
+                    for c in self.global_address:
+                        if (c.has_operation()):
+                            return True
+                    for c in self.state_change_history:
+                        if (c.has_operation()):
+                            return True
+                    for leaf in self.secondary_address.getYLeafs():
+                        if (leaf.is_set):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.group_number.yfilter != YFilter.not_set or
+                        self.active_ip_address.yfilter != YFilter.not_set or
+                        self.active_ipv6_address.yfilter != YFilter.not_set or
+                        self.active_mac_address.yfilter != YFilter.not_set or
+                        self.active_priority.yfilter != YFilter.not_set or
+                        self.active_timer_flag.yfilter != YFilter.not_set or
+                        self.active_timer_msecs.yfilter != YFilter.not_set or
+                        self.active_timer_secs.yfilter != YFilter.not_set or
+                        self.address_family.yfilter != YFilter.not_set or
+                        self.authentication_string.yfilter != YFilter.not_set or
+                        self.bfd_enabled.yfilter != YFilter.not_set or
+                        self.bfd_interface.yfilter != YFilter.not_set or
+                        self.bfd_interval.yfilter != YFilter.not_set or
+                        self.bfd_multiplier.yfilter != YFilter.not_set or
+                        self.bfd_peer_ip_address.yfilter != YFilter.not_set or
+                        self.bfd_peer_ipv6_address.yfilter != YFilter.not_set or
+                        self.bfd_session_state.yfilter != YFilter.not_set or
+                        self.configured_mac_address.yfilter != YFilter.not_set or
+                        self.configured_priority.yfilter != YFilter.not_set or
+                        self.configured_timers.yfilter != YFilter.not_set or
+                        self.current_state_timer_secs.yfilter != YFilter.not_set or
+                        self.delay_timer_flag.yfilter != YFilter.not_set or
+                        self.delay_timer_msecs.yfilter != YFilter.not_set or
+                        self.delay_timer_secs.yfilter != YFilter.not_set or
+                        self.followed_session_name.yfilter != YFilter.not_set or
+                        self.hello_time.yfilter != YFilter.not_set or
+                        self.hello_timer_flag.yfilter != YFilter.not_set or
+                        self.hello_timer_msecs.yfilter != YFilter.not_set or
+                        self.hello_timer_secs.yfilter != YFilter.not_set or
+                        self.hold_time.yfilter != YFilter.not_set or
+                        self.hsrp_group_number.yfilter != YFilter.not_set or
+                        self.hsrp_router_state.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.interface_name_xr.yfilter != YFilter.not_set or
+                        self.is_slave.yfilter != YFilter.not_set or
+                        self.learned_hello_time.yfilter != YFilter.not_set or
+                        self.learned_hold_time.yfilter != YFilter.not_set or
+                        self.min_delay_time.yfilter != YFilter.not_set or
+                        self.preempt_delay.yfilter != YFilter.not_set or
+                        self.preempt_enabled.yfilter != YFilter.not_set or
+                        self.preempt_timer_secs.yfilter != YFilter.not_set or
+                        self.redirects_disabled.yfilter != YFilter.not_set or
+                        self.reload_delay_time.yfilter != YFilter.not_set or
+                        self.router_priority.yfilter != YFilter.not_set or
+                        self.secondary_address.yfilter != YFilter.not_set or
+                        self.session_name.yfilter != YFilter.not_set or
+                        self.slaves.yfilter != YFilter.not_set or
+                        self.standby_ip_address.yfilter != YFilter.not_set or
+                        self.standby_ipv6_address.yfilter != YFilter.not_set or
+                        self.standby_mac_address.yfilter != YFilter.not_set or
+                        self.standby_timer_flag.yfilter != YFilter.not_set or
+                        self.standby_timer_msecs.yfilter != YFilter.not_set or
+                        self.standby_timer_secs.yfilter != YFilter.not_set or
+                        self.state_change_count.yfilter != YFilter.not_set or
+                        self.tracked_interface_count.yfilter != YFilter.not_set or
+                        self.tracked_interface_up_count.yfilter != YFilter.not_set or
+                        self.use_bia_configured.yfilter != YFilter.not_set or
+                        self.use_configured_timers.yfilter != YFilter.not_set or
+                        self.use_configured_virtual_ip.yfilter != YFilter.not_set or
+                        self.version.yfilter != YFilter.not_set or
+                        self.virtual_ip_address.yfilter != YFilter.not_set or
+                        self.virtual_linklocal_ipv6_address.yfilter != YFilter.not_set or
+                        self.virtual_mac_address.yfilter != YFilter.not_set or
+                        self.virtual_mac_address_state.yfilter != YFilter.not_set or
+                        (self.coup_received_time is not None and self.coup_received_time.has_operation()) or
+                        (self.coup_sent_time is not None and self.coup_sent_time.has_operation()) or
+                        (self.resign_received_time is not None and self.resign_received_time.has_operation()) or
+                        (self.resign_sent_time is not None and self.resign_sent_time.has_operation()) or
+                        (self.statistics is not None and self.statistics.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "group" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/groups/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.group_number.is_set or self.group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group_number.get_name_leafdata())
+                    if (self.active_ip_address.is_set or self.active_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_ip_address.get_name_leafdata())
+                    if (self.active_ipv6_address.is_set or self.active_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_ipv6_address.get_name_leafdata())
+                    if (self.active_mac_address.is_set or self.active_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_mac_address.get_name_leafdata())
+                    if (self.active_priority.is_set or self.active_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_priority.get_name_leafdata())
+                    if (self.active_timer_flag.is_set or self.active_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_timer_flag.get_name_leafdata())
+                    if (self.active_timer_msecs.is_set or self.active_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_timer_msecs.get_name_leafdata())
+                    if (self.active_timer_secs.is_set or self.active_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_timer_secs.get_name_leafdata())
+                    if (self.address_family.is_set or self.address_family.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.address_family.get_name_leafdata())
+                    if (self.authentication_string.is_set or self.authentication_string.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.authentication_string.get_name_leafdata())
+                    if (self.bfd_enabled.is_set or self.bfd_enabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_enabled.get_name_leafdata())
+                    if (self.bfd_interface.is_set or self.bfd_interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_interface.get_name_leafdata())
+                    if (self.bfd_interval.is_set or self.bfd_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_interval.get_name_leafdata())
+                    if (self.bfd_multiplier.is_set or self.bfd_multiplier.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_multiplier.get_name_leafdata())
+                    if (self.bfd_peer_ip_address.is_set or self.bfd_peer_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_peer_ip_address.get_name_leafdata())
+                    if (self.bfd_peer_ipv6_address.is_set or self.bfd_peer_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_peer_ipv6_address.get_name_leafdata())
+                    if (self.bfd_session_state.is_set or self.bfd_session_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_session_state.get_name_leafdata())
+                    if (self.configured_mac_address.is_set or self.configured_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configured_mac_address.get_name_leafdata())
+                    if (self.configured_priority.is_set or self.configured_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configured_priority.get_name_leafdata())
+                    if (self.configured_timers.is_set or self.configured_timers.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configured_timers.get_name_leafdata())
+                    if (self.current_state_timer_secs.is_set or self.current_state_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.current_state_timer_secs.get_name_leafdata())
+                    if (self.delay_timer_flag.is_set or self.delay_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delay_timer_flag.get_name_leafdata())
+                    if (self.delay_timer_msecs.is_set or self.delay_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delay_timer_msecs.get_name_leafdata())
+                    if (self.delay_timer_secs.is_set or self.delay_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delay_timer_secs.get_name_leafdata())
+                    if (self.followed_session_name.is_set or self.followed_session_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.followed_session_name.get_name_leafdata())
+                    if (self.hello_time.is_set or self.hello_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_time.get_name_leafdata())
+                    if (self.hello_timer_flag.is_set or self.hello_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_timer_flag.get_name_leafdata())
+                    if (self.hello_timer_msecs.is_set or self.hello_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_timer_msecs.get_name_leafdata())
+                    if (self.hello_timer_secs.is_set or self.hello_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_timer_secs.get_name_leafdata())
+                    if (self.hold_time.is_set or self.hold_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hold_time.get_name_leafdata())
+                    if (self.hsrp_group_number.is_set or self.hsrp_group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hsrp_group_number.get_name_leafdata())
+                    if (self.hsrp_router_state.is_set or self.hsrp_router_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hsrp_router_state.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                    if (self.is_slave.is_set or self.is_slave.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_slave.get_name_leafdata())
+                    if (self.learned_hello_time.is_set or self.learned_hello_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.learned_hello_time.get_name_leafdata())
+                    if (self.learned_hold_time.is_set or self.learned_hold_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.learned_hold_time.get_name_leafdata())
+                    if (self.min_delay_time.is_set or self.min_delay_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.min_delay_time.get_name_leafdata())
+                    if (self.preempt_delay.is_set or self.preempt_delay.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.preempt_delay.get_name_leafdata())
+                    if (self.preempt_enabled.is_set or self.preempt_enabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.preempt_enabled.get_name_leafdata())
+                    if (self.preempt_timer_secs.is_set or self.preempt_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.preempt_timer_secs.get_name_leafdata())
+                    if (self.redirects_disabled.is_set or self.redirects_disabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redirects_disabled.get_name_leafdata())
+                    if (self.reload_delay_time.is_set or self.reload_delay_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reload_delay_time.get_name_leafdata())
+                    if (self.router_priority.is_set or self.router_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.router_priority.get_name_leafdata())
+                    if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.session_name.get_name_leafdata())
+                    if (self.slaves.is_set or self.slaves.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.slaves.get_name_leafdata())
+                    if (self.standby_ip_address.is_set or self.standby_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_ip_address.get_name_leafdata())
+                    if (self.standby_ipv6_address.is_set or self.standby_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_ipv6_address.get_name_leafdata())
+                    if (self.standby_mac_address.is_set or self.standby_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_mac_address.get_name_leafdata())
+                    if (self.standby_timer_flag.is_set or self.standby_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_timer_flag.get_name_leafdata())
+                    if (self.standby_timer_msecs.is_set or self.standby_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_timer_msecs.get_name_leafdata())
+                    if (self.standby_timer_secs.is_set or self.standby_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_timer_secs.get_name_leafdata())
+                    if (self.state_change_count.is_set or self.state_change_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state_change_count.get_name_leafdata())
+                    if (self.tracked_interface_count.is_set or self.tracked_interface_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_count.get_name_leafdata())
+                    if (self.tracked_interface_up_count.is_set or self.tracked_interface_up_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_up_count.get_name_leafdata())
+                    if (self.use_bia_configured.is_set or self.use_bia_configured.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_bia_configured.get_name_leafdata())
+                    if (self.use_configured_timers.is_set or self.use_configured_timers.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_configured_timers.get_name_leafdata())
+                    if (self.use_configured_virtual_ip.is_set or self.use_configured_virtual_ip.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_configured_virtual_ip.get_name_leafdata())
+                    if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.version.get_name_leafdata())
+                    if (self.virtual_ip_address.is_set or self.virtual_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_ip_address.get_name_leafdata())
+                    if (self.virtual_linklocal_ipv6_address.is_set or self.virtual_linklocal_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_linklocal_ipv6_address.get_name_leafdata())
+                    if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
+                    if (self.virtual_mac_address_state.is_set or self.virtual_mac_address_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_mac_address_state.get_name_leafdata())
+
+                    leaf_name_data.extend(self.secondary_address.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "coup-received-time"):
+                        if (self.coup_received_time is None):
+                            self.coup_received_time = Hsrp.Ipv4.Groups.Group.CoupReceivedTime()
+                            self.coup_received_time.parent = self
+                            self._children_name_map["coup_received_time"] = "coup-received-time"
+                        return self.coup_received_time
+
+                    if (child_yang_name == "coup-sent-time"):
+                        if (self.coup_sent_time is None):
+                            self.coup_sent_time = Hsrp.Ipv4.Groups.Group.CoupSentTime()
+                            self.coup_sent_time.parent = self
+                            self._children_name_map["coup_sent_time"] = "coup-sent-time"
+                        return self.coup_sent_time
+
+                    if (child_yang_name == "global-address"):
+                        for c in self.global_address:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Hsrp.Ipv4.Groups.Group.GlobalAddress()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.global_address.append(c)
+                        return c
+
+                    if (child_yang_name == "resign-received-time"):
+                        if (self.resign_received_time is None):
+                            self.resign_received_time = Hsrp.Ipv4.Groups.Group.ResignReceivedTime()
+                            self.resign_received_time.parent = self
+                            self._children_name_map["resign_received_time"] = "resign-received-time"
+                        return self.resign_received_time
+
+                    if (child_yang_name == "resign-sent-time"):
+                        if (self.resign_sent_time is None):
+                            self.resign_sent_time = Hsrp.Ipv4.Groups.Group.ResignSentTime()
+                            self.resign_sent_time.parent = self
+                            self._children_name_map["resign_sent_time"] = "resign-sent-time"
+                        return self.resign_sent_time
+
+                    if (child_yang_name == "state-change-history"):
+                        for c in self.state_change_history:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Hsrp.Ipv4.Groups.Group.StateChangeHistory()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.state_change_history.append(c)
+                        return c
+
+                    if (child_yang_name == "statistics"):
+                        if (self.statistics is None):
+                            self.statistics = Hsrp.Ipv4.Groups.Group.Statistics()
+                            self.statistics.parent = self
+                            self._children_name_map["statistics"] = "statistics"
+                        return self.statistics
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "coup-received-time" or name == "coup-sent-time" or name == "global-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "statistics" or name == "interface-name" or name == "group-number" or name == "active-ip-address" or name == "active-ipv6-address" or name == "active-mac-address" or name == "active-priority" or name == "active-timer-flag" or name == "active-timer-msecs" or name == "active-timer-secs" or name == "address-family" or name == "authentication-string" or name == "bfd-enabled" or name == "bfd-interface" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-peer-ip-address" or name == "bfd-peer-ipv6-address" or name == "bfd-session-state" or name == "configured-mac-address" or name == "configured-priority" or name == "configured-timers" or name == "current-state-timer-secs" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "hello-time" or name == "hello-timer-flag" or name == "hello-timer-msecs" or name == "hello-timer-secs" or name == "hold-time" or name == "hsrp-group-number" or name == "hsrp-router-state" or name == "interface" or name == "interface-name-xr" or name == "is-slave" or name == "learned-hello-time" or name == "learned-hold-time" or name == "min-delay-time" or name == "preempt-delay" or name == "preempt-enabled" or name == "preempt-timer-secs" or name == "redirects-disabled" or name == "reload-delay-time" or name == "router-priority" or name == "secondary-address" or name == "session-name" or name == "slaves" or name == "standby-ip-address" or name == "standby-ipv6-address" or name == "standby-mac-address" or name == "standby-timer-flag" or name == "standby-timer-msecs" or name == "standby-timer-secs" or name == "state-change-count" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "use-bia-configured" or name == "use-configured-timers" or name == "use-configured-virtual-ip" or name == "version" or name == "virtual-ip-address" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state"):
                         return True
-
-                    if self.slaves is not None:
-                        return True
-
-                    if self.standby_ip_address is not None:
-                        return True
-
-                    if self.standby_ipv6_address is not None:
-                        return True
-
-                    if self.standby_mac_address is not None:
-                        return True
-
-                    if self.standby_timer_flag is not None:
-                        return True
-
-                    if self.standby_timer_msecs is not None:
-                        return True
-
-                    if self.standby_timer_secs is not None:
-                        return True
-
-                    if self.state_change_count is not None:
-                        return True
-
-                    if self.state_change_history is not None:
-                        for child_ref in self.state_change_history:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.statistics is not None and self.statistics._has_data():
-                        return True
-
-                    if self.tracked_interface_count is not None:
-                        return True
-
-                    if self.tracked_interface_up_count is not None:
-                        return True
-
-                    if self.use_bia_configured is not None:
-                        return True
-
-                    if self.use_configured_timers is not None:
-                        return True
-
-                    if self.use_configured_virtual_ip is not None:
-                        return True
-
-                    if self.version is not None:
-                        return True
-
-                    if self.virtual_ip_address is not None:
-                        return True
-
-                    if self.virtual_linklocal_ipv6_address is not None:
-                        return True
-
-                    if self.virtual_mac_address is not None:
-                        return True
-
-                    if self.virtual_mac_address_state is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.Ipv4.Groups.Group']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group-number"):
+                        self.group_number = value
+                        self.group_number.value_namespace = name_space
+                        self.group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-ip-address"):
+                        self.active_ip_address = value
+                        self.active_ip_address.value_namespace = name_space
+                        self.active_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-ipv6-address"):
+                        self.active_ipv6_address = value
+                        self.active_ipv6_address.value_namespace = name_space
+                        self.active_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-mac-address"):
+                        self.active_mac_address = value
+                        self.active_mac_address.value_namespace = name_space
+                        self.active_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-priority"):
+                        self.active_priority = value
+                        self.active_priority.value_namespace = name_space
+                        self.active_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-timer-flag"):
+                        self.active_timer_flag = value
+                        self.active_timer_flag.value_namespace = name_space
+                        self.active_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-timer-msecs"):
+                        self.active_timer_msecs = value
+                        self.active_timer_msecs.value_namespace = name_space
+                        self.active_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-timer-secs"):
+                        self.active_timer_secs = value
+                        self.active_timer_secs.value_namespace = name_space
+                        self.active_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "address-family"):
+                        self.address_family = value
+                        self.address_family.value_namespace = name_space
+                        self.address_family.value_namespace_prefix = name_space_prefix
+                    if(value_path == "authentication-string"):
+                        self.authentication_string = value
+                        self.authentication_string.value_namespace = name_space
+                        self.authentication_string.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-enabled"):
+                        self.bfd_enabled = value
+                        self.bfd_enabled.value_namespace = name_space
+                        self.bfd_enabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-interface"):
+                        self.bfd_interface = value
+                        self.bfd_interface.value_namespace = name_space
+                        self.bfd_interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-interval"):
+                        self.bfd_interval = value
+                        self.bfd_interval.value_namespace = name_space
+                        self.bfd_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-multiplier"):
+                        self.bfd_multiplier = value
+                        self.bfd_multiplier.value_namespace = name_space
+                        self.bfd_multiplier.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-peer-ip-address"):
+                        self.bfd_peer_ip_address = value
+                        self.bfd_peer_ip_address.value_namespace = name_space
+                        self.bfd_peer_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-peer-ipv6-address"):
+                        self.bfd_peer_ipv6_address = value
+                        self.bfd_peer_ipv6_address.value_namespace = name_space
+                        self.bfd_peer_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-session-state"):
+                        self.bfd_session_state = value
+                        self.bfd_session_state.value_namespace = name_space
+                        self.bfd_session_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "configured-mac-address"):
+                        self.configured_mac_address = value
+                        self.configured_mac_address.value_namespace = name_space
+                        self.configured_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "configured-priority"):
+                        self.configured_priority = value
+                        self.configured_priority.value_namespace = name_space
+                        self.configured_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "configured-timers"):
+                        self.configured_timers = value
+                        self.configured_timers.value_namespace = name_space
+                        self.configured_timers.value_namespace_prefix = name_space_prefix
+                    if(value_path == "current-state-timer-secs"):
+                        self.current_state_timer_secs = value
+                        self.current_state_timer_secs.value_namespace = name_space
+                        self.current_state_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delay-timer-flag"):
+                        self.delay_timer_flag = value
+                        self.delay_timer_flag.value_namespace = name_space
+                        self.delay_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delay-timer-msecs"):
+                        self.delay_timer_msecs = value
+                        self.delay_timer_msecs.value_namespace = name_space
+                        self.delay_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delay-timer-secs"):
+                        self.delay_timer_secs = value
+                        self.delay_timer_secs.value_namespace = name_space
+                        self.delay_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "followed-session-name"):
+                        self.followed_session_name = value
+                        self.followed_session_name.value_namespace = name_space
+                        self.followed_session_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-time"):
+                        self.hello_time = value
+                        self.hello_time.value_namespace = name_space
+                        self.hello_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-timer-flag"):
+                        self.hello_timer_flag = value
+                        self.hello_timer_flag.value_namespace = name_space
+                        self.hello_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-timer-msecs"):
+                        self.hello_timer_msecs = value
+                        self.hello_timer_msecs.value_namespace = name_space
+                        self.hello_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-timer-secs"):
+                        self.hello_timer_secs = value
+                        self.hello_timer_secs.value_namespace = name_space
+                        self.hello_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hold-time"):
+                        self.hold_time = value
+                        self.hold_time.value_namespace = name_space
+                        self.hold_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hsrp-group-number"):
+                        self.hsrp_group_number = value
+                        self.hsrp_group_number.value_namespace = name_space
+                        self.hsrp_group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hsrp-router-state"):
+                        self.hsrp_router_state = value
+                        self.hsrp_router_state.value_namespace = name_space
+                        self.hsrp_router_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-name-xr"):
+                        self.interface_name_xr = value
+                        self.interface_name_xr.value_namespace = name_space
+                        self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-slave"):
+                        self.is_slave = value
+                        self.is_slave.value_namespace = name_space
+                        self.is_slave.value_namespace_prefix = name_space_prefix
+                    if(value_path == "learned-hello-time"):
+                        self.learned_hello_time = value
+                        self.learned_hello_time.value_namespace = name_space
+                        self.learned_hello_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "learned-hold-time"):
+                        self.learned_hold_time = value
+                        self.learned_hold_time.value_namespace = name_space
+                        self.learned_hold_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "min-delay-time"):
+                        self.min_delay_time = value
+                        self.min_delay_time.value_namespace = name_space
+                        self.min_delay_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "preempt-delay"):
+                        self.preempt_delay = value
+                        self.preempt_delay.value_namespace = name_space
+                        self.preempt_delay.value_namespace_prefix = name_space_prefix
+                    if(value_path == "preempt-enabled"):
+                        self.preempt_enabled = value
+                        self.preempt_enabled.value_namespace = name_space
+                        self.preempt_enabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "preempt-timer-secs"):
+                        self.preempt_timer_secs = value
+                        self.preempt_timer_secs.value_namespace = name_space
+                        self.preempt_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redirects-disabled"):
+                        self.redirects_disabled = value
+                        self.redirects_disabled.value_namespace = name_space
+                        self.redirects_disabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reload-delay-time"):
+                        self.reload_delay_time = value
+                        self.reload_delay_time.value_namespace = name_space
+                        self.reload_delay_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "router-priority"):
+                        self.router_priority = value
+                        self.router_priority.value_namespace = name_space
+                        self.router_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "secondary-address"):
+                        self.secondary_address.append(value)
+                    if(value_path == "session-name"):
+                        self.session_name = value
+                        self.session_name.value_namespace = name_space
+                        self.session_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "slaves"):
+                        self.slaves = value
+                        self.slaves.value_namespace = name_space
+                        self.slaves.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-ip-address"):
+                        self.standby_ip_address = value
+                        self.standby_ip_address.value_namespace = name_space
+                        self.standby_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-ipv6-address"):
+                        self.standby_ipv6_address = value
+                        self.standby_ipv6_address.value_namespace = name_space
+                        self.standby_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-mac-address"):
+                        self.standby_mac_address = value
+                        self.standby_mac_address.value_namespace = name_space
+                        self.standby_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-timer-flag"):
+                        self.standby_timer_flag = value
+                        self.standby_timer_flag.value_namespace = name_space
+                        self.standby_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-timer-msecs"):
+                        self.standby_timer_msecs = value
+                        self.standby_timer_msecs.value_namespace = name_space
+                        self.standby_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-timer-secs"):
+                        self.standby_timer_secs = value
+                        self.standby_timer_secs.value_namespace = name_space
+                        self.standby_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state-change-count"):
+                        self.state_change_count = value
+                        self.state_change_count.value_namespace = name_space
+                        self.state_change_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-count"):
+                        self.tracked_interface_count = value
+                        self.tracked_interface_count.value_namespace = name_space
+                        self.tracked_interface_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-up-count"):
+                        self.tracked_interface_up_count = value
+                        self.tracked_interface_up_count.value_namespace = name_space
+                        self.tracked_interface_up_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-bia-configured"):
+                        self.use_bia_configured = value
+                        self.use_bia_configured.value_namespace = name_space
+                        self.use_bia_configured.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-configured-timers"):
+                        self.use_configured_timers = value
+                        self.use_configured_timers.value_namespace = name_space
+                        self.use_configured_timers.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-configured-virtual-ip"):
+                        self.use_configured_virtual_ip = value
+                        self.use_configured_virtual_ip.value_namespace = name_space
+                        self.use_configured_virtual_ip.value_namespace_prefix = name_space_prefix
+                    if(value_path == "version"):
+                        self.version = value
+                        self.version.value_namespace = name_space
+                        self.version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-ip-address"):
+                        self.virtual_ip_address = value
+                        self.virtual_ip_address.value_namespace = name_space
+                        self.virtual_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-linklocal-ipv6-address"):
+                        self.virtual_linklocal_ipv6_address = value
+                        self.virtual_linklocal_ipv6_address.value_namespace = name_space
+                        self.virtual_linklocal_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-mac-address"):
+                        self.virtual_mac_address = value
+                        self.virtual_mac_address.value_namespace = name_space
+                        self.virtual_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-mac-address-state"):
+                        self.virtual_mac_address_state = value
+                        self.virtual_mac_address_state.value_namespace = name_space
+                        self.virtual_mac_address_state.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:groups'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                for c in self.group:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            def _has_data(self):
-                if self.group is not None:
-                    for child_ref in self.group:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.group:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "groups" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "group"):
+                    for c in self.group:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.Ipv4.Groups.Group()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.group.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "group"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.Ipv4.Groups']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class TrackedInterfaces(object):
+        class TrackedInterfaces(Entity):
             """
             The HSRP tracked interfaces table
             
@@ -1951,13 +3153,39 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.tracked_interface = YList()
-                self.tracked_interface.parent = self
-                self.tracked_interface.name = 'tracked_interface'
+                super(Hsrp.Ipv4.TrackedInterfaces, self).__init__()
+
+                self.yang_name = "tracked-interfaces"
+                self.yang_parent_name = "ipv4"
+
+                self.tracked_interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.Ipv4.TrackedInterfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.Ipv4.TrackedInterfaces, self).__setattr__(name, value)
 
 
-            class TrackedInterface(object):
+            class TrackedInterface(Entity):
                 """
                 An HSRP tracked interface entry
                 
@@ -2028,91 +3256,231 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.group_number = None
-                    self.tracked_interface_name = None
-                    self.hsrp_group_number = None
-                    self.interface = None
-                    self.interface_up_flag = None
-                    self.is_object = None
-                    self.priority_decrement = None
-                    self.tracked_interface_name_xr = None
+                    super(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
-                    if self.tracked_interface_name is None:
-                        raise YPYModelError('Key property tracked_interface_name is None')
+                    self.yang_name = "tracked-interface"
+                    self.yang_parent_name = "tracked-interfaces"
 
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
+                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.group_number = YLeaf(YType.int32, "group-number")
+
+                    self.tracked_interface_name = YLeaf(YType.str, "tracked-interface-name")
+
+                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.interface_up_flag = YLeaf(YType.boolean, "interface-up-flag")
+
+                    self.is_object = YLeaf(YType.boolean, "is-object")
+
+                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
+
+                    self.tracked_interface_name_xr = YLeaf(YType.str, "tracked-interface-name-xr")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "group_number",
+                                    "tracked_interface_name",
+                                    "hsrp_group_number",
+                                    "interface",
+                                    "interface_up_flag",
+                                    "is_object",
+                                    "priority_decrement",
+                                    "tracked_interface_name_xr") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.interface_name.is_set or
+                        self.group_number.is_set or
+                        self.tracked_interface_name.is_set or
+                        self.hsrp_group_number.is_set or
+                        self.interface.is_set or
+                        self.interface_up_flag.is_set or
+                        self.is_object.is_set or
+                        self.priority_decrement.is_set or
+                        self.tracked_interface_name_xr.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.group_number.yfilter != YFilter.not_set or
+                        self.tracked_interface_name.yfilter != YFilter.not_set or
+                        self.hsrp_group_number.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.interface_up_flag.yfilter != YFilter.not_set or
+                        self.is_object.yfilter != YFilter.not_set or
+                        self.priority_decrement.yfilter != YFilter.not_set or
+                        self.tracked_interface_name_xr.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "tracked-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']" + "[tracked-interface-name='" + self.tracked_interface_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/tracked-interfaces/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.group_number.is_set or self.group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group_number.get_name_leafdata())
+                    if (self.tracked_interface_name.is_set or self.tracked_interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_name.get_name_leafdata())
+                    if (self.hsrp_group_number.is_set or self.hsrp_group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hsrp_group_number.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.interface_up_flag.is_set or self.interface_up_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_up_flag.get_name_leafdata())
+                    if (self.is_object.is_set or self.is_object.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_object.get_name_leafdata())
+                    if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+                    if (self.tracked_interface_name_xr.is_set or self.tracked_interface_name_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_name_xr.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-name" or name == "group-number" or name == "tracked-interface-name" or name == "hsrp-group-number" or name == "interface" or name == "interface-up-flag" or name == "is-object" or name == "priority-decrement" or name == "tracked-interface-name-xr"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group-number"):
+                        self.group_number = value
+                        self.group_number.value_namespace = name_space
+                        self.group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-name"):
+                        self.tracked_interface_name = value
+                        self.tracked_interface_name.value_namespace = name_space
+                        self.tracked_interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hsrp-group-number"):
+                        self.hsrp_group_number = value
+                        self.hsrp_group_number.value_namespace = name_space
+                        self.hsrp_group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-up-flag"):
+                        self.interface_up_flag = value
+                        self.interface_up_flag.value_namespace = name_space
+                        self.interface_up_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-object"):
+                        self.is_object = value
+                        self.is_object.value_namespace = name_space
+                        self.is_object.value_namespace_prefix = name_space_prefix
+                    if(value_path == "priority-decrement"):
+                        self.priority_decrement = value
+                        self.priority_decrement.value_namespace = name_space
+                        self.priority_decrement.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-name-xr"):
+                        self.tracked_interface_name_xr = value
+                        self.tracked_interface_name_xr.value_namespace = name_space
+                        self.tracked_interface_name_xr.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.tracked_interface:
+                    if (c.has_data()):
                         return True
-
-                    if self.group_number is not None:
-                        return True
-
-                    if self.tracked_interface_name is not None:
-                        return True
-
-                    if self.hsrp_group_number is not None:
-                        return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.interface_up_flag is not None:
-                        return True
-
-                    if self.is_object is not None:
-                        return True
-
-                    if self.priority_decrement is not None:
-                        return True
-
-                    if self.tracked_interface_name_xr is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.Ipv4.TrackedInterfaces.TrackedInterface']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.tracked_interface is not None:
-                    for child_ref in self.tracked_interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.tracked_interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "tracked-interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "tracked-interface"):
+                    for c in self.tracked_interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.Ipv4.TrackedInterfaces.TrackedInterface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.tracked_interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "tracked-interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.Ipv4.TrackedInterfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Interfaces(object):
+        class Interfaces(Entity):
             """
             The HSRP interface information table
             
@@ -2129,13 +3497,39 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
+                super(Hsrp.Ipv4.Interfaces, self).__init__()
+
+                self.yang_name = "interfaces"
+                self.yang_parent_name = "ipv4"
+
+                self.interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.Ipv4.Interfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.Ipv4.Interfaces, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 A HSRP interface entry
                 
@@ -2171,15 +3565,50 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.interface = None
+                    super(Hsrp.Ipv4.Interfaces.Interface, self).__init__()
+
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "interfaces"
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.use_bia_flag = YLeaf(YType.boolean, "use-bia-flag")
+
                     self.statistics = Hsrp.Ipv4.Interfaces.Interface.Statistics()
                     self.statistics.parent = self
-                    self.use_bia_flag = None
+                    self._children_name_map["statistics"] = "statistics"
+                    self._children_yang_names.add("statistics")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "interface",
+                                    "use_bia_flag") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Ipv4.Interfaces.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Ipv4.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                class Statistics(object):
+                class Statistics(Entity):
                     """
                     HSRP Interface Statistics
                     
@@ -2254,144 +3683,370 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.advert_packets_received = None
-                        self.advert_packets_sent = None
-                        self.conflict_source_ip_address_received = None
-                        self.inoperational_group_received = None
-                        self.invalid_operation_code_received = None
-                        self.invalid_version_received = None
-                        self.long_packets_received = None
-                        self.short_packets_received = None
-                        self.unknown_group_received = None
+                        super(Hsrp.Ipv4.Interfaces.Interface.Statistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "statistics"
+                        self.yang_parent_name = "interface"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:statistics'
+                        self.advert_packets_received = YLeaf(YType.uint32, "advert-packets-received")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.advert_packets_sent = YLeaf(YType.uint32, "advert-packets-sent")
+
+                        self.conflict_source_ip_address_received = YLeaf(YType.uint32, "conflict-source-ip-address-received")
+
+                        self.inoperational_group_received = YLeaf(YType.uint32, "inoperational-group-received")
+
+                        self.invalid_operation_code_received = YLeaf(YType.uint32, "invalid-operation-code-received")
+
+                        self.invalid_version_received = YLeaf(YType.uint32, "invalid-version-received")
+
+                        self.long_packets_received = YLeaf(YType.uint32, "long-packets-received")
+
+                        self.short_packets_received = YLeaf(YType.uint32, "short-packets-received")
+
+                        self.unknown_group_received = YLeaf(YType.uint32, "unknown-group-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("advert_packets_received",
+                                        "advert_packets_sent",
+                                        "conflict_source_ip_address_received",
+                                        "inoperational_group_received",
+                                        "invalid_operation_code_received",
+                                        "invalid_version_received",
+                                        "long_packets_received",
+                                        "short_packets_received",
+                                        "unknown_group_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv4.Interfaces.Interface.Statistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv4.Interfaces.Interface.Statistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.advert_packets_received.is_set or
+                            self.advert_packets_sent.is_set or
+                            self.conflict_source_ip_address_received.is_set or
+                            self.inoperational_group_received.is_set or
+                            self.invalid_operation_code_received.is_set or
+                            self.invalid_version_received.is_set or
+                            self.long_packets_received.is_set or
+                            self.short_packets_received.is_set or
+                            self.unknown_group_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.advert_packets_received.yfilter != YFilter.not_set or
+                            self.advert_packets_sent.yfilter != YFilter.not_set or
+                            self.conflict_source_ip_address_received.yfilter != YFilter.not_set or
+                            self.inoperational_group_received.yfilter != YFilter.not_set or
+                            self.invalid_operation_code_received.yfilter != YFilter.not_set or
+                            self.invalid_version_received.yfilter != YFilter.not_set or
+                            self.long_packets_received.yfilter != YFilter.not_set or
+                            self.short_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_group_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.advert_packets_received.is_set or self.advert_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.advert_packets_received.get_name_leafdata())
+                        if (self.advert_packets_sent.is_set or self.advert_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.advert_packets_sent.get_name_leafdata())
+                        if (self.conflict_source_ip_address_received.is_set or self.conflict_source_ip_address_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.conflict_source_ip_address_received.get_name_leafdata())
+                        if (self.inoperational_group_received.is_set or self.inoperational_group_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inoperational_group_received.get_name_leafdata())
+                        if (self.invalid_operation_code_received.is_set or self.invalid_operation_code_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_operation_code_received.get_name_leafdata())
+                        if (self.invalid_version_received.is_set or self.invalid_version_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_version_received.get_name_leafdata())
+                        if (self.long_packets_received.is_set or self.long_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.long_packets_received.get_name_leafdata())
+                        if (self.short_packets_received.is_set or self.short_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.short_packets_received.get_name_leafdata())
+                        if (self.unknown_group_received.is_set or self.unknown_group_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_group_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "advert-packets-received" or name == "advert-packets-sent" or name == "conflict-source-ip-address-received" or name == "inoperational-group-received" or name == "invalid-operation-code-received" or name == "invalid-version-received" or name == "long-packets-received" or name == "short-packets-received" or name == "unknown-group-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.advert_packets_received is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "advert-packets-received"):
+                            self.advert_packets_received = value
+                            self.advert_packets_received.value_namespace = name_space
+                            self.advert_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "advert-packets-sent"):
+                            self.advert_packets_sent = value
+                            self.advert_packets_sent.value_namespace = name_space
+                            self.advert_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "conflict-source-ip-address-received"):
+                            self.conflict_source_ip_address_received = value
+                            self.conflict_source_ip_address_received.value_namespace = name_space
+                            self.conflict_source_ip_address_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "inoperational-group-received"):
+                            self.inoperational_group_received = value
+                            self.inoperational_group_received.value_namespace = name_space
+                            self.inoperational_group_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-operation-code-received"):
+                            self.invalid_operation_code_received = value
+                            self.invalid_operation_code_received.value_namespace = name_space
+                            self.invalid_operation_code_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-version-received"):
+                            self.invalid_version_received = value
+                            self.invalid_version_received.value_namespace = name_space
+                            self.invalid_version_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "long-packets-received"):
+                            self.long_packets_received = value
+                            self.long_packets_received.value_namespace = name_space
+                            self.long_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "short-packets-received"):
+                            self.short_packets_received = value
+                            self.short_packets_received.value_namespace = name_space
+                            self.short_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-group-received"):
+                            self.unknown_group_received = value
+                            self.unknown_group_received.value_namespace = name_space
+                            self.unknown_group_received.value_namespace_prefix = name_space_prefix
 
-                        if self.advert_packets_sent is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        self.interface_name.is_set or
+                        self.interface.is_set or
+                        self.use_bia_flag.is_set or
+                        (self.statistics is not None and self.statistics.has_data()))
 
-                        if self.conflict_source_ip_address_received is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.use_bia_flag.yfilter != YFilter.not_set or
+                        (self.statistics is not None and self.statistics.has_operation()))
 
-                        if self.inoperational_group_received is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                        if self.invalid_operation_code_received is not None:
-                            return True
+                    return path_buffer
 
-                        if self.invalid_version_received is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/interfaces/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.long_packets_received is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.use_bia_flag.is_set or self.use_bia_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_bia_flag.get_name_leafdata())
 
-                        if self.short_packets_received is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.unknown_group_received is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        return False
+                    if (child_yang_name == "statistics"):
+                        if (self.statistics is None):
+                            self.statistics = Hsrp.Ipv4.Interfaces.Interface.Statistics()
+                            self.statistics.parent = self
+                            self._children_name_map["statistics"] = "statistics"
+                        return self.statistics
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv4.Interfaces.Interface.Statistics']['meta_info']
+                    return None
 
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
-
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:interface[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "statistics" or name == "interface-name" or name == "interface" or name == "use-bia-flag"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-bia-flag"):
+                        self.use_bia_flag = value
+                        self.use_bia_flag.value_namespace = name_space
+                        self.use_bia_flag.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.interface:
+                    if (c.has_data()):
                         return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.statistics is not None and self.statistics._has_data():
-                        return True
-
-                    if self.use_bia_flag is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.Ipv4.Interfaces.Interface']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4/Cisco-IOS-XR-ipv4-hsrp-oper:interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv4/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.Ipv4.Interfaces.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.Ipv4.Interfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.groups is not None and self.groups.has_data()) or
+                (self.interfaces is not None and self.interfaces.has_data()) or
+                (self.tracked_interfaces is not None and self.tracked_interfaces.has_data()))
 
-            return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv4'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.groups is not None and self.groups.has_operation()) or
+                (self.interfaces is not None and self.interfaces.has_operation()) or
+                (self.tracked_interfaces is not None and self.tracked_interfaces.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ipv4" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "groups"):
+                if (self.groups is None):
+                    self.groups = Hsrp.Ipv4.Groups()
+                    self.groups.parent = self
+                    self._children_name_map["groups"] = "groups"
+                return self.groups
+
+            if (child_yang_name == "interfaces"):
+                if (self.interfaces is None):
+                    self.interfaces = Hsrp.Ipv4.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                return self.interfaces
+
+            if (child_yang_name == "tracked-interfaces"):
+                if (self.tracked_interfaces is None):
+                    self.tracked_interfaces = Hsrp.Ipv4.TrackedInterfaces()
+                    self.tracked_interfaces.parent = self
+                    self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                return self.tracked_interfaces
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "groups" or name == "interfaces" or name == "tracked-interfaces"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.groups is not None and self.groups._has_data():
-                return True
-
-            if self.interfaces is not None and self.interfaces._has_data():
-                return True
-
-            if self.tracked_interfaces is not None and self.tracked_interfaces._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-            return meta._meta_table['Hsrp.Ipv4']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class MgoSessions(object):
+    class MgoSessions(Entity):
         """
         HSRP MGO session table
         
@@ -2408,13 +4063,39 @@ class Hsrp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.mgo_session = YList()
-            self.mgo_session.parent = self
-            self.mgo_session.name = 'mgo_session'
+            super(Hsrp.MgoSessions, self).__init__()
+
+            self.yang_name = "mgo-sessions"
+            self.yang_parent_name = "hsrp"
+
+            self.mgo_session = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Hsrp.MgoSessions, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Hsrp.MgoSessions, self).__setattr__(name, value)
 
 
-        class MgoSession(object):
+        class MgoSession(Entity):
             """
             HSRP MGO session
             
@@ -2428,7 +4109,7 @@ class Hsrp(object):
             .. attribute:: primary_af_name
             
             	Address family of primary session
-            	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+            	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
             
             .. attribute:: primary_session_interface
             
@@ -2454,7 +4135,7 @@ class Hsrp(object):
             .. attribute:: primary_session_state
             
             	State of primary session
-            	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+            	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
             
             .. attribute:: slave
             
@@ -2469,19 +4150,56 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.session_name = None
-                self.primary_af_name = None
-                self.primary_session_interface = None
-                self.primary_session_name = None
-                self.primary_session_number = None
-                self.primary_session_state = None
-                self.slave = YList()
-                self.slave.parent = self
-                self.slave.name = 'slave'
+                super(Hsrp.MgoSessions.MgoSession, self).__init__()
+
+                self.yang_name = "mgo-session"
+                self.yang_parent_name = "mgo-sessions"
+
+                self.session_name = YLeaf(YType.str, "session-name")
+
+                self.primary_af_name = YLeaf(YType.enumeration, "primary-af-name")
+
+                self.primary_session_interface = YLeaf(YType.str, "primary-session-interface")
+
+                self.primary_session_name = YLeaf(YType.str, "primary-session-name")
+
+                self.primary_session_number = YLeaf(YType.uint32, "primary-session-number")
+
+                self.primary_session_state = YLeaf(YType.enumeration, "primary-session-state")
+
+                self.slave = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("session_name",
+                                "primary_af_name",
+                                "primary_session_interface",
+                                "primary_session_name",
+                                "primary_session_number",
+                                "primary_session_state") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.MgoSessions.MgoSession, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.MgoSessions.MgoSession, self).__setattr__(name, value)
 
 
-            class Slave(object):
+            class Slave(Entity):
                 """
                 List of slaves following this primary session
                 
@@ -2507,101 +4225,259 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.slave_group_interface = None
-                    self.slave_group_number = None
+                    super(Hsrp.MgoSessions.MgoSession.Slave, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "slave"
+                    self.yang_parent_name = "mgo-session"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:slave'
+                    self.slave_group_interface = YLeaf(YType.str, "slave-group-interface")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.slave_group_number = YLeaf(YType.uint32, "slave-group-number")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("slave_group_interface",
+                                    "slave_group_number") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.MgoSessions.MgoSession.Slave, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.MgoSessions.MgoSession.Slave, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.slave_group_interface.is_set or
+                        self.slave_group_number.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.slave_group_interface.yfilter != YFilter.not_set or
+                        self.slave_group_number.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "slave" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.slave_group_interface.is_set or self.slave_group_interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.slave_group_interface.get_name_leafdata())
+                    if (self.slave_group_number.is_set or self.slave_group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.slave_group_number.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "slave-group-interface" or name == "slave-group-number"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.slave_group_interface is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "slave-group-interface"):
+                        self.slave_group_interface = value
+                        self.slave_group_interface.value_namespace = name_space
+                        self.slave_group_interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "slave-group-number"):
+                        self.slave_group_number = value
+                        self.slave_group_number.value_namespace = name_space
+                        self.slave_group_number.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.slave:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.session_name.is_set or
+                    self.primary_af_name.is_set or
+                    self.primary_session_interface.is_set or
+                    self.primary_session_name.is_set or
+                    self.primary_session_number.is_set or
+                    self.primary_session_state.is_set)
 
-                    if self.slave_group_number is not None:
+            def has_operation(self):
+                for c in self.slave:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.session_name.yfilter != YFilter.not_set or
+                    self.primary_af_name.yfilter != YFilter.not_set or
+                    self.primary_session_interface.yfilter != YFilter.not_set or
+                    self.primary_session_name.yfilter != YFilter.not_set or
+                    self.primary_session_number.yfilter != YFilter.not_set or
+                    self.primary_session_state.yfilter != YFilter.not_set)
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "mgo-session" + "[session-name='" + self.session_name.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.MgoSessions.MgoSession.Slave']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.session_name is None:
-                    raise YPYModelError('Key property session_name is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/mgo-sessions/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:mgo-sessions/Cisco-IOS-XR-ipv4-hsrp-oper:mgo-session[Cisco-IOS-XR-ipv4-hsrp-oper:session-name = ' + str(self.session_name) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.session_name.get_name_leafdata())
+                if (self.primary_af_name.is_set or self.primary_af_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.primary_af_name.get_name_leafdata())
+                if (self.primary_session_interface.is_set or self.primary_session_interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.primary_session_interface.get_name_leafdata())
+                if (self.primary_session_name.is_set or self.primary_session_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.primary_session_name.get_name_leafdata())
+                if (self.primary_session_number.is_set or self.primary_session_number.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.primary_session_number.get_name_leafdata())
+                if (self.primary_session_state.is_set or self.primary_session_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.primary_session_state.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "slave"):
+                    for c in self.slave:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.MgoSessions.MgoSession.Slave()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.slave.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "slave" or name == "session-name" or name == "primary-af-name" or name == "primary-session-interface" or name == "primary-session-name" or name == "primary-session-number" or name == "primary-session-state"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.session_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "session-name"):
+                    self.session_name = value
+                    self.session_name.value_namespace = name_space
+                    self.session_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "primary-af-name"):
+                    self.primary_af_name = value
+                    self.primary_af_name.value_namespace = name_space
+                    self.primary_af_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "primary-session-interface"):
+                    self.primary_session_interface = value
+                    self.primary_session_interface.value_namespace = name_space
+                    self.primary_session_interface.value_namespace_prefix = name_space_prefix
+                if(value_path == "primary-session-name"):
+                    self.primary_session_name = value
+                    self.primary_session_name.value_namespace = name_space
+                    self.primary_session_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "primary-session-number"):
+                    self.primary_session_number = value
+                    self.primary_session_number.value_namespace = name_space
+                    self.primary_session_number.value_namespace_prefix = name_space_prefix
+                if(value_path == "primary-session-state"):
+                    self.primary_session_state = value
+                    self.primary_session_state.value_namespace = name_space
+                    self.primary_session_state.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.mgo_session:
+                if (c.has_data()):
                     return True
-
-                if self.primary_af_name is not None:
-                    return True
-
-                if self.primary_session_interface is not None:
-                    return True
-
-                if self.primary_session_name is not None:
-                    return True
-
-                if self.primary_session_number is not None:
-                    return True
-
-                if self.primary_session_state is not None:
-                    return True
-
-                if self.slave is not None:
-                    for child_ref in self.slave:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.MgoSessions.MgoSession']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:mgo-sessions'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.mgo_session is not None:
-                for child_ref in self.mgo_session:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.mgo_session:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "mgo-sessions" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "mgo-session"):
+                for c in self.mgo_session:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Hsrp.MgoSessions.MgoSession()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.mgo_session.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "mgo-session"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-            return meta._meta_table['Hsrp.MgoSessions']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ipv6(object):
+    class Ipv6(Entity):
         """
         IPv6 HSRP information
         
@@ -2628,16 +4504,28 @@ class Hsrp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Hsrp.Ipv6, self).__init__()
+
+            self.yang_name = "ipv6"
+            self.yang_parent_name = "hsrp"
+
             self.groups = Hsrp.Ipv6.Groups()
             self.groups.parent = self
+            self._children_name_map["groups"] = "groups"
+            self._children_yang_names.add("groups")
+
             self.interfaces = Hsrp.Ipv6.Interfaces()
             self.interfaces.parent = self
+            self._children_name_map["interfaces"] = "interfaces"
+            self._children_yang_names.add("interfaces")
+
             self.tracked_interfaces = Hsrp.Ipv6.TrackedInterfaces()
             self.tracked_interfaces.parent = self
+            self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+            self._children_yang_names.add("tracked-interfaces")
 
 
-        class TrackedInterfaces(object):
+        class TrackedInterfaces(Entity):
             """
             The HSRP tracked interfaces table
             
@@ -2654,13 +4542,39 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.tracked_interface = YList()
-                self.tracked_interface.parent = self
-                self.tracked_interface.name = 'tracked_interface'
+                super(Hsrp.Ipv6.TrackedInterfaces, self).__init__()
+
+                self.yang_name = "tracked-interfaces"
+                self.yang_parent_name = "ipv6"
+
+                self.tracked_interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.Ipv6.TrackedInterfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.Ipv6.TrackedInterfaces, self).__setattr__(name, value)
 
 
-            class TrackedInterface(object):
+            class TrackedInterface(Entity):
                 """
                 An HSRP tracked interface entry
                 
@@ -2731,91 +4645,231 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.group_number = None
-                    self.tracked_interface_name = None
-                    self.hsrp_group_number = None
-                    self.interface = None
-                    self.interface_up_flag = None
-                    self.is_object = None
-                    self.priority_decrement = None
-                    self.tracked_interface_name_xr = None
+                    super(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
-                    if self.tracked_interface_name is None:
-                        raise YPYModelError('Key property tracked_interface_name is None')
+                    self.yang_name = "tracked-interface"
+                    self.yang_parent_name = "tracked-interfaces"
 
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + '][Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interface-name = ' + str(self.tracked_interface_name) + ']'
+                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.group_number = YLeaf(YType.int32, "group-number")
+
+                    self.tracked_interface_name = YLeaf(YType.str, "tracked-interface-name")
+
+                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.interface_up_flag = YLeaf(YType.boolean, "interface-up-flag")
+
+                    self.is_object = YLeaf(YType.boolean, "is-object")
+
+                    self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
+
+                    self.tracked_interface_name_xr = YLeaf(YType.str, "tracked-interface-name-xr")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "group_number",
+                                    "tracked_interface_name",
+                                    "hsrp_group_number",
+                                    "interface",
+                                    "interface_up_flag",
+                                    "is_object",
+                                    "priority_decrement",
+                                    "tracked_interface_name_xr") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.interface_name.is_set or
+                        self.group_number.is_set or
+                        self.tracked_interface_name.is_set or
+                        self.hsrp_group_number.is_set or
+                        self.interface.is_set or
+                        self.interface_up_flag.is_set or
+                        self.is_object.is_set or
+                        self.priority_decrement.is_set or
+                        self.tracked_interface_name_xr.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.group_number.yfilter != YFilter.not_set or
+                        self.tracked_interface_name.yfilter != YFilter.not_set or
+                        self.hsrp_group_number.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.interface_up_flag.yfilter != YFilter.not_set or
+                        self.is_object.yfilter != YFilter.not_set or
+                        self.priority_decrement.yfilter != YFilter.not_set or
+                        self.tracked_interface_name_xr.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "tracked-interface" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']" + "[tracked-interface-name='" + self.tracked_interface_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/tracked-interfaces/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.group_number.is_set or self.group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group_number.get_name_leafdata())
+                    if (self.tracked_interface_name.is_set or self.tracked_interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_name.get_name_leafdata())
+                    if (self.hsrp_group_number.is_set or self.hsrp_group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hsrp_group_number.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.interface_up_flag.is_set or self.interface_up_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_up_flag.get_name_leafdata())
+                    if (self.is_object.is_set or self.is_object.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_object.get_name_leafdata())
+                    if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+                    if (self.tracked_interface_name_xr.is_set or self.tracked_interface_name_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_name_xr.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-name" or name == "group-number" or name == "tracked-interface-name" or name == "hsrp-group-number" or name == "interface" or name == "interface-up-flag" or name == "is-object" or name == "priority-decrement" or name == "tracked-interface-name-xr"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group-number"):
+                        self.group_number = value
+                        self.group_number.value_namespace = name_space
+                        self.group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-name"):
+                        self.tracked_interface_name = value
+                        self.tracked_interface_name.value_namespace = name_space
+                        self.tracked_interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hsrp-group-number"):
+                        self.hsrp_group_number = value
+                        self.hsrp_group_number.value_namespace = name_space
+                        self.hsrp_group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-up-flag"):
+                        self.interface_up_flag = value
+                        self.interface_up_flag.value_namespace = name_space
+                        self.interface_up_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-object"):
+                        self.is_object = value
+                        self.is_object.value_namespace = name_space
+                        self.is_object.value_namespace_prefix = name_space_prefix
+                    if(value_path == "priority-decrement"):
+                        self.priority_decrement = value
+                        self.priority_decrement.value_namespace = name_space
+                        self.priority_decrement.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-name-xr"):
+                        self.tracked_interface_name_xr = value
+                        self.tracked_interface_name_xr.value_namespace = name_space
+                        self.tracked_interface_name_xr.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.tracked_interface:
+                    if (c.has_data()):
                         return True
-
-                    if self.group_number is not None:
-                        return True
-
-                    if self.tracked_interface_name is not None:
-                        return True
-
-                    if self.hsrp_group_number is not None:
-                        return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.interface_up_flag is not None:
-                        return True
-
-                    if self.is_object is not None:
-                        return True
-
-                    if self.priority_decrement is not None:
-                        return True
-
-                    if self.tracked_interface_name_xr is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.Ipv6.TrackedInterfaces.TrackedInterface']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:tracked-interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.tracked_interface is not None:
-                    for child_ref in self.tracked_interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.tracked_interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "tracked-interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "tracked-interface"):
+                    for c in self.tracked_interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.Ipv6.TrackedInterfaces.TrackedInterface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.tracked_interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "tracked-interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.Ipv6.TrackedInterfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Groups(object):
+        class Groups(Entity):
             """
             The HSRP standby group table
             
@@ -2832,13 +4886,39 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.group = YList()
-                self.group.parent = self
-                self.group.name = 'group'
+                super(Hsrp.Ipv6.Groups, self).__init__()
+
+                self.yang_name = "groups"
+                self.yang_parent_name = "ipv6"
+
+                self.group = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.Ipv6.Groups, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.Ipv6.Groups, self).__setattr__(name, value)
 
 
-            class Group(object):
+            class Group(Entity):
                 """
                 An HSRP standby group
                 
@@ -2910,7 +4990,7 @@ class Hsrp(object):
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+                	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
                 
                 .. attribute:: authentication_string
                 
@@ -2962,7 +5042,7 @@ class Hsrp(object):
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:   :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
+                	**type**\:   :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
                 
                 .. attribute:: configured_mac_address
                 
@@ -3086,7 +5166,7 @@ class Hsrp(object):
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
-                	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                 
                 .. attribute:: interface
                 
@@ -3330,7 +5410,7 @@ class Hsrp(object):
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:   :py:class:`HsrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacStateEnum>`
+                	**type**\:   :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
                 
                 
 
@@ -3340,93 +5420,259 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.group_number = None
-                    self.active_ip_address = None
-                    self.active_ipv6_address = None
-                    self.active_mac_address = None
-                    self.active_priority = None
-                    self.active_timer_flag = None
-                    self.active_timer_msecs = None
-                    self.active_timer_secs = None
-                    self.address_family = None
-                    self.authentication_string = None
-                    self.bfd_enabled = None
-                    self.bfd_interface = None
-                    self.bfd_interval = None
-                    self.bfd_multiplier = None
-                    self.bfd_peer_ip_address = None
-                    self.bfd_peer_ipv6_address = None
-                    self.bfd_session_state = None
-                    self.configured_mac_address = None
-                    self.configured_priority = None
-                    self.configured_timers = None
+                    super(Hsrp.Ipv6.Groups.Group, self).__init__()
+
+                    self.yang_name = "group"
+                    self.yang_parent_name = "groups"
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.group_number = YLeaf(YType.int32, "group-number")
+
+                    self.active_ip_address = YLeaf(YType.str, "active-ip-address")
+
+                    self.active_ipv6_address = YLeaf(YType.str, "active-ipv6-address")
+
+                    self.active_mac_address = YLeaf(YType.str, "active-mac-address")
+
+                    self.active_priority = YLeaf(YType.uint8, "active-priority")
+
+                    self.active_timer_flag = YLeaf(YType.boolean, "active-timer-flag")
+
+                    self.active_timer_msecs = YLeaf(YType.uint32, "active-timer-msecs")
+
+                    self.active_timer_secs = YLeaf(YType.uint32, "active-timer-secs")
+
+                    self.address_family = YLeaf(YType.enumeration, "address-family")
+
+                    self.authentication_string = YLeaf(YType.str, "authentication-string")
+
+                    self.bfd_enabled = YLeaf(YType.boolean, "bfd-enabled")
+
+                    self.bfd_interface = YLeaf(YType.str, "bfd-interface")
+
+                    self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
+
+                    self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
+
+                    self.bfd_peer_ip_address = YLeaf(YType.str, "bfd-peer-ip-address")
+
+                    self.bfd_peer_ipv6_address = YLeaf(YType.str, "bfd-peer-ipv6-address")
+
+                    self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
+
+                    self.configured_mac_address = YLeaf(YType.boolean, "configured-mac-address")
+
+                    self.configured_priority = YLeaf(YType.uint8, "configured-priority")
+
+                    self.configured_timers = YLeaf(YType.boolean, "configured-timers")
+
+                    self.current_state_timer_secs = YLeaf(YType.uint32, "current-state-timer-secs")
+
+                    self.delay_timer_flag = YLeaf(YType.boolean, "delay-timer-flag")
+
+                    self.delay_timer_msecs = YLeaf(YType.uint32, "delay-timer-msecs")
+
+                    self.delay_timer_secs = YLeaf(YType.uint32, "delay-timer-secs")
+
+                    self.followed_session_name = YLeaf(YType.str, "followed-session-name")
+
+                    self.hello_time = YLeaf(YType.uint32, "hello-time")
+
+                    self.hello_timer_flag = YLeaf(YType.boolean, "hello-timer-flag")
+
+                    self.hello_timer_msecs = YLeaf(YType.uint32, "hello-timer-msecs")
+
+                    self.hello_timer_secs = YLeaf(YType.uint32, "hello-timer-secs")
+
+                    self.hold_time = YLeaf(YType.uint32, "hold-time")
+
+                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
+
+                    self.hsrp_router_state = YLeaf(YType.enumeration, "hsrp-router-state")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                    self.is_slave = YLeaf(YType.boolean, "is-slave")
+
+                    self.learned_hello_time = YLeaf(YType.uint32, "learned-hello-time")
+
+                    self.learned_hold_time = YLeaf(YType.uint32, "learned-hold-time")
+
+                    self.min_delay_time = YLeaf(YType.uint32, "min-delay-time")
+
+                    self.preempt_delay = YLeaf(YType.uint32, "preempt-delay")
+
+                    self.preempt_enabled = YLeaf(YType.boolean, "preempt-enabled")
+
+                    self.preempt_timer_secs = YLeaf(YType.uint32, "preempt-timer-secs")
+
+                    self.redirects_disabled = YLeaf(YType.boolean, "redirects-disabled")
+
+                    self.reload_delay_time = YLeaf(YType.uint32, "reload-delay-time")
+
+                    self.router_priority = YLeaf(YType.uint8, "router-priority")
+
+                    self.secondary_address = YLeafList(YType.str, "secondary-address")
+
+                    self.session_name = YLeaf(YType.str, "session-name")
+
+                    self.slaves = YLeaf(YType.uint32, "slaves")
+
+                    self.standby_ip_address = YLeaf(YType.str, "standby-ip-address")
+
+                    self.standby_ipv6_address = YLeaf(YType.str, "standby-ipv6-address")
+
+                    self.standby_mac_address = YLeaf(YType.str, "standby-mac-address")
+
+                    self.standby_timer_flag = YLeaf(YType.boolean, "standby-timer-flag")
+
+                    self.standby_timer_msecs = YLeaf(YType.uint32, "standby-timer-msecs")
+
+                    self.standby_timer_secs = YLeaf(YType.uint32, "standby-timer-secs")
+
+                    self.state_change_count = YLeaf(YType.uint32, "state-change-count")
+
+                    self.tracked_interface_count = YLeaf(YType.uint32, "tracked-interface-count")
+
+                    self.tracked_interface_up_count = YLeaf(YType.uint32, "tracked-interface-up-count")
+
+                    self.use_bia_configured = YLeaf(YType.boolean, "use-bia-configured")
+
+                    self.use_configured_timers = YLeaf(YType.boolean, "use-configured-timers")
+
+                    self.use_configured_virtual_ip = YLeaf(YType.boolean, "use-configured-virtual-ip")
+
+                    self.version = YLeaf(YType.uint8, "version")
+
+                    self.virtual_ip_address = YLeaf(YType.str, "virtual-ip-address")
+
+                    self.virtual_linklocal_ipv6_address = YLeaf(YType.str, "virtual-linklocal-ipv6-address")
+
+                    self.virtual_mac_address = YLeaf(YType.str, "virtual-mac-address")
+
+                    self.virtual_mac_address_state = YLeaf(YType.enumeration, "virtual-mac-address-state")
+
                     self.coup_received_time = Hsrp.Ipv6.Groups.Group.CoupReceivedTime()
                     self.coup_received_time.parent = self
+                    self._children_name_map["coup_received_time"] = "coup-received-time"
+                    self._children_yang_names.add("coup-received-time")
+
                     self.coup_sent_time = Hsrp.Ipv6.Groups.Group.CoupSentTime()
                     self.coup_sent_time.parent = self
-                    self.current_state_timer_secs = None
-                    self.delay_timer_flag = None
-                    self.delay_timer_msecs = None
-                    self.delay_timer_secs = None
-                    self.followed_session_name = None
-                    self.global_address = YList()
-                    self.global_address.parent = self
-                    self.global_address.name = 'global_address'
-                    self.hello_time = None
-                    self.hello_timer_flag = None
-                    self.hello_timer_msecs = None
-                    self.hello_timer_secs = None
-                    self.hold_time = None
-                    self.hsrp_group_number = None
-                    self.hsrp_router_state = None
-                    self.interface = None
-                    self.interface_name_xr = None
-                    self.is_slave = None
-                    self.learned_hello_time = None
-                    self.learned_hold_time = None
-                    self.min_delay_time = None
-                    self.preempt_delay = None
-                    self.preempt_enabled = None
-                    self.preempt_timer_secs = None
-                    self.redirects_disabled = None
-                    self.reload_delay_time = None
+                    self._children_name_map["coup_sent_time"] = "coup-sent-time"
+                    self._children_yang_names.add("coup-sent-time")
+
                     self.resign_received_time = Hsrp.Ipv6.Groups.Group.ResignReceivedTime()
                     self.resign_received_time.parent = self
+                    self._children_name_map["resign_received_time"] = "resign-received-time"
+                    self._children_yang_names.add("resign-received-time")
+
                     self.resign_sent_time = Hsrp.Ipv6.Groups.Group.ResignSentTime()
                     self.resign_sent_time.parent = self
-                    self.router_priority = None
-                    self.secondary_address = YLeafList()
-                    self.secondary_address.parent = self
-                    self.secondary_address.name = 'secondary_address'
-                    self.session_name = None
-                    self.slaves = None
-                    self.standby_ip_address = None
-                    self.standby_ipv6_address = None
-                    self.standby_mac_address = None
-                    self.standby_timer_flag = None
-                    self.standby_timer_msecs = None
-                    self.standby_timer_secs = None
-                    self.state_change_count = None
-                    self.state_change_history = YList()
-                    self.state_change_history.parent = self
-                    self.state_change_history.name = 'state_change_history'
+                    self._children_name_map["resign_sent_time"] = "resign-sent-time"
+                    self._children_yang_names.add("resign-sent-time")
+
                     self.statistics = Hsrp.Ipv6.Groups.Group.Statistics()
                     self.statistics.parent = self
-                    self.tracked_interface_count = None
-                    self.tracked_interface_up_count = None
-                    self.use_bia_configured = None
-                    self.use_configured_timers = None
-                    self.use_configured_virtual_ip = None
-                    self.version = None
-                    self.virtual_ip_address = None
-                    self.virtual_linklocal_ipv6_address = None
-                    self.virtual_mac_address = None
-                    self.virtual_mac_address_state = None
+                    self._children_name_map["statistics"] = "statistics"
+                    self._children_yang_names.add("statistics")
+
+                    self.global_address = YList(self)
+                    self.state_change_history = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "group_number",
+                                    "active_ip_address",
+                                    "active_ipv6_address",
+                                    "active_mac_address",
+                                    "active_priority",
+                                    "active_timer_flag",
+                                    "active_timer_msecs",
+                                    "active_timer_secs",
+                                    "address_family",
+                                    "authentication_string",
+                                    "bfd_enabled",
+                                    "bfd_interface",
+                                    "bfd_interval",
+                                    "bfd_multiplier",
+                                    "bfd_peer_ip_address",
+                                    "bfd_peer_ipv6_address",
+                                    "bfd_session_state",
+                                    "configured_mac_address",
+                                    "configured_priority",
+                                    "configured_timers",
+                                    "current_state_timer_secs",
+                                    "delay_timer_flag",
+                                    "delay_timer_msecs",
+                                    "delay_timer_secs",
+                                    "followed_session_name",
+                                    "hello_time",
+                                    "hello_timer_flag",
+                                    "hello_timer_msecs",
+                                    "hello_timer_secs",
+                                    "hold_time",
+                                    "hsrp_group_number",
+                                    "hsrp_router_state",
+                                    "interface",
+                                    "interface_name_xr",
+                                    "is_slave",
+                                    "learned_hello_time",
+                                    "learned_hold_time",
+                                    "min_delay_time",
+                                    "preempt_delay",
+                                    "preempt_enabled",
+                                    "preempt_timer_secs",
+                                    "redirects_disabled",
+                                    "reload_delay_time",
+                                    "router_priority",
+                                    "secondary_address",
+                                    "session_name",
+                                    "slaves",
+                                    "standby_ip_address",
+                                    "standby_ipv6_address",
+                                    "standby_mac_address",
+                                    "standby_timer_flag",
+                                    "standby_timer_msecs",
+                                    "standby_timer_secs",
+                                    "state_change_count",
+                                    "tracked_interface_count",
+                                    "tracked_interface_up_count",
+                                    "use_bia_configured",
+                                    "use_configured_timers",
+                                    "use_configured_virtual_ip",
+                                    "version",
+                                    "virtual_ip_address",
+                                    "virtual_linklocal_ipv6_address",
+                                    "virtual_mac_address",
+                                    "virtual_mac_address_state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Ipv6.Groups.Group, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Ipv6.Groups.Group, self).__setattr__(name, value)
 
 
-                class ResignSentTime(object):
+                class ResignSentTime(Entity):
                     """
                     Time last resign was sent
                     
@@ -3456,37 +5702,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv6.Groups.Group.ResignSentTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "resign-sent-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:resign-sent-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Groups.Group.ResignSentTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Groups.Group.ResignSentTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "resign-sent-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.ResignSentTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class ResignReceivedTime(object):
+                class ResignReceivedTime(Entity):
                     """
                     Time last resign was received
                     
@@ -3516,37 +5822,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "resign-received-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:resign-received-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "resign-received-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.ResignReceivedTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class CoupSentTime(object):
+                class CoupSentTime(Entity):
                     """
                     Time last coup was sent
                     
@@ -3576,37 +5942,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv6.Groups.Group.CoupSentTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "coup-sent-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:coup-sent-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Groups.Group.CoupSentTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Groups.Group.CoupSentTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "coup-sent-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.CoupSentTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class CoupReceivedTime(object):
+                class CoupReceivedTime(Entity):
                     """
                     Time last coup was received
                     
@@ -3636,37 +6062,97 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "coup-received-time"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:coup-received-time'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "coup-received-time" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.CoupReceivedTime']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class Statistics(object):
+                class Statistics(Entity):
                     """
                     HSRP Group statistics
                     
@@ -3783,89 +6269,240 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active_transitions = None
-                        self.auth_fail_received = None
-                        self.coup_packets_received = None
-                        self.coup_packets_sent = None
-                        self.hello_packets_received = None
-                        self.hello_packets_sent = None
-                        self.init_transitions = None
-                        self.invalid_timer_received = None
-                        self.learn_transitions = None
-                        self.listen_transitions = None
-                        self.mismatch_virtual_ip_address_received = None
-                        self.resign_packets_received = None
-                        self.resign_packets_sent = None
-                        self.speak_transitions = None
-                        self.standby_transitions = None
+                        super(Hsrp.Ipv6.Groups.Group.Statistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "statistics"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:statistics'
+                        self.active_transitions = YLeaf(YType.uint32, "active-transitions")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.auth_fail_received = YLeaf(YType.uint32, "auth-fail-received")
+
+                        self.coup_packets_received = YLeaf(YType.uint32, "coup-packets-received")
+
+                        self.coup_packets_sent = YLeaf(YType.uint32, "coup-packets-sent")
+
+                        self.hello_packets_received = YLeaf(YType.uint32, "hello-packets-received")
+
+                        self.hello_packets_sent = YLeaf(YType.uint32, "hello-packets-sent")
+
+                        self.init_transitions = YLeaf(YType.uint32, "init-transitions")
+
+                        self.invalid_timer_received = YLeaf(YType.uint32, "invalid-timer-received")
+
+                        self.learn_transitions = YLeaf(YType.uint32, "learn-transitions")
+
+                        self.listen_transitions = YLeaf(YType.uint32, "listen-transitions")
+
+                        self.mismatch_virtual_ip_address_received = YLeaf(YType.uint32, "mismatch-virtual-ip-address-received")
+
+                        self.resign_packets_received = YLeaf(YType.uint32, "resign-packets-received")
+
+                        self.resign_packets_sent = YLeaf(YType.uint32, "resign-packets-sent")
+
+                        self.speak_transitions = YLeaf(YType.uint32, "speak-transitions")
+
+                        self.standby_transitions = YLeaf(YType.uint32, "standby-transitions")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("active_transitions",
+                                        "auth_fail_received",
+                                        "coup_packets_received",
+                                        "coup_packets_sent",
+                                        "hello_packets_received",
+                                        "hello_packets_sent",
+                                        "init_transitions",
+                                        "invalid_timer_received",
+                                        "learn_transitions",
+                                        "listen_transitions",
+                                        "mismatch_virtual_ip_address_received",
+                                        "resign_packets_received",
+                                        "resign_packets_sent",
+                                        "speak_transitions",
+                                        "standby_transitions") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Groups.Group.Statistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Groups.Group.Statistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.active_transitions.is_set or
+                            self.auth_fail_received.is_set or
+                            self.coup_packets_received.is_set or
+                            self.coup_packets_sent.is_set or
+                            self.hello_packets_received.is_set or
+                            self.hello_packets_sent.is_set or
+                            self.init_transitions.is_set or
+                            self.invalid_timer_received.is_set or
+                            self.learn_transitions.is_set or
+                            self.listen_transitions.is_set or
+                            self.mismatch_virtual_ip_address_received.is_set or
+                            self.resign_packets_received.is_set or
+                            self.resign_packets_sent.is_set or
+                            self.speak_transitions.is_set or
+                            self.standby_transitions.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.active_transitions.yfilter != YFilter.not_set or
+                            self.auth_fail_received.yfilter != YFilter.not_set or
+                            self.coup_packets_received.yfilter != YFilter.not_set or
+                            self.coup_packets_sent.yfilter != YFilter.not_set or
+                            self.hello_packets_received.yfilter != YFilter.not_set or
+                            self.hello_packets_sent.yfilter != YFilter.not_set or
+                            self.init_transitions.yfilter != YFilter.not_set or
+                            self.invalid_timer_received.yfilter != YFilter.not_set or
+                            self.learn_transitions.yfilter != YFilter.not_set or
+                            self.listen_transitions.yfilter != YFilter.not_set or
+                            self.mismatch_virtual_ip_address_received.yfilter != YFilter.not_set or
+                            self.resign_packets_received.yfilter != YFilter.not_set or
+                            self.resign_packets_sent.yfilter != YFilter.not_set or
+                            self.speak_transitions.yfilter != YFilter.not_set or
+                            self.standby_transitions.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.active_transitions.is_set or self.active_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active_transitions.get_name_leafdata())
+                        if (self.auth_fail_received.is_set or self.auth_fail_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_fail_received.get_name_leafdata())
+                        if (self.coup_packets_received.is_set or self.coup_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.coup_packets_received.get_name_leafdata())
+                        if (self.coup_packets_sent.is_set or self.coup_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.coup_packets_sent.get_name_leafdata())
+                        if (self.hello_packets_received.is_set or self.hello_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hello_packets_received.get_name_leafdata())
+                        if (self.hello_packets_sent.is_set or self.hello_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hello_packets_sent.get_name_leafdata())
+                        if (self.init_transitions.is_set or self.init_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.init_transitions.get_name_leafdata())
+                        if (self.invalid_timer_received.is_set or self.invalid_timer_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_timer_received.get_name_leafdata())
+                        if (self.learn_transitions.is_set or self.learn_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.learn_transitions.get_name_leafdata())
+                        if (self.listen_transitions.is_set or self.listen_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.listen_transitions.get_name_leafdata())
+                        if (self.mismatch_virtual_ip_address_received.is_set or self.mismatch_virtual_ip_address_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mismatch_virtual_ip_address_received.get_name_leafdata())
+                        if (self.resign_packets_received.is_set or self.resign_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resign_packets_received.get_name_leafdata())
+                        if (self.resign_packets_sent.is_set or self.resign_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resign_packets_sent.get_name_leafdata())
+                        if (self.speak_transitions.is_set or self.speak_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.speak_transitions.get_name_leafdata())
+                        if (self.standby_transitions.is_set or self.standby_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.standby_transitions.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "active-transitions" or name == "auth-fail-received" or name == "coup-packets-received" or name == "coup-packets-sent" or name == "hello-packets-received" or name == "hello-packets-sent" or name == "init-transitions" or name == "invalid-timer-received" or name == "learn-transitions" or name == "listen-transitions" or name == "mismatch-virtual-ip-address-received" or name == "resign-packets-received" or name == "resign-packets-sent" or name == "speak-transitions" or name == "standby-transitions"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active_transitions is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "active-transitions"):
+                            self.active_transitions = value
+                            self.active_transitions.value_namespace = name_space
+                            self.active_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-fail-received"):
+                            self.auth_fail_received = value
+                            self.auth_fail_received.value_namespace = name_space
+                            self.auth_fail_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "coup-packets-received"):
+                            self.coup_packets_received = value
+                            self.coup_packets_received.value_namespace = name_space
+                            self.coup_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "coup-packets-sent"):
+                            self.coup_packets_sent = value
+                            self.coup_packets_sent.value_namespace = name_space
+                            self.coup_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hello-packets-received"):
+                            self.hello_packets_received = value
+                            self.hello_packets_received.value_namespace = name_space
+                            self.hello_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hello-packets-sent"):
+                            self.hello_packets_sent = value
+                            self.hello_packets_sent.value_namespace = name_space
+                            self.hello_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "init-transitions"):
+                            self.init_transitions = value
+                            self.init_transitions.value_namespace = name_space
+                            self.init_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-timer-received"):
+                            self.invalid_timer_received = value
+                            self.invalid_timer_received.value_namespace = name_space
+                            self.invalid_timer_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "learn-transitions"):
+                            self.learn_transitions = value
+                            self.learn_transitions.value_namespace = name_space
+                            self.learn_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "listen-transitions"):
+                            self.listen_transitions = value
+                            self.listen_transitions.value_namespace = name_space
+                            self.listen_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mismatch-virtual-ip-address-received"):
+                            self.mismatch_virtual_ip_address_received = value
+                            self.mismatch_virtual_ip_address_received.value_namespace = name_space
+                            self.mismatch_virtual_ip_address_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resign-packets-received"):
+                            self.resign_packets_received = value
+                            self.resign_packets_received.value_namespace = name_space
+                            self.resign_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resign-packets-sent"):
+                            self.resign_packets_sent = value
+                            self.resign_packets_sent.value_namespace = name_space
+                            self.resign_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "speak-transitions"):
+                            self.speak_transitions = value
+                            self.speak_transitions.value_namespace = name_space
+                            self.speak_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "standby-transitions"):
+                            self.standby_transitions = value
+                            self.standby_transitions.value_namespace = name_space
+                            self.standby_transitions.value_namespace_prefix = name_space_prefix
 
-                        if self.auth_fail_received is not None:
-                            return True
 
-                        if self.coup_packets_received is not None:
-                            return True
-
-                        if self.coup_packets_sent is not None:
-                            return True
-
-                        if self.hello_packets_received is not None:
-                            return True
-
-                        if self.hello_packets_sent is not None:
-                            return True
-
-                        if self.init_transitions is not None:
-                            return True
-
-                        if self.invalid_timer_received is not None:
-                            return True
-
-                        if self.learn_transitions is not None:
-                            return True
-
-                        if self.listen_transitions is not None:
-                            return True
-
-                        if self.mismatch_virtual_ip_address_received is not None:
-                            return True
-
-                        if self.resign_packets_received is not None:
-                            return True
-
-                        if self.resign_packets_sent is not None:
-                            return True
-
-                        if self.speak_transitions is not None:
-                            return True
-
-                        if self.standby_transitions is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.Statistics']['meta_info']
-
-
-                class GlobalAddress(object):
+                class GlobalAddress(Entity):
                     """
                     Global virtual IPv6 addresses
                     
@@ -3884,50 +6521,102 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ipv6_address = None
+                        super(Hsrp.Ipv6.Groups.Group.GlobalAddress, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "global-address"
+                        self.yang_parent_name = "group"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:global-address'
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ipv6_address") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Groups.Group.GlobalAddress, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Groups.Group.GlobalAddress, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.ipv6_address is not None:
+                    def has_data(self):
+                        return self.ipv6_address.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ipv6_address.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "global-address" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ipv6-address"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.GlobalAddress']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ipv6-address"):
+                            self.ipv6_address = value
+                            self.ipv6_address.value_namespace = name_space
+                            self.ipv6_address.value_namespace_prefix = name_space_prefix
 
 
-                class StateChangeHistory(object):
+                class StateChangeHistory(Entity):
                     """
                     State change history
                     
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:   :py:class:`HsrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReasonEnum>`
+                    	**type**\:   :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
                     
                     .. attribute:: time
                     
@@ -3942,15 +6631,50 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.new_state = None
-                        self.old_state = None
-                        self.reason = None
+                        super(Hsrp.Ipv6.Groups.Group.StateChangeHistory, self).__init__()
+
+                        self.yang_name = "state-change-history"
+                        self.yang_parent_name = "group"
+
+                        self.new_state = YLeaf(YType.enumeration, "new-state")
+
+                        self.old_state = YLeaf(YType.enumeration, "old-state")
+
+                        self.reason = YLeaf(YType.enumeration, "reason")
+
                         self.time = Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time()
                         self.time.parent = self
+                        self._children_name_map["time"] = "time"
+                        self._children_yang_names.add("time")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("new_state",
+                                        "old_state",
+                                        "reason") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Groups.Group.StateChangeHistory, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Groups.Group.StateChangeHistory, self).__setattr__(name, value)
 
 
-                    class Time(object):
+                    class Time(Entity):
                         """
                         Time of state change
                         
@@ -3980,333 +6704,869 @@ class Hsrp(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.nanoseconds = None
-                            self.seconds = None
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:time'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if self.nanoseconds is not None:
-                                return True
-
-                            if self.seconds is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                            return meta._meta_table['Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:state-change-history'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.new_state is not None:
-                            return True
-
-                        if self.old_state is not None:
-                            return True
-
-                        if self.reason is not None:
-                            return True
-
-                        if self.time is not None and self.time._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Groups.Group.StateChangeHistory']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
-                    if self.group_number is None:
-                        raise YPYModelError('Key property group_number is None')
-
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:groups/Cisco-IOS-XR-ipv4-hsrp-oper:group[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:group-number = ' + str(self.group_number) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface_name is not None:
-                        return True
-
-                    if self.group_number is not None:
-                        return True
-
-                    if self.active_ip_address is not None:
-                        return True
-
-                    if self.active_ipv6_address is not None:
-                        return True
-
-                    if self.active_mac_address is not None:
-                        return True
-
-                    if self.active_priority is not None:
-                        return True
-
-                    if self.active_timer_flag is not None:
-                        return True
-
-                    if self.active_timer_msecs is not None:
-                        return True
-
-                    if self.active_timer_secs is not None:
-                        return True
-
-                    if self.address_family is not None:
-                        return True
-
-                    if self.authentication_string is not None:
-                        return True
-
-                    if self.bfd_enabled is not None:
-                        return True
-
-                    if self.bfd_interface is not None:
-                        return True
-
-                    if self.bfd_interval is not None:
-                        return True
-
-                    if self.bfd_multiplier is not None:
-                        return True
-
-                    if self.bfd_peer_ip_address is not None:
-                        return True
-
-                    if self.bfd_peer_ipv6_address is not None:
-                        return True
-
-                    if self.bfd_session_state is not None:
-                        return True
-
-                    if self.configured_mac_address is not None:
-                        return True
-
-                    if self.configured_priority is not None:
-                        return True
-
-                    if self.configured_timers is not None:
-                        return True
-
-                    if self.coup_received_time is not None and self.coup_received_time._has_data():
-                        return True
-
-                    if self.coup_sent_time is not None and self.coup_sent_time._has_data():
-                        return True
-
-                    if self.current_state_timer_secs is not None:
-                        return True
-
-                    if self.delay_timer_flag is not None:
-                        return True
-
-                    if self.delay_timer_msecs is not None:
-                        return True
-
-                    if self.delay_timer_secs is not None:
-                        return True
-
-                    if self.followed_session_name is not None:
-                        return True
-
-                    if self.global_address is not None:
-                        for child_ref in self.global_address:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.hello_time is not None:
-                        return True
-
-                    if self.hello_timer_flag is not None:
-                        return True
-
-                    if self.hello_timer_msecs is not None:
-                        return True
-
-                    if self.hello_timer_secs is not None:
-                        return True
-
-                    if self.hold_time is not None:
-                        return True
-
-                    if self.hsrp_group_number is not None:
-                        return True
-
-                    if self.hsrp_router_state is not None:
-                        return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.interface_name_xr is not None:
-                        return True
-
-                    if self.is_slave is not None:
-                        return True
-
-                    if self.learned_hello_time is not None:
-                        return True
-
-                    if self.learned_hold_time is not None:
-                        return True
-
-                    if self.min_delay_time is not None:
-                        return True
-
-                    if self.preempt_delay is not None:
-                        return True
-
-                    if self.preempt_enabled is not None:
-                        return True
-
-                    if self.preempt_timer_secs is not None:
-                        return True
-
-                    if self.redirects_disabled is not None:
-                        return True
-
-                    if self.reload_delay_time is not None:
-                        return True
-
-                    if self.resign_received_time is not None and self.resign_received_time._has_data():
-                        return True
-
-                    if self.resign_sent_time is not None and self.resign_sent_time._has_data():
-                        return True
-
-                    if self.router_priority is not None:
-                        return True
-
-                    if self.secondary_address is not None:
-                        for child in self.secondary_address:
+                            super(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, self).__init__()
+
+                            self.yang_name = "time"
+                            self.yang_parent_name = "state-change-history"
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("nanoseconds",
+                                            "seconds") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.nanoseconds.is_set or
+                                self.seconds.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.nanoseconds.yfilter != YFilter.not_set or
+                                self.seconds.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "time" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                            if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
                             if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "nanoseconds" or name == "seconds"):
                                 return True
+                            return False
 
-                    if self.session_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "nanoseconds"):
+                                self.nanoseconds = value
+                                self.nanoseconds.value_namespace = name_space
+                                self.nanoseconds.value_namespace_prefix = name_space_prefix
+                            if(value_path == "seconds"):
+                                self.seconds = value
+                                self.seconds.value_namespace = name_space
+                                self.seconds.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        return (
+                            self.new_state.is_set or
+                            self.old_state.is_set or
+                            self.reason.is_set or
+                            (self.time is not None and self.time.has_data()))
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.new_state.yfilter != YFilter.not_set or
+                            self.old_state.yfilter != YFilter.not_set or
+                            self.reason.yfilter != YFilter.not_set or
+                            (self.time is not None and self.time.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "state-change-history" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.new_state.is_set or self.new_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.new_state.get_name_leafdata())
+                        if (self.old_state.is_set or self.old_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.old_state.get_name_leafdata())
+                        if (self.reason.is_set or self.reason.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reason.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "time"):
+                            if (self.time is None):
+                                self.time = Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time()
+                                self.time.parent = self
+                                self._children_name_map["time"] = "time"
+                            return self.time
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "time" or name == "new-state" or name == "old-state" or name == "reason"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "new-state"):
+                            self.new_state = value
+                            self.new_state.value_namespace = name_space
+                            self.new_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "old-state"):
+                            self.old_state = value
+                            self.old_state.value_namespace = name_space
+                            self.old_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reason"):
+                            self.reason = value
+                            self.reason.value_namespace = name_space
+                            self.reason.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.global_address:
+                        if (c.has_data()):
+                            return True
+                    for c in self.state_change_history:
+                        if (c.has_data()):
+                            return True
+                    for leaf in self.secondary_address.getYLeafs():
+                        if (leaf.yfilter != YFilter.not_set):
+                            return True
+                    return (
+                        self.interface_name.is_set or
+                        self.group_number.is_set or
+                        self.active_ip_address.is_set or
+                        self.active_ipv6_address.is_set or
+                        self.active_mac_address.is_set or
+                        self.active_priority.is_set or
+                        self.active_timer_flag.is_set or
+                        self.active_timer_msecs.is_set or
+                        self.active_timer_secs.is_set or
+                        self.address_family.is_set or
+                        self.authentication_string.is_set or
+                        self.bfd_enabled.is_set or
+                        self.bfd_interface.is_set or
+                        self.bfd_interval.is_set or
+                        self.bfd_multiplier.is_set or
+                        self.bfd_peer_ip_address.is_set or
+                        self.bfd_peer_ipv6_address.is_set or
+                        self.bfd_session_state.is_set or
+                        self.configured_mac_address.is_set or
+                        self.configured_priority.is_set or
+                        self.configured_timers.is_set or
+                        self.current_state_timer_secs.is_set or
+                        self.delay_timer_flag.is_set or
+                        self.delay_timer_msecs.is_set or
+                        self.delay_timer_secs.is_set or
+                        self.followed_session_name.is_set or
+                        self.hello_time.is_set or
+                        self.hello_timer_flag.is_set or
+                        self.hello_timer_msecs.is_set or
+                        self.hello_timer_secs.is_set or
+                        self.hold_time.is_set or
+                        self.hsrp_group_number.is_set or
+                        self.hsrp_router_state.is_set or
+                        self.interface.is_set or
+                        self.interface_name_xr.is_set or
+                        self.is_slave.is_set or
+                        self.learned_hello_time.is_set or
+                        self.learned_hold_time.is_set or
+                        self.min_delay_time.is_set or
+                        self.preempt_delay.is_set or
+                        self.preempt_enabled.is_set or
+                        self.preempt_timer_secs.is_set or
+                        self.redirects_disabled.is_set or
+                        self.reload_delay_time.is_set or
+                        self.router_priority.is_set or
+                        self.session_name.is_set or
+                        self.slaves.is_set or
+                        self.standby_ip_address.is_set or
+                        self.standby_ipv6_address.is_set or
+                        self.standby_mac_address.is_set or
+                        self.standby_timer_flag.is_set or
+                        self.standby_timer_msecs.is_set or
+                        self.standby_timer_secs.is_set or
+                        self.state_change_count.is_set or
+                        self.tracked_interface_count.is_set or
+                        self.tracked_interface_up_count.is_set or
+                        self.use_bia_configured.is_set or
+                        self.use_configured_timers.is_set or
+                        self.use_configured_virtual_ip.is_set or
+                        self.version.is_set or
+                        self.virtual_ip_address.is_set or
+                        self.virtual_linklocal_ipv6_address.is_set or
+                        self.virtual_mac_address.is_set or
+                        self.virtual_mac_address_state.is_set or
+                        (self.coup_received_time is not None and self.coup_received_time.has_data()) or
+                        (self.coup_sent_time is not None and self.coup_sent_time.has_data()) or
+                        (self.resign_received_time is not None and self.resign_received_time.has_data()) or
+                        (self.resign_sent_time is not None and self.resign_sent_time.has_data()) or
+                        (self.statistics is not None and self.statistics.has_data()))
+
+                def has_operation(self):
+                    for c in self.global_address:
+                        if (c.has_operation()):
+                            return True
+                    for c in self.state_change_history:
+                        if (c.has_operation()):
+                            return True
+                    for leaf in self.secondary_address.getYLeafs():
+                        if (leaf.is_set):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.group_number.yfilter != YFilter.not_set or
+                        self.active_ip_address.yfilter != YFilter.not_set or
+                        self.active_ipv6_address.yfilter != YFilter.not_set or
+                        self.active_mac_address.yfilter != YFilter.not_set or
+                        self.active_priority.yfilter != YFilter.not_set or
+                        self.active_timer_flag.yfilter != YFilter.not_set or
+                        self.active_timer_msecs.yfilter != YFilter.not_set or
+                        self.active_timer_secs.yfilter != YFilter.not_set or
+                        self.address_family.yfilter != YFilter.not_set or
+                        self.authentication_string.yfilter != YFilter.not_set or
+                        self.bfd_enabled.yfilter != YFilter.not_set or
+                        self.bfd_interface.yfilter != YFilter.not_set or
+                        self.bfd_interval.yfilter != YFilter.not_set or
+                        self.bfd_multiplier.yfilter != YFilter.not_set or
+                        self.bfd_peer_ip_address.yfilter != YFilter.not_set or
+                        self.bfd_peer_ipv6_address.yfilter != YFilter.not_set or
+                        self.bfd_session_state.yfilter != YFilter.not_set or
+                        self.configured_mac_address.yfilter != YFilter.not_set or
+                        self.configured_priority.yfilter != YFilter.not_set or
+                        self.configured_timers.yfilter != YFilter.not_set or
+                        self.current_state_timer_secs.yfilter != YFilter.not_set or
+                        self.delay_timer_flag.yfilter != YFilter.not_set or
+                        self.delay_timer_msecs.yfilter != YFilter.not_set or
+                        self.delay_timer_secs.yfilter != YFilter.not_set or
+                        self.followed_session_name.yfilter != YFilter.not_set or
+                        self.hello_time.yfilter != YFilter.not_set or
+                        self.hello_timer_flag.yfilter != YFilter.not_set or
+                        self.hello_timer_msecs.yfilter != YFilter.not_set or
+                        self.hello_timer_secs.yfilter != YFilter.not_set or
+                        self.hold_time.yfilter != YFilter.not_set or
+                        self.hsrp_group_number.yfilter != YFilter.not_set or
+                        self.hsrp_router_state.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.interface_name_xr.yfilter != YFilter.not_set or
+                        self.is_slave.yfilter != YFilter.not_set or
+                        self.learned_hello_time.yfilter != YFilter.not_set or
+                        self.learned_hold_time.yfilter != YFilter.not_set or
+                        self.min_delay_time.yfilter != YFilter.not_set or
+                        self.preempt_delay.yfilter != YFilter.not_set or
+                        self.preempt_enabled.yfilter != YFilter.not_set or
+                        self.preempt_timer_secs.yfilter != YFilter.not_set or
+                        self.redirects_disabled.yfilter != YFilter.not_set or
+                        self.reload_delay_time.yfilter != YFilter.not_set or
+                        self.router_priority.yfilter != YFilter.not_set or
+                        self.secondary_address.yfilter != YFilter.not_set or
+                        self.session_name.yfilter != YFilter.not_set or
+                        self.slaves.yfilter != YFilter.not_set or
+                        self.standby_ip_address.yfilter != YFilter.not_set or
+                        self.standby_ipv6_address.yfilter != YFilter.not_set or
+                        self.standby_mac_address.yfilter != YFilter.not_set or
+                        self.standby_timer_flag.yfilter != YFilter.not_set or
+                        self.standby_timer_msecs.yfilter != YFilter.not_set or
+                        self.standby_timer_secs.yfilter != YFilter.not_set or
+                        self.state_change_count.yfilter != YFilter.not_set or
+                        self.tracked_interface_count.yfilter != YFilter.not_set or
+                        self.tracked_interface_up_count.yfilter != YFilter.not_set or
+                        self.use_bia_configured.yfilter != YFilter.not_set or
+                        self.use_configured_timers.yfilter != YFilter.not_set or
+                        self.use_configured_virtual_ip.yfilter != YFilter.not_set or
+                        self.version.yfilter != YFilter.not_set or
+                        self.virtual_ip_address.yfilter != YFilter.not_set or
+                        self.virtual_linklocal_ipv6_address.yfilter != YFilter.not_set or
+                        self.virtual_mac_address.yfilter != YFilter.not_set or
+                        self.virtual_mac_address_state.yfilter != YFilter.not_set or
+                        (self.coup_received_time is not None and self.coup_received_time.has_operation()) or
+                        (self.coup_sent_time is not None and self.coup_sent_time.has_operation()) or
+                        (self.resign_received_time is not None and self.resign_received_time.has_operation()) or
+                        (self.resign_sent_time is not None and self.resign_sent_time.has_operation()) or
+                        (self.statistics is not None and self.statistics.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "group" + "[interface-name='" + self.interface_name.get() + "']" + "[group-number='" + self.group_number.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/groups/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.group_number.is_set or self.group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group_number.get_name_leafdata())
+                    if (self.active_ip_address.is_set or self.active_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_ip_address.get_name_leafdata())
+                    if (self.active_ipv6_address.is_set or self.active_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_ipv6_address.get_name_leafdata())
+                    if (self.active_mac_address.is_set or self.active_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_mac_address.get_name_leafdata())
+                    if (self.active_priority.is_set or self.active_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_priority.get_name_leafdata())
+                    if (self.active_timer_flag.is_set or self.active_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_timer_flag.get_name_leafdata())
+                    if (self.active_timer_msecs.is_set or self.active_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_timer_msecs.get_name_leafdata())
+                    if (self.active_timer_secs.is_set or self.active_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_timer_secs.get_name_leafdata())
+                    if (self.address_family.is_set or self.address_family.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.address_family.get_name_leafdata())
+                    if (self.authentication_string.is_set or self.authentication_string.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.authentication_string.get_name_leafdata())
+                    if (self.bfd_enabled.is_set or self.bfd_enabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_enabled.get_name_leafdata())
+                    if (self.bfd_interface.is_set or self.bfd_interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_interface.get_name_leafdata())
+                    if (self.bfd_interval.is_set or self.bfd_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_interval.get_name_leafdata())
+                    if (self.bfd_multiplier.is_set or self.bfd_multiplier.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_multiplier.get_name_leafdata())
+                    if (self.bfd_peer_ip_address.is_set or self.bfd_peer_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_peer_ip_address.get_name_leafdata())
+                    if (self.bfd_peer_ipv6_address.is_set or self.bfd_peer_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_peer_ipv6_address.get_name_leafdata())
+                    if (self.bfd_session_state.is_set or self.bfd_session_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bfd_session_state.get_name_leafdata())
+                    if (self.configured_mac_address.is_set or self.configured_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configured_mac_address.get_name_leafdata())
+                    if (self.configured_priority.is_set or self.configured_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configured_priority.get_name_leafdata())
+                    if (self.configured_timers.is_set or self.configured_timers.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configured_timers.get_name_leafdata())
+                    if (self.current_state_timer_secs.is_set or self.current_state_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.current_state_timer_secs.get_name_leafdata())
+                    if (self.delay_timer_flag.is_set or self.delay_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delay_timer_flag.get_name_leafdata())
+                    if (self.delay_timer_msecs.is_set or self.delay_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delay_timer_msecs.get_name_leafdata())
+                    if (self.delay_timer_secs.is_set or self.delay_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delay_timer_secs.get_name_leafdata())
+                    if (self.followed_session_name.is_set or self.followed_session_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.followed_session_name.get_name_leafdata())
+                    if (self.hello_time.is_set or self.hello_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_time.get_name_leafdata())
+                    if (self.hello_timer_flag.is_set or self.hello_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_timer_flag.get_name_leafdata())
+                    if (self.hello_timer_msecs.is_set or self.hello_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_timer_msecs.get_name_leafdata())
+                    if (self.hello_timer_secs.is_set or self.hello_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_timer_secs.get_name_leafdata())
+                    if (self.hold_time.is_set or self.hold_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hold_time.get_name_leafdata())
+                    if (self.hsrp_group_number.is_set or self.hsrp_group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hsrp_group_number.get_name_leafdata())
+                    if (self.hsrp_router_state.is_set or self.hsrp_router_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hsrp_router_state.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                    if (self.is_slave.is_set or self.is_slave.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_slave.get_name_leafdata())
+                    if (self.learned_hello_time.is_set or self.learned_hello_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.learned_hello_time.get_name_leafdata())
+                    if (self.learned_hold_time.is_set or self.learned_hold_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.learned_hold_time.get_name_leafdata())
+                    if (self.min_delay_time.is_set or self.min_delay_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.min_delay_time.get_name_leafdata())
+                    if (self.preempt_delay.is_set or self.preempt_delay.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.preempt_delay.get_name_leafdata())
+                    if (self.preempt_enabled.is_set or self.preempt_enabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.preempt_enabled.get_name_leafdata())
+                    if (self.preempt_timer_secs.is_set or self.preempt_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.preempt_timer_secs.get_name_leafdata())
+                    if (self.redirects_disabled.is_set or self.redirects_disabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.redirects_disabled.get_name_leafdata())
+                    if (self.reload_delay_time.is_set or self.reload_delay_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reload_delay_time.get_name_leafdata())
+                    if (self.router_priority.is_set or self.router_priority.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.router_priority.get_name_leafdata())
+                    if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.session_name.get_name_leafdata())
+                    if (self.slaves.is_set or self.slaves.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.slaves.get_name_leafdata())
+                    if (self.standby_ip_address.is_set or self.standby_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_ip_address.get_name_leafdata())
+                    if (self.standby_ipv6_address.is_set or self.standby_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_ipv6_address.get_name_leafdata())
+                    if (self.standby_mac_address.is_set or self.standby_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_mac_address.get_name_leafdata())
+                    if (self.standby_timer_flag.is_set or self.standby_timer_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_timer_flag.get_name_leafdata())
+                    if (self.standby_timer_msecs.is_set or self.standby_timer_msecs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_timer_msecs.get_name_leafdata())
+                    if (self.standby_timer_secs.is_set or self.standby_timer_secs.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_timer_secs.get_name_leafdata())
+                    if (self.state_change_count.is_set or self.state_change_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state_change_count.get_name_leafdata())
+                    if (self.tracked_interface_count.is_set or self.tracked_interface_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_count.get_name_leafdata())
+                    if (self.tracked_interface_up_count.is_set or self.tracked_interface_up_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tracked_interface_up_count.get_name_leafdata())
+                    if (self.use_bia_configured.is_set or self.use_bia_configured.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_bia_configured.get_name_leafdata())
+                    if (self.use_configured_timers.is_set or self.use_configured_timers.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_configured_timers.get_name_leafdata())
+                    if (self.use_configured_virtual_ip.is_set or self.use_configured_virtual_ip.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_configured_virtual_ip.get_name_leafdata())
+                    if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.version.get_name_leafdata())
+                    if (self.virtual_ip_address.is_set or self.virtual_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_ip_address.get_name_leafdata())
+                    if (self.virtual_linklocal_ipv6_address.is_set or self.virtual_linklocal_ipv6_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_linklocal_ipv6_address.get_name_leafdata())
+                    if (self.virtual_mac_address.is_set or self.virtual_mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_mac_address.get_name_leafdata())
+                    if (self.virtual_mac_address_state.is_set or self.virtual_mac_address_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.virtual_mac_address_state.get_name_leafdata())
+
+                    leaf_name_data.extend(self.secondary_address.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "coup-received-time"):
+                        if (self.coup_received_time is None):
+                            self.coup_received_time = Hsrp.Ipv6.Groups.Group.CoupReceivedTime()
+                            self.coup_received_time.parent = self
+                            self._children_name_map["coup_received_time"] = "coup-received-time"
+                        return self.coup_received_time
+
+                    if (child_yang_name == "coup-sent-time"):
+                        if (self.coup_sent_time is None):
+                            self.coup_sent_time = Hsrp.Ipv6.Groups.Group.CoupSentTime()
+                            self.coup_sent_time.parent = self
+                            self._children_name_map["coup_sent_time"] = "coup-sent-time"
+                        return self.coup_sent_time
+
+                    if (child_yang_name == "global-address"):
+                        for c in self.global_address:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Hsrp.Ipv6.Groups.Group.GlobalAddress()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.global_address.append(c)
+                        return c
+
+                    if (child_yang_name == "resign-received-time"):
+                        if (self.resign_received_time is None):
+                            self.resign_received_time = Hsrp.Ipv6.Groups.Group.ResignReceivedTime()
+                            self.resign_received_time.parent = self
+                            self._children_name_map["resign_received_time"] = "resign-received-time"
+                        return self.resign_received_time
+
+                    if (child_yang_name == "resign-sent-time"):
+                        if (self.resign_sent_time is None):
+                            self.resign_sent_time = Hsrp.Ipv6.Groups.Group.ResignSentTime()
+                            self.resign_sent_time.parent = self
+                            self._children_name_map["resign_sent_time"] = "resign-sent-time"
+                        return self.resign_sent_time
+
+                    if (child_yang_name == "state-change-history"):
+                        for c in self.state_change_history:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Hsrp.Ipv6.Groups.Group.StateChangeHistory()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.state_change_history.append(c)
+                        return c
+
+                    if (child_yang_name == "statistics"):
+                        if (self.statistics is None):
+                            self.statistics = Hsrp.Ipv6.Groups.Group.Statistics()
+                            self.statistics.parent = self
+                            self._children_name_map["statistics"] = "statistics"
+                        return self.statistics
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "coup-received-time" or name == "coup-sent-time" or name == "global-address" or name == "resign-received-time" or name == "resign-sent-time" or name == "state-change-history" or name == "statistics" or name == "interface-name" or name == "group-number" or name == "active-ip-address" or name == "active-ipv6-address" or name == "active-mac-address" or name == "active-priority" or name == "active-timer-flag" or name == "active-timer-msecs" or name == "active-timer-secs" or name == "address-family" or name == "authentication-string" or name == "bfd-enabled" or name == "bfd-interface" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-peer-ip-address" or name == "bfd-peer-ipv6-address" or name == "bfd-session-state" or name == "configured-mac-address" or name == "configured-priority" or name == "configured-timers" or name == "current-state-timer-secs" or name == "delay-timer-flag" or name == "delay-timer-msecs" or name == "delay-timer-secs" or name == "followed-session-name" or name == "hello-time" or name == "hello-timer-flag" or name == "hello-timer-msecs" or name == "hello-timer-secs" or name == "hold-time" or name == "hsrp-group-number" or name == "hsrp-router-state" or name == "interface" or name == "interface-name-xr" or name == "is-slave" or name == "learned-hello-time" or name == "learned-hold-time" or name == "min-delay-time" or name == "preempt-delay" or name == "preempt-enabled" or name == "preempt-timer-secs" or name == "redirects-disabled" or name == "reload-delay-time" or name == "router-priority" or name == "secondary-address" or name == "session-name" or name == "slaves" or name == "standby-ip-address" or name == "standby-ipv6-address" or name == "standby-mac-address" or name == "standby-timer-flag" or name == "standby-timer-msecs" or name == "standby-timer-secs" or name == "state-change-count" or name == "tracked-interface-count" or name == "tracked-interface-up-count" or name == "use-bia-configured" or name == "use-configured-timers" or name == "use-configured-virtual-ip" or name == "version" or name == "virtual-ip-address" or name == "virtual-linklocal-ipv6-address" or name == "virtual-mac-address" or name == "virtual-mac-address-state"):
                         return True
-
-                    if self.slaves is not None:
-                        return True
-
-                    if self.standby_ip_address is not None:
-                        return True
-
-                    if self.standby_ipv6_address is not None:
-                        return True
-
-                    if self.standby_mac_address is not None:
-                        return True
-
-                    if self.standby_timer_flag is not None:
-                        return True
-
-                    if self.standby_timer_msecs is not None:
-                        return True
-
-                    if self.standby_timer_secs is not None:
-                        return True
-
-                    if self.state_change_count is not None:
-                        return True
-
-                    if self.state_change_history is not None:
-                        for child_ref in self.state_change_history:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.statistics is not None and self.statistics._has_data():
-                        return True
-
-                    if self.tracked_interface_count is not None:
-                        return True
-
-                    if self.tracked_interface_up_count is not None:
-                        return True
-
-                    if self.use_bia_configured is not None:
-                        return True
-
-                    if self.use_configured_timers is not None:
-                        return True
-
-                    if self.use_configured_virtual_ip is not None:
-                        return True
-
-                    if self.version is not None:
-                        return True
-
-                    if self.virtual_ip_address is not None:
-                        return True
-
-                    if self.virtual_linklocal_ipv6_address is not None:
-                        return True
-
-                    if self.virtual_mac_address is not None:
-                        return True
-
-                    if self.virtual_mac_address_state is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.Ipv6.Groups.Group']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group-number"):
+                        self.group_number = value
+                        self.group_number.value_namespace = name_space
+                        self.group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-ip-address"):
+                        self.active_ip_address = value
+                        self.active_ip_address.value_namespace = name_space
+                        self.active_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-ipv6-address"):
+                        self.active_ipv6_address = value
+                        self.active_ipv6_address.value_namespace = name_space
+                        self.active_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-mac-address"):
+                        self.active_mac_address = value
+                        self.active_mac_address.value_namespace = name_space
+                        self.active_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-priority"):
+                        self.active_priority = value
+                        self.active_priority.value_namespace = name_space
+                        self.active_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-timer-flag"):
+                        self.active_timer_flag = value
+                        self.active_timer_flag.value_namespace = name_space
+                        self.active_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-timer-msecs"):
+                        self.active_timer_msecs = value
+                        self.active_timer_msecs.value_namespace = name_space
+                        self.active_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-timer-secs"):
+                        self.active_timer_secs = value
+                        self.active_timer_secs.value_namespace = name_space
+                        self.active_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "address-family"):
+                        self.address_family = value
+                        self.address_family.value_namespace = name_space
+                        self.address_family.value_namespace_prefix = name_space_prefix
+                    if(value_path == "authentication-string"):
+                        self.authentication_string = value
+                        self.authentication_string.value_namespace = name_space
+                        self.authentication_string.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-enabled"):
+                        self.bfd_enabled = value
+                        self.bfd_enabled.value_namespace = name_space
+                        self.bfd_enabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-interface"):
+                        self.bfd_interface = value
+                        self.bfd_interface.value_namespace = name_space
+                        self.bfd_interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-interval"):
+                        self.bfd_interval = value
+                        self.bfd_interval.value_namespace = name_space
+                        self.bfd_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-multiplier"):
+                        self.bfd_multiplier = value
+                        self.bfd_multiplier.value_namespace = name_space
+                        self.bfd_multiplier.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-peer-ip-address"):
+                        self.bfd_peer_ip_address = value
+                        self.bfd_peer_ip_address.value_namespace = name_space
+                        self.bfd_peer_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-peer-ipv6-address"):
+                        self.bfd_peer_ipv6_address = value
+                        self.bfd_peer_ipv6_address.value_namespace = name_space
+                        self.bfd_peer_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bfd-session-state"):
+                        self.bfd_session_state = value
+                        self.bfd_session_state.value_namespace = name_space
+                        self.bfd_session_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "configured-mac-address"):
+                        self.configured_mac_address = value
+                        self.configured_mac_address.value_namespace = name_space
+                        self.configured_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "configured-priority"):
+                        self.configured_priority = value
+                        self.configured_priority.value_namespace = name_space
+                        self.configured_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "configured-timers"):
+                        self.configured_timers = value
+                        self.configured_timers.value_namespace = name_space
+                        self.configured_timers.value_namespace_prefix = name_space_prefix
+                    if(value_path == "current-state-timer-secs"):
+                        self.current_state_timer_secs = value
+                        self.current_state_timer_secs.value_namespace = name_space
+                        self.current_state_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delay-timer-flag"):
+                        self.delay_timer_flag = value
+                        self.delay_timer_flag.value_namespace = name_space
+                        self.delay_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delay-timer-msecs"):
+                        self.delay_timer_msecs = value
+                        self.delay_timer_msecs.value_namespace = name_space
+                        self.delay_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delay-timer-secs"):
+                        self.delay_timer_secs = value
+                        self.delay_timer_secs.value_namespace = name_space
+                        self.delay_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "followed-session-name"):
+                        self.followed_session_name = value
+                        self.followed_session_name.value_namespace = name_space
+                        self.followed_session_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-time"):
+                        self.hello_time = value
+                        self.hello_time.value_namespace = name_space
+                        self.hello_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-timer-flag"):
+                        self.hello_timer_flag = value
+                        self.hello_timer_flag.value_namespace = name_space
+                        self.hello_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-timer-msecs"):
+                        self.hello_timer_msecs = value
+                        self.hello_timer_msecs.value_namespace = name_space
+                        self.hello_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-timer-secs"):
+                        self.hello_timer_secs = value
+                        self.hello_timer_secs.value_namespace = name_space
+                        self.hello_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hold-time"):
+                        self.hold_time = value
+                        self.hold_time.value_namespace = name_space
+                        self.hold_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hsrp-group-number"):
+                        self.hsrp_group_number = value
+                        self.hsrp_group_number.value_namespace = name_space
+                        self.hsrp_group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hsrp-router-state"):
+                        self.hsrp_router_state = value
+                        self.hsrp_router_state.value_namespace = name_space
+                        self.hsrp_router_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-name-xr"):
+                        self.interface_name_xr = value
+                        self.interface_name_xr.value_namespace = name_space
+                        self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-slave"):
+                        self.is_slave = value
+                        self.is_slave.value_namespace = name_space
+                        self.is_slave.value_namespace_prefix = name_space_prefix
+                    if(value_path == "learned-hello-time"):
+                        self.learned_hello_time = value
+                        self.learned_hello_time.value_namespace = name_space
+                        self.learned_hello_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "learned-hold-time"):
+                        self.learned_hold_time = value
+                        self.learned_hold_time.value_namespace = name_space
+                        self.learned_hold_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "min-delay-time"):
+                        self.min_delay_time = value
+                        self.min_delay_time.value_namespace = name_space
+                        self.min_delay_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "preempt-delay"):
+                        self.preempt_delay = value
+                        self.preempt_delay.value_namespace = name_space
+                        self.preempt_delay.value_namespace_prefix = name_space_prefix
+                    if(value_path == "preempt-enabled"):
+                        self.preempt_enabled = value
+                        self.preempt_enabled.value_namespace = name_space
+                        self.preempt_enabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "preempt-timer-secs"):
+                        self.preempt_timer_secs = value
+                        self.preempt_timer_secs.value_namespace = name_space
+                        self.preempt_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "redirects-disabled"):
+                        self.redirects_disabled = value
+                        self.redirects_disabled.value_namespace = name_space
+                        self.redirects_disabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reload-delay-time"):
+                        self.reload_delay_time = value
+                        self.reload_delay_time.value_namespace = name_space
+                        self.reload_delay_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "router-priority"):
+                        self.router_priority = value
+                        self.router_priority.value_namespace = name_space
+                        self.router_priority.value_namespace_prefix = name_space_prefix
+                    if(value_path == "secondary-address"):
+                        self.secondary_address.append(value)
+                    if(value_path == "session-name"):
+                        self.session_name = value
+                        self.session_name.value_namespace = name_space
+                        self.session_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "slaves"):
+                        self.slaves = value
+                        self.slaves.value_namespace = name_space
+                        self.slaves.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-ip-address"):
+                        self.standby_ip_address = value
+                        self.standby_ip_address.value_namespace = name_space
+                        self.standby_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-ipv6-address"):
+                        self.standby_ipv6_address = value
+                        self.standby_ipv6_address.value_namespace = name_space
+                        self.standby_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-mac-address"):
+                        self.standby_mac_address = value
+                        self.standby_mac_address.value_namespace = name_space
+                        self.standby_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-timer-flag"):
+                        self.standby_timer_flag = value
+                        self.standby_timer_flag.value_namespace = name_space
+                        self.standby_timer_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-timer-msecs"):
+                        self.standby_timer_msecs = value
+                        self.standby_timer_msecs.value_namespace = name_space
+                        self.standby_timer_msecs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-timer-secs"):
+                        self.standby_timer_secs = value
+                        self.standby_timer_secs.value_namespace = name_space
+                        self.standby_timer_secs.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state-change-count"):
+                        self.state_change_count = value
+                        self.state_change_count.value_namespace = name_space
+                        self.state_change_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-count"):
+                        self.tracked_interface_count = value
+                        self.tracked_interface_count.value_namespace = name_space
+                        self.tracked_interface_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tracked-interface-up-count"):
+                        self.tracked_interface_up_count = value
+                        self.tracked_interface_up_count.value_namespace = name_space
+                        self.tracked_interface_up_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-bia-configured"):
+                        self.use_bia_configured = value
+                        self.use_bia_configured.value_namespace = name_space
+                        self.use_bia_configured.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-configured-timers"):
+                        self.use_configured_timers = value
+                        self.use_configured_timers.value_namespace = name_space
+                        self.use_configured_timers.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-configured-virtual-ip"):
+                        self.use_configured_virtual_ip = value
+                        self.use_configured_virtual_ip.value_namespace = name_space
+                        self.use_configured_virtual_ip.value_namespace_prefix = name_space_prefix
+                    if(value_path == "version"):
+                        self.version = value
+                        self.version.value_namespace = name_space
+                        self.version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-ip-address"):
+                        self.virtual_ip_address = value
+                        self.virtual_ip_address.value_namespace = name_space
+                        self.virtual_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-linklocal-ipv6-address"):
+                        self.virtual_linklocal_ipv6_address = value
+                        self.virtual_linklocal_ipv6_address.value_namespace = name_space
+                        self.virtual_linklocal_ipv6_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-mac-address"):
+                        self.virtual_mac_address = value
+                        self.virtual_mac_address.value_namespace = name_space
+                        self.virtual_mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "virtual-mac-address-state"):
+                        self.virtual_mac_address_state = value
+                        self.virtual_mac_address_state.value_namespace = name_space
+                        self.virtual_mac_address_state.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:groups'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                for c in self.group:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            def _has_data(self):
-                if self.group is not None:
-                    for child_ref in self.group:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.group:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "groups" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "group"):
+                    for c in self.group:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.Ipv6.Groups.Group()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.group.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "group"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.Ipv6.Groups']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Interfaces(object):
+        class Interfaces(Entity):
             """
             The HSRP interface information table
             
@@ -4323,13 +7583,39 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
+                super(Hsrp.Ipv6.Interfaces, self).__init__()
+
+                self.yang_name = "interfaces"
+                self.yang_parent_name = "ipv6"
+
+                self.interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.Ipv6.Interfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.Ipv6.Interfaces, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 A HSRP interface entry
                 
@@ -4365,15 +7651,50 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.interface = None
+                    super(Hsrp.Ipv6.Interfaces.Interface, self).__init__()
+
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "interfaces"
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.use_bia_flag = YLeaf(YType.boolean, "use-bia-flag")
+
                     self.statistics = Hsrp.Ipv6.Interfaces.Interface.Statistics()
                     self.statistics.parent = self
-                    self.use_bia_flag = None
+                    self._children_name_map["statistics"] = "statistics"
+                    self._children_yang_names.add("statistics")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "interface",
+                                    "use_bia_flag") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.Ipv6.Interfaces.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.Ipv6.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                class Statistics(object):
+                class Statistics(Entity):
                     """
                     HSRP Interface Statistics
                     
@@ -4448,144 +7769,370 @@ class Hsrp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.advert_packets_received = None
-                        self.advert_packets_sent = None
-                        self.conflict_source_ip_address_received = None
-                        self.inoperational_group_received = None
-                        self.invalid_operation_code_received = None
-                        self.invalid_version_received = None
-                        self.long_packets_received = None
-                        self.short_packets_received = None
-                        self.unknown_group_received = None
+                        super(Hsrp.Ipv6.Interfaces.Interface.Statistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "statistics"
+                        self.yang_parent_name = "interface"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:statistics'
+                        self.advert_packets_received = YLeaf(YType.uint32, "advert-packets-received")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.advert_packets_sent = YLeaf(YType.uint32, "advert-packets-sent")
+
+                        self.conflict_source_ip_address_received = YLeaf(YType.uint32, "conflict-source-ip-address-received")
+
+                        self.inoperational_group_received = YLeaf(YType.uint32, "inoperational-group-received")
+
+                        self.invalid_operation_code_received = YLeaf(YType.uint32, "invalid-operation-code-received")
+
+                        self.invalid_version_received = YLeaf(YType.uint32, "invalid-version-received")
+
+                        self.long_packets_received = YLeaf(YType.uint32, "long-packets-received")
+
+                        self.short_packets_received = YLeaf(YType.uint32, "short-packets-received")
+
+                        self.unknown_group_received = YLeaf(YType.uint32, "unknown-group-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("advert_packets_received",
+                                        "advert_packets_sent",
+                                        "conflict_source_ip_address_received",
+                                        "inoperational_group_received",
+                                        "invalid_operation_code_received",
+                                        "invalid_version_received",
+                                        "long_packets_received",
+                                        "short_packets_received",
+                                        "unknown_group_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Hsrp.Ipv6.Interfaces.Interface.Statistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Hsrp.Ipv6.Interfaces.Interface.Statistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.advert_packets_received.is_set or
+                            self.advert_packets_sent.is_set or
+                            self.conflict_source_ip_address_received.is_set or
+                            self.inoperational_group_received.is_set or
+                            self.invalid_operation_code_received.is_set or
+                            self.invalid_version_received.is_set or
+                            self.long_packets_received.is_set or
+                            self.short_packets_received.is_set or
+                            self.unknown_group_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.advert_packets_received.yfilter != YFilter.not_set or
+                            self.advert_packets_sent.yfilter != YFilter.not_set or
+                            self.conflict_source_ip_address_received.yfilter != YFilter.not_set or
+                            self.inoperational_group_received.yfilter != YFilter.not_set or
+                            self.invalid_operation_code_received.yfilter != YFilter.not_set or
+                            self.invalid_version_received.yfilter != YFilter.not_set or
+                            self.long_packets_received.yfilter != YFilter.not_set or
+                            self.short_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_group_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.advert_packets_received.is_set or self.advert_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.advert_packets_received.get_name_leafdata())
+                        if (self.advert_packets_sent.is_set or self.advert_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.advert_packets_sent.get_name_leafdata())
+                        if (self.conflict_source_ip_address_received.is_set or self.conflict_source_ip_address_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.conflict_source_ip_address_received.get_name_leafdata())
+                        if (self.inoperational_group_received.is_set or self.inoperational_group_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inoperational_group_received.get_name_leafdata())
+                        if (self.invalid_operation_code_received.is_set or self.invalid_operation_code_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_operation_code_received.get_name_leafdata())
+                        if (self.invalid_version_received.is_set or self.invalid_version_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_version_received.get_name_leafdata())
+                        if (self.long_packets_received.is_set or self.long_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.long_packets_received.get_name_leafdata())
+                        if (self.short_packets_received.is_set or self.short_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.short_packets_received.get_name_leafdata())
+                        if (self.unknown_group_received.is_set or self.unknown_group_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_group_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "advert-packets-received" or name == "advert-packets-sent" or name == "conflict-source-ip-address-received" or name == "inoperational-group-received" or name == "invalid-operation-code-received" or name == "invalid-version-received" or name == "long-packets-received" or name == "short-packets-received" or name == "unknown-group-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.advert_packets_received is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "advert-packets-received"):
+                            self.advert_packets_received = value
+                            self.advert_packets_received.value_namespace = name_space
+                            self.advert_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "advert-packets-sent"):
+                            self.advert_packets_sent = value
+                            self.advert_packets_sent.value_namespace = name_space
+                            self.advert_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "conflict-source-ip-address-received"):
+                            self.conflict_source_ip_address_received = value
+                            self.conflict_source_ip_address_received.value_namespace = name_space
+                            self.conflict_source_ip_address_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "inoperational-group-received"):
+                            self.inoperational_group_received = value
+                            self.inoperational_group_received.value_namespace = name_space
+                            self.inoperational_group_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-operation-code-received"):
+                            self.invalid_operation_code_received = value
+                            self.invalid_operation_code_received.value_namespace = name_space
+                            self.invalid_operation_code_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-version-received"):
+                            self.invalid_version_received = value
+                            self.invalid_version_received.value_namespace = name_space
+                            self.invalid_version_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "long-packets-received"):
+                            self.long_packets_received = value
+                            self.long_packets_received.value_namespace = name_space
+                            self.long_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "short-packets-received"):
+                            self.short_packets_received = value
+                            self.short_packets_received.value_namespace = name_space
+                            self.short_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-group-received"):
+                            self.unknown_group_received = value
+                            self.unknown_group_received.value_namespace = name_space
+                            self.unknown_group_received.value_namespace_prefix = name_space_prefix
 
-                        if self.advert_packets_sent is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        self.interface_name.is_set or
+                        self.interface.is_set or
+                        self.use_bia_flag.is_set or
+                        (self.statistics is not None and self.statistics.has_data()))
 
-                        if self.conflict_source_ip_address_received is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.use_bia_flag.yfilter != YFilter.not_set or
+                        (self.statistics is not None and self.statistics.has_operation()))
 
-                        if self.inoperational_group_received is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                        if self.invalid_operation_code_received is not None:
-                            return True
+                    return path_buffer
 
-                        if self.invalid_version_received is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/interfaces/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.long_packets_received is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.use_bia_flag.is_set or self.use_bia_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.use_bia_flag.get_name_leafdata())
 
-                        if self.short_packets_received is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.unknown_group_received is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        return False
+                    if (child_yang_name == "statistics"):
+                        if (self.statistics is None):
+                            self.statistics = Hsrp.Ipv6.Interfaces.Interface.Statistics()
+                            self.statistics.parent = self
+                            self._children_name_map["statistics"] = "statistics"
+                        return self.statistics
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                        return meta._meta_table['Hsrp.Ipv6.Interfaces.Interface.Statistics']['meta_info']
+                    return None
 
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
-
-                    return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:interfaces/Cisco-IOS-XR-ipv4-hsrp-oper:interface[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "statistics" or name == "interface-name" or name == "interface" or name == "use-bia-flag"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "use-bia-flag"):
+                        self.use_bia_flag = value
+                        self.use_bia_flag.value_namespace = name_space
+                        self.use_bia_flag.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.interface:
+                    if (c.has_data()):
                         return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.statistics is not None and self.statistics._has_data():
-                        return True
-
-                    if self.use_bia_flag is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.Ipv6.Interfaces.Interface']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6/Cisco-IOS-XR-ipv4-hsrp-oper:interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/ipv6/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.Ipv6.Interfaces.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.Ipv6.Interfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.groups is not None and self.groups.has_data()) or
+                (self.interfaces is not None and self.interfaces.has_data()) or
+                (self.tracked_interfaces is not None and self.tracked_interfaces.has_data()))
 
-            return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:ipv6'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.groups is not None and self.groups.has_operation()) or
+                (self.interfaces is not None and self.interfaces.has_operation()) or
+                (self.tracked_interfaces is not None and self.tracked_interfaces.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ipv6" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "groups"):
+                if (self.groups is None):
+                    self.groups = Hsrp.Ipv6.Groups()
+                    self.groups.parent = self
+                    self._children_name_map["groups"] = "groups"
+                return self.groups
+
+            if (child_yang_name == "interfaces"):
+                if (self.interfaces is None):
+                    self.interfaces = Hsrp.Ipv6.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                return self.interfaces
+
+            if (child_yang_name == "tracked-interfaces"):
+                if (self.tracked_interfaces is None):
+                    self.tracked_interfaces = Hsrp.Ipv6.TrackedInterfaces()
+                    self.tracked_interfaces.parent = self
+                    self._children_name_map["tracked_interfaces"] = "tracked-interfaces"
+                return self.tracked_interfaces
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "groups" or name == "interfaces" or name == "tracked-interfaces"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.groups is not None and self.groups._has_data():
-                return True
-
-            if self.interfaces is not None and self.interfaces._has_data():
-                return True
-
-            if self.tracked_interfaces is not None and self.tracked_interfaces._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-            return meta._meta_table['Hsrp.Ipv6']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class BfdSessions(object):
+    class BfdSessions(Entity):
         """
         The table of HSRP BFD Sessions
         
@@ -4602,13 +8149,39 @@ class Hsrp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.bfd_session = YList()
-            self.bfd_session.parent = self
-            self.bfd_session.name = 'bfd_session'
+            super(Hsrp.BfdSessions, self).__init__()
+
+            self.yang_name = "bfd-sessions"
+            self.yang_parent_name = "hsrp"
+
+            self.bfd_session = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Hsrp.BfdSessions, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Hsrp.BfdSessions, self).__setattr__(name, value)
 
 
-        class BfdSession(object):
+        class BfdSession(Entity):
             """
             An HSRP BFD Session
             
@@ -4660,7 +8233,7 @@ class Hsrp(object):
             .. attribute:: bfd_session_state
             
             	BFD session state
-            	**type**\:   :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
+            	**type**\:   :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
             
             .. attribute:: destination_address
             
@@ -4684,7 +8257,7 @@ class Hsrp(object):
             .. attribute:: session_address_family
             
             	Session Address family
-            	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+            	**type**\:   :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
             
             
 
@@ -4694,22 +8267,65 @@ class Hsrp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.ip_address = None
-                self.bfd_interface_name = None
-                self.bfd_interval = None
-                self.bfd_multiplier = None
-                self.bfd_session_state = None
-                self.destination_address = None
-                self.destination_ipv6_address = None
-                self.group = YList()
-                self.group.parent = self
-                self.group.name = 'group'
-                self.session_address_family = None
+                super(Hsrp.BfdSessions.BfdSession, self).__init__()
+
+                self.yang_name = "bfd-session"
+                self.yang_parent_name = "bfd-sessions"
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.ip_address = YLeaf(YType.str, "ip-address")
+
+                self.bfd_interface_name = YLeaf(YType.str, "bfd-interface-name")
+
+                self.bfd_interval = YLeaf(YType.uint32, "bfd-interval")
+
+                self.bfd_multiplier = YLeaf(YType.uint32, "bfd-multiplier")
+
+                self.bfd_session_state = YLeaf(YType.enumeration, "bfd-session-state")
+
+                self.destination_address = YLeaf(YType.str, "destination-address")
+
+                self.destination_ipv6_address = YLeaf(YType.str, "destination-ipv6-address")
+
+                self.session_address_family = YLeaf(YType.enumeration, "session-address-family")
+
+                self.group = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "ip_address",
+                                "bfd_interface_name",
+                                "bfd_interval",
+                                "bfd_multiplier",
+                                "bfd_session_state",
+                                "destination_address",
+                                "destination_ipv6_address",
+                                "session_address_family") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Hsrp.BfdSessions.BfdSession, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Hsrp.BfdSessions.BfdSession, self).__setattr__(name, value)
 
 
-            class Group(object):
+            class Group(Entity):
                 """
                 HSRP Groups tracking the BFD session
                 
@@ -4735,112 +8351,283 @@ class Hsrp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.hsrp_group_number = None
-                    self.interface_name = None
+                    super(Hsrp.BfdSessions.BfdSession.Group, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "group"
+                    self.yang_parent_name = "bfd-session"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-hsrp-oper:group'
+                    self.hsrp_group_number = YLeaf(YType.uint32, "hsrp-group-number")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("hsrp_group_number",
+                                    "interface_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Hsrp.BfdSessions.BfdSession.Group, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Hsrp.BfdSessions.BfdSession.Group, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.hsrp_group_number.is_set or
+                        self.interface_name.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.hsrp_group_number.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "group" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.hsrp_group_number.is_set or self.hsrp_group_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hsrp_group_number.get_name_leafdata())
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "hsrp-group-number" or name == "interface-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.hsrp_group_number is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "hsrp-group-number"):
+                        self.hsrp_group_number = value
+                        self.hsrp_group_number.value_namespace = name_space
+                        self.hsrp_group_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.group:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.interface_name.is_set or
+                    self.ip_address.is_set or
+                    self.bfd_interface_name.is_set or
+                    self.bfd_interval.is_set or
+                    self.bfd_multiplier.is_set or
+                    self.bfd_session_state.is_set or
+                    self.destination_address.is_set or
+                    self.destination_ipv6_address.is_set or
+                    self.session_address_family.is_set)
 
-                    if self.interface_name is not None:
+            def has_operation(self):
+                for c in self.group:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.ip_address.yfilter != YFilter.not_set or
+                    self.bfd_interface_name.yfilter != YFilter.not_set or
+                    self.bfd_interval.yfilter != YFilter.not_set or
+                    self.bfd_multiplier.yfilter != YFilter.not_set or
+                    self.bfd_session_state.yfilter != YFilter.not_set or
+                    self.destination_address.yfilter != YFilter.not_set or
+                    self.destination_ipv6_address.yfilter != YFilter.not_set or
+                    self.session_address_family.yfilter != YFilter.not_set)
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "bfd-session" + "[interface-name='" + self.interface_name.get() + "']" + "[ip-address='" + self.ip_address.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                    return meta._meta_table['Hsrp.BfdSessions.BfdSession.Group']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
-                if self.ip_address is None:
-                    raise YPYModelError('Key property ip_address is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/bfd-sessions/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:bfd-sessions/Cisco-IOS-XR-ipv4-hsrp-oper:bfd-session[Cisco-IOS-XR-ipv4-hsrp-oper:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-ipv4-hsrp-oper:ip-address = ' + str(self.ip_address) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ip_address.get_name_leafdata())
+                if (self.bfd_interface_name.is_set or self.bfd_interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.bfd_interface_name.get_name_leafdata())
+                if (self.bfd_interval.is_set or self.bfd_interval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.bfd_interval.get_name_leafdata())
+                if (self.bfd_multiplier.is_set or self.bfd_multiplier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.bfd_multiplier.get_name_leafdata())
+                if (self.bfd_session_state.is_set or self.bfd_session_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.bfd_session_state.get_name_leafdata())
+                if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.destination_address.get_name_leafdata())
+                if (self.destination_ipv6_address.is_set or self.destination_ipv6_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.destination_ipv6_address.get_name_leafdata())
+                if (self.session_address_family.is_set or self.session_address_family.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.session_address_family.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "group"):
+                    for c in self.group:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Hsrp.BfdSessions.BfdSession.Group()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.group.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "group" or name == "interface-name" or name == "ip-address" or name == "bfd-interface-name" or name == "bfd-interval" or name == "bfd-multiplier" or name == "bfd-session-state" or name == "destination-address" or name == "destination-ipv6-address" or name == "session-address-family"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "ip-address"):
+                    self.ip_address = value
+                    self.ip_address.value_namespace = name_space
+                    self.ip_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "bfd-interface-name"):
+                    self.bfd_interface_name = value
+                    self.bfd_interface_name.value_namespace = name_space
+                    self.bfd_interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "bfd-interval"):
+                    self.bfd_interval = value
+                    self.bfd_interval.value_namespace = name_space
+                    self.bfd_interval.value_namespace_prefix = name_space_prefix
+                if(value_path == "bfd-multiplier"):
+                    self.bfd_multiplier = value
+                    self.bfd_multiplier.value_namespace = name_space
+                    self.bfd_multiplier.value_namespace_prefix = name_space_prefix
+                if(value_path == "bfd-session-state"):
+                    self.bfd_session_state = value
+                    self.bfd_session_state.value_namespace = name_space
+                    self.bfd_session_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "destination-address"):
+                    self.destination_address = value
+                    self.destination_address.value_namespace = name_space
+                    self.destination_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "destination-ipv6-address"):
+                    self.destination_ipv6_address = value
+                    self.destination_ipv6_address.value_namespace = name_space
+                    self.destination_ipv6_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "session-address-family"):
+                    self.session_address_family = value
+                    self.session_address_family.value_namespace = name_space
+                    self.session_address_family.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.bfd_session:
+                if (c.has_data()):
                     return True
-
-                if self.ip_address is not None:
-                    return True
-
-                if self.bfd_interface_name is not None:
-                    return True
-
-                if self.bfd_interval is not None:
-                    return True
-
-                if self.bfd_multiplier is not None:
-                    return True
-
-                if self.bfd_session_state is not None:
-                    return True
-
-                if self.destination_address is not None:
-                    return True
-
-                if self.destination_ipv6_address is not None:
-                    return True
-
-                if self.group is not None:
-                    for child_ref in self.group:
-                        if child_ref._has_data():
-                            return True
-
-                if self.session_address_family is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-                return meta._meta_table['Hsrp.BfdSessions.BfdSession']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:bfd-sessions'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.bfd_session is not None:
-                for child_ref in self.bfd_session:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.bfd_session:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "bfd-sessions" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "bfd-session"):
+                for c in self.bfd_session:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Hsrp.BfdSessions.BfdSession()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.bfd_session.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "bfd-session"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-            return meta._meta_table['Hsrp.BfdSessions']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Summary(object):
+    class Summary(Entity):
         """
         HSRP summary statistics
         
@@ -5279,299 +9066,829 @@ class Hsrp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.bfd_session_inactive = None
-            self.bfd_sessions_down = None
-            self.bfd_sessions_up = None
-            self.interfaces_ipv4_state_down = None
-            self.interfaces_ipv4_state_up = None
-            self.interfaces_ipv6_state_down = None
-            self.interfaces_ipv6_state_up = None
-            self.ipv4_sessions_active = None
-            self.ipv4_sessions_init = None
-            self.ipv4_sessions_learn = None
-            self.ipv4_sessions_listen = None
-            self.ipv4_sessions_speak = None
-            self.ipv4_sessions_standby = None
-            self.ipv4_slaves_active = None
-            self.ipv4_slaves_init = None
-            self.ipv4_slaves_learn = None
-            self.ipv4_slaves_listen = None
-            self.ipv4_slaves_speak = None
-            self.ipv4_slaves_standby = None
-            self.ipv4_virtual_ip_addresses_active_down = None
-            self.ipv4_virtual_ip_addresses_active_up = None
-            self.ipv4_virtual_ip_addresses_init_down = None
-            self.ipv4_virtual_ip_addresses_init_up = None
-            self.ipv4_virtual_ip_addresses_learn_down = None
-            self.ipv4_virtual_ip_addresses_learn_up = None
-            self.ipv4_virtual_ip_addresses_listen_down = None
-            self.ipv4_virtual_ip_addresses_listen_up = None
-            self.ipv4_virtual_ip_addresses_speak_down = None
-            self.ipv4_virtual_ip_addresses_speak_up = None
-            self.ipv4_virtual_ip_addresses_standby_down = None
-            self.ipv4_virtual_ip_addresses_standby_up = None
-            self.ipv6_sessions_active = None
-            self.ipv6_sessions_init = None
-            self.ipv6_sessions_learn = None
-            self.ipv6_sessions_listen = None
-            self.ipv6_sessions_speak = None
-            self.ipv6_sessions_standby = None
-            self.ipv6_slaves_active = None
-            self.ipv6_slaves_init = None
-            self.ipv6_slaves_learn = None
-            self.ipv6_slaves_listen = None
-            self.ipv6_slaves_speak = None
-            self.ipv6_slaves_standby = None
-            self.ipv6_virtual_ip_addresses_active_down = None
-            self.ipv6_virtual_ip_addresses_active_up = None
-            self.ipv6_virtual_ip_addresses_init_down = None
-            self.ipv6_virtual_ip_addresses_init_up = None
-            self.ipv6_virtual_ip_addresses_learn_down = None
-            self.ipv6_virtual_ip_addresses_learn_up = None
-            self.ipv6_virtual_ip_addresses_listen_down = None
-            self.ipv6_virtual_ip_addresses_listen_up = None
-            self.ipv6_virtual_ip_addresses_speak_down = None
-            self.ipv6_virtual_ip_addresses_speak_up = None
-            self.ipv6_virtual_ip_addresses_standby_down = None
-            self.ipv6_virtual_ip_addresses_standby_up = None
-            self.tracked_interfaces_ipv4_state_down = None
-            self.tracked_interfaces_ipv4_state_up = None
-            self.tracked_interfaces_ipv6_state_down = None
-            self.tracked_interfaces_ipv6_state_up = None
-            self.tracked_objects_down = None
-            self.tracked_objects_up = None
+            super(Hsrp.Summary, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "summary"
+            self.yang_parent_name = "hsrp"
 
-            return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/Cisco-IOS-XR-ipv4-hsrp-oper:summary'
+            self.bfd_session_inactive = YLeaf(YType.uint32, "bfd-session-inactive")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.bfd_sessions_down = YLeaf(YType.uint32, "bfd-sessions-down")
+
+            self.bfd_sessions_up = YLeaf(YType.uint32, "bfd-sessions-up")
+
+            self.interfaces_ipv4_state_down = YLeaf(YType.uint32, "interfaces-ipv4-state-down")
+
+            self.interfaces_ipv4_state_up = YLeaf(YType.uint32, "interfaces-ipv4-state-up")
+
+            self.interfaces_ipv6_state_down = YLeaf(YType.uint32, "interfaces-ipv6-state-down")
+
+            self.interfaces_ipv6_state_up = YLeaf(YType.uint32, "interfaces-ipv6-state-up")
+
+            self.ipv4_sessions_active = YLeaf(YType.uint32, "ipv4-sessions-active")
+
+            self.ipv4_sessions_init = YLeaf(YType.uint32, "ipv4-sessions-init")
+
+            self.ipv4_sessions_learn = YLeaf(YType.uint32, "ipv4-sessions-learn")
+
+            self.ipv4_sessions_listen = YLeaf(YType.uint32, "ipv4-sessions-listen")
+
+            self.ipv4_sessions_speak = YLeaf(YType.uint32, "ipv4-sessions-speak")
+
+            self.ipv4_sessions_standby = YLeaf(YType.uint32, "ipv4-sessions-standby")
+
+            self.ipv4_slaves_active = YLeaf(YType.uint32, "ipv4-slaves-active")
+
+            self.ipv4_slaves_init = YLeaf(YType.uint32, "ipv4-slaves-init")
+
+            self.ipv4_slaves_learn = YLeaf(YType.uint32, "ipv4-slaves-learn")
+
+            self.ipv4_slaves_listen = YLeaf(YType.uint32, "ipv4-slaves-listen")
+
+            self.ipv4_slaves_speak = YLeaf(YType.uint32, "ipv4-slaves-speak")
+
+            self.ipv4_slaves_standby = YLeaf(YType.uint32, "ipv4-slaves-standby")
+
+            self.ipv4_virtual_ip_addresses_active_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-active-down")
+
+            self.ipv4_virtual_ip_addresses_active_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-active-up")
+
+            self.ipv4_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-down")
+
+            self.ipv4_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-init-up")
+
+            self.ipv4_virtual_ip_addresses_learn_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-learn-down")
+
+            self.ipv4_virtual_ip_addresses_learn_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-learn-up")
+
+            self.ipv4_virtual_ip_addresses_listen_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-listen-down")
+
+            self.ipv4_virtual_ip_addresses_listen_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-listen-up")
+
+            self.ipv4_virtual_ip_addresses_speak_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-speak-down")
+
+            self.ipv4_virtual_ip_addresses_speak_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-speak-up")
+
+            self.ipv4_virtual_ip_addresses_standby_down = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-standby-down")
+
+            self.ipv4_virtual_ip_addresses_standby_up = YLeaf(YType.uint32, "ipv4-virtual-ip-addresses-standby-up")
+
+            self.ipv6_sessions_active = YLeaf(YType.uint32, "ipv6-sessions-active")
+
+            self.ipv6_sessions_init = YLeaf(YType.uint32, "ipv6-sessions-init")
+
+            self.ipv6_sessions_learn = YLeaf(YType.uint32, "ipv6-sessions-learn")
+
+            self.ipv6_sessions_listen = YLeaf(YType.uint32, "ipv6-sessions-listen")
+
+            self.ipv6_sessions_speak = YLeaf(YType.uint32, "ipv6-sessions-speak")
+
+            self.ipv6_sessions_standby = YLeaf(YType.uint32, "ipv6-sessions-standby")
+
+            self.ipv6_slaves_active = YLeaf(YType.uint32, "ipv6-slaves-active")
+
+            self.ipv6_slaves_init = YLeaf(YType.uint32, "ipv6-slaves-init")
+
+            self.ipv6_slaves_learn = YLeaf(YType.uint32, "ipv6-slaves-learn")
+
+            self.ipv6_slaves_listen = YLeaf(YType.uint32, "ipv6-slaves-listen")
+
+            self.ipv6_slaves_speak = YLeaf(YType.uint32, "ipv6-slaves-speak")
+
+            self.ipv6_slaves_standby = YLeaf(YType.uint32, "ipv6-slaves-standby")
+
+            self.ipv6_virtual_ip_addresses_active_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-active-down")
+
+            self.ipv6_virtual_ip_addresses_active_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-active-up")
+
+            self.ipv6_virtual_ip_addresses_init_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-down")
+
+            self.ipv6_virtual_ip_addresses_init_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-init-up")
+
+            self.ipv6_virtual_ip_addresses_learn_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-learn-down")
+
+            self.ipv6_virtual_ip_addresses_learn_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-learn-up")
+
+            self.ipv6_virtual_ip_addresses_listen_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-listen-down")
+
+            self.ipv6_virtual_ip_addresses_listen_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-listen-up")
+
+            self.ipv6_virtual_ip_addresses_speak_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-speak-down")
+
+            self.ipv6_virtual_ip_addresses_speak_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-speak-up")
+
+            self.ipv6_virtual_ip_addresses_standby_down = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-standby-down")
+
+            self.ipv6_virtual_ip_addresses_standby_up = YLeaf(YType.uint32, "ipv6-virtual-ip-addresses-standby-up")
+
+            self.tracked_interfaces_ipv4_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-down")
+
+            self.tracked_interfaces_ipv4_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv4-state-up")
+
+            self.tracked_interfaces_ipv6_state_down = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-down")
+
+            self.tracked_interfaces_ipv6_state_up = YLeaf(YType.uint32, "tracked-interfaces-ipv6-state-up")
+
+            self.tracked_objects_down = YLeaf(YType.uint32, "tracked-objects-down")
+
+            self.tracked_objects_up = YLeaf(YType.uint32, "tracked-objects-up")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("bfd_session_inactive",
+                            "bfd_sessions_down",
+                            "bfd_sessions_up",
+                            "interfaces_ipv4_state_down",
+                            "interfaces_ipv4_state_up",
+                            "interfaces_ipv6_state_down",
+                            "interfaces_ipv6_state_up",
+                            "ipv4_sessions_active",
+                            "ipv4_sessions_init",
+                            "ipv4_sessions_learn",
+                            "ipv4_sessions_listen",
+                            "ipv4_sessions_speak",
+                            "ipv4_sessions_standby",
+                            "ipv4_slaves_active",
+                            "ipv4_slaves_init",
+                            "ipv4_slaves_learn",
+                            "ipv4_slaves_listen",
+                            "ipv4_slaves_speak",
+                            "ipv4_slaves_standby",
+                            "ipv4_virtual_ip_addresses_active_down",
+                            "ipv4_virtual_ip_addresses_active_up",
+                            "ipv4_virtual_ip_addresses_init_down",
+                            "ipv4_virtual_ip_addresses_init_up",
+                            "ipv4_virtual_ip_addresses_learn_down",
+                            "ipv4_virtual_ip_addresses_learn_up",
+                            "ipv4_virtual_ip_addresses_listen_down",
+                            "ipv4_virtual_ip_addresses_listen_up",
+                            "ipv4_virtual_ip_addresses_speak_down",
+                            "ipv4_virtual_ip_addresses_speak_up",
+                            "ipv4_virtual_ip_addresses_standby_down",
+                            "ipv4_virtual_ip_addresses_standby_up",
+                            "ipv6_sessions_active",
+                            "ipv6_sessions_init",
+                            "ipv6_sessions_learn",
+                            "ipv6_sessions_listen",
+                            "ipv6_sessions_speak",
+                            "ipv6_sessions_standby",
+                            "ipv6_slaves_active",
+                            "ipv6_slaves_init",
+                            "ipv6_slaves_learn",
+                            "ipv6_slaves_listen",
+                            "ipv6_slaves_speak",
+                            "ipv6_slaves_standby",
+                            "ipv6_virtual_ip_addresses_active_down",
+                            "ipv6_virtual_ip_addresses_active_up",
+                            "ipv6_virtual_ip_addresses_init_down",
+                            "ipv6_virtual_ip_addresses_init_up",
+                            "ipv6_virtual_ip_addresses_learn_down",
+                            "ipv6_virtual_ip_addresses_learn_up",
+                            "ipv6_virtual_ip_addresses_listen_down",
+                            "ipv6_virtual_ip_addresses_listen_up",
+                            "ipv6_virtual_ip_addresses_speak_down",
+                            "ipv6_virtual_ip_addresses_speak_up",
+                            "ipv6_virtual_ip_addresses_standby_down",
+                            "ipv6_virtual_ip_addresses_standby_up",
+                            "tracked_interfaces_ipv4_state_down",
+                            "tracked_interfaces_ipv4_state_up",
+                            "tracked_interfaces_ipv6_state_down",
+                            "tracked_interfaces_ipv6_state_up",
+                            "tracked_objects_down",
+                            "tracked_objects_up") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Hsrp.Summary, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Hsrp.Summary, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.bfd_session_inactive.is_set or
+                self.bfd_sessions_down.is_set or
+                self.bfd_sessions_up.is_set or
+                self.interfaces_ipv4_state_down.is_set or
+                self.interfaces_ipv4_state_up.is_set or
+                self.interfaces_ipv6_state_down.is_set or
+                self.interfaces_ipv6_state_up.is_set or
+                self.ipv4_sessions_active.is_set or
+                self.ipv4_sessions_init.is_set or
+                self.ipv4_sessions_learn.is_set or
+                self.ipv4_sessions_listen.is_set or
+                self.ipv4_sessions_speak.is_set or
+                self.ipv4_sessions_standby.is_set or
+                self.ipv4_slaves_active.is_set or
+                self.ipv4_slaves_init.is_set or
+                self.ipv4_slaves_learn.is_set or
+                self.ipv4_slaves_listen.is_set or
+                self.ipv4_slaves_speak.is_set or
+                self.ipv4_slaves_standby.is_set or
+                self.ipv4_virtual_ip_addresses_active_down.is_set or
+                self.ipv4_virtual_ip_addresses_active_up.is_set or
+                self.ipv4_virtual_ip_addresses_init_down.is_set or
+                self.ipv4_virtual_ip_addresses_init_up.is_set or
+                self.ipv4_virtual_ip_addresses_learn_down.is_set or
+                self.ipv4_virtual_ip_addresses_learn_up.is_set or
+                self.ipv4_virtual_ip_addresses_listen_down.is_set or
+                self.ipv4_virtual_ip_addresses_listen_up.is_set or
+                self.ipv4_virtual_ip_addresses_speak_down.is_set or
+                self.ipv4_virtual_ip_addresses_speak_up.is_set or
+                self.ipv4_virtual_ip_addresses_standby_down.is_set or
+                self.ipv4_virtual_ip_addresses_standby_up.is_set or
+                self.ipv6_sessions_active.is_set or
+                self.ipv6_sessions_init.is_set or
+                self.ipv6_sessions_learn.is_set or
+                self.ipv6_sessions_listen.is_set or
+                self.ipv6_sessions_speak.is_set or
+                self.ipv6_sessions_standby.is_set or
+                self.ipv6_slaves_active.is_set or
+                self.ipv6_slaves_init.is_set or
+                self.ipv6_slaves_learn.is_set or
+                self.ipv6_slaves_listen.is_set or
+                self.ipv6_slaves_speak.is_set or
+                self.ipv6_slaves_standby.is_set or
+                self.ipv6_virtual_ip_addresses_active_down.is_set or
+                self.ipv6_virtual_ip_addresses_active_up.is_set or
+                self.ipv6_virtual_ip_addresses_init_down.is_set or
+                self.ipv6_virtual_ip_addresses_init_up.is_set or
+                self.ipv6_virtual_ip_addresses_learn_down.is_set or
+                self.ipv6_virtual_ip_addresses_learn_up.is_set or
+                self.ipv6_virtual_ip_addresses_listen_down.is_set or
+                self.ipv6_virtual_ip_addresses_listen_up.is_set or
+                self.ipv6_virtual_ip_addresses_speak_down.is_set or
+                self.ipv6_virtual_ip_addresses_speak_up.is_set or
+                self.ipv6_virtual_ip_addresses_standby_down.is_set or
+                self.ipv6_virtual_ip_addresses_standby_up.is_set or
+                self.tracked_interfaces_ipv4_state_down.is_set or
+                self.tracked_interfaces_ipv4_state_up.is_set or
+                self.tracked_interfaces_ipv6_state_down.is_set or
+                self.tracked_interfaces_ipv6_state_up.is_set or
+                self.tracked_objects_down.is_set or
+                self.tracked_objects_up.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.bfd_session_inactive.yfilter != YFilter.not_set or
+                self.bfd_sessions_down.yfilter != YFilter.not_set or
+                self.bfd_sessions_up.yfilter != YFilter.not_set or
+                self.interfaces_ipv4_state_down.yfilter != YFilter.not_set or
+                self.interfaces_ipv4_state_up.yfilter != YFilter.not_set or
+                self.interfaces_ipv6_state_down.yfilter != YFilter.not_set or
+                self.interfaces_ipv6_state_up.yfilter != YFilter.not_set or
+                self.ipv4_sessions_active.yfilter != YFilter.not_set or
+                self.ipv4_sessions_init.yfilter != YFilter.not_set or
+                self.ipv4_sessions_learn.yfilter != YFilter.not_set or
+                self.ipv4_sessions_listen.yfilter != YFilter.not_set or
+                self.ipv4_sessions_speak.yfilter != YFilter.not_set or
+                self.ipv4_sessions_standby.yfilter != YFilter.not_set or
+                self.ipv4_slaves_active.yfilter != YFilter.not_set or
+                self.ipv4_slaves_init.yfilter != YFilter.not_set or
+                self.ipv4_slaves_learn.yfilter != YFilter.not_set or
+                self.ipv4_slaves_listen.yfilter != YFilter.not_set or
+                self.ipv4_slaves_speak.yfilter != YFilter.not_set or
+                self.ipv4_slaves_standby.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_active_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_active_up.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_init_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_init_up.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_learn_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_learn_up.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_listen_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_listen_up.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_speak_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_speak_up.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_standby_down.yfilter != YFilter.not_set or
+                self.ipv4_virtual_ip_addresses_standby_up.yfilter != YFilter.not_set or
+                self.ipv6_sessions_active.yfilter != YFilter.not_set or
+                self.ipv6_sessions_init.yfilter != YFilter.not_set or
+                self.ipv6_sessions_learn.yfilter != YFilter.not_set or
+                self.ipv6_sessions_listen.yfilter != YFilter.not_set or
+                self.ipv6_sessions_speak.yfilter != YFilter.not_set or
+                self.ipv6_sessions_standby.yfilter != YFilter.not_set or
+                self.ipv6_slaves_active.yfilter != YFilter.not_set or
+                self.ipv6_slaves_init.yfilter != YFilter.not_set or
+                self.ipv6_slaves_learn.yfilter != YFilter.not_set or
+                self.ipv6_slaves_listen.yfilter != YFilter.not_set or
+                self.ipv6_slaves_speak.yfilter != YFilter.not_set or
+                self.ipv6_slaves_standby.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_active_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_active_up.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_init_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_init_up.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_learn_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_learn_up.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_listen_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_listen_up.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_speak_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_speak_up.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_standby_down.yfilter != YFilter.not_set or
+                self.ipv6_virtual_ip_addresses_standby_up.yfilter != YFilter.not_set or
+                self.tracked_interfaces_ipv4_state_down.yfilter != YFilter.not_set or
+                self.tracked_interfaces_ipv4_state_up.yfilter != YFilter.not_set or
+                self.tracked_interfaces_ipv6_state_down.yfilter != YFilter.not_set or
+                self.tracked_interfaces_ipv6_state_up.yfilter != YFilter.not_set or
+                self.tracked_objects_down.yfilter != YFilter.not_set or
+                self.tracked_objects_up.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "summary" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.bfd_session_inactive.is_set or self.bfd_session_inactive.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.bfd_session_inactive.get_name_leafdata())
+            if (self.bfd_sessions_down.is_set or self.bfd_sessions_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.bfd_sessions_down.get_name_leafdata())
+            if (self.bfd_sessions_up.is_set or self.bfd_sessions_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.bfd_sessions_up.get_name_leafdata())
+            if (self.interfaces_ipv4_state_down.is_set or self.interfaces_ipv4_state_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.interfaces_ipv4_state_down.get_name_leafdata())
+            if (self.interfaces_ipv4_state_up.is_set or self.interfaces_ipv4_state_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.interfaces_ipv4_state_up.get_name_leafdata())
+            if (self.interfaces_ipv6_state_down.is_set or self.interfaces_ipv6_state_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.interfaces_ipv6_state_down.get_name_leafdata())
+            if (self.interfaces_ipv6_state_up.is_set or self.interfaces_ipv6_state_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.interfaces_ipv6_state_up.get_name_leafdata())
+            if (self.ipv4_sessions_active.is_set or self.ipv4_sessions_active.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_active.get_name_leafdata())
+            if (self.ipv4_sessions_init.is_set or self.ipv4_sessions_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_init.get_name_leafdata())
+            if (self.ipv4_sessions_learn.is_set or self.ipv4_sessions_learn.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_learn.get_name_leafdata())
+            if (self.ipv4_sessions_listen.is_set or self.ipv4_sessions_listen.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_listen.get_name_leafdata())
+            if (self.ipv4_sessions_speak.is_set or self.ipv4_sessions_speak.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_speak.get_name_leafdata())
+            if (self.ipv4_sessions_standby.is_set or self.ipv4_sessions_standby.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_sessions_standby.get_name_leafdata())
+            if (self.ipv4_slaves_active.is_set or self.ipv4_slaves_active.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_slaves_active.get_name_leafdata())
+            if (self.ipv4_slaves_init.is_set or self.ipv4_slaves_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_slaves_init.get_name_leafdata())
+            if (self.ipv4_slaves_learn.is_set or self.ipv4_slaves_learn.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_slaves_learn.get_name_leafdata())
+            if (self.ipv4_slaves_listen.is_set or self.ipv4_slaves_listen.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_slaves_listen.get_name_leafdata())
+            if (self.ipv4_slaves_speak.is_set or self.ipv4_slaves_speak.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_slaves_speak.get_name_leafdata())
+            if (self.ipv4_slaves_standby.is_set or self.ipv4_slaves_standby.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_slaves_standby.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_active_down.is_set or self.ipv4_virtual_ip_addresses_active_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_active_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_active_up.is_set or self.ipv4_virtual_ip_addresses_active_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_active_up.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_init_down.is_set or self.ipv4_virtual_ip_addresses_init_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_init_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_init_up.is_set or self.ipv4_virtual_ip_addresses_init_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_init_up.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_learn_down.is_set or self.ipv4_virtual_ip_addresses_learn_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_learn_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_learn_up.is_set or self.ipv4_virtual_ip_addresses_learn_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_learn_up.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_listen_down.is_set or self.ipv4_virtual_ip_addresses_listen_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_listen_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_listen_up.is_set or self.ipv4_virtual_ip_addresses_listen_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_listen_up.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_speak_down.is_set or self.ipv4_virtual_ip_addresses_speak_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_speak_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_speak_up.is_set or self.ipv4_virtual_ip_addresses_speak_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_speak_up.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_standby_down.is_set or self.ipv4_virtual_ip_addresses_standby_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_standby_down.get_name_leafdata())
+            if (self.ipv4_virtual_ip_addresses_standby_up.is_set or self.ipv4_virtual_ip_addresses_standby_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv4_virtual_ip_addresses_standby_up.get_name_leafdata())
+            if (self.ipv6_sessions_active.is_set or self.ipv6_sessions_active.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_active.get_name_leafdata())
+            if (self.ipv6_sessions_init.is_set or self.ipv6_sessions_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_init.get_name_leafdata())
+            if (self.ipv6_sessions_learn.is_set or self.ipv6_sessions_learn.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_learn.get_name_leafdata())
+            if (self.ipv6_sessions_listen.is_set or self.ipv6_sessions_listen.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_listen.get_name_leafdata())
+            if (self.ipv6_sessions_speak.is_set or self.ipv6_sessions_speak.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_speak.get_name_leafdata())
+            if (self.ipv6_sessions_standby.is_set or self.ipv6_sessions_standby.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_sessions_standby.get_name_leafdata())
+            if (self.ipv6_slaves_active.is_set or self.ipv6_slaves_active.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_slaves_active.get_name_leafdata())
+            if (self.ipv6_slaves_init.is_set or self.ipv6_slaves_init.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_slaves_init.get_name_leafdata())
+            if (self.ipv6_slaves_learn.is_set or self.ipv6_slaves_learn.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_slaves_learn.get_name_leafdata())
+            if (self.ipv6_slaves_listen.is_set or self.ipv6_slaves_listen.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_slaves_listen.get_name_leafdata())
+            if (self.ipv6_slaves_speak.is_set or self.ipv6_slaves_speak.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_slaves_speak.get_name_leafdata())
+            if (self.ipv6_slaves_standby.is_set or self.ipv6_slaves_standby.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_slaves_standby.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_active_down.is_set or self.ipv6_virtual_ip_addresses_active_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_active_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_active_up.is_set or self.ipv6_virtual_ip_addresses_active_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_active_up.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_init_down.is_set or self.ipv6_virtual_ip_addresses_init_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_init_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_init_up.is_set or self.ipv6_virtual_ip_addresses_init_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_init_up.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_learn_down.is_set or self.ipv6_virtual_ip_addresses_learn_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_learn_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_learn_up.is_set or self.ipv6_virtual_ip_addresses_learn_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_learn_up.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_listen_down.is_set or self.ipv6_virtual_ip_addresses_listen_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_listen_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_listen_up.is_set or self.ipv6_virtual_ip_addresses_listen_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_listen_up.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_speak_down.is_set or self.ipv6_virtual_ip_addresses_speak_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_speak_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_speak_up.is_set or self.ipv6_virtual_ip_addresses_speak_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_speak_up.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_standby_down.is_set or self.ipv6_virtual_ip_addresses_standby_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_standby_down.get_name_leafdata())
+            if (self.ipv6_virtual_ip_addresses_standby_up.is_set or self.ipv6_virtual_ip_addresses_standby_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ipv6_virtual_ip_addresses_standby_up.get_name_leafdata())
+            if (self.tracked_interfaces_ipv4_state_down.is_set or self.tracked_interfaces_ipv4_state_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tracked_interfaces_ipv4_state_down.get_name_leafdata())
+            if (self.tracked_interfaces_ipv4_state_up.is_set or self.tracked_interfaces_ipv4_state_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tracked_interfaces_ipv4_state_up.get_name_leafdata())
+            if (self.tracked_interfaces_ipv6_state_down.is_set or self.tracked_interfaces_ipv6_state_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tracked_interfaces_ipv6_state_down.get_name_leafdata())
+            if (self.tracked_interfaces_ipv6_state_up.is_set or self.tracked_interfaces_ipv6_state_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tracked_interfaces_ipv6_state_up.get_name_leafdata())
+            if (self.tracked_objects_down.is_set or self.tracked_objects_down.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tracked_objects_down.get_name_leafdata())
+            if (self.tracked_objects_up.is_set or self.tracked_objects_up.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.tracked_objects_up.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "bfd-session-inactive" or name == "bfd-sessions-down" or name == "bfd-sessions-up" or name == "interfaces-ipv4-state-down" or name == "interfaces-ipv4-state-up" or name == "interfaces-ipv6-state-down" or name == "interfaces-ipv6-state-up" or name == "ipv4-sessions-active" or name == "ipv4-sessions-init" or name == "ipv4-sessions-learn" or name == "ipv4-sessions-listen" or name == "ipv4-sessions-speak" or name == "ipv4-sessions-standby" or name == "ipv4-slaves-active" or name == "ipv4-slaves-init" or name == "ipv4-slaves-learn" or name == "ipv4-slaves-listen" or name == "ipv4-slaves-speak" or name == "ipv4-slaves-standby" or name == "ipv4-virtual-ip-addresses-active-down" or name == "ipv4-virtual-ip-addresses-active-up" or name == "ipv4-virtual-ip-addresses-init-down" or name == "ipv4-virtual-ip-addresses-init-up" or name == "ipv4-virtual-ip-addresses-learn-down" or name == "ipv4-virtual-ip-addresses-learn-up" or name == "ipv4-virtual-ip-addresses-listen-down" or name == "ipv4-virtual-ip-addresses-listen-up" or name == "ipv4-virtual-ip-addresses-speak-down" or name == "ipv4-virtual-ip-addresses-speak-up" or name == "ipv4-virtual-ip-addresses-standby-down" or name == "ipv4-virtual-ip-addresses-standby-up" or name == "ipv6-sessions-active" or name == "ipv6-sessions-init" or name == "ipv6-sessions-learn" or name == "ipv6-sessions-listen" or name == "ipv6-sessions-speak" or name == "ipv6-sessions-standby" or name == "ipv6-slaves-active" or name == "ipv6-slaves-init" or name == "ipv6-slaves-learn" or name == "ipv6-slaves-listen" or name == "ipv6-slaves-speak" or name == "ipv6-slaves-standby" or name == "ipv6-virtual-ip-addresses-active-down" or name == "ipv6-virtual-ip-addresses-active-up" or name == "ipv6-virtual-ip-addresses-init-down" or name == "ipv6-virtual-ip-addresses-init-up" or name == "ipv6-virtual-ip-addresses-learn-down" or name == "ipv6-virtual-ip-addresses-learn-up" or name == "ipv6-virtual-ip-addresses-listen-down" or name == "ipv6-virtual-ip-addresses-listen-up" or name == "ipv6-virtual-ip-addresses-speak-down" or name == "ipv6-virtual-ip-addresses-speak-up" or name == "ipv6-virtual-ip-addresses-standby-down" or name == "ipv6-virtual-ip-addresses-standby-up" or name == "tracked-interfaces-ipv4-state-down" or name == "tracked-interfaces-ipv4-state-up" or name == "tracked-interfaces-ipv6-state-down" or name == "tracked-interfaces-ipv6-state-up" or name == "tracked-objects-down" or name == "tracked-objects-up"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.bfd_session_inactive is not None:
-                return True
-
-            if self.bfd_sessions_down is not None:
-                return True
-
-            if self.bfd_sessions_up is not None:
-                return True
-
-            if self.interfaces_ipv4_state_down is not None:
-                return True
-
-            if self.interfaces_ipv4_state_up is not None:
-                return True
-
-            if self.interfaces_ipv6_state_down is not None:
-                return True
-
-            if self.interfaces_ipv6_state_up is not None:
-                return True
-
-            if self.ipv4_sessions_active is not None:
-                return True
-
-            if self.ipv4_sessions_init is not None:
-                return True
-
-            if self.ipv4_sessions_learn is not None:
-                return True
-
-            if self.ipv4_sessions_listen is not None:
-                return True
-
-            if self.ipv4_sessions_speak is not None:
-                return True
-
-            if self.ipv4_sessions_standby is not None:
-                return True
-
-            if self.ipv4_slaves_active is not None:
-                return True
-
-            if self.ipv4_slaves_init is not None:
-                return True
-
-            if self.ipv4_slaves_learn is not None:
-                return True
-
-            if self.ipv4_slaves_listen is not None:
-                return True
-
-            if self.ipv4_slaves_speak is not None:
-                return True
-
-            if self.ipv4_slaves_standby is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_active_down is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_active_up is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_init_down is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_init_up is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_learn_down is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_learn_up is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_listen_down is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_listen_up is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_speak_down is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_speak_up is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_standby_down is not None:
-                return True
-
-            if self.ipv4_virtual_ip_addresses_standby_up is not None:
-                return True
-
-            if self.ipv6_sessions_active is not None:
-                return True
-
-            if self.ipv6_sessions_init is not None:
-                return True
-
-            if self.ipv6_sessions_learn is not None:
-                return True
-
-            if self.ipv6_sessions_listen is not None:
-                return True
-
-            if self.ipv6_sessions_speak is not None:
-                return True
-
-            if self.ipv6_sessions_standby is not None:
-                return True
-
-            if self.ipv6_slaves_active is not None:
-                return True
-
-            if self.ipv6_slaves_init is not None:
-                return True
-
-            if self.ipv6_slaves_learn is not None:
-                return True
-
-            if self.ipv6_slaves_listen is not None:
-                return True
-
-            if self.ipv6_slaves_speak is not None:
-                return True
-
-            if self.ipv6_slaves_standby is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_active_down is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_active_up is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_init_down is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_init_up is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_learn_down is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_learn_up is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_listen_down is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_listen_up is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_speak_down is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_speak_up is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_standby_down is not None:
-                return True
-
-            if self.ipv6_virtual_ip_addresses_standby_up is not None:
-                return True
-
-            if self.tracked_interfaces_ipv4_state_down is not None:
-                return True
-
-            if self.tracked_interfaces_ipv4_state_up is not None:
-                return True
-
-            if self.tracked_interfaces_ipv6_state_down is not None:
-                return True
-
-            if self.tracked_interfaces_ipv6_state_up is not None:
-                return True
-
-            if self.tracked_objects_down is not None:
-                return True
-
-            if self.tracked_objects_up is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-            return meta._meta_table['Hsrp.Summary']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-ipv4-hsrp-oper:hsrp'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "bfd-session-inactive"):
+                self.bfd_session_inactive = value
+                self.bfd_session_inactive.value_namespace = name_space
+                self.bfd_session_inactive.value_namespace_prefix = name_space_prefix
+            if(value_path == "bfd-sessions-down"):
+                self.bfd_sessions_down = value
+                self.bfd_sessions_down.value_namespace = name_space
+                self.bfd_sessions_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "bfd-sessions-up"):
+                self.bfd_sessions_up = value
+                self.bfd_sessions_up.value_namespace = name_space
+                self.bfd_sessions_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "interfaces-ipv4-state-down"):
+                self.interfaces_ipv4_state_down = value
+                self.interfaces_ipv4_state_down.value_namespace = name_space
+                self.interfaces_ipv4_state_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "interfaces-ipv4-state-up"):
+                self.interfaces_ipv4_state_up = value
+                self.interfaces_ipv4_state_up.value_namespace = name_space
+                self.interfaces_ipv4_state_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "interfaces-ipv6-state-down"):
+                self.interfaces_ipv6_state_down = value
+                self.interfaces_ipv6_state_down.value_namespace = name_space
+                self.interfaces_ipv6_state_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "interfaces-ipv6-state-up"):
+                self.interfaces_ipv6_state_up = value
+                self.interfaces_ipv6_state_up.value_namespace = name_space
+                self.interfaces_ipv6_state_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-active"):
+                self.ipv4_sessions_active = value
+                self.ipv4_sessions_active.value_namespace = name_space
+                self.ipv4_sessions_active.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-init"):
+                self.ipv4_sessions_init = value
+                self.ipv4_sessions_init.value_namespace = name_space
+                self.ipv4_sessions_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-learn"):
+                self.ipv4_sessions_learn = value
+                self.ipv4_sessions_learn.value_namespace = name_space
+                self.ipv4_sessions_learn.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-listen"):
+                self.ipv4_sessions_listen = value
+                self.ipv4_sessions_listen.value_namespace = name_space
+                self.ipv4_sessions_listen.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-speak"):
+                self.ipv4_sessions_speak = value
+                self.ipv4_sessions_speak.value_namespace = name_space
+                self.ipv4_sessions_speak.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-sessions-standby"):
+                self.ipv4_sessions_standby = value
+                self.ipv4_sessions_standby.value_namespace = name_space
+                self.ipv4_sessions_standby.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-slaves-active"):
+                self.ipv4_slaves_active = value
+                self.ipv4_slaves_active.value_namespace = name_space
+                self.ipv4_slaves_active.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-slaves-init"):
+                self.ipv4_slaves_init = value
+                self.ipv4_slaves_init.value_namespace = name_space
+                self.ipv4_slaves_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-slaves-learn"):
+                self.ipv4_slaves_learn = value
+                self.ipv4_slaves_learn.value_namespace = name_space
+                self.ipv4_slaves_learn.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-slaves-listen"):
+                self.ipv4_slaves_listen = value
+                self.ipv4_slaves_listen.value_namespace = name_space
+                self.ipv4_slaves_listen.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-slaves-speak"):
+                self.ipv4_slaves_speak = value
+                self.ipv4_slaves_speak.value_namespace = name_space
+                self.ipv4_slaves_speak.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-slaves-standby"):
+                self.ipv4_slaves_standby = value
+                self.ipv4_slaves_standby.value_namespace = name_space
+                self.ipv4_slaves_standby.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-active-down"):
+                self.ipv4_virtual_ip_addresses_active_down = value
+                self.ipv4_virtual_ip_addresses_active_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_active_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-active-up"):
+                self.ipv4_virtual_ip_addresses_active_up = value
+                self.ipv4_virtual_ip_addresses_active_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_active_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-init-down"):
+                self.ipv4_virtual_ip_addresses_init_down = value
+                self.ipv4_virtual_ip_addresses_init_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_init_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-init-up"):
+                self.ipv4_virtual_ip_addresses_init_up = value
+                self.ipv4_virtual_ip_addresses_init_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_init_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-learn-down"):
+                self.ipv4_virtual_ip_addresses_learn_down = value
+                self.ipv4_virtual_ip_addresses_learn_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_learn_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-learn-up"):
+                self.ipv4_virtual_ip_addresses_learn_up = value
+                self.ipv4_virtual_ip_addresses_learn_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_learn_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-listen-down"):
+                self.ipv4_virtual_ip_addresses_listen_down = value
+                self.ipv4_virtual_ip_addresses_listen_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_listen_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-listen-up"):
+                self.ipv4_virtual_ip_addresses_listen_up = value
+                self.ipv4_virtual_ip_addresses_listen_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_listen_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-speak-down"):
+                self.ipv4_virtual_ip_addresses_speak_down = value
+                self.ipv4_virtual_ip_addresses_speak_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_speak_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-speak-up"):
+                self.ipv4_virtual_ip_addresses_speak_up = value
+                self.ipv4_virtual_ip_addresses_speak_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_speak_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-standby-down"):
+                self.ipv4_virtual_ip_addresses_standby_down = value
+                self.ipv4_virtual_ip_addresses_standby_down.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_standby_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv4-virtual-ip-addresses-standby-up"):
+                self.ipv4_virtual_ip_addresses_standby_up = value
+                self.ipv4_virtual_ip_addresses_standby_up.value_namespace = name_space
+                self.ipv4_virtual_ip_addresses_standby_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-active"):
+                self.ipv6_sessions_active = value
+                self.ipv6_sessions_active.value_namespace = name_space
+                self.ipv6_sessions_active.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-init"):
+                self.ipv6_sessions_init = value
+                self.ipv6_sessions_init.value_namespace = name_space
+                self.ipv6_sessions_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-learn"):
+                self.ipv6_sessions_learn = value
+                self.ipv6_sessions_learn.value_namespace = name_space
+                self.ipv6_sessions_learn.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-listen"):
+                self.ipv6_sessions_listen = value
+                self.ipv6_sessions_listen.value_namespace = name_space
+                self.ipv6_sessions_listen.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-speak"):
+                self.ipv6_sessions_speak = value
+                self.ipv6_sessions_speak.value_namespace = name_space
+                self.ipv6_sessions_speak.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-sessions-standby"):
+                self.ipv6_sessions_standby = value
+                self.ipv6_sessions_standby.value_namespace = name_space
+                self.ipv6_sessions_standby.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-slaves-active"):
+                self.ipv6_slaves_active = value
+                self.ipv6_slaves_active.value_namespace = name_space
+                self.ipv6_slaves_active.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-slaves-init"):
+                self.ipv6_slaves_init = value
+                self.ipv6_slaves_init.value_namespace = name_space
+                self.ipv6_slaves_init.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-slaves-learn"):
+                self.ipv6_slaves_learn = value
+                self.ipv6_slaves_learn.value_namespace = name_space
+                self.ipv6_slaves_learn.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-slaves-listen"):
+                self.ipv6_slaves_listen = value
+                self.ipv6_slaves_listen.value_namespace = name_space
+                self.ipv6_slaves_listen.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-slaves-speak"):
+                self.ipv6_slaves_speak = value
+                self.ipv6_slaves_speak.value_namespace = name_space
+                self.ipv6_slaves_speak.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-slaves-standby"):
+                self.ipv6_slaves_standby = value
+                self.ipv6_slaves_standby.value_namespace = name_space
+                self.ipv6_slaves_standby.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-active-down"):
+                self.ipv6_virtual_ip_addresses_active_down = value
+                self.ipv6_virtual_ip_addresses_active_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_active_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-active-up"):
+                self.ipv6_virtual_ip_addresses_active_up = value
+                self.ipv6_virtual_ip_addresses_active_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_active_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-init-down"):
+                self.ipv6_virtual_ip_addresses_init_down = value
+                self.ipv6_virtual_ip_addresses_init_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_init_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-init-up"):
+                self.ipv6_virtual_ip_addresses_init_up = value
+                self.ipv6_virtual_ip_addresses_init_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_init_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-learn-down"):
+                self.ipv6_virtual_ip_addresses_learn_down = value
+                self.ipv6_virtual_ip_addresses_learn_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_learn_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-learn-up"):
+                self.ipv6_virtual_ip_addresses_learn_up = value
+                self.ipv6_virtual_ip_addresses_learn_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_learn_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-listen-down"):
+                self.ipv6_virtual_ip_addresses_listen_down = value
+                self.ipv6_virtual_ip_addresses_listen_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_listen_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-listen-up"):
+                self.ipv6_virtual_ip_addresses_listen_up = value
+                self.ipv6_virtual_ip_addresses_listen_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_listen_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-speak-down"):
+                self.ipv6_virtual_ip_addresses_speak_down = value
+                self.ipv6_virtual_ip_addresses_speak_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_speak_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-speak-up"):
+                self.ipv6_virtual_ip_addresses_speak_up = value
+                self.ipv6_virtual_ip_addresses_speak_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_speak_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-standby-down"):
+                self.ipv6_virtual_ip_addresses_standby_down = value
+                self.ipv6_virtual_ip_addresses_standby_down.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_standby_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "ipv6-virtual-ip-addresses-standby-up"):
+                self.ipv6_virtual_ip_addresses_standby_up = value
+                self.ipv6_virtual_ip_addresses_standby_up.value_namespace = name_space
+                self.ipv6_virtual_ip_addresses_standby_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "tracked-interfaces-ipv4-state-down"):
+                self.tracked_interfaces_ipv4_state_down = value
+                self.tracked_interfaces_ipv4_state_down.value_namespace = name_space
+                self.tracked_interfaces_ipv4_state_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "tracked-interfaces-ipv4-state-up"):
+                self.tracked_interfaces_ipv4_state_up = value
+                self.tracked_interfaces_ipv4_state_up.value_namespace = name_space
+                self.tracked_interfaces_ipv4_state_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "tracked-interfaces-ipv6-state-down"):
+                self.tracked_interfaces_ipv6_state_down = value
+                self.tracked_interfaces_ipv6_state_down.value_namespace = name_space
+                self.tracked_interfaces_ipv6_state_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "tracked-interfaces-ipv6-state-up"):
+                self.tracked_interfaces_ipv6_state_up = value
+                self.tracked_interfaces_ipv6_state_up.value_namespace = name_space
+                self.tracked_interfaces_ipv6_state_up.value_namespace_prefix = name_space_prefix
+            if(value_path == "tracked-objects-down"):
+                self.tracked_objects_down = value
+                self.tracked_objects_down.value_namespace = name_space
+                self.tracked_objects_down.value_namespace_prefix = name_space_prefix
+            if(value_path == "tracked-objects-up"):
+                self.tracked_objects_up = value
+                self.tracked_objects_up.value_namespace = name_space
+                self.tracked_objects_up.value_namespace_prefix = name_space_prefix
+
+    def has_data(self):
+        return (
+            (self.bfd_sessions is not None and self.bfd_sessions.has_data()) or
+            (self.ipv4 is not None and self.ipv4.has_data()) or
+            (self.ipv6 is not None and self.ipv6.has_data()) or
+            (self.mgo_sessions is not None and self.mgo_sessions.has_data()) or
+            (self.summary is not None and self.summary.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.bfd_sessions is not None and self.bfd_sessions.has_operation()) or
+            (self.ipv4 is not None and self.ipv4.has_operation()) or
+            (self.ipv6 is not None and self.ipv6.has_operation()) or
+            (self.mgo_sessions is not None and self.mgo_sessions.has_operation()) or
+            (self.summary is not None and self.summary.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv4-hsrp-oper:hsrp" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "bfd-sessions"):
+            if (self.bfd_sessions is None):
+                self.bfd_sessions = Hsrp.BfdSessions()
+                self.bfd_sessions.parent = self
+                self._children_name_map["bfd_sessions"] = "bfd-sessions"
+            return self.bfd_sessions
+
+        if (child_yang_name == "ipv4"):
+            if (self.ipv4 is None):
+                self.ipv4 = Hsrp.Ipv4()
+                self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+            return self.ipv4
+
+        if (child_yang_name == "ipv6"):
+            if (self.ipv6 is None):
+                self.ipv6 = Hsrp.Ipv6()
+                self.ipv6.parent = self
+                self._children_name_map["ipv6"] = "ipv6"
+            return self.ipv6
+
+        if (child_yang_name == "mgo-sessions"):
+            if (self.mgo_sessions is None):
+                self.mgo_sessions = Hsrp.MgoSessions()
+                self.mgo_sessions.parent = self
+                self._children_name_map["mgo_sessions"] = "mgo-sessions"
+            return self.mgo_sessions
+
+        if (child_yang_name == "summary"):
+            if (self.summary is None):
+                self.summary = Hsrp.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+            return self.summary
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "bfd-sessions" or name == "ipv4" or name == "ipv6" or name == "mgo-sessions" or name == "summary"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.bfd_sessions is not None and self.bfd_sessions._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ipv4 is not None and self.ipv4._has_data():
-            return True
-
-        if self.ipv6 is not None and self.ipv6._has_data():
-            return True
-
-        if self.mgo_sessions is not None and self.mgo_sessions._has_data():
-            return True
-
-        if self.summary is not None and self.summary._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_hsrp_oper as meta
-        return meta._meta_table['Hsrp']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Hsrp()
+        return self._top_entity
 

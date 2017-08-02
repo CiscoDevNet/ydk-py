@@ -7,21 +7,15 @@ draftietf\-ospf\-mib\-update\-05.txt. Support for OSPF
 Sham link is also added
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoOspfTrapMib(object):
+class CiscoOspfTrapMib(Entity):
     """
     
     
@@ -38,18 +32,26 @@ class CiscoOspfTrapMib(object):
     _revision = '2003-07-18'
 
     def __init__(self):
+        super(CiscoOspfTrapMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-OSPF-TRAP-MIB"
+        self.yang_parent_name = "CISCO-OSPF-TRAP-MIB"
+
         self.cospftrapcontrol = CiscoOspfTrapMib.Cospftrapcontrol()
         self.cospftrapcontrol.parent = self
+        self._children_name_map["cospftrapcontrol"] = "cospfTrapControl"
+        self._children_yang_names.add("cospfTrapControl")
 
 
-    class Cospftrapcontrol(object):
+    class Cospftrapcontrol(Entity):
         """
         
         
         .. attribute:: cospfconfigerrortype
         
         	Potential types of configuration conflicts. Used  by the cospfConfigError and cospfConfigVirtError traps. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
-        	**type**\:   :py:class:`CospfconfigerrortypeEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CiscoOspfTrapMib.Cospftrapcontrol.CospfconfigerrortypeEnum>`
+        	**type**\:   :py:class:`Cospfconfigerrortype <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CiscoOspfTrapMib.Cospftrapcontrol.Cospfconfigerrortype>`
         
         .. attribute:: cospfpacketsrc
         
@@ -61,7 +63,7 @@ class CiscoOspfTrapMib(object):
         .. attribute:: cospfpackettype
         
         	OSPF packet types. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
-        	**type**\:   :py:class:`CospfpackettypeEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CiscoOspfTrapMib.Cospftrapcontrol.CospfpackettypeEnum>`
+        	**type**\:   :py:class:`Cospfpackettype <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CiscoOspfTrapMib.Cospftrapcontrol.Cospfpackettype>`
         
         .. attribute:: cospfsettrap
         
@@ -76,15 +78,49 @@ class CiscoOspfTrapMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospfconfigerrortype = None
-            self.cospfpacketsrc = None
-            self.cospfpackettype = None
-            self.cospfsettrap = CiscoOspfTrapMib.Cospftrapcontrol.Cospfsettrap()
+            super(CiscoOspfTrapMib.Cospftrapcontrol, self).__init__()
 
-        class CospfconfigerrortypeEnum(Enum):
+            self.yang_name = "cospfTrapControl"
+            self.yang_parent_name = "CISCO-OSPF-TRAP-MIB"
+
+            self.cospfconfigerrortype = YLeaf(YType.enumeration, "cospfConfigErrorType")
+
+            self.cospfpacketsrc = YLeaf(YType.str, "cospfPacketSrc")
+
+            self.cospfpackettype = YLeaf(YType.enumeration, "cospfPacketType")
+
+            self.cospfsettrap = YLeaf(YType.bits, "cospfSetTrap")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cospfconfigerrortype",
+                            "cospfpacketsrc",
+                            "cospfpackettype",
+                            "cospfsettrap") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfTrapMib.Cospftrapcontrol, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfTrapMib.Cospftrapcontrol, self).__setattr__(name, value)
+
+        class Cospfconfigerrortype(Enum):
             """
-            CospfconfigerrortypeEnum
+            Cospfconfigerrortype
 
             Potential types of configuration conflicts.
 
@@ -126,42 +162,36 @@ class CiscoOspfTrapMib(object):
 
             """
 
-            badVersion = 1
+            badVersion = Enum.YLeaf(1, "badVersion")
 
-            areaMismatch = 2
+            areaMismatch = Enum.YLeaf(2, "areaMismatch")
 
-            unknownNbmaNbr = 3
+            unknownNbmaNbr = Enum.YLeaf(3, "unknownNbmaNbr")
 
-            unknownVirtualNbr = 4
+            unknownVirtualNbr = Enum.YLeaf(4, "unknownVirtualNbr")
 
-            authTypeMismatch = 5
+            authTypeMismatch = Enum.YLeaf(5, "authTypeMismatch")
 
-            authFailure = 6
+            authFailure = Enum.YLeaf(6, "authFailure")
 
-            netMaskMismatch = 7
+            netMaskMismatch = Enum.YLeaf(7, "netMaskMismatch")
 
-            helloIntervalMismatch = 8
+            helloIntervalMismatch = Enum.YLeaf(8, "helloIntervalMismatch")
 
-            deadIntervalMismatch = 9
+            deadIntervalMismatch = Enum.YLeaf(9, "deadIntervalMismatch")
 
-            optionMismatch = 10
+            optionMismatch = Enum.YLeaf(10, "optionMismatch")
 
-            mtuMismatch = 11
+            mtuMismatch = Enum.YLeaf(11, "mtuMismatch")
 
-            noError = 12
+            noError = Enum.YLeaf(12, "noError")
 
-            unknownShamLinkNbr = 13
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_TRAP_MIB as meta
-                return meta._meta_table['CiscoOspfTrapMib.Cospftrapcontrol.CospfconfigerrortypeEnum']
+            unknownShamLinkNbr = Enum.YLeaf(13, "unknownShamLinkNbr")
 
 
-        class CospfpackettypeEnum(Enum):
+        class Cospfpackettype(Enum):
             """
-            CospfpackettypeEnum
+            Cospfpackettype
 
             OSPF packet types. When the last value of a trap
 
@@ -185,121 +215,136 @@ class CiscoOspfTrapMib(object):
 
             """
 
-            hello = 1
+            hello = Enum.YLeaf(1, "hello")
 
-            dbDescript = 2
+            dbDescript = Enum.YLeaf(2, "dbDescript")
 
-            lsReq = 3
+            lsReq = Enum.YLeaf(3, "lsReq")
 
-            lsUpdate = 4
+            lsUpdate = Enum.YLeaf(4, "lsUpdate")
 
-            lsAck = 5
+            lsAck = Enum.YLeaf(5, "lsAck")
 
-            nullPacket = 6
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_TRAP_MIB as meta
-                return meta._meta_table['CiscoOspfTrapMib.Cospftrapcontrol.CospfpackettypeEnum']
+            nullPacket = Enum.YLeaf(6, "nullPacket")
 
 
-        class Cospfsettrap(FixedBitsDict):
-            """
-            Cospfsettrap
+        def has_data(self):
+            return (
+                self.cospfconfigerrortype.is_set or
+                self.cospfpacketsrc.is_set or
+                self.cospfpackettype.is_set or
+                self.cospfsettrap.is_set)
 
-            An octet string serving as a bit  map  for
-            the trap events defined by the OSPF traps in 
-            this MIB. This object is used to enable and  
-            disable  specific OSPF   traps   where  a  1  
-            in  the  corresponding bit  field represents 
-            enabled.
-            Keys are:- nssaTranslatorStatusChange , originateLsa , virtRetransmit , shamLinkTxRetransmit , virtIfConfigError , shamLinkStateChange , shamLinkConfigError , ifConfigError , retransmit , shamLinkAuthFailure , shamLinkNbrStateChange , originateMaxAgeLsa , shamLinkRxBadPacket , shamLinksStateChange
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cospfconfigerrortype.yfilter != YFilter.not_set or
+                self.cospfpacketsrc.yfilter != YFilter.not_set or
+                self.cospfpackettype.yfilter != YFilter.not_set or
+                self.cospfsettrap.yfilter != YFilter.not_set)
 
-            """
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfTrapControl" + path_buffer
 
-            def __init__(self):
-                self._dictionary = { 
-                    'nssaTranslatorStatusChange':False,
-                    'originateLsa':False,
-                    'virtRetransmit':False,
-                    'shamLinkTxRetransmit':False,
-                    'virtIfConfigError':False,
-                    'shamLinkStateChange':False,
-                    'shamLinkConfigError':False,
-                    'ifConfigError':False,
-                    'retransmit':False,
-                    'shamLinkAuthFailure':False,
-                    'shamLinkNbrStateChange':False,
-                    'originateMaxAgeLsa':False,
-                    'shamLinkRxBadPacket':False,
-                    'shamLinksStateChange':False,
-                }
-                self._pos_map = { 
-                    'nssaTranslatorStatusChange':6,
-                    'originateLsa':4,
-                    'virtRetransmit':3,
-                    'shamLinkTxRetransmit':12,
-                    'virtIfConfigError':1,
-                    'shamLinkStateChange':7,
-                    'shamLinkConfigError':9,
-                    'ifConfigError':0,
-                    'retransmit':2,
-                    'shamLinkAuthFailure':10,
-                    'shamLinkNbrStateChange':8,
-                    'originateMaxAgeLsa':5,
-                    'shamLinkRxBadPacket':11,
-                    'shamLinksStateChange':13,
-                }
+            return path_buffer
 
-        @property
-        def _common_path(self):
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            return '/CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB/CISCO-OSPF-TRAP-MIB:cospfTrapControl'
+            leaf_name_data = LeafDataList()
+            if (self.cospfconfigerrortype.is_set or self.cospfconfigerrortype.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfconfigerrortype.get_name_leafdata())
+            if (self.cospfpacketsrc.is_set or self.cospfpacketsrc.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfpacketsrc.get_name_leafdata())
+            if (self.cospfpackettype.is_set or self.cospfpackettype.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfpackettype.get_name_leafdata())
+            if (self.cospfsettrap.is_set or self.cospfsettrap.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfsettrap.get_name_leafdata())
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfConfigErrorType" or name == "cospfPacketSrc" or name == "cospfPacketType" or name == "cospfSetTrap"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cospfconfigerrortype is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cospfConfigErrorType"):
+                self.cospfconfigerrortype = value
+                self.cospfconfigerrortype.value_namespace = name_space
+                self.cospfconfigerrortype.value_namespace_prefix = name_space_prefix
+            if(value_path == "cospfPacketSrc"):
+                self.cospfpacketsrc = value
+                self.cospfpacketsrc.value_namespace = name_space
+                self.cospfpacketsrc.value_namespace_prefix = name_space_prefix
+            if(value_path == "cospfPacketType"):
+                self.cospfpackettype = value
+                self.cospfpackettype.value_namespace = name_space
+                self.cospfpackettype.value_namespace_prefix = name_space_prefix
+            if(value_path == "cospfSetTrap"):
+                self.cospfsettrap[value] = True
 
-            if self.cospfpacketsrc is not None:
-                return True
+    def has_data(self):
+        return (self.cospftrapcontrol is not None and self.cospftrapcontrol.has_data())
 
-            if self.cospfpackettype is not None:
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cospftrapcontrol is not None and self.cospftrapcontrol.has_operation()))
 
-            if self.cospfsettrap is not None:
-                if self.cospfsettrap._has_data():
-                    return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB" + path_buffer
 
-            return False
+        return path_buffer
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_TRAP_MIB as meta
-            return meta._meta_table['CiscoOspfTrapMib.Cospftrapcontrol']['meta_info']
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-    @property
-    def _common_path(self):
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-        return '/CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB'
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-    def _has_data(self):
-        if self.cospftrapcontrol is not None and self.cospftrapcontrol._has_data():
+        if (child_yang_name == "cospfTrapControl"):
+            if (self.cospftrapcontrol is None):
+                self.cospftrapcontrol = CiscoOspfTrapMib.Cospftrapcontrol()
+                self.cospftrapcontrol.parent = self
+                self._children_name_map["cospftrapcontrol"] = "cospfTrapControl"
+            return self.cospftrapcontrol
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cospfTrapControl"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_TRAP_MIB as meta
-        return meta._meta_table['CiscoOspfTrapMib']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CiscoOspfTrapMib()
+        return self._top_entity
 

@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Ipv6Virtual(object):
+class Ipv6Virtual(Entity):
     """
     IPv6 virtual address for management interfaces
     
@@ -47,12 +41,45 @@ class Ipv6Virtual(object):
     _revision = '2016-07-04'
 
     def __init__(self):
-        self.use_as_source_address = None
+        super(Ipv6Virtual, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ipv6-virtual"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-smiap-cfg"
+
+        self.use_as_source_address = YLeaf(YType.empty, "use-as-source-address")
+
         self.vrfs = Ipv6Virtual.Vrfs()
         self.vrfs.parent = self
+        self._children_name_map["vrfs"] = "vrfs"
+        self._children_yang_names.add("vrfs")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("use_as_source_address") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Ipv6Virtual, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Ipv6Virtual, self).__setattr__(name, value)
 
 
-    class Vrfs(object):
+    class Vrfs(Entity):
         """
         VRFs for the virtual IPv6 addresses
         
@@ -69,13 +96,39 @@ class Ipv6Virtual(object):
         _revision = '2016-07-04'
 
         def __init__(self):
-            self.parent = None
-            self.vrf = YList()
-            self.vrf.parent = self
-            self.vrf.name = 'vrf'
+            super(Ipv6Virtual.Vrfs, self).__init__()
+
+            self.yang_name = "vrfs"
+            self.yang_parent_name = "ipv6-virtual"
+
+            self.vrf = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Ipv6Virtual.Vrfs, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Ipv6Virtual.Vrfs, self).__setattr__(name, value)
 
 
-        class Vrf(object):
+        class Vrf(Entity):
             """
             A VRF for a virtual IPv6 address.  Specify
             'default' for VRF default
@@ -102,12 +155,43 @@ class Ipv6Virtual(object):
             _revision = '2016-07-04'
 
             def __init__(self):
-                self.parent = None
-                self.vrf_name = None
+                super(Ipv6Virtual.Vrfs.Vrf, self).__init__()
+
+                self.yang_name = "vrf"
+                self.yang_parent_name = "vrfs"
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                 self.address = None
+                self._children_name_map["address"] = "address"
+                self._children_yang_names.add("address")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6Virtual.Vrfs.Vrf, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6Virtual.Vrfs.Vrf, self).__setattr__(name, value)
 
 
-            class Address(object):
+            class Address(Entity):
                 """
                 IPv6 address and mask
                 
@@ -129,11 +213,6 @@ class Ipv6Virtual(object):
                 
                 	**mandatory**\: True
                 
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -144,106 +223,265 @@ class Ipv6Virtual(object):
                 _revision = '2016-07-04'
 
                 def __init__(self):
-                    self.parent = None
-                    self._is_presence = True
-                    self.address = None
-                    self.prefix_length = None
+                    super(Ipv6Virtual.Vrfs.Vrf.Address, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "address"
+                    self.yang_parent_name = "vrf"
+                    self.is_presence_container = True
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-smiap-cfg:address'
+                    self.address = YLeaf(YType.str, "address")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                def _has_data(self):
-                    if self._is_presence:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("address",
+                                    "prefix_length") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6Virtual.Vrfs.Vrf.Address, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6Virtual.Vrfs.Vrf.Address, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.address.is_set or
+                        self.prefix_length.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.address.yfilter != YFilter.not_set or
+                        self.prefix_length.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "address" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.address.get_name_leafdata())
+                    if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "address" or name == "prefix-length"):
                         return True
-                    if self.address is not None:
-                        return True
-
-                    if self.prefix_length is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_smiap_cfg as meta
-                    return meta._meta_table['Ipv6Virtual.Vrfs.Vrf.Address']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "address"):
+                        self.address = value
+                        self.address.value_namespace = name_space
+                        self.address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix-length"):
+                        self.prefix_length = value
+                        self.prefix_length.value_namespace = name_space
+                        self.prefix_length.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.vrf_name is None:
-                    raise YPYModelError('Key property vrf_name is None')
+            def has_data(self):
+                return (
+                    self.vrf_name.is_set or
+                    (self.address is not None))
 
-                return '/Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual/Cisco-IOS-XR-ipv6-smiap-cfg:vrfs/Cisco-IOS-XR-ipv6-smiap-cfg:vrf[Cisco-IOS-XR-ipv6-smiap-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    (self.address is not None and self.address.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.vrf_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual/vrfs/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "address"):
+                    if (self.address is None):
+                        self.address = Ipv6Virtual.Vrfs.Vrf.Address()
+                        self.address.parent = self
+                        self._children_name_map["address"] = "address"
+                    return self.address
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "address" or name == "vrf-name"):
                     return True
-
-                if self.address is not None and self.address._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_smiap_cfg as meta
-                return meta._meta_table['Ipv6Virtual.Vrfs.Vrf']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual/Cisco-IOS-XR-ipv6-smiap-cfg:vrfs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.vrf is not None:
-                for child_ref in self.vrf:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.vrf:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_smiap_cfg as meta
-            return meta._meta_table['Ipv6Virtual.Vrfs']['meta_info']
+        def has_operation(self):
+            for c in self.vrf:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vrfs" + path_buffer
 
-        return '/Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.use_as_source_address is not None:
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vrf"):
+                for c in self.vrf:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Ipv6Virtual.Vrfs.Vrf()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vrf.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vrf"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            self.use_as_source_address.is_set or
+            (self.vrfs is not None and self.vrfs.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.use_as_source_address.yfilter != YFilter.not_set or
+            (self.vrfs is not None and self.vrfs.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.use_as_source_address.is_set or self.use_as_source_address.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.use_as_source_address.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "vrfs"):
+            if (self.vrfs is None):
+                self.vrfs = Ipv6Virtual.Vrfs()
+                self.vrfs.parent = self
+                self._children_name_map["vrfs"] = "vrfs"
+            return self.vrfs
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "vrfs" or name == "use-as-source-address"):
             return True
-
-        if self.vrfs is not None and self.vrfs._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_smiap_cfg as meta
-        return meta._meta_table['Ipv6Virtual']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "use-as-source-address"):
+            self.use_as_source_address = value
+            self.use_as_source_address.value_namespace = name_space
+            self.use_as_source_address.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Ipv6Virtual()
+        return self._top_entity
 

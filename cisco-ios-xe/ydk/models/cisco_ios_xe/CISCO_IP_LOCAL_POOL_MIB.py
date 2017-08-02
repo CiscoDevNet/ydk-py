@@ -29,21 +29,15 @@ that maintain statistics about the address usage of IP local
 pools.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoIpLocalPoolMib(object):
+class CiscoIpLocalPoolMib(Entity):
     """
     
     
@@ -85,21 +79,44 @@ class CiscoIpLocalPoolMib(object):
     _revision = '2007-11-12'
 
     def __init__(self):
+        super(CiscoIpLocalPoolMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IP-LOCAL-POOL-MIB"
+        self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
+
         self.ciplocalpoolalloctable = CiscoIpLocalPoolMib.Ciplocalpoolalloctable()
         self.ciplocalpoolalloctable.parent = self
+        self._children_name_map["ciplocalpoolalloctable"] = "cIpLocalPoolAllocTable"
+        self._children_yang_names.add("cIpLocalPoolAllocTable")
+
         self.ciplocalpoolconfig = CiscoIpLocalPoolMib.Ciplocalpoolconfig()
         self.ciplocalpoolconfig.parent = self
+        self._children_name_map["ciplocalpoolconfig"] = "cIpLocalPoolConfig"
+        self._children_yang_names.add("cIpLocalPoolConfig")
+
         self.ciplocalpoolconfigtable = CiscoIpLocalPoolMib.Ciplocalpoolconfigtable()
         self.ciplocalpoolconfigtable.parent = self
+        self._children_name_map["ciplocalpoolconfigtable"] = "cIpLocalPoolConfigTable"
+        self._children_yang_names.add("cIpLocalPoolConfigTable")
+
         self.ciplocalpoolgroupcontainstable = CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable()
         self.ciplocalpoolgroupcontainstable.parent = self
+        self._children_name_map["ciplocalpoolgroupcontainstable"] = "cIpLocalPoolGroupContainsTable"
+        self._children_yang_names.add("cIpLocalPoolGroupContainsTable")
+
         self.ciplocalpoolgrouptable = CiscoIpLocalPoolMib.Ciplocalpoolgrouptable()
         self.ciplocalpoolgrouptable.parent = self
+        self._children_name_map["ciplocalpoolgrouptable"] = "cIpLocalPoolGroupTable"
+        self._children_yang_names.add("cIpLocalPoolGroupTable")
+
         self.ciplocalpoolstatstable = CiscoIpLocalPoolMib.Ciplocalpoolstatstable()
         self.ciplocalpoolstatstable.parent = self
+        self._children_name_map["ciplocalpoolstatstable"] = "cIpLocalPoolStatsTable"
+        self._children_yang_names.add("cIpLocalPoolStatsTable")
 
 
-    class Ciplocalpoolconfig(object):
+    class Ciplocalpoolconfig(Entity):
         """
         
         
@@ -116,31 +133,85 @@ class CiscoIpLocalPoolMib(object):
         _revision = '2007-11-12'
 
         def __init__(self):
-            self.parent = None
-            self.ciplocalpoolnotificationsenable = None
+            super(CiscoIpLocalPoolMib.Ciplocalpoolconfig, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cIpLocalPoolConfig"
+            self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
 
-            return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolConfig'
+            self.ciplocalpoolnotificationsenable = YLeaf(YType.boolean, "cIpLocalPoolNotificationsEnable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ciplocalpoolnotificationsenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolconfig, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpLocalPoolMib.Ciplocalpoolconfig, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ciplocalpoolnotificationsenable is not None:
+        def has_data(self):
+            return self.ciplocalpoolnotificationsenable.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ciplocalpoolnotificationsenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cIpLocalPoolConfig" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ciplocalpoolnotificationsenable.is_set or self.ciplocalpoolnotificationsenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciplocalpoolnotificationsenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cIpLocalPoolNotificationsEnable"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-            return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolconfig']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cIpLocalPoolNotificationsEnable"):
+                self.ciplocalpoolnotificationsenable = value
+                self.ciplocalpoolnotificationsenable.value_namespace = name_space
+                self.ciplocalpoolnotificationsenable.value_namespace_prefix = name_space_prefix
 
 
-    class Ciplocalpoolconfigtable(object):
+    class Ciplocalpoolconfigtable(Entity):
         """
         This table manages the creation, modification, and deletion
         of IP local pools using the RowStatus textual convention.  An
@@ -169,13 +240,39 @@ class CiscoIpLocalPoolMib(object):
         _revision = '2007-11-12'
 
         def __init__(self):
-            self.parent = None
-            self.ciplocalpoolconfigentry = YList()
-            self.ciplocalpoolconfigentry.parent = self
-            self.ciplocalpoolconfigentry.name = 'ciplocalpoolconfigentry'
+            super(CiscoIpLocalPoolMib.Ciplocalpoolconfigtable, self).__init__()
+
+            self.yang_name = "cIpLocalPoolConfigTable"
+            self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
+
+            self.ciplocalpoolconfigentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolconfigtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpLocalPoolMib.Ciplocalpoolconfigtable, self).__setattr__(name, value)
 
 
-        class Ciplocalpoolconfigentry(object):
+        class Ciplocalpoolconfigentry(Entity):
             """
             Each entry provides information about a particular IP local
             pool, including the number of free and used addresses and its priority.
@@ -190,7 +287,7 @@ class CiscoIpLocalPoolMib(object):
             .. attribute:: ciplocalpooladdrtype  <key>
             
             	This object specifies the address type of cIpLocalPoolAddressLo and cIpLocalPoolAddressHi
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ciplocalpooladdresslo  <key>
             
@@ -237,7 +334,7 @@ class CiscoIpLocalPoolMib(object):
             .. attribute:: ciplocalpoolrowstatus
             
             	This object facilitates the creation, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -247,91 +344,231 @@ class CiscoIpLocalPoolMib(object):
             _revision = '2007-11-12'
 
             def __init__(self):
-                self.parent = None
-                self.ciplocalpoolname = None
-                self.ciplocalpooladdrtype = None
-                self.ciplocalpooladdresslo = None
-                self.ciplocalpooladdresshi = None
-                self.ciplocalpoolfreeaddrs = None
-                self.ciplocalpoolgroupcontainedin = None
-                self.ciplocalpoolinuseaddrs = None
-                self.ciplocalpoolpriority = None
-                self.ciplocalpoolrowstatus = None
+                super(CiscoIpLocalPoolMib.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciplocalpoolname is None:
-                    raise YPYModelError('Key property ciplocalpoolname is None')
-                if self.ciplocalpooladdrtype is None:
-                    raise YPYModelError('Key property ciplocalpooladdrtype is None')
-                if self.ciplocalpooladdresslo is None:
-                    raise YPYModelError('Key property ciplocalpooladdresslo is None')
+                self.yang_name = "cIpLocalPoolConfigEntry"
+                self.yang_parent_name = "cIpLocalPoolConfigTable"
 
-                return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolConfigTable/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolConfigEntry[CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolName = ' + str(self.ciplocalpoolname) + '][CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolAddrType = ' + str(self.ciplocalpooladdrtype) + '][CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolAddressLo = ' + str(self.ciplocalpooladdresslo) + ']'
+                self.ciplocalpoolname = YLeaf(YType.str, "cIpLocalPoolName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciplocalpooladdrtype = YLeaf(YType.enumeration, "cIpLocalPoolAddrType")
+
+                self.ciplocalpooladdresslo = YLeaf(YType.str, "cIpLocalPoolAddressLo")
+
+                self.ciplocalpooladdresshi = YLeaf(YType.str, "cIpLocalPoolAddressHi")
+
+                self.ciplocalpoolfreeaddrs = YLeaf(YType.uint32, "cIpLocalPoolFreeAddrs")
+
+                self.ciplocalpoolgroupcontainedin = YLeaf(YType.str, "cIpLocalPoolGroupContainedIn")
+
+                self.ciplocalpoolinuseaddrs = YLeaf(YType.uint32, "cIpLocalPoolInUseAddrs")
+
+                self.ciplocalpoolpriority = YLeaf(YType.uint32, "cIpLocalPoolPriority")
+
+                self.ciplocalpoolrowstatus = YLeaf(YType.enumeration, "cIpLocalPoolRowStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciplocalpoolname",
+                                "ciplocalpooladdrtype",
+                                "ciplocalpooladdresslo",
+                                "ciplocalpooladdresshi",
+                                "ciplocalpoolfreeaddrs",
+                                "ciplocalpoolgroupcontainedin",
+                                "ciplocalpoolinuseaddrs",
+                                "ciplocalpoolpriority",
+                                "ciplocalpoolrowstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpLocalPoolMib.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciplocalpoolname.is_set or
+                    self.ciplocalpooladdrtype.is_set or
+                    self.ciplocalpooladdresslo.is_set or
+                    self.ciplocalpooladdresshi.is_set or
+                    self.ciplocalpoolfreeaddrs.is_set or
+                    self.ciplocalpoolgroupcontainedin.is_set or
+                    self.ciplocalpoolinuseaddrs.is_set or
+                    self.ciplocalpoolpriority.is_set or
+                    self.ciplocalpoolrowstatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciplocalpoolname.yfilter != YFilter.not_set or
+                    self.ciplocalpooladdrtype.yfilter != YFilter.not_set or
+                    self.ciplocalpooladdresslo.yfilter != YFilter.not_set or
+                    self.ciplocalpooladdresshi.yfilter != YFilter.not_set or
+                    self.ciplocalpoolfreeaddrs.yfilter != YFilter.not_set or
+                    self.ciplocalpoolgroupcontainedin.yfilter != YFilter.not_set or
+                    self.ciplocalpoolinuseaddrs.yfilter != YFilter.not_set or
+                    self.ciplocalpoolpriority.yfilter != YFilter.not_set or
+                    self.ciplocalpoolrowstatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cIpLocalPoolConfigEntry" + "[cIpLocalPoolName='" + self.ciplocalpoolname.get() + "']" + "[cIpLocalPoolAddrType='" + self.ciplocalpooladdrtype.get() + "']" + "[cIpLocalPoolAddressLo='" + self.ciplocalpooladdresslo.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolConfigTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciplocalpoolname.is_set or self.ciplocalpoolname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolname.get_name_leafdata())
+                if (self.ciplocalpooladdrtype.is_set or self.ciplocalpooladdrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpooladdrtype.get_name_leafdata())
+                if (self.ciplocalpooladdresslo.is_set or self.ciplocalpooladdresslo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpooladdresslo.get_name_leafdata())
+                if (self.ciplocalpooladdresshi.is_set or self.ciplocalpooladdresshi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpooladdresshi.get_name_leafdata())
+                if (self.ciplocalpoolfreeaddrs.is_set or self.ciplocalpoolfreeaddrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolfreeaddrs.get_name_leafdata())
+                if (self.ciplocalpoolgroupcontainedin.is_set or self.ciplocalpoolgroupcontainedin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolgroupcontainedin.get_name_leafdata())
+                if (self.ciplocalpoolinuseaddrs.is_set or self.ciplocalpoolinuseaddrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolinuseaddrs.get_name_leafdata())
+                if (self.ciplocalpoolpriority.is_set or self.ciplocalpoolpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolpriority.get_name_leafdata())
+                if (self.ciplocalpoolrowstatus.is_set or self.ciplocalpoolrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolrowstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cIpLocalPoolName" or name == "cIpLocalPoolAddrType" or name == "cIpLocalPoolAddressLo" or name == "cIpLocalPoolAddressHi" or name == "cIpLocalPoolFreeAddrs" or name == "cIpLocalPoolGroupContainedIn" or name == "cIpLocalPoolInUseAddrs" or name == "cIpLocalPoolPriority" or name == "cIpLocalPoolRowStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciplocalpoolname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cIpLocalPoolName"):
+                    self.ciplocalpoolname = value
+                    self.ciplocalpoolname.value_namespace = name_space
+                    self.ciplocalpoolname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolAddrType"):
+                    self.ciplocalpooladdrtype = value
+                    self.ciplocalpooladdrtype.value_namespace = name_space
+                    self.ciplocalpooladdrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolAddressLo"):
+                    self.ciplocalpooladdresslo = value
+                    self.ciplocalpooladdresslo.value_namespace = name_space
+                    self.ciplocalpooladdresslo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolAddressHi"):
+                    self.ciplocalpooladdresshi = value
+                    self.ciplocalpooladdresshi.value_namespace = name_space
+                    self.ciplocalpooladdresshi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolFreeAddrs"):
+                    self.ciplocalpoolfreeaddrs = value
+                    self.ciplocalpoolfreeaddrs.value_namespace = name_space
+                    self.ciplocalpoolfreeaddrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolGroupContainedIn"):
+                    self.ciplocalpoolgroupcontainedin = value
+                    self.ciplocalpoolgroupcontainedin.value_namespace = name_space
+                    self.ciplocalpoolgroupcontainedin.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolInUseAddrs"):
+                    self.ciplocalpoolinuseaddrs = value
+                    self.ciplocalpoolinuseaddrs.value_namespace = name_space
+                    self.ciplocalpoolinuseaddrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolPriority"):
+                    self.ciplocalpoolpriority = value
+                    self.ciplocalpoolpriority.value_namespace = name_space
+                    self.ciplocalpoolpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolRowStatus"):
+                    self.ciplocalpoolrowstatus = value
+                    self.ciplocalpoolrowstatus.value_namespace = name_space
+                    self.ciplocalpoolrowstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciplocalpoolconfigentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciplocalpooladdrtype is not None:
-                    return True
-
-                if self.ciplocalpooladdresslo is not None:
-                    return True
-
-                if self.ciplocalpooladdresshi is not None:
-                    return True
-
-                if self.ciplocalpoolfreeaddrs is not None:
-                    return True
-
-                if self.ciplocalpoolgroupcontainedin is not None:
-                    return True
-
-                if self.ciplocalpoolinuseaddrs is not None:
-                    return True
-
-                if self.ciplocalpoolpriority is not None:
-                    return True
-
-                if self.ciplocalpoolrowstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-                return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolConfigTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciplocalpoolconfigentry is not None:
-                for child_ref in self.ciplocalpoolconfigentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciplocalpoolconfigentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cIpLocalPoolConfigTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cIpLocalPoolConfigEntry"):
+                for c in self.ciplocalpoolconfigentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpLocalPoolMib.Ciplocalpoolconfigtable.Ciplocalpoolconfigentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciplocalpoolconfigentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cIpLocalPoolConfigEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-            return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolconfigtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciplocalpoolgroupcontainstable(object):
+    class Ciplocalpoolgroupcontainstable(Entity):
         """
         A table which exposes the container/'containee' relationships
         between local IP pools and IP pool groups.
@@ -362,13 +599,39 @@ class CiscoIpLocalPoolMib(object):
         _revision = '2007-11-12'
 
         def __init__(self):
-            self.parent = None
-            self.ciplocalpoolgroupcontainsentry = YList()
-            self.ciplocalpoolgroupcontainsentry.parent = self
-            self.ciplocalpoolgroupcontainsentry.name = 'ciplocalpoolgroupcontainsentry'
+            super(CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable, self).__init__()
+
+            self.yang_name = "cIpLocalPoolGroupContainsTable"
+            self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
+
+            self.ciplocalpoolgroupcontainsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable, self).__setattr__(name, value)
 
 
-        class Ciplocalpoolgroupcontainsentry(object):
+        class Ciplocalpoolgroupcontainsentry(Entity):
             """
             Each entry describes single container/'containee'
             relationship.
@@ -400,61 +663,154 @@ class CiscoIpLocalPoolMib(object):
             _revision = '2007-11-12'
 
             def __init__(self):
-                self.parent = None
-                self.ciplocalpoolgroupname = None
-                self.ciplocalpoolchildindex = None
+                super(CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciplocalpoolgroupname is None:
-                    raise YPYModelError('Key property ciplocalpoolgroupname is None')
-                if self.ciplocalpoolchildindex is None:
-                    raise YPYModelError('Key property ciplocalpoolchildindex is None')
+                self.yang_name = "cIpLocalPoolGroupContainsEntry"
+                self.yang_parent_name = "cIpLocalPoolGroupContainsTable"
 
-                return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupContainsTable/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupContainsEntry[CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupName = ' + str(self.ciplocalpoolgroupname) + '][CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolChildIndex = ' + str(self.ciplocalpoolchildindex) + ']'
+                self.ciplocalpoolgroupname = YLeaf(YType.str, "cIpLocalPoolGroupName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciplocalpoolchildindex = YLeaf(YType.str, "cIpLocalPoolChildIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciplocalpoolgroupname",
+                                "ciplocalpoolchildindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciplocalpoolgroupname.is_set or
+                    self.ciplocalpoolchildindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciplocalpoolgroupname.yfilter != YFilter.not_set or
+                    self.ciplocalpoolchildindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cIpLocalPoolGroupContainsEntry" + "[cIpLocalPoolGroupName='" + self.ciplocalpoolgroupname.get() + "']" + "[cIpLocalPoolChildIndex='" + self.ciplocalpoolchildindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupContainsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciplocalpoolgroupname.is_set or self.ciplocalpoolgroupname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolgroupname.get_name_leafdata())
+                if (self.ciplocalpoolchildindex.is_set or self.ciplocalpoolchildindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolchildindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cIpLocalPoolGroupName" or name == "cIpLocalPoolChildIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciplocalpoolgroupname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cIpLocalPoolGroupName"):
+                    self.ciplocalpoolgroupname = value
+                    self.ciplocalpoolgroupname.value_namespace = name_space
+                    self.ciplocalpoolgroupname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolChildIndex"):
+                    self.ciplocalpoolchildindex = value
+                    self.ciplocalpoolchildindex.value_namespace = name_space
+                    self.ciplocalpoolchildindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciplocalpoolgroupcontainsentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciplocalpoolchildindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-                return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupContainsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciplocalpoolgroupcontainsentry is not None:
-                for child_ref in self.ciplocalpoolgroupcontainsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciplocalpoolgroupcontainsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cIpLocalPoolGroupContainsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cIpLocalPoolGroupContainsEntry"):
+                for c in self.ciplocalpoolgroupcontainsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciplocalpoolgroupcontainsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cIpLocalPoolGroupContainsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-            return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciplocalpoolgrouptable(object):
+    class Ciplocalpoolgrouptable(Entity):
         """
         This table provides statistics for configured IP pool groups.
         
@@ -481,13 +837,39 @@ class CiscoIpLocalPoolMib(object):
         _revision = '2007-11-12'
 
         def __init__(self):
-            self.parent = None
-            self.ciplocalpoolgroupentry = YList()
-            self.ciplocalpoolgroupentry.parent = self
-            self.ciplocalpoolgroupentry.name = 'ciplocalpoolgroupentry'
+            super(CiscoIpLocalPoolMib.Ciplocalpoolgrouptable, self).__init__()
+
+            self.yang_name = "cIpLocalPoolGroupTable"
+            self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
+
+            self.ciplocalpoolgroupentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolgrouptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpLocalPoolMib.Ciplocalpoolgrouptable, self).__setattr__(name, value)
 
 
-        class Ciplocalpoolgroupentry(object):
+        class Ciplocalpoolgroupentry(Entity):
             """
             Each entry provides information about a particular IP pool
             group and the number of free and used addresses in an IP pool
@@ -524,63 +906,165 @@ class CiscoIpLocalPoolMib(object):
             _revision = '2007-11-12'
 
             def __init__(self):
-                self.parent = None
-                self.ciplocalpoolgroupname = None
-                self.ciplocalpoolgroupfreeaddrs = None
-                self.ciplocalpoolgroupinuseaddrs = None
+                super(CiscoIpLocalPoolMib.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciplocalpoolgroupname is None:
-                    raise YPYModelError('Key property ciplocalpoolgroupname is None')
+                self.yang_name = "cIpLocalPoolGroupEntry"
+                self.yang_parent_name = "cIpLocalPoolGroupTable"
 
-                return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupTable/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupEntry[CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupName = ' + str(self.ciplocalpoolgroupname) + ']'
+                self.ciplocalpoolgroupname = YLeaf(YType.str, "cIpLocalPoolGroupName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciplocalpoolgroupfreeaddrs = YLeaf(YType.uint32, "cIpLocalPoolGroupFreeAddrs")
+
+                self.ciplocalpoolgroupinuseaddrs = YLeaf(YType.uint32, "cIpLocalPoolGroupInUseAddrs")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciplocalpoolgroupname",
+                                "ciplocalpoolgroupfreeaddrs",
+                                "ciplocalpoolgroupinuseaddrs") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpLocalPoolMib.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciplocalpoolgroupname.is_set or
+                    self.ciplocalpoolgroupfreeaddrs.is_set or
+                    self.ciplocalpoolgroupinuseaddrs.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciplocalpoolgroupname.yfilter != YFilter.not_set or
+                    self.ciplocalpoolgroupfreeaddrs.yfilter != YFilter.not_set or
+                    self.ciplocalpoolgroupinuseaddrs.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cIpLocalPoolGroupEntry" + "[cIpLocalPoolGroupName='" + self.ciplocalpoolgroupname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciplocalpoolgroupname.is_set or self.ciplocalpoolgroupname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolgroupname.get_name_leafdata())
+                if (self.ciplocalpoolgroupfreeaddrs.is_set or self.ciplocalpoolgroupfreeaddrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolgroupfreeaddrs.get_name_leafdata())
+                if (self.ciplocalpoolgroupinuseaddrs.is_set or self.ciplocalpoolgroupinuseaddrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolgroupinuseaddrs.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cIpLocalPoolGroupName" or name == "cIpLocalPoolGroupFreeAddrs" or name == "cIpLocalPoolGroupInUseAddrs"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciplocalpoolgroupname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cIpLocalPoolGroupName"):
+                    self.ciplocalpoolgroupname = value
+                    self.ciplocalpoolgroupname.value_namespace = name_space
+                    self.ciplocalpoolgroupname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolGroupFreeAddrs"):
+                    self.ciplocalpoolgroupfreeaddrs = value
+                    self.ciplocalpoolgroupfreeaddrs.value_namespace = name_space
+                    self.ciplocalpoolgroupfreeaddrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolGroupInUseAddrs"):
+                    self.ciplocalpoolgroupinuseaddrs = value
+                    self.ciplocalpoolgroupinuseaddrs.value_namespace = name_space
+                    self.ciplocalpoolgroupinuseaddrs.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciplocalpoolgroupentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciplocalpoolgroupfreeaddrs is not None:
-                    return True
-
-                if self.ciplocalpoolgroupinuseaddrs is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-                return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolGroupTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciplocalpoolgroupentry is not None:
-                for child_ref in self.ciplocalpoolgroupentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciplocalpoolgroupentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cIpLocalPoolGroupTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cIpLocalPoolGroupEntry"):
+                for c in self.ciplocalpoolgroupentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpLocalPoolMib.Ciplocalpoolgrouptable.Ciplocalpoolgroupentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciplocalpoolgroupentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cIpLocalPoolGroupEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-            return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolgrouptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciplocalpoolstatstable(object):
+    class Ciplocalpoolstatstable(Entity):
         """
         A table providing statistics for each IP local pool.
         
@@ -607,13 +1091,39 @@ class CiscoIpLocalPoolMib(object):
         _revision = '2007-11-12'
 
         def __init__(self):
-            self.parent = None
-            self.ciplocalpoolstatsentry = YList()
-            self.ciplocalpoolstatsentry.parent = self
-            self.ciplocalpoolstatsentry.name = 'ciplocalpoolstatsentry'
+            super(CiscoIpLocalPoolMib.Ciplocalpoolstatstable, self).__init__()
+
+            self.yang_name = "cIpLocalPoolStatsTable"
+            self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
+
+            self.ciplocalpoolstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpLocalPoolMib.Ciplocalpoolstatstable, self).__setattr__(name, value)
 
 
-        class Ciplocalpoolstatsentry(object):
+        class Ciplocalpoolstatsentry(Entity):
             """
             Each entry provides statistical information about a particular
             IP local pool, and the total number of free and used addresses
@@ -685,83 +1195,220 @@ class CiscoIpLocalPoolMib(object):
             _revision = '2007-11-12'
 
             def __init__(self):
-                self.parent = None
-                self.ciplocalpoolname = None
-                self.ciplocalpoolpercentaddrthldhi = None
-                self.ciplocalpoolpercentaddrthldlo = None
-                self.ciplocalpoolstatfreeaddrs = None
-                self.ciplocalpoolstathiwaterusedaddrs = None
-                self.ciplocalpoolstatinuseaddrs = None
-                self.ciplocalpoolstatinuseaddrthldhi = None
-                self.ciplocalpoolstatinuseaddrthldlo = None
+                super(CiscoIpLocalPoolMib.Ciplocalpoolstatstable.Ciplocalpoolstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciplocalpoolname is None:
-                    raise YPYModelError('Key property ciplocalpoolname is None')
+                self.yang_name = "cIpLocalPoolStatsEntry"
+                self.yang_parent_name = "cIpLocalPoolStatsTable"
 
-                return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolStatsTable/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolStatsEntry[CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolName = ' + str(self.ciplocalpoolname) + ']'
+                self.ciplocalpoolname = YLeaf(YType.str, "cIpLocalPoolName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciplocalpoolpercentaddrthldhi = YLeaf(YType.uint32, "cIpLocalPoolPercentAddrThldHi")
+
+                self.ciplocalpoolpercentaddrthldlo = YLeaf(YType.uint32, "cIpLocalPoolPercentAddrThldLo")
+
+                self.ciplocalpoolstatfreeaddrs = YLeaf(YType.uint32, "cIpLocalPoolStatFreeAddrs")
+
+                self.ciplocalpoolstathiwaterusedaddrs = YLeaf(YType.uint32, "cIpLocalPoolStatHiWaterUsedAddrs")
+
+                self.ciplocalpoolstatinuseaddrs = YLeaf(YType.uint32, "cIpLocalPoolStatInUseAddrs")
+
+                self.ciplocalpoolstatinuseaddrthldhi = YLeaf(YType.uint32, "cIpLocalPoolStatInUseAddrThldHi")
+
+                self.ciplocalpoolstatinuseaddrthldlo = YLeaf(YType.uint32, "cIpLocalPoolStatInUseAddrThldLo")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciplocalpoolname",
+                                "ciplocalpoolpercentaddrthldhi",
+                                "ciplocalpoolpercentaddrthldlo",
+                                "ciplocalpoolstatfreeaddrs",
+                                "ciplocalpoolstathiwaterusedaddrs",
+                                "ciplocalpoolstatinuseaddrs",
+                                "ciplocalpoolstatinuseaddrthldhi",
+                                "ciplocalpoolstatinuseaddrthldlo") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpLocalPoolMib.Ciplocalpoolstatstable.Ciplocalpoolstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolstatstable.Ciplocalpoolstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciplocalpoolname.is_set or
+                    self.ciplocalpoolpercentaddrthldhi.is_set or
+                    self.ciplocalpoolpercentaddrthldlo.is_set or
+                    self.ciplocalpoolstatfreeaddrs.is_set or
+                    self.ciplocalpoolstathiwaterusedaddrs.is_set or
+                    self.ciplocalpoolstatinuseaddrs.is_set or
+                    self.ciplocalpoolstatinuseaddrthldhi.is_set or
+                    self.ciplocalpoolstatinuseaddrthldlo.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciplocalpoolname.yfilter != YFilter.not_set or
+                    self.ciplocalpoolpercentaddrthldhi.yfilter != YFilter.not_set or
+                    self.ciplocalpoolpercentaddrthldlo.yfilter != YFilter.not_set or
+                    self.ciplocalpoolstatfreeaddrs.yfilter != YFilter.not_set or
+                    self.ciplocalpoolstathiwaterusedaddrs.yfilter != YFilter.not_set or
+                    self.ciplocalpoolstatinuseaddrs.yfilter != YFilter.not_set or
+                    self.ciplocalpoolstatinuseaddrthldhi.yfilter != YFilter.not_set or
+                    self.ciplocalpoolstatinuseaddrthldlo.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cIpLocalPoolStatsEntry" + "[cIpLocalPoolName='" + self.ciplocalpoolname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciplocalpoolname.is_set or self.ciplocalpoolname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolname.get_name_leafdata())
+                if (self.ciplocalpoolpercentaddrthldhi.is_set or self.ciplocalpoolpercentaddrthldhi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolpercentaddrthldhi.get_name_leafdata())
+                if (self.ciplocalpoolpercentaddrthldlo.is_set or self.ciplocalpoolpercentaddrthldlo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolpercentaddrthldlo.get_name_leafdata())
+                if (self.ciplocalpoolstatfreeaddrs.is_set or self.ciplocalpoolstatfreeaddrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolstatfreeaddrs.get_name_leafdata())
+                if (self.ciplocalpoolstathiwaterusedaddrs.is_set or self.ciplocalpoolstathiwaterusedaddrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolstathiwaterusedaddrs.get_name_leafdata())
+                if (self.ciplocalpoolstatinuseaddrs.is_set or self.ciplocalpoolstatinuseaddrs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolstatinuseaddrs.get_name_leafdata())
+                if (self.ciplocalpoolstatinuseaddrthldhi.is_set or self.ciplocalpoolstatinuseaddrthldhi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolstatinuseaddrthldhi.get_name_leafdata())
+                if (self.ciplocalpoolstatinuseaddrthldlo.is_set or self.ciplocalpoolstatinuseaddrthldlo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolstatinuseaddrthldlo.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cIpLocalPoolName" or name == "cIpLocalPoolPercentAddrThldHi" or name == "cIpLocalPoolPercentAddrThldLo" or name == "cIpLocalPoolStatFreeAddrs" or name == "cIpLocalPoolStatHiWaterUsedAddrs" or name == "cIpLocalPoolStatInUseAddrs" or name == "cIpLocalPoolStatInUseAddrThldHi" or name == "cIpLocalPoolStatInUseAddrThldLo"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciplocalpoolname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cIpLocalPoolName"):
+                    self.ciplocalpoolname = value
+                    self.ciplocalpoolname.value_namespace = name_space
+                    self.ciplocalpoolname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolPercentAddrThldHi"):
+                    self.ciplocalpoolpercentaddrthldhi = value
+                    self.ciplocalpoolpercentaddrthldhi.value_namespace = name_space
+                    self.ciplocalpoolpercentaddrthldhi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolPercentAddrThldLo"):
+                    self.ciplocalpoolpercentaddrthldlo = value
+                    self.ciplocalpoolpercentaddrthldlo.value_namespace = name_space
+                    self.ciplocalpoolpercentaddrthldlo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolStatFreeAddrs"):
+                    self.ciplocalpoolstatfreeaddrs = value
+                    self.ciplocalpoolstatfreeaddrs.value_namespace = name_space
+                    self.ciplocalpoolstatfreeaddrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolStatHiWaterUsedAddrs"):
+                    self.ciplocalpoolstathiwaterusedaddrs = value
+                    self.ciplocalpoolstathiwaterusedaddrs.value_namespace = name_space
+                    self.ciplocalpoolstathiwaterusedaddrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolStatInUseAddrs"):
+                    self.ciplocalpoolstatinuseaddrs = value
+                    self.ciplocalpoolstatinuseaddrs.value_namespace = name_space
+                    self.ciplocalpoolstatinuseaddrs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolStatInUseAddrThldHi"):
+                    self.ciplocalpoolstatinuseaddrthldhi = value
+                    self.ciplocalpoolstatinuseaddrthldhi.value_namespace = name_space
+                    self.ciplocalpoolstatinuseaddrthldhi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolStatInUseAddrThldLo"):
+                    self.ciplocalpoolstatinuseaddrthldlo = value
+                    self.ciplocalpoolstatinuseaddrthldlo.value_namespace = name_space
+                    self.ciplocalpoolstatinuseaddrthldlo.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciplocalpoolstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciplocalpoolpercentaddrthldhi is not None:
-                    return True
-
-                if self.ciplocalpoolpercentaddrthldlo is not None:
-                    return True
-
-                if self.ciplocalpoolstatfreeaddrs is not None:
-                    return True
-
-                if self.ciplocalpoolstathiwaterusedaddrs is not None:
-                    return True
-
-                if self.ciplocalpoolstatinuseaddrs is not None:
-                    return True
-
-                if self.ciplocalpoolstatinuseaddrthldhi is not None:
-                    return True
-
-                if self.ciplocalpoolstatinuseaddrthldlo is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-                return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolstatstable.Ciplocalpoolstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciplocalpoolstatsentry is not None:
-                for child_ref in self.ciplocalpoolstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciplocalpoolstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cIpLocalPoolStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cIpLocalPoolStatsEntry"):
+                for c in self.ciplocalpoolstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpLocalPoolMib.Ciplocalpoolstatstable.Ciplocalpoolstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciplocalpoolstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cIpLocalPoolStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-            return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciplocalpoolalloctable(object):
+    class Ciplocalpoolalloctable(Entity):
         """
         This table lists all addresses that have been allocated out of
         an IP local pool.
@@ -791,13 +1438,39 @@ class CiscoIpLocalPoolMib(object):
         _revision = '2007-11-12'
 
         def __init__(self):
-            self.parent = None
-            self.ciplocalpoolallocentry = YList()
-            self.ciplocalpoolallocentry.parent = self
-            self.ciplocalpoolallocentry.name = 'ciplocalpoolallocentry'
+            super(CiscoIpLocalPoolMib.Ciplocalpoolalloctable, self).__init__()
+
+            self.yang_name = "cIpLocalPoolAllocTable"
+            self.yang_parent_name = "CISCO-IP-LOCAL-POOL-MIB"
+
+            self.ciplocalpoolallocentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolalloctable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpLocalPoolMib.Ciplocalpoolalloctable, self).__setattr__(name, value)
 
 
-        class Ciplocalpoolallocentry(object):
+        class Ciplocalpoolallocentry(Entity):
             """
             Each entry refers to conceptual row that associates an IP
             addresses with the interface where the request was received, and
@@ -815,7 +1488,7 @@ class CiscoIpLocalPoolMib(object):
             .. attribute:: ciplocalpoolallocaddrtype  <key>
             
             	This object specifies the address type of cIpLocalPoolAllocAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ciplocalpoolallocaddr  <key>
             
@@ -844,106 +1517,279 @@ class CiscoIpLocalPoolMib(object):
             _revision = '2007-11-12'
 
             def __init__(self):
-                self.parent = None
-                self.ciplocalpoolname = None
-                self.ciplocalpoolallocaddrtype = None
-                self.ciplocalpoolallocaddr = None
-                self.ciplocalpoolallocifindex = None
-                self.ciplocalpoolallocuser = None
+                super(CiscoIpLocalPoolMib.Ciplocalpoolalloctable.Ciplocalpoolallocentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciplocalpoolname is None:
-                    raise YPYModelError('Key property ciplocalpoolname is None')
-                if self.ciplocalpoolallocaddrtype is None:
-                    raise YPYModelError('Key property ciplocalpoolallocaddrtype is None')
-                if self.ciplocalpoolallocaddr is None:
-                    raise YPYModelError('Key property ciplocalpoolallocaddr is None')
+                self.yang_name = "cIpLocalPoolAllocEntry"
+                self.yang_parent_name = "cIpLocalPoolAllocTable"
 
-                return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolAllocTable/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolAllocEntry[CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolName = ' + str(self.ciplocalpoolname) + '][CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolAllocAddrType = ' + str(self.ciplocalpoolallocaddrtype) + '][CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolAllocAddr = ' + str(self.ciplocalpoolallocaddr) + ']'
+                self.ciplocalpoolname = YLeaf(YType.str, "cIpLocalPoolName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciplocalpoolallocaddrtype = YLeaf(YType.enumeration, "cIpLocalPoolAllocAddrType")
+
+                self.ciplocalpoolallocaddr = YLeaf(YType.str, "cIpLocalPoolAllocAddr")
+
+                self.ciplocalpoolallocifindex = YLeaf(YType.int32, "cIpLocalPoolAllocIfIndex")
+
+                self.ciplocalpoolallocuser = YLeaf(YType.str, "cIpLocalPoolAllocUser")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciplocalpoolname",
+                                "ciplocalpoolallocaddrtype",
+                                "ciplocalpoolallocaddr",
+                                "ciplocalpoolallocifindex",
+                                "ciplocalpoolallocuser") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpLocalPoolMib.Ciplocalpoolalloctable.Ciplocalpoolallocentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpLocalPoolMib.Ciplocalpoolalloctable.Ciplocalpoolallocentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciplocalpoolname.is_set or
+                    self.ciplocalpoolallocaddrtype.is_set or
+                    self.ciplocalpoolallocaddr.is_set or
+                    self.ciplocalpoolallocifindex.is_set or
+                    self.ciplocalpoolallocuser.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciplocalpoolname.yfilter != YFilter.not_set or
+                    self.ciplocalpoolallocaddrtype.yfilter != YFilter.not_set or
+                    self.ciplocalpoolallocaddr.yfilter != YFilter.not_set or
+                    self.ciplocalpoolallocifindex.yfilter != YFilter.not_set or
+                    self.ciplocalpoolallocuser.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cIpLocalPoolAllocEntry" + "[cIpLocalPoolName='" + self.ciplocalpoolname.get() + "']" + "[cIpLocalPoolAllocAddrType='" + self.ciplocalpoolallocaddrtype.get() + "']" + "[cIpLocalPoolAllocAddr='" + self.ciplocalpoolallocaddr.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolAllocTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciplocalpoolname.is_set or self.ciplocalpoolname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolname.get_name_leafdata())
+                if (self.ciplocalpoolallocaddrtype.is_set or self.ciplocalpoolallocaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolallocaddrtype.get_name_leafdata())
+                if (self.ciplocalpoolallocaddr.is_set or self.ciplocalpoolallocaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolallocaddr.get_name_leafdata())
+                if (self.ciplocalpoolallocifindex.is_set or self.ciplocalpoolallocifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolallocifindex.get_name_leafdata())
+                if (self.ciplocalpoolallocuser.is_set or self.ciplocalpoolallocuser.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciplocalpoolallocuser.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cIpLocalPoolName" or name == "cIpLocalPoolAllocAddrType" or name == "cIpLocalPoolAllocAddr" or name == "cIpLocalPoolAllocIfIndex" or name == "cIpLocalPoolAllocUser"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciplocalpoolname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cIpLocalPoolName"):
+                    self.ciplocalpoolname = value
+                    self.ciplocalpoolname.value_namespace = name_space
+                    self.ciplocalpoolname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolAllocAddrType"):
+                    self.ciplocalpoolallocaddrtype = value
+                    self.ciplocalpoolallocaddrtype.value_namespace = name_space
+                    self.ciplocalpoolallocaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolAllocAddr"):
+                    self.ciplocalpoolallocaddr = value
+                    self.ciplocalpoolallocaddr.value_namespace = name_space
+                    self.ciplocalpoolallocaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolAllocIfIndex"):
+                    self.ciplocalpoolallocifindex = value
+                    self.ciplocalpoolallocifindex.value_namespace = name_space
+                    self.ciplocalpoolallocifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cIpLocalPoolAllocUser"):
+                    self.ciplocalpoolallocuser = value
+                    self.ciplocalpoolallocuser.value_namespace = name_space
+                    self.ciplocalpoolallocuser.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciplocalpoolallocentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciplocalpoolallocaddrtype is not None:
-                    return True
-
-                if self.ciplocalpoolallocaddr is not None:
-                    return True
-
-                if self.ciplocalpoolallocifindex is not None:
-                    return True
-
-                if self.ciplocalpoolallocuser is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-                return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolalloctable.Ciplocalpoolallocentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/CISCO-IP-LOCAL-POOL-MIB:cIpLocalPoolAllocTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciplocalpoolallocentry is not None:
-                for child_ref in self.ciplocalpoolallocentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciplocalpoolallocentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cIpLocalPoolAllocTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cIpLocalPoolAllocEntry"):
+                for c in self.ciplocalpoolallocentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpLocalPoolMib.Ciplocalpoolalloctable.Ciplocalpoolallocentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciplocalpoolallocentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cIpLocalPoolAllocEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-            return meta._meta_table['CiscoIpLocalPoolMib.Ciplocalpoolalloctable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ciplocalpoolalloctable is not None and self.ciplocalpoolalloctable.has_data()) or
+            (self.ciplocalpoolconfig is not None and self.ciplocalpoolconfig.has_data()) or
+            (self.ciplocalpoolconfigtable is not None and self.ciplocalpoolconfigtable.has_data()) or
+            (self.ciplocalpoolgroupcontainstable is not None and self.ciplocalpoolgroupcontainstable.has_data()) or
+            (self.ciplocalpoolgrouptable is not None and self.ciplocalpoolgrouptable.has_data()) or
+            (self.ciplocalpoolstatstable is not None and self.ciplocalpoolstatstable.has_data()))
 
-        return '/CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ciplocalpoolalloctable is not None and self.ciplocalpoolalloctable.has_operation()) or
+            (self.ciplocalpoolconfig is not None and self.ciplocalpoolconfig.has_operation()) or
+            (self.ciplocalpoolconfigtable is not None and self.ciplocalpoolconfigtable.has_operation()) or
+            (self.ciplocalpoolgroupcontainstable is not None and self.ciplocalpoolgroupcontainstable.has_operation()) or
+            (self.ciplocalpoolgrouptable is not None and self.ciplocalpoolgrouptable.has_operation()) or
+            (self.ciplocalpoolstatstable is not None and self.ciplocalpoolstatstable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cIpLocalPoolAllocTable"):
+            if (self.ciplocalpoolalloctable is None):
+                self.ciplocalpoolalloctable = CiscoIpLocalPoolMib.Ciplocalpoolalloctable()
+                self.ciplocalpoolalloctable.parent = self
+                self._children_name_map["ciplocalpoolalloctable"] = "cIpLocalPoolAllocTable"
+            return self.ciplocalpoolalloctable
+
+        if (child_yang_name == "cIpLocalPoolConfig"):
+            if (self.ciplocalpoolconfig is None):
+                self.ciplocalpoolconfig = CiscoIpLocalPoolMib.Ciplocalpoolconfig()
+                self.ciplocalpoolconfig.parent = self
+                self._children_name_map["ciplocalpoolconfig"] = "cIpLocalPoolConfig"
+            return self.ciplocalpoolconfig
+
+        if (child_yang_name == "cIpLocalPoolConfigTable"):
+            if (self.ciplocalpoolconfigtable is None):
+                self.ciplocalpoolconfigtable = CiscoIpLocalPoolMib.Ciplocalpoolconfigtable()
+                self.ciplocalpoolconfigtable.parent = self
+                self._children_name_map["ciplocalpoolconfigtable"] = "cIpLocalPoolConfigTable"
+            return self.ciplocalpoolconfigtable
+
+        if (child_yang_name == "cIpLocalPoolGroupContainsTable"):
+            if (self.ciplocalpoolgroupcontainstable is None):
+                self.ciplocalpoolgroupcontainstable = CiscoIpLocalPoolMib.Ciplocalpoolgroupcontainstable()
+                self.ciplocalpoolgroupcontainstable.parent = self
+                self._children_name_map["ciplocalpoolgroupcontainstable"] = "cIpLocalPoolGroupContainsTable"
+            return self.ciplocalpoolgroupcontainstable
+
+        if (child_yang_name == "cIpLocalPoolGroupTable"):
+            if (self.ciplocalpoolgrouptable is None):
+                self.ciplocalpoolgrouptable = CiscoIpLocalPoolMib.Ciplocalpoolgrouptable()
+                self.ciplocalpoolgrouptable.parent = self
+                self._children_name_map["ciplocalpoolgrouptable"] = "cIpLocalPoolGroupTable"
+            return self.ciplocalpoolgrouptable
+
+        if (child_yang_name == "cIpLocalPoolStatsTable"):
+            if (self.ciplocalpoolstatstable is None):
+                self.ciplocalpoolstatstable = CiscoIpLocalPoolMib.Ciplocalpoolstatstable()
+                self.ciplocalpoolstatstable.parent = self
+                self._children_name_map["ciplocalpoolstatstable"] = "cIpLocalPoolStatsTable"
+            return self.ciplocalpoolstatstable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cIpLocalPoolAllocTable" or name == "cIpLocalPoolConfig" or name == "cIpLocalPoolConfigTable" or name == "cIpLocalPoolGroupContainsTable" or name == "cIpLocalPoolGroupTable" or name == "cIpLocalPoolStatsTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ciplocalpoolalloctable is not None and self.ciplocalpoolalloctable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ciplocalpoolconfig is not None and self.ciplocalpoolconfig._has_data():
-            return True
-
-        if self.ciplocalpoolconfigtable is not None and self.ciplocalpoolconfigtable._has_data():
-            return True
-
-        if self.ciplocalpoolgroupcontainstable is not None and self.ciplocalpoolgroupcontainstable._has_data():
-            return True
-
-        if self.ciplocalpoolgrouptable is not None and self.ciplocalpoolgrouptable._has_data():
-            return True
-
-        if self.ciplocalpoolstatstable is not None and self.ciplocalpoolstatstable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IP_LOCAL_POOL_MIB as meta
-        return meta._meta_table['CiscoIpLocalPoolMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIpLocalPoolMib()
+        return self._top_entity
 

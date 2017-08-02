@@ -6,22 +6,16 @@ management information base (MIBs) modules for
 managing Cisco Express Forwarding (CEF).
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CefadjlinktypeEnum(Enum):
+class Cefadjlinktype(Enum):
     """
-    CefadjlinktypeEnum
+    Cefadjlinktype
 
     Link type for the adjacency. The adjacency link type 
 
@@ -41,26 +35,20 @@ class CefadjlinktypeEnum(Enum):
 
     """
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
-    mpls = 3
+    mpls = Enum.YLeaf(3, "mpls")
 
-    raw = 4
+    raw = Enum.YLeaf(4, "raw")
 
-    unknown = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefadjlinktypeEnum']
+    unknown = Enum.YLeaf(5, "unknown")
 
 
-class CefadminstatusEnum(Enum):
+class Cefadminstatus(Enum):
     """
-    CefadminstatusEnum
+    Cefadminstatus
 
     Admin status of CEF. The admin status of CEF
 
@@ -74,20 +62,14 @@ class CefadminstatusEnum(Enum):
 
     """
 
-    enabled = 1
+    enabled = Enum.YLeaf(1, "enabled")
 
-    disabled = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefadminstatusEnum']
+    disabled = Enum.YLeaf(2, "disabled")
 
 
-class CefccactionEnum(Enum):
+class Cefccaction(Enum):
     """
-    CefccactionEnum
+    Cefccaction
 
     The action to be performed for the consistency
 
@@ -121,22 +103,16 @@ class CefccactionEnum(Enum):
 
     """
 
-    ccActionStart = 1
+    ccActionStart = Enum.YLeaf(1, "ccActionStart")
 
-    ccActionAbort = 2
+    ccActionAbort = Enum.YLeaf(2, "ccActionAbort")
 
-    ccActionNone = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefccactionEnum']
+    ccActionNone = Enum.YLeaf(3, "ccActionNone")
 
 
-class CefccstatusEnum(Enum):
+class Cefccstatus(Enum):
     """
-    CefccstatusEnum
+    Cefccstatus
 
     The status of consistency checker operation. 
 
@@ -168,22 +144,16 @@ class CefccstatusEnum(Enum):
 
     """
 
-    ccStatusIdle = 1
+    ccStatusIdle = Enum.YLeaf(1, "ccStatusIdle")
 
-    ccStatusRunning = 2
+    ccStatusRunning = Enum.YLeaf(2, "ccStatusRunning")
 
-    ccStatusDone = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefccstatusEnum']
+    ccStatusDone = Enum.YLeaf(3, "ccStatusDone")
 
 
-class CefcctypeEnum(Enum):
+class Cefcctype(Enum):
     """
-    CefcctypeEnum
+    Cefcctype
 
     Type of the consistency checker.
 
@@ -353,42 +323,36 @@ class CefcctypeEnum(Enum):
 
     """
 
-    lcDetect = 1
+    lcDetect = Enum.YLeaf(1, "lcDetect")
 
-    scanFibLcRp = 2
+    scanFibLcRp = Enum.YLeaf(2, "scanFibLcRp")
 
-    scanFibRpLc = 3
+    scanFibRpLc = Enum.YLeaf(3, "scanFibRpLc")
 
-    scanRibFib = 4
+    scanRibFib = Enum.YLeaf(4, "scanRibFib")
 
-    scanFibRib = 5
+    scanFibRib = Enum.YLeaf(5, "scanFibRib")
 
-    scanFibHwSw = 6
+    scanFibHwSw = Enum.YLeaf(6, "scanFibHwSw")
 
-    scanFibSwHw = 7
+    scanFibSwHw = Enum.YLeaf(7, "scanFibSwHw")
 
-    fullScanRibFib = 8
+    fullScanRibFib = Enum.YLeaf(8, "fullScanRibFib")
 
-    fullScanFibRib = 9
+    fullScanFibRib = Enum.YLeaf(9, "fullScanFibRib")
 
-    fullScanFibRpLc = 10
+    fullScanFibRpLc = Enum.YLeaf(10, "fullScanFibRpLc")
 
-    fullScanFibLcRp = 11
+    fullScanFibLcRp = Enum.YLeaf(11, "fullScanFibLcRp")
 
-    fullScanFibHwSw = 12
+    fullScanFibHwSw = Enum.YLeaf(12, "fullScanFibHwSw")
 
-    fullScanFibSwHw = 13
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefcctypeEnum']
+    fullScanFibSwHw = Enum.YLeaf(13, "fullScanFibSwHw")
 
 
-class CeffailurereasonEnum(Enum):
+class Ceffailurereason(Enum):
     """
-    CeffailurereasonEnum
+    Ceffailurereason
 
     Reason of CEF Failure\:
 
@@ -436,30 +400,24 @@ class CeffailurereasonEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    mallocFailure = 2
+    mallocFailure = Enum.YLeaf(2, "mallocFailure")
 
-    hwFailure = 3
+    hwFailure = Enum.YLeaf(3, "hwFailure")
 
-    keepaliveFailure = 4
+    keepaliveFailure = Enum.YLeaf(4, "keepaliveFailure")
 
-    noMsgBuffer = 5
+    noMsgBuffer = Enum.YLeaf(5, "noMsgBuffer")
 
-    invalidMsgSize = 6
+    invalidMsgSize = Enum.YLeaf(6, "invalidMsgSize")
 
-    internalError = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CeffailurereasonEnum']
+    internalError = Enum.YLeaf(7, "internalError")
 
 
-class CefforwardingelementspecialtypeEnum(Enum):
+class Cefforwardingelementspecialtype(Enum):
     """
-    CefforwardingelementspecialtypeEnum
+    Cefforwardingelementspecialtype
 
     Type of special forwarding element 
 
@@ -529,34 +487,28 @@ class CefforwardingelementspecialtypeEnum(Enum):
 
     """
 
-    illegal = 1
+    illegal = Enum.YLeaf(1, "illegal")
 
-    punt = 2
+    punt = Enum.YLeaf(2, "punt")
 
-    drop = 3
+    drop = Enum.YLeaf(3, "drop")
 
-    discard = 4
+    discard = Enum.YLeaf(4, "discard")
 
-    null = 5
+    null = Enum.YLeaf(5, "null")
 
-    glean = 6
+    glean = Enum.YLeaf(6, "glean")
 
-    unresolved = 7
+    unresolved = Enum.YLeaf(7, "unresolved")
 
-    noRoute = 8
+    noRoute = Enum.YLeaf(8, "noRoute")
 
-    none = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefforwardingelementspecialtypeEnum']
+    none = Enum.YLeaf(9, "none")
 
 
-class CefipversionEnum(Enum):
+class Cefipversion(Enum):
     """
-    CefipversionEnum
+    Cefipversion
 
     The version of CEF IP forwarding.
 
@@ -566,20 +518,14 @@ class CefipversionEnum(Enum):
 
     """
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefipversionEnum']
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-class CefoperstatusEnum(Enum):
+class Cefoperstatus(Enum):
     """
-    CefoperstatusEnum
+    Cefoperstatus
 
     Operational status of CEF.
 
@@ -589,20 +535,14 @@ class CefoperstatusEnum(Enum):
 
     """
 
-    up = 1
+    up = Enum.YLeaf(1, "up")
 
-    down = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefoperstatusEnum']
+    down = Enum.YLeaf(2, "down")
 
 
-class CefpathtypeEnum(Enum):
+class Cefpathtype(Enum):
     """
-    CefpathtypeEnum
+    Cefpathtype
 
     Type of the CEF Path.
 
@@ -650,34 +590,28 @@ class CefpathtypeEnum(Enum):
 
     """
 
-    receive = 1
+    receive = Enum.YLeaf(1, "receive")
 
-    connectedPrefix = 2
+    connectedPrefix = Enum.YLeaf(2, "connectedPrefix")
 
-    attachedPrefix = 3
+    attachedPrefix = Enum.YLeaf(3, "attachedPrefix")
 
-    attachedHost = 4
+    attachedHost = Enum.YLeaf(4, "attachedHost")
 
-    attachedNexthop = 5
+    attachedNexthop = Enum.YLeaf(5, "attachedNexthop")
 
-    recursiveNexthop = 6
+    recursiveNexthop = Enum.YLeaf(6, "recursiveNexthop")
 
-    adjacencyPrefix = 7
+    adjacencyPrefix = Enum.YLeaf(7, "adjacencyPrefix")
 
-    specialPrefix = 8
+    specialPrefix = Enum.YLeaf(8, "specialPrefix")
 
-    unknown = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefpathtypeEnum']
+    unknown = Enum.YLeaf(9, "unknown")
 
 
-class CefprefixsearchstateEnum(Enum):
+class Cefprefixsearchstate(Enum):
     """
-    CefprefixsearchstateEnum
+    Cefprefixsearchstate
 
     The state of prefix search operation. 
 
@@ -707,20 +641,14 @@ class CefprefixsearchstateEnum(Enum):
 
     """
 
-    running = 1
+    running = Enum.YLeaf(1, "running")
 
-    matchFound = 2
+    matchFound = Enum.YLeaf(2, "matchFound")
 
-    noMatchFound = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CEF_TC as meta
-        return meta._meta_table['CefprefixsearchstateEnum']
+    noMatchFound = Enum.YLeaf(3, "noMatchFound")
 
 
-class Cefadjacencysource(FixedBitsDict):
+class Cefadjacencysource(Bits):
     """
     Cefadjacencysource
 
@@ -729,60 +657,11 @@ class Cefadjacencysource(FixedBitsDict):
     multiple (e.g. 'arp' and 'atmPVC'), hence the 
     value of this object represents the bit mask of
     adjacency sources.
-    Keys are:- atom , unknown , arp , fibLc , ipv6ND , atmTVC , atmPVC , p2pAdj , linkRawAdj , ipv6SixtoFourTunnel , multicast , nbma , nhrp , ipv6IsaTapTunnel , virtual , atmSVC , cmcc , atmBundle , mpoa , ipPseudowireAdj , lec , frMap , ipv6AutoTunnel
+    Keys are:- ipPseudowireAdj , nbma , multicast , linkRawAdj , ipv6ND , arp , fibLc , cmcc , atom , unknown , ipv6SixtoFourTunnel , frMap , atmSVC , atmBundle , lec , virtual , atmTVC , atmPVC , ipv6IsaTapTunnel , ipv6AutoTunnel , p2pAdj , nhrp , mpoa
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'atom':False,
-            'unknown':False,
-            'arp':False,
-            'fibLc':False,
-            'ipv6ND':False,
-            'atmTVC':False,
-            'atmPVC':False,
-            'p2pAdj':False,
-            'linkRawAdj':False,
-            'ipv6SixtoFourTunnel':False,
-            'multicast':False,
-            'nbma':False,
-            'nhrp':False,
-            'ipv6IsaTapTunnel':False,
-            'virtual':False,
-            'atmSVC':False,
-            'cmcc':False,
-            'atmBundle':False,
-            'mpoa':False,
-            'ipPseudowireAdj':False,
-            'lec':False,
-            'frMap':False,
-            'ipv6AutoTunnel':False,
-        }
-        self._pos_map = { 
-            'atom':0,
-            'unknown':22,
-            'arp':3,
-            'fibLc':19,
-            'ipv6ND':14,
-            'atmTVC':8,
-            'atmPVC':6,
-            'p2pAdj':4,
-            'linkRawAdj':1,
-            'ipv6SixtoFourTunnel':16,
-            'multicast':21,
-            'nbma':9,
-            'nhrp':13,
-            'ipv6IsaTapTunnel':17,
-            'virtual':20,
-            'atmSVC':7,
-            'cmcc':15,
-            'atmBundle':11,
-            'mpoa':10,
-            'ipPseudowireAdj':2,
-            'lec':12,
-            'frMap':5,
-            'ipv6AutoTunnel':18,
-        }
+        super(Cefadjacencysource, self).__init__()
 
 

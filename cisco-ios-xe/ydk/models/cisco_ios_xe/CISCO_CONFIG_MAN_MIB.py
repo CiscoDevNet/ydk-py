@@ -36,22 +36,16 @@ For example\:
     CLI   Command Line Interface.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class HistoryeventmediumEnum(Enum):
+class Historyeventmedium(Enum):
     """
-    HistoryeventmediumEnum
+    Historyeventmedium
 
     The source or destination of a configuration change,
 
@@ -95,33 +89,27 @@ class HistoryeventmediumEnum(Enum):
 
     """
 
-    erase = 1
+    erase = Enum.YLeaf(1, "erase")
 
-    commandSource = 2
+    commandSource = Enum.YLeaf(2, "commandSource")
 
-    running = 3
+    running = Enum.YLeaf(3, "running")
 
-    startup = 4
+    startup = Enum.YLeaf(4, "startup")
 
-    local = 5
+    local = Enum.YLeaf(5, "local")
 
-    networkTftp = 6
+    networkTftp = Enum.YLeaf(6, "networkTftp")
 
-    networkRcp = 7
+    networkRcp = Enum.YLeaf(7, "networkRcp")
 
-    networkFtp = 8
+    networkFtp = Enum.YLeaf(8, "networkFtp")
 
-    networkScp = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-        return meta._meta_table['HistoryeventmediumEnum']
+    networkScp = Enum.YLeaf(9, "networkScp")
 
 
 
-class CiscoConfigManMib(object):
+class CiscoConfigManMib(Entity):
     """
     
     
@@ -163,21 +151,44 @@ class CiscoConfigManMib(object):
     _revision = '2007-04-27'
 
     def __init__(self):
+        super(CiscoConfigManMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-CONFIG-MAN-MIB"
+        self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
+
         self.ccmclicfg = CiscoConfigManMib.Ccmclicfg()
         self.ccmclicfg.parent = self
+        self._children_name_map["ccmclicfg"] = "ccmCLICfg"
+        self._children_yang_names.add("ccmCLICfg")
+
         self.ccmclihistory = CiscoConfigManMib.Ccmclihistory()
         self.ccmclihistory.parent = self
+        self._children_name_map["ccmclihistory"] = "ccmCLIHistory"
+        self._children_yang_names.add("ccmCLIHistory")
+
         self.ccmclihistorycommandtable = CiscoConfigManMib.Ccmclihistorycommandtable()
         self.ccmclihistorycommandtable.parent = self
+        self._children_name_map["ccmclihistorycommandtable"] = "ccmCLIHistoryCommandTable"
+        self._children_yang_names.add("ccmCLIHistoryCommandTable")
+
         self.ccmctidobjects = CiscoConfigManMib.Ccmctidobjects()
         self.ccmctidobjects.parent = self
+        self._children_name_map["ccmctidobjects"] = "ccmCTIDObjects"
+        self._children_yang_names.add("ccmCTIDObjects")
+
         self.ccmhistory = CiscoConfigManMib.Ccmhistory()
         self.ccmhistory.parent = self
+        self._children_name_map["ccmhistory"] = "ccmHistory"
+        self._children_yang_names.add("ccmHistory")
+
         self.ccmhistoryeventtable = CiscoConfigManMib.Ccmhistoryeventtable()
         self.ccmhistoryeventtable.parent = self
+        self._children_name_map["ccmhistoryeventtable"] = "ccmHistoryEventTable"
+        self._children_yang_names.add("ccmHistoryEventTable")
 
 
-    class Ccmhistory(object):
+    class Ccmhistory(Entity):
         """
         
         
@@ -224,47 +235,130 @@ class CiscoConfigManMib(object):
         _revision = '2007-04-27'
 
         def __init__(self):
-            self.parent = None
-            self.ccmhistoryevententriesbumped = None
-            self.ccmhistorymaxevententries = None
-            self.ccmhistoryrunninglastchanged = None
-            self.ccmhistoryrunninglastsaved = None
-            self.ccmhistorystartuplastchanged = None
+            super(CiscoConfigManMib.Ccmhistory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ccmHistory"
+            self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
 
-            return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmHistory'
+            self.ccmhistoryevententriesbumped = YLeaf(YType.uint32, "ccmHistoryEventEntriesBumped")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.ccmhistorymaxevententries = YLeaf(YType.int32, "ccmHistoryMaxEventEntries")
+
+            self.ccmhistoryrunninglastchanged = YLeaf(YType.uint32, "ccmHistoryRunningLastChanged")
+
+            self.ccmhistoryrunninglastsaved = YLeaf(YType.uint32, "ccmHistoryRunningLastSaved")
+
+            self.ccmhistorystartuplastchanged = YLeaf(YType.uint32, "ccmHistoryStartupLastChanged")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ccmhistoryevententriesbumped",
+                            "ccmhistorymaxevententries",
+                            "ccmhistoryrunninglastchanged",
+                            "ccmhistoryrunninglastsaved",
+                            "ccmhistorystartuplastchanged") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigManMib.Ccmhistory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigManMib.Ccmhistory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.ccmhistoryevententriesbumped.is_set or
+                self.ccmhistorymaxevententries.is_set or
+                self.ccmhistoryrunninglastchanged.is_set or
+                self.ccmhistoryrunninglastsaved.is_set or
+                self.ccmhistorystartuplastchanged.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ccmhistoryevententriesbumped.yfilter != YFilter.not_set or
+                self.ccmhistorymaxevententries.yfilter != YFilter.not_set or
+                self.ccmhistoryrunninglastchanged.yfilter != YFilter.not_set or
+                self.ccmhistoryrunninglastsaved.yfilter != YFilter.not_set or
+                self.ccmhistorystartuplastchanged.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccmHistory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ccmhistoryevententriesbumped.is_set or self.ccmhistoryevententriesbumped.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmhistoryevententriesbumped.get_name_leafdata())
+            if (self.ccmhistorymaxevententries.is_set or self.ccmhistorymaxevententries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmhistorymaxevententries.get_name_leafdata())
+            if (self.ccmhistoryrunninglastchanged.is_set or self.ccmhistoryrunninglastchanged.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmhistoryrunninglastchanged.get_name_leafdata())
+            if (self.ccmhistoryrunninglastsaved.is_set or self.ccmhistoryrunninglastsaved.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmhistoryrunninglastsaved.get_name_leafdata())
+            if (self.ccmhistorystartuplastchanged.is_set or self.ccmhistorystartuplastchanged.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmhistorystartuplastchanged.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccmHistoryEventEntriesBumped" or name == "ccmHistoryMaxEventEntries" or name == "ccmHistoryRunningLastChanged" or name == "ccmHistoryRunningLastSaved" or name == "ccmHistoryStartupLastChanged"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ccmhistoryevententriesbumped is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ccmHistoryEventEntriesBumped"):
+                self.ccmhistoryevententriesbumped = value
+                self.ccmhistoryevententriesbumped.value_namespace = name_space
+                self.ccmhistoryevententriesbumped.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmHistoryMaxEventEntries"):
+                self.ccmhistorymaxevententries = value
+                self.ccmhistorymaxevententries.value_namespace = name_space
+                self.ccmhistorymaxevententries.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmHistoryRunningLastChanged"):
+                self.ccmhistoryrunninglastchanged = value
+                self.ccmhistoryrunninglastchanged.value_namespace = name_space
+                self.ccmhistoryrunninglastchanged.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmHistoryRunningLastSaved"):
+                self.ccmhistoryrunninglastsaved = value
+                self.ccmhistoryrunninglastsaved.value_namespace = name_space
+                self.ccmhistoryrunninglastsaved.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmHistoryStartupLastChanged"):
+                self.ccmhistorystartuplastchanged = value
+                self.ccmhistorystartuplastchanged.value_namespace = name_space
+                self.ccmhistorystartuplastchanged.value_namespace_prefix = name_space_prefix
 
-            if self.ccmhistorymaxevententries is not None:
-                return True
 
-            if self.ccmhistoryrunninglastchanged is not None:
-                return True
-
-            if self.ccmhistoryrunninglastsaved is not None:
-                return True
-
-            if self.ccmhistorystartuplastchanged is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-            return meta._meta_table['CiscoConfigManMib.Ccmhistory']['meta_info']
-
-
-    class Ccmclihistory(object):
+    class Ccmclihistory(Entity):
         """
         
         
@@ -297,39 +391,108 @@ class CiscoConfigManMib(object):
         _revision = '2007-04-27'
 
         def __init__(self):
-            self.parent = None
-            self.ccmclihistorycmdentries = None
-            self.ccmclihistorycmdentriesallowed = None
-            self.ccmclihistorymaxcmdentries = None
+            super(CiscoConfigManMib.Ccmclihistory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ccmCLIHistory"
+            self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
 
-            return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmCLIHistory'
+            self.ccmclihistorycmdentries = YLeaf(YType.uint32, "ccmCLIHistoryCmdEntries")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.ccmclihistorycmdentriesallowed = YLeaf(YType.uint32, "ccmCLIHistoryCmdEntriesAllowed")
+
+            self.ccmclihistorymaxcmdentries = YLeaf(YType.uint32, "ccmCLIHistoryMaxCmdEntries")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ccmclihistorycmdentries",
+                            "ccmclihistorycmdentriesallowed",
+                            "ccmclihistorymaxcmdentries") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigManMib.Ccmclihistory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigManMib.Ccmclihistory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.ccmclihistorycmdentries.is_set or
+                self.ccmclihistorycmdentriesallowed.is_set or
+                self.ccmclihistorymaxcmdentries.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ccmclihistorycmdentries.yfilter != YFilter.not_set or
+                self.ccmclihistorycmdentriesallowed.yfilter != YFilter.not_set or
+                self.ccmclihistorymaxcmdentries.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccmCLIHistory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ccmclihistorycmdentries.is_set or self.ccmclihistorycmdentries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmclihistorycmdentries.get_name_leafdata())
+            if (self.ccmclihistorycmdentriesallowed.is_set or self.ccmclihistorycmdentriesallowed.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmclihistorycmdentriesallowed.get_name_leafdata())
+            if (self.ccmclihistorymaxcmdentries.is_set or self.ccmclihistorymaxcmdentries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmclihistorymaxcmdentries.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccmCLIHistoryCmdEntries" or name == "ccmCLIHistoryCmdEntriesAllowed" or name == "ccmCLIHistoryMaxCmdEntries"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ccmclihistorycmdentries is not None:
-                return True
-
-            if self.ccmclihistorycmdentriesallowed is not None:
-                return True
-
-            if self.ccmclihistorymaxcmdentries is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-            return meta._meta_table['CiscoConfigManMib.Ccmclihistory']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ccmCLIHistoryCmdEntries"):
+                self.ccmclihistorycmdentries = value
+                self.ccmclihistorycmdentries.value_namespace = name_space
+                self.ccmclihistorycmdentries.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmCLIHistoryCmdEntriesAllowed"):
+                self.ccmclihistorycmdentriesallowed = value
+                self.ccmclihistorycmdentriesallowed.value_namespace = name_space
+                self.ccmclihistorycmdentriesallowed.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmCLIHistoryMaxCmdEntries"):
+                self.ccmclihistorymaxcmdentries = value
+                self.ccmclihistorymaxcmdentries.value_namespace = name_space
+                self.ccmclihistorymaxcmdentries.value_namespace_prefix = name_space_prefix
 
 
-    class Ccmclicfg(object):
+    class Ccmclicfg(Entity):
         """
         
         
@@ -346,31 +509,85 @@ class CiscoConfigManMib(object):
         _revision = '2007-04-27'
 
         def __init__(self):
-            self.parent = None
-            self.ccmclicfgrunconfnotifenable = None
+            super(CiscoConfigManMib.Ccmclicfg, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ccmCLICfg"
+            self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
 
-            return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmCLICfg'
+            self.ccmclicfgrunconfnotifenable = YLeaf(YType.boolean, "ccmCLICfgRunConfNotifEnable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ccmclicfgrunconfnotifenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigManMib.Ccmclicfg, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigManMib.Ccmclicfg, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ccmclicfgrunconfnotifenable is not None:
+        def has_data(self):
+            return self.ccmclicfgrunconfnotifenable.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ccmclicfgrunconfnotifenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccmCLICfg" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ccmclicfgrunconfnotifenable.is_set or self.ccmclicfgrunconfnotifenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmclicfgrunconfnotifenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccmCLICfgRunConfNotifEnable"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-            return meta._meta_table['CiscoConfigManMib.Ccmclicfg']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ccmCLICfgRunConfNotifEnable"):
+                self.ccmclicfgrunconfnotifenable = value
+                self.ccmclicfgrunconfnotifenable.value_namespace = name_space
+                self.ccmclicfgrunconfnotifenable.value_namespace_prefix = name_space_prefix
 
 
-    class Ccmctidobjects(object):
+    class Ccmctidobjects(Entity):
         """
         
         
@@ -404,43 +621,119 @@ class CiscoConfigManMib(object):
         _revision = '2007-04-27'
 
         def __init__(self):
-            self.parent = None
-            self.ccmctid = None
-            self.ccmctidlastchangetime = None
-            self.ccmctidrolledovernotifenable = None
-            self.ccmctidwhochanged = None
+            super(CiscoConfigManMib.Ccmctidobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ccmCTIDObjects"
+            self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
 
-            return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmCTIDObjects'
+            self.ccmctid = YLeaf(YType.uint64, "ccmCTID")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.ccmctidlastchangetime = YLeaf(YType.str, "ccmCTIDLastChangeTime")
+
+            self.ccmctidrolledovernotifenable = YLeaf(YType.boolean, "ccmCTIDRolledOverNotifEnable")
+
+            self.ccmctidwhochanged = YLeaf(YType.str, "ccmCTIDWhoChanged")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ccmctid",
+                            "ccmctidlastchangetime",
+                            "ccmctidrolledovernotifenable",
+                            "ccmctidwhochanged") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigManMib.Ccmctidobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigManMib.Ccmctidobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.ccmctid.is_set or
+                self.ccmctidlastchangetime.is_set or
+                self.ccmctidrolledovernotifenable.is_set or
+                self.ccmctidwhochanged.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ccmctid.yfilter != YFilter.not_set or
+                self.ccmctidlastchangetime.yfilter != YFilter.not_set or
+                self.ccmctidrolledovernotifenable.yfilter != YFilter.not_set or
+                self.ccmctidwhochanged.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccmCTIDObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ccmctid.is_set or self.ccmctid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmctid.get_name_leafdata())
+            if (self.ccmctidlastchangetime.is_set or self.ccmctidlastchangetime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmctidlastchangetime.get_name_leafdata())
+            if (self.ccmctidrolledovernotifenable.is_set or self.ccmctidrolledovernotifenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmctidrolledovernotifenable.get_name_leafdata())
+            if (self.ccmctidwhochanged.is_set or self.ccmctidwhochanged.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ccmctidwhochanged.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccmCTID" or name == "ccmCTIDLastChangeTime" or name == "ccmCTIDRolledOverNotifEnable" or name == "ccmCTIDWhoChanged"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ccmctid is not None:
-                return True
-
-            if self.ccmctidlastchangetime is not None:
-                return True
-
-            if self.ccmctidrolledovernotifenable is not None:
-                return True
-
-            if self.ccmctidwhochanged is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-            return meta._meta_table['CiscoConfigManMib.Ccmctidobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ccmCTID"):
+                self.ccmctid = value
+                self.ccmctid.value_namespace = name_space
+                self.ccmctid.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmCTIDLastChangeTime"):
+                self.ccmctidlastchangetime = value
+                self.ccmctidlastchangetime.value_namespace = name_space
+                self.ccmctidlastchangetime.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmCTIDRolledOverNotifEnable"):
+                self.ccmctidrolledovernotifenable = value
+                self.ccmctidrolledovernotifenable.value_namespace = name_space
+                self.ccmctidrolledovernotifenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "ccmCTIDWhoChanged"):
+                self.ccmctidwhochanged = value
+                self.ccmctidwhochanged.value_namespace = name_space
+                self.ccmctidwhochanged.value_namespace_prefix = name_space_prefix
 
 
-    class Ccmhistoryeventtable(object):
+    class Ccmhistoryeventtable(Entity):
         """
         A table of configuration events on this router.
         
@@ -457,13 +750,39 @@ class CiscoConfigManMib(object):
         _revision = '2007-04-27'
 
         def __init__(self):
-            self.parent = None
-            self.ccmhistoryevententry = YList()
-            self.ccmhistoryevententry.parent = self
-            self.ccmhistoryevententry.name = 'ccmhistoryevententry'
+            super(CiscoConfigManMib.Ccmhistoryeventtable, self).__init__()
+
+            self.yang_name = "ccmHistoryEventTable"
+            self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
+
+            self.ccmhistoryevententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigManMib.Ccmhistoryeventtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigManMib.Ccmhistoryeventtable, self).__setattr__(name, value)
 
 
-        class Ccmhistoryevententry(object):
+        class Ccmhistoryevententry(Entity):
             """
             Information about a configuration event on this
             router.
@@ -485,7 +804,7 @@ class CiscoConfigManMib(object):
             .. attribute:: ccmhistoryeventcommandsource
             
             	The source of the command that instigated the event
-            	**type**\:   :py:class:`CcmhistoryeventcommandsourceEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry.CcmhistoryeventcommandsourceEnum>`
+            	**type**\:   :py:class:`Ccmhistoryeventcommandsource <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventcommandsource>`
             
             .. attribute:: ccmhistoryeventcommandsourceaddress
             
@@ -506,17 +825,17 @@ class CiscoConfigManMib(object):
             .. attribute:: ccmhistoryeventcommandsourceaddrtype
             
             	This object indicates the transport type of the address contained in ccmHistoryEventCommandSourceAddrRev1.  The value will be zero if not available or not applicable
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ccmhistoryeventconfigdestination
             
             	The configuration data destination for the event
-            	**type**\:   :py:class:`HistoryeventmediumEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.HistoryeventmediumEnum>`
+            	**type**\:   :py:class:`Historyeventmedium <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.Historyeventmedium>`
             
             .. attribute:: ccmhistoryeventconfigsource
             
             	The configuration data source for the event
-            	**type**\:   :py:class:`HistoryeventmediumEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.HistoryeventmediumEnum>`
+            	**type**\:   :py:class:`Historyeventmedium <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.Historyeventmedium>`
             
             .. attribute:: ccmhistoryeventfile
             
@@ -551,7 +870,7 @@ class CiscoConfigManMib(object):
             .. attribute:: ccmhistoryeventserveraddrtype
             
             	This object indicates the transport type of the address contained in ccmHistoryEventServerAddrRev1.  The value will be zero if not available or not aplicable
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ccmhistoryeventterminallocation
             
@@ -570,7 +889,7 @@ class CiscoConfigManMib(object):
             .. attribute:: ccmhistoryeventterminaltype
             
             	If ccmHistoryEventCommandSource is 'commandLine', the terminal type, otherwise 'notApplicable'
-            	**type**\:   :py:class:`CcmhistoryeventterminaltypeEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry.CcmhistoryeventterminaltypeEnum>`
+            	**type**\:   :py:class:`Ccmhistoryeventterminaltype <ydk.models.cisco_ios_xe.CISCO_CONFIG_MAN_MIB.CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry.Ccmhistoryeventterminaltype>`
             
             .. attribute:: ccmhistoryeventterminaluser
             
@@ -601,30 +920,94 @@ class CiscoConfigManMib(object):
             _revision = '2007-04-27'
 
             def __init__(self):
-                self.parent = None
-                self.ccmhistoryeventindex = None
-                self.ccmhistoryclicmdentriesbumped = None
-                self.ccmhistoryeventcommandsource = None
-                self.ccmhistoryeventcommandsourceaddress = None
-                self.ccmhistoryeventcommandsourceaddrrev1 = None
-                self.ccmhistoryeventcommandsourceaddrtype = None
-                self.ccmhistoryeventconfigdestination = None
-                self.ccmhistoryeventconfigsource = None
-                self.ccmhistoryeventfile = None
-                self.ccmhistoryeventrcpuser = None
-                self.ccmhistoryeventserveraddress = None
-                self.ccmhistoryeventserveraddrrev1 = None
-                self.ccmhistoryeventserveraddrtype = None
-                self.ccmhistoryeventterminallocation = None
-                self.ccmhistoryeventterminalnumber = None
-                self.ccmhistoryeventterminaltype = None
-                self.ccmhistoryeventterminaluser = None
-                self.ccmhistoryeventtime = None
-                self.ccmhistoryeventvirtualhostname = None
+                super(CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry, self).__init__()
 
-            class CcmhistoryeventcommandsourceEnum(Enum):
+                self.yang_name = "ccmHistoryEventEntry"
+                self.yang_parent_name = "ccmHistoryEventTable"
+
+                self.ccmhistoryeventindex = YLeaf(YType.int32, "ccmHistoryEventIndex")
+
+                self.ccmhistoryclicmdentriesbumped = YLeaf(YType.uint32, "ccmHistoryCLICmdEntriesBumped")
+
+                self.ccmhistoryeventcommandsource = YLeaf(YType.enumeration, "ccmHistoryEventCommandSource")
+
+                self.ccmhistoryeventcommandsourceaddress = YLeaf(YType.str, "ccmHistoryEventCommandSourceAddress")
+
+                self.ccmhistoryeventcommandsourceaddrrev1 = YLeaf(YType.str, "ccmHistoryEventCommandSourceAddrRev1")
+
+                self.ccmhistoryeventcommandsourceaddrtype = YLeaf(YType.enumeration, "ccmHistoryEventCommandSourceAddrType")
+
+                self.ccmhistoryeventconfigdestination = YLeaf(YType.enumeration, "ccmHistoryEventConfigDestination")
+
+                self.ccmhistoryeventconfigsource = YLeaf(YType.enumeration, "ccmHistoryEventConfigSource")
+
+                self.ccmhistoryeventfile = YLeaf(YType.str, "ccmHistoryEventFile")
+
+                self.ccmhistoryeventrcpuser = YLeaf(YType.str, "ccmHistoryEventRcpUser")
+
+                self.ccmhistoryeventserveraddress = YLeaf(YType.str, "ccmHistoryEventServerAddress")
+
+                self.ccmhistoryeventserveraddrrev1 = YLeaf(YType.str, "ccmHistoryEventServerAddrRev1")
+
+                self.ccmhistoryeventserveraddrtype = YLeaf(YType.enumeration, "ccmHistoryEventServerAddrType")
+
+                self.ccmhistoryeventterminallocation = YLeaf(YType.str, "ccmHistoryEventTerminalLocation")
+
+                self.ccmhistoryeventterminalnumber = YLeaf(YType.int32, "ccmHistoryEventTerminalNumber")
+
+                self.ccmhistoryeventterminaltype = YLeaf(YType.enumeration, "ccmHistoryEventTerminalType")
+
+                self.ccmhistoryeventterminaluser = YLeaf(YType.str, "ccmHistoryEventTerminalUser")
+
+                self.ccmhistoryeventtime = YLeaf(YType.uint32, "ccmHistoryEventTime")
+
+                self.ccmhistoryeventvirtualhostname = YLeaf(YType.str, "ccmHistoryEventVirtualHostName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccmhistoryeventindex",
+                                "ccmhistoryclicmdentriesbumped",
+                                "ccmhistoryeventcommandsource",
+                                "ccmhistoryeventcommandsourceaddress",
+                                "ccmhistoryeventcommandsourceaddrrev1",
+                                "ccmhistoryeventcommandsourceaddrtype",
+                                "ccmhistoryeventconfigdestination",
+                                "ccmhistoryeventconfigsource",
+                                "ccmhistoryeventfile",
+                                "ccmhistoryeventrcpuser",
+                                "ccmhistoryeventserveraddress",
+                                "ccmhistoryeventserveraddrrev1",
+                                "ccmhistoryeventserveraddrtype",
+                                "ccmhistoryeventterminallocation",
+                                "ccmhistoryeventterminalnumber",
+                                "ccmhistoryeventterminaltype",
+                                "ccmhistoryeventterminaluser",
+                                "ccmhistoryeventtime",
+                                "ccmhistoryeventvirtualhostname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry, self).__setattr__(name, value)
+
+            class Ccmhistoryeventcommandsource(Enum):
                 """
-                CcmhistoryeventcommandsourceEnum
+                Ccmhistoryeventcommandsource
 
                 The source of the command that instigated the event.
 
@@ -634,20 +1017,14 @@ class CiscoConfigManMib(object):
 
                 """
 
-                commandLine = 1
+                commandLine = Enum.YLeaf(1, "commandLine")
 
-                snmp = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-                    return meta._meta_table['CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry.CcmhistoryeventcommandsourceEnum']
+                snmp = Enum.YLeaf(2, "snmp")
 
 
-            class CcmhistoryeventterminaltypeEnum(Enum):
+            class Ccmhistoryeventterminaltype(Enum):
                 """
-                CcmhistoryeventterminaltypeEnum
+                Ccmhistoryeventterminaltype
 
                 If ccmHistoryEventCommandSource is 'commandLine',
 
@@ -667,125 +1044,269 @@ class CiscoConfigManMib(object):
 
                 """
 
-                notApplicable = 1
+                notApplicable = Enum.YLeaf(1, "notApplicable")
 
-                unknown = 2
+                unknown = Enum.YLeaf(2, "unknown")
 
-                console = 3
+                console = Enum.YLeaf(3, "console")
 
-                terminal = 4
+                terminal = Enum.YLeaf(4, "terminal")
 
-                virtual = 5
+                virtual = Enum.YLeaf(5, "virtual")
 
-                auxiliary = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-                    return meta._meta_table['CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry.CcmhistoryeventterminaltypeEnum']
+                auxiliary = Enum.YLeaf(6, "auxiliary")
 
 
-            @property
-            def _common_path(self):
-                if self.ccmhistoryeventindex is None:
-                    raise YPYModelError('Key property ccmhistoryeventindex is None')
+            def has_data(self):
+                return (
+                    self.ccmhistoryeventindex.is_set or
+                    self.ccmhistoryclicmdentriesbumped.is_set or
+                    self.ccmhistoryeventcommandsource.is_set or
+                    self.ccmhistoryeventcommandsourceaddress.is_set or
+                    self.ccmhistoryeventcommandsourceaddrrev1.is_set or
+                    self.ccmhistoryeventcommandsourceaddrtype.is_set or
+                    self.ccmhistoryeventconfigdestination.is_set or
+                    self.ccmhistoryeventconfigsource.is_set or
+                    self.ccmhistoryeventfile.is_set or
+                    self.ccmhistoryeventrcpuser.is_set or
+                    self.ccmhistoryeventserveraddress.is_set or
+                    self.ccmhistoryeventserveraddrrev1.is_set or
+                    self.ccmhistoryeventserveraddrtype.is_set or
+                    self.ccmhistoryeventterminallocation.is_set or
+                    self.ccmhistoryeventterminalnumber.is_set or
+                    self.ccmhistoryeventterminaltype.is_set or
+                    self.ccmhistoryeventterminaluser.is_set or
+                    self.ccmhistoryeventtime.is_set or
+                    self.ccmhistoryeventvirtualhostname.is_set)
 
-                return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmHistoryEventTable/CISCO-CONFIG-MAN-MIB:ccmHistoryEventEntry[CISCO-CONFIG-MAN-MIB:ccmHistoryEventIndex = ' + str(self.ccmhistoryeventindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventindex.yfilter != YFilter.not_set or
+                    self.ccmhistoryclicmdentriesbumped.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventcommandsource.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventcommandsourceaddress.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventcommandsourceaddrrev1.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventcommandsourceaddrtype.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventconfigdestination.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventconfigsource.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventfile.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventrcpuser.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventserveraddress.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventserveraddrrev1.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventserveraddrtype.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventterminallocation.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventterminalnumber.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventterminaltype.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventterminaluser.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventtime.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventvirtualhostname.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ccmHistoryEventEntry" + "[ccmHistoryEventIndex='" + self.ccmhistoryeventindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/ccmHistoryEventTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccmhistoryeventindex.is_set or self.ccmhistoryeventindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventindex.get_name_leafdata())
+                if (self.ccmhistoryclicmdentriesbumped.is_set or self.ccmhistoryclicmdentriesbumped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryclicmdentriesbumped.get_name_leafdata())
+                if (self.ccmhistoryeventcommandsource.is_set or self.ccmhistoryeventcommandsource.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventcommandsource.get_name_leafdata())
+                if (self.ccmhistoryeventcommandsourceaddress.is_set or self.ccmhistoryeventcommandsourceaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventcommandsourceaddress.get_name_leafdata())
+                if (self.ccmhistoryeventcommandsourceaddrrev1.is_set or self.ccmhistoryeventcommandsourceaddrrev1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventcommandsourceaddrrev1.get_name_leafdata())
+                if (self.ccmhistoryeventcommandsourceaddrtype.is_set or self.ccmhistoryeventcommandsourceaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventcommandsourceaddrtype.get_name_leafdata())
+                if (self.ccmhistoryeventconfigdestination.is_set or self.ccmhistoryeventconfigdestination.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventconfigdestination.get_name_leafdata())
+                if (self.ccmhistoryeventconfigsource.is_set or self.ccmhistoryeventconfigsource.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventconfigsource.get_name_leafdata())
+                if (self.ccmhistoryeventfile.is_set or self.ccmhistoryeventfile.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventfile.get_name_leafdata())
+                if (self.ccmhistoryeventrcpuser.is_set or self.ccmhistoryeventrcpuser.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventrcpuser.get_name_leafdata())
+                if (self.ccmhistoryeventserveraddress.is_set or self.ccmhistoryeventserveraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventserveraddress.get_name_leafdata())
+                if (self.ccmhistoryeventserveraddrrev1.is_set or self.ccmhistoryeventserveraddrrev1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventserveraddrrev1.get_name_leafdata())
+                if (self.ccmhistoryeventserveraddrtype.is_set or self.ccmhistoryeventserveraddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventserveraddrtype.get_name_leafdata())
+                if (self.ccmhistoryeventterminallocation.is_set or self.ccmhistoryeventterminallocation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventterminallocation.get_name_leafdata())
+                if (self.ccmhistoryeventterminalnumber.is_set or self.ccmhistoryeventterminalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventterminalnumber.get_name_leafdata())
+                if (self.ccmhistoryeventterminaltype.is_set or self.ccmhistoryeventterminaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventterminaltype.get_name_leafdata())
+                if (self.ccmhistoryeventterminaluser.is_set or self.ccmhistoryeventterminaluser.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventterminaluser.get_name_leafdata())
+                if (self.ccmhistoryeventtime.is_set or self.ccmhistoryeventtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventtime.get_name_leafdata())
+                if (self.ccmhistoryeventvirtualhostname.is_set or self.ccmhistoryeventvirtualhostname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventvirtualhostname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ccmHistoryEventIndex" or name == "ccmHistoryCLICmdEntriesBumped" or name == "ccmHistoryEventCommandSource" or name == "ccmHistoryEventCommandSourceAddress" or name == "ccmHistoryEventCommandSourceAddrRev1" or name == "ccmHistoryEventCommandSourceAddrType" or name == "ccmHistoryEventConfigDestination" or name == "ccmHistoryEventConfigSource" or name == "ccmHistoryEventFile" or name == "ccmHistoryEventRcpUser" or name == "ccmHistoryEventServerAddress" or name == "ccmHistoryEventServerAddrRev1" or name == "ccmHistoryEventServerAddrType" or name == "ccmHistoryEventTerminalLocation" or name == "ccmHistoryEventTerminalNumber" or name == "ccmHistoryEventTerminalType" or name == "ccmHistoryEventTerminalUser" or name == "ccmHistoryEventTime" or name == "ccmHistoryEventVirtualHostName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccmhistoryeventindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ccmHistoryEventIndex"):
+                    self.ccmhistoryeventindex = value
+                    self.ccmhistoryeventindex.value_namespace = name_space
+                    self.ccmhistoryeventindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryCLICmdEntriesBumped"):
+                    self.ccmhistoryclicmdentriesbumped = value
+                    self.ccmhistoryclicmdentriesbumped.value_namespace = name_space
+                    self.ccmhistoryclicmdentriesbumped.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventCommandSource"):
+                    self.ccmhistoryeventcommandsource = value
+                    self.ccmhistoryeventcommandsource.value_namespace = name_space
+                    self.ccmhistoryeventcommandsource.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventCommandSourceAddress"):
+                    self.ccmhistoryeventcommandsourceaddress = value
+                    self.ccmhistoryeventcommandsourceaddress.value_namespace = name_space
+                    self.ccmhistoryeventcommandsourceaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventCommandSourceAddrRev1"):
+                    self.ccmhistoryeventcommandsourceaddrrev1 = value
+                    self.ccmhistoryeventcommandsourceaddrrev1.value_namespace = name_space
+                    self.ccmhistoryeventcommandsourceaddrrev1.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventCommandSourceAddrType"):
+                    self.ccmhistoryeventcommandsourceaddrtype = value
+                    self.ccmhistoryeventcommandsourceaddrtype.value_namespace = name_space
+                    self.ccmhistoryeventcommandsourceaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventConfigDestination"):
+                    self.ccmhistoryeventconfigdestination = value
+                    self.ccmhistoryeventconfigdestination.value_namespace = name_space
+                    self.ccmhistoryeventconfigdestination.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventConfigSource"):
+                    self.ccmhistoryeventconfigsource = value
+                    self.ccmhistoryeventconfigsource.value_namespace = name_space
+                    self.ccmhistoryeventconfigsource.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventFile"):
+                    self.ccmhistoryeventfile = value
+                    self.ccmhistoryeventfile.value_namespace = name_space
+                    self.ccmhistoryeventfile.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventRcpUser"):
+                    self.ccmhistoryeventrcpuser = value
+                    self.ccmhistoryeventrcpuser.value_namespace = name_space
+                    self.ccmhistoryeventrcpuser.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventServerAddress"):
+                    self.ccmhistoryeventserveraddress = value
+                    self.ccmhistoryeventserveraddress.value_namespace = name_space
+                    self.ccmhistoryeventserveraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventServerAddrRev1"):
+                    self.ccmhistoryeventserveraddrrev1 = value
+                    self.ccmhistoryeventserveraddrrev1.value_namespace = name_space
+                    self.ccmhistoryeventserveraddrrev1.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventServerAddrType"):
+                    self.ccmhistoryeventserveraddrtype = value
+                    self.ccmhistoryeventserveraddrtype.value_namespace = name_space
+                    self.ccmhistoryeventserveraddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventTerminalLocation"):
+                    self.ccmhistoryeventterminallocation = value
+                    self.ccmhistoryeventterminallocation.value_namespace = name_space
+                    self.ccmhistoryeventterminallocation.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventTerminalNumber"):
+                    self.ccmhistoryeventterminalnumber = value
+                    self.ccmhistoryeventterminalnumber.value_namespace = name_space
+                    self.ccmhistoryeventterminalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventTerminalType"):
+                    self.ccmhistoryeventterminaltype = value
+                    self.ccmhistoryeventterminaltype.value_namespace = name_space
+                    self.ccmhistoryeventterminaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventTerminalUser"):
+                    self.ccmhistoryeventterminaluser = value
+                    self.ccmhistoryeventterminaluser.value_namespace = name_space
+                    self.ccmhistoryeventterminaluser.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventTime"):
+                    self.ccmhistoryeventtime = value
+                    self.ccmhistoryeventtime.value_namespace = name_space
+                    self.ccmhistoryeventtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmHistoryEventVirtualHostName"):
+                    self.ccmhistoryeventvirtualhostname = value
+                    self.ccmhistoryeventvirtualhostname.value_namespace = name_space
+                    self.ccmhistoryeventvirtualhostname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccmhistoryevententry:
+                if (c.has_data()):
                     return True
-
-                if self.ccmhistoryclicmdentriesbumped is not None:
-                    return True
-
-                if self.ccmhistoryeventcommandsource is not None:
-                    return True
-
-                if self.ccmhistoryeventcommandsourceaddress is not None:
-                    return True
-
-                if self.ccmhistoryeventcommandsourceaddrrev1 is not None:
-                    return True
-
-                if self.ccmhistoryeventcommandsourceaddrtype is not None:
-                    return True
-
-                if self.ccmhistoryeventconfigdestination is not None:
-                    return True
-
-                if self.ccmhistoryeventconfigsource is not None:
-                    return True
-
-                if self.ccmhistoryeventfile is not None:
-                    return True
-
-                if self.ccmhistoryeventrcpuser is not None:
-                    return True
-
-                if self.ccmhistoryeventserveraddress is not None:
-                    return True
-
-                if self.ccmhistoryeventserveraddrrev1 is not None:
-                    return True
-
-                if self.ccmhistoryeventserveraddrtype is not None:
-                    return True
-
-                if self.ccmhistoryeventterminallocation is not None:
-                    return True
-
-                if self.ccmhistoryeventterminalnumber is not None:
-                    return True
-
-                if self.ccmhistoryeventterminaltype is not None:
-                    return True
-
-                if self.ccmhistoryeventterminaluser is not None:
-                    return True
-
-                if self.ccmhistoryeventtime is not None:
-                    return True
-
-                if self.ccmhistoryeventvirtualhostname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-                return meta._meta_table['CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmHistoryEventTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccmhistoryevententry is not None:
-                for child_ref in self.ccmhistoryevententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccmhistoryevententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccmHistoryEventTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ccmHistoryEventEntry"):
+                for c in self.ccmhistoryevententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoConfigManMib.Ccmhistoryeventtable.Ccmhistoryevententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccmhistoryevententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccmHistoryEventEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-            return meta._meta_table['CiscoConfigManMib.Ccmhistoryeventtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ccmclihistorycommandtable(object):
+    class Ccmclihistorycommandtable(Entity):
         """
         A table of CLI commands that took effect during
         configuration events.
@@ -803,13 +1324,39 @@ class CiscoConfigManMib(object):
         _revision = '2007-04-27'
 
         def __init__(self):
-            self.parent = None
-            self.ccmclihistorycommandentry = YList()
-            self.ccmclihistorycommandentry.parent = self
-            self.ccmclihistorycommandentry.name = 'ccmclihistorycommandentry'
+            super(CiscoConfigManMib.Ccmclihistorycommandtable, self).__init__()
+
+            self.yang_name = "ccmCLIHistoryCommandTable"
+            self.yang_parent_name = "CISCO-CONFIG-MAN-MIB"
+
+            self.ccmclihistorycommandentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigManMib.Ccmclihistorycommandtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigManMib.Ccmclihistorycommandtable, self).__setattr__(name, value)
 
 
-        class Ccmclihistorycommandentry(object):
+        class Ccmclihistorycommandentry(Entity):
             """
             Information about the CLI commands that took effect
             during the configuration event pointed by 
@@ -854,96 +1401,257 @@ class CiscoConfigManMib(object):
             _revision = '2007-04-27'
 
             def __init__(self):
-                self.parent = None
-                self.ccmhistoryeventindex = None
-                self.ccmclihistorycommandindex = None
-                self.ccmclihistorycommand = None
+                super(CiscoConfigManMib.Ccmclihistorycommandtable.Ccmclihistorycommandentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ccmhistoryeventindex is None:
-                    raise YPYModelError('Key property ccmhistoryeventindex is None')
-                if self.ccmclihistorycommandindex is None:
-                    raise YPYModelError('Key property ccmclihistorycommandindex is None')
+                self.yang_name = "ccmCLIHistoryCommandEntry"
+                self.yang_parent_name = "ccmCLIHistoryCommandTable"
 
-                return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmCLIHistoryCommandTable/CISCO-CONFIG-MAN-MIB:ccmCLIHistoryCommandEntry[CISCO-CONFIG-MAN-MIB:ccmHistoryEventIndex = ' + str(self.ccmhistoryeventindex) + '][CISCO-CONFIG-MAN-MIB:ccmCLIHistoryCommandIndex = ' + str(self.ccmclihistorycommandindex) + ']'
+                self.ccmhistoryeventindex = YLeaf(YType.str, "ccmHistoryEventIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ccmclihistorycommandindex = YLeaf(YType.uint32, "ccmCLIHistoryCommandIndex")
+
+                self.ccmclihistorycommand = YLeaf(YType.str, "ccmCLIHistoryCommand")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ccmhistoryeventindex",
+                                "ccmclihistorycommandindex",
+                                "ccmclihistorycommand") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoConfigManMib.Ccmclihistorycommandtable.Ccmclihistorycommandentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoConfigManMib.Ccmclihistorycommandtable.Ccmclihistorycommandentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ccmhistoryeventindex.is_set or
+                    self.ccmclihistorycommandindex.is_set or
+                    self.ccmclihistorycommand.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ccmhistoryeventindex.yfilter != YFilter.not_set or
+                    self.ccmclihistorycommandindex.yfilter != YFilter.not_set or
+                    self.ccmclihistorycommand.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ccmCLIHistoryCommandEntry" + "[ccmHistoryEventIndex='" + self.ccmhistoryeventindex.get() + "']" + "[ccmCLIHistoryCommandIndex='" + self.ccmclihistorycommandindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/ccmCLIHistoryCommandTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ccmhistoryeventindex.is_set or self.ccmhistoryeventindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmhistoryeventindex.get_name_leafdata())
+                if (self.ccmclihistorycommandindex.is_set or self.ccmclihistorycommandindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmclihistorycommandindex.get_name_leafdata())
+                if (self.ccmclihistorycommand.is_set or self.ccmclihistorycommand.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccmclihistorycommand.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ccmHistoryEventIndex" or name == "ccmCLIHistoryCommandIndex" or name == "ccmCLIHistoryCommand"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ccmhistoryeventindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ccmHistoryEventIndex"):
+                    self.ccmhistoryeventindex = value
+                    self.ccmhistoryeventindex.value_namespace = name_space
+                    self.ccmhistoryeventindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmCLIHistoryCommandIndex"):
+                    self.ccmclihistorycommandindex = value
+                    self.ccmclihistorycommandindex.value_namespace = name_space
+                    self.ccmclihistorycommandindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccmCLIHistoryCommand"):
+                    self.ccmclihistorycommand = value
+                    self.ccmclihistorycommand.value_namespace = name_space
+                    self.ccmclihistorycommand.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ccmclihistorycommandentry:
+                if (c.has_data()):
                     return True
-
-                if self.ccmclihistorycommandindex is not None:
-                    return True
-
-                if self.ccmclihistorycommand is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-                return meta._meta_table['CiscoConfigManMib.Ccmclihistorycommandtable.Ccmclihistorycommandentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/CISCO-CONFIG-MAN-MIB:ccmCLIHistoryCommandTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ccmclihistorycommandentry is not None:
-                for child_ref in self.ccmclihistorycommandentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ccmclihistorycommandentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccmCLIHistoryCommandTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ccmCLIHistoryCommandEntry"):
+                for c in self.ccmclihistorycommandentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoConfigManMib.Ccmclihistorycommandtable.Ccmclihistorycommandentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ccmclihistorycommandentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccmCLIHistoryCommandEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-            return meta._meta_table['CiscoConfigManMib.Ccmclihistorycommandtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ccmclicfg is not None and self.ccmclicfg.has_data()) or
+            (self.ccmclihistory is not None and self.ccmclihistory.has_data()) or
+            (self.ccmclihistorycommandtable is not None and self.ccmclihistorycommandtable.has_data()) or
+            (self.ccmctidobjects is not None and self.ccmctidobjects.has_data()) or
+            (self.ccmhistory is not None and self.ccmhistory.has_data()) or
+            (self.ccmhistoryeventtable is not None and self.ccmhistoryeventtable.has_data()))
 
-        return '/CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ccmclicfg is not None and self.ccmclicfg.has_operation()) or
+            (self.ccmclihistory is not None and self.ccmclihistory.has_operation()) or
+            (self.ccmclihistorycommandtable is not None and self.ccmclihistorycommandtable.has_operation()) or
+            (self.ccmctidobjects is not None and self.ccmctidobjects.has_operation()) or
+            (self.ccmhistory is not None and self.ccmhistory.has_operation()) or
+            (self.ccmhistoryeventtable is not None and self.ccmhistoryeventtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-CONFIG-MAN-MIB:CISCO-CONFIG-MAN-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ccmCLICfg"):
+            if (self.ccmclicfg is None):
+                self.ccmclicfg = CiscoConfigManMib.Ccmclicfg()
+                self.ccmclicfg.parent = self
+                self._children_name_map["ccmclicfg"] = "ccmCLICfg"
+            return self.ccmclicfg
+
+        if (child_yang_name == "ccmCLIHistory"):
+            if (self.ccmclihistory is None):
+                self.ccmclihistory = CiscoConfigManMib.Ccmclihistory()
+                self.ccmclihistory.parent = self
+                self._children_name_map["ccmclihistory"] = "ccmCLIHistory"
+            return self.ccmclihistory
+
+        if (child_yang_name == "ccmCLIHistoryCommandTable"):
+            if (self.ccmclihistorycommandtable is None):
+                self.ccmclihistorycommandtable = CiscoConfigManMib.Ccmclihistorycommandtable()
+                self.ccmclihistorycommandtable.parent = self
+                self._children_name_map["ccmclihistorycommandtable"] = "ccmCLIHistoryCommandTable"
+            return self.ccmclihistorycommandtable
+
+        if (child_yang_name == "ccmCTIDObjects"):
+            if (self.ccmctidobjects is None):
+                self.ccmctidobjects = CiscoConfigManMib.Ccmctidobjects()
+                self.ccmctidobjects.parent = self
+                self._children_name_map["ccmctidobjects"] = "ccmCTIDObjects"
+            return self.ccmctidobjects
+
+        if (child_yang_name == "ccmHistory"):
+            if (self.ccmhistory is None):
+                self.ccmhistory = CiscoConfigManMib.Ccmhistory()
+                self.ccmhistory.parent = self
+                self._children_name_map["ccmhistory"] = "ccmHistory"
+            return self.ccmhistory
+
+        if (child_yang_name == "ccmHistoryEventTable"):
+            if (self.ccmhistoryeventtable is None):
+                self.ccmhistoryeventtable = CiscoConfigManMib.Ccmhistoryeventtable()
+                self.ccmhistoryeventtable.parent = self
+                self._children_name_map["ccmhistoryeventtable"] = "ccmHistoryEventTable"
+            return self.ccmhistoryeventtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ccmCLICfg" or name == "ccmCLIHistory" or name == "ccmCLIHistoryCommandTable" or name == "ccmCTIDObjects" or name == "ccmHistory" or name == "ccmHistoryEventTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ccmclicfg is not None and self.ccmclicfg._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ccmclihistory is not None and self.ccmclihistory._has_data():
-            return True
-
-        if self.ccmclihistorycommandtable is not None and self.ccmclihistorycommandtable._has_data():
-            return True
-
-        if self.ccmctidobjects is not None and self.ccmctidobjects._has_data():
-            return True
-
-        if self.ccmhistory is not None and self.ccmhistory._has_data():
-            return True
-
-        if self.ccmhistoryeventtable is not None and self.ccmhistoryeventtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_MAN_MIB as meta
-        return meta._meta_table['CiscoConfigManMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoConfigManMib()
+        return self._top_entity
 

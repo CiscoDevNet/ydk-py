@@ -4,22 +4,16 @@ This module contains a collection of YANG definitions for
 monitoring memory usage of processes in a Network Element.Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CfmLastClearedTypeEnum(Enum):
+class CfmLastClearedType(Enum):
     """
-    CfmLastClearedTypeEnum
+    CfmLastClearedType
 
     .. data:: never_cleared = 0
 
@@ -27,19 +21,13 @@ class CfmLastClearedTypeEnum(Enum):
 
     """
 
-    never_cleared = 0
+    never_cleared = Enum.YLeaf(0, "never-cleared")
 
-    cleared_before = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_cfm_oper as meta
-        return meta._meta_table['CfmLastClearedTypeEnum']
+    cleared_before = Enum.YLeaf(1, "cleared-before")
 
 
 
-class CfmStatistics(object):
+class CfmStatistics(Entity):
     """
     Data nodes for CFM Statistics.
     
@@ -56,11 +44,19 @@ class CfmStatistics(object):
     _revision = '2017-02-07'
 
     def __init__(self):
+        super(CfmStatistics, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "cfm-statistics"
+        self.yang_parent_name = "Cisco-IOS-XE-cfm-oper"
+
         self.cfm_meps = CfmStatistics.CfmMeps()
         self.cfm_meps.parent = self
+        self._children_name_map["cfm_meps"] = "cfm-meps"
+        self._children_yang_names.add("cfm-meps")
 
 
-    class CfmMeps(object):
+    class CfmMeps(Entity):
         """
         
         
@@ -77,13 +73,39 @@ class CfmStatistics(object):
         _revision = '2017-02-07'
 
         def __init__(self):
-            self.parent = None
-            self.cfm_mep = YList()
-            self.cfm_mep.parent = self
-            self.cfm_mep.name = 'cfm_mep'
+            super(CfmStatistics.CfmMeps, self).__init__()
+
+            self.yang_name = "cfm-meps"
+            self.yang_parent_name = "cfm-statistics"
+
+            self.cfm_mep = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CfmStatistics.CfmMeps, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CfmStatistics.CfmMeps, self).__setattr__(name, value)
 
 
-        class CfmMep(object):
+        class CfmMep(Entity):
             """
             The list of MEP entries in the system.
             
@@ -166,22 +188,71 @@ class CfmStatistics(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.domain_name = None
-                self.ma_name = None
-                self.mpid = None
-                self.ccm_seq_errors = None
-                self.ccm_transmitted = None
+                super(CfmStatistics.CfmMeps.CfmMep, self).__init__()
+
+                self.yang_name = "cfm-mep"
+                self.yang_parent_name = "cfm-meps"
+
+                self.domain_name = YLeaf(YType.str, "domain-name")
+
+                self.ma_name = YLeaf(YType.str, "ma-name")
+
+                self.mpid = YLeaf(YType.uint32, "mpid")
+
+                self.ccm_seq_errors = YLeaf(YType.uint64, "ccm-seq-errors")
+
+                self.ccm_transmitted = YLeaf(YType.uint64, "ccm-transmitted")
+
+                self.lbr_received_bad = YLeaf(YType.uint64, "lbr-received-bad")
+
+                self.lbr_received_ok = YLeaf(YType.uint64, "lbr-received-ok")
+
+                self.lbr_seq_errors = YLeaf(YType.uint64, "lbr-seq-errors")
+
+                self.lbr_transmitted = YLeaf(YType.uint64, "lbr-transmitted")
+
+                self.ltr_unexpected = YLeaf(YType.uint64, "ltr-unexpected")
+
                 self.last_cleared = CfmStatistics.CfmMeps.CfmMep.LastCleared()
                 self.last_cleared.parent = self
-                self.lbr_received_bad = None
-                self.lbr_received_ok = None
-                self.lbr_seq_errors = None
-                self.lbr_transmitted = None
-                self.ltr_unexpected = None
+                self._children_name_map["last_cleared"] = "last-cleared"
+                self._children_yang_names.add("last-cleared")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("domain_name",
+                                "ma_name",
+                                "mpid",
+                                "ccm_seq_errors",
+                                "ccm_transmitted",
+                                "lbr_received_bad",
+                                "lbr_received_ok",
+                                "lbr_seq_errors",
+                                "lbr_transmitted",
+                                "ltr_unexpected") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CfmStatistics.CfmMeps.CfmMep, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CfmStatistics.CfmMeps.CfmMep, self).__setattr__(name, value)
 
 
-            class LastCleared(object):
+            class LastCleared(Entity):
                 """
                 
                 
@@ -203,131 +274,328 @@ class CfmStatistics(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.never = None
-                    self.time = None
+                    super(CfmStatistics.CfmMeps.CfmMep.LastCleared, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "last-cleared"
+                    self.yang_parent_name = "cfm-mep"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-cfm-oper:last-cleared'
+                    self.never = YLeaf(YType.empty, "never")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.time = YLeaf(YType.str, "time")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("never",
+                                    "time") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(CfmStatistics.CfmMeps.CfmMep.LastCleared, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(CfmStatistics.CfmMeps.CfmMep.LastCleared, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.never.is_set or
+                        self.time.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.never.yfilter != YFilter.not_set or
+                        self.time.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "last-cleared" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.never.is_set or self.never.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.never.get_name_leafdata())
+                    if (self.time.is_set or self.time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.time.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "never" or name == "time"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.never is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "never"):
+                        self.never = value
+                        self.never.value_namespace = name_space
+                        self.never.value_namespace_prefix = name_space_prefix
+                    if(value_path == "time"):
+                        self.time = value
+                        self.time.value_namespace = name_space
+                        self.time.value_namespace_prefix = name_space_prefix
 
-                    if self.time is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.domain_name.is_set or
+                    self.ma_name.is_set or
+                    self.mpid.is_set or
+                    self.ccm_seq_errors.is_set or
+                    self.ccm_transmitted.is_set or
+                    self.lbr_received_bad.is_set or
+                    self.lbr_received_ok.is_set or
+                    self.lbr_seq_errors.is_set or
+                    self.lbr_transmitted.is_set or
+                    self.ltr_unexpected.is_set or
+                    (self.last_cleared is not None and self.last_cleared.has_data()))
 
-                    return False
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.domain_name.yfilter != YFilter.not_set or
+                    self.ma_name.yfilter != YFilter.not_set or
+                    self.mpid.yfilter != YFilter.not_set or
+                    self.ccm_seq_errors.yfilter != YFilter.not_set or
+                    self.ccm_transmitted.yfilter != YFilter.not_set or
+                    self.lbr_received_bad.yfilter != YFilter.not_set or
+                    self.lbr_received_ok.yfilter != YFilter.not_set or
+                    self.lbr_seq_errors.yfilter != YFilter.not_set or
+                    self.lbr_transmitted.yfilter != YFilter.not_set or
+                    self.ltr_unexpected.yfilter != YFilter.not_set or
+                    (self.last_cleared is not None and self.last_cleared.has_operation()))
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_cfm_oper as meta
-                    return meta._meta_table['CfmStatistics.CfmMeps.CfmMep.LastCleared']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cfm-mep" + "[domain-name='" + self.domain_name.get() + "']" + "[ma-name='" + self.ma_name.get() + "']" + "[mpid='" + self.mpid.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.domain_name is None:
-                    raise YPYModelError('Key property domain_name is None')
-                if self.ma_name is None:
-                    raise YPYModelError('Key property ma_name is None')
-                if self.mpid is None:
-                    raise YPYModelError('Key property mpid is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XE-cfm-oper:cfm-statistics/Cisco-IOS-XE-cfm-oper:cfm-meps/Cisco-IOS-XE-cfm-oper:cfm-mep[Cisco-IOS-XE-cfm-oper:domain-name = ' + str(self.domain_name) + '][Cisco-IOS-XE-cfm-oper:ma-name = ' + str(self.ma_name) + '][Cisco-IOS-XE-cfm-oper:mpid = ' + str(self.mpid) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XE-cfm-oper:cfm-statistics/cfm-meps/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.domain_name.is_set or self.domain_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.domain_name.get_name_leafdata())
+                if (self.ma_name.is_set or self.ma_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ma_name.get_name_leafdata())
+                if (self.mpid.is_set or self.mpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mpid.get_name_leafdata())
+                if (self.ccm_seq_errors.is_set or self.ccm_seq_errors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccm_seq_errors.get_name_leafdata())
+                if (self.ccm_transmitted.is_set or self.ccm_transmitted.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ccm_transmitted.get_name_leafdata())
+                if (self.lbr_received_bad.is_set or self.lbr_received_bad.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.lbr_received_bad.get_name_leafdata())
+                if (self.lbr_received_ok.is_set or self.lbr_received_ok.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.lbr_received_ok.get_name_leafdata())
+                if (self.lbr_seq_errors.is_set or self.lbr_seq_errors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.lbr_seq_errors.get_name_leafdata())
+                if (self.lbr_transmitted.is_set or self.lbr_transmitted.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.lbr_transmitted.get_name_leafdata())
+                if (self.ltr_unexpected.is_set or self.ltr_unexpected.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ltr_unexpected.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "last-cleared"):
+                    if (self.last_cleared is None):
+                        self.last_cleared = CfmStatistics.CfmMeps.CfmMep.LastCleared()
+                        self.last_cleared.parent = self
+                        self._children_name_map["last_cleared"] = "last-cleared"
+                    return self.last_cleared
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "last-cleared" or name == "domain-name" or name == "ma-name" or name == "mpid" or name == "ccm-seq-errors" or name == "ccm-transmitted" or name == "lbr-received-bad" or name == "lbr-received-ok" or name == "lbr-seq-errors" or name == "lbr-transmitted" or name == "ltr-unexpected"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.domain_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "domain-name"):
+                    self.domain_name = value
+                    self.domain_name.value_namespace = name_space
+                    self.domain_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "ma-name"):
+                    self.ma_name = value
+                    self.ma_name.value_namespace = name_space
+                    self.ma_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "mpid"):
+                    self.mpid = value
+                    self.mpid.value_namespace = name_space
+                    self.mpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccm-seq-errors"):
+                    self.ccm_seq_errors = value
+                    self.ccm_seq_errors.value_namespace = name_space
+                    self.ccm_seq_errors.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccm-transmitted"):
+                    self.ccm_transmitted = value
+                    self.ccm_transmitted.value_namespace = name_space
+                    self.ccm_transmitted.value_namespace_prefix = name_space_prefix
+                if(value_path == "lbr-received-bad"):
+                    self.lbr_received_bad = value
+                    self.lbr_received_bad.value_namespace = name_space
+                    self.lbr_received_bad.value_namespace_prefix = name_space_prefix
+                if(value_path == "lbr-received-ok"):
+                    self.lbr_received_ok = value
+                    self.lbr_received_ok.value_namespace = name_space
+                    self.lbr_received_ok.value_namespace_prefix = name_space_prefix
+                if(value_path == "lbr-seq-errors"):
+                    self.lbr_seq_errors = value
+                    self.lbr_seq_errors.value_namespace = name_space
+                    self.lbr_seq_errors.value_namespace_prefix = name_space_prefix
+                if(value_path == "lbr-transmitted"):
+                    self.lbr_transmitted = value
+                    self.lbr_transmitted.value_namespace = name_space
+                    self.lbr_transmitted.value_namespace_prefix = name_space_prefix
+                if(value_path == "ltr-unexpected"):
+                    self.ltr_unexpected = value
+                    self.ltr_unexpected.value_namespace = name_space
+                    self.ltr_unexpected.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cfm_mep:
+                if (c.has_data()):
                     return True
-
-                if self.ma_name is not None:
-                    return True
-
-                if self.mpid is not None:
-                    return True
-
-                if self.ccm_seq_errors is not None:
-                    return True
-
-                if self.ccm_transmitted is not None:
-                    return True
-
-                if self.last_cleared is not None and self.last_cleared._has_data():
-                    return True
-
-                if self.lbr_received_bad is not None:
-                    return True
-
-                if self.lbr_received_ok is not None:
-                    return True
-
-                if self.lbr_seq_errors is not None:
-                    return True
-
-                if self.lbr_transmitted is not None:
-                    return True
-
-                if self.ltr_unexpected is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_cfm_oper as meta
-                return meta._meta_table['CfmStatistics.CfmMeps.CfmMep']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XE-cfm-oper:cfm-statistics/Cisco-IOS-XE-cfm-oper:cfm-meps'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cfm_mep is not None:
-                for child_ref in self.cfm_mep:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cfm_mep:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cfm-meps" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XE-cfm-oper:cfm-statistics/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cfm-mep"):
+                for c in self.cfm_mep:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CfmStatistics.CfmMeps.CfmMep()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cfm_mep.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cfm-mep"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_cfm_oper as meta
-            return meta._meta_table['CfmStatistics.CfmMeps']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.cfm_meps is not None and self.cfm_meps.has_data())
 
-        return '/Cisco-IOS-XE-cfm-oper:cfm-statistics'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cfm_meps is not None and self.cfm_meps.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XE-cfm-oper:cfm-statistics" + path_buffer
 
-    def _has_data(self):
-        if self.cfm_meps is not None and self.cfm_meps._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cfm-meps"):
+            if (self.cfm_meps is None):
+                self.cfm_meps = CfmStatistics.CfmMeps()
+                self.cfm_meps.parent = self
+                self._children_name_map["cfm_meps"] = "cfm-meps"
+            return self.cfm_meps
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cfm-meps"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_cfm_oper as meta
-        return meta._meta_table['CfmStatistics']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = CfmStatistics()
+        return self._top_entity
 

@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Grpc(object):
+class Grpc(Entity):
     """
     GRPC configruation
     
@@ -60,6 +54,11 @@ class Grpc(object):
     
     	**range:** 10000..57999
     
+    .. attribute:: service_layer
+    
+    	Service Layer
+    	**type**\:   :py:class:`ServiceLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.ServiceLayer>`
+    
     .. attribute:: tls
     
     	Transport Layer Security (TLS)
@@ -73,16 +72,157 @@ class Grpc(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.address_family = None
-        self.enable = None
-        self.max_request_per_user = None
-        self.max_request_total = None
-        self.port = None
+        super(Grpc, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "grpc"
+        self.yang_parent_name = "Cisco-IOS-XR-man-ems-cfg"
+
+        self.address_family = YLeaf(YType.str, "address-family")
+
+        self.enable = YLeaf(YType.empty, "enable")
+
+        self.max_request_per_user = YLeaf(YType.uint32, "max-request-per-user")
+
+        self.max_request_total = YLeaf(YType.uint32, "max-request-total")
+
+        self.port = YLeaf(YType.uint32, "port")
+
+        self.service_layer = Grpc.ServiceLayer()
+        self.service_layer.parent = self
+        self._children_name_map["service_layer"] = "service-layer"
+        self._children_yang_names.add("service-layer")
+
         self.tls = Grpc.Tls()
         self.tls.parent = self
+        self._children_name_map["tls"] = "tls"
+        self._children_yang_names.add("tls")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("address_family",
+                        "enable",
+                        "max_request_per_user",
+                        "max_request_total",
+                        "port") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Grpc, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Grpc, self).__setattr__(name, value)
 
 
-    class Tls(object):
+    class ServiceLayer(Entity):
+        """
+        Service Layer
+        
+        .. attribute:: enable
+        
+        	Enable ServiceLayer
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'man-ems-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Grpc.ServiceLayer, self).__init__()
+
+            self.yang_name = "service-layer"
+            self.yang_parent_name = "grpc"
+
+            self.enable = YLeaf(YType.empty, "enable")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("enable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Grpc.ServiceLayer, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Grpc.ServiceLayer, self).__setattr__(name, value)
+
+        def has_data(self):
+            return self.enable.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.enable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "service-layer" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-man-ems-cfg:grpc/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.enable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "enable"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "enable"):
+                self.enable = value
+                self.enable.value_namespace = name_space
+                self.enable.value_namespace_prefix = name_space_prefix
+
+
+    class Tls(Entity):
         """
         Transport Layer Security (TLS)
         
@@ -104,66 +244,192 @@ class Grpc(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.enable = None
-            self.trustpoint = None
+            super(Grpc.Tls, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "tls"
+            self.yang_parent_name = "grpc"
 
-            return '/Cisco-IOS-XR-man-ems-cfg:grpc/Cisco-IOS-XR-man-ems-cfg:tls'
+            self.enable = YLeaf(YType.empty, "enable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.trustpoint = YLeaf(YType.str, "trustpoint")
 
-        def _has_data(self):
-            if self.enable is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("enable",
+                            "trustpoint") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Grpc.Tls, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Grpc.Tls, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.enable.is_set or
+                self.trustpoint.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.enable.yfilter != YFilter.not_set or
+                self.trustpoint.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "tls" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-man-ems-cfg:grpc/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.enable.get_name_leafdata())
+            if (self.trustpoint.is_set or self.trustpoint.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.trustpoint.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "enable" or name == "trustpoint"):
                 return True
-
-            if self.trustpoint is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
-            return meta._meta_table['Grpc.Tls']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "enable"):
+                self.enable = value
+                self.enable.value_namespace = name_space
+                self.enable.value_namespace_prefix = name_space_prefix
+            if(value_path == "trustpoint"):
+                self.trustpoint = value
+                self.trustpoint.value_namespace = name_space
+                self.trustpoint.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.address_family.is_set or
+            self.enable.is_set or
+            self.max_request_per_user.is_set or
+            self.max_request_total.is_set or
+            self.port.is_set or
+            (self.service_layer is not None and self.service_layer.has_data()) or
+            (self.tls is not None and self.tls.has_data()))
 
-        return '/Cisco-IOS-XR-man-ems-cfg:grpc'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.address_family.yfilter != YFilter.not_set or
+            self.enable.yfilter != YFilter.not_set or
+            self.max_request_per_user.yfilter != YFilter.not_set or
+            self.max_request_total.yfilter != YFilter.not_set or
+            self.port.yfilter != YFilter.not_set or
+            (self.service_layer is not None and self.service_layer.has_operation()) or
+            (self.tls is not None and self.tls.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-man-ems-cfg:grpc" + path_buffer
 
-    def _has_data(self):
-        if self.address_family is not None:
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.address_family.is_set or self.address_family.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.address_family.get_name_leafdata())
+        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.enable.get_name_leafdata())
+        if (self.max_request_per_user.is_set or self.max_request_per_user.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.max_request_per_user.get_name_leafdata())
+        if (self.max_request_total.is_set or self.max_request_total.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.max_request_total.get_name_leafdata())
+        if (self.port.is_set or self.port.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.port.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "service-layer"):
+            if (self.service_layer is None):
+                self.service_layer = Grpc.ServiceLayer()
+                self.service_layer.parent = self
+                self._children_name_map["service_layer"] = "service-layer"
+            return self.service_layer
+
+        if (child_yang_name == "tls"):
+            if (self.tls is None):
+                self.tls = Grpc.Tls()
+                self.tls.parent = self
+                self._children_name_map["tls"] = "tls"
+            return self.tls
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "service-layer" or name == "tls" or name == "address-family" or name == "enable" or name == "max-request-per-user" or name == "max-request-total" or name == "port"):
             return True
-
-        if self.enable is not None:
-            return True
-
-        if self.max_request_per_user is not None:
-            return True
-
-        if self.max_request_total is not None:
-            return True
-
-        if self.port is not None:
-            return True
-
-        if self.tls is not None and self.tls._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_ems_cfg as meta
-        return meta._meta_table['Grpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "address-family"):
+            self.address_family = value
+            self.address_family.value_namespace = name_space
+            self.address_family.value_namespace_prefix = name_space_prefix
+        if(value_path == "enable"):
+            self.enable = value
+            self.enable.value_namespace = name_space
+            self.enable.value_namespace_prefix = name_space_prefix
+        if(value_path == "max-request-per-user"):
+            self.max_request_per_user = value
+            self.max_request_per_user.value_namespace = name_space
+            self.max_request_per_user.value_namespace_prefix = name_space_prefix
+        if(value_path == "max-request-total"):
+            self.max_request_total = value
+            self.max_request_total.value_namespace = name_space
+            self.max_request_total.value_namespace_prefix = name_space_prefix
+        if(value_path == "port"):
+            self.port = value
+            self.port.value_namespace = name_space
+            self.port.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Grpc()
+        return self._top_entity
 

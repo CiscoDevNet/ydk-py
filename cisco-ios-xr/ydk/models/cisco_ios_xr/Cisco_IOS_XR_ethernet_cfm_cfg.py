@@ -14,22 +14,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CfmLmCountersCfgEnum(Enum):
+class CfmLmCountersCfg(Enum):
     """
-    CfmLmCountersCfgEnum
+    CfmLmCountersCfg
 
     Cfm lm counters cfg
 
@@ -47,22 +41,16 @@ class CfmLmCountersCfgEnum(Enum):
 
     """
 
-    aggregate = 1
+    aggregate = Enum.YLeaf(1, "aggregate")
 
-    list = 2
+    list = Enum.YLeaf(2, "list")
 
-    range = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
-        return meta._meta_table['CfmLmCountersCfgEnum']
+    range = Enum.YLeaf(3, "range")
 
 
-class CfmMdidFormatEnum(Enum):
+class CfmMdidFormat(Enum):
     """
-    CfmMdidFormatEnum
+    CfmMdidFormat
 
     Cfm mdid format
 
@@ -84,24 +72,18 @@ class CfmMdidFormatEnum(Enum):
 
     """
 
-    null = 1
+    null = Enum.YLeaf(1, "null")
 
-    dns_like = 2
+    dns_like = Enum.YLeaf(2, "dns-like")
 
-    mac_address = 3
+    mac_address = Enum.YLeaf(3, "mac-address")
 
-    string = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
-        return meta._meta_table['CfmMdidFormatEnum']
+    string = Enum.YLeaf(4, "string")
 
 
-class CfmMipPolicyEnum(Enum):
+class CfmMipPolicy(Enum):
     """
-    CfmMipPolicyEnum
+    CfmMipPolicy
 
     Cfm mip policy
 
@@ -119,20 +101,14 @@ class CfmMipPolicyEnum(Enum):
 
     """
 
-    all = 2
+    all = Enum.YLeaf(2, "all")
 
-    lower_mep_only = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
-        return meta._meta_table['CfmMipPolicyEnum']
+    lower_mep_only = Enum.YLeaf(3, "lower-mep-only")
 
 
-class CfmServiceEnum(Enum):
+class CfmService(Enum):
     """
-    CfmServiceEnum
+    CfmService
 
     Cfm service
 
@@ -160,24 +136,18 @@ class CfmServiceEnum(Enum):
 
     """
 
-    bridge_domain = 1
+    bridge_domain = Enum.YLeaf(1, "bridge-domain")
 
-    p2p_cross_connect = 2
+    p2p_cross_connect = Enum.YLeaf(2, "p2p-cross-connect")
 
-    mp2mp_cross_connect = 3
+    mp2mp_cross_connect = Enum.YLeaf(3, "mp2mp-cross-connect")
 
-    down_meps = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
-        return meta._meta_table['CfmServiceEnum']
+    down_meps = Enum.YLeaf(4, "down-meps")
 
 
-class CfmShortMaNameFormatEnum(Enum):
+class CfmShortMaNameFormat(Enum):
     """
-    CfmShortMaNameFormatEnum
+    CfmShortMaNameFormat
 
     Cfm short ma name format
 
@@ -203,21 +173,15 @@ class CfmShortMaNameFormatEnum(Enum):
 
     """
 
-    vlan_id = 1
+    vlan_id = Enum.YLeaf(1, "vlan-id")
 
-    string = 2
+    string = Enum.YLeaf(2, "string")
 
-    number = 3
+    number = Enum.YLeaf(3, "number")
 
-    vpn_id = 4
+    vpn_id = Enum.YLeaf(4, "vpn-id")
 
-    icc_based = 32
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ethernet_cfm_cfg as meta
-        return meta._meta_table['CfmShortMaNameFormatEnum']
+    icc_based = Enum.YLeaf(32, "icc-based")
 
 
 

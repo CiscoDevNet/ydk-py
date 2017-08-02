@@ -25,21 +25,15 @@ and the MIB is therefore subject to change based on the WG
 progress.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoIetfPwMib(object):
+class CiscoIetfPwMib(Entity):
     """
     
     
@@ -86,23 +80,49 @@ class CiscoIetfPwMib(object):
     _revision = '2004-03-17'
 
     def __init__(self):
+        super(CiscoIetfPwMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IETF-PW-MIB"
+        self.yang_parent_name = "CISCO-IETF-PW-MIB"
+
         self.cpwvcidmappingtable = CiscoIetfPwMib.Cpwvcidmappingtable()
         self.cpwvcidmappingtable.parent = self
+        self._children_name_map["cpwvcidmappingtable"] = "cpwVcIdMappingTable"
+        self._children_yang_names.add("cpwVcIdMappingTable")
+
         self.cpwvcobjects = CiscoIetfPwMib.Cpwvcobjects()
         self.cpwvcobjects.parent = self
+        self._children_name_map["cpwvcobjects"] = "cpwVcObjects"
+        self._children_yang_names.add("cpwVcObjects")
+
         self.cpwvcpeermappingtable = CiscoIetfPwMib.Cpwvcpeermappingtable()
         self.cpwvcpeermappingtable.parent = self
+        self._children_name_map["cpwvcpeermappingtable"] = "cpwVcPeerMappingTable"
+        self._children_yang_names.add("cpwVcPeerMappingTable")
+
         self.cpwvcperfcurrenttable = CiscoIetfPwMib.Cpwvcperfcurrenttable()
         self.cpwvcperfcurrenttable.parent = self
+        self._children_name_map["cpwvcperfcurrenttable"] = "cpwVcPerfCurrentTable"
+        self._children_yang_names.add("cpwVcPerfCurrentTable")
+
         self.cpwvcperfintervaltable = CiscoIetfPwMib.Cpwvcperfintervaltable()
         self.cpwvcperfintervaltable.parent = self
+        self._children_name_map["cpwvcperfintervaltable"] = "cpwVcPerfIntervalTable"
+        self._children_yang_names.add("cpwVcPerfIntervalTable")
+
         self.cpwvcperftotaltable = CiscoIetfPwMib.Cpwvcperftotaltable()
         self.cpwvcperftotaltable.parent = self
+        self._children_name_map["cpwvcperftotaltable"] = "cpwVcPerfTotalTable"
+        self._children_yang_names.add("cpwVcPerfTotalTable")
+
         self.cpwvctable = CiscoIetfPwMib.Cpwvctable()
         self.cpwvctable.parent = self
+        self._children_name_map["cpwvctable"] = "cpwVcTable"
+        self._children_yang_names.add("cpwVcTable")
 
 
-    class Cpwvcobjects(object):
+    class Cpwvcobjects(Entity):
         """
         
         
@@ -140,43 +160,119 @@ class CiscoIetfPwMib(object):
         _revision = '2004-03-17'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcindexnext = None
-            self.cpwvcnotifrate = None
-            self.cpwvcperftotalerrorpackets = None
-            self.cpwvcupdownnotifenable = None
+            super(CiscoIetfPwMib.Cpwvcobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cpwVcObjects"
+            self.yang_parent_name = "CISCO-IETF-PW-MIB"
 
-            return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcObjects'
+            self.cpwvcindexnext = YLeaf(YType.uint32, "cpwVcIndexNext")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cpwvcnotifrate = YLeaf(YType.uint32, "cpwVcNotifRate")
+
+            self.cpwvcperftotalerrorpackets = YLeaf(YType.uint64, "cpwVcPerfTotalErrorPackets")
+
+            self.cpwvcupdownnotifenable = YLeaf(YType.boolean, "cpwVcUpDownNotifEnable")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cpwvcindexnext",
+                            "cpwvcnotifrate",
+                            "cpwvcperftotalerrorpackets",
+                            "cpwvcupdownnotifenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMib.Cpwvcobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMib.Cpwvcobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cpwvcindexnext.is_set or
+                self.cpwvcnotifrate.is_set or
+                self.cpwvcperftotalerrorpackets.is_set or
+                self.cpwvcupdownnotifenable.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cpwvcindexnext.yfilter != YFilter.not_set or
+                self.cpwvcnotifrate.yfilter != YFilter.not_set or
+                self.cpwvcperftotalerrorpackets.yfilter != YFilter.not_set or
+                self.cpwvcupdownnotifenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cpwvcindexnext.is_set or self.cpwvcindexnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpwvcindexnext.get_name_leafdata())
+            if (self.cpwvcnotifrate.is_set or self.cpwvcnotifrate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpwvcnotifrate.get_name_leafdata())
+            if (self.cpwvcperftotalerrorpackets.is_set or self.cpwvcperftotalerrorpackets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpwvcperftotalerrorpackets.get_name_leafdata())
+            if (self.cpwvcupdownnotifenable.is_set or self.cpwvcupdownnotifenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpwvcupdownnotifenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcIndexNext" or name == "cpwVcNotifRate" or name == "cpwVcPerfTotalErrorPackets" or name == "cpwVcUpDownNotifEnable"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cpwvcindexnext is not None:
-                return True
-
-            if self.cpwvcnotifrate is not None:
-                return True
-
-            if self.cpwvcperftotalerrorpackets is not None:
-                return True
-
-            if self.cpwvcupdownnotifenable is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-            return meta._meta_table['CiscoIetfPwMib.Cpwvcobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cpwVcIndexNext"):
+                self.cpwvcindexnext = value
+                self.cpwvcindexnext.value_namespace = name_space
+                self.cpwvcindexnext.value_namespace_prefix = name_space_prefix
+            if(value_path == "cpwVcNotifRate"):
+                self.cpwvcnotifrate = value
+                self.cpwvcnotifrate.value_namespace = name_space
+                self.cpwvcnotifrate.value_namespace_prefix = name_space_prefix
+            if(value_path == "cpwVcPerfTotalErrorPackets"):
+                self.cpwvcperftotalerrorpackets = value
+                self.cpwvcperftotalerrorpackets.value_namespace = name_space
+                self.cpwvcperftotalerrorpackets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cpwVcUpDownNotifEnable"):
+                self.cpwvcupdownnotifenable = value
+                self.cpwvcupdownnotifenable.value_namespace = name_space
+                self.cpwvcupdownnotifenable.value_namespace_prefix = name_space_prefix
 
 
-    class Cpwvctable(object):
+    class Cpwvctable(Entity):
         """
         This table specifies information for connecting various 
         emulated services to various tunnel type.
@@ -194,13 +290,39 @@ class CiscoIetfPwMib(object):
         _revision = '2004-03-17'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcentry = YList()
-            self.cpwvcentry.parent = self
-            self.cpwvcentry.name = 'cpwvcentry'
+            super(CiscoIetfPwMib.Cpwvctable, self).__init__()
+
+            self.yang_name = "cpwVcTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MIB"
+
+            self.cpwvcentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMib.Cpwvctable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMib.Cpwvctable, self).__setattr__(name, value)
 
 
-        class Cpwvcentry(object):
+        class Cpwvcentry(Entity):
             """
             A row in this table represents an emulated virtual 
             connection (VC) across a packet network. It is indexed by 
@@ -217,7 +339,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcadminstatus
             
             	The desired operational status of this VC
-            	**type**\:   :py:class:`CpwvcadminstatusEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcadminstatusEnum>`
+            	**type**\:   :py:class:`Cpwvcadminstatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.Cpwvcadminstatus>`
             
             .. attribute:: cpwvccontrolword
             
@@ -253,12 +375,12 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcinboundmode
             
             	This object is used to enable greater security for   implementation that use per platform VC label space. In   strict mode, packets coming from the PSN are accepted only   from tunnels that are associated to the same VC via the   inbound tunnel table in the case of MPLS, or as identified   by the source IP address in case of L2TP or IP PSN. The   entries in the inbound tunnel table are either explicitly   configured or implicitly known by the maintenance protocol   used for VC set\-up.   If such association is not known, not configured or not   desired, loose mode should be configured, and the node   should accept the packet based on the VC label only   regardless of the outer tunnel used to carry the VC
-            	**type**\:   :py:class:`CpwvcinboundmodeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcinboundmodeEnum>`
+            	**type**\:   :py:class:`Cpwvcinboundmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.Cpwvcinboundmode>`
             
             .. attribute:: cpwvcinboundoperstatus
             
             	Indicates the actual operational status of this VC in the   inbound direction.   \- down\:           if PW signaling has not yet finished, or                    indications available at the service                     level indicate that the VC is not                     passing packets.  \- testing\:        if AdminStatus at the VC level is set to                     test.  \- dormant\:        The VC is not available because of the                    required resources are occupied VC with                     higher priority VCs .  \- notPresent\:     Some component is missing to accomplish                     the set up of the VC.  \- lowerLayerDown\: The underlying PSN is not in OperStatus                     'up'.  
-            	**type**\:   :py:class:`CpwoperstatusEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwoperstatusEnum>`
+            	**type**\:   :py:class:`Cpwoperstatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.Cpwoperstatus>`
             
             .. attribute:: cpwvcinboundvclabel
             
@@ -294,12 +416,12 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcoperstatus
             
             	Indicates the actual combined operational status of this   VC. It is 'up' if both cpwVcInboundOperStatus and   cpwVcOutboundOperStatus are in 'up' state. For all other   values, if the VCs in both directions are of the same  value it reflects that value, otherwise it is set to the  most severe status out of the two statuses. The order of   severance from most severe to less severe is\: unknown,   notPresent, down, lowerLayerDown, dormant, testing, up.  The operator may consult the per direction OperStatus for  fault isolation per direction
-            	**type**\:   :py:class:`CpwoperstatusEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwoperstatusEnum>`
+            	**type**\:   :py:class:`Cpwoperstatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.Cpwoperstatus>`
             
             .. attribute:: cpwvcoutboundoperstatus
             
             	Indicates the actual operational status of this VC in the   outbound direction  \- down\:           if PW signaling has not yet finished, or                    indications available at the service                     level indicate that the VC is not                    passing packets.  \- testing\:        if AdminStatus at the VC level is set to                     test.  \- dormant\:        The VC is not available because of the                    required resources are occupied VC with                     higher priority VCs .  \- notPresent\:     Some component is missing to accomplish                     the set up of the VC.  \- lowerLayerDown\: The underlying PSN is not in OperStatus                     'up'.  
-            	**type**\:   :py:class:`CpwoperstatusEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwoperstatusEnum>`
+            	**type**\:   :py:class:`Cpwoperstatus <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.Cpwoperstatus>`
             
             .. attribute:: cpwvcoutboundvclabel
             
@@ -311,7 +433,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcowner
             
             	Set by the operator to indicate the protocol responsible   for establishing this VC. Value 'manual' is used in all  cases where no maintenance protocol (PW signaling) is used   to set\-up the VC, i.e. require configuration of entries in  the VC tables including VC labels, etc. The value   'maintenanceProtocol' is used in case of standard  signaling of the VC for the specific PSN, for example LDP  for MPLS PSN as specified in <draft\- draft\-martini\-  l2circuit\-trans\-mpls> or L2TP control protocol.   Value 'other' is used for other types of signaling
-            	**type**\:   :py:class:`CpwvcownerEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcownerEnum>`
+            	**type**\:   :py:class:`Cpwvcowner <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.Cpwvcowner>`
             
             .. attribute:: cpwvcpeeraddr
             
@@ -323,17 +445,17 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcpeeraddrtype
             
             	Denotes the address type of the peer node maintenance  protocol (signaling) address if PW maintenance protocol is  used for the VC creation. It should be set to   'unknown' if PE/PW maintenance protocol is not used,   i.e. cpwVcOwner is set to 'manual'. 
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cpwvcpsntype
             
             	Set by the operator to indicate the PSN type on which this   VC will be carried. Based on this object, the relevant PSN   table entries are created in the in the PSN specific MIB   modules. For example, if mpls(1) is defined, the agent   create an entry in cpwVcMplsTable, which further define the   MPLS PSN configuration.  Note\: the exact set of PSN types is yet to be worked   out by the WG. 
-            	**type**\:   :py:class:`CpwvcpsntypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcpsntypeEnum>`
+            	**type**\:   :py:class:`Cpwvcpsntype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.Cpwvcpsntype>`
             
             .. attribute:: cpwvcremotecontrolword
             
             	If maintenance protocol is used for VC establishment, this   parameter indicates the received status of the control word   usage, i.e. if packets will be received with control word  or not. The value of 'notYetKnown' is used while the  maintenance protocol has not yet received the indication   from the remote node.  In manual configuration of the VC this parameters indicate   to the local node what is the expected encapsulation for  the received packets. 
-            	**type**\:   :py:class:`CpwvcremotecontrolwordEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcremotecontrolwordEnum>`
+            	**type**\:   :py:class:`Cpwvcremotecontrolword <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CiscoIetfPwMib.Cpwvctable.Cpwvcentry.Cpwvcremotecontrolword>`
             
             .. attribute:: cpwvcremotegroupid
             
@@ -359,7 +481,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcrowstatus
             
             	For creating, modifying, and deleting this row
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cpwvcsetuppriority
             
@@ -371,7 +493,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcstoragetype
             
             	This variable indicates the storage type for this  object
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cpwvctimeelapsed
             
@@ -383,7 +505,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvctype
             
             	This value indicate the service to be carried over  this VC.   Note\: the exact set of VC types is yet to be worked   out by the WG. 
-            	**type**\:   :py:class:`CpwvctypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwvctypeEnum>`
+            	**type**\:   :py:class:`Cpwvctype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.Cpwvctype>`
             
             .. attribute:: cpwvcuptime
             
@@ -407,43 +529,133 @@ class CiscoIetfPwMib(object):
             _revision = '2004-03-17'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwvcadminstatus = None
-                self.cpwvccontrolword = None
-                self.cpwvccreatetime = None
-                self.cpwvcdescr = None
-                self.cpwvcholdingpriority = None
-                self.cpwvcid = None
-                self.cpwvcinboundmode = None
-                self.cpwvcinboundoperstatus = None
-                self.cpwvcinboundvclabel = None
-                self.cpwvclocalgroupid = None
-                self.cpwvclocalifmtu = None
-                self.cpwvclocalifstring = None
-                self.cpwvcname = None
-                self.cpwvcoperstatus = None
-                self.cpwvcoutboundoperstatus = None
-                self.cpwvcoutboundvclabel = None
-                self.cpwvcowner = None
-                self.cpwvcpeeraddr = None
-                self.cpwvcpeeraddrtype = None
-                self.cpwvcpsntype = None
-                self.cpwvcremotecontrolword = None
-                self.cpwvcremotegroupid = None
-                self.cpwvcremoteifmtu = None
-                self.cpwvcremoteifstring = None
-                self.cpwvcrowstatus = None
-                self.cpwvcsetuppriority = None
-                self.cpwvcstoragetype = None
-                self.cpwvctimeelapsed = None
-                self.cpwvctype = None
-                self.cpwvcuptime = None
-                self.cpwvcvalidintervals = None
+                super(CiscoIetfPwMib.Cpwvctable.Cpwvcentry, self).__init__()
 
-            class CpwvcadminstatusEnum(Enum):
+                self.yang_name = "cpwVcEntry"
+                self.yang_parent_name = "cpwVcTable"
+
+                self.cpwvcindex = YLeaf(YType.uint32, "cpwVcIndex")
+
+                self.cpwvcadminstatus = YLeaf(YType.enumeration, "cpwVcAdminStatus")
+
+                self.cpwvccontrolword = YLeaf(YType.boolean, "cpwVcControlWord")
+
+                self.cpwvccreatetime = YLeaf(YType.uint32, "cpwVcCreateTime")
+
+                self.cpwvcdescr = YLeaf(YType.str, "cpwVcDescr")
+
+                self.cpwvcholdingpriority = YLeaf(YType.int32, "cpwVcHoldingPriority")
+
+                self.cpwvcid = YLeaf(YType.uint32, "cpwVcID")
+
+                self.cpwvcinboundmode = YLeaf(YType.enumeration, "cpwVcInboundMode")
+
+                self.cpwvcinboundoperstatus = YLeaf(YType.enumeration, "cpwVcInboundOperStatus")
+
+                self.cpwvcinboundvclabel = YLeaf(YType.uint32, "cpwVcInboundVcLabel")
+
+                self.cpwvclocalgroupid = YLeaf(YType.uint32, "cpwVcLocalGroupID")
+
+                self.cpwvclocalifmtu = YLeaf(YType.uint32, "cpwVcLocalIfMtu")
+
+                self.cpwvclocalifstring = YLeaf(YType.boolean, "cpwVcLocalIfString")
+
+                self.cpwvcname = YLeaf(YType.str, "cpwVcName")
+
+                self.cpwvcoperstatus = YLeaf(YType.enumeration, "cpwVcOperStatus")
+
+                self.cpwvcoutboundoperstatus = YLeaf(YType.enumeration, "cpwVcOutboundOperStatus")
+
+                self.cpwvcoutboundvclabel = YLeaf(YType.uint32, "cpwVcOutboundVcLabel")
+
+                self.cpwvcowner = YLeaf(YType.enumeration, "cpwVcOwner")
+
+                self.cpwvcpeeraddr = YLeaf(YType.str, "cpwVcPeerAddr")
+
+                self.cpwvcpeeraddrtype = YLeaf(YType.enumeration, "cpwVcPeerAddrType")
+
+                self.cpwvcpsntype = YLeaf(YType.enumeration, "cpwVcPsnType")
+
+                self.cpwvcremotecontrolword = YLeaf(YType.enumeration, "cpwVcRemoteControlWord")
+
+                self.cpwvcremotegroupid = YLeaf(YType.uint32, "cpwVcRemoteGroupID")
+
+                self.cpwvcremoteifmtu = YLeaf(YType.uint32, "cpwVcRemoteIfMtu")
+
+                self.cpwvcremoteifstring = YLeaf(YType.str, "cpwVcRemoteIfString")
+
+                self.cpwvcrowstatus = YLeaf(YType.enumeration, "cpwVcRowStatus")
+
+                self.cpwvcsetuppriority = YLeaf(YType.int32, "cpwVcSetUpPriority")
+
+                self.cpwvcstoragetype = YLeaf(YType.enumeration, "cpwVcStorageType")
+
+                self.cpwvctimeelapsed = YLeaf(YType.int32, "cpwVcTimeElapsed")
+
+                self.cpwvctype = YLeaf(YType.enumeration, "cpwVcType")
+
+                self.cpwvcuptime = YLeaf(YType.uint32, "cpwVcUpTime")
+
+                self.cpwvcvalidintervals = YLeaf(YType.int32, "cpwVcValidIntervals")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwvcadminstatus",
+                                "cpwvccontrolword",
+                                "cpwvccreatetime",
+                                "cpwvcdescr",
+                                "cpwvcholdingpriority",
+                                "cpwvcid",
+                                "cpwvcinboundmode",
+                                "cpwvcinboundoperstatus",
+                                "cpwvcinboundvclabel",
+                                "cpwvclocalgroupid",
+                                "cpwvclocalifmtu",
+                                "cpwvclocalifstring",
+                                "cpwvcname",
+                                "cpwvcoperstatus",
+                                "cpwvcoutboundoperstatus",
+                                "cpwvcoutboundvclabel",
+                                "cpwvcowner",
+                                "cpwvcpeeraddr",
+                                "cpwvcpeeraddrtype",
+                                "cpwvcpsntype",
+                                "cpwvcremotecontrolword",
+                                "cpwvcremotegroupid",
+                                "cpwvcremoteifmtu",
+                                "cpwvcremoteifstring",
+                                "cpwvcrowstatus",
+                                "cpwvcsetuppriority",
+                                "cpwvcstoragetype",
+                                "cpwvctimeelapsed",
+                                "cpwvctype",
+                                "cpwvcuptime",
+                                "cpwvcvalidintervals") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMib.Cpwvctable.Cpwvcentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMib.Cpwvctable.Cpwvcentry, self).__setattr__(name, value)
+
+            class Cpwvcadminstatus(Enum):
                 """
-                CpwvcadminstatusEnum
+                Cpwvcadminstatus
 
                 The desired operational status of this VC.
 
@@ -455,22 +667,16 @@ class CiscoIetfPwMib(object):
 
                 """
 
-                up = 1
+                up = Enum.YLeaf(1, "up")
 
-                down = 2
+                down = Enum.YLeaf(2, "down")
 
-                testing = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcadminstatusEnum']
+                testing = Enum.YLeaf(3, "testing")
 
 
-            class CpwvcinboundmodeEnum(Enum):
+            class Cpwvcinboundmode(Enum):
                 """
-                CpwvcinboundmodeEnum
+                Cpwvcinboundmode
 
                 This object is used to enable greater security for  
 
@@ -504,20 +710,14 @@ class CiscoIetfPwMib(object):
 
                 """
 
-                loose = 1
+                loose = Enum.YLeaf(1, "loose")
 
-                strict = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcinboundmodeEnum']
+                strict = Enum.YLeaf(2, "strict")
 
 
-            class CpwvcownerEnum(Enum):
+            class Cpwvcowner(Enum):
                 """
-                CpwvcownerEnum
+                Cpwvcowner
 
                 Set by the operator to indicate the protocol responsible  
 
@@ -547,22 +747,16 @@ class CiscoIetfPwMib(object):
 
                 """
 
-                manual = 1
+                manual = Enum.YLeaf(1, "manual")
 
-                maintenanceProtocol = 2
+                maintenanceProtocol = Enum.YLeaf(2, "maintenanceProtocol")
 
-                other = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcownerEnum']
+                other = Enum.YLeaf(3, "other")
 
 
-            class CpwvcpsntypeEnum(Enum):
+            class Cpwvcpsntype(Enum):
                 """
-                CpwvcpsntypeEnum
+                Cpwvcpsntype
 
                 Set by the operator to indicate the PSN type on which this  
 
@@ -594,28 +788,22 @@ class CiscoIetfPwMib(object):
 
                 """
 
-                mpls = 1
+                mpls = Enum.YLeaf(1, "mpls")
 
-                l2tp = 2
+                l2tp = Enum.YLeaf(2, "l2tp")
 
-                ip = 3
+                ip = Enum.YLeaf(3, "ip")
 
-                mplsOverIp = 4
+                mplsOverIp = Enum.YLeaf(4, "mplsOverIp")
 
-                gre = 5
+                gre = Enum.YLeaf(5, "gre")
 
-                other = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcpsntypeEnum']
+                other = Enum.YLeaf(6, "other")
 
 
-            class CpwvcremotecontrolwordEnum(Enum):
+            class Cpwvcremotecontrolword(Enum):
                 """
-                CpwvcremotecontrolwordEnum
+                Cpwvcremotecontrolword
 
                 If maintenance protocol is used for VC establishment, this  
 
@@ -643,158 +831,367 @@ class CiscoIetfPwMib(object):
 
                 """
 
-                noControlWord = 1
+                noControlWord = Enum.YLeaf(1, "noControlWord")
 
-                withControlWord = 2
+                withControlWord = Enum.YLeaf(2, "withControlWord")
 
-                notYetKnown = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMib.Cpwvctable.Cpwvcentry.CpwvcremotecontrolwordEnum']
+                notYetKnown = Enum.YLeaf(3, "notYetKnown")
 
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwvcadminstatus.is_set or
+                    self.cpwvccontrolword.is_set or
+                    self.cpwvccreatetime.is_set or
+                    self.cpwvcdescr.is_set or
+                    self.cpwvcholdingpriority.is_set or
+                    self.cpwvcid.is_set or
+                    self.cpwvcinboundmode.is_set or
+                    self.cpwvcinboundoperstatus.is_set or
+                    self.cpwvcinboundvclabel.is_set or
+                    self.cpwvclocalgroupid.is_set or
+                    self.cpwvclocalifmtu.is_set or
+                    self.cpwvclocalifstring.is_set or
+                    self.cpwvcname.is_set or
+                    self.cpwvcoperstatus.is_set or
+                    self.cpwvcoutboundoperstatus.is_set or
+                    self.cpwvcoutboundvclabel.is_set or
+                    self.cpwvcowner.is_set or
+                    self.cpwvcpeeraddr.is_set or
+                    self.cpwvcpeeraddrtype.is_set or
+                    self.cpwvcpsntype.is_set or
+                    self.cpwvcremotecontrolword.is_set or
+                    self.cpwvcremotegroupid.is_set or
+                    self.cpwvcremoteifmtu.is_set or
+                    self.cpwvcremoteifstring.is_set or
+                    self.cpwvcrowstatus.is_set or
+                    self.cpwvcsetuppriority.is_set or
+                    self.cpwvcstoragetype.is_set or
+                    self.cpwvctimeelapsed.is_set or
+                    self.cpwvctype.is_set or
+                    self.cpwvcuptime.is_set or
+                    self.cpwvcvalidintervals.is_set)
 
-                return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcTable/CISCO-IETF-PW-MIB:cpwVcEntry[CISCO-IETF-PW-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwvcadminstatus.yfilter != YFilter.not_set or
+                    self.cpwvccontrolword.yfilter != YFilter.not_set or
+                    self.cpwvccreatetime.yfilter != YFilter.not_set or
+                    self.cpwvcdescr.yfilter != YFilter.not_set or
+                    self.cpwvcholdingpriority.yfilter != YFilter.not_set or
+                    self.cpwvcid.yfilter != YFilter.not_set or
+                    self.cpwvcinboundmode.yfilter != YFilter.not_set or
+                    self.cpwvcinboundoperstatus.yfilter != YFilter.not_set or
+                    self.cpwvcinboundvclabel.yfilter != YFilter.not_set or
+                    self.cpwvclocalgroupid.yfilter != YFilter.not_set or
+                    self.cpwvclocalifmtu.yfilter != YFilter.not_set or
+                    self.cpwvclocalifstring.yfilter != YFilter.not_set or
+                    self.cpwvcname.yfilter != YFilter.not_set or
+                    self.cpwvcoperstatus.yfilter != YFilter.not_set or
+                    self.cpwvcoutboundoperstatus.yfilter != YFilter.not_set or
+                    self.cpwvcoutboundvclabel.yfilter != YFilter.not_set or
+                    self.cpwvcowner.yfilter != YFilter.not_set or
+                    self.cpwvcpeeraddr.yfilter != YFilter.not_set or
+                    self.cpwvcpeeraddrtype.yfilter != YFilter.not_set or
+                    self.cpwvcpsntype.yfilter != YFilter.not_set or
+                    self.cpwvcremotecontrolword.yfilter != YFilter.not_set or
+                    self.cpwvcremotegroupid.yfilter != YFilter.not_set or
+                    self.cpwvcremoteifmtu.yfilter != YFilter.not_set or
+                    self.cpwvcremoteifstring.yfilter != YFilter.not_set or
+                    self.cpwvcrowstatus.yfilter != YFilter.not_set or
+                    self.cpwvcsetuppriority.yfilter != YFilter.not_set or
+                    self.cpwvcstoragetype.yfilter != YFilter.not_set or
+                    self.cpwvctimeelapsed.yfilter != YFilter.not_set or
+                    self.cpwvctype.yfilter != YFilter.not_set or
+                    self.cpwvcuptime.yfilter != YFilter.not_set or
+                    self.cpwvcvalidintervals.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwvcadminstatus.is_set or self.cpwvcadminstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcadminstatus.get_name_leafdata())
+                if (self.cpwvccontrolword.is_set or self.cpwvccontrolword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvccontrolword.get_name_leafdata())
+                if (self.cpwvccreatetime.is_set or self.cpwvccreatetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvccreatetime.get_name_leafdata())
+                if (self.cpwvcdescr.is_set or self.cpwvcdescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcdescr.get_name_leafdata())
+                if (self.cpwvcholdingpriority.is_set or self.cpwvcholdingpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcholdingpriority.get_name_leafdata())
+                if (self.cpwvcid.is_set or self.cpwvcid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcid.get_name_leafdata())
+                if (self.cpwvcinboundmode.is_set or self.cpwvcinboundmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcinboundmode.get_name_leafdata())
+                if (self.cpwvcinboundoperstatus.is_set or self.cpwvcinboundoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcinboundoperstatus.get_name_leafdata())
+                if (self.cpwvcinboundvclabel.is_set or self.cpwvcinboundvclabel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcinboundvclabel.get_name_leafdata())
+                if (self.cpwvclocalgroupid.is_set or self.cpwvclocalgroupid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvclocalgroupid.get_name_leafdata())
+                if (self.cpwvclocalifmtu.is_set or self.cpwvclocalifmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvclocalifmtu.get_name_leafdata())
+                if (self.cpwvclocalifstring.is_set or self.cpwvclocalifstring.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvclocalifstring.get_name_leafdata())
+                if (self.cpwvcname.is_set or self.cpwvcname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcname.get_name_leafdata())
+                if (self.cpwvcoperstatus.is_set or self.cpwvcoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcoperstatus.get_name_leafdata())
+                if (self.cpwvcoutboundoperstatus.is_set or self.cpwvcoutboundoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcoutboundoperstatus.get_name_leafdata())
+                if (self.cpwvcoutboundvclabel.is_set or self.cpwvcoutboundvclabel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcoutboundvclabel.get_name_leafdata())
+                if (self.cpwvcowner.is_set or self.cpwvcowner.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcowner.get_name_leafdata())
+                if (self.cpwvcpeeraddr.is_set or self.cpwvcpeeraddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpeeraddr.get_name_leafdata())
+                if (self.cpwvcpeeraddrtype.is_set or self.cpwvcpeeraddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpeeraddrtype.get_name_leafdata())
+                if (self.cpwvcpsntype.is_set or self.cpwvcpsntype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpsntype.get_name_leafdata())
+                if (self.cpwvcremotecontrolword.is_set or self.cpwvcremotecontrolword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcremotecontrolword.get_name_leafdata())
+                if (self.cpwvcremotegroupid.is_set or self.cpwvcremotegroupid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcremotegroupid.get_name_leafdata())
+                if (self.cpwvcremoteifmtu.is_set or self.cpwvcremoteifmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcremoteifmtu.get_name_leafdata())
+                if (self.cpwvcremoteifstring.is_set or self.cpwvcremoteifstring.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcremoteifstring.get_name_leafdata())
+                if (self.cpwvcrowstatus.is_set or self.cpwvcrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcrowstatus.get_name_leafdata())
+                if (self.cpwvcsetuppriority.is_set or self.cpwvcsetuppriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcsetuppriority.get_name_leafdata())
+                if (self.cpwvcstoragetype.is_set or self.cpwvcstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcstoragetype.get_name_leafdata())
+                if (self.cpwvctimeelapsed.is_set or self.cpwvctimeelapsed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvctimeelapsed.get_name_leafdata())
+                if (self.cpwvctype.is_set or self.cpwvctype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvctype.get_name_leafdata())
+                if (self.cpwvcuptime.is_set or self.cpwvcuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcuptime.get_name_leafdata())
+                if (self.cpwvcvalidintervals.is_set or self.cpwvcvalidintervals.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcvalidintervals.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwVcAdminStatus" or name == "cpwVcControlWord" or name == "cpwVcCreateTime" or name == "cpwVcDescr" or name == "cpwVcHoldingPriority" or name == "cpwVcID" or name == "cpwVcInboundMode" or name == "cpwVcInboundOperStatus" or name == "cpwVcInboundVcLabel" or name == "cpwVcLocalGroupID" or name == "cpwVcLocalIfMtu" or name == "cpwVcLocalIfString" or name == "cpwVcName" or name == "cpwVcOperStatus" or name == "cpwVcOutboundOperStatus" or name == "cpwVcOutboundVcLabel" or name == "cpwVcOwner" or name == "cpwVcPeerAddr" or name == "cpwVcPeerAddrType" or name == "cpwVcPsnType" or name == "cpwVcRemoteControlWord" or name == "cpwVcRemoteGroupID" or name == "cpwVcRemoteIfMtu" or name == "cpwVcRemoteIfString" or name == "cpwVcRowStatus" or name == "cpwVcSetUpPriority" or name == "cpwVcStorageType" or name == "cpwVcTimeElapsed" or name == "cpwVcType" or name == "cpwVcUpTime" or name == "cpwVcValidIntervals"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcAdminStatus"):
+                    self.cpwvcadminstatus = value
+                    self.cpwvcadminstatus.value_namespace = name_space
+                    self.cpwvcadminstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcControlWord"):
+                    self.cpwvccontrolword = value
+                    self.cpwvccontrolword.value_namespace = name_space
+                    self.cpwvccontrolword.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcCreateTime"):
+                    self.cpwvccreatetime = value
+                    self.cpwvccreatetime.value_namespace = name_space
+                    self.cpwvccreatetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcDescr"):
+                    self.cpwvcdescr = value
+                    self.cpwvcdescr.value_namespace = name_space
+                    self.cpwvcdescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcHoldingPriority"):
+                    self.cpwvcholdingpriority = value
+                    self.cpwvcholdingpriority.value_namespace = name_space
+                    self.cpwvcholdingpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcID"):
+                    self.cpwvcid = value
+                    self.cpwvcid.value_namespace = name_space
+                    self.cpwvcid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcInboundMode"):
+                    self.cpwvcinboundmode = value
+                    self.cpwvcinboundmode.value_namespace = name_space
+                    self.cpwvcinboundmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcInboundOperStatus"):
+                    self.cpwvcinboundoperstatus = value
+                    self.cpwvcinboundoperstatus.value_namespace = name_space
+                    self.cpwvcinboundoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcInboundVcLabel"):
+                    self.cpwvcinboundvclabel = value
+                    self.cpwvcinboundvclabel.value_namespace = name_space
+                    self.cpwvcinboundvclabel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcLocalGroupID"):
+                    self.cpwvclocalgroupid = value
+                    self.cpwvclocalgroupid.value_namespace = name_space
+                    self.cpwvclocalgroupid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcLocalIfMtu"):
+                    self.cpwvclocalifmtu = value
+                    self.cpwvclocalifmtu.value_namespace = name_space
+                    self.cpwvclocalifmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcLocalIfString"):
+                    self.cpwvclocalifstring = value
+                    self.cpwvclocalifstring.value_namespace = name_space
+                    self.cpwvclocalifstring.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcName"):
+                    self.cpwvcname = value
+                    self.cpwvcname.value_namespace = name_space
+                    self.cpwvcname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcOperStatus"):
+                    self.cpwvcoperstatus = value
+                    self.cpwvcoperstatus.value_namespace = name_space
+                    self.cpwvcoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcOutboundOperStatus"):
+                    self.cpwvcoutboundoperstatus = value
+                    self.cpwvcoutboundoperstatus.value_namespace = name_space
+                    self.cpwvcoutboundoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcOutboundVcLabel"):
+                    self.cpwvcoutboundvclabel = value
+                    self.cpwvcoutboundvclabel.value_namespace = name_space
+                    self.cpwvcoutboundvclabel.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcOwner"):
+                    self.cpwvcowner = value
+                    self.cpwvcowner.value_namespace = name_space
+                    self.cpwvcowner.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPeerAddr"):
+                    self.cpwvcpeeraddr = value
+                    self.cpwvcpeeraddr.value_namespace = name_space
+                    self.cpwvcpeeraddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPeerAddrType"):
+                    self.cpwvcpeeraddrtype = value
+                    self.cpwvcpeeraddrtype.value_namespace = name_space
+                    self.cpwvcpeeraddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPsnType"):
+                    self.cpwvcpsntype = value
+                    self.cpwvcpsntype.value_namespace = name_space
+                    self.cpwvcpsntype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcRemoteControlWord"):
+                    self.cpwvcremotecontrolword = value
+                    self.cpwvcremotecontrolword.value_namespace = name_space
+                    self.cpwvcremotecontrolword.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcRemoteGroupID"):
+                    self.cpwvcremotegroupid = value
+                    self.cpwvcremotegroupid.value_namespace = name_space
+                    self.cpwvcremotegroupid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcRemoteIfMtu"):
+                    self.cpwvcremoteifmtu = value
+                    self.cpwvcremoteifmtu.value_namespace = name_space
+                    self.cpwvcremoteifmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcRemoteIfString"):
+                    self.cpwvcremoteifstring = value
+                    self.cpwvcremoteifstring.value_namespace = name_space
+                    self.cpwvcremoteifstring.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcRowStatus"):
+                    self.cpwvcrowstatus = value
+                    self.cpwvcrowstatus.value_namespace = name_space
+                    self.cpwvcrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcSetUpPriority"):
+                    self.cpwvcsetuppriority = value
+                    self.cpwvcsetuppriority.value_namespace = name_space
+                    self.cpwvcsetuppriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcStorageType"):
+                    self.cpwvcstoragetype = value
+                    self.cpwvcstoragetype.value_namespace = name_space
+                    self.cpwvcstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcTimeElapsed"):
+                    self.cpwvctimeelapsed = value
+                    self.cpwvctimeelapsed.value_namespace = name_space
+                    self.cpwvctimeelapsed.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcType"):
+                    self.cpwvctype = value
+                    self.cpwvctype.value_namespace = name_space
+                    self.cpwvctype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcUpTime"):
+                    self.cpwvcuptime = value
+                    self.cpwvcuptime.value_namespace = name_space
+                    self.cpwvcuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcValidIntervals"):
+                    self.cpwvcvalidintervals = value
+                    self.cpwvcvalidintervals.value_namespace = name_space
+                    self.cpwvcvalidintervals.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcadminstatus is not None:
-                    return True
-
-                if self.cpwvccontrolword is not None:
-                    return True
-
-                if self.cpwvccreatetime is not None:
-                    return True
-
-                if self.cpwvcdescr is not None:
-                    return True
-
-                if self.cpwvcholdingpriority is not None:
-                    return True
-
-                if self.cpwvcid is not None:
-                    return True
-
-                if self.cpwvcinboundmode is not None:
-                    return True
-
-                if self.cpwvcinboundoperstatus is not None:
-                    return True
-
-                if self.cpwvcinboundvclabel is not None:
-                    return True
-
-                if self.cpwvclocalgroupid is not None:
-                    return True
-
-                if self.cpwvclocalifmtu is not None:
-                    return True
-
-                if self.cpwvclocalifstring is not None:
-                    return True
-
-                if self.cpwvcname is not None:
-                    return True
-
-                if self.cpwvcoperstatus is not None:
-                    return True
-
-                if self.cpwvcoutboundoperstatus is not None:
-                    return True
-
-                if self.cpwvcoutboundvclabel is not None:
-                    return True
-
-                if self.cpwvcowner is not None:
-                    return True
-
-                if self.cpwvcpeeraddr is not None:
-                    return True
-
-                if self.cpwvcpeeraddrtype is not None:
-                    return True
-
-                if self.cpwvcpsntype is not None:
-                    return True
-
-                if self.cpwvcremotecontrolword is not None:
-                    return True
-
-                if self.cpwvcremotegroupid is not None:
-                    return True
-
-                if self.cpwvcremoteifmtu is not None:
-                    return True
-
-                if self.cpwvcremoteifstring is not None:
-                    return True
-
-                if self.cpwvcrowstatus is not None:
-                    return True
-
-                if self.cpwvcsetuppriority is not None:
-                    return True
-
-                if self.cpwvcstoragetype is not None:
-                    return True
-
-                if self.cpwvctimeelapsed is not None:
-                    return True
-
-                if self.cpwvctype is not None:
-                    return True
-
-                if self.cpwvcuptime is not None:
-                    return True
-
-                if self.cpwvcvalidintervals is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                return meta._meta_table['CiscoIetfPwMib.Cpwvctable.Cpwvcentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcentry is not None:
-                for child_ref in self.cpwvcentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcEntry"):
+                for c in self.cpwvcentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMib.Cpwvctable.Cpwvcentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-            return meta._meta_table['CiscoIetfPwMib.Cpwvctable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcperfcurrenttable(object):
+    class Cpwvcperfcurrenttable(Entity):
         """
         This table provides per\-VC performance information for the  
         current interval.
@@ -812,13 +1209,39 @@ class CiscoIetfPwMib(object):
         _revision = '2004-03-17'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcperfcurrententry = YList()
-            self.cpwvcperfcurrententry.parent = self
-            self.cpwvcperfcurrententry.name = 'cpwvcperfcurrententry'
+            super(CiscoIetfPwMib.Cpwvcperfcurrenttable, self).__init__()
+
+            self.yang_name = "cpwVcPerfCurrentTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MIB"
+
+            self.cpwvcperfcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMib.Cpwvcperfcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMib.Cpwvcperfcurrenttable, self).__setattr__(name, value)
 
 
-        class Cpwvcperfcurrententry(object):
+        class Cpwvcperfcurrententry(Entity):
             """
             An entry in this table is created by the agent for 
             every VC.
@@ -868,71 +1291,187 @@ class CiscoIetfPwMib(object):
             _revision = '2004-03-17'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwvcperfcurrentinhcbytes = None
-                self.cpwvcperfcurrentinhcpackets = None
-                self.cpwvcperfcurrentouthcbytes = None
-                self.cpwvcperfcurrentouthcpackets = None
+                super(CiscoIetfPwMib.Cpwvcperfcurrenttable.Cpwvcperfcurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
+                self.yang_name = "cpwVcPerfCurrentEntry"
+                self.yang_parent_name = "cpwVcPerfCurrentTable"
 
-                return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPerfCurrentTable/CISCO-IETF-PW-MIB:cpwVcPerfCurrentEntry[CISCO-IETF-PW-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwvcperfcurrentinhcbytes = YLeaf(YType.uint64, "cpwVcPerfCurrentInHCBytes")
+
+                self.cpwvcperfcurrentinhcpackets = YLeaf(YType.uint64, "cpwVcPerfCurrentInHCPackets")
+
+                self.cpwvcperfcurrentouthcbytes = YLeaf(YType.uint64, "cpwVcPerfCurrentOutHCBytes")
+
+                self.cpwvcperfcurrentouthcpackets = YLeaf(YType.uint64, "cpwVcPerfCurrentOutHCPackets")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwvcperfcurrentinhcbytes",
+                                "cpwvcperfcurrentinhcpackets",
+                                "cpwvcperfcurrentouthcbytes",
+                                "cpwvcperfcurrentouthcpackets") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMib.Cpwvcperfcurrenttable.Cpwvcperfcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMib.Cpwvcperfcurrenttable.Cpwvcperfcurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwvcperfcurrentinhcbytes.is_set or
+                    self.cpwvcperfcurrentinhcpackets.is_set or
+                    self.cpwvcperfcurrentouthcbytes.is_set or
+                    self.cpwvcperfcurrentouthcpackets.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwvcperfcurrentinhcbytes.yfilter != YFilter.not_set or
+                    self.cpwvcperfcurrentinhcpackets.yfilter != YFilter.not_set or
+                    self.cpwvcperfcurrentouthcbytes.yfilter != YFilter.not_set or
+                    self.cpwvcperfcurrentouthcpackets.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcPerfCurrentEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwvcperfcurrentinhcbytes.is_set or self.cpwvcperfcurrentinhcbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfcurrentinhcbytes.get_name_leafdata())
+                if (self.cpwvcperfcurrentinhcpackets.is_set or self.cpwvcperfcurrentinhcpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfcurrentinhcpackets.get_name_leafdata())
+                if (self.cpwvcperfcurrentouthcbytes.is_set or self.cpwvcperfcurrentouthcbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfcurrentouthcbytes.get_name_leafdata())
+                if (self.cpwvcperfcurrentouthcpackets.is_set or self.cpwvcperfcurrentouthcpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfcurrentouthcpackets.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwVcPerfCurrentInHCBytes" or name == "cpwVcPerfCurrentInHCPackets" or name == "cpwVcPerfCurrentOutHCBytes" or name == "cpwVcPerfCurrentOutHCPackets"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfCurrentInHCBytes"):
+                    self.cpwvcperfcurrentinhcbytes = value
+                    self.cpwvcperfcurrentinhcbytes.value_namespace = name_space
+                    self.cpwvcperfcurrentinhcbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfCurrentInHCPackets"):
+                    self.cpwvcperfcurrentinhcpackets = value
+                    self.cpwvcperfcurrentinhcpackets.value_namespace = name_space
+                    self.cpwvcperfcurrentinhcpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfCurrentOutHCBytes"):
+                    self.cpwvcperfcurrentouthcbytes = value
+                    self.cpwvcperfcurrentouthcbytes.value_namespace = name_space
+                    self.cpwvcperfcurrentouthcbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfCurrentOutHCPackets"):
+                    self.cpwvcperfcurrentouthcpackets = value
+                    self.cpwvcperfcurrentouthcpackets.value_namespace = name_space
+                    self.cpwvcperfcurrentouthcpackets.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcperfcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcperfcurrentinhcbytes is not None:
-                    return True
-
-                if self.cpwvcperfcurrentinhcpackets is not None:
-                    return True
-
-                if self.cpwvcperfcurrentouthcbytes is not None:
-                    return True
-
-                if self.cpwvcperfcurrentouthcpackets is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                return meta._meta_table['CiscoIetfPwMib.Cpwvcperfcurrenttable.Cpwvcperfcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPerfCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcperfcurrententry is not None:
-                for child_ref in self.cpwvcperfcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcperfcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcPerfCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcPerfCurrentEntry"):
+                for c in self.cpwvcperfcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMib.Cpwvcperfcurrenttable.Cpwvcperfcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcperfcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcPerfCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-            return meta._meta_table['CiscoIetfPwMib.Cpwvcperfcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcperfintervaltable(object):
+    class Cpwvcperfintervaltable(Entity):
         """
         This table provides per\-VC performance information for  
         each interval.
@@ -950,13 +1489,39 @@ class CiscoIetfPwMib(object):
         _revision = '2004-03-17'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcperfintervalentry = YList()
-            self.cpwvcperfintervalentry.parent = self
-            self.cpwvcperfintervalentry.name = 'cpwvcperfintervalentry'
+            super(CiscoIetfPwMib.Cpwvcperfintervaltable, self).__init__()
+
+            self.yang_name = "cpwVcPerfIntervalTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MIB"
+
+            self.cpwvcperfintervalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMib.Cpwvcperfintervaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMib.Cpwvcperfintervaltable, self).__setattr__(name, value)
 
 
-        class Cpwvcperfintervalentry(object):
+        class Cpwvcperfintervalentry(Entity):
             """
             An entry in this table is created agent for every VC.
             
@@ -1024,85 +1589,220 @@ class CiscoIetfPwMib(object):
             _revision = '2004-03-17'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwvcperfintervalnumber = None
-                self.cpwvcperfintervalinhcbytes = None
-                self.cpwvcperfintervalinhcpackets = None
-                self.cpwvcperfintervalouthcbytes = None
-                self.cpwvcperfintervalouthcpackets = None
-                self.cpwvcperfintervaltimeelapsed = None
-                self.cpwvcperfintervalvaliddata = None
+                super(CiscoIetfPwMib.Cpwvcperfintervaltable.Cpwvcperfintervalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
-                if self.cpwvcperfintervalnumber is None:
-                    raise YPYModelError('Key property cpwvcperfintervalnumber is None')
+                self.yang_name = "cpwVcPerfIntervalEntry"
+                self.yang_parent_name = "cpwVcPerfIntervalTable"
 
-                return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPerfIntervalTable/CISCO-IETF-PW-MIB:cpwVcPerfIntervalEntry[CISCO-IETF-PW-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + '][CISCO-IETF-PW-MIB:cpwVcPerfIntervalNumber = ' + str(self.cpwvcperfintervalnumber) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwvcperfintervalnumber = YLeaf(YType.int32, "cpwVcPerfIntervalNumber")
+
+                self.cpwvcperfintervalinhcbytes = YLeaf(YType.uint64, "cpwVcPerfIntervalInHCBytes")
+
+                self.cpwvcperfintervalinhcpackets = YLeaf(YType.uint64, "cpwVcPerfIntervalInHCPackets")
+
+                self.cpwvcperfintervalouthcbytes = YLeaf(YType.uint64, "cpwVcPerfIntervalOutHCBytes")
+
+                self.cpwvcperfintervalouthcpackets = YLeaf(YType.uint64, "cpwVcPerfIntervalOutHCPackets")
+
+                self.cpwvcperfintervaltimeelapsed = YLeaf(YType.int32, "cpwVcPerfIntervalTimeElapsed")
+
+                self.cpwvcperfintervalvaliddata = YLeaf(YType.boolean, "cpwVcPerfIntervalValidData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwvcperfintervalnumber",
+                                "cpwvcperfintervalinhcbytes",
+                                "cpwvcperfintervalinhcpackets",
+                                "cpwvcperfintervalouthcbytes",
+                                "cpwvcperfintervalouthcpackets",
+                                "cpwvcperfintervaltimeelapsed",
+                                "cpwvcperfintervalvaliddata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMib.Cpwvcperfintervaltable.Cpwvcperfintervalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMib.Cpwvcperfintervaltable.Cpwvcperfintervalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwvcperfintervalnumber.is_set or
+                    self.cpwvcperfintervalinhcbytes.is_set or
+                    self.cpwvcperfintervalinhcpackets.is_set or
+                    self.cpwvcperfintervalouthcbytes.is_set or
+                    self.cpwvcperfintervalouthcpackets.is_set or
+                    self.cpwvcperfintervaltimeelapsed.is_set or
+                    self.cpwvcperfintervalvaliddata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwvcperfintervalnumber.yfilter != YFilter.not_set or
+                    self.cpwvcperfintervalinhcbytes.yfilter != YFilter.not_set or
+                    self.cpwvcperfintervalinhcpackets.yfilter != YFilter.not_set or
+                    self.cpwvcperfintervalouthcbytes.yfilter != YFilter.not_set or
+                    self.cpwvcperfintervalouthcpackets.yfilter != YFilter.not_set or
+                    self.cpwvcperfintervaltimeelapsed.yfilter != YFilter.not_set or
+                    self.cpwvcperfintervalvaliddata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcPerfIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcPerfIntervalNumber='" + self.cpwvcperfintervalnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfIntervalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwvcperfintervalnumber.is_set or self.cpwvcperfintervalnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfintervalnumber.get_name_leafdata())
+                if (self.cpwvcperfintervalinhcbytes.is_set or self.cpwvcperfintervalinhcbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfintervalinhcbytes.get_name_leafdata())
+                if (self.cpwvcperfintervalinhcpackets.is_set or self.cpwvcperfintervalinhcpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfintervalinhcpackets.get_name_leafdata())
+                if (self.cpwvcperfintervalouthcbytes.is_set or self.cpwvcperfintervalouthcbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfintervalouthcbytes.get_name_leafdata())
+                if (self.cpwvcperfintervalouthcpackets.is_set or self.cpwvcperfintervalouthcpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfintervalouthcpackets.get_name_leafdata())
+                if (self.cpwvcperfintervaltimeelapsed.is_set or self.cpwvcperfintervaltimeelapsed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfintervaltimeelapsed.get_name_leafdata())
+                if (self.cpwvcperfintervalvaliddata.is_set or self.cpwvcperfintervalvaliddata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperfintervalvaliddata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwVcPerfIntervalNumber" or name == "cpwVcPerfIntervalInHCBytes" or name == "cpwVcPerfIntervalInHCPackets" or name == "cpwVcPerfIntervalOutHCBytes" or name == "cpwVcPerfIntervalOutHCPackets" or name == "cpwVcPerfIntervalTimeElapsed" or name == "cpwVcPerfIntervalValidData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfIntervalNumber"):
+                    self.cpwvcperfintervalnumber = value
+                    self.cpwvcperfintervalnumber.value_namespace = name_space
+                    self.cpwvcperfintervalnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfIntervalInHCBytes"):
+                    self.cpwvcperfintervalinhcbytes = value
+                    self.cpwvcperfintervalinhcbytes.value_namespace = name_space
+                    self.cpwvcperfintervalinhcbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfIntervalInHCPackets"):
+                    self.cpwvcperfintervalinhcpackets = value
+                    self.cpwvcperfintervalinhcpackets.value_namespace = name_space
+                    self.cpwvcperfintervalinhcpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfIntervalOutHCBytes"):
+                    self.cpwvcperfintervalouthcbytes = value
+                    self.cpwvcperfintervalouthcbytes.value_namespace = name_space
+                    self.cpwvcperfintervalouthcbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfIntervalOutHCPackets"):
+                    self.cpwvcperfintervalouthcpackets = value
+                    self.cpwvcperfintervalouthcpackets.value_namespace = name_space
+                    self.cpwvcperfintervalouthcpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfIntervalTimeElapsed"):
+                    self.cpwvcperfintervaltimeelapsed = value
+                    self.cpwvcperfintervaltimeelapsed.value_namespace = name_space
+                    self.cpwvcperfintervaltimeelapsed.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfIntervalValidData"):
+                    self.cpwvcperfintervalvaliddata = value
+                    self.cpwvcperfintervalvaliddata.value_namespace = name_space
+                    self.cpwvcperfintervalvaliddata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcperfintervalentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcperfintervalnumber is not None:
-                    return True
-
-                if self.cpwvcperfintervalinhcbytes is not None:
-                    return True
-
-                if self.cpwvcperfintervalinhcpackets is not None:
-                    return True
-
-                if self.cpwvcperfintervalouthcbytes is not None:
-                    return True
-
-                if self.cpwvcperfintervalouthcpackets is not None:
-                    return True
-
-                if self.cpwvcperfintervaltimeelapsed is not None:
-                    return True
-
-                if self.cpwvcperfintervalvaliddata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                return meta._meta_table['CiscoIetfPwMib.Cpwvcperfintervaltable.Cpwvcperfintervalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPerfIntervalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcperfintervalentry is not None:
-                for child_ref in self.cpwvcperfintervalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcperfintervalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcPerfIntervalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcPerfIntervalEntry"):
+                for c in self.cpwvcperfintervalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMib.Cpwvcperfintervaltable.Cpwvcperfintervalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcperfintervalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcPerfIntervalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-            return meta._meta_table['CiscoIetfPwMib.Cpwvcperfintervaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcperftotaltable(object):
+    class Cpwvcperftotaltable(Entity):
         """
         This table provides per\-VC Performance information from VC  
         start time.
@@ -1120,13 +1820,39 @@ class CiscoIetfPwMib(object):
         _revision = '2004-03-17'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcperftotalentry = YList()
-            self.cpwvcperftotalentry.parent = self
-            self.cpwvcperftotalentry.name = 'cpwvcperftotalentry'
+            super(CiscoIetfPwMib.Cpwvcperftotaltable, self).__init__()
+
+            self.yang_name = "cpwVcPerfTotalTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MIB"
+
+            self.cpwvcperftotalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMib.Cpwvcperftotaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMib.Cpwvcperftotaltable, self).__setattr__(name, value)
 
 
-        class Cpwvcperftotalentry(object):
+        class Cpwvcperftotalentry(Entity):
             """
             An entry in this table is created agent for every VC.
             
@@ -1182,75 +1908,198 @@ class CiscoIetfPwMib(object):
             _revision = '2004-03-17'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwvcperftotaldiscontinuitytime = None
-                self.cpwvcperftotalinhcbytes = None
-                self.cpwvcperftotalinhcpackets = None
-                self.cpwvcperftotalouthcbytes = None
-                self.cpwvcperftotalouthcpackets = None
+                super(CiscoIetfPwMib.Cpwvcperftotaltable.Cpwvcperftotalentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
+                self.yang_name = "cpwVcPerfTotalEntry"
+                self.yang_parent_name = "cpwVcPerfTotalTable"
 
-                return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPerfTotalTable/CISCO-IETF-PW-MIB:cpwVcPerfTotalEntry[CISCO-IETF-PW-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwvcperftotaldiscontinuitytime = YLeaf(YType.uint32, "cpwVcPerfTotalDiscontinuityTime")
+
+                self.cpwvcperftotalinhcbytes = YLeaf(YType.uint64, "cpwVcPerfTotalInHCBytes")
+
+                self.cpwvcperftotalinhcpackets = YLeaf(YType.uint64, "cpwVcPerfTotalInHCPackets")
+
+                self.cpwvcperftotalouthcbytes = YLeaf(YType.uint64, "cpwVcPerfTotalOutHCBytes")
+
+                self.cpwvcperftotalouthcpackets = YLeaf(YType.uint64, "cpwVcPerfTotalOutHCPackets")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwvcperftotaldiscontinuitytime",
+                                "cpwvcperftotalinhcbytes",
+                                "cpwvcperftotalinhcpackets",
+                                "cpwvcperftotalouthcbytes",
+                                "cpwvcperftotalouthcpackets") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMib.Cpwvcperftotaltable.Cpwvcperftotalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMib.Cpwvcperftotaltable.Cpwvcperftotalentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwvcperftotaldiscontinuitytime.is_set or
+                    self.cpwvcperftotalinhcbytes.is_set or
+                    self.cpwvcperftotalinhcpackets.is_set or
+                    self.cpwvcperftotalouthcbytes.is_set or
+                    self.cpwvcperftotalouthcpackets.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwvcperftotaldiscontinuitytime.yfilter != YFilter.not_set or
+                    self.cpwvcperftotalinhcbytes.yfilter != YFilter.not_set or
+                    self.cpwvcperftotalinhcpackets.yfilter != YFilter.not_set or
+                    self.cpwvcperftotalouthcbytes.yfilter != YFilter.not_set or
+                    self.cpwvcperftotalouthcpackets.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcPerfTotalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfTotalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwvcperftotaldiscontinuitytime.is_set or self.cpwvcperftotaldiscontinuitytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperftotaldiscontinuitytime.get_name_leafdata())
+                if (self.cpwvcperftotalinhcbytes.is_set or self.cpwvcperftotalinhcbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperftotalinhcbytes.get_name_leafdata())
+                if (self.cpwvcperftotalinhcpackets.is_set or self.cpwvcperftotalinhcpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperftotalinhcpackets.get_name_leafdata())
+                if (self.cpwvcperftotalouthcbytes.is_set or self.cpwvcperftotalouthcbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperftotalouthcbytes.get_name_leafdata())
+                if (self.cpwvcperftotalouthcpackets.is_set or self.cpwvcperftotalouthcpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcperftotalouthcpackets.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwVcPerfTotalDiscontinuityTime" or name == "cpwVcPerfTotalInHCBytes" or name == "cpwVcPerfTotalInHCPackets" or name == "cpwVcPerfTotalOutHCBytes" or name == "cpwVcPerfTotalOutHCPackets"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfTotalDiscontinuityTime"):
+                    self.cpwvcperftotaldiscontinuitytime = value
+                    self.cpwvcperftotaldiscontinuitytime.value_namespace = name_space
+                    self.cpwvcperftotaldiscontinuitytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfTotalInHCBytes"):
+                    self.cpwvcperftotalinhcbytes = value
+                    self.cpwvcperftotalinhcbytes.value_namespace = name_space
+                    self.cpwvcperftotalinhcbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfTotalInHCPackets"):
+                    self.cpwvcperftotalinhcpackets = value
+                    self.cpwvcperftotalinhcpackets.value_namespace = name_space
+                    self.cpwvcperftotalinhcpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfTotalOutHCBytes"):
+                    self.cpwvcperftotalouthcbytes = value
+                    self.cpwvcperftotalouthcbytes.value_namespace = name_space
+                    self.cpwvcperftotalouthcbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPerfTotalOutHCPackets"):
+                    self.cpwvcperftotalouthcpackets = value
+                    self.cpwvcperftotalouthcpackets.value_namespace = name_space
+                    self.cpwvcperftotalouthcpackets.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcperftotalentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcperftotaldiscontinuitytime is not None:
-                    return True
-
-                if self.cpwvcperftotalinhcbytes is not None:
-                    return True
-
-                if self.cpwvcperftotalinhcpackets is not None:
-                    return True
-
-                if self.cpwvcperftotalouthcbytes is not None:
-                    return True
-
-                if self.cpwvcperftotalouthcpackets is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                return meta._meta_table['CiscoIetfPwMib.Cpwvcperftotaltable.Cpwvcperftotalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPerfTotalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcperftotalentry is not None:
-                for child_ref in self.cpwvcperftotalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcperftotalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcPerfTotalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcPerfTotalEntry"):
+                for c in self.cpwvcperftotalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMib.Cpwvcperftotaltable.Cpwvcperftotalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcperftotalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcPerfTotalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-            return meta._meta_table['CiscoIetfPwMib.Cpwvcperftotaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcidmappingtable(object):
+    class Cpwvcidmappingtable(Entity):
         """
         This table provides reverse mapping of the existing VCs  
         based on vc type and VC ID ordering. This table is  
@@ -1269,13 +2118,39 @@ class CiscoIetfPwMib(object):
         _revision = '2004-03-17'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcidmappingentry = YList()
-            self.cpwvcidmappingentry.parent = self
-            self.cpwvcidmappingentry.name = 'cpwvcidmappingentry'
+            super(CiscoIetfPwMib.Cpwvcidmappingtable, self).__init__()
+
+            self.yang_name = "cpwVcIdMappingTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MIB"
+
+            self.cpwvcidmappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMib.Cpwvcidmappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMib.Cpwvcidmappingtable, self).__setattr__(name, value)
 
 
-        class Cpwvcidmappingentry(object):
+        class Cpwvcidmappingentry(Entity):
             """
             An entry in this table is created by the agent for every  
             VC configured by the cpwVcTable.
@@ -1283,7 +2158,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcidmappingvctype  <key>
             
             	The VC type (indicate the service) of this VC
-            	**type**\:   :py:class:`CpwvctypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwvctypeEnum>`
+            	**type**\:   :py:class:`Cpwvctype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.Cpwvctype>`
             
             .. attribute:: cpwvcidmappingvcid  <key>
             
@@ -1295,7 +2170,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcidmappingpeeraddrtype  <key>
             
             	IP address type of the peer node
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cpwvcidmappingpeeraddr  <key>
             
@@ -1319,79 +2194,187 @@ class CiscoIetfPwMib(object):
             _revision = '2004-03-17'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcidmappingvctype = None
-                self.cpwvcidmappingvcid = None
-                self.cpwvcidmappingpeeraddrtype = None
-                self.cpwvcidmappingpeeraddr = None
-                self.cpwvcidmappingvcindex = None
+                super(CiscoIetfPwMib.Cpwvcidmappingtable.Cpwvcidmappingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcidmappingvctype is None:
-                    raise YPYModelError('Key property cpwvcidmappingvctype is None')
-                if self.cpwvcidmappingvcid is None:
-                    raise YPYModelError('Key property cpwvcidmappingvcid is None')
-                if self.cpwvcidmappingpeeraddrtype is None:
-                    raise YPYModelError('Key property cpwvcidmappingpeeraddrtype is None')
-                if self.cpwvcidmappingpeeraddr is None:
-                    raise YPYModelError('Key property cpwvcidmappingpeeraddr is None')
-                if self.cpwvcidmappingvcindex is None:
-                    raise YPYModelError('Key property cpwvcidmappingvcindex is None')
+                self.yang_name = "cpwVcIdMappingEntry"
+                self.yang_parent_name = "cpwVcIdMappingTable"
 
-                return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcIdMappingTable/CISCO-IETF-PW-MIB:cpwVcIdMappingEntry[CISCO-IETF-PW-MIB:cpwVcIdMappingVcType = ' + str(self.cpwvcidmappingvctype) + '][CISCO-IETF-PW-MIB:cpwVcIdMappingVcID = ' + str(self.cpwvcidmappingvcid) + '][CISCO-IETF-PW-MIB:cpwVcIdMappingPeerAddrType = ' + str(self.cpwvcidmappingpeeraddrtype) + '][CISCO-IETF-PW-MIB:cpwVcIdMappingPeerAddr = ' + str(self.cpwvcidmappingpeeraddr) + '][CISCO-IETF-PW-MIB:cpwVcIdMappingVcIndex = ' + str(self.cpwvcidmappingvcindex) + ']'
+                self.cpwvcidmappingvctype = YLeaf(YType.enumeration, "cpwVcIdMappingVcType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwvcidmappingvcid = YLeaf(YType.uint32, "cpwVcIdMappingVcID")
+
+                self.cpwvcidmappingpeeraddrtype = YLeaf(YType.enumeration, "cpwVcIdMappingPeerAddrType")
+
+                self.cpwvcidmappingpeeraddr = YLeaf(YType.str, "cpwVcIdMappingPeerAddr")
+
+                self.cpwvcidmappingvcindex = YLeaf(YType.uint32, "cpwVcIdMappingVcIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcidmappingvctype",
+                                "cpwvcidmappingvcid",
+                                "cpwvcidmappingpeeraddrtype",
+                                "cpwvcidmappingpeeraddr",
+                                "cpwvcidmappingvcindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMib.Cpwvcidmappingtable.Cpwvcidmappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMib.Cpwvcidmappingtable.Cpwvcidmappingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcidmappingvctype.is_set or
+                    self.cpwvcidmappingvcid.is_set or
+                    self.cpwvcidmappingpeeraddrtype.is_set or
+                    self.cpwvcidmappingpeeraddr.is_set or
+                    self.cpwvcidmappingvcindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcidmappingvctype.yfilter != YFilter.not_set or
+                    self.cpwvcidmappingvcid.yfilter != YFilter.not_set or
+                    self.cpwvcidmappingpeeraddrtype.yfilter != YFilter.not_set or
+                    self.cpwvcidmappingpeeraddr.yfilter != YFilter.not_set or
+                    self.cpwvcidmappingvcindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcIdMappingEntry" + "[cpwVcIdMappingVcType='" + self.cpwvcidmappingvctype.get() + "']" + "[cpwVcIdMappingVcID='" + self.cpwvcidmappingvcid.get() + "']" + "[cpwVcIdMappingPeerAddrType='" + self.cpwvcidmappingpeeraddrtype.get() + "']" + "[cpwVcIdMappingPeerAddr='" + self.cpwvcidmappingpeeraddr.get() + "']" + "[cpwVcIdMappingVcIndex='" + self.cpwvcidmappingvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcIdMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcidmappingvctype.is_set or self.cpwvcidmappingvctype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcidmappingvctype.get_name_leafdata())
+                if (self.cpwvcidmappingvcid.is_set or self.cpwvcidmappingvcid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcidmappingvcid.get_name_leafdata())
+                if (self.cpwvcidmappingpeeraddrtype.is_set or self.cpwvcidmappingpeeraddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcidmappingpeeraddrtype.get_name_leafdata())
+                if (self.cpwvcidmappingpeeraddr.is_set or self.cpwvcidmappingpeeraddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcidmappingpeeraddr.get_name_leafdata())
+                if (self.cpwvcidmappingvcindex.is_set or self.cpwvcidmappingvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcidmappingvcindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIdMappingVcType" or name == "cpwVcIdMappingVcID" or name == "cpwVcIdMappingPeerAddrType" or name == "cpwVcIdMappingPeerAddr" or name == "cpwVcIdMappingVcIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcidmappingvctype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIdMappingVcType"):
+                    self.cpwvcidmappingvctype = value
+                    self.cpwvcidmappingvctype.value_namespace = name_space
+                    self.cpwvcidmappingvctype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcIdMappingVcID"):
+                    self.cpwvcidmappingvcid = value
+                    self.cpwvcidmappingvcid.value_namespace = name_space
+                    self.cpwvcidmappingvcid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcIdMappingPeerAddrType"):
+                    self.cpwvcidmappingpeeraddrtype = value
+                    self.cpwvcidmappingpeeraddrtype.value_namespace = name_space
+                    self.cpwvcidmappingpeeraddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcIdMappingPeerAddr"):
+                    self.cpwvcidmappingpeeraddr = value
+                    self.cpwvcidmappingpeeraddr.value_namespace = name_space
+                    self.cpwvcidmappingpeeraddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcIdMappingVcIndex"):
+                    self.cpwvcidmappingvcindex = value
+                    self.cpwvcidmappingvcindex.value_namespace = name_space
+                    self.cpwvcidmappingvcindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcidmappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcidmappingvcid is not None:
-                    return True
-
-                if self.cpwvcidmappingpeeraddrtype is not None:
-                    return True
-
-                if self.cpwvcidmappingpeeraddr is not None:
-                    return True
-
-                if self.cpwvcidmappingvcindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                return meta._meta_table['CiscoIetfPwMib.Cpwvcidmappingtable.Cpwvcidmappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcIdMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcidmappingentry is not None:
-                for child_ref in self.cpwvcidmappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcidmappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcIdMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcIdMappingEntry"):
+                for c in self.cpwvcidmappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMib.Cpwvcidmappingtable.Cpwvcidmappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcidmappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcIdMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-            return meta._meta_table['CiscoIetfPwMib.Cpwvcidmappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcpeermappingtable(object):
+    class Cpwvcpeermappingtable(Entity):
         """
         This table provides reverse mapping of the existing VCs  
         based on vc type and VC ID ordering. This table is  
@@ -1410,13 +2393,39 @@ class CiscoIetfPwMib(object):
         _revision = '2004-03-17'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcpeermappingentry = YList()
-            self.cpwvcpeermappingentry.parent = self
-            self.cpwvcpeermappingentry.name = 'cpwvcpeermappingentry'
+            super(CiscoIetfPwMib.Cpwvcpeermappingtable, self).__init__()
+
+            self.yang_name = "cpwVcPeerMappingTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MIB"
+
+            self.cpwvcpeermappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMib.Cpwvcpeermappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMib.Cpwvcpeermappingtable, self).__setattr__(name, value)
 
 
-        class Cpwvcpeermappingentry(object):
+        class Cpwvcpeermappingentry(Entity):
             """
             An entry in this table is created by the agent for every  
             VC configured in cpwVcTable.
@@ -1424,7 +2433,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcpeermappingpeeraddrtype  <key>
             
             	IP address type of the peer node
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cpwvcpeermappingpeeraddr  <key>
             
@@ -1436,7 +2445,7 @@ class CiscoIetfPwMib(object):
             .. attribute:: cpwvcpeermappingvctype  <key>
             
             	The VC type (indicate the service) of this VC
-            	**type**\:   :py:class:`CpwvctypeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.CpwvctypeEnum>`
+            	**type**\:   :py:class:`Cpwvctype <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB.Cpwvctype>`
             
             .. attribute:: cpwvcpeermappingvcid  <key>
             
@@ -1460,113 +2469,288 @@ class CiscoIetfPwMib(object):
             _revision = '2004-03-17'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcpeermappingpeeraddrtype = None
-                self.cpwvcpeermappingpeeraddr = None
-                self.cpwvcpeermappingvctype = None
-                self.cpwvcpeermappingvcid = None
-                self.cpwvcpeermappingvcindex = None
+                super(CiscoIetfPwMib.Cpwvcpeermappingtable.Cpwvcpeermappingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcpeermappingpeeraddrtype is None:
-                    raise YPYModelError('Key property cpwvcpeermappingpeeraddrtype is None')
-                if self.cpwvcpeermappingpeeraddr is None:
-                    raise YPYModelError('Key property cpwvcpeermappingpeeraddr is None')
-                if self.cpwvcpeermappingvctype is None:
-                    raise YPYModelError('Key property cpwvcpeermappingvctype is None')
-                if self.cpwvcpeermappingvcid is None:
-                    raise YPYModelError('Key property cpwvcpeermappingvcid is None')
-                if self.cpwvcpeermappingvcindex is None:
-                    raise YPYModelError('Key property cpwvcpeermappingvcindex is None')
+                self.yang_name = "cpwVcPeerMappingEntry"
+                self.yang_parent_name = "cpwVcPeerMappingTable"
 
-                return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPeerMappingTable/CISCO-IETF-PW-MIB:cpwVcPeerMappingEntry[CISCO-IETF-PW-MIB:cpwVcPeerMappingPeerAddrType = ' + str(self.cpwvcpeermappingpeeraddrtype) + '][CISCO-IETF-PW-MIB:cpwVcPeerMappingPeerAddr = ' + str(self.cpwvcpeermappingpeeraddr) + '][CISCO-IETF-PW-MIB:cpwVcPeerMappingVcType = ' + str(self.cpwvcpeermappingvctype) + '][CISCO-IETF-PW-MIB:cpwVcPeerMappingVcID = ' + str(self.cpwvcpeermappingvcid) + '][CISCO-IETF-PW-MIB:cpwVcPeerMappingVcIndex = ' + str(self.cpwvcpeermappingvcindex) + ']'
+                self.cpwvcpeermappingpeeraddrtype = YLeaf(YType.enumeration, "cpwVcPeerMappingPeerAddrType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwvcpeermappingpeeraddr = YLeaf(YType.str, "cpwVcPeerMappingPeerAddr")
+
+                self.cpwvcpeermappingvctype = YLeaf(YType.enumeration, "cpwVcPeerMappingVcType")
+
+                self.cpwvcpeermappingvcid = YLeaf(YType.uint32, "cpwVcPeerMappingVcID")
+
+                self.cpwvcpeermappingvcindex = YLeaf(YType.uint32, "cpwVcPeerMappingVcIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcpeermappingpeeraddrtype",
+                                "cpwvcpeermappingpeeraddr",
+                                "cpwvcpeermappingvctype",
+                                "cpwvcpeermappingvcid",
+                                "cpwvcpeermappingvcindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMib.Cpwvcpeermappingtable.Cpwvcpeermappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMib.Cpwvcpeermappingtable.Cpwvcpeermappingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcpeermappingpeeraddrtype.is_set or
+                    self.cpwvcpeermappingpeeraddr.is_set or
+                    self.cpwvcpeermappingvctype.is_set or
+                    self.cpwvcpeermappingvcid.is_set or
+                    self.cpwvcpeermappingvcindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcpeermappingpeeraddrtype.yfilter != YFilter.not_set or
+                    self.cpwvcpeermappingpeeraddr.yfilter != YFilter.not_set or
+                    self.cpwvcpeermappingvctype.yfilter != YFilter.not_set or
+                    self.cpwvcpeermappingvcid.yfilter != YFilter.not_set or
+                    self.cpwvcpeermappingvcindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcPeerMappingEntry" + "[cpwVcPeerMappingPeerAddrType='" + self.cpwvcpeermappingpeeraddrtype.get() + "']" + "[cpwVcPeerMappingPeerAddr='" + self.cpwvcpeermappingpeeraddr.get() + "']" + "[cpwVcPeerMappingVcType='" + self.cpwvcpeermappingvctype.get() + "']" + "[cpwVcPeerMappingVcID='" + self.cpwvcpeermappingvcid.get() + "']" + "[cpwVcPeerMappingVcIndex='" + self.cpwvcpeermappingvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPeerMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcpeermappingpeeraddrtype.is_set or self.cpwvcpeermappingpeeraddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpeermappingpeeraddrtype.get_name_leafdata())
+                if (self.cpwvcpeermappingpeeraddr.is_set or self.cpwvcpeermappingpeeraddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpeermappingpeeraddr.get_name_leafdata())
+                if (self.cpwvcpeermappingvctype.is_set or self.cpwvcpeermappingvctype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpeermappingvctype.get_name_leafdata())
+                if (self.cpwvcpeermappingvcid.is_set or self.cpwvcpeermappingvcid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpeermappingvcid.get_name_leafdata())
+                if (self.cpwvcpeermappingvcindex.is_set or self.cpwvcpeermappingvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcpeermappingvcindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcPeerMappingPeerAddrType" or name == "cpwVcPeerMappingPeerAddr" or name == "cpwVcPeerMappingVcType" or name == "cpwVcPeerMappingVcID" or name == "cpwVcPeerMappingVcIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcpeermappingpeeraddrtype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcPeerMappingPeerAddrType"):
+                    self.cpwvcpeermappingpeeraddrtype = value
+                    self.cpwvcpeermappingpeeraddrtype.value_namespace = name_space
+                    self.cpwvcpeermappingpeeraddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPeerMappingPeerAddr"):
+                    self.cpwvcpeermappingpeeraddr = value
+                    self.cpwvcpeermappingpeeraddr.value_namespace = name_space
+                    self.cpwvcpeermappingpeeraddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPeerMappingVcType"):
+                    self.cpwvcpeermappingvctype = value
+                    self.cpwvcpeermappingvctype.value_namespace = name_space
+                    self.cpwvcpeermappingvctype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPeerMappingVcID"):
+                    self.cpwvcpeermappingvcid = value
+                    self.cpwvcpeermappingvcid.value_namespace = name_space
+                    self.cpwvcpeermappingvcid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcPeerMappingVcIndex"):
+                    self.cpwvcpeermappingvcindex = value
+                    self.cpwvcpeermappingvcindex.value_namespace = name_space
+                    self.cpwvcpeermappingvcindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcpeermappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcpeermappingpeeraddr is not None:
-                    return True
-
-                if self.cpwvcpeermappingvctype is not None:
-                    return True
-
-                if self.cpwvcpeermappingvcid is not None:
-                    return True
-
-                if self.cpwvcpeermappingvcindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-                return meta._meta_table['CiscoIetfPwMib.Cpwvcpeermappingtable.Cpwvcpeermappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/CISCO-IETF-PW-MIB:cpwVcPeerMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcpeermappingentry is not None:
-                for child_ref in self.cpwvcpeermappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcpeermappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcPeerMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcPeerMappingEntry"):
+                for c in self.cpwvcpeermappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMib.Cpwvcpeermappingtable.Cpwvcpeermappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcpeermappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcPeerMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-            return meta._meta_table['CiscoIetfPwMib.Cpwvcpeermappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cpwvcidmappingtable is not None and self.cpwvcidmappingtable.has_data()) or
+            (self.cpwvcobjects is not None and self.cpwvcobjects.has_data()) or
+            (self.cpwvcpeermappingtable is not None and self.cpwvcpeermappingtable.has_data()) or
+            (self.cpwvcperfcurrenttable is not None and self.cpwvcperfcurrenttable.has_data()) or
+            (self.cpwvcperfintervaltable is not None and self.cpwvcperfintervaltable.has_data()) or
+            (self.cpwvcperftotaltable is not None and self.cpwvcperftotaltable.has_data()) or
+            (self.cpwvctable is not None and self.cpwvctable.has_data()))
 
-        return '/CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cpwvcidmappingtable is not None and self.cpwvcidmappingtable.has_operation()) or
+            (self.cpwvcobjects is not None and self.cpwvcobjects.has_operation()) or
+            (self.cpwvcpeermappingtable is not None and self.cpwvcpeermappingtable.has_operation()) or
+            (self.cpwvcperfcurrenttable is not None and self.cpwvcperfcurrenttable.has_operation()) or
+            (self.cpwvcperfintervaltable is not None and self.cpwvcperfintervaltable.has_operation()) or
+            (self.cpwvcperftotaltable is not None and self.cpwvcperftotaltable.has_operation()) or
+            (self.cpwvctable is not None and self.cpwvctable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cpwVcIdMappingTable"):
+            if (self.cpwvcidmappingtable is None):
+                self.cpwvcidmappingtable = CiscoIetfPwMib.Cpwvcidmappingtable()
+                self.cpwvcidmappingtable.parent = self
+                self._children_name_map["cpwvcidmappingtable"] = "cpwVcIdMappingTable"
+            return self.cpwvcidmappingtable
+
+        if (child_yang_name == "cpwVcObjects"):
+            if (self.cpwvcobjects is None):
+                self.cpwvcobjects = CiscoIetfPwMib.Cpwvcobjects()
+                self.cpwvcobjects.parent = self
+                self._children_name_map["cpwvcobjects"] = "cpwVcObjects"
+            return self.cpwvcobjects
+
+        if (child_yang_name == "cpwVcPeerMappingTable"):
+            if (self.cpwvcpeermappingtable is None):
+                self.cpwvcpeermappingtable = CiscoIetfPwMib.Cpwvcpeermappingtable()
+                self.cpwvcpeermappingtable.parent = self
+                self._children_name_map["cpwvcpeermappingtable"] = "cpwVcPeerMappingTable"
+            return self.cpwvcpeermappingtable
+
+        if (child_yang_name == "cpwVcPerfCurrentTable"):
+            if (self.cpwvcperfcurrenttable is None):
+                self.cpwvcperfcurrenttable = CiscoIetfPwMib.Cpwvcperfcurrenttable()
+                self.cpwvcperfcurrenttable.parent = self
+                self._children_name_map["cpwvcperfcurrenttable"] = "cpwVcPerfCurrentTable"
+            return self.cpwvcperfcurrenttable
+
+        if (child_yang_name == "cpwVcPerfIntervalTable"):
+            if (self.cpwvcperfintervaltable is None):
+                self.cpwvcperfintervaltable = CiscoIetfPwMib.Cpwvcperfintervaltable()
+                self.cpwvcperfintervaltable.parent = self
+                self._children_name_map["cpwvcperfintervaltable"] = "cpwVcPerfIntervalTable"
+            return self.cpwvcperfintervaltable
+
+        if (child_yang_name == "cpwVcPerfTotalTable"):
+            if (self.cpwvcperftotaltable is None):
+                self.cpwvcperftotaltable = CiscoIetfPwMib.Cpwvcperftotaltable()
+                self.cpwvcperftotaltable.parent = self
+                self._children_name_map["cpwvcperftotaltable"] = "cpwVcPerfTotalTable"
+            return self.cpwvcperftotaltable
+
+        if (child_yang_name == "cpwVcTable"):
+            if (self.cpwvctable is None):
+                self.cpwvctable = CiscoIetfPwMib.Cpwvctable()
+                self.cpwvctable.parent = self
+                self._children_name_map["cpwvctable"] = "cpwVcTable"
+            return self.cpwvctable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cpwVcIdMappingTable" or name == "cpwVcObjects" or name == "cpwVcPeerMappingTable" or name == "cpwVcPerfCurrentTable" or name == "cpwVcPerfIntervalTable" or name == "cpwVcPerfTotalTable" or name == "cpwVcTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cpwvcidmappingtable is not None and self.cpwvcidmappingtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cpwvcobjects is not None and self.cpwvcobjects._has_data():
-            return True
-
-        if self.cpwvcpeermappingtable is not None and self.cpwvcpeermappingtable._has_data():
-            return True
-
-        if self.cpwvcperfcurrenttable is not None and self.cpwvcperfcurrenttable._has_data():
-            return True
-
-        if self.cpwvcperfintervaltable is not None and self.cpwvcperfintervaltable._has_data():
-            return True
-
-        if self.cpwvcperftotaltable is not None and self.cpwvcperftotaltable._has_data():
-            return True
-
-        if self.cpwvctable is not None and self.cpwvctable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MIB as meta
-        return meta._meta_table['CiscoIetfPwMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIetfPwMib()
+        return self._top_entity
 

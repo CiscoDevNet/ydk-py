@@ -4,22 +4,16 @@ This module defines textual conventions used throughout
 cisco enterprise mibs.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CiscoalarmseverityEnum(Enum):
+class Ciscoalarmseverity(Enum):
     """
-    CiscoalarmseverityEnum
+    Ciscoalarmseverity
 
     Represents the perceived alarm severity associated
 
@@ -109,30 +103,24 @@ class CiscoalarmseverityEnum(Enum):
 
     """
 
-    cleared = 1
+    cleared = Enum.YLeaf(1, "cleared")
 
-    indeterminate = 2
+    indeterminate = Enum.YLeaf(2, "indeterminate")
 
-    critical = 3
+    critical = Enum.YLeaf(3, "critical")
 
-    major = 4
+    major = Enum.YLeaf(4, "major")
 
-    minor = 5
+    minor = Enum.YLeaf(5, "minor")
 
-    warning = 6
+    warning = Enum.YLeaf(6, "warning")
 
-    info = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_TC as meta
-        return meta._meta_table['CiscoalarmseverityEnum']
+    info = Enum.YLeaf(7, "info")
 
 
-class CiscolocationclassEnum(Enum):
+class Ciscolocationclass(Enum):
     """
-    CiscolocationclassEnum
+    Ciscolocationclass
 
     An enumerated value which provides an indication of
 
@@ -180,32 +168,26 @@ class CiscolocationclassEnum(Enum):
 
     """
 
-    chassis = 1
+    chassis = Enum.YLeaf(1, "chassis")
 
-    shelf = 2
+    shelf = Enum.YLeaf(2, "shelf")
 
-    slot = 3
+    slot = Enum.YLeaf(3, "slot")
 
-    subSlot = 4
+    subSlot = Enum.YLeaf(4, "subSlot")
 
-    port = 5
+    port = Enum.YLeaf(5, "port")
 
-    subPort = 6
+    subPort = Enum.YLeaf(6, "subPort")
 
-    channel = 7
+    channel = Enum.YLeaf(7, "channel")
 
-    subChannel = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_TC as meta
-        return meta._meta_table['CiscolocationclassEnum']
+    subChannel = Enum.YLeaf(8, "subChannel")
 
 
-class CisconetworkprotocolEnum(Enum):
+class Cisconetworkprotocol(Enum):
     """
-    CisconetworkprotocolEnum
+    Cisconetworkprotocol
 
     Represents the different types of network layer protocols.
 
@@ -263,68 +245,62 @@ class CisconetworkprotocolEnum(Enum):
 
     """
 
-    ip = 1
+    ip = Enum.YLeaf(1, "ip")
 
-    decnet = 2
+    decnet = Enum.YLeaf(2, "decnet")
 
-    pup = 3
+    pup = Enum.YLeaf(3, "pup")
 
-    chaos = 4
+    chaos = Enum.YLeaf(4, "chaos")
 
-    xns = 5
+    xns = Enum.YLeaf(5, "xns")
 
-    x121 = 6
+    x121 = Enum.YLeaf(6, "x121")
 
-    appletalk = 7
+    appletalk = Enum.YLeaf(7, "appletalk")
 
-    clns = 8
+    clns = Enum.YLeaf(8, "clns")
 
-    lat = 9
+    lat = Enum.YLeaf(9, "lat")
 
-    vines = 10
+    vines = Enum.YLeaf(10, "vines")
 
-    cons = 11
+    cons = Enum.YLeaf(11, "cons")
 
-    apollo = 12
+    apollo = Enum.YLeaf(12, "apollo")
 
-    stun = 13
+    stun = Enum.YLeaf(13, "stun")
 
-    novell = 14
+    novell = Enum.YLeaf(14, "novell")
 
-    qllc = 15
+    qllc = Enum.YLeaf(15, "qllc")
 
-    snapshot = 16
+    snapshot = Enum.YLeaf(16, "snapshot")
 
-    atmIlmi = 17
+    atmIlmi = Enum.YLeaf(17, "atmIlmi")
 
-    bstun = 18
+    bstun = Enum.YLeaf(18, "bstun")
 
-    x25pvc = 19
+    x25pvc = Enum.YLeaf(19, "x25pvc")
 
-    ipv6 = 20
+    ipv6 = Enum.YLeaf(20, "ipv6")
 
-    cdm = 21
+    cdm = Enum.YLeaf(21, "cdm")
 
-    nbf = 22
+    nbf = Enum.YLeaf(22, "nbf")
 
-    bpxIgx = 23
+    bpxIgx = Enum.YLeaf(23, "bpxIgx")
 
-    clnsPfx = 24
+    clnsPfx = Enum.YLeaf(24, "clnsPfx")
 
-    http = 25
+    http = Enum.YLeaf(25, "http")
 
-    unknown = 65535
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_TC as meta
-        return meta._meta_table['CisconetworkprotocolEnum']
+    unknown = Enum.YLeaf(65535, "unknown")
 
 
-class CiscoportlistrangeEnum(Enum):
+class Ciscoportlistrange(Enum):
     """
-    CiscoportlistrangeEnum
+    Ciscoportlistrange
 
     Indicates the port range.
 
@@ -384,32 +360,26 @@ class CiscoportlistrangeEnum(Enum):
 
     """
 
-    oneto2k = 1
+    oneto2k = Enum.YLeaf(1, "oneto2k")
 
-    twoKto4K = 2
+    twoKto4K = Enum.YLeaf(2, "twoKto4K")
 
-    fourKto6K = 3
+    fourKto6K = Enum.YLeaf(3, "fourKto6K")
 
-    sixKto8K = 4
+    sixKto8K = Enum.YLeaf(4, "sixKto8K")
 
-    eightKto10K = 5
+    eightKto10K = Enum.YLeaf(5, "eightKto10K")
 
-    tenKto12K = 6
+    tenKto12K = Enum.YLeaf(6, "tenKto12K")
 
-    twelveKto14K = 7
+    twelveKto14K = Enum.YLeaf(7, "twelveKto14K")
 
-    fourteenKto16K = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_TC as meta
-        return meta._meta_table['CiscoportlistrangeEnum']
+    fourteenKto16K = Enum.YLeaf(8, "fourteenKto16K")
 
 
-class CiscorowoperstatusEnum(Enum):
+class Ciscorowoperstatus(Enum):
     """
-    CiscorowoperstatusEnum
+    Ciscorowoperstatus
 
     Represents the operational status of an table entry.
 
@@ -451,24 +421,18 @@ class CiscorowoperstatusEnum(Enum):
 
     """
 
-    active = 1
+    active = Enum.YLeaf(1, "active")
 
-    activeDependencies = 2
+    activeDependencies = Enum.YLeaf(2, "activeDependencies")
 
-    inactiveDependency = 3
+    inactiveDependency = Enum.YLeaf(3, "inactiveDependency")
 
-    missingDependency = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_TC as meta
-        return meta._meta_table['CiscorowoperstatusEnum']
+    missingDependency = Enum.YLeaf(4, "missingDependency")
 
 
-class IfoperstatusreasonEnum(Enum):
+class Ifoperstatusreason(Enum):
     """
-    IfoperstatusreasonEnum
+    Ifoperstatusreason
 
     The cause of current operational state of the
 
@@ -2152,578 +2116,553 @@ class IfoperstatusreasonEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    none = 2
+    none = Enum.YLeaf(2, "none")
 
-    hwFailure = 3
+    hwFailure = Enum.YLeaf(3, "hwFailure")
 
-    loopbackDiagFailure = 4
+    loopbackDiagFailure = Enum.YLeaf(4, "loopbackDiagFailure")
 
-    errorDisabled = 5
+    errorDisabled = Enum.YLeaf(5, "errorDisabled")
 
-    swFailure = 6
+    swFailure = Enum.YLeaf(6, "swFailure")
 
-    linkFailure = 7
+    linkFailure = Enum.YLeaf(7, "linkFailure")
 
-    offline = 8
+    offline = Enum.YLeaf(8, "offline")
 
-    nonParticipating = 9
+    nonParticipating = Enum.YLeaf(9, "nonParticipating")
 
-    initializing = 10
+    initializing = Enum.YLeaf(10, "initializing")
 
-    vsanInactive = 11
+    vsanInactive = Enum.YLeaf(11, "vsanInactive")
 
-    adminDown = 12
+    adminDown = Enum.YLeaf(12, "adminDown")
 
-    channelAdminDown = 13
+    channelAdminDown = Enum.YLeaf(13, "channelAdminDown")
 
-    channelOperSuspended = 14
+    channelOperSuspended = Enum.YLeaf(14, "channelOperSuspended")
 
-    channelConfigurationInProgress = 15
+    channelConfigurationInProgress = Enum.YLeaf(15, "channelConfigurationInProgress")
 
-    rcfInProgress = 16
+    rcfInProgress = Enum.YLeaf(16, "rcfInProgress")
 
-    elpFailureIsolation = 17
+    elpFailureIsolation = Enum.YLeaf(17, "elpFailureIsolation")
 
-    escFailureIsolation = 18
+    escFailureIsolation = Enum.YLeaf(18, "escFailureIsolation")
 
-    domainOverlapIsolation = 19
+    domainOverlapIsolation = Enum.YLeaf(19, "domainOverlapIsolation")
 
-    domainAddrAssignFailureIsolation = 20
+    domainAddrAssignFailureIsolation = Enum.YLeaf(20, "domainAddrAssignFailureIsolation")
 
-    domainOtherSideEportIsolation = 21
+    domainOtherSideEportIsolation = Enum.YLeaf(21, "domainOtherSideEportIsolation")
 
-    domainInvalidRcfReceived = 22
+    domainInvalidRcfReceived = Enum.YLeaf(22, "domainInvalidRcfReceived")
 
-    domainManagerDisabled = 23
+    domainManagerDisabled = Enum.YLeaf(23, "domainManagerDisabled")
 
-    zoneMergeFailureIsolation = 24
+    zoneMergeFailureIsolation = Enum.YLeaf(24, "zoneMergeFailureIsolation")
 
-    vsanMismatchIsolation = 25
+    vsanMismatchIsolation = Enum.YLeaf(25, "vsanMismatchIsolation")
 
-    parentDown = 26
+    parentDown = Enum.YLeaf(26, "parentDown")
 
-    srcPortNotBound = 27
+    srcPortNotBound = Enum.YLeaf(27, "srcPortNotBound")
 
-    interfaceRemoved = 28
+    interfaceRemoved = Enum.YLeaf(28, "interfaceRemoved")
 
-    fcotNotPresent = 29
+    fcotNotPresent = Enum.YLeaf(29, "fcotNotPresent")
 
-    fcotVendorNotSupported = 30
+    fcotVendorNotSupported = Enum.YLeaf(30, "fcotVendorNotSupported")
 
-    incompatibleAdminMode = 31
+    incompatibleAdminMode = Enum.YLeaf(31, "incompatibleAdminMode")
 
-    incompatibleAdminSpeed = 32
+    incompatibleAdminSpeed = Enum.YLeaf(32, "incompatibleAdminSpeed")
 
-    suspendedByMode = 33
+    suspendedByMode = Enum.YLeaf(33, "suspendedByMode")
 
-    suspendedBySpeed = 34
+    suspendedBySpeed = Enum.YLeaf(34, "suspendedBySpeed")
 
-    suspendedByWWN = 35
+    suspendedByWWN = Enum.YLeaf(35, "suspendedByWWN")
 
-    domainMaxReTxFailure = 36
+    domainMaxReTxFailure = Enum.YLeaf(36, "domainMaxReTxFailure")
 
-    eppFailure = 37
+    eppFailure = Enum.YLeaf(37, "eppFailure")
 
-    portVsanMismatchIsolation = 38
+    portVsanMismatchIsolation = Enum.YLeaf(38, "portVsanMismatchIsolation")
 
-    loopbackIsolation = 39
+    loopbackIsolation = Enum.YLeaf(39, "loopbackIsolation")
 
-    upgradeInProgress = 40
+    upgradeInProgress = Enum.YLeaf(40, "upgradeInProgress")
 
-    incompatibleAdminRxBbCredit = 41
+    incompatibleAdminRxBbCredit = Enum.YLeaf(41, "incompatibleAdminRxBbCredit")
 
-    incompatibleAdminRxBufferSize = 42
+    incompatibleAdminRxBufferSize = Enum.YLeaf(42, "incompatibleAdminRxBufferSize")
 
-    portChannelMembersDown = 43
+    portChannelMembersDown = Enum.YLeaf(43, "portChannelMembersDown")
 
-    zoneRemoteNoRespIsolation = 44
+    zoneRemoteNoRespIsolation = Enum.YLeaf(44, "zoneRemoteNoRespIsolation")
 
-    firstPortUpAsEport = 45
+    firstPortUpAsEport = Enum.YLeaf(45, "firstPortUpAsEport")
 
-    firstPortNotUp = 46
+    firstPortNotUp = Enum.YLeaf(46, "firstPortNotUp")
 
-    peerFCIPPortClosedConnection = 47
+    peerFCIPPortClosedConnection = Enum.YLeaf(47, "peerFCIPPortClosedConnection")
 
-    peerFCIPPortResetConnection = 48
+    peerFCIPPortResetConnection = Enum.YLeaf(48, "peerFCIPPortResetConnection")
 
-    fcipPortMaxReTx = 49
+    fcipPortMaxReTx = Enum.YLeaf(49, "fcipPortMaxReTx")
 
-    fcipPortKeepAliveTimerExpire = 50
+    fcipPortKeepAliveTimerExpire = Enum.YLeaf(50, "fcipPortKeepAliveTimerExpire")
 
-    fcipPortPersistTimerExpire = 51
+    fcipPortPersistTimerExpire = Enum.YLeaf(51, "fcipPortPersistTimerExpire")
 
-    fcipPortSrcLinkDown = 52
+    fcipPortSrcLinkDown = Enum.YLeaf(52, "fcipPortSrcLinkDown")
 
-    fcipPortSrcAdminDown = 53
+    fcipPortSrcAdminDown = Enum.YLeaf(53, "fcipPortSrcAdminDown")
 
-    fcipPortAdminCfgChange = 54
+    fcipPortAdminCfgChange = Enum.YLeaf(54, "fcipPortAdminCfgChange")
 
-    fcipSrcPortRemoved = 55
+    fcipSrcPortRemoved = Enum.YLeaf(55, "fcipSrcPortRemoved")
 
-    fcipSrcModuleNotOnline = 56
+    fcipSrcModuleNotOnline = Enum.YLeaf(56, "fcipSrcModuleNotOnline")
 
-    invalidConfig = 57
+    invalidConfig = Enum.YLeaf(57, "invalidConfig")
 
-    portBindFailure = 58
+    portBindFailure = Enum.YLeaf(58, "portBindFailure")
 
-    portFabricBindFailure = 59
+    portFabricBindFailure = Enum.YLeaf(59, "portFabricBindFailure")
 
-    noCommonVsanIsolation = 60
+    noCommonVsanIsolation = Enum.YLeaf(60, "noCommonVsanIsolation")
 
-    ficonVsanDown = 61
+    ficonVsanDown = Enum.YLeaf(61, "ficonVsanDown")
 
-    invalidAttachment = 62
+    invalidAttachment = Enum.YLeaf(62, "invalidAttachment")
 
-    portBlocked = 63
+    portBlocked = Enum.YLeaf(63, "portBlocked")
 
-    incomAdminRxBbCreditPerBuf = 64
+    incomAdminRxBbCreditPerBuf = Enum.YLeaf(64, "incomAdminRxBbCreditPerBuf")
 
-    tooManyInvalidFlogis = 65
+    tooManyInvalidFlogis = Enum.YLeaf(65, "tooManyInvalidFlogis")
 
-    deniedDueToPortBinding = 66
+    deniedDueToPortBinding = Enum.YLeaf(66, "deniedDueToPortBinding")
 
-    elpFailureRevMismatch = 67
+    elpFailureRevMismatch = Enum.YLeaf(67, "elpFailureRevMismatch")
 
-    elpFailureClassFParamErr = 68
+    elpFailureClassFParamErr = Enum.YLeaf(68, "elpFailureClassFParamErr")
 
-    elpFailureClassNParamErr = 69
+    elpFailureClassNParamErr = Enum.YLeaf(69, "elpFailureClassNParamErr")
 
-    elpFailureUnknownFlowCtlCode = 70
+    elpFailureUnknownFlowCtlCode = Enum.YLeaf(70, "elpFailureUnknownFlowCtlCode")
 
-    elpFailureInvalidFlowCtlParam = 71
+    elpFailureInvalidFlowCtlParam = Enum.YLeaf(71, "elpFailureInvalidFlowCtlParam")
 
-    elpFailureInvalidPortName = 72
+    elpFailureInvalidPortName = Enum.YLeaf(72, "elpFailureInvalidPortName")
 
-    elpFailureInvalidSwitchName = 73
+    elpFailureInvalidSwitchName = Enum.YLeaf(73, "elpFailureInvalidSwitchName")
 
-    elpFailureRatovEdtovMismatch = 74
+    elpFailureRatovEdtovMismatch = Enum.YLeaf(74, "elpFailureRatovEdtovMismatch")
 
-    elpFailureLoopbackDetected = 75
+    elpFailureLoopbackDetected = Enum.YLeaf(75, "elpFailureLoopbackDetected")
 
-    elpFailureInvalidTxBbCredit = 76
+    elpFailureInvalidTxBbCredit = Enum.YLeaf(76, "elpFailureInvalidTxBbCredit")
 
-    elpFailureInvalidPayloadSize = 77
+    elpFailureInvalidPayloadSize = Enum.YLeaf(77, "elpFailureInvalidPayloadSize")
 
-    bundleMisCfg = 78
+    bundleMisCfg = Enum.YLeaf(78, "bundleMisCfg")
 
-    bitErrRuntimeThreshExceeded = 79
+    bitErrRuntimeThreshExceeded = Enum.YLeaf(79, "bitErrRuntimeThreshExceeded")
 
-    linkFailLinkReset = 80
+    linkFailLinkReset = Enum.YLeaf(80, "linkFailLinkReset")
 
-    linkFailPortInitFail = 81
+    linkFailPortInitFail = Enum.YLeaf(81, "linkFailPortInitFail")
 
-    linkFailPortUnusable = 82
+    linkFailPortUnusable = Enum.YLeaf(82, "linkFailPortUnusable")
 
-    linkFailLossOfSignal = 83
+    linkFailLossOfSignal = Enum.YLeaf(83, "linkFailLossOfSignal")
 
-    linkFailLossOfSync = 84
+    linkFailLossOfSync = Enum.YLeaf(84, "linkFailLossOfSync")
 
-    linkFailNosRcvd = 85
+    linkFailNosRcvd = Enum.YLeaf(85, "linkFailNosRcvd")
 
-    linkFailOLSRcvd = 86
+    linkFailOLSRcvd = Enum.YLeaf(86, "linkFailOLSRcvd")
 
-    linkFailDebounceTimeout = 87
+    linkFailDebounceTimeout = Enum.YLeaf(87, "linkFailDebounceTimeout")
 
-    linkFailLrRcvd = 88
+    linkFailLrRcvd = Enum.YLeaf(88, "linkFailLrRcvd")
 
-    linkFailCreditLoss = 89
+    linkFailCreditLoss = Enum.YLeaf(89, "linkFailCreditLoss")
 
-    linkFailRxQOverflow = 90
+    linkFailRxQOverflow = Enum.YLeaf(90, "linkFailRxQOverflow")
 
-    linkFailTooManyInterrupts = 91
+    linkFailTooManyInterrupts = Enum.YLeaf(91, "linkFailTooManyInterrupts")
 
-    linkFailLipRcvdBb = 92
+    linkFailLipRcvdBb = Enum.YLeaf(92, "linkFailLipRcvdBb")
 
-    linkFailBbCreditLoss = 93
+    linkFailBbCreditLoss = Enum.YLeaf(93, "linkFailBbCreditLoss")
 
-    linkFailOpenPrimSignalTimeout = 94
+    linkFailOpenPrimSignalTimeout = Enum.YLeaf(94, "linkFailOpenPrimSignalTimeout")
 
-    linkFailOpenPrimSignalReturned = 95
+    linkFailOpenPrimSignalReturned = Enum.YLeaf(95, "linkFailOpenPrimSignalReturned")
 
-    linkFailLipF8Rcvd = 96
+    linkFailLipF8Rcvd = Enum.YLeaf(96, "linkFailLipF8Rcvd")
 
-    linkFailLineCardPortShutdown = 97
+    linkFailLineCardPortShutdown = Enum.YLeaf(97, "linkFailLineCardPortShutdown")
 
-    fcspAuthenfailure = 98
+    fcspAuthenfailure = Enum.YLeaf(98, "fcspAuthenfailure")
 
-    fcotChecksumError = 99
+    fcotChecksumError = Enum.YLeaf(99, "fcotChecksumError")
 
-    ohmsExtLoopbackTest = 100
+    ohmsExtLoopbackTest = Enum.YLeaf(100, "ohmsExtLoopbackTest")
 
-    invalidFabricBindExchange = 101
+    invalidFabricBindExchange = Enum.YLeaf(101, "invalidFabricBindExchange")
 
-    tovMismatch = 102
+    tovMismatch = Enum.YLeaf(102, "tovMismatch")
 
-    ficonNotEnabled = 103
+    ficonNotEnabled = Enum.YLeaf(103, "ficonNotEnabled")
 
-    ficonNoPortNumber = 104
+    ficonNoPortNumber = Enum.YLeaf(104, "ficonNoPortNumber")
 
-    ficonBeingEnabled = 105
+    ficonBeingEnabled = Enum.YLeaf(105, "ficonBeingEnabled")
 
-    ePortProhibited = 106
+    ePortProhibited = Enum.YLeaf(106, "ePortProhibited")
 
-    portGracefulShutdown = 107
+    portGracefulShutdown = Enum.YLeaf(107, "portGracefulShutdown")
 
-    trunkNotFullyActive = 108
+    trunkNotFullyActive = Enum.YLeaf(108, "trunkNotFullyActive")
 
-    fabricBindingSwitchWwnNotFound = 109
+    fabricBindingSwitchWwnNotFound = Enum.YLeaf(109, "fabricBindingSwitchWwnNotFound")
 
-    fabricBindingDomainInvalid = 110
+    fabricBindingDomainInvalid = Enum.YLeaf(110, "fabricBindingDomainInvalid")
 
-    fabricBindingDbMismatch = 111
+    fabricBindingDbMismatch = Enum.YLeaf(111, "fabricBindingDbMismatch")
 
-    fabricBindingNoRspFromPeer = 112
+    fabricBindingNoRspFromPeer = Enum.YLeaf(112, "fabricBindingNoRspFromPeer")
 
-    dpvmVsanSuspended = 113
+    dpvmVsanSuspended = Enum.YLeaf(113, "dpvmVsanSuspended")
 
-    dpvmVsanNotFound = 114
+    dpvmVsanNotFound = Enum.YLeaf(114, "dpvmVsanNotFound")
 
-    trackedPortDown = 115
+    trackedPortDown = Enum.YLeaf(115, "trackedPortDown")
 
-    ecSuspendedOnLoop = 116
+    ecSuspendedOnLoop = Enum.YLeaf(116, "ecSuspendedOnLoop")
 
-    isolateBundleMisCfg = 117
+    isolateBundleMisCfg = Enum.YLeaf(117, "isolateBundleMisCfg")
 
-    noPeerBundleSupport = 118
+    noPeerBundleSupport = Enum.YLeaf(118, "noPeerBundleSupport")
 
-    portBringupIsolation = 119
+    portBringupIsolation = Enum.YLeaf(119, "portBringupIsolation")
 
-    domainNotAllowedIsolated = 120
+    domainNotAllowedIsolated = Enum.YLeaf(120, "domainNotAllowedIsolated")
 
-    virtualIvrDomainOverlapIsolation = 121
+    virtualIvrDomainOverlapIsolation = Enum.YLeaf(121, "virtualIvrDomainOverlapIsolation")
 
-    outOfService = 122
+    outOfService = Enum.YLeaf(122, "outOfService")
 
-    portAuthFailed = 123
+    portAuthFailed = Enum.YLeaf(123, "portAuthFailed")
 
-    bundleStandby = 124
+    bundleStandby = Enum.YLeaf(124, "bundleStandby")
 
-    portConnectorTypeErr = 125
+    portConnectorTypeErr = Enum.YLeaf(125, "portConnectorTypeErr")
 
-    errorDisabledReInitLmtReached = 126
+    errorDisabledReInitLmtReached = Enum.YLeaf(126, "errorDisabledReInitLmtReached")
 
-    ficonDupPortNum = 127
+    ficonDupPortNum = Enum.YLeaf(127, "ficonDupPortNum")
 
-    localRcf = 128
+    localRcf = Enum.YLeaf(128, "localRcf")
 
-    twoSwitchesWithSameWWN = 129
+    twoSwitchesWithSameWWN = Enum.YLeaf(129, "twoSwitchesWithSameWWN")
 
-    invalidOtherSidePrincEFPReqRecd = 130
+    invalidOtherSidePrincEFPReqRecd = Enum.YLeaf(130, "invalidOtherSidePrincEFPReqRecd")
 
-    domainOther = 131
+    domainOther = Enum.YLeaf(131, "domainOther")
 
-    elpFailureAllZeroPeerWWNRcvd = 132
+    elpFailureAllZeroPeerWWNRcvd = Enum.YLeaf(132, "elpFailureAllZeroPeerWWNRcvd")
 
-    preferredPathIsolation = 133
+    preferredPathIsolation = Enum.YLeaf(133, "preferredPathIsolation")
 
-    fcRedirectIsolation = 134
+    fcRedirectIsolation = Enum.YLeaf(134, "fcRedirectIsolation")
 
-    portActLicenseNotAvailable = 135
+    portActLicenseNotAvailable = Enum.YLeaf(135, "portActLicenseNotAvailable")
 
-    sdmIsolation = 136
+    sdmIsolation = Enum.YLeaf(136, "sdmIsolation")
 
-    fcidAllocationFailed = 137
+    fcidAllocationFailed = Enum.YLeaf(137, "fcidAllocationFailed")
 
-    externallyDisabled = 138
+    externallyDisabled = Enum.YLeaf(138, "externallyDisabled")
 
-    unavailableNPVUpstreamPort = 139
+    unavailableNPVUpstreamPort = Enum.YLeaf(139, "unavailableNPVUpstreamPort")
 
-    unavailableNPVPrefUpstreamPort = 140
+    unavailableNPVPrefUpstreamPort = Enum.YLeaf(140, "unavailableNPVPrefUpstreamPort")
 
-    sfpReadError = 141
+    sfpReadError = Enum.YLeaf(141, "sfpReadError")
 
-    stickyDownOnLinkFailure = 142
+    stickyDownOnLinkFailure = Enum.YLeaf(142, "stickyDownOnLinkFailure")
 
-    tooManyLinkFlapsErr = 143
+    tooManyLinkFlapsErr = Enum.YLeaf(143, "tooManyLinkFlapsErr")
 
-    unidirectionalUDLD = 144
+    unidirectionalUDLD = Enum.YLeaf(144, "unidirectionalUDLD")
 
-    txRxLoopUDLD = 145
+    txRxLoopUDLD = Enum.YLeaf(145, "txRxLoopUDLD")
 
-    neighborMismatchUDLD = 146
+    neighborMismatchUDLD = Enum.YLeaf(146, "neighborMismatchUDLD")
 
-    authzPending = 147
+    authzPending = Enum.YLeaf(147, "authzPending")
 
-    hotStdbyInBundle = 148
+    hotStdbyInBundle = Enum.YLeaf(148, "hotStdbyInBundle")
 
-    incompleteConfig = 149
+    incompleteConfig = Enum.YLeaf(149, "incompleteConfig")
 
-    incompleteTunnelCfg = 150
+    incompleteTunnelCfg = Enum.YLeaf(150, "incompleteTunnelCfg")
 
-    hwProgrammingFailed = 151
+    hwProgrammingFailed = Enum.YLeaf(151, "hwProgrammingFailed")
 
-    tunnelDstUnreachable = 152
+    tunnelDstUnreachable = Enum.YLeaf(152, "tunnelDstUnreachable")
 
-    suspendByMtu = 153
+    suspendByMtu = Enum.YLeaf(153, "suspendByMtu")
 
-    sfpInvalid = 154
+    sfpInvalid = Enum.YLeaf(154, "sfpInvalid")
 
-    sfpAbsent = 155
+    sfpAbsent = Enum.YLeaf(155, "sfpAbsent")
 
-    portCapabilitiesUnknown = 156
+    portCapabilitiesUnknown = Enum.YLeaf(156, "portCapabilitiesUnknown")
 
-    channelErrDisabled = 157
+    channelErrDisabled = Enum.YLeaf(157, "channelErrDisabled")
 
-    vrfMismatch = 158
+    vrfMismatch = Enum.YLeaf(158, "vrfMismatch")
 
-    vrfForwardReferencing = 159
+    vrfForwardReferencing = Enum.YLeaf(159, "vrfForwardReferencing")
 
-    dupTunnelConfigDetected = 160
+    dupTunnelConfigDetected = Enum.YLeaf(160, "dupTunnelConfigDetected")
 
-    primaryVLANDown = 161
+    primaryVLANDown = Enum.YLeaf(161, "primaryVLANDown")
 
-    vrfUnusable = 162
+    vrfUnusable = Enum.YLeaf(162, "vrfUnusable")
 
-    errDisableHandShkFailure = 163
+    errDisableHandShkFailure = Enum.YLeaf(163, "errDisableHandShkFailure")
 
-    errDisabledBPDUGuard = 164
+    errDisabledBPDUGuard = Enum.YLeaf(164, "errDisabledBPDUGuard")
 
-    dot1xSecViolationErrDisabled = 165
+    dot1xSecViolationErrDisabled = Enum.YLeaf(165, "dot1xSecViolationErrDisabled")
 
-    emptyEchoUDLD = 166
+    emptyEchoUDLD = Enum.YLeaf(166, "emptyEchoUDLD")
 
-    vfTaggingCapErr = 167
+    vfTaggingCapErr = Enum.YLeaf(167, "vfTaggingCapErr")
 
-    portDisabled = 168
+    portDisabled = Enum.YLeaf(168, "portDisabled")
 
-    tunnelModeNotConfigured = 169
+    tunnelModeNotConfigured = Enum.YLeaf(169, "tunnelModeNotConfigured")
 
-    tunnelSrcNotConfigured = 170
+    tunnelSrcNotConfigured = Enum.YLeaf(170, "tunnelSrcNotConfigured")
 
-    tunnelDstNotConfigured = 171
+    tunnelDstNotConfigured = Enum.YLeaf(171, "tunnelDstNotConfigured")
 
-    tunnelUnableToResolveSrcIP = 172
+    tunnelUnableToResolveSrcIP = Enum.YLeaf(172, "tunnelUnableToResolveSrcIP")
 
-    tunnelUnableToResolveDstIP = 173
+    tunnelUnableToResolveDstIP = Enum.YLeaf(173, "tunnelUnableToResolveDstIP")
 
-    tunnelVrfDown = 174
+    tunnelVrfDown = Enum.YLeaf(174, "tunnelVrfDown")
 
-    sifAdminDown = 175
+    sifAdminDown = Enum.YLeaf(175, "sifAdminDown")
 
-    phyIntfDown = 176
+    phyIntfDown = Enum.YLeaf(176, "phyIntfDown")
 
-    ifSifLimitExceeded = 177
+    ifSifLimitExceeded = Enum.YLeaf(177, "ifSifLimitExceeded")
 
-    sifHoldDown = 178
+    sifHoldDown = Enum.YLeaf(178, "sifHoldDown")
 
-    noFcoe = 179
+    noFcoe = Enum.YLeaf(179, "noFcoe")
 
-    dcxCompatMismatch = 180
+    dcxCompatMismatch = Enum.YLeaf(180, "dcxCompatMismatch")
 
-    isolateBundleLimitExceeded = 181
+    isolateBundleLimitExceeded = Enum.YLeaf(181, "isolateBundleLimitExceeded")
 
-    sifNotBound = 182
+    sifNotBound = Enum.YLeaf(182, "sifNotBound")
 
-    errDisabledLacpMiscfg = 183
+    errDisabledLacpMiscfg = Enum.YLeaf(183, "errDisabledLacpMiscfg")
 
-    satFabricIfDown = 184
+    satFabricIfDown = Enum.YLeaf(184, "satFabricIfDown")
 
-    invalidSatFabricIf = 185
+    invalidSatFabricIf = Enum.YLeaf(185, "invalidSatFabricIf")
 
-    noRemoteChassis = 186
+    noRemoteChassis = Enum.YLeaf(186, "noRemoteChassis")
 
-    vicEnableNotReceived = 187
+    vicEnableNotReceived = Enum.YLeaf(187, "vicEnableNotReceived")
 
-    vicDisableReceived = 188
+    vicDisableReceived = Enum.YLeaf(188, "vicDisableReceived")
 
-    vlanVsanMappingNotEnabled = 189
+    vlanVsanMappingNotEnabled = Enum.YLeaf(189, "vlanVsanMappingNotEnabled")
 
-    stpNotFwdingInFcoeMappedVlan = 190
+    stpNotFwdingInFcoeMappedVlan = Enum.YLeaf(190, "stpNotFwdingInFcoeMappedVlan")
 
-    moduleOffline = 191
+    moduleOffline = Enum.YLeaf(191, "moduleOffline")
 
-    udldAggModeLinkFailure = 192
+    udldAggModeLinkFailure = Enum.YLeaf(192, "udldAggModeLinkFailure")
 
-    stpInconsVpcPeerDisabled = 193
+    stpInconsVpcPeerDisabled = Enum.YLeaf(193, "stpInconsVpcPeerDisabled")
 
-    setPortStateFailed = 194
+    setPortStateFailed = Enum.YLeaf(194, "setPortStateFailed")
 
-    suspendedByVpc = 195
+    suspendedByVpc = Enum.YLeaf(195, "suspendedByVpc")
 
-    vpcCfgInProgress = 196
+    vpcCfgInProgress = Enum.YLeaf(196, "vpcCfgInProgress")
 
-    vpcPeerLinkDown = 197
+    vpcPeerLinkDown = Enum.YLeaf(197, "vpcPeerLinkDown")
 
-    vpcNoRspFromPeer = 198
+    vpcNoRspFromPeer = Enum.YLeaf(198, "vpcNoRspFromPeer")
 
-    protoPortSuspend = 199
+    protoPortSuspend = Enum.YLeaf(199, "protoPortSuspend")
 
-    tunnelSrcDown = 200
+    tunnelSrcDown = Enum.YLeaf(200, "tunnelSrcDown")
 
-    cdpInfoUnavailable = 201
+    cdpInfoUnavailable = Enum.YLeaf(201, "cdpInfoUnavailable")
 
-    fexSfpInvalid = 202
+    fexSfpInvalid = Enum.YLeaf(202, "fexSfpInvalid")
 
-    errDisabledIpConflict = 203
+    errDisabledIpConflict = Enum.YLeaf(203, "errDisabledIpConflict")
 
-    fcotClkRateMismatch = 204
+    fcotClkRateMismatch = Enum.YLeaf(204, "fcotClkRateMismatch")
 
-    portGuardTrustSecViolation = 205
+    portGuardTrustSecViolation = Enum.YLeaf(205, "portGuardTrustSecViolation")
 
-    sdpTimeout = 206
+    sdpTimeout = Enum.YLeaf(206, "sdpTimeout")
 
-    satIncompatTopo = 207
+    satIncompatTopo = Enum.YLeaf(207, "satIncompatTopo")
 
-    waitForFlogi = 208
+    waitForFlogi = Enum.YLeaf(208, "waitForFlogi")
 
-    satNotConfigured = 209
+    satNotConfigured = Enum.YLeaf(209, "satNotConfigured")
 
-    npivNotEnabledInUpstream = 210
+    npivNotEnabledInUpstream = Enum.YLeaf(210, "npivNotEnabledInUpstream")
 
-    vsanMismatchWithUpstreamSwPort = 211
+    vsanMismatchWithUpstreamSwPort = Enum.YLeaf(211, "vsanMismatchWithUpstreamSwPort")
 
-    portGuardBitErrRate = 212
+    portGuardBitErrRate = Enum.YLeaf(212, "portGuardBitErrRate")
 
-    portGuardSigLoss = 213
+    portGuardSigLoss = Enum.YLeaf(213, "portGuardSigLoss")
 
-    portGuardSyncLoss = 214
+    portGuardSyncLoss = Enum.YLeaf(214, "portGuardSyncLoss")
 
-    portGuardLinkReset = 215
+    portGuardLinkReset = Enum.YLeaf(215, "portGuardLinkReset")
 
-    portGuardCreditLoss = 216
+    portGuardCreditLoss = Enum.YLeaf(216, "portGuardCreditLoss")
 
-    ipQosMgrPolicyAppFailure = 217
+    ipQosMgrPolicyAppFailure = Enum.YLeaf(217, "ipQosMgrPolicyAppFailure")
 
-    pauseRateLimitErrDisabled = 218
+    pauseRateLimitErrDisabled = Enum.YLeaf(218, "pauseRateLimitErrDisabled")
 
-    lstGrpUplinkDown = 219
+    lstGrpUplinkDown = Enum.YLeaf(219, "lstGrpUplinkDown")
 
-    stickyDnLinkFailure = 220
+    stickyDnLinkFailure = Enum.YLeaf(220, "stickyDnLinkFailure")
 
-    routerMacFailure = 221
+    routerMacFailure = Enum.YLeaf(221, "routerMacFailure")
 
-    dcxMultipleMsapIds = 222
+    dcxMultipleMsapIds = Enum.YLeaf(222, "dcxMultipleMsapIds")
 
-    dcxHundredPdusRcvdNoAck = 223
+    dcxHundredPdusRcvdNoAck = Enum.YLeaf(223, "dcxHundredPdusRcvdNoAck")
 
-    enmSatIncompatibleUplink = 224
+    enmSatIncompatibleUplink = Enum.YLeaf(224, "enmSatIncompatibleUplink")
 
-    enmLoopDetected = 225
+    enmLoopDetected = Enum.YLeaf(225, "enmLoopDetected")
 
-    nonStickyExternallyDisabled = 226
+    nonStickyExternallyDisabled = Enum.YLeaf(226, "nonStickyExternallyDisabled")
 
-    subGroupIdNotAssigned = 227
+    subGroupIdNotAssigned = Enum.YLeaf(227, "subGroupIdNotAssigned")
 
-    vemUnlicensed = 228
+    vemUnlicensed = Enum.YLeaf(228, "vemUnlicensed")
 
-    profileNotFound = 229
+    profileNotFound = Enum.YLeaf(229, "profileNotFound")
 
-    nonExistentVlan = 230
+    nonExistentVlan = Enum.YLeaf(230, "nonExistentVlan")
 
-    vlanInvalidType = 231
+    vlanInvalidType = Enum.YLeaf(231, "vlanInvalidType")
 
-    vlanDown = 232
+    vlanDown = Enum.YLeaf(232, "vlanDown")
 
-    vpcPeerUpgrade = 233
+    vpcPeerUpgrade = Enum.YLeaf(233, "vpcPeerUpgrade")
 
-    ipQosDcbxpCompatFailure = 234
+    ipQosDcbxpCompatFailure = Enum.YLeaf(234, "ipQosDcbxpCompatFailure")
 
-    nonCiscoHbaVfTag = 235
+    nonCiscoHbaVfTag = Enum.YLeaf(235, "nonCiscoHbaVfTag")
 
-    domainIdConfigMismatch = 236
+    domainIdConfigMismatch = Enum.YLeaf(236, "domainIdConfigMismatch")
 
-    sfpSpeedMismatch = 237
+    sfpSpeedMismatch = Enum.YLeaf(237, "sfpSpeedMismatch")
 
-    xcvrInitializing = 238
+    xcvrInitializing = Enum.YLeaf(238, "xcvrInitializing")
 
-    xcvrAbsent = 239
+    xcvrAbsent = Enum.YLeaf(239, "xcvrAbsent")
 
-    xcvrInvalid = 240
+    xcvrInvalid = Enum.YLeaf(240, "xcvrInvalid")
 
-    vfcBindingInvalid = 241
+    vfcBindingInvalid = Enum.YLeaf(241, "vfcBindingInvalid")
 
-    vlanNotFcoeEnabled = 242
+    vlanNotFcoeEnabled = Enum.YLeaf(242, "vlanNotFcoeEnabled")
 
-    pvlanNativeVlanErr = 243
+    pvlanNativeVlanErr = Enum.YLeaf(243, "pvlanNativeVlanErr")
 
-    ethL2VlanDown = 244
+    ethL2VlanDown = Enum.YLeaf(244, "ethL2VlanDown")
 
-    ethIntfInvalidBinding = 245
+    ethIntfInvalidBinding = Enum.YLeaf(245, "ethIntfInvalidBinding")
 
-    pmonFailure = 246
+    pmonFailure = Enum.YLeaf(246, "pmonFailure")
 
-    l3NotReady = 247
+    l3NotReady = Enum.YLeaf(247, "l3NotReady")
 
-    speedMismatch = 248
+    speedMismatch = Enum.YLeaf(248, "speedMismatch")
 
-    flowControlMismatch = 249
+    flowControlMismatch = Enum.YLeaf(249, "flowControlMismatch")
 
-    vdcMode = 250
+    vdcMode = Enum.YLeaf(250, "vdcMode")
 
-    suspendedDueToMinLinks = 251
+    suspendedDueToMinLinks = Enum.YLeaf(251, "suspendedDueToMinLinks")
 
-    enmPinFailLinkDown = 252
+    enmPinFailLinkDown = Enum.YLeaf(252, "enmPinFailLinkDown")
 
-    inactiveM1PortFpathActiveVlan = 253
+    inactiveM1PortFpathActiveVlan = Enum.YLeaf(253, "inactiveM1PortFpathActiveVlan")
 
-    parentPortDown = 254
+    parentPortDown = Enum.YLeaf(254, "parentPortDown")
 
-    moduleRemoved = 255
+    moduleRemoved = Enum.YLeaf(255, "moduleRemoved")
 
-    corePortMct = 256
+    corePortMct = Enum.YLeaf(256, "corePortMct")
 
-    nonCorePortMct = 257
+    nonCorePortMct = Enum.YLeaf(257, "nonCorePortMct")
 
-    ficonInorderNotActive = 258
+    ficonInorderNotActive = Enum.YLeaf(258, "ficonInorderNotActive")
 
-    invalidEncapsulation = 259
+    invalidEncapsulation = Enum.YLeaf(259, "invalidEncapsulation")
 
-    modemLineDeasserted = 260
+    modemLineDeasserted = Enum.YLeaf(260, "modemLineDeasserted")
 
-    ipSecHndshkInProgress = 261
+    ipSecHndshkInProgress = Enum.YLeaf(261, "ipSecHndshkInProgress")
 
-    sfpEthCompliantErr = 262
+    sfpEthCompliantErr = Enum.YLeaf(262, "sfpEthCompliantErr")
 
-    cellularModemUnattached = 263
+    cellularModemUnattached = Enum.YLeaf(263, "cellularModemUnattached")
 
-    outOfGlblRxBuffers = 264
+    outOfGlblRxBuffers = Enum.YLeaf(264, "outOfGlblRxBuffers")
 
-    sfpFcCompliantErr = 265
+    sfpFcCompliantErr = Enum.YLeaf(265, "sfpFcCompliantErr")
 
-    ethIntfNotLicensed = 266
+    ethIntfNotLicensed = Enum.YLeaf(266, "ethIntfNotLicensed")
 
-    domainIdsInvalid = 267
+    domainIdsInvalid = Enum.YLeaf(267, "domainIdsInvalid")
 
-    fabricNameInvalid = 268
+    fabricNameInvalid = Enum.YLeaf(268, "fabricNameInvalid")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_TC as meta
-        return meta._meta_table['IfoperstatusreasonEnum']
-
-
-class Ciscocoslist(FixedBitsDict):
+class Ciscocoslist(Bits):
     """
     Ciscocoslist
 
     Each bit represents a CoS value (0 through 7).
-    Keys are:- cos0 , cos1 , cos2 , cos6 , cos5 , cos7 , cos3 , cos4
+    Keys are:- cos5 , cos2 , cos7 , cos4 , cos1 , cos0 , cos3 , cos6
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'cos0':False,
-            'cos1':False,
-            'cos2':False,
-            'cos6':False,
-            'cos5':False,
-            'cos7':False,
-            'cos3':False,
-            'cos4':False,
-        }
-        self._pos_map = { 
-            'cos0':0,
-            'cos1':1,
-            'cos2':2,
-            'cos6':6,
-            'cos5':5,
-            'cos7':7,
-            'cos3':3,
-            'cos4':4,
-        }
+        super(Ciscocoslist, self).__init__()
 
 

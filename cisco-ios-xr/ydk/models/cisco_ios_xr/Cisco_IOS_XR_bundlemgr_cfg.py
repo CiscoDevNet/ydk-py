@@ -16,22 +16,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class BfdModeEnum(Enum):
+class BfdMode(Enum):
     """
-    BfdModeEnum
+    BfdMode
 
     Bfd mode
 
@@ -49,22 +43,16 @@ class BfdModeEnum(Enum):
 
     """
 
-    no_cfg = 0
+    no_cfg = Enum.YLeaf(0, "no-cfg")
 
-    cisco = 1
+    cisco = Enum.YLeaf(1, "cisco")
 
-    ietf = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BfdModeEnum']
+    ietf = Enum.YLeaf(2, "ietf")
 
 
-class BundleCiscoExtTypesEnum(Enum):
+class BundleCiscoExtTypes(Enum):
     """
-    BundleCiscoExtTypesEnum
+    BundleCiscoExtTypes
 
     Bundle cisco ext types
 
@@ -78,20 +66,14 @@ class BundleCiscoExtTypesEnum(Enum):
 
     """
 
-    lon_signaling_off = 0
+    lon_signaling_off = Enum.YLeaf(0, "lon-signaling-off")
 
-    lon_signaling_on = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleCiscoExtTypesEnum']
+    lon_signaling_on = Enum.YLeaf(1, "lon-signaling-on")
 
 
-class BundleLoadBalanceEnum(Enum):
+class BundleLoadBalance(Enum):
     """
-    BundleLoadBalanceEnum
+    BundleLoadBalance
 
     Bundle load balance
 
@@ -121,26 +103,20 @@ class BundleLoadBalanceEnum(Enum):
 
     """
 
-    default = 0
+    default = Enum.YLeaf(0, "default")
 
-    efp_auto = 1
+    efp_auto = Enum.YLeaf(1, "efp-auto")
 
-    efp_value = 2
+    efp_value = Enum.YLeaf(2, "efp-value")
 
-    source_ip = 3
+    source_ip = Enum.YLeaf(3, "source-ip")
 
-    destination_ip = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleLoadBalanceEnum']
+    destination_ip = Enum.YLeaf(4, "destination-ip")
 
 
-class BundleMaximumActiveLinksModeEnum(Enum):
+class BundleMaximumActiveLinksMode(Enum):
     """
-    BundleMaximumActiveLinksModeEnum
+    BundleMaximumActiveLinksMode
 
     Bundle maximum active links mode
 
@@ -154,20 +130,14 @@ class BundleMaximumActiveLinksModeEnum(Enum):
 
     """
 
-    default = 0
+    default = Enum.YLeaf(0, "default")
 
-    hot_standby = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleMaximumActiveLinksModeEnum']
+    hot_standby = Enum.YLeaf(1, "hot-standby")
 
 
-class BundleMinimumBandwidthRangeEnum(Enum):
+class BundleMinimumBandwidthRange(Enum):
     """
-    BundleMinimumBandwidthRangeEnum
+    BundleMinimumBandwidthRange
 
     Bundle minimum bandwidth range
 
@@ -189,24 +159,18 @@ class BundleMinimumBandwidthRangeEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    kbps = 1
+    kbps = Enum.YLeaf(1, "kbps")
 
-    mbps = 2
+    mbps = Enum.YLeaf(2, "mbps")
 
-    gbps = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleMinimumBandwidthRangeEnum']
+    gbps = Enum.YLeaf(3, "gbps")
 
 
-class BundleModeEnum(Enum):
+class BundleMode(Enum):
     """
-    BundleModeEnum
+    BundleMode
 
     Bundle mode
 
@@ -224,22 +188,16 @@ class BundleModeEnum(Enum):
 
     """
 
-    on = 0
+    on = Enum.YLeaf(0, "on")
 
-    active = 1
+    active = Enum.YLeaf(1, "active")
 
-    passive = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundleModeEnum']
+    passive = Enum.YLeaf(2, "passive")
 
 
-class BundlePeriodEnum(Enum):
+class BundlePeriod(Enum):
     """
-    BundlePeriodEnum
+    BundlePeriod
 
     Bundle period
 
@@ -249,18 +207,12 @@ class BundlePeriodEnum(Enum):
 
     """
 
-    true = 1
+    true = Enum.YLeaf(1, "true")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundlePeriodEnum']
-
-
-class BundlePortActivityEnum(Enum):
+class BundlePortActivity(Enum):
     """
-    BundlePortActivityEnum
+    BundlePortActivity
 
     Bundle port activity
 
@@ -282,24 +234,18 @@ class BundlePortActivityEnum(Enum):
 
     """
 
-    on = 1
+    on = Enum.YLeaf(1, "on")
 
-    active = 2
+    active = Enum.YLeaf(2, "active")
 
-    passive = 3
+    passive = Enum.YLeaf(3, "passive")
 
-    inherit = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['BundlePortActivityEnum']
+    inherit = Enum.YLeaf(4, "inherit")
 
 
-class ChurnLoggingEnum(Enum):
+class ChurnLogging(Enum):
     """
-    ChurnLoggingEnum
+    ChurnLogging
 
     Churn logging
 
@@ -317,22 +263,16 @@ class ChurnLoggingEnum(Enum):
 
     """
 
-    actor = 1
+    actor = Enum.YLeaf(1, "actor")
 
-    partner = 2
+    partner = Enum.YLeaf(2, "partner")
 
-    both = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['ChurnLoggingEnum']
+    both = Enum.YLeaf(3, "both")
 
 
-class MlacpMaximizeParameterEnum(Enum):
+class MlacpMaximizeParameter(Enum):
     """
-    MlacpMaximizeParameterEnum
+    MlacpMaximizeParameter
 
     Mlacp maximize parameter
 
@@ -346,20 +286,14 @@ class MlacpMaximizeParameterEnum(Enum):
 
     """
 
-    links = 1
+    links = Enum.YLeaf(1, "links")
 
-    bandwidth = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['MlacpMaximizeParameterEnum']
+    bandwidth = Enum.YLeaf(2, "bandwidth")
 
 
-class MlacpSwitchoverEnum(Enum):
+class MlacpSwitchover(Enum):
     """
-    MlacpSwitchoverEnum
+    MlacpSwitchover
 
     Mlacp switchover
 
@@ -373,20 +307,14 @@ class MlacpSwitchoverEnum(Enum):
 
     """
 
-    brute_force = 1
+    brute_force = Enum.YLeaf(1, "brute-force")
 
-    revertive = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['MlacpSwitchoverEnum']
+    revertive = Enum.YLeaf(2, "revertive")
 
 
-class PeriodShortEnumEnum(Enum):
+class PeriodShortEnum(Enum):
     """
-    PeriodShortEnumEnum
+    PeriodShortEnum
 
     Period short enum
 
@@ -396,17 +324,11 @@ class PeriodShortEnumEnum(Enum):
 
     """
 
-    true = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['PeriodShortEnumEnum']
+    true = Enum.YLeaf(1, "true")
 
 
 
-class Lacp(object):
+class Lacp(Entity):
     """
     Link Aggregation Control Protocol commands
     
@@ -434,30 +356,96 @@ class Lacp(object):
     _revision = '2016-12-16'
 
     def __init__(self):
-        self.system_mac = None
-        self.system_priority = None
+        super(Lacp, self).__init__()
+        self._top_entity = None
 
-    @property
-    def _common_path(self):
+        self.yang_name = "lacp"
+        self.yang_parent_name = "Cisco-IOS-XR-bundlemgr-cfg"
 
-        return '/Cisco-IOS-XR-bundlemgr-cfg:lacp'
+        self.system_mac = YLeaf(YType.str, "system-mac")
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        self.system_priority = YLeaf(YType.uint32, "system-priority")
 
-    def _has_data(self):
-        if self.system_mac is not None:
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("system_mac",
+                        "system_priority") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Lacp, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Lacp, self).__setattr__(name, value)
+
+    def has_data(self):
+        return (
+            self.system_mac.is_set or
+            self.system_priority.is_set)
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.system_mac.yfilter != YFilter.not_set or
+            self.system_priority.yfilter != YFilter.not_set)
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-bundlemgr-cfg:lacp" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.system_mac.is_set or self.system_mac.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.system_mac.get_name_leafdata())
+        if (self.system_priority.is_set or self.system_priority.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.system_priority.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "system-mac" or name == "system-priority"):
             return True
-
-        if self.system_priority is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
-        return meta._meta_table['Lacp']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "system-mac"):
+            self.system_mac = value
+            self.system_mac.value_namespace = name_space
+            self.system_mac.value_namespace_prefix = name_space_prefix
+        if(value_path == "system-priority"):
+            self.system_priority = value
+            self.system_priority.value_namespace = name_space
+            self.system_priority.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Lacp()
+        return self._top_entity
 

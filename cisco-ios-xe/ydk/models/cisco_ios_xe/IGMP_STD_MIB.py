@@ -3,21 +3,15 @@
 The MIB module for IGMP Management.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class IgmpStdMib(object):
+class IgmpStdMib(Entity):
     """
     
     
@@ -39,13 +33,24 @@ class IgmpStdMib(object):
     _revision = '2000-09-28'
 
     def __init__(self):
+        super(IgmpStdMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "IGMP-STD-MIB"
+        self.yang_parent_name = "IGMP-STD-MIB"
+
         self.igmpcachetable = IgmpStdMib.Igmpcachetable()
         self.igmpcachetable.parent = self
+        self._children_name_map["igmpcachetable"] = "igmpCacheTable"
+        self._children_yang_names.add("igmpCacheTable")
+
         self.igmpinterfacetable = IgmpStdMib.Igmpinterfacetable()
         self.igmpinterfacetable.parent = self
+        self._children_name_map["igmpinterfacetable"] = "igmpInterfaceTable"
+        self._children_yang_names.add("igmpInterfaceTable")
 
 
-    class Igmpinterfacetable(object):
+    class Igmpinterfacetable(Entity):
         """
         The (conceptual) table listing the interfaces on which IGMP
         is enabled.
@@ -63,13 +68,39 @@ class IgmpStdMib(object):
         _revision = '2000-09-28'
 
         def __init__(self):
-            self.parent = None
-            self.igmpinterfaceentry = YList()
-            self.igmpinterfaceentry.parent = self
-            self.igmpinterfaceentry.name = 'igmpinterfaceentry'
+            super(IgmpStdMib.Igmpinterfacetable, self).__init__()
+
+            self.yang_name = "igmpInterfaceTable"
+            self.yang_parent_name = "IGMP-STD-MIB"
+
+            self.igmpinterfaceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IgmpStdMib.Igmpinterfacetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IgmpStdMib.Igmpinterfacetable, self).__setattr__(name, value)
 
 
-        class Igmpinterfaceentry(object):
+        class Igmpinterfaceentry(Entity):
             """
             An entry (conceptual row) representing an interface on
             which IGMP is enabled.
@@ -160,7 +191,7 @@ class IgmpStdMib(object):
             .. attribute:: igmpinterfacestatus
             
             	The activation of a row enables IGMP on the interface.  The destruction of a row disables IGMP on the interface
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: igmpinterfaceversion
             
@@ -191,111 +222,297 @@ class IgmpStdMib(object):
             _revision = '2000-09-28'
 
             def __init__(self):
-                self.parent = None
-                self.igmpinterfaceifindex = None
-                self.igmpinterfacegroups = None
-                self.igmpinterfacejoins = None
-                self.igmpinterfacelastmembqueryintvl = None
-                self.igmpinterfaceproxyifindex = None
-                self.igmpinterfacequerier = None
-                self.igmpinterfacequerierexpirytime = None
-                self.igmpinterfacequerieruptime = None
-                self.igmpinterfacequeryinterval = None
-                self.igmpinterfacequerymaxresponsetime = None
-                self.igmpinterfacerobustness = None
-                self.igmpinterfacestatus = None
-                self.igmpinterfaceversion = None
-                self.igmpinterfaceversion1queriertimer = None
-                self.igmpinterfacewrongversionqueries = None
+                super(IgmpStdMib.Igmpinterfacetable.Igmpinterfaceentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.igmpinterfaceifindex is None:
-                    raise YPYModelError('Key property igmpinterfaceifindex is None')
+                self.yang_name = "igmpInterfaceEntry"
+                self.yang_parent_name = "igmpInterfaceTable"
 
-                return '/IGMP-STD-MIB:IGMP-STD-MIB/IGMP-STD-MIB:igmpInterfaceTable/IGMP-STD-MIB:igmpInterfaceEntry[IGMP-STD-MIB:igmpInterfaceIfIndex = ' + str(self.igmpinterfaceifindex) + ']'
+                self.igmpinterfaceifindex = YLeaf(YType.int32, "igmpInterfaceIfIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.igmpinterfacegroups = YLeaf(YType.uint32, "igmpInterfaceGroups")
+
+                self.igmpinterfacejoins = YLeaf(YType.uint32, "igmpInterfaceJoins")
+
+                self.igmpinterfacelastmembqueryintvl = YLeaf(YType.uint32, "igmpInterfaceLastMembQueryIntvl")
+
+                self.igmpinterfaceproxyifindex = YLeaf(YType.int32, "igmpInterfaceProxyIfIndex")
+
+                self.igmpinterfacequerier = YLeaf(YType.str, "igmpInterfaceQuerier")
+
+                self.igmpinterfacequerierexpirytime = YLeaf(YType.uint32, "igmpInterfaceQuerierExpiryTime")
+
+                self.igmpinterfacequerieruptime = YLeaf(YType.uint32, "igmpInterfaceQuerierUpTime")
+
+                self.igmpinterfacequeryinterval = YLeaf(YType.uint32, "igmpInterfaceQueryInterval")
+
+                self.igmpinterfacequerymaxresponsetime = YLeaf(YType.uint32, "igmpInterfaceQueryMaxResponseTime")
+
+                self.igmpinterfacerobustness = YLeaf(YType.uint32, "igmpInterfaceRobustness")
+
+                self.igmpinterfacestatus = YLeaf(YType.enumeration, "igmpInterfaceStatus")
+
+                self.igmpinterfaceversion = YLeaf(YType.uint32, "igmpInterfaceVersion")
+
+                self.igmpinterfaceversion1queriertimer = YLeaf(YType.uint32, "igmpInterfaceVersion1QuerierTimer")
+
+                self.igmpinterfacewrongversionqueries = YLeaf(YType.uint32, "igmpInterfaceWrongVersionQueries")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("igmpinterfaceifindex",
+                                "igmpinterfacegroups",
+                                "igmpinterfacejoins",
+                                "igmpinterfacelastmembqueryintvl",
+                                "igmpinterfaceproxyifindex",
+                                "igmpinterfacequerier",
+                                "igmpinterfacequerierexpirytime",
+                                "igmpinterfacequerieruptime",
+                                "igmpinterfacequeryinterval",
+                                "igmpinterfacequerymaxresponsetime",
+                                "igmpinterfacerobustness",
+                                "igmpinterfacestatus",
+                                "igmpinterfaceversion",
+                                "igmpinterfaceversion1queriertimer",
+                                "igmpinterfacewrongversionqueries") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(IgmpStdMib.Igmpinterfacetable.Igmpinterfaceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(IgmpStdMib.Igmpinterfacetable.Igmpinterfaceentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.igmpinterfaceifindex.is_set or
+                    self.igmpinterfacegroups.is_set or
+                    self.igmpinterfacejoins.is_set or
+                    self.igmpinterfacelastmembqueryintvl.is_set or
+                    self.igmpinterfaceproxyifindex.is_set or
+                    self.igmpinterfacequerier.is_set or
+                    self.igmpinterfacequerierexpirytime.is_set or
+                    self.igmpinterfacequerieruptime.is_set or
+                    self.igmpinterfacequeryinterval.is_set or
+                    self.igmpinterfacequerymaxresponsetime.is_set or
+                    self.igmpinterfacerobustness.is_set or
+                    self.igmpinterfacestatus.is_set or
+                    self.igmpinterfaceversion.is_set or
+                    self.igmpinterfaceversion1queriertimer.is_set or
+                    self.igmpinterfacewrongversionqueries.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.igmpinterfaceifindex.yfilter != YFilter.not_set or
+                    self.igmpinterfacegroups.yfilter != YFilter.not_set or
+                    self.igmpinterfacejoins.yfilter != YFilter.not_set or
+                    self.igmpinterfacelastmembqueryintvl.yfilter != YFilter.not_set or
+                    self.igmpinterfaceproxyifindex.yfilter != YFilter.not_set or
+                    self.igmpinterfacequerier.yfilter != YFilter.not_set or
+                    self.igmpinterfacequerierexpirytime.yfilter != YFilter.not_set or
+                    self.igmpinterfacequerieruptime.yfilter != YFilter.not_set or
+                    self.igmpinterfacequeryinterval.yfilter != YFilter.not_set or
+                    self.igmpinterfacequerymaxresponsetime.yfilter != YFilter.not_set or
+                    self.igmpinterfacerobustness.yfilter != YFilter.not_set or
+                    self.igmpinterfacestatus.yfilter != YFilter.not_set or
+                    self.igmpinterfaceversion.yfilter != YFilter.not_set or
+                    self.igmpinterfaceversion1queriertimer.yfilter != YFilter.not_set or
+                    self.igmpinterfacewrongversionqueries.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "igmpInterfaceEntry" + "[igmpInterfaceIfIndex='" + self.igmpinterfaceifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "IGMP-STD-MIB:IGMP-STD-MIB/igmpInterfaceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.igmpinterfaceifindex.is_set or self.igmpinterfaceifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfaceifindex.get_name_leafdata())
+                if (self.igmpinterfacegroups.is_set or self.igmpinterfacegroups.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacegroups.get_name_leafdata())
+                if (self.igmpinterfacejoins.is_set or self.igmpinterfacejoins.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacejoins.get_name_leafdata())
+                if (self.igmpinterfacelastmembqueryintvl.is_set or self.igmpinterfacelastmembqueryintvl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacelastmembqueryintvl.get_name_leafdata())
+                if (self.igmpinterfaceproxyifindex.is_set or self.igmpinterfaceproxyifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfaceproxyifindex.get_name_leafdata())
+                if (self.igmpinterfacequerier.is_set or self.igmpinterfacequerier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacequerier.get_name_leafdata())
+                if (self.igmpinterfacequerierexpirytime.is_set or self.igmpinterfacequerierexpirytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacequerierexpirytime.get_name_leafdata())
+                if (self.igmpinterfacequerieruptime.is_set or self.igmpinterfacequerieruptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacequerieruptime.get_name_leafdata())
+                if (self.igmpinterfacequeryinterval.is_set or self.igmpinterfacequeryinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacequeryinterval.get_name_leafdata())
+                if (self.igmpinterfacequerymaxresponsetime.is_set or self.igmpinterfacequerymaxresponsetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacequerymaxresponsetime.get_name_leafdata())
+                if (self.igmpinterfacerobustness.is_set or self.igmpinterfacerobustness.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacerobustness.get_name_leafdata())
+                if (self.igmpinterfacestatus.is_set or self.igmpinterfacestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacestatus.get_name_leafdata())
+                if (self.igmpinterfaceversion.is_set or self.igmpinterfaceversion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfaceversion.get_name_leafdata())
+                if (self.igmpinterfaceversion1queriertimer.is_set or self.igmpinterfaceversion1queriertimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfaceversion1queriertimer.get_name_leafdata())
+                if (self.igmpinterfacewrongversionqueries.is_set or self.igmpinterfacewrongversionqueries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpinterfacewrongversionqueries.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "igmpInterfaceIfIndex" or name == "igmpInterfaceGroups" or name == "igmpInterfaceJoins" or name == "igmpInterfaceLastMembQueryIntvl" or name == "igmpInterfaceProxyIfIndex" or name == "igmpInterfaceQuerier" or name == "igmpInterfaceQuerierExpiryTime" or name == "igmpInterfaceQuerierUpTime" or name == "igmpInterfaceQueryInterval" or name == "igmpInterfaceQueryMaxResponseTime" or name == "igmpInterfaceRobustness" or name == "igmpInterfaceStatus" or name == "igmpInterfaceVersion" or name == "igmpInterfaceVersion1QuerierTimer" or name == "igmpInterfaceWrongVersionQueries"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.igmpinterfaceifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "igmpInterfaceIfIndex"):
+                    self.igmpinterfaceifindex = value
+                    self.igmpinterfaceifindex.value_namespace = name_space
+                    self.igmpinterfaceifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceGroups"):
+                    self.igmpinterfacegroups = value
+                    self.igmpinterfacegroups.value_namespace = name_space
+                    self.igmpinterfacegroups.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceJoins"):
+                    self.igmpinterfacejoins = value
+                    self.igmpinterfacejoins.value_namespace = name_space
+                    self.igmpinterfacejoins.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceLastMembQueryIntvl"):
+                    self.igmpinterfacelastmembqueryintvl = value
+                    self.igmpinterfacelastmembqueryintvl.value_namespace = name_space
+                    self.igmpinterfacelastmembqueryintvl.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceProxyIfIndex"):
+                    self.igmpinterfaceproxyifindex = value
+                    self.igmpinterfaceproxyifindex.value_namespace = name_space
+                    self.igmpinterfaceproxyifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceQuerier"):
+                    self.igmpinterfacequerier = value
+                    self.igmpinterfacequerier.value_namespace = name_space
+                    self.igmpinterfacequerier.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceQuerierExpiryTime"):
+                    self.igmpinterfacequerierexpirytime = value
+                    self.igmpinterfacequerierexpirytime.value_namespace = name_space
+                    self.igmpinterfacequerierexpirytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceQuerierUpTime"):
+                    self.igmpinterfacequerieruptime = value
+                    self.igmpinterfacequerieruptime.value_namespace = name_space
+                    self.igmpinterfacequerieruptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceQueryInterval"):
+                    self.igmpinterfacequeryinterval = value
+                    self.igmpinterfacequeryinterval.value_namespace = name_space
+                    self.igmpinterfacequeryinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceQueryMaxResponseTime"):
+                    self.igmpinterfacequerymaxresponsetime = value
+                    self.igmpinterfacequerymaxresponsetime.value_namespace = name_space
+                    self.igmpinterfacequerymaxresponsetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceRobustness"):
+                    self.igmpinterfacerobustness = value
+                    self.igmpinterfacerobustness.value_namespace = name_space
+                    self.igmpinterfacerobustness.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceStatus"):
+                    self.igmpinterfacestatus = value
+                    self.igmpinterfacestatus.value_namespace = name_space
+                    self.igmpinterfacestatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceVersion"):
+                    self.igmpinterfaceversion = value
+                    self.igmpinterfaceversion.value_namespace = name_space
+                    self.igmpinterfaceversion.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceVersion1QuerierTimer"):
+                    self.igmpinterfaceversion1queriertimer = value
+                    self.igmpinterfaceversion1queriertimer.value_namespace = name_space
+                    self.igmpinterfaceversion1queriertimer.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpInterfaceWrongVersionQueries"):
+                    self.igmpinterfacewrongversionqueries = value
+                    self.igmpinterfacewrongversionqueries.value_namespace = name_space
+                    self.igmpinterfacewrongversionqueries.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.igmpinterfaceentry:
+                if (c.has_data()):
                     return True
-
-                if self.igmpinterfacegroups is not None:
-                    return True
-
-                if self.igmpinterfacejoins is not None:
-                    return True
-
-                if self.igmpinterfacelastmembqueryintvl is not None:
-                    return True
-
-                if self.igmpinterfaceproxyifindex is not None:
-                    return True
-
-                if self.igmpinterfacequerier is not None:
-                    return True
-
-                if self.igmpinterfacequerierexpirytime is not None:
-                    return True
-
-                if self.igmpinterfacequerieruptime is not None:
-                    return True
-
-                if self.igmpinterfacequeryinterval is not None:
-                    return True
-
-                if self.igmpinterfacequerymaxresponsetime is not None:
-                    return True
-
-                if self.igmpinterfacerobustness is not None:
-                    return True
-
-                if self.igmpinterfacestatus is not None:
-                    return True
-
-                if self.igmpinterfaceversion is not None:
-                    return True
-
-                if self.igmpinterfaceversion1queriertimer is not None:
-                    return True
-
-                if self.igmpinterfacewrongversionqueries is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _IGMP_STD_MIB as meta
-                return meta._meta_table['IgmpStdMib.Igmpinterfacetable.Igmpinterfaceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/IGMP-STD-MIB:IGMP-STD-MIB/IGMP-STD-MIB:igmpInterfaceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.igmpinterfaceentry is not None:
-                for child_ref in self.igmpinterfaceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.igmpinterfaceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "igmpInterfaceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "IGMP-STD-MIB:IGMP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "igmpInterfaceEntry"):
+                for c in self.igmpinterfaceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = IgmpStdMib.Igmpinterfacetable.Igmpinterfaceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.igmpinterfaceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "igmpInterfaceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _IGMP_STD_MIB as meta
-            return meta._meta_table['IgmpStdMib.Igmpinterfacetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Igmpcachetable(object):
+    class Igmpcachetable(Entity):
         """
         The (conceptual) table listing the IP multicast groups for
         which there are members on a particular interface.
@@ -313,13 +530,39 @@ class IgmpStdMib(object):
         _revision = '2000-09-28'
 
         def __init__(self):
-            self.parent = None
-            self.igmpcacheentry = YList()
-            self.igmpcacheentry.parent = self
-            self.igmpcacheentry.name = 'igmpcacheentry'
+            super(IgmpStdMib.Igmpcachetable, self).__init__()
+
+            self.yang_name = "igmpCacheTable"
+            self.yang_parent_name = "IGMP-STD-MIB"
+
+            self.igmpcacheentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IgmpStdMib.Igmpcachetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IgmpStdMib.Igmpcachetable, self).__setattr__(name, value)
 
 
-        class Igmpcacheentry(object):
+        class Igmpcacheentry(Entity):
             """
             An entry (conceptual row) in the igmpCacheTable.
             
@@ -359,7 +602,7 @@ class IgmpStdMib(object):
             .. attribute:: igmpcachestatus
             
             	The status of this entry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: igmpcacheuptime
             
@@ -383,104 +626,276 @@ class IgmpStdMib(object):
             _revision = '2000-09-28'
 
             def __init__(self):
-                self.parent = None
-                self.igmpcacheaddress = None
-                self.igmpcacheifindex = None
-                self.igmpcacheexpirytime = None
-                self.igmpcachelastreporter = None
-                self.igmpcacheself = None
-                self.igmpcachestatus = None
-                self.igmpcacheuptime = None
-                self.igmpcacheversion1hosttimer = None
+                super(IgmpStdMib.Igmpcachetable.Igmpcacheentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.igmpcacheaddress is None:
-                    raise YPYModelError('Key property igmpcacheaddress is None')
-                if self.igmpcacheifindex is None:
-                    raise YPYModelError('Key property igmpcacheifindex is None')
+                self.yang_name = "igmpCacheEntry"
+                self.yang_parent_name = "igmpCacheTable"
 
-                return '/IGMP-STD-MIB:IGMP-STD-MIB/IGMP-STD-MIB:igmpCacheTable/IGMP-STD-MIB:igmpCacheEntry[IGMP-STD-MIB:igmpCacheAddress = ' + str(self.igmpcacheaddress) + '][IGMP-STD-MIB:igmpCacheIfIndex = ' + str(self.igmpcacheifindex) + ']'
+                self.igmpcacheaddress = YLeaf(YType.str, "igmpCacheAddress")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.igmpcacheifindex = YLeaf(YType.int32, "igmpCacheIfIndex")
+
+                self.igmpcacheexpirytime = YLeaf(YType.uint32, "igmpCacheExpiryTime")
+
+                self.igmpcachelastreporter = YLeaf(YType.str, "igmpCacheLastReporter")
+
+                self.igmpcacheself = YLeaf(YType.boolean, "igmpCacheSelf")
+
+                self.igmpcachestatus = YLeaf(YType.enumeration, "igmpCacheStatus")
+
+                self.igmpcacheuptime = YLeaf(YType.uint32, "igmpCacheUpTime")
+
+                self.igmpcacheversion1hosttimer = YLeaf(YType.uint32, "igmpCacheVersion1HostTimer")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("igmpcacheaddress",
+                                "igmpcacheifindex",
+                                "igmpcacheexpirytime",
+                                "igmpcachelastreporter",
+                                "igmpcacheself",
+                                "igmpcachestatus",
+                                "igmpcacheuptime",
+                                "igmpcacheversion1hosttimer") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(IgmpStdMib.Igmpcachetable.Igmpcacheentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(IgmpStdMib.Igmpcachetable.Igmpcacheentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.igmpcacheaddress.is_set or
+                    self.igmpcacheifindex.is_set or
+                    self.igmpcacheexpirytime.is_set or
+                    self.igmpcachelastreporter.is_set or
+                    self.igmpcacheself.is_set or
+                    self.igmpcachestatus.is_set or
+                    self.igmpcacheuptime.is_set or
+                    self.igmpcacheversion1hosttimer.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.igmpcacheaddress.yfilter != YFilter.not_set or
+                    self.igmpcacheifindex.yfilter != YFilter.not_set or
+                    self.igmpcacheexpirytime.yfilter != YFilter.not_set or
+                    self.igmpcachelastreporter.yfilter != YFilter.not_set or
+                    self.igmpcacheself.yfilter != YFilter.not_set or
+                    self.igmpcachestatus.yfilter != YFilter.not_set or
+                    self.igmpcacheuptime.yfilter != YFilter.not_set or
+                    self.igmpcacheversion1hosttimer.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "igmpCacheEntry" + "[igmpCacheAddress='" + self.igmpcacheaddress.get() + "']" + "[igmpCacheIfIndex='" + self.igmpcacheifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "IGMP-STD-MIB:IGMP-STD-MIB/igmpCacheTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.igmpcacheaddress.is_set or self.igmpcacheaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcacheaddress.get_name_leafdata())
+                if (self.igmpcacheifindex.is_set or self.igmpcacheifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcacheifindex.get_name_leafdata())
+                if (self.igmpcacheexpirytime.is_set or self.igmpcacheexpirytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcacheexpirytime.get_name_leafdata())
+                if (self.igmpcachelastreporter.is_set or self.igmpcachelastreporter.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcachelastreporter.get_name_leafdata())
+                if (self.igmpcacheself.is_set or self.igmpcacheself.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcacheself.get_name_leafdata())
+                if (self.igmpcachestatus.is_set or self.igmpcachestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcachestatus.get_name_leafdata())
+                if (self.igmpcacheuptime.is_set or self.igmpcacheuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcacheuptime.get_name_leafdata())
+                if (self.igmpcacheversion1hosttimer.is_set or self.igmpcacheversion1hosttimer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.igmpcacheversion1hosttimer.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "igmpCacheAddress" or name == "igmpCacheIfIndex" or name == "igmpCacheExpiryTime" or name == "igmpCacheLastReporter" or name == "igmpCacheSelf" or name == "igmpCacheStatus" or name == "igmpCacheUpTime" or name == "igmpCacheVersion1HostTimer"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.igmpcacheaddress is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "igmpCacheAddress"):
+                    self.igmpcacheaddress = value
+                    self.igmpcacheaddress.value_namespace = name_space
+                    self.igmpcacheaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpCacheIfIndex"):
+                    self.igmpcacheifindex = value
+                    self.igmpcacheifindex.value_namespace = name_space
+                    self.igmpcacheifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpCacheExpiryTime"):
+                    self.igmpcacheexpirytime = value
+                    self.igmpcacheexpirytime.value_namespace = name_space
+                    self.igmpcacheexpirytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpCacheLastReporter"):
+                    self.igmpcachelastreporter = value
+                    self.igmpcachelastreporter.value_namespace = name_space
+                    self.igmpcachelastreporter.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpCacheSelf"):
+                    self.igmpcacheself = value
+                    self.igmpcacheself.value_namespace = name_space
+                    self.igmpcacheself.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpCacheStatus"):
+                    self.igmpcachestatus = value
+                    self.igmpcachestatus.value_namespace = name_space
+                    self.igmpcachestatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpCacheUpTime"):
+                    self.igmpcacheuptime = value
+                    self.igmpcacheuptime.value_namespace = name_space
+                    self.igmpcacheuptime.value_namespace_prefix = name_space_prefix
+                if(value_path == "igmpCacheVersion1HostTimer"):
+                    self.igmpcacheversion1hosttimer = value
+                    self.igmpcacheversion1hosttimer.value_namespace = name_space
+                    self.igmpcacheversion1hosttimer.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.igmpcacheentry:
+                if (c.has_data()):
                     return True
-
-                if self.igmpcacheifindex is not None:
-                    return True
-
-                if self.igmpcacheexpirytime is not None:
-                    return True
-
-                if self.igmpcachelastreporter is not None:
-                    return True
-
-                if self.igmpcacheself is not None:
-                    return True
-
-                if self.igmpcachestatus is not None:
-                    return True
-
-                if self.igmpcacheuptime is not None:
-                    return True
-
-                if self.igmpcacheversion1hosttimer is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _IGMP_STD_MIB as meta
-                return meta._meta_table['IgmpStdMib.Igmpcachetable.Igmpcacheentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/IGMP-STD-MIB:IGMP-STD-MIB/IGMP-STD-MIB:igmpCacheTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.igmpcacheentry is not None:
-                for child_ref in self.igmpcacheentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.igmpcacheentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "igmpCacheTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "IGMP-STD-MIB:IGMP-STD-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "igmpCacheEntry"):
+                for c in self.igmpcacheentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = IgmpStdMib.Igmpcachetable.Igmpcacheentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.igmpcacheentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "igmpCacheEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _IGMP_STD_MIB as meta
-            return meta._meta_table['IgmpStdMib.Igmpcachetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.igmpcachetable is not None and self.igmpcachetable.has_data()) or
+            (self.igmpinterfacetable is not None and self.igmpinterfacetable.has_data()))
 
-        return '/IGMP-STD-MIB:IGMP-STD-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.igmpcachetable is not None and self.igmpcachetable.has_operation()) or
+            (self.igmpinterfacetable is not None and self.igmpinterfacetable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "IGMP-STD-MIB:IGMP-STD-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "igmpCacheTable"):
+            if (self.igmpcachetable is None):
+                self.igmpcachetable = IgmpStdMib.Igmpcachetable()
+                self.igmpcachetable.parent = self
+                self._children_name_map["igmpcachetable"] = "igmpCacheTable"
+            return self.igmpcachetable
+
+        if (child_yang_name == "igmpInterfaceTable"):
+            if (self.igmpinterfacetable is None):
+                self.igmpinterfacetable = IgmpStdMib.Igmpinterfacetable()
+                self.igmpinterfacetable.parent = self
+                self._children_name_map["igmpinterfacetable"] = "igmpInterfaceTable"
+            return self.igmpinterfacetable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "igmpCacheTable" or name == "igmpInterfaceTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.igmpcachetable is not None and self.igmpcachetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.igmpinterfacetable is not None and self.igmpinterfacetable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IGMP_STD_MIB as meta
-        return meta._meta_table['IgmpStdMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = IgmpStdMib()
+        return self._top_entity
 

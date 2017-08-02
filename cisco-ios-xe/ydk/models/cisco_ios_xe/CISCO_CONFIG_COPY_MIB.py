@@ -9,22 +9,16 @@ vice\-versa, and copying a configuration
 IOS file system.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class ConfigcopyfailcauseEnum(Enum):
+class Configcopyfailcause(Enum):
     """
-    ConfigcopyfailcauseEnum
+    Configcopyfailcause
 
     The reason a config\-copy request failed.
 
@@ -84,34 +78,28 @@ class ConfigcopyfailcauseEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    badFileName = 2
+    badFileName = Enum.YLeaf(2, "badFileName")
 
-    timeout = 3
+    timeout = Enum.YLeaf(3, "timeout")
 
-    noMem = 4
+    noMem = Enum.YLeaf(4, "noMem")
 
-    noConfig = 5
+    noConfig = Enum.YLeaf(5, "noConfig")
 
-    unsupportedProtocol = 6
+    unsupportedProtocol = Enum.YLeaf(6, "unsupportedProtocol")
 
-    someConfigApplyFailed = 7
+    someConfigApplyFailed = Enum.YLeaf(7, "someConfigApplyFailed")
 
-    systemNotReady = 8
+    systemNotReady = Enum.YLeaf(8, "systemNotReady")
 
-    requestAborted = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-        return meta._meta_table['ConfigcopyfailcauseEnum']
+    requestAborted = Enum.YLeaf(9, "requestAborted")
 
 
-class ConfigcopyprotocolEnum(Enum):
+class Configcopyprotocol(Enum):
     """
-    ConfigcopyprotocolEnum
+    Configcopyprotocol
 
     The protocol file transfer protocol that should be
 
@@ -147,26 +135,20 @@ class ConfigcopyprotocolEnum(Enum):
 
     """
 
-    tftp = 1
+    tftp = Enum.YLeaf(1, "tftp")
 
-    ftp = 2
+    ftp = Enum.YLeaf(2, "ftp")
 
-    rcp = 3
+    rcp = Enum.YLeaf(3, "rcp")
 
-    scp = 4
+    scp = Enum.YLeaf(4, "scp")
 
-    sftp = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-        return meta._meta_table['ConfigcopyprotocolEnum']
+    sftp = Enum.YLeaf(5, "sftp")
 
 
-class ConfigcopystateEnum(Enum):
+class Configcopystate(Enum):
     """
-    ConfigcopystateEnum
+    Configcopystate
 
     The state of a TFTP config\-copy operation.
 
@@ -204,24 +186,18 @@ class ConfigcopystateEnum(Enum):
 
     """
 
-    waiting = 1
+    waiting = Enum.YLeaf(1, "waiting")
 
-    running = 2
+    running = Enum.YLeaf(2, "running")
 
-    successful = 3
+    successful = Enum.YLeaf(3, "successful")
 
-    failed = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-        return meta._meta_table['ConfigcopystateEnum']
+    failed = Enum.YLeaf(4, "failed")
 
 
-class ConfigfiletypeEnum(Enum):
+class Configfiletype(Enum):
     """
-    ConfigfiletypeEnum
+    Configfiletype
 
     The various types of files on which a config\-copy
 
@@ -281,27 +257,21 @@ class ConfigfiletypeEnum(Enum):
 
     """
 
-    networkFile = 1
+    networkFile = Enum.YLeaf(1, "networkFile")
 
-    iosFile = 2
+    iosFile = Enum.YLeaf(2, "iosFile")
 
-    startupConfig = 3
+    startupConfig = Enum.YLeaf(3, "startupConfig")
 
-    runningConfig = 4
+    runningConfig = Enum.YLeaf(4, "runningConfig")
 
-    terminal = 5
+    terminal = Enum.YLeaf(5, "terminal")
 
-    fabricStartupConfig = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-        return meta._meta_table['ConfigfiletypeEnum']
+    fabricStartupConfig = Enum.YLeaf(6, "fabricStartupConfig")
 
 
 
-class CiscoConfigCopyMib(object):
+class CiscoConfigCopyMib(Entity):
     """
     
     
@@ -323,13 +293,24 @@ class CiscoConfigCopyMib(object):
     _revision = '2005-04-06'
 
     def __init__(self):
+        super(CiscoConfigCopyMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-CONFIG-COPY-MIB"
+        self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
+
         self.cccopyerrortable = CiscoConfigCopyMib.Cccopyerrortable()
         self.cccopyerrortable.parent = self
+        self._children_name_map["cccopyerrortable"] = "ccCopyErrorTable"
+        self._children_yang_names.add("ccCopyErrorTable")
+
         self.cccopytable = CiscoConfigCopyMib.Cccopytable()
         self.cccopytable.parent = self
+        self._children_name_map["cccopytable"] = "ccCopyTable"
+        self._children_yang_names.add("ccCopyTable")
 
 
-    class Cccopytable(object):
+    class Cccopytable(Entity):
         """
         A table of config\-copy requests.
         
@@ -346,13 +327,39 @@ class CiscoConfigCopyMib(object):
         _revision = '2005-04-06'
 
         def __init__(self):
-            self.parent = None
-            self.cccopyentry = YList()
-            self.cccopyentry.parent = self
-            self.cccopyentry.name = 'cccopyentry'
+            super(CiscoConfigCopyMib.Cccopytable, self).__init__()
+
+            self.yang_name = "ccCopyTable"
+            self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
+
+            self.cccopyentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigCopyMib.Cccopytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigCopyMib.Cccopytable, self).__setattr__(name, value)
 
 
-        class Cccopyentry(object):
+        class Cccopyentry(Entity):
             """
             A config\-copy request.
             
@@ -416,17 +423,17 @@ class CiscoConfigCopyMib(object):
             .. attribute:: cccopydestfiletype
             
             	specifies the type of file to copy to. Either the ccCopySourceFileType or the ccCopyDestFileType  (or both) must be of type 'runningConfig' or  'startupConfig'. Also, the ccCopySourceFileType  must be different from the ccCopyDestFileType.  If the ccCopyDestFileType has the value of  'networkFile', the  ccCopyServerAddress/ccCopyServerAddressType and ccCopyServerAddressRev1 and ccCopyFileName must also be created, and 3 objects together (ccCopyDestFileType, ccCopyServerAddressRev1,   ccCopyFileName) will uniquely identify the  destination file. If ccCopyServerAddress is created then ccCopyServerAddressRev1 will store the same IP address and ccCopyServerAddressType will take the  value 'ipv4'.   If the ccCopyDestFileType is 'iosFile', the  ccCopyFileName must also be created, and the 2 objects together (ccCopyDestFileType,  ccCopyFileName) will uniquely identify the  destination file
-            	**type**\:   :py:class:`ConfigfiletypeEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigfiletypeEnum>`
+            	**type**\:   :py:class:`Configfiletype <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.Configfiletype>`
             
             .. attribute:: cccopyentryrowstatus
             
             	The status of this table entry. Once the entry status is set to active, the associated entry cannot  be modified until the request completes  (ccCopyState transitions to 'successful' or 'failed' state)
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cccopyfailcause
             
             	The reason why the config\-copy operation failed. This object is instantiated only when the  ccCopyState for this entry is in the  'failed' state
-            	**type**\:   :py:class:`ConfigcopyfailcauseEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigcopyfailcauseEnum>`
+            	**type**\:   :py:class:`Configcopyfailcause <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.Configcopyfailcause>`
             
             .. attribute:: cccopyfilename
             
@@ -441,7 +448,7 @@ class CiscoConfigCopyMib(object):
             .. attribute:: cccopyprotocol
             
             	The protocol to be used for any copy.  If the copy operation occurs locally on the SNMP  agent (e.g. 'runningConfig' to 'startupConfig'), this object may be ignored by the implementation
-            	**type**\:   :py:class:`ConfigcopyprotocolEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigcopyprotocolEnum>`
+            	**type**\:   :py:class:`Configcopyprotocol <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.Configcopyprotocol>`
             
             .. attribute:: cccopyserveraddress
             
@@ -462,17 +469,17 @@ class CiscoConfigCopyMib(object):
             .. attribute:: cccopyserveraddresstype
             
             	This object indicates the transport type of the address contained in ccCopyServerAddressRev1 object.  This must be created when either the ccCopySourceFileType or ccCopyDestFileType has the value 'networkFile'
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cccopysourcefiletype
             
             	Specifies the type of file to copy from. Either the ccCopySourceFileType or the ccCopyDestFileType  (or both) must be of type 'runningConfig' or  'startupConfig'. Also, the ccCopySourceFileType must be different from the ccCopyDestFileType.  If the ccCopySourceFileType has the value of  'networkFile', the ccCopyServerAddress/ ccCopyServerAddressRev1 and ccCopyServerAddressType and ccCopyFileName must also be created, and 3  objects together (ccCopySourceFileType, ccCopyServerAddressRev1, ccCopyFileName) will  uniquely identify the source file. If  ccCopyServerAddress is created then  ccCopyServerAddressRev1 will store the same IP address and ccCopyServerAddressType will  take the value 'ipv4'.   If the ccCopySourceFileType is 'iosFile', the  ccCopyFileName must also be created, and the  2 objects together (ccCopySourceFileType, ccCopyFileName) will uniquely identify the source  file
-            	**type**\:   :py:class:`ConfigfiletypeEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigfiletypeEnum>`
+            	**type**\:   :py:class:`Configfiletype <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.Configfiletype>`
             
             .. attribute:: cccopystate
             
             	Specifies the state of this config\-copy request. This value of this object is instantiated only after  the row has been instantiated, i.e. after the  ccCopyEntryRowStatus has been made active
-            	**type**\:   :py:class:`ConfigcopystateEnum <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.ConfigcopystateEnum>`
+            	**type**\:   :py:class:`Configcopystate <ydk.models.cisco_ios_xe.CISCO_CONFIG_COPY_MIB.Configcopystate>`
             
             .. attribute:: cccopytimecompleted
             
@@ -510,115 +517,308 @@ class CiscoConfigCopyMib(object):
             _revision = '2005-04-06'
 
             def __init__(self):
-                self.parent = None
-                self.cccopyindex = None
-                self.cccopydestfiletype = None
-                self.cccopyentryrowstatus = None
-                self.cccopyfailcause = None
-                self.cccopyfilename = None
-                self.cccopynotificationoncompletion = None
-                self.cccopyprotocol = None
-                self.cccopyserveraddress = None
-                self.cccopyserveraddressrev1 = None
-                self.cccopyserveraddresstype = None
-                self.cccopysourcefiletype = None
-                self.cccopystate = None
-                self.cccopytimecompleted = None
-                self.cccopytimestarted = None
-                self.cccopyusername = None
-                self.cccopyuserpassword = None
+                super(CiscoConfigCopyMib.Cccopytable.Cccopyentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cccopyindex is None:
-                    raise YPYModelError('Key property cccopyindex is None')
+                self.yang_name = "ccCopyEntry"
+                self.yang_parent_name = "ccCopyTable"
 
-                return '/CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/CISCO-CONFIG-COPY-MIB:ccCopyTable/CISCO-CONFIG-COPY-MIB:ccCopyEntry[CISCO-CONFIG-COPY-MIB:ccCopyIndex = ' + str(self.cccopyindex) + ']'
+                self.cccopyindex = YLeaf(YType.uint32, "ccCopyIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cccopydestfiletype = YLeaf(YType.enumeration, "ccCopyDestFileType")
+
+                self.cccopyentryrowstatus = YLeaf(YType.enumeration, "ccCopyEntryRowStatus")
+
+                self.cccopyfailcause = YLeaf(YType.enumeration, "ccCopyFailCause")
+
+                self.cccopyfilename = YLeaf(YType.str, "ccCopyFileName")
+
+                self.cccopynotificationoncompletion = YLeaf(YType.boolean, "ccCopyNotificationOnCompletion")
+
+                self.cccopyprotocol = YLeaf(YType.enumeration, "ccCopyProtocol")
+
+                self.cccopyserveraddress = YLeaf(YType.str, "ccCopyServerAddress")
+
+                self.cccopyserveraddressrev1 = YLeaf(YType.str, "ccCopyServerAddressRev1")
+
+                self.cccopyserveraddresstype = YLeaf(YType.enumeration, "ccCopyServerAddressType")
+
+                self.cccopysourcefiletype = YLeaf(YType.enumeration, "ccCopySourceFileType")
+
+                self.cccopystate = YLeaf(YType.enumeration, "ccCopyState")
+
+                self.cccopytimecompleted = YLeaf(YType.uint32, "ccCopyTimeCompleted")
+
+                self.cccopytimestarted = YLeaf(YType.uint32, "ccCopyTimeStarted")
+
+                self.cccopyusername = YLeaf(YType.str, "ccCopyUserName")
+
+                self.cccopyuserpassword = YLeaf(YType.str, "ccCopyUserPassword")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cccopyindex",
+                                "cccopydestfiletype",
+                                "cccopyentryrowstatus",
+                                "cccopyfailcause",
+                                "cccopyfilename",
+                                "cccopynotificationoncompletion",
+                                "cccopyprotocol",
+                                "cccopyserveraddress",
+                                "cccopyserveraddressrev1",
+                                "cccopyserveraddresstype",
+                                "cccopysourcefiletype",
+                                "cccopystate",
+                                "cccopytimecompleted",
+                                "cccopytimestarted",
+                                "cccopyusername",
+                                "cccopyuserpassword") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoConfigCopyMib.Cccopytable.Cccopyentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoConfigCopyMib.Cccopytable.Cccopyentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cccopyindex.is_set or
+                    self.cccopydestfiletype.is_set or
+                    self.cccopyentryrowstatus.is_set or
+                    self.cccopyfailcause.is_set or
+                    self.cccopyfilename.is_set or
+                    self.cccopynotificationoncompletion.is_set or
+                    self.cccopyprotocol.is_set or
+                    self.cccopyserveraddress.is_set or
+                    self.cccopyserveraddressrev1.is_set or
+                    self.cccopyserveraddresstype.is_set or
+                    self.cccopysourcefiletype.is_set or
+                    self.cccopystate.is_set or
+                    self.cccopytimecompleted.is_set or
+                    self.cccopytimestarted.is_set or
+                    self.cccopyusername.is_set or
+                    self.cccopyuserpassword.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cccopyindex.yfilter != YFilter.not_set or
+                    self.cccopydestfiletype.yfilter != YFilter.not_set or
+                    self.cccopyentryrowstatus.yfilter != YFilter.not_set or
+                    self.cccopyfailcause.yfilter != YFilter.not_set or
+                    self.cccopyfilename.yfilter != YFilter.not_set or
+                    self.cccopynotificationoncompletion.yfilter != YFilter.not_set or
+                    self.cccopyprotocol.yfilter != YFilter.not_set or
+                    self.cccopyserveraddress.yfilter != YFilter.not_set or
+                    self.cccopyserveraddressrev1.yfilter != YFilter.not_set or
+                    self.cccopyserveraddresstype.yfilter != YFilter.not_set or
+                    self.cccopysourcefiletype.yfilter != YFilter.not_set or
+                    self.cccopystate.yfilter != YFilter.not_set or
+                    self.cccopytimecompleted.yfilter != YFilter.not_set or
+                    self.cccopytimestarted.yfilter != YFilter.not_set or
+                    self.cccopyusername.yfilter != YFilter.not_set or
+                    self.cccopyuserpassword.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ccCopyEntry" + "[ccCopyIndex='" + self.cccopyindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cccopyindex.is_set or self.cccopyindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyindex.get_name_leafdata())
+                if (self.cccopydestfiletype.is_set or self.cccopydestfiletype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopydestfiletype.get_name_leafdata())
+                if (self.cccopyentryrowstatus.is_set or self.cccopyentryrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyentryrowstatus.get_name_leafdata())
+                if (self.cccopyfailcause.is_set or self.cccopyfailcause.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyfailcause.get_name_leafdata())
+                if (self.cccopyfilename.is_set or self.cccopyfilename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyfilename.get_name_leafdata())
+                if (self.cccopynotificationoncompletion.is_set or self.cccopynotificationoncompletion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopynotificationoncompletion.get_name_leafdata())
+                if (self.cccopyprotocol.is_set or self.cccopyprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyprotocol.get_name_leafdata())
+                if (self.cccopyserveraddress.is_set or self.cccopyserveraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyserveraddress.get_name_leafdata())
+                if (self.cccopyserveraddressrev1.is_set or self.cccopyserveraddressrev1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyserveraddressrev1.get_name_leafdata())
+                if (self.cccopyserveraddresstype.is_set or self.cccopyserveraddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyserveraddresstype.get_name_leafdata())
+                if (self.cccopysourcefiletype.is_set or self.cccopysourcefiletype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopysourcefiletype.get_name_leafdata())
+                if (self.cccopystate.is_set or self.cccopystate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopystate.get_name_leafdata())
+                if (self.cccopytimecompleted.is_set or self.cccopytimecompleted.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopytimecompleted.get_name_leafdata())
+                if (self.cccopytimestarted.is_set or self.cccopytimestarted.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopytimestarted.get_name_leafdata())
+                if (self.cccopyusername.is_set or self.cccopyusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyusername.get_name_leafdata())
+                if (self.cccopyuserpassword.is_set or self.cccopyuserpassword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyuserpassword.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ccCopyIndex" or name == "ccCopyDestFileType" or name == "ccCopyEntryRowStatus" or name == "ccCopyFailCause" or name == "ccCopyFileName" or name == "ccCopyNotificationOnCompletion" or name == "ccCopyProtocol" or name == "ccCopyServerAddress" or name == "ccCopyServerAddressRev1" or name == "ccCopyServerAddressType" or name == "ccCopySourceFileType" or name == "ccCopyState" or name == "ccCopyTimeCompleted" or name == "ccCopyTimeStarted" or name == "ccCopyUserName" or name == "ccCopyUserPassword"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cccopyindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ccCopyIndex"):
+                    self.cccopyindex = value
+                    self.cccopyindex.value_namespace = name_space
+                    self.cccopyindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyDestFileType"):
+                    self.cccopydestfiletype = value
+                    self.cccopydestfiletype.value_namespace = name_space
+                    self.cccopydestfiletype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyEntryRowStatus"):
+                    self.cccopyentryrowstatus = value
+                    self.cccopyentryrowstatus.value_namespace = name_space
+                    self.cccopyentryrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyFailCause"):
+                    self.cccopyfailcause = value
+                    self.cccopyfailcause.value_namespace = name_space
+                    self.cccopyfailcause.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyFileName"):
+                    self.cccopyfilename = value
+                    self.cccopyfilename.value_namespace = name_space
+                    self.cccopyfilename.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyNotificationOnCompletion"):
+                    self.cccopynotificationoncompletion = value
+                    self.cccopynotificationoncompletion.value_namespace = name_space
+                    self.cccopynotificationoncompletion.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyProtocol"):
+                    self.cccopyprotocol = value
+                    self.cccopyprotocol.value_namespace = name_space
+                    self.cccopyprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyServerAddress"):
+                    self.cccopyserveraddress = value
+                    self.cccopyserveraddress.value_namespace = name_space
+                    self.cccopyserveraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyServerAddressRev1"):
+                    self.cccopyserveraddressrev1 = value
+                    self.cccopyserveraddressrev1.value_namespace = name_space
+                    self.cccopyserveraddressrev1.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyServerAddressType"):
+                    self.cccopyserveraddresstype = value
+                    self.cccopyserveraddresstype.value_namespace = name_space
+                    self.cccopyserveraddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopySourceFileType"):
+                    self.cccopysourcefiletype = value
+                    self.cccopysourcefiletype.value_namespace = name_space
+                    self.cccopysourcefiletype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyState"):
+                    self.cccopystate = value
+                    self.cccopystate.value_namespace = name_space
+                    self.cccopystate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyTimeCompleted"):
+                    self.cccopytimecompleted = value
+                    self.cccopytimecompleted.value_namespace = name_space
+                    self.cccopytimecompleted.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyTimeStarted"):
+                    self.cccopytimestarted = value
+                    self.cccopytimestarted.value_namespace = name_space
+                    self.cccopytimestarted.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyUserName"):
+                    self.cccopyusername = value
+                    self.cccopyusername.value_namespace = name_space
+                    self.cccopyusername.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyUserPassword"):
+                    self.cccopyuserpassword = value
+                    self.cccopyuserpassword.value_namespace = name_space
+                    self.cccopyuserpassword.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cccopyentry:
+                if (c.has_data()):
                     return True
-
-                if self.cccopydestfiletype is not None:
-                    return True
-
-                if self.cccopyentryrowstatus is not None:
-                    return True
-
-                if self.cccopyfailcause is not None:
-                    return True
-
-                if self.cccopyfilename is not None:
-                    return True
-
-                if self.cccopynotificationoncompletion is not None:
-                    return True
-
-                if self.cccopyprotocol is not None:
-                    return True
-
-                if self.cccopyserveraddress is not None:
-                    return True
-
-                if self.cccopyserveraddressrev1 is not None:
-                    return True
-
-                if self.cccopyserveraddresstype is not None:
-                    return True
-
-                if self.cccopysourcefiletype is not None:
-                    return True
-
-                if self.cccopystate is not None:
-                    return True
-
-                if self.cccopytimecompleted is not None:
-                    return True
-
-                if self.cccopytimestarted is not None:
-                    return True
-
-                if self.cccopyusername is not None:
-                    return True
-
-                if self.cccopyuserpassword is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-                return meta._meta_table['CiscoConfigCopyMib.Cccopytable.Cccopyentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/CISCO-CONFIG-COPY-MIB:ccCopyTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cccopyentry is not None:
-                for child_ref in self.cccopyentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cccopyentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccCopyTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ccCopyEntry"):
+                for c in self.cccopyentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoConfigCopyMib.Cccopytable.Cccopyentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cccopyentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccCopyEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-            return meta._meta_table['CiscoConfigCopyMib.Cccopytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cccopyerrortable(object):
+    class Cccopyerrortable(Entity):
         """
         A table containing information about the failure
         cause of the config copy operation. An entry is
@@ -672,13 +872,39 @@ class CiscoConfigCopyMib(object):
         _revision = '2005-04-06'
 
         def __init__(self):
-            self.parent = None
-            self.cccopyerrorentry = YList()
-            self.cccopyerrorentry.parent = self
-            self.cccopyerrorentry.name = 'cccopyerrorentry'
+            super(CiscoConfigCopyMib.Cccopyerrortable, self).__init__()
+
+            self.yang_name = "ccCopyErrorTable"
+            self.yang_parent_name = "CISCO-CONFIG-COPY-MIB"
+
+            self.cccopyerrorentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoConfigCopyMib.Cccopyerrortable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoConfigCopyMib.Cccopyerrortable, self).__setattr__(name, value)
 
 
-        class Cccopyerrorentry(object):
+        class Cccopyerrorentry(Entity):
             """
             An entry containing information about the
             outcome at one destination of a failed config
@@ -715,7 +941,7 @@ class CiscoConfigCopyMib(object):
             .. attribute:: cccopyerrordeviceipaddresstype
             
             	The type of Internet address for this destination device on which config copy operation is performed
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cccopyerrordevicewwn
             
@@ -732,96 +958,254 @@ class CiscoConfigCopyMib(object):
             _revision = '2005-04-06'
 
             def __init__(self):
-                self.parent = None
-                self.cccopyindex = None
-                self.cccopyerrorindex = None
-                self.cccopyerrordescription = None
-                self.cccopyerrordeviceipaddress = None
-                self.cccopyerrordeviceipaddresstype = None
-                self.cccopyerrordevicewwn = None
+                super(CiscoConfigCopyMib.Cccopyerrortable.Cccopyerrorentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cccopyindex is None:
-                    raise YPYModelError('Key property cccopyindex is None')
-                if self.cccopyerrorindex is None:
-                    raise YPYModelError('Key property cccopyerrorindex is None')
+                self.yang_name = "ccCopyErrorEntry"
+                self.yang_parent_name = "ccCopyErrorTable"
 
-                return '/CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/CISCO-CONFIG-COPY-MIB:ccCopyErrorTable/CISCO-CONFIG-COPY-MIB:ccCopyErrorEntry[CISCO-CONFIG-COPY-MIB:ccCopyIndex = ' + str(self.cccopyindex) + '][CISCO-CONFIG-COPY-MIB:ccCopyErrorIndex = ' + str(self.cccopyerrorindex) + ']'
+                self.cccopyindex = YLeaf(YType.str, "ccCopyIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cccopyerrorindex = YLeaf(YType.uint32, "ccCopyErrorIndex")
+
+                self.cccopyerrordescription = YLeaf(YType.str, "ccCopyErrorDescription")
+
+                self.cccopyerrordeviceipaddress = YLeaf(YType.str, "ccCopyErrorDeviceIpAddress")
+
+                self.cccopyerrordeviceipaddresstype = YLeaf(YType.enumeration, "ccCopyErrorDeviceIpAddressType")
+
+                self.cccopyerrordevicewwn = YLeaf(YType.str, "ccCopyErrorDeviceWWN")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cccopyindex",
+                                "cccopyerrorindex",
+                                "cccopyerrordescription",
+                                "cccopyerrordeviceipaddress",
+                                "cccopyerrordeviceipaddresstype",
+                                "cccopyerrordevicewwn") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoConfigCopyMib.Cccopyerrortable.Cccopyerrorentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoConfigCopyMib.Cccopyerrortable.Cccopyerrorentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cccopyindex.is_set or
+                    self.cccopyerrorindex.is_set or
+                    self.cccopyerrordescription.is_set or
+                    self.cccopyerrordeviceipaddress.is_set or
+                    self.cccopyerrordeviceipaddresstype.is_set or
+                    self.cccopyerrordevicewwn.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cccopyindex.yfilter != YFilter.not_set or
+                    self.cccopyerrorindex.yfilter != YFilter.not_set or
+                    self.cccopyerrordescription.yfilter != YFilter.not_set or
+                    self.cccopyerrordeviceipaddress.yfilter != YFilter.not_set or
+                    self.cccopyerrordeviceipaddresstype.yfilter != YFilter.not_set or
+                    self.cccopyerrordevicewwn.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ccCopyErrorEntry" + "[ccCopyIndex='" + self.cccopyindex.get() + "']" + "[ccCopyErrorIndex='" + self.cccopyerrorindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/ccCopyErrorTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cccopyindex.is_set or self.cccopyindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyindex.get_name_leafdata())
+                if (self.cccopyerrorindex.is_set or self.cccopyerrorindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyerrorindex.get_name_leafdata())
+                if (self.cccopyerrordescription.is_set or self.cccopyerrordescription.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyerrordescription.get_name_leafdata())
+                if (self.cccopyerrordeviceipaddress.is_set or self.cccopyerrordeviceipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyerrordeviceipaddress.get_name_leafdata())
+                if (self.cccopyerrordeviceipaddresstype.is_set or self.cccopyerrordeviceipaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyerrordeviceipaddresstype.get_name_leafdata())
+                if (self.cccopyerrordevicewwn.is_set or self.cccopyerrordevicewwn.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cccopyerrordevicewwn.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ccCopyIndex" or name == "ccCopyErrorIndex" or name == "ccCopyErrorDescription" or name == "ccCopyErrorDeviceIpAddress" or name == "ccCopyErrorDeviceIpAddressType" or name == "ccCopyErrorDeviceWWN"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cccopyindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ccCopyIndex"):
+                    self.cccopyindex = value
+                    self.cccopyindex.value_namespace = name_space
+                    self.cccopyindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyErrorIndex"):
+                    self.cccopyerrorindex = value
+                    self.cccopyerrorindex.value_namespace = name_space
+                    self.cccopyerrorindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyErrorDescription"):
+                    self.cccopyerrordescription = value
+                    self.cccopyerrordescription.value_namespace = name_space
+                    self.cccopyerrordescription.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyErrorDeviceIpAddress"):
+                    self.cccopyerrordeviceipaddress = value
+                    self.cccopyerrordeviceipaddress.value_namespace = name_space
+                    self.cccopyerrordeviceipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyErrorDeviceIpAddressType"):
+                    self.cccopyerrordeviceipaddresstype = value
+                    self.cccopyerrordeviceipaddresstype.value_namespace = name_space
+                    self.cccopyerrordeviceipaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ccCopyErrorDeviceWWN"):
+                    self.cccopyerrordevicewwn = value
+                    self.cccopyerrordevicewwn.value_namespace = name_space
+                    self.cccopyerrordevicewwn.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cccopyerrorentry:
+                if (c.has_data()):
                     return True
-
-                if self.cccopyerrorindex is not None:
-                    return True
-
-                if self.cccopyerrordescription is not None:
-                    return True
-
-                if self.cccopyerrordeviceipaddress is not None:
-                    return True
-
-                if self.cccopyerrordeviceipaddresstype is not None:
-                    return True
-
-                if self.cccopyerrordevicewwn is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-                return meta._meta_table['CiscoConfigCopyMib.Cccopyerrortable.Cccopyerrorentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/CISCO-CONFIG-COPY-MIB:ccCopyErrorTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cccopyerrorentry is not None:
-                for child_ref in self.cccopyerrorentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cccopyerrorentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ccCopyErrorTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ccCopyErrorEntry"):
+                for c in self.cccopyerrorentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoConfigCopyMib.Cccopyerrortable.Cccopyerrorentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cccopyerrorentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ccCopyErrorEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-            return meta._meta_table['CiscoConfigCopyMib.Cccopyerrortable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cccopyerrortable is not None and self.cccopyerrortable.has_data()) or
+            (self.cccopytable is not None and self.cccopytable.has_data()))
 
-        return '/CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cccopyerrortable is not None and self.cccopyerrortable.has_operation()) or
+            (self.cccopytable is not None and self.cccopytable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-CONFIG-COPY-MIB:CISCO-CONFIG-COPY-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ccCopyErrorTable"):
+            if (self.cccopyerrortable is None):
+                self.cccopyerrortable = CiscoConfigCopyMib.Cccopyerrortable()
+                self.cccopyerrortable.parent = self
+                self._children_name_map["cccopyerrortable"] = "ccCopyErrorTable"
+            return self.cccopyerrortable
+
+        if (child_yang_name == "ccCopyTable"):
+            if (self.cccopytable is None):
+                self.cccopytable = CiscoConfigCopyMib.Cccopytable()
+                self.cccopytable.parent = self
+                self._children_name_map["cccopytable"] = "ccCopyTable"
+            return self.cccopytable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ccCopyErrorTable" or name == "ccCopyTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cccopyerrortable is not None and self.cccopyerrortable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cccopytable is not None and self.cccopytable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_CONFIG_COPY_MIB as meta
-        return meta._meta_table['CiscoConfigCopyMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoConfigCopyMib()
+        return self._top_entity
 

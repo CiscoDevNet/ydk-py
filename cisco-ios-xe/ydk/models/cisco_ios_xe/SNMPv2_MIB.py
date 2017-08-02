@@ -7,21 +7,15 @@ version of this MIB module is part of RFC 3418;
 see the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Snmpv2Mib(object):
+class Snmpv2Mib(Entity):
     """
     
     
@@ -53,17 +47,34 @@ class Snmpv2Mib(object):
     _revision = '2002-10-16'
 
     def __init__(self):
+        super(Snmpv2Mib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "SNMPv2-MIB"
+        self.yang_parent_name = "SNMPv2-MIB"
+
         self.snmp = Snmpv2Mib.Snmp()
         self.snmp.parent = self
+        self._children_name_map["snmp"] = "snmp"
+        self._children_yang_names.add("snmp")
+
         self.snmpset = Snmpv2Mib.Snmpset()
         self.snmpset.parent = self
+        self._children_name_map["snmpset"] = "snmpSet"
+        self._children_yang_names.add("snmpSet")
+
         self.sysortable = Snmpv2Mib.Sysortable()
         self.sysortable.parent = self
+        self._children_name_map["sysortable"] = "sysORTable"
+        self._children_yang_names.add("sysORTable")
+
         self.system = Snmpv2Mib.System()
         self.system.parent = self
+        self._children_name_map["system"] = "system"
+        self._children_yang_names.add("system")
 
 
-    class System(object):
+    class System(Entity):
         """
         
         
@@ -131,66 +142,170 @@ class Snmpv2Mib(object):
         _revision = '2002-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.syscontact = None
-            self.sysdescr = None
-            self.syslocation = None
-            self.sysname = None
-            self.sysobjectid = None
-            self.sysorlastchange = None
-            self.sysservices = None
-            self.sysuptime = None
+            super(Snmpv2Mib.System, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "system"
+            self.yang_parent_name = "SNMPv2-MIB"
 
-            return '/SNMPv2-MIB:SNMPv2-MIB/SNMPv2-MIB:system'
+            self.syscontact = YLeaf(YType.str, "sysContact")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.sysdescr = YLeaf(YType.str, "sysDescr")
+
+            self.syslocation = YLeaf(YType.str, "sysLocation")
+
+            self.sysname = YLeaf(YType.str, "sysName")
+
+            self.sysobjectid = YLeaf(YType.str, "sysObjectID")
+
+            self.sysorlastchange = YLeaf(YType.uint32, "sysORLastChange")
+
+            self.sysservices = YLeaf(YType.int32, "sysServices")
+
+            self.sysuptime = YLeaf(YType.uint32, "sysUpTime")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("syscontact",
+                            "sysdescr",
+                            "syslocation",
+                            "sysname",
+                            "sysobjectid",
+                            "sysorlastchange",
+                            "sysservices",
+                            "sysuptime") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Snmpv2Mib.System, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Snmpv2Mib.System, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.syscontact.is_set or
+                self.sysdescr.is_set or
+                self.syslocation.is_set or
+                self.sysname.is_set or
+                self.sysobjectid.is_set or
+                self.sysorlastchange.is_set or
+                self.sysservices.is_set or
+                self.sysuptime.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.syscontact.yfilter != YFilter.not_set or
+                self.sysdescr.yfilter != YFilter.not_set or
+                self.syslocation.yfilter != YFilter.not_set or
+                self.sysname.yfilter != YFilter.not_set or
+                self.sysobjectid.yfilter != YFilter.not_set or
+                self.sysorlastchange.yfilter != YFilter.not_set or
+                self.sysservices.yfilter != YFilter.not_set or
+                self.sysuptime.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "system" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMPv2-MIB:SNMPv2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.syscontact.is_set or self.syscontact.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.syscontact.get_name_leafdata())
+            if (self.sysdescr.is_set or self.sysdescr.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sysdescr.get_name_leafdata())
+            if (self.syslocation.is_set or self.syslocation.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.syslocation.get_name_leafdata())
+            if (self.sysname.is_set or self.sysname.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sysname.get_name_leafdata())
+            if (self.sysobjectid.is_set or self.sysobjectid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sysobjectid.get_name_leafdata())
+            if (self.sysorlastchange.is_set or self.sysorlastchange.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sysorlastchange.get_name_leafdata())
+            if (self.sysservices.is_set or self.sysservices.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sysservices.get_name_leafdata())
+            if (self.sysuptime.is_set or self.sysuptime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sysuptime.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sysContact" or name == "sysDescr" or name == "sysLocation" or name == "sysName" or name == "sysObjectID" or name == "sysORLastChange" or name == "sysServices" or name == "sysUpTime"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.syscontact is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "sysContact"):
+                self.syscontact = value
+                self.syscontact.value_namespace = name_space
+                self.syscontact.value_namespace_prefix = name_space_prefix
+            if(value_path == "sysDescr"):
+                self.sysdescr = value
+                self.sysdescr.value_namespace = name_space
+                self.sysdescr.value_namespace_prefix = name_space_prefix
+            if(value_path == "sysLocation"):
+                self.syslocation = value
+                self.syslocation.value_namespace = name_space
+                self.syslocation.value_namespace_prefix = name_space_prefix
+            if(value_path == "sysName"):
+                self.sysname = value
+                self.sysname.value_namespace = name_space
+                self.sysname.value_namespace_prefix = name_space_prefix
+            if(value_path == "sysObjectID"):
+                self.sysobjectid = value
+                self.sysobjectid.value_namespace = name_space
+                self.sysobjectid.value_namespace_prefix = name_space_prefix
+            if(value_path == "sysORLastChange"):
+                self.sysorlastchange = value
+                self.sysorlastchange.value_namespace = name_space
+                self.sysorlastchange.value_namespace_prefix = name_space_prefix
+            if(value_path == "sysServices"):
+                self.sysservices = value
+                self.sysservices.value_namespace = name_space
+                self.sysservices.value_namespace_prefix = name_space_prefix
+            if(value_path == "sysUpTime"):
+                self.sysuptime = value
+                self.sysuptime.value_namespace = name_space
+                self.sysuptime.value_namespace_prefix = name_space_prefix
 
-            if self.sysdescr is not None:
-                return True
 
-            if self.syslocation is not None:
-                return True
-
-            if self.sysname is not None:
-                return True
-
-            if self.sysobjectid is not None:
-                return True
-
-            if self.sysorlastchange is not None:
-                return True
-
-            if self.sysservices is not None:
-                return True
-
-            if self.sysuptime is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMPv2_MIB as meta
-            return meta._meta_table['Snmpv2Mib.System']['meta_info']
-
-
-    class Snmp(object):
+    class Snmp(Entity):
         """
         
         
         .. attribute:: snmpenableauthentraps
         
         	Indicates whether the SNMP entity is permitted to generate authenticationFailure traps.  The value of this object overrides any configuration information; as such, it provides a means whereby all authenticationFailure traps may be disabled.  Note that it is strongly recommended that this object be stored in non\-volatile memory so that it remains constant across re\-initializations of the network management system
-        	**type**\:   :py:class:`SnmpenableauthentrapsEnum <ydk.models.cisco_ios_xe.SNMPv2_MIB.Snmpv2Mib.Snmp.SnmpenableauthentrapsEnum>`
+        	**type**\:   :py:class:`Snmpenableauthentraps <ydk.models.cisco_ios_xe.SNMPv2_MIB.Snmpv2Mib.Snmp.Snmpenableauthentraps>`
         
         .. attribute:: snmpinasnparseerrs
         
@@ -447,41 +562,127 @@ class Snmpv2Mib(object):
         _revision = '2002-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.snmpenableauthentraps = None
-            self.snmpinasnparseerrs = None
-            self.snmpinbadcommunitynames = None
-            self.snmpinbadcommunityuses = None
-            self.snmpinbadvalues = None
-            self.snmpinbadversions = None
-            self.snmpingenerrs = None
-            self.snmpingetnexts = None
-            self.snmpingetrequests = None
-            self.snmpingetresponses = None
-            self.snmpinnosuchnames = None
-            self.snmpinpkts = None
-            self.snmpinreadonlys = None
-            self.snmpinsetrequests = None
-            self.snmpintoobigs = None
-            self.snmpintotalreqvars = None
-            self.snmpintotalsetvars = None
-            self.snmpintraps = None
-            self.snmpoutbadvalues = None
-            self.snmpoutgenerrs = None
-            self.snmpoutgetnexts = None
-            self.snmpoutgetrequests = None
-            self.snmpoutgetresponses = None
-            self.snmpoutnosuchnames = None
-            self.snmpoutpkts = None
-            self.snmpoutsetrequests = None
-            self.snmpouttoobigs = None
-            self.snmpouttraps = None
-            self.snmpproxydrops = None
-            self.snmpsilentdrops = None
+            super(Snmpv2Mib.Snmp, self).__init__()
 
-        class SnmpenableauthentrapsEnum(Enum):
+            self.yang_name = "snmp"
+            self.yang_parent_name = "SNMPv2-MIB"
+
+            self.snmpenableauthentraps = YLeaf(YType.enumeration, "snmpEnableAuthenTraps")
+
+            self.snmpinasnparseerrs = YLeaf(YType.uint32, "snmpInASNParseErrs")
+
+            self.snmpinbadcommunitynames = YLeaf(YType.uint32, "snmpInBadCommunityNames")
+
+            self.snmpinbadcommunityuses = YLeaf(YType.uint32, "snmpInBadCommunityUses")
+
+            self.snmpinbadvalues = YLeaf(YType.uint32, "snmpInBadValues")
+
+            self.snmpinbadversions = YLeaf(YType.uint32, "snmpInBadVersions")
+
+            self.snmpingenerrs = YLeaf(YType.uint32, "snmpInGenErrs")
+
+            self.snmpingetnexts = YLeaf(YType.uint32, "snmpInGetNexts")
+
+            self.snmpingetrequests = YLeaf(YType.uint32, "snmpInGetRequests")
+
+            self.snmpingetresponses = YLeaf(YType.uint32, "snmpInGetResponses")
+
+            self.snmpinnosuchnames = YLeaf(YType.uint32, "snmpInNoSuchNames")
+
+            self.snmpinpkts = YLeaf(YType.uint32, "snmpInPkts")
+
+            self.snmpinreadonlys = YLeaf(YType.uint32, "snmpInReadOnlys")
+
+            self.snmpinsetrequests = YLeaf(YType.uint32, "snmpInSetRequests")
+
+            self.snmpintoobigs = YLeaf(YType.uint32, "snmpInTooBigs")
+
+            self.snmpintotalreqvars = YLeaf(YType.uint32, "snmpInTotalReqVars")
+
+            self.snmpintotalsetvars = YLeaf(YType.uint32, "snmpInTotalSetVars")
+
+            self.snmpintraps = YLeaf(YType.uint32, "snmpInTraps")
+
+            self.snmpoutbadvalues = YLeaf(YType.uint32, "snmpOutBadValues")
+
+            self.snmpoutgenerrs = YLeaf(YType.uint32, "snmpOutGenErrs")
+
+            self.snmpoutgetnexts = YLeaf(YType.uint32, "snmpOutGetNexts")
+
+            self.snmpoutgetrequests = YLeaf(YType.uint32, "snmpOutGetRequests")
+
+            self.snmpoutgetresponses = YLeaf(YType.uint32, "snmpOutGetResponses")
+
+            self.snmpoutnosuchnames = YLeaf(YType.uint32, "snmpOutNoSuchNames")
+
+            self.snmpoutpkts = YLeaf(YType.uint32, "snmpOutPkts")
+
+            self.snmpoutsetrequests = YLeaf(YType.uint32, "snmpOutSetRequests")
+
+            self.snmpouttoobigs = YLeaf(YType.uint32, "snmpOutTooBigs")
+
+            self.snmpouttraps = YLeaf(YType.uint32, "snmpOutTraps")
+
+            self.snmpproxydrops = YLeaf(YType.uint32, "snmpProxyDrops")
+
+            self.snmpsilentdrops = YLeaf(YType.uint32, "snmpSilentDrops")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("snmpenableauthentraps",
+                            "snmpinasnparseerrs",
+                            "snmpinbadcommunitynames",
+                            "snmpinbadcommunityuses",
+                            "snmpinbadvalues",
+                            "snmpinbadversions",
+                            "snmpingenerrs",
+                            "snmpingetnexts",
+                            "snmpingetrequests",
+                            "snmpingetresponses",
+                            "snmpinnosuchnames",
+                            "snmpinpkts",
+                            "snmpinreadonlys",
+                            "snmpinsetrequests",
+                            "snmpintoobigs",
+                            "snmpintotalreqvars",
+                            "snmpintotalsetvars",
+                            "snmpintraps",
+                            "snmpoutbadvalues",
+                            "snmpoutgenerrs",
+                            "snmpoutgetnexts",
+                            "snmpoutgetrequests",
+                            "snmpoutgetresponses",
+                            "snmpoutnosuchnames",
+                            "snmpoutpkts",
+                            "snmpoutsetrequests",
+                            "snmpouttoobigs",
+                            "snmpouttraps",
+                            "snmpproxydrops",
+                            "snmpsilentdrops") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Snmpv2Mib.Snmp, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Snmpv2Mib.Snmp, self).__setattr__(name, value)
+
+        class Snmpenableauthentraps(Enum):
             """
-            SnmpenableauthentrapsEnum
+            Snmpenableauthentraps
 
             Indicates whether the SNMP entity is permitted to
 
@@ -507,126 +708,292 @@ class Snmpv2Mib(object):
 
             """
 
-            enabled = 1
+            enabled = Enum.YLeaf(1, "enabled")
 
-            disabled = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SNMPv2_MIB as meta
-                return meta._meta_table['Snmpv2Mib.Snmp.SnmpenableauthentrapsEnum']
+            disabled = Enum.YLeaf(2, "disabled")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.snmpenableauthentraps.is_set or
+                self.snmpinasnparseerrs.is_set or
+                self.snmpinbadcommunitynames.is_set or
+                self.snmpinbadcommunityuses.is_set or
+                self.snmpinbadvalues.is_set or
+                self.snmpinbadversions.is_set or
+                self.snmpingenerrs.is_set or
+                self.snmpingetnexts.is_set or
+                self.snmpingetrequests.is_set or
+                self.snmpingetresponses.is_set or
+                self.snmpinnosuchnames.is_set or
+                self.snmpinpkts.is_set or
+                self.snmpinreadonlys.is_set or
+                self.snmpinsetrequests.is_set or
+                self.snmpintoobigs.is_set or
+                self.snmpintotalreqvars.is_set or
+                self.snmpintotalsetvars.is_set or
+                self.snmpintraps.is_set or
+                self.snmpoutbadvalues.is_set or
+                self.snmpoutgenerrs.is_set or
+                self.snmpoutgetnexts.is_set or
+                self.snmpoutgetrequests.is_set or
+                self.snmpoutgetresponses.is_set or
+                self.snmpoutnosuchnames.is_set or
+                self.snmpoutpkts.is_set or
+                self.snmpoutsetrequests.is_set or
+                self.snmpouttoobigs.is_set or
+                self.snmpouttraps.is_set or
+                self.snmpproxydrops.is_set or
+                self.snmpsilentdrops.is_set)
 
-            return '/SNMPv2-MIB:SNMPv2-MIB/SNMPv2-MIB:snmp'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.snmpenableauthentraps.yfilter != YFilter.not_set or
+                self.snmpinasnparseerrs.yfilter != YFilter.not_set or
+                self.snmpinbadcommunitynames.yfilter != YFilter.not_set or
+                self.snmpinbadcommunityuses.yfilter != YFilter.not_set or
+                self.snmpinbadvalues.yfilter != YFilter.not_set or
+                self.snmpinbadversions.yfilter != YFilter.not_set or
+                self.snmpingenerrs.yfilter != YFilter.not_set or
+                self.snmpingetnexts.yfilter != YFilter.not_set or
+                self.snmpingetrequests.yfilter != YFilter.not_set or
+                self.snmpingetresponses.yfilter != YFilter.not_set or
+                self.snmpinnosuchnames.yfilter != YFilter.not_set or
+                self.snmpinpkts.yfilter != YFilter.not_set or
+                self.snmpinreadonlys.yfilter != YFilter.not_set or
+                self.snmpinsetrequests.yfilter != YFilter.not_set or
+                self.snmpintoobigs.yfilter != YFilter.not_set or
+                self.snmpintotalreqvars.yfilter != YFilter.not_set or
+                self.snmpintotalsetvars.yfilter != YFilter.not_set or
+                self.snmpintraps.yfilter != YFilter.not_set or
+                self.snmpoutbadvalues.yfilter != YFilter.not_set or
+                self.snmpoutgenerrs.yfilter != YFilter.not_set or
+                self.snmpoutgetnexts.yfilter != YFilter.not_set or
+                self.snmpoutgetrequests.yfilter != YFilter.not_set or
+                self.snmpoutgetresponses.yfilter != YFilter.not_set or
+                self.snmpoutnosuchnames.yfilter != YFilter.not_set or
+                self.snmpoutpkts.yfilter != YFilter.not_set or
+                self.snmpoutsetrequests.yfilter != YFilter.not_set or
+                self.snmpouttoobigs.yfilter != YFilter.not_set or
+                self.snmpouttraps.yfilter != YFilter.not_set or
+                self.snmpproxydrops.yfilter != YFilter.not_set or
+                self.snmpsilentdrops.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "snmp" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMPv2-MIB:SNMPv2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.snmpenableauthentraps.is_set or self.snmpenableauthentraps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpenableauthentraps.get_name_leafdata())
+            if (self.snmpinasnparseerrs.is_set or self.snmpinasnparseerrs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinasnparseerrs.get_name_leafdata())
+            if (self.snmpinbadcommunitynames.is_set or self.snmpinbadcommunitynames.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinbadcommunitynames.get_name_leafdata())
+            if (self.snmpinbadcommunityuses.is_set or self.snmpinbadcommunityuses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinbadcommunityuses.get_name_leafdata())
+            if (self.snmpinbadvalues.is_set or self.snmpinbadvalues.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinbadvalues.get_name_leafdata())
+            if (self.snmpinbadversions.is_set or self.snmpinbadversions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinbadversions.get_name_leafdata())
+            if (self.snmpingenerrs.is_set or self.snmpingenerrs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpingenerrs.get_name_leafdata())
+            if (self.snmpingetnexts.is_set or self.snmpingetnexts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpingetnexts.get_name_leafdata())
+            if (self.snmpingetrequests.is_set or self.snmpingetrequests.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpingetrequests.get_name_leafdata())
+            if (self.snmpingetresponses.is_set or self.snmpingetresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpingetresponses.get_name_leafdata())
+            if (self.snmpinnosuchnames.is_set or self.snmpinnosuchnames.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinnosuchnames.get_name_leafdata())
+            if (self.snmpinpkts.is_set or self.snmpinpkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinpkts.get_name_leafdata())
+            if (self.snmpinreadonlys.is_set or self.snmpinreadonlys.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinreadonlys.get_name_leafdata())
+            if (self.snmpinsetrequests.is_set or self.snmpinsetrequests.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpinsetrequests.get_name_leafdata())
+            if (self.snmpintoobigs.is_set or self.snmpintoobigs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpintoobigs.get_name_leafdata())
+            if (self.snmpintotalreqvars.is_set or self.snmpintotalreqvars.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpintotalreqvars.get_name_leafdata())
+            if (self.snmpintotalsetvars.is_set or self.snmpintotalsetvars.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpintotalsetvars.get_name_leafdata())
+            if (self.snmpintraps.is_set or self.snmpintraps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpintraps.get_name_leafdata())
+            if (self.snmpoutbadvalues.is_set or self.snmpoutbadvalues.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutbadvalues.get_name_leafdata())
+            if (self.snmpoutgenerrs.is_set or self.snmpoutgenerrs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutgenerrs.get_name_leafdata())
+            if (self.snmpoutgetnexts.is_set or self.snmpoutgetnexts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutgetnexts.get_name_leafdata())
+            if (self.snmpoutgetrequests.is_set or self.snmpoutgetrequests.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutgetrequests.get_name_leafdata())
+            if (self.snmpoutgetresponses.is_set or self.snmpoutgetresponses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutgetresponses.get_name_leafdata())
+            if (self.snmpoutnosuchnames.is_set or self.snmpoutnosuchnames.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutnosuchnames.get_name_leafdata())
+            if (self.snmpoutpkts.is_set or self.snmpoutpkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutpkts.get_name_leafdata())
+            if (self.snmpoutsetrequests.is_set or self.snmpoutsetrequests.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpoutsetrequests.get_name_leafdata())
+            if (self.snmpouttoobigs.is_set or self.snmpouttoobigs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpouttoobigs.get_name_leafdata())
+            if (self.snmpouttraps.is_set or self.snmpouttraps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpouttraps.get_name_leafdata())
+            if (self.snmpproxydrops.is_set or self.snmpproxydrops.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpproxydrops.get_name_leafdata())
+            if (self.snmpsilentdrops.is_set or self.snmpsilentdrops.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpsilentdrops.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "snmpEnableAuthenTraps" or name == "snmpInASNParseErrs" or name == "snmpInBadCommunityNames" or name == "snmpInBadCommunityUses" or name == "snmpInBadValues" or name == "snmpInBadVersions" or name == "snmpInGenErrs" or name == "snmpInGetNexts" or name == "snmpInGetRequests" or name == "snmpInGetResponses" or name == "snmpInNoSuchNames" or name == "snmpInPkts" or name == "snmpInReadOnlys" or name == "snmpInSetRequests" or name == "snmpInTooBigs" or name == "snmpInTotalReqVars" or name == "snmpInTotalSetVars" or name == "snmpInTraps" or name == "snmpOutBadValues" or name == "snmpOutGenErrs" or name == "snmpOutGetNexts" or name == "snmpOutGetRequests" or name == "snmpOutGetResponses" or name == "snmpOutNoSuchNames" or name == "snmpOutPkts" or name == "snmpOutSetRequests" or name == "snmpOutTooBigs" or name == "snmpOutTraps" or name == "snmpProxyDrops" or name == "snmpSilentDrops"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.snmpenableauthentraps is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "snmpEnableAuthenTraps"):
+                self.snmpenableauthentraps = value
+                self.snmpenableauthentraps.value_namespace = name_space
+                self.snmpenableauthentraps.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInASNParseErrs"):
+                self.snmpinasnparseerrs = value
+                self.snmpinasnparseerrs.value_namespace = name_space
+                self.snmpinasnparseerrs.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInBadCommunityNames"):
+                self.snmpinbadcommunitynames = value
+                self.snmpinbadcommunitynames.value_namespace = name_space
+                self.snmpinbadcommunitynames.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInBadCommunityUses"):
+                self.snmpinbadcommunityuses = value
+                self.snmpinbadcommunityuses.value_namespace = name_space
+                self.snmpinbadcommunityuses.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInBadValues"):
+                self.snmpinbadvalues = value
+                self.snmpinbadvalues.value_namespace = name_space
+                self.snmpinbadvalues.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInBadVersions"):
+                self.snmpinbadversions = value
+                self.snmpinbadversions.value_namespace = name_space
+                self.snmpinbadversions.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInGenErrs"):
+                self.snmpingenerrs = value
+                self.snmpingenerrs.value_namespace = name_space
+                self.snmpingenerrs.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInGetNexts"):
+                self.snmpingetnexts = value
+                self.snmpingetnexts.value_namespace = name_space
+                self.snmpingetnexts.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInGetRequests"):
+                self.snmpingetrequests = value
+                self.snmpingetrequests.value_namespace = name_space
+                self.snmpingetrequests.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInGetResponses"):
+                self.snmpingetresponses = value
+                self.snmpingetresponses.value_namespace = name_space
+                self.snmpingetresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInNoSuchNames"):
+                self.snmpinnosuchnames = value
+                self.snmpinnosuchnames.value_namespace = name_space
+                self.snmpinnosuchnames.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInPkts"):
+                self.snmpinpkts = value
+                self.snmpinpkts.value_namespace = name_space
+                self.snmpinpkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInReadOnlys"):
+                self.snmpinreadonlys = value
+                self.snmpinreadonlys.value_namespace = name_space
+                self.snmpinreadonlys.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInSetRequests"):
+                self.snmpinsetrequests = value
+                self.snmpinsetrequests.value_namespace = name_space
+                self.snmpinsetrequests.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInTooBigs"):
+                self.snmpintoobigs = value
+                self.snmpintoobigs.value_namespace = name_space
+                self.snmpintoobigs.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInTotalReqVars"):
+                self.snmpintotalreqvars = value
+                self.snmpintotalreqvars.value_namespace = name_space
+                self.snmpintotalreqvars.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInTotalSetVars"):
+                self.snmpintotalsetvars = value
+                self.snmpintotalsetvars.value_namespace = name_space
+                self.snmpintotalsetvars.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpInTraps"):
+                self.snmpintraps = value
+                self.snmpintraps.value_namespace = name_space
+                self.snmpintraps.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutBadValues"):
+                self.snmpoutbadvalues = value
+                self.snmpoutbadvalues.value_namespace = name_space
+                self.snmpoutbadvalues.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutGenErrs"):
+                self.snmpoutgenerrs = value
+                self.snmpoutgenerrs.value_namespace = name_space
+                self.snmpoutgenerrs.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutGetNexts"):
+                self.snmpoutgetnexts = value
+                self.snmpoutgetnexts.value_namespace = name_space
+                self.snmpoutgetnexts.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutGetRequests"):
+                self.snmpoutgetrequests = value
+                self.snmpoutgetrequests.value_namespace = name_space
+                self.snmpoutgetrequests.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutGetResponses"):
+                self.snmpoutgetresponses = value
+                self.snmpoutgetresponses.value_namespace = name_space
+                self.snmpoutgetresponses.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutNoSuchNames"):
+                self.snmpoutnosuchnames = value
+                self.snmpoutnosuchnames.value_namespace = name_space
+                self.snmpoutnosuchnames.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutPkts"):
+                self.snmpoutpkts = value
+                self.snmpoutpkts.value_namespace = name_space
+                self.snmpoutpkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutSetRequests"):
+                self.snmpoutsetrequests = value
+                self.snmpoutsetrequests.value_namespace = name_space
+                self.snmpoutsetrequests.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutTooBigs"):
+                self.snmpouttoobigs = value
+                self.snmpouttoobigs.value_namespace = name_space
+                self.snmpouttoobigs.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpOutTraps"):
+                self.snmpouttraps = value
+                self.snmpouttraps.value_namespace = name_space
+                self.snmpouttraps.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpProxyDrops"):
+                self.snmpproxydrops = value
+                self.snmpproxydrops.value_namespace = name_space
+                self.snmpproxydrops.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpSilentDrops"):
+                self.snmpsilentdrops = value
+                self.snmpsilentdrops.value_namespace = name_space
+                self.snmpsilentdrops.value_namespace_prefix = name_space_prefix
 
-            if self.snmpinasnparseerrs is not None:
-                return True
 
-            if self.snmpinbadcommunitynames is not None:
-                return True
-
-            if self.snmpinbadcommunityuses is not None:
-                return True
-
-            if self.snmpinbadvalues is not None:
-                return True
-
-            if self.snmpinbadversions is not None:
-                return True
-
-            if self.snmpingenerrs is not None:
-                return True
-
-            if self.snmpingetnexts is not None:
-                return True
-
-            if self.snmpingetrequests is not None:
-                return True
-
-            if self.snmpingetresponses is not None:
-                return True
-
-            if self.snmpinnosuchnames is not None:
-                return True
-
-            if self.snmpinpkts is not None:
-                return True
-
-            if self.snmpinreadonlys is not None:
-                return True
-
-            if self.snmpinsetrequests is not None:
-                return True
-
-            if self.snmpintoobigs is not None:
-                return True
-
-            if self.snmpintotalreqvars is not None:
-                return True
-
-            if self.snmpintotalsetvars is not None:
-                return True
-
-            if self.snmpintraps is not None:
-                return True
-
-            if self.snmpoutbadvalues is not None:
-                return True
-
-            if self.snmpoutgenerrs is not None:
-                return True
-
-            if self.snmpoutgetnexts is not None:
-                return True
-
-            if self.snmpoutgetrequests is not None:
-                return True
-
-            if self.snmpoutgetresponses is not None:
-                return True
-
-            if self.snmpoutnosuchnames is not None:
-                return True
-
-            if self.snmpoutpkts is not None:
-                return True
-
-            if self.snmpoutsetrequests is not None:
-                return True
-
-            if self.snmpouttoobigs is not None:
-                return True
-
-            if self.snmpouttraps is not None:
-                return True
-
-            if self.snmpproxydrops is not None:
-                return True
-
-            if self.snmpsilentdrops is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMPv2_MIB as meta
-            return meta._meta_table['Snmpv2Mib.Snmp']['meta_info']
-
-
-    class Snmpset(object):
+    class Snmpset(Entity):
         """
         
         
@@ -645,31 +1012,85 @@ class Snmpv2Mib(object):
         _revision = '2002-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.snmpsetserialno = None
+            super(Snmpv2Mib.Snmpset, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "snmpSet"
+            self.yang_parent_name = "SNMPv2-MIB"
 
-            return '/SNMPv2-MIB:SNMPv2-MIB/SNMPv2-MIB:snmpSet'
+            self.snmpsetserialno = YLeaf(YType.int32, "snmpSetSerialNo")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("snmpsetserialno") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Snmpv2Mib.Snmpset, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Snmpv2Mib.Snmpset, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.snmpsetserialno is not None:
+        def has_data(self):
+            return self.snmpsetserialno.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.snmpsetserialno.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "snmpSet" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMPv2-MIB:SNMPv2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.snmpsetserialno.is_set or self.snmpsetserialno.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpsetserialno.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "snmpSetSerialNo"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMPv2_MIB as meta
-            return meta._meta_table['Snmpv2Mib.Snmpset']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "snmpSetSerialNo"):
+                self.snmpsetserialno = value
+                self.snmpsetserialno.value_namespace = name_space
+                self.snmpsetserialno.value_namespace_prefix = name_space_prefix
 
 
-    class Sysortable(object):
+    class Sysortable(Entity):
         """
         The (conceptual) table listing the capabilities of
         the local SNMP application acting as a command
@@ -691,13 +1112,39 @@ class Snmpv2Mib(object):
         _revision = '2002-10-16'
 
         def __init__(self):
-            self.parent = None
-            self.sysorentry = YList()
-            self.sysorentry.parent = self
-            self.sysorentry.name = 'sysorentry'
+            super(Snmpv2Mib.Sysortable, self).__init__()
+
+            self.yang_name = "sysORTable"
+            self.yang_parent_name = "SNMPv2-MIB"
+
+            self.sysorentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Snmpv2Mib.Sysortable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Snmpv2Mib.Sysortable, self).__setattr__(name, value)
 
 
-        class Sysorentry(object):
+        class Sysorentry(Entity):
             """
             An entry (conceptual row) in the sysORTable.
             
@@ -735,92 +1182,250 @@ class Snmpv2Mib(object):
             _revision = '2002-10-16'
 
             def __init__(self):
-                self.parent = None
-                self.sysorindex = None
-                self.sysordescr = None
-                self.sysorid = None
-                self.sysoruptime = None
+                super(Snmpv2Mib.Sysortable.Sysorentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.sysorindex is None:
-                    raise YPYModelError('Key property sysorindex is None')
+                self.yang_name = "sysOREntry"
+                self.yang_parent_name = "sysORTable"
 
-                return '/SNMPv2-MIB:SNMPv2-MIB/SNMPv2-MIB:sysORTable/SNMPv2-MIB:sysOREntry[SNMPv2-MIB:sysORIndex = ' + str(self.sysorindex) + ']'
+                self.sysorindex = YLeaf(YType.int32, "sysORIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.sysordescr = YLeaf(YType.str, "sysORDescr")
+
+                self.sysorid = YLeaf(YType.str, "sysORID")
+
+                self.sysoruptime = YLeaf(YType.uint32, "sysORUpTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("sysorindex",
+                                "sysordescr",
+                                "sysorid",
+                                "sysoruptime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Snmpv2Mib.Sysortable.Sysorentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Snmpv2Mib.Sysortable.Sysorentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.sysorindex.is_set or
+                    self.sysordescr.is_set or
+                    self.sysorid.is_set or
+                    self.sysoruptime.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.sysorindex.yfilter != YFilter.not_set or
+                    self.sysordescr.yfilter != YFilter.not_set or
+                    self.sysorid.yfilter != YFilter.not_set or
+                    self.sysoruptime.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sysOREntry" + "[sysORIndex='" + self.sysorindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SNMPv2-MIB:SNMPv2-MIB/sysORTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.sysorindex.is_set or self.sysorindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sysorindex.get_name_leafdata())
+                if (self.sysordescr.is_set or self.sysordescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sysordescr.get_name_leafdata())
+                if (self.sysorid.is_set or self.sysorid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sysorid.get_name_leafdata())
+                if (self.sysoruptime.is_set or self.sysoruptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sysoruptime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sysORIndex" or name == "sysORDescr" or name == "sysORID" or name == "sysORUpTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.sysorindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "sysORIndex"):
+                    self.sysorindex = value
+                    self.sysorindex.value_namespace = name_space
+                    self.sysorindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "sysORDescr"):
+                    self.sysordescr = value
+                    self.sysordescr.value_namespace = name_space
+                    self.sysordescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "sysORID"):
+                    self.sysorid = value
+                    self.sysorid.value_namespace = name_space
+                    self.sysorid.value_namespace_prefix = name_space_prefix
+                if(value_path == "sysORUpTime"):
+                    self.sysoruptime = value
+                    self.sysoruptime.value_namespace = name_space
+                    self.sysoruptime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sysorentry:
+                if (c.has_data()):
                     return True
-
-                if self.sysordescr is not None:
-                    return True
-
-                if self.sysorid is not None:
-                    return True
-
-                if self.sysoruptime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SNMPv2_MIB as meta
-                return meta._meta_table['Snmpv2Mib.Sysortable.Sysorentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SNMPv2-MIB:SNMPv2-MIB/SNMPv2-MIB:sysORTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sysorentry is not None:
-                for child_ref in self.sysorentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sysorentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sysORTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMPv2-MIB:SNMPv2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sysOREntry"):
+                for c in self.sysorentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Snmpv2Mib.Sysortable.Sysorentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sysorentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sysOREntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMPv2_MIB as meta
-            return meta._meta_table['Snmpv2Mib.Sysortable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.snmp is not None and self.snmp.has_data()) or
+            (self.snmpset is not None and self.snmpset.has_data()) or
+            (self.sysortable is not None and self.sysortable.has_data()) or
+            (self.system is not None and self.system.has_data()))
 
-        return '/SNMPv2-MIB:SNMPv2-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.snmp is not None and self.snmp.has_operation()) or
+            (self.snmpset is not None and self.snmpset.has_operation()) or
+            (self.sysortable is not None and self.sysortable.has_operation()) or
+            (self.system is not None and self.system.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "SNMPv2-MIB:SNMPv2-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "snmp"):
+            if (self.snmp is None):
+                self.snmp = Snmpv2Mib.Snmp()
+                self.snmp.parent = self
+                self._children_name_map["snmp"] = "snmp"
+            return self.snmp
+
+        if (child_yang_name == "snmpSet"):
+            if (self.snmpset is None):
+                self.snmpset = Snmpv2Mib.Snmpset()
+                self.snmpset.parent = self
+                self._children_name_map["snmpset"] = "snmpSet"
+            return self.snmpset
+
+        if (child_yang_name == "sysORTable"):
+            if (self.sysortable is None):
+                self.sysortable = Snmpv2Mib.Sysortable()
+                self.sysortable.parent = self
+                self._children_name_map["sysortable"] = "sysORTable"
+            return self.sysortable
+
+        if (child_yang_name == "system"):
+            if (self.system is None):
+                self.system = Snmpv2Mib.System()
+                self.system.parent = self
+                self._children_name_map["system"] = "system"
+            return self.system
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "snmp" or name == "snmpSet" or name == "sysORTable" or name == "system"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.snmp is not None and self.snmp._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.snmpset is not None and self.snmpset._has_data():
-            return True
-
-        if self.sysortable is not None and self.sysortable._has_data():
-            return True
-
-        if self.system is not None and self.system._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMPv2_MIB as meta
-        return meta._meta_table['Snmpv2Mib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Snmpv2Mib()
+        return self._top_entity
 

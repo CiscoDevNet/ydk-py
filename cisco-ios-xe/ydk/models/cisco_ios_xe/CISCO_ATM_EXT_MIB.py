@@ -27,22 +27,16 @@ VCC         \-\- Virtual Channel Connection.
 VCL         \-\- Virtual Channel Link.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class OamccstatusEnum(Enum):
+class Oamccstatus(Enum):
     """
-    OamccstatusEnum
+    Oamccstatus
 
     OAM Continuity check (CC) status.
 
@@ -70,26 +64,20 @@ class OamccstatusEnum(Enum):
 
     """
 
-    ready = 1
+    ready = Enum.YLeaf(1, "ready")
 
-    waitActiveResponse = 2
+    waitActiveResponse = Enum.YLeaf(2, "waitActiveResponse")
 
-    waitActiveConfirm = 3
+    waitActiveConfirm = Enum.YLeaf(3, "waitActiveConfirm")
 
-    active = 4
+    active = Enum.YLeaf(4, "active")
 
-    waitDeactiveConfirm = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_EXT_MIB as meta
-        return meta._meta_table['OamccstatusEnum']
+    waitDeactiveConfirm = Enum.YLeaf(5, "waitDeactiveConfirm")
 
 
-class OamccvcstateEnum(Enum):
+class Oamccvcstate(Enum):
     """
-    OamccvcstateEnum
+    Oamccvcstate
 
     OAM Continuity check (CC) VC state.
 
@@ -107,17 +95,11 @@ class OamccvcstateEnum(Enum):
 
     """
 
-    verified = 1
+    verified = Enum.YLeaf(1, "verified")
 
-    aisrdi = 2
+    aisrdi = Enum.YLeaf(2, "aisrdi")
 
-    notManaged = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ATM_EXT_MIB as meta
-        return meta._meta_table['OamccvcstateEnum']
+    notManaged = Enum.YLeaf(3, "notManaged")
 
 
 

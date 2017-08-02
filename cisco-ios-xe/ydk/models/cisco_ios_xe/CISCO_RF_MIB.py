@@ -17,22 +17,16 @@ In the scope of this MIB definition, peer software elements
 are redundant and redundant software elements are peers.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class RfactionEnum(Enum):
+class Rfaction(Enum):
     """
-    RfactionEnum
+    Rfaction
 
     Administrative commands to invoke in the RF subsystem.
 
@@ -74,26 +68,20 @@ class RfactionEnum(Enum):
 
     """
 
-    noAction = 0
+    noAction = Enum.YLeaf(0, "noAction")
 
-    reloadPeer = 1
+    reloadPeer = Enum.YLeaf(1, "reloadPeer")
 
-    reloadShelf = 2
+    reloadShelf = Enum.YLeaf(2, "reloadShelf")
 
-    switchActivity = 3
+    switchActivity = Enum.YLeaf(3, "switchActivity")
 
-    forceSwitchActivity = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['RfactionEnum']
+    forceSwitchActivity = Enum.YLeaf(4, "forceSwitchActivity")
 
 
-class RfclientstatusEnum(Enum):
+class Rfclientstatus(Enum):
     """
-    RfclientstatusEnum
+    Rfclientstatus
 
     The status of a RF client before, during and after
 
@@ -139,24 +127,18 @@ class RfclientstatusEnum(Enum):
 
     """
 
-    noStatus = 1
+    noStatus = Enum.YLeaf(1, "noStatus")
 
-    clientNotRedundant = 2
+    clientNotRedundant = Enum.YLeaf(2, "clientNotRedundant")
 
-    clientRedundancyInProgress = 3
+    clientRedundancyInProgress = Enum.YLeaf(3, "clientRedundancyInProgress")
 
-    clientRedundant = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['RfclientstatusEnum']
+    clientRedundant = Enum.YLeaf(4, "clientRedundant")
 
 
-class RfissustateEnum(Enum):
+class Rfissustate(Enum):
     """
-    RfissustateEnum
+    Rfissustate
 
     ISSU state represents the current system state.
 
@@ -236,26 +218,20 @@ class RfissustateEnum(Enum):
 
     """
 
-    unset = 0
+    unset = Enum.YLeaf(0, "unset")
 
-    init = 1
+    init = Enum.YLeaf(1, "init")
 
-    loadVersion = 2
+    loadVersion = Enum.YLeaf(2, "loadVersion")
 
-    runVersion = 3
+    runVersion = Enum.YLeaf(3, "runVersion")
 
-    commitVersion = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['RfissustateEnum']
+    commitVersion = Enum.YLeaf(4, "commitVersion")
 
 
-class Rfissustaterev1Enum(Enum):
+class Rfissustaterev1(Enum):
     """
-    Rfissustaterev1Enum
+    Rfissustaterev1
 
     ISSU state represents the current system state.
 
@@ -337,30 +313,24 @@ class Rfissustaterev1Enum(Enum):
 
     """
 
-    init = 0
+    init = Enum.YLeaf(0, "init")
 
-    systemReset = 1
+    systemReset = Enum.YLeaf(1, "systemReset")
 
-    loadVersion = 3
+    loadVersion = Enum.YLeaf(3, "loadVersion")
 
-    loadVersionSwitchover = 4
+    loadVersionSwitchover = Enum.YLeaf(4, "loadVersionSwitchover")
 
-    runVersion = 6
+    runVersion = Enum.YLeaf(6, "runVersion")
 
-    runVersionSwitchover = 7
+    runVersionSwitchover = Enum.YLeaf(7, "runVersionSwitchover")
 
-    commitVersion = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['Rfissustaterev1Enum']
+    commitVersion = Enum.YLeaf(9, "commitVersion")
 
 
-class RfmodeEnum(Enum):
+class Rfmode(Enum):
     """
-    RfmodeEnum
+    Rfmode
 
     The characterization of the redundancy subsystem.
 
@@ -436,32 +406,26 @@ class RfmodeEnum(Enum):
 
     """
 
-    nonRedundant = 1
+    nonRedundant = Enum.YLeaf(1, "nonRedundant")
 
-    staticLoadShareNonRedundant = 2
+    staticLoadShareNonRedundant = Enum.YLeaf(2, "staticLoadShareNonRedundant")
 
-    dynamicLoadShareNonRedundant = 3
+    dynamicLoadShareNonRedundant = Enum.YLeaf(3, "dynamicLoadShareNonRedundant")
 
-    staticLoadShareRedundant = 4
+    staticLoadShareRedundant = Enum.YLeaf(4, "staticLoadShareRedundant")
 
-    dynamicLoadShareRedundant = 5
+    dynamicLoadShareRedundant = Enum.YLeaf(5, "dynamicLoadShareRedundant")
 
-    coldStandbyRedundant = 6
+    coldStandbyRedundant = Enum.YLeaf(6, "coldStandbyRedundant")
 
-    warmStandbyRedundant = 7
+    warmStandbyRedundant = Enum.YLeaf(7, "warmStandbyRedundant")
 
-    hotStandbyRedundant = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['RfmodeEnum']
+    hotStandbyRedundant = Enum.YLeaf(8, "hotStandbyRedundant")
 
 
-class RfstateEnum(Enum):
+class Rfstate(Enum):
     """
-    RfstateEnum
+    Rfstate
 
     The current state of the RF subsystem.
 
@@ -571,48 +535,42 @@ class RfstateEnum(Enum):
 
     """
 
-    notKnown = 1
+    notKnown = Enum.YLeaf(1, "notKnown")
 
-    disabled = 2
+    disabled = Enum.YLeaf(2, "disabled")
 
-    initialization = 3
+    initialization = Enum.YLeaf(3, "initialization")
 
-    negotiation = 4
+    negotiation = Enum.YLeaf(4, "negotiation")
 
-    standbyCold = 5
+    standbyCold = Enum.YLeaf(5, "standbyCold")
 
-    standbyColdConfig = 6
+    standbyColdConfig = Enum.YLeaf(6, "standbyColdConfig")
 
-    standbyColdFileSys = 7
+    standbyColdFileSys = Enum.YLeaf(7, "standbyColdFileSys")
 
-    standbyColdBulk = 8
+    standbyColdBulk = Enum.YLeaf(8, "standbyColdBulk")
 
-    standbyHot = 9
+    standbyHot = Enum.YLeaf(9, "standbyHot")
 
-    activeFast = 10
+    activeFast = Enum.YLeaf(10, "activeFast")
 
-    activeDrain = 11
+    activeDrain = Enum.YLeaf(11, "activeDrain")
 
-    activePreconfig = 12
+    activePreconfig = Enum.YLeaf(12, "activePreconfig")
 
-    activePostconfig = 13
+    activePostconfig = Enum.YLeaf(13, "activePostconfig")
 
-    active = 14
+    active = Enum.YLeaf(14, "active")
 
-    activeExtraload = 15
+    activeExtraload = Enum.YLeaf(15, "activeExtraload")
 
-    activeHandback = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['RfstateEnum']
+    activeHandback = Enum.YLeaf(16, "activeHandback")
 
 
-class RfswactreasontypeEnum(Enum):
+class Rfswactreasontype(Enum):
     """
-    RfswactreasontypeEnum
+    Rfswactreasontype
 
     Reason codes for the switch of activity from an active
 
@@ -664,29 +622,23 @@ class RfswactreasontypeEnum(Enum):
 
     """
 
-    unsupported = 1
+    unsupported = Enum.YLeaf(1, "unsupported")
 
-    none = 2
+    none = Enum.YLeaf(2, "none")
 
-    notKnown = 3
+    notKnown = Enum.YLeaf(3, "notKnown")
 
-    userInitiated = 4
+    userInitiated = Enum.YLeaf(4, "userInitiated")
 
-    userForced = 5
+    userForced = Enum.YLeaf(5, "userForced")
 
-    activeUnitFailed = 6
+    activeUnitFailed = Enum.YLeaf(6, "activeUnitFailed")
 
-    activeUnitRemoved = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['RfswactreasontypeEnum']
+    activeUnitRemoved = Enum.YLeaf(7, "activeUnitRemoved")
 
 
 
-class CiscoRfMib(object):
+class CiscoRfMib(Entity):
     """
     
     
@@ -728,21 +680,44 @@ class CiscoRfMib(object):
     _revision = '2005-09-01'
 
     def __init__(self):
+        super(CiscoRfMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-RF-MIB"
+        self.yang_parent_name = "CISCO-RF-MIB"
+
         self.crfcfg = CiscoRfMib.Crfcfg()
         self.crfcfg.parent = self
+        self._children_name_map["crfcfg"] = "cRFCfg"
+        self._children_yang_names.add("cRFCfg")
+
         self.crfhistory = CiscoRfMib.Crfhistory()
         self.crfhistory.parent = self
+        self._children_name_map["crfhistory"] = "cRFHistory"
+        self._children_yang_names.add("cRFHistory")
+
         self.crfhistoryswitchovertable = CiscoRfMib.Crfhistoryswitchovertable()
         self.crfhistoryswitchovertable.parent = self
+        self._children_name_map["crfhistoryswitchovertable"] = "cRFHistorySwitchOverTable"
+        self._children_yang_names.add("cRFHistorySwitchOverTable")
+
         self.crfstatus = CiscoRfMib.Crfstatus()
         self.crfstatus.parent = self
+        self._children_name_map["crfstatus"] = "cRFStatus"
+        self._children_yang_names.add("cRFStatus")
+
         self.crfstatusrfclienttable = CiscoRfMib.Crfstatusrfclienttable()
         self.crfstatusrfclienttable.parent = self
+        self._children_name_map["crfstatusrfclienttable"] = "cRFStatusRFClientTable"
+        self._children_yang_names.add("cRFStatusRFClientTable")
+
         self.crfstatusrfmodecapstable = CiscoRfMib.Crfstatusrfmodecapstable()
         self.crfstatusrfmodecapstable.parent = self
+        self._children_name_map["crfstatusrfmodecapstable"] = "cRFStatusRFModeCapsTable"
+        self._children_yang_names.add("cRFStatusRFModeCapsTable")
 
 
-    class Crfstatus(object):
+    class Crfstatus(Entity):
         """
         
         
@@ -766,14 +741,14 @@ class CiscoRfMib(object):
         .. attribute:: crfstatusissustate
         
         	The current ISSU state of the system
-        	**type**\:   :py:class:`RfissustateEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfissustateEnum>`
+        	**type**\:   :py:class:`Rfissustate <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfissustate>`
         
         	**status**\: deprecated
         
         .. attribute:: crfstatusissustaterev1
         
         	The current ISSU state of the system
-        	**type**\:   :py:class:`Rfissustaterev1Enum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfissustaterev1Enum>`
+        	**type**\:   :py:class:`Rfissustaterev1 <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfissustaterev1>`
         
         .. attribute:: crfstatusissutoversion
         
@@ -783,7 +758,7 @@ class CiscoRfMib(object):
         .. attribute:: crfstatuslastswactreasoncode
         
         	The reason for the last switch of activity
-        	**type**\:   :py:class:`RfswactreasontypeEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfswactreasontypeEnum>`
+        	**type**\:   :py:class:`Rfswactreasontype <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfswactreasontype>`
         
         .. attribute:: crfstatusmanualswactinhibit
         
@@ -807,7 +782,7 @@ class CiscoRfMib(object):
         .. attribute:: crfstatuspeerunitstate
         
         	The current state of RF on the peer unit
-        	**type**\:   :py:class:`RfstateEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfstateEnum>`
+        	**type**\:   :py:class:`Rfstate <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfstate>`
         
         .. attribute:: crfstatusprimarymode
         
@@ -824,7 +799,7 @@ class CiscoRfMib(object):
         .. attribute:: crfstatusunitstate
         
         	The current state of RF on this unit
-        	**type**\:   :py:class:`RfstateEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfstateEnum>`
+        	**type**\:   :py:class:`Rfstate <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfstate>`
         
         
 
@@ -834,90 +809,236 @@ class CiscoRfMib(object):
         _revision = '2005-09-01'
 
         def __init__(self):
-            self.parent = None
-            self.crfstatusduplexmode = None
-            self.crfstatusfailovertime = None
-            self.crfstatusissufromversion = None
-            self.crfstatusissustate = None
-            self.crfstatusissustaterev1 = None
-            self.crfstatusissutoversion = None
-            self.crfstatuslastswactreasoncode = None
-            self.crfstatusmanualswactinhibit = None
-            self.crfstatuspeerstandbyentrytime = None
-            self.crfstatuspeerunitid = None
-            self.crfstatuspeerunitstate = None
-            self.crfstatusprimarymode = None
-            self.crfstatusunitid = None
-            self.crfstatusunitstate = None
+            super(CiscoRfMib.Crfstatus, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cRFStatus"
+            self.yang_parent_name = "CISCO-RF-MIB"
 
-            return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFStatus'
+            self.crfstatusduplexmode = YLeaf(YType.boolean, "cRFStatusDuplexMode")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.crfstatusfailovertime = YLeaf(YType.uint32, "cRFStatusFailoverTime")
+
+            self.crfstatusissufromversion = YLeaf(YType.str, "cRFStatusIssuFromVersion")
+
+            self.crfstatusissustate = YLeaf(YType.enumeration, "cRFStatusIssuState")
+
+            self.crfstatusissustaterev1 = YLeaf(YType.enumeration, "cRFStatusIssuStateRev1")
+
+            self.crfstatusissutoversion = YLeaf(YType.str, "cRFStatusIssuToVersion")
+
+            self.crfstatuslastswactreasoncode = YLeaf(YType.enumeration, "cRFStatusLastSwactReasonCode")
+
+            self.crfstatusmanualswactinhibit = YLeaf(YType.boolean, "cRFStatusManualSwactInhibit")
+
+            self.crfstatuspeerstandbyentrytime = YLeaf(YType.uint32, "cRFStatusPeerStandByEntryTime")
+
+            self.crfstatuspeerunitid = YLeaf(YType.int32, "cRFStatusPeerUnitId")
+
+            self.crfstatuspeerunitstate = YLeaf(YType.enumeration, "cRFStatusPeerUnitState")
+
+            self.crfstatusprimarymode = YLeaf(YType.boolean, "cRFStatusPrimaryMode")
+
+            self.crfstatusunitid = YLeaf(YType.int32, "cRFStatusUnitId")
+
+            self.crfstatusunitstate = YLeaf(YType.enumeration, "cRFStatusUnitState")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("crfstatusduplexmode",
+                            "crfstatusfailovertime",
+                            "crfstatusissufromversion",
+                            "crfstatusissustate",
+                            "crfstatusissustaterev1",
+                            "crfstatusissutoversion",
+                            "crfstatuslastswactreasoncode",
+                            "crfstatusmanualswactinhibit",
+                            "crfstatuspeerstandbyentrytime",
+                            "crfstatuspeerunitid",
+                            "crfstatuspeerunitstate",
+                            "crfstatusprimarymode",
+                            "crfstatusunitid",
+                            "crfstatusunitstate") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRfMib.Crfstatus, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRfMib.Crfstatus, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.crfstatusduplexmode.is_set or
+                self.crfstatusfailovertime.is_set or
+                self.crfstatusissufromversion.is_set or
+                self.crfstatusissustate.is_set or
+                self.crfstatusissustaterev1.is_set or
+                self.crfstatusissutoversion.is_set or
+                self.crfstatuslastswactreasoncode.is_set or
+                self.crfstatusmanualswactinhibit.is_set or
+                self.crfstatuspeerstandbyentrytime.is_set or
+                self.crfstatuspeerunitid.is_set or
+                self.crfstatuspeerunitstate.is_set or
+                self.crfstatusprimarymode.is_set or
+                self.crfstatusunitid.is_set or
+                self.crfstatusunitstate.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.crfstatusduplexmode.yfilter != YFilter.not_set or
+                self.crfstatusfailovertime.yfilter != YFilter.not_set or
+                self.crfstatusissufromversion.yfilter != YFilter.not_set or
+                self.crfstatusissustate.yfilter != YFilter.not_set or
+                self.crfstatusissustaterev1.yfilter != YFilter.not_set or
+                self.crfstatusissutoversion.yfilter != YFilter.not_set or
+                self.crfstatuslastswactreasoncode.yfilter != YFilter.not_set or
+                self.crfstatusmanualswactinhibit.yfilter != YFilter.not_set or
+                self.crfstatuspeerstandbyentrytime.yfilter != YFilter.not_set or
+                self.crfstatuspeerunitid.yfilter != YFilter.not_set or
+                self.crfstatuspeerunitstate.yfilter != YFilter.not_set or
+                self.crfstatusprimarymode.yfilter != YFilter.not_set or
+                self.crfstatusunitid.yfilter != YFilter.not_set or
+                self.crfstatusunitstate.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cRFStatus" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.crfstatusduplexmode.is_set or self.crfstatusduplexmode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusduplexmode.get_name_leafdata())
+            if (self.crfstatusfailovertime.is_set or self.crfstatusfailovertime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusfailovertime.get_name_leafdata())
+            if (self.crfstatusissufromversion.is_set or self.crfstatusissufromversion.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusissufromversion.get_name_leafdata())
+            if (self.crfstatusissustate.is_set or self.crfstatusissustate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusissustate.get_name_leafdata())
+            if (self.crfstatusissustaterev1.is_set or self.crfstatusissustaterev1.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusissustaterev1.get_name_leafdata())
+            if (self.crfstatusissutoversion.is_set or self.crfstatusissutoversion.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusissutoversion.get_name_leafdata())
+            if (self.crfstatuslastswactreasoncode.is_set or self.crfstatuslastswactreasoncode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatuslastswactreasoncode.get_name_leafdata())
+            if (self.crfstatusmanualswactinhibit.is_set or self.crfstatusmanualswactinhibit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusmanualswactinhibit.get_name_leafdata())
+            if (self.crfstatuspeerstandbyentrytime.is_set or self.crfstatuspeerstandbyentrytime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatuspeerstandbyentrytime.get_name_leafdata())
+            if (self.crfstatuspeerunitid.is_set or self.crfstatuspeerunitid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatuspeerunitid.get_name_leafdata())
+            if (self.crfstatuspeerunitstate.is_set or self.crfstatuspeerunitstate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatuspeerunitstate.get_name_leafdata())
+            if (self.crfstatusprimarymode.is_set or self.crfstatusprimarymode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusprimarymode.get_name_leafdata())
+            if (self.crfstatusunitid.is_set or self.crfstatusunitid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusunitid.get_name_leafdata())
+            if (self.crfstatusunitstate.is_set or self.crfstatusunitstate.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfstatusunitstate.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cRFStatusDuplexMode" or name == "cRFStatusFailoverTime" or name == "cRFStatusIssuFromVersion" or name == "cRFStatusIssuState" or name == "cRFStatusIssuStateRev1" or name == "cRFStatusIssuToVersion" or name == "cRFStatusLastSwactReasonCode" or name == "cRFStatusManualSwactInhibit" or name == "cRFStatusPeerStandByEntryTime" or name == "cRFStatusPeerUnitId" or name == "cRFStatusPeerUnitState" or name == "cRFStatusPrimaryMode" or name == "cRFStatusUnitId" or name == "cRFStatusUnitState"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.crfstatusduplexmode is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cRFStatusDuplexMode"):
+                self.crfstatusduplexmode = value
+                self.crfstatusduplexmode.value_namespace = name_space
+                self.crfstatusduplexmode.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusFailoverTime"):
+                self.crfstatusfailovertime = value
+                self.crfstatusfailovertime.value_namespace = name_space
+                self.crfstatusfailovertime.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusIssuFromVersion"):
+                self.crfstatusissufromversion = value
+                self.crfstatusissufromversion.value_namespace = name_space
+                self.crfstatusissufromversion.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusIssuState"):
+                self.crfstatusissustate = value
+                self.crfstatusissustate.value_namespace = name_space
+                self.crfstatusissustate.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusIssuStateRev1"):
+                self.crfstatusissustaterev1 = value
+                self.crfstatusissustaterev1.value_namespace = name_space
+                self.crfstatusissustaterev1.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusIssuToVersion"):
+                self.crfstatusissutoversion = value
+                self.crfstatusissutoversion.value_namespace = name_space
+                self.crfstatusissutoversion.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusLastSwactReasonCode"):
+                self.crfstatuslastswactreasoncode = value
+                self.crfstatuslastswactreasoncode.value_namespace = name_space
+                self.crfstatuslastswactreasoncode.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusManualSwactInhibit"):
+                self.crfstatusmanualswactinhibit = value
+                self.crfstatusmanualswactinhibit.value_namespace = name_space
+                self.crfstatusmanualswactinhibit.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusPeerStandByEntryTime"):
+                self.crfstatuspeerstandbyentrytime = value
+                self.crfstatuspeerstandbyentrytime.value_namespace = name_space
+                self.crfstatuspeerstandbyentrytime.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusPeerUnitId"):
+                self.crfstatuspeerunitid = value
+                self.crfstatuspeerunitid.value_namespace = name_space
+                self.crfstatuspeerunitid.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusPeerUnitState"):
+                self.crfstatuspeerunitstate = value
+                self.crfstatuspeerunitstate.value_namespace = name_space
+                self.crfstatuspeerunitstate.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusPrimaryMode"):
+                self.crfstatusprimarymode = value
+                self.crfstatusprimarymode.value_namespace = name_space
+                self.crfstatusprimarymode.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusUnitId"):
+                self.crfstatusunitid = value
+                self.crfstatusunitid.value_namespace = name_space
+                self.crfstatusunitid.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFStatusUnitState"):
+                self.crfstatusunitstate = value
+                self.crfstatusunitstate.value_namespace = name_space
+                self.crfstatusunitstate.value_namespace_prefix = name_space_prefix
 
-            if self.crfstatusfailovertime is not None:
-                return True
 
-            if self.crfstatusissufromversion is not None:
-                return True
-
-            if self.crfstatusissustate is not None:
-                return True
-
-            if self.crfstatusissustaterev1 is not None:
-                return True
-
-            if self.crfstatusissutoversion is not None:
-                return True
-
-            if self.crfstatuslastswactreasoncode is not None:
-                return True
-
-            if self.crfstatusmanualswactinhibit is not None:
-                return True
-
-            if self.crfstatuspeerstandbyentrytime is not None:
-                return True
-
-            if self.crfstatuspeerunitid is not None:
-                return True
-
-            if self.crfstatuspeerunitstate is not None:
-                return True
-
-            if self.crfstatusprimarymode is not None:
-                return True
-
-            if self.crfstatusunitid is not None:
-                return True
-
-            if self.crfstatusunitstate is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-            return meta._meta_table['CiscoRfMib.Crfstatus']['meta_info']
-
-
-    class Crfcfg(object):
+    class Crfcfg(Entity):
         """
         
         
         .. attribute:: crfcfgadminaction
         
         	This variable is set to invoke RF subsystem action commands. The commands are useful for maintenance and software upgrade activities
-        	**type**\:   :py:class:`RfactionEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfactionEnum>`
+        	**type**\:   :py:class:`Rfaction <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfaction>`
         
         .. attribute:: crfcfgkeepalivethresh
         
@@ -1007,7 +1128,7 @@ class CiscoRfMib(object):
         .. attribute:: crfcfgredundancymode
         
         	Indicates the redundancy mode configured on the device
-        	**type**\:   :py:class:`RfmodeEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfmodeEnum>`
+        	**type**\:   :py:class:`Rfmode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfmode>`
         
         .. attribute:: crfcfgredundancymodedescr
         
@@ -1017,7 +1138,7 @@ class CiscoRfMib(object):
         .. attribute:: crfcfgredundancyopermode
         
         	Indicate the operational redundancy mode of the device
-        	**type**\:   :py:class:`RfmodeEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfmodeEnum>`
+        	**type**\:   :py:class:`Rfmode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfmode>`
         
         .. attribute:: crfcfgsplitmode
         
@@ -1034,91 +1155,251 @@ class CiscoRfMib(object):
         _revision = '2005-09-01'
 
         def __init__(self):
-            self.parent = None
-            self.crfcfgadminaction = None
-            self.crfcfgkeepalivethresh = None
-            self.crfcfgkeepalivethreshmax = None
-            self.crfcfgkeepalivethreshmin = None
-            self.crfcfgkeepalivetimer = None
-            self.crfcfgkeepalivetimermax = None
-            self.crfcfgkeepalivetimermin = None
-            self.crfcfgmaintenancemode = None
-            self.crfcfgnotifsenabled = None
-            self.crfcfgnotiftimer = None
-            self.crfcfgnotiftimermax = None
-            self.crfcfgnotiftimermin = None
-            self.crfcfgredundancymode = None
-            self.crfcfgredundancymodedescr = None
-            self.crfcfgredundancyopermode = None
-            self.crfcfgsplitmode = None
+            super(CiscoRfMib.Crfcfg, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cRFCfg"
+            self.yang_parent_name = "CISCO-RF-MIB"
 
-            return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFCfg'
+            self.crfcfgadminaction = YLeaf(YType.enumeration, "cRFCfgAdminAction")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.crfcfgkeepalivethresh = YLeaf(YType.uint32, "cRFCfgKeepaliveThresh")
+
+            self.crfcfgkeepalivethreshmax = YLeaf(YType.uint32, "cRFCfgKeepaliveThreshMax")
+
+            self.crfcfgkeepalivethreshmin = YLeaf(YType.uint32, "cRFCfgKeepaliveThreshMin")
+
+            self.crfcfgkeepalivetimer = YLeaf(YType.uint32, "cRFCfgKeepaliveTimer")
+
+            self.crfcfgkeepalivetimermax = YLeaf(YType.uint32, "cRFCfgKeepaliveTimerMax")
+
+            self.crfcfgkeepalivetimermin = YLeaf(YType.uint32, "cRFCfgKeepaliveTimerMin")
+
+            self.crfcfgmaintenancemode = YLeaf(YType.boolean, "cRFCfgMaintenanceMode")
+
+            self.crfcfgnotifsenabled = YLeaf(YType.boolean, "cRFCfgNotifsEnabled")
+
+            self.crfcfgnotiftimer = YLeaf(YType.uint32, "cRFCfgNotifTimer")
+
+            self.crfcfgnotiftimermax = YLeaf(YType.uint32, "cRFCfgNotifTimerMax")
+
+            self.crfcfgnotiftimermin = YLeaf(YType.uint32, "cRFCfgNotifTimerMin")
+
+            self.crfcfgredundancymode = YLeaf(YType.enumeration, "cRFCfgRedundancyMode")
+
+            self.crfcfgredundancymodedescr = YLeaf(YType.str, "cRFCfgRedundancyModeDescr")
+
+            self.crfcfgredundancyopermode = YLeaf(YType.enumeration, "cRFCfgRedundancyOperMode")
+
+            self.crfcfgsplitmode = YLeaf(YType.boolean, "cRFCfgSplitMode")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("crfcfgadminaction",
+                            "crfcfgkeepalivethresh",
+                            "crfcfgkeepalivethreshmax",
+                            "crfcfgkeepalivethreshmin",
+                            "crfcfgkeepalivetimer",
+                            "crfcfgkeepalivetimermax",
+                            "crfcfgkeepalivetimermin",
+                            "crfcfgmaintenancemode",
+                            "crfcfgnotifsenabled",
+                            "crfcfgnotiftimer",
+                            "crfcfgnotiftimermax",
+                            "crfcfgnotiftimermin",
+                            "crfcfgredundancymode",
+                            "crfcfgredundancymodedescr",
+                            "crfcfgredundancyopermode",
+                            "crfcfgsplitmode") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRfMib.Crfcfg, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRfMib.Crfcfg, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.crfcfgadminaction.is_set or
+                self.crfcfgkeepalivethresh.is_set or
+                self.crfcfgkeepalivethreshmax.is_set or
+                self.crfcfgkeepalivethreshmin.is_set or
+                self.crfcfgkeepalivetimer.is_set or
+                self.crfcfgkeepalivetimermax.is_set or
+                self.crfcfgkeepalivetimermin.is_set or
+                self.crfcfgmaintenancemode.is_set or
+                self.crfcfgnotifsenabled.is_set or
+                self.crfcfgnotiftimer.is_set or
+                self.crfcfgnotiftimermax.is_set or
+                self.crfcfgnotiftimermin.is_set or
+                self.crfcfgredundancymode.is_set or
+                self.crfcfgredundancymodedescr.is_set or
+                self.crfcfgredundancyopermode.is_set or
+                self.crfcfgsplitmode.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.crfcfgadminaction.yfilter != YFilter.not_set or
+                self.crfcfgkeepalivethresh.yfilter != YFilter.not_set or
+                self.crfcfgkeepalivethreshmax.yfilter != YFilter.not_set or
+                self.crfcfgkeepalivethreshmin.yfilter != YFilter.not_set or
+                self.crfcfgkeepalivetimer.yfilter != YFilter.not_set or
+                self.crfcfgkeepalivetimermax.yfilter != YFilter.not_set or
+                self.crfcfgkeepalivetimermin.yfilter != YFilter.not_set or
+                self.crfcfgmaintenancemode.yfilter != YFilter.not_set or
+                self.crfcfgnotifsenabled.yfilter != YFilter.not_set or
+                self.crfcfgnotiftimer.yfilter != YFilter.not_set or
+                self.crfcfgnotiftimermax.yfilter != YFilter.not_set or
+                self.crfcfgnotiftimermin.yfilter != YFilter.not_set or
+                self.crfcfgredundancymode.yfilter != YFilter.not_set or
+                self.crfcfgredundancymodedescr.yfilter != YFilter.not_set or
+                self.crfcfgredundancyopermode.yfilter != YFilter.not_set or
+                self.crfcfgsplitmode.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cRFCfg" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.crfcfgadminaction.is_set or self.crfcfgadminaction.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgadminaction.get_name_leafdata())
+            if (self.crfcfgkeepalivethresh.is_set or self.crfcfgkeepalivethresh.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgkeepalivethresh.get_name_leafdata())
+            if (self.crfcfgkeepalivethreshmax.is_set or self.crfcfgkeepalivethreshmax.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgkeepalivethreshmax.get_name_leafdata())
+            if (self.crfcfgkeepalivethreshmin.is_set or self.crfcfgkeepalivethreshmin.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgkeepalivethreshmin.get_name_leafdata())
+            if (self.crfcfgkeepalivetimer.is_set or self.crfcfgkeepalivetimer.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgkeepalivetimer.get_name_leafdata())
+            if (self.crfcfgkeepalivetimermax.is_set or self.crfcfgkeepalivetimermax.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgkeepalivetimermax.get_name_leafdata())
+            if (self.crfcfgkeepalivetimermin.is_set or self.crfcfgkeepalivetimermin.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgkeepalivetimermin.get_name_leafdata())
+            if (self.crfcfgmaintenancemode.is_set or self.crfcfgmaintenancemode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgmaintenancemode.get_name_leafdata())
+            if (self.crfcfgnotifsenabled.is_set or self.crfcfgnotifsenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgnotifsenabled.get_name_leafdata())
+            if (self.crfcfgnotiftimer.is_set or self.crfcfgnotiftimer.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgnotiftimer.get_name_leafdata())
+            if (self.crfcfgnotiftimermax.is_set or self.crfcfgnotiftimermax.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgnotiftimermax.get_name_leafdata())
+            if (self.crfcfgnotiftimermin.is_set or self.crfcfgnotiftimermin.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgnotiftimermin.get_name_leafdata())
+            if (self.crfcfgredundancymode.is_set or self.crfcfgredundancymode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgredundancymode.get_name_leafdata())
+            if (self.crfcfgredundancymodedescr.is_set or self.crfcfgredundancymodedescr.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgredundancymodedescr.get_name_leafdata())
+            if (self.crfcfgredundancyopermode.is_set or self.crfcfgredundancyopermode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgredundancyopermode.get_name_leafdata())
+            if (self.crfcfgsplitmode.is_set or self.crfcfgsplitmode.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfcfgsplitmode.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cRFCfgAdminAction" or name == "cRFCfgKeepaliveThresh" or name == "cRFCfgKeepaliveThreshMax" or name == "cRFCfgKeepaliveThreshMin" or name == "cRFCfgKeepaliveTimer" or name == "cRFCfgKeepaliveTimerMax" or name == "cRFCfgKeepaliveTimerMin" or name == "cRFCfgMaintenanceMode" or name == "cRFCfgNotifsEnabled" or name == "cRFCfgNotifTimer" or name == "cRFCfgNotifTimerMax" or name == "cRFCfgNotifTimerMin" or name == "cRFCfgRedundancyMode" or name == "cRFCfgRedundancyModeDescr" or name == "cRFCfgRedundancyOperMode" or name == "cRFCfgSplitMode"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.crfcfgadminaction is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cRFCfgAdminAction"):
+                self.crfcfgadminaction = value
+                self.crfcfgadminaction.value_namespace = name_space
+                self.crfcfgadminaction.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgKeepaliveThresh"):
+                self.crfcfgkeepalivethresh = value
+                self.crfcfgkeepalivethresh.value_namespace = name_space
+                self.crfcfgkeepalivethresh.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgKeepaliveThreshMax"):
+                self.crfcfgkeepalivethreshmax = value
+                self.crfcfgkeepalivethreshmax.value_namespace = name_space
+                self.crfcfgkeepalivethreshmax.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgKeepaliveThreshMin"):
+                self.crfcfgkeepalivethreshmin = value
+                self.crfcfgkeepalivethreshmin.value_namespace = name_space
+                self.crfcfgkeepalivethreshmin.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgKeepaliveTimer"):
+                self.crfcfgkeepalivetimer = value
+                self.crfcfgkeepalivetimer.value_namespace = name_space
+                self.crfcfgkeepalivetimer.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgKeepaliveTimerMax"):
+                self.crfcfgkeepalivetimermax = value
+                self.crfcfgkeepalivetimermax.value_namespace = name_space
+                self.crfcfgkeepalivetimermax.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgKeepaliveTimerMin"):
+                self.crfcfgkeepalivetimermin = value
+                self.crfcfgkeepalivetimermin.value_namespace = name_space
+                self.crfcfgkeepalivetimermin.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgMaintenanceMode"):
+                self.crfcfgmaintenancemode = value
+                self.crfcfgmaintenancemode.value_namespace = name_space
+                self.crfcfgmaintenancemode.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgNotifsEnabled"):
+                self.crfcfgnotifsenabled = value
+                self.crfcfgnotifsenabled.value_namespace = name_space
+                self.crfcfgnotifsenabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgNotifTimer"):
+                self.crfcfgnotiftimer = value
+                self.crfcfgnotiftimer.value_namespace = name_space
+                self.crfcfgnotiftimer.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgNotifTimerMax"):
+                self.crfcfgnotiftimermax = value
+                self.crfcfgnotiftimermax.value_namespace = name_space
+                self.crfcfgnotiftimermax.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgNotifTimerMin"):
+                self.crfcfgnotiftimermin = value
+                self.crfcfgnotiftimermin.value_namespace = name_space
+                self.crfcfgnotiftimermin.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgRedundancyMode"):
+                self.crfcfgredundancymode = value
+                self.crfcfgredundancymode.value_namespace = name_space
+                self.crfcfgredundancymode.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgRedundancyModeDescr"):
+                self.crfcfgredundancymodedescr = value
+                self.crfcfgredundancymodedescr.value_namespace = name_space
+                self.crfcfgredundancymodedescr.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgRedundancyOperMode"):
+                self.crfcfgredundancyopermode = value
+                self.crfcfgredundancyopermode.value_namespace = name_space
+                self.crfcfgredundancyopermode.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFCfgSplitMode"):
+                self.crfcfgsplitmode = value
+                self.crfcfgsplitmode.value_namespace = name_space
+                self.crfcfgsplitmode.value_namespace_prefix = name_space_prefix
 
-            if self.crfcfgkeepalivethresh is not None:
-                return True
 
-            if self.crfcfgkeepalivethreshmax is not None:
-                return True
-
-            if self.crfcfgkeepalivethreshmin is not None:
-                return True
-
-            if self.crfcfgkeepalivetimer is not None:
-                return True
-
-            if self.crfcfgkeepalivetimermax is not None:
-                return True
-
-            if self.crfcfgkeepalivetimermin is not None:
-                return True
-
-            if self.crfcfgmaintenancemode is not None:
-                return True
-
-            if self.crfcfgnotifsenabled is not None:
-                return True
-
-            if self.crfcfgnotiftimer is not None:
-                return True
-
-            if self.crfcfgnotiftimermax is not None:
-                return True
-
-            if self.crfcfgnotiftimermin is not None:
-                return True
-
-            if self.crfcfgredundancymode is not None:
-                return True
-
-            if self.crfcfgredundancymodedescr is not None:
-                return True
-
-            if self.crfcfgredundancyopermode is not None:
-                return True
-
-            if self.crfcfgsplitmode is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-            return meta._meta_table['CiscoRfMib.Crfcfg']['meta_info']
-
-
-    class Crfhistory(object):
+    class Crfhistory(Entity):
         """
         
         
@@ -1151,39 +1432,108 @@ class CiscoRfMib(object):
         _revision = '2005-09-01'
 
         def __init__(self):
-            self.parent = None
-            self.crfhistorycoldstarts = None
-            self.crfhistorystandbyavailtime = None
-            self.crfhistorytablemaxlength = None
+            super(CiscoRfMib.Crfhistory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cRFHistory"
+            self.yang_parent_name = "CISCO-RF-MIB"
 
-            return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFHistory'
+            self.crfhistorycoldstarts = YLeaf(YType.uint32, "cRFHistoryColdStarts")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.crfhistorystandbyavailtime = YLeaf(YType.int32, "cRFHistoryStandByAvailTime")
+
+            self.crfhistorytablemaxlength = YLeaf(YType.uint32, "cRFHistoryTableMaxLength")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("crfhistorycoldstarts",
+                            "crfhistorystandbyavailtime",
+                            "crfhistorytablemaxlength") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRfMib.Crfhistory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRfMib.Crfhistory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.crfhistorycoldstarts.is_set or
+                self.crfhistorystandbyavailtime.is_set or
+                self.crfhistorytablemaxlength.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.crfhistorycoldstarts.yfilter != YFilter.not_set or
+                self.crfhistorystandbyavailtime.yfilter != YFilter.not_set or
+                self.crfhistorytablemaxlength.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cRFHistory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.crfhistorycoldstarts.is_set or self.crfhistorycoldstarts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfhistorycoldstarts.get_name_leafdata())
+            if (self.crfhistorystandbyavailtime.is_set or self.crfhistorystandbyavailtime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfhistorystandbyavailtime.get_name_leafdata())
+            if (self.crfhistorytablemaxlength.is_set or self.crfhistorytablemaxlength.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.crfhistorytablemaxlength.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cRFHistoryColdStarts" or name == "cRFHistoryStandByAvailTime" or name == "cRFHistoryTableMaxLength"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.crfhistorycoldstarts is not None:
-                return True
-
-            if self.crfhistorystandbyavailtime is not None:
-                return True
-
-            if self.crfhistorytablemaxlength is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-            return meta._meta_table['CiscoRfMib.Crfhistory']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cRFHistoryColdStarts"):
+                self.crfhistorycoldstarts = value
+                self.crfhistorycoldstarts.value_namespace = name_space
+                self.crfhistorycoldstarts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFHistoryStandByAvailTime"):
+                self.crfhistorystandbyavailtime = value
+                self.crfhistorystandbyavailtime.value_namespace = name_space
+                self.crfhistorystandbyavailtime.value_namespace_prefix = name_space_prefix
+            if(value_path == "cRFHistoryTableMaxLength"):
+                self.crfhistorytablemaxlength = value
+                self.crfhistorytablemaxlength.value_namespace = name_space
+                self.crfhistorytablemaxlength.value_namespace_prefix = name_space_prefix
 
 
-    class Crfstatusrfmodecapstable(object):
+    class Crfstatusrfmodecapstable(Entity):
         """
         This table containing a list of redundancy modes that can be
         supported on the device.
@@ -1201,13 +1551,39 @@ class CiscoRfMib(object):
         _revision = '2005-09-01'
 
         def __init__(self):
-            self.parent = None
-            self.crfstatusrfmodecapsentry = YList()
-            self.crfstatusrfmodecapsentry.parent = self
-            self.crfstatusrfmodecapsentry.name = 'crfstatusrfmodecapsentry'
+            super(CiscoRfMib.Crfstatusrfmodecapstable, self).__init__()
+
+            self.yang_name = "cRFStatusRFModeCapsTable"
+            self.yang_parent_name = "CISCO-RF-MIB"
+
+            self.crfstatusrfmodecapsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRfMib.Crfstatusrfmodecapstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRfMib.Crfstatusrfmodecapstable, self).__setattr__(name, value)
 
 
-        class Crfstatusrfmodecapsentry(object):
+        class Crfstatusrfmodecapsentry(Entity):
             """
             An entry containing the device implementation specific
             terminology associated with the redundancy mode that can be
@@ -1216,7 +1592,7 @@ class CiscoRfMib(object):
             .. attribute:: crfstatusrfmodecapsmode  <key>
             
             	The redundancy mode that can be supported on the device
-            	**type**\:   :py:class:`RfmodeEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfmodeEnum>`
+            	**type**\:   :py:class:`Rfmode <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfmode>`
             
             .. attribute:: crfstatusrfmodecapsmodedescr
             
@@ -1231,59 +1607,154 @@ class CiscoRfMib(object):
             _revision = '2005-09-01'
 
             def __init__(self):
-                self.parent = None
-                self.crfstatusrfmodecapsmode = None
-                self.crfstatusrfmodecapsmodedescr = None
+                super(CiscoRfMib.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.crfstatusrfmodecapsmode is None:
-                    raise YPYModelError('Key property crfstatusrfmodecapsmode is None')
+                self.yang_name = "cRFStatusRFModeCapsEntry"
+                self.yang_parent_name = "cRFStatusRFModeCapsTable"
 
-                return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFStatusRFModeCapsTable/CISCO-RF-MIB:cRFStatusRFModeCapsEntry[CISCO-RF-MIB:cRFStatusRFModeCapsMode = ' + str(self.crfstatusrfmodecapsmode) + ']'
+                self.crfstatusrfmodecapsmode = YLeaf(YType.enumeration, "cRFStatusRFModeCapsMode")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.crfstatusrfmodecapsmodedescr = YLeaf(YType.str, "cRFStatusRFModeCapsModeDescr")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("crfstatusrfmodecapsmode",
+                                "crfstatusrfmodecapsmodedescr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoRfMib.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoRfMib.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.crfstatusrfmodecapsmode.is_set or
+                    self.crfstatusrfmodecapsmodedescr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.crfstatusrfmodecapsmode.yfilter != YFilter.not_set or
+                    self.crfstatusrfmodecapsmodedescr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cRFStatusRFModeCapsEntry" + "[cRFStatusRFModeCapsMode='" + self.crfstatusrfmodecapsmode.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFModeCapsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.crfstatusrfmodecapsmode.is_set or self.crfstatusrfmodecapsmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfstatusrfmodecapsmode.get_name_leafdata())
+                if (self.crfstatusrfmodecapsmodedescr.is_set or self.crfstatusrfmodecapsmodedescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfstatusrfmodecapsmodedescr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cRFStatusRFModeCapsMode" or name == "cRFStatusRFModeCapsModeDescr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.crfstatusrfmodecapsmode is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cRFStatusRFModeCapsMode"):
+                    self.crfstatusrfmodecapsmode = value
+                    self.crfstatusrfmodecapsmode.value_namespace = name_space
+                    self.crfstatusrfmodecapsmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFStatusRFModeCapsModeDescr"):
+                    self.crfstatusrfmodecapsmodedescr = value
+                    self.crfstatusrfmodecapsmodedescr.value_namespace = name_space
+                    self.crfstatusrfmodecapsmodedescr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.crfstatusrfmodecapsentry:
+                if (c.has_data()):
                     return True
-
-                if self.crfstatusrfmodecapsmodedescr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-                return meta._meta_table['CiscoRfMib.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFStatusRFModeCapsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.crfstatusrfmodecapsentry is not None:
-                for child_ref in self.crfstatusrfmodecapsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.crfstatusrfmodecapsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cRFStatusRFModeCapsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cRFStatusRFModeCapsEntry"):
+                for c in self.crfstatusrfmodecapsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoRfMib.Crfstatusrfmodecapstable.Crfstatusrfmodecapsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.crfstatusrfmodecapsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cRFStatusRFModeCapsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-            return meta._meta_table['CiscoRfMib.Crfstatusrfmodecapstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Crfhistoryswitchovertable(object):
+    class Crfhistoryswitchovertable(Entity):
         """
         A table that tracks the history of all switchovers that
         have occurred since system initialization. The maximum
@@ -1305,13 +1776,39 @@ class CiscoRfMib(object):
         _revision = '2005-09-01'
 
         def __init__(self):
-            self.parent = None
-            self.crfhistoryswitchoverentry = YList()
-            self.crfhistoryswitchoverentry.parent = self
-            self.crfhistoryswitchoverentry.name = 'crfhistoryswitchoverentry'
+            super(CiscoRfMib.Crfhistoryswitchovertable, self).__init__()
+
+            self.yang_name = "cRFHistorySwitchOverTable"
+            self.yang_parent_name = "CISCO-RF-MIB"
+
+            self.crfhistoryswitchoverentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRfMib.Crfhistoryswitchovertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRfMib.Crfhistoryswitchovertable, self).__setattr__(name, value)
 
 
-        class Crfhistoryswitchoverentry(object):
+        class Crfhistoryswitchoverentry(Entity):
             """
             The entries in this table contain the switchover
             information. Each entry in the table is indexed by
@@ -1347,7 +1844,7 @@ class CiscoRfMib(object):
             .. attribute:: crfhistoryswitchoverreason
             
             	Indicates the reason for the switchover
-            	**type**\:   :py:class:`RfswactreasontypeEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfswactreasontypeEnum>`
+            	**type**\:   :py:class:`Rfswactreasontype <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfswactreasontype>`
             
             
 
@@ -1357,71 +1854,187 @@ class CiscoRfMib(object):
             _revision = '2005-09-01'
 
             def __init__(self):
-                self.parent = None
-                self.crfhistoryswitchoverindex = None
-                self.crfhistorycurractiveunitid = None
-                self.crfhistoryprevactiveunitid = None
-                self.crfhistoryswacttime = None
-                self.crfhistoryswitchoverreason = None
+                super(CiscoRfMib.Crfhistoryswitchovertable.Crfhistoryswitchoverentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.crfhistoryswitchoverindex is None:
-                    raise YPYModelError('Key property crfhistoryswitchoverindex is None')
+                self.yang_name = "cRFHistorySwitchOverEntry"
+                self.yang_parent_name = "cRFHistorySwitchOverTable"
 
-                return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFHistorySwitchOverTable/CISCO-RF-MIB:cRFHistorySwitchOverEntry[CISCO-RF-MIB:cRFHistorySwitchOverIndex = ' + str(self.crfhistoryswitchoverindex) + ']'
+                self.crfhistoryswitchoverindex = YLeaf(YType.uint32, "cRFHistorySwitchOverIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.crfhistorycurractiveunitid = YLeaf(YType.int32, "cRFHistoryCurrActiveUnitId")
+
+                self.crfhistoryprevactiveunitid = YLeaf(YType.int32, "cRFHistoryPrevActiveUnitId")
+
+                self.crfhistoryswacttime = YLeaf(YType.str, "cRFHistorySwactTime")
+
+                self.crfhistoryswitchoverreason = YLeaf(YType.enumeration, "cRFHistorySwitchOverReason")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("crfhistoryswitchoverindex",
+                                "crfhistorycurractiveunitid",
+                                "crfhistoryprevactiveunitid",
+                                "crfhistoryswacttime",
+                                "crfhistoryswitchoverreason") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoRfMib.Crfhistoryswitchovertable.Crfhistoryswitchoverentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoRfMib.Crfhistoryswitchovertable.Crfhistoryswitchoverentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.crfhistoryswitchoverindex.is_set or
+                    self.crfhistorycurractiveunitid.is_set or
+                    self.crfhistoryprevactiveunitid.is_set or
+                    self.crfhistoryswacttime.is_set or
+                    self.crfhistoryswitchoverreason.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.crfhistoryswitchoverindex.yfilter != YFilter.not_set or
+                    self.crfhistorycurractiveunitid.yfilter != YFilter.not_set or
+                    self.crfhistoryprevactiveunitid.yfilter != YFilter.not_set or
+                    self.crfhistoryswacttime.yfilter != YFilter.not_set or
+                    self.crfhistoryswitchoverreason.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cRFHistorySwitchOverEntry" + "[cRFHistorySwitchOverIndex='" + self.crfhistoryswitchoverindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/cRFHistorySwitchOverTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.crfhistoryswitchoverindex.is_set or self.crfhistoryswitchoverindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfhistoryswitchoverindex.get_name_leafdata())
+                if (self.crfhistorycurractiveunitid.is_set or self.crfhistorycurractiveunitid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfhistorycurractiveunitid.get_name_leafdata())
+                if (self.crfhistoryprevactiveunitid.is_set or self.crfhistoryprevactiveunitid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfhistoryprevactiveunitid.get_name_leafdata())
+                if (self.crfhistoryswacttime.is_set or self.crfhistoryswacttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfhistoryswacttime.get_name_leafdata())
+                if (self.crfhistoryswitchoverreason.is_set or self.crfhistoryswitchoverreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfhistoryswitchoverreason.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cRFHistorySwitchOverIndex" or name == "cRFHistoryCurrActiveUnitId" or name == "cRFHistoryPrevActiveUnitId" or name == "cRFHistorySwactTime" or name == "cRFHistorySwitchOverReason"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.crfhistoryswitchoverindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cRFHistorySwitchOverIndex"):
+                    self.crfhistoryswitchoverindex = value
+                    self.crfhistoryswitchoverindex.value_namespace = name_space
+                    self.crfhistoryswitchoverindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFHistoryCurrActiveUnitId"):
+                    self.crfhistorycurractiveunitid = value
+                    self.crfhistorycurractiveunitid.value_namespace = name_space
+                    self.crfhistorycurractiveunitid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFHistoryPrevActiveUnitId"):
+                    self.crfhistoryprevactiveunitid = value
+                    self.crfhistoryprevactiveunitid.value_namespace = name_space
+                    self.crfhistoryprevactiveunitid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFHistorySwactTime"):
+                    self.crfhistoryswacttime = value
+                    self.crfhistoryswacttime.value_namespace = name_space
+                    self.crfhistoryswacttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFHistorySwitchOverReason"):
+                    self.crfhistoryswitchoverreason = value
+                    self.crfhistoryswitchoverreason.value_namespace = name_space
+                    self.crfhistoryswitchoverreason.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.crfhistoryswitchoverentry:
+                if (c.has_data()):
                     return True
-
-                if self.crfhistorycurractiveunitid is not None:
-                    return True
-
-                if self.crfhistoryprevactiveunitid is not None:
-                    return True
-
-                if self.crfhistoryswacttime is not None:
-                    return True
-
-                if self.crfhistoryswitchoverreason is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-                return meta._meta_table['CiscoRfMib.Crfhistoryswitchovertable.Crfhistoryswitchoverentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFHistorySwitchOverTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.crfhistoryswitchoverentry is not None:
-                for child_ref in self.crfhistoryswitchoverentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.crfhistoryswitchoverentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cRFHistorySwitchOverTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cRFHistorySwitchOverEntry"):
+                for c in self.crfhistoryswitchoverentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoRfMib.Crfhistoryswitchovertable.Crfhistoryswitchoverentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.crfhistoryswitchoverentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cRFHistorySwitchOverEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-            return meta._meta_table['CiscoRfMib.Crfhistoryswitchovertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Crfstatusrfclienttable(object):
+    class Crfstatusrfclienttable(Entity):
         """
         This table contains a list of RF clients that are
         registered on the device. 
@@ -1444,13 +2057,39 @@ class CiscoRfMib(object):
         _revision = '2005-09-01'
 
         def __init__(self):
-            self.parent = None
-            self.crfstatusrfcliententry = YList()
-            self.crfstatusrfcliententry.parent = self
-            self.crfstatusrfcliententry.name = 'crfstatusrfcliententry'
+            super(CiscoRfMib.Crfstatusrfclienttable, self).__init__()
+
+            self.yang_name = "cRFStatusRFClientTable"
+            self.yang_parent_name = "CISCO-RF-MIB"
+
+            self.crfstatusrfcliententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoRfMib.Crfstatusrfclienttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoRfMib.Crfstatusrfclienttable, self).__setattr__(name, value)
 
 
-        class Crfstatusrfcliententry(object):
+        class Crfstatusrfcliententry(Entity):
             """
             An entry containing information on various clients
             registered with the Redundancy Facility (RF). Entries in
@@ -1492,7 +2131,7 @@ class CiscoRfMib(object):
             .. attribute:: crfstatusrfclientstatus
             
             	This object provides the status of the Redundancy Facility client
-            	**type**\:   :py:class:`RfclientstatusEnum <ydk.models.cisco_ios_xe.CISCO_RF_MIB.RfclientstatusEnum>`
+            	**type**\:   :py:class:`Rfclientstatus <ydk.models.cisco_ios_xe.CISCO_RF_MIB.Rfclientstatus>`
             
             
 
@@ -1502,102 +2141,279 @@ class CiscoRfMib(object):
             _revision = '2005-09-01'
 
             def __init__(self):
-                self.parent = None
-                self.crfstatusrfclientid = None
-                self.crfstatusrfclientdescr = None
-                self.crfstatusrfclientredtime = None
-                self.crfstatusrfclientseq = None
-                self.crfstatusrfclientstatus = None
+                super(CiscoRfMib.Crfstatusrfclienttable.Crfstatusrfcliententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.crfstatusrfclientid is None:
-                    raise YPYModelError('Key property crfstatusrfclientid is None')
+                self.yang_name = "cRFStatusRFClientEntry"
+                self.yang_parent_name = "cRFStatusRFClientTable"
 
-                return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFStatusRFClientTable/CISCO-RF-MIB:cRFStatusRFClientEntry[CISCO-RF-MIB:cRFStatusRFClientID = ' + str(self.crfstatusrfclientid) + ']'
+                self.crfstatusrfclientid = YLeaf(YType.uint32, "cRFStatusRFClientID")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.crfstatusrfclientdescr = YLeaf(YType.str, "cRFStatusRFClientDescr")
+
+                self.crfstatusrfclientredtime = YLeaf(YType.uint32, "cRFStatusRFClientRedTime")
+
+                self.crfstatusrfclientseq = YLeaf(YType.uint32, "cRFStatusRFClientSeq")
+
+                self.crfstatusrfclientstatus = YLeaf(YType.enumeration, "cRFStatusRFClientStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("crfstatusrfclientid",
+                                "crfstatusrfclientdescr",
+                                "crfstatusrfclientredtime",
+                                "crfstatusrfclientseq",
+                                "crfstatusrfclientstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoRfMib.Crfstatusrfclienttable.Crfstatusrfcliententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoRfMib.Crfstatusrfclienttable.Crfstatusrfcliententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.crfstatusrfclientid.is_set or
+                    self.crfstatusrfclientdescr.is_set or
+                    self.crfstatusrfclientredtime.is_set or
+                    self.crfstatusrfclientseq.is_set or
+                    self.crfstatusrfclientstatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.crfstatusrfclientid.yfilter != YFilter.not_set or
+                    self.crfstatusrfclientdescr.yfilter != YFilter.not_set or
+                    self.crfstatusrfclientredtime.yfilter != YFilter.not_set or
+                    self.crfstatusrfclientseq.yfilter != YFilter.not_set or
+                    self.crfstatusrfclientstatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cRFStatusRFClientEntry" + "[cRFStatusRFClientID='" + self.crfstatusrfclientid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFClientTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.crfstatusrfclientid.is_set or self.crfstatusrfclientid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfstatusrfclientid.get_name_leafdata())
+                if (self.crfstatusrfclientdescr.is_set or self.crfstatusrfclientdescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfstatusrfclientdescr.get_name_leafdata())
+                if (self.crfstatusrfclientredtime.is_set or self.crfstatusrfclientredtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfstatusrfclientredtime.get_name_leafdata())
+                if (self.crfstatusrfclientseq.is_set or self.crfstatusrfclientseq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfstatusrfclientseq.get_name_leafdata())
+                if (self.crfstatusrfclientstatus.is_set or self.crfstatusrfclientstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.crfstatusrfclientstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cRFStatusRFClientID" or name == "cRFStatusRFClientDescr" or name == "cRFStatusRFClientRedTime" or name == "cRFStatusRFClientSeq" or name == "cRFStatusRFClientStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.crfstatusrfclientid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cRFStatusRFClientID"):
+                    self.crfstatusrfclientid = value
+                    self.crfstatusrfclientid.value_namespace = name_space
+                    self.crfstatusrfclientid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFStatusRFClientDescr"):
+                    self.crfstatusrfclientdescr = value
+                    self.crfstatusrfclientdescr.value_namespace = name_space
+                    self.crfstatusrfclientdescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFStatusRFClientRedTime"):
+                    self.crfstatusrfclientredtime = value
+                    self.crfstatusrfclientredtime.value_namespace = name_space
+                    self.crfstatusrfclientredtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFStatusRFClientSeq"):
+                    self.crfstatusrfclientseq = value
+                    self.crfstatusrfclientseq.value_namespace = name_space
+                    self.crfstatusrfclientseq.value_namespace_prefix = name_space_prefix
+                if(value_path == "cRFStatusRFClientStatus"):
+                    self.crfstatusrfclientstatus = value
+                    self.crfstatusrfclientstatus.value_namespace = name_space
+                    self.crfstatusrfclientstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.crfstatusrfcliententry:
+                if (c.has_data()):
                     return True
-
-                if self.crfstatusrfclientdescr is not None:
-                    return True
-
-                if self.crfstatusrfclientredtime is not None:
-                    return True
-
-                if self.crfstatusrfclientseq is not None:
-                    return True
-
-                if self.crfstatusrfclientstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-                return meta._meta_table['CiscoRfMib.Crfstatusrfclienttable.Crfstatusrfcliententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-RF-MIB:CISCO-RF-MIB/CISCO-RF-MIB:cRFStatusRFClientTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.crfstatusrfcliententry is not None:
-                for child_ref in self.crfstatusrfcliententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.crfstatusrfcliententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cRFStatusRFClientTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cRFStatusRFClientEntry"):
+                for c in self.crfstatusrfcliententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoRfMib.Crfstatusrfclienttable.Crfstatusrfcliententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.crfstatusrfcliententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cRFStatusRFClientEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-            return meta._meta_table['CiscoRfMib.Crfstatusrfclienttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.crfcfg is not None and self.crfcfg.has_data()) or
+            (self.crfhistory is not None and self.crfhistory.has_data()) or
+            (self.crfhistoryswitchovertable is not None and self.crfhistoryswitchovertable.has_data()) or
+            (self.crfstatus is not None and self.crfstatus.has_data()) or
+            (self.crfstatusrfclienttable is not None and self.crfstatusrfclienttable.has_data()) or
+            (self.crfstatusrfmodecapstable is not None and self.crfstatusrfmodecapstable.has_data()))
 
-        return '/CISCO-RF-MIB:CISCO-RF-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.crfcfg is not None and self.crfcfg.has_operation()) or
+            (self.crfhistory is not None and self.crfhistory.has_operation()) or
+            (self.crfhistoryswitchovertable is not None and self.crfhistoryswitchovertable.has_operation()) or
+            (self.crfstatus is not None and self.crfstatus.has_operation()) or
+            (self.crfstatusrfclienttable is not None and self.crfstatusrfclienttable.has_operation()) or
+            (self.crfstatusrfmodecapstable is not None and self.crfstatusrfmodecapstable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-RF-MIB:CISCO-RF-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cRFCfg"):
+            if (self.crfcfg is None):
+                self.crfcfg = CiscoRfMib.Crfcfg()
+                self.crfcfg.parent = self
+                self._children_name_map["crfcfg"] = "cRFCfg"
+            return self.crfcfg
+
+        if (child_yang_name == "cRFHistory"):
+            if (self.crfhistory is None):
+                self.crfhistory = CiscoRfMib.Crfhistory()
+                self.crfhistory.parent = self
+                self._children_name_map["crfhistory"] = "cRFHistory"
+            return self.crfhistory
+
+        if (child_yang_name == "cRFHistorySwitchOverTable"):
+            if (self.crfhistoryswitchovertable is None):
+                self.crfhistoryswitchovertable = CiscoRfMib.Crfhistoryswitchovertable()
+                self.crfhistoryswitchovertable.parent = self
+                self._children_name_map["crfhistoryswitchovertable"] = "cRFHistorySwitchOverTable"
+            return self.crfhistoryswitchovertable
+
+        if (child_yang_name == "cRFStatus"):
+            if (self.crfstatus is None):
+                self.crfstatus = CiscoRfMib.Crfstatus()
+                self.crfstatus.parent = self
+                self._children_name_map["crfstatus"] = "cRFStatus"
+            return self.crfstatus
+
+        if (child_yang_name == "cRFStatusRFClientTable"):
+            if (self.crfstatusrfclienttable is None):
+                self.crfstatusrfclienttable = CiscoRfMib.Crfstatusrfclienttable()
+                self.crfstatusrfclienttable.parent = self
+                self._children_name_map["crfstatusrfclienttable"] = "cRFStatusRFClientTable"
+            return self.crfstatusrfclienttable
+
+        if (child_yang_name == "cRFStatusRFModeCapsTable"):
+            if (self.crfstatusrfmodecapstable is None):
+                self.crfstatusrfmodecapstable = CiscoRfMib.Crfstatusrfmodecapstable()
+                self.crfstatusrfmodecapstable.parent = self
+                self._children_name_map["crfstatusrfmodecapstable"] = "cRFStatusRFModeCapsTable"
+            return self.crfstatusrfmodecapstable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cRFCfg" or name == "cRFHistory" or name == "cRFHistorySwitchOverTable" or name == "cRFStatus" or name == "cRFStatusRFClientTable" or name == "cRFStatusRFModeCapsTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.crfcfg is not None and self.crfcfg._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.crfhistory is not None and self.crfhistory._has_data():
-            return True
-
-        if self.crfhistoryswitchovertable is not None and self.crfhistoryswitchovertable._has_data():
-            return True
-
-        if self.crfstatus is not None and self.crfstatus._has_data():
-            return True
-
-        if self.crfstatusrfclienttable is not None and self.crfstatusrfclienttable._has_data():
-            return True
-
-        if self.crfstatusrfmodecapstable is not None and self.crfstatusrfmodecapstable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RF_MIB as meta
-        return meta._meta_table['CiscoRfMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoRfMib()
+        return self._top_entity
 

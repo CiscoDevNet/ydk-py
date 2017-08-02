@@ -66,21 +66,15 @@ The following reference is used throughout this MIB module\:
     Architecture', IEEE 802, June 2001.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoDot3OamMib(object):
+class CiscoDot3OamMib(Entity):
     """
     
     
@@ -122,21 +116,44 @@ class CiscoDot3OamMib(object):
     _revision = '2006-05-31'
 
     def __init__(self):
+        super(CiscoDot3OamMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-DOT3-OAM-MIB"
+        self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
+
         self.cdot3oameventconfigtable = CiscoDot3OamMib.Cdot3Oameventconfigtable()
         self.cdot3oameventconfigtable.parent = self
+        self._children_name_map["cdot3oameventconfigtable"] = "cdot3OamEventConfigTable"
+        self._children_yang_names.add("cdot3OamEventConfigTable")
+
         self.cdot3oameventlogtable = CiscoDot3OamMib.Cdot3Oameventlogtable()
         self.cdot3oameventlogtable.parent = self
+        self._children_name_map["cdot3oameventlogtable"] = "cdot3OamEventLogTable"
+        self._children_yang_names.add("cdot3OamEventLogTable")
+
         self.cdot3oamloopbacktable = CiscoDot3OamMib.Cdot3Oamloopbacktable()
         self.cdot3oamloopbacktable.parent = self
+        self._children_name_map["cdot3oamloopbacktable"] = "cdot3OamLoopbackTable"
+        self._children_yang_names.add("cdot3OamLoopbackTable")
+
         self.cdot3oampeertable = CiscoDot3OamMib.Cdot3Oampeertable()
         self.cdot3oampeertable.parent = self
+        self._children_name_map["cdot3oampeertable"] = "cdot3OamPeerTable"
+        self._children_yang_names.add("cdot3OamPeerTable")
+
         self.cdot3oamstatstable = CiscoDot3OamMib.Cdot3Oamstatstable()
         self.cdot3oamstatstable.parent = self
+        self._children_name_map["cdot3oamstatstable"] = "cdot3OamStatsTable"
+        self._children_yang_names.add("cdot3OamStatsTable")
+
         self.cdot3oamtable = CiscoDot3OamMib.Cdot3Oamtable()
         self.cdot3oamtable.parent = self
+        self._children_name_map["cdot3oamtable"] = "cdot3OamTable"
+        self._children_yang_names.add("cdot3OamTable")
 
 
-    class Cdot3Oamtable(object):
+    class Cdot3Oamtable(Entity):
         """
         This table contains the primary controls and status for the
         OAM capabilities of an Ethernet like interface.  There will be
@@ -156,13 +173,39 @@ class CiscoDot3OamMib(object):
         _revision = '2006-05-31'
 
         def __init__(self):
-            self.parent = None
-            self.cdot3oamentry = YList()
-            self.cdot3oamentry.parent = self
-            self.cdot3oamentry.name = 'cdot3oamentry'
+            super(CiscoDot3OamMib.Cdot3Oamtable, self).__init__()
+
+            self.yang_name = "cdot3OamTable"
+            self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
+
+            self.cdot3oamentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDot3OamMib.Cdot3Oamtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDot3OamMib.Cdot3Oamtable, self).__setattr__(name, value)
 
 
-        class Cdot3Oamentry(object):
+        class Cdot3Oamentry(Entity):
             """
             An entry in the table, containing information on the Ethernet
             OAM function for a single Ethernet like interface. Entries in
@@ -185,7 +228,7 @@ class CiscoDot3OamMib(object):
             .. attribute:: cdot3oamadminstate
             
             	This object is used to provision the default administrative OAM mode for this interface.  This object represents the desired state of OAM for this interface.    The cdot3OamAdminState always starts in the disabled(1) state until an explicit management action or configuration information retained by the system causes a transition to the enabled(2) state.   When enabled(2), Ethernet OAM will attempt to operate over this interface.  
-            	**type**\:   :py:class:`Cdot3OamadminstateEnum <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3OamadminstateEnum>`
+            	**type**\:   :py:class:`Cdot3Oamadminstate <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oamadminstate>`
             
             .. attribute:: cdot3oamconfigrevision
             
@@ -211,12 +254,12 @@ class CiscoDot3OamMib(object):
             .. attribute:: cdot3oammode
             
             	This object configures the mode of OAM operation for this Ethernet like interface.  OAM on Ethernet interfaces may be in 'active' mode or 'passive' mode.  These two modes differ in that active mode provides additional capabilities to initiate monitoring activities with the remote OAM peer entity, while passive mode generally waits for the peer to initiate OAM actions with it.  As an example, an active OAM entity can put the remote OAM entity in a loopback state, where a passive OAM entity cannot.    The default value of cdot3OamMode is dependent on the type of system on which this Ethernet like interface resides.  The default value should be 'active(1)' unless it is known that this system should take on a subservient role to the other device connected over this interface.    Changing this value results in incrementing the configuration revision field of locally generated OAMPDUs (30.3.6.1.12) and potentially re\-doing the OAM discovery process if the cdot3OamOperStatus was already operational(9).  
-            	**type**\:   :py:class:`Cdot3OammodeEnum <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3OammodeEnum>`
+            	**type**\:   :py:class:`Cdot3Oammode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oammode>`
             
             .. attribute:: cdot3oamoperstatus
             
             	At initialization and failure conditions, two OAM entities on the same full\-duplex Ethernet link begin a discovery phase to determine what OAM capabilities may be used on that link.  The progress of this initialization is controlled by the OAM sublayer.               This value is always disabled(1) if OAM is disabled on this interface via the cdot3OamAdminState.    If the link has detected a fault and is transmitting OAMPDUs with a link fault indication, the value is linkFault(2). Also, if the interface is not operational (ifOperStatus is not  up(1)), linkFault(2) is returned.  Note that the object  ifOperStatus may not be up(1) as a result of link failure or administrative action (ifAdminState being down(2) or testing(3)).                     The passiveWait(3) state is returned only by OAM entities in passive mode (cdot3OamMode) and reflects the state in which the OAM entity is waiting to see if the peer device is OAM capable.  The activeSendLocal(4) value is used by active mode devices (cdot3OamMode) and reflects the OAM entity actively trying to discover whether the peer has OAM capability but has not yet made that determination.                     The state sendLocalAndRemote(5) reflects that the local OAM entity has discovered the peer but has not yet accepted or rejected the configuration of the peer.  The local device can, for whatever reason, decide that the peer device is unacceptable and decline OAM peering.  If the local OAM entity rejects the peer OAM entity, the state becomes oamPeeringLocallyRejected(7).  If the OAM peering is allowed by the local device, the state moves to sendLocalAndRemoteOk(6).  Note that both the sendLocalAndRemote(5) and oamPeeringLocallyRejected(7) states fall within the state SEND\_LOCAL\_REMOTE of the Discovery state diagram [802.3ah, Figure 57\-5], with the difference being whether the local OAM client has actively rejected the peering or has just not indicated any decision yet.  Whether a peering decision has been made is indicated via the local flags field in the OAMPDU (reflected in the aOAMLocalFlagsField of 30.3.6.1.10).    If the remote OAM entity rejects the peering, the state becomes oamPeeringRemotelyRejected(8).  Note that both the sendLocalAndRemoteOk(6) and oamPeeringRemotelyRejected(8) states fall within the state SEND\_LOCAL\_REMOTE\_OK of the Discovery state diagram [802.3ah, Figure 57\-5], with the difference being whether the remote OAM client has rejected the peering or has just not yet decided.  This is indicated via the remote flags field in the OAM PDU (reflected in the aOAMRemoteFlagsField of 30.3.6.1.11).                     When the local OAM entity learns that both it and the remote OAM entity have accepted the peering, the state moves to operational(9) corresponding to the SEND\_ANY state of the Discovery state diagram [802.3ah, Figure 57\-5].    Since Ethernet OAM functions are not designed to work completely over half\-duplex interfaces, the value nonOperHalfDuplex(10) is returned whenever Ethernet OAM is enabled (cdot3OamAdminState is enabled(1)) but the interface is in half\-duplex operation.  
-            	**type**\:   :py:class:`Cdot3OamoperstatusEnum <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3OamoperstatusEnum>`
+            	**type**\:   :py:class:`Cdot3Oamoperstatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oamoperstatus>`
             
             
 
@@ -226,18 +269,58 @@ class CiscoDot3OamMib(object):
             _revision = '2006-05-31'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cdot3oamadminstate = None
-                self.cdot3oamconfigrevision = None
-                self.cdot3oamfunctionssupported = CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3Oamfunctionssupported()
-                self.cdot3oammaxoampdusize = None
-                self.cdot3oammode = None
-                self.cdot3oamoperstatus = None
+                super(CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry, self).__init__()
 
-            class Cdot3OamadminstateEnum(Enum):
+                self.yang_name = "cdot3OamEntry"
+                self.yang_parent_name = "cdot3OamTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cdot3oamadminstate = YLeaf(YType.enumeration, "cdot3OamAdminState")
+
+                self.cdot3oamconfigrevision = YLeaf(YType.uint32, "cdot3OamConfigRevision")
+
+                self.cdot3oamfunctionssupported = YLeaf(YType.bits, "cdot3OamFunctionsSupported")
+
+                self.cdot3oammaxoampdusize = YLeaf(YType.uint32, "cdot3OamMaxOamPduSize")
+
+                self.cdot3oammode = YLeaf(YType.enumeration, "cdot3OamMode")
+
+                self.cdot3oamoperstatus = YLeaf(YType.enumeration, "cdot3OamOperStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cdot3oamadminstate",
+                                "cdot3oamconfigrevision",
+                                "cdot3oamfunctionssupported",
+                                "cdot3oammaxoampdusize",
+                                "cdot3oammode",
+                                "cdot3oamoperstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry, self).__setattr__(name, value)
+
+            class Cdot3Oamadminstate(Enum):
                 """
-                Cdot3OamadminstateEnum
+                Cdot3Oamadminstate
 
                 This object is used to provision the default administrative
 
@@ -261,20 +344,14 @@ class CiscoDot3OamMib(object):
 
                 """
 
-                disabled = 1
+                disabled = Enum.YLeaf(1, "disabled")
 
-                enabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                    return meta._meta_table['CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3OamadminstateEnum']
+                enabled = Enum.YLeaf(2, "enabled")
 
 
-            class Cdot3OammodeEnum(Enum):
+            class Cdot3Oammode(Enum):
                 """
-                Cdot3OammodeEnum
+                Cdot3Oammode
 
                 This object configures the mode of OAM operation for this
 
@@ -318,20 +395,14 @@ class CiscoDot3OamMib(object):
 
                 """
 
-                active = 1
+                active = Enum.YLeaf(1, "active")
 
-                passive = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                    return meta._meta_table['CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3OammodeEnum']
+                passive = Enum.YLeaf(2, "passive")
 
 
-            class Cdot3OamoperstatusEnum(Enum):
+            class Cdot3Oamoperstatus(Enum):
                 """
-                Cdot3OamoperstatusEnum
+                Cdot3Oamoperstatus
 
                 At initialization and failure conditions, two OAM entities on
 
@@ -467,136 +538,179 @@ class CiscoDot3OamMib(object):
 
                 """
 
-                disabled = 1
+                disabled = Enum.YLeaf(1, "disabled")
 
-                linkFault = 2
+                linkFault = Enum.YLeaf(2, "linkFault")
 
-                passiveWait = 3
+                passiveWait = Enum.YLeaf(3, "passiveWait")
 
-                activeSendLocal = 4
+                activeSendLocal = Enum.YLeaf(4, "activeSendLocal")
 
-                sendLocalAndRemote = 5
+                sendLocalAndRemote = Enum.YLeaf(5, "sendLocalAndRemote")
 
-                sendLocalAndRemoteOk = 6
+                sendLocalAndRemoteOk = Enum.YLeaf(6, "sendLocalAndRemoteOk")
 
-                oamPeeringLocallyRejected = 7
+                oamPeeringLocallyRejected = Enum.YLeaf(7, "oamPeeringLocallyRejected")
 
-                oamPeeringRemotelyRejected = 8
+                oamPeeringRemotelyRejected = Enum.YLeaf(8, "oamPeeringRemotelyRejected")
 
-                operational = 9
+                operational = Enum.YLeaf(9, "operational")
 
-                nonOperHalfDuplex = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                    return meta._meta_table['CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry.Cdot3OamoperstatusEnum']
+                nonOperHalfDuplex = Enum.YLeaf(10, "nonOperHalfDuplex")
 
 
-            class Cdot3Oamfunctionssupported(FixedBitsDict):
-                """
-                Cdot3Oamfunctionssupported
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cdot3oamadminstate.is_set or
+                    self.cdot3oamconfigrevision.is_set or
+                    self.cdot3oamfunctionssupported.is_set or
+                    self.cdot3oammaxoampdusize.is_set or
+                    self.cdot3oammode.is_set or
+                    self.cdot3oamoperstatus.is_set)
 
-                The OAM functions supported on this Ethernet like interface.
-                OAM consists of separate functional sets beyond the basic
-                discovery process which is always required.  These functional
-                groups can be supported independently by any implementation.
-                These values are communicated to the peer via the local
-                configuration field of Information OAMPDUs.  
-                
-                Setting 'unidirectionalSupport(0)' indicates that the OAM
-                entity supports the transmission of OAMPDUs on links that are
-                operating in unidirectional mode (traffic flowing in one
-                direction only).  Setting 'loopbackSupport(1)' indicates the
-                OAM entity can initiate and respond to loopback commands.
-                Setting 'eventSupport(2)' indicates the OAM entity can send
-                and receive Event Notification OAMPDUs. Setting
-                'variableSupport(3)' indicates the OAM entity can send and
-                receive Variable Request and Response OAMPDUs.  
-                Keys are:- loopbackSupport , eventSupport , variableSupport , unidirectionalSupport
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cdot3oamadminstate.yfilter != YFilter.not_set or
+                    self.cdot3oamconfigrevision.yfilter != YFilter.not_set or
+                    self.cdot3oamfunctionssupported.yfilter != YFilter.not_set or
+                    self.cdot3oammaxoampdusize.yfilter != YFilter.not_set or
+                    self.cdot3oammode.yfilter != YFilter.not_set or
+                    self.cdot3oamoperstatus.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdot3OamEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'loopbackSupport':False,
-                        'eventSupport':False,
-                        'variableSupport':False,
-                        'unidirectionalSupport':False,
-                    }
-                    self._pos_map = { 
-                        'loopbackSupport':1,
-                        'eventSupport':2,
-                        'variableSupport':3,
-                        'unidirectionalSupport':0,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamTable/CISCO-DOT3-OAM-MIB:cdot3OamEntry[CISCO-DOT3-OAM-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cdot3oamadminstate.is_set or self.cdot3oamadminstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamadminstate.get_name_leafdata())
+                if (self.cdot3oamconfigrevision.is_set or self.cdot3oamconfigrevision.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamconfigrevision.get_name_leafdata())
+                if (self.cdot3oamfunctionssupported.is_set or self.cdot3oamfunctionssupported.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamfunctionssupported.get_name_leafdata())
+                if (self.cdot3oammaxoampdusize.is_set or self.cdot3oammaxoampdusize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oammaxoampdusize.get_name_leafdata())
+                if (self.cdot3oammode.is_set or self.cdot3oammode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oammode.get_name_leafdata())
+                if (self.cdot3oamoperstatus.is_set or self.cdot3oamoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamoperstatus.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cdot3OamAdminState" or name == "cdot3OamConfigRevision" or name == "cdot3OamFunctionsSupported" or name == "cdot3OamMaxOamPduSize" or name == "cdot3OamMode" or name == "cdot3OamOperStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamAdminState"):
+                    self.cdot3oamadminstate = value
+                    self.cdot3oamadminstate.value_namespace = name_space
+                    self.cdot3oamadminstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamConfigRevision"):
+                    self.cdot3oamconfigrevision = value
+                    self.cdot3oamconfigrevision.value_namespace = name_space
+                    self.cdot3oamconfigrevision.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamFunctionsSupported"):
+                    self.cdot3oamfunctionssupported[value] = True
+                if(value_path == "cdot3OamMaxOamPduSize"):
+                    self.cdot3oammaxoampdusize = value
+                    self.cdot3oammaxoampdusize.value_namespace = name_space
+                    self.cdot3oammaxoampdusize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamMode"):
+                    self.cdot3oammode = value
+                    self.cdot3oammode.value_namespace = name_space
+                    self.cdot3oammode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamOperStatus"):
+                    self.cdot3oamoperstatus = value
+                    self.cdot3oamoperstatus.value_namespace = name_space
+                    self.cdot3oamoperstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdot3oamentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdot3oamadminstate is not None:
-                    return True
-
-                if self.cdot3oamconfigrevision is not None:
-                    return True
-
-                if self.cdot3oamfunctionssupported is not None:
-                    if self.cdot3oamfunctionssupported._has_data():
-                        return True
-
-                if self.cdot3oammaxoampdusize is not None:
-                    return True
-
-                if self.cdot3oammode is not None:
-                    return True
-
-                if self.cdot3oamoperstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                return meta._meta_table['CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdot3oamentry is not None:
-                for child_ref in self.cdot3oamentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdot3oamentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdot3OamTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdot3OamEntry"):
+                for c in self.cdot3oamentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDot3OamMib.Cdot3Oamtable.Cdot3Oamentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdot3oamentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdot3OamEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-            return meta._meta_table['CiscoDot3OamMib.Cdot3Oamtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdot3Oampeertable(object):
+    class Cdot3Oampeertable(Entity):
         """
         This table contains information about the OAM peer for a
         particular Ethernet like interface. OAM entities communicate
@@ -618,13 +732,39 @@ class CiscoDot3OamMib(object):
         _revision = '2006-05-31'
 
         def __init__(self):
-            self.parent = None
-            self.cdot3oampeerentry = YList()
-            self.cdot3oampeerentry.parent = self
-            self.cdot3oampeerentry.name = 'cdot3oampeerentry'
+            super(CiscoDot3OamMib.Cdot3Oampeertable, self).__init__()
+
+            self.yang_name = "cdot3OamPeerTable"
+            self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
+
+            self.cdot3oampeerentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDot3OamMib.Cdot3Oampeertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDot3OamMib.Cdot3Oampeertable, self).__setattr__(name, value)
 
 
-        class Cdot3Oampeerentry(object):
+        class Cdot3Oampeerentry(Entity):
             """
             An entry in the table, containing information on the peer OAM
             entity for a single Ethernet like interface.  
@@ -677,7 +817,7 @@ class CiscoDot3OamMib(object):
             .. attribute:: cdot3oampeermode
             
             	The mode of the OAM peer as reflected in the latest Information OAMPDU received with a Local Information TLV.  The mode of the peer can be determined from the Configuration field in the Local Information TLV of the last Information OAMPDU received from the peer.  The value is unknown(3) whenever no Local Information TLV has been received.  The values of active(1) and passive(2) are returned when a Local Information TLV has been received indicating the peer is in active or passive mode, respectively. 
-            	**type**\:   :py:class:`Cdot3OampeermodeEnum <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry.Cdot3OampeermodeEnum>`
+            	**type**\:   :py:class:`Cdot3Oampeermode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry.Cdot3Oampeermode>`
             
             .. attribute:: cdot3oampeervendorinfo
             
@@ -701,19 +841,61 @@ class CiscoDot3OamMib(object):
             _revision = '2006-05-31'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cdot3oampeerconfigrevision = None
-                self.cdot3oampeerfunctionssupported = CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry.Cdot3Oampeerfunctionssupported()
-                self.cdot3oampeermacaddress = None
-                self.cdot3oampeermaxoampdusize = None
-                self.cdot3oampeermode = None
-                self.cdot3oampeervendorinfo = None
-                self.cdot3oampeervendoroui = None
+                super(CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry, self).__init__()
 
-            class Cdot3OampeermodeEnum(Enum):
+                self.yang_name = "cdot3OamPeerEntry"
+                self.yang_parent_name = "cdot3OamPeerTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cdot3oampeerconfigrevision = YLeaf(YType.uint32, "cdot3OamPeerConfigRevision")
+
+                self.cdot3oampeerfunctionssupported = YLeaf(YType.bits, "cdot3OamPeerFunctionsSupported")
+
+                self.cdot3oampeermacaddress = YLeaf(YType.str, "cdot3OamPeerMacAddress")
+
+                self.cdot3oampeermaxoampdusize = YLeaf(YType.uint32, "cdot3OamPeerMaxOamPduSize")
+
+                self.cdot3oampeermode = YLeaf(YType.enumeration, "cdot3OamPeerMode")
+
+                self.cdot3oampeervendorinfo = YLeaf(YType.uint32, "cdot3OamPeerVendorInfo")
+
+                self.cdot3oampeervendoroui = YLeaf(YType.str, "cdot3OamPeerVendorOui")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cdot3oampeerconfigrevision",
+                                "cdot3oampeerfunctionssupported",
+                                "cdot3oampeermacaddress",
+                                "cdot3oampeermaxoampdusize",
+                                "cdot3oampeermode",
+                                "cdot3oampeervendorinfo",
+                                "cdot3oampeervendoroui") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry, self).__setattr__(name, value)
+
+            class Cdot3Oampeermode(Enum):
                 """
-                Cdot3OampeermodeEnum
+                Cdot3Oampeermode
 
                 The mode of the OAM peer as reflected in the latest
 
@@ -741,131 +923,173 @@ class CiscoDot3OamMib(object):
 
                 """
 
-                active = 1
+                active = Enum.YLeaf(1, "active")
 
-                passive = 2
+                passive = Enum.YLeaf(2, "passive")
 
-                unknown = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                    return meta._meta_table['CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry.Cdot3OampeermodeEnum']
+                unknown = Enum.YLeaf(3, "unknown")
 
 
-            class Cdot3Oampeerfunctionssupported(FixedBitsDict):
-                """
-                Cdot3Oampeerfunctionssupported
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cdot3oampeerconfigrevision.is_set or
+                    self.cdot3oampeerfunctionssupported.is_set or
+                    self.cdot3oampeermacaddress.is_set or
+                    self.cdot3oampeermaxoampdusize.is_set or
+                    self.cdot3oampeermode.is_set or
+                    self.cdot3oampeervendorinfo.is_set or
+                    self.cdot3oampeervendoroui.is_set)
 
-                The OAM functions supported on this Ethernet like interface.
-                OAM consists of separate functionality sets above the basic
-                discovery process.  This value indicates the capabilities of
-                the peer OAM entity with respect to these functions.  This
-                value is initialized so all bits are clear. 
-                
-                If unidirectionalSupport(0) is set, then the peer OAM entity
-                supports sending OAM frames on Ethernet interfaces when the
-                receive path is known to be inoperable.   If
-                loopbackSupport(1) is set, then the peer OAM entity can send
-                and receive OAM loopback commands.  If eventSupport(2) is set,
-                then the peer OAM entity can send and receive event OAMPDUs to
-                signal various error conditions. If variableSupport(3) is set,
-                then the peer OAM entity can send and receive variable
-                requests to monitor attribute value as described in Clause 57
-                of [802.3ah].   
-                
-                The capabilities of the OAM peer can be determined from the
-                configuration field of the Local Information TLV of the most
-                recently received Information OAMPDU with a Local Information
-                TLV.  All zeros are returned if no Local Information TLV has
-                yet been received. 
-                Keys are:- loopbackSupport , eventSupport , variableSupport , unidirectionalSupport
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cdot3oampeerconfigrevision.yfilter != YFilter.not_set or
+                    self.cdot3oampeerfunctionssupported.yfilter != YFilter.not_set or
+                    self.cdot3oampeermacaddress.yfilter != YFilter.not_set or
+                    self.cdot3oampeermaxoampdusize.yfilter != YFilter.not_set or
+                    self.cdot3oampeermode.yfilter != YFilter.not_set or
+                    self.cdot3oampeervendorinfo.yfilter != YFilter.not_set or
+                    self.cdot3oampeervendoroui.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdot3OamPeerEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'loopbackSupport':False,
-                        'eventSupport':False,
-                        'variableSupport':False,
-                        'unidirectionalSupport':False,
-                    }
-                    self._pos_map = { 
-                        'loopbackSupport':1,
-                        'eventSupport':2,
-                        'variableSupport':3,
-                        'unidirectionalSupport':0,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamPeerTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamPeerTable/CISCO-DOT3-OAM-MIB:cdot3OamPeerEntry[CISCO-DOT3-OAM-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cdot3oampeerconfigrevision.is_set or self.cdot3oampeerconfigrevision.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oampeerconfigrevision.get_name_leafdata())
+                if (self.cdot3oampeerfunctionssupported.is_set or self.cdot3oampeerfunctionssupported.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oampeerfunctionssupported.get_name_leafdata())
+                if (self.cdot3oampeermacaddress.is_set or self.cdot3oampeermacaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oampeermacaddress.get_name_leafdata())
+                if (self.cdot3oampeermaxoampdusize.is_set or self.cdot3oampeermaxoampdusize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oampeermaxoampdusize.get_name_leafdata())
+                if (self.cdot3oampeermode.is_set or self.cdot3oampeermode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oampeermode.get_name_leafdata())
+                if (self.cdot3oampeervendorinfo.is_set or self.cdot3oampeervendorinfo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oampeervendorinfo.get_name_leafdata())
+                if (self.cdot3oampeervendoroui.is_set or self.cdot3oampeervendoroui.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oampeervendoroui.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cdot3OamPeerConfigRevision" or name == "cdot3OamPeerFunctionsSupported" or name == "cdot3OamPeerMacAddress" or name == "cdot3OamPeerMaxOamPduSize" or name == "cdot3OamPeerMode" or name == "cdot3OamPeerVendorInfo" or name == "cdot3OamPeerVendorOui"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamPeerConfigRevision"):
+                    self.cdot3oampeerconfigrevision = value
+                    self.cdot3oampeerconfigrevision.value_namespace = name_space
+                    self.cdot3oampeerconfigrevision.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamPeerFunctionsSupported"):
+                    self.cdot3oampeerfunctionssupported[value] = True
+                if(value_path == "cdot3OamPeerMacAddress"):
+                    self.cdot3oampeermacaddress = value
+                    self.cdot3oampeermacaddress.value_namespace = name_space
+                    self.cdot3oampeermacaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamPeerMaxOamPduSize"):
+                    self.cdot3oampeermaxoampdusize = value
+                    self.cdot3oampeermaxoampdusize.value_namespace = name_space
+                    self.cdot3oampeermaxoampdusize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamPeerMode"):
+                    self.cdot3oampeermode = value
+                    self.cdot3oampeermode.value_namespace = name_space
+                    self.cdot3oampeermode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamPeerVendorInfo"):
+                    self.cdot3oampeervendorinfo = value
+                    self.cdot3oampeervendorinfo.value_namespace = name_space
+                    self.cdot3oampeervendorinfo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamPeerVendorOui"):
+                    self.cdot3oampeervendoroui = value
+                    self.cdot3oampeervendoroui.value_namespace = name_space
+                    self.cdot3oampeervendoroui.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdot3oampeerentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdot3oampeerconfigrevision is not None:
-                    return True
-
-                if self.cdot3oampeerfunctionssupported is not None:
-                    if self.cdot3oampeerfunctionssupported._has_data():
-                        return True
-
-                if self.cdot3oampeermacaddress is not None:
-                    return True
-
-                if self.cdot3oampeermaxoampdusize is not None:
-                    return True
-
-                if self.cdot3oampeermode is not None:
-                    return True
-
-                if self.cdot3oampeervendorinfo is not None:
-                    return True
-
-                if self.cdot3oampeervendoroui is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                return meta._meta_table['CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamPeerTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdot3oampeerentry is not None:
-                for child_ref in self.cdot3oampeerentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdot3oampeerentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdot3OamPeerTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdot3OamPeerEntry"):
+                for c in self.cdot3oampeerentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDot3OamMib.Cdot3Oampeertable.Cdot3Oampeerentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdot3oampeerentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdot3OamPeerEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-            return meta._meta_table['CiscoDot3OamMib.Cdot3Oampeertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdot3Oamloopbacktable(object):
+    class Cdot3Oamloopbacktable(Entity):
         """
         This table contains controls for the loopback state of the
         local link as well as indicating the status of the loopback
@@ -895,13 +1119,39 @@ class CiscoDot3OamMib(object):
         _revision = '2006-05-31'
 
         def __init__(self):
-            self.parent = None
-            self.cdot3oamloopbackentry = YList()
-            self.cdot3oamloopbackentry.parent = self
-            self.cdot3oamloopbackentry.name = 'cdot3oamloopbackentry'
+            super(CiscoDot3OamMib.Cdot3Oamloopbacktable, self).__init__()
+
+            self.yang_name = "cdot3OamLoopbackTable"
+            self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
+
+            self.cdot3oamloopbackentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDot3OamMib.Cdot3Oamloopbacktable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDot3OamMib.Cdot3Oamloopbacktable, self).__setattr__(name, value)
 
 
-        class Cdot3Oamloopbackentry(object):
+        class Cdot3Oamloopbackentry(Entity):
             """
             An entry in the table, containing information on the loopback
             status for a single Ethernet like interface.  Entries in the
@@ -922,12 +1172,12 @@ class CiscoDot3OamMib(object):
             .. attribute:: cdot3oamloopbackignorerx
             
             	Since OAM loopback is a disruptive operation (user traffic does not pass), this attribute provides a mechanism to provide controls over whether received OAM loopback commands are processed or ignored.  When the value is ignore(1), received loopback commands are ignored.  When the value is process(2), OAM loopback commands are processed.  The default value is to ignore loopback commands (ignore(1)).  
-            	**type**\:   :py:class:`Cdot3OamloopbackignorerxEnum <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3OamloopbackignorerxEnum>`
+            	**type**\:   :py:class:`Cdot3Oamloopbackignorerx <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3Oamloopbackignorerx>`
             
             .. attribute:: cdot3oamloopbackstatus
             
             	The loopback status of the OAM entity.  This status is determined by a combination of the local parser and multiplexer states, the remote parser and multiplexer states, as well as by the actions of the local OAM client.  When operating in normal mode with no loopback in progress, the status reads noLoopback(1).    The values initiatingLooopback(2) and terminatingLoopback(4) can be read or written.  The other values can only be read \- they can never be written.  Writing initiatingLoopback causes the local OAM entity to start the loopback process with its peer.  This value can only be written when the status is noLoopback(1).  Writing the value initiatingLoopback(2) in any other state has no effect.  When in remoteLoopback(3), writing terminatingLoopback(4) causes the local OAM entity to initiate the termination of the loopback state.  Writing terminatingLoopack(4) in any other state has no effect.                     If the OAM client initiates a looopback and has sent an Loopback OAMPDU and is waiting for a response, where the local parser and multiplexer states are DISCARD (see [802.3ah, 57.2.11.1]), the status is 'initiatingLoopback'.  In this case, the local OAM entity has yet to receive any acknowledgement that the remote OAM entity has received its loopback command request.                    If the local OAM client knows that the remote OAM entity is in loopback mode (via the remote state information as described in [802.3ah, 57.2.11.1, 30.3.6.1.15]), the status is remoteLoopback(3).  If the local OAM client is in the process of terminating the remote loopback [802.3ah, 57.2.11.3, 30.3.6.1.14], with its local multiplexer and parser states in DISCARD, the status is terminatingLoopback(4).  If the remote OAM client has put the local OAM entity in loopback mode as indicated by its local parser state, the status is localLoopback(5).    The unknown(6) status indicates the parser and multiplexer combination is unexpected.  This status may be returned if the OAM loopback is in a transition state but should not persist.   The values of this attribute correspond to the following values of the local and remote parser and multiplexer states.     value            LclPrsr   LclMux    RmtPrsr   RmtMux   noLoopback         FWD       FWD       FWD       FWD     initLoopback     DISCARD   DISCARD     FWD       FWD    rmtLoopback      DISCARD     FWD      LPBK    DISCARD   tmtngLoopback    DISCARD   DISCARD    LPBK    DISCARD   lclLoopback        LPBK    DISCARD   DISCARD     FWD   unknown            \*\*\*   any other combination   \*\*\*
-            	**type**\:   :py:class:`Cdot3OamloopbackstatusEnum <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3OamloopbackstatusEnum>`
+            	**type**\:   :py:class:`Cdot3Oamloopbackstatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3Oamloopbackstatus>`
             
             
 
@@ -937,14 +1187,46 @@ class CiscoDot3OamMib(object):
             _revision = '2006-05-31'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cdot3oamloopbackignorerx = None
-                self.cdot3oamloopbackstatus = None
+                super(CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry, self).__init__()
 
-            class Cdot3OamloopbackignorerxEnum(Enum):
+                self.yang_name = "cdot3OamLoopbackEntry"
+                self.yang_parent_name = "cdot3OamLoopbackTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cdot3oamloopbackignorerx = YLeaf(YType.enumeration, "cdot3OamLoopbackIgnoreRx")
+
+                self.cdot3oamloopbackstatus = YLeaf(YType.enumeration, "cdot3OamLoopbackStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cdot3oamloopbackignorerx",
+                                "cdot3oamloopbackstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry, self).__setattr__(name, value)
+
+            class Cdot3Oamloopbackignorerx(Enum):
                 """
-                Cdot3OamloopbackignorerxEnum
+                Cdot3Oamloopbackignorerx
 
                 Since OAM loopback is a disruptive operation (user traffic
 
@@ -966,20 +1248,14 @@ class CiscoDot3OamMib(object):
 
                 """
 
-                ignore = 1
+                ignore = Enum.YLeaf(1, "ignore")
 
-                process = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                    return meta._meta_table['CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3OamloopbackignorerxEnum']
+                process = Enum.YLeaf(2, "process")
 
 
-            class Cdot3OamloopbackstatusEnum(Enum):
+            class Cdot3Oamloopbackstatus(Enum):
                 """
-                Cdot3OamloopbackstatusEnum
+                Cdot3Oamloopbackstatus
 
                 The loopback status of the OAM entity.  This status is
 
@@ -1085,77 +1361,141 @@ class CiscoDot3OamMib(object):
 
                 """
 
-                noLoopback = 1
+                noLoopback = Enum.YLeaf(1, "noLoopback")
 
-                initiatingLoopback = 2
+                initiatingLoopback = Enum.YLeaf(2, "initiatingLoopback")
 
-                remoteLoopback = 3
+                remoteLoopback = Enum.YLeaf(3, "remoteLoopback")
 
-                terminatingLoopback = 4
+                terminatingLoopback = Enum.YLeaf(4, "terminatingLoopback")
 
-                localLoopback = 5
+                localLoopback = Enum.YLeaf(5, "localLoopback")
 
-                unknown = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                    return meta._meta_table['CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry.Cdot3OamloopbackstatusEnum']
+                unknown = Enum.YLeaf(6, "unknown")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cdot3oamloopbackignorerx.is_set or
+                    self.cdot3oamloopbackstatus.is_set)
 
-                return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamLoopbackTable/CISCO-DOT3-OAM-MIB:cdot3OamLoopbackEntry[CISCO-DOT3-OAM-MIB:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cdot3oamloopbackignorerx.yfilter != YFilter.not_set or
+                    self.cdot3oamloopbackstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdot3OamLoopbackEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamLoopbackTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cdot3oamloopbackignorerx.is_set or self.cdot3oamloopbackignorerx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamloopbackignorerx.get_name_leafdata())
+                if (self.cdot3oamloopbackstatus.is_set or self.cdot3oamloopbackstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamloopbackstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cdot3OamLoopbackIgnoreRx" or name == "cdot3OamLoopbackStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamLoopbackIgnoreRx"):
+                    self.cdot3oamloopbackignorerx = value
+                    self.cdot3oamloopbackignorerx.value_namespace = name_space
+                    self.cdot3oamloopbackignorerx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamLoopbackStatus"):
+                    self.cdot3oamloopbackstatus = value
+                    self.cdot3oamloopbackstatus.value_namespace = name_space
+                    self.cdot3oamloopbackstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdot3oamloopbackentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdot3oamloopbackignorerx is not None:
-                    return True
-
-                if self.cdot3oamloopbackstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                return meta._meta_table['CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamLoopbackTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdot3oamloopbackentry is not None:
-                for child_ref in self.cdot3oamloopbackentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdot3oamloopbackentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdot3OamLoopbackTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdot3OamLoopbackEntry"):
+                for c in self.cdot3oamloopbackentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDot3OamMib.Cdot3Oamloopbacktable.Cdot3Oamloopbackentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdot3oamloopbackentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdot3OamLoopbackEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-            return meta._meta_table['CiscoDot3OamMib.Cdot3Oamloopbacktable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdot3Oamstatstable(object):
+    class Cdot3Oamstatstable(Entity):
         """
         This table contains statistics for the OAM function on a
         particular Ethernet like interface. There is an entry in the
@@ -1179,13 +1519,39 @@ class CiscoDot3OamMib(object):
         _revision = '2006-05-31'
 
         def __init__(self):
-            self.parent = None
-            self.cdot3oamstatsentry = YList()
-            self.cdot3oamstatsentry.parent = self
-            self.cdot3oamstatsentry.name = 'cdot3oamstatsentry'
+            super(CiscoDot3OamMib.Cdot3Oamstatstable, self).__init__()
+
+            self.yang_name = "cdot3OamStatsTable"
+            self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
+
+            self.cdot3oamstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDot3OamMib.Cdot3Oamstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDot3OamMib.Cdot3Oamstatstable, self).__setattr__(name, value)
 
 
-        class Cdot3Oamstatsentry(object):
+        class Cdot3Oamstatsentry(Entity):
             """
             An entry in the table, containing statistics information on
             the Ethernet OAM function for a single Ethernet like
@@ -1363,123 +1729,330 @@ class CiscoDot3OamMib(object):
             _revision = '2006-05-31'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cdot3oamduplicateeventnotificationrx = None
-                self.cdot3oamduplicateeventnotificationtx = None
-                self.cdot3oamframeslostduetooam = None
-                self.cdot3oaminformationrx = None
-                self.cdot3oaminformationtx = None
-                self.cdot3oamloopbackcontrolrx = None
-                self.cdot3oamloopbackcontroltx = None
-                self.cdot3oamorgspecificrx = None
-                self.cdot3oamorgspecifictx = None
-                self.cdot3oamuniqueeventnotificationrx = None
-                self.cdot3oamuniqueeventnotificationtx = None
-                self.cdot3oamunsupportedcodesrx = None
-                self.cdot3oamunsupportedcodestx = None
-                self.cdot3oamvariablerequestrx = None
-                self.cdot3oamvariablerequesttx = None
-                self.cdot3oamvariableresponserx = None
-                self.cdot3oamvariableresponsetx = None
+                super(CiscoDot3OamMib.Cdot3Oamstatstable.Cdot3Oamstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "cdot3OamStatsEntry"
+                self.yang_parent_name = "cdot3OamStatsTable"
 
-                return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamStatsTable/CISCO-DOT3-OAM-MIB:cdot3OamStatsEntry[CISCO-DOT3-OAM-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdot3oamduplicateeventnotificationrx = YLeaf(YType.uint32, "cdot3OamDuplicateEventNotificationRx")
+
+                self.cdot3oamduplicateeventnotificationtx = YLeaf(YType.uint32, "cdot3OamDuplicateEventNotificationTx")
+
+                self.cdot3oamframeslostduetooam = YLeaf(YType.uint32, "cdot3OamFramesLostDueToOam")
+
+                self.cdot3oaminformationrx = YLeaf(YType.uint32, "cdot3OamInformationRx")
+
+                self.cdot3oaminformationtx = YLeaf(YType.uint32, "cdot3OamInformationTx")
+
+                self.cdot3oamloopbackcontrolrx = YLeaf(YType.uint32, "cdot3OamLoopbackControlRx")
+
+                self.cdot3oamloopbackcontroltx = YLeaf(YType.uint32, "cdot3OamLoopbackControlTx")
+
+                self.cdot3oamorgspecificrx = YLeaf(YType.uint32, "cdot3OamOrgSpecificRx")
+
+                self.cdot3oamorgspecifictx = YLeaf(YType.uint32, "cdot3OamOrgSpecificTx")
+
+                self.cdot3oamuniqueeventnotificationrx = YLeaf(YType.uint32, "cdot3OamUniqueEventNotificationRx")
+
+                self.cdot3oamuniqueeventnotificationtx = YLeaf(YType.uint32, "cdot3OamUniqueEventNotificationTx")
+
+                self.cdot3oamunsupportedcodesrx = YLeaf(YType.uint32, "cdot3OamUnsupportedCodesRx")
+
+                self.cdot3oamunsupportedcodestx = YLeaf(YType.uint32, "cdot3OamUnsupportedCodesTx")
+
+                self.cdot3oamvariablerequestrx = YLeaf(YType.uint32, "cdot3OamVariableRequestRx")
+
+                self.cdot3oamvariablerequesttx = YLeaf(YType.uint32, "cdot3OamVariableRequestTx")
+
+                self.cdot3oamvariableresponserx = YLeaf(YType.uint32, "cdot3OamVariableResponseRx")
+
+                self.cdot3oamvariableresponsetx = YLeaf(YType.uint32, "cdot3OamVariableResponseTx")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cdot3oamduplicateeventnotificationrx",
+                                "cdot3oamduplicateeventnotificationtx",
+                                "cdot3oamframeslostduetooam",
+                                "cdot3oaminformationrx",
+                                "cdot3oaminformationtx",
+                                "cdot3oamloopbackcontrolrx",
+                                "cdot3oamloopbackcontroltx",
+                                "cdot3oamorgspecificrx",
+                                "cdot3oamorgspecifictx",
+                                "cdot3oamuniqueeventnotificationrx",
+                                "cdot3oamuniqueeventnotificationtx",
+                                "cdot3oamunsupportedcodesrx",
+                                "cdot3oamunsupportedcodestx",
+                                "cdot3oamvariablerequestrx",
+                                "cdot3oamvariablerequesttx",
+                                "cdot3oamvariableresponserx",
+                                "cdot3oamvariableresponsetx") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDot3OamMib.Cdot3Oamstatstable.Cdot3Oamstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDot3OamMib.Cdot3Oamstatstable.Cdot3Oamstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cdot3oamduplicateeventnotificationrx.is_set or
+                    self.cdot3oamduplicateeventnotificationtx.is_set or
+                    self.cdot3oamframeslostduetooam.is_set or
+                    self.cdot3oaminformationrx.is_set or
+                    self.cdot3oaminformationtx.is_set or
+                    self.cdot3oamloopbackcontrolrx.is_set or
+                    self.cdot3oamloopbackcontroltx.is_set or
+                    self.cdot3oamorgspecificrx.is_set or
+                    self.cdot3oamorgspecifictx.is_set or
+                    self.cdot3oamuniqueeventnotificationrx.is_set or
+                    self.cdot3oamuniqueeventnotificationtx.is_set or
+                    self.cdot3oamunsupportedcodesrx.is_set or
+                    self.cdot3oamunsupportedcodestx.is_set or
+                    self.cdot3oamvariablerequestrx.is_set or
+                    self.cdot3oamvariablerequesttx.is_set or
+                    self.cdot3oamvariableresponserx.is_set or
+                    self.cdot3oamvariableresponsetx.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cdot3oamduplicateeventnotificationrx.yfilter != YFilter.not_set or
+                    self.cdot3oamduplicateeventnotificationtx.yfilter != YFilter.not_set or
+                    self.cdot3oamframeslostduetooam.yfilter != YFilter.not_set or
+                    self.cdot3oaminformationrx.yfilter != YFilter.not_set or
+                    self.cdot3oaminformationtx.yfilter != YFilter.not_set or
+                    self.cdot3oamloopbackcontrolrx.yfilter != YFilter.not_set or
+                    self.cdot3oamloopbackcontroltx.yfilter != YFilter.not_set or
+                    self.cdot3oamorgspecificrx.yfilter != YFilter.not_set or
+                    self.cdot3oamorgspecifictx.yfilter != YFilter.not_set or
+                    self.cdot3oamuniqueeventnotificationrx.yfilter != YFilter.not_set or
+                    self.cdot3oamuniqueeventnotificationtx.yfilter != YFilter.not_set or
+                    self.cdot3oamunsupportedcodesrx.yfilter != YFilter.not_set or
+                    self.cdot3oamunsupportedcodestx.yfilter != YFilter.not_set or
+                    self.cdot3oamvariablerequestrx.yfilter != YFilter.not_set or
+                    self.cdot3oamvariablerequesttx.yfilter != YFilter.not_set or
+                    self.cdot3oamvariableresponserx.yfilter != YFilter.not_set or
+                    self.cdot3oamvariableresponsetx.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdot3OamStatsEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cdot3oamduplicateeventnotificationrx.is_set or self.cdot3oamduplicateeventnotificationrx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamduplicateeventnotificationrx.get_name_leafdata())
+                if (self.cdot3oamduplicateeventnotificationtx.is_set or self.cdot3oamduplicateeventnotificationtx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamduplicateeventnotificationtx.get_name_leafdata())
+                if (self.cdot3oamframeslostduetooam.is_set or self.cdot3oamframeslostduetooam.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamframeslostduetooam.get_name_leafdata())
+                if (self.cdot3oaminformationrx.is_set or self.cdot3oaminformationrx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oaminformationrx.get_name_leafdata())
+                if (self.cdot3oaminformationtx.is_set or self.cdot3oaminformationtx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oaminformationtx.get_name_leafdata())
+                if (self.cdot3oamloopbackcontrolrx.is_set or self.cdot3oamloopbackcontrolrx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamloopbackcontrolrx.get_name_leafdata())
+                if (self.cdot3oamloopbackcontroltx.is_set or self.cdot3oamloopbackcontroltx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamloopbackcontroltx.get_name_leafdata())
+                if (self.cdot3oamorgspecificrx.is_set or self.cdot3oamorgspecificrx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamorgspecificrx.get_name_leafdata())
+                if (self.cdot3oamorgspecifictx.is_set or self.cdot3oamorgspecifictx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamorgspecifictx.get_name_leafdata())
+                if (self.cdot3oamuniqueeventnotificationrx.is_set or self.cdot3oamuniqueeventnotificationrx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamuniqueeventnotificationrx.get_name_leafdata())
+                if (self.cdot3oamuniqueeventnotificationtx.is_set or self.cdot3oamuniqueeventnotificationtx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamuniqueeventnotificationtx.get_name_leafdata())
+                if (self.cdot3oamunsupportedcodesrx.is_set or self.cdot3oamunsupportedcodesrx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamunsupportedcodesrx.get_name_leafdata())
+                if (self.cdot3oamunsupportedcodestx.is_set or self.cdot3oamunsupportedcodestx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamunsupportedcodestx.get_name_leafdata())
+                if (self.cdot3oamvariablerequestrx.is_set or self.cdot3oamvariablerequestrx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamvariablerequestrx.get_name_leafdata())
+                if (self.cdot3oamvariablerequesttx.is_set or self.cdot3oamvariablerequesttx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamvariablerequesttx.get_name_leafdata())
+                if (self.cdot3oamvariableresponserx.is_set or self.cdot3oamvariableresponserx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamvariableresponserx.get_name_leafdata())
+                if (self.cdot3oamvariableresponsetx.is_set or self.cdot3oamvariableresponsetx.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamvariableresponsetx.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cdot3OamDuplicateEventNotificationRx" or name == "cdot3OamDuplicateEventNotificationTx" or name == "cdot3OamFramesLostDueToOam" or name == "cdot3OamInformationRx" or name == "cdot3OamInformationTx" or name == "cdot3OamLoopbackControlRx" or name == "cdot3OamLoopbackControlTx" or name == "cdot3OamOrgSpecificRx" or name == "cdot3OamOrgSpecificTx" or name == "cdot3OamUniqueEventNotificationRx" or name == "cdot3OamUniqueEventNotificationTx" or name == "cdot3OamUnsupportedCodesRx" or name == "cdot3OamUnsupportedCodesTx" or name == "cdot3OamVariableRequestRx" or name == "cdot3OamVariableRequestTx" or name == "cdot3OamVariableResponseRx" or name == "cdot3OamVariableResponseTx"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamDuplicateEventNotificationRx"):
+                    self.cdot3oamduplicateeventnotificationrx = value
+                    self.cdot3oamduplicateeventnotificationrx.value_namespace = name_space
+                    self.cdot3oamduplicateeventnotificationrx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamDuplicateEventNotificationTx"):
+                    self.cdot3oamduplicateeventnotificationtx = value
+                    self.cdot3oamduplicateeventnotificationtx.value_namespace = name_space
+                    self.cdot3oamduplicateeventnotificationtx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamFramesLostDueToOam"):
+                    self.cdot3oamframeslostduetooam = value
+                    self.cdot3oamframeslostduetooam.value_namespace = name_space
+                    self.cdot3oamframeslostduetooam.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamInformationRx"):
+                    self.cdot3oaminformationrx = value
+                    self.cdot3oaminformationrx.value_namespace = name_space
+                    self.cdot3oaminformationrx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamInformationTx"):
+                    self.cdot3oaminformationtx = value
+                    self.cdot3oaminformationtx.value_namespace = name_space
+                    self.cdot3oaminformationtx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamLoopbackControlRx"):
+                    self.cdot3oamloopbackcontrolrx = value
+                    self.cdot3oamloopbackcontrolrx.value_namespace = name_space
+                    self.cdot3oamloopbackcontrolrx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamLoopbackControlTx"):
+                    self.cdot3oamloopbackcontroltx = value
+                    self.cdot3oamloopbackcontroltx.value_namespace = name_space
+                    self.cdot3oamloopbackcontroltx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamOrgSpecificRx"):
+                    self.cdot3oamorgspecificrx = value
+                    self.cdot3oamorgspecificrx.value_namespace = name_space
+                    self.cdot3oamorgspecificrx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamOrgSpecificTx"):
+                    self.cdot3oamorgspecifictx = value
+                    self.cdot3oamorgspecifictx.value_namespace = name_space
+                    self.cdot3oamorgspecifictx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamUniqueEventNotificationRx"):
+                    self.cdot3oamuniqueeventnotificationrx = value
+                    self.cdot3oamuniqueeventnotificationrx.value_namespace = name_space
+                    self.cdot3oamuniqueeventnotificationrx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamUniqueEventNotificationTx"):
+                    self.cdot3oamuniqueeventnotificationtx = value
+                    self.cdot3oamuniqueeventnotificationtx.value_namespace = name_space
+                    self.cdot3oamuniqueeventnotificationtx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamUnsupportedCodesRx"):
+                    self.cdot3oamunsupportedcodesrx = value
+                    self.cdot3oamunsupportedcodesrx.value_namespace = name_space
+                    self.cdot3oamunsupportedcodesrx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamUnsupportedCodesTx"):
+                    self.cdot3oamunsupportedcodestx = value
+                    self.cdot3oamunsupportedcodestx.value_namespace = name_space
+                    self.cdot3oamunsupportedcodestx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamVariableRequestRx"):
+                    self.cdot3oamvariablerequestrx = value
+                    self.cdot3oamvariablerequestrx.value_namespace = name_space
+                    self.cdot3oamvariablerequestrx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamVariableRequestTx"):
+                    self.cdot3oamvariablerequesttx = value
+                    self.cdot3oamvariablerequesttx.value_namespace = name_space
+                    self.cdot3oamvariablerequesttx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamVariableResponseRx"):
+                    self.cdot3oamvariableresponserx = value
+                    self.cdot3oamvariableresponserx.value_namespace = name_space
+                    self.cdot3oamvariableresponserx.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamVariableResponseTx"):
+                    self.cdot3oamvariableresponsetx = value
+                    self.cdot3oamvariableresponsetx.value_namespace = name_space
+                    self.cdot3oamvariableresponsetx.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdot3oamstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdot3oamduplicateeventnotificationrx is not None:
-                    return True
-
-                if self.cdot3oamduplicateeventnotificationtx is not None:
-                    return True
-
-                if self.cdot3oamframeslostduetooam is not None:
-                    return True
-
-                if self.cdot3oaminformationrx is not None:
-                    return True
-
-                if self.cdot3oaminformationtx is not None:
-                    return True
-
-                if self.cdot3oamloopbackcontrolrx is not None:
-                    return True
-
-                if self.cdot3oamloopbackcontroltx is not None:
-                    return True
-
-                if self.cdot3oamorgspecificrx is not None:
-                    return True
-
-                if self.cdot3oamorgspecifictx is not None:
-                    return True
-
-                if self.cdot3oamuniqueeventnotificationrx is not None:
-                    return True
-
-                if self.cdot3oamuniqueeventnotificationtx is not None:
-                    return True
-
-                if self.cdot3oamunsupportedcodesrx is not None:
-                    return True
-
-                if self.cdot3oamunsupportedcodestx is not None:
-                    return True
-
-                if self.cdot3oamvariablerequestrx is not None:
-                    return True
-
-                if self.cdot3oamvariablerequesttx is not None:
-                    return True
-
-                if self.cdot3oamvariableresponserx is not None:
-                    return True
-
-                if self.cdot3oamvariableresponsetx is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                return meta._meta_table['CiscoDot3OamMib.Cdot3Oamstatstable.Cdot3Oamstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdot3oamstatsentry is not None:
-                for child_ref in self.cdot3oamstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdot3oamstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdot3OamStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdot3OamStatsEntry"):
+                for c in self.cdot3oamstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDot3OamMib.Cdot3Oamstatstable.Cdot3Oamstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdot3oamstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdot3OamStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-            return meta._meta_table['CiscoDot3OamMib.Cdot3Oamstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdot3Oameventconfigtable(object):
+    class Cdot3Oameventconfigtable(Entity):
         """
         Ethernet OAM includes the ability to generate and receive
         Event Notification OAMPDUs to indicate various link problems.
@@ -1526,13 +2099,39 @@ class CiscoDot3OamMib(object):
         _revision = '2006-05-31'
 
         def __init__(self):
-            self.parent = None
-            self.cdot3oameventconfigentry = YList()
-            self.cdot3oameventconfigentry.parent = self
-            self.cdot3oameventconfigentry.name = 'cdot3oameventconfigentry'
+            super(CiscoDot3OamMib.Cdot3Oameventconfigtable, self).__init__()
+
+            self.yang_name = "cdot3OamEventConfigTable"
+            self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
+
+            self.cdot3oameventconfigentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDot3OamMib.Cdot3Oameventconfigtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDot3OamMib.Cdot3Oameventconfigtable, self).__setattr__(name, value)
 
 
-        class Cdot3Oameventconfigentry(object):
+        class Cdot3Oameventconfigentry(Entity):
             """
             Entries are automatically created and deleted from this
             table, and exist whenever the OAM entity supports Ethernet OAM
@@ -1681,119 +2280,319 @@ class CiscoDot3OamMib(object):
             _revision = '2006-05-31'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cdot3oamcriticaleventenable = None
-                self.cdot3oamdyinggaspenable = None
-                self.cdot3oamerrframeevnotifenable = None
-                self.cdot3oamerrframeperiodevnotifenable = None
-                self.cdot3oamerrframeperiodthreshold = None
-                self.cdot3oamerrframeperiodwindow = None
-                self.cdot3oamerrframesecsevnotifenable = None
-                self.cdot3oamerrframesecssummarythreshold = None
-                self.cdot3oamerrframesecssummarywindow = None
-                self.cdot3oamerrframethreshold = None
-                self.cdot3oamerrframewindow = None
-                self.cdot3oamerrsymperiodevnotifenable = None
-                self.cdot3oamerrsymperiodthresholdhi = None
-                self.cdot3oamerrsymperiodthresholdlo = None
-                self.cdot3oamerrsymperiodwindowhi = None
-                self.cdot3oamerrsymperiodwindowlo = None
+                super(CiscoDot3OamMib.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "cdot3OamEventConfigEntry"
+                self.yang_parent_name = "cdot3OamEventConfigTable"
 
-                return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamEventConfigTable/CISCO-DOT3-OAM-MIB:cdot3OamEventConfigEntry[CISCO-DOT3-OAM-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdot3oamcriticaleventenable = YLeaf(YType.boolean, "cdot3OamCriticalEventEnable")
+
+                self.cdot3oamdyinggaspenable = YLeaf(YType.boolean, "cdot3OamDyingGaspEnable")
+
+                self.cdot3oamerrframeevnotifenable = YLeaf(YType.boolean, "cdot3OamErrFrameEvNotifEnable")
+
+                self.cdot3oamerrframeperiodevnotifenable = YLeaf(YType.boolean, "cdot3OamErrFramePeriodEvNotifEnable")
+
+                self.cdot3oamerrframeperiodthreshold = YLeaf(YType.uint32, "cdot3OamErrFramePeriodThreshold")
+
+                self.cdot3oamerrframeperiodwindow = YLeaf(YType.uint32, "cdot3OamErrFramePeriodWindow")
+
+                self.cdot3oamerrframesecsevnotifenable = YLeaf(YType.boolean, "cdot3OamErrFrameSecsEvNotifEnable")
+
+                self.cdot3oamerrframesecssummarythreshold = YLeaf(YType.int32, "cdot3OamErrFrameSecsSummaryThreshold")
+
+                self.cdot3oamerrframesecssummarywindow = YLeaf(YType.int32, "cdot3OamErrFrameSecsSummaryWindow")
+
+                self.cdot3oamerrframethreshold = YLeaf(YType.uint32, "cdot3OamErrFrameThreshold")
+
+                self.cdot3oamerrframewindow = YLeaf(YType.uint32, "cdot3OamErrFrameWindow")
+
+                self.cdot3oamerrsymperiodevnotifenable = YLeaf(YType.boolean, "cdot3OamErrSymPeriodEvNotifEnable")
+
+                self.cdot3oamerrsymperiodthresholdhi = YLeaf(YType.uint32, "cdot3OamErrSymPeriodThresholdHi")
+
+                self.cdot3oamerrsymperiodthresholdlo = YLeaf(YType.uint32, "cdot3OamErrSymPeriodThresholdLo")
+
+                self.cdot3oamerrsymperiodwindowhi = YLeaf(YType.uint32, "cdot3OamErrSymPeriodWindowHi")
+
+                self.cdot3oamerrsymperiodwindowlo = YLeaf(YType.uint32, "cdot3OamErrSymPeriodWindowLo")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cdot3oamcriticaleventenable",
+                                "cdot3oamdyinggaspenable",
+                                "cdot3oamerrframeevnotifenable",
+                                "cdot3oamerrframeperiodevnotifenable",
+                                "cdot3oamerrframeperiodthreshold",
+                                "cdot3oamerrframeperiodwindow",
+                                "cdot3oamerrframesecsevnotifenable",
+                                "cdot3oamerrframesecssummarythreshold",
+                                "cdot3oamerrframesecssummarywindow",
+                                "cdot3oamerrframethreshold",
+                                "cdot3oamerrframewindow",
+                                "cdot3oamerrsymperiodevnotifenable",
+                                "cdot3oamerrsymperiodthresholdhi",
+                                "cdot3oamerrsymperiodthresholdlo",
+                                "cdot3oamerrsymperiodwindowhi",
+                                "cdot3oamerrsymperiodwindowlo") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDot3OamMib.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDot3OamMib.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cdot3oamcriticaleventenable.is_set or
+                    self.cdot3oamdyinggaspenable.is_set or
+                    self.cdot3oamerrframeevnotifenable.is_set or
+                    self.cdot3oamerrframeperiodevnotifenable.is_set or
+                    self.cdot3oamerrframeperiodthreshold.is_set or
+                    self.cdot3oamerrframeperiodwindow.is_set or
+                    self.cdot3oamerrframesecsevnotifenable.is_set or
+                    self.cdot3oamerrframesecssummarythreshold.is_set or
+                    self.cdot3oamerrframesecssummarywindow.is_set or
+                    self.cdot3oamerrframethreshold.is_set or
+                    self.cdot3oamerrframewindow.is_set or
+                    self.cdot3oamerrsymperiodevnotifenable.is_set or
+                    self.cdot3oamerrsymperiodthresholdhi.is_set or
+                    self.cdot3oamerrsymperiodthresholdlo.is_set or
+                    self.cdot3oamerrsymperiodwindowhi.is_set or
+                    self.cdot3oamerrsymperiodwindowlo.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cdot3oamcriticaleventenable.yfilter != YFilter.not_set or
+                    self.cdot3oamdyinggaspenable.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframeevnotifenable.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframeperiodevnotifenable.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframeperiodthreshold.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframeperiodwindow.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframesecsevnotifenable.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframesecssummarythreshold.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframesecssummarywindow.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframethreshold.yfilter != YFilter.not_set or
+                    self.cdot3oamerrframewindow.yfilter != YFilter.not_set or
+                    self.cdot3oamerrsymperiodevnotifenable.yfilter != YFilter.not_set or
+                    self.cdot3oamerrsymperiodthresholdhi.yfilter != YFilter.not_set or
+                    self.cdot3oamerrsymperiodthresholdlo.yfilter != YFilter.not_set or
+                    self.cdot3oamerrsymperiodwindowhi.yfilter != YFilter.not_set or
+                    self.cdot3oamerrsymperiodwindowlo.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdot3OamEventConfigEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventConfigTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cdot3oamcriticaleventenable.is_set or self.cdot3oamcriticaleventenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamcriticaleventenable.get_name_leafdata())
+                if (self.cdot3oamdyinggaspenable.is_set or self.cdot3oamdyinggaspenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamdyinggaspenable.get_name_leafdata())
+                if (self.cdot3oamerrframeevnotifenable.is_set or self.cdot3oamerrframeevnotifenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframeevnotifenable.get_name_leafdata())
+                if (self.cdot3oamerrframeperiodevnotifenable.is_set or self.cdot3oamerrframeperiodevnotifenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframeperiodevnotifenable.get_name_leafdata())
+                if (self.cdot3oamerrframeperiodthreshold.is_set or self.cdot3oamerrframeperiodthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframeperiodthreshold.get_name_leafdata())
+                if (self.cdot3oamerrframeperiodwindow.is_set or self.cdot3oamerrframeperiodwindow.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframeperiodwindow.get_name_leafdata())
+                if (self.cdot3oamerrframesecsevnotifenable.is_set or self.cdot3oamerrframesecsevnotifenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframesecsevnotifenable.get_name_leafdata())
+                if (self.cdot3oamerrframesecssummarythreshold.is_set or self.cdot3oamerrframesecssummarythreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframesecssummarythreshold.get_name_leafdata())
+                if (self.cdot3oamerrframesecssummarywindow.is_set or self.cdot3oamerrframesecssummarywindow.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframesecssummarywindow.get_name_leafdata())
+                if (self.cdot3oamerrframethreshold.is_set or self.cdot3oamerrframethreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframethreshold.get_name_leafdata())
+                if (self.cdot3oamerrframewindow.is_set or self.cdot3oamerrframewindow.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrframewindow.get_name_leafdata())
+                if (self.cdot3oamerrsymperiodevnotifenable.is_set or self.cdot3oamerrsymperiodevnotifenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrsymperiodevnotifenable.get_name_leafdata())
+                if (self.cdot3oamerrsymperiodthresholdhi.is_set or self.cdot3oamerrsymperiodthresholdhi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrsymperiodthresholdhi.get_name_leafdata())
+                if (self.cdot3oamerrsymperiodthresholdlo.is_set or self.cdot3oamerrsymperiodthresholdlo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrsymperiodthresholdlo.get_name_leafdata())
+                if (self.cdot3oamerrsymperiodwindowhi.is_set or self.cdot3oamerrsymperiodwindowhi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrsymperiodwindowhi.get_name_leafdata())
+                if (self.cdot3oamerrsymperiodwindowlo.is_set or self.cdot3oamerrsymperiodwindowlo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oamerrsymperiodwindowlo.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cdot3OamCriticalEventEnable" or name == "cdot3OamDyingGaspEnable" or name == "cdot3OamErrFrameEvNotifEnable" or name == "cdot3OamErrFramePeriodEvNotifEnable" or name == "cdot3OamErrFramePeriodThreshold" or name == "cdot3OamErrFramePeriodWindow" or name == "cdot3OamErrFrameSecsEvNotifEnable" or name == "cdot3OamErrFrameSecsSummaryThreshold" or name == "cdot3OamErrFrameSecsSummaryWindow" or name == "cdot3OamErrFrameThreshold" or name == "cdot3OamErrFrameWindow" or name == "cdot3OamErrSymPeriodEvNotifEnable" or name == "cdot3OamErrSymPeriodThresholdHi" or name == "cdot3OamErrSymPeriodThresholdLo" or name == "cdot3OamErrSymPeriodWindowHi" or name == "cdot3OamErrSymPeriodWindowLo"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamCriticalEventEnable"):
+                    self.cdot3oamcriticaleventenable = value
+                    self.cdot3oamcriticaleventenable.value_namespace = name_space
+                    self.cdot3oamcriticaleventenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamDyingGaspEnable"):
+                    self.cdot3oamdyinggaspenable = value
+                    self.cdot3oamdyinggaspenable.value_namespace = name_space
+                    self.cdot3oamdyinggaspenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFrameEvNotifEnable"):
+                    self.cdot3oamerrframeevnotifenable = value
+                    self.cdot3oamerrframeevnotifenable.value_namespace = name_space
+                    self.cdot3oamerrframeevnotifenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFramePeriodEvNotifEnable"):
+                    self.cdot3oamerrframeperiodevnotifenable = value
+                    self.cdot3oamerrframeperiodevnotifenable.value_namespace = name_space
+                    self.cdot3oamerrframeperiodevnotifenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFramePeriodThreshold"):
+                    self.cdot3oamerrframeperiodthreshold = value
+                    self.cdot3oamerrframeperiodthreshold.value_namespace = name_space
+                    self.cdot3oamerrframeperiodthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFramePeriodWindow"):
+                    self.cdot3oamerrframeperiodwindow = value
+                    self.cdot3oamerrframeperiodwindow.value_namespace = name_space
+                    self.cdot3oamerrframeperiodwindow.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFrameSecsEvNotifEnable"):
+                    self.cdot3oamerrframesecsevnotifenable = value
+                    self.cdot3oamerrframesecsevnotifenable.value_namespace = name_space
+                    self.cdot3oamerrframesecsevnotifenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFrameSecsSummaryThreshold"):
+                    self.cdot3oamerrframesecssummarythreshold = value
+                    self.cdot3oamerrframesecssummarythreshold.value_namespace = name_space
+                    self.cdot3oamerrframesecssummarythreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFrameSecsSummaryWindow"):
+                    self.cdot3oamerrframesecssummarywindow = value
+                    self.cdot3oamerrframesecssummarywindow.value_namespace = name_space
+                    self.cdot3oamerrframesecssummarywindow.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFrameThreshold"):
+                    self.cdot3oamerrframethreshold = value
+                    self.cdot3oamerrframethreshold.value_namespace = name_space
+                    self.cdot3oamerrframethreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrFrameWindow"):
+                    self.cdot3oamerrframewindow = value
+                    self.cdot3oamerrframewindow.value_namespace = name_space
+                    self.cdot3oamerrframewindow.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrSymPeriodEvNotifEnable"):
+                    self.cdot3oamerrsymperiodevnotifenable = value
+                    self.cdot3oamerrsymperiodevnotifenable.value_namespace = name_space
+                    self.cdot3oamerrsymperiodevnotifenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrSymPeriodThresholdHi"):
+                    self.cdot3oamerrsymperiodthresholdhi = value
+                    self.cdot3oamerrsymperiodthresholdhi.value_namespace = name_space
+                    self.cdot3oamerrsymperiodthresholdhi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrSymPeriodThresholdLo"):
+                    self.cdot3oamerrsymperiodthresholdlo = value
+                    self.cdot3oamerrsymperiodthresholdlo.value_namespace = name_space
+                    self.cdot3oamerrsymperiodthresholdlo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrSymPeriodWindowHi"):
+                    self.cdot3oamerrsymperiodwindowhi = value
+                    self.cdot3oamerrsymperiodwindowhi.value_namespace = name_space
+                    self.cdot3oamerrsymperiodwindowhi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamErrSymPeriodWindowLo"):
+                    self.cdot3oamerrsymperiodwindowlo = value
+                    self.cdot3oamerrsymperiodwindowlo.value_namespace = name_space
+                    self.cdot3oamerrsymperiodwindowlo.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdot3oameventconfigentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdot3oamcriticaleventenable is not None:
-                    return True
-
-                if self.cdot3oamdyinggaspenable is not None:
-                    return True
-
-                if self.cdot3oamerrframeevnotifenable is not None:
-                    return True
-
-                if self.cdot3oamerrframeperiodevnotifenable is not None:
-                    return True
-
-                if self.cdot3oamerrframeperiodthreshold is not None:
-                    return True
-
-                if self.cdot3oamerrframeperiodwindow is not None:
-                    return True
-
-                if self.cdot3oamerrframesecsevnotifenable is not None:
-                    return True
-
-                if self.cdot3oamerrframesecssummarythreshold is not None:
-                    return True
-
-                if self.cdot3oamerrframesecssummarywindow is not None:
-                    return True
-
-                if self.cdot3oamerrframethreshold is not None:
-                    return True
-
-                if self.cdot3oamerrframewindow is not None:
-                    return True
-
-                if self.cdot3oamerrsymperiodevnotifenable is not None:
-                    return True
-
-                if self.cdot3oamerrsymperiodthresholdhi is not None:
-                    return True
-
-                if self.cdot3oamerrsymperiodthresholdlo is not None:
-                    return True
-
-                if self.cdot3oamerrsymperiodwindowhi is not None:
-                    return True
-
-                if self.cdot3oamerrsymperiodwindowlo is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                return meta._meta_table['CiscoDot3OamMib.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamEventConfigTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdot3oameventconfigentry is not None:
-                for child_ref in self.cdot3oameventconfigentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdot3oameventconfigentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdot3OamEventConfigTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdot3OamEventConfigEntry"):
+                for c in self.cdot3oameventconfigentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDot3OamMib.Cdot3Oameventconfigtable.Cdot3Oameventconfigentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdot3oameventconfigentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdot3OamEventConfigEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-            return meta._meta_table['CiscoDot3OamMib.Cdot3Oameventconfigtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdot3Oameventlogtable(object):
+    class Cdot3Oameventlogtable(Entity):
         """
         This table records a history of the events that have occurred
         at the Ethernet OAM level.  These events can include locally
@@ -1829,13 +2628,39 @@ class CiscoDot3OamMib(object):
         _revision = '2006-05-31'
 
         def __init__(self):
-            self.parent = None
-            self.cdot3oameventlogentry = YList()
-            self.cdot3oameventlogentry.parent = self
-            self.cdot3oameventlogentry.name = 'cdot3oameventlogentry'
+            super(CiscoDot3OamMib.Cdot3Oameventlogtable, self).__init__()
+
+            self.yang_name = "cdot3OamEventLogTable"
+            self.yang_parent_name = "CISCO-DOT3-OAM-MIB"
+
+            self.cdot3oameventlogentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDot3OamMib.Cdot3Oameventlogtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDot3OamMib.Cdot3Oameventlogtable, self).__setattr__(name, value)
 
 
-        class Cdot3Oameventlogentry(object):
+        class Cdot3Oameventlogentry(Entity):
             """
             An entry in the cdot3OamEventLogTable.  Entries are
             automatically created whenever Ethernet OAM events occur at
@@ -1874,7 +2699,7 @@ class CiscoDot3OamMib(object):
             .. attribute:: cdot3oameventloglocation
             
             	Whether this event occurred locally (local(1)), or was  received from the OAM peer via Ethernet OAM (remote(2))
-            	**type**\:   :py:class:`Cdot3OameventloglocationEnum <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry.Cdot3OameventloglocationEnum>`
+            	**type**\:   :py:class:`Cdot3Oameventloglocation <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry.Cdot3Oameventloglocation>`
             
             .. attribute:: cdot3oameventlogoui
             
@@ -1947,24 +2772,76 @@ class CiscoDot3OamMib(object):
             _revision = '2006-05-31'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cdot3oameventlogindex = None
-                self.cdot3oameventlogeventtotal = None
-                self.cdot3oameventloglocation = None
-                self.cdot3oameventlogoui = None
-                self.cdot3oameventlogrunningtotal = None
-                self.cdot3oameventlogthresholdhi = None
-                self.cdot3oameventlogthresholdlo = None
-                self.cdot3oameventlogtimestamp = None
-                self.cdot3oameventlogtype = None
-                self.cdot3oameventlogvalue = None
-                self.cdot3oameventlogwindowhi = None
-                self.cdot3oameventlogwindowlo = None
+                super(CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry, self).__init__()
 
-            class Cdot3OameventloglocationEnum(Enum):
+                self.yang_name = "cdot3OamEventLogEntry"
+                self.yang_parent_name = "cdot3OamEventLogTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.cdot3oameventlogindex = YLeaf(YType.uint32, "cdot3OamEventLogIndex")
+
+                self.cdot3oameventlogeventtotal = YLeaf(YType.uint32, "cdot3OamEventLogEventTotal")
+
+                self.cdot3oameventloglocation = YLeaf(YType.enumeration, "cdot3OamEventLogLocation")
+
+                self.cdot3oameventlogoui = YLeaf(YType.str, "cdot3OamEventLogOui")
+
+                self.cdot3oameventlogrunningtotal = YLeaf(YType.uint64, "cdot3OamEventLogRunningTotal")
+
+                self.cdot3oameventlogthresholdhi = YLeaf(YType.uint32, "cdot3OamEventLogThresholdHi")
+
+                self.cdot3oameventlogthresholdlo = YLeaf(YType.uint32, "cdot3OamEventLogThresholdLo")
+
+                self.cdot3oameventlogtimestamp = YLeaf(YType.uint32, "cdot3OamEventLogTimestamp")
+
+                self.cdot3oameventlogtype = YLeaf(YType.uint32, "cdot3OamEventLogType")
+
+                self.cdot3oameventlogvalue = YLeaf(YType.uint64, "cdot3OamEventLogValue")
+
+                self.cdot3oameventlogwindowhi = YLeaf(YType.uint32, "cdot3OamEventLogWindowHi")
+
+                self.cdot3oameventlogwindowlo = YLeaf(YType.uint32, "cdot3OamEventLogWindowLo")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cdot3oameventlogindex",
+                                "cdot3oameventlogeventtotal",
+                                "cdot3oameventloglocation",
+                                "cdot3oameventlogoui",
+                                "cdot3oameventlogrunningtotal",
+                                "cdot3oameventlogthresholdhi",
+                                "cdot3oameventlogthresholdlo",
+                                "cdot3oameventlogtimestamp",
+                                "cdot3oameventlogtype",
+                                "cdot3oameventlogvalue",
+                                "cdot3oameventlogwindowhi",
+                                "cdot3oameventlogwindowlo") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry, self).__setattr__(name, value)
+
+            class Cdot3Oameventloglocation(Enum):
                 """
-                Cdot3OameventloglocationEnum
+                Cdot3Oameventloglocation
 
                 Whether this event occurred locally (local(1)), or was 
 
@@ -1976,132 +2853,305 @@ class CiscoDot3OamMib(object):
 
                 """
 
-                local = 1
+                local = Enum.YLeaf(1, "local")
 
-                remote = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                    return meta._meta_table['CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry.Cdot3OameventloglocationEnum']
+                remote = Enum.YLeaf(2, "remote")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.cdot3oameventlogindex is None:
-                    raise YPYModelError('Key property cdot3oameventlogindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cdot3oameventlogindex.is_set or
+                    self.cdot3oameventlogeventtotal.is_set or
+                    self.cdot3oameventloglocation.is_set or
+                    self.cdot3oameventlogoui.is_set or
+                    self.cdot3oameventlogrunningtotal.is_set or
+                    self.cdot3oameventlogthresholdhi.is_set or
+                    self.cdot3oameventlogthresholdlo.is_set or
+                    self.cdot3oameventlogtimestamp.is_set or
+                    self.cdot3oameventlogtype.is_set or
+                    self.cdot3oameventlogvalue.is_set or
+                    self.cdot3oameventlogwindowhi.is_set or
+                    self.cdot3oameventlogwindowlo.is_set)
 
-                return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamEventLogTable/CISCO-DOT3-OAM-MIB:cdot3OamEventLogEntry[CISCO-DOT3-OAM-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-DOT3-OAM-MIB:cdot3OamEventLogIndex = ' + str(self.cdot3oameventlogindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogindex.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogeventtotal.yfilter != YFilter.not_set or
+                    self.cdot3oameventloglocation.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogoui.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogrunningtotal.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogthresholdhi.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogthresholdlo.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogtimestamp.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogtype.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogvalue.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogwindowhi.yfilter != YFilter.not_set or
+                    self.cdot3oameventlogwindowlo.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdot3OamEventLogEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cdot3OamEventLogIndex='" + self.cdot3oameventlogindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/cdot3OamEventLogTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cdot3oameventlogindex.is_set or self.cdot3oameventlogindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogindex.get_name_leafdata())
+                if (self.cdot3oameventlogeventtotal.is_set or self.cdot3oameventlogeventtotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogeventtotal.get_name_leafdata())
+                if (self.cdot3oameventloglocation.is_set or self.cdot3oameventloglocation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventloglocation.get_name_leafdata())
+                if (self.cdot3oameventlogoui.is_set or self.cdot3oameventlogoui.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogoui.get_name_leafdata())
+                if (self.cdot3oameventlogrunningtotal.is_set or self.cdot3oameventlogrunningtotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogrunningtotal.get_name_leafdata())
+                if (self.cdot3oameventlogthresholdhi.is_set or self.cdot3oameventlogthresholdhi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogthresholdhi.get_name_leafdata())
+                if (self.cdot3oameventlogthresholdlo.is_set or self.cdot3oameventlogthresholdlo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogthresholdlo.get_name_leafdata())
+                if (self.cdot3oameventlogtimestamp.is_set or self.cdot3oameventlogtimestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogtimestamp.get_name_leafdata())
+                if (self.cdot3oameventlogtype.is_set or self.cdot3oameventlogtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogtype.get_name_leafdata())
+                if (self.cdot3oameventlogvalue.is_set or self.cdot3oameventlogvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogvalue.get_name_leafdata())
+                if (self.cdot3oameventlogwindowhi.is_set or self.cdot3oameventlogwindowhi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogwindowhi.get_name_leafdata())
+                if (self.cdot3oameventlogwindowlo.is_set or self.cdot3oameventlogwindowlo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdot3oameventlogwindowlo.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cdot3OamEventLogIndex" or name == "cdot3OamEventLogEventTotal" or name == "cdot3OamEventLogLocation" or name == "cdot3OamEventLogOui" or name == "cdot3OamEventLogRunningTotal" or name == "cdot3OamEventLogThresholdHi" or name == "cdot3OamEventLogThresholdLo" or name == "cdot3OamEventLogTimestamp" or name == "cdot3OamEventLogType" or name == "cdot3OamEventLogValue" or name == "cdot3OamEventLogWindowHi" or name == "cdot3OamEventLogWindowLo"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogIndex"):
+                    self.cdot3oameventlogindex = value
+                    self.cdot3oameventlogindex.value_namespace = name_space
+                    self.cdot3oameventlogindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogEventTotal"):
+                    self.cdot3oameventlogeventtotal = value
+                    self.cdot3oameventlogeventtotal.value_namespace = name_space
+                    self.cdot3oameventlogeventtotal.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogLocation"):
+                    self.cdot3oameventloglocation = value
+                    self.cdot3oameventloglocation.value_namespace = name_space
+                    self.cdot3oameventloglocation.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogOui"):
+                    self.cdot3oameventlogoui = value
+                    self.cdot3oameventlogoui.value_namespace = name_space
+                    self.cdot3oameventlogoui.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogRunningTotal"):
+                    self.cdot3oameventlogrunningtotal = value
+                    self.cdot3oameventlogrunningtotal.value_namespace = name_space
+                    self.cdot3oameventlogrunningtotal.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogThresholdHi"):
+                    self.cdot3oameventlogthresholdhi = value
+                    self.cdot3oameventlogthresholdhi.value_namespace = name_space
+                    self.cdot3oameventlogthresholdhi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogThresholdLo"):
+                    self.cdot3oameventlogthresholdlo = value
+                    self.cdot3oameventlogthresholdlo.value_namespace = name_space
+                    self.cdot3oameventlogthresholdlo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogTimestamp"):
+                    self.cdot3oameventlogtimestamp = value
+                    self.cdot3oameventlogtimestamp.value_namespace = name_space
+                    self.cdot3oameventlogtimestamp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogType"):
+                    self.cdot3oameventlogtype = value
+                    self.cdot3oameventlogtype.value_namespace = name_space
+                    self.cdot3oameventlogtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogValue"):
+                    self.cdot3oameventlogvalue = value
+                    self.cdot3oameventlogvalue.value_namespace = name_space
+                    self.cdot3oameventlogvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogWindowHi"):
+                    self.cdot3oameventlogwindowhi = value
+                    self.cdot3oameventlogwindowhi.value_namespace = name_space
+                    self.cdot3oameventlogwindowhi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdot3OamEventLogWindowLo"):
+                    self.cdot3oameventlogwindowlo = value
+                    self.cdot3oameventlogwindowlo.value_namespace = name_space
+                    self.cdot3oameventlogwindowlo.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdot3oameventlogentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdot3oameventlogindex is not None:
-                    return True
-
-                if self.cdot3oameventlogeventtotal is not None:
-                    return True
-
-                if self.cdot3oameventloglocation is not None:
-                    return True
-
-                if self.cdot3oameventlogoui is not None:
-                    return True
-
-                if self.cdot3oameventlogrunningtotal is not None:
-                    return True
-
-                if self.cdot3oameventlogthresholdhi is not None:
-                    return True
-
-                if self.cdot3oameventlogthresholdlo is not None:
-                    return True
-
-                if self.cdot3oameventlogtimestamp is not None:
-                    return True
-
-                if self.cdot3oameventlogtype is not None:
-                    return True
-
-                if self.cdot3oameventlogvalue is not None:
-                    return True
-
-                if self.cdot3oameventlogwindowhi is not None:
-                    return True
-
-                if self.cdot3oameventlogwindowlo is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-                return meta._meta_table['CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/CISCO-DOT3-OAM-MIB:cdot3OamEventLogTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdot3oameventlogentry is not None:
-                for child_ref in self.cdot3oameventlogentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdot3oameventlogentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdot3OamEventLogTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdot3OamEventLogEntry"):
+                for c in self.cdot3oameventlogentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDot3OamMib.Cdot3Oameventlogtable.Cdot3Oameventlogentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdot3oameventlogentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdot3OamEventLogEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-            return meta._meta_table['CiscoDot3OamMib.Cdot3Oameventlogtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cdot3oameventconfigtable is not None and self.cdot3oameventconfigtable.has_data()) or
+            (self.cdot3oameventlogtable is not None and self.cdot3oameventlogtable.has_data()) or
+            (self.cdot3oamloopbacktable is not None and self.cdot3oamloopbacktable.has_data()) or
+            (self.cdot3oampeertable is not None and self.cdot3oampeertable.has_data()) or
+            (self.cdot3oamstatstable is not None and self.cdot3oamstatstable.has_data()) or
+            (self.cdot3oamtable is not None and self.cdot3oamtable.has_data()))
 
-        return '/CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cdot3oameventconfigtable is not None and self.cdot3oameventconfigtable.has_operation()) or
+            (self.cdot3oameventlogtable is not None and self.cdot3oameventlogtable.has_operation()) or
+            (self.cdot3oamloopbacktable is not None and self.cdot3oamloopbacktable.has_operation()) or
+            (self.cdot3oampeertable is not None and self.cdot3oampeertable.has_operation()) or
+            (self.cdot3oamstatstable is not None and self.cdot3oamstatstable.has_operation()) or
+            (self.cdot3oamtable is not None and self.cdot3oamtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cdot3OamEventConfigTable"):
+            if (self.cdot3oameventconfigtable is None):
+                self.cdot3oameventconfigtable = CiscoDot3OamMib.Cdot3Oameventconfigtable()
+                self.cdot3oameventconfigtable.parent = self
+                self._children_name_map["cdot3oameventconfigtable"] = "cdot3OamEventConfigTable"
+            return self.cdot3oameventconfigtable
+
+        if (child_yang_name == "cdot3OamEventLogTable"):
+            if (self.cdot3oameventlogtable is None):
+                self.cdot3oameventlogtable = CiscoDot3OamMib.Cdot3Oameventlogtable()
+                self.cdot3oameventlogtable.parent = self
+                self._children_name_map["cdot3oameventlogtable"] = "cdot3OamEventLogTable"
+            return self.cdot3oameventlogtable
+
+        if (child_yang_name == "cdot3OamLoopbackTable"):
+            if (self.cdot3oamloopbacktable is None):
+                self.cdot3oamloopbacktable = CiscoDot3OamMib.Cdot3Oamloopbacktable()
+                self.cdot3oamloopbacktable.parent = self
+                self._children_name_map["cdot3oamloopbacktable"] = "cdot3OamLoopbackTable"
+            return self.cdot3oamloopbacktable
+
+        if (child_yang_name == "cdot3OamPeerTable"):
+            if (self.cdot3oampeertable is None):
+                self.cdot3oampeertable = CiscoDot3OamMib.Cdot3Oampeertable()
+                self.cdot3oampeertable.parent = self
+                self._children_name_map["cdot3oampeertable"] = "cdot3OamPeerTable"
+            return self.cdot3oampeertable
+
+        if (child_yang_name == "cdot3OamStatsTable"):
+            if (self.cdot3oamstatstable is None):
+                self.cdot3oamstatstable = CiscoDot3OamMib.Cdot3Oamstatstable()
+                self.cdot3oamstatstable.parent = self
+                self._children_name_map["cdot3oamstatstable"] = "cdot3OamStatsTable"
+            return self.cdot3oamstatstable
+
+        if (child_yang_name == "cdot3OamTable"):
+            if (self.cdot3oamtable is None):
+                self.cdot3oamtable = CiscoDot3OamMib.Cdot3Oamtable()
+                self.cdot3oamtable.parent = self
+                self._children_name_map["cdot3oamtable"] = "cdot3OamTable"
+            return self.cdot3oamtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cdot3OamEventConfigTable" or name == "cdot3OamEventLogTable" or name == "cdot3OamLoopbackTable" or name == "cdot3OamPeerTable" or name == "cdot3OamStatsTable" or name == "cdot3OamTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cdot3oameventconfigtable is not None and self.cdot3oameventconfigtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cdot3oameventlogtable is not None and self.cdot3oameventlogtable._has_data():
-            return True
-
-        if self.cdot3oamloopbacktable is not None and self.cdot3oamloopbacktable._has_data():
-            return True
-
-        if self.cdot3oampeertable is not None and self.cdot3oampeertable._has_data():
-            return True
-
-        if self.cdot3oamstatstable is not None and self.cdot3oamstatstable._has_data():
-            return True
-
-        if self.cdot3oamtable is not None and self.cdot3oamtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_DOT3_OAM_MIB as meta
-        return meta._meta_table['CiscoDot3OamMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoDot3OamMib()
+        return self._top_entity
 

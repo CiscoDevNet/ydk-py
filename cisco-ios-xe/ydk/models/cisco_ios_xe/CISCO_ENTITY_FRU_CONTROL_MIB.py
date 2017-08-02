@@ -10,22 +10,16 @@ FRUs include assemblies such as power supplies, fans,
 processor modules, interface modules, etc.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class FrucoolingunitEnum(Enum):
+class Frucoolingunit(Enum):
     """
-    FrucoolingunitEnum
+    Frucoolingunit
 
     The unit for the cooling capacity and requirement.
 
@@ -39,20 +33,14 @@ class FrucoolingunitEnum(Enum):
 
     """
 
-    cfm = 1
+    cfm = Enum.YLeaf(1, "cfm")
 
-    watts = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['FrucoolingunitEnum']
+    watts = Enum.YLeaf(2, "watts")
 
 
-class ModuleadmintypeEnum(Enum):
+class Moduleadmintype(Enum):
     """
-    ModuleadmintypeEnum
+    Moduleadmintype
 
     Administratively desired module states.  Valid values are\:
 
@@ -82,24 +70,18 @@ class ModuleadmintypeEnum(Enum):
 
     """
 
-    enabled = 1
+    enabled = Enum.YLeaf(1, "enabled")
 
-    disabled = 2
+    disabled = Enum.YLeaf(2, "disabled")
 
-    reset = 3
+    reset = Enum.YLeaf(3, "reset")
 
-    outOfServiceAdmin = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['ModuleadmintypeEnum']
+    outOfServiceAdmin = Enum.YLeaf(4, "outOfServiceAdmin")
 
 
-class ModuleopertypeEnum(Enum):
+class Moduleopertype(Enum):
     """
-    ModuleopertypeEnum
+    Moduleopertype
 
     Operational module states.  Valid values are \:
 
@@ -319,70 +301,64 @@ class ModuleopertypeEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    ok = 2
+    ok = Enum.YLeaf(2, "ok")
 
-    disabled = 3
+    disabled = Enum.YLeaf(3, "disabled")
 
-    okButDiagFailed = 4
+    okButDiagFailed = Enum.YLeaf(4, "okButDiagFailed")
 
-    boot = 5
+    boot = Enum.YLeaf(5, "boot")
 
-    selfTest = 6
+    selfTest = Enum.YLeaf(6, "selfTest")
 
-    failed = 7
+    failed = Enum.YLeaf(7, "failed")
 
-    missing = 8
+    missing = Enum.YLeaf(8, "missing")
 
-    mismatchWithParent = 9
+    mismatchWithParent = Enum.YLeaf(9, "mismatchWithParent")
 
-    mismatchConfig = 10
+    mismatchConfig = Enum.YLeaf(10, "mismatchConfig")
 
-    diagFailed = 11
+    diagFailed = Enum.YLeaf(11, "diagFailed")
 
-    dormant = 12
+    dormant = Enum.YLeaf(12, "dormant")
 
-    outOfServiceAdmin = 13
+    outOfServiceAdmin = Enum.YLeaf(13, "outOfServiceAdmin")
 
-    outOfServiceEnvTemp = 14
+    outOfServiceEnvTemp = Enum.YLeaf(14, "outOfServiceEnvTemp")
 
-    poweredDown = 15
+    poweredDown = Enum.YLeaf(15, "poweredDown")
 
-    poweredUp = 16
+    poweredUp = Enum.YLeaf(16, "poweredUp")
 
-    powerDenied = 17
+    powerDenied = Enum.YLeaf(17, "powerDenied")
 
-    powerCycled = 18
+    powerCycled = Enum.YLeaf(18, "powerCycled")
 
-    okButPowerOverWarning = 19
+    okButPowerOverWarning = Enum.YLeaf(19, "okButPowerOverWarning")
 
-    okButPowerOverCritical = 20
+    okButPowerOverCritical = Enum.YLeaf(20, "okButPowerOverCritical")
 
-    syncInProgress = 21
+    syncInProgress = Enum.YLeaf(21, "syncInProgress")
 
-    upgrading = 22
+    upgrading = Enum.YLeaf(22, "upgrading")
 
-    okButAuthFailed = 23
+    okButAuthFailed = Enum.YLeaf(23, "okButAuthFailed")
 
-    mdr = 24
+    mdr = Enum.YLeaf(24, "mdr")
 
-    fwMismatchFound = 25
+    fwMismatchFound = Enum.YLeaf(25, "fwMismatchFound")
 
-    fwDownloadSuccess = 26
+    fwDownloadSuccess = Enum.YLeaf(26, "fwDownloadSuccess")
 
-    fwDownloadFailure = 27
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['ModuleopertypeEnum']
+    fwDownloadFailure = Enum.YLeaf(27, "fwDownloadFailure")
 
 
-class ModuleresetreasontypeEnum(Enum):
+class Moduleresetreasontype(Enum):
     """
-    ModuleresetreasontypeEnum
+    Moduleresetreasontype
 
     Describes the reason for the last module reset operation.
 
@@ -506,62 +482,56 @@ class ModuleresetreasontypeEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    powerUp = 2
+    powerUp = Enum.YLeaf(2, "powerUp")
 
-    parityError = 3
+    parityError = Enum.YLeaf(3, "parityError")
 
-    clearConfigReset = 4
+    clearConfigReset = Enum.YLeaf(4, "clearConfigReset")
 
-    manualReset = 5
+    manualReset = Enum.YLeaf(5, "manualReset")
 
-    watchDogTimeoutReset = 6
+    watchDogTimeoutReset = Enum.YLeaf(6, "watchDogTimeoutReset")
 
-    resourceOverflowReset = 7
+    resourceOverflowReset = Enum.YLeaf(7, "resourceOverflowReset")
 
-    missingTaskReset = 8
+    missingTaskReset = Enum.YLeaf(8, "missingTaskReset")
 
-    lowVoltageReset = 9
+    lowVoltageReset = Enum.YLeaf(9, "lowVoltageReset")
 
-    controllerReset = 10
+    controllerReset = Enum.YLeaf(10, "controllerReset")
 
-    systemReset = 11
+    systemReset = Enum.YLeaf(11, "systemReset")
 
-    switchoverReset = 12
+    switchoverReset = Enum.YLeaf(12, "switchoverReset")
 
-    upgradeReset = 13
+    upgradeReset = Enum.YLeaf(13, "upgradeReset")
 
-    downgradeReset = 14
+    downgradeReset = Enum.YLeaf(14, "downgradeReset")
 
-    cacheErrorReset = 15
+    cacheErrorReset = Enum.YLeaf(15, "cacheErrorReset")
 
-    deviceDriverReset = 16
+    deviceDriverReset = Enum.YLeaf(16, "deviceDriverReset")
 
-    softwareExceptionReset = 17
+    softwareExceptionReset = Enum.YLeaf(17, "softwareExceptionReset")
 
-    restoreConfigReset = 18
+    restoreConfigReset = Enum.YLeaf(18, "restoreConfigReset")
 
-    abortRevReset = 19
+    abortRevReset = Enum.YLeaf(19, "abortRevReset")
 
-    burnBootReset = 20
+    burnBootReset = Enum.YLeaf(20, "burnBootReset")
 
-    standbyCdHealthierReset = 21
+    standbyCdHealthierReset = Enum.YLeaf(21, "standbyCdHealthierReset")
 
-    nonNativeConfigClearReset = 22
+    nonNativeConfigClearReset = Enum.YLeaf(22, "nonNativeConfigClearReset")
 
-    memoryProtectionErrorReset = 23
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['ModuleresetreasontypeEnum']
+    memoryProtectionErrorReset = Enum.YLeaf(23, "memoryProtectionErrorReset")
 
 
-class PoweradmintypeEnum(Enum):
+class Poweradmintype(Enum):
     """
-    PoweradmintypeEnum
+    Poweradmintype
 
     Administratively desired FRU power state types.  valid values
 
@@ -615,26 +585,20 @@ class PoweradmintypeEnum(Enum):
 
     """
 
-    on = 1
+    on = Enum.YLeaf(1, "on")
 
-    off = 2
+    off = Enum.YLeaf(2, "off")
 
-    inlineAuto = 3
+    inlineAuto = Enum.YLeaf(3, "inlineAuto")
 
-    inlineOn = 4
+    inlineOn = Enum.YLeaf(4, "inlineOn")
 
-    powerCycle = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['PoweradmintypeEnum']
+    powerCycle = Enum.YLeaf(5, "powerCycle")
 
 
-class PoweropertypeEnum(Enum):
+class Poweropertype(Enum):
     """
-    PoweropertypeEnum
+    Poweropertype
 
     Operational FRU Status types.  valid values are\:
 
@@ -710,40 +674,34 @@ class PoweropertypeEnum(Enum):
 
     """
 
-    offEnvOther = 1
+    offEnvOther = Enum.YLeaf(1, "offEnvOther")
 
-    on = 2
+    on = Enum.YLeaf(2, "on")
 
-    offAdmin = 3
+    offAdmin = Enum.YLeaf(3, "offAdmin")
 
-    offDenied = 4
+    offDenied = Enum.YLeaf(4, "offDenied")
 
-    offEnvPower = 5
+    offEnvPower = Enum.YLeaf(5, "offEnvPower")
 
-    offEnvTemp = 6
+    offEnvTemp = Enum.YLeaf(6, "offEnvTemp")
 
-    offEnvFan = 7
+    offEnvFan = Enum.YLeaf(7, "offEnvFan")
 
-    failed = 8
+    failed = Enum.YLeaf(8, "failed")
 
-    onButFanFail = 9
+    onButFanFail = Enum.YLeaf(9, "onButFanFail")
 
-    offCooling = 10
+    offCooling = Enum.YLeaf(10, "offCooling")
 
-    offConnectorRating = 11
+    offConnectorRating = Enum.YLeaf(11, "offConnectorRating")
 
-    onButInlinePowerFail = 12
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['PoweropertypeEnum']
+    onButInlinePowerFail = Enum.YLeaf(12, "onButInlinePowerFail")
 
 
-class PowerredundancytypeEnum(Enum):
+class Powerredundancytype(Enum):
     """
-    PowerredundancytypeEnum
+    Powerredundancytype
 
     power supply redundancy modes.  valid values are\:
 
@@ -841,29 +799,23 @@ class PowerredundancytypeEnum(Enum):
 
     """
 
-    notsupported = 1
+    notsupported = Enum.YLeaf(1, "notsupported")
 
-    redundant = 2
+    redundant = Enum.YLeaf(2, "redundant")
 
-    combined = 3
+    combined = Enum.YLeaf(3, "combined")
 
-    nonRedundant = 4
+    nonRedundant = Enum.YLeaf(4, "nonRedundant")
 
-    psRedundant = 5
+    psRedundant = Enum.YLeaf(5, "psRedundant")
 
-    inPwrSrcRedundant = 6
+    inPwrSrcRedundant = Enum.YLeaf(6, "inPwrSrcRedundant")
 
-    psRedundantSingleInput = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['PowerredundancytypeEnum']
+    psRedundantSingleInput = Enum.YLeaf(7, "psRedundantSingleInput")
 
 
 
-class CiscoEntityFruControlMib(object):
+class CiscoEntityFruControlMib(Entity):
     """
     
     
@@ -965,45 +917,104 @@ class CiscoEntityFruControlMib(object):
     _revision = '2013-08-19'
 
     def __init__(self):
+        super(CiscoEntityFruControlMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+        self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
         self.cefcchassiscoolingtable = CiscoEntityFruControlMib.Cefcchassiscoolingtable()
         self.cefcchassiscoolingtable.parent = self
+        self._children_name_map["cefcchassiscoolingtable"] = "cefcChassisCoolingTable"
+        self._children_yang_names.add("cefcChassisCoolingTable")
+
         self.cefcconnectorratingtable = CiscoEntityFruControlMib.Cefcconnectorratingtable()
         self.cefcconnectorratingtable.parent = self
+        self._children_name_map["cefcconnectorratingtable"] = "cefcConnectorRatingTable"
+        self._children_yang_names.add("cefcConnectorRatingTable")
+
         self.cefcfancoolingcaptable = CiscoEntityFruControlMib.Cefcfancoolingcaptable()
         self.cefcfancoolingcaptable.parent = self
+        self._children_name_map["cefcfancoolingcaptable"] = "cefcFanCoolingCapTable"
+        self._children_yang_names.add("cefcFanCoolingCapTable")
+
         self.cefcfancoolingtable = CiscoEntityFruControlMib.Cefcfancoolingtable()
         self.cefcfancoolingtable.parent = self
+        self._children_name_map["cefcfancoolingtable"] = "cefcFanCoolingTable"
+        self._children_yang_names.add("cefcFanCoolingTable")
+
         self.cefcfantraystatustable = CiscoEntityFruControlMib.Cefcfantraystatustable()
         self.cefcfantraystatustable.parent = self
+        self._children_name_map["cefcfantraystatustable"] = "cefcFanTrayStatusTable"
+        self._children_yang_names.add("cefcFanTrayStatusTable")
+
         self.cefcfrupower = CiscoEntityFruControlMib.Cefcfrupower()
         self.cefcfrupower.parent = self
+        self._children_name_map["cefcfrupower"] = "cefcFRUPower"
+        self._children_yang_names.add("cefcFRUPower")
+
         self.cefcfrupowerstatustable = CiscoEntityFruControlMib.Cefcfrupowerstatustable()
         self.cefcfrupowerstatustable.parent = self
+        self._children_name_map["cefcfrupowerstatustable"] = "cefcFRUPowerStatusTable"
+        self._children_yang_names.add("cefcFRUPowerStatusTable")
+
         self.cefcfrupowersupplygrouptable = CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable()
         self.cefcfrupowersupplygrouptable.parent = self
+        self._children_name_map["cefcfrupowersupplygrouptable"] = "cefcFRUPowerSupplyGroupTable"
+        self._children_yang_names.add("cefcFRUPowerSupplyGroupTable")
+
         self.cefcfrupowersupplyvaluetable = CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable()
         self.cefcfrupowersupplyvaluetable.parent = self
+        self._children_name_map["cefcfrupowersupplyvaluetable"] = "cefcFRUPowerSupplyValueTable"
+        self._children_yang_names.add("cefcFRUPowerSupplyValueTable")
+
         self.cefcintellimoduletable = CiscoEntityFruControlMib.Cefcintellimoduletable()
         self.cefcintellimoduletable.parent = self
+        self._children_name_map["cefcintellimoduletable"] = "cefcIntelliModuleTable"
+        self._children_yang_names.add("cefcIntelliModuleTable")
+
         self.cefcmibnotificationenables = CiscoEntityFruControlMib.Cefcmibnotificationenables()
         self.cefcmibnotificationenables.parent = self
+        self._children_name_map["cefcmibnotificationenables"] = "cefcMIBNotificationEnables"
+        self._children_yang_names.add("cefcMIBNotificationEnables")
+
         self.cefcmodulecoolingtable = CiscoEntityFruControlMib.Cefcmodulecoolingtable()
         self.cefcmodulecoolingtable.parent = self
+        self._children_name_map["cefcmodulecoolingtable"] = "cefcModuleCoolingTable"
+        self._children_yang_names.add("cefcModuleCoolingTable")
+
         self.cefcmodulelocalswitchingtable = CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable()
         self.cefcmodulelocalswitchingtable.parent = self
+        self._children_name_map["cefcmodulelocalswitchingtable"] = "cefcModuleLocalSwitchingTable"
+        self._children_yang_names.add("cefcModuleLocalSwitchingTable")
+
         self.cefcmodulepowerconsumptiontable = CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable()
         self.cefcmodulepowerconsumptiontable.parent = self
+        self._children_name_map["cefcmodulepowerconsumptiontable"] = "cefcModulePowerConsumptionTable"
+        self._children_yang_names.add("cefcModulePowerConsumptionTable")
+
         self.cefcmoduletable = CiscoEntityFruControlMib.Cefcmoduletable()
         self.cefcmoduletable.parent = self
+        self._children_name_map["cefcmoduletable"] = "cefcModuleTable"
+        self._children_yang_names.add("cefcModuleTable")
+
         self.cefcphysicaltable = CiscoEntityFruControlMib.Cefcphysicaltable()
         self.cefcphysicaltable.parent = self
+        self._children_name_map["cefcphysicaltable"] = "cefcPhysicalTable"
+        self._children_yang_names.add("cefcPhysicalTable")
+
         self.cefcpowersupplyinputtable = CiscoEntityFruControlMib.Cefcpowersupplyinputtable()
         self.cefcpowersupplyinputtable.parent = self
+        self._children_name_map["cefcpowersupplyinputtable"] = "cefcPowerSupplyInputTable"
+        self._children_yang_names.add("cefcPowerSupplyInputTable")
+
         self.cefcpowersupplyoutputtable = CiscoEntityFruControlMib.Cefcpowersupplyoutputtable()
         self.cefcpowersupplyoutputtable.parent = self
+        self._children_name_map["cefcpowersupplyoutputtable"] = "cefcPowerSupplyOutputTable"
+        self._children_yang_names.add("cefcPowerSupplyOutputTable")
 
 
-    class Cefcfrupower(object):
+    class Cefcfrupower(Entity):
         """
         
         
@@ -1035,35 +1046,97 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcmaxdefaulthighinlinepower = None
-            self.cefcmaxdefaultinlinepower = None
+            super(CiscoEntityFruControlMib.Cefcfrupower, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cefcFRUPower"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
 
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPower'
+            self.cefcmaxdefaulthighinlinepower = YLeaf(YType.uint32, "cefcMaxDefaultHighInLinePower")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cefcmaxdefaultinlinepower = YLeaf(YType.int32, "cefcMaxDefaultInLinePower")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cefcmaxdefaulthighinlinepower",
+                            "cefcmaxdefaultinlinepower") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcfrupower, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcfrupower, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cefcmaxdefaulthighinlinepower.is_set or
+                self.cefcmaxdefaultinlinepower.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cefcmaxdefaulthighinlinepower.yfilter != YFilter.not_set or
+                self.cefcmaxdefaultinlinepower.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcFRUPower" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cefcmaxdefaulthighinlinepower.is_set or self.cefcmaxdefaulthighinlinepower.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cefcmaxdefaulthighinlinepower.get_name_leafdata())
+            if (self.cefcmaxdefaultinlinepower.is_set or self.cefcmaxdefaultinlinepower.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cefcmaxdefaultinlinepower.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcMaxDefaultHighInLinePower" or name == "cefcMaxDefaultInLinePower"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cefcmaxdefaulthighinlinepower is not None:
-                return True
-
-            if self.cefcmaxdefaultinlinepower is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupower']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cefcMaxDefaultHighInLinePower"):
+                self.cefcmaxdefaulthighinlinepower = value
+                self.cefcmaxdefaulthighinlinepower.value_namespace = name_space
+                self.cefcmaxdefaulthighinlinepower.value_namespace_prefix = name_space_prefix
+            if(value_path == "cefcMaxDefaultInLinePower"):
+                self.cefcmaxdefaultinlinepower = value
+                self.cefcmaxdefaultinlinepower.value_namespace = name_space
+                self.cefcmaxdefaultinlinepower.value_namespace_prefix = name_space_prefix
 
 
-    class Cefcmibnotificationenables(object):
+    class Cefcmibnotificationenables(Entity):
         """
         
         
@@ -1085,35 +1158,97 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcenablepsoutputchangenotif = None
-            self.cefcmibenablestatusnotification = None
+            super(CiscoEntityFruControlMib.Cefcmibnotificationenables, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cefcMIBNotificationEnables"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
 
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcMIBNotificationEnables'
+            self.cefcenablepsoutputchangenotif = YLeaf(YType.boolean, "cefcEnablePSOutputChangeNotif")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cefcmibenablestatusnotification = YLeaf(YType.boolean, "cefcMIBEnableStatusNotification")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cefcenablepsoutputchangenotif",
+                            "cefcmibenablestatusnotification") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcmibnotificationenables, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcmibnotificationenables, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cefcenablepsoutputchangenotif.is_set or
+                self.cefcmibenablestatusnotification.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cefcenablepsoutputchangenotif.yfilter != YFilter.not_set or
+                self.cefcmibenablestatusnotification.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcMIBNotificationEnables" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cefcenablepsoutputchangenotif.is_set or self.cefcenablepsoutputchangenotif.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cefcenablepsoutputchangenotif.get_name_leafdata())
+            if (self.cefcmibenablestatusnotification.is_set or self.cefcmibenablestatusnotification.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cefcmibenablestatusnotification.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcEnablePSOutputChangeNotif" or name == "cefcMIBEnableStatusNotification"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cefcenablepsoutputchangenotif is not None:
-                return True
-
-            if self.cefcmibenablestatusnotification is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcmibnotificationenables']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cefcEnablePSOutputChangeNotif"):
+                self.cefcenablepsoutputchangenotif = value
+                self.cefcenablepsoutputchangenotif.value_namespace = name_space
+                self.cefcenablepsoutputchangenotif.value_namespace_prefix = name_space_prefix
+            if(value_path == "cefcMIBEnableStatusNotification"):
+                self.cefcmibenablestatusnotification = value
+                self.cefcmibenablestatusnotification.value_namespace = name_space
+                self.cefcmibenablestatusnotification.value_namespace_prefix = name_space_prefix
 
 
-    class Cefcfrupowersupplygrouptable(object):
+    class Cefcfrupowersupplygrouptable(Entity):
         """
         This table lists the redundancy mode and the
         operational status of the power supply groups
@@ -1132,13 +1267,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcfrupowersupplygroupentry = YList()
-            self.cefcfrupowersupplygroupentry.parent = self
-            self.cefcfrupowersupplygroupentry.name = 'cefcfrupowersupplygroupentry'
+            super(CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable, self).__init__()
+
+            self.yang_name = "cefcFRUPowerSupplyGroupTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcfrupowersupplygroupentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable, self).__setattr__(name, value)
 
 
-        class Cefcfrupowersupplygroupentry(object):
+        class Cefcfrupowersupplygroupentry(Entity):
             """
             An cefcFRUPowerSupplyGroupTable entry lists the desired
             redundancy mode, the units of the power outputs and the 
@@ -1160,17 +1321,17 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcpowernonredundantreason
             
             	This object has the value of notApplicable(1) when cefcPowerRedundancyOperMode of the instance does not have the value of nonRedundant(4).  The other values explain the reason why  cefcPowerRedundancyOperMode is nonRedundant(4), e.g.  unknown(2)             the reason is not identified.  singleSupply(3)        There is only one power supply                        in the group.  mismatchedSupplies(4)  There are more than one power                        supplies in the groups. However                        they are mismatched and can not                        work redundantly.  supplyError(5)         Some power supply or supplies                        does or do not working properly
-            	**type**\:   :py:class:`CefcpowernonredundantreasonEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry.CefcpowernonredundantreasonEnum>`
+            	**type**\:   :py:class:`Cefcpowernonredundantreason <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry.Cefcpowernonredundantreason>`
             
             .. attribute:: cefcpowerredundancymode
             
             	The administratively desired power supply redundancy mode
-            	**type**\:   :py:class:`PowerredundancytypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PowerredundancytypeEnum>`
+            	**type**\:   :py:class:`Powerredundancytype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Powerredundancytype>`
             
             .. attribute:: cefcpowerredundancyopermode
             
             	The power supply redundancy operational mode
-            	**type**\:   :py:class:`PowerredundancytypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PowerredundancytypeEnum>`
+            	**type**\:   :py:class:`Powerredundancytype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Powerredundancytype>`
             
             .. attribute:: cefcpowerunits
             
@@ -1206,19 +1367,61 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcpowernonredundantreason = None
-                self.cefcpowerredundancymode = None
-                self.cefcpowerredundancyopermode = None
-                self.cefcpowerunits = None
-                self.cefctotalavailablecurrent = None
-                self.cefctotaldrawncurrent = None
-                self.cefctotaldrawninlinecurrent = None
+                super(CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry, self).__init__()
 
-            class CefcpowernonredundantreasonEnum(Enum):
+                self.yang_name = "cefcFRUPowerSupplyGroupEntry"
+                self.yang_parent_name = "cefcFRUPowerSupplyGroupTable"
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.cefcpowernonredundantreason = YLeaf(YType.enumeration, "cefcPowerNonRedundantReason")
+
+                self.cefcpowerredundancymode = YLeaf(YType.enumeration, "cefcPowerRedundancyMode")
+
+                self.cefcpowerredundancyopermode = YLeaf(YType.enumeration, "cefcPowerRedundancyOperMode")
+
+                self.cefcpowerunits = YLeaf(YType.str, "cefcPowerUnits")
+
+                self.cefctotalavailablecurrent = YLeaf(YType.int32, "cefcTotalAvailableCurrent")
+
+                self.cefctotaldrawncurrent = YLeaf(YType.int32, "cefcTotalDrawnCurrent")
+
+                self.cefctotaldrawninlinecurrent = YLeaf(YType.int32, "cefcTotalDrawnInlineCurrent")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcpowernonredundantreason",
+                                "cefcpowerredundancymode",
+                                "cefcpowerredundancyopermode",
+                                "cefcpowerunits",
+                                "cefctotalavailablecurrent",
+                                "cefctotaldrawncurrent",
+                                "cefctotaldrawninlinecurrent") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry, self).__setattr__(name, value)
+
+            class Cefcpowernonredundantreason(Enum):
                 """
-                CefcpowernonredundantreasonEnum
+                Cefcpowernonredundantreason
 
                 This object has the value of notApplicable(1) when
 
@@ -1260,90 +1463,179 @@ class CiscoEntityFruControlMib(object):
 
                 """
 
-                notApplicable = 1
+                notApplicable = Enum.YLeaf(1, "notApplicable")
 
-                unknown = 2
+                unknown = Enum.YLeaf(2, "unknown")
 
-                singleSupply = 3
+                singleSupply = Enum.YLeaf(3, "singleSupply")
 
-                mismatchedSupplies = 4
+                mismatchedSupplies = Enum.YLeaf(4, "mismatchedSupplies")
 
-                supplyError = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry.CefcpowernonredundantreasonEnum']
+                supplyError = Enum.YLeaf(5, "supplyError")
 
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcpowernonredundantreason.is_set or
+                    self.cefcpowerredundancymode.is_set or
+                    self.cefcpowerredundancyopermode.is_set or
+                    self.cefcpowerunits.is_set or
+                    self.cefctotalavailablecurrent.is_set or
+                    self.cefctotaldrawncurrent.is_set or
+                    self.cefctotaldrawninlinecurrent.is_set)
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerSupplyGroupTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerSupplyGroupEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcpowernonredundantreason.yfilter != YFilter.not_set or
+                    self.cefcpowerredundancymode.yfilter != YFilter.not_set or
+                    self.cefcpowerredundancyopermode.yfilter != YFilter.not_set or
+                    self.cefcpowerunits.yfilter != YFilter.not_set or
+                    self.cefctotalavailablecurrent.yfilter != YFilter.not_set or
+                    self.cefctotaldrawncurrent.yfilter != YFilter.not_set or
+                    self.cefctotaldrawninlinecurrent.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcFRUPowerSupplyGroupEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyGroupTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcpowernonredundantreason.is_set or self.cefcpowernonredundantreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpowernonredundantreason.get_name_leafdata())
+                if (self.cefcpowerredundancymode.is_set or self.cefcpowerredundancymode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpowerredundancymode.get_name_leafdata())
+                if (self.cefcpowerredundancyopermode.is_set or self.cefcpowerredundancyopermode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpowerredundancyopermode.get_name_leafdata())
+                if (self.cefcpowerunits.is_set or self.cefcpowerunits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpowerunits.get_name_leafdata())
+                if (self.cefctotalavailablecurrent.is_set or self.cefctotalavailablecurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefctotalavailablecurrent.get_name_leafdata())
+                if (self.cefctotaldrawncurrent.is_set or self.cefctotaldrawncurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefctotaldrawncurrent.get_name_leafdata())
+                if (self.cefctotaldrawninlinecurrent.is_set or self.cefctotaldrawninlinecurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefctotaldrawninlinecurrent.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcPowerNonRedundantReason" or name == "cefcPowerRedundancyMode" or name == "cefcPowerRedundancyOperMode" or name == "cefcPowerUnits" or name == "cefcTotalAvailableCurrent" or name == "cefcTotalDrawnCurrent" or name == "cefcTotalDrawnInlineCurrent"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPowerNonRedundantReason"):
+                    self.cefcpowernonredundantreason = value
+                    self.cefcpowernonredundantreason.value_namespace = name_space
+                    self.cefcpowernonredundantreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPowerRedundancyMode"):
+                    self.cefcpowerredundancymode = value
+                    self.cefcpowerredundancymode.value_namespace = name_space
+                    self.cefcpowerredundancymode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPowerRedundancyOperMode"):
+                    self.cefcpowerredundancyopermode = value
+                    self.cefcpowerredundancyopermode.value_namespace = name_space
+                    self.cefcpowerredundancyopermode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPowerUnits"):
+                    self.cefcpowerunits = value
+                    self.cefcpowerunits.value_namespace = name_space
+                    self.cefcpowerunits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcTotalAvailableCurrent"):
+                    self.cefctotalavailablecurrent = value
+                    self.cefctotalavailablecurrent.value_namespace = name_space
+                    self.cefctotalavailablecurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcTotalDrawnCurrent"):
+                    self.cefctotaldrawncurrent = value
+                    self.cefctotaldrawncurrent.value_namespace = name_space
+                    self.cefctotaldrawncurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcTotalDrawnInlineCurrent"):
+                    self.cefctotaldrawninlinecurrent = value
+                    self.cefctotaldrawninlinecurrent.value_namespace = name_space
+                    self.cefctotaldrawninlinecurrent.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcfrupowersupplygroupentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcpowernonredundantreason is not None:
-                    return True
-
-                if self.cefcpowerredundancymode is not None:
-                    return True
-
-                if self.cefcpowerredundancyopermode is not None:
-                    return True
-
-                if self.cefcpowerunits is not None:
-                    return True
-
-                if self.cefctotalavailablecurrent is not None:
-                    return True
-
-                if self.cefctotaldrawncurrent is not None:
-                    return True
-
-                if self.cefctotaldrawninlinecurrent is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerSupplyGroupTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcfrupowersupplygroupentry is not None:
-                for child_ref in self.cefcfrupowersupplygroupentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcfrupowersupplygroupentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcFRUPowerSupplyGroupTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcFRUPowerSupplyGroupEntry"):
+                for c in self.cefcfrupowersupplygroupentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcfrupowersupplygroupentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcFRUPowerSupplyGroupEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcfrupowerstatustable(object):
+    class Cefcfrupowerstatustable(Entity):
         """
         This table lists the power\-related administrative status
         and operational status of the manageable components
@@ -1362,13 +1654,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcfrupowerstatusentry = YList()
-            self.cefcfrupowerstatusentry.parent = self
-            self.cefcfrupowerstatusentry.name = 'cefcfrupowerstatusentry'
+            super(CiscoEntityFruControlMib.Cefcfrupowerstatustable, self).__init__()
+
+            self.yang_name = "cefcFRUPowerStatusTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcfrupowerstatusentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcfrupowerstatustable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcfrupowerstatustable, self).__setattr__(name, value)
 
 
-        class Cefcfrupowerstatusentry(object):
+        class Cefcfrupowerstatusentry(Entity):
             """
             An cefcFRUPowerStatusTable entry lists the desired
             administrative status, the operational status of the 
@@ -1401,7 +1719,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcfrupoweradminstatus
             
             	Administratively desired FRU power state
-            	**type**\:   :py:class:`PoweradmintypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PoweradmintypeEnum>`
+            	**type**\:   :py:class:`Poweradmintype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Poweradmintype>`
             
             .. attribute:: cefcfrupowercapability
             
@@ -1411,7 +1729,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcfrupoweroperstatus
             
             	Operational FRU power state
-            	**type**\:   :py:class:`PoweropertypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PoweropertypeEnum>`
+            	**type**\:   :py:class:`Poweropertype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Poweropertype>`
             
             .. attribute:: cefcfrurealtimecurrent
             
@@ -1428,97 +1746,196 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcfrucurrent = None
-                self.cefcfrupoweradminstatus = None
-                self.cefcfrupowercapability = CiscoEntityFruControlMib.Cefcfrupowerstatustable.Cefcfrupowerstatusentry.Cefcfrupowercapability()
-                self.cefcfrupoweroperstatus = None
-                self.cefcfrurealtimecurrent = None
+                super(CiscoEntityFruControlMib.Cefcfrupowerstatustable.Cefcfrupowerstatusentry, self).__init__()
 
-            class Cefcfrupowercapability(FixedBitsDict):
-                """
-                Cefcfrupowercapability
+                self.yang_name = "cefcFRUPowerStatusEntry"
+                self.yang_parent_name = "cefcFRUPowerStatusTable"
 
-                This object indicates the set of supported power capabilities
-                of the FRU.
-                
-                realTimeCurrent(0) \-
-                    cefcFRURealTimeCurrent is supported by the FRU.
-                Keys are:- realTimeCurrent
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-                """
+                self.cefcfrucurrent = YLeaf(YType.int32, "cefcFRUCurrent")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'realTimeCurrent':False,
-                    }
-                    self._pos_map = { 
-                        'realTimeCurrent':0,
-                    }
+                self.cefcfrupoweradminstatus = YLeaf(YType.enumeration, "cefcFRUPowerAdminStatus")
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.cefcfrupowercapability = YLeaf(YType.bits, "cefcFRUPowerCapability")
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerStatusTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerStatusEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.cefcfrupoweroperstatus = YLeaf(YType.enumeration, "cefcFRUPowerOperStatus")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcfrurealtimecurrent = YLeaf(YType.int32, "cefcFRURealTimeCurrent")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcfrucurrent",
+                                "cefcfrupoweradminstatus",
+                                "cefcfrupowercapability",
+                                "cefcfrupoweroperstatus",
+                                "cefcfrurealtimecurrent") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcfrupowerstatustable.Cefcfrupowerstatusentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcfrupowerstatustable.Cefcfrupowerstatusentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcfrucurrent.is_set or
+                    self.cefcfrupoweradminstatus.is_set or
+                    self.cefcfrupowercapability.is_set or
+                    self.cefcfrupoweroperstatus.is_set or
+                    self.cefcfrurealtimecurrent.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcfrucurrent.yfilter != YFilter.not_set or
+                    self.cefcfrupoweradminstatus.yfilter != YFilter.not_set or
+                    self.cefcfrupowercapability.yfilter != YFilter.not_set or
+                    self.cefcfrupoweroperstatus.yfilter != YFilter.not_set or
+                    self.cefcfrurealtimecurrent.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcFRUPowerStatusEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerStatusTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcfrucurrent.is_set or self.cefcfrucurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrucurrent.get_name_leafdata())
+                if (self.cefcfrupoweradminstatus.is_set or self.cefcfrupoweradminstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrupoweradminstatus.get_name_leafdata())
+                if (self.cefcfrupowercapability.is_set or self.cefcfrupowercapability.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrupowercapability.get_name_leafdata())
+                if (self.cefcfrupoweroperstatus.is_set or self.cefcfrupoweroperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrupoweroperstatus.get_name_leafdata())
+                if (self.cefcfrurealtimecurrent.is_set or self.cefcfrurealtimecurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrurealtimecurrent.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcFRUCurrent" or name == "cefcFRUPowerAdminStatus" or name == "cefcFRUPowerCapability" or name == "cefcFRUPowerOperStatus" or name == "cefcFRURealTimeCurrent"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRUCurrent"):
+                    self.cefcfrucurrent = value
+                    self.cefcfrucurrent.value_namespace = name_space
+                    self.cefcfrucurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRUPowerAdminStatus"):
+                    self.cefcfrupoweradminstatus = value
+                    self.cefcfrupoweradminstatus.value_namespace = name_space
+                    self.cefcfrupoweradminstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRUPowerCapability"):
+                    self.cefcfrupowercapability[value] = True
+                if(value_path == "cefcFRUPowerOperStatus"):
+                    self.cefcfrupoweroperstatus = value
+                    self.cefcfrupoweroperstatus.value_namespace = name_space
+                    self.cefcfrupoweroperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRURealTimeCurrent"):
+                    self.cefcfrurealtimecurrent = value
+                    self.cefcfrurealtimecurrent.value_namespace = name_space
+                    self.cefcfrurealtimecurrent.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcfrupowerstatusentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcfrucurrent is not None:
-                    return True
-
-                if self.cefcfrupoweradminstatus is not None:
-                    return True
-
-                if self.cefcfrupowercapability is not None:
-                    if self.cefcfrupowercapability._has_data():
-                        return True
-
-                if self.cefcfrupoweroperstatus is not None:
-                    return True
-
-                if self.cefcfrurealtimecurrent is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupowerstatustable.Cefcfrupowerstatusentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerStatusTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcfrupowerstatusentry is not None:
-                for child_ref in self.cefcfrupowerstatusentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcfrupowerstatusentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcFRUPowerStatusTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcFRUPowerStatusEntry"):
+                for c in self.cefcfrupowerstatusentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcfrupowerstatustable.Cefcfrupowerstatusentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcfrupowerstatusentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcFRUPowerStatusEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupowerstatustable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcfrupowersupplyvaluetable(object):
+    class Cefcfrupowersupplyvaluetable(Entity):
         """
         This table lists the power capacity of a power FRU in the
         system if it provides variable power. Power supplies usually
@@ -1550,13 +1967,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcfrupowersupplyvalueentry = YList()
-            self.cefcfrupowersupplyvalueentry.parent = self
-            self.cefcfrupowersupplyvalueentry.name = 'cefcfrupowersupplyvalueentry'
+            super(CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable, self).__init__()
+
+            self.yang_name = "cefcFRUPowerSupplyValueTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcfrupowersupplyvalueentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable, self).__setattr__(name, value)
 
 
-        class Cefcfrupowersupplyvalueentry(object):
+        class Cefcfrupowersupplyvalueentry(Entity):
             """
             An cefcFRUPowerSupplyValueTable entry lists the current
             provided by the FRU for operation.
@@ -1612,71 +2055,187 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcfrudrawninlinecurrent = None
-                self.cefcfrudrawnsystemcurrent = None
-                self.cefcfrutotalinlinecurrent = None
-                self.cefcfrutotalsystemcurrent = None
+                super(CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcFRUPowerSupplyValueEntry"
+                self.yang_parent_name = "cefcFRUPowerSupplyValueTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerSupplyValueTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerSupplyValueEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcfrudrawninlinecurrent = YLeaf(YType.int32, "cefcFRUDrawnInlineCurrent")
+
+                self.cefcfrudrawnsystemcurrent = YLeaf(YType.int32, "cefcFRUDrawnSystemCurrent")
+
+                self.cefcfrutotalinlinecurrent = YLeaf(YType.int32, "cefcFRUTotalInlineCurrent")
+
+                self.cefcfrutotalsystemcurrent = YLeaf(YType.int32, "cefcFRUTotalSystemCurrent")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcfrudrawninlinecurrent",
+                                "cefcfrudrawnsystemcurrent",
+                                "cefcfrutotalinlinecurrent",
+                                "cefcfrutotalsystemcurrent") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcfrudrawninlinecurrent.is_set or
+                    self.cefcfrudrawnsystemcurrent.is_set or
+                    self.cefcfrutotalinlinecurrent.is_set or
+                    self.cefcfrutotalsystemcurrent.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcfrudrawninlinecurrent.yfilter != YFilter.not_set or
+                    self.cefcfrudrawnsystemcurrent.yfilter != YFilter.not_set or
+                    self.cefcfrutotalinlinecurrent.yfilter != YFilter.not_set or
+                    self.cefcfrutotalsystemcurrent.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcFRUPowerSupplyValueEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyValueTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcfrudrawninlinecurrent.is_set or self.cefcfrudrawninlinecurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrudrawninlinecurrent.get_name_leafdata())
+                if (self.cefcfrudrawnsystemcurrent.is_set or self.cefcfrudrawnsystemcurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrudrawnsystemcurrent.get_name_leafdata())
+                if (self.cefcfrutotalinlinecurrent.is_set or self.cefcfrutotalinlinecurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrutotalinlinecurrent.get_name_leafdata())
+                if (self.cefcfrutotalsystemcurrent.is_set or self.cefcfrutotalsystemcurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfrutotalsystemcurrent.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcFRUDrawnInlineCurrent" or name == "cefcFRUDrawnSystemCurrent" or name == "cefcFRUTotalInlineCurrent" or name == "cefcFRUTotalSystemCurrent"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRUDrawnInlineCurrent"):
+                    self.cefcfrudrawninlinecurrent = value
+                    self.cefcfrudrawninlinecurrent.value_namespace = name_space
+                    self.cefcfrudrawninlinecurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRUDrawnSystemCurrent"):
+                    self.cefcfrudrawnsystemcurrent = value
+                    self.cefcfrudrawnsystemcurrent.value_namespace = name_space
+                    self.cefcfrudrawnsystemcurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRUTotalInlineCurrent"):
+                    self.cefcfrutotalinlinecurrent = value
+                    self.cefcfrutotalinlinecurrent.value_namespace = name_space
+                    self.cefcfrutotalinlinecurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFRUTotalSystemCurrent"):
+                    self.cefcfrutotalsystemcurrent = value
+                    self.cefcfrutotalsystemcurrent.value_namespace = name_space
+                    self.cefcfrutotalsystemcurrent.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcfrupowersupplyvalueentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcfrudrawninlinecurrent is not None:
-                    return True
-
-                if self.cefcfrudrawnsystemcurrent is not None:
-                    return True
-
-                if self.cefcfrutotalinlinecurrent is not None:
-                    return True
-
-                if self.cefcfrutotalsystemcurrent is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFRUPowerSupplyValueTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcfrupowersupplyvalueentry is not None:
-                for child_ref in self.cefcfrupowersupplyvalueentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcfrupowersupplyvalueentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcFRUPowerSupplyValueTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcFRUPowerSupplyValueEntry"):
+                for c in self.cefcfrupowersupplyvalueentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcfrupowersupplyvalueentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcFRUPowerSupplyValueEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcmoduletable(object):
+    class Cefcmoduletable(Entity):
         """
         A cefcModuleTable entry lists the operational and
         administrative status information for ENTITY\-MIB
@@ -1696,13 +2255,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcmoduleentry = YList()
-            self.cefcmoduleentry.parent = self
-            self.cefcmoduleentry.name = 'cefcmoduleentry'
+            super(CiscoEntityFruControlMib.Cefcmoduletable, self).__init__()
+
+            self.yang_name = "cefcModuleTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcmoduleentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcmoduletable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcmoduletable, self).__setattr__(name, value)
 
 
-        class Cefcmoduleentry(object):
+        class Cefcmoduleentry(Entity):
             """
             A cefcModuleStatusTable entry lists the operational and
             administrative status information for ENTITY\-MIB
@@ -1726,7 +2311,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcmoduleadminstatus
             
             	This object provides administrative control of the module
-            	**type**\:   :py:class:`ModuleadmintypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.ModuleadmintypeEnum>`
+            	**type**\:   :py:class:`Moduleadmintype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Moduleadmintype>`
             
             .. attribute:: cefcmodulelastclearconfigtime
             
@@ -1738,12 +2323,12 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcmoduleoperstatus
             
             	This object shows the module's operational state
-            	**type**\:   :py:class:`ModuleopertypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.ModuleopertypeEnum>`
+            	**type**\:   :py:class:`Moduleopertype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Moduleopertype>`
             
             .. attribute:: cefcmoduleresetreason
             
             	This object identifies the reason for the last reset performed on the module
-            	**type**\:   :py:class:`ModuleresetreasontypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.ModuleresetreasontypeEnum>`
+            	**type**\:   :py:class:`Moduleresetreasontype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Moduleresetreasontype>`
             
             .. attribute:: cefcmoduleresetreasondescription
             
@@ -1777,87 +2362,231 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcmoduleadminstatus = None
-                self.cefcmodulelastclearconfigtime = None
-                self.cefcmoduleoperstatus = None
-                self.cefcmoduleresetreason = None
-                self.cefcmoduleresetreasondescription = None
-                self.cefcmodulestatechangereasondescr = None
-                self.cefcmodulestatuslastchangetime = None
-                self.cefcmoduleuptime = None
+                super(CiscoEntityFruControlMib.Cefcmoduletable.Cefcmoduleentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcModuleEntry"
+                self.yang_parent_name = "cefcModuleTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcmoduleadminstatus = YLeaf(YType.enumeration, "cefcModuleAdminStatus")
+
+                self.cefcmodulelastclearconfigtime = YLeaf(YType.uint32, "cefcModuleLastClearConfigTime")
+
+                self.cefcmoduleoperstatus = YLeaf(YType.enumeration, "cefcModuleOperStatus")
+
+                self.cefcmoduleresetreason = YLeaf(YType.enumeration, "cefcModuleResetReason")
+
+                self.cefcmoduleresetreasondescription = YLeaf(YType.str, "cefcModuleResetReasonDescription")
+
+                self.cefcmodulestatechangereasondescr = YLeaf(YType.str, "cefcModuleStateChangeReasonDescr")
+
+                self.cefcmodulestatuslastchangetime = YLeaf(YType.uint32, "cefcModuleStatusLastChangeTime")
+
+                self.cefcmoduleuptime = YLeaf(YType.uint32, "cefcModuleUpTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcmoduleadminstatus",
+                                "cefcmodulelastclearconfigtime",
+                                "cefcmoduleoperstatus",
+                                "cefcmoduleresetreason",
+                                "cefcmoduleresetreasondescription",
+                                "cefcmodulestatechangereasondescr",
+                                "cefcmodulestatuslastchangetime",
+                                "cefcmoduleuptime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcmoduletable.Cefcmoduleentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcmoduletable.Cefcmoduleentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcmoduleadminstatus.is_set or
+                    self.cefcmodulelastclearconfigtime.is_set or
+                    self.cefcmoduleoperstatus.is_set or
+                    self.cefcmoduleresetreason.is_set or
+                    self.cefcmoduleresetreasondescription.is_set or
+                    self.cefcmodulestatechangereasondescr.is_set or
+                    self.cefcmodulestatuslastchangetime.is_set or
+                    self.cefcmoduleuptime.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcmoduleadminstatus.yfilter != YFilter.not_set or
+                    self.cefcmodulelastclearconfigtime.yfilter != YFilter.not_set or
+                    self.cefcmoduleoperstatus.yfilter != YFilter.not_set or
+                    self.cefcmoduleresetreason.yfilter != YFilter.not_set or
+                    self.cefcmoduleresetreasondescription.yfilter != YFilter.not_set or
+                    self.cefcmodulestatechangereasondescr.yfilter != YFilter.not_set or
+                    self.cefcmodulestatuslastchangetime.yfilter != YFilter.not_set or
+                    self.cefcmoduleuptime.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcModuleEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcmoduleadminstatus.is_set or self.cefcmoduleadminstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmoduleadminstatus.get_name_leafdata())
+                if (self.cefcmodulelastclearconfigtime.is_set or self.cefcmodulelastclearconfigtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmodulelastclearconfigtime.get_name_leafdata())
+                if (self.cefcmoduleoperstatus.is_set or self.cefcmoduleoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmoduleoperstatus.get_name_leafdata())
+                if (self.cefcmoduleresetreason.is_set or self.cefcmoduleresetreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmoduleresetreason.get_name_leafdata())
+                if (self.cefcmoduleresetreasondescription.is_set or self.cefcmoduleresetreasondescription.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmoduleresetreasondescription.get_name_leafdata())
+                if (self.cefcmodulestatechangereasondescr.is_set or self.cefcmodulestatechangereasondescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmodulestatechangereasondescr.get_name_leafdata())
+                if (self.cefcmodulestatuslastchangetime.is_set or self.cefcmodulestatuslastchangetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmodulestatuslastchangetime.get_name_leafdata())
+                if (self.cefcmoduleuptime.is_set or self.cefcmoduleuptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmoduleuptime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcModuleAdminStatus" or name == "cefcModuleLastClearConfigTime" or name == "cefcModuleOperStatus" or name == "cefcModuleResetReason" or name == "cefcModuleResetReasonDescription" or name == "cefcModuleStateChangeReasonDescr" or name == "cefcModuleStatusLastChangeTime" or name == "cefcModuleUpTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleAdminStatus"):
+                    self.cefcmoduleadminstatus = value
+                    self.cefcmoduleadminstatus.value_namespace = name_space
+                    self.cefcmoduleadminstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleLastClearConfigTime"):
+                    self.cefcmodulelastclearconfigtime = value
+                    self.cefcmodulelastclearconfigtime.value_namespace = name_space
+                    self.cefcmodulelastclearconfigtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleOperStatus"):
+                    self.cefcmoduleoperstatus = value
+                    self.cefcmoduleoperstatus.value_namespace = name_space
+                    self.cefcmoduleoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleResetReason"):
+                    self.cefcmoduleresetreason = value
+                    self.cefcmoduleresetreason.value_namespace = name_space
+                    self.cefcmoduleresetreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleResetReasonDescription"):
+                    self.cefcmoduleresetreasondescription = value
+                    self.cefcmoduleresetreasondescription.value_namespace = name_space
+                    self.cefcmoduleresetreasondescription.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleStateChangeReasonDescr"):
+                    self.cefcmodulestatechangereasondescr = value
+                    self.cefcmodulestatechangereasondescr.value_namespace = name_space
+                    self.cefcmodulestatechangereasondescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleStatusLastChangeTime"):
+                    self.cefcmodulestatuslastchangetime = value
+                    self.cefcmodulestatuslastchangetime.value_namespace = name_space
+                    self.cefcmodulestatuslastchangetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleUpTime"):
+                    self.cefcmoduleuptime = value
+                    self.cefcmoduleuptime.value_namespace = name_space
+                    self.cefcmoduleuptime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcmoduleentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcmoduleadminstatus is not None:
-                    return True
-
-                if self.cefcmodulelastclearconfigtime is not None:
-                    return True
-
-                if self.cefcmoduleoperstatus is not None:
-                    return True
-
-                if self.cefcmoduleresetreason is not None:
-                    return True
-
-                if self.cefcmoduleresetreasondescription is not None:
-                    return True
-
-                if self.cefcmodulestatechangereasondescr is not None:
-                    return True
-
-                if self.cefcmodulestatuslastchangetime is not None:
-                    return True
-
-                if self.cefcmoduleuptime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcmoduletable.Cefcmoduleentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcmoduleentry is not None:
-                for child_ref in self.cefcmoduleentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcmoduleentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcModuleTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcModuleEntry"):
+                for c in self.cefcmoduleentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcmoduletable.Cefcmoduleentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcmoduleentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcModuleEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcmoduletable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcintellimoduletable(object):
+    class Cefcintellimoduletable(Entity):
         """
         This table sparsely augments the
         cefcModuleTable (i.e., every row in
@@ -1883,13 +2612,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcintellimoduleentry = YList()
-            self.cefcintellimoduleentry.parent = self
-            self.cefcintellimoduleentry.name = 'cefcintellimoduleentry'
+            super(CiscoEntityFruControlMib.Cefcintellimoduletable, self).__init__()
+
+            self.yang_name = "cefcIntelliModuleTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcintellimoduleentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcintellimoduletable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcintellimoduletable, self).__setattr__(name, value)
 
 
-        class Cefcintellimoduleentry(object):
+        class Cefcintellimoduleentry(Entity):
             """
             A cefcIntelliModuleTable entry lists the
             information specific to an intelligent
@@ -1928,7 +2683,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcintellimoduleipaddrtype
             
             	The type of Internet address by which the intelligent module is reachable
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             
 
@@ -1938,63 +2693,165 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcintellimoduleipaddr = None
-                self.cefcintellimoduleipaddrtype = None
+                super(CiscoEntityFruControlMib.Cefcintellimoduletable.Cefcintellimoduleentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcIntelliModuleEntry"
+                self.yang_parent_name = "cefcIntelliModuleTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcIntelliModuleTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcIntelliModuleEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcintellimoduleipaddr = YLeaf(YType.str, "cefcIntelliModuleIPAddr")
+
+                self.cefcintellimoduleipaddrtype = YLeaf(YType.enumeration, "cefcIntelliModuleIPAddrType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcintellimoduleipaddr",
+                                "cefcintellimoduleipaddrtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcintellimoduletable.Cefcintellimoduleentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcintellimoduletable.Cefcintellimoduleentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcintellimoduleipaddr.is_set or
+                    self.cefcintellimoduleipaddrtype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcintellimoduleipaddr.yfilter != YFilter.not_set or
+                    self.cefcintellimoduleipaddrtype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcIntelliModuleEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcIntelliModuleTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcintellimoduleipaddr.is_set or self.cefcintellimoduleipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcintellimoduleipaddr.get_name_leafdata())
+                if (self.cefcintellimoduleipaddrtype.is_set or self.cefcintellimoduleipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcintellimoduleipaddrtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcIntelliModuleIPAddr" or name == "cefcIntelliModuleIPAddrType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcIntelliModuleIPAddr"):
+                    self.cefcintellimoduleipaddr = value
+                    self.cefcintellimoduleipaddr.value_namespace = name_space
+                    self.cefcintellimoduleipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcIntelliModuleIPAddrType"):
+                    self.cefcintellimoduleipaddrtype = value
+                    self.cefcintellimoduleipaddrtype.value_namespace = name_space
+                    self.cefcintellimoduleipaddrtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcintellimoduleentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcintellimoduleipaddr is not None:
-                    return True
-
-                if self.cefcintellimoduleipaddrtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcintellimoduletable.Cefcintellimoduleentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcIntelliModuleTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcintellimoduleentry is not None:
-                for child_ref in self.cefcintellimoduleentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcintellimoduleentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcIntelliModuleTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcIntelliModuleEntry"):
+                for c in self.cefcintellimoduleentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcintellimoduletable.Cefcintellimoduleentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcintellimoduleentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcIntelliModuleEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcintellimoduletable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcmodulelocalswitchingtable(object):
+    class Cefcmodulelocalswitchingtable(Entity):
         """
         This table sparsely augments the cefcModuleTable
         (i.e., every row in this table corresponds to a row in
@@ -2018,13 +2875,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcmodulelocalswitchingentry = YList()
-            self.cefcmodulelocalswitchingentry.parent = self
-            self.cefcmodulelocalswitchingentry.name = 'cefcmodulelocalswitchingentry'
+            super(CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable, self).__init__()
+
+            self.yang_name = "cefcModuleLocalSwitchingTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcmodulelocalswitchingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable, self).__setattr__(name, value)
 
 
-        class Cefcmodulelocalswitchingentry(object):
+        class Cefcmodulelocalswitchingentry(Entity):
             """
             A cefcModuleLocalSwitchingTable entry lists the
             information specific to a local switching capable
@@ -2052,7 +2935,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcmodulelocalswitchingmode
             
             	This object specifies the mode of local switching.  enabled(1)  \- local switching is enabled. disabled(2) \- local switching is disabled
-            	**type**\:   :py:class:`CefcmodulelocalswitchingmodeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry.CefcmodulelocalswitchingmodeEnum>`
+            	**type**\:   :py:class:`Cefcmodulelocalswitchingmode <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry.Cefcmodulelocalswitchingmode>`
             
             
 
@@ -2062,13 +2945,43 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcmodulelocalswitchingmode = None
+                super(CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry, self).__init__()
 
-            class CefcmodulelocalswitchingmodeEnum(Enum):
+                self.yang_name = "cefcModuleLocalSwitchingEntry"
+                self.yang_parent_name = "cefcModuleLocalSwitchingTable"
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.cefcmodulelocalswitchingmode = YLeaf(YType.enumeration, "cefcModuleLocalSwitchingMode")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcmodulelocalswitchingmode") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry, self).__setattr__(name, value)
+
+            class Cefcmodulelocalswitchingmode(Enum):
                 """
-                CefcmodulelocalswitchingmodeEnum
+                Cefcmodulelocalswitchingmode
 
                 This object specifies the mode of local switching.
 
@@ -2082,66 +2995,125 @@ class CiscoEntityFruControlMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry.CefcmodulelocalswitchingmodeEnum']
+                disabled = Enum.YLeaf(2, "disabled")
 
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcmodulelocalswitchingmode.is_set)
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleLocalSwitchingTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleLocalSwitchingEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcmodulelocalswitchingmode.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcModuleLocalSwitchingEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleLocalSwitchingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcmodulelocalswitchingmode.is_set or self.cefcmodulelocalswitchingmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmodulelocalswitchingmode.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcModuleLocalSwitchingMode"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleLocalSwitchingMode"):
+                    self.cefcmodulelocalswitchingmode = value
+                    self.cefcmodulelocalswitchingmode.value_namespace = name_space
+                    self.cefcmodulelocalswitchingmode.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcmodulelocalswitchingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcmodulelocalswitchingmode is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleLocalSwitchingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcmodulelocalswitchingentry is not None:
-                for child_ref in self.cefcmodulelocalswitchingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcmodulelocalswitchingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcModuleLocalSwitchingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcModuleLocalSwitchingEntry"):
+                for c in self.cefcmodulelocalswitchingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcmodulelocalswitchingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcModuleLocalSwitchingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcfantraystatustable(object):
+    class Cefcfantraystatustable(Entity):
         """
         This table contains the operational status information
         for all ENTITY\-MIB entPhysicalTable entries which have 
@@ -2164,13 +3136,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcfantraystatusentry = YList()
-            self.cefcfantraystatusentry.parent = self
-            self.cefcfantraystatusentry.name = 'cefcfantraystatusentry'
+            super(CiscoEntityFruControlMib.Cefcfantraystatustable, self).__init__()
+
+            self.yang_name = "cefcFanTrayStatusTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcfantraystatusentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcfantraystatustable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcfantraystatustable, self).__setattr__(name, value)
 
 
-        class Cefcfantraystatusentry(object):
+        class Cefcfantraystatusentry(Entity):
             """
             An cefcFanTrayStatusTable entry lists the operational
             status information for the ENTITY\-MIB entPhysicalTable 
@@ -2197,7 +3195,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcfantrayoperstatus
             
             	The operational state of the fan or fan tray. unknown(1) \- unknown. up(2) \- powered on. down(3) \- powered down. warning(4) \- partial failure, needs replacement               as soon as possible
-            	**type**\:   :py:class:`CefcfantrayoperstatusEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry.CefcfantrayoperstatusEnum>`
+            	**type**\:   :py:class:`Cefcfantrayoperstatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry.Cefcfantrayoperstatus>`
             
             
 
@@ -2207,13 +3205,43 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcfantrayoperstatus = None
+                super(CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry, self).__init__()
 
-            class CefcfantrayoperstatusEnum(Enum):
+                self.yang_name = "cefcFanTrayStatusEntry"
+                self.yang_parent_name = "cefcFanTrayStatusTable"
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.cefcfantrayoperstatus = YLeaf(YType.enumeration, "cefcFanTrayOperStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcfantrayoperstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry, self).__setattr__(name, value)
+
+            class Cefcfantrayoperstatus(Enum):
                 """
-                CefcfantrayoperstatusEnum
+                Cefcfantrayoperstatus
 
                 The operational state of the fan or fan tray.
 
@@ -2237,70 +3265,129 @@ class CiscoEntityFruControlMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                up = 2
+                up = Enum.YLeaf(2, "up")
 
-                down = 3
+                down = Enum.YLeaf(3, "down")
 
-                warning = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry.CefcfantrayoperstatusEnum']
+                warning = Enum.YLeaf(4, "warning")
 
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcfantrayoperstatus.is_set)
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanTrayStatusTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanTrayStatusEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcfantrayoperstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcFanTrayStatusEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanTrayStatusTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcfantrayoperstatus.is_set or self.cefcfantrayoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfantrayoperstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcFanTrayOperStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanTrayOperStatus"):
+                    self.cefcfantrayoperstatus = value
+                    self.cefcfantrayoperstatus.value_namespace = name_space
+                    self.cefcfantrayoperstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcfantraystatusentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcfantrayoperstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanTrayStatusTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcfantraystatusentry is not None:
-                for child_ref in self.cefcfantraystatusentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcfantraystatusentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcFanTrayStatusTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcFanTrayStatusEntry"):
+                for c in self.cefcfantraystatusentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcfantraystatustable.Cefcfantraystatusentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcfantraystatusentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcFanTrayStatusEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcfantraystatustable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcphysicaltable(object):
+    class Cefcphysicaltable(Entity):
         """
         This table contains one row per physical entity.
         
@@ -2317,13 +3404,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcphysicalentry = YList()
-            self.cefcphysicalentry.parent = self
-            self.cefcphysicalentry.name = 'cefcphysicalentry'
+            super(CiscoEntityFruControlMib.Cefcphysicaltable, self).__init__()
+
+            self.yang_name = "cefcPhysicalTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcphysicalentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcphysicaltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcphysicaltable, self).__setattr__(name, value)
 
 
-        class Cefcphysicalentry(object):
+        class Cefcphysicalentry(Entity):
             """
             Information about a particular physical entity.
             
@@ -2339,7 +3452,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcphysicalstatus
             
             	The status of this physical entity. other(1) \- the status is not any of the listed below. supported(2) \- this entity is supported. unsupported(3) \- this entity is unsupported. incompatible(4) \- this entity is incompatible. It would be unsupported(3), if the ID read from Serial EPROM is not supported. It would be incompatible(4), if in the present configuration this FRU is not supported
-            	**type**\:   :py:class:`CefcphysicalstatusEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry.CefcphysicalstatusEnum>`
+            	**type**\:   :py:class:`Cefcphysicalstatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry.Cefcphysicalstatus>`
             
             
 
@@ -2349,13 +3462,43 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcphysicalstatus = None
+                super(CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry, self).__init__()
 
-            class CefcphysicalstatusEnum(Enum):
+                self.yang_name = "cefcPhysicalEntry"
+                self.yang_parent_name = "cefcPhysicalTable"
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.cefcphysicalstatus = YLeaf(YType.enumeration, "cefcPhysicalStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcphysicalstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry, self).__setattr__(name, value)
+
+            class Cefcphysicalstatus(Enum):
                 """
-                CefcphysicalstatusEnum
+                Cefcphysicalstatus
 
                 The status of this physical entity.
 
@@ -2383,70 +3526,129 @@ class CiscoEntityFruControlMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                supported = 2
+                supported = Enum.YLeaf(2, "supported")
 
-                unsupported = 3
+                unsupported = Enum.YLeaf(3, "unsupported")
 
-                incompatible = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry.CefcphysicalstatusEnum']
+                incompatible = Enum.YLeaf(4, "incompatible")
 
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcphysicalstatus.is_set)
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPhysicalTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPhysicalEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcphysicalstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcPhysicalEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPhysicalTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcphysicalstatus.is_set or self.cefcphysicalstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcphysicalstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcPhysicalStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPhysicalStatus"):
+                    self.cefcphysicalstatus = value
+                    self.cefcphysicalstatus.value_namespace = name_space
+                    self.cefcphysicalstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcphysicalentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcphysicalstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPhysicalTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcphysicalentry is not None:
-                for child_ref in self.cefcphysicalentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcphysicalentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcPhysicalTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcPhysicalEntry"):
+                for c in self.cefcphysicalentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcphysicaltable.Cefcphysicalentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcphysicalentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcPhysicalEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcphysicaltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcpowersupplyinputtable(object):
+    class Cefcpowersupplyinputtable(Entity):
         """
         This table contains the power input information
         for all the power supplies that have entPhysicalTable
@@ -2475,13 +3677,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcpowersupplyinputentry = YList()
-            self.cefcpowersupplyinputentry.parent = self
-            self.cefcpowersupplyinputentry.name = 'cefcpowersupplyinputentry'
+            super(CiscoEntityFruControlMib.Cefcpowersupplyinputtable, self).__init__()
+
+            self.yang_name = "cefcPowerSupplyInputTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcpowersupplyinputentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcpowersupplyinputtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcpowersupplyinputtable, self).__setattr__(name, value)
 
 
-        class Cefcpowersupplyinputentry(object):
+        class Cefcpowersupplyinputentry(Entity):
             """
             An entry containing power input management information
             applicable to a particular power supply and input.
@@ -2505,7 +3733,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcpowersupplyinputtype
             
             	The type of an input power detected on the power supply.  unknown(1)\: No input power is detected.  acLow(2)\: Lower rating AC input power is detected.  acHigh(3)\: Higher rating AC input power is detected.  dcLow(4)\: Lower rating DC input power is detected.  dcHigh(5)\: Higher rating DC input power is detected
-            	**type**\:   :py:class:`CefcpowersupplyinputtypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry.CefcpowersupplyinputtypeEnum>`
+            	**type**\:   :py:class:`Cefcpowersupplyinputtype <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry.Cefcpowersupplyinputtype>`
             
             
 
@@ -2515,14 +3743,46 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcpowersupplyinputindex = None
-                self.cefcpowersupplyinputtype = None
+                super(CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry, self).__init__()
 
-            class CefcpowersupplyinputtypeEnum(Enum):
+                self.yang_name = "cefcPowerSupplyInputEntry"
+                self.yang_parent_name = "cefcPowerSupplyInputTable"
+
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
+
+                self.cefcpowersupplyinputindex = YLeaf(YType.uint32, "cefcPowerSupplyInputIndex")
+
+                self.cefcpowersupplyinputtype = YLeaf(YType.enumeration, "cefcPowerSupplyInputType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcpowersupplyinputindex",
+                                "cefcpowersupplyinputtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry, self).__setattr__(name, value)
+
+            class Cefcpowersupplyinputtype(Enum):
                 """
-                CefcpowersupplyinputtypeEnum
+                Cefcpowersupplyinputtype
 
                 The type of an input power detected on the power
 
@@ -2550,77 +3810,139 @@ class CiscoEntityFruControlMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                acLow = 2
+                acLow = Enum.YLeaf(2, "acLow")
 
-                acHigh = 3
+                acHigh = Enum.YLeaf(3, "acHigh")
 
-                dcLow = 4
+                dcLow = Enum.YLeaf(4, "dcLow")
 
-                dcHigh = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                    return meta._meta_table['CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry.CefcpowersupplyinputtypeEnum']
+                dcHigh = Enum.YLeaf(5, "dcHigh")
 
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
-                if self.cefcpowersupplyinputindex is None:
-                    raise YPYModelError('Key property cefcpowersupplyinputindex is None')
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcpowersupplyinputindex.is_set or
+                    self.cefcpowersupplyinputtype.is_set)
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPowerSupplyInputTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPowerSupplyInputEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + '][CISCO-ENTITY-FRU-CONTROL-MIB:cefcPowerSupplyInputIndex = ' + str(self.cefcpowersupplyinputindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcpowersupplyinputindex.yfilter != YFilter.not_set or
+                    self.cefcpowersupplyinputtype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcPowerSupplyInputEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefcPowerSupplyInputIndex='" + self.cefcpowersupplyinputindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyInputTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcpowersupplyinputindex.is_set or self.cefcpowersupplyinputindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpowersupplyinputindex.get_name_leafdata())
+                if (self.cefcpowersupplyinputtype.is_set or self.cefcpowersupplyinputtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpowersupplyinputtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcPowerSupplyInputIndex" or name == "cefcPowerSupplyInputType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPowerSupplyInputIndex"):
+                    self.cefcpowersupplyinputindex = value
+                    self.cefcpowersupplyinputindex.value_namespace = name_space
+                    self.cefcpowersupplyinputindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPowerSupplyInputType"):
+                    self.cefcpowersupplyinputtype = value
+                    self.cefcpowersupplyinputtype.value_namespace = name_space
+                    self.cefcpowersupplyinputtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcpowersupplyinputentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcpowersupplyinputindex is not None:
-                    return True
-
-                if self.cefcpowersupplyinputtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPowerSupplyInputTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcpowersupplyinputentry is not None:
-                for child_ref in self.cefcpowersupplyinputentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcpowersupplyinputentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcPowerSupplyInputTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcPowerSupplyInputEntry"):
+                for c in self.cefcpowersupplyinputentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcpowersupplyinputtable.Cefcpowersupplyinputentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcpowersupplyinputentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcPowerSupplyInputEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcpowersupplyinputtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcpowersupplyoutputtable(object):
+    class Cefcpowersupplyoutputtable(Entity):
         """
         This table contains a list of possible output
         mode for the power supplies, whose ENTITY\-MIB
@@ -2641,13 +3963,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcpowersupplyoutputentry = YList()
-            self.cefcpowersupplyoutputentry.parent = self
-            self.cefcpowersupplyoutputentry.name = 'cefcpowersupplyoutputentry'
+            super(CiscoEntityFruControlMib.Cefcpowersupplyoutputtable, self).__init__()
+
+            self.yang_name = "cefcPowerSupplyOutputTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcpowersupplyoutputentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcpowersupplyoutputtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcpowersupplyoutputtable, self).__setattr__(name, value)
 
 
-        class Cefcpowersupplyoutputentry(object):
+        class Cefcpowersupplyoutputentry(Entity):
             """
             A cefcPowerSupplyOutputTable entry lists the
             power output capacity and its operational status
@@ -2699,69 +4047,176 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcpsoutputmodeindex = None
-                self.cefcpsoutputmodecurrent = None
-                self.cefcpsoutputmodeinoperation = None
+                super(CiscoEntityFruControlMib.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
-                if self.cefcpsoutputmodeindex is None:
-                    raise YPYModelError('Key property cefcpsoutputmodeindex is None')
+                self.yang_name = "cefcPowerSupplyOutputEntry"
+                self.yang_parent_name = "cefcPowerSupplyOutputTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPowerSupplyOutputTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPowerSupplyOutputEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + '][CISCO-ENTITY-FRU-CONTROL-MIB:cefcPSOutputModeIndex = ' + str(self.cefcpsoutputmodeindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcpsoutputmodeindex = YLeaf(YType.uint32, "cefcPSOutputModeIndex")
+
+                self.cefcpsoutputmodecurrent = YLeaf(YType.int32, "cefcPSOutputModeCurrent")
+
+                self.cefcpsoutputmodeinoperation = YLeaf(YType.boolean, "cefcPSOutputModeInOperation")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcpsoutputmodeindex",
+                                "cefcpsoutputmodecurrent",
+                                "cefcpsoutputmodeinoperation") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcpsoutputmodeindex.is_set or
+                    self.cefcpsoutputmodecurrent.is_set or
+                    self.cefcpsoutputmodeinoperation.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcpsoutputmodeindex.yfilter != YFilter.not_set or
+                    self.cefcpsoutputmodecurrent.yfilter != YFilter.not_set or
+                    self.cefcpsoutputmodeinoperation.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcPowerSupplyOutputEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefcPSOutputModeIndex='" + self.cefcpsoutputmodeindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyOutputTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcpsoutputmodeindex.is_set or self.cefcpsoutputmodeindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpsoutputmodeindex.get_name_leafdata())
+                if (self.cefcpsoutputmodecurrent.is_set or self.cefcpsoutputmodecurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpsoutputmodecurrent.get_name_leafdata())
+                if (self.cefcpsoutputmodeinoperation.is_set or self.cefcpsoutputmodeinoperation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcpsoutputmodeinoperation.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcPSOutputModeIndex" or name == "cefcPSOutputModeCurrent" or name == "cefcPSOutputModeInOperation"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPSOutputModeIndex"):
+                    self.cefcpsoutputmodeindex = value
+                    self.cefcpsoutputmodeindex.value_namespace = name_space
+                    self.cefcpsoutputmodeindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPSOutputModeCurrent"):
+                    self.cefcpsoutputmodecurrent = value
+                    self.cefcpsoutputmodecurrent.value_namespace = name_space
+                    self.cefcpsoutputmodecurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcPSOutputModeInOperation"):
+                    self.cefcpsoutputmodeinoperation = value
+                    self.cefcpsoutputmodeinoperation.value_namespace = name_space
+                    self.cefcpsoutputmodeinoperation.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcpowersupplyoutputentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcpsoutputmodeindex is not None:
-                    return True
-
-                if self.cefcpsoutputmodecurrent is not None:
-                    return True
-
-                if self.cefcpsoutputmodeinoperation is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcPowerSupplyOutputTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcpowersupplyoutputentry is not None:
-                for child_ref in self.cefcpowersupplyoutputentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcpowersupplyoutputentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcPowerSupplyOutputTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcPowerSupplyOutputEntry"):
+                for c in self.cefcpowersupplyoutputentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcpowersupplyoutputentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcPowerSupplyOutputEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcpowersupplyoutputtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcchassiscoolingtable(object):
+    class Cefcchassiscoolingtable(Entity):
         """
         This table contains the cooling capacity
         information of the chassis whose ENTITY\-MIB
@@ -2781,13 +4236,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcchassiscoolingentry = YList()
-            self.cefcchassiscoolingentry.parent = self
-            self.cefcchassiscoolingentry.name = 'cefcchassiscoolingentry'
+            super(CiscoEntityFruControlMib.Cefcchassiscoolingtable, self).__init__()
+
+            self.yang_name = "cefcChassisCoolingTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcchassiscoolingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcchassiscoolingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcchassiscoolingtable, self).__setattr__(name, value)
 
 
-        class Cefcchassiscoolingentry(object):
+        class Cefcchassiscoolingentry(Entity):
             """
             A cefcChassisCoolingEntry lists the maximum
             cooling capacity that could be provided 
@@ -2819,7 +4300,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcchassisperslotcoolingunit
             
             	The unit of the maximum cooling capacity for any slot in this chassis
-            	**type**\:   :py:class:`FrucoolingunitEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FrucoolingunitEnum>`
+            	**type**\:   :py:class:`Frucoolingunit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Frucoolingunit>`
             
             
 
@@ -2829,63 +4310,165 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcchassisperslotcoolingcap = None
-                self.cefcchassisperslotcoolingunit = None
+                super(CiscoEntityFruControlMib.Cefcchassiscoolingtable.Cefcchassiscoolingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcChassisCoolingEntry"
+                self.yang_parent_name = "cefcChassisCoolingTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcChassisCoolingTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcChassisCoolingEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcchassisperslotcoolingcap = YLeaf(YType.uint32, "cefcChassisPerSlotCoolingCap")
+
+                self.cefcchassisperslotcoolingunit = YLeaf(YType.enumeration, "cefcChassisPerSlotCoolingUnit")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcchassisperslotcoolingcap",
+                                "cefcchassisperslotcoolingunit") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcchassiscoolingtable.Cefcchassiscoolingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcchassiscoolingtable.Cefcchassiscoolingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcchassisperslotcoolingcap.is_set or
+                    self.cefcchassisperslotcoolingunit.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcchassisperslotcoolingcap.yfilter != YFilter.not_set or
+                    self.cefcchassisperslotcoolingunit.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcChassisCoolingEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcChassisCoolingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcchassisperslotcoolingcap.is_set or self.cefcchassisperslotcoolingcap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcchassisperslotcoolingcap.get_name_leafdata())
+                if (self.cefcchassisperslotcoolingunit.is_set or self.cefcchassisperslotcoolingunit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcchassisperslotcoolingunit.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcChassisPerSlotCoolingCap" or name == "cefcChassisPerSlotCoolingUnit"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcChassisPerSlotCoolingCap"):
+                    self.cefcchassisperslotcoolingcap = value
+                    self.cefcchassisperslotcoolingcap.value_namespace = name_space
+                    self.cefcchassisperslotcoolingcap.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcChassisPerSlotCoolingUnit"):
+                    self.cefcchassisperslotcoolingunit = value
+                    self.cefcchassisperslotcoolingunit.value_namespace = name_space
+                    self.cefcchassisperslotcoolingunit.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcchassiscoolingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcchassisperslotcoolingcap is not None:
-                    return True
-
-                if self.cefcchassisperslotcoolingunit is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcchassiscoolingtable.Cefcchassiscoolingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcChassisCoolingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcchassiscoolingentry is not None:
-                for child_ref in self.cefcchassiscoolingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcchassiscoolingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcChassisCoolingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcChassisCoolingEntry"):
+                for c in self.cefcchassiscoolingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcchassiscoolingtable.Cefcchassiscoolingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcchassiscoolingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcChassisCoolingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcchassiscoolingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcfancoolingtable(object):
+    class Cefcfancoolingtable(Entity):
         """
         This table contains the cooling capacity
         information of the fans whose ENTITY\-MIB
@@ -2905,13 +4488,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcfancoolingentry = YList()
-            self.cefcfancoolingentry.parent = self
-            self.cefcfancoolingentry.name = 'cefcfancoolingentry'
+            super(CiscoEntityFruControlMib.Cefcfancoolingtable, self).__init__()
+
+            self.yang_name = "cefcFanCoolingTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcfancoolingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcfancoolingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcfancoolingtable, self).__setattr__(name, value)
 
 
-        class Cefcfancoolingentry(object):
+        class Cefcfancoolingentry(Entity):
             """
             A cefcFanCoolingEntry lists the cooling
             capacity that is provided by the 
@@ -2943,7 +4552,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcfancoolingcapacityunit
             
             	The unit of the fan cooling capacity
-            	**type**\:   :py:class:`FrucoolingunitEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FrucoolingunitEnum>`
+            	**type**\:   :py:class:`Frucoolingunit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Frucoolingunit>`
             
             
 
@@ -2953,63 +4562,165 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcfancoolingcapacity = None
-                self.cefcfancoolingcapacityunit = None
+                super(CiscoEntityFruControlMib.Cefcfancoolingtable.Cefcfancoolingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcFanCoolingEntry"
+                self.yang_parent_name = "cefcFanCoolingTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanCoolingTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanCoolingEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcfancoolingcapacity = YLeaf(YType.uint32, "cefcFanCoolingCapacity")
+
+                self.cefcfancoolingcapacityunit = YLeaf(YType.enumeration, "cefcFanCoolingCapacityUnit")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcfancoolingcapacity",
+                                "cefcfancoolingcapacityunit") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcfancoolingtable.Cefcfancoolingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcfancoolingtable.Cefcfancoolingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcfancoolingcapacity.is_set or
+                    self.cefcfancoolingcapacityunit.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcfancoolingcapacity.yfilter != YFilter.not_set or
+                    self.cefcfancoolingcapacityunit.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcFanCoolingEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcfancoolingcapacity.is_set or self.cefcfancoolingcapacity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfancoolingcapacity.get_name_leafdata())
+                if (self.cefcfancoolingcapacityunit.is_set or self.cefcfancoolingcapacityunit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfancoolingcapacityunit.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcFanCoolingCapacity" or name == "cefcFanCoolingCapacityUnit"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanCoolingCapacity"):
+                    self.cefcfancoolingcapacity = value
+                    self.cefcfancoolingcapacity.value_namespace = name_space
+                    self.cefcfancoolingcapacity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanCoolingCapacityUnit"):
+                    self.cefcfancoolingcapacityunit = value
+                    self.cefcfancoolingcapacityunit.value_namespace = name_space
+                    self.cefcfancoolingcapacityunit.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcfancoolingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcfancoolingcapacity is not None:
-                    return True
-
-                if self.cefcfancoolingcapacityunit is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcfancoolingtable.Cefcfancoolingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanCoolingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcfancoolingentry is not None:
-                for child_ref in self.cefcfancoolingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcfancoolingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcFanCoolingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcFanCoolingEntry"):
+                for c in self.cefcfancoolingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcfancoolingtable.Cefcfancoolingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcfancoolingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcFanCoolingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcfancoolingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcmodulecoolingtable(object):
+    class Cefcmodulecoolingtable(Entity):
         """
         This table contains the cooling requirement for
         all the manageable components of type entPhysicalClass
@@ -3028,13 +4739,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcmodulecoolingentry = YList()
-            self.cefcmodulecoolingentry.parent = self
-            self.cefcmodulecoolingentry.name = 'cefcmodulecoolingentry'
+            super(CiscoEntityFruControlMib.Cefcmodulecoolingtable, self).__init__()
+
+            self.yang_name = "cefcModuleCoolingTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcmodulecoolingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcmodulecoolingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcmodulecoolingtable, self).__setattr__(name, value)
 
 
-        class Cefcmodulecoolingentry(object):
+        class Cefcmodulecoolingentry(Entity):
             """
             A cefcModuleCoolingEntry lists the cooling
             requirement for a manageable components of type
@@ -3065,7 +4802,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcmodulecoolingunit
             
             	The unit of the cooling requirement of the module and its daughter cards
-            	**type**\:   :py:class:`FrucoolingunitEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FrucoolingunitEnum>`
+            	**type**\:   :py:class:`Frucoolingunit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Frucoolingunit>`
             
             
 
@@ -3075,63 +4812,165 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcmodulecooling = None
-                self.cefcmodulecoolingunit = None
+                super(CiscoEntityFruControlMib.Cefcmodulecoolingtable.Cefcmodulecoolingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcModuleCoolingEntry"
+                self.yang_parent_name = "cefcModuleCoolingTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleCoolingTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleCoolingEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcmodulecooling = YLeaf(YType.uint32, "cefcModuleCooling")
+
+                self.cefcmodulecoolingunit = YLeaf(YType.enumeration, "cefcModuleCoolingUnit")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcmodulecooling",
+                                "cefcmodulecoolingunit") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcmodulecoolingtable.Cefcmodulecoolingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcmodulecoolingtable.Cefcmodulecoolingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcmodulecooling.is_set or
+                    self.cefcmodulecoolingunit.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcmodulecooling.yfilter != YFilter.not_set or
+                    self.cefcmodulecoolingunit.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcModuleCoolingEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleCoolingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcmodulecooling.is_set or self.cefcmodulecooling.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmodulecooling.get_name_leafdata())
+                if (self.cefcmodulecoolingunit.is_set or self.cefcmodulecoolingunit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmodulecoolingunit.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcModuleCooling" or name == "cefcModuleCoolingUnit"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleCooling"):
+                    self.cefcmodulecooling = value
+                    self.cefcmodulecooling.value_namespace = name_space
+                    self.cefcmodulecooling.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModuleCoolingUnit"):
+                    self.cefcmodulecoolingunit = value
+                    self.cefcmodulecoolingunit.value_namespace = name_space
+                    self.cefcmodulecoolingunit.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcmodulecoolingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcmodulecooling is not None:
-                    return True
-
-                if self.cefcmodulecoolingunit is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcmodulecoolingtable.Cefcmodulecoolingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModuleCoolingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcmodulecoolingentry is not None:
-                for child_ref in self.cefcmodulecoolingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcmodulecoolingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcModuleCoolingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcModuleCoolingEntry"):
+                for c in self.cefcmodulecoolingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcmodulecoolingtable.Cefcmodulecoolingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcmodulecoolingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcModuleCoolingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcmodulecoolingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcfancoolingcaptable(object):
+    class Cefcfancoolingcaptable(Entity):
         """
         This table contains a list of the possible cooling
         capacity modes and properties of the fans, whose 
@@ -3151,13 +4990,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcfancoolingcapentry = YList()
-            self.cefcfancoolingcapentry.parent = self
-            self.cefcfancoolingcapentry.name = 'cefcfancoolingcapentry'
+            super(CiscoEntityFruControlMib.Cefcfancoolingcaptable, self).__init__()
+
+            self.yang_name = "cefcFanCoolingCapTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcfancoolingcapentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcfancoolingcaptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcfancoolingcaptable, self).__setattr__(name, value)
 
 
-        class Cefcfancoolingcapentry(object):
+        class Cefcfancoolingcapentry(Entity):
             """
             A cefcFanCoolingCapacityEntry lists the cooling
             capacity mode of a manageable components of type
@@ -3198,7 +5063,7 @@ class CiscoEntityFruControlMib(object):
             .. attribute:: cefcfancoolingcapcapacityunit
             
             	The unit of the fan cooling capacity when operating in this mode
-            	**type**\:   :py:class:`FrucoolingunitEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FrucoolingunitEnum>`
+            	**type**\:   :py:class:`Frucoolingunit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.Frucoolingunit>`
             
             .. attribute:: cefcfancoolingcapcurrent
             
@@ -3220,77 +5085,198 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcfancoolingcapindex = None
-                self.cefcfancoolingcapcapacity = None
-                self.cefcfancoolingcapcapacityunit = None
-                self.cefcfancoolingcapcurrent = None
-                self.cefcfancoolingcapmodedescr = None
+                super(CiscoEntityFruControlMib.Cefcfancoolingcaptable.Cefcfancoolingcapentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
-                if self.cefcfancoolingcapindex is None:
-                    raise YPYModelError('Key property cefcfancoolingcapindex is None')
+                self.yang_name = "cefcFanCoolingCapEntry"
+                self.yang_parent_name = "cefcFanCoolingCapTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanCoolingCapTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanCoolingCapEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + '][CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanCoolingCapIndex = ' + str(self.cefcfancoolingcapindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcfancoolingcapindex = YLeaf(YType.uint32, "cefcFanCoolingCapIndex")
+
+                self.cefcfancoolingcapcapacity = YLeaf(YType.uint32, "cefcFanCoolingCapCapacity")
+
+                self.cefcfancoolingcapcapacityunit = YLeaf(YType.enumeration, "cefcFanCoolingCapCapacityUnit")
+
+                self.cefcfancoolingcapcurrent = YLeaf(YType.int32, "cefcFanCoolingCapCurrent")
+
+                self.cefcfancoolingcapmodedescr = YLeaf(YType.str, "cefcFanCoolingCapModeDescr")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcfancoolingcapindex",
+                                "cefcfancoolingcapcapacity",
+                                "cefcfancoolingcapcapacityunit",
+                                "cefcfancoolingcapcurrent",
+                                "cefcfancoolingcapmodedescr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcfancoolingcaptable.Cefcfancoolingcapentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcfancoolingcaptable.Cefcfancoolingcapentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcfancoolingcapindex.is_set or
+                    self.cefcfancoolingcapcapacity.is_set or
+                    self.cefcfancoolingcapcapacityunit.is_set or
+                    self.cefcfancoolingcapcurrent.is_set or
+                    self.cefcfancoolingcapmodedescr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcfancoolingcapindex.yfilter != YFilter.not_set or
+                    self.cefcfancoolingcapcapacity.yfilter != YFilter.not_set or
+                    self.cefcfancoolingcapcapacityunit.yfilter != YFilter.not_set or
+                    self.cefcfancoolingcapcurrent.yfilter != YFilter.not_set or
+                    self.cefcfancoolingcapmodedescr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcFanCoolingCapEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + "[cefcFanCoolingCapIndex='" + self.cefcfancoolingcapindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingCapTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcfancoolingcapindex.is_set or self.cefcfancoolingcapindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfancoolingcapindex.get_name_leafdata())
+                if (self.cefcfancoolingcapcapacity.is_set or self.cefcfancoolingcapcapacity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfancoolingcapcapacity.get_name_leafdata())
+                if (self.cefcfancoolingcapcapacityunit.is_set or self.cefcfancoolingcapcapacityunit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfancoolingcapcapacityunit.get_name_leafdata())
+                if (self.cefcfancoolingcapcurrent.is_set or self.cefcfancoolingcapcurrent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfancoolingcapcurrent.get_name_leafdata())
+                if (self.cefcfancoolingcapmodedescr.is_set or self.cefcfancoolingcapmodedescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcfancoolingcapmodedescr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcFanCoolingCapIndex" or name == "cefcFanCoolingCapCapacity" or name == "cefcFanCoolingCapCapacityUnit" or name == "cefcFanCoolingCapCurrent" or name == "cefcFanCoolingCapModeDescr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanCoolingCapIndex"):
+                    self.cefcfancoolingcapindex = value
+                    self.cefcfancoolingcapindex.value_namespace = name_space
+                    self.cefcfancoolingcapindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanCoolingCapCapacity"):
+                    self.cefcfancoolingcapcapacity = value
+                    self.cefcfancoolingcapcapacity.value_namespace = name_space
+                    self.cefcfancoolingcapcapacity.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanCoolingCapCapacityUnit"):
+                    self.cefcfancoolingcapcapacityunit = value
+                    self.cefcfancoolingcapcapacityunit.value_namespace = name_space
+                    self.cefcfancoolingcapcapacityunit.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanCoolingCapCurrent"):
+                    self.cefcfancoolingcapcurrent = value
+                    self.cefcfancoolingcapcurrent.value_namespace = name_space
+                    self.cefcfancoolingcapcurrent.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcFanCoolingCapModeDescr"):
+                    self.cefcfancoolingcapmodedescr = value
+                    self.cefcfancoolingcapmodedescr.value_namespace = name_space
+                    self.cefcfancoolingcapmodedescr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcfancoolingcapentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcfancoolingcapindex is not None:
-                    return True
-
-                if self.cefcfancoolingcapcapacity is not None:
-                    return True
-
-                if self.cefcfancoolingcapcapacityunit is not None:
-                    return True
-
-                if self.cefcfancoolingcapcurrent is not None:
-                    return True
-
-                if self.cefcfancoolingcapmodedescr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcfancoolingcaptable.Cefcfancoolingcapentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcFanCoolingCapTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcfancoolingcapentry is not None:
-                for child_ref in self.cefcfancoolingcapentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcfancoolingcapentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcFanCoolingCapTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcFanCoolingCapEntry"):
+                for c in self.cefcfancoolingcapentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcfancoolingcaptable.Cefcfancoolingcapentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcfancoolingcapentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcFanCoolingCapEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcfancoolingcaptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcconnectorratingtable(object):
+    class Cefcconnectorratingtable(Entity):
         """
         This table contains the connector power
         ratings of FRUs. 
@@ -3311,13 +5297,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcconnectorratingentry = YList()
-            self.cefcconnectorratingentry.parent = self
-            self.cefcconnectorratingentry.name = 'cefcconnectorratingentry'
+            super(CiscoEntityFruControlMib.Cefcconnectorratingtable, self).__init__()
+
+            self.yang_name = "cefcConnectorRatingTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcconnectorratingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcconnectorratingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcconnectorratingtable, self).__setattr__(name, value)
 
 
-        class Cefcconnectorratingentry(object):
+        class Cefcconnectorratingentry(Entity):
             """
             A cefcConnectorRatingEntry lists the
             power connector rating information of a 
@@ -3353,59 +5365,154 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcconnectorrating = None
+                super(CiscoEntityFruControlMib.Cefcconnectorratingtable.Cefcconnectorratingentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcConnectorRatingEntry"
+                self.yang_parent_name = "cefcConnectorRatingTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcConnectorRatingTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcConnectorRatingEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcconnectorrating = YLeaf(YType.int32, "cefcConnectorRating")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcconnectorrating") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcconnectorratingtable.Cefcconnectorratingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcconnectorratingtable.Cefcconnectorratingentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcconnectorrating.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcconnectorrating.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcConnectorRatingEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcConnectorRatingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcconnectorrating.is_set or self.cefcconnectorrating.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcconnectorrating.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcConnectorRating"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcConnectorRating"):
+                    self.cefcconnectorrating = value
+                    self.cefcconnectorrating.value_namespace = name_space
+                    self.cefcconnectorrating.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcconnectorratingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcconnectorrating is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcconnectorratingtable.Cefcconnectorratingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcConnectorRatingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcconnectorratingentry is not None:
-                for child_ref in self.cefcconnectorratingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcconnectorratingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcConnectorRatingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcConnectorRatingEntry"):
+                for c in self.cefcconnectorratingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcconnectorratingtable.Cefcconnectorratingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcconnectorratingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcConnectorRatingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcconnectorratingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cefcmodulepowerconsumptiontable(object):
+    class Cefcmodulepowerconsumptiontable(Entity):
         """
         This table contains the total power consumption
         information for modules whose ENTITY\-MIB 
@@ -3425,13 +5532,39 @@ class CiscoEntityFruControlMib(object):
         _revision = '2013-08-19'
 
         def __init__(self):
-            self.parent = None
-            self.cefcmodulepowerconsumptionentry = YList()
-            self.cefcmodulepowerconsumptionentry.parent = self
-            self.cefcmodulepowerconsumptionentry.name = 'cefcmodulepowerconsumptionentry'
+            super(CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable, self).__init__()
+
+            self.yang_name = "cefcModulePowerConsumptionTable"
+            self.yang_parent_name = "CISCO-ENTITY-FRU-CONTROL-MIB"
+
+            self.cefcmodulepowerconsumptionentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable, self).__setattr__(name, value)
 
 
-        class Cefcmodulepowerconsumptionentry(object):
+        class Cefcmodulepowerconsumptionentry(Entity):
             """
             A cefcModulePowerConsumptionEntry lists the total
             power consumption of a manageable components of type
@@ -3467,126 +5600,354 @@ class CiscoEntityFruControlMib(object):
             _revision = '2013-08-19'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cefcmodulepowerconsumption = None
+                super(CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "cefcModulePowerConsumptionEntry"
+                self.yang_parent_name = "cefcModulePowerConsumptionTable"
 
-                return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModulePowerConsumptionTable/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModulePowerConsumptionEntry[CISCO-ENTITY-FRU-CONTROL-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cefcmodulepowerconsumption = YLeaf(YType.int32, "cefcModulePowerConsumption")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cefcmodulepowerconsumption") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cefcmodulepowerconsumption.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cefcmodulepowerconsumption.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cefcModulePowerConsumptionEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModulePowerConsumptionTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cefcmodulepowerconsumption.is_set or self.cefcmodulepowerconsumption.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cefcmodulepowerconsumption.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "cefcModulePowerConsumption"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cefcModulePowerConsumption"):
+                    self.cefcmodulepowerconsumption = value
+                    self.cefcmodulepowerconsumption.value_namespace = name_space
+                    self.cefcmodulepowerconsumption.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cefcmodulepowerconsumptionentry:
+                if (c.has_data()):
                     return True
-
-                if self.cefcmodulepowerconsumption is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-                return meta._meta_table['CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/CISCO-ENTITY-FRU-CONTROL-MIB:cefcModulePowerConsumptionTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cefcmodulepowerconsumptionentry is not None:
-                for child_ref in self.cefcmodulepowerconsumptionentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cefcmodulepowerconsumptionentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cefcModulePowerConsumptionTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cefcModulePowerConsumptionEntry"):
+                for c in self.cefcmodulepowerconsumptionentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cefcmodulepowerconsumptionentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cefcModulePowerConsumptionEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-            return meta._meta_table['CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cefcchassiscoolingtable is not None and self.cefcchassiscoolingtable.has_data()) or
+            (self.cefcconnectorratingtable is not None and self.cefcconnectorratingtable.has_data()) or
+            (self.cefcfancoolingcaptable is not None and self.cefcfancoolingcaptable.has_data()) or
+            (self.cefcfancoolingtable is not None and self.cefcfancoolingtable.has_data()) or
+            (self.cefcfantraystatustable is not None and self.cefcfantraystatustable.has_data()) or
+            (self.cefcfrupower is not None and self.cefcfrupower.has_data()) or
+            (self.cefcfrupowerstatustable is not None and self.cefcfrupowerstatustable.has_data()) or
+            (self.cefcfrupowersupplygrouptable is not None and self.cefcfrupowersupplygrouptable.has_data()) or
+            (self.cefcfrupowersupplyvaluetable is not None and self.cefcfrupowersupplyvaluetable.has_data()) or
+            (self.cefcintellimoduletable is not None and self.cefcintellimoduletable.has_data()) or
+            (self.cefcmibnotificationenables is not None and self.cefcmibnotificationenables.has_data()) or
+            (self.cefcmodulecoolingtable is not None and self.cefcmodulecoolingtable.has_data()) or
+            (self.cefcmodulelocalswitchingtable is not None and self.cefcmodulelocalswitchingtable.has_data()) or
+            (self.cefcmodulepowerconsumptiontable is not None and self.cefcmodulepowerconsumptiontable.has_data()) or
+            (self.cefcmoduletable is not None and self.cefcmoduletable.has_data()) or
+            (self.cefcphysicaltable is not None and self.cefcphysicaltable.has_data()) or
+            (self.cefcpowersupplyinputtable is not None and self.cefcpowersupplyinputtable.has_data()) or
+            (self.cefcpowersupplyoutputtable is not None and self.cefcpowersupplyoutputtable.has_data()))
 
-        return '/CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cefcchassiscoolingtable is not None and self.cefcchassiscoolingtable.has_operation()) or
+            (self.cefcconnectorratingtable is not None and self.cefcconnectorratingtable.has_operation()) or
+            (self.cefcfancoolingcaptable is not None and self.cefcfancoolingcaptable.has_operation()) or
+            (self.cefcfancoolingtable is not None and self.cefcfancoolingtable.has_operation()) or
+            (self.cefcfantraystatustable is not None and self.cefcfantraystatustable.has_operation()) or
+            (self.cefcfrupower is not None and self.cefcfrupower.has_operation()) or
+            (self.cefcfrupowerstatustable is not None and self.cefcfrupowerstatustable.has_operation()) or
+            (self.cefcfrupowersupplygrouptable is not None and self.cefcfrupowersupplygrouptable.has_operation()) or
+            (self.cefcfrupowersupplyvaluetable is not None and self.cefcfrupowersupplyvaluetable.has_operation()) or
+            (self.cefcintellimoduletable is not None and self.cefcintellimoduletable.has_operation()) or
+            (self.cefcmibnotificationenables is not None and self.cefcmibnotificationenables.has_operation()) or
+            (self.cefcmodulecoolingtable is not None and self.cefcmodulecoolingtable.has_operation()) or
+            (self.cefcmodulelocalswitchingtable is not None and self.cefcmodulelocalswitchingtable.has_operation()) or
+            (self.cefcmodulepowerconsumptiontable is not None and self.cefcmodulepowerconsumptiontable.has_operation()) or
+            (self.cefcmoduletable is not None and self.cefcmoduletable.has_operation()) or
+            (self.cefcphysicaltable is not None and self.cefcphysicaltable.has_operation()) or
+            (self.cefcpowersupplyinputtable is not None and self.cefcpowersupplyinputtable.has_operation()) or
+            (self.cefcpowersupplyoutputtable is not None and self.cefcpowersupplyoutputtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cefcChassisCoolingTable"):
+            if (self.cefcchassiscoolingtable is None):
+                self.cefcchassiscoolingtable = CiscoEntityFruControlMib.Cefcchassiscoolingtable()
+                self.cefcchassiscoolingtable.parent = self
+                self._children_name_map["cefcchassiscoolingtable"] = "cefcChassisCoolingTable"
+            return self.cefcchassiscoolingtable
+
+        if (child_yang_name == "cefcConnectorRatingTable"):
+            if (self.cefcconnectorratingtable is None):
+                self.cefcconnectorratingtable = CiscoEntityFruControlMib.Cefcconnectorratingtable()
+                self.cefcconnectorratingtable.parent = self
+                self._children_name_map["cefcconnectorratingtable"] = "cefcConnectorRatingTable"
+            return self.cefcconnectorratingtable
+
+        if (child_yang_name == "cefcFanCoolingCapTable"):
+            if (self.cefcfancoolingcaptable is None):
+                self.cefcfancoolingcaptable = CiscoEntityFruControlMib.Cefcfancoolingcaptable()
+                self.cefcfancoolingcaptable.parent = self
+                self._children_name_map["cefcfancoolingcaptable"] = "cefcFanCoolingCapTable"
+            return self.cefcfancoolingcaptable
+
+        if (child_yang_name == "cefcFanCoolingTable"):
+            if (self.cefcfancoolingtable is None):
+                self.cefcfancoolingtable = CiscoEntityFruControlMib.Cefcfancoolingtable()
+                self.cefcfancoolingtable.parent = self
+                self._children_name_map["cefcfancoolingtable"] = "cefcFanCoolingTable"
+            return self.cefcfancoolingtable
+
+        if (child_yang_name == "cefcFanTrayStatusTable"):
+            if (self.cefcfantraystatustable is None):
+                self.cefcfantraystatustable = CiscoEntityFruControlMib.Cefcfantraystatustable()
+                self.cefcfantraystatustable.parent = self
+                self._children_name_map["cefcfantraystatustable"] = "cefcFanTrayStatusTable"
+            return self.cefcfantraystatustable
+
+        if (child_yang_name == "cefcFRUPower"):
+            if (self.cefcfrupower is None):
+                self.cefcfrupower = CiscoEntityFruControlMib.Cefcfrupower()
+                self.cefcfrupower.parent = self
+                self._children_name_map["cefcfrupower"] = "cefcFRUPower"
+            return self.cefcfrupower
+
+        if (child_yang_name == "cefcFRUPowerStatusTable"):
+            if (self.cefcfrupowerstatustable is None):
+                self.cefcfrupowerstatustable = CiscoEntityFruControlMib.Cefcfrupowerstatustable()
+                self.cefcfrupowerstatustable.parent = self
+                self._children_name_map["cefcfrupowerstatustable"] = "cefcFRUPowerStatusTable"
+            return self.cefcfrupowerstatustable
+
+        if (child_yang_name == "cefcFRUPowerSupplyGroupTable"):
+            if (self.cefcfrupowersupplygrouptable is None):
+                self.cefcfrupowersupplygrouptable = CiscoEntityFruControlMib.Cefcfrupowersupplygrouptable()
+                self.cefcfrupowersupplygrouptable.parent = self
+                self._children_name_map["cefcfrupowersupplygrouptable"] = "cefcFRUPowerSupplyGroupTable"
+            return self.cefcfrupowersupplygrouptable
+
+        if (child_yang_name == "cefcFRUPowerSupplyValueTable"):
+            if (self.cefcfrupowersupplyvaluetable is None):
+                self.cefcfrupowersupplyvaluetable = CiscoEntityFruControlMib.Cefcfrupowersupplyvaluetable()
+                self.cefcfrupowersupplyvaluetable.parent = self
+                self._children_name_map["cefcfrupowersupplyvaluetable"] = "cefcFRUPowerSupplyValueTable"
+            return self.cefcfrupowersupplyvaluetable
+
+        if (child_yang_name == "cefcIntelliModuleTable"):
+            if (self.cefcintellimoduletable is None):
+                self.cefcintellimoduletable = CiscoEntityFruControlMib.Cefcintellimoduletable()
+                self.cefcintellimoduletable.parent = self
+                self._children_name_map["cefcintellimoduletable"] = "cefcIntelliModuleTable"
+            return self.cefcintellimoduletable
+
+        if (child_yang_name == "cefcMIBNotificationEnables"):
+            if (self.cefcmibnotificationenables is None):
+                self.cefcmibnotificationenables = CiscoEntityFruControlMib.Cefcmibnotificationenables()
+                self.cefcmibnotificationenables.parent = self
+                self._children_name_map["cefcmibnotificationenables"] = "cefcMIBNotificationEnables"
+            return self.cefcmibnotificationenables
+
+        if (child_yang_name == "cefcModuleCoolingTable"):
+            if (self.cefcmodulecoolingtable is None):
+                self.cefcmodulecoolingtable = CiscoEntityFruControlMib.Cefcmodulecoolingtable()
+                self.cefcmodulecoolingtable.parent = self
+                self._children_name_map["cefcmodulecoolingtable"] = "cefcModuleCoolingTable"
+            return self.cefcmodulecoolingtable
+
+        if (child_yang_name == "cefcModuleLocalSwitchingTable"):
+            if (self.cefcmodulelocalswitchingtable is None):
+                self.cefcmodulelocalswitchingtable = CiscoEntityFruControlMib.Cefcmodulelocalswitchingtable()
+                self.cefcmodulelocalswitchingtable.parent = self
+                self._children_name_map["cefcmodulelocalswitchingtable"] = "cefcModuleLocalSwitchingTable"
+            return self.cefcmodulelocalswitchingtable
+
+        if (child_yang_name == "cefcModulePowerConsumptionTable"):
+            if (self.cefcmodulepowerconsumptiontable is None):
+                self.cefcmodulepowerconsumptiontable = CiscoEntityFruControlMib.Cefcmodulepowerconsumptiontable()
+                self.cefcmodulepowerconsumptiontable.parent = self
+                self._children_name_map["cefcmodulepowerconsumptiontable"] = "cefcModulePowerConsumptionTable"
+            return self.cefcmodulepowerconsumptiontable
+
+        if (child_yang_name == "cefcModuleTable"):
+            if (self.cefcmoduletable is None):
+                self.cefcmoduletable = CiscoEntityFruControlMib.Cefcmoduletable()
+                self.cefcmoduletable.parent = self
+                self._children_name_map["cefcmoduletable"] = "cefcModuleTable"
+            return self.cefcmoduletable
+
+        if (child_yang_name == "cefcPhysicalTable"):
+            if (self.cefcphysicaltable is None):
+                self.cefcphysicaltable = CiscoEntityFruControlMib.Cefcphysicaltable()
+                self.cefcphysicaltable.parent = self
+                self._children_name_map["cefcphysicaltable"] = "cefcPhysicalTable"
+            return self.cefcphysicaltable
+
+        if (child_yang_name == "cefcPowerSupplyInputTable"):
+            if (self.cefcpowersupplyinputtable is None):
+                self.cefcpowersupplyinputtable = CiscoEntityFruControlMib.Cefcpowersupplyinputtable()
+                self.cefcpowersupplyinputtable.parent = self
+                self._children_name_map["cefcpowersupplyinputtable"] = "cefcPowerSupplyInputTable"
+            return self.cefcpowersupplyinputtable
+
+        if (child_yang_name == "cefcPowerSupplyOutputTable"):
+            if (self.cefcpowersupplyoutputtable is None):
+                self.cefcpowersupplyoutputtable = CiscoEntityFruControlMib.Cefcpowersupplyoutputtable()
+                self.cefcpowersupplyoutputtable.parent = self
+                self._children_name_map["cefcpowersupplyoutputtable"] = "cefcPowerSupplyOutputTable"
+            return self.cefcpowersupplyoutputtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cefcChassisCoolingTable" or name == "cefcConnectorRatingTable" or name == "cefcFanCoolingCapTable" or name == "cefcFanCoolingTable" or name == "cefcFanTrayStatusTable" or name == "cefcFRUPower" or name == "cefcFRUPowerStatusTable" or name == "cefcFRUPowerSupplyGroupTable" or name == "cefcFRUPowerSupplyValueTable" or name == "cefcIntelliModuleTable" or name == "cefcMIBNotificationEnables" or name == "cefcModuleCoolingTable" or name == "cefcModuleLocalSwitchingTable" or name == "cefcModulePowerConsumptionTable" or name == "cefcModuleTable" or name == "cefcPhysicalTable" or name == "cefcPowerSupplyInputTable" or name == "cefcPowerSupplyOutputTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cefcchassiscoolingtable is not None and self.cefcchassiscoolingtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cefcconnectorratingtable is not None and self.cefcconnectorratingtable._has_data():
-            return True
-
-        if self.cefcfancoolingcaptable is not None and self.cefcfancoolingcaptable._has_data():
-            return True
-
-        if self.cefcfancoolingtable is not None and self.cefcfancoolingtable._has_data():
-            return True
-
-        if self.cefcfantraystatustable is not None and self.cefcfantraystatustable._has_data():
-            return True
-
-        if self.cefcfrupower is not None and self.cefcfrupower._has_data():
-            return True
-
-        if self.cefcfrupowerstatustable is not None and self.cefcfrupowerstatustable._has_data():
-            return True
-
-        if self.cefcfrupowersupplygrouptable is not None and self.cefcfrupowersupplygrouptable._has_data():
-            return True
-
-        if self.cefcfrupowersupplyvaluetable is not None and self.cefcfrupowersupplyvaluetable._has_data():
-            return True
-
-        if self.cefcintellimoduletable is not None and self.cefcintellimoduletable._has_data():
-            return True
-
-        if self.cefcmibnotificationenables is not None and self.cefcmibnotificationenables._has_data():
-            return True
-
-        if self.cefcmodulecoolingtable is not None and self.cefcmodulecoolingtable._has_data():
-            return True
-
-        if self.cefcmodulelocalswitchingtable is not None and self.cefcmodulelocalswitchingtable._has_data():
-            return True
-
-        if self.cefcmodulepowerconsumptiontable is not None and self.cefcmodulepowerconsumptiontable._has_data():
-            return True
-
-        if self.cefcmoduletable is not None and self.cefcmoduletable._has_data():
-            return True
-
-        if self.cefcphysicaltable is not None and self.cefcphysicaltable._has_data():
-            return True
-
-        if self.cefcpowersupplyinputtable is not None and self.cefcpowersupplyinputtable._has_data():
-            return True
-
-        if self.cefcpowersupplyoutputtable is not None and self.cefcpowersupplyoutputtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_FRU_CONTROL_MIB as meta
-        return meta._meta_table['CiscoEntityFruControlMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoEntityFruControlMib()
+        return self._top_entity
 

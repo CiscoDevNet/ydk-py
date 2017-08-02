@@ -27,22 +27,16 @@ Functionality\:
    events.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CiscopddatatypeEnum(Enum):
+class Ciscopddatatype(Enum):
     """
-    CiscopddatatypeEnum
+    Ciscopddatatype
 
     These are the data types which NBAR
 
@@ -100,33 +94,27 @@ class CiscopddatatypeEnum(Enum):
 
     """
 
-    bitRateIn = 1
+    bitRateIn = Enum.YLeaf(1, "bitRateIn")
 
-    bitRateOut = 2
+    bitRateOut = Enum.YLeaf(2, "bitRateOut")
 
-    bitRateSum = 3
+    bitRateSum = Enum.YLeaf(3, "bitRateSum")
 
-    byteCountIn = 4
+    byteCountIn = Enum.YLeaf(4, "byteCountIn")
 
-    byteCountOut = 5
+    byteCountOut = Enum.YLeaf(5, "byteCountOut")
 
-    byteCountSum = 6
+    byteCountSum = Enum.YLeaf(6, "byteCountSum")
 
-    packetCountIn = 7
+    packetCountIn = Enum.YLeaf(7, "packetCountIn")
 
-    packetCountOut = 8
+    packetCountOut = Enum.YLeaf(8, "packetCountOut")
 
-    packetCountSum = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-        return meta._meta_table['CiscopddatatypeEnum']
+    packetCountSum = Enum.YLeaf(9, "packetCountSum")
 
 
 
-class CiscoNbarProtocolDiscoveryMib(object):
+class CiscoNbarProtocolDiscoveryMib(Entity):
     """
     
     
@@ -178,25 +166,54 @@ class CiscoNbarProtocolDiscoveryMib(object):
     _revision = '2002-08-16'
 
     def __init__(self):
+        super(CiscoNbarProtocolDiscoveryMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+        self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
         self.cnpdallstatstable = CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable()
         self.cnpdallstatstable.parent = self
+        self._children_name_map["cnpdallstatstable"] = "cnpdAllStatsTable"
+        self._children_yang_names.add("cnpdAllStatsTable")
+
         self.cnpdnotificationsconfig = CiscoNbarProtocolDiscoveryMib.Cnpdnotificationsconfig()
         self.cnpdnotificationsconfig.parent = self
+        self._children_name_map["cnpdnotificationsconfig"] = "cnpdNotificationsConfig"
+        self._children_yang_names.add("cnpdNotificationsConfig")
+
         self.cnpdstatustable = CiscoNbarProtocolDiscoveryMib.Cnpdstatustable()
         self.cnpdstatustable.parent = self
+        self._children_name_map["cnpdstatustable"] = "cnpdStatusTable"
+        self._children_yang_names.add("cnpdStatusTable")
+
         self.cnpdsupportedprotocolstable = CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable()
         self.cnpdsupportedprotocolstable.parent = self
+        self._children_name_map["cnpdsupportedprotocolstable"] = "cnpdSupportedProtocolsTable"
+        self._children_yang_names.add("cnpdSupportedProtocolsTable")
+
         self.cnpdthresholdconfigtable = CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable()
         self.cnpdthresholdconfigtable.parent = self
+        self._children_name_map["cnpdthresholdconfigtable"] = "cnpdThresholdConfigTable"
+        self._children_yang_names.add("cnpdThresholdConfigTable")
+
         self.cnpdthresholdhistorytable = CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable()
         self.cnpdthresholdhistorytable.parent = self
+        self._children_name_map["cnpdthresholdhistorytable"] = "cnpdThresholdHistoryTable"
+        self._children_yang_names.add("cnpdThresholdHistoryTable")
+
         self.cnpdtopnconfigtable = CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable()
         self.cnpdtopnconfigtable.parent = self
+        self._children_name_map["cnpdtopnconfigtable"] = "cnpdTopNConfigTable"
+        self._children_yang_names.add("cnpdTopNConfigTable")
+
         self.cnpdtopnstatstable = CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable()
         self.cnpdtopnstatstable.parent = self
+        self._children_name_map["cnpdtopnstatstable"] = "cnpdTopNStatsTable"
+        self._children_yang_names.add("cnpdTopNStatsTable")
 
 
-    class Cnpdnotificationsconfig(object):
+    class Cnpdnotificationsconfig(Entity):
         """
         
         
@@ -213,31 +230,85 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdnotificationsenable = None
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdnotificationsconfig, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cnpdNotificationsConfig"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
 
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdNotificationsConfig'
+            self.cnpdnotificationsenable = YLeaf(YType.boolean, "cnpdNotificationsEnable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cnpdnotificationsenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdnotificationsconfig, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdnotificationsconfig, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.cnpdnotificationsenable is not None:
+        def has_data(self):
+            return self.cnpdnotificationsenable.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cnpdnotificationsenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdNotificationsConfig" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cnpdnotificationsenable.is_set or self.cnpdnotificationsenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cnpdnotificationsenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdNotificationsEnable"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdnotificationsconfig']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cnpdNotificationsEnable"):
+                self.cnpdnotificationsenable = value
+                self.cnpdnotificationsenable.value_namespace = name_space
+                self.cnpdnotificationsenable.value_namespace_prefix = name_space_prefix
 
 
-    class Cnpdstatustable(object):
+    class Cnpdstatustable(Entity):
         """
         The cnpdStatusTable is used to enable and
         disable Protocol Discovery on an interface.
@@ -255,13 +326,39 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdstatusentry = YList()
-            self.cnpdstatusentry.parent = self
-            self.cnpdstatusentry.name = 'cnpdstatusentry'
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdstatustable, self).__init__()
+
+            self.yang_name = "cnpdStatusTable"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
+            self.cnpdstatusentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdstatustable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdstatustable, self).__setattr__(name, value)
 
 
-        class Cnpdstatusentry(object):
+        class Cnpdstatusentry(Entity):
             """
             An entry in the cnpdStatusTable contains objects
             for enabling or disabling Protocol Discovery on a
@@ -296,63 +393,165 @@ class CiscoNbarProtocolDiscoveryMib(object):
             _revision = '2002-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cnpdstatuslastupdatetime = None
-                self.cnpdstatuspdenable = None
+                super(CiscoNbarProtocolDiscoveryMib.Cnpdstatustable.Cnpdstatusentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "cnpdStatusEntry"
+                self.yang_parent_name = "cnpdStatusTable"
 
-                return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdStatusTable/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdStatusEntry[CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cnpdstatuslastupdatetime = YLeaf(YType.uint32, "cnpdStatusLastUpdateTime")
+
+                self.cnpdstatuspdenable = YLeaf(YType.boolean, "cnpdStatusPdEnable")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cnpdstatuslastupdatetime",
+                                "cnpdstatuspdenable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNbarProtocolDiscoveryMib.Cnpdstatustable.Cnpdstatusentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdstatustable.Cnpdstatusentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cnpdstatuslastupdatetime.is_set or
+                    self.cnpdstatuspdenable.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cnpdstatuslastupdatetime.yfilter != YFilter.not_set or
+                    self.cnpdstatuspdenable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cnpdStatusEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdStatusTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cnpdstatuslastupdatetime.is_set or self.cnpdstatuslastupdatetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdstatuslastupdatetime.get_name_leafdata())
+                if (self.cnpdstatuspdenable.is_set or self.cnpdstatuspdenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdstatuspdenable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cnpdStatusLastUpdateTime" or name == "cnpdStatusPdEnable"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdStatusLastUpdateTime"):
+                    self.cnpdstatuslastupdatetime = value
+                    self.cnpdstatuslastupdatetime.value_namespace = name_space
+                    self.cnpdstatuslastupdatetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdStatusPdEnable"):
+                    self.cnpdstatuspdenable = value
+                    self.cnpdstatuspdenable.value_namespace = name_space
+                    self.cnpdstatuspdenable.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cnpdstatusentry:
+                if (c.has_data()):
                     return True
-
-                if self.cnpdstatuslastupdatetime is not None:
-                    return True
-
-                if self.cnpdstatuspdenable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdstatustable.Cnpdstatusentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdStatusTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cnpdstatusentry is not None:
-                for child_ref in self.cnpdstatusentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cnpdstatusentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdStatusTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cnpdStatusEntry"):
+                for c in self.cnpdstatusentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNbarProtocolDiscoveryMib.Cnpdstatustable.Cnpdstatusentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cnpdstatusentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdStatusEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdstatustable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cnpdallstatstable(object):
+    class Cnpdallstatstable(Entity):
         """
         The cnpdAllStatsTable contains all the statistics
         available for all the protocols/applications currently
@@ -375,13 +574,39 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdallstatsentry = YList()
-            self.cnpdallstatsentry.parent = self
-            self.cnpdallstatsentry.name = 'cnpdallstatsentry'
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable, self).__init__()
+
+            self.yang_name = "cnpdAllStatsTable"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
+            self.cnpdallstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable, self).__setattr__(name, value)
 
 
-        class Cnpdallstatsentry(object):
+        class Cnpdallstatsentry(Entity):
             """
             An entry in the cnpdAllStatsTable table. This entry 
             contains the statistics collected on all the protocols 
@@ -508,105 +733,275 @@ class CiscoNbarProtocolDiscoveryMib(object):
             _revision = '2002-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.cnpdallstatsprotocolsindex = None
-                self.cnpdallstatshcinbytes = None
-                self.cnpdallstatshcinpkts = None
-                self.cnpdallstatshcoutbytes = None
-                self.cnpdallstatshcoutpkts = None
-                self.cnpdallstatsinbitrate = None
-                self.cnpdallstatsinbytes = None
-                self.cnpdallstatsinpkts = None
-                self.cnpdallstatsoutbitrate = None
-                self.cnpdallstatsoutbytes = None
-                self.cnpdallstatsoutpkts = None
-                self.cnpdallstatsprotocolname = None
+                super(CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable.Cnpdallstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
-                if self.cnpdallstatsprotocolsindex is None:
-                    raise YPYModelError('Key property cnpdallstatsprotocolsindex is None')
+                self.yang_name = "cnpdAllStatsEntry"
+                self.yang_parent_name = "cnpdAllStatsTable"
 
-                return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdAllStatsTable/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdAllStatsEntry[CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:ifIndex = ' + str(self.ifindex) + '][CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdAllStatsProtocolsIndex = ' + str(self.cnpdallstatsprotocolsindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cnpdallstatsprotocolsindex = YLeaf(YType.uint32, "cnpdAllStatsProtocolsIndex")
+
+                self.cnpdallstatshcinbytes = YLeaf(YType.uint64, "cnpdAllStatsHCInBytes")
+
+                self.cnpdallstatshcinpkts = YLeaf(YType.uint64, "cnpdAllStatsHCInPkts")
+
+                self.cnpdallstatshcoutbytes = YLeaf(YType.uint64, "cnpdAllStatsHCOutBytes")
+
+                self.cnpdallstatshcoutpkts = YLeaf(YType.uint64, "cnpdAllStatsHCOutPkts")
+
+                self.cnpdallstatsinbitrate = YLeaf(YType.uint32, "cnpdAllStatsInBitRate")
+
+                self.cnpdallstatsinbytes = YLeaf(YType.uint32, "cnpdAllStatsInBytes")
+
+                self.cnpdallstatsinpkts = YLeaf(YType.uint32, "cnpdAllStatsInPkts")
+
+                self.cnpdallstatsoutbitrate = YLeaf(YType.uint32, "cnpdAllStatsOutBitRate")
+
+                self.cnpdallstatsoutbytes = YLeaf(YType.uint32, "cnpdAllStatsOutBytes")
+
+                self.cnpdallstatsoutpkts = YLeaf(YType.uint32, "cnpdAllStatsOutPkts")
+
+                self.cnpdallstatsprotocolname = YLeaf(YType.str, "cnpdAllStatsProtocolName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "cnpdallstatsprotocolsindex",
+                                "cnpdallstatshcinbytes",
+                                "cnpdallstatshcinpkts",
+                                "cnpdallstatshcoutbytes",
+                                "cnpdallstatshcoutpkts",
+                                "cnpdallstatsinbitrate",
+                                "cnpdallstatsinbytes",
+                                "cnpdallstatsinpkts",
+                                "cnpdallstatsoutbitrate",
+                                "cnpdallstatsoutbytes",
+                                "cnpdallstatsoutpkts",
+                                "cnpdallstatsprotocolname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable.Cnpdallstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable.Cnpdallstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.cnpdallstatsprotocolsindex.is_set or
+                    self.cnpdallstatshcinbytes.is_set or
+                    self.cnpdallstatshcinpkts.is_set or
+                    self.cnpdallstatshcoutbytes.is_set or
+                    self.cnpdallstatshcoutpkts.is_set or
+                    self.cnpdallstatsinbitrate.is_set or
+                    self.cnpdallstatsinbytes.is_set or
+                    self.cnpdallstatsinpkts.is_set or
+                    self.cnpdallstatsoutbitrate.is_set or
+                    self.cnpdallstatsoutbytes.is_set or
+                    self.cnpdallstatsoutpkts.is_set or
+                    self.cnpdallstatsprotocolname.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.cnpdallstatsprotocolsindex.yfilter != YFilter.not_set or
+                    self.cnpdallstatshcinbytes.yfilter != YFilter.not_set or
+                    self.cnpdallstatshcinpkts.yfilter != YFilter.not_set or
+                    self.cnpdallstatshcoutbytes.yfilter != YFilter.not_set or
+                    self.cnpdallstatshcoutpkts.yfilter != YFilter.not_set or
+                    self.cnpdallstatsinbitrate.yfilter != YFilter.not_set or
+                    self.cnpdallstatsinbytes.yfilter != YFilter.not_set or
+                    self.cnpdallstatsinpkts.yfilter != YFilter.not_set or
+                    self.cnpdallstatsoutbitrate.yfilter != YFilter.not_set or
+                    self.cnpdallstatsoutbytes.yfilter != YFilter.not_set or
+                    self.cnpdallstatsoutpkts.yfilter != YFilter.not_set or
+                    self.cnpdallstatsprotocolname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cnpdAllStatsEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cnpdAllStatsProtocolsIndex='" + self.cnpdallstatsprotocolsindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdAllStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.cnpdallstatsprotocolsindex.is_set or self.cnpdallstatsprotocolsindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsprotocolsindex.get_name_leafdata())
+                if (self.cnpdallstatshcinbytes.is_set or self.cnpdallstatshcinbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatshcinbytes.get_name_leafdata())
+                if (self.cnpdallstatshcinpkts.is_set or self.cnpdallstatshcinpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatshcinpkts.get_name_leafdata())
+                if (self.cnpdallstatshcoutbytes.is_set or self.cnpdallstatshcoutbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatshcoutbytes.get_name_leafdata())
+                if (self.cnpdallstatshcoutpkts.is_set or self.cnpdallstatshcoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatshcoutpkts.get_name_leafdata())
+                if (self.cnpdallstatsinbitrate.is_set or self.cnpdallstatsinbitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsinbitrate.get_name_leafdata())
+                if (self.cnpdallstatsinbytes.is_set or self.cnpdallstatsinbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsinbytes.get_name_leafdata())
+                if (self.cnpdallstatsinpkts.is_set or self.cnpdallstatsinpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsinpkts.get_name_leafdata())
+                if (self.cnpdallstatsoutbitrate.is_set or self.cnpdallstatsoutbitrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsoutbitrate.get_name_leafdata())
+                if (self.cnpdallstatsoutbytes.is_set or self.cnpdallstatsoutbytes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsoutbytes.get_name_leafdata())
+                if (self.cnpdallstatsoutpkts.is_set or self.cnpdallstatsoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsoutpkts.get_name_leafdata())
+                if (self.cnpdallstatsprotocolname.is_set or self.cnpdallstatsprotocolname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdallstatsprotocolname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "cnpdAllStatsProtocolsIndex" or name == "cnpdAllStatsHCInBytes" or name == "cnpdAllStatsHCInPkts" or name == "cnpdAllStatsHCOutBytes" or name == "cnpdAllStatsHCOutPkts" or name == "cnpdAllStatsInBitRate" or name == "cnpdAllStatsInBytes" or name == "cnpdAllStatsInPkts" or name == "cnpdAllStatsOutBitRate" or name == "cnpdAllStatsOutBytes" or name == "cnpdAllStatsOutPkts" or name == "cnpdAllStatsProtocolName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsProtocolsIndex"):
+                    self.cnpdallstatsprotocolsindex = value
+                    self.cnpdallstatsprotocolsindex.value_namespace = name_space
+                    self.cnpdallstatsprotocolsindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsHCInBytes"):
+                    self.cnpdallstatshcinbytes = value
+                    self.cnpdallstatshcinbytes.value_namespace = name_space
+                    self.cnpdallstatshcinbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsHCInPkts"):
+                    self.cnpdallstatshcinpkts = value
+                    self.cnpdallstatshcinpkts.value_namespace = name_space
+                    self.cnpdallstatshcinpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsHCOutBytes"):
+                    self.cnpdallstatshcoutbytes = value
+                    self.cnpdallstatshcoutbytes.value_namespace = name_space
+                    self.cnpdallstatshcoutbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsHCOutPkts"):
+                    self.cnpdallstatshcoutpkts = value
+                    self.cnpdallstatshcoutpkts.value_namespace = name_space
+                    self.cnpdallstatshcoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsInBitRate"):
+                    self.cnpdallstatsinbitrate = value
+                    self.cnpdallstatsinbitrate.value_namespace = name_space
+                    self.cnpdallstatsinbitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsInBytes"):
+                    self.cnpdallstatsinbytes = value
+                    self.cnpdallstatsinbytes.value_namespace = name_space
+                    self.cnpdallstatsinbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsInPkts"):
+                    self.cnpdallstatsinpkts = value
+                    self.cnpdallstatsinpkts.value_namespace = name_space
+                    self.cnpdallstatsinpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsOutBitRate"):
+                    self.cnpdallstatsoutbitrate = value
+                    self.cnpdallstatsoutbitrate.value_namespace = name_space
+                    self.cnpdallstatsoutbitrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsOutBytes"):
+                    self.cnpdallstatsoutbytes = value
+                    self.cnpdallstatsoutbytes.value_namespace = name_space
+                    self.cnpdallstatsoutbytes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsOutPkts"):
+                    self.cnpdallstatsoutpkts = value
+                    self.cnpdallstatsoutpkts.value_namespace = name_space
+                    self.cnpdallstatsoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdAllStatsProtocolName"):
+                    self.cnpdallstatsprotocolname = value
+                    self.cnpdallstatsprotocolname.value_namespace = name_space
+                    self.cnpdallstatsprotocolname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cnpdallstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cnpdallstatsprotocolsindex is not None:
-                    return True
-
-                if self.cnpdallstatshcinbytes is not None:
-                    return True
-
-                if self.cnpdallstatshcinpkts is not None:
-                    return True
-
-                if self.cnpdallstatshcoutbytes is not None:
-                    return True
-
-                if self.cnpdallstatshcoutpkts is not None:
-                    return True
-
-                if self.cnpdallstatsinbitrate is not None:
-                    return True
-
-                if self.cnpdallstatsinbytes is not None:
-                    return True
-
-                if self.cnpdallstatsinpkts is not None:
-                    return True
-
-                if self.cnpdallstatsoutbitrate is not None:
-                    return True
-
-                if self.cnpdallstatsoutbytes is not None:
-                    return True
-
-                if self.cnpdallstatsoutpkts is not None:
-                    return True
-
-                if self.cnpdallstatsprotocolname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable.Cnpdallstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdAllStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cnpdallstatsentry is not None:
-                for child_ref in self.cnpdallstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cnpdallstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdAllStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cnpdAllStatsEntry"):
+                for c in self.cnpdallstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable.Cnpdallstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cnpdallstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdAllStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cnpdtopnconfigtable(object):
+    class Cnpdtopnconfigtable(Entity):
         """
         The cnpdTopNConfigTable is used to configure
         cnpdTopNStatsTable's.
@@ -624,13 +1019,39 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdtopnconfigentry = YList()
-            self.cnpdtopnconfigentry.parent = self
-            self.cnpdtopnconfigentry.name = 'cnpdtopnconfigentry'
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable, self).__init__()
+
+            self.yang_name = "cnpdTopNConfigTable"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
+            self.cnpdtopnconfigentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable, self).__setattr__(name, value)
 
 
-        class Cnpdtopnconfigentry(object):
+        class Cnpdtopnconfigentry(Entity):
             """
             This entry provides the objects to configure and thus
             initiate the generation of a cnpdTopNStatsTable..
@@ -675,12 +1096,12 @@ class CiscoNbarProtocolDiscoveryMib(object):
             .. attribute:: cnpdtopnconfigstatsselect
             
             	This object allows the management station to select the statistic used to base the order of the top\-n table on.  For example\: a cnpdTopNConfigStatsSelect of bitRateSum means order this table based on each applications/protocols combined in and out bitrate
-            	**type**\:   :py:class:`CiscopddatatypeEnum <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscopddatatypeEnum>`
+            	**type**\:   :py:class:`Ciscopddatatype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.Ciscopddatatype>`
             
             .. attribute:: cnpdtopnconfigstatus
             
             	This object is used to create or delete  the row entry in cnpdTopNConfigTable.  When creating a row entry the management station is required to specify a value for cnpdTopNConfigIfIndex only.  'notReady' means that a row exists but  either it has no valid IfIndex or it has  not been set to createAndGo or active.  'active' means that a createAndGo or active  has been issued, AND a valid ifIndex exists.  Therefore if a row is 'active' it means a  TopNStats entry has been generated.  If you set an 'active' row to createAndWait  it will get the status 'notReady'.   If you set any row to 'notReady' \- it will go  to the 'notReadystate'.  If you set any row to 'notInService' \- it will  go to the 'notInService' state and the corresponding  TopNStatsEntry will be deleted.  The same TopNConfig entry can be re\-used without  changes by setting it to 'active'. The corresponding  TopStatsTable entry will be regenerated. This can  be used by the NMS to poll a particular TopNConfig  Entry.  Changes to an existing TopNConfig entry can be made by setting the status to 'createAndWait' and changing the necessary objects. Setting it to 'createAndGo' or 'active' will cause the corresponding TopNStats entry to be regenerated
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cnpdtopnconfigtime
             
@@ -697,83 +1118,220 @@ class CiscoNbarProtocolDiscoveryMib(object):
             _revision = '2002-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.cnpdtopnconfigindex = None
-                self.cnpdtopnconfiggrantedsize = None
-                self.cnpdtopnconfigifindex = None
-                self.cnpdtopnconfigrequestedsize = None
-                self.cnpdtopnconfigsampletime = None
-                self.cnpdtopnconfigstatsselect = None
-                self.cnpdtopnconfigstatus = None
-                self.cnpdtopnconfigtime = None
+                super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable.Cnpdtopnconfigentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cnpdtopnconfigindex is None:
-                    raise YPYModelError('Key property cnpdtopnconfigindex is None')
+                self.yang_name = "cnpdTopNConfigEntry"
+                self.yang_parent_name = "cnpdTopNConfigTable"
 
-                return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNConfigTable/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNConfigEntry[CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNConfigIndex = ' + str(self.cnpdtopnconfigindex) + ']'
+                self.cnpdtopnconfigindex = YLeaf(YType.uint32, "cnpdTopNConfigIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cnpdtopnconfiggrantedsize = YLeaf(YType.uint32, "cnpdTopNConfigGrantedSize")
+
+                self.cnpdtopnconfigifindex = YLeaf(YType.int32, "cnpdTopNConfigIfIndex")
+
+                self.cnpdtopnconfigrequestedsize = YLeaf(YType.uint32, "cnpdTopNConfigRequestedSize")
+
+                self.cnpdtopnconfigsampletime = YLeaf(YType.uint32, "cnpdTopNConfigSampleTime")
+
+                self.cnpdtopnconfigstatsselect = YLeaf(YType.enumeration, "cnpdTopNConfigStatsSelect")
+
+                self.cnpdtopnconfigstatus = YLeaf(YType.enumeration, "cnpdTopNConfigStatus")
+
+                self.cnpdtopnconfigtime = YLeaf(YType.uint32, "cnpdTopNConfigTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cnpdtopnconfigindex",
+                                "cnpdtopnconfiggrantedsize",
+                                "cnpdtopnconfigifindex",
+                                "cnpdtopnconfigrequestedsize",
+                                "cnpdtopnconfigsampletime",
+                                "cnpdtopnconfigstatsselect",
+                                "cnpdtopnconfigstatus",
+                                "cnpdtopnconfigtime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable.Cnpdtopnconfigentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable.Cnpdtopnconfigentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cnpdtopnconfigindex.is_set or
+                    self.cnpdtopnconfiggrantedsize.is_set or
+                    self.cnpdtopnconfigifindex.is_set or
+                    self.cnpdtopnconfigrequestedsize.is_set or
+                    self.cnpdtopnconfigsampletime.is_set or
+                    self.cnpdtopnconfigstatsselect.is_set or
+                    self.cnpdtopnconfigstatus.is_set or
+                    self.cnpdtopnconfigtime.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigindex.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfiggrantedsize.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigifindex.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigrequestedsize.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigsampletime.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigstatsselect.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigstatus.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigtime.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cnpdTopNConfigEntry" + "[cnpdTopNConfigIndex='" + self.cnpdtopnconfigindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNConfigTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cnpdtopnconfigindex.is_set or self.cnpdtopnconfigindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigindex.get_name_leafdata())
+                if (self.cnpdtopnconfiggrantedsize.is_set or self.cnpdtopnconfiggrantedsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfiggrantedsize.get_name_leafdata())
+                if (self.cnpdtopnconfigifindex.is_set or self.cnpdtopnconfigifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigifindex.get_name_leafdata())
+                if (self.cnpdtopnconfigrequestedsize.is_set or self.cnpdtopnconfigrequestedsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigrequestedsize.get_name_leafdata())
+                if (self.cnpdtopnconfigsampletime.is_set or self.cnpdtopnconfigsampletime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigsampletime.get_name_leafdata())
+                if (self.cnpdtopnconfigstatsselect.is_set or self.cnpdtopnconfigstatsselect.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigstatsselect.get_name_leafdata())
+                if (self.cnpdtopnconfigstatus.is_set or self.cnpdtopnconfigstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigstatus.get_name_leafdata())
+                if (self.cnpdtopnconfigtime.is_set or self.cnpdtopnconfigtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigtime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cnpdTopNConfigIndex" or name == "cnpdTopNConfigGrantedSize" or name == "cnpdTopNConfigIfIndex" or name == "cnpdTopNConfigRequestedSize" or name == "cnpdTopNConfigSampleTime" or name == "cnpdTopNConfigStatsSelect" or name == "cnpdTopNConfigStatus" or name == "cnpdTopNConfigTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cnpdtopnconfigindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cnpdTopNConfigIndex"):
+                    self.cnpdtopnconfigindex = value
+                    self.cnpdtopnconfigindex.value_namespace = name_space
+                    self.cnpdtopnconfigindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNConfigGrantedSize"):
+                    self.cnpdtopnconfiggrantedsize = value
+                    self.cnpdtopnconfiggrantedsize.value_namespace = name_space
+                    self.cnpdtopnconfiggrantedsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNConfigIfIndex"):
+                    self.cnpdtopnconfigifindex = value
+                    self.cnpdtopnconfigifindex.value_namespace = name_space
+                    self.cnpdtopnconfigifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNConfigRequestedSize"):
+                    self.cnpdtopnconfigrequestedsize = value
+                    self.cnpdtopnconfigrequestedsize.value_namespace = name_space
+                    self.cnpdtopnconfigrequestedsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNConfigSampleTime"):
+                    self.cnpdtopnconfigsampletime = value
+                    self.cnpdtopnconfigsampletime.value_namespace = name_space
+                    self.cnpdtopnconfigsampletime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNConfigStatsSelect"):
+                    self.cnpdtopnconfigstatsselect = value
+                    self.cnpdtopnconfigstatsselect.value_namespace = name_space
+                    self.cnpdtopnconfigstatsselect.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNConfigStatus"):
+                    self.cnpdtopnconfigstatus = value
+                    self.cnpdtopnconfigstatus.value_namespace = name_space
+                    self.cnpdtopnconfigstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNConfigTime"):
+                    self.cnpdtopnconfigtime = value
+                    self.cnpdtopnconfigtime.value_namespace = name_space
+                    self.cnpdtopnconfigtime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cnpdtopnconfigentry:
+                if (c.has_data()):
                     return True
-
-                if self.cnpdtopnconfiggrantedsize is not None:
-                    return True
-
-                if self.cnpdtopnconfigifindex is not None:
-                    return True
-
-                if self.cnpdtopnconfigrequestedsize is not None:
-                    return True
-
-                if self.cnpdtopnconfigsampletime is not None:
-                    return True
-
-                if self.cnpdtopnconfigstatsselect is not None:
-                    return True
-
-                if self.cnpdtopnconfigstatus is not None:
-                    return True
-
-                if self.cnpdtopnconfigtime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable.Cnpdtopnconfigentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNConfigTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cnpdtopnconfigentry is not None:
-                for child_ref in self.cnpdtopnconfigentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cnpdtopnconfigentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdTopNConfigTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cnpdTopNConfigEntry"):
+                for c in self.cnpdtopnconfigentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable.Cnpdtopnconfigentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cnpdtopnconfigentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdTopNConfigEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cnpdtopnstatstable(object):
+    class Cnpdtopnstatstable(Entity):
         """
         A cnpdTopNStatsTable describes an ordered
         list of protocols.
@@ -791,13 +1349,39 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdtopnstatsentry = YList()
-            self.cnpdtopnstatsentry.parent = self
-            self.cnpdtopnstatsentry.name = 'cnpdtopnstatsentry'
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable, self).__init__()
+
+            self.yang_name = "cnpdTopNStatsTable"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
+            self.cnpdtopnstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable, self).__setattr__(name, value)
 
 
-        class Cnpdtopnstatsentry(object):
+        class Cnpdtopnstatsentry(Entity):
             """
             This entry is used to store a set of objects which 
             describe a cnpdTopNStatsTable. A cnpdTopNStatsTable 
@@ -854,73 +1438,187 @@ class CiscoNbarProtocolDiscoveryMib(object):
             _revision = '2002-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.cnpdtopnconfigindex = None
-                self.cnpdtopnstatsindex = None
-                self.cnpdtopnstatshcrate = None
-                self.cnpdtopnstatsprotocolname = None
-                self.cnpdtopnstatsrate = None
+                super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable.Cnpdtopnstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cnpdtopnconfigindex is None:
-                    raise YPYModelError('Key property cnpdtopnconfigindex is None')
-                if self.cnpdtopnstatsindex is None:
-                    raise YPYModelError('Key property cnpdtopnstatsindex is None')
+                self.yang_name = "cnpdTopNStatsEntry"
+                self.yang_parent_name = "cnpdTopNStatsTable"
 
-                return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNStatsTable/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNStatsEntry[CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNConfigIndex = ' + str(self.cnpdtopnconfigindex) + '][CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNStatsIndex = ' + str(self.cnpdtopnstatsindex) + ']'
+                self.cnpdtopnconfigindex = YLeaf(YType.str, "cnpdTopNConfigIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cnpdtopnstatsindex = YLeaf(YType.uint32, "cnpdTopNStatsIndex")
+
+                self.cnpdtopnstatshcrate = YLeaf(YType.uint64, "cnpdTopNStatsHCRate")
+
+                self.cnpdtopnstatsprotocolname = YLeaf(YType.str, "cnpdTopNStatsProtocolName")
+
+                self.cnpdtopnstatsrate = YLeaf(YType.uint32, "cnpdTopNStatsRate")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cnpdtopnconfigindex",
+                                "cnpdtopnstatsindex",
+                                "cnpdtopnstatshcrate",
+                                "cnpdtopnstatsprotocolname",
+                                "cnpdtopnstatsrate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable.Cnpdtopnstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable.Cnpdtopnstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cnpdtopnconfigindex.is_set or
+                    self.cnpdtopnstatsindex.is_set or
+                    self.cnpdtopnstatshcrate.is_set or
+                    self.cnpdtopnstatsprotocolname.is_set or
+                    self.cnpdtopnstatsrate.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cnpdtopnconfigindex.yfilter != YFilter.not_set or
+                    self.cnpdtopnstatsindex.yfilter != YFilter.not_set or
+                    self.cnpdtopnstatshcrate.yfilter != YFilter.not_set or
+                    self.cnpdtopnstatsprotocolname.yfilter != YFilter.not_set or
+                    self.cnpdtopnstatsrate.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cnpdTopNStatsEntry" + "[cnpdTopNConfigIndex='" + self.cnpdtopnconfigindex.get() + "']" + "[cnpdTopNStatsIndex='" + self.cnpdtopnstatsindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cnpdtopnconfigindex.is_set or self.cnpdtopnconfigindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnconfigindex.get_name_leafdata())
+                if (self.cnpdtopnstatsindex.is_set or self.cnpdtopnstatsindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnstatsindex.get_name_leafdata())
+                if (self.cnpdtopnstatshcrate.is_set or self.cnpdtopnstatshcrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnstatshcrate.get_name_leafdata())
+                if (self.cnpdtopnstatsprotocolname.is_set or self.cnpdtopnstatsprotocolname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnstatsprotocolname.get_name_leafdata())
+                if (self.cnpdtopnstatsrate.is_set or self.cnpdtopnstatsrate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdtopnstatsrate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cnpdTopNConfigIndex" or name == "cnpdTopNStatsIndex" or name == "cnpdTopNStatsHCRate" or name == "cnpdTopNStatsProtocolName" or name == "cnpdTopNStatsRate"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cnpdtopnconfigindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cnpdTopNConfigIndex"):
+                    self.cnpdtopnconfigindex = value
+                    self.cnpdtopnconfigindex.value_namespace = name_space
+                    self.cnpdtopnconfigindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNStatsIndex"):
+                    self.cnpdtopnstatsindex = value
+                    self.cnpdtopnstatsindex.value_namespace = name_space
+                    self.cnpdtopnstatsindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNStatsHCRate"):
+                    self.cnpdtopnstatshcrate = value
+                    self.cnpdtopnstatshcrate.value_namespace = name_space
+                    self.cnpdtopnstatshcrate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNStatsProtocolName"):
+                    self.cnpdtopnstatsprotocolname = value
+                    self.cnpdtopnstatsprotocolname.value_namespace = name_space
+                    self.cnpdtopnstatsprotocolname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdTopNStatsRate"):
+                    self.cnpdtopnstatsrate = value
+                    self.cnpdtopnstatsrate.value_namespace = name_space
+                    self.cnpdtopnstatsrate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cnpdtopnstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cnpdtopnstatsindex is not None:
-                    return True
-
-                if self.cnpdtopnstatshcrate is not None:
-                    return True
-
-                if self.cnpdtopnstatsprotocolname is not None:
-                    return True
-
-                if self.cnpdtopnstatsrate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable.Cnpdtopnstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdTopNStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cnpdtopnstatsentry is not None:
-                for child_ref in self.cnpdtopnstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cnpdtopnstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdTopNStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cnpdTopNStatsEntry"):
+                for c in self.cnpdtopnstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable.Cnpdtopnstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cnpdtopnstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdTopNStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cnpdthresholdconfigtable(object):
+    class Cnpdthresholdconfigtable(Entity):
         """
         The cnpdThresholdConfigTable allows the management
         station to create thresholds for the purpose of
@@ -940,13 +1638,39 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdthresholdconfigentry = YList()
-            self.cnpdthresholdconfigentry.parent = self
-            self.cnpdthresholdconfigentry.name = 'cnpdthresholdconfigentry'
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable, self).__init__()
+
+            self.yang_name = "cnpdThresholdConfigTable"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
+            self.cnpdthresholdconfigentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable, self).__setattr__(name, value)
 
 
-        class Cnpdthresholdconfigentry(object):
+        class Cnpdthresholdconfigentry(Entity):
             """
             This entry contains configuration information to 
             set thresholds for the purpose of notifications.
@@ -1022,22 +1746,22 @@ class CiscoNbarProtocolDiscoveryMib(object):
             .. attribute:: cnpdthresholdconfigsampletype
             
             	The method of sampling the selected statistic and calculating the value to be compared against  cnpdThresholdConfigRising or  cnpdThresholdConfigFalling thresholds.  		 If the value of this object is absoluteValue(1),  the value at the end of the sampling interval  cnpdThresholdConfigInterval, will be compared  with the cnpdThresholdConfigRising and  cnpdThresholdConfigFalling thresholds.   In this mode, when cnpdThresholdConfigStatsSelect is byte or packet based, a maximum of two  cnpdThresholdHistory entries will be created per application, as these byte and packet counts  monotonically increase from zero. 		 If the value of this object is deltaValue(2),  the difference between the samples at the  beginning and end of the cnpdThresholdConfigInterval  will be compared with the cnpdThresholdConfigRising  and cnpdThresholdConfigFalling thresholds. 		 Because the difference in the previous and current samples are compared over the sample period cnpdThresholdConfigInterval, this mode provides  more granularity to the thresholds because the NMS  is now provided with the gradient or change in the  cnpdThresholdConfigStatsSelect.  Note that even though the sample value is monotonically increasing for byte and packet counts,  cnpdThresholdConfigSampleType set to deltaValue, can  generate falling cnpdThresholdHistory entries, because the gradient can be lower than the  cnpdThresholdConfigFalling value
-            	**type**\:   :py:class:`CnpdthresholdconfigsampletypeEnum <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.CnpdthresholdconfigsampletypeEnum>`
+            	**type**\:   :py:class:`Cnpdthresholdconfigsampletype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigsampletype>`
             
             .. attribute:: cnpdthresholdconfigstartup
             
             	This controls the type of notification that is  sent when this threshold entry is first enabled.   Because there is no previous sampling history, choosing one of these options determines the type of notification generated \- Rising or Falling.  If the first sample after this entry is enabled  is greater than or equal to cnpdThresholdConfigRising and this object is equal to rising(1) or risingOrFalling(3),  then a single rising notification will be generated.   If the first sample after this entry is enabled is less than or equal to cnpdThresholdConfigFalling and this object is equal to falling(2) or  risingOrFalling(3), then a single falling notification  will be generated
-            	**type**\:   :py:class:`CnpdthresholdconfigstartupEnum <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.CnpdthresholdconfigstartupEnum>`
+            	**type**\:   :py:class:`Cnpdthresholdconfigstartup <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.Cnpdthresholdconfigstartup>`
             
             .. attribute:: cnpdthresholdconfigstatsselect
             
             	This object allows the management station to select the statistic used to base the threshold on.  For example a cnpdThresholdConfigStatsSelect of bitRateSum means cnpdThresholdConfigRising and cnpdThresholdConfigFalling are values based on the combined value of in and out bitrates
-            	**type**\:   :py:class:`CiscopddatatypeEnum <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscopddatatypeEnum>`
+            	**type**\:   :py:class:`Ciscopddatatype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.Ciscopddatatype>`
             
             .. attribute:: cnpdthresholdconfigstatus
             
             	This object is used to create or delete  the row entry in cnpdThresholdConfigTable.   When creating a row entry the management station  is required to specify a value for  cnpdThresholdConfigIfIndex, cnpdThresholdConfigRising  and cnpdThresholdConfigFalling.  'active' means that a createAndGo or active has  been issued, AND a valid ifIndex exists. And therefore  if a row is 'active' it means a ThresholdHistory entry  may have been generated if the value was breached.  If you set an 'active' row to 'createAndWait' \- it will  in fact get the status 'notReady'.   Likewise if you set any row to 'notInService' or 'notReady'  it will go to the 'notReady' state
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -1047,22 +1771,70 @@ class CiscoNbarProtocolDiscoveryMib(object):
             _revision = '2002-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.cnpdthresholdconfigindex = None
-                self.cnpdthresholdconfigfalling = None
-                self.cnpdthresholdconfigifindex = None
-                self.cnpdthresholdconfiginterval = None
-                self.cnpdthresholdconfigprotocol = None
-                self.cnpdthresholdconfigprotocolany = None
-                self.cnpdthresholdconfigrising = None
-                self.cnpdthresholdconfigsampletype = None
-                self.cnpdthresholdconfigstartup = None
-                self.cnpdthresholdconfigstatsselect = None
-                self.cnpdthresholdconfigstatus = None
+                super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry, self).__init__()
 
-            class CnpdthresholdconfigsampletypeEnum(Enum):
+                self.yang_name = "cnpdThresholdConfigEntry"
+                self.yang_parent_name = "cnpdThresholdConfigTable"
+
+                self.cnpdthresholdconfigindex = YLeaf(YType.uint32, "cnpdThresholdConfigIndex")
+
+                self.cnpdthresholdconfigfalling = YLeaf(YType.uint32, "cnpdThresholdConfigFalling")
+
+                self.cnpdthresholdconfigifindex = YLeaf(YType.int32, "cnpdThresholdConfigIfIndex")
+
+                self.cnpdthresholdconfiginterval = YLeaf(YType.uint32, "cnpdThresholdConfigInterval")
+
+                self.cnpdthresholdconfigprotocol = YLeaf(YType.uint32, "cnpdThresholdConfigProtocol")
+
+                self.cnpdthresholdconfigprotocolany = YLeaf(YType.boolean, "cnpdThresholdConfigProtocolAny")
+
+                self.cnpdthresholdconfigrising = YLeaf(YType.uint32, "cnpdThresholdConfigRising")
+
+                self.cnpdthresholdconfigsampletype = YLeaf(YType.enumeration, "cnpdThresholdConfigSampleType")
+
+                self.cnpdthresholdconfigstartup = YLeaf(YType.enumeration, "cnpdThresholdConfigStartup")
+
+                self.cnpdthresholdconfigstatsselect = YLeaf(YType.enumeration, "cnpdThresholdConfigStatsSelect")
+
+                self.cnpdthresholdconfigstatus = YLeaf(YType.enumeration, "cnpdThresholdConfigStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cnpdthresholdconfigindex",
+                                "cnpdthresholdconfigfalling",
+                                "cnpdthresholdconfigifindex",
+                                "cnpdthresholdconfiginterval",
+                                "cnpdthresholdconfigprotocol",
+                                "cnpdthresholdconfigprotocolany",
+                                "cnpdthresholdconfigrising",
+                                "cnpdthresholdconfigsampletype",
+                                "cnpdthresholdconfigstartup",
+                                "cnpdthresholdconfigstatsselect",
+                                "cnpdthresholdconfigstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry, self).__setattr__(name, value)
+
+            class Cnpdthresholdconfigsampletype(Enum):
                 """
-                CnpdthresholdconfigsampletypeEnum
+                Cnpdthresholdconfigsampletype
 
                 The method of sampling the selected statistic and
 
@@ -1132,20 +1904,14 @@ class CiscoNbarProtocolDiscoveryMib(object):
 
                 """
 
-                absoluteValue = 1
+                absoluteValue = Enum.YLeaf(1, "absoluteValue")
 
-                deltaValue = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                    return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.CnpdthresholdconfigsampletypeEnum']
+                deltaValue = Enum.YLeaf(2, "deltaValue")
 
 
-            class CnpdthresholdconfigstartupEnum(Enum):
+            class Cnpdthresholdconfigstartup(Enum):
                 """
-                CnpdthresholdconfigstartupEnum
+                Cnpdthresholdconfigstartup
 
                 This controls the type of notification that is 
 
@@ -1183,95 +1949,199 @@ class CiscoNbarProtocolDiscoveryMib(object):
 
                 """
 
-                rising = 1
+                rising = Enum.YLeaf(1, "rising")
 
-                falling = 2
+                falling = Enum.YLeaf(2, "falling")
 
-                risingOrFalling = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                    return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry.CnpdthresholdconfigstartupEnum']
+                risingOrFalling = Enum.YLeaf(3, "risingOrFalling")
 
 
-            @property
-            def _common_path(self):
-                if self.cnpdthresholdconfigindex is None:
-                    raise YPYModelError('Key property cnpdthresholdconfigindex is None')
+            def has_data(self):
+                return (
+                    self.cnpdthresholdconfigindex.is_set or
+                    self.cnpdthresholdconfigfalling.is_set or
+                    self.cnpdthresholdconfigifindex.is_set or
+                    self.cnpdthresholdconfiginterval.is_set or
+                    self.cnpdthresholdconfigprotocol.is_set or
+                    self.cnpdthresholdconfigprotocolany.is_set or
+                    self.cnpdthresholdconfigrising.is_set or
+                    self.cnpdthresholdconfigsampletype.is_set or
+                    self.cnpdthresholdconfigstartup.is_set or
+                    self.cnpdthresholdconfigstatsselect.is_set or
+                    self.cnpdthresholdconfigstatus.is_set)
 
-                return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdConfigTable/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdConfigEntry[CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdConfigIndex = ' + str(self.cnpdthresholdconfigindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigindex.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigfalling.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigifindex.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfiginterval.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigprotocol.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigprotocolany.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigrising.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigsampletype.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigstartup.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigstatsselect.yfilter != YFilter.not_set or
+                    self.cnpdthresholdconfigstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cnpdThresholdConfigEntry" + "[cnpdThresholdConfigIndex='" + self.cnpdthresholdconfigindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdConfigTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cnpdthresholdconfigindex.is_set or self.cnpdthresholdconfigindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigindex.get_name_leafdata())
+                if (self.cnpdthresholdconfigfalling.is_set or self.cnpdthresholdconfigfalling.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigfalling.get_name_leafdata())
+                if (self.cnpdthresholdconfigifindex.is_set or self.cnpdthresholdconfigifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigifindex.get_name_leafdata())
+                if (self.cnpdthresholdconfiginterval.is_set or self.cnpdthresholdconfiginterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfiginterval.get_name_leafdata())
+                if (self.cnpdthresholdconfigprotocol.is_set or self.cnpdthresholdconfigprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigprotocol.get_name_leafdata())
+                if (self.cnpdthresholdconfigprotocolany.is_set or self.cnpdthresholdconfigprotocolany.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigprotocolany.get_name_leafdata())
+                if (self.cnpdthresholdconfigrising.is_set or self.cnpdthresholdconfigrising.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigrising.get_name_leafdata())
+                if (self.cnpdthresholdconfigsampletype.is_set or self.cnpdthresholdconfigsampletype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigsampletype.get_name_leafdata())
+                if (self.cnpdthresholdconfigstartup.is_set or self.cnpdthresholdconfigstartup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigstartup.get_name_leafdata())
+                if (self.cnpdthresholdconfigstatsselect.is_set or self.cnpdthresholdconfigstatsselect.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigstatsselect.get_name_leafdata())
+                if (self.cnpdthresholdconfigstatus.is_set or self.cnpdthresholdconfigstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdconfigstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cnpdThresholdConfigIndex" or name == "cnpdThresholdConfigFalling" or name == "cnpdThresholdConfigIfIndex" or name == "cnpdThresholdConfigInterval" or name == "cnpdThresholdConfigProtocol" or name == "cnpdThresholdConfigProtocolAny" or name == "cnpdThresholdConfigRising" or name == "cnpdThresholdConfigSampleType" or name == "cnpdThresholdConfigStartup" or name == "cnpdThresholdConfigStatsSelect" or name == "cnpdThresholdConfigStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cnpdthresholdconfigindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cnpdThresholdConfigIndex"):
+                    self.cnpdthresholdconfigindex = value
+                    self.cnpdthresholdconfigindex.value_namespace = name_space
+                    self.cnpdthresholdconfigindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigFalling"):
+                    self.cnpdthresholdconfigfalling = value
+                    self.cnpdthresholdconfigfalling.value_namespace = name_space
+                    self.cnpdthresholdconfigfalling.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigIfIndex"):
+                    self.cnpdthresholdconfigifindex = value
+                    self.cnpdthresholdconfigifindex.value_namespace = name_space
+                    self.cnpdthresholdconfigifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigInterval"):
+                    self.cnpdthresholdconfiginterval = value
+                    self.cnpdthresholdconfiginterval.value_namespace = name_space
+                    self.cnpdthresholdconfiginterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigProtocol"):
+                    self.cnpdthresholdconfigprotocol = value
+                    self.cnpdthresholdconfigprotocol.value_namespace = name_space
+                    self.cnpdthresholdconfigprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigProtocolAny"):
+                    self.cnpdthresholdconfigprotocolany = value
+                    self.cnpdthresholdconfigprotocolany.value_namespace = name_space
+                    self.cnpdthresholdconfigprotocolany.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigRising"):
+                    self.cnpdthresholdconfigrising = value
+                    self.cnpdthresholdconfigrising.value_namespace = name_space
+                    self.cnpdthresholdconfigrising.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigSampleType"):
+                    self.cnpdthresholdconfigsampletype = value
+                    self.cnpdthresholdconfigsampletype.value_namespace = name_space
+                    self.cnpdthresholdconfigsampletype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigStartup"):
+                    self.cnpdthresholdconfigstartup = value
+                    self.cnpdthresholdconfigstartup.value_namespace = name_space
+                    self.cnpdthresholdconfigstartup.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigStatsSelect"):
+                    self.cnpdthresholdconfigstatsselect = value
+                    self.cnpdthresholdconfigstatsselect.value_namespace = name_space
+                    self.cnpdthresholdconfigstatsselect.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdConfigStatus"):
+                    self.cnpdthresholdconfigstatus = value
+                    self.cnpdthresholdconfigstatus.value_namespace = name_space
+                    self.cnpdthresholdconfigstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cnpdthresholdconfigentry:
+                if (c.has_data()):
                     return True
-
-                if self.cnpdthresholdconfigfalling is not None:
-                    return True
-
-                if self.cnpdthresholdconfigifindex is not None:
-                    return True
-
-                if self.cnpdthresholdconfiginterval is not None:
-                    return True
-
-                if self.cnpdthresholdconfigprotocol is not None:
-                    return True
-
-                if self.cnpdthresholdconfigprotocolany is not None:
-                    return True
-
-                if self.cnpdthresholdconfigrising is not None:
-                    return True
-
-                if self.cnpdthresholdconfigsampletype is not None:
-                    return True
-
-                if self.cnpdthresholdconfigstartup is not None:
-                    return True
-
-                if self.cnpdthresholdconfigstatsselect is not None:
-                    return True
-
-                if self.cnpdthresholdconfigstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdConfigTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cnpdthresholdconfigentry is not None:
-                for child_ref in self.cnpdthresholdconfigentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cnpdthresholdconfigentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdThresholdConfigTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cnpdThresholdConfigEntry"):
+                for c in self.cnpdthresholdconfigentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable.Cnpdthresholdconfigentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cnpdthresholdconfigentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdThresholdConfigEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cnpdthresholdhistorytable(object):
+    class Cnpdthresholdhistorytable(Entity):
         """
         The Threshold History table. Notifications
         are unreliable so this table provides a
@@ -1292,13 +2162,39 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdthresholdhistoryentry = YList()
-            self.cnpdthresholdhistoryentry.parent = self
-            self.cnpdthresholdhistoryentry.name = 'cnpdthresholdhistoryentry'
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable, self).__init__()
+
+            self.yang_name = "cnpdThresholdHistoryTable"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
+            self.cnpdthresholdhistoryentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable, self).__setattr__(name, value)
 
 
-        class Cnpdthresholdhistoryentry(object):
+        class Cnpdthresholdhistoryentry(Entity):
             """
             This entry is created each time a threshold 
             is breached. 
@@ -1332,7 +2228,7 @@ class CiscoNbarProtocolDiscoveryMib(object):
             .. attribute:: cnpdthresholdhistorystatsselect
             
             	This is the statistic used to base the threshold on
-            	**type**\:   :py:class:`CiscopddatatypeEnum <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscopddatatypeEnum>`
+            	**type**\:   :py:class:`Ciscopddatatype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.Ciscopddatatype>`
             
             .. attribute:: cnpdthresholdhistorytime
             
@@ -1344,7 +2240,7 @@ class CiscoNbarProtocolDiscoveryMib(object):
             .. attribute:: cnpdthresholdhistorytype
             
             	Describes whether this is an event caused by a rising or falling threshold breach
-            	**type**\:   :py:class:`CnpdthresholdhistorytypeEnum <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry.CnpdthresholdhistorytypeEnum>`
+            	**type**\:   :py:class:`Cnpdthresholdhistorytype <ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB.CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry.Cnpdthresholdhistorytype>`
             
             .. attribute:: cnpdthresholdhistoryvalue
             
@@ -1361,18 +2257,58 @@ class CiscoNbarProtocolDiscoveryMib(object):
             _revision = '2002-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.cnpdthresholdhistoryindex = None
-                self.cnpdthresholdhistoryconfigindex = None
-                self.cnpdthresholdhistoryprotocol = None
-                self.cnpdthresholdhistorystatsselect = None
-                self.cnpdthresholdhistorytime = None
-                self.cnpdthresholdhistorytype = None
-                self.cnpdthresholdhistoryvalue = None
+                super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry, self).__init__()
 
-            class CnpdthresholdhistorytypeEnum(Enum):
+                self.yang_name = "cnpdThresholdHistoryEntry"
+                self.yang_parent_name = "cnpdThresholdHistoryTable"
+
+                self.cnpdthresholdhistoryindex = YLeaf(YType.uint32, "cnpdThresholdHistoryIndex")
+
+                self.cnpdthresholdhistoryconfigindex = YLeaf(YType.uint32, "cnpdThresholdHistoryConfigIndex")
+
+                self.cnpdthresholdhistoryprotocol = YLeaf(YType.uint32, "cnpdThresholdHistoryProtocol")
+
+                self.cnpdthresholdhistorystatsselect = YLeaf(YType.enumeration, "cnpdThresholdHistoryStatsSelect")
+
+                self.cnpdthresholdhistorytime = YLeaf(YType.uint32, "cnpdThresholdHistoryTime")
+
+                self.cnpdthresholdhistorytype = YLeaf(YType.enumeration, "cnpdThresholdHistoryType")
+
+                self.cnpdthresholdhistoryvalue = YLeaf(YType.uint32, "cnpdThresholdHistoryValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cnpdthresholdhistoryindex",
+                                "cnpdthresholdhistoryconfigindex",
+                                "cnpdthresholdhistoryprotocol",
+                                "cnpdthresholdhistorystatsselect",
+                                "cnpdthresholdhistorytime",
+                                "cnpdthresholdhistorytype",
+                                "cnpdthresholdhistoryvalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry, self).__setattr__(name, value)
+
+            class Cnpdthresholdhistorytype(Enum):
                 """
-                CnpdthresholdhistorytypeEnum
+                Cnpdthresholdhistorytype
 
                 Describes whether this is an
 
@@ -1386,81 +2322,165 @@ class CiscoNbarProtocolDiscoveryMib(object):
 
                 """
 
-                risingBreach = 1
+                risingBreach = Enum.YLeaf(1, "risingBreach")
 
-                fallingBreach = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                    return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry.CnpdthresholdhistorytypeEnum']
+                fallingBreach = Enum.YLeaf(2, "fallingBreach")
 
 
-            @property
-            def _common_path(self):
-                if self.cnpdthresholdhistoryindex is None:
-                    raise YPYModelError('Key property cnpdthresholdhistoryindex is None')
+            def has_data(self):
+                return (
+                    self.cnpdthresholdhistoryindex.is_set or
+                    self.cnpdthresholdhistoryconfigindex.is_set or
+                    self.cnpdthresholdhistoryprotocol.is_set or
+                    self.cnpdthresholdhistorystatsselect.is_set or
+                    self.cnpdthresholdhistorytime.is_set or
+                    self.cnpdthresholdhistorytype.is_set or
+                    self.cnpdthresholdhistoryvalue.is_set)
 
-                return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdHistoryTable/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdHistoryEntry[CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdHistoryIndex = ' + str(self.cnpdthresholdhistoryindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cnpdthresholdhistoryindex.yfilter != YFilter.not_set or
+                    self.cnpdthresholdhistoryconfigindex.yfilter != YFilter.not_set or
+                    self.cnpdthresholdhistoryprotocol.yfilter != YFilter.not_set or
+                    self.cnpdthresholdhistorystatsselect.yfilter != YFilter.not_set or
+                    self.cnpdthresholdhistorytime.yfilter != YFilter.not_set or
+                    self.cnpdthresholdhistorytype.yfilter != YFilter.not_set or
+                    self.cnpdthresholdhistoryvalue.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cnpdThresholdHistoryEntry" + "[cnpdThresholdHistoryIndex='" + self.cnpdthresholdhistoryindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdHistoryTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cnpdthresholdhistoryindex.is_set or self.cnpdthresholdhistoryindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdhistoryindex.get_name_leafdata())
+                if (self.cnpdthresholdhistoryconfigindex.is_set or self.cnpdthresholdhistoryconfigindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdhistoryconfigindex.get_name_leafdata())
+                if (self.cnpdthresholdhistoryprotocol.is_set or self.cnpdthresholdhistoryprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdhistoryprotocol.get_name_leafdata())
+                if (self.cnpdthresholdhistorystatsselect.is_set or self.cnpdthresholdhistorystatsselect.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdhistorystatsselect.get_name_leafdata())
+                if (self.cnpdthresholdhistorytime.is_set or self.cnpdthresholdhistorytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdhistorytime.get_name_leafdata())
+                if (self.cnpdthresholdhistorytype.is_set or self.cnpdthresholdhistorytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdhistorytype.get_name_leafdata())
+                if (self.cnpdthresholdhistoryvalue.is_set or self.cnpdthresholdhistoryvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdthresholdhistoryvalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cnpdThresholdHistoryIndex" or name == "cnpdThresholdHistoryConfigIndex" or name == "cnpdThresholdHistoryProtocol" or name == "cnpdThresholdHistoryStatsSelect" or name == "cnpdThresholdHistoryTime" or name == "cnpdThresholdHistoryType" or name == "cnpdThresholdHistoryValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cnpdthresholdhistoryindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cnpdThresholdHistoryIndex"):
+                    self.cnpdthresholdhistoryindex = value
+                    self.cnpdthresholdhistoryindex.value_namespace = name_space
+                    self.cnpdthresholdhistoryindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdHistoryConfigIndex"):
+                    self.cnpdthresholdhistoryconfigindex = value
+                    self.cnpdthresholdhistoryconfigindex.value_namespace = name_space
+                    self.cnpdthresholdhistoryconfigindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdHistoryProtocol"):
+                    self.cnpdthresholdhistoryprotocol = value
+                    self.cnpdthresholdhistoryprotocol.value_namespace = name_space
+                    self.cnpdthresholdhistoryprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdHistoryStatsSelect"):
+                    self.cnpdthresholdhistorystatsselect = value
+                    self.cnpdthresholdhistorystatsselect.value_namespace = name_space
+                    self.cnpdthresholdhistorystatsselect.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdHistoryTime"):
+                    self.cnpdthresholdhistorytime = value
+                    self.cnpdthresholdhistorytime.value_namespace = name_space
+                    self.cnpdthresholdhistorytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdHistoryType"):
+                    self.cnpdthresholdhistorytype = value
+                    self.cnpdthresholdhistorytype.value_namespace = name_space
+                    self.cnpdthresholdhistorytype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdThresholdHistoryValue"):
+                    self.cnpdthresholdhistoryvalue = value
+                    self.cnpdthresholdhistoryvalue.value_namespace = name_space
+                    self.cnpdthresholdhistoryvalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cnpdthresholdhistoryentry:
+                if (c.has_data()):
                     return True
-
-                if self.cnpdthresholdhistoryconfigindex is not None:
-                    return True
-
-                if self.cnpdthresholdhistoryprotocol is not None:
-                    return True
-
-                if self.cnpdthresholdhistorystatsselect is not None:
-                    return True
-
-                if self.cnpdthresholdhistorytime is not None:
-                    return True
-
-                if self.cnpdthresholdhistorytype is not None:
-                    return True
-
-                if self.cnpdthresholdhistoryvalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdThresholdHistoryTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cnpdthresholdhistoryentry is not None:
-                for child_ref in self.cnpdthresholdhistoryentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cnpdthresholdhistoryentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdThresholdHistoryTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cnpdThresholdHistoryEntry"):
+                for c in self.cnpdthresholdhistoryentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable.Cnpdthresholdhistoryentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cnpdthresholdhistoryentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdThresholdHistoryEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cnpdsupportedprotocolstable(object):
+    class Cnpdsupportedprotocolstable(Entity):
         """
         The Supported Protocols table lists all the 
         protocols and applications which NBAR is currently
@@ -1479,13 +2499,39 @@ class CiscoNbarProtocolDiscoveryMib(object):
         _revision = '2002-08-16'
 
         def __init__(self):
-            self.parent = None
-            self.cnpdsupportedprotocolsentry = YList()
-            self.cnpdsupportedprotocolsentry.parent = self
-            self.cnpdsupportedprotocolsentry.name = 'cnpdsupportedprotocolsentry'
+            super(CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable, self).__init__()
+
+            self.yang_name = "cnpdSupportedProtocolsTable"
+            self.yang_parent_name = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+
+            self.cnpdsupportedprotocolsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable, self).__setattr__(name, value)
 
 
-        class Cnpdsupportedprotocolsentry(object):
+        class Cnpdsupportedprotocolsentry(Entity):
             """
             A entry in the Supported Protocols table reflecting
             key information about a protocol.
@@ -1512,96 +2558,264 @@ class CiscoNbarProtocolDiscoveryMib(object):
             _revision = '2002-08-16'
 
             def __init__(self):
-                self.parent = None
-                self.cnpdsupportedprotocolsindex = None
-                self.cnpdsupportedprotocolsname = None
+                super(CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cnpdsupportedprotocolsindex is None:
-                    raise YPYModelError('Key property cnpdsupportedprotocolsindex is None')
+                self.yang_name = "cnpdSupportedProtocolsEntry"
+                self.yang_parent_name = "cnpdSupportedProtocolsTable"
 
-                return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdSupportedProtocolsTable/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdSupportedProtocolsEntry[CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdSupportedProtocolsIndex = ' + str(self.cnpdsupportedprotocolsindex) + ']'
+                self.cnpdsupportedprotocolsindex = YLeaf(YType.uint32, "cnpdSupportedProtocolsIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cnpdsupportedprotocolsname = YLeaf(YType.str, "cnpdSupportedProtocolsName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cnpdsupportedprotocolsindex",
+                                "cnpdsupportedprotocolsname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cnpdsupportedprotocolsindex.is_set or
+                    self.cnpdsupportedprotocolsname.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cnpdsupportedprotocolsindex.yfilter != YFilter.not_set or
+                    self.cnpdsupportedprotocolsname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cnpdSupportedProtocolsEntry" + "[cnpdSupportedProtocolsIndex='" + self.cnpdsupportedprotocolsindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdSupportedProtocolsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cnpdsupportedprotocolsindex.is_set or self.cnpdsupportedprotocolsindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdsupportedprotocolsindex.get_name_leafdata())
+                if (self.cnpdsupportedprotocolsname.is_set or self.cnpdsupportedprotocolsname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cnpdsupportedprotocolsname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cnpdSupportedProtocolsIndex" or name == "cnpdSupportedProtocolsName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cnpdsupportedprotocolsindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cnpdSupportedProtocolsIndex"):
+                    self.cnpdsupportedprotocolsindex = value
+                    self.cnpdsupportedprotocolsindex.value_namespace = name_space
+                    self.cnpdsupportedprotocolsindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cnpdSupportedProtocolsName"):
+                    self.cnpdsupportedprotocolsname = value
+                    self.cnpdsupportedprotocolsname.value_namespace = name_space
+                    self.cnpdsupportedprotocolsname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cnpdsupportedprotocolsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cnpdsupportedprotocolsname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-                return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:cnpdSupportedProtocolsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cnpdsupportedprotocolsentry is not None:
-                for child_ref in self.cnpdsupportedprotocolsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cnpdsupportedprotocolsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cnpdSupportedProtocolsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cnpdSupportedProtocolsEntry"):
+                for c in self.cnpdsupportedprotocolsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cnpdsupportedprotocolsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cnpdSupportedProtocolsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-            return meta._meta_table['CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cnpdallstatstable is not None and self.cnpdallstatstable.has_data()) or
+            (self.cnpdnotificationsconfig is not None and self.cnpdnotificationsconfig.has_data()) or
+            (self.cnpdstatustable is not None and self.cnpdstatustable.has_data()) or
+            (self.cnpdsupportedprotocolstable is not None and self.cnpdsupportedprotocolstable.has_data()) or
+            (self.cnpdthresholdconfigtable is not None and self.cnpdthresholdconfigtable.has_data()) or
+            (self.cnpdthresholdhistorytable is not None and self.cnpdthresholdhistorytable.has_data()) or
+            (self.cnpdtopnconfigtable is not None and self.cnpdtopnconfigtable.has_data()) or
+            (self.cnpdtopnstatstable is not None and self.cnpdtopnstatstable.has_data()))
 
-        return '/CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cnpdallstatstable is not None and self.cnpdallstatstable.has_operation()) or
+            (self.cnpdnotificationsconfig is not None and self.cnpdnotificationsconfig.has_operation()) or
+            (self.cnpdstatustable is not None and self.cnpdstatustable.has_operation()) or
+            (self.cnpdsupportedprotocolstable is not None and self.cnpdsupportedprotocolstable.has_operation()) or
+            (self.cnpdthresholdconfigtable is not None and self.cnpdthresholdconfigtable.has_operation()) or
+            (self.cnpdthresholdhistorytable is not None and self.cnpdthresholdhistorytable.has_operation()) or
+            (self.cnpdtopnconfigtable is not None and self.cnpdtopnconfigtable.has_operation()) or
+            (self.cnpdtopnstatstable is not None and self.cnpdtopnstatstable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cnpdAllStatsTable"):
+            if (self.cnpdallstatstable is None):
+                self.cnpdallstatstable = CiscoNbarProtocolDiscoveryMib.Cnpdallstatstable()
+                self.cnpdallstatstable.parent = self
+                self._children_name_map["cnpdallstatstable"] = "cnpdAllStatsTable"
+            return self.cnpdallstatstable
+
+        if (child_yang_name == "cnpdNotificationsConfig"):
+            if (self.cnpdnotificationsconfig is None):
+                self.cnpdnotificationsconfig = CiscoNbarProtocolDiscoveryMib.Cnpdnotificationsconfig()
+                self.cnpdnotificationsconfig.parent = self
+                self._children_name_map["cnpdnotificationsconfig"] = "cnpdNotificationsConfig"
+            return self.cnpdnotificationsconfig
+
+        if (child_yang_name == "cnpdStatusTable"):
+            if (self.cnpdstatustable is None):
+                self.cnpdstatustable = CiscoNbarProtocolDiscoveryMib.Cnpdstatustable()
+                self.cnpdstatustable.parent = self
+                self._children_name_map["cnpdstatustable"] = "cnpdStatusTable"
+            return self.cnpdstatustable
+
+        if (child_yang_name == "cnpdSupportedProtocolsTable"):
+            if (self.cnpdsupportedprotocolstable is None):
+                self.cnpdsupportedprotocolstable = CiscoNbarProtocolDiscoveryMib.Cnpdsupportedprotocolstable()
+                self.cnpdsupportedprotocolstable.parent = self
+                self._children_name_map["cnpdsupportedprotocolstable"] = "cnpdSupportedProtocolsTable"
+            return self.cnpdsupportedprotocolstable
+
+        if (child_yang_name == "cnpdThresholdConfigTable"):
+            if (self.cnpdthresholdconfigtable is None):
+                self.cnpdthresholdconfigtable = CiscoNbarProtocolDiscoveryMib.Cnpdthresholdconfigtable()
+                self.cnpdthresholdconfigtable.parent = self
+                self._children_name_map["cnpdthresholdconfigtable"] = "cnpdThresholdConfigTable"
+            return self.cnpdthresholdconfigtable
+
+        if (child_yang_name == "cnpdThresholdHistoryTable"):
+            if (self.cnpdthresholdhistorytable is None):
+                self.cnpdthresholdhistorytable = CiscoNbarProtocolDiscoveryMib.Cnpdthresholdhistorytable()
+                self.cnpdthresholdhistorytable.parent = self
+                self._children_name_map["cnpdthresholdhistorytable"] = "cnpdThresholdHistoryTable"
+            return self.cnpdthresholdhistorytable
+
+        if (child_yang_name == "cnpdTopNConfigTable"):
+            if (self.cnpdtopnconfigtable is None):
+                self.cnpdtopnconfigtable = CiscoNbarProtocolDiscoveryMib.Cnpdtopnconfigtable()
+                self.cnpdtopnconfigtable.parent = self
+                self._children_name_map["cnpdtopnconfigtable"] = "cnpdTopNConfigTable"
+            return self.cnpdtopnconfigtable
+
+        if (child_yang_name == "cnpdTopNStatsTable"):
+            if (self.cnpdtopnstatstable is None):
+                self.cnpdtopnstatstable = CiscoNbarProtocolDiscoveryMib.Cnpdtopnstatstable()
+                self.cnpdtopnstatstable.parent = self
+                self._children_name_map["cnpdtopnstatstable"] = "cnpdTopNStatsTable"
+            return self.cnpdtopnstatstable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cnpdAllStatsTable" or name == "cnpdNotificationsConfig" or name == "cnpdStatusTable" or name == "cnpdSupportedProtocolsTable" or name == "cnpdThresholdConfigTable" or name == "cnpdThresholdHistoryTable" or name == "cnpdTopNConfigTable" or name == "cnpdTopNStatsTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cnpdallstatstable is not None and self.cnpdallstatstable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cnpdnotificationsconfig is not None and self.cnpdnotificationsconfig._has_data():
-            return True
-
-        if self.cnpdstatustable is not None and self.cnpdstatustable._has_data():
-            return True
-
-        if self.cnpdsupportedprotocolstable is not None and self.cnpdsupportedprotocolstable._has_data():
-            return True
-
-        if self.cnpdthresholdconfigtable is not None and self.cnpdthresholdconfigtable._has_data():
-            return True
-
-        if self.cnpdthresholdhistorytable is not None and self.cnpdthresholdhistorytable._has_data():
-            return True
-
-        if self.cnpdtopnconfigtable is not None and self.cnpdtopnconfigtable._has_data():
-            return True
-
-        if self.cnpdtopnstatstable is not None and self.cnpdtopnstatstable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_NBAR_PROTOCOL_DISCOVERY_MIB as meta
-        return meta._meta_table['CiscoNbarProtocolDiscoveryMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoNbarProtocolDiscoveryMib()
+        return self._top_entity
 

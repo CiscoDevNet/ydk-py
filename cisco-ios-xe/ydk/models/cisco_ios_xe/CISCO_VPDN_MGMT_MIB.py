@@ -53,22 +53,16 @@ User ===== Cisco A ===== IP Network ===== Cisco B ===== Server
    recorded per user and provides relevant information.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EndpointclassEnum(Enum):
+class Endpointclass(Enum):
     """
-    EndpointclassEnum
+    Endpointclass
 
     The endpoint discriminator class supplied by the remote peer in
 
@@ -150,28 +144,22 @@ class EndpointclassEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    local = 2
+    local = Enum.YLeaf(2, "local")
 
-    ipV4Address = 3
+    ipV4Address = Enum.YLeaf(3, "ipV4Address")
 
-    macAddress = 4
+    macAddress = Enum.YLeaf(4, "macAddress")
 
-    magicNumber = 5
+    magicNumber = Enum.YLeaf(5, "magicNumber")
 
-    phone = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-        return meta._meta_table['EndpointclassEnum']
+    phone = Enum.YLeaf(6, "phone")
 
 
-class TunneltypeEnum(Enum):
+class Tunneltype(Enum):
     """
-    TunneltypeEnum
+    Tunneltype
 
     The tunnel type.  This is the tunnel protocol of a VPDN
 
@@ -185,21 +173,15 @@ class TunneltypeEnum(Enum):
 
     """
 
-    l2f = 1
+    l2f = Enum.YLeaf(1, "l2f")
 
-    l2tp = 2
+    l2tp = Enum.YLeaf(2, "l2tp")
 
-    pptp = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-        return meta._meta_table['TunneltypeEnum']
+    pptp = Enum.YLeaf(3, "pptp")
 
 
 
-class CiscoVpdnMgmtMib(object):
+class CiscoVpdnMgmtMib(Entity):
     """
     
     
@@ -275,40 +257,81 @@ class CiscoVpdnMgmtMib(object):
     _revision = '2009-06-16'
 
     def __init__(self):
+        super(CiscoVpdnMgmtMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-VPDN-MGMT-MIB"
+        self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
         self.ciscovpdnmgmtmibnotifs = CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs()
         self.ciscovpdnmgmtmibnotifs.parent = self
+        self._children_name_map["ciscovpdnmgmtmibnotifs"] = "ciscoVpdnMgmtMIBNotifs"
+        self._children_yang_names.add("ciscoVpdnMgmtMIBNotifs")
+
         self.cvpdnbundlechildtable = CiscoVpdnMgmtMib.Cvpdnbundlechildtable()
         self.cvpdnbundlechildtable.parent = self
+        self._children_name_map["cvpdnbundlechildtable"] = "cvpdnBundleChildTable"
+        self._children_yang_names.add("cvpdnBundleChildTable")
+
         self.cvpdnbundletable = CiscoVpdnMgmtMib.Cvpdnbundletable()
         self.cvpdnbundletable.parent = self
+        self._children_name_map["cvpdnbundletable"] = "cvpdnBundleTable"
+        self._children_yang_names.add("cvpdnBundleTable")
+
         self.cvpdnmultilinkinfo = CiscoVpdnMgmtMib.Cvpdnmultilinkinfo()
         self.cvpdnmultilinkinfo.parent = self
+        self._children_name_map["cvpdnmultilinkinfo"] = "cvpdnMultilinkInfo"
+        self._children_yang_names.add("cvpdnMultilinkInfo")
+
         self.cvpdnsessionattrtable = CiscoVpdnMgmtMib.Cvpdnsessionattrtable()
         self.cvpdnsessionattrtable.parent = self
+        self._children_name_map["cvpdnsessionattrtable"] = "cvpdnSessionAttrTable"
+        self._children_yang_names.add("cvpdnSessionAttrTable")
+
         self.cvpdnsysteminfo = CiscoVpdnMgmtMib.Cvpdnsysteminfo()
         self.cvpdnsysteminfo.parent = self
+        self._children_name_map["cvpdnsysteminfo"] = "cvpdnSystemInfo"
+        self._children_yang_names.add("cvpdnSystemInfo")
+
         self.cvpdnsystemtable = CiscoVpdnMgmtMib.Cvpdnsystemtable()
         self.cvpdnsystemtable.parent = self
+        self._children_name_map["cvpdnsystemtable"] = "cvpdnSystemTable"
+        self._children_yang_names.add("cvpdnSystemTable")
+
         self.cvpdntemplatetable = CiscoVpdnMgmtMib.Cvpdntemplatetable()
         self.cvpdntemplatetable.parent = self
+        self._children_name_map["cvpdntemplatetable"] = "cvpdnTemplateTable"
+        self._children_yang_names.add("cvpdnTemplateTable")
+
         self.cvpdntunnelattrtable = CiscoVpdnMgmtMib.Cvpdntunnelattrtable()
         self.cvpdntunnelattrtable.parent = self
+        self._children_name_map["cvpdntunnelattrtable"] = "cvpdnTunnelAttrTable"
+        self._children_yang_names.add("cvpdnTunnelAttrTable")
+
         self.cvpdntunnelsessiontable = CiscoVpdnMgmtMib.Cvpdntunnelsessiontable()
         self.cvpdntunnelsessiontable.parent = self
+        self._children_name_map["cvpdntunnelsessiontable"] = "cvpdnTunnelSessionTable"
+        self._children_yang_names.add("cvpdnTunnelSessionTable")
+
         self.cvpdntunneltable = CiscoVpdnMgmtMib.Cvpdntunneltable()
         self.cvpdntunneltable.parent = self
+        self._children_name_map["cvpdntunneltable"] = "cvpdnTunnelTable"
+        self._children_yang_names.add("cvpdnTunnelTable")
+
         self.cvpdnusertofailhistinfotable = CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable()
         self.cvpdnusertofailhistinfotable.parent = self
+        self._children_name_map["cvpdnusertofailhistinfotable"] = "cvpdnUserToFailHistInfoTable"
+        self._children_yang_names.add("cvpdnUserToFailHistInfoTable")
 
 
-    class Ciscovpdnmgmtmibnotifs(object):
+    class Ciscovpdnmgmtmibnotifs(Entity):
         """
         
         
         .. attribute:: cvpdnnotifsessionevent
         
         	Indicates the event that generated the L2X session notification.  The events are represented as follows\:  up\:     Session has come up.  down\:   Session has gone down.  pwUp\:   Pseudowire associated with this          session has come up.  pwDown\: Pseudowire associated with this          session has gone down
-        	**type**\:   :py:class:`CvpdnnotifsessioneventEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs.CvpdnnotifsessioneventEnum>`
+        	**type**\:   :py:class:`Cvpdnnotifsessionevent <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs.Cvpdnnotifsessionevent>`
         
         .. attribute:: cvpdnnotifsessionid
         
@@ -325,13 +348,43 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdnnotifsessionevent = None
-            self.cvpdnnotifsessionid = None
+            super(CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs, self).__init__()
 
-        class CvpdnnotifsessioneventEnum(Enum):
+            self.yang_name = "ciscoVpdnMgmtMIBNotifs"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdnnotifsessionevent = YLeaf(YType.enumeration, "cvpdnNotifSessionEvent")
+
+            self.cvpdnnotifsessionid = YLeaf(YType.int32, "cvpdnNotifSessionID")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvpdnnotifsessionevent",
+                            "cvpdnnotifsessionid") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs, self).__setattr__(name, value)
+
+        class Cvpdnnotifsessionevent(Enum):
             """
-            CvpdnnotifsessioneventEnum
+            Cvpdnnotifsessionevent
 
             Indicates the event that generated the L2X session
 
@@ -361,46 +414,72 @@ class CiscoVpdnMgmtMib(object):
 
             """
 
-            up = 1
+            up = Enum.YLeaf(1, "up")
 
-            down = 2
+            down = Enum.YLeaf(2, "down")
 
-            pwUp = 3
+            pwUp = Enum.YLeaf(3, "pwUp")
 
-            pwDown = 4
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs.CvpdnnotifsessioneventEnum']
+            pwDown = Enum.YLeaf(4, "pwDown")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.cvpdnnotifsessionevent.is_set or
+                self.cvpdnnotifsessionid.is_set)
 
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:ciscoVpdnMgmtMIBNotifs'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvpdnnotifsessionevent.yfilter != YFilter.not_set or
+                self.cvpdnnotifsessionid.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoVpdnMgmtMIBNotifs" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvpdnnotifsessionevent.is_set or self.cvpdnnotifsessionevent.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnnotifsessionevent.get_name_leafdata())
+            if (self.cvpdnnotifsessionid.is_set or self.cvpdnnotifsessionid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnnotifsessionid.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnNotifSessionEvent" or name == "cvpdnNotifSessionID"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvpdnnotifsessionevent is not None:
-                return True
-
-            if self.cvpdnnotifsessionid is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvpdnNotifSessionEvent"):
+                self.cvpdnnotifsessionevent = value
+                self.cvpdnnotifsessionevent.value_namespace = name_space
+                self.cvpdnnotifsessionevent.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnNotifSessionID"):
+                self.cvpdnnotifsessionid = value
+                self.cvpdnnotifsessionid.value_namespace = name_space
+                self.cvpdnnotifsessionid.value_namespace_prefix = name_space_prefix
 
 
-    class Cvpdnsysteminfo(object):
+    class Cvpdnsysteminfo(Entity):
         """
         
         
@@ -429,7 +508,7 @@ class CiscoVpdnMgmtMib(object):
         .. attribute:: cvpdnsystemclearsessions
         
         	Clears all the sessions in a given tunnel type.  When reading this object, the value of 'none' will always be returned.  When setting these values, the following operations will be performed\:      none\: no operation.      all\:  clears all the sessions in all the tunnels.      l2f\:  clears all the L2F sessions.      l2tp\: clears all the L2TP sessions.      pptp\: clears all the PPTP sessions
-        	**type**\:   :py:class:`CvpdnsystemclearsessionsEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnsysteminfo.CvpdnsystemclearsessionsEnum>`
+        	**type**\:   :py:class:`Cvpdnsystemclearsessions <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnsysteminfo.Cvpdnsystemclearsessions>`
         
         .. attribute:: cvpdnsystemnotifsessionenabled
         
@@ -455,16 +534,52 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdndenieduserstotal = None
-            self.cvpdnsessiontotal = None
-            self.cvpdnsystemclearsessions = None
-            self.cvpdnsystemnotifsessionenabled = None
-            self.cvpdntunneltotal = None
+            super(CiscoVpdnMgmtMib.Cvpdnsysteminfo, self).__init__()
 
-        class CvpdnsystemclearsessionsEnum(Enum):
+            self.yang_name = "cvpdnSystemInfo"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdndenieduserstotal = YLeaf(YType.uint32, "cvpdnDeniedUsersTotal")
+
+            self.cvpdnsessiontotal = YLeaf(YType.uint32, "cvpdnSessionTotal")
+
+            self.cvpdnsystemclearsessions = YLeaf(YType.enumeration, "cvpdnSystemClearSessions")
+
+            self.cvpdnsystemnotifsessionenabled = YLeaf(YType.boolean, "cvpdnSystemNotifSessionEnabled")
+
+            self.cvpdntunneltotal = YLeaf(YType.uint32, "cvpdnTunnelTotal")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvpdndenieduserstotal",
+                            "cvpdnsessiontotal",
+                            "cvpdnsystemclearsessions",
+                            "cvpdnsystemnotifsessionenabled",
+                            "cvpdntunneltotal") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdnsysteminfo, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdnsysteminfo, self).__setattr__(name, value)
+
+        class Cvpdnsystemclearsessions(Enum):
             """
-            CvpdnsystemclearsessionsEnum
+            Cvpdnsystemclearsessions
 
             Clears all the sessions in a given tunnel type.  When
 
@@ -498,57 +613,98 @@ class CiscoVpdnMgmtMib(object):
 
             """
 
-            none = 1
+            none = Enum.YLeaf(1, "none")
 
-            all = 2
+            all = Enum.YLeaf(2, "all")
 
-            l2f = 3
+            l2f = Enum.YLeaf(3, "l2f")
 
-            l2tp = 4
+            l2tp = Enum.YLeaf(4, "l2tp")
 
-            pptp = 5
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsysteminfo.CvpdnsystemclearsessionsEnum']
+            pptp = Enum.YLeaf(5, "pptp")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.cvpdndenieduserstotal.is_set or
+                self.cvpdnsessiontotal.is_set or
+                self.cvpdnsystemclearsessions.is_set or
+                self.cvpdnsystemnotifsessionenabled.is_set or
+                self.cvpdntunneltotal.is_set)
 
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnSystemInfo'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvpdndenieduserstotal.yfilter != YFilter.not_set or
+                self.cvpdnsessiontotal.yfilter != YFilter.not_set or
+                self.cvpdnsystemclearsessions.yfilter != YFilter.not_set or
+                self.cvpdnsystemnotifsessionenabled.yfilter != YFilter.not_set or
+                self.cvpdntunneltotal.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnSystemInfo" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvpdndenieduserstotal.is_set or self.cvpdndenieduserstotal.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdndenieduserstotal.get_name_leafdata())
+            if (self.cvpdnsessiontotal.is_set or self.cvpdnsessiontotal.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnsessiontotal.get_name_leafdata())
+            if (self.cvpdnsystemclearsessions.is_set or self.cvpdnsystemclearsessions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnsystemclearsessions.get_name_leafdata())
+            if (self.cvpdnsystemnotifsessionenabled.is_set or self.cvpdnsystemnotifsessionenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnsystemnotifsessionenabled.get_name_leafdata())
+            if (self.cvpdntunneltotal.is_set or self.cvpdntunneltotal.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdntunneltotal.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnDeniedUsersTotal" or name == "cvpdnSessionTotal" or name == "cvpdnSystemClearSessions" or name == "cvpdnSystemNotifSessionEnabled" or name == "cvpdnTunnelTotal"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvpdndenieduserstotal is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvpdnDeniedUsersTotal"):
+                self.cvpdndenieduserstotal = value
+                self.cvpdndenieduserstotal.value_namespace = name_space
+                self.cvpdndenieduserstotal.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnSessionTotal"):
+                self.cvpdnsessiontotal = value
+                self.cvpdnsessiontotal.value_namespace = name_space
+                self.cvpdnsessiontotal.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnSystemClearSessions"):
+                self.cvpdnsystemclearsessions = value
+                self.cvpdnsystemclearsessions.value_namespace = name_space
+                self.cvpdnsystemclearsessions.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnSystemNotifSessionEnabled"):
+                self.cvpdnsystemnotifsessionenabled = value
+                self.cvpdnsystemnotifsessionenabled.value_namespace = name_space
+                self.cvpdnsystemnotifsessionenabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnTunnelTotal"):
+                self.cvpdntunneltotal = value
+                self.cvpdntunneltotal.value_namespace = name_space
+                self.cvpdntunneltotal.value_namespace_prefix = name_space_prefix
 
-            if self.cvpdnsessiontotal is not None:
-                return True
 
-            if self.cvpdnsystemclearsessions is not None:
-                return True
-
-            if self.cvpdnsystemnotifsessionenabled is not None:
-                return True
-
-            if self.cvpdntunneltotal is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsysteminfo']['meta_info']
-
-
-    class Cvpdnmultilinkinfo(object):
+    class Cvpdnmultilinkinfo(Entity):
         """
         
         
@@ -588,43 +744,119 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdnbundlelastchanged = None
-            self.cvpdnbundleswithmorethantwolinks = None
-            self.cvpdnbundleswithonelink = None
-            self.cvpdnbundleswithtwolinks = None
+            super(CiscoVpdnMgmtMib.Cvpdnmultilinkinfo, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cvpdnMultilinkInfo"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
 
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnMultilinkInfo'
+            self.cvpdnbundlelastchanged = YLeaf(YType.uint32, "cvpdnBundleLastChanged")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cvpdnbundleswithmorethantwolinks = YLeaf(YType.uint32, "cvpdnBundlesWithMoreThanTwoLinks")
+
+            self.cvpdnbundleswithonelink = YLeaf(YType.uint32, "cvpdnBundlesWithOneLink")
+
+            self.cvpdnbundleswithtwolinks = YLeaf(YType.uint32, "cvpdnBundlesWithTwoLinks")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cvpdnbundlelastchanged",
+                            "cvpdnbundleswithmorethantwolinks",
+                            "cvpdnbundleswithonelink",
+                            "cvpdnbundleswithtwolinks") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdnmultilinkinfo, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdnmultilinkinfo, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cvpdnbundlelastchanged.is_set or
+                self.cvpdnbundleswithmorethantwolinks.is_set or
+                self.cvpdnbundleswithonelink.is_set or
+                self.cvpdnbundleswithtwolinks.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cvpdnbundlelastchanged.yfilter != YFilter.not_set or
+                self.cvpdnbundleswithmorethantwolinks.yfilter != YFilter.not_set or
+                self.cvpdnbundleswithonelink.yfilter != YFilter.not_set or
+                self.cvpdnbundleswithtwolinks.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnMultilinkInfo" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cvpdnbundlelastchanged.is_set or self.cvpdnbundlelastchanged.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnbundlelastchanged.get_name_leafdata())
+            if (self.cvpdnbundleswithmorethantwolinks.is_set or self.cvpdnbundleswithmorethantwolinks.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnbundleswithmorethantwolinks.get_name_leafdata())
+            if (self.cvpdnbundleswithonelink.is_set or self.cvpdnbundleswithonelink.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnbundleswithonelink.get_name_leafdata())
+            if (self.cvpdnbundleswithtwolinks.is_set or self.cvpdnbundleswithtwolinks.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cvpdnbundleswithtwolinks.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnBundleLastChanged" or name == "cvpdnBundlesWithMoreThanTwoLinks" or name == "cvpdnBundlesWithOneLink" or name == "cvpdnBundlesWithTwoLinks"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cvpdnbundlelastchanged is not None:
-                return True
-
-            if self.cvpdnbundleswithmorethantwolinks is not None:
-                return True
-
-            if self.cvpdnbundleswithonelink is not None:
-                return True
-
-            if self.cvpdnbundleswithtwolinks is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnmultilinkinfo']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cvpdnBundleLastChanged"):
+                self.cvpdnbundlelastchanged = value
+                self.cvpdnbundlelastchanged.value_namespace = name_space
+                self.cvpdnbundlelastchanged.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnBundlesWithMoreThanTwoLinks"):
+                self.cvpdnbundleswithmorethantwolinks = value
+                self.cvpdnbundleswithmorethantwolinks.value_namespace = name_space
+                self.cvpdnbundleswithmorethantwolinks.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnBundlesWithOneLink"):
+                self.cvpdnbundleswithonelink = value
+                self.cvpdnbundleswithonelink.value_namespace = name_space
+                self.cvpdnbundleswithonelink.value_namespace_prefix = name_space_prefix
+            if(value_path == "cvpdnBundlesWithTwoLinks"):
+                self.cvpdnbundleswithtwolinks = value
+                self.cvpdnbundleswithtwolinks.value_namespace = name_space
+                self.cvpdnbundleswithtwolinks.value_namespace_prefix = name_space_prefix
 
 
-    class Cvpdnsystemtable(object):
+    class Cvpdnsystemtable(Entity):
         """
         Table of information about the VPDN system for all tunnel
         types.
@@ -642,13 +874,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdnsystementry = YList()
-            self.cvpdnsystementry.parent = self
-            self.cvpdnsystementry.name = 'cvpdnsystementry'
+            super(CiscoVpdnMgmtMib.Cvpdnsystemtable, self).__init__()
+
+            self.yang_name = "cvpdnSystemTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdnsystementry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdnsystemtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdnsystemtable, self).__setattr__(name, value)
 
 
-        class Cvpdnsystementry(object):
+        class Cvpdnsystementry(Entity):
             """
             An entry in the table, containing information about a
             single type of VPDN tunnel.
@@ -656,7 +914,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnsystemtunneltype  <key>
             
             	The tunnel type.  This is the tunnel protocol
-            	**type**\:   :py:class:`TunneltypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunneltypeEnum>`
+            	**type**\:   :py:class:`Tunneltype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.Tunneltype>`
             
             .. attribute:: cvpdnsystemdenieduserstotal
             
@@ -720,79 +978,209 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdnsystemtunneltype = None
-                self.cvpdnsystemdenieduserstotal = None
-                self.cvpdnsystemfailedconnreq = None
-                self.cvpdnsysteminitialconnreq = None
-                self.cvpdnsystemsessiontotal = None
-                self.cvpdnsystemsuccessconnreq = None
-                self.cvpdnsystemtunneltotal = None
+                super(CiscoVpdnMgmtMib.Cvpdnsystemtable.Cvpdnsystementry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvpdnsystemtunneltype is None:
-                    raise YPYModelError('Key property cvpdnsystemtunneltype is None')
+                self.yang_name = "cvpdnSystemEntry"
+                self.yang_parent_name = "cvpdnSystemTable"
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnSystemTable/CISCO-VPDN-MGMT-MIB:cvpdnSystemEntry[CISCO-VPDN-MGMT-MIB:cvpdnSystemTunnelType = ' + str(self.cvpdnsystemtunneltype) + ']'
+                self.cvpdnsystemtunneltype = YLeaf(YType.enumeration, "cvpdnSystemTunnelType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvpdnsystemdenieduserstotal = YLeaf(YType.uint32, "cvpdnSystemDeniedUsersTotal")
+
+                self.cvpdnsystemfailedconnreq = YLeaf(YType.uint32, "cvpdnSystemFailedConnReq")
+
+                self.cvpdnsysteminitialconnreq = YLeaf(YType.uint32, "cvpdnSystemInitialConnReq")
+
+                self.cvpdnsystemsessiontotal = YLeaf(YType.uint32, "cvpdnSystemSessionTotal")
+
+                self.cvpdnsystemsuccessconnreq = YLeaf(YType.uint32, "cvpdnSystemSuccessConnReq")
+
+                self.cvpdnsystemtunneltotal = YLeaf(YType.uint32, "cvpdnSystemTunnelTotal")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdnsystemtunneltype",
+                                "cvpdnsystemdenieduserstotal",
+                                "cvpdnsystemfailedconnreq",
+                                "cvpdnsysteminitialconnreq",
+                                "cvpdnsystemsessiontotal",
+                                "cvpdnsystemsuccessconnreq",
+                                "cvpdnsystemtunneltotal") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdnsystemtable.Cvpdnsystementry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdnsystemtable.Cvpdnsystementry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvpdnsystemtunneltype.is_set or
+                    self.cvpdnsystemdenieduserstotal.is_set or
+                    self.cvpdnsystemfailedconnreq.is_set or
+                    self.cvpdnsysteminitialconnreq.is_set or
+                    self.cvpdnsystemsessiontotal.is_set or
+                    self.cvpdnsystemsuccessconnreq.is_set or
+                    self.cvpdnsystemtunneltotal.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdnsystemtunneltype.yfilter != YFilter.not_set or
+                    self.cvpdnsystemdenieduserstotal.yfilter != YFilter.not_set or
+                    self.cvpdnsystemfailedconnreq.yfilter != YFilter.not_set or
+                    self.cvpdnsysteminitialconnreq.yfilter != YFilter.not_set or
+                    self.cvpdnsystemsessiontotal.yfilter != YFilter.not_set or
+                    self.cvpdnsystemsuccessconnreq.yfilter != YFilter.not_set or
+                    self.cvpdnsystemtunneltotal.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnSystemEntry" + "[cvpdnSystemTunnelType='" + self.cvpdnsystemtunneltype.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSystemTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdnsystemtunneltype.is_set or self.cvpdnsystemtunneltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemtunneltype.get_name_leafdata())
+                if (self.cvpdnsystemdenieduserstotal.is_set or self.cvpdnsystemdenieduserstotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemdenieduserstotal.get_name_leafdata())
+                if (self.cvpdnsystemfailedconnreq.is_set or self.cvpdnsystemfailedconnreq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemfailedconnreq.get_name_leafdata())
+                if (self.cvpdnsysteminitialconnreq.is_set or self.cvpdnsysteminitialconnreq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsysteminitialconnreq.get_name_leafdata())
+                if (self.cvpdnsystemsessiontotal.is_set or self.cvpdnsystemsessiontotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemsessiontotal.get_name_leafdata())
+                if (self.cvpdnsystemsuccessconnreq.is_set or self.cvpdnsystemsuccessconnreq.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemsuccessconnreq.get_name_leafdata())
+                if (self.cvpdnsystemtunneltotal.is_set or self.cvpdnsystemtunneltotal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemtunneltotal.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnSystemTunnelType" or name == "cvpdnSystemDeniedUsersTotal" or name == "cvpdnSystemFailedConnReq" or name == "cvpdnSystemInitialConnReq" or name == "cvpdnSystemSessionTotal" or name == "cvpdnSystemSuccessConnReq" or name == "cvpdnSystemTunnelTotal"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdnsystemtunneltype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnSystemTunnelType"):
+                    self.cvpdnsystemtunneltype = value
+                    self.cvpdnsystemtunneltype.value_namespace = name_space
+                    self.cvpdnsystemtunneltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSystemDeniedUsersTotal"):
+                    self.cvpdnsystemdenieduserstotal = value
+                    self.cvpdnsystemdenieduserstotal.value_namespace = name_space
+                    self.cvpdnsystemdenieduserstotal.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSystemFailedConnReq"):
+                    self.cvpdnsystemfailedconnreq = value
+                    self.cvpdnsystemfailedconnreq.value_namespace = name_space
+                    self.cvpdnsystemfailedconnreq.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSystemInitialConnReq"):
+                    self.cvpdnsysteminitialconnreq = value
+                    self.cvpdnsysteminitialconnreq.value_namespace = name_space
+                    self.cvpdnsysteminitialconnreq.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSystemSessionTotal"):
+                    self.cvpdnsystemsessiontotal = value
+                    self.cvpdnsystemsessiontotal.value_namespace = name_space
+                    self.cvpdnsystemsessiontotal.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSystemSuccessConnReq"):
+                    self.cvpdnsystemsuccessconnreq = value
+                    self.cvpdnsystemsuccessconnreq.value_namespace = name_space
+                    self.cvpdnsystemsuccessconnreq.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSystemTunnelTotal"):
+                    self.cvpdnsystemtunneltotal = value
+                    self.cvpdnsystemtunneltotal.value_namespace = name_space
+                    self.cvpdnsystemtunneltotal.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdnsystementry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdnsystemdenieduserstotal is not None:
-                    return True
-
-                if self.cvpdnsystemfailedconnreq is not None:
-                    return True
-
-                if self.cvpdnsysteminitialconnreq is not None:
-                    return True
-
-                if self.cvpdnsystemsessiontotal is not None:
-                    return True
-
-                if self.cvpdnsystemsuccessconnreq is not None:
-                    return True
-
-                if self.cvpdnsystemtunneltotal is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsystemtable.Cvpdnsystementry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnSystemTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdnsystementry is not None:
-                for child_ref in self.cvpdnsystementry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdnsystementry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnSystemTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnSystemEntry"):
+                for c in self.cvpdnsystementry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdnsystemtable.Cvpdnsystementry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdnsystementry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnSystemEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsystemtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdntunneltable(object):
+    class Cvpdntunneltable(Entity):
         """
         Table of information about the active VPDN tunnels.
         
@@ -811,13 +1199,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdntunnelentry = YList()
-            self.cvpdntunnelentry.parent = self
-            self.cvpdntunnelentry.name = 'cvpdntunnelentry'
+            super(CiscoVpdnMgmtMib.Cvpdntunneltable, self).__init__()
+
+            self.yang_name = "cvpdnTunnelTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdntunnelentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdntunneltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdntunneltable, self).__setattr__(name, value)
 
 
-        class Cvpdntunnelentry(object):
+        class Cvpdntunnelentry(Entity):
             """
             An entry in the table, containing information about a
             single active VPDN tunnel.
@@ -881,14 +1295,14 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelnetworkservicetype
             
             	The type of network service used in the active tunnel. For now it is IP only
-            	**type**\:   :py:class:`CvpdntunnelnetworkservicetypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.CvpdntunnelnetworkservicetypeEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelnetworkservicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.Cvpdntunnelnetworkservicetype>`
             
             	**status**\: obsolete
             
             .. attribute:: cvpdntunnelorigcause
             
             	The cause which originated an active VPDN tunnel.  The tunnel can be projected via domain name, DNIS or a stack group (SGBP)
-            	**type**\:   :py:class:`CvpdntunnelorigcauseEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.CvpdntunnelorigcauseEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelorigcause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.Cvpdntunnelorigcause>`
             
             	**status**\: obsolete
             
@@ -947,7 +1361,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelstate
             
             	The current state of an active VPDN tunnel.  Each state code is explained below\:         unknown\: The current state of the tunnel is                 unknown.         opening\: The tunnel has just been instigated and                 is pending for a remote end reply to                 complete the process.         open\:    The tunnel is active.         closing\: The tunnel has just been shut down and                 is pending for the remote end to reply                 to complete the process
-            	**type**\:   :py:class:`CvpdntunnelstateEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.CvpdntunnelstateEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.Cvpdntunnelstate>`
             
             	**status**\: obsolete
             
@@ -959,26 +1373,82 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdntunneltunnelid = None
-                self.cvpdntunnelactivesessions = None
-                self.cvpdntunneldeniedusers = None
-                self.cvpdntunnellocalinitconnection = None
-                self.cvpdntunnellocalipaddress = None
-                self.cvpdntunnellocalname = None
-                self.cvpdntunnelnetworkservicetype = None
-                self.cvpdntunnelorigcause = None
-                self.cvpdntunnelremoteendpointname = None
-                self.cvpdntunnelremoteipaddress = None
-                self.cvpdntunnelremotename = None
-                self.cvpdntunnelremotetunnelid = None
-                self.cvpdntunnelsoftshut = None
-                self.cvpdntunnelsourceipaddress = None
-                self.cvpdntunnelstate = None
+                super(CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry, self).__init__()
 
-            class CvpdntunnelnetworkservicetypeEnum(Enum):
+                self.yang_name = "cvpdnTunnelEntry"
+                self.yang_parent_name = "cvpdnTunnelTable"
+
+                self.cvpdntunneltunnelid = YLeaf(YType.uint32, "cvpdnTunnelTunnelId")
+
+                self.cvpdntunnelactivesessions = YLeaf(YType.uint32, "cvpdnTunnelActiveSessions")
+
+                self.cvpdntunneldeniedusers = YLeaf(YType.uint32, "cvpdnTunnelDeniedUsers")
+
+                self.cvpdntunnellocalinitconnection = YLeaf(YType.boolean, "cvpdnTunnelLocalInitConnection")
+
+                self.cvpdntunnellocalipaddress = YLeaf(YType.str, "cvpdnTunnelLocalIpAddress")
+
+                self.cvpdntunnellocalname = YLeaf(YType.str, "cvpdnTunnelLocalName")
+
+                self.cvpdntunnelnetworkservicetype = YLeaf(YType.enumeration, "cvpdnTunnelNetworkServiceType")
+
+                self.cvpdntunnelorigcause = YLeaf(YType.enumeration, "cvpdnTunnelOrigCause")
+
+                self.cvpdntunnelremoteendpointname = YLeaf(YType.str, "cvpdnTunnelRemoteEndpointName")
+
+                self.cvpdntunnelremoteipaddress = YLeaf(YType.str, "cvpdnTunnelRemoteIpAddress")
+
+                self.cvpdntunnelremotename = YLeaf(YType.str, "cvpdnTunnelRemoteName")
+
+                self.cvpdntunnelremotetunnelid = YLeaf(YType.uint32, "cvpdnTunnelRemoteTunnelId")
+
+                self.cvpdntunnelsoftshut = YLeaf(YType.boolean, "cvpdnTunnelSoftshut")
+
+                self.cvpdntunnelsourceipaddress = YLeaf(YType.str, "cvpdnTunnelSourceIpAddress")
+
+                self.cvpdntunnelstate = YLeaf(YType.enumeration, "cvpdnTunnelState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdntunneltunnelid",
+                                "cvpdntunnelactivesessions",
+                                "cvpdntunneldeniedusers",
+                                "cvpdntunnellocalinitconnection",
+                                "cvpdntunnellocalipaddress",
+                                "cvpdntunnellocalname",
+                                "cvpdntunnelnetworkservicetype",
+                                "cvpdntunnelorigcause",
+                                "cvpdntunnelremoteendpointname",
+                                "cvpdntunnelremoteipaddress",
+                                "cvpdntunnelremotename",
+                                "cvpdntunnelremotetunnelid",
+                                "cvpdntunnelsoftshut",
+                                "cvpdntunnelsourceipaddress",
+                                "cvpdntunnelstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry, self).__setattr__(name, value)
+
+            class Cvpdntunnelnetworkservicetype(Enum):
                 """
-                CvpdntunnelnetworkservicetypeEnum
+                Cvpdntunnelnetworkservicetype
 
                 The type of network service used in the active tunnel.
 
@@ -988,18 +1458,12 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                ip = 1
+                ip = Enum.YLeaf(1, "ip")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.CvpdntunnelnetworkservicetypeEnum']
-
-
-            class CvpdntunnelorigcauseEnum(Enum):
+            class Cvpdntunnelorigcause(Enum):
                 """
-                CvpdntunnelorigcauseEnum
+                Cvpdntunnelorigcause
 
                 The cause which originated an active VPDN tunnel.  The
 
@@ -1015,22 +1479,16 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                domain = 1
+                domain = Enum.YLeaf(1, "domain")
 
-                dnis = 2
+                dnis = Enum.YLeaf(2, "dnis")
 
-                stack = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.CvpdntunnelorigcauseEnum']
+                stack = Enum.YLeaf(3, "stack")
 
 
-            class CvpdntunnelstateEnum(Enum):
+            class Cvpdntunnelstate(Enum):
                 """
-                CvpdntunnelstateEnum
+                Cvpdntunnelstate
 
                 The current state of an active VPDN tunnel.  Each state
 
@@ -1064,109 +1522,233 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                opening = 2
+                opening = Enum.YLeaf(2, "opening")
 
-                open = 3
+                open = Enum.YLeaf(3, "open")
 
-                closing = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry.CvpdntunnelstateEnum']
+                closing = Enum.YLeaf(4, "closing")
 
 
-            @property
-            def _common_path(self):
-                if self.cvpdntunneltunnelid is None:
-                    raise YPYModelError('Key property cvpdntunneltunnelid is None')
+            def has_data(self):
+                return (
+                    self.cvpdntunneltunnelid.is_set or
+                    self.cvpdntunnelactivesessions.is_set or
+                    self.cvpdntunneldeniedusers.is_set or
+                    self.cvpdntunnellocalinitconnection.is_set or
+                    self.cvpdntunnellocalipaddress.is_set or
+                    self.cvpdntunnellocalname.is_set or
+                    self.cvpdntunnelnetworkservicetype.is_set or
+                    self.cvpdntunnelorigcause.is_set or
+                    self.cvpdntunnelremoteendpointname.is_set or
+                    self.cvpdntunnelremoteipaddress.is_set or
+                    self.cvpdntunnelremotename.is_set or
+                    self.cvpdntunnelremotetunnelid.is_set or
+                    self.cvpdntunnelsoftshut.is_set or
+                    self.cvpdntunnelsourceipaddress.is_set or
+                    self.cvpdntunnelstate.is_set)
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTunnelTable/CISCO-VPDN-MGMT-MIB:cvpdnTunnelEntry[CISCO-VPDN-MGMT-MIB:cvpdnTunnelTunnelId = ' + str(self.cvpdntunneltunnelid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdntunneltunnelid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelactivesessions.yfilter != YFilter.not_set or
+                    self.cvpdntunneldeniedusers.yfilter != YFilter.not_set or
+                    self.cvpdntunnellocalinitconnection.yfilter != YFilter.not_set or
+                    self.cvpdntunnellocalipaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnellocalname.yfilter != YFilter.not_set or
+                    self.cvpdntunnelnetworkservicetype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelorigcause.yfilter != YFilter.not_set or
+                    self.cvpdntunnelremoteendpointname.yfilter != YFilter.not_set or
+                    self.cvpdntunnelremoteipaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelremotename.yfilter != YFilter.not_set or
+                    self.cvpdntunnelremotetunnelid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsoftshut.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsourceipaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelstate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnTunnelEntry" + "[cvpdnTunnelTunnelId='" + self.cvpdntunneltunnelid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdntunneltunnelid.is_set or self.cvpdntunneltunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunneltunnelid.get_name_leafdata())
+                if (self.cvpdntunnelactivesessions.is_set or self.cvpdntunnelactivesessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelactivesessions.get_name_leafdata())
+                if (self.cvpdntunneldeniedusers.is_set or self.cvpdntunneldeniedusers.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunneldeniedusers.get_name_leafdata())
+                if (self.cvpdntunnellocalinitconnection.is_set or self.cvpdntunnellocalinitconnection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnellocalinitconnection.get_name_leafdata())
+                if (self.cvpdntunnellocalipaddress.is_set or self.cvpdntunnellocalipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnellocalipaddress.get_name_leafdata())
+                if (self.cvpdntunnellocalname.is_set or self.cvpdntunnellocalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnellocalname.get_name_leafdata())
+                if (self.cvpdntunnelnetworkservicetype.is_set or self.cvpdntunnelnetworkservicetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelnetworkservicetype.get_name_leafdata())
+                if (self.cvpdntunnelorigcause.is_set or self.cvpdntunnelorigcause.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelorigcause.get_name_leafdata())
+                if (self.cvpdntunnelremoteendpointname.is_set or self.cvpdntunnelremoteendpointname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelremoteendpointname.get_name_leafdata())
+                if (self.cvpdntunnelremoteipaddress.is_set or self.cvpdntunnelremoteipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelremoteipaddress.get_name_leafdata())
+                if (self.cvpdntunnelremotename.is_set or self.cvpdntunnelremotename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelremotename.get_name_leafdata())
+                if (self.cvpdntunnelremotetunnelid.is_set or self.cvpdntunnelremotetunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelremotetunnelid.get_name_leafdata())
+                if (self.cvpdntunnelsoftshut.is_set or self.cvpdntunnelsoftshut.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsoftshut.get_name_leafdata())
+                if (self.cvpdntunnelsourceipaddress.is_set or self.cvpdntunnelsourceipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsourceipaddress.get_name_leafdata())
+                if (self.cvpdntunnelstate.is_set or self.cvpdntunnelstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnTunnelTunnelId" or name == "cvpdnTunnelActiveSessions" or name == "cvpdnTunnelDeniedUsers" or name == "cvpdnTunnelLocalInitConnection" or name == "cvpdnTunnelLocalIpAddress" or name == "cvpdnTunnelLocalName" or name == "cvpdnTunnelNetworkServiceType" or name == "cvpdnTunnelOrigCause" or name == "cvpdnTunnelRemoteEndpointName" or name == "cvpdnTunnelRemoteIpAddress" or name == "cvpdnTunnelRemoteName" or name == "cvpdnTunnelRemoteTunnelId" or name == "cvpdnTunnelSoftshut" or name == "cvpdnTunnelSourceIpAddress" or name == "cvpdnTunnelState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdntunneltunnelid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnTunnelTunnelId"):
+                    self.cvpdntunneltunnelid = value
+                    self.cvpdntunneltunnelid.value_namespace = name_space
+                    self.cvpdntunneltunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelActiveSessions"):
+                    self.cvpdntunnelactivesessions = value
+                    self.cvpdntunnelactivesessions.value_namespace = name_space
+                    self.cvpdntunnelactivesessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelDeniedUsers"):
+                    self.cvpdntunneldeniedusers = value
+                    self.cvpdntunneldeniedusers.value_namespace = name_space
+                    self.cvpdntunneldeniedusers.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelLocalInitConnection"):
+                    self.cvpdntunnellocalinitconnection = value
+                    self.cvpdntunnellocalinitconnection.value_namespace = name_space
+                    self.cvpdntunnellocalinitconnection.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelLocalIpAddress"):
+                    self.cvpdntunnellocalipaddress = value
+                    self.cvpdntunnellocalipaddress.value_namespace = name_space
+                    self.cvpdntunnellocalipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelLocalName"):
+                    self.cvpdntunnellocalname = value
+                    self.cvpdntunnellocalname.value_namespace = name_space
+                    self.cvpdntunnellocalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelNetworkServiceType"):
+                    self.cvpdntunnelnetworkservicetype = value
+                    self.cvpdntunnelnetworkservicetype.value_namespace = name_space
+                    self.cvpdntunnelnetworkservicetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelOrigCause"):
+                    self.cvpdntunnelorigcause = value
+                    self.cvpdntunnelorigcause.value_namespace = name_space
+                    self.cvpdntunnelorigcause.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelRemoteEndpointName"):
+                    self.cvpdntunnelremoteendpointname = value
+                    self.cvpdntunnelremoteendpointname.value_namespace = name_space
+                    self.cvpdntunnelremoteendpointname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelRemoteIpAddress"):
+                    self.cvpdntunnelremoteipaddress = value
+                    self.cvpdntunnelremoteipaddress.value_namespace = name_space
+                    self.cvpdntunnelremoteipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelRemoteName"):
+                    self.cvpdntunnelremotename = value
+                    self.cvpdntunnelremotename.value_namespace = name_space
+                    self.cvpdntunnelremotename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelRemoteTunnelId"):
+                    self.cvpdntunnelremotetunnelid = value
+                    self.cvpdntunnelremotetunnelid.value_namespace = name_space
+                    self.cvpdntunnelremotetunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSoftshut"):
+                    self.cvpdntunnelsoftshut = value
+                    self.cvpdntunnelsoftshut.value_namespace = name_space
+                    self.cvpdntunnelsoftshut.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSourceIpAddress"):
+                    self.cvpdntunnelsourceipaddress = value
+                    self.cvpdntunnelsourceipaddress.value_namespace = name_space
+                    self.cvpdntunnelsourceipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelState"):
+                    self.cvpdntunnelstate = value
+                    self.cvpdntunnelstate.value_namespace = name_space
+                    self.cvpdntunnelstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdntunnelentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdntunnelactivesessions is not None:
-                    return True
-
-                if self.cvpdntunneldeniedusers is not None:
-                    return True
-
-                if self.cvpdntunnellocalinitconnection is not None:
-                    return True
-
-                if self.cvpdntunnellocalipaddress is not None:
-                    return True
-
-                if self.cvpdntunnellocalname is not None:
-                    return True
-
-                if self.cvpdntunnelnetworkservicetype is not None:
-                    return True
-
-                if self.cvpdntunnelorigcause is not None:
-                    return True
-
-                if self.cvpdntunnelremoteendpointname is not None:
-                    return True
-
-                if self.cvpdntunnelremoteipaddress is not None:
-                    return True
-
-                if self.cvpdntunnelremotename is not None:
-                    return True
-
-                if self.cvpdntunnelremotetunnelid is not None:
-                    return True
-
-                if self.cvpdntunnelsoftshut is not None:
-                    return True
-
-                if self.cvpdntunnelsourceipaddress is not None:
-                    return True
-
-                if self.cvpdntunnelstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTunnelTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdntunnelentry is not None:
-                for child_ref in self.cvpdntunnelentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdntunnelentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnTunnelTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnTunnelEntry"):
+                for c in self.cvpdntunnelentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdntunneltable.Cvpdntunnelentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdntunnelentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnTunnelEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunneltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdntunnelattrtable(object):
+    class Cvpdntunnelattrtable(Entity):
         """
         Table of information about the active VPDN tunnels.  An
         entry is added to the table when a new tunnel is initiated
@@ -1185,13 +1767,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdntunnelattrentry = YList()
-            self.cvpdntunnelattrentry.parent = self
-            self.cvpdntunnelattrentry.name = 'cvpdntunnelattrentry'
+            super(CiscoVpdnMgmtMib.Cvpdntunnelattrtable, self).__init__()
+
+            self.yang_name = "cvpdnTunnelAttrTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdntunnelattrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdntunnelattrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdntunnelattrtable, self).__setattr__(name, value)
 
 
-        class Cvpdntunnelattrentry(object):
+        class Cvpdntunnelattrentry(Entity):
             """
             An entry in the table, containing information about a
             single active VPDN tunnel.
@@ -1199,7 +1807,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnsystemtunneltype  <key>
             
             	
-            	**type**\:   :py:class:`TunneltypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunneltypeEnum>`
+            	**type**\:   :py:class:`Tunneltype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.Tunneltype>`
             
             .. attribute:: cvpdntunnelattrtunnelid  <key>
             
@@ -1236,7 +1844,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelattrlocalinetaddresstype
             
             	Indicates the type of address contained in cvpdnTunnelAttrLocalInetAddress
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvpdntunnelattrlocalinitconnection
             
@@ -1262,12 +1870,12 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelattrnetworkservicetype
             
             	The type of network service used in the active tunnel
-            	**type**\:   :py:class:`CvpdntunnelattrnetworkservicetypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.CvpdntunnelattrnetworkservicetypeEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelattrnetworkservicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.Cvpdntunnelattrnetworkservicetype>`
             
             .. attribute:: cvpdntunnelattrorigcause
             
             	The cause which originated an active VPDN tunnel.  The tunnel can be projected via domain name, DNIS, stack group, or L2 Xconnect
-            	**type**\:   :py:class:`CvpdntunnelattrorigcauseEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.CvpdntunnelattrorigcauseEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelattrorigcause <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.Cvpdntunnelattrorigcause>`
             
             .. attribute:: cvpdntunnelattrremoteendpointname
             
@@ -1286,7 +1894,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelattrremoteinetaddresstype
             
             	Indicates the type of address contained in cvpdnTunnelAttrRemoteInetAddress
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvpdntunnelattrremoteipaddress
             
@@ -1326,7 +1934,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelattrsourceinetaddresstype
             
             	Indicates the type of address contained in cvpdnTunnelAttrSourceInetAddress
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvpdntunnelattrsourceipaddress
             
@@ -1340,7 +1948,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelattrstate
             
             	The current state of an active VPDN tunnel. Tunnels of type l2f will have states with the 'l2f' prefix. Tunnels of type l2tp will have states with the 'l2tp' prefix. Tunnels of type pptp will have states with the 'pptp' prefix.  Each state code is explained below\:      unknown\:            The current state of the tunnel is                         unknown.      l2fOpening\:         The tunnel has just been initiated                         and is pending for a remote end                         reply to complete the process.      l2fOpenWait\:        This end received a tunnel open                         request from the remote end and is                         waiting for the tunnel to be                         established.      l2fOpen\:            The tunnel is active.      l2fClosing\:         This end received a tunnel close                         request.      l2fCloseWait\:       The tunnel has just been shut down                         and is pending for the remote end                         to reply to complete the process.      l2tpIdle\:           No tunnel is initiated yet.      l2tpWaitCtlReply\:   The tunnel has been initiated and                         is pending for a remote end reply                         to complete the process.      l2tpEstablished\:    The tunnel is active.      l2tpShuttingDown\:   The tunnel is in progress of                         shutting down.      l2tpNoSessionLeft\:  There is no session left in the                         tunnel.      pptpIdle\:           No tunnel is initiated yet.      pptpWaitConnect\:    The tunnel is waiting for a TCP                         connection.      pptpWaitCtlRequest\: The tunnel has been initiated and                         is pending for a remote end                         request.      pptpWaitCtlReply\:   The tunnel has been initiated and                         is pending for a remote end reply.      pptpEstablished\:    The tunnel is active.      pptpWaitStopReply\:  The tunnel is being shut down and                         is pending for a remote end reply.      pptpTerminal\:       The tunnel has been shut down
-            	**type**\:   :py:class:`CvpdntunnelattrstateEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.CvpdntunnelattrstateEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelattrstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.Cvpdntunnelattrstate>`
             
             
 
@@ -1350,33 +1958,103 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdnsystemtunneltype = None
-                self.cvpdntunnelattrtunnelid = None
-                self.cvpdntunnelattractivesessions = None
-                self.cvpdntunnelattrdeniedusers = None
-                self.cvpdntunnelattrlocalinetaddress = None
-                self.cvpdntunnelattrlocalinetaddresstype = None
-                self.cvpdntunnelattrlocalinitconnection = None
-                self.cvpdntunnelattrlocalipaddress = None
-                self.cvpdntunnelattrlocalname = None
-                self.cvpdntunnelattrnetworkservicetype = None
-                self.cvpdntunnelattrorigcause = None
-                self.cvpdntunnelattrremoteendpointname = None
-                self.cvpdntunnelattrremoteinetaddress = None
-                self.cvpdntunnelattrremoteinetaddresstype = None
-                self.cvpdntunnelattrremoteipaddress = None
-                self.cvpdntunnelattrremotename = None
-                self.cvpdntunnelattrremotetunnelid = None
-                self.cvpdntunnelattrsoftshut = None
-                self.cvpdntunnelattrsourceinetaddress = None
-                self.cvpdntunnelattrsourceinetaddresstype = None
-                self.cvpdntunnelattrsourceipaddress = None
-                self.cvpdntunnelattrstate = None
+                super(CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry, self).__init__()
 
-            class CvpdntunnelattrnetworkservicetypeEnum(Enum):
+                self.yang_name = "cvpdnTunnelAttrEntry"
+                self.yang_parent_name = "cvpdnTunnelAttrTable"
+
+                self.cvpdnsystemtunneltype = YLeaf(YType.enumeration, "cvpdnSystemTunnelType")
+
+                self.cvpdntunnelattrtunnelid = YLeaf(YType.int32, "cvpdnTunnelAttrTunnelId")
+
+                self.cvpdntunnelattractivesessions = YLeaf(YType.uint32, "cvpdnTunnelAttrActiveSessions")
+
+                self.cvpdntunnelattrdeniedusers = YLeaf(YType.uint32, "cvpdnTunnelAttrDeniedUsers")
+
+                self.cvpdntunnelattrlocalinetaddress = YLeaf(YType.str, "cvpdnTunnelAttrLocalInetAddress")
+
+                self.cvpdntunnelattrlocalinetaddresstype = YLeaf(YType.enumeration, "cvpdnTunnelAttrLocalInetAddressType")
+
+                self.cvpdntunnelattrlocalinitconnection = YLeaf(YType.boolean, "cvpdnTunnelAttrLocalInitConnection")
+
+                self.cvpdntunnelattrlocalipaddress = YLeaf(YType.str, "cvpdnTunnelAttrLocalIpAddress")
+
+                self.cvpdntunnelattrlocalname = YLeaf(YType.str, "cvpdnTunnelAttrLocalName")
+
+                self.cvpdntunnelattrnetworkservicetype = YLeaf(YType.enumeration, "cvpdnTunnelAttrNetworkServiceType")
+
+                self.cvpdntunnelattrorigcause = YLeaf(YType.enumeration, "cvpdnTunnelAttrOrigCause")
+
+                self.cvpdntunnelattrremoteendpointname = YLeaf(YType.str, "cvpdnTunnelAttrRemoteEndpointName")
+
+                self.cvpdntunnelattrremoteinetaddress = YLeaf(YType.str, "cvpdnTunnelAttrRemoteInetAddress")
+
+                self.cvpdntunnelattrremoteinetaddresstype = YLeaf(YType.enumeration, "cvpdnTunnelAttrRemoteInetAddressType")
+
+                self.cvpdntunnelattrremoteipaddress = YLeaf(YType.str, "cvpdnTunnelAttrRemoteIpAddress")
+
+                self.cvpdntunnelattrremotename = YLeaf(YType.str, "cvpdnTunnelAttrRemoteName")
+
+                self.cvpdntunnelattrremotetunnelid = YLeaf(YType.int32, "cvpdnTunnelAttrRemoteTunnelId")
+
+                self.cvpdntunnelattrsoftshut = YLeaf(YType.boolean, "cvpdnTunnelAttrSoftshut")
+
+                self.cvpdntunnelattrsourceinetaddress = YLeaf(YType.str, "cvpdnTunnelAttrSourceInetAddress")
+
+                self.cvpdntunnelattrsourceinetaddresstype = YLeaf(YType.enumeration, "cvpdnTunnelAttrSourceInetAddressType")
+
+                self.cvpdntunnelattrsourceipaddress = YLeaf(YType.str, "cvpdnTunnelAttrSourceIpAddress")
+
+                self.cvpdntunnelattrstate = YLeaf(YType.enumeration, "cvpdnTunnelAttrState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdnsystemtunneltype",
+                                "cvpdntunnelattrtunnelid",
+                                "cvpdntunnelattractivesessions",
+                                "cvpdntunnelattrdeniedusers",
+                                "cvpdntunnelattrlocalinetaddress",
+                                "cvpdntunnelattrlocalinetaddresstype",
+                                "cvpdntunnelattrlocalinitconnection",
+                                "cvpdntunnelattrlocalipaddress",
+                                "cvpdntunnelattrlocalname",
+                                "cvpdntunnelattrnetworkservicetype",
+                                "cvpdntunnelattrorigcause",
+                                "cvpdntunnelattrremoteendpointname",
+                                "cvpdntunnelattrremoteinetaddress",
+                                "cvpdntunnelattrremoteinetaddresstype",
+                                "cvpdntunnelattrremoteipaddress",
+                                "cvpdntunnelattrremotename",
+                                "cvpdntunnelattrremotetunnelid",
+                                "cvpdntunnelattrsoftshut",
+                                "cvpdntunnelattrsourceinetaddress",
+                                "cvpdntunnelattrsourceinetaddresstype",
+                                "cvpdntunnelattrsourceipaddress",
+                                "cvpdntunnelattrstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry, self).__setattr__(name, value)
+
+            class Cvpdntunnelattrnetworkservicetype(Enum):
                 """
-                CvpdntunnelattrnetworkservicetypeEnum
+                Cvpdntunnelattrnetworkservicetype
 
                 The type of network service used in the active tunnel.
 
@@ -1384,18 +2062,12 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                ip = 1
+                ip = Enum.YLeaf(1, "ip")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.CvpdntunnelattrnetworkservicetypeEnum']
-
-
-            class CvpdntunnelattrorigcauseEnum(Enum):
+            class Cvpdntunnelattrorigcause(Enum):
                 """
-                CvpdntunnelattrorigcauseEnum
+                Cvpdntunnelattrorigcause
 
                 The cause which originated an active VPDN tunnel.  The
 
@@ -1413,24 +2085,18 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                domain = 1
+                domain = Enum.YLeaf(1, "domain")
 
-                dnis = 2
+                dnis = Enum.YLeaf(2, "dnis")
 
-                stack = 3
+                stack = Enum.YLeaf(3, "stack")
 
-                xconnect = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.CvpdntunnelattrorigcauseEnum']
+                xconnect = Enum.YLeaf(4, "xconnect")
 
 
-            class CvpdntunnelattrstateEnum(Enum):
+            class Cvpdntunnelattrstate(Enum):
                 """
-                CvpdntunnelattrstateEnum
+                Cvpdntunnelattrstate
 
                 The current state of an active VPDN tunnel.
 
@@ -1556,160 +2222,317 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                l2fOpening = 2
+                l2fOpening = Enum.YLeaf(2, "l2fOpening")
 
-                l2fOpenWait = 3
+                l2fOpenWait = Enum.YLeaf(3, "l2fOpenWait")
 
-                l2fOpen = 4
+                l2fOpen = Enum.YLeaf(4, "l2fOpen")
 
-                l2fClosing = 5
+                l2fClosing = Enum.YLeaf(5, "l2fClosing")
 
-                l2fCloseWait = 6
+                l2fCloseWait = Enum.YLeaf(6, "l2fCloseWait")
 
-                l2tpIdle = 7
+                l2tpIdle = Enum.YLeaf(7, "l2tpIdle")
 
-                l2tpWaitCtlReply = 8
+                l2tpWaitCtlReply = Enum.YLeaf(8, "l2tpWaitCtlReply")
 
-                l2tpEstablished = 9
+                l2tpEstablished = Enum.YLeaf(9, "l2tpEstablished")
 
-                l2tpShuttingDown = 10
+                l2tpShuttingDown = Enum.YLeaf(10, "l2tpShuttingDown")
 
-                l2tpNoSessionLeft = 11
+                l2tpNoSessionLeft = Enum.YLeaf(11, "l2tpNoSessionLeft")
 
-                pptpIdle = 12
+                pptpIdle = Enum.YLeaf(12, "pptpIdle")
 
-                pptpWaitConnect = 13
+                pptpWaitConnect = Enum.YLeaf(13, "pptpWaitConnect")
 
-                pptpWaitCtlRequest = 14
+                pptpWaitCtlRequest = Enum.YLeaf(14, "pptpWaitCtlRequest")
 
-                pptpWaitCtlReply = 15
+                pptpWaitCtlReply = Enum.YLeaf(15, "pptpWaitCtlReply")
 
-                pptpEstablished = 16
+                pptpEstablished = Enum.YLeaf(16, "pptpEstablished")
 
-                pptpWaitStopReply = 17
+                pptpWaitStopReply = Enum.YLeaf(17, "pptpWaitStopReply")
 
-                pptpTerminal = 18
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry.CvpdntunnelattrstateEnum']
+                pptpTerminal = Enum.YLeaf(18, "pptpTerminal")
 
 
-            @property
-            def _common_path(self):
-                if self.cvpdnsystemtunneltype is None:
-                    raise YPYModelError('Key property cvpdnsystemtunneltype is None')
-                if self.cvpdntunnelattrtunnelid is None:
-                    raise YPYModelError('Key property cvpdntunnelattrtunnelid is None')
+            def has_data(self):
+                return (
+                    self.cvpdnsystemtunneltype.is_set or
+                    self.cvpdntunnelattrtunnelid.is_set or
+                    self.cvpdntunnelattractivesessions.is_set or
+                    self.cvpdntunnelattrdeniedusers.is_set or
+                    self.cvpdntunnelattrlocalinetaddress.is_set or
+                    self.cvpdntunnelattrlocalinetaddresstype.is_set or
+                    self.cvpdntunnelattrlocalinitconnection.is_set or
+                    self.cvpdntunnelattrlocalipaddress.is_set or
+                    self.cvpdntunnelattrlocalname.is_set or
+                    self.cvpdntunnelattrnetworkservicetype.is_set or
+                    self.cvpdntunnelattrorigcause.is_set or
+                    self.cvpdntunnelattrremoteendpointname.is_set or
+                    self.cvpdntunnelattrremoteinetaddress.is_set or
+                    self.cvpdntunnelattrremoteinetaddresstype.is_set or
+                    self.cvpdntunnelattrremoteipaddress.is_set or
+                    self.cvpdntunnelattrremotename.is_set or
+                    self.cvpdntunnelattrremotetunnelid.is_set or
+                    self.cvpdntunnelattrsoftshut.is_set or
+                    self.cvpdntunnelattrsourceinetaddress.is_set or
+                    self.cvpdntunnelattrsourceinetaddresstype.is_set or
+                    self.cvpdntunnelattrsourceipaddress.is_set or
+                    self.cvpdntunnelattrstate.is_set)
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTunnelAttrTable/CISCO-VPDN-MGMT-MIB:cvpdnTunnelAttrEntry[CISCO-VPDN-MGMT-MIB:cvpdnSystemTunnelType = ' + str(self.cvpdnsystemtunneltype) + '][CISCO-VPDN-MGMT-MIB:cvpdnTunnelAttrTunnelId = ' + str(self.cvpdntunnelattrtunnelid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdnsystemtunneltype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrtunnelid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattractivesessions.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrdeniedusers.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrlocalinetaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrlocalinetaddresstype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrlocalinitconnection.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrlocalipaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrlocalname.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrnetworkservicetype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrorigcause.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrremoteendpointname.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrremoteinetaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrremoteinetaddresstype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrremoteipaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrremotename.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrremotetunnelid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrsoftshut.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrsourceinetaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrsourceinetaddresstype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrsourceipaddress.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrstate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnTunnelAttrEntry" + "[cvpdnSystemTunnelType='" + self.cvpdnsystemtunneltype.get() + "']" + "[cvpdnTunnelAttrTunnelId='" + self.cvpdntunnelattrtunnelid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelAttrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdnsystemtunneltype.is_set or self.cvpdnsystemtunneltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemtunneltype.get_name_leafdata())
+                if (self.cvpdntunnelattrtunnelid.is_set or self.cvpdntunnelattrtunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrtunnelid.get_name_leafdata())
+                if (self.cvpdntunnelattractivesessions.is_set or self.cvpdntunnelattractivesessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattractivesessions.get_name_leafdata())
+                if (self.cvpdntunnelattrdeniedusers.is_set or self.cvpdntunnelattrdeniedusers.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrdeniedusers.get_name_leafdata())
+                if (self.cvpdntunnelattrlocalinetaddress.is_set or self.cvpdntunnelattrlocalinetaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrlocalinetaddress.get_name_leafdata())
+                if (self.cvpdntunnelattrlocalinetaddresstype.is_set or self.cvpdntunnelattrlocalinetaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrlocalinetaddresstype.get_name_leafdata())
+                if (self.cvpdntunnelattrlocalinitconnection.is_set or self.cvpdntunnelattrlocalinitconnection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrlocalinitconnection.get_name_leafdata())
+                if (self.cvpdntunnelattrlocalipaddress.is_set or self.cvpdntunnelattrlocalipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrlocalipaddress.get_name_leafdata())
+                if (self.cvpdntunnelattrlocalname.is_set or self.cvpdntunnelattrlocalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrlocalname.get_name_leafdata())
+                if (self.cvpdntunnelattrnetworkservicetype.is_set or self.cvpdntunnelattrnetworkservicetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrnetworkservicetype.get_name_leafdata())
+                if (self.cvpdntunnelattrorigcause.is_set or self.cvpdntunnelattrorigcause.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrorigcause.get_name_leafdata())
+                if (self.cvpdntunnelattrremoteendpointname.is_set or self.cvpdntunnelattrremoteendpointname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrremoteendpointname.get_name_leafdata())
+                if (self.cvpdntunnelattrremoteinetaddress.is_set or self.cvpdntunnelattrremoteinetaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrremoteinetaddress.get_name_leafdata())
+                if (self.cvpdntunnelattrremoteinetaddresstype.is_set or self.cvpdntunnelattrremoteinetaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrremoteinetaddresstype.get_name_leafdata())
+                if (self.cvpdntunnelattrremoteipaddress.is_set or self.cvpdntunnelattrremoteipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrremoteipaddress.get_name_leafdata())
+                if (self.cvpdntunnelattrremotename.is_set or self.cvpdntunnelattrremotename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrremotename.get_name_leafdata())
+                if (self.cvpdntunnelattrremotetunnelid.is_set or self.cvpdntunnelattrremotetunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrremotetunnelid.get_name_leafdata())
+                if (self.cvpdntunnelattrsoftshut.is_set or self.cvpdntunnelattrsoftshut.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrsoftshut.get_name_leafdata())
+                if (self.cvpdntunnelattrsourceinetaddress.is_set or self.cvpdntunnelattrsourceinetaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrsourceinetaddress.get_name_leafdata())
+                if (self.cvpdntunnelattrsourceinetaddresstype.is_set or self.cvpdntunnelattrsourceinetaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrsourceinetaddresstype.get_name_leafdata())
+                if (self.cvpdntunnelattrsourceipaddress.is_set or self.cvpdntunnelattrsourceipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrsourceipaddress.get_name_leafdata())
+                if (self.cvpdntunnelattrstate.is_set or self.cvpdntunnelattrstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnSystemTunnelType" or name == "cvpdnTunnelAttrTunnelId" or name == "cvpdnTunnelAttrActiveSessions" or name == "cvpdnTunnelAttrDeniedUsers" or name == "cvpdnTunnelAttrLocalInetAddress" or name == "cvpdnTunnelAttrLocalInetAddressType" or name == "cvpdnTunnelAttrLocalInitConnection" or name == "cvpdnTunnelAttrLocalIpAddress" or name == "cvpdnTunnelAttrLocalName" or name == "cvpdnTunnelAttrNetworkServiceType" or name == "cvpdnTunnelAttrOrigCause" or name == "cvpdnTunnelAttrRemoteEndpointName" or name == "cvpdnTunnelAttrRemoteInetAddress" or name == "cvpdnTunnelAttrRemoteInetAddressType" or name == "cvpdnTunnelAttrRemoteIpAddress" or name == "cvpdnTunnelAttrRemoteName" or name == "cvpdnTunnelAttrRemoteTunnelId" or name == "cvpdnTunnelAttrSoftshut" or name == "cvpdnTunnelAttrSourceInetAddress" or name == "cvpdnTunnelAttrSourceInetAddressType" or name == "cvpdnTunnelAttrSourceIpAddress" or name == "cvpdnTunnelAttrState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdnsystemtunneltype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnSystemTunnelType"):
+                    self.cvpdnsystemtunneltype = value
+                    self.cvpdnsystemtunneltype.value_namespace = name_space
+                    self.cvpdnsystemtunneltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrTunnelId"):
+                    self.cvpdntunnelattrtunnelid = value
+                    self.cvpdntunnelattrtunnelid.value_namespace = name_space
+                    self.cvpdntunnelattrtunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrActiveSessions"):
+                    self.cvpdntunnelattractivesessions = value
+                    self.cvpdntunnelattractivesessions.value_namespace = name_space
+                    self.cvpdntunnelattractivesessions.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrDeniedUsers"):
+                    self.cvpdntunnelattrdeniedusers = value
+                    self.cvpdntunnelattrdeniedusers.value_namespace = name_space
+                    self.cvpdntunnelattrdeniedusers.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrLocalInetAddress"):
+                    self.cvpdntunnelattrlocalinetaddress = value
+                    self.cvpdntunnelattrlocalinetaddress.value_namespace = name_space
+                    self.cvpdntunnelattrlocalinetaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrLocalInetAddressType"):
+                    self.cvpdntunnelattrlocalinetaddresstype = value
+                    self.cvpdntunnelattrlocalinetaddresstype.value_namespace = name_space
+                    self.cvpdntunnelattrlocalinetaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrLocalInitConnection"):
+                    self.cvpdntunnelattrlocalinitconnection = value
+                    self.cvpdntunnelattrlocalinitconnection.value_namespace = name_space
+                    self.cvpdntunnelattrlocalinitconnection.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrLocalIpAddress"):
+                    self.cvpdntunnelattrlocalipaddress = value
+                    self.cvpdntunnelattrlocalipaddress.value_namespace = name_space
+                    self.cvpdntunnelattrlocalipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrLocalName"):
+                    self.cvpdntunnelattrlocalname = value
+                    self.cvpdntunnelattrlocalname.value_namespace = name_space
+                    self.cvpdntunnelattrlocalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrNetworkServiceType"):
+                    self.cvpdntunnelattrnetworkservicetype = value
+                    self.cvpdntunnelattrnetworkservicetype.value_namespace = name_space
+                    self.cvpdntunnelattrnetworkservicetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrOrigCause"):
+                    self.cvpdntunnelattrorigcause = value
+                    self.cvpdntunnelattrorigcause.value_namespace = name_space
+                    self.cvpdntunnelattrorigcause.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrRemoteEndpointName"):
+                    self.cvpdntunnelattrremoteendpointname = value
+                    self.cvpdntunnelattrremoteendpointname.value_namespace = name_space
+                    self.cvpdntunnelattrremoteendpointname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrRemoteInetAddress"):
+                    self.cvpdntunnelattrremoteinetaddress = value
+                    self.cvpdntunnelattrremoteinetaddress.value_namespace = name_space
+                    self.cvpdntunnelattrremoteinetaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrRemoteInetAddressType"):
+                    self.cvpdntunnelattrremoteinetaddresstype = value
+                    self.cvpdntunnelattrremoteinetaddresstype.value_namespace = name_space
+                    self.cvpdntunnelattrremoteinetaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrRemoteIpAddress"):
+                    self.cvpdntunnelattrremoteipaddress = value
+                    self.cvpdntunnelattrremoteipaddress.value_namespace = name_space
+                    self.cvpdntunnelattrremoteipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrRemoteName"):
+                    self.cvpdntunnelattrremotename = value
+                    self.cvpdntunnelattrremotename.value_namespace = name_space
+                    self.cvpdntunnelattrremotename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrRemoteTunnelId"):
+                    self.cvpdntunnelattrremotetunnelid = value
+                    self.cvpdntunnelattrremotetunnelid.value_namespace = name_space
+                    self.cvpdntunnelattrremotetunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrSoftshut"):
+                    self.cvpdntunnelattrsoftshut = value
+                    self.cvpdntunnelattrsoftshut.value_namespace = name_space
+                    self.cvpdntunnelattrsoftshut.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrSourceInetAddress"):
+                    self.cvpdntunnelattrsourceinetaddress = value
+                    self.cvpdntunnelattrsourceinetaddress.value_namespace = name_space
+                    self.cvpdntunnelattrsourceinetaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrSourceInetAddressType"):
+                    self.cvpdntunnelattrsourceinetaddresstype = value
+                    self.cvpdntunnelattrsourceinetaddresstype.value_namespace = name_space
+                    self.cvpdntunnelattrsourceinetaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrSourceIpAddress"):
+                    self.cvpdntunnelattrsourceipaddress = value
+                    self.cvpdntunnelattrsourceipaddress.value_namespace = name_space
+                    self.cvpdntunnelattrsourceipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrState"):
+                    self.cvpdntunnelattrstate = value
+                    self.cvpdntunnelattrstate.value_namespace = name_space
+                    self.cvpdntunnelattrstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdntunnelattrentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdntunnelattrtunnelid is not None:
-                    return True
-
-                if self.cvpdntunnelattractivesessions is not None:
-                    return True
-
-                if self.cvpdntunnelattrdeniedusers is not None:
-                    return True
-
-                if self.cvpdntunnelattrlocalinetaddress is not None:
-                    return True
-
-                if self.cvpdntunnelattrlocalinetaddresstype is not None:
-                    return True
-
-                if self.cvpdntunnelattrlocalinitconnection is not None:
-                    return True
-
-                if self.cvpdntunnelattrlocalipaddress is not None:
-                    return True
-
-                if self.cvpdntunnelattrlocalname is not None:
-                    return True
-
-                if self.cvpdntunnelattrnetworkservicetype is not None:
-                    return True
-
-                if self.cvpdntunnelattrorigcause is not None:
-                    return True
-
-                if self.cvpdntunnelattrremoteendpointname is not None:
-                    return True
-
-                if self.cvpdntunnelattrremoteinetaddress is not None:
-                    return True
-
-                if self.cvpdntunnelattrremoteinetaddresstype is not None:
-                    return True
-
-                if self.cvpdntunnelattrremoteipaddress is not None:
-                    return True
-
-                if self.cvpdntunnelattrremotename is not None:
-                    return True
-
-                if self.cvpdntunnelattrremotetunnelid is not None:
-                    return True
-
-                if self.cvpdntunnelattrsoftshut is not None:
-                    return True
-
-                if self.cvpdntunnelattrsourceinetaddress is not None:
-                    return True
-
-                if self.cvpdntunnelattrsourceinetaddresstype is not None:
-                    return True
-
-                if self.cvpdntunnelattrsourceipaddress is not None:
-                    return True
-
-                if self.cvpdntunnelattrstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTunnelAttrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdntunnelattrentry is not None:
-                for child_ref in self.cvpdntunnelattrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdntunnelattrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnTunnelAttrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnTunnelAttrEntry"):
+                for c in self.cvpdntunnelattrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdntunnelattrtable.Cvpdntunnelattrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdntunnelattrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnTunnelAttrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelattrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdntunnelsessiontable(object):
+    class Cvpdntunnelsessiontable(Entity):
         """
         Table of information about individual user sessions
         within the active tunnels.  Entry is added to the table
@@ -1731,13 +2554,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdntunnelsessionentry = YList()
-            self.cvpdntunnelsessionentry.parent = self
-            self.cvpdntunnelsessionentry.name = 'cvpdntunnelsessionentry'
+            super(CiscoVpdnMgmtMib.Cvpdntunnelsessiontable, self).__init__()
+
+            self.yang_name = "cvpdnTunnelSessionTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdntunnelsessionentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdntunnelsessiontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdntunnelsessiontable, self).__setattr__(name, value)
 
 
-        class Cvpdntunnelsessionentry(object):
+        class Cvpdntunnelsessionentry(Entity):
             """
             An entry in the table, containing information about a
             single user session within the tunnel.
@@ -1812,7 +2661,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelsessiondevicetype
             
             	The type of physical devices that this user session is attached to for the local end of the tunnel.  The meaning of each device type is explained below\:      other\:              Any device that has not been                         defined.      asyncInternalModem\: Modem Pool device of an access                         server.      async\:              A regular asynchronous serial                         interface.      sync\:               A regular synchronous serial                         interface.      bchan\:              An ISDN call.      xdsl\:               Future application with xDSL                         devices.      cable\:              Future application with Cable                         modem devices
-            	**type**\:   :py:class:`CvpdntunnelsessiondevicetypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.CvpdntunnelsessiondevicetypeEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelsessiondevicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.Cvpdntunnelsessiondevicetype>`
             
             	**status**\: obsolete
             
@@ -1911,7 +2760,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdntunnelsessionstate
             
             	The current state of an active user session.  Each state code is explained below\:      unknown\:          The current state of the tunnel's                       session is unknown.      opening\:          The user session has just been                       initiated through a tunnel and is                       pending for the remote end reply                       to complete the process.      open\:             The user session is active.      closing\:          The user session has just been                       closed and is pending for the                       remote end reply to complete the                       process.      waitingForTunnel\: The user session is in this state                       when the tunnel which this session                       is going through is still in                       CLOSED state.  It waits for the                       tunnel to become OPEN before the                       session is allow to be fully                       established
-            	**type**\:   :py:class:`CvpdntunnelsessionstateEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.CvpdntunnelsessionstateEnum>`
+            	**type**\:   :py:class:`Cvpdntunnelsessionstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.Cvpdntunnelsessionstate>`
             
             	**status**\: obsolete
             
@@ -1932,31 +2781,97 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdntunneltunnelid = None
-                self.cvpdntunnelsessionid = None
-                self.cvpdntunnelsessionbytesin = None
-                self.cvpdntunnelsessionbytesout = None
-                self.cvpdntunnelsessioncallduration = None
-                self.cvpdntunnelsessiondevicecallerid = None
-                self.cvpdntunnelsessiondevicephyid = None
-                self.cvpdntunnelsessiondevicetype = None
-                self.cvpdntunnelsessionds1channelindex = None
-                self.cvpdntunnelsessionds1portindex = None
-                self.cvpdntunnelsessionds1slotindex = None
-                self.cvpdntunnelsessionmodemcallstartindex = None
-                self.cvpdntunnelsessionmodemcallstarttime = None
-                self.cvpdntunnelsessionmodemportindex = None
-                self.cvpdntunnelsessionmodemslotindex = None
-                self.cvpdntunnelsessionmultilink = None
-                self.cvpdntunnelsessionpacketsin = None
-                self.cvpdntunnelsessionpacketsout = None
-                self.cvpdntunnelsessionstate = None
-                self.cvpdntunnelsessionusername = None
+                super(CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry, self).__init__()
 
-            class CvpdntunnelsessiondevicetypeEnum(Enum):
+                self.yang_name = "cvpdnTunnelSessionEntry"
+                self.yang_parent_name = "cvpdnTunnelSessionTable"
+
+                self.cvpdntunneltunnelid = YLeaf(YType.str, "cvpdnTunnelTunnelId")
+
+                self.cvpdntunnelsessionid = YLeaf(YType.uint32, "cvpdnTunnelSessionId")
+
+                self.cvpdntunnelsessionbytesin = YLeaf(YType.uint32, "cvpdnTunnelSessionBytesIn")
+
+                self.cvpdntunnelsessionbytesout = YLeaf(YType.uint32, "cvpdnTunnelSessionBytesOut")
+
+                self.cvpdntunnelsessioncallduration = YLeaf(YType.uint32, "cvpdnTunnelSessionCallDuration")
+
+                self.cvpdntunnelsessiondevicecallerid = YLeaf(YType.str, "cvpdnTunnelSessionDeviceCallerId")
+
+                self.cvpdntunnelsessiondevicephyid = YLeaf(YType.int32, "cvpdnTunnelSessionDevicePhyId")
+
+                self.cvpdntunnelsessiondevicetype = YLeaf(YType.enumeration, "cvpdnTunnelSessionDeviceType")
+
+                self.cvpdntunnelsessionds1channelindex = YLeaf(YType.uint32, "cvpdnTunnelSessionDS1ChannelIndex")
+
+                self.cvpdntunnelsessionds1portindex = YLeaf(YType.uint32, "cvpdnTunnelSessionDS1PortIndex")
+
+                self.cvpdntunnelsessionds1slotindex = YLeaf(YType.uint32, "cvpdnTunnelSessionDS1SlotIndex")
+
+                self.cvpdntunnelsessionmodemcallstartindex = YLeaf(YType.uint32, "cvpdnTunnelSessionModemCallStartIndex")
+
+                self.cvpdntunnelsessionmodemcallstarttime = YLeaf(YType.uint32, "cvpdnTunnelSessionModemCallStartTime")
+
+                self.cvpdntunnelsessionmodemportindex = YLeaf(YType.uint32, "cvpdnTunnelSessionModemPortIndex")
+
+                self.cvpdntunnelsessionmodemslotindex = YLeaf(YType.uint32, "cvpdnTunnelSessionModemSlotIndex")
+
+                self.cvpdntunnelsessionmultilink = YLeaf(YType.boolean, "cvpdnTunnelSessionMultilink")
+
+                self.cvpdntunnelsessionpacketsin = YLeaf(YType.uint32, "cvpdnTunnelSessionPacketsIn")
+
+                self.cvpdntunnelsessionpacketsout = YLeaf(YType.uint32, "cvpdnTunnelSessionPacketsOut")
+
+                self.cvpdntunnelsessionstate = YLeaf(YType.enumeration, "cvpdnTunnelSessionState")
+
+                self.cvpdntunnelsessionusername = YLeaf(YType.str, "cvpdnTunnelSessionUserName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdntunneltunnelid",
+                                "cvpdntunnelsessionid",
+                                "cvpdntunnelsessionbytesin",
+                                "cvpdntunnelsessionbytesout",
+                                "cvpdntunnelsessioncallduration",
+                                "cvpdntunnelsessiondevicecallerid",
+                                "cvpdntunnelsessiondevicephyid",
+                                "cvpdntunnelsessiondevicetype",
+                                "cvpdntunnelsessionds1channelindex",
+                                "cvpdntunnelsessionds1portindex",
+                                "cvpdntunnelsessionds1slotindex",
+                                "cvpdntunnelsessionmodemcallstartindex",
+                                "cvpdntunnelsessionmodemcallstarttime",
+                                "cvpdntunnelsessionmodemportindex",
+                                "cvpdntunnelsessionmodemslotindex",
+                                "cvpdntunnelsessionmultilink",
+                                "cvpdntunnelsessionpacketsin",
+                                "cvpdntunnelsessionpacketsout",
+                                "cvpdntunnelsessionstate",
+                                "cvpdntunnelsessionusername") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry, self).__setattr__(name, value)
+
+            class Cvpdntunnelsessiondevicetype(Enum):
                 """
-                CvpdntunnelsessiondevicetypeEnum
+                Cvpdntunnelsessiondevicetype
 
                 The type of physical devices that this user session
 
@@ -2008,32 +2923,26 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                asyncInternalModem = 2
+                asyncInternalModem = Enum.YLeaf(2, "asyncInternalModem")
 
-                async = 3
+                async = Enum.YLeaf(3, "async")
 
-                bchan = 4
+                bchan = Enum.YLeaf(4, "bchan")
 
-                sync = 5
+                sync = Enum.YLeaf(5, "sync")
 
-                virtualAccess = 6
+                virtualAccess = Enum.YLeaf(6, "virtualAccess")
 
-                xdsl = 7
+                xdsl = Enum.YLeaf(7, "xdsl")
 
-                cable = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.CvpdntunnelsessiondevicetypeEnum']
+                cable = Enum.YLeaf(8, "cable")
 
 
-            class CvpdntunnelsessionstateEnum(Enum):
+            class Cvpdntunnelsessionstate(Enum):
                 """
-                CvpdntunnelsessionstateEnum
+                Cvpdntunnelsessionstate
 
                 The current state of an active user session.  Each state
 
@@ -2087,128 +2996,275 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                opening = 2
+                opening = Enum.YLeaf(2, "opening")
 
-                open = 3
+                open = Enum.YLeaf(3, "open")
 
-                closing = 4
+                closing = Enum.YLeaf(4, "closing")
 
-                waitingForTunnel = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry.CvpdntunnelsessionstateEnum']
+                waitingForTunnel = Enum.YLeaf(5, "waitingForTunnel")
 
 
-            @property
-            def _common_path(self):
-                if self.cvpdntunneltunnelid is None:
-                    raise YPYModelError('Key property cvpdntunneltunnelid is None')
-                if self.cvpdntunnelsessionid is None:
-                    raise YPYModelError('Key property cvpdntunnelsessionid is None')
+            def has_data(self):
+                return (
+                    self.cvpdntunneltunnelid.is_set or
+                    self.cvpdntunnelsessionid.is_set or
+                    self.cvpdntunnelsessionbytesin.is_set or
+                    self.cvpdntunnelsessionbytesout.is_set or
+                    self.cvpdntunnelsessioncallduration.is_set or
+                    self.cvpdntunnelsessiondevicecallerid.is_set or
+                    self.cvpdntunnelsessiondevicephyid.is_set or
+                    self.cvpdntunnelsessiondevicetype.is_set or
+                    self.cvpdntunnelsessionds1channelindex.is_set or
+                    self.cvpdntunnelsessionds1portindex.is_set or
+                    self.cvpdntunnelsessionds1slotindex.is_set or
+                    self.cvpdntunnelsessionmodemcallstartindex.is_set or
+                    self.cvpdntunnelsessionmodemcallstarttime.is_set or
+                    self.cvpdntunnelsessionmodemportindex.is_set or
+                    self.cvpdntunnelsessionmodemslotindex.is_set or
+                    self.cvpdntunnelsessionmultilink.is_set or
+                    self.cvpdntunnelsessionpacketsin.is_set or
+                    self.cvpdntunnelsessionpacketsout.is_set or
+                    self.cvpdntunnelsessionstate.is_set or
+                    self.cvpdntunnelsessionusername.is_set)
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTunnelSessionTable/CISCO-VPDN-MGMT-MIB:cvpdnTunnelSessionEntry[CISCO-VPDN-MGMT-MIB:cvpdnTunnelTunnelId = ' + str(self.cvpdntunneltunnelid) + '][CISCO-VPDN-MGMT-MIB:cvpdnTunnelSessionId = ' + str(self.cvpdntunnelsessionid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdntunneltunnelid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionbytesin.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionbytesout.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessioncallduration.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessiondevicecallerid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessiondevicephyid.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessiondevicetype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionds1channelindex.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionds1portindex.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionds1slotindex.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionmodemcallstartindex.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionmodemcallstarttime.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionmodemportindex.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionmodemslotindex.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionmultilink.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionpacketsin.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionpacketsout.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionstate.yfilter != YFilter.not_set or
+                    self.cvpdntunnelsessionusername.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnTunnelSessionEntry" + "[cvpdnTunnelTunnelId='" + self.cvpdntunneltunnelid.get() + "']" + "[cvpdnTunnelSessionId='" + self.cvpdntunnelsessionid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTunnelSessionTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdntunneltunnelid.is_set or self.cvpdntunneltunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunneltunnelid.get_name_leafdata())
+                if (self.cvpdntunnelsessionid.is_set or self.cvpdntunnelsessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionid.get_name_leafdata())
+                if (self.cvpdntunnelsessionbytesin.is_set or self.cvpdntunnelsessionbytesin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionbytesin.get_name_leafdata())
+                if (self.cvpdntunnelsessionbytesout.is_set or self.cvpdntunnelsessionbytesout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionbytesout.get_name_leafdata())
+                if (self.cvpdntunnelsessioncallduration.is_set or self.cvpdntunnelsessioncallduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessioncallduration.get_name_leafdata())
+                if (self.cvpdntunnelsessiondevicecallerid.is_set or self.cvpdntunnelsessiondevicecallerid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessiondevicecallerid.get_name_leafdata())
+                if (self.cvpdntunnelsessiondevicephyid.is_set or self.cvpdntunnelsessiondevicephyid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessiondevicephyid.get_name_leafdata())
+                if (self.cvpdntunnelsessiondevicetype.is_set or self.cvpdntunnelsessiondevicetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessiondevicetype.get_name_leafdata())
+                if (self.cvpdntunnelsessionds1channelindex.is_set or self.cvpdntunnelsessionds1channelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionds1channelindex.get_name_leafdata())
+                if (self.cvpdntunnelsessionds1portindex.is_set or self.cvpdntunnelsessionds1portindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionds1portindex.get_name_leafdata())
+                if (self.cvpdntunnelsessionds1slotindex.is_set or self.cvpdntunnelsessionds1slotindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionds1slotindex.get_name_leafdata())
+                if (self.cvpdntunnelsessionmodemcallstartindex.is_set or self.cvpdntunnelsessionmodemcallstartindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionmodemcallstartindex.get_name_leafdata())
+                if (self.cvpdntunnelsessionmodemcallstarttime.is_set or self.cvpdntunnelsessionmodemcallstarttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionmodemcallstarttime.get_name_leafdata())
+                if (self.cvpdntunnelsessionmodemportindex.is_set or self.cvpdntunnelsessionmodemportindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionmodemportindex.get_name_leafdata())
+                if (self.cvpdntunnelsessionmodemslotindex.is_set or self.cvpdntunnelsessionmodemslotindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionmodemslotindex.get_name_leafdata())
+                if (self.cvpdntunnelsessionmultilink.is_set or self.cvpdntunnelsessionmultilink.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionmultilink.get_name_leafdata())
+                if (self.cvpdntunnelsessionpacketsin.is_set or self.cvpdntunnelsessionpacketsin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionpacketsin.get_name_leafdata())
+                if (self.cvpdntunnelsessionpacketsout.is_set or self.cvpdntunnelsessionpacketsout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionpacketsout.get_name_leafdata())
+                if (self.cvpdntunnelsessionstate.is_set or self.cvpdntunnelsessionstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionstate.get_name_leafdata())
+                if (self.cvpdntunnelsessionusername.is_set or self.cvpdntunnelsessionusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelsessionusername.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnTunnelTunnelId" or name == "cvpdnTunnelSessionId" or name == "cvpdnTunnelSessionBytesIn" or name == "cvpdnTunnelSessionBytesOut" or name == "cvpdnTunnelSessionCallDuration" or name == "cvpdnTunnelSessionDeviceCallerId" or name == "cvpdnTunnelSessionDevicePhyId" or name == "cvpdnTunnelSessionDeviceType" or name == "cvpdnTunnelSessionDS1ChannelIndex" or name == "cvpdnTunnelSessionDS1PortIndex" or name == "cvpdnTunnelSessionDS1SlotIndex" or name == "cvpdnTunnelSessionModemCallStartIndex" or name == "cvpdnTunnelSessionModemCallStartTime" or name == "cvpdnTunnelSessionModemPortIndex" or name == "cvpdnTunnelSessionModemSlotIndex" or name == "cvpdnTunnelSessionMultilink" or name == "cvpdnTunnelSessionPacketsIn" or name == "cvpdnTunnelSessionPacketsOut" or name == "cvpdnTunnelSessionState" or name == "cvpdnTunnelSessionUserName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdntunneltunnelid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnTunnelTunnelId"):
+                    self.cvpdntunneltunnelid = value
+                    self.cvpdntunneltunnelid.value_namespace = name_space
+                    self.cvpdntunneltunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionId"):
+                    self.cvpdntunnelsessionid = value
+                    self.cvpdntunnelsessionid.value_namespace = name_space
+                    self.cvpdntunnelsessionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionBytesIn"):
+                    self.cvpdntunnelsessionbytesin = value
+                    self.cvpdntunnelsessionbytesin.value_namespace = name_space
+                    self.cvpdntunnelsessionbytesin.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionBytesOut"):
+                    self.cvpdntunnelsessionbytesout = value
+                    self.cvpdntunnelsessionbytesout.value_namespace = name_space
+                    self.cvpdntunnelsessionbytesout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionCallDuration"):
+                    self.cvpdntunnelsessioncallduration = value
+                    self.cvpdntunnelsessioncallduration.value_namespace = name_space
+                    self.cvpdntunnelsessioncallduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionDeviceCallerId"):
+                    self.cvpdntunnelsessiondevicecallerid = value
+                    self.cvpdntunnelsessiondevicecallerid.value_namespace = name_space
+                    self.cvpdntunnelsessiondevicecallerid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionDevicePhyId"):
+                    self.cvpdntunnelsessiondevicephyid = value
+                    self.cvpdntunnelsessiondevicephyid.value_namespace = name_space
+                    self.cvpdntunnelsessiondevicephyid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionDeviceType"):
+                    self.cvpdntunnelsessiondevicetype = value
+                    self.cvpdntunnelsessiondevicetype.value_namespace = name_space
+                    self.cvpdntunnelsessiondevicetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionDS1ChannelIndex"):
+                    self.cvpdntunnelsessionds1channelindex = value
+                    self.cvpdntunnelsessionds1channelindex.value_namespace = name_space
+                    self.cvpdntunnelsessionds1channelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionDS1PortIndex"):
+                    self.cvpdntunnelsessionds1portindex = value
+                    self.cvpdntunnelsessionds1portindex.value_namespace = name_space
+                    self.cvpdntunnelsessionds1portindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionDS1SlotIndex"):
+                    self.cvpdntunnelsessionds1slotindex = value
+                    self.cvpdntunnelsessionds1slotindex.value_namespace = name_space
+                    self.cvpdntunnelsessionds1slotindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionModemCallStartIndex"):
+                    self.cvpdntunnelsessionmodemcallstartindex = value
+                    self.cvpdntunnelsessionmodemcallstartindex.value_namespace = name_space
+                    self.cvpdntunnelsessionmodemcallstartindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionModemCallStartTime"):
+                    self.cvpdntunnelsessionmodemcallstarttime = value
+                    self.cvpdntunnelsessionmodemcallstarttime.value_namespace = name_space
+                    self.cvpdntunnelsessionmodemcallstarttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionModemPortIndex"):
+                    self.cvpdntunnelsessionmodemportindex = value
+                    self.cvpdntunnelsessionmodemportindex.value_namespace = name_space
+                    self.cvpdntunnelsessionmodemportindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionModemSlotIndex"):
+                    self.cvpdntunnelsessionmodemslotindex = value
+                    self.cvpdntunnelsessionmodemslotindex.value_namespace = name_space
+                    self.cvpdntunnelsessionmodemslotindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionMultilink"):
+                    self.cvpdntunnelsessionmultilink = value
+                    self.cvpdntunnelsessionmultilink.value_namespace = name_space
+                    self.cvpdntunnelsessionmultilink.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionPacketsIn"):
+                    self.cvpdntunnelsessionpacketsin = value
+                    self.cvpdntunnelsessionpacketsin.value_namespace = name_space
+                    self.cvpdntunnelsessionpacketsin.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionPacketsOut"):
+                    self.cvpdntunnelsessionpacketsout = value
+                    self.cvpdntunnelsessionpacketsout.value_namespace = name_space
+                    self.cvpdntunnelsessionpacketsout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionState"):
+                    self.cvpdntunnelsessionstate = value
+                    self.cvpdntunnelsessionstate.value_namespace = name_space
+                    self.cvpdntunnelsessionstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelSessionUserName"):
+                    self.cvpdntunnelsessionusername = value
+                    self.cvpdntunnelsessionusername.value_namespace = name_space
+                    self.cvpdntunnelsessionusername.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdntunnelsessionentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdntunnelsessionid is not None:
-                    return True
-
-                if self.cvpdntunnelsessionbytesin is not None:
-                    return True
-
-                if self.cvpdntunnelsessionbytesout is not None:
-                    return True
-
-                if self.cvpdntunnelsessioncallduration is not None:
-                    return True
-
-                if self.cvpdntunnelsessiondevicecallerid is not None:
-                    return True
-
-                if self.cvpdntunnelsessiondevicephyid is not None:
-                    return True
-
-                if self.cvpdntunnelsessiondevicetype is not None:
-                    return True
-
-                if self.cvpdntunnelsessionds1channelindex is not None:
-                    return True
-
-                if self.cvpdntunnelsessionds1portindex is not None:
-                    return True
-
-                if self.cvpdntunnelsessionds1slotindex is not None:
-                    return True
-
-                if self.cvpdntunnelsessionmodemcallstartindex is not None:
-                    return True
-
-                if self.cvpdntunnelsessionmodemcallstarttime is not None:
-                    return True
-
-                if self.cvpdntunnelsessionmodemportindex is not None:
-                    return True
-
-                if self.cvpdntunnelsessionmodemslotindex is not None:
-                    return True
-
-                if self.cvpdntunnelsessionmultilink is not None:
-                    return True
-
-                if self.cvpdntunnelsessionpacketsin is not None:
-                    return True
-
-                if self.cvpdntunnelsessionpacketsout is not None:
-                    return True
-
-                if self.cvpdntunnelsessionstate is not None:
-                    return True
-
-                if self.cvpdntunnelsessionusername is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTunnelSessionTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdntunnelsessionentry is not None:
-                for child_ref in self.cvpdntunnelsessionentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdntunnelsessionentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnTunnelSessionTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnTunnelSessionEntry"):
+                for c in self.cvpdntunnelsessionentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdntunnelsessiontable.Cvpdntunnelsessionentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdntunnelsessionentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnTunnelSessionEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntunnelsessiontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdnsessionattrtable(object):
+    class Cvpdnsessionattrtable(Entity):
         """
         Table of information about individual sessions within the
         active tunnels.  An entry is added to the table when a new
@@ -2228,13 +3284,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdnsessionattrentry = YList()
-            self.cvpdnsessionattrentry.parent = self
-            self.cvpdnsessionattrentry.name = 'cvpdnsessionattrentry'
+            super(CiscoVpdnMgmtMib.Cvpdnsessionattrtable, self).__init__()
+
+            self.yang_name = "cvpdnSessionAttrTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdnsessionattrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdnsessionattrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdnsessionattrtable, self).__setattr__(name, value)
 
 
-        class Cvpdnsessionattrentry(object):
+        class Cvpdnsessionattrentry(Entity):
             """
             An entry in the table, containing information about a
             single session within the tunnel.
@@ -2242,7 +3324,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnsystemtunneltype  <key>
             
             	
-            	**type**\:   :py:class:`TunneltypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunneltypeEnum>`
+            	**type**\:   :py:class:`Tunneltype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.Tunneltype>`
             
             .. attribute:: cvpdntunnelattrtunnelid  <key>
             
@@ -2300,7 +3382,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnsessionattrdevicetype
             
             	The type of physical devices that this session is attached to for the local end of the tunnel.  The meaning of each device type is explained below\:      other\:              Any device that has not been                         defined.      asyncInternalModem\: Modem Pool device of an access                         server.      async\:              A regular asynchronous serial                         interface.      sync\:               A regular synchronous serial                         interface.      bchan\:              An ISDN call.      xdsl\:               xDSL interface.      cable\:              cable modem interface
-            	**type**\:   :py:class:`CvpdnsessionattrdevicetypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry.CvpdnsessionattrdevicetypeEnum>`
+            	**type**\:   :py:class:`Cvpdnsessionattrdevicetype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry.Cvpdnsessionattrdevicetype>`
             
             .. attribute:: cvpdnsessionattrds1channelindex
             
@@ -2409,7 +3491,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnsessionattrstate
             
             	The current state of a tunnel session. L2F tunnel sessions will have states with the 'l2f' prefix. L2TP tunnel sessions will have states with the 'l2tp' prefix.  Each state code is explained below\:      unknown\:             The current state of the tunnel's                          session is unknown.      l2fOpening\:          The session has just been                          initiated through a tunnel and is                          pending for the remote end reply                          to complete the process.      l2fOpen\:             The session is active.      l2fCloseWait\:        The session has just been closed                          and is pending for the remote end                          reply to complete the process.      l2fWaitingForTunnel\: The session is in this state when                          the tunnel which this session is                          going through is still in CLOSED                          state.  It waits for the tunnel to                          become OPEN before the session is                          allowed to be fully established.      l2tpIdle\:            No session is initiated yet.      l2tpWaitingTunnel\:   The session is waiting for the                          tunnel to be established.      l2tpWaitReply\:       The session has been initiated and                          is pending for the remote end                          reply to complete the process.      l2tpWaitConnect\:     This end has acknowledged a                          connection request and is waiting                          for the remote end to connect.      l2tpEstablished\:     The session is active.      l2tpShuttingDown\:    The session is in progress of                          shutting down.      pptpWaitVAccess\:     The session is waiting for the                          creation of a virtual access                          interface.      pptpPacEstablished\:  The session is active.      pptpWaitTunnel\:      The session is waiting for the                          tunnel to be established.      pptpWaitOCRP\:        The session has been initiated and                          is pending for the remote end                          reply to complete the process.      pptpPnsEstablished\:  The session is active.      pptpWaitCallDisc\:    Session shutdown is in progress
-            	**type**\:   :py:class:`CvpdnsessionattrstateEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry.CvpdnsessionattrstateEnum>`
+            	**type**\:   :py:class:`Cvpdnsessionattrstate <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry.Cvpdnsessionattrstate>`
             
             .. attribute:: cvpdnsessionattrusername
             
@@ -2433,37 +3515,115 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdnsystemtunneltype = None
-                self.cvpdntunnelattrtunnelid = None
-                self.cvpdnsessionattrsessionid = None
-                self.cvpdnsessionattrbytesin = None
-                self.cvpdnsessionattrbytesout = None
-                self.cvpdnsessionattrcallduration = None
-                self.cvpdnsessionattrdevicecallerid = None
-                self.cvpdnsessionattrdevicephyid = None
-                self.cvpdnsessionattrdevicetype = None
-                self.cvpdnsessionattrds1channelindex = None
-                self.cvpdnsessionattrds1portindex = None
-                self.cvpdnsessionattrds1slotindex = None
-                self.cvpdnsessionattrmodemcallstartindex = None
-                self.cvpdnsessionattrmodemcallstarttime = None
-                self.cvpdnsessionattrmodemportindex = None
-                self.cvpdnsessionattrmodemslotindex = None
-                self.cvpdnsessionattrmultilink = None
-                self.cvpdnsessionattrmultilinkbundle = None
-                self.cvpdnsessionattrmultilinkifindex = None
-                self.cvpdnsessionattrpacketsin = None
-                self.cvpdnsessionattrpacketsout = None
-                self.cvpdnsessionattrrecvpktsdropped = None
-                self.cvpdnsessionattrsentpktsdropped = None
-                self.cvpdnsessionattrstate = None
-                self.cvpdnsessionattrusername = None
-                self.cvpdnsessionattrvirtualcircuitid = None
+                super(CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry, self).__init__()
 
-            class CvpdnsessionattrdevicetypeEnum(Enum):
+                self.yang_name = "cvpdnSessionAttrEntry"
+                self.yang_parent_name = "cvpdnSessionAttrTable"
+
+                self.cvpdnsystemtunneltype = YLeaf(YType.enumeration, "cvpdnSystemTunnelType")
+
+                self.cvpdntunnelattrtunnelid = YLeaf(YType.str, "cvpdnTunnelAttrTunnelId")
+
+                self.cvpdnsessionattrsessionid = YLeaf(YType.int32, "cvpdnSessionAttrSessionId")
+
+                self.cvpdnsessionattrbytesin = YLeaf(YType.uint32, "cvpdnSessionAttrBytesIn")
+
+                self.cvpdnsessionattrbytesout = YLeaf(YType.uint32, "cvpdnSessionAttrBytesOut")
+
+                self.cvpdnsessionattrcallduration = YLeaf(YType.uint32, "cvpdnSessionAttrCallDuration")
+
+                self.cvpdnsessionattrdevicecallerid = YLeaf(YType.str, "cvpdnSessionAttrDeviceCallerId")
+
+                self.cvpdnsessionattrdevicephyid = YLeaf(YType.int32, "cvpdnSessionAttrDevicePhyId")
+
+                self.cvpdnsessionattrdevicetype = YLeaf(YType.enumeration, "cvpdnSessionAttrDeviceType")
+
+                self.cvpdnsessionattrds1channelindex = YLeaf(YType.uint32, "cvpdnSessionAttrDS1ChannelIndex")
+
+                self.cvpdnsessionattrds1portindex = YLeaf(YType.uint32, "cvpdnSessionAttrDS1PortIndex")
+
+                self.cvpdnsessionattrds1slotindex = YLeaf(YType.uint32, "cvpdnSessionAttrDS1SlotIndex")
+
+                self.cvpdnsessionattrmodemcallstartindex = YLeaf(YType.uint32, "cvpdnSessionAttrModemCallStartIndex")
+
+                self.cvpdnsessionattrmodemcallstarttime = YLeaf(YType.uint32, "cvpdnSessionAttrModemCallStartTime")
+
+                self.cvpdnsessionattrmodemportindex = YLeaf(YType.uint32, "cvpdnSessionAttrModemPortIndex")
+
+                self.cvpdnsessionattrmodemslotindex = YLeaf(YType.uint32, "cvpdnSessionAttrModemSlotIndex")
+
+                self.cvpdnsessionattrmultilink = YLeaf(YType.boolean, "cvpdnSessionAttrMultilink")
+
+                self.cvpdnsessionattrmultilinkbundle = YLeaf(YType.str, "cvpdnSessionAttrMultilinkBundle")
+
+                self.cvpdnsessionattrmultilinkifindex = YLeaf(YType.int32, "cvpdnSessionAttrMultilinkIfIndex")
+
+                self.cvpdnsessionattrpacketsin = YLeaf(YType.uint32, "cvpdnSessionAttrPacketsIn")
+
+                self.cvpdnsessionattrpacketsout = YLeaf(YType.uint32, "cvpdnSessionAttrPacketsOut")
+
+                self.cvpdnsessionattrrecvpktsdropped = YLeaf(YType.uint32, "cvpdnSessionAttrRecvPktsDropped")
+
+                self.cvpdnsessionattrsentpktsdropped = YLeaf(YType.uint32, "cvpdnSessionAttrSentPktsDropped")
+
+                self.cvpdnsessionattrstate = YLeaf(YType.enumeration, "cvpdnSessionAttrState")
+
+                self.cvpdnsessionattrusername = YLeaf(YType.str, "cvpdnSessionAttrUserName")
+
+                self.cvpdnsessionattrvirtualcircuitid = YLeaf(YType.uint32, "cvpdnSessionAttrVirtualCircuitID")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdnsystemtunneltype",
+                                "cvpdntunnelattrtunnelid",
+                                "cvpdnsessionattrsessionid",
+                                "cvpdnsessionattrbytesin",
+                                "cvpdnsessionattrbytesout",
+                                "cvpdnsessionattrcallduration",
+                                "cvpdnsessionattrdevicecallerid",
+                                "cvpdnsessionattrdevicephyid",
+                                "cvpdnsessionattrdevicetype",
+                                "cvpdnsessionattrds1channelindex",
+                                "cvpdnsessionattrds1portindex",
+                                "cvpdnsessionattrds1slotindex",
+                                "cvpdnsessionattrmodemcallstartindex",
+                                "cvpdnsessionattrmodemcallstarttime",
+                                "cvpdnsessionattrmodemportindex",
+                                "cvpdnsessionattrmodemslotindex",
+                                "cvpdnsessionattrmultilink",
+                                "cvpdnsessionattrmultilinkbundle",
+                                "cvpdnsessionattrmultilinkifindex",
+                                "cvpdnsessionattrpacketsin",
+                                "cvpdnsessionattrpacketsout",
+                                "cvpdnsessionattrrecvpktsdropped",
+                                "cvpdnsessionattrsentpktsdropped",
+                                "cvpdnsessionattrstate",
+                                "cvpdnsessionattrusername",
+                                "cvpdnsessionattrvirtualcircuitid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry, self).__setattr__(name, value)
+
+            class Cvpdnsessionattrdevicetype(Enum):
                 """
-                CvpdnsessionattrdevicetypeEnum
+                Cvpdnsessionattrdevicetype
 
                 The type of physical devices that this session is attached
 
@@ -2511,32 +3671,26 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                asyncInternalModem = 2
+                asyncInternalModem = Enum.YLeaf(2, "asyncInternalModem")
 
-                async = 3
+                async = Enum.YLeaf(3, "async")
 
-                bchan = 4
+                bchan = Enum.YLeaf(4, "bchan")
 
-                sync = 5
+                sync = Enum.YLeaf(5, "sync")
 
-                virtualAccess = 6
+                virtualAccess = Enum.YLeaf(6, "virtualAccess")
 
-                xdsl = 7
+                xdsl = Enum.YLeaf(7, "xdsl")
 
-                cable = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry.CvpdnsessionattrdevicetypeEnum']
+                cable = Enum.YLeaf(8, "cable")
 
 
-            class CvpdnsessionattrstateEnum(Enum):
+            class Cvpdnsessionattrstate(Enum):
                 """
-                CvpdnsessionattrstateEnum
+                Cvpdnsessionattrstate
 
                 The current state of a tunnel session.
 
@@ -2664,174 +3818,349 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                l2fOpening = 2
+                l2fOpening = Enum.YLeaf(2, "l2fOpening")
 
-                l2fOpen = 3
+                l2fOpen = Enum.YLeaf(3, "l2fOpen")
 
-                l2fCloseWait = 4
+                l2fCloseWait = Enum.YLeaf(4, "l2fCloseWait")
 
-                l2fWaitingForTunnel = 5
+                l2fWaitingForTunnel = Enum.YLeaf(5, "l2fWaitingForTunnel")
 
-                l2tpIdle = 6
+                l2tpIdle = Enum.YLeaf(6, "l2tpIdle")
 
-                l2tpWaitingTunnel = 7
+                l2tpWaitingTunnel = Enum.YLeaf(7, "l2tpWaitingTunnel")
 
-                l2tpWaitReply = 8
+                l2tpWaitReply = Enum.YLeaf(8, "l2tpWaitReply")
 
-                l2tpWaitConnect = 9
+                l2tpWaitConnect = Enum.YLeaf(9, "l2tpWaitConnect")
 
-                l2tpEstablished = 10
+                l2tpEstablished = Enum.YLeaf(10, "l2tpEstablished")
 
-                l2tpShuttingDown = 11
+                l2tpShuttingDown = Enum.YLeaf(11, "l2tpShuttingDown")
 
-                pptpWaitVAccess = 12
+                pptpWaitVAccess = Enum.YLeaf(12, "pptpWaitVAccess")
 
-                pptpPacEstablished = 13
+                pptpPacEstablished = Enum.YLeaf(13, "pptpPacEstablished")
 
-                pptpWaitTunnel = 14
+                pptpWaitTunnel = Enum.YLeaf(14, "pptpWaitTunnel")
 
-                pptpWaitOCRP = 15
+                pptpWaitOCRP = Enum.YLeaf(15, "pptpWaitOCRP")
 
-                pptpPnsEstablished = 16
+                pptpPnsEstablished = Enum.YLeaf(16, "pptpPnsEstablished")
 
-                pptpWaitCallDisc = 17
+                pptpWaitCallDisc = Enum.YLeaf(17, "pptpWaitCallDisc")
 
-                pptpTerminal = 18
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry.CvpdnsessionattrstateEnum']
+                pptpTerminal = Enum.YLeaf(18, "pptpTerminal")
 
 
-            @property
-            def _common_path(self):
-                if self.cvpdnsystemtunneltype is None:
-                    raise YPYModelError('Key property cvpdnsystemtunneltype is None')
-                if self.cvpdntunnelattrtunnelid is None:
-                    raise YPYModelError('Key property cvpdntunnelattrtunnelid is None')
-                if self.cvpdnsessionattrsessionid is None:
-                    raise YPYModelError('Key property cvpdnsessionattrsessionid is None')
+            def has_data(self):
+                return (
+                    self.cvpdnsystemtunneltype.is_set or
+                    self.cvpdntunnelattrtunnelid.is_set or
+                    self.cvpdnsessionattrsessionid.is_set or
+                    self.cvpdnsessionattrbytesin.is_set or
+                    self.cvpdnsessionattrbytesout.is_set or
+                    self.cvpdnsessionattrcallduration.is_set or
+                    self.cvpdnsessionattrdevicecallerid.is_set or
+                    self.cvpdnsessionattrdevicephyid.is_set or
+                    self.cvpdnsessionattrdevicetype.is_set or
+                    self.cvpdnsessionattrds1channelindex.is_set or
+                    self.cvpdnsessionattrds1portindex.is_set or
+                    self.cvpdnsessionattrds1slotindex.is_set or
+                    self.cvpdnsessionattrmodemcallstartindex.is_set or
+                    self.cvpdnsessionattrmodemcallstarttime.is_set or
+                    self.cvpdnsessionattrmodemportindex.is_set or
+                    self.cvpdnsessionattrmodemslotindex.is_set or
+                    self.cvpdnsessionattrmultilink.is_set or
+                    self.cvpdnsessionattrmultilinkbundle.is_set or
+                    self.cvpdnsessionattrmultilinkifindex.is_set or
+                    self.cvpdnsessionattrpacketsin.is_set or
+                    self.cvpdnsessionattrpacketsout.is_set or
+                    self.cvpdnsessionattrrecvpktsdropped.is_set or
+                    self.cvpdnsessionattrsentpktsdropped.is_set or
+                    self.cvpdnsessionattrstate.is_set or
+                    self.cvpdnsessionattrusername.is_set or
+                    self.cvpdnsessionattrvirtualcircuitid.is_set)
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnSessionAttrTable/CISCO-VPDN-MGMT-MIB:cvpdnSessionAttrEntry[CISCO-VPDN-MGMT-MIB:cvpdnSystemTunnelType = ' + str(self.cvpdnsystemtunneltype) + '][CISCO-VPDN-MGMT-MIB:cvpdnTunnelAttrTunnelId = ' + str(self.cvpdntunnelattrtunnelid) + '][CISCO-VPDN-MGMT-MIB:cvpdnSessionAttrSessionId = ' + str(self.cvpdnsessionattrsessionid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdnsystemtunneltype.yfilter != YFilter.not_set or
+                    self.cvpdntunnelattrtunnelid.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrsessionid.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrbytesin.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrbytesout.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrcallduration.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrdevicecallerid.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrdevicephyid.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrdevicetype.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrds1channelindex.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrds1portindex.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrds1slotindex.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrmodemcallstartindex.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrmodemcallstarttime.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrmodemportindex.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrmodemslotindex.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrmultilink.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrmultilinkbundle.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrmultilinkifindex.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrpacketsin.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrpacketsout.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrrecvpktsdropped.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrsentpktsdropped.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrstate.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrusername.yfilter != YFilter.not_set or
+                    self.cvpdnsessionattrvirtualcircuitid.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnSessionAttrEntry" + "[cvpdnSystemTunnelType='" + self.cvpdnsystemtunneltype.get() + "']" + "[cvpdnTunnelAttrTunnelId='" + self.cvpdntunnelattrtunnelid.get() + "']" + "[cvpdnSessionAttrSessionId='" + self.cvpdnsessionattrsessionid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnSessionAttrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdnsystemtunneltype.is_set or self.cvpdnsystemtunneltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsystemtunneltype.get_name_leafdata())
+                if (self.cvpdntunnelattrtunnelid.is_set or self.cvpdntunnelattrtunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntunnelattrtunnelid.get_name_leafdata())
+                if (self.cvpdnsessionattrsessionid.is_set or self.cvpdnsessionattrsessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrsessionid.get_name_leafdata())
+                if (self.cvpdnsessionattrbytesin.is_set or self.cvpdnsessionattrbytesin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrbytesin.get_name_leafdata())
+                if (self.cvpdnsessionattrbytesout.is_set or self.cvpdnsessionattrbytesout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrbytesout.get_name_leafdata())
+                if (self.cvpdnsessionattrcallduration.is_set or self.cvpdnsessionattrcallduration.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrcallduration.get_name_leafdata())
+                if (self.cvpdnsessionattrdevicecallerid.is_set or self.cvpdnsessionattrdevicecallerid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrdevicecallerid.get_name_leafdata())
+                if (self.cvpdnsessionattrdevicephyid.is_set or self.cvpdnsessionattrdevicephyid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrdevicephyid.get_name_leafdata())
+                if (self.cvpdnsessionattrdevicetype.is_set or self.cvpdnsessionattrdevicetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrdevicetype.get_name_leafdata())
+                if (self.cvpdnsessionattrds1channelindex.is_set or self.cvpdnsessionattrds1channelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrds1channelindex.get_name_leafdata())
+                if (self.cvpdnsessionattrds1portindex.is_set or self.cvpdnsessionattrds1portindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrds1portindex.get_name_leafdata())
+                if (self.cvpdnsessionattrds1slotindex.is_set or self.cvpdnsessionattrds1slotindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrds1slotindex.get_name_leafdata())
+                if (self.cvpdnsessionattrmodemcallstartindex.is_set or self.cvpdnsessionattrmodemcallstartindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrmodemcallstartindex.get_name_leafdata())
+                if (self.cvpdnsessionattrmodemcallstarttime.is_set or self.cvpdnsessionattrmodemcallstarttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrmodemcallstarttime.get_name_leafdata())
+                if (self.cvpdnsessionattrmodemportindex.is_set or self.cvpdnsessionattrmodemportindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrmodemportindex.get_name_leafdata())
+                if (self.cvpdnsessionattrmodemslotindex.is_set or self.cvpdnsessionattrmodemslotindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrmodemslotindex.get_name_leafdata())
+                if (self.cvpdnsessionattrmultilink.is_set or self.cvpdnsessionattrmultilink.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrmultilink.get_name_leafdata())
+                if (self.cvpdnsessionattrmultilinkbundle.is_set or self.cvpdnsessionattrmultilinkbundle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrmultilinkbundle.get_name_leafdata())
+                if (self.cvpdnsessionattrmultilinkifindex.is_set or self.cvpdnsessionattrmultilinkifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrmultilinkifindex.get_name_leafdata())
+                if (self.cvpdnsessionattrpacketsin.is_set or self.cvpdnsessionattrpacketsin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrpacketsin.get_name_leafdata())
+                if (self.cvpdnsessionattrpacketsout.is_set or self.cvpdnsessionattrpacketsout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrpacketsout.get_name_leafdata())
+                if (self.cvpdnsessionattrrecvpktsdropped.is_set or self.cvpdnsessionattrrecvpktsdropped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrrecvpktsdropped.get_name_leafdata())
+                if (self.cvpdnsessionattrsentpktsdropped.is_set or self.cvpdnsessionattrsentpktsdropped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrsentpktsdropped.get_name_leafdata())
+                if (self.cvpdnsessionattrstate.is_set or self.cvpdnsessionattrstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrstate.get_name_leafdata())
+                if (self.cvpdnsessionattrusername.is_set or self.cvpdnsessionattrusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrusername.get_name_leafdata())
+                if (self.cvpdnsessionattrvirtualcircuitid.is_set or self.cvpdnsessionattrvirtualcircuitid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnsessionattrvirtualcircuitid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnSystemTunnelType" or name == "cvpdnTunnelAttrTunnelId" or name == "cvpdnSessionAttrSessionId" or name == "cvpdnSessionAttrBytesIn" or name == "cvpdnSessionAttrBytesOut" or name == "cvpdnSessionAttrCallDuration" or name == "cvpdnSessionAttrDeviceCallerId" or name == "cvpdnSessionAttrDevicePhyId" or name == "cvpdnSessionAttrDeviceType" or name == "cvpdnSessionAttrDS1ChannelIndex" or name == "cvpdnSessionAttrDS1PortIndex" or name == "cvpdnSessionAttrDS1SlotIndex" or name == "cvpdnSessionAttrModemCallStartIndex" or name == "cvpdnSessionAttrModemCallStartTime" or name == "cvpdnSessionAttrModemPortIndex" or name == "cvpdnSessionAttrModemSlotIndex" or name == "cvpdnSessionAttrMultilink" or name == "cvpdnSessionAttrMultilinkBundle" or name == "cvpdnSessionAttrMultilinkIfIndex" or name == "cvpdnSessionAttrPacketsIn" or name == "cvpdnSessionAttrPacketsOut" or name == "cvpdnSessionAttrRecvPktsDropped" or name == "cvpdnSessionAttrSentPktsDropped" or name == "cvpdnSessionAttrState" or name == "cvpdnSessionAttrUserName" or name == "cvpdnSessionAttrVirtualCircuitID"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdnsystemtunneltype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnSystemTunnelType"):
+                    self.cvpdnsystemtunneltype = value
+                    self.cvpdnsystemtunneltype.value_namespace = name_space
+                    self.cvpdnsystemtunneltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTunnelAttrTunnelId"):
+                    self.cvpdntunnelattrtunnelid = value
+                    self.cvpdntunnelattrtunnelid.value_namespace = name_space
+                    self.cvpdntunnelattrtunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrSessionId"):
+                    self.cvpdnsessionattrsessionid = value
+                    self.cvpdnsessionattrsessionid.value_namespace = name_space
+                    self.cvpdnsessionattrsessionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrBytesIn"):
+                    self.cvpdnsessionattrbytesin = value
+                    self.cvpdnsessionattrbytesin.value_namespace = name_space
+                    self.cvpdnsessionattrbytesin.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrBytesOut"):
+                    self.cvpdnsessionattrbytesout = value
+                    self.cvpdnsessionattrbytesout.value_namespace = name_space
+                    self.cvpdnsessionattrbytesout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrCallDuration"):
+                    self.cvpdnsessionattrcallduration = value
+                    self.cvpdnsessionattrcallduration.value_namespace = name_space
+                    self.cvpdnsessionattrcallduration.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrDeviceCallerId"):
+                    self.cvpdnsessionattrdevicecallerid = value
+                    self.cvpdnsessionattrdevicecallerid.value_namespace = name_space
+                    self.cvpdnsessionattrdevicecallerid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrDevicePhyId"):
+                    self.cvpdnsessionattrdevicephyid = value
+                    self.cvpdnsessionattrdevicephyid.value_namespace = name_space
+                    self.cvpdnsessionattrdevicephyid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrDeviceType"):
+                    self.cvpdnsessionattrdevicetype = value
+                    self.cvpdnsessionattrdevicetype.value_namespace = name_space
+                    self.cvpdnsessionattrdevicetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrDS1ChannelIndex"):
+                    self.cvpdnsessionattrds1channelindex = value
+                    self.cvpdnsessionattrds1channelindex.value_namespace = name_space
+                    self.cvpdnsessionattrds1channelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrDS1PortIndex"):
+                    self.cvpdnsessionattrds1portindex = value
+                    self.cvpdnsessionattrds1portindex.value_namespace = name_space
+                    self.cvpdnsessionattrds1portindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrDS1SlotIndex"):
+                    self.cvpdnsessionattrds1slotindex = value
+                    self.cvpdnsessionattrds1slotindex.value_namespace = name_space
+                    self.cvpdnsessionattrds1slotindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrModemCallStartIndex"):
+                    self.cvpdnsessionattrmodemcallstartindex = value
+                    self.cvpdnsessionattrmodemcallstartindex.value_namespace = name_space
+                    self.cvpdnsessionattrmodemcallstartindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrModemCallStartTime"):
+                    self.cvpdnsessionattrmodemcallstarttime = value
+                    self.cvpdnsessionattrmodemcallstarttime.value_namespace = name_space
+                    self.cvpdnsessionattrmodemcallstarttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrModemPortIndex"):
+                    self.cvpdnsessionattrmodemportindex = value
+                    self.cvpdnsessionattrmodemportindex.value_namespace = name_space
+                    self.cvpdnsessionattrmodemportindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrModemSlotIndex"):
+                    self.cvpdnsessionattrmodemslotindex = value
+                    self.cvpdnsessionattrmodemslotindex.value_namespace = name_space
+                    self.cvpdnsessionattrmodemslotindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrMultilink"):
+                    self.cvpdnsessionattrmultilink = value
+                    self.cvpdnsessionattrmultilink.value_namespace = name_space
+                    self.cvpdnsessionattrmultilink.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrMultilinkBundle"):
+                    self.cvpdnsessionattrmultilinkbundle = value
+                    self.cvpdnsessionattrmultilinkbundle.value_namespace = name_space
+                    self.cvpdnsessionattrmultilinkbundle.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrMultilinkIfIndex"):
+                    self.cvpdnsessionattrmultilinkifindex = value
+                    self.cvpdnsessionattrmultilinkifindex.value_namespace = name_space
+                    self.cvpdnsessionattrmultilinkifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrPacketsIn"):
+                    self.cvpdnsessionattrpacketsin = value
+                    self.cvpdnsessionattrpacketsin.value_namespace = name_space
+                    self.cvpdnsessionattrpacketsin.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrPacketsOut"):
+                    self.cvpdnsessionattrpacketsout = value
+                    self.cvpdnsessionattrpacketsout.value_namespace = name_space
+                    self.cvpdnsessionattrpacketsout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrRecvPktsDropped"):
+                    self.cvpdnsessionattrrecvpktsdropped = value
+                    self.cvpdnsessionattrrecvpktsdropped.value_namespace = name_space
+                    self.cvpdnsessionattrrecvpktsdropped.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrSentPktsDropped"):
+                    self.cvpdnsessionattrsentpktsdropped = value
+                    self.cvpdnsessionattrsentpktsdropped.value_namespace = name_space
+                    self.cvpdnsessionattrsentpktsdropped.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrState"):
+                    self.cvpdnsessionattrstate = value
+                    self.cvpdnsessionattrstate.value_namespace = name_space
+                    self.cvpdnsessionattrstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrUserName"):
+                    self.cvpdnsessionattrusername = value
+                    self.cvpdnsessionattrusername.value_namespace = name_space
+                    self.cvpdnsessionattrusername.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnSessionAttrVirtualCircuitID"):
+                    self.cvpdnsessionattrvirtualcircuitid = value
+                    self.cvpdnsessionattrvirtualcircuitid.value_namespace = name_space
+                    self.cvpdnsessionattrvirtualcircuitid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdnsessionattrentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdntunnelattrtunnelid is not None:
-                    return True
-
-                if self.cvpdnsessionattrsessionid is not None:
-                    return True
-
-                if self.cvpdnsessionattrbytesin is not None:
-                    return True
-
-                if self.cvpdnsessionattrbytesout is not None:
-                    return True
-
-                if self.cvpdnsessionattrcallduration is not None:
-                    return True
-
-                if self.cvpdnsessionattrdevicecallerid is not None:
-                    return True
-
-                if self.cvpdnsessionattrdevicephyid is not None:
-                    return True
-
-                if self.cvpdnsessionattrdevicetype is not None:
-                    return True
-
-                if self.cvpdnsessionattrds1channelindex is not None:
-                    return True
-
-                if self.cvpdnsessionattrds1portindex is not None:
-                    return True
-
-                if self.cvpdnsessionattrds1slotindex is not None:
-                    return True
-
-                if self.cvpdnsessionattrmodemcallstartindex is not None:
-                    return True
-
-                if self.cvpdnsessionattrmodemcallstarttime is not None:
-                    return True
-
-                if self.cvpdnsessionattrmodemportindex is not None:
-                    return True
-
-                if self.cvpdnsessionattrmodemslotindex is not None:
-                    return True
-
-                if self.cvpdnsessionattrmultilink is not None:
-                    return True
-
-                if self.cvpdnsessionattrmultilinkbundle is not None:
-                    return True
-
-                if self.cvpdnsessionattrmultilinkifindex is not None:
-                    return True
-
-                if self.cvpdnsessionattrpacketsin is not None:
-                    return True
-
-                if self.cvpdnsessionattrpacketsout is not None:
-                    return True
-
-                if self.cvpdnsessionattrrecvpktsdropped is not None:
-                    return True
-
-                if self.cvpdnsessionattrsentpktsdropped is not None:
-                    return True
-
-                if self.cvpdnsessionattrstate is not None:
-                    return True
-
-                if self.cvpdnsessionattrusername is not None:
-                    return True
-
-                if self.cvpdnsessionattrvirtualcircuitid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnSessionAttrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdnsessionattrentry is not None:
-                for child_ref in self.cvpdnsessionattrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdnsessionattrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnSessionAttrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnSessionAttrEntry"):
+                for c in self.cvpdnsessionattrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdnsessionattrtable.Cvpdnsessionattrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdnsessionattrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnSessionAttrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnsessionattrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdnusertofailhistinfotable(object):
+    class Cvpdnusertofailhistinfotable(Entity):
         """
         Table of the record of failure objects which can be
         referenced by an user name.  Only a name that has a
@@ -2853,13 +4182,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdnusertofailhistinfoentry = YList()
-            self.cvpdnusertofailhistinfoentry.parent = self
-            self.cvpdnusertofailhistinfoentry.name = 'cvpdnusertofailhistinfoentry'
+            super(CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable, self).__init__()
+
+            self.yang_name = "cvpdnUserToFailHistInfoTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdnusertofailhistinfoentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable, self).__setattr__(name, value)
 
 
-        class Cvpdnusertofailhistinfoentry(object):
+        class Cvpdnusertofailhistinfoentry(Entity):
             """
             An entry in the table, containing failure history
             relevant to an user name.
@@ -2897,7 +4252,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnunametofailhistdestinettype
             
             	Indicates the type of address contained in cvpdnUnameToFailHistDestInetAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvpdnunametofailhistdestip
             
@@ -2954,7 +4309,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnunametofailhistsourceinettype
             
             	Indicates the type of address contained in cvpdnUnameToFailHistSourceInetAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cvpdnunametofailhistsourceip
             
@@ -2980,117 +4335,308 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdnunametofailhistuname = None
-                self.cvpdnunametofailhisttunnelid = None
-                self.cvpdnunametofailhistcount = None
-                self.cvpdnunametofailhistdestinetaddr = None
-                self.cvpdnunametofailhistdestinettype = None
-                self.cvpdnunametofailhistdestip = None
-                self.cvpdnunametofailhistfailreason = None
-                self.cvpdnunametofailhistfailtime = None
-                self.cvpdnunametofailhistfailtype = None
-                self.cvpdnunametofailhistlocalinitconn = None
-                self.cvpdnunametofailhistlocalname = None
-                self.cvpdnunametofailhistremotename = None
-                self.cvpdnunametofailhistsourceinetaddr = None
-                self.cvpdnunametofailhistsourceinettype = None
-                self.cvpdnunametofailhistsourceip = None
-                self.cvpdnunametofailhistuserid = None
+                super(CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvpdnunametofailhistuname is None:
-                    raise YPYModelError('Key property cvpdnunametofailhistuname is None')
-                if self.cvpdnunametofailhisttunnelid is None:
-                    raise YPYModelError('Key property cvpdnunametofailhisttunnelid is None')
+                self.yang_name = "cvpdnUserToFailHistInfoEntry"
+                self.yang_parent_name = "cvpdnUserToFailHistInfoTable"
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnUserToFailHistInfoTable/CISCO-VPDN-MGMT-MIB:cvpdnUserToFailHistInfoEntry[CISCO-VPDN-MGMT-MIB:cvpdnUnameToFailHistUname = ' + str(self.cvpdnunametofailhistuname) + '][CISCO-VPDN-MGMT-MIB:cvpdnUnameToFailHistTunnelId = ' + str(self.cvpdnunametofailhisttunnelid) + ']'
+                self.cvpdnunametofailhistuname = YLeaf(YType.str, "cvpdnUnameToFailHistUname")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvpdnunametofailhisttunnelid = YLeaf(YType.uint32, "cvpdnUnameToFailHistTunnelId")
+
+                self.cvpdnunametofailhistcount = YLeaf(YType.uint32, "cvpdnUnameToFailHistCount")
+
+                self.cvpdnunametofailhistdestinetaddr = YLeaf(YType.str, "cvpdnUnameToFailHistDestInetAddr")
+
+                self.cvpdnunametofailhistdestinettype = YLeaf(YType.enumeration, "cvpdnUnameToFailHistDestInetType")
+
+                self.cvpdnunametofailhistdestip = YLeaf(YType.str, "cvpdnUnameToFailHistDestIp")
+
+                self.cvpdnunametofailhistfailreason = YLeaf(YType.str, "cvpdnUnameToFailHistFailReason")
+
+                self.cvpdnunametofailhistfailtime = YLeaf(YType.uint32, "cvpdnUnameToFailHistFailTime")
+
+                self.cvpdnunametofailhistfailtype = YLeaf(YType.str, "cvpdnUnameToFailHistFailType")
+
+                self.cvpdnunametofailhistlocalinitconn = YLeaf(YType.boolean, "cvpdnUnameToFailHistLocalInitConn")
+
+                self.cvpdnunametofailhistlocalname = YLeaf(YType.str, "cvpdnUnameToFailHistLocalName")
+
+                self.cvpdnunametofailhistremotename = YLeaf(YType.str, "cvpdnUnameToFailHistRemoteName")
+
+                self.cvpdnunametofailhistsourceinetaddr = YLeaf(YType.str, "cvpdnUnameToFailHistSourceInetAddr")
+
+                self.cvpdnunametofailhistsourceinettype = YLeaf(YType.enumeration, "cvpdnUnameToFailHistSourceInetType")
+
+                self.cvpdnunametofailhistsourceip = YLeaf(YType.str, "cvpdnUnameToFailHistSourceIp")
+
+                self.cvpdnunametofailhistuserid = YLeaf(YType.uint32, "cvpdnUnameToFailHistUserId")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdnunametofailhistuname",
+                                "cvpdnunametofailhisttunnelid",
+                                "cvpdnunametofailhistcount",
+                                "cvpdnunametofailhistdestinetaddr",
+                                "cvpdnunametofailhistdestinettype",
+                                "cvpdnunametofailhistdestip",
+                                "cvpdnunametofailhistfailreason",
+                                "cvpdnunametofailhistfailtime",
+                                "cvpdnunametofailhistfailtype",
+                                "cvpdnunametofailhistlocalinitconn",
+                                "cvpdnunametofailhistlocalname",
+                                "cvpdnunametofailhistremotename",
+                                "cvpdnunametofailhistsourceinetaddr",
+                                "cvpdnunametofailhistsourceinettype",
+                                "cvpdnunametofailhistsourceip",
+                                "cvpdnunametofailhistuserid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvpdnunametofailhistuname.is_set or
+                    self.cvpdnunametofailhisttunnelid.is_set or
+                    self.cvpdnunametofailhistcount.is_set or
+                    self.cvpdnunametofailhistdestinetaddr.is_set or
+                    self.cvpdnunametofailhistdestinettype.is_set or
+                    self.cvpdnunametofailhistdestip.is_set or
+                    self.cvpdnunametofailhistfailreason.is_set or
+                    self.cvpdnunametofailhistfailtime.is_set or
+                    self.cvpdnunametofailhistfailtype.is_set or
+                    self.cvpdnunametofailhistlocalinitconn.is_set or
+                    self.cvpdnunametofailhistlocalname.is_set or
+                    self.cvpdnunametofailhistremotename.is_set or
+                    self.cvpdnunametofailhistsourceinetaddr.is_set or
+                    self.cvpdnunametofailhistsourceinettype.is_set or
+                    self.cvpdnunametofailhistsourceip.is_set or
+                    self.cvpdnunametofailhistuserid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistuname.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhisttunnelid.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistcount.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistdestinetaddr.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistdestinettype.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistdestip.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistfailreason.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistfailtime.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistfailtype.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistlocalinitconn.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistlocalname.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistremotename.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistsourceinetaddr.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistsourceinettype.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistsourceip.yfilter != YFilter.not_set or
+                    self.cvpdnunametofailhistuserid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnUserToFailHistInfoEntry" + "[cvpdnUnameToFailHistUname='" + self.cvpdnunametofailhistuname.get() + "']" + "[cvpdnUnameToFailHistTunnelId='" + self.cvpdnunametofailhisttunnelid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnUserToFailHistInfoTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdnunametofailhistuname.is_set or self.cvpdnunametofailhistuname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistuname.get_name_leafdata())
+                if (self.cvpdnunametofailhisttunnelid.is_set or self.cvpdnunametofailhisttunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhisttunnelid.get_name_leafdata())
+                if (self.cvpdnunametofailhistcount.is_set or self.cvpdnunametofailhistcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistcount.get_name_leafdata())
+                if (self.cvpdnunametofailhistdestinetaddr.is_set or self.cvpdnunametofailhistdestinetaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistdestinetaddr.get_name_leafdata())
+                if (self.cvpdnunametofailhistdestinettype.is_set or self.cvpdnunametofailhistdestinettype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistdestinettype.get_name_leafdata())
+                if (self.cvpdnunametofailhistdestip.is_set or self.cvpdnunametofailhistdestip.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistdestip.get_name_leafdata())
+                if (self.cvpdnunametofailhistfailreason.is_set or self.cvpdnunametofailhistfailreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistfailreason.get_name_leafdata())
+                if (self.cvpdnunametofailhistfailtime.is_set or self.cvpdnunametofailhistfailtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistfailtime.get_name_leafdata())
+                if (self.cvpdnunametofailhistfailtype.is_set or self.cvpdnunametofailhistfailtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistfailtype.get_name_leafdata())
+                if (self.cvpdnunametofailhistlocalinitconn.is_set or self.cvpdnunametofailhistlocalinitconn.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistlocalinitconn.get_name_leafdata())
+                if (self.cvpdnunametofailhistlocalname.is_set or self.cvpdnunametofailhistlocalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistlocalname.get_name_leafdata())
+                if (self.cvpdnunametofailhistremotename.is_set or self.cvpdnunametofailhistremotename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistremotename.get_name_leafdata())
+                if (self.cvpdnunametofailhistsourceinetaddr.is_set or self.cvpdnunametofailhistsourceinetaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistsourceinetaddr.get_name_leafdata())
+                if (self.cvpdnunametofailhistsourceinettype.is_set or self.cvpdnunametofailhistsourceinettype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistsourceinettype.get_name_leafdata())
+                if (self.cvpdnunametofailhistsourceip.is_set or self.cvpdnunametofailhistsourceip.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistsourceip.get_name_leafdata())
+                if (self.cvpdnunametofailhistuserid.is_set or self.cvpdnunametofailhistuserid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnunametofailhistuserid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnUnameToFailHistUname" or name == "cvpdnUnameToFailHistTunnelId" or name == "cvpdnUnameToFailHistCount" or name == "cvpdnUnameToFailHistDestInetAddr" or name == "cvpdnUnameToFailHistDestInetType" or name == "cvpdnUnameToFailHistDestIp" or name == "cvpdnUnameToFailHistFailReason" or name == "cvpdnUnameToFailHistFailTime" or name == "cvpdnUnameToFailHistFailType" or name == "cvpdnUnameToFailHistLocalInitConn" or name == "cvpdnUnameToFailHistLocalName" or name == "cvpdnUnameToFailHistRemoteName" or name == "cvpdnUnameToFailHistSourceInetAddr" or name == "cvpdnUnameToFailHistSourceInetType" or name == "cvpdnUnameToFailHistSourceIp" or name == "cvpdnUnameToFailHistUserId"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdnunametofailhistuname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnUnameToFailHistUname"):
+                    self.cvpdnunametofailhistuname = value
+                    self.cvpdnunametofailhistuname.value_namespace = name_space
+                    self.cvpdnunametofailhistuname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistTunnelId"):
+                    self.cvpdnunametofailhisttunnelid = value
+                    self.cvpdnunametofailhisttunnelid.value_namespace = name_space
+                    self.cvpdnunametofailhisttunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistCount"):
+                    self.cvpdnunametofailhistcount = value
+                    self.cvpdnunametofailhistcount.value_namespace = name_space
+                    self.cvpdnunametofailhistcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistDestInetAddr"):
+                    self.cvpdnunametofailhistdestinetaddr = value
+                    self.cvpdnunametofailhistdestinetaddr.value_namespace = name_space
+                    self.cvpdnunametofailhistdestinetaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistDestInetType"):
+                    self.cvpdnunametofailhistdestinettype = value
+                    self.cvpdnunametofailhistdestinettype.value_namespace = name_space
+                    self.cvpdnunametofailhistdestinettype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistDestIp"):
+                    self.cvpdnunametofailhistdestip = value
+                    self.cvpdnunametofailhistdestip.value_namespace = name_space
+                    self.cvpdnunametofailhistdestip.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistFailReason"):
+                    self.cvpdnunametofailhistfailreason = value
+                    self.cvpdnunametofailhistfailreason.value_namespace = name_space
+                    self.cvpdnunametofailhistfailreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistFailTime"):
+                    self.cvpdnunametofailhistfailtime = value
+                    self.cvpdnunametofailhistfailtime.value_namespace = name_space
+                    self.cvpdnunametofailhistfailtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistFailType"):
+                    self.cvpdnunametofailhistfailtype = value
+                    self.cvpdnunametofailhistfailtype.value_namespace = name_space
+                    self.cvpdnunametofailhistfailtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistLocalInitConn"):
+                    self.cvpdnunametofailhistlocalinitconn = value
+                    self.cvpdnunametofailhistlocalinitconn.value_namespace = name_space
+                    self.cvpdnunametofailhistlocalinitconn.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistLocalName"):
+                    self.cvpdnunametofailhistlocalname = value
+                    self.cvpdnunametofailhistlocalname.value_namespace = name_space
+                    self.cvpdnunametofailhistlocalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistRemoteName"):
+                    self.cvpdnunametofailhistremotename = value
+                    self.cvpdnunametofailhistremotename.value_namespace = name_space
+                    self.cvpdnunametofailhistremotename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistSourceInetAddr"):
+                    self.cvpdnunametofailhistsourceinetaddr = value
+                    self.cvpdnunametofailhistsourceinetaddr.value_namespace = name_space
+                    self.cvpdnunametofailhistsourceinetaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistSourceInetType"):
+                    self.cvpdnunametofailhistsourceinettype = value
+                    self.cvpdnunametofailhistsourceinettype.value_namespace = name_space
+                    self.cvpdnunametofailhistsourceinettype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistSourceIp"):
+                    self.cvpdnunametofailhistsourceip = value
+                    self.cvpdnunametofailhistsourceip.value_namespace = name_space
+                    self.cvpdnunametofailhistsourceip.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnUnameToFailHistUserId"):
+                    self.cvpdnunametofailhistuserid = value
+                    self.cvpdnunametofailhistuserid.value_namespace = name_space
+                    self.cvpdnunametofailhistuserid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdnusertofailhistinfoentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdnunametofailhisttunnelid is not None:
-                    return True
-
-                if self.cvpdnunametofailhistcount is not None:
-                    return True
-
-                if self.cvpdnunametofailhistdestinetaddr is not None:
-                    return True
-
-                if self.cvpdnunametofailhistdestinettype is not None:
-                    return True
-
-                if self.cvpdnunametofailhistdestip is not None:
-                    return True
-
-                if self.cvpdnunametofailhistfailreason is not None:
-                    return True
-
-                if self.cvpdnunametofailhistfailtime is not None:
-                    return True
-
-                if self.cvpdnunametofailhistfailtype is not None:
-                    return True
-
-                if self.cvpdnunametofailhistlocalinitconn is not None:
-                    return True
-
-                if self.cvpdnunametofailhistlocalname is not None:
-                    return True
-
-                if self.cvpdnunametofailhistremotename is not None:
-                    return True
-
-                if self.cvpdnunametofailhistsourceinetaddr is not None:
-                    return True
-
-                if self.cvpdnunametofailhistsourceinettype is not None:
-                    return True
-
-                if self.cvpdnunametofailhistsourceip is not None:
-                    return True
-
-                if self.cvpdnunametofailhistuserid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnUserToFailHistInfoTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdnusertofailhistinfoentry is not None:
-                for child_ref in self.cvpdnusertofailhistinfoentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdnusertofailhistinfoentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnUserToFailHistInfoTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnUserToFailHistInfoEntry"):
+                for c in self.cvpdnusertofailhistinfoentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdnusertofailhistinfoentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnUserToFailHistInfoEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdntemplatetable(object):
+    class Cvpdntemplatetable(Entity):
         """
         Table of information about the VPDN templates.  The
         VPDN template is a grouping mechanism that allows
@@ -3114,13 +4660,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdntemplateentry = YList()
-            self.cvpdntemplateentry.parent = self
-            self.cvpdntemplateentry.name = 'cvpdntemplateentry'
+            super(CiscoVpdnMgmtMib.Cvpdntemplatetable, self).__init__()
+
+            self.yang_name = "cvpdnTemplateTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdntemplateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdntemplatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdntemplatetable, self).__setattr__(name, value)
 
 
-        class Cvpdntemplateentry(object):
+        class Cvpdntemplateentry(Entity):
             """
             An entry in the table, containing information about a
             single VPDN template.
@@ -3149,59 +4721,154 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdntemplatename = None
-                self.cvpdntemplateactivesessions = None
+                super(CiscoVpdnMgmtMib.Cvpdntemplatetable.Cvpdntemplateentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvpdntemplatename is None:
-                    raise YPYModelError('Key property cvpdntemplatename is None')
+                self.yang_name = "cvpdnTemplateEntry"
+                self.yang_parent_name = "cvpdnTemplateTable"
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTemplateTable/CISCO-VPDN-MGMT-MIB:cvpdnTemplateEntry[CISCO-VPDN-MGMT-MIB:cvpdnTemplateName = ' + str(self.cvpdntemplatename) + ']'
+                self.cvpdntemplatename = YLeaf(YType.str, "cvpdnTemplateName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvpdntemplateactivesessions = YLeaf(YType.uint32, "cvpdnTemplateActiveSessions")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdntemplatename",
+                                "cvpdntemplateactivesessions") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdntemplatetable.Cvpdntemplateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdntemplatetable.Cvpdntemplateentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvpdntemplatename.is_set or
+                    self.cvpdntemplateactivesessions.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdntemplatename.yfilter != YFilter.not_set or
+                    self.cvpdntemplateactivesessions.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnTemplateEntry" + "[cvpdnTemplateName='" + self.cvpdntemplatename.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnTemplateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdntemplatename.is_set or self.cvpdntemplatename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntemplatename.get_name_leafdata())
+                if (self.cvpdntemplateactivesessions.is_set or self.cvpdntemplateactivesessions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdntemplateactivesessions.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnTemplateName" or name == "cvpdnTemplateActiveSessions"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdntemplatename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnTemplateName"):
+                    self.cvpdntemplatename = value
+                    self.cvpdntemplatename.value_namespace = name_space
+                    self.cvpdntemplatename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnTemplateActiveSessions"):
+                    self.cvpdntemplateactivesessions = value
+                    self.cvpdntemplateactivesessions.value_namespace = name_space
+                    self.cvpdntemplateactivesessions.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdntemplateentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdntemplateactivesessions is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntemplatetable.Cvpdntemplateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnTemplateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdntemplateentry is not None:
-                for child_ref in self.cvpdntemplateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdntemplateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnTemplateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnTemplateEntry"):
+                for c in self.cvpdntemplateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdntemplatetable.Cvpdntemplateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdntemplateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnTemplateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdntemplatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdnbundletable(object):
+    class Cvpdnbundletable(Entity):
         """
         Table that describes the multilink PPP attributes of the
         active VPDN sessions.
@@ -3219,13 +4886,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdnbundleentry = YList()
-            self.cvpdnbundleentry.parent = self
-            self.cvpdnbundleentry.name = 'cvpdnbundleentry'
+            super(CiscoVpdnMgmtMib.Cvpdnbundletable, self).__init__()
+
+            self.yang_name = "cvpdnBundleTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdnbundleentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdnbundletable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdnbundletable, self).__setattr__(name, value)
 
 
-        class Cvpdnbundleentry(object):
+        class Cvpdnbundleentry(Entity):
             """
             An entry in this table represents an active multilink PPP
             bundle that belongs to a VPDN tunnel.
@@ -3247,12 +4940,12 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnbundleendpointclass
             
             	The multilink PPP bundle discriminator class associated with a VPDN tunnel.  The value of this object represents the type of discriminator used in cvpdnBundleEndpoint
-            	**type**\:   :py:class:`EndpointclassEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.EndpointclassEnum>`
+            	**type**\:   :py:class:`Endpointclass <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.Endpointclass>`
             
             .. attribute:: cvpdnbundleendpointtype
             
             	The multilink PPP bundle discriminator type associated with a VPDN tunnel.  The value of this object represents the type of discriminator used in cvpdnBundleEndpoint.      none\:        No endpoint discriminator was supplied, the                  default value is being used.      hostname\:    The router's hostname is being used as                  discriminator.      string\:      User specified string is being used as                  discriminator.      macAddress\:  A MAC address as defined by the MacAddress                  textual convention is being used as                  discriminator.      ipV4Address\: An IP address as defined by the                  InetAddressIPv4 textual convention is being                  used as discriminator.      ipV6Address\: An IP address as defined by the                  InetAddressIPv6 textual convention is being                  used as discriminator.      phone\:       The PSTN phone number is being used as                  discriminator.      magicNumber\: A magic number is being used as                  discriminator
-            	**type**\:   :py:class:`CvpdnbundleendpointtypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry.CvpdnbundleendpointtypeEnum>`
+            	**type**\:   :py:class:`Cvpdnbundleendpointtype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry.Cvpdnbundleendpointtype>`
             
             	**status**\: deprecated
             
@@ -3275,7 +4968,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnbundlepeeripaddrtype
             
             	Indicates the type of address contained in cvpdnBundlePeerIpAddr
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             
 
@@ -3285,18 +4978,58 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdnbundlename = None
-                self.cvpdnbundleendpoint = None
-                self.cvpdnbundleendpointclass = None
-                self.cvpdnbundleendpointtype = None
-                self.cvpdnbundlelinkcount = None
-                self.cvpdnbundlepeeripaddr = None
-                self.cvpdnbundlepeeripaddrtype = None
+                super(CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry, self).__init__()
 
-            class CvpdnbundleendpointtypeEnum(Enum):
+                self.yang_name = "cvpdnBundleEntry"
+                self.yang_parent_name = "cvpdnBundleTable"
+
+                self.cvpdnbundlename = YLeaf(YType.str, "cvpdnBundleName")
+
+                self.cvpdnbundleendpoint = YLeaf(YType.str, "cvpdnBundleEndpoint")
+
+                self.cvpdnbundleendpointclass = YLeaf(YType.enumeration, "cvpdnBundleEndpointClass")
+
+                self.cvpdnbundleendpointtype = YLeaf(YType.enumeration, "cvpdnBundleEndpointType")
+
+                self.cvpdnbundlelinkcount = YLeaf(YType.uint32, "cvpdnBundleLinkCount")
+
+                self.cvpdnbundlepeeripaddr = YLeaf(YType.str, "cvpdnBundlePeerIpAddr")
+
+                self.cvpdnbundlepeeripaddrtype = YLeaf(YType.enumeration, "cvpdnBundlePeerIpAddrType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdnbundlename",
+                                "cvpdnbundleendpoint",
+                                "cvpdnbundleendpointclass",
+                                "cvpdnbundleendpointtype",
+                                "cvpdnbundlelinkcount",
+                                "cvpdnbundlepeeripaddr",
+                                "cvpdnbundlepeeripaddrtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry, self).__setattr__(name, value)
+
+            class Cvpdnbundleendpointtype(Enum):
                 """
-                CvpdnbundleendpointtypeEnum
+                Cvpdnbundleendpointtype
 
                 The multilink PPP bundle discriminator type associated with
 
@@ -3360,93 +5093,177 @@ class CiscoVpdnMgmtMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                hostname = 2
+                hostname = Enum.YLeaf(2, "hostname")
 
-                string = 3
+                string = Enum.YLeaf(3, "string")
 
-                macAddress = 4
+                macAddress = Enum.YLeaf(4, "macAddress")
 
-                ipV4Address = 5
+                ipV4Address = Enum.YLeaf(5, "ipV4Address")
 
-                ipV6Address = 6
+                ipV6Address = Enum.YLeaf(6, "ipV6Address")
 
-                phone = 7
+                phone = Enum.YLeaf(7, "phone")
 
-                magicNumber = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                    return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry.CvpdnbundleendpointtypeEnum']
+                magicNumber = Enum.YLeaf(8, "magicNumber")
 
 
-            @property
-            def _common_path(self):
-                if self.cvpdnbundlename is None:
-                    raise YPYModelError('Key property cvpdnbundlename is None')
+            def has_data(self):
+                return (
+                    self.cvpdnbundlename.is_set or
+                    self.cvpdnbundleendpoint.is_set or
+                    self.cvpdnbundleendpointclass.is_set or
+                    self.cvpdnbundleendpointtype.is_set or
+                    self.cvpdnbundlelinkcount.is_set or
+                    self.cvpdnbundlepeeripaddr.is_set or
+                    self.cvpdnbundlepeeripaddrtype.is_set)
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnBundleTable/CISCO-VPDN-MGMT-MIB:cvpdnBundleEntry[CISCO-VPDN-MGMT-MIB:cvpdnBundleName = ' + str(self.cvpdnbundlename) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdnbundlename.yfilter != YFilter.not_set or
+                    self.cvpdnbundleendpoint.yfilter != YFilter.not_set or
+                    self.cvpdnbundleendpointclass.yfilter != YFilter.not_set or
+                    self.cvpdnbundleendpointtype.yfilter != YFilter.not_set or
+                    self.cvpdnbundlelinkcount.yfilter != YFilter.not_set or
+                    self.cvpdnbundlepeeripaddr.yfilter != YFilter.not_set or
+                    self.cvpdnbundlepeeripaddrtype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnBundleEntry" + "[cvpdnBundleName='" + self.cvpdnbundlename.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdnbundlename.is_set or self.cvpdnbundlename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlename.get_name_leafdata())
+                if (self.cvpdnbundleendpoint.is_set or self.cvpdnbundleendpoint.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundleendpoint.get_name_leafdata())
+                if (self.cvpdnbundleendpointclass.is_set or self.cvpdnbundleendpointclass.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundleendpointclass.get_name_leafdata())
+                if (self.cvpdnbundleendpointtype.is_set or self.cvpdnbundleendpointtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundleendpointtype.get_name_leafdata())
+                if (self.cvpdnbundlelinkcount.is_set or self.cvpdnbundlelinkcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlelinkcount.get_name_leafdata())
+                if (self.cvpdnbundlepeeripaddr.is_set or self.cvpdnbundlepeeripaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlepeeripaddr.get_name_leafdata())
+                if (self.cvpdnbundlepeeripaddrtype.is_set or self.cvpdnbundlepeeripaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlepeeripaddrtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnBundleName" or name == "cvpdnBundleEndpoint" or name == "cvpdnBundleEndpointClass" or name == "cvpdnBundleEndpointType" or name == "cvpdnBundleLinkCount" or name == "cvpdnBundlePeerIpAddr" or name == "cvpdnBundlePeerIpAddrType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdnbundlename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnBundleName"):
+                    self.cvpdnbundlename = value
+                    self.cvpdnbundlename.value_namespace = name_space
+                    self.cvpdnbundlename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundleEndpoint"):
+                    self.cvpdnbundleendpoint = value
+                    self.cvpdnbundleendpoint.value_namespace = name_space
+                    self.cvpdnbundleendpoint.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundleEndpointClass"):
+                    self.cvpdnbundleendpointclass = value
+                    self.cvpdnbundleendpointclass.value_namespace = name_space
+                    self.cvpdnbundleendpointclass.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundleEndpointType"):
+                    self.cvpdnbundleendpointtype = value
+                    self.cvpdnbundleendpointtype.value_namespace = name_space
+                    self.cvpdnbundleendpointtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundleLinkCount"):
+                    self.cvpdnbundlelinkcount = value
+                    self.cvpdnbundlelinkcount.value_namespace = name_space
+                    self.cvpdnbundlelinkcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundlePeerIpAddr"):
+                    self.cvpdnbundlepeeripaddr = value
+                    self.cvpdnbundlepeeripaddr.value_namespace = name_space
+                    self.cvpdnbundlepeeripaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundlePeerIpAddrType"):
+                    self.cvpdnbundlepeeripaddrtype = value
+                    self.cvpdnbundlepeeripaddrtype.value_namespace = name_space
+                    self.cvpdnbundlepeeripaddrtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdnbundleentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdnbundleendpoint is not None:
-                    return True
-
-                if self.cvpdnbundleendpointclass is not None:
-                    return True
-
-                if self.cvpdnbundleendpointtype is not None:
-                    return True
-
-                if self.cvpdnbundlelinkcount is not None:
-                    return True
-
-                if self.cvpdnbundlepeeripaddr is not None:
-                    return True
-
-                if self.cvpdnbundlepeeripaddrtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnBundleTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdnbundleentry is not None:
-                for child_ref in self.cvpdnbundleentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdnbundleentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnBundleTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnBundleEntry"):
+                for c in self.cvpdnbundleentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdnbundletable.Cvpdnbundleentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdnbundleentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnBundleEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnbundletable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvpdnbundlechildtable(object):
+    class Cvpdnbundlechildtable(Entity):
         """
         A table that exposes the containment relationship between a
         multilink PPP bundle and a VPDN tunnel.
@@ -3464,13 +5281,39 @@ class CiscoVpdnMgmtMib(object):
         _revision = '2009-06-16'
 
         def __init__(self):
-            self.parent = None
-            self.cvpdnbundlechildentry = YList()
-            self.cvpdnbundlechildentry.parent = self
-            self.cvpdnbundlechildentry.name = 'cvpdnbundlechildentry'
+            super(CiscoVpdnMgmtMib.Cvpdnbundlechildtable, self).__init__()
+
+            self.yang_name = "cvpdnBundleChildTable"
+            self.yang_parent_name = "CISCO-VPDN-MGMT-MIB"
+
+            self.cvpdnbundlechildentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVpdnMgmtMib.Cvpdnbundlechildtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVpdnMgmtMib.Cvpdnbundlechildtable, self).__setattr__(name, value)
 
 
-        class Cvpdnbundlechildentry(object):
+        class Cvpdnbundlechildentry(Entity):
             """
             An entry in this table represents a session that belongs to
             a VPDN tunnel and to a multilink PPP bundle.
@@ -3487,7 +5330,7 @@ class CiscoVpdnMgmtMib(object):
             .. attribute:: cvpdnbundlechildtunneltype  <key>
             
             	The tunnel type.  This is the tunnel protocol of an active VPDN session that is associated with a multilink PPP bundle
-            	**type**\:   :py:class:`TunneltypeEnum <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.TunneltypeEnum>`
+            	**type**\:   :py:class:`Tunneltype <ydk.models.cisco_ios_xe.CISCO_VPDN_MGMT_MIB.Tunneltype>`
             
             .. attribute:: cvpdnbundlechildtunnelid  <key>
             
@@ -3511,122 +5354,322 @@ class CiscoVpdnMgmtMib(object):
             _revision = '2009-06-16'
 
             def __init__(self):
-                self.parent = None
-                self.cvpdnbundlename = None
-                self.cvpdnbundlechildtunneltype = None
-                self.cvpdnbundlechildtunnelid = None
-                self.cvpdnbundlechildsessionid = None
+                super(CiscoVpdnMgmtMib.Cvpdnbundlechildtable.Cvpdnbundlechildentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvpdnbundlename is None:
-                    raise YPYModelError('Key property cvpdnbundlename is None')
-                if self.cvpdnbundlechildtunneltype is None:
-                    raise YPYModelError('Key property cvpdnbundlechildtunneltype is None')
-                if self.cvpdnbundlechildtunnelid is None:
-                    raise YPYModelError('Key property cvpdnbundlechildtunnelid is None')
-                if self.cvpdnbundlechildsessionid is None:
-                    raise YPYModelError('Key property cvpdnbundlechildsessionid is None')
+                self.yang_name = "cvpdnBundleChildEntry"
+                self.yang_parent_name = "cvpdnBundleChildTable"
 
-                return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnBundleChildTable/CISCO-VPDN-MGMT-MIB:cvpdnBundleChildEntry[CISCO-VPDN-MGMT-MIB:cvpdnBundleName = ' + str(self.cvpdnbundlename) + '][CISCO-VPDN-MGMT-MIB:cvpdnBundleChildTunnelType = ' + str(self.cvpdnbundlechildtunneltype) + '][CISCO-VPDN-MGMT-MIB:cvpdnBundleChildTunnelId = ' + str(self.cvpdnbundlechildtunnelid) + '][CISCO-VPDN-MGMT-MIB:cvpdnBundleChildSessionId = ' + str(self.cvpdnbundlechildsessionid) + ']'
+                self.cvpdnbundlename = YLeaf(YType.str, "cvpdnBundleName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvpdnbundlechildtunneltype = YLeaf(YType.enumeration, "cvpdnBundleChildTunnelType")
+
+                self.cvpdnbundlechildtunnelid = YLeaf(YType.uint32, "cvpdnBundleChildTunnelId")
+
+                self.cvpdnbundlechildsessionid = YLeaf(YType.uint32, "cvpdnBundleChildSessionId")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvpdnbundlename",
+                                "cvpdnbundlechildtunneltype",
+                                "cvpdnbundlechildtunnelid",
+                                "cvpdnbundlechildsessionid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVpdnMgmtMib.Cvpdnbundlechildtable.Cvpdnbundlechildentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVpdnMgmtMib.Cvpdnbundlechildtable.Cvpdnbundlechildentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvpdnbundlename.is_set or
+                    self.cvpdnbundlechildtunneltype.is_set or
+                    self.cvpdnbundlechildtunnelid.is_set or
+                    self.cvpdnbundlechildsessionid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvpdnbundlename.yfilter != YFilter.not_set or
+                    self.cvpdnbundlechildtunneltype.yfilter != YFilter.not_set or
+                    self.cvpdnbundlechildtunnelid.yfilter != YFilter.not_set or
+                    self.cvpdnbundlechildsessionid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvpdnBundleChildEntry" + "[cvpdnBundleName='" + self.cvpdnbundlename.get() + "']" + "[cvpdnBundleChildTunnelType='" + self.cvpdnbundlechildtunneltype.get() + "']" + "[cvpdnBundleChildTunnelId='" + self.cvpdnbundlechildtunnelid.get() + "']" + "[cvpdnBundleChildSessionId='" + self.cvpdnbundlechildsessionid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/cvpdnBundleChildTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvpdnbundlename.is_set or self.cvpdnbundlename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlename.get_name_leafdata())
+                if (self.cvpdnbundlechildtunneltype.is_set or self.cvpdnbundlechildtunneltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlechildtunneltype.get_name_leafdata())
+                if (self.cvpdnbundlechildtunnelid.is_set or self.cvpdnbundlechildtunnelid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlechildtunnelid.get_name_leafdata())
+                if (self.cvpdnbundlechildsessionid.is_set or self.cvpdnbundlechildsessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvpdnbundlechildsessionid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvpdnBundleName" or name == "cvpdnBundleChildTunnelType" or name == "cvpdnBundleChildTunnelId" or name == "cvpdnBundleChildSessionId"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvpdnbundlename is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvpdnBundleName"):
+                    self.cvpdnbundlename = value
+                    self.cvpdnbundlename.value_namespace = name_space
+                    self.cvpdnbundlename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundleChildTunnelType"):
+                    self.cvpdnbundlechildtunneltype = value
+                    self.cvpdnbundlechildtunneltype.value_namespace = name_space
+                    self.cvpdnbundlechildtunneltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundleChildTunnelId"):
+                    self.cvpdnbundlechildtunnelid = value
+                    self.cvpdnbundlechildtunnelid.value_namespace = name_space
+                    self.cvpdnbundlechildtunnelid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvpdnBundleChildSessionId"):
+                    self.cvpdnbundlechildsessionid = value
+                    self.cvpdnbundlechildsessionid.value_namespace = name_space
+                    self.cvpdnbundlechildsessionid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvpdnbundlechildentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvpdnbundlechildtunneltype is not None:
-                    return True
-
-                if self.cvpdnbundlechildtunnelid is not None:
-                    return True
-
-                if self.cvpdnbundlechildsessionid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-                return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnbundlechildtable.Cvpdnbundlechildentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/CISCO-VPDN-MGMT-MIB:cvpdnBundleChildTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvpdnbundlechildentry is not None:
-                for child_ref in self.cvpdnbundlechildentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvpdnbundlechildentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvpdnBundleChildTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvpdnBundleChildEntry"):
+                for c in self.cvpdnbundlechildentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVpdnMgmtMib.Cvpdnbundlechildtable.Cvpdnbundlechildentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvpdnbundlechildentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvpdnBundleChildEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-            return meta._meta_table['CiscoVpdnMgmtMib.Cvpdnbundlechildtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ciscovpdnmgmtmibnotifs is not None and self.ciscovpdnmgmtmibnotifs.has_data()) or
+            (self.cvpdnbundlechildtable is not None and self.cvpdnbundlechildtable.has_data()) or
+            (self.cvpdnbundletable is not None and self.cvpdnbundletable.has_data()) or
+            (self.cvpdnmultilinkinfo is not None and self.cvpdnmultilinkinfo.has_data()) or
+            (self.cvpdnsessionattrtable is not None and self.cvpdnsessionattrtable.has_data()) or
+            (self.cvpdnsysteminfo is not None and self.cvpdnsysteminfo.has_data()) or
+            (self.cvpdnsystemtable is not None and self.cvpdnsystemtable.has_data()) or
+            (self.cvpdntemplatetable is not None and self.cvpdntemplatetable.has_data()) or
+            (self.cvpdntunnelattrtable is not None and self.cvpdntunnelattrtable.has_data()) or
+            (self.cvpdntunnelsessiontable is not None and self.cvpdntunnelsessiontable.has_data()) or
+            (self.cvpdntunneltable is not None and self.cvpdntunneltable.has_data()) or
+            (self.cvpdnusertofailhistinfotable is not None and self.cvpdnusertofailhistinfotable.has_data()))
 
-        return '/CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ciscovpdnmgmtmibnotifs is not None and self.ciscovpdnmgmtmibnotifs.has_operation()) or
+            (self.cvpdnbundlechildtable is not None and self.cvpdnbundlechildtable.has_operation()) or
+            (self.cvpdnbundletable is not None and self.cvpdnbundletable.has_operation()) or
+            (self.cvpdnmultilinkinfo is not None and self.cvpdnmultilinkinfo.has_operation()) or
+            (self.cvpdnsessionattrtable is not None and self.cvpdnsessionattrtable.has_operation()) or
+            (self.cvpdnsysteminfo is not None and self.cvpdnsysteminfo.has_operation()) or
+            (self.cvpdnsystemtable is not None and self.cvpdnsystemtable.has_operation()) or
+            (self.cvpdntemplatetable is not None and self.cvpdntemplatetable.has_operation()) or
+            (self.cvpdntunnelattrtable is not None and self.cvpdntunnelattrtable.has_operation()) or
+            (self.cvpdntunnelsessiontable is not None and self.cvpdntunnelsessiontable.has_operation()) or
+            (self.cvpdntunneltable is not None and self.cvpdntunneltable.has_operation()) or
+            (self.cvpdnusertofailhistinfotable is not None and self.cvpdnusertofailhistinfotable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ciscoVpdnMgmtMIBNotifs"):
+            if (self.ciscovpdnmgmtmibnotifs is None):
+                self.ciscovpdnmgmtmibnotifs = CiscoVpdnMgmtMib.Ciscovpdnmgmtmibnotifs()
+                self.ciscovpdnmgmtmibnotifs.parent = self
+                self._children_name_map["ciscovpdnmgmtmibnotifs"] = "ciscoVpdnMgmtMIBNotifs"
+            return self.ciscovpdnmgmtmibnotifs
+
+        if (child_yang_name == "cvpdnBundleChildTable"):
+            if (self.cvpdnbundlechildtable is None):
+                self.cvpdnbundlechildtable = CiscoVpdnMgmtMib.Cvpdnbundlechildtable()
+                self.cvpdnbundlechildtable.parent = self
+                self._children_name_map["cvpdnbundlechildtable"] = "cvpdnBundleChildTable"
+            return self.cvpdnbundlechildtable
+
+        if (child_yang_name == "cvpdnBundleTable"):
+            if (self.cvpdnbundletable is None):
+                self.cvpdnbundletable = CiscoVpdnMgmtMib.Cvpdnbundletable()
+                self.cvpdnbundletable.parent = self
+                self._children_name_map["cvpdnbundletable"] = "cvpdnBundleTable"
+            return self.cvpdnbundletable
+
+        if (child_yang_name == "cvpdnMultilinkInfo"):
+            if (self.cvpdnmultilinkinfo is None):
+                self.cvpdnmultilinkinfo = CiscoVpdnMgmtMib.Cvpdnmultilinkinfo()
+                self.cvpdnmultilinkinfo.parent = self
+                self._children_name_map["cvpdnmultilinkinfo"] = "cvpdnMultilinkInfo"
+            return self.cvpdnmultilinkinfo
+
+        if (child_yang_name == "cvpdnSessionAttrTable"):
+            if (self.cvpdnsessionattrtable is None):
+                self.cvpdnsessionattrtable = CiscoVpdnMgmtMib.Cvpdnsessionattrtable()
+                self.cvpdnsessionattrtable.parent = self
+                self._children_name_map["cvpdnsessionattrtable"] = "cvpdnSessionAttrTable"
+            return self.cvpdnsessionattrtable
+
+        if (child_yang_name == "cvpdnSystemInfo"):
+            if (self.cvpdnsysteminfo is None):
+                self.cvpdnsysteminfo = CiscoVpdnMgmtMib.Cvpdnsysteminfo()
+                self.cvpdnsysteminfo.parent = self
+                self._children_name_map["cvpdnsysteminfo"] = "cvpdnSystemInfo"
+            return self.cvpdnsysteminfo
+
+        if (child_yang_name == "cvpdnSystemTable"):
+            if (self.cvpdnsystemtable is None):
+                self.cvpdnsystemtable = CiscoVpdnMgmtMib.Cvpdnsystemtable()
+                self.cvpdnsystemtable.parent = self
+                self._children_name_map["cvpdnsystemtable"] = "cvpdnSystemTable"
+            return self.cvpdnsystemtable
+
+        if (child_yang_name == "cvpdnTemplateTable"):
+            if (self.cvpdntemplatetable is None):
+                self.cvpdntemplatetable = CiscoVpdnMgmtMib.Cvpdntemplatetable()
+                self.cvpdntemplatetable.parent = self
+                self._children_name_map["cvpdntemplatetable"] = "cvpdnTemplateTable"
+            return self.cvpdntemplatetable
+
+        if (child_yang_name == "cvpdnTunnelAttrTable"):
+            if (self.cvpdntunnelattrtable is None):
+                self.cvpdntunnelattrtable = CiscoVpdnMgmtMib.Cvpdntunnelattrtable()
+                self.cvpdntunnelattrtable.parent = self
+                self._children_name_map["cvpdntunnelattrtable"] = "cvpdnTunnelAttrTable"
+            return self.cvpdntunnelattrtable
+
+        if (child_yang_name == "cvpdnTunnelSessionTable"):
+            if (self.cvpdntunnelsessiontable is None):
+                self.cvpdntunnelsessiontable = CiscoVpdnMgmtMib.Cvpdntunnelsessiontable()
+                self.cvpdntunnelsessiontable.parent = self
+                self._children_name_map["cvpdntunnelsessiontable"] = "cvpdnTunnelSessionTable"
+            return self.cvpdntunnelsessiontable
+
+        if (child_yang_name == "cvpdnTunnelTable"):
+            if (self.cvpdntunneltable is None):
+                self.cvpdntunneltable = CiscoVpdnMgmtMib.Cvpdntunneltable()
+                self.cvpdntunneltable.parent = self
+                self._children_name_map["cvpdntunneltable"] = "cvpdnTunnelTable"
+            return self.cvpdntunneltable
+
+        if (child_yang_name == "cvpdnUserToFailHistInfoTable"):
+            if (self.cvpdnusertofailhistinfotable is None):
+                self.cvpdnusertofailhistinfotable = CiscoVpdnMgmtMib.Cvpdnusertofailhistinfotable()
+                self.cvpdnusertofailhistinfotable.parent = self
+                self._children_name_map["cvpdnusertofailhistinfotable"] = "cvpdnUserToFailHistInfoTable"
+            return self.cvpdnusertofailhistinfotable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ciscoVpdnMgmtMIBNotifs" or name == "cvpdnBundleChildTable" or name == "cvpdnBundleTable" or name == "cvpdnMultilinkInfo" or name == "cvpdnSessionAttrTable" or name == "cvpdnSystemInfo" or name == "cvpdnSystemTable" or name == "cvpdnTemplateTable" or name == "cvpdnTunnelAttrTable" or name == "cvpdnTunnelSessionTable" or name == "cvpdnTunnelTable" or name == "cvpdnUserToFailHistInfoTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ciscovpdnmgmtmibnotifs is not None and self.ciscovpdnmgmtmibnotifs._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cvpdnbundlechildtable is not None and self.cvpdnbundlechildtable._has_data():
-            return True
-
-        if self.cvpdnbundletable is not None and self.cvpdnbundletable._has_data():
-            return True
-
-        if self.cvpdnmultilinkinfo is not None and self.cvpdnmultilinkinfo._has_data():
-            return True
-
-        if self.cvpdnsessionattrtable is not None and self.cvpdnsessionattrtable._has_data():
-            return True
-
-        if self.cvpdnsysteminfo is not None and self.cvpdnsysteminfo._has_data():
-            return True
-
-        if self.cvpdnsystemtable is not None and self.cvpdnsystemtable._has_data():
-            return True
-
-        if self.cvpdntemplatetable is not None and self.cvpdntemplatetable._has_data():
-            return True
-
-        if self.cvpdntunnelattrtable is not None and self.cvpdntunnelattrtable._has_data():
-            return True
-
-        if self.cvpdntunnelsessiontable is not None and self.cvpdntunnelsessiontable._has_data():
-            return True
-
-        if self.cvpdntunneltable is not None and self.cvpdntunneltable._has_data():
-            return True
-
-        if self.cvpdnusertofailhistinfotable is not None and self.cvpdnusertofailhistinfotable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VPDN_MGMT_MIB as meta
-        return meta._meta_table['CiscoVpdnMgmtMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoVpdnMgmtMib()
+        return self._top_entity
 

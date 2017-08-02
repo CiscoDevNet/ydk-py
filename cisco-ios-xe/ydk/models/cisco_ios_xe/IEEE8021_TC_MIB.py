@@ -12,22 +12,16 @@ This version of this MIB module is part of IEEE802.1Q;
 see the draft itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class Ieee8021BridgeporttypeEnum(Enum):
+class Ieee8021Bridgeporttype(Enum):
     """
-    Ieee8021BridgeporttypeEnum
+    Ieee8021Bridgeporttype
 
     A port type.  The possible port types are\:
 
@@ -91,32 +85,26 @@ class Ieee8021BridgeporttypeEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    customerVlanPort = 2
+    customerVlanPort = Enum.YLeaf(2, "customerVlanPort")
 
-    providerNetworkPort = 3
+    providerNetworkPort = Enum.YLeaf(3, "providerNetworkPort")
 
-    customerNetworkPort = 4
+    customerNetworkPort = Enum.YLeaf(4, "customerNetworkPort")
 
-    customerEdgePort = 5
+    customerEdgePort = Enum.YLeaf(5, "customerEdgePort")
 
-    customerBackbonePort = 6
+    customerBackbonePort = Enum.YLeaf(6, "customerBackbonePort")
 
-    virtualInstancePort = 7
+    virtualInstancePort = Enum.YLeaf(7, "virtualInstancePort")
 
-    dBridgePort = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IEEE8021_TC_MIB as meta
-        return meta._meta_table['Ieee8021BridgeporttypeEnum']
+    dBridgePort = Enum.YLeaf(8, "dBridgePort")
 
 
-class Ieee8021PortacceptableframetypesEnum(Enum):
+class Ieee8021Portacceptableframetypes(Enum):
     """
-    Ieee8021PortacceptableframetypesEnum
+    Ieee8021Portacceptableframetypes
 
     Acceptable frame types on a port.
 
@@ -128,22 +116,16 @@ class Ieee8021PortacceptableframetypesEnum(Enum):
 
     """
 
-    admitAll = 1
+    admitAll = Enum.YLeaf(1, "admitAll")
 
-    admitUntaggedAndPriority = 2
+    admitUntaggedAndPriority = Enum.YLeaf(2, "admitUntaggedAndPriority")
 
-    admitTagged = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IEEE8021_TC_MIB as meta
-        return meta._meta_table['Ieee8021PortacceptableframetypesEnum']
+    admitTagged = Enum.YLeaf(3, "admitTagged")
 
 
-class Ieee8021PrioritycodepointEnum(Enum):
+class Ieee8021Prioritycodepoint(Enum):
     """
-    Ieee8021PrioritycodepointEnum
+    Ieee8021Prioritycodepoint
 
     Bridge ports may encode or decode the PCP value of the 
 
@@ -171,24 +153,18 @@ class Ieee8021PrioritycodepointEnum(Enum):
 
     """
 
-    codePoint8p0d = 1
+    codePoint8p0d = Enum.YLeaf(1, "codePoint8p0d")
 
-    codePoint7p1d = 2
+    codePoint7p1d = Enum.YLeaf(2, "codePoint7p1d")
 
-    codePoint6p2d = 3
+    codePoint6p2d = Enum.YLeaf(3, "codePoint6p2d")
 
-    codePoint5p3d = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IEEE8021_TC_MIB as meta
-        return meta._meta_table['Ieee8021PrioritycodepointEnum']
+    codePoint5p3d = Enum.YLeaf(4, "codePoint5p3d")
 
 
-class Ieee8021ServiceselectortypeEnum(Enum):
+class Ieee8021Serviceselectortype(Enum):
     """
-    Ieee8021ServiceselectortypeEnum
+    Ieee8021Serviceselectortype
 
     A value that represents a type (and thereby the format)
 
@@ -238,18 +214,12 @@ class Ieee8021ServiceselectortypeEnum(Enum):
 
     """
 
-    vlanId = 1
+    vlanId = Enum.YLeaf(1, "vlanId")
 
-    isid = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _IEEE8021_TC_MIB as meta
-        return meta._meta_table['Ieee8021ServiceselectortypeEnum']
+    isid = Enum.YLeaf(2, "isid")
 
 
-class Ieee8021Pbbingressegress(FixedBitsDict):
+class Ieee8021Pbbingressegress(Bits):
     """
     Ieee8021Pbbingressegress
 
@@ -262,13 +232,6 @@ class Ieee8021Pbbingressegress(FixedBitsDict):
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'egress':False,
-            'ingress':False,
-        }
-        self._pos_map = { 
-            'egress':1,
-            'ingress':0,
-        }
+        super(Ieee8021Pbbingressegress, self).__init__()
 
 

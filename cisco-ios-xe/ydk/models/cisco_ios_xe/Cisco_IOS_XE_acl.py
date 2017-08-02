@@ -5,250 +5,218 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AclPortTypeEnum(Enum):
+class AclPortType(Enum):
     """
-    AclPortTypeEnum
+    AclPortType
 
-    .. data:: biff = 0
+    .. data:: bgp = 179
 
-    .. data:: bootpc = 1
+    .. data:: chargen = 19
 
-    .. data:: bootps = 2
+    .. data:: daytime = 13
 
-    .. data:: discard = 3
+    .. data:: discard = 9
 
-    .. data:: dnsix = 4
+    .. data:: domain = 53
 
-    .. data:: domain = 5
+    .. data:: echo = 7
 
-    .. data:: echo = 6
+    .. data:: finger = 79
 
-    .. data:: isakmp = 7
+    .. data:: ftp = 21
 
-    .. data:: mobile_ip = 8
+    .. data:: ftp_data = 20
 
-    .. data:: nameserver = 9
+    .. data:: gopher = 70
 
-    .. data:: netbios_dgm = 10
+    .. data:: hostname = 101
 
-    .. data:: netbios_ns = 11
+    .. data:: ident = 113
 
-    .. data:: netbios_ss = 12
+    .. data:: irc = 194
 
-    .. data:: non500_isakmp = 13
+    .. data:: klogin = 543
 
-    .. data:: ntp = 14
+    .. data:: kshell = 544
 
-    .. data:: pim_auto_rp = 15
+    .. data:: lpd = 515
 
-    .. data:: rip = 16
+    .. data:: msrpc = 135
 
-    .. data:: ripv6 = 17
+    .. data:: nntp = 119
 
-    .. data:: snmp = 18
+    .. data:: pim_auto_rp = 496
 
-    .. data:: snmptrap = 19
+    .. data:: pop2 = 109
 
-    .. data:: sunrpc = 20
+    .. data:: pop3 = 110
 
-    .. data:: syslog = 21
+    .. data:: smtp = 25
 
-    .. data:: tacacs = 22
+    .. data:: sunrpc = 111
 
-    .. data:: talk = 23
+    .. data:: tacacs = 49
 
-    .. data:: tftp = 24
+    .. data:: talk = 517
 
-    .. data:: time = 25
+    .. data:: telnet = 23
 
-    .. data:: who = 26
+    .. data:: time = 37
 
-    .. data:: xdmcp = 27
+    .. data:: uucp = 540
 
-    .. data:: bgp = 28
+    .. data:: whois = 43
 
-    .. data:: chargen = 29
+    .. data:: www = 80
 
-    .. data:: cmd = 30
+    .. data:: biff = 512
 
-    .. data:: connectedapps_plain = 31
+    .. data:: bootpc = 68
 
-    .. data:: connectedapps_tls = 32
+    .. data:: bootps = 67
 
-    .. data:: daytime = 33
+    .. data:: dnsix = 195
 
-    .. data:: exec_ = 34
+    .. data:: isakmp = 500
 
-    .. data:: finger = 35
+    .. data:: mobile_ip = 434
 
-    .. data:: ftp = 36
+    .. data:: nameserver = 42
 
-    .. data:: ftp_data = 37
+    .. data:: netbios_dgm = 138
 
-    .. data:: gopher = 38
+    .. data:: netbios_ns = 137
 
-    .. data:: hostname = 39
+    .. data:: netbios_ss = 139
 
-    .. data:: ident = 40
+    .. data:: non500_isakmp = 4500
 
-    .. data:: irc = 41
+    .. data:: ntp = 123
 
-    .. data:: klogin = 42
+    .. data:: rip = 520
 
-    .. data:: kshell = 43
+    .. data:: ripv6 = 521
 
-    .. data:: login = 44
+    .. data:: snmp = 161
 
-    .. data:: lpd = 45
+    .. data:: snmptrap = 162
 
-    .. data:: msrpc = 46
+    .. data:: syslog = 514
 
-    .. data:: nntp = 47
+    .. data:: tftp = 69
 
-    .. data:: pop2 = 48
+    .. data:: who = 513
 
-    .. data:: pop3 = 49
-
-    .. data:: smtp = 50
-
-    .. data:: telnet = 51
-
-    .. data:: uucp = 52
-
-    .. data:: whois = 53
-
-    .. data:: www = 54
+    .. data:: xdmcp = 177
 
     """
 
-    biff = 0
+    bgp = Enum.YLeaf(179, "bgp")
 
-    bootpc = 1
+    chargen = Enum.YLeaf(19, "chargen")
 
-    bootps = 2
+    daytime = Enum.YLeaf(13, "daytime")
 
-    discard = 3
+    discard = Enum.YLeaf(9, "discard")
 
-    dnsix = 4
+    domain = Enum.YLeaf(53, "domain")
 
-    domain = 5
+    echo = Enum.YLeaf(7, "echo")
 
-    echo = 6
+    finger = Enum.YLeaf(79, "finger")
 
-    isakmp = 7
+    ftp = Enum.YLeaf(21, "ftp")
 
-    mobile_ip = 8
+    ftp_data = Enum.YLeaf(20, "ftp-data")
 
-    nameserver = 9
+    gopher = Enum.YLeaf(70, "gopher")
 
-    netbios_dgm = 10
+    hostname = Enum.YLeaf(101, "hostname")
 
-    netbios_ns = 11
+    ident = Enum.YLeaf(113, "ident")
 
-    netbios_ss = 12
+    irc = Enum.YLeaf(194, "irc")
 
-    non500_isakmp = 13
+    klogin = Enum.YLeaf(543, "klogin")
 
-    ntp = 14
+    kshell = Enum.YLeaf(544, "kshell")
 
-    pim_auto_rp = 15
+    lpd = Enum.YLeaf(515, "lpd")
 
-    rip = 16
+    msrpc = Enum.YLeaf(135, "msrpc")
 
-    ripv6 = 17
+    nntp = Enum.YLeaf(119, "nntp")
 
-    snmp = 18
+    pim_auto_rp = Enum.YLeaf(496, "pim-auto-rp")
 
-    snmptrap = 19
+    pop2 = Enum.YLeaf(109, "pop2")
 
-    sunrpc = 20
+    pop3 = Enum.YLeaf(110, "pop3")
 
-    syslog = 21
+    smtp = Enum.YLeaf(25, "smtp")
 
-    tacacs = 22
+    sunrpc = Enum.YLeaf(111, "sunrpc")
 
-    talk = 23
+    tacacs = Enum.YLeaf(49, "tacacs")
 
-    tftp = 24
+    talk = Enum.YLeaf(517, "talk")
 
-    time = 25
+    telnet = Enum.YLeaf(23, "telnet")
 
-    who = 26
+    time = Enum.YLeaf(37, "time")
 
-    xdmcp = 27
+    uucp = Enum.YLeaf(540, "uucp")
 
-    bgp = 28
+    whois = Enum.YLeaf(43, "whois")
 
-    chargen = 29
+    www = Enum.YLeaf(80, "www")
 
-    cmd = 30
+    biff = Enum.YLeaf(512, "biff")
 
-    connectedapps_plain = 31
+    bootpc = Enum.YLeaf(68, "bootpc")
 
-    connectedapps_tls = 32
+    bootps = Enum.YLeaf(67, "bootps")
 
-    daytime = 33
+    dnsix = Enum.YLeaf(195, "dnsix")
 
-    exec_ = 34
+    isakmp = Enum.YLeaf(500, "isakmp")
 
-    finger = 35
+    mobile_ip = Enum.YLeaf(434, "mobile-ip")
 
-    ftp = 36
+    nameserver = Enum.YLeaf(42, "nameserver")
 
-    ftp_data = 37
+    netbios_dgm = Enum.YLeaf(138, "netbios-dgm")
 
-    gopher = 38
+    netbios_ns = Enum.YLeaf(137, "netbios-ns")
 
-    hostname = 39
+    netbios_ss = Enum.YLeaf(139, "netbios-ss")
 
-    ident = 40
+    non500_isakmp = Enum.YLeaf(4500, "non500-isakmp")
 
-    irc = 41
+    ntp = Enum.YLeaf(123, "ntp")
 
-    klogin = 42
+    rip = Enum.YLeaf(520, "rip")
 
-    kshell = 43
+    ripv6 = Enum.YLeaf(521, "ripv6")
 
-    login = 44
+    snmp = Enum.YLeaf(161, "snmp")
 
-    lpd = 45
+    snmptrap = Enum.YLeaf(162, "snmptrap")
 
-    msrpc = 46
+    syslog = Enum.YLeaf(514, "syslog")
 
-    nntp = 47
+    tftp = Enum.YLeaf(69, "tftp")
 
-    pop2 = 48
+    who = Enum.YLeaf(513, "who")
 
-    pop3 = 49
-
-    smtp = 50
-
-    telnet = 51
-
-    uucp = 52
-
-    whois = 53
-
-    www = 54
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_acl as meta
-        return meta._meta_table['AclPortTypeEnum']
+    xdmcp = Enum.YLeaf(177, "xdmcp")
 
 
 

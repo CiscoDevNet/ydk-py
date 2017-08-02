@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class LinkUpDownStatusEnum(Enum):
+class LinkUpDownStatus(Enum):
     """
-    LinkUpDownStatusEnum
+    LinkUpDownStatus
 
     Link up down status
 
@@ -40,15 +34,9 @@ class LinkUpDownStatusEnum(Enum):
 
     """
 
-    enabled = 1
+    enabled = Enum.YLeaf(1, "enabled")
 
-    disabled = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_ifmib_oper as meta
-        return meta._meta_table['LinkUpDownStatusEnum']
+    disabled = Enum.YLeaf(2, "disabled")
 
 
 

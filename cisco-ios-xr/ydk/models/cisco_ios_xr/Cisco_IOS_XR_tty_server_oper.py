@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class LineStateEnum(Enum):
+class LineState(Enum):
     """
-    LineStateEnum
+    LineState
 
     Line state
 
@@ -44,22 +38,16 @@ class LineStateEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    registered = 1
+    registered = Enum.YLeaf(1, "registered")
 
-    in_use = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-        return meta._meta_table['LineStateEnum']
+    in_use = Enum.YLeaf(2, "in-use")
 
 
-class SessionOperationEnum(Enum):
+class SessionOperation(Enum):
     """
-    SessionOperationEnum
+    SessionOperation
 
     Session operation
 
@@ -85,25 +73,19 @@ class SessionOperationEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    setup = 1
+    setup = Enum.YLeaf(1, "setup")
 
-    shell = 2
+    shell = Enum.YLeaf(2, "shell")
 
-    transitioning = 3
+    transitioning = Enum.YLeaf(3, "transitioning")
 
-    packet = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-        return meta._meta_table['SessionOperationEnum']
+    packet = Enum.YLeaf(4, "packet")
 
 
 
-class Tty(object):
+class Tty(Entity):
     """
     TTY Line Configuration
     
@@ -130,15 +112,29 @@ class Tty(object):
     _revision = '2015-07-30'
 
     def __init__(self):
+        super(Tty, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "tty"
+        self.yang_parent_name = "Cisco-IOS-XR-tty-server-oper"
+
         self.auxiliary_nodes = Tty.AuxiliaryNodes()
         self.auxiliary_nodes.parent = self
+        self._children_name_map["auxiliary_nodes"] = "auxiliary-nodes"
+        self._children_yang_names.add("auxiliary-nodes")
+
         self.console_nodes = Tty.ConsoleNodes()
         self.console_nodes.parent = self
+        self._children_name_map["console_nodes"] = "console-nodes"
+        self._children_yang_names.add("console-nodes")
+
         self.vty_lines = Tty.VtyLines()
         self.vty_lines.parent = self
+        self._children_name_map["vty_lines"] = "vty-lines"
+        self._children_yang_names.add("vty-lines")
 
 
-    class ConsoleNodes(object):
+    class ConsoleNodes(Entity):
         """
         List of Nodes for console
         
@@ -155,13 +151,39 @@ class Tty(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
-            self.console_node = YList()
-            self.console_node.parent = self
-            self.console_node.name = 'console_node'
+            super(Tty.ConsoleNodes, self).__init__()
+
+            self.yang_name = "console-nodes"
+            self.yang_parent_name = "tty"
+
+            self.console_node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Tty.ConsoleNodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Tty.ConsoleNodes, self).__setattr__(name, value)
 
 
-        class ConsoleNode(object):
+        class ConsoleNode(Entity):
             """
             Console line configuration on a node
             
@@ -185,13 +207,44 @@ class Tty(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.id = None
+                super(Tty.ConsoleNodes.ConsoleNode, self).__init__()
+
+                self.yang_name = "console-node"
+                self.yang_parent_name = "console-nodes"
+
+                self.id = YLeaf(YType.str, "id")
+
                 self.console_line = Tty.ConsoleNodes.ConsoleNode.ConsoleLine()
                 self.console_line.parent = self
+                self._children_name_map["console_line"] = "console-line"
+                self._children_yang_names.add("console-line")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("id") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Tty.ConsoleNodes.ConsoleNode, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Tty.ConsoleNodes.ConsoleNode, self).__setattr__(name, value)
 
 
-            class ConsoleLine(object):
+            class ConsoleLine(Entity):
                 """
                 Console line
                 
@@ -218,16 +271,28 @@ class Tty(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine, self).__init__()
+
+                    self.yang_name = "console-line"
+                    self.yang_parent_name = "console-node"
+
                     self.configuration = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration()
                     self.configuration.parent = self
+                    self._children_name_map["configuration"] = "configuration"
+                    self._children_yang_names.add("configuration")
+
                     self.console_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics()
                     self.console_statistics.parent = self
+                    self._children_name_map["console_statistics"] = "console-statistics"
+                    self._children_yang_names.add("console-statistics")
+
                     self.state = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State()
                     self.state.parent = self
+                    self._children_name_map["state"] = "state"
+                    self._children_yang_names.add("state")
 
 
-                class ConsoleStatistics(object):
+                class ConsoleStatistics(Entity):
                     """
                     Statistics of the console line
                     
@@ -259,18 +324,33 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics, self).__init__()
+
+                        self.yang_name = "console-statistics"
+                        self.yang_parent_name = "console-line"
+
                         self.aaa = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa()
                         self.aaa.parent = self
+                        self._children_name_map["aaa"] = "aaa"
+                        self._children_yang_names.add("aaa")
+
                         self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_()
                         self.exec_.parent = self
+                        self._children_name_map["exec_"] = "exec"
+                        self._children_yang_names.add("exec")
+
                         self.general_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics()
                         self.general_statistics.parent = self
+                        self._children_name_map["general_statistics"] = "general-statistics"
+                        self._children_yang_names.add("general-statistics")
+
                         self.rs232 = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232()
                         self.rs232.parent = self
+                        self._children_name_map["rs232"] = "rs232"
+                        self._children_yang_names.add("rs232")
 
 
-                    class Rs232(object):
+                    class Rs232(Entity):
                         """
                         RS232 statistics of console line
                         
@@ -349,65 +429,174 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.baud_rate = None
-                            self.data_bits = None
-                            self.exec_disabled = None
-                            self.framing_error_count = None
-                            self.hardware_flow_control_status = None
-                            self.overrun_error_count = None
-                            self.parity_error_count = None
-                            self.parity_status = None
-                            self.stop_bits = None
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "rs232"
+                            self.yang_parent_name = "console-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:rs232'
+                            self.baud_rate = YLeaf(YType.uint32, "baud-rate")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.data_bits = YLeaf(YType.uint32, "data-bits")
+
+                            self.exec_disabled = YLeaf(YType.boolean, "exec-disabled")
+
+                            self.framing_error_count = YLeaf(YType.uint32, "framing-error-count")
+
+                            self.hardware_flow_control_status = YLeaf(YType.uint32, "hardware-flow-control-status")
+
+                            self.overrun_error_count = YLeaf(YType.uint32, "overrun-error-count")
+
+                            self.parity_error_count = YLeaf(YType.uint32, "parity-error-count")
+
+                            self.parity_status = YLeaf(YType.uint32, "parity-status")
+
+                            self.stop_bits = YLeaf(YType.uint32, "stop-bits")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("baud_rate",
+                                            "data_bits",
+                                            "exec_disabled",
+                                            "framing_error_count",
+                                            "hardware_flow_control_status",
+                                            "overrun_error_count",
+                                            "parity_error_count",
+                                            "parity_status",
+                                            "stop_bits") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.baud_rate.is_set or
+                                self.data_bits.is_set or
+                                self.exec_disabled.is_set or
+                                self.framing_error_count.is_set or
+                                self.hardware_flow_control_status.is_set or
+                                self.overrun_error_count.is_set or
+                                self.parity_error_count.is_set or
+                                self.parity_status.is_set or
+                                self.stop_bits.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.baud_rate.yfilter != YFilter.not_set or
+                                self.data_bits.yfilter != YFilter.not_set or
+                                self.exec_disabled.yfilter != YFilter.not_set or
+                                self.framing_error_count.yfilter != YFilter.not_set or
+                                self.hardware_flow_control_status.yfilter != YFilter.not_set or
+                                self.overrun_error_count.yfilter != YFilter.not_set or
+                                self.parity_error_count.yfilter != YFilter.not_set or
+                                self.parity_status.yfilter != YFilter.not_set or
+                                self.stop_bits.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "rs232" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.baud_rate.is_set or self.baud_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.baud_rate.get_name_leafdata())
+                            if (self.data_bits.is_set or self.data_bits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.data_bits.get_name_leafdata())
+                            if (self.exec_disabled.is_set or self.exec_disabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.exec_disabled.get_name_leafdata())
+                            if (self.framing_error_count.is_set or self.framing_error_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.framing_error_count.get_name_leafdata())
+                            if (self.hardware_flow_control_status.is_set or self.hardware_flow_control_status.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.hardware_flow_control_status.get_name_leafdata())
+                            if (self.overrun_error_count.is_set or self.overrun_error_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.overrun_error_count.get_name_leafdata())
+                            if (self.parity_error_count.is_set or self.parity_error_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.parity_error_count.get_name_leafdata())
+                            if (self.parity_status.is_set or self.parity_status.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.parity_status.get_name_leafdata())
+                            if (self.stop_bits.is_set or self.stop_bits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.stop_bits.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "baud-rate" or name == "data-bits" or name == "exec-disabled" or name == "framing-error-count" or name == "hardware-flow-control-status" or name == "overrun-error-count" or name == "parity-error-count" or name == "parity-status" or name == "stop-bits"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.baud_rate is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "baud-rate"):
+                                self.baud_rate = value
+                                self.baud_rate.value_namespace = name_space
+                                self.baud_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "data-bits"):
+                                self.data_bits = value
+                                self.data_bits.value_namespace = name_space
+                                self.data_bits.value_namespace_prefix = name_space_prefix
+                            if(value_path == "exec-disabled"):
+                                self.exec_disabled = value
+                                self.exec_disabled.value_namespace = name_space
+                                self.exec_disabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "framing-error-count"):
+                                self.framing_error_count = value
+                                self.framing_error_count.value_namespace = name_space
+                                self.framing_error_count.value_namespace_prefix = name_space_prefix
+                            if(value_path == "hardware-flow-control-status"):
+                                self.hardware_flow_control_status = value
+                                self.hardware_flow_control_status.value_namespace = name_space
+                                self.hardware_flow_control_status.value_namespace_prefix = name_space_prefix
+                            if(value_path == "overrun-error-count"):
+                                self.overrun_error_count = value
+                                self.overrun_error_count.value_namespace = name_space
+                                self.overrun_error_count.value_namespace_prefix = name_space_prefix
+                            if(value_path == "parity-error-count"):
+                                self.parity_error_count = value
+                                self.parity_error_count.value_namespace = name_space
+                                self.parity_error_count.value_namespace_prefix = name_space_prefix
+                            if(value_path == "parity-status"):
+                                self.parity_status = value
+                                self.parity_status.value_namespace = name_space
+                                self.parity_status.value_namespace_prefix = name_space_prefix
+                            if(value_path == "stop-bits"):
+                                self.stop_bits = value
+                                self.stop_bits.value_namespace = name_space
+                                self.stop_bits.value_namespace_prefix = name_space_prefix
 
-                            if self.data_bits is not None:
-                                return True
 
-                            if self.exec_disabled is not None:
-                                return True
-
-                            if self.framing_error_count is not None:
-                                return True
-
-                            if self.hardware_flow_control_status is not None:
-                                return True
-
-                            if self.overrun_error_count is not None:
-                                return True
-
-                            if self.parity_error_count is not None:
-                                return True
-
-                            if self.parity_status is not None:
-                                return True
-
-                            if self.stop_bits is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232']['meta_info']
-
-
-                    class GeneralStatistics(object):
+                    class GeneralStatistics(Entity):
                         """
                         General statistics of line
                         
@@ -486,73 +675,196 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.absolute_timeout = None
-                            self.async_interface = None
-                            self.domain_lookup_enabled = None
-                            self.flow_control_start_character = None
-                            self.flow_control_stop_character = None
-                            self.idle_time = None
-                            self.motd_banner_enabled = None
-                            self.private_flag = None
-                            self.terminal_length = None
-                            self.terminal_type = None
-                            self.terminal_width = None
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "general-statistics"
+                            self.yang_parent_name = "console-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general-statistics'
+                            self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.async_interface = YLeaf(YType.boolean, "async-interface")
+
+                            self.domain_lookup_enabled = YLeaf(YType.boolean, "domain-lookup-enabled")
+
+                            self.flow_control_start_character = YLeaf(YType.int8, "flow-control-start-character")
+
+                            self.flow_control_stop_character = YLeaf(YType.int8, "flow-control-stop-character")
+
+                            self.idle_time = YLeaf(YType.uint32, "idle-time")
+
+                            self.motd_banner_enabled = YLeaf(YType.boolean, "motd-banner-enabled")
+
+                            self.private_flag = YLeaf(YType.boolean, "private-flag")
+
+                            self.terminal_length = YLeaf(YType.uint32, "terminal-length")
+
+                            self.terminal_type = YLeaf(YType.str, "terminal-type")
+
+                            self.terminal_width = YLeaf(YType.uint32, "terminal-width")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("absolute_timeout",
+                                            "async_interface",
+                                            "domain_lookup_enabled",
+                                            "flow_control_start_character",
+                                            "flow_control_stop_character",
+                                            "idle_time",
+                                            "motd_banner_enabled",
+                                            "private_flag",
+                                            "terminal_length",
+                                            "terminal_type",
+                                            "terminal_width") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.absolute_timeout.is_set or
+                                self.async_interface.is_set or
+                                self.domain_lookup_enabled.is_set or
+                                self.flow_control_start_character.is_set or
+                                self.flow_control_stop_character.is_set or
+                                self.idle_time.is_set or
+                                self.motd_banner_enabled.is_set or
+                                self.private_flag.is_set or
+                                self.terminal_length.is_set or
+                                self.terminal_type.is_set or
+                                self.terminal_width.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.absolute_timeout.yfilter != YFilter.not_set or
+                                self.async_interface.yfilter != YFilter.not_set or
+                                self.domain_lookup_enabled.yfilter != YFilter.not_set or
+                                self.flow_control_start_character.yfilter != YFilter.not_set or
+                                self.flow_control_stop_character.yfilter != YFilter.not_set or
+                                self.idle_time.yfilter != YFilter.not_set or
+                                self.motd_banner_enabled.yfilter != YFilter.not_set or
+                                self.private_flag.yfilter != YFilter.not_set or
+                                self.terminal_length.yfilter != YFilter.not_set or
+                                self.terminal_type.yfilter != YFilter.not_set or
+                                self.terminal_width.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "general-statistics" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.absolute_timeout.is_set or self.absolute_timeout.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.absolute_timeout.get_name_leafdata())
+                            if (self.async_interface.is_set or self.async_interface.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.async_interface.get_name_leafdata())
+                            if (self.domain_lookup_enabled.is_set or self.domain_lookup_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.domain_lookup_enabled.get_name_leafdata())
+                            if (self.flow_control_start_character.is_set or self.flow_control_start_character.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.flow_control_start_character.get_name_leafdata())
+                            if (self.flow_control_stop_character.is_set or self.flow_control_stop_character.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.flow_control_stop_character.get_name_leafdata())
+                            if (self.idle_time.is_set or self.idle_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idle_time.get_name_leafdata())
+                            if (self.motd_banner_enabled.is_set or self.motd_banner_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.motd_banner_enabled.get_name_leafdata())
+                            if (self.private_flag.is_set or self.private_flag.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.private_flag.get_name_leafdata())
+                            if (self.terminal_length.is_set or self.terminal_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminal_length.get_name_leafdata())
+                            if (self.terminal_type.is_set or self.terminal_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminal_type.get_name_leafdata())
+                            if (self.terminal_width.is_set or self.terminal_width.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminal_width.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "absolute-timeout" or name == "async-interface" or name == "domain-lookup-enabled" or name == "flow-control-start-character" or name == "flow-control-stop-character" or name == "idle-time" or name == "motd-banner-enabled" or name == "private-flag" or name == "terminal-length" or name == "terminal-type" or name == "terminal-width"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.absolute_timeout is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "absolute-timeout"):
+                                self.absolute_timeout = value
+                                self.absolute_timeout.value_namespace = name_space
+                                self.absolute_timeout.value_namespace_prefix = name_space_prefix
+                            if(value_path == "async-interface"):
+                                self.async_interface = value
+                                self.async_interface.value_namespace = name_space
+                                self.async_interface.value_namespace_prefix = name_space_prefix
+                            if(value_path == "domain-lookup-enabled"):
+                                self.domain_lookup_enabled = value
+                                self.domain_lookup_enabled.value_namespace = name_space
+                                self.domain_lookup_enabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "flow-control-start-character"):
+                                self.flow_control_start_character = value
+                                self.flow_control_start_character.value_namespace = name_space
+                                self.flow_control_start_character.value_namespace_prefix = name_space_prefix
+                            if(value_path == "flow-control-stop-character"):
+                                self.flow_control_stop_character = value
+                                self.flow_control_stop_character.value_namespace = name_space
+                                self.flow_control_stop_character.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idle-time"):
+                                self.idle_time = value
+                                self.idle_time.value_namespace = name_space
+                                self.idle_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "motd-banner-enabled"):
+                                self.motd_banner_enabled = value
+                                self.motd_banner_enabled.value_namespace = name_space
+                                self.motd_banner_enabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "private-flag"):
+                                self.private_flag = value
+                                self.private_flag.value_namespace = name_space
+                                self.private_flag.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminal-length"):
+                                self.terminal_length = value
+                                self.terminal_length.value_namespace = name_space
+                                self.terminal_length.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminal-type"):
+                                self.terminal_type = value
+                                self.terminal_type.value_namespace = name_space
+                                self.terminal_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminal-width"):
+                                self.terminal_width = value
+                                self.terminal_width.value_namespace = name_space
+                                self.terminal_width.value_namespace_prefix = name_space_prefix
 
-                            if self.async_interface is not None:
-                                return True
 
-                            if self.domain_lookup_enabled is not None:
-                                return True
-
-                            if self.flow_control_start_character is not None:
-                                return True
-
-                            if self.flow_control_stop_character is not None:
-                                return True
-
-                            if self.idle_time is not None:
-                                return True
-
-                            if self.motd_banner_enabled is not None:
-                                return True
-
-                            if self.private_flag is not None:
-                                return True
-
-                            if self.terminal_length is not None:
-                                return True
-
-                            if self.terminal_type is not None:
-                                return True
-
-                            if self.terminal_width is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics']['meta_info']
-
-
-                    class Exec_(object):
+                    class Exec_(Entity):
                         """
                         Exec related statistics
                         
@@ -569,33 +881,85 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.time_stamp_enabled = None
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "exec"
+                            self.yang_parent_name = "console-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:exec'
+                            self.time_stamp_enabled = YLeaf(YType.boolean, "time-stamp-enabled")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("time_stamp_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.time_stamp_enabled is not None:
+                        def has_data(self):
+                            return self.time_stamp_enabled.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.time_stamp_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "exec" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.time_stamp_enabled.is_set or self.time_stamp_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.time_stamp_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "time-stamp-enabled"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "time-stamp-enabled"):
+                                self.time_stamp_enabled = value
+                                self.time_stamp_enabled.value_namespace = name_space
+                                self.time_stamp_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Aaa(object):
+                    class Aaa(Entity):
                         """
                         AAA related statistics
                         
@@ -612,64 +976,161 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.user_name = None
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "aaa"
+                            self.yang_parent_name = "console-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:aaa'
+                            self.user_name = YLeaf(YType.str, "user-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("user_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.user_name is not None:
+                        def has_data(self):
+                            return self.user_name.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.user_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "aaa" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.user_name.is_set or self.user_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.user_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "user-name"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "user-name"):
+                                self.user_name = value
+                                self.user_name.value_namespace = name_space
+                                self.user_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            (self.aaa is not None and self.aaa.has_data()) or
+                            (self.exec_ is not None and self.exec_.has_data()) or
+                            (self.general_statistics is not None and self.general_statistics.has_data()) or
+                            (self.rs232 is not None and self.rs232.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:console-statistics'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.aaa is not None and self.aaa.has_operation()) or
+                            (self.exec_ is not None and self.exec_.has_operation()) or
+                            (self.general_statistics is not None and self.general_statistics.has_operation()) or
+                            (self.rs232 is not None and self.rs232.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "console-statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "aaa"):
+                            if (self.aaa is None):
+                                self.aaa = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa()
+                                self.aaa.parent = self
+                                self._children_name_map["aaa"] = "aaa"
+                            return self.aaa
+
+                        if (child_yang_name == "exec"):
+                            if (self.exec_ is None):
+                                self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_()
+                                self.exec_.parent = self
+                                self._children_name_map["exec_"] = "exec"
+                            return self.exec_
+
+                        if (child_yang_name == "general-statistics"):
+                            if (self.general_statistics is None):
+                                self.general_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics()
+                                self.general_statistics.parent = self
+                                self._children_name_map["general_statistics"] = "general-statistics"
+                            return self.general_statistics
+
+                        if (child_yang_name == "rs232"):
+                            if (self.rs232 is None):
+                                self.rs232 = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232()
+                                self.rs232.parent = self
+                                self._children_name_map["rs232"] = "rs232"
+                            return self.rs232
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "aaa" or name == "exec" or name == "general-statistics" or name == "rs232"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.aaa is not None and self.aaa._has_data():
-                            return True
-
-                        if self.exec_ is not None and self.exec_._has_data():
-                            return True
-
-                        if self.general_statistics is not None and self.general_statistics._has_data():
-                            return True
-
-                        if self.rs232 is not None and self.rs232._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class State(object):
+                class State(Entity):
                     """
                     Line state information
                     
@@ -691,14 +1152,23 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State, self).__init__()
+
+                        self.yang_name = "state"
+                        self.yang_parent_name = "console-line"
+
                         self.general = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General()
                         self.general.parent = self
+                        self._children_name_map["general"] = "general"
+                        self._children_yang_names.add("general")
+
                         self.template = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template()
                         self.template.parent = self
+                        self._children_name_map["template"] = "template"
+                        self._children_yang_names.add("template")
 
 
-                    class Template(object):
+                    class Template(Entity):
                         """
                         Information related to template applied to the
                         line
@@ -716,45 +1186,97 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.name = None
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "template"
+                            self.yang_parent_name = "state"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:template'
+                            self.name = YLeaf(YType.str, "name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.name is not None:
+                        def has_data(self):
+                            return self.name.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "template" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "name"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "name"):
+                                self.name = value
+                                self.name.value_namespace = name_space
+                                self.name.value_namespace_prefix = name_space_prefix
 
 
-                    class General(object):
+                    class General(Entity):
                         """
                         General information
                         
                         .. attribute:: general_state
                         
                         	State of the line
-                        	**type**\:   :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                        	**type**\:   :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
                         
-                        .. attribute:: operation
+                        .. attribute:: operation_
                         
                         	application running of on the tty line
-                        	**type**\:   :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
+                        	**type**\:   :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                         
                         
 
@@ -764,62 +1286,155 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.general_state = None
-                            self.operation = None
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "general"
+                            self.yang_parent_name = "state"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general'
+                            self.general_state = YLeaf(YType.enumeration, "general-state")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.operation_ = YLeaf(YType.enumeration, "operation")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("general_state",
+                                            "operation_") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.general_state.is_set or
+                                self.operation_.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.general_state.yfilter != YFilter.not_set or
+                                self.operation_.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "general" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.general_state.is_set or self.general_state.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.general_state.get_name_leafdata())
+                            if (self.operation_.is_set or self.operation_.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.operation_.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "general-state" or name == "operation"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.general_state is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "general-state"):
+                                self.general_state = value
+                                self.general_state.value_namespace = name_space
+                                self.general_state.value_namespace_prefix = name_space_prefix
+                            if(value_path == "operation"):
+                                self.operation_ = value
+                                self.operation_.value_namespace = name_space
+                                self.operation_.value_namespace_prefix = name_space_prefix
 
-                            if self.operation is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            (self.general is not None and self.general.has_data()) or
+                            (self.template is not None and self.template.has_data()))
 
-                            return False
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.general is not None and self.general.has_operation()) or
+                            (self.template is not None and self.template.has_operation()))
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "state" + path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        return path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:state'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "general"):
+                            if (self.general is None):
+                                self.general = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General()
+                                self.general.parent = self
+                                self._children_name_map["general"] = "general"
+                            return self.general
+
+                        if (child_yang_name == "template"):
+                            if (self.template is None):
+                                self.template = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template()
+                                self.template.parent = self
+                                self._children_name_map["template"] = "template"
+                            return self.template
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "general" or name == "template"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.general is not None and self.general._has_data():
-                            return True
-
-                        if self.template is not None and self.template._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Configuration(object):
+                class Configuration(Entity):
                     """
                     Configuration information of the line
                     
@@ -836,12 +1451,18 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration, self).__init__()
+
+                        self.yang_name = "configuration"
+                        self.yang_parent_name = "console-line"
+
                         self.connection_configuration = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration()
                         self.connection_configuration.parent = self
+                        self._children_name_map["connection_configuration"] = "connection-configuration"
+                        self._children_yang_names.add("connection-configuration")
 
 
-                    class ConnectionConfiguration(object):
+                    class ConnectionConfiguration(Entity):
                         """
                         Conection configuration information
                         
@@ -868,14 +1489,47 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.acl_in = None
-                            self.acl_out = None
+                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, self).__init__()
+
+                            self.yang_name = "connection-configuration"
+                            self.yang_parent_name = "configuration"
+
+                            self.acl_in = YLeaf(YType.str, "acl-in")
+
+                            self.acl_out = YLeaf(YType.str, "acl-out")
+
                             self.transport_input = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput()
                             self.transport_input.parent = self
+                            self._children_name_map["transport_input"] = "transport-input"
+                            self._children_yang_names.add("transport-input")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("acl_in",
+                                            "acl_out") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration, self).__setattr__(name, value)
 
 
-                        class TransportInput(object):
+                        class TransportInput(Entity):
                             """
                             Protocols to use when connecting to the
                             terminal server
@@ -890,17 +1544,17 @@ class Tty(object):
                             .. attribute:: protocol1
                             
                             	Transport protocol1
-                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: protocol2
                             
                             	Transport protocol2
-                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: select
                             
                             	Choose transport protocols
-                            	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                             
                             	**default value**\: all
                             
@@ -912,170 +1566,411 @@ class Tty(object):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                self.parent = None
-                                self.none = None
-                                self.protocol1 = None
-                                self.protocol2 = None
-                                self.select = None
+                                super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "transport-input"
+                                self.yang_parent_name = "connection-configuration"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:transport-input'
+                                self.none = YLeaf(YType.int32, "none")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.protocol1 = YLeaf(YType.enumeration, "protocol1")
+
+                                self.protocol2 = YLeaf(YType.enumeration, "protocol2")
+
+                                self.select = YLeaf(YType.enumeration, "select")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("none",
+                                                "protocol1",
+                                                "protocol2",
+                                                "select") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.none.is_set or
+                                    self.protocol1.is_set or
+                                    self.protocol2.is_set or
+                                    self.select.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.none.yfilter != YFilter.not_set or
+                                    self.protocol1.yfilter != YFilter.not_set or
+                                    self.protocol2.yfilter != YFilter.not_set or
+                                    self.select.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "transport-input" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.none.is_set or self.none.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.none.get_name_leafdata())
+                                if (self.protocol1.is_set or self.protocol1.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.protocol1.get_name_leafdata())
+                                if (self.protocol2.is_set or self.protocol2.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.protocol2.get_name_leafdata())
+                                if (self.select.is_set or self.select.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.select.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "none" or name == "protocol1" or name == "protocol2" or name == "select"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.none is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "none"):
+                                    self.none = value
+                                    self.none.value_namespace = name_space
+                                    self.none.value_namespace_prefix = name_space_prefix
+                                if(value_path == "protocol1"):
+                                    self.protocol1 = value
+                                    self.protocol1.value_namespace = name_space
+                                    self.protocol1.value_namespace_prefix = name_space_prefix
+                                if(value_path == "protocol2"):
+                                    self.protocol2 = value
+                                    self.protocol2.value_namespace = name_space
+                                    self.protocol2.value_namespace_prefix = name_space_prefix
+                                if(value_path == "select"):
+                                    self.select = value
+                                    self.select.value_namespace = name_space
+                                    self.select.value_namespace_prefix = name_space_prefix
 
-                                if self.protocol1 is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.acl_in.is_set or
+                                self.acl_out.is_set or
+                                (self.transport_input is not None and self.transport_input.has_data()))
 
-                                if self.protocol2 is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.acl_in.yfilter != YFilter.not_set or
+                                self.acl_out.yfilter != YFilter.not_set or
+                                (self.transport_input is not None and self.transport_input.has_operation()))
 
-                                if self.select is not None:
-                                    return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "connection-configuration" + path_buffer
 
-                                return False
+                            return path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                                return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput']['meta_info']
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            leaf_name_data = LeafDataList()
+                            if (self.acl_in.is_set or self.acl_in.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.acl_in.get_name_leafdata())
+                            if (self.acl_out.is_set or self.acl_out.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.acl_out.get_name_leafdata())
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection-configuration'
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "transport-input"):
+                                if (self.transport_input is None):
+                                    self.transport_input = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput()
+                                    self.transport_input.parent = self
+                                    self._children_name_map["transport_input"] = "transport-input"
+                                return self.transport_input
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "transport-input" or name == "acl-in" or name == "acl-out"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.acl_in is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "acl-in"):
+                                self.acl_in = value
+                                self.acl_in.value_namespace = name_space
+                                self.acl_in.value_namespace_prefix = name_space_prefix
+                            if(value_path == "acl-out"):
+                                self.acl_out = value
+                                self.acl_out.value_namespace = name_space
+                                self.acl_out.value_namespace_prefix = name_space_prefix
 
-                            if self.acl_out is not None:
-                                return True
+                    def has_data(self):
+                        return (self.connection_configuration is not None and self.connection_configuration.has_data())
 
-                            if self.transport_input is not None and self.transport_input._has_data():
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.connection_configuration is not None and self.connection_configuration.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "configuration" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:configuration'
+                        leaf_name_data = LeafDataList()
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def _has_data(self):
-                        if self.connection_configuration is not None and self.connection_configuration._has_data():
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "connection-configuration"):
+                            if (self.connection_configuration is None):
+                                self.connection_configuration = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration()
+                                self.connection_configuration.parent = self
+                                self._children_name_map["connection_configuration"] = "connection-configuration"
+                            return self.connection_configuration
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "connection-configuration"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.configuration is not None and self.configuration.has_data()) or
+                        (self.console_statistics is not None and self.console_statistics.has_data()) or
+                        (self.state is not None and self.state.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:console-line'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.configuration is not None and self.configuration.has_operation()) or
+                        (self.console_statistics is not None and self.console_statistics.has_operation()) or
+                        (self.state is not None and self.state.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "console-line" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "configuration"):
+                        if (self.configuration is None):
+                            self.configuration = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration()
+                            self.configuration.parent = self
+                            self._children_name_map["configuration"] = "configuration"
+                        return self.configuration
+
+                    if (child_yang_name == "console-statistics"):
+                        if (self.console_statistics is None):
+                            self.console_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics()
+                            self.console_statistics.parent = self
+                            self._children_name_map["console_statistics"] = "console-statistics"
+                        return self.console_statistics
+
+                    if (child_yang_name == "state"):
+                        if (self.state is None):
+                            self.state = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                        return self.state
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "configuration" or name == "console-statistics" or name == "state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.configuration is not None and self.configuration._has_data():
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-                    if self.console_statistics is not None and self.console_statistics._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.id.is_set or
+                    (self.console_line is not None and self.console_line.has_data()))
 
-                    if self.state is not None and self.state._has_data():
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.id.yfilter != YFilter.not_set or
+                    (self.console_line is not None and self.console_line.has_operation()))
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "console-node" + "[id='" + self.id.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                    return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.id is None:
-                    raise YPYModelError('Key property id is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-tty-server-oper:tty/console-nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:console-nodes/Cisco-IOS-XR-tty-server-oper:console-node[Cisco-IOS-XR-tty-server-oper:id = ' + str(self.id) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.id.is_set or self.id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.id.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "console-line"):
+                    if (self.console_line is None):
+                        self.console_line = Tty.ConsoleNodes.ConsoleNode.ConsoleLine()
+                        self.console_line.parent = self
+                        self._children_name_map["console_line"] = "console-line"
+                    return self.console_line
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "console-line" or name == "id"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "id"):
+                    self.id = value
+                    self.id.value_namespace = name_space
+                    self.id.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.console_node:
+                if (c.has_data()):
                     return True
-
-                if self.console_line is not None and self.console_line._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                return meta._meta_table['Tty.ConsoleNodes.ConsoleNode']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:console-nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.console_node is not None:
-                for child_ref in self.console_node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.console_node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "console-nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-tty-server-oper:tty/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "console-node"):
+                for c in self.console_node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Tty.ConsoleNodes.ConsoleNode()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.console_node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "console-node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-            return meta._meta_table['Tty.ConsoleNodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class VtyLines(object):
+    class VtyLines(Entity):
         """
         List of VTY lines
         
@@ -1092,13 +1987,39 @@ class Tty(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
-            self.vty_line = YList()
-            self.vty_line.parent = self
-            self.vty_line.name = 'vty_line'
+            super(Tty.VtyLines, self).__init__()
+
+            self.yang_name = "vty-lines"
+            self.yang_parent_name = "tty"
+
+            self.vty_line = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Tty.VtyLines, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Tty.VtyLines, self).__setattr__(name, value)
 
 
-        class VtyLine(object):
+        class VtyLine(Entity):
             """
             VTY Line
             
@@ -1137,19 +2058,59 @@ class Tty(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.line_number = None
+                super(Tty.VtyLines.VtyLine, self).__init__()
+
+                self.yang_name = "vty-line"
+                self.yang_parent_name = "vty-lines"
+
+                self.line_number = YLeaf(YType.int32, "line-number")
+
                 self.configuration = Tty.VtyLines.VtyLine.Configuration()
                 self.configuration.parent = self
+                self._children_name_map["configuration"] = "configuration"
+                self._children_yang_names.add("configuration")
+
                 self.sessions = Tty.VtyLines.VtyLine.Sessions()
                 self.sessions.parent = self
+                self._children_name_map["sessions"] = "sessions"
+                self._children_yang_names.add("sessions")
+
                 self.state = Tty.VtyLines.VtyLine.State()
                 self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._children_yang_names.add("state")
+
                 self.vty_statistics = Tty.VtyLines.VtyLine.VtyStatistics()
                 self.vty_statistics.parent = self
+                self._children_name_map["vty_statistics"] = "vty-statistics"
+                self._children_yang_names.add("vty-statistics")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("line_number") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Tty.VtyLines.VtyLine, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Tty.VtyLines.VtyLine, self).__setattr__(name, value)
 
 
-            class VtyStatistics(object):
+            class VtyStatistics(Entity):
                 """
                 Statistics of the VTY line
                 
@@ -1181,18 +2142,33 @@ class Tty(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Tty.VtyLines.VtyLine.VtyStatistics, self).__init__()
+
+                    self.yang_name = "vty-statistics"
+                    self.yang_parent_name = "vty-line"
+
                     self.aaa = Tty.VtyLines.VtyLine.VtyStatistics.Aaa()
                     self.aaa.parent = self
+                    self._children_name_map["aaa"] = "aaa"
+                    self._children_yang_names.add("aaa")
+
                     self.connection = Tty.VtyLines.VtyLine.VtyStatistics.Connection()
                     self.connection.parent = self
+                    self._children_name_map["connection"] = "connection"
+                    self._children_yang_names.add("connection")
+
                     self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec_()
                     self.exec_.parent = self
+                    self._children_name_map["exec_"] = "exec"
+                    self._children_yang_names.add("exec")
+
                     self.general_statistics = Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics()
                     self.general_statistics.parent = self
+                    self._children_name_map["general_statistics"] = "general-statistics"
+                    self._children_yang_names.add("general-statistics")
 
 
-                class Connection(object):
+                class Connection(Entity):
                     """
                     Connection related statistics
                     
@@ -1225,41 +2201,108 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.host_address_family = None
-                        self.incoming_host_address = None
-                        self.service = None
+                        super(Tty.VtyLines.VtyLine.VtyStatistics.Connection, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "connection"
+                        self.yang_parent_name = "vty-statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection'
+                        self.host_address_family = YLeaf(YType.uint32, "host-address-family")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.incoming_host_address = YLeaf(YType.str, "incoming-host-address")
+
+                        self.service = YLeaf(YType.uint32, "service")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("host_address_family",
+                                        "incoming_host_address",
+                                        "service") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.VtyStatistics.Connection, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.VtyStatistics.Connection, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.host_address_family.is_set or
+                            self.incoming_host_address.is_set or
+                            self.service.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.host_address_family.yfilter != YFilter.not_set or
+                            self.incoming_host_address.yfilter != YFilter.not_set or
+                            self.service.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "connection" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.host_address_family.is_set or self.host_address_family.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.host_address_family.get_name_leafdata())
+                        if (self.incoming_host_address.is_set or self.incoming_host_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.incoming_host_address.get_name_leafdata())
+                        if (self.service.is_set or self.service.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.service.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "host-address-family" or name == "incoming-host-address" or name == "service"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.host_address_family is not None:
-                            return True
-
-                        if self.incoming_host_address is not None:
-                            return True
-
-                        if self.service is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Connection']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "host-address-family"):
+                            self.host_address_family = value
+                            self.host_address_family.value_namespace = name_space
+                            self.host_address_family.value_namespace_prefix = name_space_prefix
+                        if(value_path == "incoming-host-address"):
+                            self.incoming_host_address = value
+                            self.incoming_host_address.value_namespace = name_space
+                            self.incoming_host_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "service"):
+                            self.service = value
+                            self.service.value_namespace = name_space
+                            self.service.value_namespace_prefix = name_space_prefix
 
 
-                class GeneralStatistics(object):
+                class GeneralStatistics(Entity):
                     """
                     General statistics of line
                     
@@ -1338,73 +2381,196 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.absolute_timeout = None
-                        self.async_interface = None
-                        self.domain_lookup_enabled = None
-                        self.flow_control_start_character = None
-                        self.flow_control_stop_character = None
-                        self.idle_time = None
-                        self.motd_banner_enabled = None
-                        self.private_flag = None
-                        self.terminal_length = None
-                        self.terminal_type = None
-                        self.terminal_width = None
+                        super(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "general-statistics"
+                        self.yang_parent_name = "vty-statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general-statistics'
+                        self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.async_interface = YLeaf(YType.boolean, "async-interface")
+
+                        self.domain_lookup_enabled = YLeaf(YType.boolean, "domain-lookup-enabled")
+
+                        self.flow_control_start_character = YLeaf(YType.int8, "flow-control-start-character")
+
+                        self.flow_control_stop_character = YLeaf(YType.int8, "flow-control-stop-character")
+
+                        self.idle_time = YLeaf(YType.uint32, "idle-time")
+
+                        self.motd_banner_enabled = YLeaf(YType.boolean, "motd-banner-enabled")
+
+                        self.private_flag = YLeaf(YType.boolean, "private-flag")
+
+                        self.terminal_length = YLeaf(YType.uint32, "terminal-length")
+
+                        self.terminal_type = YLeaf(YType.str, "terminal-type")
+
+                        self.terminal_width = YLeaf(YType.uint32, "terminal-width")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("absolute_timeout",
+                                        "async_interface",
+                                        "domain_lookup_enabled",
+                                        "flow_control_start_character",
+                                        "flow_control_stop_character",
+                                        "idle_time",
+                                        "motd_banner_enabled",
+                                        "private_flag",
+                                        "terminal_length",
+                                        "terminal_type",
+                                        "terminal_width") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.absolute_timeout.is_set or
+                            self.async_interface.is_set or
+                            self.domain_lookup_enabled.is_set or
+                            self.flow_control_start_character.is_set or
+                            self.flow_control_stop_character.is_set or
+                            self.idle_time.is_set or
+                            self.motd_banner_enabled.is_set or
+                            self.private_flag.is_set or
+                            self.terminal_length.is_set or
+                            self.terminal_type.is_set or
+                            self.terminal_width.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.absolute_timeout.yfilter != YFilter.not_set or
+                            self.async_interface.yfilter != YFilter.not_set or
+                            self.domain_lookup_enabled.yfilter != YFilter.not_set or
+                            self.flow_control_start_character.yfilter != YFilter.not_set or
+                            self.flow_control_stop_character.yfilter != YFilter.not_set or
+                            self.idle_time.yfilter != YFilter.not_set or
+                            self.motd_banner_enabled.yfilter != YFilter.not_set or
+                            self.private_flag.yfilter != YFilter.not_set or
+                            self.terminal_length.yfilter != YFilter.not_set or
+                            self.terminal_type.yfilter != YFilter.not_set or
+                            self.terminal_width.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "general-statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.absolute_timeout.is_set or self.absolute_timeout.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.absolute_timeout.get_name_leafdata())
+                        if (self.async_interface.is_set or self.async_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.async_interface.get_name_leafdata())
+                        if (self.domain_lookup_enabled.is_set or self.domain_lookup_enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.domain_lookup_enabled.get_name_leafdata())
+                        if (self.flow_control_start_character.is_set or self.flow_control_start_character.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.flow_control_start_character.get_name_leafdata())
+                        if (self.flow_control_stop_character.is_set or self.flow_control_stop_character.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.flow_control_stop_character.get_name_leafdata())
+                        if (self.idle_time.is_set or self.idle_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.idle_time.get_name_leafdata())
+                        if (self.motd_banner_enabled.is_set or self.motd_banner_enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.motd_banner_enabled.get_name_leafdata())
+                        if (self.private_flag.is_set or self.private_flag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.private_flag.get_name_leafdata())
+                        if (self.terminal_length.is_set or self.terminal_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.terminal_length.get_name_leafdata())
+                        if (self.terminal_type.is_set or self.terminal_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.terminal_type.get_name_leafdata())
+                        if (self.terminal_width.is_set or self.terminal_width.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.terminal_width.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "absolute-timeout" or name == "async-interface" or name == "domain-lookup-enabled" or name == "flow-control-start-character" or name == "flow-control-stop-character" or name == "idle-time" or name == "motd-banner-enabled" or name == "private-flag" or name == "terminal-length" or name == "terminal-type" or name == "terminal-width"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.absolute_timeout is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "absolute-timeout"):
+                            self.absolute_timeout = value
+                            self.absolute_timeout.value_namespace = name_space
+                            self.absolute_timeout.value_namespace_prefix = name_space_prefix
+                        if(value_path == "async-interface"):
+                            self.async_interface = value
+                            self.async_interface.value_namespace = name_space
+                            self.async_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "domain-lookup-enabled"):
+                            self.domain_lookup_enabled = value
+                            self.domain_lookup_enabled.value_namespace = name_space
+                            self.domain_lookup_enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "flow-control-start-character"):
+                            self.flow_control_start_character = value
+                            self.flow_control_start_character.value_namespace = name_space
+                            self.flow_control_start_character.value_namespace_prefix = name_space_prefix
+                        if(value_path == "flow-control-stop-character"):
+                            self.flow_control_stop_character = value
+                            self.flow_control_stop_character.value_namespace = name_space
+                            self.flow_control_stop_character.value_namespace_prefix = name_space_prefix
+                        if(value_path == "idle-time"):
+                            self.idle_time = value
+                            self.idle_time.value_namespace = name_space
+                            self.idle_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "motd-banner-enabled"):
+                            self.motd_banner_enabled = value
+                            self.motd_banner_enabled.value_namespace = name_space
+                            self.motd_banner_enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "private-flag"):
+                            self.private_flag = value
+                            self.private_flag.value_namespace = name_space
+                            self.private_flag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "terminal-length"):
+                            self.terminal_length = value
+                            self.terminal_length.value_namespace = name_space
+                            self.terminal_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "terminal-type"):
+                            self.terminal_type = value
+                            self.terminal_type.value_namespace = name_space
+                            self.terminal_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "terminal-width"):
+                            self.terminal_width = value
+                            self.terminal_width.value_namespace = name_space
+                            self.terminal_width.value_namespace_prefix = name_space_prefix
 
-                        if self.async_interface is not None:
-                            return True
 
-                        if self.domain_lookup_enabled is not None:
-                            return True
-
-                        if self.flow_control_start_character is not None:
-                            return True
-
-                        if self.flow_control_stop_character is not None:
-                            return True
-
-                        if self.idle_time is not None:
-                            return True
-
-                        if self.motd_banner_enabled is not None:
-                            return True
-
-                        if self.private_flag is not None:
-                            return True
-
-                        if self.terminal_length is not None:
-                            return True
-
-                        if self.terminal_type is not None:
-                            return True
-
-                        if self.terminal_width is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics']['meta_info']
-
-
-                class Exec_(object):
+                class Exec_(Entity):
                     """
                     Exec related statistics
                     
@@ -1421,33 +2587,85 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.time_stamp_enabled = None
+                        super(Tty.VtyLines.VtyLine.VtyStatistics.Exec_, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "exec"
+                        self.yang_parent_name = "vty-statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:exec'
+                        self.time_stamp_enabled = YLeaf(YType.boolean, "time-stamp-enabled")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("time_stamp_enabled") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.VtyStatistics.Exec_, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.VtyStatistics.Exec_, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.time_stamp_enabled is not None:
+                    def has_data(self):
+                        return self.time_stamp_enabled.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.time_stamp_enabled.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "exec" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.time_stamp_enabled.is_set or self.time_stamp_enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.time_stamp_enabled.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "time-stamp-enabled"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Exec_']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "time-stamp-enabled"):
+                            self.time_stamp_enabled = value
+                            self.time_stamp_enabled.value_namespace = name_space
+                            self.time_stamp_enabled.value_namespace_prefix = name_space_prefix
 
 
-                class Aaa(object):
+                class Aaa(Entity):
                     """
                     AAA related statistics
                     
@@ -1464,64 +2682,161 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.user_name = None
+                        super(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "aaa"
+                        self.yang_parent_name = "vty-statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:aaa'
+                        self.user_name = YLeaf(YType.str, "user-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("user_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.VtyStatistics.Aaa, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.user_name is not None:
+                    def has_data(self):
+                        return self.user_name.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.user_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "aaa" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.user_name.is_set or self.user_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.user_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "user-name"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Aaa']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "user-name"):
+                            self.user_name = value
+                            self.user_name.value_namespace = name_space
+                            self.user_name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.aaa is not None and self.aaa.has_data()) or
+                        (self.connection is not None and self.connection.has_data()) or
+                        (self.exec_ is not None and self.exec_.has_data()) or
+                        (self.general_statistics is not None and self.general_statistics.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:vty-statistics'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.aaa is not None and self.aaa.has_operation()) or
+                        (self.connection is not None and self.connection.has_operation()) or
+                        (self.exec_ is not None and self.exec_.has_operation()) or
+                        (self.general_statistics is not None and self.general_statistics.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vty-statistics" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "aaa"):
+                        if (self.aaa is None):
+                            self.aaa = Tty.VtyLines.VtyLine.VtyStatistics.Aaa()
+                            self.aaa.parent = self
+                            self._children_name_map["aaa"] = "aaa"
+                        return self.aaa
+
+                    if (child_yang_name == "connection"):
+                        if (self.connection is None):
+                            self.connection = Tty.VtyLines.VtyLine.VtyStatistics.Connection()
+                            self.connection.parent = self
+                            self._children_name_map["connection"] = "connection"
+                        return self.connection
+
+                    if (child_yang_name == "exec"):
+                        if (self.exec_ is None):
+                            self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec_()
+                            self.exec_.parent = self
+                            self._children_name_map["exec_"] = "exec"
+                        return self.exec_
+
+                    if (child_yang_name == "general-statistics"):
+                        if (self.general_statistics is None):
+                            self.general_statistics = Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics()
+                            self.general_statistics.parent = self
+                            self._children_name_map["general_statistics"] = "general-statistics"
+                        return self.general_statistics
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "aaa" or name == "connection" or name == "exec" or name == "general-statistics"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.aaa is not None and self.aaa._has_data():
-                        return True
-
-                    if self.connection is not None and self.connection._has_data():
-                        return True
-
-                    if self.exec_ is not None and self.exec_._has_data():
-                        return True
-
-                    if self.general_statistics is not None and self.general_statistics._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                    return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class State(object):
+            class State(Entity):
                 """
                 Line state information
                 
@@ -1543,14 +2858,23 @@ class Tty(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Tty.VtyLines.VtyLine.State, self).__init__()
+
+                    self.yang_name = "state"
+                    self.yang_parent_name = "vty-line"
+
                     self.general = Tty.VtyLines.VtyLine.State.General()
                     self.general.parent = self
+                    self._children_name_map["general"] = "general"
+                    self._children_yang_names.add("general")
+
                     self.template = Tty.VtyLines.VtyLine.State.Template()
                     self.template.parent = self
+                    self._children_name_map["template"] = "template"
+                    self._children_yang_names.add("template")
 
 
-                class Template(object):
+                class Template(Entity):
                     """
                     Information related to template applied to the
                     line
@@ -1568,45 +2892,97 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.name = None
+                        super(Tty.VtyLines.VtyLine.State.Template, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "template"
+                        self.yang_parent_name = "state"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:template'
+                        self.name = YLeaf(YType.str, "name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.State.Template, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.State.Template, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.name is not None:
+                    def has_data(self):
+                        return self.name.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "template" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "name"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.State.Template']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class General(object):
+                class General(Entity):
                     """
                     General information
                     
                     .. attribute:: general_state
                     
                     	State of the line
-                    	**type**\:   :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                    	**type**\:   :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
                     
-                    .. attribute:: operation
+                    .. attribute:: operation_
                     
                     	application running of on the tty line
-                    	**type**\:   :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
+                    	**type**\:   :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                     
                     
 
@@ -1616,62 +2992,155 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.general_state = None
-                        self.operation = None
+                        super(Tty.VtyLines.VtyLine.State.General, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "general"
+                        self.yang_parent_name = "state"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general'
+                        self.general_state = YLeaf(YType.enumeration, "general-state")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.operation_ = YLeaf(YType.enumeration, "operation")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("general_state",
+                                        "operation_") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.State.General, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.State.General, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.general_state.is_set or
+                            self.operation_.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.general_state.yfilter != YFilter.not_set or
+                            self.operation_.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "general" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.general_state.is_set or self.general_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.general_state.get_name_leafdata())
+                        if (self.operation_.is_set or self.operation_.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.operation_.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "general-state" or name == "operation"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.general_state is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "general-state"):
+                            self.general_state = value
+                            self.general_state.value_namespace = name_space
+                            self.general_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "operation"):
+                            self.operation_ = value
+                            self.operation_.value_namespace = name_space
+                            self.operation_.value_namespace_prefix = name_space_prefix
 
-                        if self.operation is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        (self.general is not None and self.general.has_data()) or
+                        (self.template is not None and self.template.has_data()))
 
-                        return False
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.general is not None and self.general.has_operation()) or
+                        (self.template is not None and self.template.has_operation()))
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.State.General']['meta_info']
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "state" + path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    return path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:state'
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "general"):
+                        if (self.general is None):
+                            self.general = Tty.VtyLines.VtyLine.State.General()
+                            self.general.parent = self
+                            self._children_name_map["general"] = "general"
+                        return self.general
+
+                    if (child_yang_name == "template"):
+                        if (self.template is None):
+                            self.template = Tty.VtyLines.VtyLine.State.Template()
+                            self.template.parent = self
+                            self._children_name_map["template"] = "template"
+                        return self.template
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "general" or name == "template"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.general is not None and self.general._has_data():
-                        return True
-
-                    if self.template is not None and self.template._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                    return meta._meta_table['Tty.VtyLines.VtyLine.State']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Configuration(object):
+            class Configuration(Entity):
                 """
                 Configuration information of the line
                 
@@ -1688,12 +3157,18 @@ class Tty(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Tty.VtyLines.VtyLine.Configuration, self).__init__()
+
+                    self.yang_name = "configuration"
+                    self.yang_parent_name = "vty-line"
+
                     self.connection_configuration = Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration()
                     self.connection_configuration.parent = self
+                    self._children_name_map["connection_configuration"] = "connection-configuration"
+                    self._children_yang_names.add("connection-configuration")
 
 
-                class ConnectionConfiguration(object):
+                class ConnectionConfiguration(Entity):
                     """
                     Conection configuration information
                     
@@ -1720,14 +3195,47 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.acl_in = None
-                        self.acl_out = None
+                        super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, self).__init__()
+
+                        self.yang_name = "connection-configuration"
+                        self.yang_parent_name = "configuration"
+
+                        self.acl_in = YLeaf(YType.str, "acl-in")
+
+                        self.acl_out = YLeaf(YType.str, "acl-out")
+
                         self.transport_input = Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput()
                         self.transport_input.parent = self
+                        self._children_name_map["transport_input"] = "transport-input"
+                        self._children_yang_names.add("transport-input")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("acl_in",
+                                        "acl_out") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration, self).__setattr__(name, value)
 
 
-                    class TransportInput(object):
+                    class TransportInput(Entity):
                         """
                         Protocols to use when connecting to the
                         terminal server
@@ -1742,17 +3250,17 @@ class Tty(object):
                         .. attribute:: protocol1
                         
                         	Transport protocol1
-                        	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                        	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                         
                         .. attribute:: protocol2
                         
                         	Transport protocol2
-                        	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                        	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                         
                         .. attribute:: select
                         
                         	Choose transport protocols
-                        	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                        	**type**\:   :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                         
                         	**default value**\: all
                         
@@ -1764,95 +3272,231 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.none = None
-                            self.protocol1 = None
-                            self.protocol2 = None
-                            self.select = None
+                            super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "transport-input"
+                            self.yang_parent_name = "connection-configuration"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:transport-input'
+                            self.none = YLeaf(YType.int32, "none")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.protocol1 = YLeaf(YType.enumeration, "protocol1")
+
+                            self.protocol2 = YLeaf(YType.enumeration, "protocol2")
+
+                            self.select = YLeaf(YType.enumeration, "select")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("none",
+                                            "protocol1",
+                                            "protocol2",
+                                            "select") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.none.is_set or
+                                self.protocol1.is_set or
+                                self.protocol2.is_set or
+                                self.select.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.none.yfilter != YFilter.not_set or
+                                self.protocol1.yfilter != YFilter.not_set or
+                                self.protocol2.yfilter != YFilter.not_set or
+                                self.select.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "transport-input" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.none.is_set or self.none.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.none.get_name_leafdata())
+                            if (self.protocol1.is_set or self.protocol1.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol1.get_name_leafdata())
+                            if (self.protocol2.is_set or self.protocol2.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol2.get_name_leafdata())
+                            if (self.select.is_set or self.select.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.select.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "none" or name == "protocol1" or name == "protocol2" or name == "select"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.none is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "none"):
+                                self.none = value
+                                self.none.value_namespace = name_space
+                                self.none.value_namespace_prefix = name_space_prefix
+                            if(value_path == "protocol1"):
+                                self.protocol1 = value
+                                self.protocol1.value_namespace = name_space
+                                self.protocol1.value_namespace_prefix = name_space_prefix
+                            if(value_path == "protocol2"):
+                                self.protocol2 = value
+                                self.protocol2.value_namespace = name_space
+                                self.protocol2.value_namespace_prefix = name_space_prefix
+                            if(value_path == "select"):
+                                self.select = value
+                                self.select.value_namespace = name_space
+                                self.select.value_namespace_prefix = name_space_prefix
 
-                            if self.protocol1 is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.acl_in.is_set or
+                            self.acl_out.is_set or
+                            (self.transport_input is not None and self.transport_input.has_data()))
 
-                            if self.protocol2 is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.acl_in.yfilter != YFilter.not_set or
+                            self.acl_out.yfilter != YFilter.not_set or
+                            (self.transport_input is not None and self.transport_input.has_operation()))
 
-                            if self.select is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "connection-configuration" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
+                        if (self.acl_in.is_set or self.acl_in.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.acl_in.get_name_leafdata())
+                        if (self.acl_out.is_set or self.acl_out.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.acl_out.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection-configuration'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "transport-input"):
+                            if (self.transport_input is None):
+                                self.transport_input = Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput()
+                                self.transport_input.parent = self
+                                self._children_name_map["transport_input"] = "transport-input"
+                            return self.transport_input
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "transport-input" or name == "acl-in" or name == "acl-out"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.acl_in is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "acl-in"):
+                            self.acl_in = value
+                            self.acl_in.value_namespace = name_space
+                            self.acl_in.value_namespace_prefix = name_space_prefix
+                        if(value_path == "acl-out"):
+                            self.acl_out = value
+                            self.acl_out.value_namespace = name_space
+                            self.acl_out.value_namespace_prefix = name_space_prefix
 
-                        if self.acl_out is not None:
-                            return True
+                def has_data(self):
+                    return (self.connection_configuration is not None and self.connection_configuration.has_data())
 
-                        if self.transport_input is not None and self.transport_input._has_data():
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.connection_configuration is not None and self.connection_configuration.has_operation()))
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "configuration" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:configuration'
+                    leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def _has_data(self):
-                    if self.connection_configuration is not None and self.connection_configuration._has_data():
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "connection-configuration"):
+                        if (self.connection_configuration is None):
+                            self.connection_configuration = Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration()
+                            self.connection_configuration.parent = self
+                            self._children_name_map["connection_configuration"] = "connection-configuration"
+                        return self.connection_configuration
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "connection-configuration"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                    return meta._meta_table['Tty.VtyLines.VtyLine.Configuration']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Sessions(object):
+            class Sessions(Entity):
                 """
                 Outgoing sessions
                 
@@ -1869,13 +3513,39 @@ class Tty(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.outgoing_connection = YList()
-                    self.outgoing_connection.parent = self
-                    self.outgoing_connection.name = 'outgoing_connection'
+                    super(Tty.VtyLines.VtyLine.Sessions, self).__init__()
+
+                    self.yang_name = "sessions"
+                    self.yang_parent_name = "vty-line"
+
+                    self.outgoing_connection = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Tty.VtyLines.VtyLine.Sessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Tty.VtyLines.VtyLine.Sessions, self).__setattr__(name, value)
 
 
-                class OutgoingConnection(object):
+                class OutgoingConnection(Entity):
                     """
                     List of outgoing sessions
                     
@@ -1913,7 +3583,7 @@ class Tty(object):
                     .. attribute:: transport_protocol
                     
                     	Session transport protocol
-                    	**type**\:   :py:class:`TransportServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.TransportServiceEnum>`
+                    	**type**\:   :py:class:`TransportService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.TransportService>`
                     
                     
 
@@ -1923,24 +3593,63 @@ class Tty(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.connection_id = None
+                        super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, self).__init__()
+
+                        self.yang_name = "outgoing-connection"
+                        self.yang_parent_name = "sessions"
+
+                        self.connection_id = YLeaf(YType.uint8, "connection-id")
+
+                        self.host_name = YLeaf(YType.str, "host-name")
+
+                        self.idle_time = YLeaf(YType.uint32, "idle-time")
+
+                        self.is_last_active_session = YLeaf(YType.boolean, "is-last-active-session")
+
+                        self.transport_protocol = YLeaf(YType.enumeration, "transport-protocol")
+
                         self.host_address = Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress()
                         self.host_address.parent = self
-                        self.host_name = None
-                        self.idle_time = None
-                        self.is_last_active_session = None
-                        self.transport_protocol = None
+                        self._children_name_map["host_address"] = "host-address"
+                        self._children_yang_names.add("host-address")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("connection_id",
+                                        "host_name",
+                                        "idle_time",
+                                        "is_last_active_session",
+                                        "transport_protocol") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection, self).__setattr__(name, value)
 
 
-                    class HostAddress(object):
+                    class HostAddress(Entity):
                         """
                         Host address
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`HostAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.HostAfIdBaseIdentity>`
+                        	**type**\:   :py:class:`HostAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.HostAfIdBase>`
                         
                         .. attribute:: ipv4_address
                         
@@ -1964,158 +3673,393 @@ class Tty(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "host-address"
+                            self.yang_parent_name = "outgoing-connection"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-management-oper:host-address'
+                            self.af_name = YLeaf(YType.identityref, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "host-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
 
-                            if self.ipv4_address is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.connection_id.is_set or
+                            self.host_name.is_set or
+                            self.idle_time.is_set or
+                            self.is_last_active_session.is_set or
+                            self.transport_protocol.is_set or
+                            (self.host_address is not None and self.host_address.has_data()))
 
-                            if self.ipv6_address is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.connection_id.yfilter != YFilter.not_set or
+                            self.host_name.yfilter != YFilter.not_set or
+                            self.idle_time.yfilter != YFilter.not_set or
+                            self.is_last_active_session.yfilter != YFilter.not_set or
+                            self.transport_protocol.yfilter != YFilter.not_set or
+                            (self.host_address is not None and self.host_address.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outgoing-connection" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-management-oper:outgoing-connection'
+                        leaf_name_data = LeafDataList()
+                        if (self.connection_id.is_set or self.connection_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.connection_id.get_name_leafdata())
+                        if (self.host_name.is_set or self.host_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.host_name.get_name_leafdata())
+                        if (self.idle_time.is_set or self.idle_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.idle_time.get_name_leafdata())
+                        if (self.is_last_active_session.is_set or self.is_last_active_session.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_last_active_session.get_name_leafdata())
+                        if (self.transport_protocol.is_set or self.transport_protocol.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.transport_protocol.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "host-address"):
+                            if (self.host_address is None):
+                                self.host_address = Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress()
+                                self.host_address.parent = self
+                                self._children_name_map["host_address"] = "host-address"
+                            return self.host_address
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "host-address" or name == "connection-id" or name == "host-name" or name == "idle-time" or name == "is-last-active-session" or name == "transport-protocol"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.connection_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "connection-id"):
+                            self.connection_id = value
+                            self.connection_id.value_namespace = name_space
+                            self.connection_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "host-name"):
+                            self.host_name = value
+                            self.host_name.value_namespace = name_space
+                            self.host_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "idle-time"):
+                            self.idle_time = value
+                            self.idle_time.value_namespace = name_space
+                            self.idle_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-last-active-session"):
+                            self.is_last_active_session = value
+                            self.is_last_active_session.value_namespace = name_space
+                            self.is_last_active_session.value_namespace_prefix = name_space_prefix
+                        if(value_path == "transport-protocol"):
+                            self.transport_protocol = value
+                            self.transport_protocol.value_namespace = name_space
+                            self.transport_protocol.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.outgoing_connection:
+                        if (c.has_data()):
                             return True
-
-                        if self.host_address is not None and self.host_address._has_data():
-                            return True
-
-                        if self.host_name is not None:
-                            return True
-
-                        if self.idle_time is not None:
-                            return True
-
-                        if self.is_last_active_session is not None:
-                            return True
-
-                        if self.transport_protocol is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.Sessions.OutgoingConnection']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-tty-management-oper:sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.outgoing_connection is not None:
-                        for child_ref in self.outgoing_connection:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.outgoing_connection:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-tty-management-oper:sessions" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                    return meta._meta_table['Tty.VtyLines.VtyLine.Sessions']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.line_number is None:
-                    raise YPYModelError('Key property line_number is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:vty-lines/Cisco-IOS-XR-tty-server-oper:vty-line[Cisco-IOS-XR-tty-server-oper:line-number = ' + str(self.line_number) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.line_number is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.configuration is not None and self.configuration._has_data():
-                    return True
+                    if (child_yang_name == "outgoing-connection"):
+                        for c in self.outgoing_connection:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Tty.VtyLines.VtyLine.Sessions.OutgoingConnection()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.outgoing_connection.append(c)
+                        return c
 
-                if self.sessions is not None and self.sessions._has_data():
-                    return True
+                    return None
 
-                if self.state is not None and self.state._has_data():
-                    return True
-
-                if self.vty_statistics is not None and self.vty_statistics._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                return meta._meta_table['Tty.VtyLines.VtyLine']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:vty-lines'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.vty_line is not None:
-                for child_ref in self.vty_line:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "outgoing-connection"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.line_number.is_set or
+                    (self.configuration is not None and self.configuration.has_data()) or
+                    (self.sessions is not None and self.sessions.has_data()) or
+                    (self.state is not None and self.state.has_data()) or
+                    (self.vty_statistics is not None and self.vty_statistics.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.line_number.yfilter != YFilter.not_set or
+                    (self.configuration is not None and self.configuration.has_operation()) or
+                    (self.sessions is not None and self.sessions.has_operation()) or
+                    (self.state is not None and self.state.has_operation()) or
+                    (self.vty_statistics is not None and self.vty_statistics.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vty-line" + "[line-number='" + self.line_number.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-tty-server-oper:tty/vty-lines/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.line_number.is_set or self.line_number.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.line_number.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "configuration"):
+                    if (self.configuration is None):
+                        self.configuration = Tty.VtyLines.VtyLine.Configuration()
+                        self.configuration.parent = self
+                        self._children_name_map["configuration"] = "configuration"
+                    return self.configuration
+
+                if (child_yang_name == "sessions"):
+                    if (self.sessions is None):
+                        self.sessions = Tty.VtyLines.VtyLine.Sessions()
+                        self.sessions.parent = self
+                        self._children_name_map["sessions"] = "sessions"
+                    return self.sessions
+
+                if (child_yang_name == "state"):
+                    if (self.state is None):
+                        self.state = Tty.VtyLines.VtyLine.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                    return self.state
+
+                if (child_yang_name == "vty-statistics"):
+                    if (self.vty_statistics is None):
+                        self.vty_statistics = Tty.VtyLines.VtyLine.VtyStatistics()
+                        self.vty_statistics.parent = self
+                        self._children_name_map["vty_statistics"] = "vty-statistics"
+                    return self.vty_statistics
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "configuration" or name == "sessions" or name == "state" or name == "vty-statistics" or name == "line-number"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "line-number"):
+                    self.line_number = value
+                    self.line_number.value_namespace = name_space
+                    self.line_number.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vty_line:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-            return meta._meta_table['Tty.VtyLines']['meta_info']
+        def has_operation(self):
+            for c in self.vty_line:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vty-lines" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-tty-server-oper:tty/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vty-line"):
+                for c in self.vty_line:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Tty.VtyLines.VtyLine()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vty_line.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vty-line"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class AuxiliaryNodes(object):
+    class AuxiliaryNodes(Entity):
         """
         List of Nodes attached with an auxiliary line
         
@@ -2132,13 +4076,39 @@ class Tty(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
-            self.auxiliary_node = YList()
-            self.auxiliary_node.parent = self
-            self.auxiliary_node.name = 'auxiliary_node'
+            super(Tty.AuxiliaryNodes, self).__init__()
+
+            self.yang_name = "auxiliary-nodes"
+            self.yang_parent_name = "tty"
+
+            self.auxiliary_node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Tty.AuxiliaryNodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Tty.AuxiliaryNodes, self).__setattr__(name, value)
 
 
-        class AuxiliaryNode(object):
+        class AuxiliaryNode(Entity):
             """
             Line configuration on a node
             
@@ -2162,13 +4132,44 @@ class Tty(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
-                self.id = None
+                super(Tty.AuxiliaryNodes.AuxiliaryNode, self).__init__()
+
+                self.yang_name = "auxiliary-node"
+                self.yang_parent_name = "auxiliary-nodes"
+
+                self.id = YLeaf(YType.str, "id")
+
                 self.auxiliary_line = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine()
                 self.auxiliary_line.parent = self
+                self._children_name_map["auxiliary_line"] = "auxiliary-line"
+                self._children_yang_names.add("auxiliary-line")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("id") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Tty.AuxiliaryNodes.AuxiliaryNode, self).__setattr__(name, value)
 
 
-            class AuxiliaryLine(object):
+            class AuxiliaryLine(Entity):
                 """
                 Auxiliary line
                 
@@ -2195,16 +4196,28 @@ class Tty(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine, self).__init__()
+
+                    self.yang_name = "auxiliary-line"
+                    self.yang_parent_name = "auxiliary-node"
+
                     self.auxiliary_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics()
                     self.auxiliary_statistics.parent = self
+                    self._children_name_map["auxiliary_statistics"] = "auxiliary-statistics"
+                    self._children_yang_names.add("auxiliary-statistics")
+
                     self.configuration = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration()
                     self.configuration.parent = self
+                    self._children_name_map["configuration"] = "configuration"
+                    self._children_yang_names.add("configuration")
+
                     self.state = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State()
                     self.state.parent = self
+                    self._children_name_map["state"] = "state"
+                    self._children_yang_names.add("state")
 
 
-                class AuxiliaryStatistics(object):
+                class AuxiliaryStatistics(Entity):
                     """
                     Statistics of the auxiliary line
                     
@@ -2236,18 +4249,33 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics, self).__init__()
+
+                        self.yang_name = "auxiliary-statistics"
+                        self.yang_parent_name = "auxiliary-line"
+
                         self.aaa = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa()
                         self.aaa.parent = self
+                        self._children_name_map["aaa"] = "aaa"
+                        self._children_yang_names.add("aaa")
+
                         self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_()
                         self.exec_.parent = self
+                        self._children_name_map["exec_"] = "exec"
+                        self._children_yang_names.add("exec")
+
                         self.general_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics()
                         self.general_statistics.parent = self
+                        self._children_name_map["general_statistics"] = "general-statistics"
+                        self._children_yang_names.add("general-statistics")
+
                         self.rs232 = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232()
                         self.rs232.parent = self
+                        self._children_name_map["rs232"] = "rs232"
+                        self._children_yang_names.add("rs232")
 
 
-                    class Rs232(object):
+                    class Rs232(Entity):
                         """
                         RS232 statistics of console line
                         
@@ -2326,65 +4354,174 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.baud_rate = None
-                            self.data_bits = None
-                            self.exec_disabled = None
-                            self.framing_error_count = None
-                            self.hardware_flow_control_status = None
-                            self.overrun_error_count = None
-                            self.parity_error_count = None
-                            self.parity_status = None
-                            self.stop_bits = None
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "rs232"
+                            self.yang_parent_name = "auxiliary-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:rs232'
+                            self.baud_rate = YLeaf(YType.uint32, "baud-rate")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.data_bits = YLeaf(YType.uint32, "data-bits")
+
+                            self.exec_disabled = YLeaf(YType.boolean, "exec-disabled")
+
+                            self.framing_error_count = YLeaf(YType.uint32, "framing-error-count")
+
+                            self.hardware_flow_control_status = YLeaf(YType.uint32, "hardware-flow-control-status")
+
+                            self.overrun_error_count = YLeaf(YType.uint32, "overrun-error-count")
+
+                            self.parity_error_count = YLeaf(YType.uint32, "parity-error-count")
+
+                            self.parity_status = YLeaf(YType.uint32, "parity-status")
+
+                            self.stop_bits = YLeaf(YType.uint32, "stop-bits")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("baud_rate",
+                                            "data_bits",
+                                            "exec_disabled",
+                                            "framing_error_count",
+                                            "hardware_flow_control_status",
+                                            "overrun_error_count",
+                                            "parity_error_count",
+                                            "parity_status",
+                                            "stop_bits") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.baud_rate.is_set or
+                                self.data_bits.is_set or
+                                self.exec_disabled.is_set or
+                                self.framing_error_count.is_set or
+                                self.hardware_flow_control_status.is_set or
+                                self.overrun_error_count.is_set or
+                                self.parity_error_count.is_set or
+                                self.parity_status.is_set or
+                                self.stop_bits.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.baud_rate.yfilter != YFilter.not_set or
+                                self.data_bits.yfilter != YFilter.not_set or
+                                self.exec_disabled.yfilter != YFilter.not_set or
+                                self.framing_error_count.yfilter != YFilter.not_set or
+                                self.hardware_flow_control_status.yfilter != YFilter.not_set or
+                                self.overrun_error_count.yfilter != YFilter.not_set or
+                                self.parity_error_count.yfilter != YFilter.not_set or
+                                self.parity_status.yfilter != YFilter.not_set or
+                                self.stop_bits.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "rs232" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.baud_rate.is_set or self.baud_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.baud_rate.get_name_leafdata())
+                            if (self.data_bits.is_set or self.data_bits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.data_bits.get_name_leafdata())
+                            if (self.exec_disabled.is_set or self.exec_disabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.exec_disabled.get_name_leafdata())
+                            if (self.framing_error_count.is_set or self.framing_error_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.framing_error_count.get_name_leafdata())
+                            if (self.hardware_flow_control_status.is_set or self.hardware_flow_control_status.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.hardware_flow_control_status.get_name_leafdata())
+                            if (self.overrun_error_count.is_set or self.overrun_error_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.overrun_error_count.get_name_leafdata())
+                            if (self.parity_error_count.is_set or self.parity_error_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.parity_error_count.get_name_leafdata())
+                            if (self.parity_status.is_set or self.parity_status.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.parity_status.get_name_leafdata())
+                            if (self.stop_bits.is_set or self.stop_bits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.stop_bits.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "baud-rate" or name == "data-bits" or name == "exec-disabled" or name == "framing-error-count" or name == "hardware-flow-control-status" or name == "overrun-error-count" or name == "parity-error-count" or name == "parity-status" or name == "stop-bits"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.baud_rate is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "baud-rate"):
+                                self.baud_rate = value
+                                self.baud_rate.value_namespace = name_space
+                                self.baud_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "data-bits"):
+                                self.data_bits = value
+                                self.data_bits.value_namespace = name_space
+                                self.data_bits.value_namespace_prefix = name_space_prefix
+                            if(value_path == "exec-disabled"):
+                                self.exec_disabled = value
+                                self.exec_disabled.value_namespace = name_space
+                                self.exec_disabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "framing-error-count"):
+                                self.framing_error_count = value
+                                self.framing_error_count.value_namespace = name_space
+                                self.framing_error_count.value_namespace_prefix = name_space_prefix
+                            if(value_path == "hardware-flow-control-status"):
+                                self.hardware_flow_control_status = value
+                                self.hardware_flow_control_status.value_namespace = name_space
+                                self.hardware_flow_control_status.value_namespace_prefix = name_space_prefix
+                            if(value_path == "overrun-error-count"):
+                                self.overrun_error_count = value
+                                self.overrun_error_count.value_namespace = name_space
+                                self.overrun_error_count.value_namespace_prefix = name_space_prefix
+                            if(value_path == "parity-error-count"):
+                                self.parity_error_count = value
+                                self.parity_error_count.value_namespace = name_space
+                                self.parity_error_count.value_namespace_prefix = name_space_prefix
+                            if(value_path == "parity-status"):
+                                self.parity_status = value
+                                self.parity_status.value_namespace = name_space
+                                self.parity_status.value_namespace_prefix = name_space_prefix
+                            if(value_path == "stop-bits"):
+                                self.stop_bits = value
+                                self.stop_bits.value_namespace = name_space
+                                self.stop_bits.value_namespace_prefix = name_space_prefix
 
-                            if self.data_bits is not None:
-                                return True
 
-                            if self.exec_disabled is not None:
-                                return True
-
-                            if self.framing_error_count is not None:
-                                return True
-
-                            if self.hardware_flow_control_status is not None:
-                                return True
-
-                            if self.overrun_error_count is not None:
-                                return True
-
-                            if self.parity_error_count is not None:
-                                return True
-
-                            if self.parity_status is not None:
-                                return True
-
-                            if self.stop_bits is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232']['meta_info']
-
-
-                    class GeneralStatistics(object):
+                    class GeneralStatistics(Entity):
                         """
                         General statistics of line
                         
@@ -2463,73 +4600,196 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.absolute_timeout = None
-                            self.async_interface = None
-                            self.domain_lookup_enabled = None
-                            self.flow_control_start_character = None
-                            self.flow_control_stop_character = None
-                            self.idle_time = None
-                            self.motd_banner_enabled = None
-                            self.private_flag = None
-                            self.terminal_length = None
-                            self.terminal_type = None
-                            self.terminal_width = None
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "general-statistics"
+                            self.yang_parent_name = "auxiliary-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general-statistics'
+                            self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.async_interface = YLeaf(YType.boolean, "async-interface")
+
+                            self.domain_lookup_enabled = YLeaf(YType.boolean, "domain-lookup-enabled")
+
+                            self.flow_control_start_character = YLeaf(YType.int8, "flow-control-start-character")
+
+                            self.flow_control_stop_character = YLeaf(YType.int8, "flow-control-stop-character")
+
+                            self.idle_time = YLeaf(YType.uint32, "idle-time")
+
+                            self.motd_banner_enabled = YLeaf(YType.boolean, "motd-banner-enabled")
+
+                            self.private_flag = YLeaf(YType.boolean, "private-flag")
+
+                            self.terminal_length = YLeaf(YType.uint32, "terminal-length")
+
+                            self.terminal_type = YLeaf(YType.str, "terminal-type")
+
+                            self.terminal_width = YLeaf(YType.uint32, "terminal-width")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("absolute_timeout",
+                                            "async_interface",
+                                            "domain_lookup_enabled",
+                                            "flow_control_start_character",
+                                            "flow_control_stop_character",
+                                            "idle_time",
+                                            "motd_banner_enabled",
+                                            "private_flag",
+                                            "terminal_length",
+                                            "terminal_type",
+                                            "terminal_width") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.absolute_timeout.is_set or
+                                self.async_interface.is_set or
+                                self.domain_lookup_enabled.is_set or
+                                self.flow_control_start_character.is_set or
+                                self.flow_control_stop_character.is_set or
+                                self.idle_time.is_set or
+                                self.motd_banner_enabled.is_set or
+                                self.private_flag.is_set or
+                                self.terminal_length.is_set or
+                                self.terminal_type.is_set or
+                                self.terminal_width.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.absolute_timeout.yfilter != YFilter.not_set or
+                                self.async_interface.yfilter != YFilter.not_set or
+                                self.domain_lookup_enabled.yfilter != YFilter.not_set or
+                                self.flow_control_start_character.yfilter != YFilter.not_set or
+                                self.flow_control_stop_character.yfilter != YFilter.not_set or
+                                self.idle_time.yfilter != YFilter.not_set or
+                                self.motd_banner_enabled.yfilter != YFilter.not_set or
+                                self.private_flag.yfilter != YFilter.not_set or
+                                self.terminal_length.yfilter != YFilter.not_set or
+                                self.terminal_type.yfilter != YFilter.not_set or
+                                self.terminal_width.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "general-statistics" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.absolute_timeout.is_set or self.absolute_timeout.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.absolute_timeout.get_name_leafdata())
+                            if (self.async_interface.is_set or self.async_interface.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.async_interface.get_name_leafdata())
+                            if (self.domain_lookup_enabled.is_set or self.domain_lookup_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.domain_lookup_enabled.get_name_leafdata())
+                            if (self.flow_control_start_character.is_set or self.flow_control_start_character.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.flow_control_start_character.get_name_leafdata())
+                            if (self.flow_control_stop_character.is_set or self.flow_control_stop_character.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.flow_control_stop_character.get_name_leafdata())
+                            if (self.idle_time.is_set or self.idle_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.idle_time.get_name_leafdata())
+                            if (self.motd_banner_enabled.is_set or self.motd_banner_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.motd_banner_enabled.get_name_leafdata())
+                            if (self.private_flag.is_set or self.private_flag.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.private_flag.get_name_leafdata())
+                            if (self.terminal_length.is_set or self.terminal_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminal_length.get_name_leafdata())
+                            if (self.terminal_type.is_set or self.terminal_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminal_type.get_name_leafdata())
+                            if (self.terminal_width.is_set or self.terminal_width.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.terminal_width.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "absolute-timeout" or name == "async-interface" or name == "domain-lookup-enabled" or name == "flow-control-start-character" or name == "flow-control-stop-character" or name == "idle-time" or name == "motd-banner-enabled" or name == "private-flag" or name == "terminal-length" or name == "terminal-type" or name == "terminal-width"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.absolute_timeout is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "absolute-timeout"):
+                                self.absolute_timeout = value
+                                self.absolute_timeout.value_namespace = name_space
+                                self.absolute_timeout.value_namespace_prefix = name_space_prefix
+                            if(value_path == "async-interface"):
+                                self.async_interface = value
+                                self.async_interface.value_namespace = name_space
+                                self.async_interface.value_namespace_prefix = name_space_prefix
+                            if(value_path == "domain-lookup-enabled"):
+                                self.domain_lookup_enabled = value
+                                self.domain_lookup_enabled.value_namespace = name_space
+                                self.domain_lookup_enabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "flow-control-start-character"):
+                                self.flow_control_start_character = value
+                                self.flow_control_start_character.value_namespace = name_space
+                                self.flow_control_start_character.value_namespace_prefix = name_space_prefix
+                            if(value_path == "flow-control-stop-character"):
+                                self.flow_control_stop_character = value
+                                self.flow_control_stop_character.value_namespace = name_space
+                                self.flow_control_stop_character.value_namespace_prefix = name_space_prefix
+                            if(value_path == "idle-time"):
+                                self.idle_time = value
+                                self.idle_time.value_namespace = name_space
+                                self.idle_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "motd-banner-enabled"):
+                                self.motd_banner_enabled = value
+                                self.motd_banner_enabled.value_namespace = name_space
+                                self.motd_banner_enabled.value_namespace_prefix = name_space_prefix
+                            if(value_path == "private-flag"):
+                                self.private_flag = value
+                                self.private_flag.value_namespace = name_space
+                                self.private_flag.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminal-length"):
+                                self.terminal_length = value
+                                self.terminal_length.value_namespace = name_space
+                                self.terminal_length.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminal-type"):
+                                self.terminal_type = value
+                                self.terminal_type.value_namespace = name_space
+                                self.terminal_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "terminal-width"):
+                                self.terminal_width = value
+                                self.terminal_width.value_namespace = name_space
+                                self.terminal_width.value_namespace_prefix = name_space_prefix
 
-                            if self.async_interface is not None:
-                                return True
 
-                            if self.domain_lookup_enabled is not None:
-                                return True
-
-                            if self.flow_control_start_character is not None:
-                                return True
-
-                            if self.flow_control_stop_character is not None:
-                                return True
-
-                            if self.idle_time is not None:
-                                return True
-
-                            if self.motd_banner_enabled is not None:
-                                return True
-
-                            if self.private_flag is not None:
-                                return True
-
-                            if self.terminal_length is not None:
-                                return True
-
-                            if self.terminal_type is not None:
-                                return True
-
-                            if self.terminal_width is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics']['meta_info']
-
-
-                    class Exec_(object):
+                    class Exec_(Entity):
                         """
                         Exec related statistics
                         
@@ -2546,33 +4806,85 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.time_stamp_enabled = None
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "exec"
+                            self.yang_parent_name = "auxiliary-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:exec'
+                            self.time_stamp_enabled = YLeaf(YType.boolean, "time-stamp-enabled")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("time_stamp_enabled") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.time_stamp_enabled is not None:
+                        def has_data(self):
+                            return self.time_stamp_enabled.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.time_stamp_enabled.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "exec" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.time_stamp_enabled.is_set or self.time_stamp_enabled.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.time_stamp_enabled.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "time-stamp-enabled"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "time-stamp-enabled"):
+                                self.time_stamp_enabled = value
+                                self.time_stamp_enabled.value_namespace = name_space
+                                self.time_stamp_enabled.value_namespace_prefix = name_space_prefix
 
 
-                    class Aaa(object):
+                    class Aaa(Entity):
                         """
                         AAA related statistics
                         
@@ -2589,64 +4901,161 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.user_name = None
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "aaa"
+                            self.yang_parent_name = "auxiliary-statistics"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:aaa'
+                            self.user_name = YLeaf(YType.str, "user-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("user_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.user_name is not None:
+                        def has_data(self):
+                            return self.user_name.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.user_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "aaa" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.user_name.is_set or self.user_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.user_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "user-name"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "user-name"):
+                                self.user_name = value
+                                self.user_name.value_namespace = name_space
+                                self.user_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            (self.aaa is not None and self.aaa.has_data()) or
+                            (self.exec_ is not None and self.exec_.has_data()) or
+                            (self.general_statistics is not None and self.general_statistics.has_data()) or
+                            (self.rs232 is not None and self.rs232.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:auxiliary-statistics'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.aaa is not None and self.aaa.has_operation()) or
+                            (self.exec_ is not None and self.exec_.has_operation()) or
+                            (self.general_statistics is not None and self.general_statistics.has_operation()) or
+                            (self.rs232 is not None and self.rs232.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "auxiliary-statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "aaa"):
+                            if (self.aaa is None):
+                                self.aaa = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa()
+                                self.aaa.parent = self
+                                self._children_name_map["aaa"] = "aaa"
+                            return self.aaa
+
+                        if (child_yang_name == "exec"):
+                            if (self.exec_ is None):
+                                self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_()
+                                self.exec_.parent = self
+                                self._children_name_map["exec_"] = "exec"
+                            return self.exec_
+
+                        if (child_yang_name == "general-statistics"):
+                            if (self.general_statistics is None):
+                                self.general_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics()
+                                self.general_statistics.parent = self
+                                self._children_name_map["general_statistics"] = "general-statistics"
+                            return self.general_statistics
+
+                        if (child_yang_name == "rs232"):
+                            if (self.rs232 is None):
+                                self.rs232 = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232()
+                                self.rs232.parent = self
+                                self._children_name_map["rs232"] = "rs232"
+                            return self.rs232
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "aaa" or name == "exec" or name == "general-statistics" or name == "rs232"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.aaa is not None and self.aaa._has_data():
-                            return True
-
-                        if self.exec_ is not None and self.exec_._has_data():
-                            return True
-
-                        if self.general_statistics is not None and self.general_statistics._has_data():
-                            return True
-
-                        if self.rs232 is not None and self.rs232._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class State(object):
+                class State(Entity):
                     """
                     Line state information
                     
@@ -2668,14 +5077,23 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State, self).__init__()
+
+                        self.yang_name = "state"
+                        self.yang_parent_name = "auxiliary-line"
+
                         self.general = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General()
                         self.general.parent = self
+                        self._children_name_map["general"] = "general"
+                        self._children_yang_names.add("general")
+
                         self.template = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template()
                         self.template.parent = self
+                        self._children_name_map["template"] = "template"
+                        self._children_yang_names.add("template")
 
 
-                    class Template(object):
+                    class Template(Entity):
                         """
                         Information related to template applied to the
                         line
@@ -2693,45 +5111,97 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.name = None
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "template"
+                            self.yang_parent_name = "state"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:template'
+                            self.name = YLeaf(YType.str, "name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.name is not None:
+                        def has_data(self):
+                            return self.name.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "template" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "name"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "name"):
+                                self.name = value
+                                self.name.value_namespace = name_space
+                                self.name.value_namespace_prefix = name_space_prefix
 
 
-                    class General(object):
+                    class General(Entity):
                         """
                         General information
                         
                         .. attribute:: general_state
                         
                         	State of the line
-                        	**type**\:   :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                        	**type**\:   :py:class:`LineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineState>`
                         
-                        .. attribute:: operation
+                        .. attribute:: operation_
                         
                         	application running of on the tty line
-                        	**type**\:   :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
+                        	**type**\:   :py:class:`SessionOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperation>`
                         
                         
 
@@ -2741,62 +5211,155 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.general_state = None
-                            self.operation = None
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "general"
+                            self.yang_parent_name = "state"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:general'
+                            self.general_state = YLeaf(YType.enumeration, "general-state")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.operation_ = YLeaf(YType.enumeration, "operation")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("general_state",
+                                            "operation_") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.general_state.is_set or
+                                self.operation_.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.general_state.yfilter != YFilter.not_set or
+                                self.operation_.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "general" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.general_state.is_set or self.general_state.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.general_state.get_name_leafdata())
+                            if (self.operation_.is_set or self.operation_.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.operation_.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "general-state" or name == "operation"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.general_state is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "general-state"):
+                                self.general_state = value
+                                self.general_state.value_namespace = name_space
+                                self.general_state.value_namespace_prefix = name_space_prefix
+                            if(value_path == "operation"):
+                                self.operation_ = value
+                                self.operation_.value_namespace = name_space
+                                self.operation_.value_namespace_prefix = name_space_prefix
 
-                            if self.operation is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            (self.general is not None and self.general.has_data()) or
+                            (self.template is not None and self.template.has_data()))
 
-                            return False
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.general is not None and self.general.has_operation()) or
+                            (self.template is not None and self.template.has_operation()))
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "state" + path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        return path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:state'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "general"):
+                            if (self.general is None):
+                                self.general = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General()
+                                self.general.parent = self
+                                self._children_name_map["general"] = "general"
+                            return self.general
+
+                        if (child_yang_name == "template"):
+                            if (self.template is None):
+                                self.template = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template()
+                                self.template.parent = self
+                                self._children_name_map["template"] = "template"
+                            return self.template
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "general" or name == "template"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.general is not None and self.general._has_data():
-                            return True
-
-                        if self.template is not None and self.template._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Configuration(object):
+                class Configuration(Entity):
                     """
                     Configuration information of the line
                     
@@ -2813,12 +5376,18 @@ class Tty(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration, self).__init__()
+
+                        self.yang_name = "configuration"
+                        self.yang_parent_name = "auxiliary-line"
+
                         self.connection_configuration = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration()
                         self.connection_configuration.parent = self
+                        self._children_name_map["connection_configuration"] = "connection-configuration"
+                        self._children_yang_names.add("connection-configuration")
 
 
-                    class ConnectionConfiguration(object):
+                    class ConnectionConfiguration(Entity):
                         """
                         Conection configuration information
                         
@@ -2845,14 +5414,47 @@ class Tty(object):
                         _revision = '2015-07-30'
 
                         def __init__(self):
-                            self.parent = None
-                            self.acl_in = None
-                            self.acl_out = None
+                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, self).__init__()
+
+                            self.yang_name = "connection-configuration"
+                            self.yang_parent_name = "configuration"
+
+                            self.acl_in = YLeaf(YType.str, "acl-in")
+
+                            self.acl_out = YLeaf(YType.str, "acl-out")
+
                             self.transport_input = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput()
                             self.transport_input.parent = self
+                            self._children_name_map["transport_input"] = "transport-input"
+                            self._children_yang_names.add("transport-input")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("acl_in",
+                                            "acl_out") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration, self).__setattr__(name, value)
 
 
-                        class TransportInput(object):
+                        class TransportInput(Entity):
                             """
                             Protocols to use when connecting to the
                             terminal server
@@ -2867,17 +5469,17 @@ class Tty(object):
                             .. attribute:: protocol1
                             
                             	Transport protocol1
-                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: protocol2
                             
                             	Transport protocol2
-                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocol>`
                             
                             .. attribute:: select
                             
                             	Choose transport protocols
-                            	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolSelect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelect>`
                             
                             	**default value**\: all
                             
@@ -2889,192 +5491,476 @@ class Tty(object):
                             _revision = '2015-07-30'
 
                             def __init__(self):
-                                self.parent = None
-                                self.none = None
-                                self.protocol1 = None
-                                self.protocol2 = None
-                                self.select = None
+                                super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "transport-input"
+                                self.yang_parent_name = "connection-configuration"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:transport-input'
+                                self.none = YLeaf(YType.int32, "none")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.protocol1 = YLeaf(YType.enumeration, "protocol1")
+
+                                self.protocol2 = YLeaf(YType.enumeration, "protocol2")
+
+                                self.select = YLeaf(YType.enumeration, "select")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("none",
+                                                "protocol1",
+                                                "protocol2",
+                                                "select") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.none.is_set or
+                                    self.protocol1.is_set or
+                                    self.protocol2.is_set or
+                                    self.select.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.none.yfilter != YFilter.not_set or
+                                    self.protocol1.yfilter != YFilter.not_set or
+                                    self.protocol2.yfilter != YFilter.not_set or
+                                    self.select.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "transport-input" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.none.is_set or self.none.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.none.get_name_leafdata())
+                                if (self.protocol1.is_set or self.protocol1.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.protocol1.get_name_leafdata())
+                                if (self.protocol2.is_set or self.protocol2.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.protocol2.get_name_leafdata())
+                                if (self.select.is_set or self.select.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.select.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "none" or name == "protocol1" or name == "protocol2" or name == "select"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.none is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "none"):
+                                    self.none = value
+                                    self.none.value_namespace = name_space
+                                    self.none.value_namespace_prefix = name_space_prefix
+                                if(value_path == "protocol1"):
+                                    self.protocol1 = value
+                                    self.protocol1.value_namespace = name_space
+                                    self.protocol1.value_namespace_prefix = name_space_prefix
+                                if(value_path == "protocol2"):
+                                    self.protocol2 = value
+                                    self.protocol2.value_namespace = name_space
+                                    self.protocol2.value_namespace_prefix = name_space_prefix
+                                if(value_path == "select"):
+                                    self.select = value
+                                    self.select.value_namespace = name_space
+                                    self.select.value_namespace_prefix = name_space_prefix
 
-                                if self.protocol1 is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.acl_in.is_set or
+                                self.acl_out.is_set or
+                                (self.transport_input is not None and self.transport_input.has_data()))
 
-                                if self.protocol2 is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.acl_in.yfilter != YFilter.not_set or
+                                self.acl_out.yfilter != YFilter.not_set or
+                                (self.transport_input is not None and self.transport_input.has_operation()))
 
-                                if self.select is not None:
-                                    return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "connection-configuration" + path_buffer
 
-                                return False
+                            return path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                                return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput']['meta_info']
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            leaf_name_data = LeafDataList()
+                            if (self.acl_in.is_set or self.acl_in.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.acl_in.get_name_leafdata())
+                            if (self.acl_out.is_set or self.acl_out.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.acl_out.get_name_leafdata())
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:connection-configuration'
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "transport-input"):
+                                if (self.transport_input is None):
+                                    self.transport_input = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput()
+                                    self.transport_input.parent = self
+                                    self._children_name_map["transport_input"] = "transport-input"
+                                return self.transport_input
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "transport-input" or name == "acl-in" or name == "acl-out"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.acl_in is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "acl-in"):
+                                self.acl_in = value
+                                self.acl_in.value_namespace = name_space
+                                self.acl_in.value_namespace_prefix = name_space_prefix
+                            if(value_path == "acl-out"):
+                                self.acl_out = value
+                                self.acl_out.value_namespace = name_space
+                                self.acl_out.value_namespace_prefix = name_space_prefix
 
-                            if self.acl_out is not None:
-                                return True
+                    def has_data(self):
+                        return (self.connection_configuration is not None and self.connection_configuration.has_data())
 
-                            if self.transport_input is not None and self.transport_input._has_data():
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.connection_configuration is not None and self.connection_configuration.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "configuration" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:configuration'
+                        leaf_name_data = LeafDataList()
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def _has_data(self):
-                        if self.connection_configuration is not None and self.connection_configuration._has_data():
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "connection-configuration"):
+                            if (self.connection_configuration is None):
+                                self.connection_configuration = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration()
+                                self.connection_configuration.parent = self
+                                self._children_name_map["connection_configuration"] = "connection-configuration"
+                            return self.connection_configuration
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "connection-configuration"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.auxiliary_statistics is not None and self.auxiliary_statistics.has_data()) or
+                        (self.configuration is not None and self.configuration.has_data()) or
+                        (self.state is not None and self.state.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-tty-server-oper:auxiliary-line'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.auxiliary_statistics is not None and self.auxiliary_statistics.has_operation()) or
+                        (self.configuration is not None and self.configuration.has_operation()) or
+                        (self.state is not None and self.state.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "auxiliary-line" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "auxiliary-statistics"):
+                        if (self.auxiliary_statistics is None):
+                            self.auxiliary_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics()
+                            self.auxiliary_statistics.parent = self
+                            self._children_name_map["auxiliary_statistics"] = "auxiliary-statistics"
+                        return self.auxiliary_statistics
+
+                    if (child_yang_name == "configuration"):
+                        if (self.configuration is None):
+                            self.configuration = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration()
+                            self.configuration.parent = self
+                            self._children_name_map["configuration"] = "configuration"
+                        return self.configuration
+
+                    if (child_yang_name == "state"):
+                        if (self.state is None):
+                            self.state = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State()
+                            self.state.parent = self
+                            self._children_name_map["state"] = "state"
+                        return self.state
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "auxiliary-statistics" or name == "configuration" or name == "state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.auxiliary_statistics is not None and self.auxiliary_statistics._has_data():
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-                    if self.configuration is not None and self.configuration._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.id.is_set or
+                    (self.auxiliary_line is not None and self.auxiliary_line.has_data()))
 
-                    if self.state is not None and self.state._has_data():
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.id.yfilter != YFilter.not_set or
+                    (self.auxiliary_line is not None and self.auxiliary_line.has_operation()))
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "auxiliary-node" + "[id='" + self.id.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                    return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.id is None:
-                    raise YPYModelError('Key property id is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-tty-server-oper:tty/auxiliary-nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:auxiliary-nodes/Cisco-IOS-XR-tty-server-oper:auxiliary-node[Cisco-IOS-XR-tty-server-oper:id = ' + str(self.id) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.id.is_set or self.id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.id.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "auxiliary-line"):
+                    if (self.auxiliary_line is None):
+                        self.auxiliary_line = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine()
+                        self.auxiliary_line.parent = self
+                        self._children_name_map["auxiliary_line"] = "auxiliary-line"
+                    return self.auxiliary_line
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "auxiliary-line" or name == "id"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "id"):
+                    self.id = value
+                    self.id.value_namespace = name_space
+                    self.id.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.auxiliary_node:
+                if (c.has_data()):
                     return True
-
-                if self.auxiliary_line is not None and self.auxiliary_line._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-tty-server-oper:tty/Cisco-IOS-XR-tty-server-oper:auxiliary-nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.auxiliary_node is not None:
-                for child_ref in self.auxiliary_node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.auxiliary_node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "auxiliary-nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-tty-server-oper:tty/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "auxiliary-node"):
+                for c in self.auxiliary_node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Tty.AuxiliaryNodes.AuxiliaryNode()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.auxiliary_node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "auxiliary-node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-            return meta._meta_table['Tty.AuxiliaryNodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.auxiliary_nodes is not None and self.auxiliary_nodes.has_data()) or
+            (self.console_nodes is not None and self.console_nodes.has_data()) or
+            (self.vty_lines is not None and self.vty_lines.has_data()))
 
-        return '/Cisco-IOS-XR-tty-server-oper:tty'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.auxiliary_nodes is not None and self.auxiliary_nodes.has_operation()) or
+            (self.console_nodes is not None and self.console_nodes.has_operation()) or
+            (self.vty_lines is not None and self.vty_lines.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-tty-server-oper:tty" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "auxiliary-nodes"):
+            if (self.auxiliary_nodes is None):
+                self.auxiliary_nodes = Tty.AuxiliaryNodes()
+                self.auxiliary_nodes.parent = self
+                self._children_name_map["auxiliary_nodes"] = "auxiliary-nodes"
+            return self.auxiliary_nodes
+
+        if (child_yang_name == "console-nodes"):
+            if (self.console_nodes is None):
+                self.console_nodes = Tty.ConsoleNodes()
+                self.console_nodes.parent = self
+                self._children_name_map["console_nodes"] = "console-nodes"
+            return self.console_nodes
+
+        if (child_yang_name == "vty-lines"):
+            if (self.vty_lines is None):
+                self.vty_lines = Tty.VtyLines()
+                self.vty_lines.parent = self
+                self._children_name_map["vty_lines"] = "vty-lines"
+            return self.vty_lines
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "auxiliary-nodes" or name == "console-nodes" or name == "vty-lines"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.auxiliary_nodes is not None and self.auxiliary_nodes._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.console_nodes is not None and self.console_nodes._has_data():
-            return True
-
-        if self.vty_lines is not None and self.vty_lines._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-        return meta._meta_table['Tty']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Tty()
+        return self._top_entity
 

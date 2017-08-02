@@ -1,26 +1,20 @@
 """ Cisco_IOS_XE_types 
 
 Cisco XE Native Common Type Definitions
-Copyright (c) 2016 by Cisco Systems, Inc.
+Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AccessListInOutTypeEnum(Enum):
+class AccessListInOutType(Enum):
     """
-    AccessListInOutTypeEnum
+    AccessListInOutType
 
     .. data:: in_ = 0
 
@@ -28,302 +22,272 @@ class AccessListInOutTypeEnum(Enum):
 
     """
 
-    in_ = 0
+    in_ = Enum.YLeaf(0, "in")
 
-    out = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['AccessListInOutTypeEnum']
+    out = Enum.YLeaf(1, "out")
 
 
-class AclTcpPortTypeEnum(Enum):
+class AclTcpPortType(Enum):
     """
-    AclTcpPortTypeEnum
+    AclTcpPortType
 
-    .. data:: bgp = 0
+    .. data:: bgp = 179
 
-    .. data:: chargen = 1
+    .. data:: chargen = 19
 
-    .. data:: cmd = 2
+    .. data:: cmd = 514
 
-    .. data:: connectedapps_plain = 3
+    .. data:: daytime = 13
 
-    .. data:: connectedapps_tls = 4
+    .. data:: discard = 9
 
-    .. data:: daytime = 5
+    .. data:: domain = 53
 
-    .. data:: discard = 6
+    .. data:: echo = 7
 
-    .. data:: domain = 7
+    .. data:: exec_ = 512
 
-    .. data:: echo = 8
+    .. data:: finger = 79
 
-    .. data:: exec_ = 9
+    .. data:: ftp = 21
 
-    .. data:: finger = 10
+    .. data:: ftp_data = 20
 
-    .. data:: ftp = 11
+    .. data:: gopher = 70
 
-    .. data:: ftp_data = 12
+    .. data:: hostname = 101
 
-    .. data:: gopher = 13
+    .. data:: ident = 113
 
-    .. data:: hostname = 14
+    .. data:: irc = 194
 
-    .. data:: ident = 15
+    .. data:: klogin = 543
 
-    .. data:: irc = 16
+    .. data:: kshell = 544
 
-    .. data:: klogin = 17
+    .. data:: login = 513
 
-    .. data:: kshell = 18
+    .. data:: lpd = 515
 
-    .. data:: login = 19
+    .. data:: msrpc = 135
 
-    .. data:: lpd = 20
+    .. data:: nntp = 119
 
-    .. data:: msrpc = 21
+    .. data:: pim_auto_rp = 496
 
-    .. data:: nntp = 22
+    .. data:: pop2 = 109
 
-    .. data:: pim_auto_rp = 23
+    .. data:: pop3 = 110
 
-    .. data:: pop2 = 24
+    .. data:: smtp = 25
 
-    .. data:: pop3 = 25
+    .. data:: sunrpc = 111
 
-    .. data:: smtp = 26
+    .. data:: tacacs = 49
 
-    .. data:: sunrpc = 27
+    .. data:: talk = 517
 
-    .. data:: syslog = 28
+    .. data:: telnet = 23
 
-    .. data:: tacacs = 29
+    .. data:: time = 37
 
-    .. data:: talk = 30
+    .. data:: uucp = 540
 
-    .. data:: telnet = 31
+    .. data:: whois = 43
 
-    .. data:: time = 32
-
-    .. data:: uucp = 33
-
-    .. data:: whois = 34
-
-    .. data:: www = 35
+    .. data:: www = 80
 
     """
 
-    bgp = 0
+    bgp = Enum.YLeaf(179, "bgp")
 
-    chargen = 1
+    chargen = Enum.YLeaf(19, "chargen")
 
-    cmd = 2
+    cmd = Enum.YLeaf(514, "cmd")
 
-    connectedapps_plain = 3
+    daytime = Enum.YLeaf(13, "daytime")
 
-    connectedapps_tls = 4
+    discard = Enum.YLeaf(9, "discard")
 
-    daytime = 5
+    domain = Enum.YLeaf(53, "domain")
 
-    discard = 6
+    echo = Enum.YLeaf(7, "echo")
 
-    domain = 7
+    exec_ = Enum.YLeaf(512, "exec")
 
-    echo = 8
+    finger = Enum.YLeaf(79, "finger")
 
-    exec_ = 9
+    ftp = Enum.YLeaf(21, "ftp")
 
-    finger = 10
+    ftp_data = Enum.YLeaf(20, "ftp-data")
 
-    ftp = 11
+    gopher = Enum.YLeaf(70, "gopher")
 
-    ftp_data = 12
+    hostname = Enum.YLeaf(101, "hostname")
 
-    gopher = 13
+    ident = Enum.YLeaf(113, "ident")
 
-    hostname = 14
+    irc = Enum.YLeaf(194, "irc")
 
-    ident = 15
+    klogin = Enum.YLeaf(543, "klogin")
 
-    irc = 16
+    kshell = Enum.YLeaf(544, "kshell")
 
-    klogin = 17
+    login = Enum.YLeaf(513, "login")
 
-    kshell = 18
+    lpd = Enum.YLeaf(515, "lpd")
 
-    login = 19
+    msrpc = Enum.YLeaf(135, "msrpc")
 
-    lpd = 20
+    nntp = Enum.YLeaf(119, "nntp")
 
-    msrpc = 21
+    pim_auto_rp = Enum.YLeaf(496, "pim-auto-rp")
 
-    nntp = 22
+    pop2 = Enum.YLeaf(109, "pop2")
 
-    pim_auto_rp = 23
+    pop3 = Enum.YLeaf(110, "pop3")
 
-    pop2 = 24
+    smtp = Enum.YLeaf(25, "smtp")
 
-    pop3 = 25
+    sunrpc = Enum.YLeaf(111, "sunrpc")
 
-    smtp = 26
+    tacacs = Enum.YLeaf(49, "tacacs")
 
-    sunrpc = 27
+    talk = Enum.YLeaf(517, "talk")
 
-    syslog = 28
+    telnet = Enum.YLeaf(23, "telnet")
 
-    tacacs = 29
+    time = Enum.YLeaf(37, "time")
 
-    talk = 30
+    uucp = Enum.YLeaf(540, "uucp")
 
-    telnet = 31
+    whois = Enum.YLeaf(43, "whois")
 
-    time = 32
-
-    uucp = 33
-
-    whois = 34
-
-    www = 35
+    www = Enum.YLeaf(80, "www")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['AclTcpPortTypeEnum']
-
-
-class AclUdpPortTypeEnum(Enum):
+class AclUdpPortType(Enum):
     """
-    AclUdpPortTypeEnum
+    AclUdpPortType
 
-    .. data:: biff = 0
+    .. data:: biff = 512
 
-    .. data:: bootpc = 1
+    .. data:: bootpc = 68
 
-    .. data:: bootps = 2
+    .. data:: bootps = 67
 
-    .. data:: discard = 3
+    .. data:: discard = 9
 
-    .. data:: dnsix = 4
+    .. data:: dnsix = 195
 
-    .. data:: domain = 5
+    .. data:: domain = 53
 
-    .. data:: echo = 6
+    .. data:: echo = 7
 
-    .. data:: isakmp = 7
+    .. data:: isakmp = 500
 
-    .. data:: mobile_ip = 8
+    .. data:: mobile_ip = 434
 
-    .. data:: nameserver = 9
+    .. data:: nameserver = 42
 
-    .. data:: netbios_dgm = 10
+    .. data:: netbios_dgm = 138
 
-    .. data:: netbios_ns = 11
+    .. data:: netbios_ns = 137
 
-    .. data:: netbios_ss = 12
+    .. data:: netbios_ss = 139
 
-    .. data:: non500_isakmp = 13
+    .. data:: non500_isakmp = 4500
 
-    .. data:: ntp = 14
+    .. data:: ntp = 123
 
-    .. data:: pim_auto_rp = 15
+    .. data:: pim_auto_rp = 496
 
-    .. data:: rip = 16
+    .. data:: rip = 520
 
-    .. data:: ripv6 = 17
+    .. data:: ripv6 = 521
 
-    .. data:: snmp = 18
+    .. data:: snmp = 161
 
-    .. data:: snmptrap = 19
+    .. data:: snmptrap = 162
 
-    .. data:: sunrpc = 20
+    .. data:: sunrpc = 111
 
-    .. data:: syslog = 21
+    .. data:: syslog = 514
 
-    .. data:: tacacs = 22
+    .. data:: tacacs = 49
 
-    .. data:: talk = 23
+    .. data:: talk = 517
 
-    .. data:: tftp = 24
+    .. data:: tftp = 69
 
-    .. data:: time = 25
+    .. data:: time = 37
 
-    .. data:: who = 26
+    .. data:: who = 513
 
-    .. data:: xdmcp = 27
+    .. data:: xdmcp = 177
 
     """
 
-    biff = 0
+    biff = Enum.YLeaf(512, "biff")
 
-    bootpc = 1
+    bootpc = Enum.YLeaf(68, "bootpc")
 
-    bootps = 2
+    bootps = Enum.YLeaf(67, "bootps")
 
-    discard = 3
+    discard = Enum.YLeaf(9, "discard")
 
-    dnsix = 4
+    dnsix = Enum.YLeaf(195, "dnsix")
 
-    domain = 5
+    domain = Enum.YLeaf(53, "domain")
 
-    echo = 6
+    echo = Enum.YLeaf(7, "echo")
 
-    isakmp = 7
+    isakmp = Enum.YLeaf(500, "isakmp")
 
-    mobile_ip = 8
+    mobile_ip = Enum.YLeaf(434, "mobile-ip")
 
-    nameserver = 9
+    nameserver = Enum.YLeaf(42, "nameserver")
 
-    netbios_dgm = 10
+    netbios_dgm = Enum.YLeaf(138, "netbios-dgm")
 
-    netbios_ns = 11
+    netbios_ns = Enum.YLeaf(137, "netbios-ns")
 
-    netbios_ss = 12
+    netbios_ss = Enum.YLeaf(139, "netbios-ss")
 
-    non500_isakmp = 13
+    non500_isakmp = Enum.YLeaf(4500, "non500-isakmp")
 
-    ntp = 14
+    ntp = Enum.YLeaf(123, "ntp")
 
-    pim_auto_rp = 15
+    pim_auto_rp = Enum.YLeaf(496, "pim-auto-rp")
 
-    rip = 16
+    rip = Enum.YLeaf(520, "rip")
 
-    ripv6 = 17
+    ripv6 = Enum.YLeaf(521, "ripv6")
 
-    snmp = 18
+    snmp = Enum.YLeaf(161, "snmp")
 
-    snmptrap = 19
+    snmptrap = Enum.YLeaf(162, "snmptrap")
 
-    sunrpc = 20
+    sunrpc = Enum.YLeaf(111, "sunrpc")
 
-    syslog = 21
+    syslog = Enum.YLeaf(514, "syslog")
 
-    tacacs = 22
+    tacacs = Enum.YLeaf(49, "tacacs")
 
-    talk = 23
+    talk = Enum.YLeaf(517, "talk")
 
-    tftp = 24
+    tftp = Enum.YLeaf(69, "tftp")
 
-    time = 25
+    time = Enum.YLeaf(37, "time")
 
-    who = 26
+    who = Enum.YLeaf(513, "who")
 
-    xdmcp = 27
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['AclUdpPortTypeEnum']
+    xdmcp = Enum.YLeaf(177, "xdmcp")
 
 
-class Bgp_Ipv4_Af_TypeEnum(Enum):
+class Bgp_Ipv4_Af_Type(Enum):
     """
-    Bgp\_Ipv4\_Af\_TypeEnum
+    Bgp\_Ipv4\_Af\_Type
 
     .. data:: unicast = 0
 
@@ -341,30 +305,24 @@ class Bgp_Ipv4_Af_TypeEnum(Enum):
 
     """
 
-    unicast = 0
+    unicast = Enum.YLeaf(0, "unicast")
 
-    multicast = 1
+    multicast = Enum.YLeaf(1, "multicast")
 
-    mdt = 2
+    mdt = Enum.YLeaf(2, "mdt")
 
-    tunnel = 3
+    tunnel = Enum.YLeaf(3, "tunnel")
 
-    labeled_unicast = 4
+    labeled_unicast = Enum.YLeaf(4, "labeled-unicast")
 
-    flowspec = 5
+    flowspec = Enum.YLeaf(5, "flowspec")
 
-    mvpn = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['Bgp_Ipv4_Af_TypeEnum']
+    mvpn = Enum.YLeaf(6, "mvpn")
 
 
-class Bgp_Ipv6_Af_TypeEnum(Enum):
+class Bgp_Ipv6_Af_Type(Enum):
     """
-    Bgp\_Ipv6\_Af\_TypeEnum
+    Bgp\_Ipv6\_Af\_Type
 
     .. data:: unicast = 0
 
@@ -378,26 +336,51 @@ class Bgp_Ipv6_Af_TypeEnum(Enum):
 
     """
 
-    unicast = 0
+    unicast = Enum.YLeaf(0, "unicast")
 
-    multicast = 1
+    multicast = Enum.YLeaf(1, "multicast")
 
-    mdt = 2
+    mdt = Enum.YLeaf(2, "mdt")
 
-    flowspec = 3
+    flowspec = Enum.YLeaf(3, "flowspec")
 
-    mvpn = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['Bgp_Ipv6_Af_TypeEnum']
+    mvpn = Enum.YLeaf(4, "mvpn")
 
 
-class CommunityWellKnownTypeEnum(Enum):
+class CommunityWellKnownAddType(Enum):
     """
-    CommunityWellKnownTypeEnum
+    CommunityWellKnownAddType
+
+    .. data:: gshut = 0
+
+    .. data:: internet = 1
+
+    .. data:: local_AS = 2
+
+    .. data:: no_advertise = 3
+
+    .. data:: no_export = 4
+
+    .. data:: additive = 5
+
+    """
+
+    gshut = Enum.YLeaf(0, "gshut")
+
+    internet = Enum.YLeaf(1, "internet")
+
+    local_AS = Enum.YLeaf(2, "local-AS")
+
+    no_advertise = Enum.YLeaf(3, "no-advertise")
+
+    no_export = Enum.YLeaf(4, "no-export")
+
+    additive = Enum.YLeaf(5, "additive")
+
+
+class CommunityWellKnownType(Enum):
+    """
+    CommunityWellKnownType
 
     .. data:: gshut = 0
 
@@ -411,26 +394,20 @@ class CommunityWellKnownTypeEnum(Enum):
 
     """
 
-    gshut = 0
+    gshut = Enum.YLeaf(0, "gshut")
 
-    internet = 1
+    internet = Enum.YLeaf(1, "internet")
 
-    local_AS = 2
+    local_AS = Enum.YLeaf(2, "local-AS")
 
-    no_advertise = 3
+    no_advertise = Enum.YLeaf(3, "no-advertise")
 
-    no_export = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['CommunityWellKnownTypeEnum']
+    no_export = Enum.YLeaf(4, "no-export")
 
 
-class Cos_ValueTypeEnum(Enum):
+class Cos_ValueType(Enum):
     """
-    Cos\_ValueTypeEnum
+    Cos\_ValueType
 
     .. data:: cos = 0
 
@@ -442,24 +419,18 @@ class Cos_ValueTypeEnum(Enum):
 
     """
 
-    cos = 0
+    cos = Enum.YLeaf(0, "cos")
 
-    dscp = 1
+    dscp = Enum.YLeaf(1, "dscp")
 
-    exp = 2
+    exp = Enum.YLeaf(2, "exp")
 
-    precedence = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['Cos_ValueTypeEnum']
+    precedence = Enum.YLeaf(3, "precedence")
 
 
-class DscpTypeEnum(Enum):
+class DscpType(Enum):
     """
-    DscpTypeEnum
+    DscpType
 
     .. data:: af11 = 10
 
@@ -509,62 +480,56 @@ class DscpTypeEnum(Enum):
 
     """
 
-    af11 = 10
+    af11 = Enum.YLeaf(10, "af11")
 
-    af12 = 12
+    af12 = Enum.YLeaf(12, "af12")
 
-    af13 = 14
+    af13 = Enum.YLeaf(14, "af13")
 
-    af21 = 18
+    af21 = Enum.YLeaf(18, "af21")
 
-    af22 = 20
+    af22 = Enum.YLeaf(20, "af22")
 
-    af23 = 22
+    af23 = Enum.YLeaf(22, "af23")
 
-    af31 = 26
+    af31 = Enum.YLeaf(26, "af31")
 
-    af32 = 28
+    af32 = Enum.YLeaf(28, "af32")
 
-    af33 = 30
+    af33 = Enum.YLeaf(30, "af33")
 
-    af41 = 34
+    af41 = Enum.YLeaf(34, "af41")
 
-    af42 = 36
+    af42 = Enum.YLeaf(36, "af42")
 
-    af43 = 38
+    af43 = Enum.YLeaf(38, "af43")
 
-    cs1 = 8
+    cs1 = Enum.YLeaf(8, "cs1")
 
-    cs2 = 16
+    cs2 = Enum.YLeaf(16, "cs2")
 
-    cs3 = 24
+    cs3 = Enum.YLeaf(24, "cs3")
 
-    cs4 = 32
+    cs4 = Enum.YLeaf(32, "cs4")
 
-    cs5 = 40
+    cs5 = Enum.YLeaf(40, "cs5")
 
-    cs6 = 48
+    cs6 = Enum.YLeaf(48, "cs6")
 
-    cs7 = 56
+    cs7 = Enum.YLeaf(56, "cs7")
 
-    default = 0
+    default = Enum.YLeaf(0, "default")
 
-    dscp = 57
+    dscp = Enum.YLeaf(57, "dscp")
 
-    ef = 46
+    ef = Enum.YLeaf(46, "ef")
 
-    precedence = 58
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['DscpTypeEnum']
+    precedence = Enum.YLeaf(58, "precedence")
 
 
-class Exp_ValueTypeEnum(Enum):
+class Exp_ValueType(Enum):
     """
-    Exp\_ValueTypeEnum
+    Exp\_ValueType
 
     .. data:: cos = 0
 
@@ -576,24 +541,18 @@ class Exp_ValueTypeEnum(Enum):
 
     """
 
-    cos = 0
+    cos = Enum.YLeaf(0, "cos")
 
-    dscp = 1
+    dscp = Enum.YLeaf(1, "dscp")
 
-    exp = 2
+    exp = Enum.YLeaf(2, "exp")
 
-    precedence = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['Exp_ValueTypeEnum']
+    precedence = Enum.YLeaf(3, "precedence")
 
 
-class InterfaceTypeEnum(Enum):
+class InterfaceType(Enum):
     """
-    InterfaceTypeEnum
+    InterfaceType
 
     .. data:: BDI = 0
 
@@ -613,49 +572,37 @@ class InterfaceTypeEnum(Enum):
 
     """
 
-    BDI = 0
+    BDI = Enum.YLeaf(0, "BDI")
 
-    FastEthernet = 1
+    FastEthernet = Enum.YLeaf(1, "FastEthernet")
 
-    GigabitEthernet = 2
+    GigabitEthernet = Enum.YLeaf(2, "GigabitEthernet")
 
-    Loopback = 3
+    Loopback = Enum.YLeaf(3, "Loopback")
 
-    Port_channel = 4
+    Port_channel = Enum.YLeaf(4, "Port-channel")
 
-    Serial = 5
+    Serial = Enum.YLeaf(5, "Serial")
 
-    TenGigabitEthernet = 6
+    TenGigabitEthernet = Enum.YLeaf(6, "TenGigabitEthernet")
 
-    Vlan = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['InterfaceTypeEnum']
+    Vlan = Enum.YLeaf(7, "Vlan")
 
 
-class LimitDcNonDcTypeEnum(Enum):
+class LimitDcNonDcType(Enum):
     """
-    LimitDcNonDcTypeEnum
+    LimitDcNonDcType
 
     .. data:: disable = 0
 
     """
 
-    disable = 0
+    disable = Enum.YLeaf(0, "disable")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['LimitDcNonDcTypeEnum']
-
-
-class MobilityTypeEnum(Enum):
+class MobilityType(Enum):
     """
-    MobilityTypeEnum
+    MobilityType
 
     .. data:: bind_acknowledgement = 0
 
@@ -675,32 +622,26 @@ class MobilityTypeEnum(Enum):
 
     """
 
-    bind_acknowledgement = 0
+    bind_acknowledgement = Enum.YLeaf(0, "bind-acknowledgement")
 
-    bind_error = 1
+    bind_error = Enum.YLeaf(1, "bind-error")
 
-    bind_refresh = 2
+    bind_refresh = Enum.YLeaf(2, "bind-refresh")
 
-    bind_update = 3
+    bind_update = Enum.YLeaf(3, "bind-update")
 
-    cot = 4
+    cot = Enum.YLeaf(4, "cot")
 
-    coti = 5
+    coti = Enum.YLeaf(5, "coti")
 
-    hot = 6
+    hot = Enum.YLeaf(6, "hot")
 
-    hoti = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['MobilityTypeEnum']
+    hoti = Enum.YLeaf(7, "hoti")
 
 
-class MonthTypeEnum(Enum):
+class MonthType(Enum):
     """
-    MonthTypeEnum
+    MonthType
 
     .. data:: Jan = 0
 
@@ -728,40 +669,34 @@ class MonthTypeEnum(Enum):
 
     """
 
-    Jan = 0
+    Jan = Enum.YLeaf(0, "Jan")
 
-    Feb = 1
+    Feb = Enum.YLeaf(1, "Feb")
 
-    Mar = 2
+    Mar = Enum.YLeaf(2, "Mar")
 
-    Apr = 3
+    Apr = Enum.YLeaf(3, "Apr")
 
-    May = 4
+    May = Enum.YLeaf(4, "May")
 
-    Jun = 5
+    Jun = Enum.YLeaf(5, "Jun")
 
-    Jul = 6
+    Jul = Enum.YLeaf(6, "Jul")
 
-    Aug = 7
+    Aug = Enum.YLeaf(7, "Aug")
 
-    Sep = 8
+    Sep = Enum.YLeaf(8, "Sep")
 
-    Oct = 9
+    Oct = Enum.YLeaf(9, "Oct")
 
-    Nov = 10
+    Nov = Enum.YLeaf(10, "Nov")
 
-    Dec = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['MonthTypeEnum']
+    Dec = Enum.YLeaf(11, "Dec")
 
 
-class Prec_ValueTypeEnum(Enum):
+class Prec_ValueType(Enum):
     """
-    Prec\_ValueTypeEnum
+    Prec\_ValueType
 
     .. data:: cos = 0
 
@@ -773,24 +708,18 @@ class Prec_ValueTypeEnum(Enum):
 
     """
 
-    cos = 0
+    cos = Enum.YLeaf(0, "cos")
 
-    dscp = 1
+    dscp = Enum.YLeaf(1, "dscp")
 
-    exp = 2
+    exp = Enum.YLeaf(2, "exp")
 
-    precedence = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['Prec_ValueTypeEnum']
+    precedence = Enum.YLeaf(3, "precedence")
 
 
-class PrecedenceTypeEnum(Enum):
+class PrecedenceType(Enum):
     """
-    PrecedenceTypeEnum
+    PrecedenceType
 
     .. data:: critical = 0
 
@@ -810,32 +739,26 @@ class PrecedenceTypeEnum(Enum):
 
     """
 
-    critical = 0
+    critical = Enum.YLeaf(0, "critical")
 
-    flash = 1
+    flash = Enum.YLeaf(1, "flash")
 
-    flash_override = 2
+    flash_override = Enum.YLeaf(2, "flash-override")
 
-    immediate = 3
+    immediate = Enum.YLeaf(3, "immediate")
 
-    internet = 4
+    internet = Enum.YLeaf(4, "internet")
 
-    network = 5
+    network = Enum.YLeaf(5, "network")
 
-    priority = 6
+    priority = Enum.YLeaf(6, "priority")
 
-    routine = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['PrecedenceTypeEnum']
+    routine = Enum.YLeaf(7, "routine")
 
 
-class Qos_ValueTypeEnum(Enum):
+class Qos_ValueType(Enum):
     """
-    Qos\_ValueTypeEnum
+    Qos\_ValueType
 
     .. data:: cos = 0
 
@@ -847,24 +770,18 @@ class Qos_ValueTypeEnum(Enum):
 
     """
 
-    cos = 0
+    cos = Enum.YLeaf(0, "cos")
 
-    dscp = 1
+    dscp = Enum.YLeaf(1, "dscp")
 
-    exp = 2
+    exp = Enum.YLeaf(2, "exp")
 
-    precedence = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['Qos_ValueTypeEnum']
+    precedence = Enum.YLeaf(3, "precedence")
 
 
-class RedistOspfExternalTypeEnum(Enum):
+class RedistOspfExternalType(Enum):
     """
-    RedistOspfExternalTypeEnum
+    RedistOspfExternalType
 
     .. data:: Y_1 = 0
 
@@ -872,20 +789,14 @@ class RedistOspfExternalTypeEnum(Enum):
 
     """
 
-    Y_1 = 0
+    Y_1 = Enum.YLeaf(0, "1")
 
-    Y_2 = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['RedistOspfExternalTypeEnum']
+    Y_2 = Enum.YLeaf(1, "2")
 
 
-class WeekdayTypeEnum(Enum):
+class WeekdayType(Enum):
     """
-    WeekdayTypeEnum
+    WeekdayType
 
     .. data:: Mon = 0
 
@@ -903,25 +814,19 @@ class WeekdayTypeEnum(Enum):
 
     """
 
-    Mon = 0
+    Mon = Enum.YLeaf(0, "Mon")
 
-    Tue = 1
+    Tue = Enum.YLeaf(1, "Tue")
 
-    Wed = 2
+    Wed = Enum.YLeaf(2, "Wed")
 
-    Thu = 3
+    Thu = Enum.YLeaf(3, "Thu")
 
-    Fri = 4
+    Fri = Enum.YLeaf(4, "Fri")
 
-    Sat = 5
+    Sat = Enum.YLeaf(5, "Sat")
 
-    Sun = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_types as meta
-        return meta._meta_table['WeekdayTypeEnum']
+    Sun = Enum.YLeaf(6, "Sun")
 
 
 

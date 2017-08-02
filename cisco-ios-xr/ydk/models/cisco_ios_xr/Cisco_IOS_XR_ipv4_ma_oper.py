@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class Ipv4MaOperLineStateEnum(Enum):
+class Ipv4MaOperLineState(Enum):
     """
-    Ipv4MaOperLineStateEnum
+    Ipv4MaOperLineState
 
     Interface line states
 
@@ -48,24 +42,18 @@ class Ipv4MaOperLineStateEnum(Enum):
 
     """
 
-    unknown = 0
+    unknown = Enum.YLeaf(0, "unknown")
 
-    shutdown = 1
+    shutdown = Enum.YLeaf(1, "shutdown")
 
-    down = 2
+    down = Enum.YLeaf(2, "down")
 
-    up = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
-        return meta._meta_table['Ipv4MaOperLineStateEnum']
+    up = Enum.YLeaf(3, "up")
 
 
-class RpfModeEnum(Enum):
+class RpfMode(Enum):
     """
-    RpfModeEnum
+    RpfMode
 
     Interface line states
 
@@ -79,15 +67,9 @@ class RpfModeEnum(Enum):
 
     """
 
-    strict = 0
+    strict = Enum.YLeaf(0, "strict")
 
-    loose = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_ma_oper as meta
-        return meta._meta_table['RpfModeEnum']
+    loose = Enum.YLeaf(1, "loose")
 
 
 

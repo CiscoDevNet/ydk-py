@@ -17,22 +17,16 @@ This version of this YANG module is part of RFC 6022; see
 the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class NetconfDatastoreTypeEnum(Enum):
+class NetconfDatastoreType(Enum):
     """
-    NetconfDatastoreTypeEnum
+    NetconfDatastoreType
 
     Enumeration of possible NETCONF datastore types.
 
@@ -44,21 +38,15 @@ class NetconfDatastoreTypeEnum(Enum):
 
     """
 
-    running = 0
+    running = Enum.YLeaf(0, "running")
 
-    candidate = 1
+    candidate = Enum.YLeaf(1, "candidate")
 
-    startup = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfDatastoreTypeEnum']
+    startup = Enum.YLeaf(2, "startup")
 
 
 
-class TransportIdentity(object):
+class Transport(Identity):
     """
     Base identity for NETCONF transport types.
     
@@ -70,15 +58,10 @@ class TransportIdentity(object):
     _revision = '2010-10-04'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['TransportIdentity']['meta_info']
+        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:transport")
 
 
-class SchemaFormatIdentity(object):
+class SchemaFormat(Identity):
     """
     Base identity for data model schema languages.
     
@@ -90,15 +73,10 @@ class SchemaFormatIdentity(object):
     _revision = '2010-10-04'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['SchemaFormatIdentity']['meta_info']
+        super(SchemaFormat, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:schema-format")
 
 
-class NetconfState(object):
+class NetconfState(Entity):
     """
     The netconf\-state container is the root of the monitoring
     data model.
@@ -136,19 +114,39 @@ class NetconfState(object):
     _revision = '2010-10-04'
 
     def __init__(self):
+        super(NetconfState, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "netconf-state"
+        self.yang_parent_name = "ietf-netconf-monitoring"
+
         self.capabilities = NetconfState.Capabilities()
         self.capabilities.parent = self
+        self._children_name_map["capabilities"] = "capabilities"
+        self._children_yang_names.add("capabilities")
+
         self.datastores = NetconfState.Datastores()
         self.datastores.parent = self
+        self._children_name_map["datastores"] = "datastores"
+        self._children_yang_names.add("datastores")
+
         self.schemas = NetconfState.Schemas()
         self.schemas.parent = self
+        self._children_name_map["schemas"] = "schemas"
+        self._children_yang_names.add("schemas")
+
         self.sessions = NetconfState.Sessions()
         self.sessions.parent = self
+        self._children_name_map["sessions"] = "sessions"
+        self._children_yang_names.add("sessions")
+
         self.statistics = NetconfState.Statistics()
         self.statistics.parent = self
+        self._children_name_map["statistics"] = "statistics"
+        self._children_yang_names.add("statistics")
 
 
-    class Capabilities(object):
+    class Capabilities(Entity):
         """
         Contains the list of NETCONF capabilities supported by the
         server.
@@ -166,35 +164,89 @@ class NetconfState(object):
         _revision = '2010-10-04'
 
         def __init__(self):
-            self.parent = None
-            self.capability = YLeafList()
-            self.capability.parent = self
-            self.capability.name = 'capability'
+            super(NetconfState.Capabilities, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "capabilities"
+            self.yang_parent_name = "netconf-state"
 
-            return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:capabilities'
+            self.capability = YLeafList(YType.str, "capability")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("capability") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetconfState.Capabilities, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetconfState.Capabilities, self).__setattr__(name, value)
+
+        def has_data(self):
+            for leaf in self.capability.getYLeafs():
+                if (leaf.yfilter != YFilter.not_set):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.capability is not None:
-                for child in self.capability:
-                    if child is not None:
-                        return True
+        def has_operation(self):
+            for leaf in self.capability.getYLeafs():
+                if (leaf.is_set):
+                    return True
+            return (
+                self.yfilter != YFilter.not_set or
+                self.capability.yfilter != YFilter.not_set)
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "capabilities" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-netconf-monitoring:netconf-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            leaf_name_data.extend(self.capability.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "capability"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-            return meta._meta_table['NetconfState.Capabilities']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "capability"):
+                self.capability.append(value)
 
 
-    class Datastores(object):
+    class Datastores(Entity):
         """
         Contains the list of NETCONF configuration datastores.
         
@@ -211,13 +263,39 @@ class NetconfState(object):
         _revision = '2010-10-04'
 
         def __init__(self):
-            self.parent = None
-            self.datastore = YList()
-            self.datastore.parent = self
-            self.datastore.name = 'datastore'
+            super(NetconfState.Datastores, self).__init__()
+
+            self.yang_name = "datastores"
+            self.yang_parent_name = "netconf-state"
+
+            self.datastore = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetconfState.Datastores, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetconfState.Datastores, self).__setattr__(name, value)
 
 
-        class Datastore(object):
+        class Datastore(Entity):
             """
             List of NETCONF configuration datastores supported by
             the NETCONF server and related information.
@@ -225,7 +303,7 @@ class NetconfState(object):
             .. attribute:: name  <key>
             
             	Name of the datastore associated with this list entry
-            	**type**\:   :py:class:`NetconfDatastoreTypeEnum <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreTypeEnum>`
+            	**type**\:   :py:class:`NetconfDatastoreType <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreType>`
             
             .. attribute:: locks
             
@@ -242,12 +320,43 @@ class NetconfState(object):
             _revision = '2010-10-04'
 
             def __init__(self):
-                self.parent = None
-                self.name = None
+                super(NetconfState.Datastores.Datastore, self).__init__()
+
+                self.yang_name = "datastore"
+                self.yang_parent_name = "datastores"
+
+                self.name = YLeaf(YType.enumeration, "name")
+
                 self.locks = None
+                self._children_name_map["locks"] = "locks"
+                self._children_yang_names.add("locks")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NetconfState.Datastores.Datastore, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NetconfState.Datastores.Datastore, self).__setattr__(name, value)
 
 
-            class Locks(object):
+            class Locks(Entity):
                 """
                 The NETCONF <lock> and <partial\-lock> operations allow
                 a client to lock specific resources in a datastore.  The
@@ -271,11 +380,6 @@ class NetconfState(object):
                 	List of partial locks
                 	**type**\: list of    :py:class:`PartialLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.PartialLock>`
                 
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -286,16 +390,45 @@ class NetconfState(object):
                 _revision = '2010-10-04'
 
                 def __init__(self):
-                    self.parent = None
-                    self._is_presence = True
+                    super(NetconfState.Datastores.Datastore.Locks, self).__init__()
+
+                    self.yang_name = "locks"
+                    self.yang_parent_name = "datastore"
+                    self.is_presence_container = True
+
                     self.global_lock = NetconfState.Datastores.Datastore.Locks.GlobalLock()
                     self.global_lock.parent = self
-                    self.partial_lock = YList()
-                    self.partial_lock.parent = self
-                    self.partial_lock.name = 'partial_lock'
+                    self._children_name_map["global_lock"] = "global-lock"
+                    self._children_yang_names.add("global-lock")
+
+                    self.partial_lock = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NetconfState.Datastores.Datastore.Locks, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NetconfState.Datastores.Datastore.Locks, self).__setattr__(name, value)
 
 
-                class GlobalLock(object):
+                class GlobalLock(Entity):
                     """
                     Present if the global lock is set.
                     
@@ -325,37 +458,97 @@ class NetconfState(object):
                     _revision = '2010-10-04'
 
                     def __init__(self):
-                        self.parent = None
-                        self.locked_by_session = None
-                        self.locked_time = None
+                        super(NetconfState.Datastores.Datastore.Locks.GlobalLock, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "global-lock"
+                        self.yang_parent_name = "locks"
 
-                        return self.parent._common_path +'/ietf-netconf-monitoring:global-lock'
+                        self.locked_by_session = YLeaf(YType.uint32, "locked-by-session")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.locked_time = YLeaf(YType.str, "locked-time")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("locked_by_session",
+                                        "locked_time") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NetconfState.Datastores.Datastore.Locks.GlobalLock, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NetconfState.Datastores.Datastore.Locks.GlobalLock, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.locked_by_session.is_set or
+                            self.locked_time.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.locked_by_session.yfilter != YFilter.not_set or
+                            self.locked_time.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "global-lock" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.locked_by_session.is_set or self.locked_by_session.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.locked_by_session.get_name_leafdata())
+                        if (self.locked_time.is_set or self.locked_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.locked_time.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "locked-by-session" or name == "locked-time"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.locked_by_session is not None:
-                            return True
-
-                        if self.locked_time is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-                        return meta._meta_table['NetconfState.Datastores.Datastore.Locks.GlobalLock']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "locked-by-session"):
+                            self.locked_by_session = value
+                            self.locked_by_session.value_namespace = name_space
+                            self.locked_by_session.value_namespace_prefix = name_space_prefix
+                        if(value_path == "locked-time"):
+                            self.locked_time = value
+                            self.locked_time.value_namespace = name_space
+                            self.locked_time.value_namespace_prefix = name_space_prefix
 
 
-                class PartialLock(object):
+                class PartialLock(Entity):
                     """
                     List of partial locks.
                     
@@ -402,135 +595,315 @@ class NetconfState(object):
                     _revision = '2010-10-04'
 
                     def __init__(self):
-                        self.parent = None
-                        self.lock_id = None
-                        self.locked_by_session = None
-                        self.locked_node = YLeafList()
-                        self.locked_node.parent = self
-                        self.locked_node.name = 'locked_node'
-                        self.locked_time = None
-                        self.select = YLeafList()
-                        self.select.parent = self
-                        self.select.name = 'select'
+                        super(NetconfState.Datastores.Datastore.Locks.PartialLock, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.lock_id is None:
-                            raise YPYModelError('Key property lock_id is None')
+                        self.yang_name = "partial-lock"
+                        self.yang_parent_name = "locks"
 
-                        return self.parent._common_path +'/ietf-netconf-monitoring:partial-lock[ietf-netconf-monitoring:lock-id = ' + str(self.lock_id) + ']'
+                        self.lock_id = YLeaf(YType.uint32, "lock-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                        self.locked_by_session = YLeaf(YType.uint32, "locked-by-session")
 
-                    def _has_data(self):
-                        if self.lock_id is not None:
-                            return True
+                        self.locked_node = YLeafList(YType.str, "locked-node")
 
-                        if self.locked_by_session is not None:
-                            return True
+                        self.locked_time = YLeaf(YType.str, "locked-time")
 
-                        if self.locked_node is not None:
-                            for child in self.locked_node:
-                                if child is not None:
-                                    return True
+                        self.select = YLeafList(YType.str, "select")
 
-                        if self.locked_time is not None:
-                            return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("lock_id",
+                                        "locked_by_session",
+                                        "locked_node",
+                                        "locked_time",
+                                        "select") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NetconfState.Datastores.Datastore.Locks.PartialLock, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NetconfState.Datastores.Datastore.Locks.PartialLock, self).__setattr__(name, value)
 
-                        if self.select is not None:
-                            for child in self.select:
-                                if child is not None:
-                                    return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-                        return meta._meta_table['NetconfState.Datastores.Datastore.Locks.PartialLock']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/ietf-netconf-monitoring:locks'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self._is_presence:
-                        return True
-                    if self.global_lock is not None and self.global_lock._has_data():
-                        return True
-
-                    if self.partial_lock is not None:
-                        for child_ref in self.partial_lock:
-                            if child_ref._has_data():
+                    def has_data(self):
+                        for leaf in self.locked_node.getYLeafs():
+                            if (leaf.yfilter != YFilter.not_set):
                                 return True
+                        for leaf in self.select.getYLeafs():
+                            if (leaf.yfilter != YFilter.not_set):
+                                return True
+                        return (
+                            self.lock_id.is_set or
+                            self.locked_by_session.is_set or
+                            self.locked_time.is_set)
 
+                    def has_operation(self):
+                        for leaf in self.locked_node.getYLeafs():
+                            if (leaf.is_set):
+                                return True
+                        for leaf in self.select.getYLeafs():
+                            if (leaf.is_set):
+                                return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.lock_id.yfilter != YFilter.not_set or
+                            self.locked_by_session.yfilter != YFilter.not_set or
+                            self.locked_node.yfilter != YFilter.not_set or
+                            self.locked_time.yfilter != YFilter.not_set or
+                            self.select.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "partial-lock" + "[lock-id='" + self.lock_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.lock_id.is_set or self.lock_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lock_id.get_name_leafdata())
+                        if (self.locked_by_session.is_set or self.locked_by_session.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.locked_by_session.get_name_leafdata())
+                        if (self.locked_time.is_set or self.locked_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.locked_time.get_name_leafdata())
+
+                        leaf_name_data.extend(self.locked_node.get_name_leafdata())
+
+                        leaf_name_data.extend(self.select.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "lock-id" or name == "locked-by-session" or name == "locked-node" or name == "locked-time" or name == "select"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "lock-id"):
+                            self.lock_id = value
+                            self.lock_id.value_namespace = name_space
+                            self.lock_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "locked-by-session"):
+                            self.locked_by_session = value
+                            self.locked_by_session.value_namespace = name_space
+                            self.locked_by_session.value_namespace_prefix = name_space_prefix
+                        if(value_path == "locked-node"):
+                            self.locked_node.append(value)
+                        if(value_path == "locked-time"):
+                            self.locked_time = value
+                            self.locked_time.value_namespace = name_space
+                            self.locked_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "select"):
+                            self.select.append(value)
+
+                def has_data(self):
+                    for c in self.partial_lock:
+                        if (c.has_data()):
+                            return True
+                    return (self.global_lock is not None and self.global_lock.has_data())
+
+                def has_operation(self):
+                    for c in self.partial_lock:
+                        if (c.has_operation()):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.global_lock is not None and self.global_lock.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "locks" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "global-lock"):
+                        if (self.global_lock is None):
+                            self.global_lock = NetconfState.Datastores.Datastore.Locks.GlobalLock()
+                            self.global_lock.parent = self
+                            self._children_name_map["global_lock"] = "global-lock"
+                        return self.global_lock
+
+                    if (child_yang_name == "partial-lock"):
+                        for c in self.partial_lock:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NetconfState.Datastores.Datastore.Locks.PartialLock()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.partial_lock.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "global-lock" or name == "partial-lock"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-                    return meta._meta_table['NetconfState.Datastores.Datastore.Locks']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
-                if self.name is None:
-                    raise YPYModelError('Key property name is None')
+            def has_data(self):
+                return (
+                    self.name.is_set or
+                    (self.locks is not None))
 
-                return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:datastores/ietf-netconf-monitoring:datastore[ietf-netconf-monitoring:name = ' + str(self.name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.name.yfilter != YFilter.not_set or
+                    (self.locks is not None and self.locks.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "datastore" + "[name='" + self.name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ietf-netconf-monitoring:netconf-state/datastores/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "locks"):
+                    if (self.locks is None):
+                        self.locks = NetconfState.Datastores.Datastore.Locks()
+                        self.locks.parent = self
+                        self._children_name_map["locks"] = "locks"
+                    return self.locks
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "locks" or name == "name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "name"):
+                    self.name = value
+                    self.name.value_namespace = name_space
+                    self.name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.datastore:
+                if (c.has_data()):
                     return True
-
-                if self.locks is not None and self.locks._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-                return meta._meta_table['NetconfState.Datastores.Datastore']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:datastores'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.datastore is not None:
-                for child_ref in self.datastore:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.datastore:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "datastores" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-netconf-monitoring:netconf-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "datastore"):
+                for c in self.datastore:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NetconfState.Datastores.Datastore()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.datastore.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "datastore"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-            return meta._meta_table['NetconfState.Datastores']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Schemas(object):
+    class Schemas(Entity):
         """
         Contains the list of data model schemas supported by the
         server.
@@ -548,13 +921,39 @@ class NetconfState(object):
         _revision = '2010-10-04'
 
         def __init__(self):
-            self.parent = None
-            self.schema = YList()
-            self.schema.parent = self
-            self.schema.name = 'schema'
+            super(NetconfState.Schemas, self).__init__()
+
+            self.yang_name = "schemas"
+            self.yang_parent_name = "netconf-state"
+
+            self.schema = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetconfState.Schemas, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetconfState.Schemas, self).__setattr__(name, value)
 
 
-        class Schema(object):
+        class Schema(Entity):
             """
             List of data model schemas supported by the server.
             
@@ -571,14 +970,14 @@ class NetconfState(object):
             .. attribute:: format  <key>
             
             	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
-            	**type**\:   :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
+            	**type**\:   :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
             
             .. attribute:: location
             
             	One or more locations from which the schema can be retrieved.  This list SHOULD contain at least one entry per schema.  A schema entry may be located on a remote file system (e.g., reference to file system for ftp retrieval) or retrieved directly from a server supporting the <get\-schema> operation (denoted by the value 'NETCONF')
             	**type**\: one of the below types:
             
-            	**type**\:  list of   :py:class:`LocationEnum <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema.LocationEnum>`
+            	**type**\:  list of   :py:class:`Location <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema.Location>`
             
             
             ----
@@ -601,18 +1000,52 @@ class NetconfState(object):
             _revision = '2010-10-04'
 
             def __init__(self):
-                self.parent = None
-                self.identifier = None
-                self.version = None
-                self.format = None
-                self.location = YLeafList()
-                self.location.parent = self
-                self.location.name = 'location'
-                self.namespace = None
+                super(NetconfState.Schemas.Schema, self).__init__()
 
-            class LocationEnum(Enum):
+                self.yang_name = "schema"
+                self.yang_parent_name = "schemas"
+
+                self.identifier = YLeaf(YType.str, "identifier")
+
+                self.version = YLeaf(YType.str, "version")
+
+                self.format = YLeaf(YType.identityref, "format")
+
+                self.location = YLeafList(YType.str, "location")
+
+                self.namespace = YLeaf(YType.str, "namespace")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("identifier",
+                                "version",
+                                "format",
+                                "location",
+                                "namespace") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NetconfState.Schemas.Schema, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NetconfState.Schemas.Schema, self).__setattr__(name, value)
+
+            class Location(Enum):
                 """
-                LocationEnum
+                Location
 
                 One or more locations from which the schema can be
 
@@ -632,79 +1065,150 @@ class NetconfState(object):
 
                 """
 
-                NETCONF = 0
+                NETCONF = Enum.YLeaf(0, "NETCONF")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-                    return meta._meta_table['NetconfState.Schemas.Schema.LocationEnum']
-
-
-            @property
-            def _common_path(self):
-                if self.identifier is None:
-                    raise YPYModelError('Key property identifier is None')
-                if self.version is None:
-                    raise YPYModelError('Key property version is None')
-                if self.format is None:
-                    raise YPYModelError('Key property format is None')
-
-                return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:schemas/ietf-netconf-monitoring:schema[ietf-netconf-monitoring:identifier = ' + str(self.identifier) + '][ietf-netconf-monitoring:version = ' + str(self.version) + '][ietf-netconf-monitoring:format = ' + str(self.format) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.identifier is not None:
-                    return True
-
-                if self.version is not None:
-                    return True
-
-                if self.format is not None:
-                    return True
-
-                if self.location is not None:
-                    for child in self.location:
-                        if child is not None:
-                            return True
-
-                if self.namespace is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-                return meta._meta_table['NetconfState.Schemas.Schema']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:schemas'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.schema is not None:
-                for child_ref in self.schema:
-                    if child_ref._has_data():
+            def has_data(self):
+                for leaf in self.location.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                return (
+                    self.identifier.is_set or
+                    self.version.is_set or
+                    self.format.is_set or
+                    self.namespace.is_set)
 
+            def has_operation(self):
+                for leaf in self.location.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.identifier.yfilter != YFilter.not_set or
+                    self.version.yfilter != YFilter.not_set or
+                    self.format.yfilter != YFilter.not_set or
+                    self.location.yfilter != YFilter.not_set or
+                    self.namespace.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "schema" + "[identifier='" + self.identifier.get() + "']" + "[version='" + self.version.get() + "']" + "[format='" + self.format.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ietf-netconf-monitoring:netconf-state/schemas/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.identifier.is_set or self.identifier.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.identifier.get_name_leafdata())
+                if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.version.get_name_leafdata())
+                if (self.format.is_set or self.format.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.format.get_name_leafdata())
+                if (self.namespace.is_set or self.namespace.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.namespace.get_name_leafdata())
+
+                leaf_name_data.extend(self.location.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "identifier" or name == "version" or name == "format" or name == "location" or name == "namespace"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "identifier"):
+                    self.identifier = value
+                    self.identifier.value_namespace = name_space
+                    self.identifier.value_namespace_prefix = name_space_prefix
+                if(value_path == "version"):
+                    self.version = value
+                    self.version.value_namespace = name_space
+                    self.version.value_namespace_prefix = name_space_prefix
+                if(value_path == "format"):
+                    self.format = value
+                    self.format.value_namespace = name_space
+                    self.format.value_namespace_prefix = name_space_prefix
+                if(value_path == "location"):
+                    self.location.append(value)
+                if(value_path == "namespace"):
+                    self.namespace = value
+                    self.namespace.value_namespace = name_space
+                    self.namespace.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.schema:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-            return meta._meta_table['NetconfState.Schemas']['meta_info']
+        def has_operation(self):
+            for c in self.schema:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "schemas" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-netconf-monitoring:netconf-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "schema"):
+                for c in self.schema:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NetconfState.Schemas.Schema()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.schema.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "schema"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Sessions(object):
+    class Sessions(Entity):
         """
         The sessions container includes session\-specific data for
         NETCONF management sessions.  The session list MUST include
@@ -723,13 +1227,39 @@ class NetconfState(object):
         _revision = '2010-10-04'
 
         def __init__(self):
-            self.parent = None
-            self.session = YList()
-            self.session.parent = self
-            self.session.name = 'session'
+            super(NetconfState.Sessions, self).__init__()
+
+            self.yang_name = "sessions"
+            self.yang_parent_name = "netconf-state"
+
+            self.session = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetconfState.Sessions, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetconfState.Sessions, self).__setattr__(name, value)
 
 
-        class Session(object):
+        class Session(Entity):
             """
             All NETCONF sessions managed by the NETCONF server
             MUST be reported in this list.
@@ -806,7 +1336,7 @@ class NetconfState(object):
             .. attribute:: transport
             
             	Identifies the transport for each session, e.g., 'netconf\-ssh', 'netconf\-soap', etc
-            	**type**\:   :py:class:`TransportIdentity <ydk.models.ietf.ietf_netconf_monitoring.TransportIdentity>`
+            	**type**\:   :py:class:`Transport <ydk.models.ietf.ietf_netconf_monitoring.Transport>`
             
             	**mandatory**\: True
             
@@ -825,87 +1355,231 @@ class NetconfState(object):
             _revision = '2010-10-04'
 
             def __init__(self):
-                self.parent = None
-                self.session_id = None
-                self.in_bad_rpcs = None
-                self.in_rpcs = None
-                self.login_time = None
-                self.out_notifications = None
-                self.out_rpc_errors = None
-                self.source_host = None
-                self.transport = None
-                self.username = None
+                super(NetconfState.Sessions.Session, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.session_id is None:
-                    raise YPYModelError('Key property session_id is None')
+                self.yang_name = "session"
+                self.yang_parent_name = "sessions"
 
-                return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:sessions/ietf-netconf-monitoring:session[ietf-netconf-monitoring:session-id = ' + str(self.session_id) + ']'
+                self.session_id = YLeaf(YType.uint32, "session-id")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
+
+                self.in_rpcs = YLeaf(YType.uint32, "in-rpcs")
+
+                self.login_time = YLeaf(YType.str, "login-time")
+
+                self.out_notifications = YLeaf(YType.uint32, "out-notifications")
+
+                self.out_rpc_errors = YLeaf(YType.uint32, "out-rpc-errors")
+
+                self.source_host = YLeaf(YType.str, "source-host")
+
+                self.transport = YLeaf(YType.identityref, "transport")
+
+                self.username = YLeaf(YType.str, "username")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("session_id",
+                                "in_bad_rpcs",
+                                "in_rpcs",
+                                "login_time",
+                                "out_notifications",
+                                "out_rpc_errors",
+                                "source_host",
+                                "transport",
+                                "username") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NetconfState.Sessions.Session, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NetconfState.Sessions.Session, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.session_id.is_set or
+                    self.in_bad_rpcs.is_set or
+                    self.in_rpcs.is_set or
+                    self.login_time.is_set or
+                    self.out_notifications.is_set or
+                    self.out_rpc_errors.is_set or
+                    self.source_host.is_set or
+                    self.transport.is_set or
+                    self.username.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.session_id.yfilter != YFilter.not_set or
+                    self.in_bad_rpcs.yfilter != YFilter.not_set or
+                    self.in_rpcs.yfilter != YFilter.not_set or
+                    self.login_time.yfilter != YFilter.not_set or
+                    self.out_notifications.yfilter != YFilter.not_set or
+                    self.out_rpc_errors.yfilter != YFilter.not_set or
+                    self.source_host.yfilter != YFilter.not_set or
+                    self.transport.yfilter != YFilter.not_set or
+                    self.username.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "session" + "[session-id='" + self.session_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ietf-netconf-monitoring:netconf-state/sessions/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.session_id.get_name_leafdata())
+                if (self.in_bad_rpcs.is_set or self.in_bad_rpcs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.in_bad_rpcs.get_name_leafdata())
+                if (self.in_rpcs.is_set or self.in_rpcs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.in_rpcs.get_name_leafdata())
+                if (self.login_time.is_set or self.login_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.login_time.get_name_leafdata())
+                if (self.out_notifications.is_set or self.out_notifications.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.out_notifications.get_name_leafdata())
+                if (self.out_rpc_errors.is_set or self.out_rpc_errors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.out_rpc_errors.get_name_leafdata())
+                if (self.source_host.is_set or self.source_host.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_host.get_name_leafdata())
+                if (self.transport.is_set or self.transport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.transport.get_name_leafdata())
+                if (self.username.is_set or self.username.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.username.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "session-id" or name == "in-bad-rpcs" or name == "in-rpcs" or name == "login-time" or name == "out-notifications" or name == "out-rpc-errors" or name == "source-host" or name == "transport" or name == "username"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.session_id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "session-id"):
+                    self.session_id = value
+                    self.session_id.value_namespace = name_space
+                    self.session_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "in-bad-rpcs"):
+                    self.in_bad_rpcs = value
+                    self.in_bad_rpcs.value_namespace = name_space
+                    self.in_bad_rpcs.value_namespace_prefix = name_space_prefix
+                if(value_path == "in-rpcs"):
+                    self.in_rpcs = value
+                    self.in_rpcs.value_namespace = name_space
+                    self.in_rpcs.value_namespace_prefix = name_space_prefix
+                if(value_path == "login-time"):
+                    self.login_time = value
+                    self.login_time.value_namespace = name_space
+                    self.login_time.value_namespace_prefix = name_space_prefix
+                if(value_path == "out-notifications"):
+                    self.out_notifications = value
+                    self.out_notifications.value_namespace = name_space
+                    self.out_notifications.value_namespace_prefix = name_space_prefix
+                if(value_path == "out-rpc-errors"):
+                    self.out_rpc_errors = value
+                    self.out_rpc_errors.value_namespace = name_space
+                    self.out_rpc_errors.value_namespace_prefix = name_space_prefix
+                if(value_path == "source-host"):
+                    self.source_host = value
+                    self.source_host.value_namespace = name_space
+                    self.source_host.value_namespace_prefix = name_space_prefix
+                if(value_path == "transport"):
+                    self.transport = value
+                    self.transport.value_namespace = name_space
+                    self.transport.value_namespace_prefix = name_space_prefix
+                if(value_path == "username"):
+                    self.username = value
+                    self.username.value_namespace = name_space
+                    self.username.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.session:
+                if (c.has_data()):
                     return True
-
-                if self.in_bad_rpcs is not None:
-                    return True
-
-                if self.in_rpcs is not None:
-                    return True
-
-                if self.login_time is not None:
-                    return True
-
-                if self.out_notifications is not None:
-                    return True
-
-                if self.out_rpc_errors is not None:
-                    return True
-
-                if self.source_host is not None:
-                    return True
-
-                if self.transport is not None:
-                    return True
-
-                if self.username is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-                return meta._meta_table['NetconfState.Sessions.Session']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:sessions'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.session is not None:
-                for child_ref in self.session:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.session:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sessions" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-netconf-monitoring:netconf-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "session"):
+                for c in self.session:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NetconfState.Sessions.Session()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.session.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "session"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-            return meta._meta_table['NetconfState.Sessions']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Statistics(object):
+    class Statistics(Entity):
         """
         Statistical data pertaining to the NETCONF server.
         
@@ -973,91 +1647,250 @@ class NetconfState(object):
         _revision = '2010-10-04'
 
         def __init__(self):
-            self.parent = None
-            self.dropped_sessions = None
-            self.in_bad_hellos = None
-            self.in_bad_rpcs = None
-            self.in_rpcs = None
-            self.in_sessions = None
-            self.netconf_start_time = None
-            self.out_notifications = None
-            self.out_rpc_errors = None
+            super(NetconfState.Statistics, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "statistics"
+            self.yang_parent_name = "netconf-state"
 
-            return '/ietf-netconf-monitoring:netconf-state/ietf-netconf-monitoring:statistics'
+            self.dropped_sessions = YLeaf(YType.uint32, "dropped-sessions")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.in_bad_hellos = YLeaf(YType.uint32, "in-bad-hellos")
+
+            self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
+
+            self.in_rpcs = YLeaf(YType.uint32, "in-rpcs")
+
+            self.in_sessions = YLeaf(YType.uint32, "in-sessions")
+
+            self.netconf_start_time = YLeaf(YType.str, "netconf-start-time")
+
+            self.out_notifications = YLeaf(YType.uint32, "out-notifications")
+
+            self.out_rpc_errors = YLeaf(YType.uint32, "out-rpc-errors")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("dropped_sessions",
+                            "in_bad_hellos",
+                            "in_bad_rpcs",
+                            "in_rpcs",
+                            "in_sessions",
+                            "netconf_start_time",
+                            "out_notifications",
+                            "out_rpc_errors") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NetconfState.Statistics, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NetconfState.Statistics, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.dropped_sessions.is_set or
+                self.in_bad_hellos.is_set or
+                self.in_bad_rpcs.is_set or
+                self.in_rpcs.is_set or
+                self.in_sessions.is_set or
+                self.netconf_start_time.is_set or
+                self.out_notifications.is_set or
+                self.out_rpc_errors.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.dropped_sessions.yfilter != YFilter.not_set or
+                self.in_bad_hellos.yfilter != YFilter.not_set or
+                self.in_bad_rpcs.yfilter != YFilter.not_set or
+                self.in_rpcs.yfilter != YFilter.not_set or
+                self.in_sessions.yfilter != YFilter.not_set or
+                self.netconf_start_time.yfilter != YFilter.not_set or
+                self.out_notifications.yfilter != YFilter.not_set or
+                self.out_rpc_errors.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "statistics" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-netconf-monitoring:netconf-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.dropped_sessions.is_set or self.dropped_sessions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.dropped_sessions.get_name_leafdata())
+            if (self.in_bad_hellos.is_set or self.in_bad_hellos.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.in_bad_hellos.get_name_leafdata())
+            if (self.in_bad_rpcs.is_set or self.in_bad_rpcs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.in_bad_rpcs.get_name_leafdata())
+            if (self.in_rpcs.is_set or self.in_rpcs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.in_rpcs.get_name_leafdata())
+            if (self.in_sessions.is_set or self.in_sessions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.in_sessions.get_name_leafdata())
+            if (self.netconf_start_time.is_set or self.netconf_start_time.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.netconf_start_time.get_name_leafdata())
+            if (self.out_notifications.is_set or self.out_notifications.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.out_notifications.get_name_leafdata())
+            if (self.out_rpc_errors.is_set or self.out_rpc_errors.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.out_rpc_errors.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "dropped-sessions" or name == "in-bad-hellos" or name == "in-bad-rpcs" or name == "in-rpcs" or name == "in-sessions" or name == "netconf-start-time" or name == "out-notifications" or name == "out-rpc-errors"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.dropped_sessions is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "dropped-sessions"):
+                self.dropped_sessions = value
+                self.dropped_sessions.value_namespace = name_space
+                self.dropped_sessions.value_namespace_prefix = name_space_prefix
+            if(value_path == "in-bad-hellos"):
+                self.in_bad_hellos = value
+                self.in_bad_hellos.value_namespace = name_space
+                self.in_bad_hellos.value_namespace_prefix = name_space_prefix
+            if(value_path == "in-bad-rpcs"):
+                self.in_bad_rpcs = value
+                self.in_bad_rpcs.value_namespace = name_space
+                self.in_bad_rpcs.value_namespace_prefix = name_space_prefix
+            if(value_path == "in-rpcs"):
+                self.in_rpcs = value
+                self.in_rpcs.value_namespace = name_space
+                self.in_rpcs.value_namespace_prefix = name_space_prefix
+            if(value_path == "in-sessions"):
+                self.in_sessions = value
+                self.in_sessions.value_namespace = name_space
+                self.in_sessions.value_namespace_prefix = name_space_prefix
+            if(value_path == "netconf-start-time"):
+                self.netconf_start_time = value
+                self.netconf_start_time.value_namespace = name_space
+                self.netconf_start_time.value_namespace_prefix = name_space_prefix
+            if(value_path == "out-notifications"):
+                self.out_notifications = value
+                self.out_notifications.value_namespace = name_space
+                self.out_notifications.value_namespace_prefix = name_space_prefix
+            if(value_path == "out-rpc-errors"):
+                self.out_rpc_errors = value
+                self.out_rpc_errors.value_namespace = name_space
+                self.out_rpc_errors.value_namespace_prefix = name_space_prefix
 
-            if self.in_bad_hellos is not None:
-                return True
+    def has_data(self):
+        return (
+            (self.capabilities is not None and self.capabilities.has_data()) or
+            (self.datastores is not None and self.datastores.has_data()) or
+            (self.schemas is not None and self.schemas.has_data()) or
+            (self.sessions is not None and self.sessions.has_data()) or
+            (self.statistics is not None and self.statistics.has_data()))
 
-            if self.in_bad_rpcs is not None:
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.capabilities is not None and self.capabilities.has_operation()) or
+            (self.datastores is not None and self.datastores.has_operation()) or
+            (self.schemas is not None and self.schemas.has_operation()) or
+            (self.sessions is not None and self.sessions.has_operation()) or
+            (self.statistics is not None and self.statistics.has_operation()))
 
-            if self.in_rpcs is not None:
-                return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "ietf-netconf-monitoring:netconf-state" + path_buffer
 
-            if self.in_sessions is not None:
-                return True
+        return path_buffer
 
-            if self.netconf_start_time is not None:
-                return True
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-            if self.out_notifications is not None:
-                return True
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-            if self.out_rpc_errors is not None:
-                return True
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-            return False
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-            return meta._meta_table['NetconfState.Statistics']['meta_info']
+        if (child_yang_name == "capabilities"):
+            if (self.capabilities is None):
+                self.capabilities = NetconfState.Capabilities()
+                self.capabilities.parent = self
+                self._children_name_map["capabilities"] = "capabilities"
+            return self.capabilities
 
-    @property
-    def _common_path(self):
+        if (child_yang_name == "datastores"):
+            if (self.datastores is None):
+                self.datastores = NetconfState.Datastores()
+                self.datastores.parent = self
+                self._children_name_map["datastores"] = "datastores"
+            return self.datastores
 
-        return '/ietf-netconf-monitoring:netconf-state'
+        if (child_yang_name == "schemas"):
+            if (self.schemas is None):
+                self.schemas = NetconfState.Schemas()
+                self.schemas.parent = self
+                self._children_name_map["schemas"] = "schemas"
+            return self.schemas
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+        if (child_yang_name == "sessions"):
+            if (self.sessions is None):
+                self.sessions = NetconfState.Sessions()
+                self.sessions.parent = self
+                self._children_name_map["sessions"] = "sessions"
+            return self.sessions
+
+        if (child_yang_name == "statistics"):
+            if (self.statistics is None):
+                self.statistics = NetconfState.Statistics()
+                self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+            return self.statistics
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "capabilities" or name == "datastores" or name == "schemas" or name == "sessions" or name == "statistics"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.capabilities is not None and self.capabilities._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.datastores is not None and self.datastores._has_data():
-            return True
+    def clone_ptr(self):
+        self._top_entity = NetconfState()
+        return self._top_entity
 
-        if self.schemas is not None and self.schemas._has_data():
-            return True
-
-        if self.sessions is not None and self.sessions._has_data():
-            return True
-
-        if self.statistics is not None and self.statistics._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfState']['meta_info']
-
-
-class GetSchemaRpc(object):
+class GetSchema(Entity):
     """
     This operation is used to retrieve a schema from the
     NETCONF server.
@@ -1076,12 +1909,12 @@ class GetSchemaRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchemaRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchemaRpc.Output>`
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Output>`
     
     
 
@@ -1091,22 +1924,31 @@ class GetSchemaRpc(object):
     _revision = '2010-10-04'
 
     def __init__(self):
-        self.input = GetSchemaRpc.Input()
+        super(GetSchema, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "get-schema"
+        self.yang_parent_name = "ietf-netconf-monitoring"
+
+        self.input = GetSchema.Input()
         self.input.parent = self
-        self.output = GetSchemaRpc.Output()
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = GetSchema.Output()
         self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
 
-        self.is_rpc = True
 
-
-    class Input(object):
+    class Input(Entity):
         """
         
         
         .. attribute:: format
         
         	The data modeling language of the schema.  If this parameter is not present, and more than one formats of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\:   :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
+        	**type**\:   :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
         
         .. attribute:: identifier
         
@@ -1128,41 +1970,108 @@ class GetSchemaRpc(object):
         _revision = '2010-10-04'
 
         def __init__(self):
-            self.parent = None
-            self.format = None
-            self.identifier = None
-            self.version = None
+            super(GetSchema.Input, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "input"
+            self.yang_parent_name = "get-schema"
 
-            return '/ietf-netconf-monitoring:get-schema/ietf-netconf-monitoring:input'
+            self.format = YLeaf(YType.identityref, "format")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+            self.identifier = YLeaf(YType.str, "identifier")
 
-        def _has_data(self):
-            if self.format is not None:
+            self.version = YLeaf(YType.str, "version")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("format",
+                            "identifier",
+                            "version") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(GetSchema.Input, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(GetSchema.Input, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.format.is_set or
+                self.identifier.is_set or
+                self.version.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.format.yfilter != YFilter.not_set or
+                self.identifier.yfilter != YFilter.not_set or
+                self.version.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "input" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-netconf-monitoring:get-schema/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.format.is_set or self.format.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.format.get_name_leafdata())
+            if (self.identifier.is_set or self.identifier.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.identifier.get_name_leafdata())
+            if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.version.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "format" or name == "identifier" or name == "version"):
                 return True
-
-            if self.identifier is not None:
-                return True
-
-            if self.version is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-            return meta._meta_table['GetSchemaRpc.Input']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "format"):
+                self.format = value
+                self.format.value_namespace = name_space
+                self.format.value_namespace_prefix = name_space_prefix
+            if(value_path == "identifier"):
+                self.identifier = value
+                self.identifier.value_namespace = name_space
+                self.identifier.value_namespace_prefix = name_space_prefix
+            if(value_path == "version"):
+                self.version = value
+                self.version.value_namespace = name_space
+                self.version.value_namespace_prefix = name_space_prefix
 
 
-    class Output(object):
+    class Output(Entity):
         """
         
         
@@ -1179,96 +2088,145 @@ class GetSchemaRpc(object):
         _revision = '2010-10-04'
 
         def __init__(self):
-            self.parent = None
-            self.data = None
+            super(GetSchema.Output, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "output"
+            self.yang_parent_name = "get-schema"
 
-            return '/ietf-netconf-monitoring:get-schema/ietf-netconf-monitoring:output'
+            self.data = YLeaf(YType.str, "data")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            if self.parent is None:
-                raise YPYError('Parent reference is needed to determine if entity has configuration data')
-            return self.parent.is_config()
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("data") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(GetSchema.Output, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(GetSchema.Output, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.data is not None:
+        def has_data(self):
+            return self.data.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.data.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "output" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ietf-netconf-monitoring:get-schema/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.data.is_set or self.data.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.data.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "data"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-            return meta._meta_table['GetSchemaRpc.Output']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "data"):
+                self.data = value
+                self.data.value_namespace = name_space
+                self.data.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.input is not None and self.input.has_data()) or
+            (self.output is not None and self.output.has_data()))
 
-        return '/ietf-netconf-monitoring:get-schema'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.input is not None and self.input.has_operation()) or
+            (self.output is not None and self.output.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "ietf-netconf-monitoring:get-schema" + path_buffer
 
-    def _has_data(self):
-        if self.input is not None and self.input._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "input"):
+            if (self.input is None):
+                self.input = GetSchema.Input()
+                self.input.parent = self
+                self._children_name_map["input"] = "input"
+            return self.input
+
+        if (child_yang_name == "output"):
+            if (self.output is None):
+                self.output = GetSchema.Output()
+                self.output.parent = self
+                self._children_name_map["output"] = "output"
+            return self.output
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "input" or name == "output"):
             return True
-
-        if self.output is not None and self.output._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['GetSchemaRpc']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = GetSchema()
+        return self._top_entity
 
-class NetconfBeepIdentity(TransportIdentity):
-    """
-    NETCONF over Blocks Extensible Exchange Protocol (BEEP).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        TransportIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfBeepIdentity']['meta_info']
-
-
-class RngIdentity(SchemaFormatIdentity):
-    """
-    Regular Language for XML Next Generation (RELAX NG).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        SchemaFormatIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['RngIdentity']['meta_info']
-
-
-class XsdIdentity(SchemaFormatIdentity):
+class Xsd(Identity):
     """
     W3C XML Schema Definition.
     
@@ -1280,17 +2238,12 @@ class XsdIdentity(SchemaFormatIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        SchemaFormatIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['XsdIdentity']['meta_info']
+        super(Xsd, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:xsd")
 
 
-class NetconfSshIdentity(TransportIdentity):
+class NetconfTls(Identity):
     """
-    NETCONF over Secure Shell (SSH).
+    NETCONF over Transport Layer Security (TLS).
     
     
 
@@ -1300,15 +2253,10 @@ class NetconfSshIdentity(TransportIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        TransportIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfSshIdentity']['meta_info']
+        super(NetconfTls, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-tls")
 
 
-class RncIdentity(SchemaFormatIdentity):
+class Rnc(Identity):
     """
     Relax NG Compact Syntax
     
@@ -1320,15 +2268,40 @@ class RncIdentity(SchemaFormatIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        SchemaFormatIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['RncIdentity']['meta_info']
+        super(Rnc, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rnc")
 
 
-class YinIdentity(SchemaFormatIdentity):
+class NetconfSsh(Identity):
+    """
+    NETCONF over Secure Shell (SSH).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(NetconfSsh, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-ssh")
+
+
+class NetconfBeep(Identity):
+    """
+    NETCONF over Blocks Extensible Exchange Protocol (BEEP).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(NetconfBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-beep")
+
+
+class Yin(Identity):
     """
     The YIN syntax for YANG.
     
@@ -1340,17 +2313,12 @@ class YinIdentity(SchemaFormatIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        SchemaFormatIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['YinIdentity']['meta_info']
+        super(Yin, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:yin")
 
 
-class YangIdentity(SchemaFormatIdentity):
+class Rng(Identity):
     """
-    The YANG data modeling language for NETCONF.
+    Regular Language for XML Next Generation (RELAX NG).
     
     
 
@@ -1360,36 +2328,10 @@ class YangIdentity(SchemaFormatIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        SchemaFormatIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['YangIdentity']['meta_info']
+        super(Rng, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rng")
 
 
-class NetconfSoapOverHttpsIdentity(TransportIdentity):
-    """
-    NETCONF over Simple Object Access Protocol (SOAP)
-    over Hypertext Transfer Protocol Secure (HTTPS).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        TransportIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfSoapOverHttpsIdentity']['meta_info']
-
-
-class NetconfSoapOverBeepIdentity(TransportIdentity):
+class NetconfSoapOverBeep(Identity):
     """
     NETCONF over Simple Object Access Protocol (SOAP) over
     Blocks Extensible Exchange Protocol (BEEP).
@@ -1402,17 +2344,13 @@ class NetconfSoapOverBeepIdentity(TransportIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        TransportIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfSoapOverBeepIdentity']['meta_info']
+        super(NetconfSoapOverBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-beep")
 
 
-class NetconfTlsIdentity(TransportIdentity):
+class NetconfSoapOverHttps(Identity):
     """
-    NETCONF over Transport Layer Security (TLS).
+    NETCONF over Simple Object Access Protocol (SOAP)
+    over Hypertext Transfer Protocol Secure (HTTPS).
     
     
 
@@ -1422,11 +2360,21 @@ class NetconfTlsIdentity(TransportIdentity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        TransportIdentity.__init__(self)
+        super(NetconfSoapOverHttps, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-https")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _ietf_netconf_monitoring as meta
-        return meta._meta_table['NetconfTlsIdentity']['meta_info']
+
+class Yang(Identity):
+    """
+    The YANG data modeling language for NETCONF.
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(Yang, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:yang")
 
 

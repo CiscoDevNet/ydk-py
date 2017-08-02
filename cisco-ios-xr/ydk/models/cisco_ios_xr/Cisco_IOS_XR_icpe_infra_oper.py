@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class IcpeGcoOperControlReasonEnum(Enum):
+class IcpeGcoOperControlReason(Enum):
     """
-    IcpeGcoOperControlReasonEnum
+    IcpeGcoOperControlReason
 
     Icpe gco oper control reason
 
@@ -52,26 +46,20 @@ class IcpeGcoOperControlReasonEnum(Enum):
 
     """
 
-    icpe_gco_oper_control_reason_unknown_error = 0
+    icpe_gco_oper_control_reason_unknown_error = Enum.YLeaf(0, "icpe-gco-oper-control-reason-unknown-error")
 
-    icpe_gco_oper_control_reason_wrong_chassis_type = 1
+    icpe_gco_oper_control_reason_wrong_chassis_type = Enum.YLeaf(1, "icpe-gco-oper-control-reason-wrong-chassis-type")
 
-    icpe_gco_oper_control_reason_wrong_chassis_serial = 2
+    icpe_gco_oper_control_reason_wrong_chassis_serial = Enum.YLeaf(2, "icpe-gco-oper-control-reason-wrong-chassis-serial")
 
-    icpe_gco_oper_control_reason_needs_to_upgrade = 3
+    icpe_gco_oper_control_reason_needs_to_upgrade = Enum.YLeaf(3, "icpe-gco-oper-control-reason-needs-to-upgrade")
 
-    icpe_gco_oper_control_reason_none = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeGcoOperControlReasonEnum']
+    icpe_gco_oper_control_reason_none = Enum.YLeaf(4, "icpe-gco-oper-control-reason-none")
 
 
-class IcpeInstallPkgSuppEnum(Enum):
+class IcpeInstallPkgSupp(Enum):
     """
-    IcpeInstallPkgSuppEnum
+    IcpeInstallPkgSupp
 
     Icpe install pkg supp
 
@@ -89,22 +77,16 @@ class IcpeInstallPkgSuppEnum(Enum):
 
     """
 
-    icpe_install_pkg_supp_unknown = 0
+    icpe_install_pkg_supp_unknown = Enum.YLeaf(0, "icpe-install-pkg-supp-unknown")
 
-    icpe_install_pkg_supp_not_supported = 1
+    icpe_install_pkg_supp_not_supported = Enum.YLeaf(1, "icpe-install-pkg-supp-not-supported")
 
-    icpe_install_pkg_supp_supported = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeInstallPkgSuppEnum']
+    icpe_install_pkg_supp_supported = Enum.YLeaf(2, "icpe-install-pkg-supp-supported")
 
 
-class IcpeInstallSatStateEnum(Enum):
+class IcpeInstallSatState(Enum):
     """
-    IcpeInstallSatStateEnum
+    IcpeInstallSatState
 
     Icpe install sat state
 
@@ -170,46 +152,40 @@ class IcpeInstallSatStateEnum(Enum):
 
     """
 
-    icpe_install_sat_state_unknown = 0
+    icpe_install_sat_state_unknown = Enum.YLeaf(0, "icpe-install-sat-state-unknown")
 
-    icpe_install_sat_state_not_initiat_ed = 1
+    icpe_install_sat_state_not_initiat_ed = Enum.YLeaf(1, "icpe-install-sat-state-not-initiat-ed")
 
-    icpe_install_sat_state_transferring = 2
+    icpe_install_sat_state_transferring = Enum.YLeaf(2, "icpe-install-sat-state-transferring")
 
-    icpe_install_sat_state_activating = 3
+    icpe_install_sat_state_activating = Enum.YLeaf(3, "icpe-install-sat-state-activating")
 
-    icpe_install_sat_state_updating = 4
+    icpe_install_sat_state_updating = Enum.YLeaf(4, "icpe-install-sat-state-updating")
 
-    icpe_install_sat_state_deactivating = 5
+    icpe_install_sat_state_deactivating = Enum.YLeaf(5, "icpe-install-sat-state-deactivating")
 
-    icpe_install_sat_state_removing = 6
+    icpe_install_sat_state_removing = Enum.YLeaf(6, "icpe-install-sat-state-removing")
 
-    icpe_install_sat_state_success = 7
+    icpe_install_sat_state_success = Enum.YLeaf(7, "icpe-install-sat-state-success")
 
-    icpe_install_sat_state_failure = 8
+    icpe_install_sat_state_failure = Enum.YLeaf(8, "icpe-install-sat-state-failure")
 
-    icpe_install_sat_state_multiple_ops = 9
+    icpe_install_sat_state_multiple_ops = Enum.YLeaf(9, "icpe-install-sat-state-multiple-ops")
 
-    icpe_install_sat_state_aborted = 10
+    icpe_install_sat_state_aborted = Enum.YLeaf(10, "icpe-install-sat-state-aborted")
 
-    icpe_install_sat_state_protocol_version = 11
+    icpe_install_sat_state_protocol_version = Enum.YLeaf(11, "icpe-install-sat-state-protocol-version")
 
-    icpe_install_sat_state_pkg_not_present = 12
+    icpe_install_sat_state_pkg_not_present = Enum.YLeaf(12, "icpe-install-sat-state-pkg-not-present")
 
-    icpe_install_sat_state_no_image = 13
+    icpe_install_sat_state_no_image = Enum.YLeaf(13, "icpe-install-sat-state-no-image")
 
-    icpe_install_sat_state_no_such_file = 14
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeInstallSatStateEnum']
+    icpe_install_sat_state_no_such_file = Enum.YLeaf(14, "icpe-install-sat-state-no-such-file")
 
 
-class IcpeOperConflictEnum(Enum):
+class IcpeOperConflict(Enum):
     """
-    IcpeOperConflictEnum
+    IcpeOperConflict
 
     Icpe oper conflict
 
@@ -367,92 +343,86 @@ class IcpeOperConflictEnum(Enum):
 
     """
 
-    icpe_oper_conflict_not_calculated = 0
+    icpe_oper_conflict_not_calculated = Enum.YLeaf(0, "icpe-oper-conflict-not-calculated")
 
-    icpe_oper_conflict_no_conflict = 1
+    icpe_oper_conflict_no_conflict = Enum.YLeaf(1, "icpe-oper-conflict-no-conflict")
 
-    icpe_oper_conflict_satellite_not_configured = 2
+    icpe_oper_conflict_satellite_not_configured = Enum.YLeaf(2, "icpe-oper-conflict-satellite-not-configured")
 
-    icpe_oper_conflict_satellite_no_type = 3
+    icpe_oper_conflict_satellite_no_type = Enum.YLeaf(3, "icpe-oper-conflict-satellite-no-type")
 
-    icpe_oper_conflict_satellite_id_invalid = 4
+    icpe_oper_conflict_satellite_id_invalid = Enum.YLeaf(4, "icpe-oper-conflict-satellite-id-invalid")
 
-    icpe_oper_conflict_satellite_no_ipv4_addr = 5
+    icpe_oper_conflict_satellite_no_ipv4_addr = Enum.YLeaf(5, "icpe-oper-conflict-satellite-no-ipv4-addr")
 
-    icpe_oper_conflict_satellite_conflicting_ipv4_addr = 6
+    icpe_oper_conflict_satellite_conflicting_ipv4_addr = Enum.YLeaf(6, "icpe-oper-conflict-satellite-conflicting-ipv4-addr")
 
-    icpe_oper_conflict_no_configured_links = 7
+    icpe_oper_conflict_no_configured_links = Enum.YLeaf(7, "icpe-oper-conflict-no-configured-links")
 
-    icpe_oper_conflict_no_discovered_links = 8
+    icpe_oper_conflict_no_discovered_links = Enum.YLeaf(8, "icpe-oper-conflict-no-discovered-links")
 
-    icpe_oper_conflict_invalid_ports = 9
+    icpe_oper_conflict_invalid_ports = Enum.YLeaf(9, "icpe-oper-conflict-invalid-ports")
 
-    icpe_oper_conflict_ports_overlap = 10
+    icpe_oper_conflict_ports_overlap = Enum.YLeaf(10, "icpe-oper-conflict-ports-overlap")
 
-    icpe_oper_conflict_waiting_for_ipv4_addr = 11
+    icpe_oper_conflict_waiting_for_ipv4_addr = Enum.YLeaf(11, "icpe-oper-conflict-waiting-for-ipv4-addr")
 
-    icpe_oper_conflict_waiting_for_vrf = 12
+    icpe_oper_conflict_waiting_for_vrf = Enum.YLeaf(12, "icpe-oper-conflict-waiting-for-vrf")
 
-    icpe_oper_conflict_different_ipv4_addr = 13
+    icpe_oper_conflict_different_ipv4_addr = Enum.YLeaf(13, "icpe-oper-conflict-different-ipv4-addr")
 
-    icpe_oper_conflict_different_vrf = 14
+    icpe_oper_conflict_different_vrf = Enum.YLeaf(14, "icpe-oper-conflict-different-vrf")
 
-    icpe_oper_conflict_satellite_link_ipv4_overlap = 15
+    icpe_oper_conflict_satellite_link_ipv4_overlap = Enum.YLeaf(15, "icpe-oper-conflict-satellite-link-ipv4-overlap")
 
-    icpe_oper_conflict_waiting_for_ident = 16
+    icpe_oper_conflict_waiting_for_ident = Enum.YLeaf(16, "icpe-oper-conflict-waiting-for-ident")
 
-    icpe_oper_conflict_multiple_ids = 17
+    icpe_oper_conflict_multiple_ids = Enum.YLeaf(17, "icpe-oper-conflict-multiple-ids")
 
-    icpe_oper_conflict_multiple_satellites = 18
+    icpe_oper_conflict_multiple_satellites = Enum.YLeaf(18, "icpe-oper-conflict-multiple-satellites")
 
-    icpe_oper_conflict_ident_rejected = 19
+    icpe_oper_conflict_ident_rejected = Enum.YLeaf(19, "icpe-oper-conflict-ident-rejected")
 
-    icpe_oper_conflict_interface_down = 20
+    icpe_oper_conflict_interface_down = Enum.YLeaf(20, "icpe-oper-conflict-interface-down")
 
-    icpe_oper_conflict_auto_ip_unavailable = 21
+    icpe_oper_conflict_auto_ip_unavailable = Enum.YLeaf(21, "icpe-oper-conflict-auto-ip-unavailable")
 
-    icpe_oper_conflict_satellite_auto_ip_link_manual_ip = 22
+    icpe_oper_conflict_satellite_auto_ip_link_manual_ip = Enum.YLeaf(22, "icpe-oper-conflict-satellite-auto-ip-link-manual-ip")
 
-    icpe_oper_conflict_link_auto_ip_satellite_manual_ip = 23
+    icpe_oper_conflict_link_auto_ip_satellite_manual_ip = Enum.YLeaf(23, "icpe-oper-conflict-link-auto-ip-satellite-manual-ip")
 
-    icpe_oper_conflict_serial_num_mismatch = 24
+    icpe_oper_conflict_serial_num_mismatch = Enum.YLeaf(24, "icpe-oper-conflict-serial-num-mismatch")
 
-    icpe_oper_conflict_satellite_not_identified = 25
+    icpe_oper_conflict_satellite_not_identified = Enum.YLeaf(25, "icpe-oper-conflict-satellite-not-identified")
 
-    icpe_oper_conflict_satellite_unsupported_type = 26
+    icpe_oper_conflict_satellite_unsupported_type = Enum.YLeaf(26, "icpe-oper-conflict-satellite-unsupported-type")
 
-    icpe_oper_conflict_satellite_partition_unsupported = 27
+    icpe_oper_conflict_satellite_partition_unsupported = Enum.YLeaf(27, "icpe-oper-conflict-satellite-partition-unsupported")
 
-    icpe_oper_conflict_satellite_no_serial_number = 28
+    icpe_oper_conflict_satellite_no_serial_number = Enum.YLeaf(28, "icpe-oper-conflict-satellite-no-serial-number")
 
-    icpe_oper_conflict_satellite_conflicting_serial_number = 29
+    icpe_oper_conflict_satellite_conflicting_serial_number = Enum.YLeaf(29, "icpe-oper-conflict-satellite-conflicting-serial-number")
 
-    icpe_oper_conflict_satellite_link_waiting_for_arp = 30
+    icpe_oper_conflict_satellite_link_waiting_for_arp = Enum.YLeaf(30, "icpe-oper-conflict-satellite-link-waiting-for-arp")
 
-    icpe_oper_conflict_host_pe_isolated_split_brain = 31
+    icpe_oper_conflict_host_pe_isolated_split_brain = Enum.YLeaf(31, "icpe-oper-conflict-host-pe-isolated-split-brain")
 
-    icpe_oper_conflict_fabric_iccp_group_inconsistent = 32
+    icpe_oper_conflict_fabric_iccp_group_inconsistent = Enum.YLeaf(32, "icpe-oper-conflict-fabric-iccp-group-inconsistent")
 
-    icpe_oper_conflict_invalid_iccp_group = 33
+    icpe_oper_conflict_invalid_iccp_group = Enum.YLeaf(33, "icpe-oper-conflict-invalid-iccp-group")
 
-    icpe_oper_conflict_port_rejected = 34
+    icpe_oper_conflict_port_rejected = Enum.YLeaf(34, "icpe-oper-conflict-port-rejected")
 
-    icpe_oper_conflict_satellite_icl_not_supported = 35
+    icpe_oper_conflict_satellite_icl_not_supported = Enum.YLeaf(35, "icpe-oper-conflict-satellite-icl-not-supported")
 
-    icpe_oper_conflict_multiple_serial_number = 36
+    icpe_oper_conflict_multiple_serial_number = Enum.YLeaf(36, "icpe-oper-conflict-multiple-serial-number")
 
-    icpe_oper_conflict_multiple_mac_address = 37
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperConflictEnum']
+    icpe_oper_conflict_multiple_mac_address = Enum.YLeaf(37, "icpe-oper-conflict-multiple-mac-address")
 
 
-class IcpeOperDiscdLinkStateEnum(Enum):
+class IcpeOperDiscdLinkState(Enum):
     """
-    IcpeOperDiscdLinkStateEnum
+    IcpeOperDiscdLinkState
 
     Icpe oper discd link state
 
@@ -474,24 +444,18 @@ class IcpeOperDiscdLinkStateEnum(Enum):
 
     """
 
-    icpe_oper_discd_link_state_stopped = 0
+    icpe_oper_discd_link_state_stopped = Enum.YLeaf(0, "icpe-oper-discd-link-state-stopped")
 
-    icpe_oper_discd_link_state_probing = 1
+    icpe_oper_discd_link_state_probing = Enum.YLeaf(1, "icpe-oper-discd-link-state-probing")
 
-    icpe_oper_discd_link_state_configuring = 2
+    icpe_oper_discd_link_state_configuring = Enum.YLeaf(2, "icpe-oper-discd-link-state-configuring")
 
-    icpe_oper_discd_link_state_ready = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperDiscdLinkStateEnum']
+    icpe_oper_discd_link_state_ready = Enum.YLeaf(3, "icpe-oper-discd-link-state-ready")
 
 
-class IcpeOperFabricPortEnum(Enum):
+class IcpeOperFabricPort(Enum):
     """
-    IcpeOperFabricPortEnum
+    IcpeOperFabricPort
 
     Icpe oper fabric port
 
@@ -513,24 +477,18 @@ class IcpeOperFabricPortEnum(Enum):
 
     """
 
-    icpe_oper_fabric_port_unknown = 0
+    icpe_oper_fabric_port_unknown = Enum.YLeaf(0, "icpe-oper-fabric-port-unknown")
 
-    icpe_oper_fabric_port_n_v_fabric_gig_e = 1
+    icpe_oper_fabric_port_n_v_fabric_gig_e = Enum.YLeaf(1, "icpe-oper-fabric-port-n-v-fabric-gig-e")
 
-    icpe_oper_fabric_port_n_v_fabric_ten_gig_e = 2
+    icpe_oper_fabric_port_n_v_fabric_ten_gig_e = Enum.YLeaf(2, "icpe-oper-fabric-port-n-v-fabric-ten-gig-e")
 
-    icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperFabricPortEnum']
+    icpe_oper_fabric_port_n_v_fabric_hundred_gig_e = Enum.YLeaf(3, "icpe-oper-fabric-port-n-v-fabric-hundred-gig-e")
 
 
-class IcpeOperInstallStateEnum(Enum):
+class IcpeOperInstallState(Enum):
     """
-    IcpeOperInstallStateEnum
+    IcpeOperInstallState
 
     Icpe oper install state
 
@@ -556,26 +514,20 @@ class IcpeOperInstallStateEnum(Enum):
 
     """
 
-    icpe_oper_install_state_stable = 0
+    icpe_oper_install_state_stable = Enum.YLeaf(0, "icpe-oper-install-state-stable")
 
-    icpe_oper_install_state_transferring = 1
+    icpe_oper_install_state_transferring = Enum.YLeaf(1, "icpe-oper-install-state-transferring")
 
-    icpe_oper_install_state_transferred = 2
+    icpe_oper_install_state_transferred = Enum.YLeaf(2, "icpe-oper-install-state-transferred")
 
-    icpe_oper_install_state_installing = 3
+    icpe_oper_install_state_installing = Enum.YLeaf(3, "icpe-oper-install-state-installing")
 
-    icpe_oper_install_state_in_progress = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperInstallStateEnum']
+    icpe_oper_install_state_in_progress = Enum.YLeaf(4, "icpe-oper-install-state-in-progress")
 
 
-class IcpeOperMultichassisRedundancyEnum(Enum):
+class IcpeOperMultichassisRedundancy(Enum):
     """
-    IcpeOperMultichassisRedundancyEnum
+    IcpeOperMultichassisRedundancy
 
     Icpe oper multichassis redundancy
 
@@ -593,22 +545,16 @@ class IcpeOperMultichassisRedundancyEnum(Enum):
 
     """
 
-    icpe_oper_multi_chassis_redundancy_not_redundant = 0
+    icpe_oper_multi_chassis_redundancy_not_redundant = Enum.YLeaf(0, "icpe-oper-multi-chassis-redundancy-not-redundant")
 
-    icpe_oper_multi_chassis_redundancy_active = 1
+    icpe_oper_multi_chassis_redundancy_active = Enum.YLeaf(1, "icpe-oper-multi-chassis-redundancy-active")
 
-    icpe_oper_multi_chassis_redundancy_standby = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperMultichassisRedundancyEnum']
+    icpe_oper_multi_chassis_redundancy_standby = Enum.YLeaf(2, "icpe-oper-multi-chassis-redundancy-standby")
 
 
-class IcpeOperPortEnum(Enum):
+class IcpeOperPort(Enum):
     """
-    IcpeOperPortEnum
+    IcpeOperPort
 
     Icpe oper port
 
@@ -626,22 +572,16 @@ class IcpeOperPortEnum(Enum):
 
     """
 
-    icpe_oper_port_unknown = 0
+    icpe_oper_port_unknown = Enum.YLeaf(0, "icpe-oper-port-unknown")
 
-    icpe_oper_port_gigabit_ethernet = 1
+    icpe_oper_port_gigabit_ethernet = Enum.YLeaf(1, "icpe-oper-port-gigabit-ethernet")
 
-    icpe_oper_port_ten_gig_e = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperPortEnum']
+    icpe_oper_port_ten_gig_e = Enum.YLeaf(2, "icpe-oper-port-ten-gig-e")
 
 
-class IcpeOperSdacpSessStateEnum(Enum):
+class IcpeOperSdacpSessState(Enum):
     """
-    IcpeOperSdacpSessStateEnum
+    IcpeOperSdacpSessState
 
     Icpe oper sdacp sess state
 
@@ -675,30 +615,24 @@ class IcpeOperSdacpSessStateEnum(Enum):
 
     """
 
-    icpe_oper_sdacp_sess_state_not_created = 0
+    icpe_oper_sdacp_sess_state_not_created = Enum.YLeaf(0, "icpe-oper-sdacp-sess-state-not-created")
 
-    icpe_oper_sdacp_sess_state_created = 1
+    icpe_oper_sdacp_sess_state_created = Enum.YLeaf(1, "icpe-oper-sdacp-sess-state-created")
 
-    icpe_oper_sdacp_sess_state_authentication_not_ok = 2
+    icpe_oper_sdacp_sess_state_authentication_not_ok = Enum.YLeaf(2, "icpe-oper-sdacp-sess-state-authentication-not-ok")
 
-    icpe_oper_sdacp_sess_state_authentication_ok = 3
+    icpe_oper_sdacp_sess_state_authentication_ok = Enum.YLeaf(3, "icpe-oper-sdacp-sess-state-authentication-ok")
 
-    icpe_oper_sdacp_sess_state_version_not_ok = 4
+    icpe_oper_sdacp_sess_state_version_not_ok = Enum.YLeaf(4, "icpe-oper-sdacp-sess-state-version-not-ok")
 
-    icpe_oper_sdacp_sess_state_up = 5
+    icpe_oper_sdacp_sess_state_up = Enum.YLeaf(5, "icpe-oper-sdacp-sess-state-up")
 
-    icpe_oper_sdacp_sess_state_issu = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperSdacpSessStateEnum']
+    icpe_oper_sdacp_sess_state_issu = Enum.YLeaf(6, "icpe-oper-sdacp-sess-state-issu")
 
 
-class IcpeOperTopoRemoteSourceEnum(Enum):
+class IcpeOperTopoRemoteSource(Enum):
     """
-    IcpeOperTopoRemoteSourceEnum
+    IcpeOperTopoRemoteSource
 
     Icpe oper topo remote source
 
@@ -728,28 +662,22 @@ class IcpeOperTopoRemoteSourceEnum(Enum):
 
     """
 
-    icpe_oper_topo_remote_source_unknown = 0
+    icpe_oper_topo_remote_source_unknown = Enum.YLeaf(0, "icpe-oper-topo-remote-source-unknown")
 
-    icpe_oper_topo_remote_source_remote_icl_id = 1
+    icpe_oper_topo_remote_source_remote_icl_id = Enum.YLeaf(1, "icpe-oper-topo-remote-source-remote-icl-id")
 
-    icpe_oper_topo_remote_source_remote_satellite_mac = 2
+    icpe_oper_topo_remote_source_remote_satellite_mac = Enum.YLeaf(2, "icpe-oper-topo-remote-source-remote-satellite-mac")
 
-    icpe_oper_topo_remote_source_remote_host_mac = 3
+    icpe_oper_topo_remote_source_remote_host_mac = Enum.YLeaf(3, "icpe-oper-topo-remote-source-remote-host-mac")
 
-    icpe_oper_topo_remote_source_direct_satellite = 4
+    icpe_oper_topo_remote_source_direct_satellite = Enum.YLeaf(4, "icpe-oper-topo-remote-source-direct-satellite")
 
-    icpe_oper_topo_remote_source_direct_host = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperTopoRemoteSourceEnum']
+    icpe_oper_topo_remote_source_direct_host = Enum.YLeaf(5, "icpe-oper-topo-remote-source-direct-host")
 
 
-class IcpeOperVerCheckStateEnum(Enum):
+class IcpeOperVerCheckState(Enum):
     """
-    IcpeOperVerCheckStateEnum
+    IcpeOperVerCheckState
 
     Icpe oper ver check state
 
@@ -775,26 +703,20 @@ class IcpeOperVerCheckStateEnum(Enum):
 
     """
 
-    icpe_oper_ver_check_state_unknown = 0
+    icpe_oper_ver_check_state_unknown = Enum.YLeaf(0, "icpe-oper-ver-check-state-unknown")
 
-    icpe_oper_ver_check_state_not_compatible = 1
+    icpe_oper_ver_check_state_not_compatible = Enum.YLeaf(1, "icpe-oper-ver-check-state-not-compatible")
 
-    icpe_oper_ver_check_state_current_version = 2
+    icpe_oper_ver_check_state_current_version = Enum.YLeaf(2, "icpe-oper-ver-check-state-current-version")
 
-    icpe_oper_ver_check_state_compatible_older = 3
+    icpe_oper_ver_check_state_compatible_older = Enum.YLeaf(3, "icpe-oper-ver-check-state-compatible-older")
 
-    icpe_oper_ver_check_state_compatible_newer = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOperVerCheckStateEnum']
+    icpe_oper_ver_check_state_compatible_newer = Enum.YLeaf(4, "icpe-oper-ver-check-state-compatible-newer")
 
 
-class IcpeOpmArbitrationFsmStateEnum(Enum):
+class IcpeOpmArbitrationFsmState(Enum):
     """
-    IcpeOpmArbitrationFsmStateEnum
+    IcpeOpmArbitrationFsmState
 
     Icpe opm arbitration fsm state
 
@@ -816,24 +738,18 @@ class IcpeOpmArbitrationFsmStateEnum(Enum):
 
     """
 
-    icpe_opm_arbitration_fsm_state_unarbitrated = 0
+    icpe_opm_arbitration_fsm_state_unarbitrated = Enum.YLeaf(0, "icpe-opm-arbitration-fsm-state-unarbitrated")
 
-    icpe_opm_arbitration_fsm_state_waiting = 1
+    icpe_opm_arbitration_fsm_state_waiting = Enum.YLeaf(1, "icpe-opm-arbitration-fsm-state-waiting")
 
-    icpe_opm_arbitration_fsm_state_arbitrating = 2
+    icpe_opm_arbitration_fsm_state_arbitrating = Enum.YLeaf(2, "icpe-opm-arbitration-fsm-state-arbitrating")
 
-    icpe_opm_arbitration_fsm_state_arbitrated = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmArbitrationFsmStateEnum']
+    icpe_opm_arbitration_fsm_state_arbitrated = Enum.YLeaf(3, "icpe-opm-arbitration-fsm-state-arbitrated")
 
 
-class IcpeOpmAuthFsmStateEnum(Enum):
+class IcpeOpmAuthFsmState(Enum):
     """
-    IcpeOpmAuthFsmStateEnum
+    IcpeOpmAuthFsmState
 
     Icpe opm auth fsm state
 
@@ -859,26 +775,20 @@ class IcpeOpmAuthFsmStateEnum(Enum):
 
     """
 
-    icpe_opm_auth_fsm_state_unauth = 0
+    icpe_opm_auth_fsm_state_unauth = Enum.YLeaf(0, "icpe-opm-auth-fsm-state-unauth")
 
-    icpe_opm_auth_fsm_state_waiting = 1
+    icpe_opm_auth_fsm_state_waiting = Enum.YLeaf(1, "icpe-opm-auth-fsm-state-waiting")
 
-    icpe_opm_auth_fsm_state_waiting_for_auth = 2
+    icpe_opm_auth_fsm_state_waiting_for_auth = Enum.YLeaf(2, "icpe-opm-auth-fsm-state-waiting-for-auth")
 
-    icpe_opm_auth_fsm_state_waiting_for_reply = 3
+    icpe_opm_auth_fsm_state_waiting_for_reply = Enum.YLeaf(3, "icpe-opm-auth-fsm-state-waiting-for-reply")
 
-    icpe_opm_auth_fsm_state_authed = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmAuthFsmStateEnum']
+    icpe_opm_auth_fsm_state_authed = Enum.YLeaf(4, "icpe-opm-auth-fsm-state-authed")
 
 
-class IcpeOpmChanFsmStateEnum(Enum):
+class IcpeOpmChanFsmState(Enum):
     """
-    IcpeOpmChanFsmStateEnum
+    IcpeOpmChanFsmState
 
     Icpe opm chan fsm state
 
@@ -904,26 +814,20 @@ class IcpeOpmChanFsmStateEnum(Enum):
 
     """
 
-    icpe_opm_chan_fsm_state_down = 0
+    icpe_opm_chan_fsm_state_down = Enum.YLeaf(0, "icpe-opm-chan-fsm-state-down")
 
-    icpe_opm_chan_fsm_state_closed = 1
+    icpe_opm_chan_fsm_state_closed = Enum.YLeaf(1, "icpe-opm-chan-fsm-state-closed")
 
-    icpe_opm_chan_fsm_state_opening = 2
+    icpe_opm_chan_fsm_state_opening = Enum.YLeaf(2, "icpe-opm-chan-fsm-state-opening")
 
-    icpe_opm_chan_fsm_state_opened = 3
+    icpe_opm_chan_fsm_state_opened = Enum.YLeaf(3, "icpe-opm-chan-fsm-state-opened")
 
-    icpe_opm_chan_fsm_state_open = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmChanFsmStateEnum']
+    icpe_opm_chan_fsm_state_open = Enum.YLeaf(4, "icpe-opm-chan-fsm-state-open")
 
 
-class IcpeOpmControllerEnum(Enum):
+class IcpeOpmController(Enum):
     """
-    IcpeOpmControllerEnum
+    IcpeOpmController
 
     Icpe opm controller
 
@@ -941,22 +845,16 @@ class IcpeOpmControllerEnum(Enum):
 
     """
 
-    icpe_opm_controller_unknown = 0
+    icpe_opm_controller_unknown = Enum.YLeaf(0, "icpe-opm-controller-unknown")
 
-    icpe_opm_controller_primary = 1
+    icpe_opm_controller_primary = Enum.YLeaf(1, "icpe-opm-controller-primary")
 
-    icpe_opm_controller_secondary = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmControllerEnum']
+    icpe_opm_controller_secondary = Enum.YLeaf(2, "icpe-opm-controller-secondary")
 
 
-class IcpeOpmResyncFsmStateEnum(Enum):
+class IcpeOpmResyncFsmState(Enum):
     """
-    IcpeOpmResyncFsmStateEnum
+    IcpeOpmResyncFsmState
 
     Icpe opm resync fsm state
 
@@ -982,26 +880,20 @@ class IcpeOpmResyncFsmStateEnum(Enum):
 
     """
 
-    icpe_opm_resync_fsm_state_not_open = 0
+    icpe_opm_resync_fsm_state_not_open = Enum.YLeaf(0, "icpe-opm-resync-fsm-state-not-open")
 
-    icpe_opm_resync_fsm_state_stable = 1
+    icpe_opm_resync_fsm_state_stable = Enum.YLeaf(1, "icpe-opm-resync-fsm-state-stable")
 
-    icpe_opm_resync_fsm_state_in_resync = 2
+    icpe_opm_resync_fsm_state_in_resync = Enum.YLeaf(2, "icpe-opm-resync-fsm-state-in-resync")
 
-    icpe_opm_resync_fsm_state_queued = 3
+    icpe_opm_resync_fsm_state_queued = Enum.YLeaf(3, "icpe-opm-resync-fsm-state-queued")
 
-    icpe_opm_resync_fsm_state_resync_req = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmResyncFsmStateEnum']
+    icpe_opm_resync_fsm_state_resync_req = Enum.YLeaf(4, "icpe-opm-resync-fsm-state-resync-req")
 
 
-class IcpeOpmSessStateEnum(Enum):
+class IcpeOpmSessState(Enum):
     """
-    IcpeOpmSessStateEnum
+    IcpeOpmSessState
 
     Icpe opm sess state
 
@@ -1031,28 +923,22 @@ class IcpeOpmSessStateEnum(Enum):
 
     """
 
-    icpe_opm_sess_state_disconnected = 0
+    icpe_opm_sess_state_disconnected = Enum.YLeaf(0, "icpe-opm-sess-state-disconnected")
 
-    icpe_opm_sess_state_connecting = 1
+    icpe_opm_sess_state_connecting = Enum.YLeaf(1, "icpe-opm-sess-state-connecting")
 
-    icpe_opm_sess_state_authenticating = 2
+    icpe_opm_sess_state_authenticating = Enum.YLeaf(2, "icpe-opm-sess-state-authenticating")
 
-    icpe_opm_sess_state_arbitrating = 3
+    icpe_opm_sess_state_arbitrating = Enum.YLeaf(3, "icpe-opm-sess-state-arbitrating")
 
-    icpe_opm_sess_state_waiting_for_resyncs = 4
+    icpe_opm_sess_state_waiting_for_resyncs = Enum.YLeaf(4, "icpe-opm-sess-state-waiting-for-resyncs")
 
-    icpe_opm_sess_state_connected = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmSessStateEnum']
+    icpe_opm_sess_state_connected = Enum.YLeaf(5, "icpe-opm-sess-state-connected")
 
 
-class IcpeOpmSyncFsmStateEnum(Enum):
+class IcpeOpmSyncFsmState(Enum):
     """
-    IcpeOpmSyncFsmStateEnum
+    IcpeOpmSyncFsmState
 
     Icpe opm sync fsm state
 
@@ -1070,22 +956,16 @@ class IcpeOpmSyncFsmStateEnum(Enum):
 
     """
 
-    icpe_opm_sync_fsm_state_split_brain = 0
+    icpe_opm_sync_fsm_state_split_brain = Enum.YLeaf(0, "icpe-opm-sync-fsm-state-split-brain")
 
-    icpe_opm_sync_fsm_state_waiting = 1
+    icpe_opm_sync_fsm_state_waiting = Enum.YLeaf(1, "icpe-opm-sync-fsm-state-waiting")
 
-    icpe_opm_sync_fsm_state_whole_brain = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmSyncFsmStateEnum']
+    icpe_opm_sync_fsm_state_whole_brain = Enum.YLeaf(2, "icpe-opm-sync-fsm-state-whole-brain")
 
 
-class IcpeOpmTransportStateEnum(Enum):
+class IcpeOpmTransportState(Enum):
     """
-    IcpeOpmTransportStateEnum
+    IcpeOpmTransportState
 
     Icpe opm transport state
 
@@ -1123,32 +1003,26 @@ class IcpeOpmTransportStateEnum(Enum):
 
     """
 
-    icpe_opm_transport_state_disconnected = 0
+    icpe_opm_transport_state_disconnected = Enum.YLeaf(0, "icpe-opm-transport-state-disconnected")
 
-    icpe_opm_transport_state_iccp_unavailable = 1
+    icpe_opm_transport_state_iccp_unavailable = Enum.YLeaf(1, "icpe-opm-transport-state-iccp-unavailable")
 
-    icpe_opm_transport_state_no_member_present = 2
+    icpe_opm_transport_state_no_member_present = Enum.YLeaf(2, "icpe-opm-transport-state-no-member-present")
 
-    icpe_opm_transport_state_member_down = 3
+    icpe_opm_transport_state_member_down = Enum.YLeaf(3, "icpe-opm-transport-state-member-down")
 
-    icpe_opm_transport_state_member_not_reachable = 4
+    icpe_opm_transport_state_member_not_reachable = Enum.YLeaf(4, "icpe-opm-transport-state-member-not-reachable")
 
-    icpe_opm_transport_state_waiting_for_app_connect = 5
+    icpe_opm_transport_state_waiting_for_app_connect = Enum.YLeaf(5, "icpe-opm-transport-state-waiting-for-app-connect")
 
-    icpe_opm_transport_state_waiting_for_app_connect_response = 6
+    icpe_opm_transport_state_waiting_for_app_connect_response = Enum.YLeaf(6, "icpe-opm-transport-state-waiting-for-app-connect-response")
 
-    icpe_opm_transport_state_connected = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpmTransportStateEnum']
+    icpe_opm_transport_state_connected = Enum.YLeaf(7, "icpe-opm-transport-state-connected")
 
 
-class IcpeOpticalSyncStateEnum(Enum):
+class IcpeOpticalSyncState(Enum):
     """
-    IcpeOpticalSyncStateEnum
+    IcpeOpticalSyncState
 
     Icpe optical sync state
 
@@ -1170,23 +1044,17 @@ class IcpeOpticalSyncStateEnum(Enum):
 
     """
 
-    icpe_optical_sync_state_unknown = 0
+    icpe_optical_sync_state_unknown = Enum.YLeaf(0, "icpe-optical-sync-state-unknown")
 
-    icpe_optical_sync_state_syncing = 1
+    icpe_optical_sync_state_syncing = Enum.YLeaf(1, "icpe-optical-sync-state-syncing")
 
-    icpe_optical_sync_state_synced = 2
+    icpe_optical_sync_state_synced = Enum.YLeaf(2, "icpe-optical-sync-state-synced")
 
-    icpe_optical_sync_state_not_connected = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['IcpeOpticalSyncStateEnum']
+    icpe_optical_sync_state_not_connected = Enum.YLeaf(3, "icpe-optical-sync-state-not-connected")
 
 
 
-class NvSatellite(object):
+class NvSatellite(Entity):
     """
     Satellite operational information
     
@@ -1278,41 +1146,94 @@ class NvSatellite(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(NvSatellite, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "nv-satellite"
+        self.yang_parent_name = "Cisco-IOS-XR-icpe-infra-oper"
+
         self.icpe_dpms = NvSatellite.IcpeDpms()
         self.icpe_dpms.parent = self
+        self._children_name_map["icpe_dpms"] = "icpe-dpms"
+        self._children_yang_names.add("icpe-dpms")
+
         self.install = NvSatellite.Install()
         self.install.parent = self
+        self._children_name_map["install"] = "install"
+        self._children_yang_names.add("install")
+
         self.install_op_statuses = NvSatellite.InstallOpStatuses()
         self.install_op_statuses.parent = self
+        self._children_name_map["install_op_statuses"] = "install-op-statuses"
+        self._children_yang_names.add("install-op-statuses")
+
         self.install_progresses = NvSatellite.InstallProgresses()
         self.install_progresses.parent = self
+        self._children_name_map["install_progresses"] = "install-progresses"
+        self._children_yang_names.add("install-progresses")
+
         self.install_shows = NvSatellite.InstallShows()
         self.install_shows.parent = self
+        self._children_name_map["install_shows"] = "install-shows"
+        self._children_yang_names.add("install-shows")
+
         self.install_statuses = NvSatellite.InstallStatuses()
         self.install_statuses.parent = self
+        self._children_name_map["install_statuses"] = "install-statuses"
+        self._children_yang_names.add("install-statuses")
+
         self.reload_op_statuses = NvSatellite.ReloadOpStatuses()
         self.reload_op_statuses.parent = self
+        self._children_name_map["reload_op_statuses"] = "reload-op-statuses"
+        self._children_yang_names.add("reload-op-statuses")
+
         self.reload_statuses = NvSatellite.ReloadStatuses()
         self.reload_statuses.parent = self
+        self._children_name_map["reload_statuses"] = "reload-statuses"
+        self._children_yang_names.add("reload-statuses")
+
         self.satellite_priorities = NvSatellite.SatellitePriorities()
         self.satellite_priorities.parent = self
+        self._children_name_map["satellite_priorities"] = "satellite-priorities"
+        self._children_yang_names.add("satellite-priorities")
+
         self.satellite_properties = NvSatellite.SatelliteProperties()
         self.satellite_properties.parent = self
+        self._children_name_map["satellite_properties"] = "satellite-properties"
+        self._children_yang_names.add("satellite-properties")
+
         self.satellite_statuses = NvSatellite.SatelliteStatuses()
         self.satellite_statuses.parent = self
+        self._children_name_map["satellite_statuses"] = "satellite-statuses"
+        self._children_yang_names.add("satellite-statuses")
+
         self.satellite_topologies = NvSatellite.SatelliteTopologies()
         self.satellite_topologies.parent = self
+        self._children_name_map["satellite_topologies"] = "satellite-topologies"
+        self._children_yang_names.add("satellite-topologies")
+
         self.satellite_versions = NvSatellite.SatelliteVersions()
         self.satellite_versions.parent = self
+        self._children_name_map["satellite_versions"] = "satellite-versions"
+        self._children_yang_names.add("satellite-versions")
+
         self.sdacp_controls = NvSatellite.SdacpControls()
         self.sdacp_controls.parent = self
+        self._children_name_map["sdacp_controls"] = "sdacp-controls"
+        self._children_yang_names.add("sdacp-controls")
+
         self.sdacp_discovery2s = NvSatellite.SdacpDiscovery2S()
         self.sdacp_discovery2s.parent = self
+        self._children_name_map["sdacp_discovery2s"] = "sdacp-discovery2s"
+        self._children_yang_names.add("sdacp-discovery2s")
+
         self.sdacp_redundancies = NvSatellite.SdacpRedundancies()
         self.sdacp_redundancies.parent = self
+        self._children_name_map["sdacp_redundancies"] = "sdacp-redundancies"
+        self._children_yang_names.add("sdacp-redundancies")
 
 
-    class ReloadOpStatuses(object):
+    class ReloadOpStatuses(Entity):
         """
         Detailed breakdown of reload status table
         
@@ -1329,13 +1250,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.reload_op_status = YList()
-            self.reload_op_status.parent = self
-            self.reload_op_status.name = 'reload_op_status'
+            super(NvSatellite.ReloadOpStatuses, self).__init__()
+
+            self.yang_name = "reload-op-statuses"
+            self.yang_parent_name = "nv-satellite"
+
+            self.reload_op_status = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.ReloadOpStatuses, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.ReloadOpStatuses, self).__setattr__(name, value)
 
 
-        class ReloadOpStatus(object):
+        class ReloadOpStatus(Entity):
             """
             Detailed breakdown of reload status
             
@@ -1394,95 +1341,221 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.operation_id = None
-                self.operation_id_xr = None
-                self.satellite_range = None
-                self.sats_not_initiated = YLeafList()
-                self.sats_not_initiated.parent = self
-                self.sats_not_initiated.name = 'sats_not_initiated'
-                self.sats_reload_failed = YLeafList()
-                self.sats_reload_failed.parent = self
-                self.sats_reload_failed.name = 'sats_reload_failed'
-                self.sats_reloaded = YLeafList()
-                self.sats_reloaded.parent = self
-                self.sats_reloaded.name = 'sats_reloaded'
-                self.sats_reloading = YLeafList()
-                self.sats_reloading.parent = self
-                self.sats_reloading.name = 'sats_reloading'
+                super(NvSatellite.ReloadOpStatuses.ReloadOpStatus, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.operation_id is None:
-                    raise YPYModelError('Key property operation_id is None')
+                self.yang_name = "reload-op-status"
+                self.yang_parent_name = "reload-op-statuses"
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:reload-op-statuses/Cisco-IOS-XR-icpe-infra-oper:reload-op-status[Cisco-IOS-XR-icpe-infra-oper:operation-id = ' + str(self.operation_id) + ']'
+                self.operation_id = YLeaf(YType.uint32, "operation-id")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                self.operation_id_xr = YLeaf(YType.uint32, "operation-id-xr")
 
-            def _has_data(self):
-                if self.operation_id is not None:
-                    return True
+                self.satellite_range = YLeaf(YType.str, "satellite-range")
 
-                if self.operation_id_xr is not None:
-                    return True
+                self.sats_not_initiated = YLeafList(YType.uint16, "sats-not-initiated")
 
-                if self.satellite_range is not None:
-                    return True
+                self.sats_reload_failed = YLeafList(YType.uint16, "sats-reload-failed")
 
-                if self.sats_not_initiated is not None:
-                    for child in self.sats_not_initiated:
-                        if child is not None:
-                            return True
+                self.sats_reloaded = YLeafList(YType.uint16, "sats-reloaded")
 
-                if self.sats_reload_failed is not None:
-                    for child in self.sats_reload_failed:
-                        if child is not None:
-                            return True
+                self.sats_reloading = YLeafList(YType.uint16, "sats-reloading")
 
-                if self.sats_reloaded is not None:
-                    for child in self.sats_reloaded:
-                        if child is not None:
-                            return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("operation_id",
+                                "operation_id_xr",
+                                "satellite_range",
+                                "sats_not_initiated",
+                                "sats_reload_failed",
+                                "sats_reloaded",
+                                "sats_reloading") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.ReloadOpStatuses.ReloadOpStatus, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.ReloadOpStatuses.ReloadOpStatus, self).__setattr__(name, value)
 
-                if self.sats_reloading is not None:
-                    for child in self.sats_reloading:
-                        if child is not None:
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.ReloadOpStatuses.ReloadOpStatus']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:reload-op-statuses'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.reload_op_status is not None:
-                for child_ref in self.reload_op_status:
-                    if child_ref._has_data():
+            def has_data(self):
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                for leaf in self.sats_reload_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_reloaded.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_reloading.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.operation_id.is_set or
+                    self.operation_id_xr.is_set or
+                    self.satellite_range.is_set)
 
+            def has_operation(self):
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_reload_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_reloaded.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_reloading.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.operation_id.yfilter != YFilter.not_set or
+                    self.operation_id_xr.yfilter != YFilter.not_set or
+                    self.satellite_range.yfilter != YFilter.not_set or
+                    self.sats_not_initiated.yfilter != YFilter.not_set or
+                    self.sats_reload_failed.yfilter != YFilter.not_set or
+                    self.sats_reloaded.yfilter != YFilter.not_set or
+                    self.sats_reloading.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "reload-op-status" + "[operation-id='" + self.operation_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/reload-op-statuses/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.operation_id.is_set or self.operation_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_id.get_name_leafdata())
+                if (self.operation_id_xr.is_set or self.operation_id_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_id_xr.get_name_leafdata())
+                if (self.satellite_range.is_set or self.satellite_range.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_range.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_not_initiated.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_reload_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_reloaded.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_reloading.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "operation-id" or name == "operation-id-xr" or name == "satellite-range" or name == "sats-not-initiated" or name == "sats-reload-failed" or name == "sats-reloaded" or name == "sats-reloading"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "operation-id"):
+                    self.operation_id = value
+                    self.operation_id.value_namespace = name_space
+                    self.operation_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "operation-id-xr"):
+                    self.operation_id_xr = value
+                    self.operation_id_xr.value_namespace = name_space
+                    self.operation_id_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-range"):
+                    self.satellite_range = value
+                    self.satellite_range.value_namespace = name_space
+                    self.satellite_range.value_namespace_prefix = name_space_prefix
+                if(value_path == "sats-not-initiated"):
+                    self.sats_not_initiated.append(value)
+                if(value_path == "sats-reload-failed"):
+                    self.sats_reload_failed.append(value)
+                if(value_path == "sats-reloaded"):
+                    self.sats_reloaded.append(value)
+                if(value_path == "sats-reloading"):
+                    self.sats_reloading.append(value)
+
+        def has_data(self):
+            for c in self.reload_op_status:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.ReloadOpStatuses']['meta_info']
+        def has_operation(self):
+            for c in self.reload_op_status:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "reload-op-statuses" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "reload-op-status"):
+                for c in self.reload_op_status:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.ReloadOpStatuses.ReloadOpStatus()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.reload_op_status.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "reload-op-status"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class InstallStatuses(object):
+    class InstallStatuses(Entity):
         """
         Detailed breakdown of install status table
         
@@ -1499,13 +1572,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.install_status = YList()
-            self.install_status.parent = self
-            self.install_status.name = 'install_status'
+            super(NvSatellite.InstallStatuses, self).__init__()
+
+            self.yang_name = "install-statuses"
+            self.yang_parent_name = "nv-satellite"
+
+            self.install_status = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.InstallStatuses, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.InstallStatuses, self).__setattr__(name, value)
 
 
-        class InstallStatus(object):
+        class InstallStatus(Entity):
             """
             Detailed breakdown of install status
             
@@ -1662,207 +1761,417 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.satellite_range = None
-                self.operation_id = None
-                self.satellite_range_xr = None
-                self.sats_activate_aborted = YLeafList()
-                self.sats_activate_aborted.parent = self
-                self.sats_activate_aborted.name = 'sats_activate_aborted'
-                self.sats_activate_failed = YLeafList()
-                self.sats_activate_failed.parent = self
-                self.sats_activate_failed.name = 'sats_activate_failed'
-                self.sats_activating = YLeafList()
-                self.sats_activating.parent = self
-                self.sats_activating.name = 'sats_activating'
-                self.sats_completed = YLeafList()
-                self.sats_completed.parent = self
-                self.sats_completed.name = 'sats_completed'
-                self.sats_deactivate_aborted = YLeafList()
-                self.sats_deactivate_aborted.parent = self
-                self.sats_deactivate_aborted.name = 'sats_deactivate_aborted'
-                self.sats_deactivate_failed = YLeafList()
-                self.sats_deactivate_failed.parent = self
-                self.sats_deactivate_failed.name = 'sats_deactivate_failed'
-                self.sats_deactivating = YLeafList()
-                self.sats_deactivating.parent = self
-                self.sats_deactivating.name = 'sats_deactivating'
-                self.sats_no_operation = YLeafList()
-                self.sats_no_operation.parent = self
-                self.sats_no_operation.name = 'sats_no_operation'
-                self.sats_not_initiated = YLeafList()
-                self.sats_not_initiated.parent = self
-                self.sats_not_initiated.name = 'sats_not_initiated'
-                self.sats_remove_aborted = YLeafList()
-                self.sats_remove_aborted.parent = self
-                self.sats_remove_aborted.name = 'sats_remove_aborted'
-                self.sats_remove_failed = YLeafList()
-                self.sats_remove_failed.parent = self
-                self.sats_remove_failed.name = 'sats_remove_failed'
-                self.sats_removing = YLeafList()
-                self.sats_removing.parent = self
-                self.sats_removing.name = 'sats_removing'
-                self.sats_transfer_aborted = YLeafList()
-                self.sats_transfer_aborted.parent = self
-                self.sats_transfer_aborted.name = 'sats_transfer_aborted'
-                self.sats_transfer_failed = YLeafList()
-                self.sats_transfer_failed.parent = self
-                self.sats_transfer_failed.name = 'sats_transfer_failed'
-                self.sats_transferring = YLeafList()
-                self.sats_transferring.parent = self
-                self.sats_transferring.name = 'sats_transferring'
-                self.sats_update_aborted = YLeafList()
-                self.sats_update_aborted.parent = self
-                self.sats_update_aborted.name = 'sats_update_aborted'
-                self.sats_update_failed = YLeafList()
-                self.sats_update_failed.parent = self
-                self.sats_update_failed.name = 'sats_update_failed'
-                self.sats_updating = YLeafList()
-                self.sats_updating.parent = self
-                self.sats_updating.name = 'sats_updating'
+                super(NvSatellite.InstallStatuses.InstallStatus, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.satellite_range is None:
-                    raise YPYModelError('Key property satellite_range is None')
+                self.yang_name = "install-status"
+                self.yang_parent_name = "install-statuses"
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-statuses/Cisco-IOS-XR-icpe-infra-oper:install-status[Cisco-IOS-XR-icpe-infra-oper:satellite-range = ' + str(self.satellite_range) + ']'
+                self.satellite_range = YLeaf(YType.str, "satellite-range")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                self.operation_id = YLeaf(YType.uint32, "operation-id")
 
-            def _has_data(self):
-                if self.satellite_range is not None:
-                    return True
+                self.satellite_range_xr = YLeaf(YType.str, "satellite-range-xr")
 
-                if self.operation_id is not None:
-                    return True
+                self.sats_activate_aborted = YLeafList(YType.uint16, "sats-activate-aborted")
 
-                if self.satellite_range_xr is not None:
-                    return True
+                self.sats_activate_failed = YLeafList(YType.uint16, "sats-activate-failed")
 
-                if self.sats_activate_aborted is not None:
-                    for child in self.sats_activate_aborted:
-                        if child is not None:
-                            return True
+                self.sats_activating = YLeafList(YType.uint16, "sats-activating")
 
-                if self.sats_activate_failed is not None:
-                    for child in self.sats_activate_failed:
-                        if child is not None:
-                            return True
+                self.sats_completed = YLeafList(YType.uint16, "sats-completed")
 
-                if self.sats_activating is not None:
-                    for child in self.sats_activating:
-                        if child is not None:
-                            return True
+                self.sats_deactivate_aborted = YLeafList(YType.uint16, "sats-deactivate-aborted")
 
-                if self.sats_completed is not None:
-                    for child in self.sats_completed:
-                        if child is not None:
-                            return True
+                self.sats_deactivate_failed = YLeafList(YType.uint16, "sats-deactivate-failed")
 
-                if self.sats_deactivate_aborted is not None:
-                    for child in self.sats_deactivate_aborted:
-                        if child is not None:
-                            return True
+                self.sats_deactivating = YLeafList(YType.uint16, "sats-deactivating")
 
-                if self.sats_deactivate_failed is not None:
-                    for child in self.sats_deactivate_failed:
-                        if child is not None:
-                            return True
+                self.sats_no_operation = YLeafList(YType.uint16, "sats-no-operation")
 
-                if self.sats_deactivating is not None:
-                    for child in self.sats_deactivating:
-                        if child is not None:
-                            return True
+                self.sats_not_initiated = YLeafList(YType.uint16, "sats-not-initiated")
 
-                if self.sats_no_operation is not None:
-                    for child in self.sats_no_operation:
-                        if child is not None:
-                            return True
+                self.sats_remove_aborted = YLeafList(YType.uint16, "sats-remove-aborted")
 
-                if self.sats_not_initiated is not None:
-                    for child in self.sats_not_initiated:
-                        if child is not None:
-                            return True
+                self.sats_remove_failed = YLeafList(YType.uint16, "sats-remove-failed")
 
-                if self.sats_remove_aborted is not None:
-                    for child in self.sats_remove_aborted:
-                        if child is not None:
-                            return True
+                self.sats_removing = YLeafList(YType.uint16, "sats-removing")
 
-                if self.sats_remove_failed is not None:
-                    for child in self.sats_remove_failed:
-                        if child is not None:
-                            return True
+                self.sats_transfer_aborted = YLeafList(YType.uint16, "sats-transfer-aborted")
 
-                if self.sats_removing is not None:
-                    for child in self.sats_removing:
-                        if child is not None:
-                            return True
+                self.sats_transfer_failed = YLeafList(YType.uint16, "sats-transfer-failed")
 
-                if self.sats_transfer_aborted is not None:
-                    for child in self.sats_transfer_aborted:
-                        if child is not None:
-                            return True
+                self.sats_transferring = YLeafList(YType.uint16, "sats-transferring")
 
-                if self.sats_transfer_failed is not None:
-                    for child in self.sats_transfer_failed:
-                        if child is not None:
-                            return True
+                self.sats_update_aborted = YLeafList(YType.uint16, "sats-update-aborted")
 
-                if self.sats_transferring is not None:
-                    for child in self.sats_transferring:
-                        if child is not None:
-                            return True
+                self.sats_update_failed = YLeafList(YType.uint16, "sats-update-failed")
 
-                if self.sats_update_aborted is not None:
-                    for child in self.sats_update_aborted:
-                        if child is not None:
-                            return True
+                self.sats_updating = YLeafList(YType.uint16, "sats-updating")
 
-                if self.sats_update_failed is not None:
-                    for child in self.sats_update_failed:
-                        if child is not None:
-                            return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("satellite_range",
+                                "operation_id",
+                                "satellite_range_xr",
+                                "sats_activate_aborted",
+                                "sats_activate_failed",
+                                "sats_activating",
+                                "sats_completed",
+                                "sats_deactivate_aborted",
+                                "sats_deactivate_failed",
+                                "sats_deactivating",
+                                "sats_no_operation",
+                                "sats_not_initiated",
+                                "sats_remove_aborted",
+                                "sats_remove_failed",
+                                "sats_removing",
+                                "sats_transfer_aborted",
+                                "sats_transfer_failed",
+                                "sats_transferring",
+                                "sats_update_aborted",
+                                "sats_update_failed",
+                                "sats_updating") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.InstallStatuses.InstallStatus, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.InstallStatuses.InstallStatus, self).__setattr__(name, value)
 
-                if self.sats_updating is not None:
-                    for child in self.sats_updating:
-                        if child is not None:
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.InstallStatuses.InstallStatus']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-statuses'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.install_status is not None:
-                for child_ref in self.install_status:
-                    if child_ref._has_data():
+            def has_data(self):
+                for leaf in self.sats_activate_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                for leaf in self.sats_activate_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_activating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_completed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_deactivate_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_deactivate_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_deactivating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_no_operation.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_remove_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_remove_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_removing.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transfer_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transfer_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transferring.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_update_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_update_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_updating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.satellite_range.is_set or
+                    self.operation_id.is_set or
+                    self.satellite_range_xr.is_set)
 
+            def has_operation(self):
+                for leaf in self.sats_activate_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_activate_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_activating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_completed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivate_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivate_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_no_operation.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_remove_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_remove_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_removing.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transfer_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transfer_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transferring.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_update_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_update_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_updating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.satellite_range.yfilter != YFilter.not_set or
+                    self.operation_id.yfilter != YFilter.not_set or
+                    self.satellite_range_xr.yfilter != YFilter.not_set or
+                    self.sats_activate_aborted.yfilter != YFilter.not_set or
+                    self.sats_activate_failed.yfilter != YFilter.not_set or
+                    self.sats_activating.yfilter != YFilter.not_set or
+                    self.sats_completed.yfilter != YFilter.not_set or
+                    self.sats_deactivate_aborted.yfilter != YFilter.not_set or
+                    self.sats_deactivate_failed.yfilter != YFilter.not_set or
+                    self.sats_deactivating.yfilter != YFilter.not_set or
+                    self.sats_no_operation.yfilter != YFilter.not_set or
+                    self.sats_not_initiated.yfilter != YFilter.not_set or
+                    self.sats_remove_aborted.yfilter != YFilter.not_set or
+                    self.sats_remove_failed.yfilter != YFilter.not_set or
+                    self.sats_removing.yfilter != YFilter.not_set or
+                    self.sats_transfer_aborted.yfilter != YFilter.not_set or
+                    self.sats_transfer_failed.yfilter != YFilter.not_set or
+                    self.sats_transferring.yfilter != YFilter.not_set or
+                    self.sats_update_aborted.yfilter != YFilter.not_set or
+                    self.sats_update_failed.yfilter != YFilter.not_set or
+                    self.sats_updating.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "install-status" + "[satellite-range='" + self.satellite_range.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-statuses/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.satellite_range.is_set or self.satellite_range.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_range.get_name_leafdata())
+                if (self.operation_id.is_set or self.operation_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_id.get_name_leafdata())
+                if (self.satellite_range_xr.is_set or self.satellite_range_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_range_xr.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activate_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activate_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activating.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_completed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivate_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivate_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivating.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_no_operation.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_not_initiated.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_remove_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_remove_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_removing.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transfer_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transfer_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transferring.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_update_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_update_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_updating.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "satellite-range" or name == "operation-id" or name == "satellite-range-xr" or name == "sats-activate-aborted" or name == "sats-activate-failed" or name == "sats-activating" or name == "sats-completed" or name == "sats-deactivate-aborted" or name == "sats-deactivate-failed" or name == "sats-deactivating" or name == "sats-no-operation" or name == "sats-not-initiated" or name == "sats-remove-aborted" or name == "sats-remove-failed" or name == "sats-removing" or name == "sats-transfer-aborted" or name == "sats-transfer-failed" or name == "sats-transferring" or name == "sats-update-aborted" or name == "sats-update-failed" or name == "sats-updating"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "satellite-range"):
+                    self.satellite_range = value
+                    self.satellite_range.value_namespace = name_space
+                    self.satellite_range.value_namespace_prefix = name_space_prefix
+                if(value_path == "operation-id"):
+                    self.operation_id = value
+                    self.operation_id.value_namespace = name_space
+                    self.operation_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-range-xr"):
+                    self.satellite_range_xr = value
+                    self.satellite_range_xr.value_namespace = name_space
+                    self.satellite_range_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "sats-activate-aborted"):
+                    self.sats_activate_aborted.append(value)
+                if(value_path == "sats-activate-failed"):
+                    self.sats_activate_failed.append(value)
+                if(value_path == "sats-activating"):
+                    self.sats_activating.append(value)
+                if(value_path == "sats-completed"):
+                    self.sats_completed.append(value)
+                if(value_path == "sats-deactivate-aborted"):
+                    self.sats_deactivate_aborted.append(value)
+                if(value_path == "sats-deactivate-failed"):
+                    self.sats_deactivate_failed.append(value)
+                if(value_path == "sats-deactivating"):
+                    self.sats_deactivating.append(value)
+                if(value_path == "sats-no-operation"):
+                    self.sats_no_operation.append(value)
+                if(value_path == "sats-not-initiated"):
+                    self.sats_not_initiated.append(value)
+                if(value_path == "sats-remove-aborted"):
+                    self.sats_remove_aborted.append(value)
+                if(value_path == "sats-remove-failed"):
+                    self.sats_remove_failed.append(value)
+                if(value_path == "sats-removing"):
+                    self.sats_removing.append(value)
+                if(value_path == "sats-transfer-aborted"):
+                    self.sats_transfer_aborted.append(value)
+                if(value_path == "sats-transfer-failed"):
+                    self.sats_transfer_failed.append(value)
+                if(value_path == "sats-transferring"):
+                    self.sats_transferring.append(value)
+                if(value_path == "sats-update-aborted"):
+                    self.sats_update_aborted.append(value)
+                if(value_path == "sats-update-failed"):
+                    self.sats_update_failed.append(value)
+                if(value_path == "sats-updating"):
+                    self.sats_updating.append(value)
+
+        def has_data(self):
+            for c in self.install_status:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.InstallStatuses']['meta_info']
+        def has_operation(self):
+            for c in self.install_status:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "install-statuses" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "install-status"):
+                for c in self.install_status:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.InstallStatuses.InstallStatus()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.install_status.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "install-status"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SdacpRedundancies(object):
+    class SdacpRedundancies(Entity):
         """
         nV Satellite Redundancy Protocol Information
         table
@@ -1880,13 +2189,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.sdacp_redundancy = YList()
-            self.sdacp_redundancy.parent = self
-            self.sdacp_redundancy.name = 'sdacp_redundancy'
+            super(NvSatellite.SdacpRedundancies, self).__init__()
+
+            self.yang_name = "sdacp-redundancies"
+            self.yang_parent_name = "nv-satellite"
+
+            self.sdacp_redundancy = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.SdacpRedundancies, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.SdacpRedundancies, self).__setattr__(name, value)
 
 
-        class SdacpRedundancy(object):
+        class SdacpRedundancy(Entity):
             """
             nV Satellite Redundancy Protocol Information
             
@@ -1900,12 +2235,12 @@ class NvSatellite(object):
             .. attribute:: arbitration_state
             
             	Arbitration state
-            	**type**\:   :py:class:`IcpeOpmArbitrationFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmArbitrationFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmArbitrationFsmState>`
             
             .. attribute:: authentication_state
             
             	Authentication state
-            	**type**\:   :py:class:`IcpeOpmAuthFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmAuthFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmAuthFsmState>`
             
             .. attribute:: channel
             
@@ -1927,12 +2262,12 @@ class NvSatellite(object):
             .. attribute:: primacy
             
             	Primacy
-            	**type**\:   :py:class:`IcpeOpmControllerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmControllerEnum>`
+            	**type**\:   :py:class:`IcpeOpmController <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmController>`
             
             .. attribute:: protocol_state
             
             	Protocol state
-            	**type**\:   :py:class:`IcpeOpmSessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmSessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSessState>`
             
             .. attribute:: protocol_state_timestamp
             
@@ -1942,7 +2277,7 @@ class NvSatellite(object):
             .. attribute:: synchronization_state
             
             	Synchronization state
-            	**type**\:   :py:class:`IcpeOpmSyncFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmSyncFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmSyncFsmState>`
             
             .. attribute:: system_mac
             
@@ -1954,7 +2289,7 @@ class NvSatellite(object):
             .. attribute:: transport_state
             
             	Transport state
-            	**type**\:   :py:class:`IcpeOpmTransportStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportStateEnum>`
+            	**type**\:   :py:class:`IcpeOpmTransportState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmTransportState>`
             
             
 
@@ -1964,25 +2299,73 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.iccp_group = None
-                self.arbitration_state = None
-                self.authentication_state = None
-                self.channel = YList()
-                self.channel.parent = self
-                self.channel.name = 'channel'
-                self.iccp_group_xr = None
-                self.isolated = None
-                self.primacy = None
-                self.protocol_state = None
+                super(NvSatellite.SdacpRedundancies.SdacpRedundancy, self).__init__()
+
+                self.yang_name = "sdacp-redundancy"
+                self.yang_parent_name = "sdacp-redundancies"
+
+                self.iccp_group = YLeaf(YType.uint32, "iccp-group")
+
+                self.arbitration_state = YLeaf(YType.enumeration, "arbitration-state")
+
+                self.authentication_state = YLeaf(YType.enumeration, "authentication-state")
+
+                self.iccp_group_xr = YLeaf(YType.uint32, "iccp-group-xr")
+
+                self.isolated = YLeaf(YType.boolean, "isolated")
+
+                self.primacy = YLeaf(YType.enumeration, "primacy")
+
+                self.protocol_state = YLeaf(YType.enumeration, "protocol-state")
+
+                self.synchronization_state = YLeaf(YType.enumeration, "synchronization-state")
+
+                self.system_mac = YLeaf(YType.str, "system-mac")
+
+                self.transport_state = YLeaf(YType.enumeration, "transport-state")
+
                 self.protocol_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp()
                 self.protocol_state_timestamp.parent = self
-                self.synchronization_state = None
-                self.system_mac = None
-                self.transport_state = None
+                self._children_name_map["protocol_state_timestamp"] = "protocol-state-timestamp"
+                self._children_yang_names.add("protocol-state-timestamp")
+
+                self.channel = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("iccp_group",
+                                "arbitration_state",
+                                "authentication_state",
+                                "iccp_group_xr",
+                                "isolated",
+                                "primacy",
+                                "protocol_state",
+                                "synchronization_state",
+                                "system_mac",
+                                "transport_state") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SdacpRedundancies.SdacpRedundancy, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SdacpRedundancies.SdacpRedundancy, self).__setattr__(name, value)
 
 
-            class ProtocolStateTimestamp(object):
+            class ProtocolStateTimestamp(Entity):
                 """
                 Timestamp
                 
@@ -2012,44 +2395,104 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.nanoseconds = None
-                    self.seconds = None
+                    super(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "protocol-state-timestamp"
+                    self.yang_parent_name = "sdacp-redundancy"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:protocol-state-timestamp'
+                    self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.seconds = YLeaf(YType.uint32, "seconds")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("nanoseconds",
+                                    "seconds") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.nanoseconds.is_set or
+                        self.seconds.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.nanoseconds.yfilter != YFilter.not_set or
+                        self.seconds.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "protocol-state-timestamp" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                    if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "nanoseconds" or name == "seconds"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.nanoseconds is not None:
-                        return True
-
-                    if self.seconds is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "nanoseconds"):
+                        self.nanoseconds = value
+                        self.nanoseconds.value_namespace = name_space
+                        self.nanoseconds.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds"):
+                        self.seconds = value
+                        self.seconds.value_namespace = name_space
+                        self.seconds.value_namespace_prefix = name_space_prefix
 
 
-            class Channel(object):
+            class Channel(Entity):
                 """
                 Channels on this session table
                 
                 .. attribute:: chan_state
                 
                 	Chan state
-                	**type**\:   :py:class:`IcpeOpmChanFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmStateEnum>`
+                	**type**\:   :py:class:`IcpeOpmChanFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmChanFsmState>`
                 
                 .. attribute:: channel_id
                 
@@ -2094,7 +2537,7 @@ class NvSatellite(object):
                 .. attribute:: resync_state
                 
                 	Resync state
-                	**type**\:   :py:class:`IcpeOpmResyncFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmStateEnum>`
+                	**type**\:   :py:class:`IcpeOpmResyncFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpmResyncFsmState>`
                 
                 .. attribute:: resync_state_timestamp
                 
@@ -2109,21 +2552,67 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.chan_state = None
-                    self.channel_id = None
+                    super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, self).__init__()
+
+                    self.yang_name = "channel"
+                    self.yang_parent_name = "sdacp-redundancy"
+
+                    self.chan_state = YLeaf(YType.enumeration, "chan-state")
+
+                    self.channel_id = YLeaf(YType.uint32, "channel-id")
+
+                    self.control_messages_received = YLeaf(YType.uint64, "control-messages-received")
+
+                    self.control_messages_sent = YLeaf(YType.uint64, "control-messages-sent")
+
+                    self.normal_messages_received = YLeaf(YType.uint64, "normal-messages-received")
+
+                    self.normal_messages_sent = YLeaf(YType.uint64, "normal-messages-sent")
+
+                    self.resync_state = YLeaf(YType.enumeration, "resync-state")
+
                     self.channel_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp()
                     self.channel_state_timestamp.parent = self
-                    self.control_messages_received = None
-                    self.control_messages_sent = None
-                    self.normal_messages_received = None
-                    self.normal_messages_sent = None
-                    self.resync_state = None
+                    self._children_name_map["channel_state_timestamp"] = "channel-state-timestamp"
+                    self._children_yang_names.add("channel-state-timestamp")
+
                     self.resync_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp()
                     self.resync_state_timestamp.parent = self
+                    self._children_name_map["resync_state_timestamp"] = "resync-state-timestamp"
+                    self._children_yang_names.add("resync-state-timestamp")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("chan_state",
+                                    "channel_id",
+                                    "control_messages_received",
+                                    "control_messages_sent",
+                                    "normal_messages_received",
+                                    "normal_messages_sent",
+                                    "resync_state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel, self).__setattr__(name, value)
 
 
-                class ChannelStateTimestamp(object):
+                class ChannelStateTimestamp(Entity):
                     """
                     Timestamp
                     
@@ -2153,37 +2642,97 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "channel-state-timestamp"
+                        self.yang_parent_name = "channel"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:channel-state-timestamp'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "channel-state-timestamp" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class ResyncStateTimestamp(object):
+                class ResyncStateTimestamp(Entity):
                     """
                     Timestamp
                     
@@ -2213,162 +2762,413 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "resync-state-timestamp"
+                        self.yang_parent_name = "channel"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:resync-state-timestamp'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "resync-state-timestamp" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
-                        if self.seconds is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        self.chan_state.is_set or
+                        self.channel_id.is_set or
+                        self.control_messages_received.is_set or
+                        self.control_messages_sent.is_set or
+                        self.normal_messages_received.is_set or
+                        self.normal_messages_sent.is_set or
+                        self.resync_state.is_set or
+                        (self.channel_state_timestamp is not None and self.channel_state_timestamp.has_data()) or
+                        (self.resync_state_timestamp is not None and self.resync_state_timestamp.has_data()))
 
-                        return False
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.chan_state.yfilter != YFilter.not_set or
+                        self.channel_id.yfilter != YFilter.not_set or
+                        self.control_messages_received.yfilter != YFilter.not_set or
+                        self.control_messages_sent.yfilter != YFilter.not_set or
+                        self.normal_messages_received.yfilter != YFilter.not_set or
+                        self.normal_messages_sent.yfilter != YFilter.not_set or
+                        self.resync_state.yfilter != YFilter.not_set or
+                        (self.channel_state_timestamp is not None and self.channel_state_timestamp.has_operation()) or
+                        (self.resync_state_timestamp is not None and self.resync_state_timestamp.has_operation()))
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp']['meta_info']
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "channel" + path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    return path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:channel'
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    leaf_name_data = LeafDataList()
+                    if (self.chan_state.is_set or self.chan_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.chan_state.get_name_leafdata())
+                    if (self.channel_id.is_set or self.channel_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.channel_id.get_name_leafdata())
+                    if (self.control_messages_received.is_set or self.control_messages_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.control_messages_received.get_name_leafdata())
+                    if (self.control_messages_sent.is_set or self.control_messages_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.control_messages_sent.get_name_leafdata())
+                    if (self.normal_messages_received.is_set or self.normal_messages_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.normal_messages_received.get_name_leafdata())
+                    if (self.normal_messages_sent.is_set or self.normal_messages_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.normal_messages_sent.get_name_leafdata())
+                    if (self.resync_state.is_set or self.resync_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.resync_state.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "channel-state-timestamp"):
+                        if (self.channel_state_timestamp is None):
+                            self.channel_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp()
+                            self.channel_state_timestamp.parent = self
+                            self._children_name_map["channel_state_timestamp"] = "channel-state-timestamp"
+                        return self.channel_state_timestamp
+
+                    if (child_yang_name == "resync-state-timestamp"):
+                        if (self.resync_state_timestamp is None):
+                            self.resync_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp()
+                            self.resync_state_timestamp.parent = self
+                            self._children_name_map["resync_state_timestamp"] = "resync-state-timestamp"
+                        return self.resync_state_timestamp
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "channel-state-timestamp" or name == "resync-state-timestamp" or name == "chan-state" or name == "channel-id" or name == "control-messages-received" or name == "control-messages-sent" or name == "normal-messages-received" or name == "normal-messages-sent" or name == "resync-state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.chan_state is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "chan-state"):
+                        self.chan_state = value
+                        self.chan_state.value_namespace = name_space
+                        self.chan_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "channel-id"):
+                        self.channel_id = value
+                        self.channel_id.value_namespace = name_space
+                        self.channel_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "control-messages-received"):
+                        self.control_messages_received = value
+                        self.control_messages_received.value_namespace = name_space
+                        self.control_messages_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "control-messages-sent"):
+                        self.control_messages_sent = value
+                        self.control_messages_sent.value_namespace = name_space
+                        self.control_messages_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "normal-messages-received"):
+                        self.normal_messages_received = value
+                        self.normal_messages_received.value_namespace = name_space
+                        self.normal_messages_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "normal-messages-sent"):
+                        self.normal_messages_sent = value
+                        self.normal_messages_sent.value_namespace = name_space
+                        self.normal_messages_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "resync-state"):
+                        self.resync_state = value
+                        self.resync_state.value_namespace = name_space
+                        self.resync_state.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.channel:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.iccp_group.is_set or
+                    self.arbitration_state.is_set or
+                    self.authentication_state.is_set or
+                    self.iccp_group_xr.is_set or
+                    self.isolated.is_set or
+                    self.primacy.is_set or
+                    self.protocol_state.is_set or
+                    self.synchronization_state.is_set or
+                    self.system_mac.is_set or
+                    self.transport_state.is_set or
+                    (self.protocol_state_timestamp is not None and self.protocol_state_timestamp.has_data()))
 
-                    if self.channel_id is not None:
+            def has_operation(self):
+                for c in self.channel:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.iccp_group.yfilter != YFilter.not_set or
+                    self.arbitration_state.yfilter != YFilter.not_set or
+                    self.authentication_state.yfilter != YFilter.not_set or
+                    self.iccp_group_xr.yfilter != YFilter.not_set or
+                    self.isolated.yfilter != YFilter.not_set or
+                    self.primacy.yfilter != YFilter.not_set or
+                    self.protocol_state.yfilter != YFilter.not_set or
+                    self.synchronization_state.yfilter != YFilter.not_set or
+                    self.system_mac.yfilter != YFilter.not_set or
+                    self.transport_state.yfilter != YFilter.not_set or
+                    (self.protocol_state_timestamp is not None and self.protocol_state_timestamp.has_operation()))
 
-                    if self.channel_state_timestamp is not None and self.channel_state_timestamp._has_data():
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sdacp-redundancy" + "[iccp-group='" + self.iccp_group.get() + "']" + path_buffer
 
-                    if self.control_messages_received is not None:
-                        return True
+                return path_buffer
 
-                    if self.control_messages_sent is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/sdacp-redundancies/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.normal_messages_received is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.iccp_group.is_set or self.iccp_group.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.iccp_group.get_name_leafdata())
+                if (self.arbitration_state.is_set or self.arbitration_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.arbitration_state.get_name_leafdata())
+                if (self.authentication_state.is_set or self.authentication_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.authentication_state.get_name_leafdata())
+                if (self.iccp_group_xr.is_set or self.iccp_group_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.iccp_group_xr.get_name_leafdata())
+                if (self.isolated.is_set or self.isolated.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.isolated.get_name_leafdata())
+                if (self.primacy.is_set or self.primacy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.primacy.get_name_leafdata())
+                if (self.protocol_state.is_set or self.protocol_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.protocol_state.get_name_leafdata())
+                if (self.synchronization_state.is_set or self.synchronization_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.synchronization_state.get_name_leafdata())
+                if (self.system_mac.is_set or self.system_mac.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.system_mac.get_name_leafdata())
+                if (self.transport_state.is_set or self.transport_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.transport_state.get_name_leafdata())
 
-                    if self.normal_messages_sent is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.resync_state is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.resync_state_timestamp is not None and self.resync_state_timestamp._has_data():
-                        return True
+                if (child_yang_name == "channel"):
+                    for c in self.channel:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.channel.append(c)
+                    return c
 
-                    return False
+                if (child_yang_name == "protocol-state-timestamp"):
+                    if (self.protocol_state_timestamp is None):
+                        self.protocol_state_timestamp = NvSatellite.SdacpRedundancies.SdacpRedundancy.ProtocolStateTimestamp()
+                        self.protocol_state_timestamp.parent = self
+                        self._children_name_map["protocol_state_timestamp"] = "protocol-state-timestamp"
+                    return self.protocol_state_timestamp
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel']['meta_info']
+                return None
 
-            @property
-            def _common_path(self):
-                if self.iccp_group is None:
-                    raise YPYModelError('Key property iccp_group is None')
-
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:sdacp-redundancies/Cisco-IOS-XR-icpe-infra-oper:sdacp-redundancy[Cisco-IOS-XR-icpe-infra-oper:iccp-group = ' + str(self.iccp_group) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "channel" or name == "protocol-state-timestamp" or name == "iccp-group" or name == "arbitration-state" or name == "authentication-state" or name == "iccp-group-xr" or name == "isolated" or name == "primacy" or name == "protocol-state" or name == "synchronization-state" or name == "system-mac" or name == "transport-state"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.iccp_group is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "iccp-group"):
+                    self.iccp_group = value
+                    self.iccp_group.value_namespace = name_space
+                    self.iccp_group.value_namespace_prefix = name_space_prefix
+                if(value_path == "arbitration-state"):
+                    self.arbitration_state = value
+                    self.arbitration_state.value_namespace = name_space
+                    self.arbitration_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "authentication-state"):
+                    self.authentication_state = value
+                    self.authentication_state.value_namespace = name_space
+                    self.authentication_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "iccp-group-xr"):
+                    self.iccp_group_xr = value
+                    self.iccp_group_xr.value_namespace = name_space
+                    self.iccp_group_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "isolated"):
+                    self.isolated = value
+                    self.isolated.value_namespace = name_space
+                    self.isolated.value_namespace_prefix = name_space_prefix
+                if(value_path == "primacy"):
+                    self.primacy = value
+                    self.primacy.value_namespace = name_space
+                    self.primacy.value_namespace_prefix = name_space_prefix
+                if(value_path == "protocol-state"):
+                    self.protocol_state = value
+                    self.protocol_state.value_namespace = name_space
+                    self.protocol_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "synchronization-state"):
+                    self.synchronization_state = value
+                    self.synchronization_state.value_namespace = name_space
+                    self.synchronization_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "system-mac"):
+                    self.system_mac = value
+                    self.system_mac.value_namespace = name_space
+                    self.system_mac.value_namespace_prefix = name_space_prefix
+                if(value_path == "transport-state"):
+                    self.transport_state = value
+                    self.transport_state.value_namespace = name_space
+                    self.transport_state.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sdacp_redundancy:
+                if (c.has_data()):
                     return True
-
-                if self.arbitration_state is not None:
-                    return True
-
-                if self.authentication_state is not None:
-                    return True
-
-                if self.channel is not None:
-                    for child_ref in self.channel:
-                        if child_ref._has_data():
-                            return True
-
-                if self.iccp_group_xr is not None:
-                    return True
-
-                if self.isolated is not None:
-                    return True
-
-                if self.primacy is not None:
-                    return True
-
-                if self.protocol_state is not None:
-                    return True
-
-                if self.protocol_state_timestamp is not None and self.protocol_state_timestamp._has_data():
-                    return True
-
-                if self.synchronization_state is not None:
-                    return True
-
-                if self.system_mac is not None:
-                    return True
-
-                if self.transport_state is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:sdacp-redundancies'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sdacp_redundancy is not None:
-                for child_ref in self.sdacp_redundancy:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sdacp_redundancy:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sdacp-redundancies" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sdacp-redundancy"):
+                for c in self.sdacp_redundancy:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.SdacpRedundancies.SdacpRedundancy()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sdacp_redundancy.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sdacp-redundancy"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SdacpRedundancies']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class InstallShows(object):
+    class InstallShows(Entity):
         """
         Detailed breakdown of install status table
         
@@ -2385,13 +3185,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.install_show = YList()
-            self.install_show.parent = self
-            self.install_show.name = 'install_show'
+            super(NvSatellite.InstallShows, self).__init__()
+
+            self.yang_name = "install-shows"
+            self.yang_parent_name = "nv-satellite"
+
+            self.install_show = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.InstallShows, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.InstallShows, self).__setattr__(name, value)
 
 
-        class InstallShow(object):
+        class InstallShow(Entity):
             """
             Detailed breakdown of install status
             
@@ -2440,7 +3266,7 @@ class NvSatellite(object):
             .. attribute:: ref_state
             
             	Ref state
-            	**type**\:   :py:class:`IcpeInstallSatStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatStateEnum>`
+            	**type**\:   :py:class:`IcpeInstallSatState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatState>`
             
             .. attribute:: satellite
             
@@ -2593,78 +3419,119 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.operation_id = None
-                self.end_time = None
-                self.name_string = YLeafList()
-                self.name_string.parent = self
-                self.name_string.name = 'name_string'
-                self.operation_id_xr = None
-                self.operation_type = None
-                self.progress_percentage = None
-                self.ref_state = None
-                self.satellite = YList()
-                self.satellite.parent = self
-                self.satellite.name = 'satellite'
-                self.satellite_range = None
-                self.sats_activate_aborted = YLeafList()
-                self.sats_activate_aborted.parent = self
-                self.sats_activate_aborted.name = 'sats_activate_aborted'
-                self.sats_activate_failed = YLeafList()
-                self.sats_activate_failed.parent = self
-                self.sats_activate_failed.name = 'sats_activate_failed'
-                self.sats_activating = YLeafList()
-                self.sats_activating.parent = self
-                self.sats_activating.name = 'sats_activating'
-                self.sats_completed = YLeafList()
-                self.sats_completed.parent = self
-                self.sats_completed.name = 'sats_completed'
-                self.sats_deactivate_aborted = YLeafList()
-                self.sats_deactivate_aborted.parent = self
-                self.sats_deactivate_aborted.name = 'sats_deactivate_aborted'
-                self.sats_deactivate_failed = YLeafList()
-                self.sats_deactivate_failed.parent = self
-                self.sats_deactivate_failed.name = 'sats_deactivate_failed'
-                self.sats_deactivating = YLeafList()
-                self.sats_deactivating.parent = self
-                self.sats_deactivating.name = 'sats_deactivating'
-                self.sats_no_operation = YLeafList()
-                self.sats_no_operation.parent = self
-                self.sats_no_operation.name = 'sats_no_operation'
-                self.sats_not_initiated = YLeafList()
-                self.sats_not_initiated.parent = self
-                self.sats_not_initiated.name = 'sats_not_initiated'
-                self.sats_remove_aborted = YLeafList()
-                self.sats_remove_aborted.parent = self
-                self.sats_remove_aborted.name = 'sats_remove_aborted'
-                self.sats_remove_failed = YLeafList()
-                self.sats_remove_failed.parent = self
-                self.sats_remove_failed.name = 'sats_remove_failed'
-                self.sats_removing = YLeafList()
-                self.sats_removing.parent = self
-                self.sats_removing.name = 'sats_removing'
-                self.sats_transfer_aborted = YLeafList()
-                self.sats_transfer_aborted.parent = self
-                self.sats_transfer_aborted.name = 'sats_transfer_aborted'
-                self.sats_transfer_failed = YLeafList()
-                self.sats_transfer_failed.parent = self
-                self.sats_transfer_failed.name = 'sats_transfer_failed'
-                self.sats_transferring = YLeafList()
-                self.sats_transferring.parent = self
-                self.sats_transferring.name = 'sats_transferring'
-                self.sats_update_aborted = YLeafList()
-                self.sats_update_aborted.parent = self
-                self.sats_update_aborted.name = 'sats_update_aborted'
-                self.sats_update_failed = YLeafList()
-                self.sats_update_failed.parent = self
-                self.sats_update_failed.name = 'sats_update_failed'
-                self.sats_updating = YLeafList()
-                self.sats_updating.parent = self
-                self.sats_updating.name = 'sats_updating'
-                self.start_time = None
+                super(NvSatellite.InstallShows.InstallShow, self).__init__()
+
+                self.yang_name = "install-show"
+                self.yang_parent_name = "install-shows"
+
+                self.operation_id = YLeaf(YType.uint32, "operation-id")
+
+                self.end_time = YLeaf(YType.uint32, "end-time")
+
+                self.name_string = YLeafList(YType.str, "name-string")
+
+                self.operation_id_xr = YLeaf(YType.uint32, "operation-id-xr")
+
+                self.operation_type = YLeaf(YType.uint16, "operation-type")
+
+                self.progress_percentage = YLeaf(YType.uint16, "progress-percentage")
+
+                self.ref_state = YLeaf(YType.enumeration, "ref-state")
+
+                self.satellite_range = YLeaf(YType.str, "satellite-range")
+
+                self.sats_activate_aborted = YLeafList(YType.uint16, "sats-activate-aborted")
+
+                self.sats_activate_failed = YLeafList(YType.uint16, "sats-activate-failed")
+
+                self.sats_activating = YLeafList(YType.uint16, "sats-activating")
+
+                self.sats_completed = YLeafList(YType.uint16, "sats-completed")
+
+                self.sats_deactivate_aborted = YLeafList(YType.uint16, "sats-deactivate-aborted")
+
+                self.sats_deactivate_failed = YLeafList(YType.uint16, "sats-deactivate-failed")
+
+                self.sats_deactivating = YLeafList(YType.uint16, "sats-deactivating")
+
+                self.sats_no_operation = YLeafList(YType.uint16, "sats-no-operation")
+
+                self.sats_not_initiated = YLeafList(YType.uint16, "sats-not-initiated")
+
+                self.sats_remove_aborted = YLeafList(YType.uint16, "sats-remove-aborted")
+
+                self.sats_remove_failed = YLeafList(YType.uint16, "sats-remove-failed")
+
+                self.sats_removing = YLeafList(YType.uint16, "sats-removing")
+
+                self.sats_transfer_aborted = YLeafList(YType.uint16, "sats-transfer-aborted")
+
+                self.sats_transfer_failed = YLeafList(YType.uint16, "sats-transfer-failed")
+
+                self.sats_transferring = YLeafList(YType.uint16, "sats-transferring")
+
+                self.sats_update_aborted = YLeafList(YType.uint16, "sats-update-aborted")
+
+                self.sats_update_failed = YLeafList(YType.uint16, "sats-update-failed")
+
+                self.sats_updating = YLeafList(YType.uint16, "sats-updating")
+
+                self.start_time = YLeaf(YType.uint32, "start-time")
+
+                self.satellite = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("operation_id",
+                                "end_time",
+                                "name_string",
+                                "operation_id_xr",
+                                "operation_type",
+                                "progress_percentage",
+                                "ref_state",
+                                "satellite_range",
+                                "sats_activate_aborted",
+                                "sats_activate_failed",
+                                "sats_activating",
+                                "sats_completed",
+                                "sats_deactivate_aborted",
+                                "sats_deactivate_failed",
+                                "sats_deactivating",
+                                "sats_no_operation",
+                                "sats_not_initiated",
+                                "sats_remove_aborted",
+                                "sats_remove_failed",
+                                "sats_removing",
+                                "sats_transfer_aborted",
+                                "sats_transfer_failed",
+                                "sats_transferring",
+                                "sats_update_aborted",
+                                "sats_update_failed",
+                                "sats_updating",
+                                "start_time") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.InstallShows.InstallShow, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.InstallShows.InstallShow, self).__setattr__(name, value)
 
 
-            class Satellite(object):
+            class Satellite(Entity):
                 """
                 Breakdown per satellite table
                 
@@ -2713,7 +3580,7 @@ class NvSatellite(object):
                 .. attribute:: state
                 
                 	State
-                	**type**\:   :py:class:`IcpeInstallSatStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatStateEnum>`
+                	**type**\:   :py:class:`IcpeInstallSatState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallSatState>`
                 
                 
 
@@ -2723,222 +3590,539 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.end_time = None
-                    self.info = None
-                    self.percentage = None
-                    self.retries = None
-                    self.satellite_id = None
-                    self.start_time = None
-                    self.state = None
+                    super(NvSatellite.InstallShows.InstallShow.Satellite, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "satellite"
+                    self.yang_parent_name = "install-show"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:satellite'
+                    self.end_time = YLeaf(YType.uint32, "end-time")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.info = YLeaf(YType.str, "info")
+
+                    self.percentage = YLeaf(YType.uint16, "percentage")
+
+                    self.retries = YLeaf(YType.uint16, "retries")
+
+                    self.satellite_id = YLeaf(YType.uint16, "satellite-id")
+
+                    self.start_time = YLeaf(YType.uint32, "start-time")
+
+                    self.state = YLeaf(YType.enumeration, "state")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("end_time",
+                                    "info",
+                                    "percentage",
+                                    "retries",
+                                    "satellite_id",
+                                    "start_time",
+                                    "state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.InstallShows.InstallShow.Satellite, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.InstallShows.InstallShow.Satellite, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.end_time.is_set or
+                        self.info.is_set or
+                        self.percentage.is_set or
+                        self.retries.is_set or
+                        self.satellite_id.is_set or
+                        self.start_time.is_set or
+                        self.state.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.end_time.yfilter != YFilter.not_set or
+                        self.info.yfilter != YFilter.not_set or
+                        self.percentage.yfilter != YFilter.not_set or
+                        self.retries.yfilter != YFilter.not_set or
+                        self.satellite_id.yfilter != YFilter.not_set or
+                        self.start_time.yfilter != YFilter.not_set or
+                        self.state.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "satellite" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.end_time.is_set or self.end_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.end_time.get_name_leafdata())
+                    if (self.info.is_set or self.info.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.info.get_name_leafdata())
+                    if (self.percentage.is_set or self.percentage.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.percentage.get_name_leafdata())
+                    if (self.retries.is_set or self.retries.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.retries.get_name_leafdata())
+                    if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                    if (self.start_time.is_set or self.start_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.start_time.get_name_leafdata())
+                    if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "end-time" or name == "info" or name == "percentage" or name == "retries" or name == "satellite-id" or name == "start-time" or name == "state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.end_time is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "end-time"):
+                        self.end_time = value
+                        self.end_time.value_namespace = name_space
+                        self.end_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "info"):
+                        self.info = value
+                        self.info.value_namespace = name_space
+                        self.info.value_namespace_prefix = name_space_prefix
+                    if(value_path == "percentage"):
+                        self.percentage = value
+                        self.percentage.value_namespace = name_space
+                        self.percentage.value_namespace_prefix = name_space_prefix
+                    if(value_path == "retries"):
+                        self.retries = value
+                        self.retries.value_namespace = name_space
+                        self.retries.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-id"):
+                        self.satellite_id = value
+                        self.satellite_id.value_namespace = name_space
+                        self.satellite_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "start-time"):
+                        self.start_time = value
+                        self.start_time.value_namespace = name_space
+                        self.start_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state"):
+                        self.state = value
+                        self.state.value_namespace = name_space
+                        self.state.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.satellite:
+                    if (c.has_data()):
                         return True
-
-                    if self.info is not None:
+                for leaf in self.name_string.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
-
-                    if self.percentage is not None:
+                for leaf in self.sats_activate_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
-
-                    if self.retries is not None:
+                for leaf in self.sats_activate_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
-
-                    if self.satellite_id is not None:
+                for leaf in self.sats_activating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
-
-                    if self.start_time is not None:
+                for leaf in self.sats_completed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
-
-                    if self.state is not None:
+                for leaf in self.sats_deactivate_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                for leaf in self.sats_deactivate_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_deactivating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_no_operation.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_remove_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_remove_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_removing.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transfer_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transfer_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transferring.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_update_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_update_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_updating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.operation_id.is_set or
+                    self.end_time.is_set or
+                    self.operation_id_xr.is_set or
+                    self.operation_type.is_set or
+                    self.progress_percentage.is_set or
+                    self.ref_state.is_set or
+                    self.satellite_range.is_set or
+                    self.start_time.is_set)
 
-                    return False
+            def has_operation(self):
+                for c in self.satellite:
+                    if (c.has_operation()):
+                        return True
+                for leaf in self.name_string.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_activate_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_activate_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_activating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_completed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivate_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivate_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_no_operation.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_remove_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_remove_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_removing.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transfer_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transfer_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transferring.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_update_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_update_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_updating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.operation_id.yfilter != YFilter.not_set or
+                    self.end_time.yfilter != YFilter.not_set or
+                    self.name_string.yfilter != YFilter.not_set or
+                    self.operation_id_xr.yfilter != YFilter.not_set or
+                    self.operation_type.yfilter != YFilter.not_set or
+                    self.progress_percentage.yfilter != YFilter.not_set or
+                    self.ref_state.yfilter != YFilter.not_set or
+                    self.satellite_range.yfilter != YFilter.not_set or
+                    self.sats_activate_aborted.yfilter != YFilter.not_set or
+                    self.sats_activate_failed.yfilter != YFilter.not_set or
+                    self.sats_activating.yfilter != YFilter.not_set or
+                    self.sats_completed.yfilter != YFilter.not_set or
+                    self.sats_deactivate_aborted.yfilter != YFilter.not_set or
+                    self.sats_deactivate_failed.yfilter != YFilter.not_set or
+                    self.sats_deactivating.yfilter != YFilter.not_set or
+                    self.sats_no_operation.yfilter != YFilter.not_set or
+                    self.sats_not_initiated.yfilter != YFilter.not_set or
+                    self.sats_remove_aborted.yfilter != YFilter.not_set or
+                    self.sats_remove_failed.yfilter != YFilter.not_set or
+                    self.sats_removing.yfilter != YFilter.not_set or
+                    self.sats_transfer_aborted.yfilter != YFilter.not_set or
+                    self.sats_transfer_failed.yfilter != YFilter.not_set or
+                    self.sats_transferring.yfilter != YFilter.not_set or
+                    self.sats_update_aborted.yfilter != YFilter.not_set or
+                    self.sats_update_failed.yfilter != YFilter.not_set or
+                    self.sats_updating.yfilter != YFilter.not_set or
+                    self.start_time.yfilter != YFilter.not_set)
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.InstallShows.InstallShow.Satellite']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "install-show" + "[operation-id='" + self.operation_id.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.operation_id is None:
-                    raise YPYModelError('Key property operation_id is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-shows/Cisco-IOS-XR-icpe-infra-oper:install-show[Cisco-IOS-XR-icpe-infra-oper:operation-id = ' + str(self.operation_id) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-shows/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.operation_id.is_set or self.operation_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_id.get_name_leafdata())
+                if (self.end_time.is_set or self.end_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.end_time.get_name_leafdata())
+                if (self.operation_id_xr.is_set or self.operation_id_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_id_xr.get_name_leafdata())
+                if (self.operation_type.is_set or self.operation_type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_type.get_name_leafdata())
+                if (self.progress_percentage.is_set or self.progress_percentage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.progress_percentage.get_name_leafdata())
+                if (self.ref_state.is_set or self.ref_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ref_state.get_name_leafdata())
+                if (self.satellite_range.is_set or self.satellite_range.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_range.get_name_leafdata())
+                if (self.start_time.is_set or self.start_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.start_time.get_name_leafdata())
+
+                leaf_name_data.extend(self.name_string.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activate_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activate_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activating.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_completed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivate_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivate_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivating.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_no_operation.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_not_initiated.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_remove_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_remove_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_removing.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transfer_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transfer_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transferring.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_update_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_update_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_updating.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "satellite"):
+                    for c in self.satellite:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.InstallShows.InstallShow.Satellite()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.satellite.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "satellite" or name == "operation-id" or name == "end-time" or name == "name-string" or name == "operation-id-xr" or name == "operation-type" or name == "progress-percentage" or name == "ref-state" or name == "satellite-range" or name == "sats-activate-aborted" or name == "sats-activate-failed" or name == "sats-activating" or name == "sats-completed" or name == "sats-deactivate-aborted" or name == "sats-deactivate-failed" or name == "sats-deactivating" or name == "sats-no-operation" or name == "sats-not-initiated" or name == "sats-remove-aborted" or name == "sats-remove-failed" or name == "sats-removing" or name == "sats-transfer-aborted" or name == "sats-transfer-failed" or name == "sats-transferring" or name == "sats-update-aborted" or name == "sats-update-failed" or name == "sats-updating" or name == "start-time"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.operation_id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "operation-id"):
+                    self.operation_id = value
+                    self.operation_id.value_namespace = name_space
+                    self.operation_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "end-time"):
+                    self.end_time = value
+                    self.end_time.value_namespace = name_space
+                    self.end_time.value_namespace_prefix = name_space_prefix
+                if(value_path == "name-string"):
+                    self.name_string.append(value)
+                if(value_path == "operation-id-xr"):
+                    self.operation_id_xr = value
+                    self.operation_id_xr.value_namespace = name_space
+                    self.operation_id_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "operation-type"):
+                    self.operation_type = value
+                    self.operation_type.value_namespace = name_space
+                    self.operation_type.value_namespace_prefix = name_space_prefix
+                if(value_path == "progress-percentage"):
+                    self.progress_percentage = value
+                    self.progress_percentage.value_namespace = name_space
+                    self.progress_percentage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ref-state"):
+                    self.ref_state = value
+                    self.ref_state.value_namespace = name_space
+                    self.ref_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-range"):
+                    self.satellite_range = value
+                    self.satellite_range.value_namespace = name_space
+                    self.satellite_range.value_namespace_prefix = name_space_prefix
+                if(value_path == "sats-activate-aborted"):
+                    self.sats_activate_aborted.append(value)
+                if(value_path == "sats-activate-failed"):
+                    self.sats_activate_failed.append(value)
+                if(value_path == "sats-activating"):
+                    self.sats_activating.append(value)
+                if(value_path == "sats-completed"):
+                    self.sats_completed.append(value)
+                if(value_path == "sats-deactivate-aborted"):
+                    self.sats_deactivate_aborted.append(value)
+                if(value_path == "sats-deactivate-failed"):
+                    self.sats_deactivate_failed.append(value)
+                if(value_path == "sats-deactivating"):
+                    self.sats_deactivating.append(value)
+                if(value_path == "sats-no-operation"):
+                    self.sats_no_operation.append(value)
+                if(value_path == "sats-not-initiated"):
+                    self.sats_not_initiated.append(value)
+                if(value_path == "sats-remove-aborted"):
+                    self.sats_remove_aborted.append(value)
+                if(value_path == "sats-remove-failed"):
+                    self.sats_remove_failed.append(value)
+                if(value_path == "sats-removing"):
+                    self.sats_removing.append(value)
+                if(value_path == "sats-transfer-aborted"):
+                    self.sats_transfer_aborted.append(value)
+                if(value_path == "sats-transfer-failed"):
+                    self.sats_transfer_failed.append(value)
+                if(value_path == "sats-transferring"):
+                    self.sats_transferring.append(value)
+                if(value_path == "sats-update-aborted"):
+                    self.sats_update_aborted.append(value)
+                if(value_path == "sats-update-failed"):
+                    self.sats_update_failed.append(value)
+                if(value_path == "sats-updating"):
+                    self.sats_updating.append(value)
+                if(value_path == "start-time"):
+                    self.start_time = value
+                    self.start_time.value_namespace = name_space
+                    self.start_time.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.install_show:
+                if (c.has_data()):
                     return True
-
-                if self.end_time is not None:
-                    return True
-
-                if self.name_string is not None:
-                    for child in self.name_string:
-                        if child is not None:
-                            return True
-
-                if self.operation_id_xr is not None:
-                    return True
-
-                if self.operation_type is not None:
-                    return True
-
-                if self.progress_percentage is not None:
-                    return True
-
-                if self.ref_state is not None:
-                    return True
-
-                if self.satellite is not None:
-                    for child_ref in self.satellite:
-                        if child_ref._has_data():
-                            return True
-
-                if self.satellite_range is not None:
-                    return True
-
-                if self.sats_activate_aborted is not None:
-                    for child in self.sats_activate_aborted:
-                        if child is not None:
-                            return True
-
-                if self.sats_activate_failed is not None:
-                    for child in self.sats_activate_failed:
-                        if child is not None:
-                            return True
-
-                if self.sats_activating is not None:
-                    for child in self.sats_activating:
-                        if child is not None:
-                            return True
-
-                if self.sats_completed is not None:
-                    for child in self.sats_completed:
-                        if child is not None:
-                            return True
-
-                if self.sats_deactivate_aborted is not None:
-                    for child in self.sats_deactivate_aborted:
-                        if child is not None:
-                            return True
-
-                if self.sats_deactivate_failed is not None:
-                    for child in self.sats_deactivate_failed:
-                        if child is not None:
-                            return True
-
-                if self.sats_deactivating is not None:
-                    for child in self.sats_deactivating:
-                        if child is not None:
-                            return True
-
-                if self.sats_no_operation is not None:
-                    for child in self.sats_no_operation:
-                        if child is not None:
-                            return True
-
-                if self.sats_not_initiated is not None:
-                    for child in self.sats_not_initiated:
-                        if child is not None:
-                            return True
-
-                if self.sats_remove_aborted is not None:
-                    for child in self.sats_remove_aborted:
-                        if child is not None:
-                            return True
-
-                if self.sats_remove_failed is not None:
-                    for child in self.sats_remove_failed:
-                        if child is not None:
-                            return True
-
-                if self.sats_removing is not None:
-                    for child in self.sats_removing:
-                        if child is not None:
-                            return True
-
-                if self.sats_transfer_aborted is not None:
-                    for child in self.sats_transfer_aborted:
-                        if child is not None:
-                            return True
-
-                if self.sats_transfer_failed is not None:
-                    for child in self.sats_transfer_failed:
-                        if child is not None:
-                            return True
-
-                if self.sats_transferring is not None:
-                    for child in self.sats_transferring:
-                        if child is not None:
-                            return True
-
-                if self.sats_update_aborted is not None:
-                    for child in self.sats_update_aborted:
-                        if child is not None:
-                            return True
-
-                if self.sats_update_failed is not None:
-                    for child in self.sats_update_failed:
-                        if child is not None:
-                            return True
-
-                if self.sats_updating is not None:
-                    for child in self.sats_updating:
-                        if child is not None:
-                            return True
-
-                if self.start_time is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.InstallShows.InstallShow']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-shows'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.install_show is not None:
-                for child_ref in self.install_show:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.install_show:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "install-shows" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "install-show"):
+                for c in self.install_show:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.InstallShows.InstallShow()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.install_show.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "install-show"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.InstallShows']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SatelliteStatuses(object):
+    class SatelliteStatuses(Entity):
         """
         Satellite status information table
         
@@ -2955,13 +4139,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.satellite_status = YList()
-            self.satellite_status.parent = self
-            self.satellite_status.name = 'satellite_status'
+            super(NvSatellite.SatelliteStatuses, self).__init__()
+
+            self.yang_name = "satellite-statuses"
+            self.yang_parent_name = "nv-satellite"
+
+            self.satellite_status = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.SatelliteStatuses, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.SatelliteStatuses, self).__setattr__(name, value)
 
 
-        class SatelliteStatus(object):
+        class SatelliteStatus(Entity):
             """
             Satellite status information
             
@@ -3007,7 +4217,7 @@ class NvSatellite(object):
             .. attribute:: conflict_reason
             
             	Conflict reason
-            	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+            	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
             
             .. attribute:: description
             
@@ -3032,7 +4242,7 @@ class NvSatellite(object):
             .. attribute:: install_state
             
             	Install state
-            	**type**\:   :py:class:`IcpeOperInstallStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallStateEnum>`
+            	**type**\:   :py:class:`IcpeOperInstallState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperInstallState>`
             
             .. attribute:: ip_address
             
@@ -3154,12 +4364,12 @@ class NvSatellite(object):
             .. attribute:: sdacp_session_failure_reason
             
             	SDACP session failure reason
-            	**type**\:   :py:class:`IcpeGcoOperControlReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReasonEnum>`
+            	**type**\:   :py:class:`IcpeGcoOperControlReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeGcoOperControlReason>`
             
             .. attribute:: sdacp_session_state
             
             	SDACP session state
-            	**type**\:   :py:class:`IcpeOperSdacpSessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessStateEnum>`
+            	**type**\:   :py:class:`IcpeOperSdacpSessState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessState>`
             
             .. attribute:: timeout_warning
             
@@ -3176,7 +4386,7 @@ class NvSatellite(object):
             .. attribute:: version_check_state
             
             	Version check state
-            	**type**\:   :py:class:`IcpeOperVerCheckStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
+            	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
             
             .. attribute:: vrf_name
             
@@ -3198,58 +4408,164 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.satellite_id = None
+                super(NvSatellite.SatelliteStatuses.SatelliteStatus, self).__init__()
+
+                self.yang_name = "satellite-status"
+                self.yang_parent_name = "satellite-statuses"
+
+                self.satellite_id = YLeaf(YType.uint32, "satellite-id")
+
+                self.cfgd_timeout = YLeaf(YType.uint32, "cfgd-timeout")
+
+                self.configured_serial_number = YLeaf(YType.str, "configured-serial-number")
+
+                self.configured_serial_number_present = YLeaf(YType.boolean, "configured-serial-number-present")
+
+                self.conflict_context = YLeaf(YType.str, "conflict-context")
+
+                self.conflict_reason = YLeaf(YType.enumeration, "conflict-reason")
+
+                self.description = YLeaf(YType.str, "description")
+
+                self.description_present = YLeaf(YType.boolean, "description-present")
+
+                self.ethernet_fabric_supported = YLeaf(YType.boolean, "ethernet-fabric-supported")
+
+                self.host_treating_as_active = YLeaf(YType.boolean, "host-treating-as-active")
+
+                self.install_state = YLeaf(YType.enumeration, "install-state")
+
+                self.ip_address = YLeaf(YType.str, "ip-address")
+
+                self.ip_address_auto = YLeaf(YType.boolean, "ip-address-auto")
+
+                self.ip_address_present = YLeaf(YType.boolean, "ip-address-present")
+
+                self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                self.ipv6_address_present = YLeaf(YType.boolean, "ipv6-address-present")
+
+                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                self.mac_address_present = YLeaf(YType.boolean, "mac-address-present")
+
+                self.optical_supported = YLeaf(YType.boolean, "optical-supported")
+
+                self.password = YLeaf(YType.str, "password")
+
+                self.password_error = YLeaf(YType.str, "password-error")
+
+                self.received_host_name = YLeaf(YType.str, "received-host-name")
+
+                self.received_serial_number = YLeaf(YType.str, "received-serial-number")
+
+                self.received_serial_number_present = YLeaf(YType.boolean, "received-serial-number-present")
+
+                self.recovery_delay_time_left = YLeaf(YType.uint16, "recovery-delay-time-left")
+
+                self.redundancy_iccp_group = YLeaf(YType.uint32, "redundancy-iccp-group")
+
+                self.remote_version = YLeafList(YType.str, "remote-version")
+
+                self.remote_version_present = YLeaf(YType.boolean, "remote-version-present")
+
+                self.satellite_id_xr = YLeaf(YType.uint32, "satellite-id-xr")
+
+                self.satellite_treating_as_active = YLeaf(YType.boolean, "satellite-treating-as-active")
+
+                self.sdacp_session_failure_reason = YLeaf(YType.enumeration, "sdacp-session-failure-reason")
+
+                self.sdacp_session_state = YLeaf(YType.enumeration, "sdacp-session-state")
+
+                self.timeout_warning = YLeaf(YType.uint32, "timeout-warning")
+
+                self.type = YLeaf(YType.str, "type")
+
+                self.version_check_state = YLeaf(YType.enumeration, "version-check-state")
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.vrfid = YLeaf(YType.uint32, "vrfid")
+
                 self.candidate_fabric_ports = NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts()
                 self.candidate_fabric_ports.parent = self
-                self.cfgd_timeout = None
-                self.configured_link = YList()
-                self.configured_link.parent = self
-                self.configured_link.name = 'configured_link'
-                self.configured_serial_number = None
-                self.configured_serial_number_present = None
-                self.conflict_context = None
-                self.conflict_reason = None
-                self.description = None
-                self.description_present = None
-                self.ethernet_fabric_supported = None
-                self.host_treating_as_active = None
-                self.install_state = None
-                self.ip_address = None
-                self.ip_address_auto = None
-                self.ip_address_present = None
-                self.ipv6_address = None
-                self.ipv6_address_present = None
-                self.mac_address = None
-                self.mac_address_present = None
+                self._children_name_map["candidate_fabric_ports"] = "candidate-fabric-ports"
+                self._children_yang_names.add("candidate-fabric-ports")
+
                 self.optical_status = NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus()
                 self.optical_status.parent = self
-                self.optical_supported = None
-                self.password = None
-                self.password_error = None
-                self.received_host_name = None
-                self.received_serial_number = None
-                self.received_serial_number_present = None
-                self.recovery_delay_time_left = None
-                self.redundancy_iccp_group = None
+                self._children_name_map["optical_status"] = "optical-status"
+                self._children_yang_names.add("optical-status")
+
                 self.redundancy_out_of_sync_timestamp = NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp()
                 self.redundancy_out_of_sync_timestamp.parent = self
-                self.remote_version = YLeafList()
-                self.remote_version.parent = self
-                self.remote_version.name = 'remote_version'
-                self.remote_version_present = None
-                self.satellite_id_xr = None
-                self.satellite_treating_as_active = None
-                self.sdacp_session_failure_reason = None
-                self.sdacp_session_state = None
-                self.timeout_warning = None
-                self.type = None
-                self.version_check_state = None
-                self.vrf_name = None
-                self.vrfid = None
+                self._children_name_map["redundancy_out_of_sync_timestamp"] = "redundancy-out-of-sync-timestamp"
+                self._children_yang_names.add("redundancy-out-of-sync-timestamp")
+
+                self.configured_link = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("satellite_id",
+                                "cfgd_timeout",
+                                "configured_serial_number",
+                                "configured_serial_number_present",
+                                "conflict_context",
+                                "conflict_reason",
+                                "description",
+                                "description_present",
+                                "ethernet_fabric_supported",
+                                "host_treating_as_active",
+                                "install_state",
+                                "ip_address",
+                                "ip_address_auto",
+                                "ip_address_present",
+                                "ipv6_address",
+                                "ipv6_address_present",
+                                "mac_address",
+                                "mac_address_present",
+                                "optical_supported",
+                                "password",
+                                "password_error",
+                                "received_host_name",
+                                "received_serial_number",
+                                "received_serial_number_present",
+                                "recovery_delay_time_left",
+                                "redundancy_iccp_group",
+                                "remote_version",
+                                "remote_version_present",
+                                "satellite_id_xr",
+                                "satellite_treating_as_active",
+                                "sdacp_session_failure_reason",
+                                "sdacp_session_state",
+                                "timeout_warning",
+                                "type",
+                                "version_check_state",
+                                "vrf_name",
+                                "vrfid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus, self).__setattr__(name, value)
 
 
-            class CandidateFabricPorts(object):
+            class CandidateFabricPorts(Entity):
                 """
                 Candidate Fabric Ports on this Satellite
                 
@@ -3286,19 +4602,48 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.channel_up = None
-                    self.configured_port = YList()
-                    self.configured_port.parent = self
-                    self.configured_port.name = 'configured_port'
-                    self.current_port = YList()
-                    self.current_port.parent = self
-                    self.current_port.name = 'current_port'
-                    self.error_string = None
-                    self.out_of_sync = None
+                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, self).__init__()
+
+                    self.yang_name = "candidate-fabric-ports"
+                    self.yang_parent_name = "satellite-status"
+
+                    self.channel_up = YLeaf(YType.boolean, "channel-up")
+
+                    self.error_string = YLeaf(YType.str, "error-string")
+
+                    self.out_of_sync = YLeaf(YType.boolean, "out-of-sync")
+
+                    self.configured_port = YList(self)
+                    self.current_port = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("channel_up",
+                                    "error_string",
+                                    "out_of_sync") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts, self).__setattr__(name, value)
 
 
-                class ConfiguredPort(object):
+                class ConfiguredPort(Entity):
                     """
                     Configured Candidate Fabric Ports table
                     
@@ -3312,7 +4657,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:   :py:class:`IcpeOperFabricPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
+                    	**type**\:   :py:class:`IcpeOperFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort>`
                     
                     .. attribute:: slot
                     
@@ -3341,49 +4686,130 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.port = None
-                        self.port_type = None
-                        self.slot = None
-                        self.subslot = None
-                        self.valid = None
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "configured-port"
+                        self.yang_parent_name = "candidate-fabric-ports"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:configured-port'
+                        self.port = YLeaf(YType.uint16, "port")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.port_type = YLeaf(YType.enumeration, "port-type")
+
+                        self.slot = YLeaf(YType.uint16, "slot")
+
+                        self.subslot = YLeaf(YType.uint16, "subslot")
+
+                        self.valid = YLeaf(YType.boolean, "valid")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("port",
+                                        "port_type",
+                                        "slot",
+                                        "subslot",
+                                        "valid") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.port.is_set or
+                            self.port_type.is_set or
+                            self.slot.is_set or
+                            self.subslot.is_set or
+                            self.valid.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.port.yfilter != YFilter.not_set or
+                            self.port_type.yfilter != YFilter.not_set or
+                            self.slot.yfilter != YFilter.not_set or
+                            self.subslot.yfilter != YFilter.not_set or
+                            self.valid.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "configured-port" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.port.is_set or self.port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.port.get_name_leafdata())
+                        if (self.port_type.is_set or self.port_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.port_type.get_name_leafdata())
+                        if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.slot.get_name_leafdata())
+                        if (self.subslot.is_set or self.subslot.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subslot.get_name_leafdata())
+                        if (self.valid.is_set or self.valid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.valid.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "port" or name == "port-type" or name == "slot" or name == "subslot" or name == "valid"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.port is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "port"):
+                            self.port = value
+                            self.port.value_namespace = name_space
+                            self.port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "port-type"):
+                            self.port_type = value
+                            self.port_type.value_namespace = name_space
+                            self.port_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "slot"):
+                            self.slot = value
+                            self.slot.value_namespace = name_space
+                            self.slot.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subslot"):
+                            self.subslot = value
+                            self.subslot.value_namespace = name_space
+                            self.subslot.value_namespace_prefix = name_space_prefix
+                        if(value_path == "valid"):
+                            self.valid = value
+                            self.valid.value_namespace = name_space
+                            self.valid.value_namespace_prefix = name_space_prefix
 
-                        if self.port_type is not None:
-                            return True
 
-                        if self.slot is not None:
-                            return True
-
-                        if self.subslot is not None:
-                            return True
-
-                        if self.valid is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort']['meta_info']
-
-
-                class CurrentPort(object):
+                class CurrentPort(Entity):
                     """
                     Current Candidate Fabric Ports on this Satellite
                     table
@@ -3403,7 +4829,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:   :py:class:`IcpeOperFabricPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPortEnum>`
+                    	**type**\:   :py:class:`IcpeOperFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperFabricPort>`
                     
                     .. attribute:: requested
                     
@@ -3432,91 +4858,240 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.permanent = None
-                        self.port = None
-                        self.port_type = None
-                        self.requested = None
-                        self.slot = None
-                        self.subslot = None
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "current-port"
+                        self.yang_parent_name = "candidate-fabric-ports"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:current-port'
+                        self.permanent = YLeaf(YType.boolean, "permanent")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.port = YLeaf(YType.uint16, "port")
+
+                        self.port_type = YLeaf(YType.enumeration, "port-type")
+
+                        self.requested = YLeaf(YType.boolean, "requested")
+
+                        self.slot = YLeaf(YType.uint16, "slot")
+
+                        self.subslot = YLeaf(YType.uint16, "subslot")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("permanent",
+                                        "port",
+                                        "port_type",
+                                        "requested",
+                                        "slot",
+                                        "subslot") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.permanent.is_set or
+                            self.port.is_set or
+                            self.port_type.is_set or
+                            self.requested.is_set or
+                            self.slot.is_set or
+                            self.subslot.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.permanent.yfilter != YFilter.not_set or
+                            self.port.yfilter != YFilter.not_set or
+                            self.port_type.yfilter != YFilter.not_set or
+                            self.requested.yfilter != YFilter.not_set or
+                            self.slot.yfilter != YFilter.not_set or
+                            self.subslot.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "current-port" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.permanent.is_set or self.permanent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.permanent.get_name_leafdata())
+                        if (self.port.is_set or self.port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.port.get_name_leafdata())
+                        if (self.port_type.is_set or self.port_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.port_type.get_name_leafdata())
+                        if (self.requested.is_set or self.requested.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.requested.get_name_leafdata())
+                        if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.slot.get_name_leafdata())
+                        if (self.subslot.is_set or self.subslot.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subslot.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "permanent" or name == "port" or name == "port-type" or name == "requested" or name == "slot" or name == "subslot"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.permanent is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "permanent"):
+                            self.permanent = value
+                            self.permanent.value_namespace = name_space
+                            self.permanent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "port"):
+                            self.port = value
+                            self.port.value_namespace = name_space
+                            self.port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "port-type"):
+                            self.port_type = value
+                            self.port_type.value_namespace = name_space
+                            self.port_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "requested"):
+                            self.requested = value
+                            self.requested.value_namespace = name_space
+                            self.requested.value_namespace_prefix = name_space_prefix
+                        if(value_path == "slot"):
+                            self.slot = value
+                            self.slot.value_namespace = name_space
+                            self.slot.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subslot"):
+                            self.subslot = value
+                            self.subslot.value_namespace = name_space
+                            self.subslot.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.configured_port:
+                        if (c.has_data()):
                             return True
-
-                        if self.port is not None:
+                    for c in self.current_port:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.channel_up.is_set or
+                        self.error_string.is_set or
+                        self.out_of_sync.is_set)
 
-                        if self.port_type is not None:
+                def has_operation(self):
+                    for c in self.configured_port:
+                        if (c.has_operation()):
                             return True
-
-                        if self.requested is not None:
+                    for c in self.current_port:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.channel_up.yfilter != YFilter.not_set or
+                        self.error_string.yfilter != YFilter.not_set or
+                        self.out_of_sync.yfilter != YFilter.not_set)
 
-                        if self.slot is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "candidate-fabric-ports" + path_buffer
 
-                        if self.subslot is not None:
-                            return True
+                    return path_buffer
 
-                        return False
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort']['meta_info']
+                    leaf_name_data = LeafDataList()
+                    if (self.channel_up.is_set or self.channel_up.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.channel_up.get_name_leafdata())
+                    if (self.error_string.is_set or self.error_string.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.error_string.get_name_leafdata())
+                    if (self.out_of_sync.is_set or self.out_of_sync.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.out_of_sync.get_name_leafdata())
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:candidate-fabric-ports'
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    if (child_yang_name == "configured-port"):
+                        for c in self.configured_port:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.ConfiguredPort()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.configured_port.append(c)
+                        return c
+
+                    if (child_yang_name == "current-port"):
+                        for c in self.current_port:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts.CurrentPort()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.current_port.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "configured-port" or name == "current-port" or name == "channel-up" or name == "error-string" or name == "out-of-sync"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.channel_up is not None:
-                        return True
-
-                    if self.configured_port is not None:
-                        for child_ref in self.configured_port:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.current_port is not None:
-                        for child_ref in self.current_port:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.error_string is not None:
-                        return True
-
-                    if self.out_of_sync is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "channel-up"):
+                        self.channel_up = value
+                        self.channel_up.value_namespace = name_space
+                        self.channel_up.value_namespace_prefix = name_space_prefix
+                    if(value_path == "error-string"):
+                        self.error_string = value
+                        self.error_string.value_namespace = name_space
+                        self.error_string.value_namespace_prefix = name_space_prefix
+                    if(value_path == "out-of-sync"):
+                        self.out_of_sync = value
+                        self.out_of_sync.value_namespace = name_space
+                        self.out_of_sync.value_namespace_prefix = name_space_prefix
 
 
-            class OpticalStatus(object):
+            class OpticalStatus(Entity):
                 """
                 Optical Satellite Status
                 
@@ -3528,7 +5103,7 @@ class NvSatellite(object):
                 .. attribute:: chassis_sync_state
                 
                 	Chassis sync state
-                	**type**\:   :py:class:`IcpeOpticalSyncStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
+                	**type**\:   :py:class:`IcpeOpticalSyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState>`
                 
                 
 
@@ -3538,14 +5113,41 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.application = YList()
-                    self.application.parent = self
-                    self.application.name = 'application'
-                    self.chassis_sync_state = None
+                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, self).__init__()
+
+                    self.yang_name = "optical-status"
+                    self.yang_parent_name = "satellite-status"
+
+                    self.chassis_sync_state = YLeaf(YType.enumeration, "chassis-sync-state")
+
+                    self.application = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("chassis_sync_state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus, self).__setattr__(name, value)
 
 
-                class Application(object):
+                class Application(Entity):
                     """
                     Application State table
                     
@@ -3557,7 +5159,7 @@ class NvSatellite(object):
                     .. attribute:: sync_state
                     
                     	Sync state
-                    	**type**\:   :py:class:`IcpeOpticalSyncStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncStateEnum>`
+                    	**type**\:   :py:class:`IcpeOpticalSyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOpticalSyncState>`
                     
                     
 
@@ -3567,64 +5169,161 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.name = None
-                        self.sync_state = None
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "application"
+                        self.yang_parent_name = "optical-status"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:application'
+                        self.name = YLeaf(YType.str, "name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.sync_state = YLeaf(YType.enumeration, "sync-state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("name",
+                                        "sync_state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.name.is_set or
+                            self.sync_state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set or
+                            self.sync_state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "application" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+                        if (self.sync_state.is_set or self.sync_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sync_state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "name" or name == "sync-state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sync-state"):
+                            self.sync_state = value
+                            self.sync_state.value_namespace = name_space
+                            self.sync_state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.application:
+                        if (c.has_data()):
                             return True
+                    return self.chassis_sync_state.is_set
 
-                        if self.sync_state is not None:
+                def has_operation(self):
+                    for c in self.application:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.chassis_sync_state.yfilter != YFilter.not_set)
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "optical-status" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:optical-status'
+                    leaf_name_data = LeafDataList()
+                    if (self.chassis_sync_state.is_set or self.chassis_sync_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.chassis_sync_state.get_name_leafdata())
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def _has_data(self):
-                    if self.application is not None:
-                        for child_ref in self.application:
-                            if child_ref._has_data():
-                                return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    if self.chassis_sync_state is not None:
+                    if (child_yang_name == "application"):
+                        for c in self.application:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus.Application()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.application.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "application" or name == "chassis-sync-state"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "chassis-sync-state"):
+                        self.chassis_sync_state = value
+                        self.chassis_sync_state.value_namespace = name_space
+                        self.chassis_sync_state.value_namespace_prefix = name_space_prefix
 
 
-            class RedundancyOutOfSyncTimestamp(object):
+            class RedundancyOutOfSyncTimestamp(Entity):
                 """
                 Timestamp
                 
@@ -3654,37 +5353,97 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.nanoseconds = None
-                    self.seconds = None
+                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "redundancy-out-of-sync-timestamp"
+                    self.yang_parent_name = "satellite-status"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:redundancy-out-of-sync-timestamp'
+                    self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.seconds = YLeaf(YType.uint32, "seconds")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("nanoseconds",
+                                    "seconds") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.nanoseconds.is_set or
+                        self.seconds.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.nanoseconds.yfilter != YFilter.not_set or
+                        self.seconds.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "redundancy-out-of-sync-timestamp" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                    if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "nanoseconds" or name == "seconds"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.nanoseconds is not None:
-                        return True
-
-                    if self.seconds is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "nanoseconds"):
+                        self.nanoseconds = value
+                        self.nanoseconds.value_namespace = name_space
+                        self.nanoseconds.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds"):
+                        self.seconds = value
+                        self.seconds.value_namespace = name_space
+                        self.seconds.value_namespace_prefix = name_space_prefix
 
 
-            class ConfiguredLink(object):
+            class ConfiguredLink(Entity):
                 """
                 Configured Links on this Satellite table
                 
@@ -3696,7 +5455,7 @@ class NvSatellite(object):
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                 
                 .. attribute:: discovered_link
                 
@@ -3778,28 +5537,75 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.conflict_context = None
-                    self.conflict_reason = None
-                    self.discovered_link = YList()
-                    self.discovered_link.parent = self
-                    self.discovered_link.name = 'discovered_link'
-                    self.interface_handle = None
-                    self.ip_address = None
-                    self.ip_address_auto = None
-                    self.min_links_satisfied = None
-                    self.minimum_preferred_links = None
-                    self.minimum_required_links = None
-                    self.number_active_links = None
-                    self.port_range = YList()
-                    self.port_range.parent = self
-                    self.port_range.name = 'port_range'
-                    self.required_min_links_satisfied = None
-                    self.vrf_id = None
-                    self.vrf_id_present = None
+                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, self).__init__()
+
+                    self.yang_name = "configured-link"
+                    self.yang_parent_name = "satellite-status"
+
+                    self.conflict_context = YLeaf(YType.str, "conflict-context")
+
+                    self.conflict_reason = YLeaf(YType.enumeration, "conflict-reason")
+
+                    self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                    self.ip_address = YLeaf(YType.str, "ip-address")
+
+                    self.ip_address_auto = YLeaf(YType.boolean, "ip-address-auto")
+
+                    self.min_links_satisfied = YLeaf(YType.boolean, "min-links-satisfied")
+
+                    self.minimum_preferred_links = YLeaf(YType.uint32, "minimum-preferred-links")
+
+                    self.minimum_required_links = YLeaf(YType.uint32, "minimum-required-links")
+
+                    self.number_active_links = YLeaf(YType.uint32, "number-active-links")
+
+                    self.required_min_links_satisfied = YLeaf(YType.boolean, "required-min-links-satisfied")
+
+                    self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
+                    self.vrf_id_present = YLeaf(YType.boolean, "vrf-id-present")
+
+                    self.discovered_link = YList(self)
+                    self.port_range = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("conflict_context",
+                                    "conflict_reason",
+                                    "interface_handle",
+                                    "ip_address",
+                                    "ip_address_auto",
+                                    "min_links_satisfied",
+                                    "minimum_preferred_links",
+                                    "minimum_required_links",
+                                    "number_active_links",
+                                    "required_min_links_satisfied",
+                                    "vrf_id",
+                                    "vrf_id_present") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink, self).__setattr__(name, value)
 
 
-                class PortRange(object):
+                class PortRange(Entity):
                     """
                     Port ranges table
                     
@@ -3811,7 +5617,7 @@ class NvSatellite(object):
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                    	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                     
                     .. attribute:: high_port
                     
@@ -3830,7 +5636,7 @@ class NvSatellite(object):
                     .. attribute:: port_type
                     
                     	Port type
-                    	**type**\:   :py:class:`IcpeOperPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPortEnum>`
+                    	**type**\:   :py:class:`IcpeOperPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperPort>`
                     
                     .. attribute:: slot
                     
@@ -3854,57 +5660,152 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.conflict_context = None
-                        self.conflict_reason = None
-                        self.high_port = None
-                        self.low_port = None
-                        self.port_type = None
-                        self.slot = None
-                        self.subslot = None
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "port-range"
+                        self.yang_parent_name = "configured-link"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:port-range'
+                        self.conflict_context = YLeaf(YType.str, "conflict-context")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.conflict_reason = YLeaf(YType.enumeration, "conflict-reason")
+
+                        self.high_port = YLeaf(YType.uint32, "high-port")
+
+                        self.low_port = YLeaf(YType.uint32, "low-port")
+
+                        self.port_type = YLeaf(YType.enumeration, "port-type")
+
+                        self.slot = YLeaf(YType.uint32, "slot")
+
+                        self.subslot = YLeaf(YType.uint32, "subslot")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("conflict_context",
+                                        "conflict_reason",
+                                        "high_port",
+                                        "low_port",
+                                        "port_type",
+                                        "slot",
+                                        "subslot") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.conflict_context.is_set or
+                            self.conflict_reason.is_set or
+                            self.high_port.is_set or
+                            self.low_port.is_set or
+                            self.port_type.is_set or
+                            self.slot.is_set or
+                            self.subslot.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.conflict_context.yfilter != YFilter.not_set or
+                            self.conflict_reason.yfilter != YFilter.not_set or
+                            self.high_port.yfilter != YFilter.not_set or
+                            self.low_port.yfilter != YFilter.not_set or
+                            self.port_type.yfilter != YFilter.not_set or
+                            self.slot.yfilter != YFilter.not_set or
+                            self.subslot.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "port-range" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.conflict_context.is_set or self.conflict_context.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.conflict_context.get_name_leafdata())
+                        if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                        if (self.high_port.is_set or self.high_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.high_port.get_name_leafdata())
+                        if (self.low_port.is_set or self.low_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.low_port.get_name_leafdata())
+                        if (self.port_type.is_set or self.port_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.port_type.get_name_leafdata())
+                        if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.slot.get_name_leafdata())
+                        if (self.subslot.is_set or self.subslot.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.subslot.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "conflict-context" or name == "conflict-reason" or name == "high-port" or name == "low-port" or name == "port-type" or name == "slot" or name == "subslot"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.conflict_context is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "conflict-context"):
+                            self.conflict_context = value
+                            self.conflict_context.value_namespace = name_space
+                            self.conflict_context.value_namespace_prefix = name_space_prefix
+                        if(value_path == "conflict-reason"):
+                            self.conflict_reason = value
+                            self.conflict_reason.value_namespace = name_space
+                            self.conflict_reason.value_namespace_prefix = name_space_prefix
+                        if(value_path == "high-port"):
+                            self.high_port = value
+                            self.high_port.value_namespace = name_space
+                            self.high_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "low-port"):
+                            self.low_port = value
+                            self.low_port.value_namespace = name_space
+                            self.low_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "port-type"):
+                            self.port_type = value
+                            self.port_type.value_namespace = name_space
+                            self.port_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "slot"):
+                            self.slot = value
+                            self.slot.value_namespace = name_space
+                            self.slot.value_namespace_prefix = name_space_prefix
+                        if(value_path == "subslot"):
+                            self.subslot = value
+                            self.subslot.value_namespace = name_space
+                            self.subslot.value_namespace_prefix = name_space_prefix
 
-                        if self.conflict_reason is not None:
-                            return True
 
-                        if self.high_port is not None:
-                            return True
-
-                        if self.low_port is not None:
-                            return True
-
-                        if self.port_type is not None:
-                            return True
-
-                        if self.slot is not None:
-                            return True
-
-                        if self.subslot is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange']['meta_info']
-
-
-                class DiscoveredLink(object):
+                class DiscoveredLink(Entity):
                     """
                     Discovered Links table
                     
@@ -3916,7 +5817,7 @@ class NvSatellite(object):
                     .. attribute:: conflict_reason
                     
                     	Conflict reason
-                    	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                    	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                     
                     .. attribute:: interface_handle
                     
@@ -3928,7 +5829,7 @@ class NvSatellite(object):
                     .. attribute:: state
                     
                     	State
-                    	**type**\:   :py:class:`IcpeOperDiscdLinkStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkStateEnum>`
+                    	**type**\:   :py:class:`IcpeOperDiscdLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperDiscdLinkState>`
                     
                     
 
@@ -3938,278 +5839,730 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.conflict_context = None
-                        self.conflict_reason = None
-                        self.interface_handle = None
-                        self.state = None
+                        super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "discovered-link"
+                        self.yang_parent_name = "configured-link"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:discovered-link'
+                        self.conflict_context = YLeaf(YType.str, "conflict-context")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                        self.conflict_reason = YLeaf(YType.enumeration, "conflict-reason")
 
-                    def _has_data(self):
-                        if self.conflict_context is not None:
-                            return True
+                        self.interface_handle = YLeaf(YType.str, "interface-handle")
 
-                        if self.conflict_reason is not None:
-                            return True
+                        self.state = YLeaf(YType.enumeration, "state")
 
-                        if self.interface_handle is not None:
-                            return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("conflict_context",
+                                        "conflict_reason",
+                                        "interface_handle",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink, self).__setattr__(name, value)
 
-                        if self.state is not None:
-                            return True
+                    def has_data(self):
+                        return (
+                            self.conflict_context.is_set or
+                            self.conflict_reason.is_set or
+                            self.interface_handle.is_set or
+                            self.state.is_set)
 
-                        return False
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.conflict_context.yfilter != YFilter.not_set or
+                            self.conflict_reason.yfilter != YFilter.not_set or
+                            self.interface_handle.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink']['meta_info']
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "discovered-link" + path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                        return path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:configured-link'
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                        leaf_name_data = LeafDataList()
+                        if (self.conflict_context.is_set or self.conflict_context.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.conflict_context.get_name_leafdata())
+                        if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                        if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
 
-                def _has_data(self):
-                    if self.conflict_context is not None:
-                        return True
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    if self.conflict_reason is not None:
-                        return True
-
-                    if self.discovered_link is not None:
-                        for child_ref in self.discovered_link:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.interface_handle is not None:
-                        return True
-
-                    if self.ip_address is not None:
-                        return True
-
-                    if self.ip_address_auto is not None:
-                        return True
-
-                    if self.min_links_satisfied is not None:
-                        return True
-
-                    if self.minimum_preferred_links is not None:
-                        return True
-
-                    if self.minimum_required_links is not None:
-                        return True
-
-                    if self.number_active_links is not None:
-                        return True
-
-                    if self.port_range is not None:
-                        for child_ref in self.port_range:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.required_min_links_satisfied is not None:
-                        return True
-
-                    if self.vrf_id is not None:
-                        return True
-
-                    if self.vrf_id_present is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.satellite_id is None:
-                    raise YPYModelError('Key property satellite_id is None')
-
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-statuses/Cisco-IOS-XR-icpe-infra-oper:satellite-status[Cisco-IOS-XR-icpe-infra-oper:satellite-id = ' + str(self.satellite_id) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.satellite_id is not None:
-                    return True
-
-                if self.candidate_fabric_ports is not None and self.candidate_fabric_ports._has_data():
-                    return True
-
-                if self.cfgd_timeout is not None:
-                    return True
-
-                if self.configured_link is not None:
-                    for child_ref in self.configured_link:
-                        if child_ref._has_data():
-                            return True
-
-                if self.configured_serial_number is not None:
-                    return True
-
-                if self.configured_serial_number_present is not None:
-                    return True
-
-                if self.conflict_context is not None:
-                    return True
-
-                if self.conflict_reason is not None:
-                    return True
-
-                if self.description is not None:
-                    return True
-
-                if self.description_present is not None:
-                    return True
-
-                if self.ethernet_fabric_supported is not None:
-                    return True
-
-                if self.host_treating_as_active is not None:
-                    return True
-
-                if self.install_state is not None:
-                    return True
-
-                if self.ip_address is not None:
-                    return True
-
-                if self.ip_address_auto is not None:
-                    return True
-
-                if self.ip_address_present is not None:
-                    return True
-
-                if self.ipv6_address is not None:
-                    return True
-
-                if self.ipv6_address_present is not None:
-                    return True
-
-                if self.mac_address is not None:
-                    return True
-
-                if self.mac_address_present is not None:
-                    return True
-
-                if self.optical_status is not None and self.optical_status._has_data():
-                    return True
-
-                if self.optical_supported is not None:
-                    return True
-
-                if self.password is not None:
-                    return True
-
-                if self.password_error is not None:
-                    return True
-
-                if self.received_host_name is not None:
-                    return True
-
-                if self.received_serial_number is not None:
-                    return True
-
-                if self.received_serial_number_present is not None:
-                    return True
-
-                if self.recovery_delay_time_left is not None:
-                    return True
-
-                if self.redundancy_iccp_group is not None:
-                    return True
-
-                if self.redundancy_out_of_sync_timestamp is not None and self.redundancy_out_of_sync_timestamp._has_data():
-                    return True
-
-                if self.remote_version is not None:
-                    for child in self.remote_version:
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
                         if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "conflict-context" or name == "conflict-reason" or name == "interface-handle" or name == "state"):
                             return True
+                        return False
 
-                if self.remote_version_present is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "conflict-context"):
+                            self.conflict_context = value
+                            self.conflict_context.value_namespace = name_space
+                            self.conflict_context.value_namespace_prefix = name_space_prefix
+                        if(value_path == "conflict-reason"):
+                            self.conflict_reason = value
+                            self.conflict_reason.value_namespace = name_space
+                            self.conflict_reason.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-handle"):
+                            self.interface_handle = value
+                            self.interface_handle.value_namespace = name_space
+                            self.interface_handle.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.discovered_link:
+                        if (c.has_data()):
+                            return True
+                    for c in self.port_range:
+                        if (c.has_data()):
+                            return True
+                    return (
+                        self.conflict_context.is_set or
+                        self.conflict_reason.is_set or
+                        self.interface_handle.is_set or
+                        self.ip_address.is_set or
+                        self.ip_address_auto.is_set or
+                        self.min_links_satisfied.is_set or
+                        self.minimum_preferred_links.is_set or
+                        self.minimum_required_links.is_set or
+                        self.number_active_links.is_set or
+                        self.required_min_links_satisfied.is_set or
+                        self.vrf_id.is_set or
+                        self.vrf_id_present.is_set)
+
+                def has_operation(self):
+                    for c in self.discovered_link:
+                        if (c.has_operation()):
+                            return True
+                    for c in self.port_range:
+                        if (c.has_operation()):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.conflict_context.yfilter != YFilter.not_set or
+                        self.conflict_reason.yfilter != YFilter.not_set or
+                        self.interface_handle.yfilter != YFilter.not_set or
+                        self.ip_address.yfilter != YFilter.not_set or
+                        self.ip_address_auto.yfilter != YFilter.not_set or
+                        self.min_links_satisfied.yfilter != YFilter.not_set or
+                        self.minimum_preferred_links.yfilter != YFilter.not_set or
+                        self.minimum_required_links.yfilter != YFilter.not_set or
+                        self.number_active_links.yfilter != YFilter.not_set or
+                        self.required_min_links_satisfied.yfilter != YFilter.not_set or
+                        self.vrf_id.yfilter != YFilter.not_set or
+                        self.vrf_id_present.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "configured-link" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.conflict_context.is_set or self.conflict_context.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.conflict_context.get_name_leafdata())
+                    if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                    if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                    if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ip_address.get_name_leafdata())
+                    if (self.ip_address_auto.is_set or self.ip_address_auto.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ip_address_auto.get_name_leafdata())
+                    if (self.min_links_satisfied.is_set or self.min_links_satisfied.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.min_links_satisfied.get_name_leafdata())
+                    if (self.minimum_preferred_links.is_set or self.minimum_preferred_links.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.minimum_preferred_links.get_name_leafdata())
+                    if (self.minimum_required_links.is_set or self.minimum_required_links.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.minimum_required_links.get_name_leafdata())
+                    if (self.number_active_links.is_set or self.number_active_links.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number_active_links.get_name_leafdata())
+                    if (self.required_min_links_satisfied.is_set or self.required_min_links_satisfied.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.required_min_links_satisfied.get_name_leafdata())
+                    if (self.vrf_id.is_set or self.vrf_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_id.get_name_leafdata())
+                    if (self.vrf_id_present.is_set or self.vrf_id_present.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_id_present.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "discovered-link"):
+                        for c in self.discovered_link:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.DiscoveredLink()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.discovered_link.append(c)
+                        return c
+
+                    if (child_yang_name == "port-range"):
+                        for c in self.port_range:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink.PortRange()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.port_range.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "discovered-link" or name == "port-range" or name == "conflict-context" or name == "conflict-reason" or name == "interface-handle" or name == "ip-address" or name == "ip-address-auto" or name == "min-links-satisfied" or name == "minimum-preferred-links" or name == "minimum-required-links" or name == "number-active-links" or name == "required-min-links-satisfied" or name == "vrf-id" or name == "vrf-id-present"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "conflict-context"):
+                        self.conflict_context = value
+                        self.conflict_context.value_namespace = name_space
+                        self.conflict_context.value_namespace_prefix = name_space_prefix
+                    if(value_path == "conflict-reason"):
+                        self.conflict_reason = value
+                        self.conflict_reason.value_namespace = name_space
+                        self.conflict_reason.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-handle"):
+                        self.interface_handle = value
+                        self.interface_handle.value_namespace = name_space
+                        self.interface_handle.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ip-address"):
+                        self.ip_address = value
+                        self.ip_address.value_namespace = name_space
+                        self.ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ip-address-auto"):
+                        self.ip_address_auto = value
+                        self.ip_address_auto.value_namespace = name_space
+                        self.ip_address_auto.value_namespace_prefix = name_space_prefix
+                    if(value_path == "min-links-satisfied"):
+                        self.min_links_satisfied = value
+                        self.min_links_satisfied.value_namespace = name_space
+                        self.min_links_satisfied.value_namespace_prefix = name_space_prefix
+                    if(value_path == "minimum-preferred-links"):
+                        self.minimum_preferred_links = value
+                        self.minimum_preferred_links.value_namespace = name_space
+                        self.minimum_preferred_links.value_namespace_prefix = name_space_prefix
+                    if(value_path == "minimum-required-links"):
+                        self.minimum_required_links = value
+                        self.minimum_required_links.value_namespace = name_space
+                        self.minimum_required_links.value_namespace_prefix = name_space_prefix
+                    if(value_path == "number-active-links"):
+                        self.number_active_links = value
+                        self.number_active_links.value_namespace = name_space
+                        self.number_active_links.value_namespace_prefix = name_space_prefix
+                    if(value_path == "required-min-links-satisfied"):
+                        self.required_min_links_satisfied = value
+                        self.required_min_links_satisfied.value_namespace = name_space
+                        self.required_min_links_satisfied.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vrf-id"):
+                        self.vrf_id = value
+                        self.vrf_id.value_namespace = name_space
+                        self.vrf_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vrf-id-present"):
+                        self.vrf_id_present = value
+                        self.vrf_id_present.value_namespace = name_space
+                        self.vrf_id_present.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.configured_link:
+                    if (c.has_data()):
+                        return True
+                for leaf in self.remote_version.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.satellite_id.is_set or
+                    self.cfgd_timeout.is_set or
+                    self.configured_serial_number.is_set or
+                    self.configured_serial_number_present.is_set or
+                    self.conflict_context.is_set or
+                    self.conflict_reason.is_set or
+                    self.description.is_set or
+                    self.description_present.is_set or
+                    self.ethernet_fabric_supported.is_set or
+                    self.host_treating_as_active.is_set or
+                    self.install_state.is_set or
+                    self.ip_address.is_set or
+                    self.ip_address_auto.is_set or
+                    self.ip_address_present.is_set or
+                    self.ipv6_address.is_set or
+                    self.ipv6_address_present.is_set or
+                    self.mac_address.is_set or
+                    self.mac_address_present.is_set or
+                    self.optical_supported.is_set or
+                    self.password.is_set or
+                    self.password_error.is_set or
+                    self.received_host_name.is_set or
+                    self.received_serial_number.is_set or
+                    self.received_serial_number_present.is_set or
+                    self.recovery_delay_time_left.is_set or
+                    self.redundancy_iccp_group.is_set or
+                    self.remote_version_present.is_set or
+                    self.satellite_id_xr.is_set or
+                    self.satellite_treating_as_active.is_set or
+                    self.sdacp_session_failure_reason.is_set or
+                    self.sdacp_session_state.is_set or
+                    self.timeout_warning.is_set or
+                    self.type.is_set or
+                    self.version_check_state.is_set or
+                    self.vrf_name.is_set or
+                    self.vrfid.is_set or
+                    (self.candidate_fabric_ports is not None and self.candidate_fabric_ports.has_data()) or
+                    (self.optical_status is not None and self.optical_status.has_data()) or
+                    (self.redundancy_out_of_sync_timestamp is not None and self.redundancy_out_of_sync_timestamp.has_data()))
+
+            def has_operation(self):
+                for c in self.configured_link:
+                    if (c.has_operation()):
+                        return True
+                for leaf in self.remote_version.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.satellite_id.yfilter != YFilter.not_set or
+                    self.cfgd_timeout.yfilter != YFilter.not_set or
+                    self.configured_serial_number.yfilter != YFilter.not_set or
+                    self.configured_serial_number_present.yfilter != YFilter.not_set or
+                    self.conflict_context.yfilter != YFilter.not_set or
+                    self.conflict_reason.yfilter != YFilter.not_set or
+                    self.description.yfilter != YFilter.not_set or
+                    self.description_present.yfilter != YFilter.not_set or
+                    self.ethernet_fabric_supported.yfilter != YFilter.not_set or
+                    self.host_treating_as_active.yfilter != YFilter.not_set or
+                    self.install_state.yfilter != YFilter.not_set or
+                    self.ip_address.yfilter != YFilter.not_set or
+                    self.ip_address_auto.yfilter != YFilter.not_set or
+                    self.ip_address_present.yfilter != YFilter.not_set or
+                    self.ipv6_address.yfilter != YFilter.not_set or
+                    self.ipv6_address_present.yfilter != YFilter.not_set or
+                    self.mac_address.yfilter != YFilter.not_set or
+                    self.mac_address_present.yfilter != YFilter.not_set or
+                    self.optical_supported.yfilter != YFilter.not_set or
+                    self.password.yfilter != YFilter.not_set or
+                    self.password_error.yfilter != YFilter.not_set or
+                    self.received_host_name.yfilter != YFilter.not_set or
+                    self.received_serial_number.yfilter != YFilter.not_set or
+                    self.received_serial_number_present.yfilter != YFilter.not_set or
+                    self.recovery_delay_time_left.yfilter != YFilter.not_set or
+                    self.redundancy_iccp_group.yfilter != YFilter.not_set or
+                    self.remote_version.yfilter != YFilter.not_set or
+                    self.remote_version_present.yfilter != YFilter.not_set or
+                    self.satellite_id_xr.yfilter != YFilter.not_set or
+                    self.satellite_treating_as_active.yfilter != YFilter.not_set or
+                    self.sdacp_session_failure_reason.yfilter != YFilter.not_set or
+                    self.sdacp_session_state.yfilter != YFilter.not_set or
+                    self.timeout_warning.yfilter != YFilter.not_set or
+                    self.type.yfilter != YFilter.not_set or
+                    self.version_check_state.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    self.vrfid.yfilter != YFilter.not_set or
+                    (self.candidate_fabric_ports is not None and self.candidate_fabric_ports.has_operation()) or
+                    (self.optical_status is not None and self.optical_status.has_operation()) or
+                    (self.redundancy_out_of_sync_timestamp is not None and self.redundancy_out_of_sync_timestamp.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "satellite-status" + "[satellite-id='" + self.satellite_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-statuses/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                if (self.cfgd_timeout.is_set or self.cfgd_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cfgd_timeout.get_name_leafdata())
+                if (self.configured_serial_number.is_set or self.configured_serial_number.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.configured_serial_number.get_name_leafdata())
+                if (self.configured_serial_number_present.is_set or self.configured_serial_number_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.configured_serial_number_present.get_name_leafdata())
+                if (self.conflict_context.is_set or self.conflict_context.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.conflict_context.get_name_leafdata())
+                if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                if (self.description.is_set or self.description.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.description.get_name_leafdata())
+                if (self.description_present.is_set or self.description_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.description_present.get_name_leafdata())
+                if (self.ethernet_fabric_supported.is_set or self.ethernet_fabric_supported.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ethernet_fabric_supported.get_name_leafdata())
+                if (self.host_treating_as_active.is_set or self.host_treating_as_active.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.host_treating_as_active.get_name_leafdata())
+                if (self.install_state.is_set or self.install_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.install_state.get_name_leafdata())
+                if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ip_address.get_name_leafdata())
+                if (self.ip_address_auto.is_set or self.ip_address_auto.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ip_address_auto.get_name_leafdata())
+                if (self.ip_address_present.is_set or self.ip_address_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ip_address_present.get_name_leafdata())
+                if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+                if (self.ipv6_address_present.is_set or self.ipv6_address_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ipv6_address_present.get_name_leafdata())
+                if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mac_address.get_name_leafdata())
+                if (self.mac_address_present.is_set or self.mac_address_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mac_address_present.get_name_leafdata())
+                if (self.optical_supported.is_set or self.optical_supported.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.optical_supported.get_name_leafdata())
+                if (self.password.is_set or self.password.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.password.get_name_leafdata())
+                if (self.password_error.is_set or self.password_error.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.password_error.get_name_leafdata())
+                if (self.received_host_name.is_set or self.received_host_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.received_host_name.get_name_leafdata())
+                if (self.received_serial_number.is_set or self.received_serial_number.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.received_serial_number.get_name_leafdata())
+                if (self.received_serial_number_present.is_set or self.received_serial_number_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.received_serial_number_present.get_name_leafdata())
+                if (self.recovery_delay_time_left.is_set or self.recovery_delay_time_left.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.recovery_delay_time_left.get_name_leafdata())
+                if (self.redundancy_iccp_group.is_set or self.redundancy_iccp_group.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.redundancy_iccp_group.get_name_leafdata())
+                if (self.remote_version_present.is_set or self.remote_version_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.remote_version_present.get_name_leafdata())
+                if (self.satellite_id_xr.is_set or self.satellite_id_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id_xr.get_name_leafdata())
+                if (self.satellite_treating_as_active.is_set or self.satellite_treating_as_active.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_treating_as_active.get_name_leafdata())
+                if (self.sdacp_session_failure_reason.is_set or self.sdacp_session_failure_reason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sdacp_session_failure_reason.get_name_leafdata())
+                if (self.sdacp_session_state.is_set or self.sdacp_session_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sdacp_session_state.get_name_leafdata())
+                if (self.timeout_warning.is_set or self.timeout_warning.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.timeout_warning.get_name_leafdata())
+                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.type.get_name_leafdata())
+                if (self.version_check_state.is_set or self.version_check_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.version_check_state.get_name_leafdata())
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                if (self.vrfid.is_set or self.vrfid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrfid.get_name_leafdata())
+
+                leaf_name_data.extend(self.remote_version.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "candidate-fabric-ports"):
+                    if (self.candidate_fabric_ports is None):
+                        self.candidate_fabric_ports = NvSatellite.SatelliteStatuses.SatelliteStatus.CandidateFabricPorts()
+                        self.candidate_fabric_ports.parent = self
+                        self._children_name_map["candidate_fabric_ports"] = "candidate-fabric-ports"
+                    return self.candidate_fabric_ports
+
+                if (child_yang_name == "configured-link"):
+                    for c in self.configured_link:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SatelliteStatuses.SatelliteStatus.ConfiguredLink()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.configured_link.append(c)
+                    return c
+
+                if (child_yang_name == "optical-status"):
+                    if (self.optical_status is None):
+                        self.optical_status = NvSatellite.SatelliteStatuses.SatelliteStatus.OpticalStatus()
+                        self.optical_status.parent = self
+                        self._children_name_map["optical_status"] = "optical-status"
+                    return self.optical_status
+
+                if (child_yang_name == "redundancy-out-of-sync-timestamp"):
+                    if (self.redundancy_out_of_sync_timestamp is None):
+                        self.redundancy_out_of_sync_timestamp = NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp()
+                        self.redundancy_out_of_sync_timestamp.parent = self
+                        self._children_name_map["redundancy_out_of_sync_timestamp"] = "redundancy-out-of-sync-timestamp"
+                    return self.redundancy_out_of_sync_timestamp
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "candidate-fabric-ports" or name == "configured-link" or name == "optical-status" or name == "redundancy-out-of-sync-timestamp" or name == "satellite-id" or name == "cfgd-timeout" or name == "configured-serial-number" or name == "configured-serial-number-present" or name == "conflict-context" or name == "conflict-reason" or name == "description" or name == "description-present" or name == "ethernet-fabric-supported" or name == "host-treating-as-active" or name == "install-state" or name == "ip-address" or name == "ip-address-auto" or name == "ip-address-present" or name == "ipv6-address" or name == "ipv6-address-present" or name == "mac-address" or name == "mac-address-present" or name == "optical-supported" or name == "password" or name == "password-error" or name == "received-host-name" or name == "received-serial-number" or name == "received-serial-number-present" or name == "recovery-delay-time-left" or name == "redundancy-iccp-group" or name == "remote-version" or name == "remote-version-present" or name == "satellite-id-xr" or name == "satellite-treating-as-active" or name == "sdacp-session-failure-reason" or name == "sdacp-session-state" or name == "timeout-warning" or name == "type" or name == "version-check-state" or name == "vrf-name" or name == "vrfid"):
                     return True
-
-                if self.satellite_id_xr is not None:
-                    return True
-
-                if self.satellite_treating_as_active is not None:
-                    return True
-
-                if self.sdacp_session_failure_reason is not None:
-                    return True
-
-                if self.sdacp_session_state is not None:
-                    return True
-
-                if self.timeout_warning is not None:
-                    return True
-
-                if self.type is not None:
-                    return True
-
-                if self.version_check_state is not None:
-                    return True
-
-                if self.vrf_name is not None:
-                    return True
-
-                if self.vrfid is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SatelliteStatuses.SatelliteStatus']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "satellite-id"):
+                    self.satellite_id = value
+                    self.satellite_id.value_namespace = name_space
+                    self.satellite_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "cfgd-timeout"):
+                    self.cfgd_timeout = value
+                    self.cfgd_timeout.value_namespace = name_space
+                    self.cfgd_timeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "configured-serial-number"):
+                    self.configured_serial_number = value
+                    self.configured_serial_number.value_namespace = name_space
+                    self.configured_serial_number.value_namespace_prefix = name_space_prefix
+                if(value_path == "configured-serial-number-present"):
+                    self.configured_serial_number_present = value
+                    self.configured_serial_number_present.value_namespace = name_space
+                    self.configured_serial_number_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "conflict-context"):
+                    self.conflict_context = value
+                    self.conflict_context.value_namespace = name_space
+                    self.conflict_context.value_namespace_prefix = name_space_prefix
+                if(value_path == "conflict-reason"):
+                    self.conflict_reason = value
+                    self.conflict_reason.value_namespace = name_space
+                    self.conflict_reason.value_namespace_prefix = name_space_prefix
+                if(value_path == "description"):
+                    self.description = value
+                    self.description.value_namespace = name_space
+                    self.description.value_namespace_prefix = name_space_prefix
+                if(value_path == "description-present"):
+                    self.description_present = value
+                    self.description_present.value_namespace = name_space
+                    self.description_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "ethernet-fabric-supported"):
+                    self.ethernet_fabric_supported = value
+                    self.ethernet_fabric_supported.value_namespace = name_space
+                    self.ethernet_fabric_supported.value_namespace_prefix = name_space_prefix
+                if(value_path == "host-treating-as-active"):
+                    self.host_treating_as_active = value
+                    self.host_treating_as_active.value_namespace = name_space
+                    self.host_treating_as_active.value_namespace_prefix = name_space_prefix
+                if(value_path == "install-state"):
+                    self.install_state = value
+                    self.install_state.value_namespace = name_space
+                    self.install_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "ip-address"):
+                    self.ip_address = value
+                    self.ip_address.value_namespace = name_space
+                    self.ip_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "ip-address-auto"):
+                    self.ip_address_auto = value
+                    self.ip_address_auto.value_namespace = name_space
+                    self.ip_address_auto.value_namespace_prefix = name_space_prefix
+                if(value_path == "ip-address-present"):
+                    self.ip_address_present = value
+                    self.ip_address_present.value_namespace = name_space
+                    self.ip_address_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "ipv6-address"):
+                    self.ipv6_address = value
+                    self.ipv6_address.value_namespace = name_space
+                    self.ipv6_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "ipv6-address-present"):
+                    self.ipv6_address_present = value
+                    self.ipv6_address_present.value_namespace = name_space
+                    self.ipv6_address_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "mac-address"):
+                    self.mac_address = value
+                    self.mac_address.value_namespace = name_space
+                    self.mac_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "mac-address-present"):
+                    self.mac_address_present = value
+                    self.mac_address_present.value_namespace = name_space
+                    self.mac_address_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "optical-supported"):
+                    self.optical_supported = value
+                    self.optical_supported.value_namespace = name_space
+                    self.optical_supported.value_namespace_prefix = name_space_prefix
+                if(value_path == "password"):
+                    self.password = value
+                    self.password.value_namespace = name_space
+                    self.password.value_namespace_prefix = name_space_prefix
+                if(value_path == "password-error"):
+                    self.password_error = value
+                    self.password_error.value_namespace = name_space
+                    self.password_error.value_namespace_prefix = name_space_prefix
+                if(value_path == "received-host-name"):
+                    self.received_host_name = value
+                    self.received_host_name.value_namespace = name_space
+                    self.received_host_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "received-serial-number"):
+                    self.received_serial_number = value
+                    self.received_serial_number.value_namespace = name_space
+                    self.received_serial_number.value_namespace_prefix = name_space_prefix
+                if(value_path == "received-serial-number-present"):
+                    self.received_serial_number_present = value
+                    self.received_serial_number_present.value_namespace = name_space
+                    self.received_serial_number_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "recovery-delay-time-left"):
+                    self.recovery_delay_time_left = value
+                    self.recovery_delay_time_left.value_namespace = name_space
+                    self.recovery_delay_time_left.value_namespace_prefix = name_space_prefix
+                if(value_path == "redundancy-iccp-group"):
+                    self.redundancy_iccp_group = value
+                    self.redundancy_iccp_group.value_namespace = name_space
+                    self.redundancy_iccp_group.value_namespace_prefix = name_space_prefix
+                if(value_path == "remote-version"):
+                    self.remote_version.append(value)
+                if(value_path == "remote-version-present"):
+                    self.remote_version_present = value
+                    self.remote_version_present.value_namespace = name_space
+                    self.remote_version_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-id-xr"):
+                    self.satellite_id_xr = value
+                    self.satellite_id_xr.value_namespace = name_space
+                    self.satellite_id_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-treating-as-active"):
+                    self.satellite_treating_as_active = value
+                    self.satellite_treating_as_active.value_namespace = name_space
+                    self.satellite_treating_as_active.value_namespace_prefix = name_space_prefix
+                if(value_path == "sdacp-session-failure-reason"):
+                    self.sdacp_session_failure_reason = value
+                    self.sdacp_session_failure_reason.value_namespace = name_space
+                    self.sdacp_session_failure_reason.value_namespace_prefix = name_space_prefix
+                if(value_path == "sdacp-session-state"):
+                    self.sdacp_session_state = value
+                    self.sdacp_session_state.value_namespace = name_space
+                    self.sdacp_session_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "timeout-warning"):
+                    self.timeout_warning = value
+                    self.timeout_warning.value_namespace = name_space
+                    self.timeout_warning.value_namespace_prefix = name_space_prefix
+                if(value_path == "type"):
+                    self.type = value
+                    self.type.value_namespace = name_space
+                    self.type.value_namespace_prefix = name_space_prefix
+                if(value_path == "version-check-state"):
+                    self.version_check_state = value
+                    self.version_check_state.value_namespace = name_space
+                    self.version_check_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrfid"):
+                    self.vrfid = value
+                    self.vrfid.value_namespace = name_space
+                    self.vrfid.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-statuses'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.satellite_status:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.satellite_status is not None:
-                for child_ref in self.satellite_status:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.satellite_status:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "satellite-statuses" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "satellite-status"):
+                for c in self.satellite_status:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.SatelliteStatuses.SatelliteStatus()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.satellite_status.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "satellite-status"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SatelliteStatuses']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SatellitePriorities(object):
+    class SatellitePriorities(Entity):
         """
         Satellite priority information table
         
@@ -4226,13 +6579,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.satellite_priority = YList()
-            self.satellite_priority.parent = self
-            self.satellite_priority.name = 'satellite_priority'
+            super(NvSatellite.SatellitePriorities, self).__init__()
+
+            self.yang_name = "satellite-priorities"
+            self.yang_parent_name = "nv-satellite"
+
+            self.satellite_priority = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.SatellitePriorities, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.SatellitePriorities, self).__setattr__(name, value)
 
 
-        class SatellitePriority(object):
+        class SatellitePriority(Entity):
             """
             Satellite priority information
             
@@ -4267,7 +6646,7 @@ class NvSatellite(object):
             .. attribute:: multichassis_redundancy
             
             	Multichassis redundancy
-            	**type**\:   :py:class:`IcpeOperMultichassisRedundancyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperMultichassisRedundancyEnum>`
+            	**type**\:   :py:class:`IcpeOperMultichassisRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperMultichassisRedundancy>`
             
             .. attribute:: partner_priority
             
@@ -4298,83 +6677,220 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.satellite_id = None
-                self.best_path_hops = None
-                self.configured_priority = None
-                self.host_priority = None
-                self.multichassis_redundancy = None
-                self.partner_priority = None
-                self.rgid = None
-                self.satellite_id_xr = None
+                super(NvSatellite.SatellitePriorities.SatellitePriority, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.satellite_id is None:
-                    raise YPYModelError('Key property satellite_id is None')
+                self.yang_name = "satellite-priority"
+                self.yang_parent_name = "satellite-priorities"
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-priorities/Cisco-IOS-XR-icpe-infra-oper:satellite-priority[Cisco-IOS-XR-icpe-infra-oper:satellite-id = ' + str(self.satellite_id) + ']'
+                self.satellite_id = YLeaf(YType.uint32, "satellite-id")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.best_path_hops = YLeaf(YType.uint32, "best-path-hops")
+
+                self.configured_priority = YLeaf(YType.uint8, "configured-priority")
+
+                self.host_priority = YLeaf(YType.uint64, "host-priority")
+
+                self.multichassis_redundancy = YLeaf(YType.enumeration, "multichassis-redundancy")
+
+                self.partner_priority = YLeaf(YType.uint64, "partner-priority")
+
+                self.rgid = YLeaf(YType.uint32, "rgid")
+
+                self.satellite_id_xr = YLeaf(YType.uint32, "satellite-id-xr")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("satellite_id",
+                                "best_path_hops",
+                                "configured_priority",
+                                "host_priority",
+                                "multichassis_redundancy",
+                                "partner_priority",
+                                "rgid",
+                                "satellite_id_xr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SatellitePriorities.SatellitePriority, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SatellitePriorities.SatellitePriority, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.satellite_id.is_set or
+                    self.best_path_hops.is_set or
+                    self.configured_priority.is_set or
+                    self.host_priority.is_set or
+                    self.multichassis_redundancy.is_set or
+                    self.partner_priority.is_set or
+                    self.rgid.is_set or
+                    self.satellite_id_xr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.satellite_id.yfilter != YFilter.not_set or
+                    self.best_path_hops.yfilter != YFilter.not_set or
+                    self.configured_priority.yfilter != YFilter.not_set or
+                    self.host_priority.yfilter != YFilter.not_set or
+                    self.multichassis_redundancy.yfilter != YFilter.not_set or
+                    self.partner_priority.yfilter != YFilter.not_set or
+                    self.rgid.yfilter != YFilter.not_set or
+                    self.satellite_id_xr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "satellite-priority" + "[satellite-id='" + self.satellite_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-priorities/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                if (self.best_path_hops.is_set or self.best_path_hops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.best_path_hops.get_name_leafdata())
+                if (self.configured_priority.is_set or self.configured_priority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.configured_priority.get_name_leafdata())
+                if (self.host_priority.is_set or self.host_priority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.host_priority.get_name_leafdata())
+                if (self.multichassis_redundancy.is_set or self.multichassis_redundancy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.multichassis_redundancy.get_name_leafdata())
+                if (self.partner_priority.is_set or self.partner_priority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.partner_priority.get_name_leafdata())
+                if (self.rgid.is_set or self.rgid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rgid.get_name_leafdata())
+                if (self.satellite_id_xr.is_set or self.satellite_id_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id_xr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "satellite-id" or name == "best-path-hops" or name == "configured-priority" or name == "host-priority" or name == "multichassis-redundancy" or name == "partner-priority" or name == "rgid" or name == "satellite-id-xr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.satellite_id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "satellite-id"):
+                    self.satellite_id = value
+                    self.satellite_id.value_namespace = name_space
+                    self.satellite_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "best-path-hops"):
+                    self.best_path_hops = value
+                    self.best_path_hops.value_namespace = name_space
+                    self.best_path_hops.value_namespace_prefix = name_space_prefix
+                if(value_path == "configured-priority"):
+                    self.configured_priority = value
+                    self.configured_priority.value_namespace = name_space
+                    self.configured_priority.value_namespace_prefix = name_space_prefix
+                if(value_path == "host-priority"):
+                    self.host_priority = value
+                    self.host_priority.value_namespace = name_space
+                    self.host_priority.value_namespace_prefix = name_space_prefix
+                if(value_path == "multichassis-redundancy"):
+                    self.multichassis_redundancy = value
+                    self.multichassis_redundancy.value_namespace = name_space
+                    self.multichassis_redundancy.value_namespace_prefix = name_space_prefix
+                if(value_path == "partner-priority"):
+                    self.partner_priority = value
+                    self.partner_priority.value_namespace = name_space
+                    self.partner_priority.value_namespace_prefix = name_space_prefix
+                if(value_path == "rgid"):
+                    self.rgid = value
+                    self.rgid.value_namespace = name_space
+                    self.rgid.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-id-xr"):
+                    self.satellite_id_xr = value
+                    self.satellite_id_xr.value_namespace = name_space
+                    self.satellite_id_xr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.satellite_priority:
+                if (c.has_data()):
                     return True
-
-                if self.best_path_hops is not None:
-                    return True
-
-                if self.configured_priority is not None:
-                    return True
-
-                if self.host_priority is not None:
-                    return True
-
-                if self.multichassis_redundancy is not None:
-                    return True
-
-                if self.partner_priority is not None:
-                    return True
-
-                if self.rgid is not None:
-                    return True
-
-                if self.satellite_id_xr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SatellitePriorities.SatellitePriority']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-priorities'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.satellite_priority is not None:
-                for child_ref in self.satellite_priority:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.satellite_priority:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "satellite-priorities" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "satellite-priority"):
+                for c in self.satellite_priority:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.SatellitePriorities.SatellitePriority()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.satellite_priority.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "satellite-priority"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SatellitePriorities']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SatelliteVersions(object):
+    class SatelliteVersions(Entity):
         """
         Satellite remote version information table
         
@@ -4391,13 +6907,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.satellite_version = YList()
-            self.satellite_version.parent = self
-            self.satellite_version.name = 'satellite_version'
+            super(NvSatellite.SatelliteVersions, self).__init__()
+
+            self.yang_name = "satellite-versions"
+            self.yang_parent_name = "nv-satellite"
+
+            self.satellite_version = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.SatelliteVersions, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.SatelliteVersions, self).__setattr__(name, value)
 
 
-        class SatelliteVersion(object):
+        class SatelliteVersion(Entity):
             """
             Satellite remote version information
             
@@ -4443,7 +6985,7 @@ class NvSatellite(object):
             .. attribute:: version_check_state
             
             	Version check state
-            	**type**\:   :py:class:`IcpeOperVerCheckStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
+            	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
             
             
 
@@ -4453,23 +6995,66 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.satellite_id = None
+                super(NvSatellite.SatelliteVersions.SatelliteVersion, self).__init__()
+
+                self.yang_name = "satellite-version"
+                self.yang_parent_name = "satellite-versions"
+
+                self.satellite_id = YLeaf(YType.uint32, "satellite-id")
+
+                self.remote_version = YLeafList(YType.str, "remote-version")
+
+                self.remote_version_present = YLeaf(YType.boolean, "remote-version-present")
+
+                self.satellite_id_xr = YLeaf(YType.uint32, "satellite-id-xr")
+
+                self.version_check_state = YLeaf(YType.enumeration, "version-check-state")
+
                 self.active_version = NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion()
                 self.active_version.parent = self
+                self._children_name_map["active_version"] = "active-version"
+                self._children_yang_names.add("active-version")
+
                 self.committed_version = NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion()
                 self.committed_version.parent = self
-                self.remote_version = YLeafList()
-                self.remote_version.parent = self
-                self.remote_version.name = 'remote_version'
-                self.remote_version_present = None
-                self.satellite_id_xr = None
+                self._children_name_map["committed_version"] = "committed-version"
+                self._children_yang_names.add("committed-version")
+
                 self.transferred_version = NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion()
                 self.transferred_version.parent = self
-                self.version_check_state = None
+                self._children_name_map["transferred_version"] = "transferred-version"
+                self._children_yang_names.add("transferred-version")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("satellite_id",
+                                "remote_version",
+                                "remote_version_present",
+                                "satellite_id_xr",
+                                "version_check_state") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SatelliteVersions.SatelliteVersion, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SatelliteVersions.SatelliteVersion, self).__setattr__(name, value)
 
 
-            class ActiveVersion(object):
+            class ActiveVersion(Entity):
                 """
                 Satellite active version information
                 
@@ -4486,7 +7071,7 @@ class NvSatellite(object):
                 .. attribute:: version_check_state
                 
                 	Version check state
-                	**type**\:   :py:class:`IcpeOperVerCheckStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
+                	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
                 
                 
 
@@ -4496,45 +7081,111 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.remote_version = YLeafList()
-                    self.remote_version.parent = self
-                    self.remote_version.name = 'remote_version'
-                    self.remote_version_present = None
-                    self.version_check_state = None
+                    super(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "active-version"
+                    self.yang_parent_name = "satellite-version"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:active-version'
+                    self.remote_version = YLeafList(YType.str, "remote-version")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.remote_version_present = YLeaf(YType.boolean, "remote-version-present")
+
+                    self.version_check_state = YLeaf(YType.enumeration, "version-check-state")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("remote_version",
+                                    "remote_version_present",
+                                    "version_check_state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion, self).__setattr__(name, value)
+
+                def has_data(self):
+                    for leaf in self.remote_version.getYLeafs():
+                        if (leaf.yfilter != YFilter.not_set):
+                            return True
+                    return (
+                        self.remote_version_present.is_set or
+                        self.version_check_state.is_set)
+
+                def has_operation(self):
+                    for leaf in self.remote_version.getYLeafs():
+                        if (leaf.is_set):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.remote_version.yfilter != YFilter.not_set or
+                        self.remote_version_present.yfilter != YFilter.not_set or
+                        self.version_check_state.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "active-version" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.remote_version_present.is_set or self.remote_version_present.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.remote_version_present.get_name_leafdata())
+                    if (self.version_check_state.is_set or self.version_check_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.version_check_state.get_name_leafdata())
+
+                    leaf_name_data.extend(self.remote_version.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "remote-version" or name == "remote-version-present" or name == "version-check-state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.remote_version is not None:
-                        for child in self.remote_version:
-                            if child is not None:
-                                return True
-
-                    if self.remote_version_present is not None:
-                        return True
-
-                    if self.version_check_state is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "remote-version"):
+                        self.remote_version.append(value)
+                    if(value_path == "remote-version-present"):
+                        self.remote_version_present = value
+                        self.remote_version_present.value_namespace = name_space
+                        self.remote_version_present.value_namespace_prefix = name_space_prefix
+                    if(value_path == "version-check-state"):
+                        self.version_check_state = value
+                        self.version_check_state.value_namespace = name_space
+                        self.version_check_state.value_namespace_prefix = name_space_prefix
 
 
-            class TransferredVersion(object):
+            class TransferredVersion(Entity):
                 """
                 Satellite transferred version information
                 
@@ -4551,7 +7202,7 @@ class NvSatellite(object):
                 .. attribute:: version_check_state
                 
                 	Version check state
-                	**type**\:   :py:class:`IcpeOperVerCheckStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
+                	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
                 
                 
 
@@ -4561,45 +7212,111 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.remote_version = YLeafList()
-                    self.remote_version.parent = self
-                    self.remote_version.name = 'remote_version'
-                    self.remote_version_present = None
-                    self.version_check_state = None
+                    super(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "transferred-version"
+                    self.yang_parent_name = "satellite-version"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:transferred-version'
+                    self.remote_version = YLeafList(YType.str, "remote-version")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.remote_version_present = YLeaf(YType.boolean, "remote-version-present")
+
+                    self.version_check_state = YLeaf(YType.enumeration, "version-check-state")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("remote_version",
+                                    "remote_version_present",
+                                    "version_check_state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion, self).__setattr__(name, value)
+
+                def has_data(self):
+                    for leaf in self.remote_version.getYLeafs():
+                        if (leaf.yfilter != YFilter.not_set):
+                            return True
+                    return (
+                        self.remote_version_present.is_set or
+                        self.version_check_state.is_set)
+
+                def has_operation(self):
+                    for leaf in self.remote_version.getYLeafs():
+                        if (leaf.is_set):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.remote_version.yfilter != YFilter.not_set or
+                        self.remote_version_present.yfilter != YFilter.not_set or
+                        self.version_check_state.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "transferred-version" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.remote_version_present.is_set or self.remote_version_present.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.remote_version_present.get_name_leafdata())
+                    if (self.version_check_state.is_set or self.version_check_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.version_check_state.get_name_leafdata())
+
+                    leaf_name_data.extend(self.remote_version.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "remote-version" or name == "remote-version-present" or name == "version-check-state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.remote_version is not None:
-                        for child in self.remote_version:
-                            if child is not None:
-                                return True
-
-                    if self.remote_version_present is not None:
-                        return True
-
-                    if self.version_check_state is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "remote-version"):
+                        self.remote_version.append(value)
+                    if(value_path == "remote-version-present"):
+                        self.remote_version_present = value
+                        self.remote_version_present.value_namespace = name_space
+                        self.remote_version_present.value_namespace_prefix = name_space_prefix
+                    if(value_path == "version-check-state"):
+                        self.version_check_state = value
+                        self.version_check_state.value_namespace = name_space
+                        self.version_check_state.value_namespace_prefix = name_space_prefix
 
 
-            class CommittedVersion(object):
+            class CommittedVersion(Entity):
                 """
                 Satellite committed version information
                 
@@ -4616,7 +7333,7 @@ class NvSatellite(object):
                 .. attribute:: version_check_state
                 
                 	Version check state
-                	**type**\:   :py:class:`IcpeOperVerCheckStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckStateEnum>`
+                	**type**\:   :py:class:`IcpeOperVerCheckState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperVerCheckState>`
                 
                 
 
@@ -4626,112 +7343,277 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.remote_version = YLeafList()
-                    self.remote_version.parent = self
-                    self.remote_version.name = 'remote_version'
-                    self.remote_version_present = None
-                    self.version_check_state = None
+                    super(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "committed-version"
+                    self.yang_parent_name = "satellite-version"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:committed-version'
+                    self.remote_version = YLeafList(YType.str, "remote-version")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                    self.remote_version_present = YLeaf(YType.boolean, "remote-version-present")
 
-                def _has_data(self):
-                    if self.remote_version is not None:
-                        for child in self.remote_version:
-                            if child is not None:
-                                return True
+                    self.version_check_state = YLeaf(YType.enumeration, "version-check-state")
 
-                    if self.remote_version_present is not None:
-                        return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("remote_version",
+                                    "remote_version_present",
+                                    "version_check_state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion, self).__setattr__(name, value)
 
-                    if self.version_check_state is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.satellite_id is None:
-                    raise YPYModelError('Key property satellite_id is None')
-
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-versions/Cisco-IOS-XR-icpe-infra-oper:satellite-version[Cisco-IOS-XR-icpe-infra-oper:satellite-id = ' + str(self.satellite_id) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.satellite_id is not None:
-                    return True
-
-                if self.active_version is not None and self.active_version._has_data():
-                    return True
-
-                if self.committed_version is not None and self.committed_version._has_data():
-                    return True
-
-                if self.remote_version is not None:
-                    for child in self.remote_version:
-                        if child is not None:
+                def has_data(self):
+                    for leaf in self.remote_version.getYLeafs():
+                        if (leaf.yfilter != YFilter.not_set):
                             return True
+                    return (
+                        self.remote_version_present.is_set or
+                        self.version_check_state.is_set)
 
-                if self.remote_version_present is not None:
+                def has_operation(self):
+                    for leaf in self.remote_version.getYLeafs():
+                        if (leaf.is_set):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.remote_version.yfilter != YFilter.not_set or
+                        self.remote_version_present.yfilter != YFilter.not_set or
+                        self.version_check_state.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "committed-version" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.remote_version_present.is_set or self.remote_version_present.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.remote_version_present.get_name_leafdata())
+                    if (self.version_check_state.is_set or self.version_check_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.version_check_state.get_name_leafdata())
+
+                    leaf_name_data.extend(self.remote_version.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "remote-version" or name == "remote-version-present" or name == "version-check-state"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "remote-version"):
+                        self.remote_version.append(value)
+                    if(value_path == "remote-version-present"):
+                        self.remote_version_present = value
+                        self.remote_version_present.value_namespace = name_space
+                        self.remote_version_present.value_namespace_prefix = name_space_prefix
+                    if(value_path == "version-check-state"):
+                        self.version_check_state = value
+                        self.version_check_state.value_namespace = name_space
+                        self.version_check_state.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for leaf in self.remote_version.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.satellite_id.is_set or
+                    self.remote_version_present.is_set or
+                    self.satellite_id_xr.is_set or
+                    self.version_check_state.is_set or
+                    (self.active_version is not None and self.active_version.has_data()) or
+                    (self.committed_version is not None and self.committed_version.has_data()) or
+                    (self.transferred_version is not None and self.transferred_version.has_data()))
+
+            def has_operation(self):
+                for leaf in self.remote_version.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.satellite_id.yfilter != YFilter.not_set or
+                    self.remote_version.yfilter != YFilter.not_set or
+                    self.remote_version_present.yfilter != YFilter.not_set or
+                    self.satellite_id_xr.yfilter != YFilter.not_set or
+                    self.version_check_state.yfilter != YFilter.not_set or
+                    (self.active_version is not None and self.active_version.has_operation()) or
+                    (self.committed_version is not None and self.committed_version.has_operation()) or
+                    (self.transferred_version is not None and self.transferred_version.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "satellite-version" + "[satellite-id='" + self.satellite_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-versions/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                if (self.remote_version_present.is_set or self.remote_version_present.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.remote_version_present.get_name_leafdata())
+                if (self.satellite_id_xr.is_set or self.satellite_id_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id_xr.get_name_leafdata())
+                if (self.version_check_state.is_set or self.version_check_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.version_check_state.get_name_leafdata())
+
+                leaf_name_data.extend(self.remote_version.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "active-version"):
+                    if (self.active_version is None):
+                        self.active_version = NvSatellite.SatelliteVersions.SatelliteVersion.ActiveVersion()
+                        self.active_version.parent = self
+                        self._children_name_map["active_version"] = "active-version"
+                    return self.active_version
+
+                if (child_yang_name == "committed-version"):
+                    if (self.committed_version is None):
+                        self.committed_version = NvSatellite.SatelliteVersions.SatelliteVersion.CommittedVersion()
+                        self.committed_version.parent = self
+                        self._children_name_map["committed_version"] = "committed-version"
+                    return self.committed_version
+
+                if (child_yang_name == "transferred-version"):
+                    if (self.transferred_version is None):
+                        self.transferred_version = NvSatellite.SatelliteVersions.SatelliteVersion.TransferredVersion()
+                        self.transferred_version.parent = self
+                        self._children_name_map["transferred_version"] = "transferred-version"
+                    return self.transferred_version
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "active-version" or name == "committed-version" or name == "transferred-version" or name == "satellite-id" or name == "remote-version" or name == "remote-version-present" or name == "satellite-id-xr" or name == "version-check-state"):
                     return True
-
-                if self.satellite_id_xr is not None:
-                    return True
-
-                if self.transferred_version is not None and self.transferred_version._has_data():
-                    return True
-
-                if self.version_check_state is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SatelliteVersions.SatelliteVersion']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "satellite-id"):
+                    self.satellite_id = value
+                    self.satellite_id.value_namespace = name_space
+                    self.satellite_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "remote-version"):
+                    self.remote_version.append(value)
+                if(value_path == "remote-version-present"):
+                    self.remote_version_present = value
+                    self.remote_version_present.value_namespace = name_space
+                    self.remote_version_present.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-id-xr"):
+                    self.satellite_id_xr = value
+                    self.satellite_id_xr.value_namespace = name_space
+                    self.satellite_id_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "version-check-state"):
+                    self.version_check_state = value
+                    self.version_check_state.value_namespace = name_space
+                    self.version_check_state.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-versions'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.satellite_version:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.satellite_version is not None:
-                for child_ref in self.satellite_version:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.satellite_version:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "satellite-versions" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "satellite-version"):
+                for c in self.satellite_version:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.SatelliteVersions.SatelliteVersion()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.satellite_version.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "satellite-version"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SatelliteVersions']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SatelliteTopologies(object):
+    class SatelliteTopologies(Entity):
         """
         Satellite Topology Information table
         
@@ -4748,13 +7630,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.satellite_topology = YList()
-            self.satellite_topology.parent = self
-            self.satellite_topology.name = 'satellite_topology'
+            super(NvSatellite.SatelliteTopologies, self).__init__()
+
+            self.yang_name = "satellite-topologies"
+            self.yang_parent_name = "nv-satellite"
+
+            self.satellite_topology = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.SatelliteTopologies, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.SatelliteTopologies, self).__setattr__(name, value)
 
 
-        class SatelliteTopology(object):
+        class SatelliteTopology(Entity):
             """
             Satellite Topology Information
             
@@ -4763,7 +7671,7 @@ class NvSatellite(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: discovered_link
             
@@ -4781,6 +7689,8 @@ class NvSatellite(object):
             
             	Interface name
             	**type**\:  str
+            
+            	**length:** 0..64
             
             .. attribute:: is_physical
             
@@ -4812,22 +7722,57 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.discovered_link = YList()
-                self.discovered_link.parent = self
-                self.discovered_link.name = 'discovered_link'
-                self.interface_handle = None
-                self.interface_name_xr = None
-                self.is_physical = None
-                self.redundancy_iccp_group = None
-                self.ring_whole = None
-                self.satellite = YList()
-                self.satellite.parent = self
-                self.satellite.name = 'satellite'
+                super(NvSatellite.SatelliteTopologies.SatelliteTopology, self).__init__()
+
+                self.yang_name = "satellite-topology"
+                self.yang_parent_name = "satellite-topologies"
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                self.is_physical = YLeaf(YType.boolean, "is-physical")
+
+                self.redundancy_iccp_group = YLeaf(YType.uint32, "redundancy-iccp-group")
+
+                self.ring_whole = YLeaf(YType.boolean, "ring-whole")
+
+                self.discovered_link = YList(self)
+                self.satellite = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "interface_handle",
+                                "interface_name_xr",
+                                "is_physical",
+                                "redundancy_iccp_group",
+                                "ring_whole") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SatelliteTopologies.SatelliteTopology, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SatelliteTopologies.SatelliteTopology, self).__setattr__(name, value)
 
 
-            class DiscoveredLink(object):
+            class DiscoveredLink(Entity):
                 """
                 Discovered Links table
                 
@@ -4856,41 +7801,108 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.discovery_running = None
-                    self.interface_handle = None
-                    self.interface_name = None
+                    super(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "discovered-link"
+                    self.yang_parent_name = "satellite-topology"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:discovered-link'
+                    self.discovery_running = YLeaf(YType.boolean, "discovery-running")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("discovery_running",
+                                    "interface_handle",
+                                    "interface_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.discovery_running.is_set or
+                        self.interface_handle.is_set or
+                        self.interface_name.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.discovery_running.yfilter != YFilter.not_set or
+                        self.interface_handle.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "discovered-link" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.discovery_running.is_set or self.discovery_running.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discovery_running.get_name_leafdata())
+                    if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "discovery-running" or name == "interface-handle" or name == "interface-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.discovery_running is not None:
-                        return True
-
-                    if self.interface_handle is not None:
-                        return True
-
-                    if self.interface_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "discovery-running"):
+                        self.discovery_running = value
+                        self.discovery_running.value_namespace = name_space
+                        self.discovery_running.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-handle"):
+                        self.interface_handle = value
+                        self.interface_handle.value_namespace = name_space
+                        self.interface_handle.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
 
 
-            class Satellite(object):
+            class Satellite(Entity):
                 """
                 Satellite table
                 
@@ -4907,7 +7919,7 @@ class NvSatellite(object):
                 .. attribute:: conflict_reason
                 
                 	Conflict reason
-                	**type**\:   :py:class:`IcpeOperConflictEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflictEnum>`
+                	**type**\:   :py:class:`IcpeOperConflict <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperConflict>`
                 
                 .. attribute:: display_name
                 
@@ -4970,24 +7982,71 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.configured = None
-                    self.conflict_context = None
-                    self.conflict_reason = None
-                    self.display_name = None
-                    self.fabric_link = YList()
-                    self.fabric_link.parent = self
-                    self.fabric_link.name = 'fabric_link'
-                    self.mac_address = None
-                    self.num_hops = None
-                    self.received_serial_number = None
-                    self.received_serial_number_present = None
-                    self.satellite_id = None
-                    self.type = None
-                    self.vlan_id = None
+                    super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, self).__init__()
+
+                    self.yang_name = "satellite"
+                    self.yang_parent_name = "satellite-topology"
+
+                    self.configured = YLeaf(YType.boolean, "configured")
+
+                    self.conflict_context = YLeaf(YType.str, "conflict-context")
+
+                    self.conflict_reason = YLeaf(YType.enumeration, "conflict-reason")
+
+                    self.display_name = YLeaf(YType.str, "display-name")
+
+                    self.mac_address = YLeaf(YType.str, "mac-address")
+
+                    self.num_hops = YLeaf(YType.uint16, "num-hops")
+
+                    self.received_serial_number = YLeaf(YType.str, "received-serial-number")
+
+                    self.received_serial_number_present = YLeaf(YType.boolean, "received-serial-number-present")
+
+                    self.satellite_id = YLeaf(YType.uint32, "satellite-id")
+
+                    self.type = YLeaf(YType.str, "type")
+
+                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+
+                    self.fabric_link = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("configured",
+                                    "conflict_context",
+                                    "conflict_reason",
+                                    "display_name",
+                                    "mac_address",
+                                    "num_hops",
+                                    "received_serial_number",
+                                    "received_serial_number_present",
+                                    "satellite_id",
+                                    "type",
+                                    "vlan_id") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite, self).__setattr__(name, value)
 
 
-                class FabricLink(object):
+                class FabricLink(Entity):
                     """
                     Local Satellite Fabric Link table
                     
@@ -5036,19 +8095,56 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active = None
-                        self.display_name = None
-                        self.icl_id = None
-                        self.interface_name = None
-                        self.obsolete = None
-                        self.redundant = None
-                        self.remote_device = YList()
-                        self.remote_device.parent = self
-                        self.remote_device.name = 'remote_device'
+                        super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, self).__init__()
+
+                        self.yang_name = "fabric-link"
+                        self.yang_parent_name = "satellite"
+
+                        self.active = YLeaf(YType.boolean, "active")
+
+                        self.display_name = YLeaf(YType.str, "display-name")
+
+                        self.icl_id = YLeaf(YType.uint32, "icl-id")
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.obsolete = YLeaf(YType.boolean, "obsolete")
+
+                        self.redundant = YLeaf(YType.boolean, "redundant")
+
+                        self.remote_device = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("active",
+                                        "display_name",
+                                        "icl_id",
+                                        "interface_name",
+                                        "obsolete",
+                                        "redundant") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink, self).__setattr__(name, value)
 
 
-                    class RemoteDevice(object):
+                    class RemoteDevice(Entity):
                         """
                         Remote Device table
                         
@@ -5091,7 +8187,7 @@ class NvSatellite(object):
                         .. attribute:: source
                         
                         	Source
-                        	**type**\:   :py:class:`IcpeOperTopoRemoteSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperTopoRemoteSourceEnum>`
+                        	**type**\:   :py:class:`IcpeOperTopoRemoteSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperTopoRemoteSource>`
                         
                         
 
@@ -5101,225 +8197,582 @@ class NvSatellite(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.icl_id = None
-                            self.interface_handle = None
-                            self.interface_name = None
-                            self.mac_address = None
-                            self.remote_is_local_host = None
-                            self.remote_is_satellite = None
-                            self.source = None
+                            super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "remote-device"
+                            self.yang_parent_name = "fabric-link"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:remote-device'
+                            self.icl_id = YLeaf(YType.uint32, "icl-id")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.remote_is_local_host = YLeaf(YType.boolean, "remote-is-local-host")
+
+                            self.remote_is_satellite = YLeaf(YType.boolean, "remote-is-satellite")
+
+                            self.source = YLeaf(YType.enumeration, "source")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("icl_id",
+                                            "interface_handle",
+                                            "interface_name",
+                                            "mac_address",
+                                            "remote_is_local_host",
+                                            "remote_is_satellite",
+                                            "source") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.icl_id.is_set or
+                                self.interface_handle.is_set or
+                                self.interface_name.is_set or
+                                self.mac_address.is_set or
+                                self.remote_is_local_host.is_set or
+                                self.remote_is_satellite.is_set or
+                                self.source.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.icl_id.yfilter != YFilter.not_set or
+                                self.interface_handle.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.mac_address.yfilter != YFilter.not_set or
+                                self.remote_is_local_host.yfilter != YFilter.not_set or
+                                self.remote_is_satellite.yfilter != YFilter.not_set or
+                                self.source.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "remote-device" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.icl_id.is_set or self.icl_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.icl_id.get_name_leafdata())
+                            if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mac_address.get_name_leafdata())
+                            if (self.remote_is_local_host.is_set or self.remote_is_local_host.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.remote_is_local_host.get_name_leafdata())
+                            if (self.remote_is_satellite.is_set or self.remote_is_satellite.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.remote_is_satellite.get_name_leafdata())
+                            if (self.source.is_set or self.source.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "icl-id" or name == "interface-handle" or name == "interface-name" or name == "mac-address" or name == "remote-is-local-host" or name == "remote-is-satellite" or name == "source"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.icl_id is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "icl-id"):
+                                self.icl_id = value
+                                self.icl_id.value_namespace = name_space
+                                self.icl_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-handle"):
+                                self.interface_handle = value
+                                self.interface_handle.value_namespace = name_space
+                                self.interface_handle.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mac-address"):
+                                self.mac_address = value
+                                self.mac_address.value_namespace = name_space
+                                self.mac_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "remote-is-local-host"):
+                                self.remote_is_local_host = value
+                                self.remote_is_local_host.value_namespace = name_space
+                                self.remote_is_local_host.value_namespace_prefix = name_space_prefix
+                            if(value_path == "remote-is-satellite"):
+                                self.remote_is_satellite = value
+                                self.remote_is_satellite.value_namespace = name_space
+                                self.remote_is_satellite.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source"):
+                                self.source = value
+                                self.source.value_namespace = name_space
+                                self.source.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.remote_device:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.active.is_set or
+                            self.display_name.is_set or
+                            self.icl_id.is_set or
+                            self.interface_name.is_set or
+                            self.obsolete.is_set or
+                            self.redundant.is_set)
 
-                            if self.interface_handle is not None:
+                    def has_operation(self):
+                        for c in self.remote_device:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.active.yfilter != YFilter.not_set or
+                            self.display_name.yfilter != YFilter.not_set or
+                            self.icl_id.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.obsolete.yfilter != YFilter.not_set or
+                            self.redundant.yfilter != YFilter.not_set)
 
-                            if self.interface_name is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "fabric-link" + path_buffer
 
-                            if self.mac_address is not None:
-                                return True
+                        return path_buffer
 
-                            if self.remote_is_local_host is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            if self.remote_is_satellite is not None:
-                                return True
+                        leaf_name_data = LeafDataList()
+                        if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active.get_name_leafdata())
+                        if (self.display_name.is_set or self.display_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.display_name.get_name_leafdata())
+                        if (self.icl_id.is_set or self.icl_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.icl_id.get_name_leafdata())
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.obsolete.is_set or self.obsolete.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.obsolete.get_name_leafdata())
+                        if (self.redundant.is_set or self.redundant.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.redundant.get_name_leafdata())
 
-                            if self.source is not None:
-                                return True
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                            return False
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                            return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice']['meta_info']
+                        if (child_yang_name == "remote-device"):
+                            for c in self.remote_device:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink.RemoteDevice()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.remote_device.append(c)
+                            return c
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        return None
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:fabric-link'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "remote-device" or name == "active" or name == "display-name" or name == "icl-id" or name == "interface-name" or name == "obsolete" or name == "redundant"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "active"):
+                            self.active = value
+                            self.active.value_namespace = name_space
+                            self.active.value_namespace_prefix = name_space_prefix
+                        if(value_path == "display-name"):
+                            self.display_name = value
+                            self.display_name.value_namespace = name_space
+                            self.display_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "icl-id"):
+                            self.icl_id = value
+                            self.icl_id.value_namespace = name_space
+                            self.icl_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "obsolete"):
+                            self.obsolete = value
+                            self.obsolete.value_namespace = name_space
+                            self.obsolete.value_namespace_prefix = name_space_prefix
+                        if(value_path == "redundant"):
+                            self.redundant = value
+                            self.redundant.value_namespace = name_space
+                            self.redundant.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.fabric_link:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.configured.is_set or
+                        self.conflict_context.is_set or
+                        self.conflict_reason.is_set or
+                        self.display_name.is_set or
+                        self.mac_address.is_set or
+                        self.num_hops.is_set or
+                        self.received_serial_number.is_set or
+                        self.received_serial_number_present.is_set or
+                        self.satellite_id.is_set or
+                        self.type.is_set or
+                        self.vlan_id.is_set)
 
-                        if self.display_name is not None:
+                def has_operation(self):
+                    for c in self.fabric_link:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.configured.yfilter != YFilter.not_set or
+                        self.conflict_context.yfilter != YFilter.not_set or
+                        self.conflict_reason.yfilter != YFilter.not_set or
+                        self.display_name.yfilter != YFilter.not_set or
+                        self.mac_address.yfilter != YFilter.not_set or
+                        self.num_hops.yfilter != YFilter.not_set or
+                        self.received_serial_number.yfilter != YFilter.not_set or
+                        self.received_serial_number_present.yfilter != YFilter.not_set or
+                        self.satellite_id.yfilter != YFilter.not_set or
+                        self.type.yfilter != YFilter.not_set or
+                        self.vlan_id.yfilter != YFilter.not_set)
 
-                        if self.icl_id is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "satellite" + path_buffer
 
-                        if self.interface_name is not None:
-                            return True
+                    return path_buffer
 
-                        if self.obsolete is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.redundant is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.configured.is_set or self.configured.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configured.get_name_leafdata())
+                    if (self.conflict_context.is_set or self.conflict_context.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.conflict_context.get_name_leafdata())
+                    if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                    if (self.display_name.is_set or self.display_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.display_name.get_name_leafdata())
+                    if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mac_address.get_name_leafdata())
+                    if (self.num_hops.is_set or self.num_hops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.num_hops.get_name_leafdata())
+                    if (self.received_serial_number.is_set or self.received_serial_number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.received_serial_number.get_name_leafdata())
+                    if (self.received_serial_number_present.is_set or self.received_serial_number_present.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.received_serial_number_present.get_name_leafdata())
+                    if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.type.get_name_leafdata())
+                    if (self.vlan_id.is_set or self.vlan_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vlan_id.get_name_leafdata())
 
-                        if self.remote_device is not None:
-                            for child_ref in self.remote_device:
-                                if child_ref._has_data():
-                                    return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink']['meta_info']
+                    if (child_yang_name == "fabric-link"):
+                        for c in self.fabric_link:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite.FabricLink()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.fabric_link.append(c)
+                        return c
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    return None
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:satellite'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "fabric-link" or name == "configured" or name == "conflict-context" or name == "conflict-reason" or name == "display-name" or name == "mac-address" or name == "num-hops" or name == "received-serial-number" or name == "received-serial-number-present" or name == "satellite-id" or name == "type" or name == "vlan-id"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.configured is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "configured"):
+                        self.configured = value
+                        self.configured.value_namespace = name_space
+                        self.configured.value_namespace_prefix = name_space_prefix
+                    if(value_path == "conflict-context"):
+                        self.conflict_context = value
+                        self.conflict_context.value_namespace = name_space
+                        self.conflict_context.value_namespace_prefix = name_space_prefix
+                    if(value_path == "conflict-reason"):
+                        self.conflict_reason = value
+                        self.conflict_reason.value_namespace = name_space
+                        self.conflict_reason.value_namespace_prefix = name_space_prefix
+                    if(value_path == "display-name"):
+                        self.display_name = value
+                        self.display_name.value_namespace = name_space
+                        self.display_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mac-address"):
+                        self.mac_address = value
+                        self.mac_address.value_namespace = name_space
+                        self.mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "num-hops"):
+                        self.num_hops = value
+                        self.num_hops.value_namespace = name_space
+                        self.num_hops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "received-serial-number"):
+                        self.received_serial_number = value
+                        self.received_serial_number.value_namespace = name_space
+                        self.received_serial_number.value_namespace_prefix = name_space_prefix
+                    if(value_path == "received-serial-number-present"):
+                        self.received_serial_number_present = value
+                        self.received_serial_number_present.value_namespace = name_space
+                        self.received_serial_number_present.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-id"):
+                        self.satellite_id = value
+                        self.satellite_id.value_namespace = name_space
+                        self.satellite_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "type"):
+                        self.type = value
+                        self.type.value_namespace = name_space
+                        self.type.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vlan-id"):
+                        self.vlan_id = value
+                        self.vlan_id.value_namespace = name_space
+                        self.vlan_id.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.discovered_link:
+                    if (c.has_data()):
                         return True
-
-                    if self.conflict_context is not None:
+                for c in self.satellite:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.interface_name.is_set or
+                    self.interface_handle.is_set or
+                    self.interface_name_xr.is_set or
+                    self.is_physical.is_set or
+                    self.redundancy_iccp_group.is_set or
+                    self.ring_whole.is_set)
 
-                    if self.conflict_reason is not None:
+            def has_operation(self):
+                for c in self.discovered_link:
+                    if (c.has_operation()):
                         return True
-
-                    if self.display_name is not None:
+                for c in self.satellite:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.interface_handle.yfilter != YFilter.not_set or
+                    self.interface_name_xr.yfilter != YFilter.not_set or
+                    self.is_physical.yfilter != YFilter.not_set or
+                    self.redundancy_iccp_group.yfilter != YFilter.not_set or
+                    self.ring_whole.yfilter != YFilter.not_set)
 
-                    if self.fabric_link is not None:
-                        for child_ref in self.fabric_link:
-                            if child_ref._has_data():
-                                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "satellite-topology" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                    if self.mac_address is not None:
-                        return True
+                return path_buffer
 
-                    if self.num_hops is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-topologies/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.received_serial_number is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                if (self.is_physical.is_set or self.is_physical.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_physical.get_name_leafdata())
+                if (self.redundancy_iccp_group.is_set or self.redundancy_iccp_group.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.redundancy_iccp_group.get_name_leafdata())
+                if (self.ring_whole.is_set or self.ring_whole.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ring_whole.get_name_leafdata())
 
-                    if self.received_serial_number_present is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.satellite_id is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.type is not None:
-                        return True
+                if (child_yang_name == "discovered-link"):
+                    for c in self.discovered_link:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SatelliteTopologies.SatelliteTopology.DiscoveredLink()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.discovered_link.append(c)
+                    return c
 
-                    if self.vlan_id is not None:
-                        return True
+                if (child_yang_name == "satellite"):
+                    for c in self.satellite:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.satellite.append(c)
+                    return c
 
-                    return False
+                return None
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology.Satellite']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
-
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-topologies/Cisco-IOS-XR-icpe-infra-oper:satellite-topology[Cisco-IOS-XR-icpe-infra-oper:interface-name = ' + str(self.interface_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "discovered-link" or name == "satellite" or name == "interface-name" or name == "interface-handle" or name == "interface-name-xr" or name == "is-physical" or name == "redundancy-iccp-group" or name == "ring-whole"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-handle"):
+                    self.interface_handle = value
+                    self.interface_handle.value_namespace = name_space
+                    self.interface_handle.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-name-xr"):
+                    self.interface_name_xr = value
+                    self.interface_name_xr.value_namespace = name_space
+                    self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-physical"):
+                    self.is_physical = value
+                    self.is_physical.value_namespace = name_space
+                    self.is_physical.value_namespace_prefix = name_space_prefix
+                if(value_path == "redundancy-iccp-group"):
+                    self.redundancy_iccp_group = value
+                    self.redundancy_iccp_group.value_namespace = name_space
+                    self.redundancy_iccp_group.value_namespace_prefix = name_space_prefix
+                if(value_path == "ring-whole"):
+                    self.ring_whole = value
+                    self.ring_whole.value_namespace = name_space
+                    self.ring_whole.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.satellite_topology:
+                if (c.has_data()):
                     return True
-
-                if self.discovered_link is not None:
-                    for child_ref in self.discovered_link:
-                        if child_ref._has_data():
-                            return True
-
-                if self.interface_handle is not None:
-                    return True
-
-                if self.interface_name_xr is not None:
-                    return True
-
-                if self.is_physical is not None:
-                    return True
-
-                if self.redundancy_iccp_group is not None:
-                    return True
-
-                if self.ring_whole is not None:
-                    return True
-
-                if self.satellite is not None:
-                    for child_ref in self.satellite:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-topologies'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.satellite_topology is not None:
-                for child_ref in self.satellite_topology:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.satellite_topology:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "satellite-topologies" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "satellite-topology"):
+                for c in self.satellite_topology:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.SatelliteTopologies.SatelliteTopology()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.satellite_topology.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "satellite-topology"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SatelliteTopologies']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class InstallProgresses(object):
+    class InstallProgresses(Entity):
         """
         Current percentage of install table
         
@@ -5336,13 +8789,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.install_progress = YList()
-            self.install_progress.parent = self
-            self.install_progress.name = 'install_progress'
+            super(NvSatellite.InstallProgresses, self).__init__()
+
+            self.yang_name = "install-progresses"
+            self.yang_parent_name = "nv-satellite"
+
+            self.install_progress = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.InstallProgresses, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.InstallProgresses, self).__setattr__(name, value)
 
 
-        class InstallProgress(object):
+        class InstallProgress(Entity):
             """
             Current percentage of install
             
@@ -5379,63 +8858,165 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.progress_percentage = None
-                self.progress_percentage_xr = None
-                self.satellite_count = None
+                super(NvSatellite.InstallProgresses.InstallProgress, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.progress_percentage is None:
-                    raise YPYModelError('Key property progress_percentage is None')
+                self.yang_name = "install-progress"
+                self.yang_parent_name = "install-progresses"
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-progresses/Cisco-IOS-XR-icpe-infra-oper:install-progress[Cisco-IOS-XR-icpe-infra-oper:progress-percentage = ' + str(self.progress_percentage) + ']'
+                self.progress_percentage = YLeaf(YType.uint32, "progress-percentage")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.progress_percentage_xr = YLeaf(YType.uint16, "progress-percentage-xr")
+
+                self.satellite_count = YLeaf(YType.uint32, "satellite-count")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("progress_percentage",
+                                "progress_percentage_xr",
+                                "satellite_count") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.InstallProgresses.InstallProgress, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.InstallProgresses.InstallProgress, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.progress_percentage.is_set or
+                    self.progress_percentage_xr.is_set or
+                    self.satellite_count.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.progress_percentage.yfilter != YFilter.not_set or
+                    self.progress_percentage_xr.yfilter != YFilter.not_set or
+                    self.satellite_count.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "install-progress" + "[progress-percentage='" + self.progress_percentage.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-progresses/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.progress_percentage.is_set or self.progress_percentage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.progress_percentage.get_name_leafdata())
+                if (self.progress_percentage_xr.is_set or self.progress_percentage_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.progress_percentage_xr.get_name_leafdata())
+                if (self.satellite_count.is_set or self.satellite_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_count.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "progress-percentage" or name == "progress-percentage-xr" or name == "satellite-count"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.progress_percentage is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "progress-percentage"):
+                    self.progress_percentage = value
+                    self.progress_percentage.value_namespace = name_space
+                    self.progress_percentage.value_namespace_prefix = name_space_prefix
+                if(value_path == "progress-percentage-xr"):
+                    self.progress_percentage_xr = value
+                    self.progress_percentage_xr.value_namespace = name_space
+                    self.progress_percentage_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-count"):
+                    self.satellite_count = value
+                    self.satellite_count.value_namespace = name_space
+                    self.satellite_count.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.install_progress:
+                if (c.has_data()):
                     return True
-
-                if self.progress_percentage_xr is not None:
-                    return True
-
-                if self.satellite_count is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.InstallProgresses.InstallProgress']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-progresses'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.install_progress is not None:
-                for child_ref in self.install_progress:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.install_progress:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "install-progresses" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "install-progress"):
+                for c in self.install_progress:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.InstallProgresses.InstallProgress()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.install_progress.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "install-progress"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.InstallProgresses']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class ReloadStatuses(object):
+    class ReloadStatuses(Entity):
         """
         Detailed breakdown of reload status table
         
@@ -5452,13 +9033,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.reload_status = YList()
-            self.reload_status.parent = self
-            self.reload_status.name = 'reload_status'
+            super(NvSatellite.ReloadStatuses, self).__init__()
+
+            self.yang_name = "reload-statuses"
+            self.yang_parent_name = "nv-satellite"
+
+            self.reload_status = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.ReloadStatuses, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.ReloadStatuses, self).__setattr__(name, value)
 
 
-        class ReloadStatus(object):
+        class ReloadStatus(Entity):
             """
             Detailed breakdown of reload status
             
@@ -5510,91 +9117,210 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.satellite_range = None
-                self.satellite_range_xr = None
-                self.sats_not_initiated = YLeafList()
-                self.sats_not_initiated.parent = self
-                self.sats_not_initiated.name = 'sats_not_initiated'
-                self.sats_reload_failed = YLeafList()
-                self.sats_reload_failed.parent = self
-                self.sats_reload_failed.name = 'sats_reload_failed'
-                self.sats_reloaded = YLeafList()
-                self.sats_reloaded.parent = self
-                self.sats_reloaded.name = 'sats_reloaded'
-                self.sats_reloading = YLeafList()
-                self.sats_reloading.parent = self
-                self.sats_reloading.name = 'sats_reloading'
+                super(NvSatellite.ReloadStatuses.ReloadStatus, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.satellite_range is None:
-                    raise YPYModelError('Key property satellite_range is None')
+                self.yang_name = "reload-status"
+                self.yang_parent_name = "reload-statuses"
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:reload-statuses/Cisco-IOS-XR-icpe-infra-oper:reload-status[Cisco-IOS-XR-icpe-infra-oper:satellite-range = ' + str(self.satellite_range) + ']'
+                self.satellite_range = YLeaf(YType.str, "satellite-range")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                self.satellite_range_xr = YLeaf(YType.str, "satellite-range-xr")
 
-            def _has_data(self):
-                if self.satellite_range is not None:
-                    return True
+                self.sats_not_initiated = YLeafList(YType.uint16, "sats-not-initiated")
 
-                if self.satellite_range_xr is not None:
-                    return True
+                self.sats_reload_failed = YLeafList(YType.uint16, "sats-reload-failed")
 
-                if self.sats_not_initiated is not None:
-                    for child in self.sats_not_initiated:
-                        if child is not None:
-                            return True
+                self.sats_reloaded = YLeafList(YType.uint16, "sats-reloaded")
 
-                if self.sats_reload_failed is not None:
-                    for child in self.sats_reload_failed:
-                        if child is not None:
-                            return True
+                self.sats_reloading = YLeafList(YType.uint16, "sats-reloading")
 
-                if self.sats_reloaded is not None:
-                    for child in self.sats_reloaded:
-                        if child is not None:
-                            return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("satellite_range",
+                                "satellite_range_xr",
+                                "sats_not_initiated",
+                                "sats_reload_failed",
+                                "sats_reloaded",
+                                "sats_reloading") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.ReloadStatuses.ReloadStatus, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.ReloadStatuses.ReloadStatus, self).__setattr__(name, value)
 
-                if self.sats_reloading is not None:
-                    for child in self.sats_reloading:
-                        if child is not None:
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.ReloadStatuses.ReloadStatus']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:reload-statuses'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.reload_status is not None:
-                for child_ref in self.reload_status:
-                    if child_ref._has_data():
+            def has_data(self):
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                for leaf in self.sats_reload_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_reloaded.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_reloading.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.satellite_range.is_set or
+                    self.satellite_range_xr.is_set)
 
+            def has_operation(self):
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_reload_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_reloaded.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_reloading.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.satellite_range.yfilter != YFilter.not_set or
+                    self.satellite_range_xr.yfilter != YFilter.not_set or
+                    self.sats_not_initiated.yfilter != YFilter.not_set or
+                    self.sats_reload_failed.yfilter != YFilter.not_set or
+                    self.sats_reloaded.yfilter != YFilter.not_set or
+                    self.sats_reloading.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "reload-status" + "[satellite-range='" + self.satellite_range.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/reload-statuses/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.satellite_range.is_set or self.satellite_range.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_range.get_name_leafdata())
+                if (self.satellite_range_xr.is_set or self.satellite_range_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_range_xr.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_not_initiated.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_reload_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_reloaded.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_reloading.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "satellite-range" or name == "satellite-range-xr" or name == "sats-not-initiated" or name == "sats-reload-failed" or name == "sats-reloaded" or name == "sats-reloading"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "satellite-range"):
+                    self.satellite_range = value
+                    self.satellite_range.value_namespace = name_space
+                    self.satellite_range.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-range-xr"):
+                    self.satellite_range_xr = value
+                    self.satellite_range_xr.value_namespace = name_space
+                    self.satellite_range_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "sats-not-initiated"):
+                    self.sats_not_initiated.append(value)
+                if(value_path == "sats-reload-failed"):
+                    self.sats_reload_failed.append(value)
+                if(value_path == "sats-reloaded"):
+                    self.sats_reloaded.append(value)
+                if(value_path == "sats-reloading"):
+                    self.sats_reloading.append(value)
+
+        def has_data(self):
+            for c in self.reload_status:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.ReloadStatuses']['meta_info']
+        def has_operation(self):
+            for c in self.reload_status:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "reload-statuses" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "reload-status"):
+                for c in self.reload_status:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.ReloadStatuses.ReloadStatus()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.reload_status.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "reload-status"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Install(object):
+    class Install(Entity):
         """
         Satellite Install Information
         
@@ -5611,12 +9337,18 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(NvSatellite.Install, self).__init__()
+
+            self.yang_name = "install"
+            self.yang_parent_name = "nv-satellite"
+
             self.satellite_software_versions = NvSatellite.Install.SatelliteSoftwareVersions()
             self.satellite_software_versions.parent = self
+            self._children_name_map["satellite_software_versions"] = "satellite-software-versions"
+            self._children_yang_names.add("satellite-software-versions")
 
 
-        class SatelliteSoftwareVersions(object):
+        class SatelliteSoftwareVersions(Entity):
             """
             Satellite Software Package Information table
             
@@ -5633,13 +9365,39 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.satellite_software_version = YList()
-                self.satellite_software_version.parent = self
-                self.satellite_software_version.name = 'satellite_software_version'
+                super(NvSatellite.Install.SatelliteSoftwareVersions, self).__init__()
+
+                self.yang_name = "satellite-software-versions"
+                self.yang_parent_name = "install"
+
+                self.satellite_software_version = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.Install.SatelliteSoftwareVersions, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.Install.SatelliteSoftwareVersions, self).__setattr__(name, value)
 
 
-            class SatelliteSoftwareVersion(object):
+            class SatelliteSoftwareVersion(Entity):
                 """
                 Satellite Software Package Information
                 
@@ -5658,7 +9416,7 @@ class NvSatellite(object):
                 .. attribute:: package_support
                 
                 	Package support
-                	**type**\:   :py:class:`IcpeInstallPkgSuppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallPkgSuppEnum>`
+                	**type**\:   :py:class:`IcpeInstallPkgSupp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeInstallPkgSupp>`
                 
                 .. attribute:: satellite_id_xr
                 
@@ -5675,15 +9433,50 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.satellite_id = None
+                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, self).__init__()
+
+                    self.yang_name = "satellite-software-version"
+                    self.yang_parent_name = "satellite-software-versions"
+
+                    self.satellite_id = YLeaf(YType.uint32, "satellite-id")
+
+                    self.package_support = YLeaf(YType.enumeration, "package-support")
+
+                    self.satellite_id_xr = YLeaf(YType.uint32, "satellite-id-xr")
+
                     self.install_package_info = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo()
                     self.install_package_info.parent = self
-                    self.package_support = None
-                    self.satellite_id_xr = None
+                    self._children_name_map["install_package_info"] = "install-package-info"
+                    self._children_yang_names.add("install-package-info")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("satellite_id",
+                                    "package_support",
+                                    "satellite_id_xr") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion, self).__setattr__(name, value)
 
 
-                class InstallPackageInfo(object):
+                class InstallPackageInfo(Entity):
                     """
                     Package Data on this Satellite
                     
@@ -5710,16 +9503,28 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo, self).__init__()
+
+                        self.yang_name = "install-package-info"
+                        self.yang_parent_name = "satellite-software-version"
+
                         self.active_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages()
                         self.active_packages.parent = self
+                        self._children_name_map["active_packages"] = "active-packages"
+                        self._children_yang_names.add("active-packages")
+
                         self.committed_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages()
                         self.committed_packages.parent = self
+                        self._children_name_map["committed_packages"] = "committed-packages"
+                        self._children_yang_names.add("committed-packages")
+
                         self.inactive_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages()
                         self.inactive_packages.parent = self
+                        self._children_name_map["inactive_packages"] = "inactive-packages"
+                        self._children_yang_names.add("inactive-packages")
 
 
-                    class ActivePackages(object):
+                    class ActivePackages(Entity):
                         """
                         Active Packages running on this Satellite
                         
@@ -5736,13 +9541,39 @@ class NvSatellite(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.package = YList()
-                            self.package.parent = self
-                            self.package.name = 'package'
+                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages, self).__init__()
+
+                            self.yang_name = "active-packages"
+                            self.yang_parent_name = "install-package-info"
+
+                            self.package = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages, self).__setattr__(name, value)
 
 
-                        class Package(object):
+                        class Package(Entity):
                             """
                             A package on this Satellite table
                             
@@ -5769,65 +9600,165 @@ class NvSatellite(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.is_base_image = None
-                                self.name = None
-                                self.version = None
+                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "package"
+                                self.yang_parent_name = "active-packages"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:package'
+                                self.is_base_image = YLeaf(YType.boolean, "is-base-image")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.name = YLeaf(YType.str, "name")
+
+                                self.version = YLeaf(YType.str, "version")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("is_base_image",
+                                                "name",
+                                                "version") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.is_base_image.is_set or
+                                    self.name.is_set or
+                                    self.version.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.is_base_image.yfilter != YFilter.not_set or
+                                    self.name.yfilter != YFilter.not_set or
+                                    self.version.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "package" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.is_base_image.is_set or self.is_base_image.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.is_base_image.get_name_leafdata())
+                                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.name.get_name_leafdata())
+                                if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.version.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "is-base-image" or name == "name" or name == "version"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.is_base_image is not None:
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "is-base-image"):
+                                    self.is_base_image = value
+                                    self.is_base_image.value_namespace = name_space
+                                    self.is_base_image.value_namespace_prefix = name_space_prefix
+                                if(value_path == "name"):
+                                    self.name = value
+                                    self.name.value_namespace = name_space
+                                    self.name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "version"):
+                                    self.version = value
+                                    self.version.value_namespace = name_space
+                                    self.version.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.package:
+                                if (c.has_data()):
                                     return True
-
-                                if self.name is not None:
-                                    return True
-
-                                if self.version is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:active-packages'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
                             return False
 
-                        def _has_data(self):
-                            if self.package is not None:
-                                for child_ref in self.package:
-                                    if child_ref._has_data():
-                                        return True
+                        def has_operation(self):
+                            for c in self.package:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "active-packages" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "package"):
+                                for c in self.package:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages.Package()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.package.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "package"):
+                                return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                            return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class InactivePackages(object):
+                    class InactivePackages(Entity):
                         """
                         Inactive Packages on this Satellite
                         
@@ -5844,13 +9775,39 @@ class NvSatellite(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.package = YList()
-                            self.package.parent = self
-                            self.package.name = 'package'
+                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages, self).__init__()
+
+                            self.yang_name = "inactive-packages"
+                            self.yang_parent_name = "install-package-info"
+
+                            self.package = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages, self).__setattr__(name, value)
 
 
-                        class Package(object):
+                        class Package(Entity):
                             """
                             A package on this Satellite table
                             
@@ -5877,65 +9834,165 @@ class NvSatellite(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.is_base_image = None
-                                self.name = None
-                                self.version = None
+                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "package"
+                                self.yang_parent_name = "inactive-packages"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:package'
+                                self.is_base_image = YLeaf(YType.boolean, "is-base-image")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.name = YLeaf(YType.str, "name")
+
+                                self.version = YLeaf(YType.str, "version")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("is_base_image",
+                                                "name",
+                                                "version") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.is_base_image.is_set or
+                                    self.name.is_set or
+                                    self.version.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.is_base_image.yfilter != YFilter.not_set or
+                                    self.name.yfilter != YFilter.not_set or
+                                    self.version.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "package" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.is_base_image.is_set or self.is_base_image.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.is_base_image.get_name_leafdata())
+                                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.name.get_name_leafdata())
+                                if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.version.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "is-base-image" or name == "name" or name == "version"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.is_base_image is not None:
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "is-base-image"):
+                                    self.is_base_image = value
+                                    self.is_base_image.value_namespace = name_space
+                                    self.is_base_image.value_namespace_prefix = name_space_prefix
+                                if(value_path == "name"):
+                                    self.name = value
+                                    self.name.value_namespace = name_space
+                                    self.name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "version"):
+                                    self.version = value
+                                    self.version.value_namespace = name_space
+                                    self.version.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.package:
+                                if (c.has_data()):
                                     return True
-
-                                if self.name is not None:
-                                    return True
-
-                                if self.version is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:inactive-packages'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
                             return False
 
-                        def _has_data(self):
-                            if self.package is not None:
-                                for child_ref in self.package:
-                                    if child_ref._has_data():
-                                        return True
+                        def has_operation(self):
+                            for c in self.package:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "inactive-packages" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "package"):
+                                for c in self.package:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages.Package()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.package.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "package"):
+                                return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                            return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class CommittedPackages(object):
+                    class CommittedPackages(Entity):
                         """
                         Committed Packages running on this Satellite
                         
@@ -5952,13 +10009,39 @@ class NvSatellite(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.package = YList()
-                            self.package.parent = self
-                            self.package.name = 'package'
+                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages, self).__init__()
+
+                            self.yang_name = "committed-packages"
+                            self.yang_parent_name = "install-package-info"
+
+                            self.package = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages, self).__setattr__(name, value)
 
 
-                        class Package(object):
+                        class Package(Entity):
                             """
                             A package on this Satellite table
                             
@@ -5985,166 +10068,409 @@ class NvSatellite(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.is_base_image = None
-                                self.name = None
-                                self.version = None
+                                super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "package"
+                                self.yang_parent_name = "committed-packages"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:package'
+                                self.is_base_image = YLeaf(YType.boolean, "is-base-image")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.name = YLeaf(YType.str, "name")
+
+                                self.version = YLeaf(YType.str, "version")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("is_base_image",
+                                                "name",
+                                                "version") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.is_base_image.is_set or
+                                    self.name.is_set or
+                                    self.version.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.is_base_image.yfilter != YFilter.not_set or
+                                    self.name.yfilter != YFilter.not_set or
+                                    self.version.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "package" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.is_base_image.is_set or self.is_base_image.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.is_base_image.get_name_leafdata())
+                                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.name.get_name_leafdata())
+                                if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.version.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "is-base-image" or name == "name" or name == "version"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.is_base_image is not None:
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "is-base-image"):
+                                    self.is_base_image = value
+                                    self.is_base_image.value_namespace = name_space
+                                    self.is_base_image.value_namespace_prefix = name_space_prefix
+                                if(value_path == "name"):
+                                    self.name = value
+                                    self.name.value_namespace = name_space
+                                    self.name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "version"):
+                                    self.version = value
+                                    self.version.value_namespace = name_space
+                                    self.version.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.package:
+                                if (c.has_data()):
                                     return True
-
-                                if self.name is not None:
-                                    return True
-
-                                if self.version is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:committed-packages'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
                             return False
 
-                        def _has_data(self):
-                            if self.package is not None:
-                                for child_ref in self.package:
-                                    if child_ref._has_data():
-                                        return True
+                        def has_operation(self):
+                            for c in self.package:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "committed-packages" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "package"):
+                                for c in self.package:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages.Package()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.package.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "package"):
+                                return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                            return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            (self.active_packages is not None and self.active_packages.has_data()) or
+                            (self.committed_packages is not None and self.committed_packages.has_data()) or
+                            (self.inactive_packages is not None and self.inactive_packages.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-infra-oper:install-package-info'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.active_packages is not None and self.active_packages.has_operation()) or
+                            (self.committed_packages is not None and self.committed_packages.has_operation()) or
+                            (self.inactive_packages is not None and self.inactive_packages.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "install-package-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "active-packages"):
+                            if (self.active_packages is None):
+                                self.active_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.ActivePackages()
+                                self.active_packages.parent = self
+                                self._children_name_map["active_packages"] = "active-packages"
+                            return self.active_packages
+
+                        if (child_yang_name == "committed-packages"):
+                            if (self.committed_packages is None):
+                                self.committed_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.CommittedPackages()
+                                self.committed_packages.parent = self
+                                self._children_name_map["committed_packages"] = "committed-packages"
+                            return self.committed_packages
+
+                        if (child_yang_name == "inactive-packages"):
+                            if (self.inactive_packages is None):
+                                self.inactive_packages = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo.InactivePackages()
+                                self.inactive_packages.parent = self
+                                self._children_name_map["inactive_packages"] = "inactive-packages"
+                            return self.inactive_packages
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "active-packages" or name == "committed-packages" or name == "inactive-packages"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active_packages is not None and self.active_packages._has_data():
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                        if self.committed_packages is not None and self.committed_packages._has_data():
-                            return True
+                def has_data(self):
+                    return (
+                        self.satellite_id.is_set or
+                        self.package_support.is_set or
+                        self.satellite_id_xr.is_set or
+                        (self.install_package_info is not None and self.install_package_info.has_data()))
 
-                        if self.inactive_packages is not None and self.inactive_packages._has_data():
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.satellite_id.yfilter != YFilter.not_set or
+                        self.package_support.yfilter != YFilter.not_set or
+                        self.satellite_id_xr.yfilter != YFilter.not_set or
+                        (self.install_package_info is not None and self.install_package_info.has_operation()))
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "satellite-software-version" + "[satellite-id='" + self.satellite_id.get() + "']" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.satellite_id is None:
-                        raise YPYModelError('Key property satellite_id is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install/satellite-software-versions/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install/Cisco-IOS-XR-icpe-infra-oper:satellite-software-versions/Cisco-IOS-XR-icpe-infra-oper:satellite-software-version[Cisco-IOS-XR-icpe-infra-oper:satellite-id = ' + str(self.satellite_id) + ']'
+                    leaf_name_data = LeafDataList()
+                    if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                    if (self.package_support.is_set or self.package_support.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.package_support.get_name_leafdata())
+                    if (self.satellite_id_xr.is_set or self.satellite_id_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_id_xr.get_name_leafdata())
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "install-package-info"):
+                        if (self.install_package_info is None):
+                            self.install_package_info = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion.InstallPackageInfo()
+                            self.install_package_info.parent = self
+                            self._children_name_map["install_package_info"] = "install-package-info"
+                        return self.install_package_info
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "install-package-info" or name == "satellite-id" or name == "package-support" or name == "satellite-id-xr"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.satellite_id is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "satellite-id"):
+                        self.satellite_id = value
+                        self.satellite_id.value_namespace = name_space
+                        self.satellite_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "package-support"):
+                        self.package_support = value
+                        self.package_support.value_namespace = name_space
+                        self.package_support.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-id-xr"):
+                        self.satellite_id_xr = value
+                        self.satellite_id_xr.value_namespace = name_space
+                        self.satellite_id_xr.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.satellite_software_version:
+                    if (c.has_data()):
                         return True
-
-                    if self.install_package_info is not None and self.install_package_info._has_data():
-                        return True
-
-                    if self.package_support is not None:
-                        return True
-
-                    if self.satellite_id_xr is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install/Cisco-IOS-XR-icpe-infra-oper:satellite-software-versions'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.satellite_software_version is not None:
-                    for child_ref in self.satellite_software_version:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.satellite_software_version:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "satellite-software-versions" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "satellite-software-version"):
+                    for c in self.satellite_software_version:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.Install.SatelliteSoftwareVersions.SatelliteSoftwareVersion()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.satellite_software_version.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "satellite-software-version"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.Install.SatelliteSoftwareVersions']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.satellite_software_versions is not None and self.satellite_software_versions.has_data())
 
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.satellite_software_versions is not None and self.satellite_software_versions.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "install" + path_buffer
 
-        def _has_data(self):
-            if self.satellite_software_versions is not None and self.satellite_software_versions._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "satellite-software-versions"):
+                if (self.satellite_software_versions is None):
+                    self.satellite_software_versions = NvSatellite.Install.SatelliteSoftwareVersions()
+                    self.satellite_software_versions.parent = self
+                    self._children_name_map["satellite_software_versions"] = "satellite-software-versions"
+                return self.satellite_software_versions
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "satellite-software-versions"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.Install']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class InstallOpStatuses(object):
+    class InstallOpStatuses(Entity):
         """
         Detailed breakdown of install status table
         
@@ -6161,13 +10487,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.install_op_status = YList()
-            self.install_op_status.parent = self
-            self.install_op_status.name = 'install_op_status'
+            super(NvSatellite.InstallOpStatuses, self).__init__()
+
+            self.yang_name = "install-op-statuses"
+            self.yang_parent_name = "nv-satellite"
+
+            self.install_op_status = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.InstallOpStatuses, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.InstallOpStatuses, self).__setattr__(name, value)
 
 
-        class InstallOpStatus(object):
+        class InstallOpStatus(Entity):
             """
             Detailed breakdown of install status
             
@@ -6324,207 +10676,417 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.operation_id = None
-                self.operation_id_xr = None
-                self.satellite_range = None
-                self.sats_activate_aborted = YLeafList()
-                self.sats_activate_aborted.parent = self
-                self.sats_activate_aborted.name = 'sats_activate_aborted'
-                self.sats_activate_failed = YLeafList()
-                self.sats_activate_failed.parent = self
-                self.sats_activate_failed.name = 'sats_activate_failed'
-                self.sats_activating = YLeafList()
-                self.sats_activating.parent = self
-                self.sats_activating.name = 'sats_activating'
-                self.sats_completed = YLeafList()
-                self.sats_completed.parent = self
-                self.sats_completed.name = 'sats_completed'
-                self.sats_deactivate_aborted = YLeafList()
-                self.sats_deactivate_aborted.parent = self
-                self.sats_deactivate_aborted.name = 'sats_deactivate_aborted'
-                self.sats_deactivate_failed = YLeafList()
-                self.sats_deactivate_failed.parent = self
-                self.sats_deactivate_failed.name = 'sats_deactivate_failed'
-                self.sats_deactivating = YLeafList()
-                self.sats_deactivating.parent = self
-                self.sats_deactivating.name = 'sats_deactivating'
-                self.sats_no_operation = YLeafList()
-                self.sats_no_operation.parent = self
-                self.sats_no_operation.name = 'sats_no_operation'
-                self.sats_not_initiated = YLeafList()
-                self.sats_not_initiated.parent = self
-                self.sats_not_initiated.name = 'sats_not_initiated'
-                self.sats_remove_aborted = YLeafList()
-                self.sats_remove_aborted.parent = self
-                self.sats_remove_aborted.name = 'sats_remove_aborted'
-                self.sats_remove_failed = YLeafList()
-                self.sats_remove_failed.parent = self
-                self.sats_remove_failed.name = 'sats_remove_failed'
-                self.sats_removing = YLeafList()
-                self.sats_removing.parent = self
-                self.sats_removing.name = 'sats_removing'
-                self.sats_transfer_aborted = YLeafList()
-                self.sats_transfer_aborted.parent = self
-                self.sats_transfer_aborted.name = 'sats_transfer_aborted'
-                self.sats_transfer_failed = YLeafList()
-                self.sats_transfer_failed.parent = self
-                self.sats_transfer_failed.name = 'sats_transfer_failed'
-                self.sats_transferring = YLeafList()
-                self.sats_transferring.parent = self
-                self.sats_transferring.name = 'sats_transferring'
-                self.sats_update_aborted = YLeafList()
-                self.sats_update_aborted.parent = self
-                self.sats_update_aborted.name = 'sats_update_aborted'
-                self.sats_update_failed = YLeafList()
-                self.sats_update_failed.parent = self
-                self.sats_update_failed.name = 'sats_update_failed'
-                self.sats_updating = YLeafList()
-                self.sats_updating.parent = self
-                self.sats_updating.name = 'sats_updating'
+                super(NvSatellite.InstallOpStatuses.InstallOpStatus, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.operation_id is None:
-                    raise YPYModelError('Key property operation_id is None')
+                self.yang_name = "install-op-status"
+                self.yang_parent_name = "install-op-statuses"
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-op-statuses/Cisco-IOS-XR-icpe-infra-oper:install-op-status[Cisco-IOS-XR-icpe-infra-oper:operation-id = ' + str(self.operation_id) + ']'
+                self.operation_id = YLeaf(YType.uint32, "operation-id")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                self.operation_id_xr = YLeaf(YType.uint32, "operation-id-xr")
 
-            def _has_data(self):
-                if self.operation_id is not None:
-                    return True
+                self.satellite_range = YLeaf(YType.str, "satellite-range")
 
-                if self.operation_id_xr is not None:
-                    return True
+                self.sats_activate_aborted = YLeafList(YType.uint16, "sats-activate-aborted")
 
-                if self.satellite_range is not None:
-                    return True
+                self.sats_activate_failed = YLeafList(YType.uint16, "sats-activate-failed")
 
-                if self.sats_activate_aborted is not None:
-                    for child in self.sats_activate_aborted:
-                        if child is not None:
-                            return True
+                self.sats_activating = YLeafList(YType.uint16, "sats-activating")
 
-                if self.sats_activate_failed is not None:
-                    for child in self.sats_activate_failed:
-                        if child is not None:
-                            return True
+                self.sats_completed = YLeafList(YType.uint16, "sats-completed")
 
-                if self.sats_activating is not None:
-                    for child in self.sats_activating:
-                        if child is not None:
-                            return True
+                self.sats_deactivate_aborted = YLeafList(YType.uint16, "sats-deactivate-aborted")
 
-                if self.sats_completed is not None:
-                    for child in self.sats_completed:
-                        if child is not None:
-                            return True
+                self.sats_deactivate_failed = YLeafList(YType.uint16, "sats-deactivate-failed")
 
-                if self.sats_deactivate_aborted is not None:
-                    for child in self.sats_deactivate_aborted:
-                        if child is not None:
-                            return True
+                self.sats_deactivating = YLeafList(YType.uint16, "sats-deactivating")
 
-                if self.sats_deactivate_failed is not None:
-                    for child in self.sats_deactivate_failed:
-                        if child is not None:
-                            return True
+                self.sats_no_operation = YLeafList(YType.uint16, "sats-no-operation")
 
-                if self.sats_deactivating is not None:
-                    for child in self.sats_deactivating:
-                        if child is not None:
-                            return True
+                self.sats_not_initiated = YLeafList(YType.uint16, "sats-not-initiated")
 
-                if self.sats_no_operation is not None:
-                    for child in self.sats_no_operation:
-                        if child is not None:
-                            return True
+                self.sats_remove_aborted = YLeafList(YType.uint16, "sats-remove-aborted")
 
-                if self.sats_not_initiated is not None:
-                    for child in self.sats_not_initiated:
-                        if child is not None:
-                            return True
+                self.sats_remove_failed = YLeafList(YType.uint16, "sats-remove-failed")
 
-                if self.sats_remove_aborted is not None:
-                    for child in self.sats_remove_aborted:
-                        if child is not None:
-                            return True
+                self.sats_removing = YLeafList(YType.uint16, "sats-removing")
 
-                if self.sats_remove_failed is not None:
-                    for child in self.sats_remove_failed:
-                        if child is not None:
-                            return True
+                self.sats_transfer_aborted = YLeafList(YType.uint16, "sats-transfer-aborted")
 
-                if self.sats_removing is not None:
-                    for child in self.sats_removing:
-                        if child is not None:
-                            return True
+                self.sats_transfer_failed = YLeafList(YType.uint16, "sats-transfer-failed")
 
-                if self.sats_transfer_aborted is not None:
-                    for child in self.sats_transfer_aborted:
-                        if child is not None:
-                            return True
+                self.sats_transferring = YLeafList(YType.uint16, "sats-transferring")
 
-                if self.sats_transfer_failed is not None:
-                    for child in self.sats_transfer_failed:
-                        if child is not None:
-                            return True
+                self.sats_update_aborted = YLeafList(YType.uint16, "sats-update-aborted")
 
-                if self.sats_transferring is not None:
-                    for child in self.sats_transferring:
-                        if child is not None:
-                            return True
+                self.sats_update_failed = YLeafList(YType.uint16, "sats-update-failed")
 
-                if self.sats_update_aborted is not None:
-                    for child in self.sats_update_aborted:
-                        if child is not None:
-                            return True
+                self.sats_updating = YLeafList(YType.uint16, "sats-updating")
 
-                if self.sats_update_failed is not None:
-                    for child in self.sats_update_failed:
-                        if child is not None:
-                            return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("operation_id",
+                                "operation_id_xr",
+                                "satellite_range",
+                                "sats_activate_aborted",
+                                "sats_activate_failed",
+                                "sats_activating",
+                                "sats_completed",
+                                "sats_deactivate_aborted",
+                                "sats_deactivate_failed",
+                                "sats_deactivating",
+                                "sats_no_operation",
+                                "sats_not_initiated",
+                                "sats_remove_aborted",
+                                "sats_remove_failed",
+                                "sats_removing",
+                                "sats_transfer_aborted",
+                                "sats_transfer_failed",
+                                "sats_transferring",
+                                "sats_update_aborted",
+                                "sats_update_failed",
+                                "sats_updating") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.InstallOpStatuses.InstallOpStatus, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.InstallOpStatuses.InstallOpStatus, self).__setattr__(name, value)
 
-                if self.sats_updating is not None:
-                    for child in self.sats_updating:
-                        if child is not None:
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.InstallOpStatuses.InstallOpStatus']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:install-op-statuses'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.install_op_status is not None:
-                for child_ref in self.install_op_status:
-                    if child_ref._has_data():
+            def has_data(self):
+                for leaf in self.sats_activate_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                for leaf in self.sats_activate_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_activating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_completed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_deactivate_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_deactivate_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_deactivating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_no_operation.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_remove_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_remove_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_removing.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transfer_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transfer_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_transferring.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_update_aborted.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_update_failed.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                for leaf in self.sats_updating.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.operation_id.is_set or
+                    self.operation_id_xr.is_set or
+                    self.satellite_range.is_set)
 
+            def has_operation(self):
+                for leaf in self.sats_activate_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_activate_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_activating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_completed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivate_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivate_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_deactivating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_no_operation.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_not_initiated.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_remove_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_remove_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_removing.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transfer_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transfer_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_transferring.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_update_aborted.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_update_failed.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.sats_updating.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.operation_id.yfilter != YFilter.not_set or
+                    self.operation_id_xr.yfilter != YFilter.not_set or
+                    self.satellite_range.yfilter != YFilter.not_set or
+                    self.sats_activate_aborted.yfilter != YFilter.not_set or
+                    self.sats_activate_failed.yfilter != YFilter.not_set or
+                    self.sats_activating.yfilter != YFilter.not_set or
+                    self.sats_completed.yfilter != YFilter.not_set or
+                    self.sats_deactivate_aborted.yfilter != YFilter.not_set or
+                    self.sats_deactivate_failed.yfilter != YFilter.not_set or
+                    self.sats_deactivating.yfilter != YFilter.not_set or
+                    self.sats_no_operation.yfilter != YFilter.not_set or
+                    self.sats_not_initiated.yfilter != YFilter.not_set or
+                    self.sats_remove_aborted.yfilter != YFilter.not_set or
+                    self.sats_remove_failed.yfilter != YFilter.not_set or
+                    self.sats_removing.yfilter != YFilter.not_set or
+                    self.sats_transfer_aborted.yfilter != YFilter.not_set or
+                    self.sats_transfer_failed.yfilter != YFilter.not_set or
+                    self.sats_transferring.yfilter != YFilter.not_set or
+                    self.sats_update_aborted.yfilter != YFilter.not_set or
+                    self.sats_update_failed.yfilter != YFilter.not_set or
+                    self.sats_updating.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "install-op-status" + "[operation-id='" + self.operation_id.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/install-op-statuses/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.operation_id.is_set or self.operation_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_id.get_name_leafdata())
+                if (self.operation_id_xr.is_set or self.operation_id_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.operation_id_xr.get_name_leafdata())
+                if (self.satellite_range.is_set or self.satellite_range.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_range.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activate_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activate_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_activating.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_completed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivate_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivate_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_deactivating.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_no_operation.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_not_initiated.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_remove_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_remove_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_removing.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transfer_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transfer_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_transferring.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_update_aborted.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_update_failed.get_name_leafdata())
+
+                leaf_name_data.extend(self.sats_updating.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "operation-id" or name == "operation-id-xr" or name == "satellite-range" or name == "sats-activate-aborted" or name == "sats-activate-failed" or name == "sats-activating" or name == "sats-completed" or name == "sats-deactivate-aborted" or name == "sats-deactivate-failed" or name == "sats-deactivating" or name == "sats-no-operation" or name == "sats-not-initiated" or name == "sats-remove-aborted" or name == "sats-remove-failed" or name == "sats-removing" or name == "sats-transfer-aborted" or name == "sats-transfer-failed" or name == "sats-transferring" or name == "sats-update-aborted" or name == "sats-update-failed" or name == "sats-updating"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "operation-id"):
+                    self.operation_id = value
+                    self.operation_id.value_namespace = name_space
+                    self.operation_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "operation-id-xr"):
+                    self.operation_id_xr = value
+                    self.operation_id_xr.value_namespace = name_space
+                    self.operation_id_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-range"):
+                    self.satellite_range = value
+                    self.satellite_range.value_namespace = name_space
+                    self.satellite_range.value_namespace_prefix = name_space_prefix
+                if(value_path == "sats-activate-aborted"):
+                    self.sats_activate_aborted.append(value)
+                if(value_path == "sats-activate-failed"):
+                    self.sats_activate_failed.append(value)
+                if(value_path == "sats-activating"):
+                    self.sats_activating.append(value)
+                if(value_path == "sats-completed"):
+                    self.sats_completed.append(value)
+                if(value_path == "sats-deactivate-aborted"):
+                    self.sats_deactivate_aborted.append(value)
+                if(value_path == "sats-deactivate-failed"):
+                    self.sats_deactivate_failed.append(value)
+                if(value_path == "sats-deactivating"):
+                    self.sats_deactivating.append(value)
+                if(value_path == "sats-no-operation"):
+                    self.sats_no_operation.append(value)
+                if(value_path == "sats-not-initiated"):
+                    self.sats_not_initiated.append(value)
+                if(value_path == "sats-remove-aborted"):
+                    self.sats_remove_aborted.append(value)
+                if(value_path == "sats-remove-failed"):
+                    self.sats_remove_failed.append(value)
+                if(value_path == "sats-removing"):
+                    self.sats_removing.append(value)
+                if(value_path == "sats-transfer-aborted"):
+                    self.sats_transfer_aborted.append(value)
+                if(value_path == "sats-transfer-failed"):
+                    self.sats_transfer_failed.append(value)
+                if(value_path == "sats-transferring"):
+                    self.sats_transferring.append(value)
+                if(value_path == "sats-update-aborted"):
+                    self.sats_update_aborted.append(value)
+                if(value_path == "sats-update-failed"):
+                    self.sats_update_failed.append(value)
+                if(value_path == "sats-updating"):
+                    self.sats_updating.append(value)
+
+        def has_data(self):
+            for c in self.install_op_status:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.InstallOpStatuses']['meta_info']
+        def has_operation(self):
+            for c in self.install_op_status:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "install-op-statuses" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "install-op-status"):
+                for c in self.install_op_status:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.InstallOpStatuses.InstallOpStatus()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.install_op_status.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "install-op-status"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SatelliteProperties(object):
+    class SatelliteProperties(Entity):
         """
         ICPE GCO operational information
         
@@ -6541,12 +11103,18 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(NvSatellite.SatelliteProperties, self).__init__()
+
+            self.yang_name = "satellite-properties"
+            self.yang_parent_name = "nv-satellite"
+
             self.id_ranges = NvSatellite.SatelliteProperties.IdRanges()
             self.id_ranges.parent = self
+            self._children_name_map["id_ranges"] = "id-ranges"
+            self._children_yang_names.add("id-ranges")
 
 
-        class IdRanges(object):
+        class IdRanges(Entity):
             """
             Satellite ID range table
             
@@ -6563,13 +11131,39 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.id_range = YList()
-                self.id_range.parent = self
-                self.id_range.name = 'id_range'
+                super(NvSatellite.SatelliteProperties.IdRanges, self).__init__()
+
+                self.yang_name = "id-ranges"
+                self.yang_parent_name = "satellite-properties"
+
+                self.id_range = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SatelliteProperties.IdRanges, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SatelliteProperties.IdRanges, self).__setattr__(name, value)
 
 
-            class IdRange(object):
+            class IdRange(Entity):
                 """
                 Satellite ID range
                 
@@ -6602,83 +11196,213 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.sat_id_range = None
-                    self.max = None
-                    self.min = None
+                    super(NvSatellite.SatelliteProperties.IdRanges.IdRange, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.sat_id_range is None:
-                        raise YPYModelError('Key property sat_id_range is None')
+                    self.yang_name = "id-range"
+                    self.yang_parent_name = "id-ranges"
 
-                    return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-properties/Cisco-IOS-XR-icpe-infra-oper:id-ranges/Cisco-IOS-XR-icpe-infra-oper:id-range[Cisco-IOS-XR-icpe-infra-oper:sat-id-range = ' + str(self.sat_id_range) + ']'
+                    self.sat_id_range = YLeaf(YType.str, "sat-id-range")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.max = YLeaf(YType.uint32, "max")
+
+                    self.min = YLeaf(YType.uint32, "min")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("sat_id_range",
+                                    "max",
+                                    "min") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SatelliteProperties.IdRanges.IdRange, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SatelliteProperties.IdRanges.IdRange, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.sat_id_range.is_set or
+                        self.max.is_set or
+                        self.min.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.sat_id_range.yfilter != YFilter.not_set or
+                        self.max.yfilter != YFilter.not_set or
+                        self.min.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "id-range" + "[sat-id-range='" + self.sat_id_range.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-properties/id-ranges/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.sat_id_range.is_set or self.sat_id_range.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sat_id_range.get_name_leafdata())
+                    if (self.max.is_set or self.max.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.max.get_name_leafdata())
+                    if (self.min.is_set or self.min.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.min.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "sat-id-range" or name == "max" or name == "min"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.sat_id_range is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "sat-id-range"):
+                        self.sat_id_range = value
+                        self.sat_id_range.value_namespace = name_space
+                        self.sat_id_range.value_namespace_prefix = name_space_prefix
+                    if(value_path == "max"):
+                        self.max = value
+                        self.max.value_namespace = name_space
+                        self.max.value_namespace_prefix = name_space_prefix
+                    if(value_path == "min"):
+                        self.min = value
+                        self.min.value_namespace = name_space
+                        self.min.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.id_range:
+                    if (c.has_data()):
                         return True
-
-                    if self.max is not None:
-                        return True
-
-                    if self.min is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SatelliteProperties.IdRanges.IdRange']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-properties/Cisco-IOS-XR-icpe-infra-oper:id-ranges'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.id_range is not None:
-                    for child_ref in self.id_range:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.id_range:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "id-ranges" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/satellite-properties/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "id-range"):
+                    for c in self.id_range:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SatelliteProperties.IdRanges.IdRange()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.id_range.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "id-range"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SatelliteProperties.IdRanges']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.id_ranges is not None and self.id_ranges.has_data())
 
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:satellite-properties'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.id_ranges is not None and self.id_ranges.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "satellite-properties" + path_buffer
 
-        def _has_data(self):
-            if self.id_ranges is not None and self.id_ranges._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "id-ranges"):
+                if (self.id_ranges is None):
+                    self.id_ranges = NvSatellite.SatelliteProperties.IdRanges()
+                    self.id_ranges.parent = self
+                    self._children_name_map["id_ranges"] = "id-ranges"
+                return self.id_ranges
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "id-ranges"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SatelliteProperties']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SdacpDiscovery2S(object):
+    class SdacpDiscovery2S(Entity):
         """
         ICPE Configured interface state information
         table
@@ -6696,13 +11420,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.sdacp_discovery2 = YList()
-            self.sdacp_discovery2.parent = self
-            self.sdacp_discovery2.name = 'sdacp_discovery2'
+            super(NvSatellite.SdacpDiscovery2S, self).__init__()
+
+            self.yang_name = "sdacp-discovery2s"
+            self.yang_parent_name = "nv-satellite"
+
+            self.sdacp_discovery2 = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.SdacpDiscovery2S, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.SdacpDiscovery2S, self).__setattr__(name, value)
 
 
-        class SdacpDiscovery2(object):
+        class SdacpDiscovery2(Entity):
             """
             ICPE Configured interface state information
             
@@ -6738,18 +11488,45 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
-                self.interface_name_xr = None
-                self.satellite = YList()
-                self.satellite.parent = self
-                self.satellite.name = 'satellite'
+                super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2, self).__init__()
+
+                self.yang_name = "sdacp-discovery2"
+                self.yang_parent_name = "sdacp-discovery2s"
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                self.interface = YList(self)
+                self.satellite = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "interface_name_xr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 ICPE Discovery interface state information table
                 
@@ -6763,7 +11540,7 @@ class NvSatellite(object):
                 .. attribute:: interface_status
                 
                 	Interface status
-                	**type**\:   :py:class:`DpmProtoStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoStateEnum>`
+                	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                 
                 
 
@@ -6773,37 +11550,97 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.interface_status = None
+                    super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "sdacp-discovery2"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:interface'
+                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.interface_status = YLeaf(YType.enumeration, "interface-status")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "interface_status") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.interface_name.is_set or
+                        self.interface_status.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.interface_status.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.interface_status.is_set or self.interface_status.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_status.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-name" or name == "interface-status"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_name is not None:
-                        return True
-
-                    if self.interface_status is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-status"):
+                        self.interface_status = value
+                        self.interface_status.value_namespace = name_space
+                        self.interface_status.value_namespace_prefix = name_space_prefix
 
 
-            class Satellite(object):
+            class Satellite(Entity):
                 """
                 ICPE Satellite state information table
                 
@@ -6843,7 +11680,7 @@ class NvSatellite(object):
                 .. attribute:: satellite_status
                 
                 	Satellite status
-                	**type**\:   :py:class:`DpmProtoStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoStateEnum>`
+                	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                 
                 
 
@@ -6853,18 +11690,53 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.conflict_reason = None
-                    self.host_ip_address = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
-                    self.satellite_id = None
-                    self.satellite_ip_address = None
-                    self.satellite_status = None
+                    super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite, self).__init__()
+
+                    self.yang_name = "satellite"
+                    self.yang_parent_name = "sdacp-discovery2"
+
+                    self.conflict_reason = YLeaf(YType.uint32, "conflict-reason")
+
+                    self.host_ip_address = YLeaf(YType.str, "host-ip-address")
+
+                    self.satellite_id = YLeaf(YType.uint32, "satellite-id")
+
+                    self.satellite_ip_address = YLeaf(YType.str, "satellite-ip-address")
+
+                    self.satellite_status = YLeaf(YType.enumeration, "satellite-status")
+
+                    self.interface = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("conflict_reason",
+                                    "host_ip_address",
+                                    "satellite_id",
+                                    "satellite_ip_address",
+                                    "satellite_status") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite, self).__setattr__(name, value)
 
 
-                class Interface(object):
+                class Interface(Entity):
                     """
                     ICPE Discovered satellite state information
                     table
@@ -6922,7 +11794,7 @@ class NvSatellite(object):
                     .. attribute:: satellite_status
                     
                     	Satellite status
-                    	**type**\:   :py:class:`DpmProtoStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoStateEnum>`
+                    	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                     
                     
 
@@ -6932,161 +11804,419 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.conflict_reason = None
-                        self.interface_handle = None
-                        self.satellite_chassis_mac = None
-                        self.satellite_chassis_vendor = None
-                        self.satellite_interface_id = None
-                        self.satellite_interface_mac = None
-                        self.satellite_module_vendor = None
-                        self.satellite_serial_id = None
-                        self.satellite_status = None
+                        super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "satellite"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:interface'
+                        self.conflict_reason = YLeaf(YType.uint32, "conflict-reason")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                        self.satellite_chassis_mac = YLeaf(YType.str, "satellite-chassis-mac")
+
+                        self.satellite_chassis_vendor = YLeaf(YType.str, "satellite-chassis-vendor")
+
+                        self.satellite_interface_id = YLeaf(YType.uint32, "satellite-interface-id")
+
+                        self.satellite_interface_mac = YLeaf(YType.str, "satellite-interface-mac")
+
+                        self.satellite_module_vendor = YLeaf(YType.str, "satellite-module-vendor")
+
+                        self.satellite_serial_id = YLeaf(YType.str, "satellite-serial-id")
+
+                        self.satellite_status = YLeaf(YType.enumeration, "satellite-status")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("conflict_reason",
+                                        "interface_handle",
+                                        "satellite_chassis_mac",
+                                        "satellite_chassis_vendor",
+                                        "satellite_interface_id",
+                                        "satellite_interface_mac",
+                                        "satellite_module_vendor",
+                                        "satellite_serial_id",
+                                        "satellite_status") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.conflict_reason.is_set or
+                            self.interface_handle.is_set or
+                            self.satellite_chassis_mac.is_set or
+                            self.satellite_chassis_vendor.is_set or
+                            self.satellite_interface_id.is_set or
+                            self.satellite_interface_mac.is_set or
+                            self.satellite_module_vendor.is_set or
+                            self.satellite_serial_id.is_set or
+                            self.satellite_status.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.conflict_reason.yfilter != YFilter.not_set or
+                            self.interface_handle.yfilter != YFilter.not_set or
+                            self.satellite_chassis_mac.yfilter != YFilter.not_set or
+                            self.satellite_chassis_vendor.yfilter != YFilter.not_set or
+                            self.satellite_interface_id.yfilter != YFilter.not_set or
+                            self.satellite_interface_mac.yfilter != YFilter.not_set or
+                            self.satellite_module_vendor.yfilter != YFilter.not_set or
+                            self.satellite_serial_id.yfilter != YFilter.not_set or
+                            self.satellite_status.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                        if (self.interface_handle.is_set or self.interface_handle.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_handle.get_name_leafdata())
+                        if (self.satellite_chassis_mac.is_set or self.satellite_chassis_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.satellite_chassis_mac.get_name_leafdata())
+                        if (self.satellite_chassis_vendor.is_set or self.satellite_chassis_vendor.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.satellite_chassis_vendor.get_name_leafdata())
+                        if (self.satellite_interface_id.is_set or self.satellite_interface_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.satellite_interface_id.get_name_leafdata())
+                        if (self.satellite_interface_mac.is_set or self.satellite_interface_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.satellite_interface_mac.get_name_leafdata())
+                        if (self.satellite_module_vendor.is_set or self.satellite_module_vendor.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.satellite_module_vendor.get_name_leafdata())
+                        if (self.satellite_serial_id.is_set or self.satellite_serial_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.satellite_serial_id.get_name_leafdata())
+                        if (self.satellite_status.is_set or self.satellite_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.satellite_status.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "conflict-reason" or name == "interface-handle" or name == "satellite-chassis-mac" or name == "satellite-chassis-vendor" or name == "satellite-interface-id" or name == "satellite-interface-mac" or name == "satellite-module-vendor" or name == "satellite-serial-id" or name == "satellite-status"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.conflict_reason is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "conflict-reason"):
+                            self.conflict_reason = value
+                            self.conflict_reason.value_namespace = name_space
+                            self.conflict_reason.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-handle"):
+                            self.interface_handle = value
+                            self.interface_handle.value_namespace = name_space
+                            self.interface_handle.value_namespace_prefix = name_space_prefix
+                        if(value_path == "satellite-chassis-mac"):
+                            self.satellite_chassis_mac = value
+                            self.satellite_chassis_mac.value_namespace = name_space
+                            self.satellite_chassis_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "satellite-chassis-vendor"):
+                            self.satellite_chassis_vendor = value
+                            self.satellite_chassis_vendor.value_namespace = name_space
+                            self.satellite_chassis_vendor.value_namespace_prefix = name_space_prefix
+                        if(value_path == "satellite-interface-id"):
+                            self.satellite_interface_id = value
+                            self.satellite_interface_id.value_namespace = name_space
+                            self.satellite_interface_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "satellite-interface-mac"):
+                            self.satellite_interface_mac = value
+                            self.satellite_interface_mac.value_namespace = name_space
+                            self.satellite_interface_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "satellite-module-vendor"):
+                            self.satellite_module_vendor = value
+                            self.satellite_module_vendor.value_namespace = name_space
+                            self.satellite_module_vendor.value_namespace_prefix = name_space_prefix
+                        if(value_path == "satellite-serial-id"):
+                            self.satellite_serial_id = value
+                            self.satellite_serial_id.value_namespace = name_space
+                            self.satellite_serial_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "satellite-status"):
+                            self.satellite_status = value
+                            self.satellite_status.value_namespace = name_space
+                            self.satellite_status.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.conflict_reason.is_set or
+                        self.host_ip_address.is_set or
+                        self.satellite_id.is_set or
+                        self.satellite_ip_address.is_set or
+                        self.satellite_status.is_set)
 
-                        if self.interface_handle is not None:
+                def has_operation(self):
+                    for c in self.interface:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.conflict_reason.yfilter != YFilter.not_set or
+                        self.host_ip_address.yfilter != YFilter.not_set or
+                        self.satellite_id.yfilter != YFilter.not_set or
+                        self.satellite_ip_address.yfilter != YFilter.not_set or
+                        self.satellite_status.yfilter != YFilter.not_set)
 
-                        if self.satellite_chassis_mac is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "satellite" + path_buffer
 
-                        if self.satellite_chassis_vendor is not None:
-                            return True
+                    return path_buffer
 
-                        if self.satellite_interface_id is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.satellite_interface_mac is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                    if (self.host_ip_address.is_set or self.host_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_ip_address.get_name_leafdata())
+                    if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                    if (self.satellite_ip_address.is_set or self.satellite_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_ip_address.get_name_leafdata())
+                    if (self.satellite_status.is_set or self.satellite_status.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_status.get_name_leafdata())
 
-                        if self.satellite_module_vendor is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.satellite_serial_id is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.satellite_status is not None:
-                            return True
+                    if (child_yang_name == "interface"):
+                        for c in self.interface:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface.append(c)
+                        return c
 
-                        return False
+                    return None
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:satellite'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface" or name == "conflict-reason" or name == "host-ip-address" or name == "satellite-id" or name == "satellite-ip-address" or name == "satellite-status"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.conflict_reason is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "conflict-reason"):
+                        self.conflict_reason = value
+                        self.conflict_reason.value_namespace = name_space
+                        self.conflict_reason.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-ip-address"):
+                        self.host_ip_address = value
+                        self.host_ip_address.value_namespace = name_space
+                        self.host_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-id"):
+                        self.satellite_id = value
+                        self.satellite_id.value_namespace = name_space
+                        self.satellite_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-ip-address"):
+                        self.satellite_ip_address = value
+                        self.satellite_ip_address.value_namespace = name_space
+                        self.satellite_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-status"):
+                        self.satellite_status = value
+                        self.satellite_status.value_namespace = name_space
+                        self.satellite_status.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.interface:
+                    if (c.has_data()):
                         return True
-
-                    if self.host_ip_address is not None:
+                for c in self.satellite:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.interface_name.is_set or
+                    self.interface_name_xr.is_set)
 
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.satellite_id is not None:
+            def has_operation(self):
+                for c in self.interface:
+                    if (c.has_operation()):
                         return True
-
-                    if self.satellite_ip_address is not None:
+                for c in self.satellite:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.interface_name_xr.yfilter != YFilter.not_set)
 
-                    if self.satellite_status is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sdacp-discovery2" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                    return False
+                return path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite']['meta_info']
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2[Cisco-IOS-XR-icpe-sdacp-oper:interface-name = ' + str(self.interface_name) + ']'
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                if (child_yang_name == "satellite"):
+                    for c in self.satellite:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SdacpDiscovery2S.SdacpDiscovery2.Satellite()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.satellite.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface" or name == "satellite" or name == "interface-name" or name == "interface-name-xr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "interface-name-xr"):
+                    self.interface_name_xr = value
+                    self.interface_name_xr.value_namespace = name_space
+                    self.interface_name_xr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sdacp_discovery2:
+                if (c.has_data()):
                     return True
-
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
-
-                if self.interface_name_xr is not None:
-                    return True
-
-                if self.satellite is not None:
-                    for child_ref in self.satellite:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SdacpDiscovery2S.SdacpDiscovery2']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sdacp_discovery2 is not None:
-                for child_ref in self.sdacp_discovery2:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sdacp_discovery2:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "Cisco-IOS-XR-icpe-sdacp-oper:sdacp-discovery2s" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sdacp-discovery2"):
+                for c in self.sdacp_discovery2:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.SdacpDiscovery2S.SdacpDiscovery2()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sdacp_discovery2.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sdacp-discovery2"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SdacpDiscovery2S']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class IcpeDpms(object):
+    class IcpeDpms(Entity):
         """
         ICPE DPM operational information table
         
@@ -7103,13 +12233,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.icpe_dpm = YList()
-            self.icpe_dpm.parent = self
-            self.icpe_dpm.name = 'icpe_dpm'
+            super(NvSatellite.IcpeDpms, self).__init__()
+
+            self.yang_name = "icpe-dpms"
+            self.yang_parent_name = "nv-satellite"
+
+            self.icpe_dpm = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.IcpeDpms, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.IcpeDpms, self).__setattr__(name, value)
 
 
-        class IcpeDpm(object):
+        class IcpeDpm(Entity):
             """
             ICPE DPM operational information
             
@@ -7144,7 +12300,7 @@ class NvSatellite(object):
             .. attribute:: discovery_interface_status
             
             	Discovery interface status
-            	**type**\:   :py:class:`DpmProtoStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoStateEnum>`
+            	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
             
             .. attribute:: discovery_interface_xr
             
@@ -7236,31 +12392,84 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.discovery_interface = None
-                self.ack_packets_sent = None
-                self.configuration_packets_sent = None
-                self.discovery_interface_handle = None
-                self.discovery_interface_status = None
-                self.discovery_interface_xr = None
-                self.host_ack_packets_received = None
-                self.host_ack_packets_sent = None
-                self.ident_packets_received = None
-                self.invalid_packets_received = None
-                self.los_packets_received = None
-                self.probe_packets_sent = None
-                self.ready_packets_received = None
-                self.reject_packets_sent = None
-                self.remote_host = YList()
-                self.remote_host.parent = self
-                self.remote_host.name = 'remote_host'
-                self.satellite = YList()
-                self.satellite.parent = self
-                self.satellite.name = 'satellite'
-                self.secs_since_pkts_cleaned = None
+                super(NvSatellite.IcpeDpms.IcpeDpm, self).__init__()
+
+                self.yang_name = "icpe-dpm"
+                self.yang_parent_name = "icpe-dpms"
+
+                self.discovery_interface = YLeaf(YType.str, "discovery-interface")
+
+                self.ack_packets_sent = YLeaf(YType.uint64, "ack-packets-sent")
+
+                self.configuration_packets_sent = YLeaf(YType.uint64, "configuration-packets-sent")
+
+                self.discovery_interface_handle = YLeaf(YType.str, "discovery-interface-handle")
+
+                self.discovery_interface_status = YLeaf(YType.enumeration, "discovery-interface-status")
+
+                self.discovery_interface_xr = YLeaf(YType.str, "discovery-interface-xr")
+
+                self.host_ack_packets_received = YLeaf(YType.uint64, "host-ack-packets-received")
+
+                self.host_ack_packets_sent = YLeaf(YType.uint64, "host-ack-packets-sent")
+
+                self.ident_packets_received = YLeaf(YType.uint64, "ident-packets-received")
+
+                self.invalid_packets_received = YLeaf(YType.uint64, "invalid-packets-received")
+
+                self.los_packets_received = YLeaf(YType.uint64, "los-packets-received")
+
+                self.probe_packets_sent = YLeaf(YType.uint64, "probe-packets-sent")
+
+                self.ready_packets_received = YLeaf(YType.uint64, "ready-packets-received")
+
+                self.reject_packets_sent = YLeaf(YType.uint64, "reject-packets-sent")
+
+                self.secs_since_pkts_cleaned = YLeaf(YType.uint64, "secs-since-pkts-cleaned")
+
+                self.remote_host = YList(self)
+                self.satellite = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("discovery_interface",
+                                "ack_packets_sent",
+                                "configuration_packets_sent",
+                                "discovery_interface_handle",
+                                "discovery_interface_status",
+                                "discovery_interface_xr",
+                                "host_ack_packets_received",
+                                "host_ack_packets_sent",
+                                "ident_packets_received",
+                                "invalid_packets_received",
+                                "los_packets_received",
+                                "probe_packets_sent",
+                                "ready_packets_received",
+                                "reject_packets_sent",
+                                "secs_since_pkts_cleaned") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.IcpeDpms.IcpeDpm, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.IcpeDpms.IcpeDpm, self).__setattr__(name, value)
 
 
-            class Satellite(object):
+            class Satellite(Entity):
                 """
                 ICPE DPM satellite operational information table
                 
@@ -7300,7 +12509,7 @@ class NvSatellite(object):
                 .. attribute:: discovery_protocol_state
                 
                 	Discovery protocol state
-                	**type**\:   :py:class:`DpmProtoStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoStateEnum>`
+                	**type**\:   :py:class:`DpmProtoState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoState>`
                 
                 .. attribute:: host_chassis_mac
                 
@@ -7479,161 +12688,438 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.ack_packets_sent = None
-                    self.configuration_packets_sent = None
-                    self.conflict_reason = None
-                    self.current_timeout = None
-                    self.deleting = None
-                    self.discovery_protocol_state = None
-                    self.host_chassis_mac = None
-                    self.host_chassis_type = None
-                    self.host_chassis_vendor = None
-                    self.host_ip_address = None
-                    self.ident_packets_received = None
-                    self.ifmgr_state = None
-                    self.invalid_packets_received = None
-                    self.is_queued_for_efd = None
-                    self.is_queued_for_oc = None
-                    self.last_imdr_state = None
-                    self.legacy = None
-                    self.los_packets_received = None
-                    self.ready_packets_received = None
-                    self.received_sys_mac = None
-                    self.reject_packets_sent = None
-                    self.satellite_chassis_mac = None
-                    self.satellite_chassis_type = None
-                    self.satellite_chassis_vendor = None
-                    self.satellite_id = None
-                    self.satellite_interface_id = None
-                    self.satellite_interface_mac = None
-                    self.satellite_ip_address = None
-                    self.satellite_module_mac = None
-                    self.satellite_module_type = None
-                    self.satellite_module_vendor = None
-                    self.satellite_serial_id = None
-                    self.secs_since_pkts_cleaned = None
+                    super(NvSatellite.IcpeDpms.IcpeDpm.Satellite, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "satellite"
+                    self.yang_parent_name = "icpe-dpm"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:satellite'
+                    self.ack_packets_sent = YLeaf(YType.uint64, "ack-packets-sent")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.configuration_packets_sent = YLeaf(YType.uint64, "configuration-packets-sent")
+
+                    self.conflict_reason = YLeaf(YType.uint32, "conflict-reason")
+
+                    self.current_timeout = YLeaf(YType.uint32, "current-timeout")
+
+                    self.deleting = YLeaf(YType.boolean, "deleting")
+
+                    self.discovery_protocol_state = YLeaf(YType.enumeration, "discovery-protocol-state")
+
+                    self.host_chassis_mac = YLeaf(YType.str, "host-chassis-mac")
+
+                    self.host_chassis_type = YLeaf(YType.str, "host-chassis-type")
+
+                    self.host_chassis_vendor = YLeaf(YType.str, "host-chassis-vendor")
+
+                    self.host_ip_address = YLeaf(YType.str, "host-ip-address")
+
+                    self.ident_packets_received = YLeaf(YType.uint64, "ident-packets-received")
+
+                    self.ifmgr_state = YLeaf(YType.boolean, "ifmgr-state")
+
+                    self.invalid_packets_received = YLeaf(YType.uint64, "invalid-packets-received")
+
+                    self.is_queued_for_efd = YLeaf(YType.boolean, "is-queued-for-efd")
+
+                    self.is_queued_for_oc = YLeaf(YType.boolean, "is-queued-for-oc")
+
+                    self.last_imdr_state = YLeaf(YType.uint32, "last-imdr-state")
+
+                    self.legacy = YLeaf(YType.boolean, "legacy")
+
+                    self.los_packets_received = YLeaf(YType.uint64, "los-packets-received")
+
+                    self.ready_packets_received = YLeaf(YType.uint64, "ready-packets-received")
+
+                    self.received_sys_mac = YLeaf(YType.str, "received-sys-mac")
+
+                    self.reject_packets_sent = YLeaf(YType.uint64, "reject-packets-sent")
+
+                    self.satellite_chassis_mac = YLeaf(YType.str, "satellite-chassis-mac")
+
+                    self.satellite_chassis_type = YLeaf(YType.str, "satellite-chassis-type")
+
+                    self.satellite_chassis_vendor = YLeaf(YType.str, "satellite-chassis-vendor")
+
+                    self.satellite_id = YLeaf(YType.uint32, "satellite-id")
+
+                    self.satellite_interface_id = YLeaf(YType.uint32, "satellite-interface-id")
+
+                    self.satellite_interface_mac = YLeaf(YType.str, "satellite-interface-mac")
+
+                    self.satellite_ip_address = YLeaf(YType.str, "satellite-ip-address")
+
+                    self.satellite_module_mac = YLeaf(YType.str, "satellite-module-mac")
+
+                    self.satellite_module_type = YLeaf(YType.str, "satellite-module-type")
+
+                    self.satellite_module_vendor = YLeaf(YType.str, "satellite-module-vendor")
+
+                    self.satellite_serial_id = YLeaf(YType.str, "satellite-serial-id")
+
+                    self.secs_since_pkts_cleaned = YLeaf(YType.uint64, "secs-since-pkts-cleaned")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("ack_packets_sent",
+                                    "configuration_packets_sent",
+                                    "conflict_reason",
+                                    "current_timeout",
+                                    "deleting",
+                                    "discovery_protocol_state",
+                                    "host_chassis_mac",
+                                    "host_chassis_type",
+                                    "host_chassis_vendor",
+                                    "host_ip_address",
+                                    "ident_packets_received",
+                                    "ifmgr_state",
+                                    "invalid_packets_received",
+                                    "is_queued_for_efd",
+                                    "is_queued_for_oc",
+                                    "last_imdr_state",
+                                    "legacy",
+                                    "los_packets_received",
+                                    "ready_packets_received",
+                                    "received_sys_mac",
+                                    "reject_packets_sent",
+                                    "satellite_chassis_mac",
+                                    "satellite_chassis_type",
+                                    "satellite_chassis_vendor",
+                                    "satellite_id",
+                                    "satellite_interface_id",
+                                    "satellite_interface_mac",
+                                    "satellite_ip_address",
+                                    "satellite_module_mac",
+                                    "satellite_module_type",
+                                    "satellite_module_vendor",
+                                    "satellite_serial_id",
+                                    "secs_since_pkts_cleaned") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.IcpeDpms.IcpeDpm.Satellite, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.IcpeDpms.IcpeDpm.Satellite, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.ack_packets_sent.is_set or
+                        self.configuration_packets_sent.is_set or
+                        self.conflict_reason.is_set or
+                        self.current_timeout.is_set or
+                        self.deleting.is_set or
+                        self.discovery_protocol_state.is_set or
+                        self.host_chassis_mac.is_set or
+                        self.host_chassis_type.is_set or
+                        self.host_chassis_vendor.is_set or
+                        self.host_ip_address.is_set or
+                        self.ident_packets_received.is_set or
+                        self.ifmgr_state.is_set or
+                        self.invalid_packets_received.is_set or
+                        self.is_queued_for_efd.is_set or
+                        self.is_queued_for_oc.is_set or
+                        self.last_imdr_state.is_set or
+                        self.legacy.is_set or
+                        self.los_packets_received.is_set or
+                        self.ready_packets_received.is_set or
+                        self.received_sys_mac.is_set or
+                        self.reject_packets_sent.is_set or
+                        self.satellite_chassis_mac.is_set or
+                        self.satellite_chassis_type.is_set or
+                        self.satellite_chassis_vendor.is_set or
+                        self.satellite_id.is_set or
+                        self.satellite_interface_id.is_set or
+                        self.satellite_interface_mac.is_set or
+                        self.satellite_ip_address.is_set or
+                        self.satellite_module_mac.is_set or
+                        self.satellite_module_type.is_set or
+                        self.satellite_module_vendor.is_set or
+                        self.satellite_serial_id.is_set or
+                        self.secs_since_pkts_cleaned.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.ack_packets_sent.yfilter != YFilter.not_set or
+                        self.configuration_packets_sent.yfilter != YFilter.not_set or
+                        self.conflict_reason.yfilter != YFilter.not_set or
+                        self.current_timeout.yfilter != YFilter.not_set or
+                        self.deleting.yfilter != YFilter.not_set or
+                        self.discovery_protocol_state.yfilter != YFilter.not_set or
+                        self.host_chassis_mac.yfilter != YFilter.not_set or
+                        self.host_chassis_type.yfilter != YFilter.not_set or
+                        self.host_chassis_vendor.yfilter != YFilter.not_set or
+                        self.host_ip_address.yfilter != YFilter.not_set or
+                        self.ident_packets_received.yfilter != YFilter.not_set or
+                        self.ifmgr_state.yfilter != YFilter.not_set or
+                        self.invalid_packets_received.yfilter != YFilter.not_set or
+                        self.is_queued_for_efd.yfilter != YFilter.not_set or
+                        self.is_queued_for_oc.yfilter != YFilter.not_set or
+                        self.last_imdr_state.yfilter != YFilter.not_set or
+                        self.legacy.yfilter != YFilter.not_set or
+                        self.los_packets_received.yfilter != YFilter.not_set or
+                        self.ready_packets_received.yfilter != YFilter.not_set or
+                        self.received_sys_mac.yfilter != YFilter.not_set or
+                        self.reject_packets_sent.yfilter != YFilter.not_set or
+                        self.satellite_chassis_mac.yfilter != YFilter.not_set or
+                        self.satellite_chassis_type.yfilter != YFilter.not_set or
+                        self.satellite_chassis_vendor.yfilter != YFilter.not_set or
+                        self.satellite_id.yfilter != YFilter.not_set or
+                        self.satellite_interface_id.yfilter != YFilter.not_set or
+                        self.satellite_interface_mac.yfilter != YFilter.not_set or
+                        self.satellite_ip_address.yfilter != YFilter.not_set or
+                        self.satellite_module_mac.yfilter != YFilter.not_set or
+                        self.satellite_module_type.yfilter != YFilter.not_set or
+                        self.satellite_module_vendor.yfilter != YFilter.not_set or
+                        self.satellite_serial_id.yfilter != YFilter.not_set or
+                        self.secs_since_pkts_cleaned.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "satellite" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.ack_packets_sent.is_set or self.ack_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ack_packets_sent.get_name_leafdata())
+                    if (self.configuration_packets_sent.is_set or self.configuration_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.configuration_packets_sent.get_name_leafdata())
+                    if (self.conflict_reason.is_set or self.conflict_reason.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.conflict_reason.get_name_leafdata())
+                    if (self.current_timeout.is_set or self.current_timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.current_timeout.get_name_leafdata())
+                    if (self.deleting.is_set or self.deleting.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.deleting.get_name_leafdata())
+                    if (self.discovery_protocol_state.is_set or self.discovery_protocol_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discovery_protocol_state.get_name_leafdata())
+                    if (self.host_chassis_mac.is_set or self.host_chassis_mac.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_chassis_mac.get_name_leafdata())
+                    if (self.host_chassis_type.is_set or self.host_chassis_type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_chassis_type.get_name_leafdata())
+                    if (self.host_chassis_vendor.is_set or self.host_chassis_vendor.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_chassis_vendor.get_name_leafdata())
+                    if (self.host_ip_address.is_set or self.host_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_ip_address.get_name_leafdata())
+                    if (self.ident_packets_received.is_set or self.ident_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ident_packets_received.get_name_leafdata())
+                    if (self.ifmgr_state.is_set or self.ifmgr_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ifmgr_state.get_name_leafdata())
+                    if (self.invalid_packets_received.is_set or self.invalid_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.invalid_packets_received.get_name_leafdata())
+                    if (self.is_queued_for_efd.is_set or self.is_queued_for_efd.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_queued_for_efd.get_name_leafdata())
+                    if (self.is_queued_for_oc.is_set or self.is_queued_for_oc.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_queued_for_oc.get_name_leafdata())
+                    if (self.last_imdr_state.is_set or self.last_imdr_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.last_imdr_state.get_name_leafdata())
+                    if (self.legacy.is_set or self.legacy.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.legacy.get_name_leafdata())
+                    if (self.los_packets_received.is_set or self.los_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.los_packets_received.get_name_leafdata())
+                    if (self.ready_packets_received.is_set or self.ready_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ready_packets_received.get_name_leafdata())
+                    if (self.received_sys_mac.is_set or self.received_sys_mac.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.received_sys_mac.get_name_leafdata())
+                    if (self.reject_packets_sent.is_set or self.reject_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reject_packets_sent.get_name_leafdata())
+                    if (self.satellite_chassis_mac.is_set or self.satellite_chassis_mac.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_chassis_mac.get_name_leafdata())
+                    if (self.satellite_chassis_type.is_set or self.satellite_chassis_type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_chassis_type.get_name_leafdata())
+                    if (self.satellite_chassis_vendor.is_set or self.satellite_chassis_vendor.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_chassis_vendor.get_name_leafdata())
+                    if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                    if (self.satellite_interface_id.is_set or self.satellite_interface_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_interface_id.get_name_leafdata())
+                    if (self.satellite_interface_mac.is_set or self.satellite_interface_mac.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_interface_mac.get_name_leafdata())
+                    if (self.satellite_ip_address.is_set or self.satellite_ip_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_ip_address.get_name_leafdata())
+                    if (self.satellite_module_mac.is_set or self.satellite_module_mac.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_module_mac.get_name_leafdata())
+                    if (self.satellite_module_type.is_set or self.satellite_module_type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_module_type.get_name_leafdata())
+                    if (self.satellite_module_vendor.is_set or self.satellite_module_vendor.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_module_vendor.get_name_leafdata())
+                    if (self.satellite_serial_id.is_set or self.satellite_serial_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.satellite_serial_id.get_name_leafdata())
+                    if (self.secs_since_pkts_cleaned.is_set or self.secs_since_pkts_cleaned.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.secs_since_pkts_cleaned.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ack-packets-sent" or name == "configuration-packets-sent" or name == "conflict-reason" or name == "current-timeout" or name == "deleting" or name == "discovery-protocol-state" or name == "host-chassis-mac" or name == "host-chassis-type" or name == "host-chassis-vendor" or name == "host-ip-address" or name == "ident-packets-received" or name == "ifmgr-state" or name == "invalid-packets-received" or name == "is-queued-for-efd" or name == "is-queued-for-oc" or name == "last-imdr-state" or name == "legacy" or name == "los-packets-received" or name == "ready-packets-received" or name == "received-sys-mac" or name == "reject-packets-sent" or name == "satellite-chassis-mac" or name == "satellite-chassis-type" or name == "satellite-chassis-vendor" or name == "satellite-id" or name == "satellite-interface-id" or name == "satellite-interface-mac" or name == "satellite-ip-address" or name == "satellite-module-mac" or name == "satellite-module-type" or name == "satellite-module-vendor" or name == "satellite-serial-id" or name == "secs-since-pkts-cleaned"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.ack_packets_sent is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "ack-packets-sent"):
+                        self.ack_packets_sent = value
+                        self.ack_packets_sent.value_namespace = name_space
+                        self.ack_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "configuration-packets-sent"):
+                        self.configuration_packets_sent = value
+                        self.configuration_packets_sent.value_namespace = name_space
+                        self.configuration_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "conflict-reason"):
+                        self.conflict_reason = value
+                        self.conflict_reason.value_namespace = name_space
+                        self.conflict_reason.value_namespace_prefix = name_space_prefix
+                    if(value_path == "current-timeout"):
+                        self.current_timeout = value
+                        self.current_timeout.value_namespace = name_space
+                        self.current_timeout.value_namespace_prefix = name_space_prefix
+                    if(value_path == "deleting"):
+                        self.deleting = value
+                        self.deleting.value_namespace = name_space
+                        self.deleting.value_namespace_prefix = name_space_prefix
+                    if(value_path == "discovery-protocol-state"):
+                        self.discovery_protocol_state = value
+                        self.discovery_protocol_state.value_namespace = name_space
+                        self.discovery_protocol_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-chassis-mac"):
+                        self.host_chassis_mac = value
+                        self.host_chassis_mac.value_namespace = name_space
+                        self.host_chassis_mac.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-chassis-type"):
+                        self.host_chassis_type = value
+                        self.host_chassis_type.value_namespace = name_space
+                        self.host_chassis_type.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-chassis-vendor"):
+                        self.host_chassis_vendor = value
+                        self.host_chassis_vendor.value_namespace = name_space
+                        self.host_chassis_vendor.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-ip-address"):
+                        self.host_ip_address = value
+                        self.host_ip_address.value_namespace = name_space
+                        self.host_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ident-packets-received"):
+                        self.ident_packets_received = value
+                        self.ident_packets_received.value_namespace = name_space
+                        self.ident_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ifmgr-state"):
+                        self.ifmgr_state = value
+                        self.ifmgr_state.value_namespace = name_space
+                        self.ifmgr_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "invalid-packets-received"):
+                        self.invalid_packets_received = value
+                        self.invalid_packets_received.value_namespace = name_space
+                        self.invalid_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-queued-for-efd"):
+                        self.is_queued_for_efd = value
+                        self.is_queued_for_efd.value_namespace = name_space
+                        self.is_queued_for_efd.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-queued-for-oc"):
+                        self.is_queued_for_oc = value
+                        self.is_queued_for_oc.value_namespace = name_space
+                        self.is_queued_for_oc.value_namespace_prefix = name_space_prefix
+                    if(value_path == "last-imdr-state"):
+                        self.last_imdr_state = value
+                        self.last_imdr_state.value_namespace = name_space
+                        self.last_imdr_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "legacy"):
+                        self.legacy = value
+                        self.legacy.value_namespace = name_space
+                        self.legacy.value_namespace_prefix = name_space_prefix
+                    if(value_path == "los-packets-received"):
+                        self.los_packets_received = value
+                        self.los_packets_received.value_namespace = name_space
+                        self.los_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ready-packets-received"):
+                        self.ready_packets_received = value
+                        self.ready_packets_received.value_namespace = name_space
+                        self.ready_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "received-sys-mac"):
+                        self.received_sys_mac = value
+                        self.received_sys_mac.value_namespace = name_space
+                        self.received_sys_mac.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reject-packets-sent"):
+                        self.reject_packets_sent = value
+                        self.reject_packets_sent.value_namespace = name_space
+                        self.reject_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-chassis-mac"):
+                        self.satellite_chassis_mac = value
+                        self.satellite_chassis_mac.value_namespace = name_space
+                        self.satellite_chassis_mac.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-chassis-type"):
+                        self.satellite_chassis_type = value
+                        self.satellite_chassis_type.value_namespace = name_space
+                        self.satellite_chassis_type.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-chassis-vendor"):
+                        self.satellite_chassis_vendor = value
+                        self.satellite_chassis_vendor.value_namespace = name_space
+                        self.satellite_chassis_vendor.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-id"):
+                        self.satellite_id = value
+                        self.satellite_id.value_namespace = name_space
+                        self.satellite_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-interface-id"):
+                        self.satellite_interface_id = value
+                        self.satellite_interface_id.value_namespace = name_space
+                        self.satellite_interface_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-interface-mac"):
+                        self.satellite_interface_mac = value
+                        self.satellite_interface_mac.value_namespace = name_space
+                        self.satellite_interface_mac.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-ip-address"):
+                        self.satellite_ip_address = value
+                        self.satellite_ip_address.value_namespace = name_space
+                        self.satellite_ip_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-module-mac"):
+                        self.satellite_module_mac = value
+                        self.satellite_module_mac.value_namespace = name_space
+                        self.satellite_module_mac.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-module-type"):
+                        self.satellite_module_type = value
+                        self.satellite_module_type.value_namespace = name_space
+                        self.satellite_module_type.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-module-vendor"):
+                        self.satellite_module_vendor = value
+                        self.satellite_module_vendor.value_namespace = name_space
+                        self.satellite_module_vendor.value_namespace_prefix = name_space_prefix
+                    if(value_path == "satellite-serial-id"):
+                        self.satellite_serial_id = value
+                        self.satellite_serial_id.value_namespace = name_space
+                        self.satellite_serial_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "secs-since-pkts-cleaned"):
+                        self.secs_since_pkts_cleaned = value
+                        self.secs_since_pkts_cleaned.value_namespace = name_space
+                        self.secs_since_pkts_cleaned.value_namespace_prefix = name_space_prefix
 
-                    if self.configuration_packets_sent is not None:
-                        return True
 
-                    if self.conflict_reason is not None:
-                        return True
-
-                    if self.current_timeout is not None:
-                        return True
-
-                    if self.deleting is not None:
-                        return True
-
-                    if self.discovery_protocol_state is not None:
-                        return True
-
-                    if self.host_chassis_mac is not None:
-                        return True
-
-                    if self.host_chassis_type is not None:
-                        return True
-
-                    if self.host_chassis_vendor is not None:
-                        return True
-
-                    if self.host_ip_address is not None:
-                        return True
-
-                    if self.ident_packets_received is not None:
-                        return True
-
-                    if self.ifmgr_state is not None:
-                        return True
-
-                    if self.invalid_packets_received is not None:
-                        return True
-
-                    if self.is_queued_for_efd is not None:
-                        return True
-
-                    if self.is_queued_for_oc is not None:
-                        return True
-
-                    if self.last_imdr_state is not None:
-                        return True
-
-                    if self.legacy is not None:
-                        return True
-
-                    if self.los_packets_received is not None:
-                        return True
-
-                    if self.ready_packets_received is not None:
-                        return True
-
-                    if self.received_sys_mac is not None:
-                        return True
-
-                    if self.reject_packets_sent is not None:
-                        return True
-
-                    if self.satellite_chassis_mac is not None:
-                        return True
-
-                    if self.satellite_chassis_type is not None:
-                        return True
-
-                    if self.satellite_chassis_vendor is not None:
-                        return True
-
-                    if self.satellite_id is not None:
-                        return True
-
-                    if self.satellite_interface_id is not None:
-                        return True
-
-                    if self.satellite_interface_mac is not None:
-                        return True
-
-                    if self.satellite_ip_address is not None:
-                        return True
-
-                    if self.satellite_module_mac is not None:
-                        return True
-
-                    if self.satellite_module_type is not None:
-                        return True
-
-                    if self.satellite_module_vendor is not None:
-                        return True
-
-                    if self.satellite_serial_id is not None:
-                        return True
-
-                    if self.secs_since_pkts_cleaned is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.IcpeDpms.IcpeDpm.Satellite']['meta_info']
-
-
-            class RemoteHost(object):
+            class RemoteHost(Entity):
                 """
                 ICPE DPM remote host operational information
                 table
@@ -7648,7 +13134,7 @@ class NvSatellite(object):
                 .. attribute:: discovery_protocol_state
                 
                 	Discovery protocol state
-                	**type**\:   :py:class:`DpmProtoHostStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoHostStateEnum>`
+                	**type**\:   :py:class:`DpmProtoHostState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.DpmProtoHostState>`
                 
                 .. attribute:: host_ack_packets_received
                 
@@ -7702,157 +13188,415 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.current_timeout = None
-                    self.discovery_protocol_state = None
-                    self.host_ack_packets_received = None
-                    self.host_ack_packets_sent = None
-                    self.host_chassis_mac = None
-                    self.host_interface_mac = None
-                    self.route_length = None
-                    self.secs_since_pkts_cleaned = None
+                    super(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "remote-host"
+                    self.yang_parent_name = "icpe-dpm"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:remote-host'
+                    self.current_timeout = YLeaf(YType.uint32, "current-timeout")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.discovery_protocol_state = YLeaf(YType.enumeration, "discovery-protocol-state")
+
+                    self.host_ack_packets_received = YLeaf(YType.uint64, "host-ack-packets-received")
+
+                    self.host_ack_packets_sent = YLeaf(YType.uint64, "host-ack-packets-sent")
+
+                    self.host_chassis_mac = YLeaf(YType.str, "host-chassis-mac")
+
+                    self.host_interface_mac = YLeaf(YType.str, "host-interface-mac")
+
+                    self.route_length = YLeaf(YType.uint32, "route-length")
+
+                    self.secs_since_pkts_cleaned = YLeaf(YType.uint64, "secs-since-pkts-cleaned")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("current_timeout",
+                                    "discovery_protocol_state",
+                                    "host_ack_packets_received",
+                                    "host_ack_packets_sent",
+                                    "host_chassis_mac",
+                                    "host_interface_mac",
+                                    "route_length",
+                                    "secs_since_pkts_cleaned") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.IcpeDpms.IcpeDpm.RemoteHost, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.current_timeout.is_set or
+                        self.discovery_protocol_state.is_set or
+                        self.host_ack_packets_received.is_set or
+                        self.host_ack_packets_sent.is_set or
+                        self.host_chassis_mac.is_set or
+                        self.host_interface_mac.is_set or
+                        self.route_length.is_set or
+                        self.secs_since_pkts_cleaned.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.current_timeout.yfilter != YFilter.not_set or
+                        self.discovery_protocol_state.yfilter != YFilter.not_set or
+                        self.host_ack_packets_received.yfilter != YFilter.not_set or
+                        self.host_ack_packets_sent.yfilter != YFilter.not_set or
+                        self.host_chassis_mac.yfilter != YFilter.not_set or
+                        self.host_interface_mac.yfilter != YFilter.not_set or
+                        self.route_length.yfilter != YFilter.not_set or
+                        self.secs_since_pkts_cleaned.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "remote-host" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.current_timeout.is_set or self.current_timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.current_timeout.get_name_leafdata())
+                    if (self.discovery_protocol_state.is_set or self.discovery_protocol_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discovery_protocol_state.get_name_leafdata())
+                    if (self.host_ack_packets_received.is_set or self.host_ack_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_ack_packets_received.get_name_leafdata())
+                    if (self.host_ack_packets_sent.is_set or self.host_ack_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_ack_packets_sent.get_name_leafdata())
+                    if (self.host_chassis_mac.is_set or self.host_chassis_mac.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_chassis_mac.get_name_leafdata())
+                    if (self.host_interface_mac.is_set or self.host_interface_mac.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.host_interface_mac.get_name_leafdata())
+                    if (self.route_length.is_set or self.route_length.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_length.get_name_leafdata())
+                    if (self.secs_since_pkts_cleaned.is_set or self.secs_since_pkts_cleaned.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.secs_since_pkts_cleaned.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "current-timeout" or name == "discovery-protocol-state" or name == "host-ack-packets-received" or name == "host-ack-packets-sent" or name == "host-chassis-mac" or name == "host-interface-mac" or name == "route-length" or name == "secs-since-pkts-cleaned"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.current_timeout is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "current-timeout"):
+                        self.current_timeout = value
+                        self.current_timeout.value_namespace = name_space
+                        self.current_timeout.value_namespace_prefix = name_space_prefix
+                    if(value_path == "discovery-protocol-state"):
+                        self.discovery_protocol_state = value
+                        self.discovery_protocol_state.value_namespace = name_space
+                        self.discovery_protocol_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-ack-packets-received"):
+                        self.host_ack_packets_received = value
+                        self.host_ack_packets_received.value_namespace = name_space
+                        self.host_ack_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-ack-packets-sent"):
+                        self.host_ack_packets_sent = value
+                        self.host_ack_packets_sent.value_namespace = name_space
+                        self.host_ack_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-chassis-mac"):
+                        self.host_chassis_mac = value
+                        self.host_chassis_mac.value_namespace = name_space
+                        self.host_chassis_mac.value_namespace_prefix = name_space_prefix
+                    if(value_path == "host-interface-mac"):
+                        self.host_interface_mac = value
+                        self.host_interface_mac.value_namespace = name_space
+                        self.host_interface_mac.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-length"):
+                        self.route_length = value
+                        self.route_length.value_namespace = name_space
+                        self.route_length.value_namespace_prefix = name_space_prefix
+                    if(value_path == "secs-since-pkts-cleaned"):
+                        self.secs_since_pkts_cleaned = value
+                        self.secs_since_pkts_cleaned.value_namespace = name_space
+                        self.secs_since_pkts_cleaned.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.remote_host:
+                    if (c.has_data()):
                         return True
-
-                    if self.discovery_protocol_state is not None:
+                for c in self.satellite:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.discovery_interface.is_set or
+                    self.ack_packets_sent.is_set or
+                    self.configuration_packets_sent.is_set or
+                    self.discovery_interface_handle.is_set or
+                    self.discovery_interface_status.is_set or
+                    self.discovery_interface_xr.is_set or
+                    self.host_ack_packets_received.is_set or
+                    self.host_ack_packets_sent.is_set or
+                    self.ident_packets_received.is_set or
+                    self.invalid_packets_received.is_set or
+                    self.los_packets_received.is_set or
+                    self.probe_packets_sent.is_set or
+                    self.ready_packets_received.is_set or
+                    self.reject_packets_sent.is_set or
+                    self.secs_since_pkts_cleaned.is_set)
 
-                    if self.host_ack_packets_received is not None:
+            def has_operation(self):
+                for c in self.remote_host:
+                    if (c.has_operation()):
                         return True
-
-                    if self.host_ack_packets_sent is not None:
+                for c in self.satellite:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.discovery_interface.yfilter != YFilter.not_set or
+                    self.ack_packets_sent.yfilter != YFilter.not_set or
+                    self.configuration_packets_sent.yfilter != YFilter.not_set or
+                    self.discovery_interface_handle.yfilter != YFilter.not_set or
+                    self.discovery_interface_status.yfilter != YFilter.not_set or
+                    self.discovery_interface_xr.yfilter != YFilter.not_set or
+                    self.host_ack_packets_received.yfilter != YFilter.not_set or
+                    self.host_ack_packets_sent.yfilter != YFilter.not_set or
+                    self.ident_packets_received.yfilter != YFilter.not_set or
+                    self.invalid_packets_received.yfilter != YFilter.not_set or
+                    self.los_packets_received.yfilter != YFilter.not_set or
+                    self.probe_packets_sent.yfilter != YFilter.not_set or
+                    self.ready_packets_received.yfilter != YFilter.not_set or
+                    self.reject_packets_sent.yfilter != YFilter.not_set or
+                    self.secs_since_pkts_cleaned.yfilter != YFilter.not_set)
 
-                    if self.host_chassis_mac is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "icpe-dpm" + "[discovery-interface='" + self.discovery_interface.get() + "']" + path_buffer
 
-                    if self.host_interface_mac is not None:
-                        return True
+                return path_buffer
 
-                    if self.route_length is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.secs_since_pkts_cleaned is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.discovery_interface.is_set or self.discovery_interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.discovery_interface.get_name_leafdata())
+                if (self.ack_packets_sent.is_set or self.ack_packets_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ack_packets_sent.get_name_leafdata())
+                if (self.configuration_packets_sent.is_set or self.configuration_packets_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.configuration_packets_sent.get_name_leafdata())
+                if (self.discovery_interface_handle.is_set or self.discovery_interface_handle.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.discovery_interface_handle.get_name_leafdata())
+                if (self.discovery_interface_status.is_set or self.discovery_interface_status.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.discovery_interface_status.get_name_leafdata())
+                if (self.discovery_interface_xr.is_set or self.discovery_interface_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.discovery_interface_xr.get_name_leafdata())
+                if (self.host_ack_packets_received.is_set or self.host_ack_packets_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.host_ack_packets_received.get_name_leafdata())
+                if (self.host_ack_packets_sent.is_set or self.host_ack_packets_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.host_ack_packets_sent.get_name_leafdata())
+                if (self.ident_packets_received.is_set or self.ident_packets_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ident_packets_received.get_name_leafdata())
+                if (self.invalid_packets_received.is_set or self.invalid_packets_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.invalid_packets_received.get_name_leafdata())
+                if (self.los_packets_received.is_set or self.los_packets_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.los_packets_received.get_name_leafdata())
+                if (self.probe_packets_sent.is_set or self.probe_packets_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.probe_packets_sent.get_name_leafdata())
+                if (self.ready_packets_received.is_set or self.ready_packets_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ready_packets_received.get_name_leafdata())
+                if (self.reject_packets_sent.is_set or self.reject_packets_sent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.reject_packets_sent.get_name_leafdata())
+                if (self.secs_since_pkts_cleaned.is_set or self.secs_since_pkts_cleaned.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.secs_since_pkts_cleaned.get_name_leafdata())
 
-                    return False
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.IcpeDpms.IcpeDpm.RemoteHost']['meta_info']
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-            @property
-            def _common_path(self):
-                if self.discovery_interface is None:
-                    raise YPYModelError('Key property discovery_interface is None')
+                if (child_yang_name == "remote-host"):
+                    for c in self.remote_host:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.IcpeDpms.IcpeDpm.RemoteHost()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.remote_host.append(c)
+                    return c
 
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms/Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpm[Cisco-IOS-XR-icpe-sdacp-oper:discovery-interface = ' + str(self.discovery_interface) + ']'
+                if (child_yang_name == "satellite"):
+                    for c in self.satellite:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.IcpeDpms.IcpeDpm.Satellite()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.satellite.append(c)
+                    return c
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "remote-host" or name == "satellite" or name == "discovery-interface" or name == "ack-packets-sent" or name == "configuration-packets-sent" or name == "discovery-interface-handle" or name == "discovery-interface-status" or name == "discovery-interface-xr" or name == "host-ack-packets-received" or name == "host-ack-packets-sent" or name == "ident-packets-received" or name == "invalid-packets-received" or name == "los-packets-received" or name == "probe-packets-sent" or name == "ready-packets-received" or name == "reject-packets-sent" or name == "secs-since-pkts-cleaned"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.discovery_interface is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "discovery-interface"):
+                    self.discovery_interface = value
+                    self.discovery_interface.value_namespace = name_space
+                    self.discovery_interface.value_namespace_prefix = name_space_prefix
+                if(value_path == "ack-packets-sent"):
+                    self.ack_packets_sent = value
+                    self.ack_packets_sent.value_namespace = name_space
+                    self.ack_packets_sent.value_namespace_prefix = name_space_prefix
+                if(value_path == "configuration-packets-sent"):
+                    self.configuration_packets_sent = value
+                    self.configuration_packets_sent.value_namespace = name_space
+                    self.configuration_packets_sent.value_namespace_prefix = name_space_prefix
+                if(value_path == "discovery-interface-handle"):
+                    self.discovery_interface_handle = value
+                    self.discovery_interface_handle.value_namespace = name_space
+                    self.discovery_interface_handle.value_namespace_prefix = name_space_prefix
+                if(value_path == "discovery-interface-status"):
+                    self.discovery_interface_status = value
+                    self.discovery_interface_status.value_namespace = name_space
+                    self.discovery_interface_status.value_namespace_prefix = name_space_prefix
+                if(value_path == "discovery-interface-xr"):
+                    self.discovery_interface_xr = value
+                    self.discovery_interface_xr.value_namespace = name_space
+                    self.discovery_interface_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "host-ack-packets-received"):
+                    self.host_ack_packets_received = value
+                    self.host_ack_packets_received.value_namespace = name_space
+                    self.host_ack_packets_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "host-ack-packets-sent"):
+                    self.host_ack_packets_sent = value
+                    self.host_ack_packets_sent.value_namespace = name_space
+                    self.host_ack_packets_sent.value_namespace_prefix = name_space_prefix
+                if(value_path == "ident-packets-received"):
+                    self.ident_packets_received = value
+                    self.ident_packets_received.value_namespace = name_space
+                    self.ident_packets_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "invalid-packets-received"):
+                    self.invalid_packets_received = value
+                    self.invalid_packets_received.value_namespace = name_space
+                    self.invalid_packets_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "los-packets-received"):
+                    self.los_packets_received = value
+                    self.los_packets_received.value_namespace = name_space
+                    self.los_packets_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "probe-packets-sent"):
+                    self.probe_packets_sent = value
+                    self.probe_packets_sent.value_namespace = name_space
+                    self.probe_packets_sent.value_namespace_prefix = name_space_prefix
+                if(value_path == "ready-packets-received"):
+                    self.ready_packets_received = value
+                    self.ready_packets_received.value_namespace = name_space
+                    self.ready_packets_received.value_namespace_prefix = name_space_prefix
+                if(value_path == "reject-packets-sent"):
+                    self.reject_packets_sent = value
+                    self.reject_packets_sent.value_namespace = name_space
+                    self.reject_packets_sent.value_namespace_prefix = name_space_prefix
+                if(value_path == "secs-since-pkts-cleaned"):
+                    self.secs_since_pkts_cleaned = value
+                    self.secs_since_pkts_cleaned.value_namespace = name_space
+                    self.secs_since_pkts_cleaned.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.icpe_dpm:
+                if (c.has_data()):
                     return True
-
-                if self.ack_packets_sent is not None:
-                    return True
-
-                if self.configuration_packets_sent is not None:
-                    return True
-
-                if self.discovery_interface_handle is not None:
-                    return True
-
-                if self.discovery_interface_status is not None:
-                    return True
-
-                if self.discovery_interface_xr is not None:
-                    return True
-
-                if self.host_ack_packets_received is not None:
-                    return True
-
-                if self.host_ack_packets_sent is not None:
-                    return True
-
-                if self.ident_packets_received is not None:
-                    return True
-
-                if self.invalid_packets_received is not None:
-                    return True
-
-                if self.los_packets_received is not None:
-                    return True
-
-                if self.probe_packets_sent is not None:
-                    return True
-
-                if self.ready_packets_received is not None:
-                    return True
-
-                if self.reject_packets_sent is not None:
-                    return True
-
-                if self.remote_host is not None:
-                    for child_ref in self.remote_host:
-                        if child_ref._has_data():
-                            return True
-
-                if self.satellite is not None:
-                    for child_ref in self.satellite:
-                        if child_ref._has_data():
-                            return True
-
-                if self.secs_since_pkts_cleaned is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.IcpeDpms.IcpeDpm']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.icpe_dpm is not None:
-                for child_ref in self.icpe_dpm:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.icpe_dpm:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "Cisco-IOS-XR-icpe-sdacp-oper:icpe-dpms" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "icpe-dpm"):
+                for c in self.icpe_dpm:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.IcpeDpms.IcpeDpm()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.icpe_dpm.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "icpe-dpm"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.IcpeDpms']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SdacpControls(object):
+    class SdacpControls(Entity):
         """
         SDAC Protocol Discovery information table
         
@@ -7869,13 +13613,39 @@ class NvSatellite(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.sdacp_control = YList()
-            self.sdacp_control.parent = self
-            self.sdacp_control.name = 'sdacp_control'
+            super(NvSatellite.SdacpControls, self).__init__()
+
+            self.yang_name = "sdacp-controls"
+            self.yang_parent_name = "nv-satellite"
+
+            self.sdacp_control = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NvSatellite.SdacpControls, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NvSatellite.SdacpControls, self).__setattr__(name, value)
 
 
-        class SdacpControl(object):
+        class SdacpControl(Entity):
             """
             SDAC Protocol Discovery information
             
@@ -7894,7 +13664,7 @@ class NvSatellite(object):
             .. attribute:: control_protocol_state
             
             	Control protocol state
-            	**type**\:   :py:class:`IcpeCpmControlFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmControlFsmStateEnum>`
+            	**type**\:   :py:class:`IcpeCpmControlFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmControlFsmState>`
             
             .. attribute:: ip_address_auto
             
@@ -7945,24 +13715,69 @@ class NvSatellite(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.satellite_id = None
-                self.channel = YList()
-                self.channel.parent = self
-                self.channel.name = 'channel'
-                self.control_protocol_state = None
-                self.ip_address_auto = None
+                super(NvSatellite.SdacpControls.SdacpControl, self).__init__()
+
+                self.yang_name = "sdacp-control"
+                self.yang_parent_name = "sdacp-controls"
+
+                self.satellite_id = YLeaf(YType.uint32, "satellite-id")
+
+                self.control_protocol_state = YLeaf(YType.enumeration, "control-protocol-state")
+
+                self.ip_address_auto = YLeaf(YType.boolean, "ip-address-auto")
+
+                self.satellite_id_xr = YLeaf(YType.uint32, "satellite-id-xr")
+
+                self.satellite_ip_address = YLeaf(YType.str, "satellite-ip-address")
+
+                self.transport_error = YLeaf(YType.uint32, "transport-error")
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                 self.protocol_state_timestamp = NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp()
                 self.protocol_state_timestamp.parent = self
-                self.satellite_id_xr = None
-                self.satellite_ip_address = None
-                self.transport_error = None
+                self._children_name_map["protocol_state_timestamp"] = "protocol-state-timestamp"
+                self._children_yang_names.add("protocol-state-timestamp")
+
                 self.transport_error_timestamp = NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp()
                 self.transport_error_timestamp.parent = self
-                self.vrf_name = None
+                self._children_name_map["transport_error_timestamp"] = "transport-error-timestamp"
+                self._children_yang_names.add("transport-error-timestamp")
+
+                self.channel = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("satellite_id",
+                                "control_protocol_state",
+                                "ip_address_auto",
+                                "satellite_id_xr",
+                                "satellite_ip_address",
+                                "transport_error",
+                                "vrf_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NvSatellite.SdacpControls.SdacpControl, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NvSatellite.SdacpControls.SdacpControl, self).__setattr__(name, value)
 
 
-            class ProtocolStateTimestamp(object):
+            class ProtocolStateTimestamp(Entity):
                 """
                 Timestamp
                 
@@ -7992,37 +13807,97 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.nanoseconds = None
-                    self.seconds = None
+                    super(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "protocol-state-timestamp"
+                    self.yang_parent_name = "sdacp-control"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:protocol-state-timestamp'
+                    self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.seconds = YLeaf(YType.uint32, "seconds")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("nanoseconds",
+                                    "seconds") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.nanoseconds.is_set or
+                        self.seconds.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.nanoseconds.yfilter != YFilter.not_set or
+                        self.seconds.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "protocol-state-timestamp" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                    if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "nanoseconds" or name == "seconds"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.nanoseconds is not None:
-                        return True
-
-                    if self.seconds is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "nanoseconds"):
+                        self.nanoseconds = value
+                        self.nanoseconds.value_namespace = name_space
+                        self.nanoseconds.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds"):
+                        self.seconds = value
+                        self.seconds.value_namespace = name_space
+                        self.seconds.value_namespace_prefix = name_space_prefix
 
 
-            class TransportErrorTimestamp(object):
+            class TransportErrorTimestamp(Entity):
                 """
                 Timestamp
                 
@@ -8052,37 +13927,97 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.nanoseconds = None
-                    self.seconds = None
+                    super(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "transport-error-timestamp"
+                    self.yang_parent_name = "sdacp-control"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:transport-error-timestamp'
+                    self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.seconds = YLeaf(YType.uint32, "seconds")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("nanoseconds",
+                                    "seconds") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.nanoseconds.is_set or
+                        self.seconds.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.nanoseconds.yfilter != YFilter.not_set or
+                        self.seconds.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "transport-error-timestamp" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                    if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "nanoseconds" or name == "seconds"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.nanoseconds is not None:
-                        return True
-
-                    if self.seconds is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "nanoseconds"):
+                        self.nanoseconds = value
+                        self.nanoseconds.value_namespace = name_space
+                        self.nanoseconds.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds"):
+                        self.seconds = value
+                        self.seconds.value_namespace = name_space
+                        self.seconds.value_namespace_prefix = name_space_prefix
 
 
-            class Channel(object):
+            class Channel(Entity):
                 """
                 Channels on satellite table
                 
@@ -8101,7 +14036,7 @@ class NvSatellite(object):
                 .. attribute:: channel_state
                 
                 	Channel state
-                	**type**\:   :py:class:`IcpeCpmChanFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChanFsmStateEnum>`
+                	**type**\:   :py:class:`IcpeCpmChanFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChanFsmState>`
                 
                 .. attribute:: channel_state_timestamp
                 
@@ -8153,7 +14088,7 @@ class NvSatellite(object):
                 .. attribute:: resync_state
                 
                 	Resync state
-                	**type**\:   :py:class:`IcpeCpmChannelResyncStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChannelResyncStateEnum>`
+                	**type**\:   :py:class:`IcpeCpmChannelResyncState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper.IcpeCpmChannelResyncState>`
                 
                 .. attribute:: resync_state_timestamp
                 
@@ -8184,27 +14119,84 @@ class NvSatellite(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(NvSatellite.SdacpControls.SdacpControl.Channel, self).__init__()
+
+                    self.yang_name = "channel"
+                    self.yang_parent_name = "sdacp-control"
+
+                    self.channel_id = YLeaf(YType.uint16, "channel-id")
+
+                    self.channel_state = YLeaf(YType.enumeration, "channel-state")
+
+                    self.control_messages_dropped = YLeaf(YType.uint64, "control-messages-dropped")
+
+                    self.control_messages_received = YLeaf(YType.uint64, "control-messages-received")
+
+                    self.control_messages_sent = YLeaf(YType.uint64, "control-messages-sent")
+
+                    self.normal_messages_dropped = YLeaf(YType.uint64, "normal-messages-dropped")
+
+                    self.normal_messages_received = YLeaf(YType.uint64, "normal-messages-received")
+
+                    self.normal_messages_sent = YLeaf(YType.uint64, "normal-messages-sent")
+
+                    self.resync_state = YLeaf(YType.enumeration, "resync-state")
+
+                    self.secs_since_last_cleared = YLeaf(YType.uint64, "secs-since-last-cleared")
+
+                    self.version = YLeaf(YType.uint16, "version")
+
                     self.capabilities = NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities()
                     self.capabilities.parent = self
-                    self.channel_id = None
-                    self.channel_state = None
+                    self._children_name_map["capabilities"] = "capabilities"
+                    self._children_yang_names.add("capabilities")
+
                     self.channel_state_timestamp = NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp()
                     self.channel_state_timestamp.parent = self
-                    self.control_messages_dropped = None
-                    self.control_messages_received = None
-                    self.control_messages_sent = None
-                    self.normal_messages_dropped = None
-                    self.normal_messages_received = None
-                    self.normal_messages_sent = None
-                    self.resync_state = None
+                    self._children_name_map["channel_state_timestamp"] = "channel-state-timestamp"
+                    self._children_yang_names.add("channel-state-timestamp")
+
                     self.resync_state_timestamp = NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp()
                     self.resync_state_timestamp.parent = self
-                    self.secs_since_last_cleared = None
-                    self.version = None
+                    self._children_name_map["resync_state_timestamp"] = "resync-state-timestamp"
+                    self._children_yang_names.add("resync-state-timestamp")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("channel_id",
+                                    "channel_state",
+                                    "control_messages_dropped",
+                                    "control_messages_received",
+                                    "control_messages_sent",
+                                    "normal_messages_dropped",
+                                    "normal_messages_received",
+                                    "normal_messages_sent",
+                                    "resync_state",
+                                    "secs_since_last_cleared",
+                                    "version") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(NvSatellite.SdacpControls.SdacpControl.Channel, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(NvSatellite.SdacpControls.SdacpControl.Channel, self).__setattr__(name, value)
 
 
-                class Capabilities(object):
+                class Capabilities(Entity):
                     """
                     Capabilities
                     
@@ -8221,13 +14213,39 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.tl_vs = YList()
-                        self.tl_vs.parent = self
-                        self.tl_vs.name = 'tl_vs'
+                        super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities, self).__init__()
+
+                        self.yang_name = "capabilities"
+                        self.yang_parent_name = "channel"
+
+                        self.tl_vs = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities, self).__setattr__(name, value)
 
 
-                    class TlVs(object):
+                    class TlVs(Entity):
                         """
                         Capability TLVs table
                         
@@ -8258,69 +14276,168 @@ class NvSatellite(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.debug = None
-                            self.type = None
-                            self.value = YLeafList()
-                            self.value.parent = self
-                            self.value.name = 'value'
+                            super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "tl-vs"
+                            self.yang_parent_name = "capabilities"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:tl-vs'
+                            self.debug = YLeaf(YType.str, "debug")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                            self.type = YLeaf(YType.uint32, "type")
 
-                        def _has_data(self):
-                            if self.debug is not None:
-                                return True
+                            self.value = YLeafList(YType.uint8, "value")
 
-                            if self.type is not None:
-                                return True
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("debug",
+                                            "type",
+                                            "value") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs, self).__setattr__(name, value)
 
-                            if self.value is not None:
-                                for child in self.value:
-                                    if child is not None:
-                                        return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                            return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:capabilities'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.tl_vs is not None:
-                            for child_ref in self.tl_vs:
-                                if child_ref._has_data():
+                        def has_data(self):
+                            for leaf in self.value.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
                                     return True
+                            return (
+                                self.debug.is_set or
+                                self.type.is_set)
 
+                        def has_operation(self):
+                            for leaf in self.value.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.debug.yfilter != YFilter.not_set or
+                                self.type.yfilter != YFilter.not_set or
+                                self.value.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "tl-vs" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.debug.is_set or self.debug.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.debug.get_name_leafdata())
+                            if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.type.get_name_leafdata())
+
+                            leaf_name_data.extend(self.value.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "debug" or name == "type" or name == "value"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "debug"):
+                                self.debug = value
+                                self.debug.value_namespace = name_space
+                                self.debug.value_namespace_prefix = name_space_prefix
+                            if(value_path == "type"):
+                                self.type = value
+                                self.type.value_namespace = name_space
+                                self.type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "value"):
+                                self.value.append(value)
+
+                    def has_data(self):
+                        for c in self.tl_vs:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities']['meta_info']
+                    def has_operation(self):
+                        for c in self.tl_vs:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "capabilities" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "tl-vs"):
+                            for c in self.tl_vs:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities.TlVs()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.tl_vs.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "tl-vs"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class ResyncStateTimestamp(object):
+                class ResyncStateTimestamp(Entity):
                     """
                     Timestamp
                     
@@ -8350,37 +14467,97 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "resync-state-timestamp"
+                        self.yang_parent_name = "channel"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:resync-state-timestamp'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "resync-state-timestamp" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
-
-                        if self.seconds is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                class ChannelStateTimestamp(object):
+                class ChannelStateTimestamp(Entity):
                     """
                     Timestamp
                     
@@ -8410,232 +14587,621 @@ class NvSatellite(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.nanoseconds = None
-                        self.seconds = None
+                        super(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "channel-state-timestamp"
+                        self.yang_parent_name = "channel"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:channel-state-timestamp'
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("nanoseconds",
+                                        "seconds") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.nanoseconds.is_set or
+                            self.seconds.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.nanoseconds.yfilter != YFilter.not_set or
+                            self.seconds.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "channel-state-timestamp" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.nanoseconds.is_set or self.nanoseconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.nanoseconds.get_name_leafdata())
+                        if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "nanoseconds" or name == "seconds"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.nanoseconds is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "nanoseconds"):
+                            self.nanoseconds = value
+                            self.nanoseconds.value_namespace = name_space
+                            self.nanoseconds.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds"):
+                            self.seconds = value
+                            self.seconds.value_namespace = name_space
+                            self.seconds.value_namespace_prefix = name_space_prefix
 
-                        if self.seconds is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        self.channel_id.is_set or
+                        self.channel_state.is_set or
+                        self.control_messages_dropped.is_set or
+                        self.control_messages_received.is_set or
+                        self.control_messages_sent.is_set or
+                        self.normal_messages_dropped.is_set or
+                        self.normal_messages_received.is_set or
+                        self.normal_messages_sent.is_set or
+                        self.resync_state.is_set or
+                        self.secs_since_last_cleared.is_set or
+                        self.version.is_set or
+                        (self.capabilities is not None and self.capabilities.has_data()) or
+                        (self.channel_state_timestamp is not None and self.channel_state_timestamp.has_data()) or
+                        (self.resync_state_timestamp is not None and self.resync_state_timestamp.has_data()))
 
-                        return False
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.channel_id.yfilter != YFilter.not_set or
+                        self.channel_state.yfilter != YFilter.not_set or
+                        self.control_messages_dropped.yfilter != YFilter.not_set or
+                        self.control_messages_received.yfilter != YFilter.not_set or
+                        self.control_messages_sent.yfilter != YFilter.not_set or
+                        self.normal_messages_dropped.yfilter != YFilter.not_set or
+                        self.normal_messages_received.yfilter != YFilter.not_set or
+                        self.normal_messages_sent.yfilter != YFilter.not_set or
+                        self.resync_state.yfilter != YFilter.not_set or
+                        self.secs_since_last_cleared.yfilter != YFilter.not_set or
+                        self.version.yfilter != YFilter.not_set or
+                        (self.capabilities is not None and self.capabilities.has_operation()) or
+                        (self.channel_state_timestamp is not None and self.channel_state_timestamp.has_operation()) or
+                        (self.resync_state_timestamp is not None and self.resync_state_timestamp.has_operation()))
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                        return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp']['meta_info']
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "channel" + path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    return path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-icpe-sdacp-oper:channel'
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    leaf_name_data = LeafDataList()
+                    if (self.channel_id.is_set or self.channel_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.channel_id.get_name_leafdata())
+                    if (self.channel_state.is_set or self.channel_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.channel_state.get_name_leafdata())
+                    if (self.control_messages_dropped.is_set or self.control_messages_dropped.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.control_messages_dropped.get_name_leafdata())
+                    if (self.control_messages_received.is_set or self.control_messages_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.control_messages_received.get_name_leafdata())
+                    if (self.control_messages_sent.is_set or self.control_messages_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.control_messages_sent.get_name_leafdata())
+                    if (self.normal_messages_dropped.is_set or self.normal_messages_dropped.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.normal_messages_dropped.get_name_leafdata())
+                    if (self.normal_messages_received.is_set or self.normal_messages_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.normal_messages_received.get_name_leafdata())
+                    if (self.normal_messages_sent.is_set or self.normal_messages_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.normal_messages_sent.get_name_leafdata())
+                    if (self.resync_state.is_set or self.resync_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.resync_state.get_name_leafdata())
+                    if (self.secs_since_last_cleared.is_set or self.secs_since_last_cleared.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.secs_since_last_cleared.get_name_leafdata())
+                    if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.version.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "capabilities"):
+                        if (self.capabilities is None):
+                            self.capabilities = NvSatellite.SdacpControls.SdacpControl.Channel.Capabilities()
+                            self.capabilities.parent = self
+                            self._children_name_map["capabilities"] = "capabilities"
+                        return self.capabilities
+
+                    if (child_yang_name == "channel-state-timestamp"):
+                        if (self.channel_state_timestamp is None):
+                            self.channel_state_timestamp = NvSatellite.SdacpControls.SdacpControl.Channel.ChannelStateTimestamp()
+                            self.channel_state_timestamp.parent = self
+                            self._children_name_map["channel_state_timestamp"] = "channel-state-timestamp"
+                        return self.channel_state_timestamp
+
+                    if (child_yang_name == "resync-state-timestamp"):
+                        if (self.resync_state_timestamp is None):
+                            self.resync_state_timestamp = NvSatellite.SdacpControls.SdacpControl.Channel.ResyncStateTimestamp()
+                            self.resync_state_timestamp.parent = self
+                            self._children_name_map["resync_state_timestamp"] = "resync-state-timestamp"
+                        return self.resync_state_timestamp
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "capabilities" or name == "channel-state-timestamp" or name == "resync-state-timestamp" or name == "channel-id" or name == "channel-state" or name == "control-messages-dropped" or name == "control-messages-received" or name == "control-messages-sent" or name == "normal-messages-dropped" or name == "normal-messages-received" or name == "normal-messages-sent" or name == "resync-state" or name == "secs-since-last-cleared" or name == "version"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.capabilities is not None and self.capabilities._has_data():
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "channel-id"):
+                        self.channel_id = value
+                        self.channel_id.value_namespace = name_space
+                        self.channel_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "channel-state"):
+                        self.channel_state = value
+                        self.channel_state.value_namespace = name_space
+                        self.channel_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "control-messages-dropped"):
+                        self.control_messages_dropped = value
+                        self.control_messages_dropped.value_namespace = name_space
+                        self.control_messages_dropped.value_namespace_prefix = name_space_prefix
+                    if(value_path == "control-messages-received"):
+                        self.control_messages_received = value
+                        self.control_messages_received.value_namespace = name_space
+                        self.control_messages_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "control-messages-sent"):
+                        self.control_messages_sent = value
+                        self.control_messages_sent.value_namespace = name_space
+                        self.control_messages_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "normal-messages-dropped"):
+                        self.normal_messages_dropped = value
+                        self.normal_messages_dropped.value_namespace = name_space
+                        self.normal_messages_dropped.value_namespace_prefix = name_space_prefix
+                    if(value_path == "normal-messages-received"):
+                        self.normal_messages_received = value
+                        self.normal_messages_received.value_namespace = name_space
+                        self.normal_messages_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "normal-messages-sent"):
+                        self.normal_messages_sent = value
+                        self.normal_messages_sent.value_namespace = name_space
+                        self.normal_messages_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "resync-state"):
+                        self.resync_state = value
+                        self.resync_state.value_namespace = name_space
+                        self.resync_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "secs-since-last-cleared"):
+                        self.secs_since_last_cleared = value
+                        self.secs_since_last_cleared.value_namespace = name_space
+                        self.secs_since_last_cleared.value_namespace_prefix = name_space_prefix
+                    if(value_path == "version"):
+                        self.version = value
+                        self.version.value_namespace = name_space
+                        self.version.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.channel:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.satellite_id.is_set or
+                    self.control_protocol_state.is_set or
+                    self.ip_address_auto.is_set or
+                    self.satellite_id_xr.is_set or
+                    self.satellite_ip_address.is_set or
+                    self.transport_error.is_set or
+                    self.vrf_name.is_set or
+                    (self.protocol_state_timestamp is not None and self.protocol_state_timestamp.has_data()) or
+                    (self.transport_error_timestamp is not None and self.transport_error_timestamp.has_data()))
 
-                    if self.channel_id is not None:
+            def has_operation(self):
+                for c in self.channel:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.satellite_id.yfilter != YFilter.not_set or
+                    self.control_protocol_state.yfilter != YFilter.not_set or
+                    self.ip_address_auto.yfilter != YFilter.not_set or
+                    self.satellite_id_xr.yfilter != YFilter.not_set or
+                    self.satellite_ip_address.yfilter != YFilter.not_set or
+                    self.transport_error.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    (self.protocol_state_timestamp is not None and self.protocol_state_timestamp.has_operation()) or
+                    (self.transport_error_timestamp is not None and self.transport_error_timestamp.has_operation()))
 
-                    if self.channel_state is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "sdacp-control" + "[satellite-id='" + self.satellite_id.get() + "']" + path_buffer
 
-                    if self.channel_state_timestamp is not None and self.channel_state_timestamp._has_data():
-                        return True
+                return path_buffer
 
-                    if self.control_messages_dropped is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.control_messages_received is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.satellite_id.is_set or self.satellite_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id.get_name_leafdata())
+                if (self.control_protocol_state.is_set or self.control_protocol_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.control_protocol_state.get_name_leafdata())
+                if (self.ip_address_auto.is_set or self.ip_address_auto.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ip_address_auto.get_name_leafdata())
+                if (self.satellite_id_xr.is_set or self.satellite_id_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_id_xr.get_name_leafdata())
+                if (self.satellite_ip_address.is_set or self.satellite_ip_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.satellite_ip_address.get_name_leafdata())
+                if (self.transport_error.is_set or self.transport_error.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.transport_error.get_name_leafdata())
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
 
-                    if self.control_messages_sent is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.normal_messages_dropped is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.normal_messages_received is not None:
-                        return True
+                if (child_yang_name == "channel"):
+                    for c in self.channel:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = NvSatellite.SdacpControls.SdacpControl.Channel()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.channel.append(c)
+                    return c
 
-                    if self.normal_messages_sent is not None:
-                        return True
+                if (child_yang_name == "protocol-state-timestamp"):
+                    if (self.protocol_state_timestamp is None):
+                        self.protocol_state_timestamp = NvSatellite.SdacpControls.SdacpControl.ProtocolStateTimestamp()
+                        self.protocol_state_timestamp.parent = self
+                        self._children_name_map["protocol_state_timestamp"] = "protocol-state-timestamp"
+                    return self.protocol_state_timestamp
 
-                    if self.resync_state is not None:
-                        return True
+                if (child_yang_name == "transport-error-timestamp"):
+                    if (self.transport_error_timestamp is None):
+                        self.transport_error_timestamp = NvSatellite.SdacpControls.SdacpControl.TransportErrorTimestamp()
+                        self.transport_error_timestamp.parent = self
+                        self._children_name_map["transport_error_timestamp"] = "transport-error-timestamp"
+                    return self.transport_error_timestamp
 
-                    if self.resync_state_timestamp is not None and self.resync_state_timestamp._has_data():
-                        return True
+                return None
 
-                    if self.secs_since_last_cleared is not None:
-                        return True
-
-                    if self.version is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                    return meta._meta_table['NvSatellite.SdacpControls.SdacpControl.Channel']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.satellite_id is None:
-                    raise YPYModelError('Key property satellite_id is None')
-
-                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-control[Cisco-IOS-XR-icpe-sdacp-oper:satellite-id = ' + str(self.satellite_id) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "channel" or name == "protocol-state-timestamp" or name == "transport-error-timestamp" or name == "satellite-id" or name == "control-protocol-state" or name == "ip-address-auto" or name == "satellite-id-xr" or name == "satellite-ip-address" or name == "transport-error" or name == "vrf-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.satellite_id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "satellite-id"):
+                    self.satellite_id = value
+                    self.satellite_id.value_namespace = name_space
+                    self.satellite_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "control-protocol-state"):
+                    self.control_protocol_state = value
+                    self.control_protocol_state.value_namespace = name_space
+                    self.control_protocol_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "ip-address-auto"):
+                    self.ip_address_auto = value
+                    self.ip_address_auto.value_namespace = name_space
+                    self.ip_address_auto.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-id-xr"):
+                    self.satellite_id_xr = value
+                    self.satellite_id_xr.value_namespace = name_space
+                    self.satellite_id_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "satellite-ip-address"):
+                    self.satellite_ip_address = value
+                    self.satellite_ip_address.value_namespace = name_space
+                    self.satellite_ip_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "transport-error"):
+                    self.transport_error = value
+                    self.transport_error.value_namespace = name_space
+                    self.transport_error.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.sdacp_control:
+                if (c.has_data()):
                     return True
-
-                if self.channel is not None:
-                    for child_ref in self.channel:
-                        if child_ref._has_data():
-                            return True
-
-                if self.control_protocol_state is not None:
-                    return True
-
-                if self.ip_address_auto is not None:
-                    return True
-
-                if self.protocol_state_timestamp is not None and self.protocol_state_timestamp._has_data():
-                    return True
-
-                if self.satellite_id_xr is not None:
-                    return True
-
-                if self.satellite_ip_address is not None:
-                    return True
-
-                if self.transport_error is not None:
-                    return True
-
-                if self.transport_error_timestamp is not None and self.transport_error_timestamp._has_data():
-                    return True
-
-                if self.vrf_name is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-                return meta._meta_table['NvSatellite.SdacpControls.SdacpControl']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.sdacp_control is not None:
-                for child_ref in self.sdacp_control:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.sdacp_control:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "Cisco-IOS-XR-icpe-sdacp-oper:sdacp-controls" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "sdacp-control"):
+                for c in self.sdacp_control:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NvSatellite.SdacpControls.SdacpControl()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.sdacp_control.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sdacp-control"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-            return meta._meta_table['NvSatellite.SdacpControls']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.icpe_dpms is not None and self.icpe_dpms.has_data()) or
+            (self.install is not None and self.install.has_data()) or
+            (self.install_op_statuses is not None and self.install_op_statuses.has_data()) or
+            (self.install_progresses is not None and self.install_progresses.has_data()) or
+            (self.install_shows is not None and self.install_shows.has_data()) or
+            (self.install_statuses is not None and self.install_statuses.has_data()) or
+            (self.reload_op_statuses is not None and self.reload_op_statuses.has_data()) or
+            (self.reload_statuses is not None and self.reload_statuses.has_data()) or
+            (self.satellite_priorities is not None and self.satellite_priorities.has_data()) or
+            (self.satellite_properties is not None and self.satellite_properties.has_data()) or
+            (self.satellite_statuses is not None and self.satellite_statuses.has_data()) or
+            (self.satellite_topologies is not None and self.satellite_topologies.has_data()) or
+            (self.satellite_versions is not None and self.satellite_versions.has_data()) or
+            (self.sdacp_controls is not None and self.sdacp_controls.has_data()) or
+            (self.sdacp_discovery2s is not None and self.sdacp_discovery2s.has_data()) or
+            (self.sdacp_redundancies is not None and self.sdacp_redundancies.has_data()))
 
-        return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.icpe_dpms is not None and self.icpe_dpms.has_operation()) or
+            (self.install is not None and self.install.has_operation()) or
+            (self.install_op_statuses is not None and self.install_op_statuses.has_operation()) or
+            (self.install_progresses is not None and self.install_progresses.has_operation()) or
+            (self.install_shows is not None and self.install_shows.has_operation()) or
+            (self.install_statuses is not None and self.install_statuses.has_operation()) or
+            (self.reload_op_statuses is not None and self.reload_op_statuses.has_operation()) or
+            (self.reload_statuses is not None and self.reload_statuses.has_operation()) or
+            (self.satellite_priorities is not None and self.satellite_priorities.has_operation()) or
+            (self.satellite_properties is not None and self.satellite_properties.has_operation()) or
+            (self.satellite_statuses is not None and self.satellite_statuses.has_operation()) or
+            (self.satellite_topologies is not None and self.satellite_topologies.has_operation()) or
+            (self.satellite_versions is not None and self.satellite_versions.has_operation()) or
+            (self.sdacp_controls is not None and self.sdacp_controls.has_operation()) or
+            (self.sdacp_discovery2s is not None and self.sdacp_discovery2s.has_operation()) or
+            (self.sdacp_redundancies is not None and self.sdacp_redundancies.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-icpe-infra-oper:nv-satellite" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "icpe-dpms"):
+            if (self.icpe_dpms is None):
+                self.icpe_dpms = NvSatellite.IcpeDpms()
+                self.icpe_dpms.parent = self
+                self._children_name_map["icpe_dpms"] = "icpe-dpms"
+            return self.icpe_dpms
+
+        if (child_yang_name == "install"):
+            if (self.install is None):
+                self.install = NvSatellite.Install()
+                self.install.parent = self
+                self._children_name_map["install"] = "install"
+            return self.install
+
+        if (child_yang_name == "install-op-statuses"):
+            if (self.install_op_statuses is None):
+                self.install_op_statuses = NvSatellite.InstallOpStatuses()
+                self.install_op_statuses.parent = self
+                self._children_name_map["install_op_statuses"] = "install-op-statuses"
+            return self.install_op_statuses
+
+        if (child_yang_name == "install-progresses"):
+            if (self.install_progresses is None):
+                self.install_progresses = NvSatellite.InstallProgresses()
+                self.install_progresses.parent = self
+                self._children_name_map["install_progresses"] = "install-progresses"
+            return self.install_progresses
+
+        if (child_yang_name == "install-shows"):
+            if (self.install_shows is None):
+                self.install_shows = NvSatellite.InstallShows()
+                self.install_shows.parent = self
+                self._children_name_map["install_shows"] = "install-shows"
+            return self.install_shows
+
+        if (child_yang_name == "install-statuses"):
+            if (self.install_statuses is None):
+                self.install_statuses = NvSatellite.InstallStatuses()
+                self.install_statuses.parent = self
+                self._children_name_map["install_statuses"] = "install-statuses"
+            return self.install_statuses
+
+        if (child_yang_name == "reload-op-statuses"):
+            if (self.reload_op_statuses is None):
+                self.reload_op_statuses = NvSatellite.ReloadOpStatuses()
+                self.reload_op_statuses.parent = self
+                self._children_name_map["reload_op_statuses"] = "reload-op-statuses"
+            return self.reload_op_statuses
+
+        if (child_yang_name == "reload-statuses"):
+            if (self.reload_statuses is None):
+                self.reload_statuses = NvSatellite.ReloadStatuses()
+                self.reload_statuses.parent = self
+                self._children_name_map["reload_statuses"] = "reload-statuses"
+            return self.reload_statuses
+
+        if (child_yang_name == "satellite-priorities"):
+            if (self.satellite_priorities is None):
+                self.satellite_priorities = NvSatellite.SatellitePriorities()
+                self.satellite_priorities.parent = self
+                self._children_name_map["satellite_priorities"] = "satellite-priorities"
+            return self.satellite_priorities
+
+        if (child_yang_name == "satellite-properties"):
+            if (self.satellite_properties is None):
+                self.satellite_properties = NvSatellite.SatelliteProperties()
+                self.satellite_properties.parent = self
+                self._children_name_map["satellite_properties"] = "satellite-properties"
+            return self.satellite_properties
+
+        if (child_yang_name == "satellite-statuses"):
+            if (self.satellite_statuses is None):
+                self.satellite_statuses = NvSatellite.SatelliteStatuses()
+                self.satellite_statuses.parent = self
+                self._children_name_map["satellite_statuses"] = "satellite-statuses"
+            return self.satellite_statuses
+
+        if (child_yang_name == "satellite-topologies"):
+            if (self.satellite_topologies is None):
+                self.satellite_topologies = NvSatellite.SatelliteTopologies()
+                self.satellite_topologies.parent = self
+                self._children_name_map["satellite_topologies"] = "satellite-topologies"
+            return self.satellite_topologies
+
+        if (child_yang_name == "satellite-versions"):
+            if (self.satellite_versions is None):
+                self.satellite_versions = NvSatellite.SatelliteVersions()
+                self.satellite_versions.parent = self
+                self._children_name_map["satellite_versions"] = "satellite-versions"
+            return self.satellite_versions
+
+        if (child_yang_name == "sdacp-controls"):
+            if (self.sdacp_controls is None):
+                self.sdacp_controls = NvSatellite.SdacpControls()
+                self.sdacp_controls.parent = self
+                self._children_name_map["sdacp_controls"] = "sdacp-controls"
+            return self.sdacp_controls
+
+        if (child_yang_name == "sdacp-discovery2s"):
+            if (self.sdacp_discovery2s is None):
+                self.sdacp_discovery2s = NvSatellite.SdacpDiscovery2S()
+                self.sdacp_discovery2s.parent = self
+                self._children_name_map["sdacp_discovery2s"] = "sdacp-discovery2s"
+            return self.sdacp_discovery2s
+
+        if (child_yang_name == "sdacp-redundancies"):
+            if (self.sdacp_redundancies is None):
+                self.sdacp_redundancies = NvSatellite.SdacpRedundancies()
+                self.sdacp_redundancies.parent = self
+                self._children_name_map["sdacp_redundancies"] = "sdacp-redundancies"
+            return self.sdacp_redundancies
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "icpe-dpms" or name == "install" or name == "install-op-statuses" or name == "install-progresses" or name == "install-shows" or name == "install-statuses" or name == "reload-op-statuses" or name == "reload-statuses" or name == "satellite-priorities" or name == "satellite-properties" or name == "satellite-statuses" or name == "satellite-topologies" or name == "satellite-versions" or name == "sdacp-controls" or name == "sdacp-discovery2s" or name == "sdacp-redundancies"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.icpe_dpms is not None and self.icpe_dpms._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.install is not None and self.install._has_data():
-            return True
-
-        if self.install_op_statuses is not None and self.install_op_statuses._has_data():
-            return True
-
-        if self.install_progresses is not None and self.install_progresses._has_data():
-            return True
-
-        if self.install_shows is not None and self.install_shows._has_data():
-            return True
-
-        if self.install_statuses is not None and self.install_statuses._has_data():
-            return True
-
-        if self.reload_op_statuses is not None and self.reload_op_statuses._has_data():
-            return True
-
-        if self.reload_statuses is not None and self.reload_statuses._has_data():
-            return True
-
-        if self.satellite_priorities is not None and self.satellite_priorities._has_data():
-            return True
-
-        if self.satellite_properties is not None and self.satellite_properties._has_data():
-            return True
-
-        if self.satellite_statuses is not None and self.satellite_statuses._has_data():
-            return True
-
-        if self.satellite_topologies is not None and self.satellite_topologies._has_data():
-            return True
-
-        if self.satellite_versions is not None and self.satellite_versions._has_data():
-            return True
-
-        if self.sdacp_controls is not None and self.sdacp_controls._has_data():
-            return True
-
-        if self.sdacp_discovery2s is not None and self.sdacp_discovery2s._has_data():
-            return True
-
-        if self.sdacp_redundancies is not None and self.sdacp_redundancies._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
-        return meta._meta_table['NvSatellite']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = NvSatellite()
+        return self._top_entity
 

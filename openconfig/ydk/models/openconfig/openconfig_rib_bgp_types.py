@@ -4,21 +4,15 @@ Defines identity and type defintions associated with
 the OpenConfig BGP RIB modules
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Bgp_Not_Selected_BestpathIdentity(object):
+class Bgp_Not_Selected_Bestpath(Identity):
     """
     Base identity for indicating reason a route was was not
     selected by BGP route selection algorithm
@@ -31,15 +25,10 @@ class Bgp_Not_Selected_BestpathIdentity(object):
     _revision = '2016-04-11'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Bgp_Not_Selected_BestpathIdentity']['meta_info']
+        super(Bgp_Not_Selected_Bestpath, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:BGP_NOT_SELECTED_BESTPATH")
 
 
-class Invalid_Route_ReasonIdentity(object):
+class Invalid_Route_Reason(Identity):
     """
     Base identity for reason code for routes that are rejected as
     invalid.  Some derived entities are based on BMP v3
@@ -52,15 +41,10 @@ class Invalid_Route_ReasonIdentity(object):
     _revision = '2016-04-11'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Invalid_Route_ReasonIdentity']['meta_info']
+        super(Invalid_Route_Reason, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_ROUTE_REASON")
 
 
-class Bgp_Not_Selected_PolicyIdentity(object):
+class Bgp_Not_Selected_Policy(Identity):
     """
     Base identity for reason code for routes that are rejected
     due to policy
@@ -73,55 +57,10 @@ class Bgp_Not_Selected_PolicyIdentity(object):
     _revision = '2016-04-11'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Bgp_Not_Selected_PolicyIdentity']['meta_info']
+        super(Bgp_Not_Selected_Policy, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:BGP_NOT_SELECTED_POLICY")
 
 
-class Nexthop_Cost_HigherIdentity(Bgp_Not_Selected_BestpathIdentity):
-    """
-    Route has a higher interior cost to the next hop.
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Nexthop_Cost_HigherIdentity']['meta_info']
-
-
-class Invalid_As_LoopIdentity(Invalid_Route_ReasonIdentity):
-    """
-    Route was invalid due to AS\_PATH loop
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        Invalid_Route_ReasonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Invalid_As_LoopIdentity']['meta_info']
-
-
-class Invalid_ConfedIdentity(Invalid_Route_ReasonIdentity):
+class Invalid_Confed(Identity):
     """
     Route was invalid due to a loop in the AS\_CONFED\_SEQUENCE or
     AS\_CONFED\_SET attributes
@@ -134,18 +73,12 @@ class Invalid_ConfedIdentity(Invalid_Route_ReasonIdentity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        Invalid_Route_ReasonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Invalid_ConfedIdentity']['meta_info']
+        super(Invalid_Confed, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_CONFED")
 
 
-class Invalid_OriginatorIdentity(Invalid_Route_ReasonIdentity):
+class As_Path_Longer(Identity):
     """
-    Route was invalid due to ORIGINATOR\_ID, e.g., update has
-    local router as originator
+    Route has a longer AS path attribute than current best path
     
     
 
@@ -155,35 +88,10 @@ class Invalid_OriginatorIdentity(Invalid_Route_ReasonIdentity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        Invalid_Route_ReasonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Invalid_OriginatorIdentity']['meta_info']
+        super(As_Path_Longer, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:AS_PATH_LONGER")
 
 
-class Local_Pref_LowerIdentity(Bgp_Not_Selected_BestpathIdentity):
-    """
-    Route has a lower localpref attribute than current best path
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Local_Pref_LowerIdentity']['meta_info']
-
-
-class Higher_Router_IdIdentity(Bgp_Not_Selected_BestpathIdentity):
+class Higher_Router_Id(Identity):
     """
     Route was sent by a peer with a higher BGP Identifier value,
     or router id
@@ -196,15 +104,116 @@ class Higher_Router_IdIdentity(Bgp_Not_Selected_BestpathIdentity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Higher_Router_IdIdentity']['meta_info']
+        super(Higher_Router_Id, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:HIGHER_ROUTER_ID")
 
 
-class Origin_Type_HigherIdentity(Bgp_Not_Selected_BestpathIdentity):
+class Invalid_Cluster_Loop(Identity):
+    """
+    Route was invalid due to CLUSTER\_LIST loop
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(Invalid_Cluster_Loop, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_CLUSTER_LOOP")
+
+
+class Higher_Peer_Address(Identity):
+    """
+    Route was sent by a peer with a higher IP address
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(Higher_Peer_Address, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:HIGHER_PEER_ADDRESS")
+
+
+class Invalid_As_Loop(Identity):
+    """
+    Route was invalid due to AS\_PATH loop
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(Invalid_As_Loop, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_AS_LOOP")
+
+
+class Rejected_Import_Policy(Identity):
+    """
+    Route was rejected after apply import policies
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(Rejected_Import_Policy, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:REJECTED_IMPORT_POLICY")
+
+
+class Invalid_Originator(Identity):
+    """
+    Route was invalid due to ORIGINATOR\_ID, e.g., update has
+    local router as originator
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(Invalid_Originator, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:INVALID_ORIGINATOR")
+
+
+class Local_Pref_Lower(Identity):
+    """
+    Route has a lower localpref attribute than current best path
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(Local_Pref_Lower, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:LOCAL_PREF_LOWER")
+
+
+class Nexthop_Cost_Higher(Identity):
+    """
+    Route has a higher interior cost to the next hop.
+    
+    
+
+    """
+
+    _prefix = 'oc-bgprib-types'
+    _revision = '2016-04-11'
+
+    def __init__(self):
+        super(Nexthop_Cost_Higher, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:NEXTHOP_COST_HIGHER")
+
+
+class Origin_Type_Higher(Identity):
     """
     Route has a higher origin type, i.e., IGP origin is preferred
     over EGP or incomplete
@@ -217,17 +226,12 @@ class Origin_Type_HigherIdentity(Bgp_Not_Selected_BestpathIdentity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Origin_Type_HigherIdentity']['meta_info']
+        super(Origin_Type_Higher, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:ORIGIN_TYPE_HIGHER")
 
 
-class Higher_Peer_AddressIdentity(Bgp_Not_Selected_BestpathIdentity):
+class Prefer_External(Identity):
     """
-    Route was sent by a peer with a higher IP address
+    Route source is via IGP, rather than EGP.
     
     
 
@@ -237,75 +241,10 @@ class Higher_Peer_AddressIdentity(Bgp_Not_Selected_BestpathIdentity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Higher_Peer_AddressIdentity']['meta_info']
+        super(Prefer_External, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:PREFER_EXTERNAL")
 
 
-class Invalid_Cluster_LoopIdentity(Invalid_Route_ReasonIdentity):
-    """
-    Route was invalid due to CLUSTER\_LIST loop
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        Invalid_Route_ReasonIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Invalid_Cluster_LoopIdentity']['meta_info']
-
-
-class As_Path_LongerIdentity(Bgp_Not_Selected_BestpathIdentity):
-    """
-    Route has a longer AS path attribute than current best path
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['As_Path_LongerIdentity']['meta_info']
-
-
-class Rejected_Import_PolicyIdentity(Bgp_Not_Selected_PolicyIdentity):
-    """
-    Route was rejected after apply import policies
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        Bgp_Not_Selected_PolicyIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Rejected_Import_PolicyIdentity']['meta_info']
-
-
-class Med_HigherIdentity(Bgp_Not_Selected_BestpathIdentity):
+class Med_Higher(Identity):
     """
     Route has a higher MED, or metric, attribute than the current
     best path
@@ -318,31 +257,6 @@ class Med_HigherIdentity(Bgp_Not_Selected_BestpathIdentity):
     _revision = '2016-04-11'
 
     def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Med_HigherIdentity']['meta_info']
-
-
-class Prefer_ExternalIdentity(Bgp_Not_Selected_BestpathIdentity):
-    """
-    Route source is via IGP, rather than EGP.
-    
-    
-
-    """
-
-    _prefix = 'oc-bgprib-types'
-    _revision = '2016-04-11'
-
-    def __init__(self):
-        Bgp_Not_Selected_BestpathIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.openconfig._meta import _openconfig_rib_bgp_types as meta
-        return meta._meta_table['Prefer_ExternalIdentity']['meta_info']
+        super(Med_Higher, self).__init__("http://openconfig.net/yang/rib/bgp-types", "openconfig-rib-bgp-types", "openconfig-rib-bgp-types:MED_HIGHER")
 
 

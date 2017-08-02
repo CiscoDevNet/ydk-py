@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class FibPbtsFallbackEnum(Enum):
+class FibPbtsFallback(Enum):
     """
-    FibPbtsFallbackEnum
+    FibPbtsFallback
 
     Fib pbts fallback
 
@@ -44,22 +38,16 @@ class FibPbtsFallbackEnum(Enum):
 
     """
 
-    list = 1
+    list = Enum.YLeaf(1, "list")
 
-    any = 2
+    any = Enum.YLeaf(2, "any")
 
-    drop = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
-        return meta._meta_table['FibPbtsFallbackEnum']
+    drop = Enum.YLeaf(3, "drop")
 
 
-class FibPbtsForwardClassEnum(Enum):
+class FibPbtsForwardClass(Enum):
     """
-    FibPbtsForwardClassEnum
+    FibPbtsForwardClass
 
     Fib pbts forward class
 
@@ -69,17 +57,11 @@ class FibPbtsForwardClassEnum(Enum):
 
     """
 
-    any = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
-        return meta._meta_table['FibPbtsForwardClassEnum']
+    any = Enum.YLeaf(8, "any")
 
 
 
-class Fib(object):
+class Fib(Entity):
     """
     CEF configuration
     
@@ -106,14 +88,50 @@ class Fib(object):
     _revision = '2017-01-20'
 
     def __init__(self):
+        super(Fib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "fib"
+        self.yang_parent_name = "Cisco-IOS-XR-fib-common-cfg"
+
+        self.prefer_aib_routes = YLeaf(YType.boolean, "prefer-aib-routes")
+
         self.pbts_forward_class_fallbacks = Fib.PbtsForwardClassFallbacks()
         self.pbts_forward_class_fallbacks.parent = self
+        self._children_name_map["pbts_forward_class_fallbacks"] = "pbts-forward-class-fallbacks"
+        self._children_yang_names.add("pbts-forward-class-fallbacks")
+
         self.platform = Fib.Platform()
         self.platform.parent = self
-        self.prefer_aib_routes = None
+        self._children_name_map["platform"] = "platform"
+        self._children_yang_names.add("platform")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("prefer_aib_routes") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Fib, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Fib, self).__setattr__(name, value)
 
 
-    class PbtsForwardClassFallbacks(object):
+    class PbtsForwardClassFallbacks(Entity):
         """
         PBTS class configuration
         
@@ -130,13 +148,39 @@ class Fib(object):
         _revision = '2017-01-20'
 
         def __init__(self):
-            self.parent = None
-            self.pbts_forward_class_fallback = YList()
-            self.pbts_forward_class_fallback.parent = self
-            self.pbts_forward_class_fallback.name = 'pbts_forward_class_fallback'
+            super(Fib.PbtsForwardClassFallbacks, self).__init__()
+
+            self.yang_name = "pbts-forward-class-fallbacks"
+            self.yang_parent_name = "fib"
+
+            self.pbts_forward_class_fallback = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Fib.PbtsForwardClassFallbacks, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Fib.PbtsForwardClassFallbacks, self).__setattr__(name, value)
 
 
-        class PbtsForwardClassFallback(object):
+        class PbtsForwardClassFallback(Entity):
             """
             Set PBTS class for fallback
             
@@ -145,7 +189,7 @@ class Fib(object):
             	PBTS forward class number
             	**type**\: one of the below types:
             
-            	**type**\:   :py:class:`FibPbtsForwardClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsForwardClassEnum>`
+            	**type**\:   :py:class:`FibPbtsForwardClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsForwardClass>`
             
             
             ----
@@ -165,7 +209,7 @@ class Fib(object):
             .. attribute:: fallback_type
             
             	Set PBTS fallback type
-            	**type**\:   :py:class:`FibPbtsFallbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsFallbackEnum>`
+            	**type**\:   :py:class:`FibPbtsFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsFallback>`
             
             	**mandatory**\: True
             
@@ -177,67 +221,168 @@ class Fib(object):
             _revision = '2017-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.forward_class_number = None
-                self.fallback_class_number_array = YLeafList()
-                self.fallback_class_number_array.parent = self
-                self.fallback_class_number_array.name = 'fallback_class_number_array'
-                self.fallback_type = None
+                super(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.forward_class_number is None:
-                    raise YPYModelError('Key property forward_class_number is None')
+                self.yang_name = "pbts-forward-class-fallback"
+                self.yang_parent_name = "pbts-forward-class-fallbacks"
 
-                return '/Cisco-IOS-XR-fib-common-cfg:fib/Cisco-IOS-XR-fib-common-cfg:pbts-forward-class-fallbacks/Cisco-IOS-XR-fib-common-cfg:pbts-forward-class-fallback[Cisco-IOS-XR-fib-common-cfg:forward-class-number = ' + str(self.forward_class_number) + ']'
+                self.forward_class_number = YLeaf(YType.str, "forward-class-number")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.fallback_class_number_array = YLeafList(YType.uint32, "fallback-class-number-array")
 
-            def _has_data(self):
-                if self.forward_class_number is not None:
+                self.fallback_type = YLeaf(YType.enumeration, "fallback-type")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("forward_class_number",
+                                "fallback_class_number_array",
+                                "fallback_type") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, self).__setattr__(name, value)
+
+            def has_data(self):
+                for leaf in self.fallback_class_number_array.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
+                        return True
+                return (
+                    self.forward_class_number.is_set or
+                    self.fallback_type.is_set)
+
+            def has_operation(self):
+                for leaf in self.fallback_class_number_array.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.forward_class_number.yfilter != YFilter.not_set or
+                    self.fallback_class_number_array.yfilter != YFilter.not_set or
+                    self.fallback_type.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "pbts-forward-class-fallback" + "[forward-class-number='" + self.forward_class_number.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-fib-common-cfg:fib/pbts-forward-class-fallbacks/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.forward_class_number.is_set or self.forward_class_number.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.forward_class_number.get_name_leafdata())
+                if (self.fallback_type.is_set or self.fallback_type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.fallback_type.get_name_leafdata())
+
+                leaf_name_data.extend(self.fallback_class_number_array.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "forward-class-number" or name == "fallback-class-number-array" or name == "fallback-type"):
                     return True
-
-                if self.fallback_class_number_array is not None:
-                    for child in self.fallback_class_number_array:
-                        if child is not None:
-                            return True
-
-                if self.fallback_type is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
-                return meta._meta_table['Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "forward-class-number"):
+                    self.forward_class_number = value
+                    self.forward_class_number.value_namespace = name_space
+                    self.forward_class_number.value_namespace_prefix = name_space_prefix
+                if(value_path == "fallback-class-number-array"):
+                    self.fallback_class_number_array.append(value)
+                if(value_path == "fallback-type"):
+                    self.fallback_type = value
+                    self.fallback_type.value_namespace = name_space
+                    self.fallback_type.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-fib-common-cfg:fib/Cisco-IOS-XR-fib-common-cfg:pbts-forward-class-fallbacks'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.pbts_forward_class_fallback is not None:
-                for child_ref in self.pbts_forward_class_fallback:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.pbts_forward_class_fallback:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
-            return meta._meta_table['Fib.PbtsForwardClassFallbacks']['meta_info']
+        def has_operation(self):
+            for c in self.pbts_forward_class_fallback:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "pbts-forward-class-fallbacks" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-fib-common-cfg:fib/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "pbts-forward-class-fallback"):
+                for c in self.pbts_forward_class_fallback:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.pbts_forward_class_fallback.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "pbts-forward-class-fallback"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Platform(object):
+    class Platform(Entity):
         """
         FIB platform parameters
         
@@ -254,12 +399,18 @@ class Fib(object):
         _revision = '2017-01-20'
 
         def __init__(self):
-            self.parent = None
+            super(Fib.Platform, self).__init__()
+
+            self.yang_name = "platform"
+            self.yang_parent_name = "fib"
+
             self.label_switched_multicast = Fib.Platform.LabelSwitchedMulticast()
             self.label_switched_multicast.parent = self
+            self._children_name_map["label_switched_multicast"] = "label-switched-multicast"
+            self._children_yang_names.add("label-switched-multicast")
 
 
-        class LabelSwitchedMulticast(object):
+        class LabelSwitchedMulticast(Entity):
             """
             Options for label\-switched\-multicast parameters
             
@@ -280,73 +431,196 @@ class Fib(object):
             _revision = '2017-01-20'
 
             def __init__(self):
-                self.parent = None
-                self.frr_holdtime = None
+                super(Fib.Platform.LabelSwitchedMulticast, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "label-switched-multicast"
+                self.yang_parent_name = "platform"
 
-                return '/Cisco-IOS-XR-fib-common-cfg:fib/Cisco-IOS-XR-fib-common-cfg:platform/Cisco-IOS-XR-fib-common-cfg:label-switched-multicast'
+                self.frr_holdtime = YLeaf(YType.uint32, "frr-holdtime")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("frr_holdtime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Fib.Platform.LabelSwitchedMulticast, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Fib.Platform.LabelSwitchedMulticast, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.frr_holdtime is not None:
+            def has_data(self):
+                return self.frr_holdtime.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.frr_holdtime.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "label-switched-multicast" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-fib-common-cfg:fib/platform/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.frr_holdtime.is_set or self.frr_holdtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.frr_holdtime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "frr-holdtime"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
-                return meta._meta_table['Fib.Platform.LabelSwitchedMulticast']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "frr-holdtime"):
+                    self.frr_holdtime = value
+                    self.frr_holdtime.value_namespace = name_space
+                    self.frr_holdtime.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.label_switched_multicast is not None and self.label_switched_multicast.has_data())
 
-            return '/Cisco-IOS-XR-fib-common-cfg:fib/Cisco-IOS-XR-fib-common-cfg:platform'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.label_switched_multicast is not None and self.label_switched_multicast.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "platform" + path_buffer
 
-        def _has_data(self):
-            if self.label_switched_multicast is not None and self.label_switched_multicast._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-fib-common-cfg:fib/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "label-switched-multicast"):
+                if (self.label_switched_multicast is None):
+                    self.label_switched_multicast = Fib.Platform.LabelSwitchedMulticast()
+                    self.label_switched_multicast.parent = self
+                    self._children_name_map["label_switched_multicast"] = "label-switched-multicast"
+                return self.label_switched_multicast
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "label-switched-multicast"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
-            return meta._meta_table['Fib.Platform']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.prefer_aib_routes.is_set or
+            (self.pbts_forward_class_fallbacks is not None and self.pbts_forward_class_fallbacks.has_data()) or
+            (self.platform is not None and self.platform.has_data()))
 
-        return '/Cisco-IOS-XR-fib-common-cfg:fib'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.prefer_aib_routes.yfilter != YFilter.not_set or
+            (self.pbts_forward_class_fallbacks is not None and self.pbts_forward_class_fallbacks.has_operation()) or
+            (self.platform is not None and self.platform.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-fib-common-cfg:fib" + path_buffer
 
-    def _has_data(self):
-        if self.pbts_forward_class_fallbacks is not None and self.pbts_forward_class_fallbacks._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.prefer_aib_routes.is_set or self.prefer_aib_routes.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.prefer_aib_routes.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "pbts-forward-class-fallbacks"):
+            if (self.pbts_forward_class_fallbacks is None):
+                self.pbts_forward_class_fallbacks = Fib.PbtsForwardClassFallbacks()
+                self.pbts_forward_class_fallbacks.parent = self
+                self._children_name_map["pbts_forward_class_fallbacks"] = "pbts-forward-class-fallbacks"
+            return self.pbts_forward_class_fallbacks
+
+        if (child_yang_name == "platform"):
+            if (self.platform is None):
+                self.platform = Fib.Platform()
+                self.platform.parent = self
+                self._children_name_map["platform"] = "platform"
+            return self.platform
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "pbts-forward-class-fallbacks" or name == "platform" or name == "prefer-aib-routes"):
             return True
-
-        if self.platform is not None and self.platform._has_data():
-            return True
-
-        if self.prefer_aib_routes is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_fib_common_cfg as meta
-        return meta._meta_table['Fib']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "prefer-aib-routes"):
+            self.prefer_aib_routes = value
+            self.prefer_aib_routes.value_namespace = name_space
+            self.prefer_aib_routes.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Fib()
+        return self._top_entity
 

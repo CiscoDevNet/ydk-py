@@ -4,21 +4,15 @@ This MIB complements the CISCO\-IETF\-PW\-MIB for PW operation
 over MPLS. 
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoIetfPwMplsMib(object):
+class CiscoIetfPwMplsMib(Entity):
     """
     
     
@@ -60,21 +54,44 @@ class CiscoIetfPwMplsMib(object):
     _revision = '2003-02-26'
 
     def __init__(self):
+        super(CiscoIetfPwMplsMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IETF-PW-MPLS-MIB"
+        self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+
         self.cpwvcmplsinboundtable = CiscoIetfPwMplsMib.Cpwvcmplsinboundtable()
         self.cpwvcmplsinboundtable.parent = self
+        self._children_name_map["cpwvcmplsinboundtable"] = "cpwVcMplsInboundTable"
+        self._children_yang_names.add("cpwVcMplsInboundTable")
+
         self.cpwvcmplsnontemappingtable = CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable()
         self.cpwvcmplsnontemappingtable.parent = self
+        self._children_name_map["cpwvcmplsnontemappingtable"] = "cpwVcMplsNonTeMappingTable"
+        self._children_yang_names.add("cpwVcMplsNonTeMappingTable")
+
         self.cpwvcmplsobjects = CiscoIetfPwMplsMib.Cpwvcmplsobjects()
         self.cpwvcmplsobjects.parent = self
+        self._children_name_map["cpwvcmplsobjects"] = "cpwVcMplsObjects"
+        self._children_yang_names.add("cpwVcMplsObjects")
+
         self.cpwvcmplsoutboundtable = CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable()
         self.cpwvcmplsoutboundtable.parent = self
+        self._children_name_map["cpwvcmplsoutboundtable"] = "cpwVcMplsOutboundTable"
+        self._children_yang_names.add("cpwVcMplsOutboundTable")
+
         self.cpwvcmplstable = CiscoIetfPwMplsMib.Cpwvcmplstable()
         self.cpwvcmplstable.parent = self
+        self._children_name_map["cpwvcmplstable"] = "cpwVcMplsTable"
+        self._children_yang_names.add("cpwVcMplsTable")
+
         self.cpwvcmplstemappingtable = CiscoIetfPwMplsMib.Cpwvcmplstemappingtable()
         self.cpwvcmplstemappingtable.parent = self
+        self._children_name_map["cpwvcmplstemappingtable"] = "cpwVcMplsTeMappingTable"
+        self._children_yang_names.add("cpwVcMplsTeMappingTable")
 
 
-    class Cpwvcmplsobjects(object):
+    class Cpwvcmplsobjects(Entity):
         """
         
         
@@ -100,35 +117,97 @@ class CiscoIetfPwMplsMib(object):
         _revision = '2003-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcmplsinboundindexnext = None
-            self.cpwvcmplsoutboundindexnext = None
+            super(CiscoIetfPwMplsMib.Cpwvcmplsobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cpwVcMplsObjects"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
 
-            return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsObjects'
+            self.cpwvcmplsinboundindexnext = YLeaf(YType.uint32, "cpwVcMplsInboundIndexNext")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cpwvcmplsoutboundindexnext = YLeaf(YType.uint32, "cpwVcMplsOutboundIndexNext")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cpwvcmplsinboundindexnext",
+                            "cpwvcmplsoutboundindexnext") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMplsMib.Cpwvcmplsobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMplsMib.Cpwvcmplsobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cpwvcmplsinboundindexnext.is_set or
+                self.cpwvcmplsoutboundindexnext.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cpwvcmplsinboundindexnext.yfilter != YFilter.not_set or
+                self.cpwvcmplsoutboundindexnext.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcMplsObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cpwvcmplsinboundindexnext.is_set or self.cpwvcmplsinboundindexnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpwvcmplsinboundindexnext.get_name_leafdata())
+            if (self.cpwvcmplsoutboundindexnext.is_set or self.cpwvcmplsoutboundindexnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cpwvcmplsoutboundindexnext.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcMplsInboundIndexNext" or name == "cpwVcMplsOutboundIndexNext"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cpwvcmplsinboundindexnext is not None:
-                return True
-
-            if self.cpwvcmplsoutboundindexnext is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-            return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cpwVcMplsInboundIndexNext"):
+                self.cpwvcmplsinboundindexnext = value
+                self.cpwvcmplsinboundindexnext.value_namespace = name_space
+                self.cpwvcmplsinboundindexnext.value_namespace_prefix = name_space_prefix
+            if(value_path == "cpwVcMplsOutboundIndexNext"):
+                self.cpwvcmplsoutboundindexnext = value
+                self.cpwvcmplsoutboundindexnext.value_namespace = name_space
+                self.cpwvcmplsoutboundindexnext.value_namespace_prefix = name_space_prefix
 
 
-    class Cpwvcmplstable(object):
+    class Cpwvcmplstable(Entity):
         """
         This table specifies information for VC to be carried over  
         MPLS PSN.
@@ -146,13 +225,39 @@ class CiscoIetfPwMplsMib(object):
         _revision = '2003-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcmplsentry = YList()
-            self.cpwvcmplsentry.parent = self
-            self.cpwvcmplsentry.name = 'cpwvcmplsentry'
+            super(CiscoIetfPwMplsMib.Cpwvcmplstable, self).__init__()
+
+            self.yang_name = "cpwVcMplsTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+
+            self.cpwvcmplsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMplsMib.Cpwvcmplstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMplsMib.Cpwvcmplstable, self).__setattr__(name, value)
 
 
-        class Cpwvcmplsentry(object):
+        class Cpwvcmplsentry(Entity):
             """
             A row in this table represents parameters specific to MPLS  
             PSN for a pseudo wire connection (VC). The row is created  
@@ -179,7 +284,7 @@ class CiscoIetfPwMplsMib(object):
             .. attribute:: cpwvcmplsexpbitsmode
             
             	Set by the operator to indicate the way the VC shim label  EXP bits are to be determined. The value of outerTunnel(1)  is used where there is an outer tunnel \- cpwVcMplsMplsType   is mplsTe or mplsNonTe. Note that in this case there is no  need to mark the VC label with the EXP bits since the VC   label is not visible to the intermediate nodes.  If there is no outer tunnel, specifiedValue(2) indicate   that the value is specified by cpwVcMplsExpBits, and   serviceDependant(3) indicate that the EXP bits are setup   based on a rule specified in the emulated service specific   tables, for example when the EXP bits are a function of   802.1p marking for Ethernet emulated service
-            	**type**\:   :py:class:`CpwvcmplsexpbitsmodeEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry.CpwvcmplsexpbitsmodeEnum>`
+            	**type**\:   :py:class:`Cpwvcmplsexpbitsmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsexpbitsmode>`
             
             .. attribute:: cpwvcmplslocalldpentityid
             
@@ -206,7 +311,7 @@ class CiscoIetfPwMplsMib(object):
             .. attribute:: cpwvcmplsstoragetype
             
             	This variable indicates the storage type for this row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cpwvcmplsttl
             
@@ -223,20 +328,64 @@ class CiscoIetfPwMplsMib(object):
             _revision = '2003-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwvcmplsexpbits = None
-                self.cpwvcmplsexpbitsmode = None
-                self.cpwvcmplslocalldpentityid = None
-                self.cpwvcmplslocalldpid = None
-                self.cpwvcmplsmplstype = CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry.Cpwvcmplsmplstype()
-                self.cpwvcmplspeerldpid = None
-                self.cpwvcmplsstoragetype = None
-                self.cpwvcmplsttl = None
+                super(CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry, self).__init__()
 
-            class CpwvcmplsexpbitsmodeEnum(Enum):
+                self.yang_name = "cpwVcMplsEntry"
+                self.yang_parent_name = "cpwVcMplsTable"
+
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
+
+                self.cpwvcmplsexpbits = YLeaf(YType.uint32, "cpwVcMplsExpBits")
+
+                self.cpwvcmplsexpbitsmode = YLeaf(YType.enumeration, "cpwVcMplsExpBitsMode")
+
+                self.cpwvcmplslocalldpentityid = YLeaf(YType.uint32, "cpwVcMplsLocalLdpEntityID")
+
+                self.cpwvcmplslocalldpid = YLeaf(YType.str, "cpwVcMplsLocalLdpID")
+
+                self.cpwvcmplsmplstype = YLeaf(YType.bits, "cpwVcMplsMplsType")
+
+                self.cpwvcmplspeerldpid = YLeaf(YType.str, "cpwVcMplsPeerLdpID")
+
+                self.cpwvcmplsstoragetype = YLeaf(YType.enumeration, "cpwVcMplsStorageType")
+
+                self.cpwvcmplsttl = YLeaf(YType.uint32, "cpwVcMplsTtl")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwvcmplsexpbits",
+                                "cpwvcmplsexpbitsmode",
+                                "cpwvcmplslocalldpentityid",
+                                "cpwvcmplslocalldpid",
+                                "cpwvcmplsmplstype",
+                                "cpwvcmplspeerldpid",
+                                "cpwvcmplsstoragetype",
+                                "cpwvcmplsttl") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry, self).__setattr__(name, value)
+
+            class Cpwvcmplsexpbitsmode(Enum):
                 """
-                CpwvcmplsexpbitsmodeEnum
+                Cpwvcmplsexpbitsmode
 
                 Set by the operator to indicate the way the VC shim label 
 
@@ -270,117 +419,181 @@ class CiscoIetfPwMplsMib(object):
 
                 """
 
-                outerTunnel = 1
+                outerTunnel = Enum.YLeaf(1, "outerTunnel")
 
-                specifiedValue = 2
+                specifiedValue = Enum.YLeaf(2, "specifiedValue")
 
-                serviceDependant = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry.CpwvcmplsexpbitsmodeEnum']
+                serviceDependant = Enum.YLeaf(3, "serviceDependant")
 
 
-            class Cpwvcmplsmplstype(FixedBitsDict):
-                """
-                Cpwvcmplsmplstype
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwvcmplsexpbits.is_set or
+                    self.cpwvcmplsexpbitsmode.is_set or
+                    self.cpwvcmplslocalldpentityid.is_set or
+                    self.cpwvcmplslocalldpid.is_set or
+                    self.cpwvcmplsmplstype.is_set or
+                    self.cpwvcmplspeerldpid.is_set or
+                    self.cpwvcmplsstoragetype.is_set or
+                    self.cpwvcmplsttl.is_set)
 
-                Set by the operator to indicate the outer tunnel types, if 
-                exists. mplsTe is used if the outer tunnel was set\-up by  
-                MPLS\-TE, and mplsNonTe is used the outer tunnel was set up 
-                by LDP or manually. Combination of mplsTe and mplsNonTe  
-                may exist in case of outer tunnel protection. 
-                vcOnly is used if there is no outer tunnel label. vcOnly  
-                cannot be combined with mplsNonTe or mplsTe.
-                Keys are:- mplsNonTe , vcOnly , mplsTe
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsexpbits.yfilter != YFilter.not_set or
+                    self.cpwvcmplsexpbitsmode.yfilter != YFilter.not_set or
+                    self.cpwvcmplslocalldpentityid.yfilter != YFilter.not_set or
+                    self.cpwvcmplslocalldpid.yfilter != YFilter.not_set or
+                    self.cpwvcmplsmplstype.yfilter != YFilter.not_set or
+                    self.cpwvcmplspeerldpid.yfilter != YFilter.not_set or
+                    self.cpwvcmplsstoragetype.yfilter != YFilter.not_set or
+                    self.cpwvcmplsttl.yfilter != YFilter.not_set)
 
-                """
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcMplsEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + path_buffer
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'mplsNonTe':False,
-                        'vcOnly':False,
-                        'mplsTe':False,
-                    }
-                    self._pos_map = { 
-                        'mplsNonTe':1,
-                        'vcOnly':2,
-                        'mplsTe':0,
-                    }
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTable/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsEntry[CISCO-IETF-PW-MPLS-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwvcmplsexpbits.is_set or self.cpwvcmplsexpbits.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsexpbits.get_name_leafdata())
+                if (self.cpwvcmplsexpbitsmode.is_set or self.cpwvcmplsexpbitsmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsexpbitsmode.get_name_leafdata())
+                if (self.cpwvcmplslocalldpentityid.is_set or self.cpwvcmplslocalldpentityid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplslocalldpentityid.get_name_leafdata())
+                if (self.cpwvcmplslocalldpid.is_set or self.cpwvcmplslocalldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplslocalldpid.get_name_leafdata())
+                if (self.cpwvcmplsmplstype.is_set or self.cpwvcmplsmplstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsmplstype.get_name_leafdata())
+                if (self.cpwvcmplspeerldpid.is_set or self.cpwvcmplspeerldpid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplspeerldpid.get_name_leafdata())
+                if (self.cpwvcmplsstoragetype.is_set or self.cpwvcmplsstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsstoragetype.get_name_leafdata())
+                if (self.cpwvcmplsttl.is_set or self.cpwvcmplsttl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsttl.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwVcMplsExpBits" or name == "cpwVcMplsExpBitsMode" or name == "cpwVcMplsLocalLdpEntityID" or name == "cpwVcMplsLocalLdpID" or name == "cpwVcMplsMplsType" or name == "cpwVcMplsPeerLdpID" or name == "cpwVcMplsStorageType" or name == "cpwVcMplsTtl"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsExpBits"):
+                    self.cpwvcmplsexpbits = value
+                    self.cpwvcmplsexpbits.value_namespace = name_space
+                    self.cpwvcmplsexpbits.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsExpBitsMode"):
+                    self.cpwvcmplsexpbitsmode = value
+                    self.cpwvcmplsexpbitsmode.value_namespace = name_space
+                    self.cpwvcmplsexpbitsmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsLocalLdpEntityID"):
+                    self.cpwvcmplslocalldpentityid = value
+                    self.cpwvcmplslocalldpentityid.value_namespace = name_space
+                    self.cpwvcmplslocalldpentityid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsLocalLdpID"):
+                    self.cpwvcmplslocalldpid = value
+                    self.cpwvcmplslocalldpid.value_namespace = name_space
+                    self.cpwvcmplslocalldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsMplsType"):
+                    self.cpwvcmplsmplstype[value] = True
+                if(value_path == "cpwVcMplsPeerLdpID"):
+                    self.cpwvcmplspeerldpid = value
+                    self.cpwvcmplspeerldpid.value_namespace = name_space
+                    self.cpwvcmplspeerldpid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsStorageType"):
+                    self.cpwvcmplsstoragetype = value
+                    self.cpwvcmplsstoragetype.value_namespace = name_space
+                    self.cpwvcmplsstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsTtl"):
+                    self.cpwvcmplsttl = value
+                    self.cpwvcmplsttl.value_namespace = name_space
+                    self.cpwvcmplsttl.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcmplsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcmplsexpbits is not None:
-                    return True
-
-                if self.cpwvcmplsexpbitsmode is not None:
-                    return True
-
-                if self.cpwvcmplslocalldpentityid is not None:
-                    return True
-
-                if self.cpwvcmplslocalldpid is not None:
-                    return True
-
-                if self.cpwvcmplsmplstype is not None:
-                    if self.cpwvcmplsmplstype._has_data():
-                        return True
-
-                if self.cpwvcmplspeerldpid is not None:
-                    return True
-
-                if self.cpwvcmplsstoragetype is not None:
-                    return True
-
-                if self.cpwvcmplsttl is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcmplsentry is not None:
-                for child_ref in self.cpwvcmplsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcmplsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcMplsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcMplsEntry"):
+                for c in self.cpwvcmplsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMplsMib.Cpwvcmplstable.Cpwvcmplsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcmplsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcMplsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-            return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcmplsoutboundtable(object):
+    class Cpwvcmplsoutboundtable(Entity):
         """
         This table associates VCs using MPLS PSN with the outbound 
         MPLS tunnels (i.e. toward the PSN) or the physical  
@@ -399,13 +612,39 @@ class CiscoIetfPwMplsMib(object):
         _revision = '2003-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcmplsoutboundentry = YList()
-            self.cpwvcmplsoutboundentry.parent = self
-            self.cpwvcmplsoutboundentry.name = 'cpwvcmplsoutboundentry'
+            super(CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable, self).__init__()
+
+            self.yang_name = "cpwVcMplsOutboundTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+
+            self.cpwvcmplsoutboundentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable, self).__setattr__(name, value)
 
 
-        class Cpwvcmplsoutboundentry(object):
+        class Cpwvcmplsoutboundentry(Entity):
             """
             A row in this table represents a link between PW VC (that 
             require MPLS tunnels) and MPLS tunnel toward the PSN. 
@@ -468,12 +707,12 @@ class CiscoIetfPwMplsMib(object):
             .. attribute:: cpwvcmplsoutboundrowstatus
             
             	For creating, modifying, and deleting this row
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cpwvcmplsoutboundstoragetype
             
             	This variable indicates the storage type for this object
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cpwvcmplsoutboundtunnelindex
             
@@ -511,93 +750,242 @@ class CiscoIetfPwMplsMib(object):
             _revision = '2003-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwvcmplsoutboundindex = None
-                self.cpwvcmplsoutboundifindex = None
-                self.cpwvcmplsoutboundlsrxcindex = None
-                self.cpwvcmplsoutboundrowstatus = None
-                self.cpwvcmplsoutboundstoragetype = None
-                self.cpwvcmplsoutboundtunnelindex = None
-                self.cpwvcmplsoutboundtunnelinstance = None
-                self.cpwvcmplsoutboundtunnellcllsr = None
-                self.cpwvcmplsoutboundtunnelpeerlsr = None
+                super(CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
-                if self.cpwvcmplsoutboundindex is None:
-                    raise YPYModelError('Key property cpwvcmplsoutboundindex is None')
+                self.yang_name = "cpwVcMplsOutboundEntry"
+                self.yang_parent_name = "cpwVcMplsOutboundTable"
 
-                return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsOutboundTable/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsOutboundEntry[CISCO-IETF-PW-MPLS-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsOutboundIndex = ' + str(self.cpwvcmplsoutboundindex) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwvcmplsoutboundindex = YLeaf(YType.uint32, "cpwVcMplsOutboundIndex")
+
+                self.cpwvcmplsoutboundifindex = YLeaf(YType.int32, "cpwVcMplsOutboundIfIndex")
+
+                self.cpwvcmplsoutboundlsrxcindex = YLeaf(YType.uint32, "cpwVcMplsOutboundLsrXcIndex")
+
+                self.cpwvcmplsoutboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsOutboundRowStatus")
+
+                self.cpwvcmplsoutboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsOutboundStorageType")
+
+                self.cpwvcmplsoutboundtunnelindex = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelIndex")
+
+                self.cpwvcmplsoutboundtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsOutboundTunnelInstance")
+
+                self.cpwvcmplsoutboundtunnellcllsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelLclLSR")
+
+                self.cpwvcmplsoutboundtunnelpeerlsr = YLeaf(YType.str, "cpwVcMplsOutboundTunnelPeerLSR")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwvcmplsoutboundindex",
+                                "cpwvcmplsoutboundifindex",
+                                "cpwvcmplsoutboundlsrxcindex",
+                                "cpwvcmplsoutboundrowstatus",
+                                "cpwvcmplsoutboundstoragetype",
+                                "cpwvcmplsoutboundtunnelindex",
+                                "cpwvcmplsoutboundtunnelinstance",
+                                "cpwvcmplsoutboundtunnellcllsr",
+                                "cpwvcmplsoutboundtunnelpeerlsr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwvcmplsoutboundindex.is_set or
+                    self.cpwvcmplsoutboundifindex.is_set or
+                    self.cpwvcmplsoutboundlsrxcindex.is_set or
+                    self.cpwvcmplsoutboundrowstatus.is_set or
+                    self.cpwvcmplsoutboundstoragetype.is_set or
+                    self.cpwvcmplsoutboundtunnelindex.is_set or
+                    self.cpwvcmplsoutboundtunnelinstance.is_set or
+                    self.cpwvcmplsoutboundtunnellcllsr.is_set or
+                    self.cpwvcmplsoutboundtunnelpeerlsr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundifindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundlsrxcindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundrowstatus.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundstoragetype.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundtunnelindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundtunnelinstance.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundtunnellcllsr.yfilter != YFilter.not_set or
+                    self.cpwvcmplsoutboundtunnelpeerlsr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcMplsOutboundEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcMplsOutboundIndex='" + self.cpwvcmplsoutboundindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsOutboundTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwvcmplsoutboundindex.is_set or self.cpwvcmplsoutboundindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundindex.get_name_leafdata())
+                if (self.cpwvcmplsoutboundifindex.is_set or self.cpwvcmplsoutboundifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundifindex.get_name_leafdata())
+                if (self.cpwvcmplsoutboundlsrxcindex.is_set or self.cpwvcmplsoutboundlsrxcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundlsrxcindex.get_name_leafdata())
+                if (self.cpwvcmplsoutboundrowstatus.is_set or self.cpwvcmplsoutboundrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundrowstatus.get_name_leafdata())
+                if (self.cpwvcmplsoutboundstoragetype.is_set or self.cpwvcmplsoutboundstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundstoragetype.get_name_leafdata())
+                if (self.cpwvcmplsoutboundtunnelindex.is_set or self.cpwvcmplsoutboundtunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundtunnelindex.get_name_leafdata())
+                if (self.cpwvcmplsoutboundtunnelinstance.is_set or self.cpwvcmplsoutboundtunnelinstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundtunnelinstance.get_name_leafdata())
+                if (self.cpwvcmplsoutboundtunnellcllsr.is_set or self.cpwvcmplsoutboundtunnellcllsr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundtunnellcllsr.get_name_leafdata())
+                if (self.cpwvcmplsoutboundtunnelpeerlsr.is_set or self.cpwvcmplsoutboundtunnelpeerlsr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsoutboundtunnelpeerlsr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwVcMplsOutboundIndex" or name == "cpwVcMplsOutboundIfIndex" or name == "cpwVcMplsOutboundLsrXcIndex" or name == "cpwVcMplsOutboundRowStatus" or name == "cpwVcMplsOutboundStorageType" or name == "cpwVcMplsOutboundTunnelIndex" or name == "cpwVcMplsOutboundTunnelInstance" or name == "cpwVcMplsOutboundTunnelLclLSR" or name == "cpwVcMplsOutboundTunnelPeerLSR"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundIndex"):
+                    self.cpwvcmplsoutboundindex = value
+                    self.cpwvcmplsoutboundindex.value_namespace = name_space
+                    self.cpwvcmplsoutboundindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundIfIndex"):
+                    self.cpwvcmplsoutboundifindex = value
+                    self.cpwvcmplsoutboundifindex.value_namespace = name_space
+                    self.cpwvcmplsoutboundifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundLsrXcIndex"):
+                    self.cpwvcmplsoutboundlsrxcindex = value
+                    self.cpwvcmplsoutboundlsrxcindex.value_namespace = name_space
+                    self.cpwvcmplsoutboundlsrxcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundRowStatus"):
+                    self.cpwvcmplsoutboundrowstatus = value
+                    self.cpwvcmplsoutboundrowstatus.value_namespace = name_space
+                    self.cpwvcmplsoutboundrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundStorageType"):
+                    self.cpwvcmplsoutboundstoragetype = value
+                    self.cpwvcmplsoutboundstoragetype.value_namespace = name_space
+                    self.cpwvcmplsoutboundstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundTunnelIndex"):
+                    self.cpwvcmplsoutboundtunnelindex = value
+                    self.cpwvcmplsoutboundtunnelindex.value_namespace = name_space
+                    self.cpwvcmplsoutboundtunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundTunnelInstance"):
+                    self.cpwvcmplsoutboundtunnelinstance = value
+                    self.cpwvcmplsoutboundtunnelinstance.value_namespace = name_space
+                    self.cpwvcmplsoutboundtunnelinstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundTunnelLclLSR"):
+                    self.cpwvcmplsoutboundtunnellcllsr = value
+                    self.cpwvcmplsoutboundtunnellcllsr.value_namespace = name_space
+                    self.cpwvcmplsoutboundtunnellcllsr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsOutboundTunnelPeerLSR"):
+                    self.cpwvcmplsoutboundtunnelpeerlsr = value
+                    self.cpwvcmplsoutboundtunnelpeerlsr.value_namespace = name_space
+                    self.cpwvcmplsoutboundtunnelpeerlsr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcmplsoutboundentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcmplsoutboundindex is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundifindex is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundlsrxcindex is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundrowstatus is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundstoragetype is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundtunnelindex is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundtunnelinstance is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundtunnellcllsr is not None:
-                    return True
-
-                if self.cpwvcmplsoutboundtunnelpeerlsr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsOutboundTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcmplsoutboundentry is not None:
-                for child_ref in self.cpwvcmplsoutboundentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcmplsoutboundentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcMplsOutboundTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcMplsOutboundEntry"):
+                for c in self.cpwvcmplsoutboundentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable.Cpwvcmplsoutboundentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcmplsoutboundentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcMplsOutboundEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-            return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcmplsinboundtable(object):
+    class Cpwvcmplsinboundtable(Entity):
         """
         This table associates VCs using MPLS PSN with the inbound 
         MPLS tunnels (i.e. for packets coming from the PSN),  
@@ -617,13 +1005,39 @@ class CiscoIetfPwMplsMib(object):
         _revision = '2003-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcmplsinboundentry = YList()
-            self.cpwvcmplsinboundentry.parent = self
-            self.cpwvcmplsinboundentry.name = 'cpwvcmplsinboundentry'
+            super(CiscoIetfPwMplsMib.Cpwvcmplsinboundtable, self).__init__()
+
+            self.yang_name = "cpwVcMplsInboundTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+
+            self.cpwvcmplsinboundentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMplsMib.Cpwvcmplsinboundtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMplsMib.Cpwvcmplsinboundtable, self).__setattr__(name, value)
 
 
-        class Cpwvcmplsinboundentry(object):
+        class Cpwvcmplsinboundentry(Entity):
             """
             A row in this table represents a link between PW VCs (that 
             require MPLS tunnels) and MPLS tunnel for packets arriving 
@@ -691,12 +1105,12 @@ class CiscoIetfPwMplsMib(object):
             .. attribute:: cpwvcmplsinboundrowstatus
             
             	For creating, modifying, and deleting this row
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cpwvcmplsinboundstoragetype
             
             	This variable indicates the storage type for this row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: cpwvcmplsinboundtunnelindex
             
@@ -734,93 +1148,242 @@ class CiscoIetfPwMplsMib(object):
             _revision = '2003-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcindex = None
-                self.cpwvcmplsinboundindex = None
-                self.cpwvcmplsinboundifindex = None
-                self.cpwvcmplsinboundlsrxcindex = None
-                self.cpwvcmplsinboundrowstatus = None
-                self.cpwvcmplsinboundstoragetype = None
-                self.cpwvcmplsinboundtunnelindex = None
-                self.cpwvcmplsinboundtunnelinstance = None
-                self.cpwvcmplsinboundtunnellcllsr = None
-                self.cpwvcmplsinboundtunnelpeerlsr = None
+                super(CiscoIetfPwMplsMib.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cpwvcindex is None:
-                    raise YPYModelError('Key property cpwvcindex is None')
-                if self.cpwvcmplsinboundindex is None:
-                    raise YPYModelError('Key property cpwvcmplsinboundindex is None')
+                self.yang_name = "cpwVcMplsInboundEntry"
+                self.yang_parent_name = "cpwVcMplsInboundTable"
 
-                return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsInboundTable/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsInboundEntry[CISCO-IETF-PW-MPLS-MIB:cpwVcIndex = ' + str(self.cpwvcindex) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsInboundIndex = ' + str(self.cpwvcmplsinboundindex) + ']'
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cpwvcmplsinboundindex = YLeaf(YType.uint32, "cpwVcMplsInboundIndex")
+
+                self.cpwvcmplsinboundifindex = YLeaf(YType.int32, "cpwVcMplsInboundIfIndex")
+
+                self.cpwvcmplsinboundlsrxcindex = YLeaf(YType.uint32, "cpwVcMplsInboundLsrXcIndex")
+
+                self.cpwvcmplsinboundrowstatus = YLeaf(YType.enumeration, "cpwVcMplsInboundRowStatus")
+
+                self.cpwvcmplsinboundstoragetype = YLeaf(YType.enumeration, "cpwVcMplsInboundStorageType")
+
+                self.cpwvcmplsinboundtunnelindex = YLeaf(YType.uint32, "cpwVcMplsInboundTunnelIndex")
+
+                self.cpwvcmplsinboundtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsInboundTunnelInstance")
+
+                self.cpwvcmplsinboundtunnellcllsr = YLeaf(YType.str, "cpwVcMplsInboundTunnelLclLSR")
+
+                self.cpwvcmplsinboundtunnelpeerlsr = YLeaf(YType.str, "cpwVcMplsInboundTunnelPeerLSR")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcindex",
+                                "cpwvcmplsinboundindex",
+                                "cpwvcmplsinboundifindex",
+                                "cpwvcmplsinboundlsrxcindex",
+                                "cpwvcmplsinboundrowstatus",
+                                "cpwvcmplsinboundstoragetype",
+                                "cpwvcmplsinboundtunnelindex",
+                                "cpwvcmplsinboundtunnelinstance",
+                                "cpwvcmplsinboundtunnellcllsr",
+                                "cpwvcmplsinboundtunnelpeerlsr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMplsMib.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMplsMib.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cpwvcindex.is_set or
+                    self.cpwvcmplsinboundindex.is_set or
+                    self.cpwvcmplsinboundifindex.is_set or
+                    self.cpwvcmplsinboundlsrxcindex.is_set or
+                    self.cpwvcmplsinboundrowstatus.is_set or
+                    self.cpwvcmplsinboundstoragetype.is_set or
+                    self.cpwvcmplsinboundtunnelindex.is_set or
+                    self.cpwvcmplsinboundtunnelinstance.is_set or
+                    self.cpwvcmplsinboundtunnellcllsr.is_set or
+                    self.cpwvcmplsinboundtunnelpeerlsr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundifindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundlsrxcindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundrowstatus.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundstoragetype.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundtunnelindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundtunnelinstance.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundtunnellcllsr.yfilter != YFilter.not_set or
+                    self.cpwvcmplsinboundtunnelpeerlsr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcMplsInboundEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwVcMplsInboundIndex='" + self.cpwvcmplsinboundindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsInboundTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcindex.is_set or self.cpwvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcindex.get_name_leafdata())
+                if (self.cpwvcmplsinboundindex.is_set or self.cpwvcmplsinboundindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundindex.get_name_leafdata())
+                if (self.cpwvcmplsinboundifindex.is_set or self.cpwvcmplsinboundifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundifindex.get_name_leafdata())
+                if (self.cpwvcmplsinboundlsrxcindex.is_set or self.cpwvcmplsinboundlsrxcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundlsrxcindex.get_name_leafdata())
+                if (self.cpwvcmplsinboundrowstatus.is_set or self.cpwvcmplsinboundrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundrowstatus.get_name_leafdata())
+                if (self.cpwvcmplsinboundstoragetype.is_set or self.cpwvcmplsinboundstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundstoragetype.get_name_leafdata())
+                if (self.cpwvcmplsinboundtunnelindex.is_set or self.cpwvcmplsinboundtunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundtunnelindex.get_name_leafdata())
+                if (self.cpwvcmplsinboundtunnelinstance.is_set or self.cpwvcmplsinboundtunnelinstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundtunnelinstance.get_name_leafdata())
+                if (self.cpwvcmplsinboundtunnellcllsr.is_set or self.cpwvcmplsinboundtunnellcllsr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundtunnellcllsr.get_name_leafdata())
+                if (self.cpwvcmplsinboundtunnelpeerlsr.is_set or self.cpwvcmplsinboundtunnelpeerlsr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsinboundtunnelpeerlsr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcIndex" or name == "cpwVcMplsInboundIndex" or name == "cpwVcMplsInboundIfIndex" or name == "cpwVcMplsInboundLsrXcIndex" or name == "cpwVcMplsInboundRowStatus" or name == "cpwVcMplsInboundStorageType" or name == "cpwVcMplsInboundTunnelIndex" or name == "cpwVcMplsInboundTunnelInstance" or name == "cpwVcMplsInboundTunnelLclLSR" or name == "cpwVcMplsInboundTunnelPeerLSR"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcIndex"):
+                    self.cpwvcindex = value
+                    self.cpwvcindex.value_namespace = name_space
+                    self.cpwvcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundIndex"):
+                    self.cpwvcmplsinboundindex = value
+                    self.cpwvcmplsinboundindex.value_namespace = name_space
+                    self.cpwvcmplsinboundindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundIfIndex"):
+                    self.cpwvcmplsinboundifindex = value
+                    self.cpwvcmplsinboundifindex.value_namespace = name_space
+                    self.cpwvcmplsinboundifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundLsrXcIndex"):
+                    self.cpwvcmplsinboundlsrxcindex = value
+                    self.cpwvcmplsinboundlsrxcindex.value_namespace = name_space
+                    self.cpwvcmplsinboundlsrxcindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundRowStatus"):
+                    self.cpwvcmplsinboundrowstatus = value
+                    self.cpwvcmplsinboundrowstatus.value_namespace = name_space
+                    self.cpwvcmplsinboundrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundStorageType"):
+                    self.cpwvcmplsinboundstoragetype = value
+                    self.cpwvcmplsinboundstoragetype.value_namespace = name_space
+                    self.cpwvcmplsinboundstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundTunnelIndex"):
+                    self.cpwvcmplsinboundtunnelindex = value
+                    self.cpwvcmplsinboundtunnelindex.value_namespace = name_space
+                    self.cpwvcmplsinboundtunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundTunnelInstance"):
+                    self.cpwvcmplsinboundtunnelinstance = value
+                    self.cpwvcmplsinboundtunnelinstance.value_namespace = name_space
+                    self.cpwvcmplsinboundtunnelinstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundTunnelLclLSR"):
+                    self.cpwvcmplsinboundtunnellcllsr = value
+                    self.cpwvcmplsinboundtunnellcllsr.value_namespace = name_space
+                    self.cpwvcmplsinboundtunnellcllsr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsInboundTunnelPeerLSR"):
+                    self.cpwvcmplsinboundtunnelpeerlsr = value
+                    self.cpwvcmplsinboundtunnelpeerlsr.value_namespace = name_space
+                    self.cpwvcmplsinboundtunnelpeerlsr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcmplsinboundentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcmplsinboundindex is not None:
-                    return True
-
-                if self.cpwvcmplsinboundifindex is not None:
-                    return True
-
-                if self.cpwvcmplsinboundlsrxcindex is not None:
-                    return True
-
-                if self.cpwvcmplsinboundrowstatus is not None:
-                    return True
-
-                if self.cpwvcmplsinboundstoragetype is not None:
-                    return True
-
-                if self.cpwvcmplsinboundtunnelindex is not None:
-                    return True
-
-                if self.cpwvcmplsinboundtunnelinstance is not None:
-                    return True
-
-                if self.cpwvcmplsinboundtunnellcllsr is not None:
-                    return True
-
-                if self.cpwvcmplsinboundtunnelpeerlsr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsInboundTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcmplsinboundentry is not None:
-                for child_ref in self.cpwvcmplsinboundentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcmplsinboundentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcMplsInboundTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcMplsInboundEntry"):
+                for c in self.cpwvcmplsinboundentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMplsMib.Cpwvcmplsinboundtable.Cpwvcmplsinboundentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcmplsinboundentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcMplsInboundEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-            return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsinboundtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcmplsnontemappingtable(object):
+    class Cpwvcmplsnontemappingtable(Entity):
         """
         This table maps an inbound/outbound Tunnel to a VC in non\- 
         TE applications.
@@ -838,13 +1401,39 @@ class CiscoIetfPwMplsMib(object):
         _revision = '2003-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcmplsnontemappingentry = YList()
-            self.cpwvcmplsnontemappingentry.parent = self
-            self.cpwvcmplsnontemappingentry.name = 'cpwvcmplsnontemappingentry'
+            super(CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable, self).__init__()
+
+            self.yang_name = "cpwVcMplsNonTeMappingTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+
+            self.cpwvcmplsnontemappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable, self).__setattr__(name, value)
 
 
-        class Cpwvcmplsnontemappingentry(object):
+        class Cpwvcmplsnontemappingentry(Entity):
             """
             A row in this table represents the association 
             between the PW VC and it's non TE MPLS outer Tunnel 
@@ -870,7 +1459,7 @@ class CiscoIetfPwMplsMib(object):
             .. attribute:: cpwvcmplsnontemappingtunneldirection  <key>
             
             	Identifies if the row represent an outbound or inbound   mapping
-            	**type**\:   :py:class:`CpwvcmplsnontemappingtunneldirectionEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry.CpwvcmplsnontemappingtunneldirectionEnum>`
+            	**type**\:   :py:class:`Cpwvcmplsnontemappingtunneldirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry.Cpwvcmplsnontemappingtunneldirection>`
             
             .. attribute:: cpwvcmplsnontemappingxctunnelindex  <key>
             
@@ -901,15 +1490,49 @@ class CiscoIetfPwMplsMib(object):
             _revision = '2003-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcmplsnontemappingtunneldirection = None
-                self.cpwvcmplsnontemappingxctunnelindex = None
-                self.cpwvcmplsnontemappingifindex = None
-                self.cpwvcmplsnontemappingvcindex = None
+                super(CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry, self).__init__()
 
-            class CpwvcmplsnontemappingtunneldirectionEnum(Enum):
+                self.yang_name = "cpwVcMplsNonTeMappingEntry"
+                self.yang_parent_name = "cpwVcMplsNonTeMappingTable"
+
+                self.cpwvcmplsnontemappingtunneldirection = YLeaf(YType.enumeration, "cpwVcMplsNonTeMappingTunnelDirection")
+
+                self.cpwvcmplsnontemappingxctunnelindex = YLeaf(YType.uint32, "cpwVcMplsNonTeMappingXcTunnelIndex")
+
+                self.cpwvcmplsnontemappingifindex = YLeaf(YType.int32, "cpwVcMplsNonTeMappingIfIndex")
+
+                self.cpwvcmplsnontemappingvcindex = YLeaf(YType.uint32, "cpwVcMplsNonTeMappingVcIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcmplsnontemappingtunneldirection",
+                                "cpwvcmplsnontemappingxctunnelindex",
+                                "cpwvcmplsnontemappingifindex",
+                                "cpwvcmplsnontemappingvcindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry, self).__setattr__(name, value)
+
+            class Cpwvcmplsnontemappingtunneldirection(Enum):
                 """
-                CpwvcmplsnontemappingtunneldirectionEnum
+                Cpwvcmplsnontemappingtunneldirection
 
                 Identifies if the row represent an outbound or inbound  
 
@@ -921,78 +1544,141 @@ class CiscoIetfPwMplsMib(object):
 
                 """
 
-                outbound = 1
+                outbound = Enum.YLeaf(1, "outbound")
 
-                inbound = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry.CpwvcmplsnontemappingtunneldirectionEnum']
+                inbound = Enum.YLeaf(2, "inbound")
 
 
-            @property
-            def _common_path(self):
-                if self.cpwvcmplsnontemappingtunneldirection is None:
-                    raise YPYModelError('Key property cpwvcmplsnontemappingtunneldirection is None')
-                if self.cpwvcmplsnontemappingxctunnelindex is None:
-                    raise YPYModelError('Key property cpwvcmplsnontemappingxctunnelindex is None')
-                if self.cpwvcmplsnontemappingifindex is None:
-                    raise YPYModelError('Key property cpwvcmplsnontemappingifindex is None')
-                if self.cpwvcmplsnontemappingvcindex is None:
-                    raise YPYModelError('Key property cpwvcmplsnontemappingvcindex is None')
+            def has_data(self):
+                return (
+                    self.cpwvcmplsnontemappingtunneldirection.is_set or
+                    self.cpwvcmplsnontemappingxctunnelindex.is_set or
+                    self.cpwvcmplsnontemappingifindex.is_set or
+                    self.cpwvcmplsnontemappingvcindex.is_set)
 
-                return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsNonTeMappingTable/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsNonTeMappingEntry[CISCO-IETF-PW-MPLS-MIB:cpwVcMplsNonTeMappingTunnelDirection = ' + str(self.cpwvcmplsnontemappingtunneldirection) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsNonTeMappingXcTunnelIndex = ' + str(self.cpwvcmplsnontemappingxctunnelindex) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsNonTeMappingIfIndex = ' + str(self.cpwvcmplsnontemappingifindex) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsNonTeMappingVcIndex = ' + str(self.cpwvcmplsnontemappingvcindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcmplsnontemappingtunneldirection.yfilter != YFilter.not_set or
+                    self.cpwvcmplsnontemappingxctunnelindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsnontemappingifindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplsnontemappingvcindex.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcMplsNonTeMappingEntry" + "[cpwVcMplsNonTeMappingTunnelDirection='" + self.cpwvcmplsnontemappingtunneldirection.get() + "']" + "[cpwVcMplsNonTeMappingXcTunnelIndex='" + self.cpwvcmplsnontemappingxctunnelindex.get() + "']" + "[cpwVcMplsNonTeMappingIfIndex='" + self.cpwvcmplsnontemappingifindex.get() + "']" + "[cpwVcMplsNonTeMappingVcIndex='" + self.cpwvcmplsnontemappingvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsNonTeMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcmplsnontemappingtunneldirection.is_set or self.cpwvcmplsnontemappingtunneldirection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsnontemappingtunneldirection.get_name_leafdata())
+                if (self.cpwvcmplsnontemappingxctunnelindex.is_set or self.cpwvcmplsnontemappingxctunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsnontemappingxctunnelindex.get_name_leafdata())
+                if (self.cpwvcmplsnontemappingifindex.is_set or self.cpwvcmplsnontemappingifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsnontemappingifindex.get_name_leafdata())
+                if (self.cpwvcmplsnontemappingvcindex.is_set or self.cpwvcmplsnontemappingvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplsnontemappingvcindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcMplsNonTeMappingTunnelDirection" or name == "cpwVcMplsNonTeMappingXcTunnelIndex" or name == "cpwVcMplsNonTeMappingIfIndex" or name == "cpwVcMplsNonTeMappingVcIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcmplsnontemappingtunneldirection is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcMplsNonTeMappingTunnelDirection"):
+                    self.cpwvcmplsnontemappingtunneldirection = value
+                    self.cpwvcmplsnontemappingtunneldirection.value_namespace = name_space
+                    self.cpwvcmplsnontemappingtunneldirection.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsNonTeMappingXcTunnelIndex"):
+                    self.cpwvcmplsnontemappingxctunnelindex = value
+                    self.cpwvcmplsnontemappingxctunnelindex.value_namespace = name_space
+                    self.cpwvcmplsnontemappingxctunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsNonTeMappingIfIndex"):
+                    self.cpwvcmplsnontemappingifindex = value
+                    self.cpwvcmplsnontemappingifindex.value_namespace = name_space
+                    self.cpwvcmplsnontemappingifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsNonTeMappingVcIndex"):
+                    self.cpwvcmplsnontemappingvcindex = value
+                    self.cpwvcmplsnontemappingvcindex.value_namespace = name_space
+                    self.cpwvcmplsnontemappingvcindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcmplsnontemappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcmplsnontemappingxctunnelindex is not None:
-                    return True
-
-                if self.cpwvcmplsnontemappingifindex is not None:
-                    return True
-
-                if self.cpwvcmplsnontemappingvcindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsNonTeMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcmplsnontemappingentry is not None:
-                for child_ref in self.cpwvcmplsnontemappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcmplsnontemappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcMplsNonTeMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcMplsNonTeMappingEntry"):
+                for c in self.cpwvcmplsnontemappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable.Cpwvcmplsnontemappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcmplsnontemappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcMplsNonTeMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-            return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cpwvcmplstemappingtable(object):
+    class Cpwvcmplstemappingtable(Entity):
         """
         This table maps an inbound/outbound Tunnel to a VC in  
         MPLS\-TE applications.
@@ -1010,13 +1696,39 @@ class CiscoIetfPwMplsMib(object):
         _revision = '2003-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.cpwvcmplstemappingentry = YList()
-            self.cpwvcmplstemappingentry.parent = self
-            self.cpwvcmplstemappingentry.name = 'cpwvcmplstemappingentry'
+            super(CiscoIetfPwMplsMib.Cpwvcmplstemappingtable, self).__init__()
+
+            self.yang_name = "cpwVcMplsTeMappingTable"
+            self.yang_parent_name = "CISCO-IETF-PW-MPLS-MIB"
+
+            self.cpwvcmplstemappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIetfPwMplsMib.Cpwvcmplstemappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIetfPwMplsMib.Cpwvcmplstemappingtable, self).__setattr__(name, value)
 
 
-        class Cpwvcmplstemappingentry(object):
+        class Cpwvcmplstemappingentry(Entity):
             """
             A row in this table represents the association 
             between a PW VC and it's MPLS\-TE outer Tunnel. 
@@ -1038,7 +1750,7 @@ class CiscoIetfPwMplsMib(object):
             .. attribute:: cpwvcmplstemappingtunneldirection  <key>
             
             	Identifies if the row represent an outbound or inbound   mapping
-            	**type**\:   :py:class:`CpwvcmplstemappingtunneldirectionEnum <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry.CpwvcmplstemappingtunneldirectionEnum>`
+            	**type**\:   :py:class:`Cpwvcmplstemappingtunneldirection <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB.CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry.Cpwvcmplstemappingtunneldirection>`
             
             .. attribute:: cpwvcmplstemappingtunnelindex  <key>
             
@@ -1083,17 +1795,55 @@ class CiscoIetfPwMplsMib(object):
             _revision = '2003-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.cpwvcmplstemappingtunneldirection = None
-                self.cpwvcmplstemappingtunnelindex = None
-                self.cpwvcmplstemappingtunnelinstance = None
-                self.cpwvcmplstemappingtunnelpeerlsrid = None
-                self.cpwvcmplstemappingtunnellocallsrid = None
-                self.cpwvcmplstemappingvcindex = None
+                super(CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry, self).__init__()
 
-            class CpwvcmplstemappingtunneldirectionEnum(Enum):
+                self.yang_name = "cpwVcMplsTeMappingEntry"
+                self.yang_parent_name = "cpwVcMplsTeMappingTable"
+
+                self.cpwvcmplstemappingtunneldirection = YLeaf(YType.enumeration, "cpwVcMplsTeMappingTunnelDirection")
+
+                self.cpwvcmplstemappingtunnelindex = YLeaf(YType.uint32, "cpwVcMplsTeMappingTunnelIndex")
+
+                self.cpwvcmplstemappingtunnelinstance = YLeaf(YType.uint32, "cpwVcMplsTeMappingTunnelInstance")
+
+                self.cpwvcmplstemappingtunnelpeerlsrid = YLeaf(YType.str, "cpwVcMplsTeMappingTunnelPeerLsrID")
+
+                self.cpwvcmplstemappingtunnellocallsrid = YLeaf(YType.str, "cpwVcMplsTeMappingTunnelLocalLsrID")
+
+                self.cpwvcmplstemappingvcindex = YLeaf(YType.uint32, "cpwVcMplsTeMappingVcIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cpwvcmplstemappingtunneldirection",
+                                "cpwvcmplstemappingtunnelindex",
+                                "cpwvcmplstemappingtunnelinstance",
+                                "cpwvcmplstemappingtunnelpeerlsrid",
+                                "cpwvcmplstemappingtunnellocallsrid",
+                                "cpwvcmplstemappingvcindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry, self).__setattr__(name, value)
+
+            class Cpwvcmplstemappingtunneldirection(Enum):
                 """
-                CpwvcmplstemappingtunneldirectionEnum
+                Cpwvcmplstemappingtunneldirection
 
                 Identifies if the row represent an outbound or inbound  
 
@@ -1105,119 +1855,249 @@ class CiscoIetfPwMplsMib(object):
 
                 """
 
-                outbound = 1
+                outbound = Enum.YLeaf(1, "outbound")
 
-                inbound = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                    return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry.CpwvcmplstemappingtunneldirectionEnum']
+                inbound = Enum.YLeaf(2, "inbound")
 
 
-            @property
-            def _common_path(self):
-                if self.cpwvcmplstemappingtunneldirection is None:
-                    raise YPYModelError('Key property cpwvcmplstemappingtunneldirection is None')
-                if self.cpwvcmplstemappingtunnelindex is None:
-                    raise YPYModelError('Key property cpwvcmplstemappingtunnelindex is None')
-                if self.cpwvcmplstemappingtunnelinstance is None:
-                    raise YPYModelError('Key property cpwvcmplstemappingtunnelinstance is None')
-                if self.cpwvcmplstemappingtunnelpeerlsrid is None:
-                    raise YPYModelError('Key property cpwvcmplstemappingtunnelpeerlsrid is None')
-                if self.cpwvcmplstemappingtunnellocallsrid is None:
-                    raise YPYModelError('Key property cpwvcmplstemappingtunnellocallsrid is None')
-                if self.cpwvcmplstemappingvcindex is None:
-                    raise YPYModelError('Key property cpwvcmplstemappingvcindex is None')
+            def has_data(self):
+                return (
+                    self.cpwvcmplstemappingtunneldirection.is_set or
+                    self.cpwvcmplstemappingtunnelindex.is_set or
+                    self.cpwvcmplstemappingtunnelinstance.is_set or
+                    self.cpwvcmplstemappingtunnelpeerlsrid.is_set or
+                    self.cpwvcmplstemappingtunnellocallsrid.is_set or
+                    self.cpwvcmplstemappingvcindex.is_set)
 
-                return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingTable/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingEntry[CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingTunnelDirection = ' + str(self.cpwvcmplstemappingtunneldirection) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingTunnelIndex = ' + str(self.cpwvcmplstemappingtunnelindex) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingTunnelInstance = ' + str(self.cpwvcmplstemappingtunnelinstance) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingTunnelPeerLsrID = ' + str(self.cpwvcmplstemappingtunnelpeerlsrid) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingTunnelLocalLsrID = ' + str(self.cpwvcmplstemappingtunnellocallsrid) + '][CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingVcIndex = ' + str(self.cpwvcmplstemappingvcindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cpwvcmplstemappingtunneldirection.yfilter != YFilter.not_set or
+                    self.cpwvcmplstemappingtunnelindex.yfilter != YFilter.not_set or
+                    self.cpwvcmplstemappingtunnelinstance.yfilter != YFilter.not_set or
+                    self.cpwvcmplstemappingtunnelpeerlsrid.yfilter != YFilter.not_set or
+                    self.cpwvcmplstemappingtunnellocallsrid.yfilter != YFilter.not_set or
+                    self.cpwvcmplstemappingvcindex.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cpwVcMplsTeMappingEntry" + "[cpwVcMplsTeMappingTunnelDirection='" + self.cpwvcmplstemappingtunneldirection.get() + "']" + "[cpwVcMplsTeMappingTunnelIndex='" + self.cpwvcmplstemappingtunnelindex.get() + "']" + "[cpwVcMplsTeMappingTunnelInstance='" + self.cpwvcmplstemappingtunnelinstance.get() + "']" + "[cpwVcMplsTeMappingTunnelPeerLsrID='" + self.cpwvcmplstemappingtunnelpeerlsrid.get() + "']" + "[cpwVcMplsTeMappingTunnelLocalLsrID='" + self.cpwvcmplstemappingtunnellocallsrid.get() + "']" + "[cpwVcMplsTeMappingVcIndex='" + self.cpwvcmplstemappingvcindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTeMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cpwvcmplstemappingtunneldirection.is_set or self.cpwvcmplstemappingtunneldirection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplstemappingtunneldirection.get_name_leafdata())
+                if (self.cpwvcmplstemappingtunnelindex.is_set or self.cpwvcmplstemappingtunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplstemappingtunnelindex.get_name_leafdata())
+                if (self.cpwvcmplstemappingtunnelinstance.is_set or self.cpwvcmplstemappingtunnelinstance.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplstemappingtunnelinstance.get_name_leafdata())
+                if (self.cpwvcmplstemappingtunnelpeerlsrid.is_set or self.cpwvcmplstemappingtunnelpeerlsrid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplstemappingtunnelpeerlsrid.get_name_leafdata())
+                if (self.cpwvcmplstemappingtunnellocallsrid.is_set or self.cpwvcmplstemappingtunnellocallsrid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplstemappingtunnellocallsrid.get_name_leafdata())
+                if (self.cpwvcmplstemappingvcindex.is_set or self.cpwvcmplstemappingvcindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cpwvcmplstemappingvcindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpwVcMplsTeMappingTunnelDirection" or name == "cpwVcMplsTeMappingTunnelIndex" or name == "cpwVcMplsTeMappingTunnelInstance" or name == "cpwVcMplsTeMappingTunnelPeerLsrID" or name == "cpwVcMplsTeMappingTunnelLocalLsrID" or name == "cpwVcMplsTeMappingVcIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpwvcmplstemappingtunneldirection is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cpwVcMplsTeMappingTunnelDirection"):
+                    self.cpwvcmplstemappingtunneldirection = value
+                    self.cpwvcmplstemappingtunneldirection.value_namespace = name_space
+                    self.cpwvcmplstemappingtunneldirection.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsTeMappingTunnelIndex"):
+                    self.cpwvcmplstemappingtunnelindex = value
+                    self.cpwvcmplstemappingtunnelindex.value_namespace = name_space
+                    self.cpwvcmplstemappingtunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsTeMappingTunnelInstance"):
+                    self.cpwvcmplstemappingtunnelinstance = value
+                    self.cpwvcmplstemappingtunnelinstance.value_namespace = name_space
+                    self.cpwvcmplstemappingtunnelinstance.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsTeMappingTunnelPeerLsrID"):
+                    self.cpwvcmplstemappingtunnelpeerlsrid = value
+                    self.cpwvcmplstemappingtunnelpeerlsrid.value_namespace = name_space
+                    self.cpwvcmplstemappingtunnelpeerlsrid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsTeMappingTunnelLocalLsrID"):
+                    self.cpwvcmplstemappingtunnellocallsrid = value
+                    self.cpwvcmplstemappingtunnellocallsrid.value_namespace = name_space
+                    self.cpwvcmplstemappingtunnellocallsrid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cpwVcMplsTeMappingVcIndex"):
+                    self.cpwvcmplstemappingvcindex = value
+                    self.cpwvcmplstemappingvcindex.value_namespace = name_space
+                    self.cpwvcmplstemappingvcindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cpwvcmplstemappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cpwvcmplstemappingtunnelindex is not None:
-                    return True
-
-                if self.cpwvcmplstemappingtunnelinstance is not None:
-                    return True
-
-                if self.cpwvcmplstemappingtunnelpeerlsrid is not None:
-                    return True
-
-                if self.cpwvcmplstemappingtunnellocallsrid is not None:
-                    return True
-
-                if self.cpwvcmplstemappingvcindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-                return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/CISCO-IETF-PW-MPLS-MIB:cpwVcMplsTeMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cpwvcmplstemappingentry is not None:
-                for child_ref in self.cpwvcmplstemappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cpwvcmplstemappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cpwVcMplsTeMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cpwVcMplsTeMappingEntry"):
+                for c in self.cpwvcmplstemappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIetfPwMplsMib.Cpwvcmplstemappingtable.Cpwvcmplstemappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cpwvcmplstemappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cpwVcMplsTeMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-            return meta._meta_table['CiscoIetfPwMplsMib.Cpwvcmplstemappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cpwvcmplsinboundtable is not None and self.cpwvcmplsinboundtable.has_data()) or
+            (self.cpwvcmplsnontemappingtable is not None and self.cpwvcmplsnontemappingtable.has_data()) or
+            (self.cpwvcmplsobjects is not None and self.cpwvcmplsobjects.has_data()) or
+            (self.cpwvcmplsoutboundtable is not None and self.cpwvcmplsoutboundtable.has_data()) or
+            (self.cpwvcmplstable is not None and self.cpwvcmplstable.has_data()) or
+            (self.cpwvcmplstemappingtable is not None and self.cpwvcmplstemappingtable.has_data()))
 
-        return '/CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cpwvcmplsinboundtable is not None and self.cpwvcmplsinboundtable.has_operation()) or
+            (self.cpwvcmplsnontemappingtable is not None and self.cpwvcmplsnontemappingtable.has_operation()) or
+            (self.cpwvcmplsobjects is not None and self.cpwvcmplsobjects.has_operation()) or
+            (self.cpwvcmplsoutboundtable is not None and self.cpwvcmplsoutboundtable.has_operation()) or
+            (self.cpwvcmplstable is not None and self.cpwvcmplstable.has_operation()) or
+            (self.cpwvcmplstemappingtable is not None and self.cpwvcmplstemappingtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cpwVcMplsInboundTable"):
+            if (self.cpwvcmplsinboundtable is None):
+                self.cpwvcmplsinboundtable = CiscoIetfPwMplsMib.Cpwvcmplsinboundtable()
+                self.cpwvcmplsinboundtable.parent = self
+                self._children_name_map["cpwvcmplsinboundtable"] = "cpwVcMplsInboundTable"
+            return self.cpwvcmplsinboundtable
+
+        if (child_yang_name == "cpwVcMplsNonTeMappingTable"):
+            if (self.cpwvcmplsnontemappingtable is None):
+                self.cpwvcmplsnontemappingtable = CiscoIetfPwMplsMib.Cpwvcmplsnontemappingtable()
+                self.cpwvcmplsnontemappingtable.parent = self
+                self._children_name_map["cpwvcmplsnontemappingtable"] = "cpwVcMplsNonTeMappingTable"
+            return self.cpwvcmplsnontemappingtable
+
+        if (child_yang_name == "cpwVcMplsObjects"):
+            if (self.cpwvcmplsobjects is None):
+                self.cpwvcmplsobjects = CiscoIetfPwMplsMib.Cpwvcmplsobjects()
+                self.cpwvcmplsobjects.parent = self
+                self._children_name_map["cpwvcmplsobjects"] = "cpwVcMplsObjects"
+            return self.cpwvcmplsobjects
+
+        if (child_yang_name == "cpwVcMplsOutboundTable"):
+            if (self.cpwvcmplsoutboundtable is None):
+                self.cpwvcmplsoutboundtable = CiscoIetfPwMplsMib.Cpwvcmplsoutboundtable()
+                self.cpwvcmplsoutboundtable.parent = self
+                self._children_name_map["cpwvcmplsoutboundtable"] = "cpwVcMplsOutboundTable"
+            return self.cpwvcmplsoutboundtable
+
+        if (child_yang_name == "cpwVcMplsTable"):
+            if (self.cpwvcmplstable is None):
+                self.cpwvcmplstable = CiscoIetfPwMplsMib.Cpwvcmplstable()
+                self.cpwvcmplstable.parent = self
+                self._children_name_map["cpwvcmplstable"] = "cpwVcMplsTable"
+            return self.cpwvcmplstable
+
+        if (child_yang_name == "cpwVcMplsTeMappingTable"):
+            if (self.cpwvcmplstemappingtable is None):
+                self.cpwvcmplstemappingtable = CiscoIetfPwMplsMib.Cpwvcmplstemappingtable()
+                self.cpwvcmplstemappingtable.parent = self
+                self._children_name_map["cpwvcmplstemappingtable"] = "cpwVcMplsTeMappingTable"
+            return self.cpwvcmplstemappingtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cpwVcMplsInboundTable" or name == "cpwVcMplsNonTeMappingTable" or name == "cpwVcMplsObjects" or name == "cpwVcMplsOutboundTable" or name == "cpwVcMplsTable" or name == "cpwVcMplsTeMappingTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cpwvcmplsinboundtable is not None and self.cpwvcmplsinboundtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cpwvcmplsnontemappingtable is not None and self.cpwvcmplsnontemappingtable._has_data():
-            return True
-
-        if self.cpwvcmplsobjects is not None and self.cpwvcmplsobjects._has_data():
-            return True
-
-        if self.cpwvcmplsoutboundtable is not None and self.cpwvcmplsoutboundtable._has_data():
-            return True
-
-        if self.cpwvcmplstable is not None and self.cpwvcmplstable._has_data():
-            return True
-
-        if self.cpwvcmplstemappingtable is not None and self.cpwvcmplstemappingtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IETF_PW_MPLS_MIB as meta
-        return meta._meta_table['CiscoIetfPwMplsMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIetfPwMplsMib()
+        return self._top_entity
 

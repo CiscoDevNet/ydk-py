@@ -9,21 +9,15 @@ version of this MIB module is part of RFC 3413;
 see the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class SnmpProxyMib(object):
+class SnmpProxyMib(Entity):
     """
     
     
@@ -40,11 +34,19 @@ class SnmpProxyMib(object):
     _revision = '2002-10-14'
 
     def __init__(self):
+        super(SnmpProxyMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "SNMP-PROXY-MIB"
+        self.yang_parent_name = "SNMP-PROXY-MIB"
+
         self.snmpproxytable = SnmpProxyMib.Snmpproxytable()
         self.snmpproxytable.parent = self
+        self._children_name_map["snmpproxytable"] = "snmpProxyTable"
+        self._children_yang_names.add("snmpProxyTable")
 
 
-    class Snmpproxytable(object):
+    class Snmpproxytable(Entity):
         """
         The table of translation parameters used by proxy forwarder
         applications for forwarding SNMP messages.
@@ -62,13 +64,39 @@ class SnmpProxyMib(object):
         _revision = '2002-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.snmpproxyentry = YList()
-            self.snmpproxyentry.parent = self
-            self.snmpproxyentry.name = 'snmpproxyentry'
+            super(SnmpProxyMib.Snmpproxytable, self).__init__()
+
+            self.yang_name = "snmpProxyTable"
+            self.yang_parent_name = "SNMP-PROXY-MIB"
+
+            self.snmpproxyentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SnmpProxyMib.Snmpproxytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SnmpProxyMib.Snmpproxytable, self).__setattr__(name, value)
 
 
-        class Snmpproxyentry(object):
+        class Snmpproxyentry(Entity):
             """
             A set of translation parameters used by a proxy forwarder
             application for forwarding SNMP messages.
@@ -103,7 +131,7 @@ class SnmpProxyMib(object):
             .. attribute:: snmpproxyrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  The following objects may not be modified while the value of this object is active(1)\:     \- snmpProxyType     \- snmpProxyContextEngineID     \- snmpProxyContextName     \- snmpProxyTargetParamsIn     \- snmpProxySingleTargetOut     \- snmpProxyMultipleTargetOut
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: snmpproxysingletargetout
             
@@ -113,7 +141,7 @@ class SnmpProxyMib(object):
             .. attribute:: snmpproxystoragetype
             
             	The storage type of this conceptual row. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: snmpproxytargetparamsin
             
@@ -123,7 +151,7 @@ class SnmpProxyMib(object):
             .. attribute:: snmpproxytype
             
             	The type of message that may be forwarded using the translation parameters defined by this entry
-            	**type**\:   :py:class:`SnmpproxytypeEnum <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SnmpProxyMib.Snmpproxytable.Snmpproxyentry.SnmpproxytypeEnum>`
+            	**type**\:   :py:class:`Snmpproxytype <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SnmpProxyMib.Snmpproxytable.Snmpproxyentry.Snmpproxytype>`
             
             
 
@@ -133,20 +161,64 @@ class SnmpProxyMib(object):
             _revision = '2002-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.snmpproxyname = None
-                self.snmpproxycontextengineid = None
-                self.snmpproxycontextname = None
-                self.snmpproxymultipletargetout = None
-                self.snmpproxyrowstatus = None
-                self.snmpproxysingletargetout = None
-                self.snmpproxystoragetype = None
-                self.snmpproxytargetparamsin = None
-                self.snmpproxytype = None
+                super(SnmpProxyMib.Snmpproxytable.Snmpproxyentry, self).__init__()
 
-            class SnmpproxytypeEnum(Enum):
+                self.yang_name = "snmpProxyEntry"
+                self.yang_parent_name = "snmpProxyTable"
+
+                self.snmpproxyname = YLeaf(YType.str, "snmpProxyName")
+
+                self.snmpproxycontextengineid = YLeaf(YType.str, "snmpProxyContextEngineID")
+
+                self.snmpproxycontextname = YLeaf(YType.str, "snmpProxyContextName")
+
+                self.snmpproxymultipletargetout = YLeaf(YType.str, "snmpProxyMultipleTargetOut")
+
+                self.snmpproxyrowstatus = YLeaf(YType.enumeration, "snmpProxyRowStatus")
+
+                self.snmpproxysingletargetout = YLeaf(YType.str, "snmpProxySingleTargetOut")
+
+                self.snmpproxystoragetype = YLeaf(YType.enumeration, "snmpProxyStorageType")
+
+                self.snmpproxytargetparamsin = YLeaf(YType.str, "snmpProxyTargetParamsIn")
+
+                self.snmpproxytype = YLeaf(YType.enumeration, "snmpProxyType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("snmpproxyname",
+                                "snmpproxycontextengineid",
+                                "snmpproxycontextname",
+                                "snmpproxymultipletargetout",
+                                "snmpproxyrowstatus",
+                                "snmpproxysingletargetout",
+                                "snmpproxystoragetype",
+                                "snmpproxytargetparamsin",
+                                "snmpproxytype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SnmpProxyMib.Snmpproxytable.Snmpproxyentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SnmpProxyMib.Snmpproxytable.Snmpproxyentry, self).__setattr__(name, value)
+
+            class Snmpproxytype(Enum):
                 """
-                SnmpproxytypeEnum
+                Snmpproxytype
 
                 The type of message that may be forwarded using
 
@@ -162,107 +234,231 @@ class SnmpProxyMib(object):
 
                 """
 
-                read = 1
+                read = Enum.YLeaf(1, "read")
 
-                write = 2
+                write = Enum.YLeaf(2, "write")
 
-                trap = 3
+                trap = Enum.YLeaf(3, "trap")
 
-                inform = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _SNMP_PROXY_MIB as meta
-                    return meta._meta_table['SnmpProxyMib.Snmpproxytable.Snmpproxyentry.SnmpproxytypeEnum']
+                inform = Enum.YLeaf(4, "inform")
 
 
-            @property
-            def _common_path(self):
-                if self.snmpproxyname is None:
-                    raise YPYModelError('Key property snmpproxyname is None')
+            def has_data(self):
+                return (
+                    self.snmpproxyname.is_set or
+                    self.snmpproxycontextengineid.is_set or
+                    self.snmpproxycontextname.is_set or
+                    self.snmpproxymultipletargetout.is_set or
+                    self.snmpproxyrowstatus.is_set or
+                    self.snmpproxysingletargetout.is_set or
+                    self.snmpproxystoragetype.is_set or
+                    self.snmpproxytargetparamsin.is_set or
+                    self.snmpproxytype.is_set)
 
-                return '/SNMP-PROXY-MIB:SNMP-PROXY-MIB/SNMP-PROXY-MIB:snmpProxyTable/SNMP-PROXY-MIB:snmpProxyEntry[SNMP-PROXY-MIB:snmpProxyName = ' + str(self.snmpproxyname) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.snmpproxyname.yfilter != YFilter.not_set or
+                    self.snmpproxycontextengineid.yfilter != YFilter.not_set or
+                    self.snmpproxycontextname.yfilter != YFilter.not_set or
+                    self.snmpproxymultipletargetout.yfilter != YFilter.not_set or
+                    self.snmpproxyrowstatus.yfilter != YFilter.not_set or
+                    self.snmpproxysingletargetout.yfilter != YFilter.not_set or
+                    self.snmpproxystoragetype.yfilter != YFilter.not_set or
+                    self.snmpproxytargetparamsin.yfilter != YFilter.not_set or
+                    self.snmpproxytype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "snmpProxyEntry" + "[snmpProxyName='" + self.snmpproxyname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SNMP-PROXY-MIB:SNMP-PROXY-MIB/snmpProxyTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.snmpproxyname.is_set or self.snmpproxyname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxyname.get_name_leafdata())
+                if (self.snmpproxycontextengineid.is_set or self.snmpproxycontextengineid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxycontextengineid.get_name_leafdata())
+                if (self.snmpproxycontextname.is_set or self.snmpproxycontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxycontextname.get_name_leafdata())
+                if (self.snmpproxymultipletargetout.is_set or self.snmpproxymultipletargetout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxymultipletargetout.get_name_leafdata())
+                if (self.snmpproxyrowstatus.is_set or self.snmpproxyrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxyrowstatus.get_name_leafdata())
+                if (self.snmpproxysingletargetout.is_set or self.snmpproxysingletargetout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxysingletargetout.get_name_leafdata())
+                if (self.snmpproxystoragetype.is_set or self.snmpproxystoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxystoragetype.get_name_leafdata())
+                if (self.snmpproxytargetparamsin.is_set or self.snmpproxytargetparamsin.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxytargetparamsin.get_name_leafdata())
+                if (self.snmpproxytype.is_set or self.snmpproxytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmpproxytype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "snmpProxyName" or name == "snmpProxyContextEngineID" or name == "snmpProxyContextName" or name == "snmpProxyMultipleTargetOut" or name == "snmpProxyRowStatus" or name == "snmpProxySingleTargetOut" or name == "snmpProxyStorageType" or name == "snmpProxyTargetParamsIn" or name == "snmpProxyType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.snmpproxyname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "snmpProxyName"):
+                    self.snmpproxyname = value
+                    self.snmpproxyname.value_namespace = name_space
+                    self.snmpproxyname.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxyContextEngineID"):
+                    self.snmpproxycontextengineid = value
+                    self.snmpproxycontextengineid.value_namespace = name_space
+                    self.snmpproxycontextengineid.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxyContextName"):
+                    self.snmpproxycontextname = value
+                    self.snmpproxycontextname.value_namespace = name_space
+                    self.snmpproxycontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxyMultipleTargetOut"):
+                    self.snmpproxymultipletargetout = value
+                    self.snmpproxymultipletargetout.value_namespace = name_space
+                    self.snmpproxymultipletargetout.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxyRowStatus"):
+                    self.snmpproxyrowstatus = value
+                    self.snmpproxyrowstatus.value_namespace = name_space
+                    self.snmpproxyrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxySingleTargetOut"):
+                    self.snmpproxysingletargetout = value
+                    self.snmpproxysingletargetout.value_namespace = name_space
+                    self.snmpproxysingletargetout.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxyStorageType"):
+                    self.snmpproxystoragetype = value
+                    self.snmpproxystoragetype.value_namespace = name_space
+                    self.snmpproxystoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxyTargetParamsIn"):
+                    self.snmpproxytargetparamsin = value
+                    self.snmpproxytargetparamsin.value_namespace = name_space
+                    self.snmpproxytargetparamsin.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpProxyType"):
+                    self.snmpproxytype = value
+                    self.snmpproxytype.value_namespace = name_space
+                    self.snmpproxytype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.snmpproxyentry:
+                if (c.has_data()):
                     return True
-
-                if self.snmpproxycontextengineid is not None:
-                    return True
-
-                if self.snmpproxycontextname is not None:
-                    return True
-
-                if self.snmpproxymultipletargetout is not None:
-                    return True
-
-                if self.snmpproxyrowstatus is not None:
-                    return True
-
-                if self.snmpproxysingletargetout is not None:
-                    return True
-
-                if self.snmpproxystoragetype is not None:
-                    return True
-
-                if self.snmpproxytargetparamsin is not None:
-                    return True
-
-                if self.snmpproxytype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SNMP_PROXY_MIB as meta
-                return meta._meta_table['SnmpProxyMib.Snmpproxytable.Snmpproxyentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SNMP-PROXY-MIB:SNMP-PROXY-MIB/SNMP-PROXY-MIB:snmpProxyTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.snmpproxyentry is not None:
-                for child_ref in self.snmpproxyentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.snmpproxyentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "snmpProxyTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMP-PROXY-MIB:SNMP-PROXY-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "snmpProxyEntry"):
+                for c in self.snmpproxyentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SnmpProxyMib.Snmpproxytable.Snmpproxyentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.snmpproxyentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "snmpProxyEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMP_PROXY_MIB as meta
-            return meta._meta_table['SnmpProxyMib.Snmpproxytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.snmpproxytable is not None and self.snmpproxytable.has_data())
 
-        return '/SNMP-PROXY-MIB:SNMP-PROXY-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.snmpproxytable is not None and self.snmpproxytable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "SNMP-PROXY-MIB:SNMP-PROXY-MIB" + path_buffer
 
-    def _has_data(self):
-        if self.snmpproxytable is not None and self.snmpproxytable._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "snmpProxyTable"):
+            if (self.snmpproxytable is None):
+                self.snmpproxytable = SnmpProxyMib.Snmpproxytable()
+                self.snmpproxytable.parent = self
+                self._children_name_map["snmpproxytable"] = "snmpProxyTable"
+            return self.snmpproxytable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "snmpProxyTable"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMP_PROXY_MIB as meta
-        return meta._meta_table['SnmpProxyMib']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SnmpProxyMib()
+        return self._top_entity
 

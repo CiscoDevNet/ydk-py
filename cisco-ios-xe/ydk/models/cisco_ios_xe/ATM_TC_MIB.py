@@ -5,23 +5,16 @@ and OBJECT\-IDENTITY Objects to be used by
 ATM systems.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentityIdentity
-
-class AtmconncasttypeEnum(Enum):
+class Atmconncasttype(Enum):
     """
-    AtmconncasttypeEnum
+    Atmconncasttype
 
     The type of topology of a connection (point\-
 
@@ -63,22 +56,16 @@ class AtmconncasttypeEnum(Enum):
 
     """
 
-    p2p = 1
+    p2p = Enum.YLeaf(1, "p2p")
 
-    p2mpRoot = 2
+    p2mpRoot = Enum.YLeaf(2, "p2mpRoot")
 
-    p2mpLeaf = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmconncasttypeEnum']
+    p2mpLeaf = Enum.YLeaf(3, "p2mpLeaf")
 
 
-class AtmconnkindEnum(Enum):
+class Atmconnkind(Enum):
     """
-    AtmconnkindEnum
+    Atmconnkind
 
     The type of call control used for an ATM
 
@@ -156,26 +143,20 @@ class AtmconnkindEnum(Enum):
 
     """
 
-    pvc = 1
+    pvc = Enum.YLeaf(1, "pvc")
 
-    svcIncoming = 2
+    svcIncoming = Enum.YLeaf(2, "svcIncoming")
 
-    svcOutgoing = 3
+    svcOutgoing = Enum.YLeaf(3, "svcOutgoing")
 
-    spvcInitiator = 4
+    spvcInitiator = Enum.YLeaf(4, "spvcInitiator")
 
-    spvcTarget = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmconnkindEnum']
+    spvcTarget = Enum.YLeaf(5, "spvcTarget")
 
 
-class AtminterfacetypeEnum(Enum):
+class Atminterfacetype(Enum):
     """
-    AtminterfacetypeEnum
+    Atminterfacetype
 
     The connection setup procedures used for the
 
@@ -311,42 +292,36 @@ class AtminterfacetypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    autoConfig = 2
+    autoConfig = Enum.YLeaf(2, "autoConfig")
 
-    ituDss2 = 3
+    ituDss2 = Enum.YLeaf(3, "ituDss2")
 
-    atmfUni3Dot0 = 4
+    atmfUni3Dot0 = Enum.YLeaf(4, "atmfUni3Dot0")
 
-    atmfUni3Dot1 = 5
+    atmfUni3Dot1 = Enum.YLeaf(5, "atmfUni3Dot1")
 
-    atmfUni4Dot0 = 6
+    atmfUni4Dot0 = Enum.YLeaf(6, "atmfUni4Dot0")
 
-    atmfIispUni3Dot0 = 7
+    atmfIispUni3Dot0 = Enum.YLeaf(7, "atmfIispUni3Dot0")
 
-    atmfIispUni3Dot1 = 8
+    atmfIispUni3Dot1 = Enum.YLeaf(8, "atmfIispUni3Dot1")
 
-    atmfIispUni4Dot0 = 9
+    atmfIispUni4Dot0 = Enum.YLeaf(9, "atmfIispUni4Dot0")
 
-    atmfPnni1Dot0 = 10
+    atmfPnni1Dot0 = Enum.YLeaf(10, "atmfPnni1Dot0")
 
-    atmfBici2Dot0 = 11
+    atmfBici2Dot0 = Enum.YLeaf(11, "atmfBici2Dot0")
 
-    atmfUniPvcOnly = 12
+    atmfUniPvcOnly = Enum.YLeaf(12, "atmfUniPvcOnly")
 
-    atmfNniPvcOnly = 13
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtminterfacetypeEnum']
+    atmfNniPvcOnly = Enum.YLeaf(13, "atmfNniPvcOnly")
 
 
-class AtmservicecategoryEnum(Enum):
+class Atmservicecategory(Enum):
     """
-    AtmservicecategoryEnum
+    Atmservicecategory
 
     The service category for a connection.
 
@@ -364,28 +339,22 @@ class AtmservicecategoryEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    cbr = 2
+    cbr = Enum.YLeaf(2, "cbr")
 
-    rtVbr = 3
+    rtVbr = Enum.YLeaf(3, "rtVbr")
 
-    nrtVbr = 4
+    nrtVbr = Enum.YLeaf(4, "nrtVbr")
 
-    abr = 5
+    abr = Enum.YLeaf(5, "abr")
 
-    ubr = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmservicecategoryEnum']
+    ubr = Enum.YLeaf(6, "ubr")
 
 
-class AtmvorxadminstatusEnum(Enum):
+class Atmvorxadminstatus(Enum):
     """
-    AtmvorxadminstatusEnum
+    Atmvorxadminstatus
 
     The value determines the desired administrative
 
@@ -403,20 +372,14 @@ class AtmvorxadminstatusEnum(Enum):
 
     """
 
-    up = 1
+    up = Enum.YLeaf(1, "up")
 
-    down = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmvorxadminstatusEnum']
+    down = Enum.YLeaf(2, "down")
 
 
-class AtmvorxoperstatusEnum(Enum):
+class Atmvorxoperstatus(Enum):
     """
-    AtmvorxoperstatusEnum
+    Atmvorxoperstatus
 
     The value determines the operational status of a
 
@@ -442,25 +405,19 @@ class AtmvorxoperstatusEnum(Enum):
 
     """
 
-    up = 1
+    up = Enum.YLeaf(1, "up")
 
-    down = 2
+    down = Enum.YLeaf(2, "down")
 
-    unknown = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmvorxoperstatusEnum']
+    unknown = Enum.YLeaf(3, "unknown")
 
 
 
-class AtmclptransparentscrIdentity(ObjectIdentityIdentity):
+class Atmnoclpscrcdvt(Identity):
     """
-    This traffic descriptor type is for the CLP\-
-    transparent model with Sustained Cell Rate.
-    The use of the parameter vector for this type\:
+    This traffic descriptor type is for no CLP
+    with Sustained Cell Rate.  The use of the
+    parameter vector for this type\:
     Parameter 1\: peak cell rate in cells/second
                  for CLP=0+1 traffic
     Parameter 2\: sustainable cell rate in cells/second
@@ -469,15 +426,13 @@ class AtmclptransparentscrIdentity(ObjectIdentityIdentity):
     Parameter 4\: CDVT in tenths of microseconds
     Parameter 5\: not used.
     
-    This traffic descriptor type is applicable to
-    connections following the VBR.1 conformance
-    definition.
-    
-    Connections specifying this traffic descriptor
-    type will be rejected at UNI 3.0 or UNI 3.1
-    interfaces.  For a similar traffic descriptor
-    type that can be accepted at UNI 3.0 and
-    UNI 3.1 interfaces, see atmNoClpScr.
+    This traffic descriptor type is applicable
+    to VBR connections following the UNI 3.0/3.1
+    conformance definition for PCR CLP=0+1 and
+    SCR CLP=0+1.  These VBR connections
+    differ from VBR.1 connections in that
+    the CLR objective applies only to the CLP=0
+    cell flow.
     
     
 
@@ -487,15 +442,132 @@ class AtmclptransparentscrIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclptransparentscrIdentity']['meta_info']
+        super(Atmnoclpscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScrCdvt")
 
 
-class AtmclpnotaggingmcrIdentity(ObjectIdentityIdentity):
+class Atmclptaggingnoscr(Identity):
+    """
+    This traffic descriptor is for CLP with
+    tagging and no Sustained Cell Rate.  The use
+    of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: peak cell rate in cells/second
+                 for CLP=0 traffic, excess
+                 tagged as CLP=1
+    Parameter 3\: not used
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(Atmclptaggingnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingNoScr")
+
+
+class Atmclpnotaggingnoscr(Identity):
+    """
+    This traffic descriptor is for CLP without
+    tagging and no Sustained Cell Rate.  The use
+    of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: peak cell rate in cells/second
+                 for CLP=0 traffic
+    Parameter 3\: not used
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(Atmclpnotaggingnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingNoScr")
+
+
+class Atmclpnotaggingscrcdvt(Identity):
+    """
+    This traffic descriptor type is for CLP with
+    Sustained Cell Rate and no tagging.  The use
+    of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: sustainable cell rate in cells/second
+                 for CLP=0 traffic
+    Parameter 3\: maximum burst size in cells
+    Parameter 4\: CDVT in tenths of microseconds
+    Parameter 5\: not used.
+    
+    This traffic descriptor type is applicable to
+    connections following the VBR.2 conformance
+    definition.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(Atmclpnotaggingscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScrCdvt")
+
+
+class Atmnotrafficdescriptor(Identity):
+    """
+    This identifies the no ATM traffic
+    descriptor type.  Parameters 1, 2, 3, 4,
+    and 5 are not used.  This traffic descriptor
+    type can be used for best effort traffic.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(Atmnotrafficdescriptor, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoTrafficDescriptor")
+
+
+class Atmnoclptaggingnoscr(Identity):
+    """
+    This traffic descriptor type is for no CLP
+    with tagging and no Sustained Cell Rate.  The
+    use of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: CDVT in tenths of microseconds
+    Parameter 3\: not used
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    This traffic descriptor type is applicable to
+    connections following the UBR.2 conformance
+    definition .
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(Atmnoclptaggingnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpTaggingNoScr")
+
+
+class Atmclpnotaggingmcr(Identity):
     """
     This traffic descriptor type is for CLP with
     Minimum Cell Rate and no tagging.  The use of
@@ -515,15 +587,72 @@ class AtmclpnotaggingmcrIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclpnotaggingmcrIdentity']['meta_info']
+        super(Atmclpnotaggingmcr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingMcr")
 
 
-class AtmnoclpnoscrcdvtIdentity(ObjectIdentityIdentity):
+class Atmclptaggingscrcdvt(Identity):
+    """
+    This traffic descriptor type is for CLP with
+    tagging and Sustained Cell Rate.  The use of
+    the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: sustainable cell rate in cells/second
+                 for CLP=0 traffic, excess tagged as
+                 CLP=1
+    Parameter 3\: maximum burst size in cells
+    Parameter 4\: CDVT in tenths of microseconds
+    Parameter 5\: not used.
+    
+    This traffic descriptor type is applicable to
+    connections following the VBR.3 conformance
+    definition.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(Atmclptaggingscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScrCdvt")
+
+
+class Atmclptransparentnoscr(Identity):
+    """
+    This traffic descriptor type is for the CLP\-
+    transparent model and no Sustained Cell Rate.
+    The use of the parameter vector for this type\:
+    Parameter 1\: peak cell rate in cells/second
+                 for CLP=0+1 traffic
+    Parameter 2\: CDVT in tenths of microseconds
+    Parameter 3\: not used
+    Parameter 4\: not used
+    Parameter 5\: not used.
+    
+    This traffic descriptor type is applicable to
+    connections following the CBR.1 conformance
+    definition.
+    
+    Connections specifying this traffic descriptor
+    type will be rejected at UNI 3.0 or UNI 3.1
+    interfaces.  For a similar traffic descriptor
+    type that can be accepted at UNI 3.0 and
+    UNI 3.1 interfaces, see atmNoClpNoScr.
+    
+    
+
+    """
+
+    _prefix = 'ATM-TC-MIB'
+    _revision = '1998-10-19'
+
+    def __init__(self):
+        super(Atmclptransparentnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentNoScr")
+
+
+class Atmnoclpnoscrcdvt(Identity):
     """
     This traffic descriptor type is for no CLP
     and no Sustained Cell Rate.  The use of the
@@ -554,31 +683,31 @@ class AtmnoclpnoscrcdvtIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmnoclpnoscrcdvtIdentity']['meta_info']
+        super(Atmnoclpnoscrcdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScrCdvt")
 
 
-class AtmclptaggingscrcdvtIdentity(ObjectIdentityIdentity):
+class Atmclptransparentscr(Identity):
     """
-    This traffic descriptor type is for CLP with
-    tagging and Sustained Cell Rate.  The use of
-    the parameter vector for this type\:
+    This traffic descriptor type is for the CLP\-
+    transparent model with Sustained Cell Rate.
+    The use of the parameter vector for this type\:
     Parameter 1\: peak cell rate in cells/second
                  for CLP=0+1 traffic
     Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0 traffic, excess tagged as
-                 CLP=1
+                 for CLP=0+1 traffic
     Parameter 3\: maximum burst size in cells
     Parameter 4\: CDVT in tenths of microseconds
     Parameter 5\: not used.
     
     This traffic descriptor type is applicable to
-    connections following the VBR.3 conformance
+    connections following the VBR.1 conformance
     definition.
+    
+    Connections specifying this traffic descriptor
+    type will be rejected at UNI 3.0 or UNI 3.1
+    interfaces.  For a similar traffic descriptor
+    type that can be accepted at UNI 3.0 and
+    UNI 3.1 interfaces, see atmNoClpScr.
     
     
 
@@ -588,23 +717,19 @@ class AtmclptaggingscrcdvtIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclptaggingscrcdvtIdentity']['meta_info']
+        super(Atmclptransparentscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentScr")
 
 
-class AtmclpnotaggingscrIdentity(ObjectIdentityIdentity):
+class Atmclptaggingscr(Identity):
     """
     This traffic descriptor type is for CLP with
-    Sustained Cell Rate and no tagging.  The use
-    of the parameter vector for this type\:
+    tagging and Sustained Cell Rate.  The use of
+    the parameter vector for this type\:
     Parameter 1\: peak cell rate in cells/second
                  for CLP=0+1 traffic
     Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0 traffic
+                 for CLP=0 traffic, excess tagged as
+                 CLP=1
     Parameter 3\: maximum burst size in cells
     Parameter 4\: not used
     Parameter 5\: not used.
@@ -617,15 +742,10 @@ class AtmclpnotaggingscrIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclpnotaggingscrIdentity']['meta_info']
+        super(Atmclptaggingscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScr")
 
 
-class AtmnoclpscrcdvtIdentity(ObjectIdentityIdentity):
+class Atmnoclpscr(Identity):
     """
     This traffic descriptor type is for no CLP
     with Sustained Cell Rate.  The use of the
@@ -635,105 +755,6 @@ class AtmnoclpscrcdvtIdentity(ObjectIdentityIdentity):
     Parameter 2\: sustainable cell rate in cells/second
                  for CLP=0+1 traffic
     Parameter 3\: maximum burst size in cells
-    Parameter 4\: CDVT in tenths of microseconds
-    Parameter 5\: not used.
-    
-    This traffic descriptor type is applicable
-    to VBR connections following the UNI 3.0/3.1
-    conformance definition for PCR CLP=0+1 and
-    SCR CLP=0+1.  These VBR connections
-    differ from VBR.1 connections in that
-    the CLR objective applies only to the CLP=0
-    cell flow.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmnoclpscrcdvtIdentity']['meta_info']
-
-
-class AtmnotrafficdescriptorIdentity(ObjectIdentityIdentity):
-    """
-    This identifies the no ATM traffic
-    descriptor type.  Parameters 1, 2, 3, 4,
-    and 5 are not used.  This traffic descriptor
-    type can be used for best effort traffic.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmnotrafficdescriptorIdentity']['meta_info']
-
-
-class AtmclptransparentnoscrIdentity(ObjectIdentityIdentity):
-    """
-    This traffic descriptor type is for the CLP\-
-    transparent model and no Sustained Cell Rate.
-    The use of the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: CDVT in tenths of microseconds
-    Parameter 3\: not used
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    This traffic descriptor type is applicable to
-    connections following the CBR.1 conformance
-    definition.
-    
-    Connections specifying this traffic descriptor
-    type will be rejected at UNI 3.0 or UNI 3.1
-    interfaces.  For a similar traffic descriptor
-    type that can be accepted at UNI 3.0 and
-    UNI 3.1 interfaces, see atmNoClpNoScr.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclptransparentnoscrIdentity']['meta_info']
-
-
-class AtmclptaggingscrIdentity(ObjectIdentityIdentity):
-    """
-    This traffic descriptor type is for CLP with
-    tagging and Sustained Cell Rate.  The use of
-    the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0 traffic, excess tagged as
-                 CLP=1
-    Parameter 3\: maximum burst size in cells
     Parameter 4\: not used
     Parameter 5\: not used.
     
@@ -745,15 +766,10 @@ class AtmclptaggingscrIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclptaggingscrIdentity']['meta_info']
+        super(Atmnoclpscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScr")
 
 
-class AtmnoclpnoscrIdentity(ObjectIdentityIdentity):
+class Atmnoclpnoscr(Identity):
     """
     This traffic descriptor type is for no CLP
     and no Sustained Cell Rate.  The use of the
@@ -773,103 +789,10 @@ class AtmnoclpnoscrIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmnoclpnoscrIdentity']['meta_info']
+        super(Atmnoclpnoscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScr")
 
 
-class AtmnoclpscrIdentity(ObjectIdentityIdentity):
-    """
-    This traffic descriptor type is for no CLP
-    with Sustained Cell Rate.  The use of the
-    parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: sustainable cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 3\: maximum burst size in cells
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmnoclpscrIdentity']['meta_info']
-
-
-class AtmclpnotaggingnoscrIdentity(ObjectIdentityIdentity):
-    """
-    This traffic descriptor is for CLP without
-    tagging and no Sustained Cell Rate.  The use
-    of the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: peak cell rate in cells/second
-                 for CLP=0 traffic
-    Parameter 3\: not used
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclpnotaggingnoscrIdentity']['meta_info']
-
-
-class AtmclptaggingnoscrIdentity(ObjectIdentityIdentity):
-    """
-    This traffic descriptor is for CLP with
-    tagging and no Sustained Cell Rate.  The use
-    of the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: peak cell rate in cells/second
-                 for CLP=0 traffic, excess
-                 tagged as CLP=1
-    Parameter 3\: not used
-    Parameter 4\: not used
-    Parameter 5\: not used.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclptaggingnoscrIdentity']['meta_info']
-
-
-class AtmclpnotaggingscrcdvtIdentity(ObjectIdentityIdentity):
+class Atmclpnotaggingscr(Identity):
     """
     This traffic descriptor type is for CLP with
     Sustained Cell Rate and no tagging.  The use
@@ -879,45 +802,9 @@ class AtmclpnotaggingscrcdvtIdentity(ObjectIdentityIdentity):
     Parameter 2\: sustainable cell rate in cells/second
                  for CLP=0 traffic
     Parameter 3\: maximum burst size in cells
-    Parameter 4\: CDVT in tenths of microseconds
-    Parameter 5\: not used.
-    
-    This traffic descriptor type is applicable to
-    connections following the VBR.2 conformance
-    definition.
-    
-    
-
-    """
-
-    _prefix = 'ATM-TC-MIB'
-    _revision = '1998-10-19'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmclpnotaggingscrcdvtIdentity']['meta_info']
-
-
-class AtmnoclptaggingnoscrIdentity(ObjectIdentityIdentity):
-    """
-    This traffic descriptor type is for no CLP
-    with tagging and no Sustained Cell Rate.  The
-    use of the parameter vector for this type\:
-    Parameter 1\: peak cell rate in cells/second
-                 for CLP=0+1 traffic
-    Parameter 2\: CDVT in tenths of microseconds
-    Parameter 3\: not used
     Parameter 4\: not used
     Parameter 5\: not used.
     
-    This traffic descriptor type is applicable to
-    connections following the UBR.2 conformance
-    definition .
-    
     
 
     """
@@ -926,11 +813,6 @@ class AtmnoclptaggingnoscrIdentity(ObjectIdentityIdentity):
     _revision = '1998-10-19'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ATM_TC_MIB as meta
-        return meta._meta_table['AtmnoclptaggingnoscrIdentity']['meta_info']
+        super(Atmclpnotaggingscr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScr")
 
 

@@ -61,22 +61,16 @@ For a detailed discussion, please refer to the IETF
 draft draft\-ietf\-ipsec\-flow\-monitoring\-mib\-00.txt.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AuthalgoEnum(Enum):
+class Authalgo(Enum):
     """
-    AuthalgoEnum
+    Authalgo
 
     The authentication algorithm used by a
 
@@ -90,22 +84,16 @@ class AuthalgoEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    hmacMd5 = 2
+    hmacMd5 = Enum.YLeaf(2, "hmacMd5")
 
-    hmacSha = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['AuthalgoEnum']
+    hmacSha = Enum.YLeaf(3, "hmacSha")
 
 
-class CompalgoEnum(Enum):
+class Compalgo(Enum):
     """
-    CompalgoEnum
+    Compalgo
 
     The compression algorithm used by a
 
@@ -117,20 +105,14 @@ class CompalgoEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    ldf = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['CompalgoEnum']
+    ldf = Enum.YLeaf(2, "ldf")
 
 
-class DiffhellmangrpEnum(Enum):
+class Diffhellmangrp(Enum):
     """
-    DiffhellmangrpEnum
+    Diffhellmangrp
 
     The Diffie Hellman Group used in negotiations.
 
@@ -142,22 +124,16 @@ class DiffhellmangrpEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    dhGroup1 = 2
+    dhGroup1 = Enum.YLeaf(2, "dhGroup1")
 
-    dhGroup2 = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['DiffhellmangrpEnum']
+    dhGroup2 = Enum.YLeaf(3, "dhGroup2")
 
 
-class EncapmodeEnum(Enum):
+class Encapmode(Enum):
     """
-    EncapmodeEnum
+    Encapmode
 
     The encapsulation mode used by an IPsec Phase\-2
 
@@ -169,20 +145,14 @@ class EncapmodeEnum(Enum):
 
     """
 
-    tunnel = 1
+    tunnel = Enum.YLeaf(1, "tunnel")
 
-    transport = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['EncapmodeEnum']
+    transport = Enum.YLeaf(2, "transport")
 
 
-class EncryptalgoEnum(Enum):
+class Encryptalgo(Enum):
     """
-    EncryptalgoEnum
+    Encryptalgo
 
     The encryption algorithm used in negotiations.
 
@@ -194,22 +164,16 @@ class EncryptalgoEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    des = 2
+    des = Enum.YLeaf(2, "des")
 
-    des3 = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['EncryptalgoEnum']
+    des3 = Enum.YLeaf(3, "des3")
 
 
-class EndpttypeEnum(Enum):
+class Endpttype(Enum):
     """
-    EndpttypeEnum
+    Endpttype
 
     The type of identity use to specify an IPsec End Point.
 
@@ -221,22 +185,16 @@ class EndpttypeEnum(Enum):
 
     """
 
-    singleIpAddr = 1
+    singleIpAddr = Enum.YLeaf(1, "singleIpAddr")
 
-    ipAddrRange = 2
+    ipAddrRange = Enum.YLeaf(2, "ipAddrRange")
 
-    ipSubnet = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['EndpttypeEnum']
+    ipSubnet = Enum.YLeaf(3, "ipSubnet")
 
 
-class IkeauthmethodEnum(Enum):
+class Ikeauthmethod(Enum):
     """
-    IkeauthmethodEnum
+    Ikeauthmethod
 
     The authentication method used in IPsec Phase\-1 IKE
 
@@ -254,26 +212,20 @@ class IkeauthmethodEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    preSharedKey = 2
+    preSharedKey = Enum.YLeaf(2, "preSharedKey")
 
-    rsaSig = 3
+    rsaSig = Enum.YLeaf(3, "rsaSig")
 
-    rsaEncrypt = 4
+    rsaEncrypt = Enum.YLeaf(4, "rsaEncrypt")
 
-    revPublicKey = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['IkeauthmethodEnum']
+    revPublicKey = Enum.YLeaf(5, "revPublicKey")
 
 
-class IkehashalgoEnum(Enum):
+class Ikehashalgo(Enum):
     """
-    IkehashalgoEnum
+    Ikehashalgo
 
     The hash algorithm used in IPsec Phase\-1
 
@@ -287,22 +239,16 @@ class IkehashalgoEnum(Enum):
 
     """
 
-    none = 1
+    none = Enum.YLeaf(1, "none")
 
-    md5 = 2
+    md5 = Enum.YLeaf(2, "md5")
 
-    sha = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['IkehashalgoEnum']
+    sha = Enum.YLeaf(3, "sha")
 
 
-class IkenegomodeEnum(Enum):
+class Ikenegomode(Enum):
     """
-    IkenegomodeEnum
+    Ikenegomode
 
     The IPsec Phase\-1 IKE negotiation mode.
 
@@ -312,20 +258,14 @@ class IkenegomodeEnum(Enum):
 
     """
 
-    main = 1
+    main = Enum.YLeaf(1, "main")
 
-    aggressive = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['IkenegomodeEnum']
+    aggressive = Enum.YLeaf(2, "aggressive")
 
 
-class IkepeertypeEnum(Enum):
+class Ikepeertype(Enum):
     """
-    IkepeertypeEnum
+    Ikepeertype
 
     The type of IPsec Phase\-1 IKE peer identity.
 
@@ -341,20 +281,14 @@ class IkepeertypeEnum(Enum):
 
     """
 
-    ipAddrPeer = 1
+    ipAddrPeer = Enum.YLeaf(1, "ipAddrPeer")
 
-    namePeer = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['IkepeertypeEnum']
+    namePeer = Enum.YLeaf(2, "namePeer")
 
 
-class KeytypeEnum(Enum):
+class Keytype(Enum):
     """
-    KeytypeEnum
+    Keytype
 
     The type of key used by an IPsec Phase\-2 Tunnel.
 
@@ -364,20 +298,14 @@ class KeytypeEnum(Enum):
 
     """
 
-    ike = 1
+    ike = Enum.YLeaf(1, "ike")
 
-    manual = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['KeytypeEnum']
+    manual = Enum.YLeaf(2, "manual")
 
 
-class TrapstatusEnum(Enum):
+class Trapstatus(Enum):
     """
-    TrapstatusEnum
+    Trapstatus
 
     The administrative status for sending a TRAP.
 
@@ -387,20 +315,14 @@ class TrapstatusEnum(Enum):
 
     """
 
-    enabled = 1
+    enabled = Enum.YLeaf(1, "enabled")
 
-    disabled = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['TrapstatusEnum']
+    disabled = Enum.YLeaf(2, "disabled")
 
 
-class TunnelstatusEnum(Enum):
+class Tunnelstatus(Enum):
     """
-    TunnelstatusEnum
+    Tunnelstatus
 
     The status of a Tunnel.  Objects of this type may
 
@@ -416,19 +338,13 @@ class TunnelstatusEnum(Enum):
 
     """
 
-    active = 1
+    active = Enum.YLeaf(1, "active")
 
-    destroy = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['TunnelstatusEnum']
+    destroy = Enum.YLeaf(2, "destroy")
 
 
 
-class CiscoIpsecFlowMonitorMib(object):
+class CiscoIpsecFlowMonitorMib(Entity):
     """
     
     
@@ -535,47 +451,109 @@ class CiscoIpsecFlowMonitorMib(object):
     _revision = '2007-10-24'
 
     def __init__(self):
+        super(CiscoIpsecFlowMonitorMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+        self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
         self.cikefailtable = CiscoIpsecFlowMonitorMib.Cikefailtable()
         self.cikefailtable.parent = self
+        self._children_name_map["cikefailtable"] = "cikeFailTable"
+        self._children_yang_names.add("cikeFailTable")
+
         self.cikeglobalstats = CiscoIpsecFlowMonitorMib.Cikeglobalstats()
         self.cikeglobalstats.parent = self
+        self._children_name_map["cikeglobalstats"] = "cikeGlobalStats"
+        self._children_yang_names.add("cikeGlobalStats")
+
         self.cikepeercorrtable = CiscoIpsecFlowMonitorMib.Cikepeercorrtable()
         self.cikepeercorrtable.parent = self
+        self._children_name_map["cikepeercorrtable"] = "cikePeerCorrTable"
+        self._children_yang_names.add("cikePeerCorrTable")
+
         self.cikepeertable = CiscoIpsecFlowMonitorMib.Cikepeertable()
         self.cikepeertable.parent = self
+        self._children_name_map["cikepeertable"] = "cikePeerTable"
+        self._children_yang_names.add("cikePeerTable")
+
         self.cikephase1gwstatstable = CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable()
         self.cikephase1gwstatstable.parent = self
+        self._children_name_map["cikephase1gwstatstable"] = "cikePhase1GWStatsTable"
+        self._children_yang_names.add("cikePhase1GWStatsTable")
+
         self.ciketunnelhisttable = CiscoIpsecFlowMonitorMib.Ciketunnelhisttable()
         self.ciketunnelhisttable.parent = self
+        self._children_name_map["ciketunnelhisttable"] = "cikeTunnelHistTable"
+        self._children_yang_names.add("cikeTunnelHistTable")
+
         self.ciketunneltable = CiscoIpsecFlowMonitorMib.Ciketunneltable()
         self.ciketunneltable.parent = self
+        self._children_name_map["ciketunneltable"] = "cikeTunnelTable"
+        self._children_yang_names.add("cikeTunnelTable")
+
         self.cipsecendpthisttable = CiscoIpsecFlowMonitorMib.Cipsecendpthisttable()
         self.cipsecendpthisttable.parent = self
+        self._children_name_map["cipsecendpthisttable"] = "cipSecEndPtHistTable"
+        self._children_yang_names.add("cipSecEndPtHistTable")
+
         self.cipsecendpttable = CiscoIpsecFlowMonitorMib.Cipsecendpttable()
         self.cipsecendpttable.parent = self
+        self._children_name_map["cipsecendpttable"] = "cipSecEndPtTable"
+        self._children_yang_names.add("cipSecEndPtTable")
+
         self.cipsecfailglobalcntl = CiscoIpsecFlowMonitorMib.Cipsecfailglobalcntl()
         self.cipsecfailglobalcntl.parent = self
+        self._children_name_map["cipsecfailglobalcntl"] = "cipSecFailGlobalCntl"
+        self._children_yang_names.add("cipSecFailGlobalCntl")
+
         self.cipsecfailtable = CiscoIpsecFlowMonitorMib.Cipsecfailtable()
         self.cipsecfailtable.parent = self
+        self._children_name_map["cipsecfailtable"] = "cipSecFailTable"
+        self._children_yang_names.add("cipSecFailTable")
+
         self.cipsecglobalstats = CiscoIpsecFlowMonitorMib.Cipsecglobalstats()
         self.cipsecglobalstats.parent = self
+        self._children_name_map["cipsecglobalstats"] = "cipSecGlobalStats"
+        self._children_yang_names.add("cipSecGlobalStats")
+
         self.cipsechistglobalcntl = CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl()
         self.cipsechistglobalcntl.parent = self
+        self._children_name_map["cipsechistglobalcntl"] = "cipSecHistGlobalCntl"
+        self._children_yang_names.add("cipSecHistGlobalCntl")
+
         self.cipseclevels = CiscoIpsecFlowMonitorMib.Cipseclevels()
         self.cipseclevels.parent = self
+        self._children_name_map["cipseclevels"] = "cipSecLevels"
+        self._children_yang_names.add("cipSecLevels")
+
         self.cipsecphase2gwstatstable = CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable()
         self.cipsecphase2gwstatstable.parent = self
+        self._children_name_map["cipsecphase2gwstatstable"] = "cipSecPhase2GWStatsTable"
+        self._children_yang_names.add("cipSecPhase2GWStatsTable")
+
         self.cipsecspitable = CiscoIpsecFlowMonitorMib.Cipsecspitable()
         self.cipsecspitable.parent = self
+        self._children_name_map["cipsecspitable"] = "cipSecSpiTable"
+        self._children_yang_names.add("cipSecSpiTable")
+
         self.cipsectrapcntl = CiscoIpsecFlowMonitorMib.Cipsectrapcntl()
         self.cipsectrapcntl.parent = self
+        self._children_name_map["cipsectrapcntl"] = "cipSecTrapCntl"
+        self._children_yang_names.add("cipSecTrapCntl")
+
         self.cipsectunnelhisttable = CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable()
         self.cipsectunnelhisttable.parent = self
+        self._children_name_map["cipsectunnelhisttable"] = "cipSecTunnelHistTable"
+        self._children_yang_names.add("cipSecTunnelHistTable")
+
         self.cipsectunneltable = CiscoIpsecFlowMonitorMib.Cipsectunneltable()
         self.cipsectunneltable.parent = self
+        self._children_name_map["cipsectunneltable"] = "cipSecTunnelTable"
+        self._children_yang_names.add("cipSecTunnelTable")
 
 
-    class Cipseclevels(object):
+    class Cipseclevels(Entity):
         """
         
         
@@ -594,31 +572,85 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecmiblevel = None
+            super(CiscoIpsecFlowMonitorMib.Cipseclevels, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cipSecLevels"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
 
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecLevels'
+            self.cipsecmiblevel = YLeaf(YType.int32, "cipSecMibLevel")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cipsecmiblevel") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipseclevels, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipseclevels, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.cipsecmiblevel is not None:
+        def has_data(self):
+            return self.cipsecmiblevel.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cipsecmiblevel.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecLevels" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cipsecmiblevel.is_set or self.cipsecmiblevel.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecmiblevel.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecMibLevel"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipseclevels']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cipSecMibLevel"):
+                self.cipsecmiblevel = value
+                self.cipsecmiblevel.value_namespace = name_space
+                self.cipsecmiblevel.value_namespace_prefix = name_space_prefix
 
 
-    class Cikeglobalstats(object):
+    class Cikeglobalstats(Entity):
         """
         
         
@@ -862,131 +894,361 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cikeglobalactivetunnels = None
-            self.cikeglobalauthfails = None
-            self.cikeglobaldecryptfails = None
-            self.cikeglobalhashvalidfails = None
-            self.cikeglobalindroppkts = None
-            self.cikeglobalinittunnelfails = None
-            self.cikeglobalinittunnels = None
-            self.cikeglobalinnotifys = None
-            self.cikeglobalinoctets = None
-            self.cikeglobalinp2exchginvalids = None
-            self.cikeglobalinp2exchgrejects = None
-            self.cikeglobalinp2exchgs = None
-            self.cikeglobalinp2sadelrequests = None
-            self.cikeglobalinpkts = None
-            self.cikeglobalnosafails = None
-            self.cikeglobaloutdroppkts = None
-            self.cikeglobaloutnotifys = None
-            self.cikeglobaloutoctets = None
-            self.cikeglobaloutp2exchginvalids = None
-            self.cikeglobaloutp2exchgrejects = None
-            self.cikeglobaloutp2exchgs = None
-            self.cikeglobaloutp2sadelrequests = None
-            self.cikeglobaloutpkts = None
-            self.cikeglobalprevioustunnels = None
-            self.cikeglobalresptunnelfails = None
-            self.cikeglobalsyscapfails = None
+            super(CiscoIpsecFlowMonitorMib.Cikeglobalstats, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cikeGlobalStats"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
 
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeGlobalStats'
+            self.cikeglobalactivetunnels = YLeaf(YType.uint32, "cikeGlobalActiveTunnels")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cikeglobalauthfails = YLeaf(YType.uint32, "cikeGlobalAuthFails")
+
+            self.cikeglobaldecryptfails = YLeaf(YType.uint32, "cikeGlobalDecryptFails")
+
+            self.cikeglobalhashvalidfails = YLeaf(YType.uint32, "cikeGlobalHashValidFails")
+
+            self.cikeglobalindroppkts = YLeaf(YType.uint32, "cikeGlobalInDropPkts")
+
+            self.cikeglobalinittunnelfails = YLeaf(YType.uint32, "cikeGlobalInitTunnelFails")
+
+            self.cikeglobalinittunnels = YLeaf(YType.uint32, "cikeGlobalInitTunnels")
+
+            self.cikeglobalinnotifys = YLeaf(YType.uint32, "cikeGlobalInNotifys")
+
+            self.cikeglobalinoctets = YLeaf(YType.uint32, "cikeGlobalInOctets")
+
+            self.cikeglobalinp2exchginvalids = YLeaf(YType.uint32, "cikeGlobalInP2ExchgInvalids")
+
+            self.cikeglobalinp2exchgrejects = YLeaf(YType.uint32, "cikeGlobalInP2ExchgRejects")
+
+            self.cikeglobalinp2exchgs = YLeaf(YType.uint32, "cikeGlobalInP2Exchgs")
+
+            self.cikeglobalinp2sadelrequests = YLeaf(YType.uint32, "cikeGlobalInP2SaDelRequests")
+
+            self.cikeglobalinpkts = YLeaf(YType.uint32, "cikeGlobalInPkts")
+
+            self.cikeglobalnosafails = YLeaf(YType.uint32, "cikeGlobalNoSaFails")
+
+            self.cikeglobaloutdroppkts = YLeaf(YType.uint32, "cikeGlobalOutDropPkts")
+
+            self.cikeglobaloutnotifys = YLeaf(YType.uint32, "cikeGlobalOutNotifys")
+
+            self.cikeglobaloutoctets = YLeaf(YType.uint32, "cikeGlobalOutOctets")
+
+            self.cikeglobaloutp2exchginvalids = YLeaf(YType.uint32, "cikeGlobalOutP2ExchgInvalids")
+
+            self.cikeglobaloutp2exchgrejects = YLeaf(YType.uint32, "cikeGlobalOutP2ExchgRejects")
+
+            self.cikeglobaloutp2exchgs = YLeaf(YType.uint32, "cikeGlobalOutP2Exchgs")
+
+            self.cikeglobaloutp2sadelrequests = YLeaf(YType.uint32, "cikeGlobalOutP2SaDelRequests")
+
+            self.cikeglobaloutpkts = YLeaf(YType.uint32, "cikeGlobalOutPkts")
+
+            self.cikeglobalprevioustunnels = YLeaf(YType.uint32, "cikeGlobalPreviousTunnels")
+
+            self.cikeglobalresptunnelfails = YLeaf(YType.uint32, "cikeGlobalRespTunnelFails")
+
+            self.cikeglobalsyscapfails = YLeaf(YType.uint32, "cikeGlobalSysCapFails")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cikeglobalactivetunnels",
+                            "cikeglobalauthfails",
+                            "cikeglobaldecryptfails",
+                            "cikeglobalhashvalidfails",
+                            "cikeglobalindroppkts",
+                            "cikeglobalinittunnelfails",
+                            "cikeglobalinittunnels",
+                            "cikeglobalinnotifys",
+                            "cikeglobalinoctets",
+                            "cikeglobalinp2exchginvalids",
+                            "cikeglobalinp2exchgrejects",
+                            "cikeglobalinp2exchgs",
+                            "cikeglobalinp2sadelrequests",
+                            "cikeglobalinpkts",
+                            "cikeglobalnosafails",
+                            "cikeglobaloutdroppkts",
+                            "cikeglobaloutnotifys",
+                            "cikeglobaloutoctets",
+                            "cikeglobaloutp2exchginvalids",
+                            "cikeglobaloutp2exchgrejects",
+                            "cikeglobaloutp2exchgs",
+                            "cikeglobaloutp2sadelrequests",
+                            "cikeglobaloutpkts",
+                            "cikeglobalprevioustunnels",
+                            "cikeglobalresptunnelfails",
+                            "cikeglobalsyscapfails") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cikeglobalstats, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cikeglobalstats, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cikeglobalactivetunnels.is_set or
+                self.cikeglobalauthfails.is_set or
+                self.cikeglobaldecryptfails.is_set or
+                self.cikeglobalhashvalidfails.is_set or
+                self.cikeglobalindroppkts.is_set or
+                self.cikeglobalinittunnelfails.is_set or
+                self.cikeglobalinittunnels.is_set or
+                self.cikeglobalinnotifys.is_set or
+                self.cikeglobalinoctets.is_set or
+                self.cikeglobalinp2exchginvalids.is_set or
+                self.cikeglobalinp2exchgrejects.is_set or
+                self.cikeglobalinp2exchgs.is_set or
+                self.cikeglobalinp2sadelrequests.is_set or
+                self.cikeglobalinpkts.is_set or
+                self.cikeglobalnosafails.is_set or
+                self.cikeglobaloutdroppkts.is_set or
+                self.cikeglobaloutnotifys.is_set or
+                self.cikeglobaloutoctets.is_set or
+                self.cikeglobaloutp2exchginvalids.is_set or
+                self.cikeglobaloutp2exchgrejects.is_set or
+                self.cikeglobaloutp2exchgs.is_set or
+                self.cikeglobaloutp2sadelrequests.is_set or
+                self.cikeglobaloutpkts.is_set or
+                self.cikeglobalprevioustunnels.is_set or
+                self.cikeglobalresptunnelfails.is_set or
+                self.cikeglobalsyscapfails.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cikeglobalactivetunnels.yfilter != YFilter.not_set or
+                self.cikeglobalauthfails.yfilter != YFilter.not_set or
+                self.cikeglobaldecryptfails.yfilter != YFilter.not_set or
+                self.cikeglobalhashvalidfails.yfilter != YFilter.not_set or
+                self.cikeglobalindroppkts.yfilter != YFilter.not_set or
+                self.cikeglobalinittunnelfails.yfilter != YFilter.not_set or
+                self.cikeglobalinittunnels.yfilter != YFilter.not_set or
+                self.cikeglobalinnotifys.yfilter != YFilter.not_set or
+                self.cikeglobalinoctets.yfilter != YFilter.not_set or
+                self.cikeglobalinp2exchginvalids.yfilter != YFilter.not_set or
+                self.cikeglobalinp2exchgrejects.yfilter != YFilter.not_set or
+                self.cikeglobalinp2exchgs.yfilter != YFilter.not_set or
+                self.cikeglobalinp2sadelrequests.yfilter != YFilter.not_set or
+                self.cikeglobalinpkts.yfilter != YFilter.not_set or
+                self.cikeglobalnosafails.yfilter != YFilter.not_set or
+                self.cikeglobaloutdroppkts.yfilter != YFilter.not_set or
+                self.cikeglobaloutnotifys.yfilter != YFilter.not_set or
+                self.cikeglobaloutoctets.yfilter != YFilter.not_set or
+                self.cikeglobaloutp2exchginvalids.yfilter != YFilter.not_set or
+                self.cikeglobaloutp2exchgrejects.yfilter != YFilter.not_set or
+                self.cikeglobaloutp2exchgs.yfilter != YFilter.not_set or
+                self.cikeglobaloutp2sadelrequests.yfilter != YFilter.not_set or
+                self.cikeglobaloutpkts.yfilter != YFilter.not_set or
+                self.cikeglobalprevioustunnels.yfilter != YFilter.not_set or
+                self.cikeglobalresptunnelfails.yfilter != YFilter.not_set or
+                self.cikeglobalsyscapfails.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cikeGlobalStats" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cikeglobalactivetunnels.is_set or self.cikeglobalactivetunnels.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalactivetunnels.get_name_leafdata())
+            if (self.cikeglobalauthfails.is_set or self.cikeglobalauthfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalauthfails.get_name_leafdata())
+            if (self.cikeglobaldecryptfails.is_set or self.cikeglobaldecryptfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaldecryptfails.get_name_leafdata())
+            if (self.cikeglobalhashvalidfails.is_set or self.cikeglobalhashvalidfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalhashvalidfails.get_name_leafdata())
+            if (self.cikeglobalindroppkts.is_set or self.cikeglobalindroppkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalindroppkts.get_name_leafdata())
+            if (self.cikeglobalinittunnelfails.is_set or self.cikeglobalinittunnelfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinittunnelfails.get_name_leafdata())
+            if (self.cikeglobalinittunnels.is_set or self.cikeglobalinittunnels.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinittunnels.get_name_leafdata())
+            if (self.cikeglobalinnotifys.is_set or self.cikeglobalinnotifys.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinnotifys.get_name_leafdata())
+            if (self.cikeglobalinoctets.is_set or self.cikeglobalinoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinoctets.get_name_leafdata())
+            if (self.cikeglobalinp2exchginvalids.is_set or self.cikeglobalinp2exchginvalids.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinp2exchginvalids.get_name_leafdata())
+            if (self.cikeglobalinp2exchgrejects.is_set or self.cikeglobalinp2exchgrejects.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinp2exchgrejects.get_name_leafdata())
+            if (self.cikeglobalinp2exchgs.is_set or self.cikeglobalinp2exchgs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinp2exchgs.get_name_leafdata())
+            if (self.cikeglobalinp2sadelrequests.is_set or self.cikeglobalinp2sadelrequests.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinp2sadelrequests.get_name_leafdata())
+            if (self.cikeglobalinpkts.is_set or self.cikeglobalinpkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalinpkts.get_name_leafdata())
+            if (self.cikeglobalnosafails.is_set or self.cikeglobalnosafails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalnosafails.get_name_leafdata())
+            if (self.cikeglobaloutdroppkts.is_set or self.cikeglobaloutdroppkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutdroppkts.get_name_leafdata())
+            if (self.cikeglobaloutnotifys.is_set or self.cikeglobaloutnotifys.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutnotifys.get_name_leafdata())
+            if (self.cikeglobaloutoctets.is_set or self.cikeglobaloutoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutoctets.get_name_leafdata())
+            if (self.cikeglobaloutp2exchginvalids.is_set or self.cikeglobaloutp2exchginvalids.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutp2exchginvalids.get_name_leafdata())
+            if (self.cikeglobaloutp2exchgrejects.is_set or self.cikeglobaloutp2exchgrejects.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutp2exchgrejects.get_name_leafdata())
+            if (self.cikeglobaloutp2exchgs.is_set or self.cikeglobaloutp2exchgs.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutp2exchgs.get_name_leafdata())
+            if (self.cikeglobaloutp2sadelrequests.is_set or self.cikeglobaloutp2sadelrequests.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutp2sadelrequests.get_name_leafdata())
+            if (self.cikeglobaloutpkts.is_set or self.cikeglobaloutpkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobaloutpkts.get_name_leafdata())
+            if (self.cikeglobalprevioustunnels.is_set or self.cikeglobalprevioustunnels.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalprevioustunnels.get_name_leafdata())
+            if (self.cikeglobalresptunnelfails.is_set or self.cikeglobalresptunnelfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalresptunnelfails.get_name_leafdata())
+            if (self.cikeglobalsyscapfails.is_set or self.cikeglobalsyscapfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cikeglobalsyscapfails.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cikeGlobalActiveTunnels" or name == "cikeGlobalAuthFails" or name == "cikeGlobalDecryptFails" or name == "cikeGlobalHashValidFails" or name == "cikeGlobalInDropPkts" or name == "cikeGlobalInitTunnelFails" or name == "cikeGlobalInitTunnels" or name == "cikeGlobalInNotifys" or name == "cikeGlobalInOctets" or name == "cikeGlobalInP2ExchgInvalids" or name == "cikeGlobalInP2ExchgRejects" or name == "cikeGlobalInP2Exchgs" or name == "cikeGlobalInP2SaDelRequests" or name == "cikeGlobalInPkts" or name == "cikeGlobalNoSaFails" or name == "cikeGlobalOutDropPkts" or name == "cikeGlobalOutNotifys" or name == "cikeGlobalOutOctets" or name == "cikeGlobalOutP2ExchgInvalids" or name == "cikeGlobalOutP2ExchgRejects" or name == "cikeGlobalOutP2Exchgs" or name == "cikeGlobalOutP2SaDelRequests" or name == "cikeGlobalOutPkts" or name == "cikeGlobalPreviousTunnels" or name == "cikeGlobalRespTunnelFails" or name == "cikeGlobalSysCapFails"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cikeglobalactivetunnels is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cikeGlobalActiveTunnels"):
+                self.cikeglobalactivetunnels = value
+                self.cikeglobalactivetunnels.value_namespace = name_space
+                self.cikeglobalactivetunnels.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalAuthFails"):
+                self.cikeglobalauthfails = value
+                self.cikeglobalauthfails.value_namespace = name_space
+                self.cikeglobalauthfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalDecryptFails"):
+                self.cikeglobaldecryptfails = value
+                self.cikeglobaldecryptfails.value_namespace = name_space
+                self.cikeglobaldecryptfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalHashValidFails"):
+                self.cikeglobalhashvalidfails = value
+                self.cikeglobalhashvalidfails.value_namespace = name_space
+                self.cikeglobalhashvalidfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInDropPkts"):
+                self.cikeglobalindroppkts = value
+                self.cikeglobalindroppkts.value_namespace = name_space
+                self.cikeglobalindroppkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInitTunnelFails"):
+                self.cikeglobalinittunnelfails = value
+                self.cikeglobalinittunnelfails.value_namespace = name_space
+                self.cikeglobalinittunnelfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInitTunnels"):
+                self.cikeglobalinittunnels = value
+                self.cikeglobalinittunnels.value_namespace = name_space
+                self.cikeglobalinittunnels.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInNotifys"):
+                self.cikeglobalinnotifys = value
+                self.cikeglobalinnotifys.value_namespace = name_space
+                self.cikeglobalinnotifys.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInOctets"):
+                self.cikeglobalinoctets = value
+                self.cikeglobalinoctets.value_namespace = name_space
+                self.cikeglobalinoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInP2ExchgInvalids"):
+                self.cikeglobalinp2exchginvalids = value
+                self.cikeglobalinp2exchginvalids.value_namespace = name_space
+                self.cikeglobalinp2exchginvalids.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInP2ExchgRejects"):
+                self.cikeglobalinp2exchgrejects = value
+                self.cikeglobalinp2exchgrejects.value_namespace = name_space
+                self.cikeglobalinp2exchgrejects.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInP2Exchgs"):
+                self.cikeglobalinp2exchgs = value
+                self.cikeglobalinp2exchgs.value_namespace = name_space
+                self.cikeglobalinp2exchgs.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInP2SaDelRequests"):
+                self.cikeglobalinp2sadelrequests = value
+                self.cikeglobalinp2sadelrequests.value_namespace = name_space
+                self.cikeglobalinp2sadelrequests.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalInPkts"):
+                self.cikeglobalinpkts = value
+                self.cikeglobalinpkts.value_namespace = name_space
+                self.cikeglobalinpkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalNoSaFails"):
+                self.cikeglobalnosafails = value
+                self.cikeglobalnosafails.value_namespace = name_space
+                self.cikeglobalnosafails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutDropPkts"):
+                self.cikeglobaloutdroppkts = value
+                self.cikeglobaloutdroppkts.value_namespace = name_space
+                self.cikeglobaloutdroppkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutNotifys"):
+                self.cikeglobaloutnotifys = value
+                self.cikeglobaloutnotifys.value_namespace = name_space
+                self.cikeglobaloutnotifys.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutOctets"):
+                self.cikeglobaloutoctets = value
+                self.cikeglobaloutoctets.value_namespace = name_space
+                self.cikeglobaloutoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutP2ExchgInvalids"):
+                self.cikeglobaloutp2exchginvalids = value
+                self.cikeglobaloutp2exchginvalids.value_namespace = name_space
+                self.cikeglobaloutp2exchginvalids.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutP2ExchgRejects"):
+                self.cikeglobaloutp2exchgrejects = value
+                self.cikeglobaloutp2exchgrejects.value_namespace = name_space
+                self.cikeglobaloutp2exchgrejects.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutP2Exchgs"):
+                self.cikeglobaloutp2exchgs = value
+                self.cikeglobaloutp2exchgs.value_namespace = name_space
+                self.cikeglobaloutp2exchgs.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutP2SaDelRequests"):
+                self.cikeglobaloutp2sadelrequests = value
+                self.cikeglobaloutp2sadelrequests.value_namespace = name_space
+                self.cikeglobaloutp2sadelrequests.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalOutPkts"):
+                self.cikeglobaloutpkts = value
+                self.cikeglobaloutpkts.value_namespace = name_space
+                self.cikeglobaloutpkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalPreviousTunnels"):
+                self.cikeglobalprevioustunnels = value
+                self.cikeglobalprevioustunnels.value_namespace = name_space
+                self.cikeglobalprevioustunnels.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalRespTunnelFails"):
+                self.cikeglobalresptunnelfails = value
+                self.cikeglobalresptunnelfails.value_namespace = name_space
+                self.cikeglobalresptunnelfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cikeGlobalSysCapFails"):
+                self.cikeglobalsyscapfails = value
+                self.cikeglobalsyscapfails.value_namespace = name_space
+                self.cikeglobalsyscapfails.value_namespace_prefix = name_space_prefix
 
-            if self.cikeglobalauthfails is not None:
-                return True
 
-            if self.cikeglobaldecryptfails is not None:
-                return True
-
-            if self.cikeglobalhashvalidfails is not None:
-                return True
-
-            if self.cikeglobalindroppkts is not None:
-                return True
-
-            if self.cikeglobalinittunnelfails is not None:
-                return True
-
-            if self.cikeglobalinittunnels is not None:
-                return True
-
-            if self.cikeglobalinnotifys is not None:
-                return True
-
-            if self.cikeglobalinoctets is not None:
-                return True
-
-            if self.cikeglobalinp2exchginvalids is not None:
-                return True
-
-            if self.cikeglobalinp2exchgrejects is not None:
-                return True
-
-            if self.cikeglobalinp2exchgs is not None:
-                return True
-
-            if self.cikeglobalinp2sadelrequests is not None:
-                return True
-
-            if self.cikeglobalinpkts is not None:
-                return True
-
-            if self.cikeglobalnosafails is not None:
-                return True
-
-            if self.cikeglobaloutdroppkts is not None:
-                return True
-
-            if self.cikeglobaloutnotifys is not None:
-                return True
-
-            if self.cikeglobaloutoctets is not None:
-                return True
-
-            if self.cikeglobaloutp2exchginvalids is not None:
-                return True
-
-            if self.cikeglobaloutp2exchgrejects is not None:
-                return True
-
-            if self.cikeglobaloutp2exchgs is not None:
-                return True
-
-            if self.cikeglobaloutp2sadelrequests is not None:
-                return True
-
-            if self.cikeglobaloutpkts is not None:
-                return True
-
-            if self.cikeglobalprevioustunnels is not None:
-                return True
-
-            if self.cikeglobalresptunnelfails is not None:
-                return True
-
-            if self.cikeglobalsyscapfails is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikeglobalstats']['meta_info']
-
-
-    class Cipsecglobalstats(object):
+    class Cipsecglobalstats(Entity):
         """
         
         
@@ -1260,154 +1522,412 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecglobalactivetunnels = None
-            self.cipsecglobalhcindecompoctets = None
-            self.cipsecglobalhcinoctets = None
-            self.cipsecglobalhcoutoctets = None
-            self.cipsecglobalhcoutuncompoctets = None
-            self.cipsecglobalinauthfails = None
-            self.cipsecglobalinauths = None
-            self.cipsecglobalindecompoctets = None
-            self.cipsecglobalindecompoctwraps = None
-            self.cipsecglobalindecryptfails = None
-            self.cipsecglobalindecrypts = None
-            self.cipsecglobalindrops = None
-            self.cipsecglobalinoctets = None
-            self.cipsecglobalinoctwraps = None
-            self.cipsecglobalinpkts = None
-            self.cipsecglobalinreplaydrops = None
-            self.cipsecglobalnosafails = None
-            self.cipsecglobaloutauthfails = None
-            self.cipsecglobaloutauths = None
-            self.cipsecglobaloutdrops = None
-            self.cipsecglobaloutencryptfails = None
-            self.cipsecglobaloutencrypts = None
-            self.cipsecglobaloutoctets = None
-            self.cipsecglobaloutoctwraps = None
-            self.cipsecglobaloutpkts = None
-            self.cipsecglobaloutuncompoctets = None
-            self.cipsecglobaloutuncompoctwraps = None
-            self.cipsecglobalprevioustunnels = None
-            self.cipsecglobalprotocolusefails = None
-            self.cipsecglobalsyscapfails = None
+            super(CiscoIpsecFlowMonitorMib.Cipsecglobalstats, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cipSecGlobalStats"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
 
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecGlobalStats'
+            self.cipsecglobalactivetunnels = YLeaf(YType.uint32, "cipSecGlobalActiveTunnels")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cipsecglobalhcindecompoctets = YLeaf(YType.uint64, "cipSecGlobalHcInDecompOctets")
+
+            self.cipsecglobalhcinoctets = YLeaf(YType.uint64, "cipSecGlobalHcInOctets")
+
+            self.cipsecglobalhcoutoctets = YLeaf(YType.uint64, "cipSecGlobalHcOutOctets")
+
+            self.cipsecglobalhcoutuncompoctets = YLeaf(YType.uint64, "cipSecGlobalHcOutUncompOctets")
+
+            self.cipsecglobalinauthfails = YLeaf(YType.uint32, "cipSecGlobalInAuthFails")
+
+            self.cipsecglobalinauths = YLeaf(YType.uint32, "cipSecGlobalInAuths")
+
+            self.cipsecglobalindecompoctets = YLeaf(YType.uint32, "cipSecGlobalInDecompOctets")
+
+            self.cipsecglobalindecompoctwraps = YLeaf(YType.uint32, "cipSecGlobalInDecompOctWraps")
+
+            self.cipsecglobalindecryptfails = YLeaf(YType.uint32, "cipSecGlobalInDecryptFails")
+
+            self.cipsecglobalindecrypts = YLeaf(YType.uint32, "cipSecGlobalInDecrypts")
+
+            self.cipsecglobalindrops = YLeaf(YType.uint32, "cipSecGlobalInDrops")
+
+            self.cipsecglobalinoctets = YLeaf(YType.uint32, "cipSecGlobalInOctets")
+
+            self.cipsecglobalinoctwraps = YLeaf(YType.uint32, "cipSecGlobalInOctWraps")
+
+            self.cipsecglobalinpkts = YLeaf(YType.uint32, "cipSecGlobalInPkts")
+
+            self.cipsecglobalinreplaydrops = YLeaf(YType.uint32, "cipSecGlobalInReplayDrops")
+
+            self.cipsecglobalnosafails = YLeaf(YType.uint32, "cipSecGlobalNoSaFails")
+
+            self.cipsecglobaloutauthfails = YLeaf(YType.uint32, "cipSecGlobalOutAuthFails")
+
+            self.cipsecglobaloutauths = YLeaf(YType.uint32, "cipSecGlobalOutAuths")
+
+            self.cipsecglobaloutdrops = YLeaf(YType.uint32, "cipSecGlobalOutDrops")
+
+            self.cipsecglobaloutencryptfails = YLeaf(YType.uint32, "cipSecGlobalOutEncryptFails")
+
+            self.cipsecglobaloutencrypts = YLeaf(YType.uint32, "cipSecGlobalOutEncrypts")
+
+            self.cipsecglobaloutoctets = YLeaf(YType.uint32, "cipSecGlobalOutOctets")
+
+            self.cipsecglobaloutoctwraps = YLeaf(YType.uint32, "cipSecGlobalOutOctWraps")
+
+            self.cipsecglobaloutpkts = YLeaf(YType.uint32, "cipSecGlobalOutPkts")
+
+            self.cipsecglobaloutuncompoctets = YLeaf(YType.uint32, "cipSecGlobalOutUncompOctets")
+
+            self.cipsecglobaloutuncompoctwraps = YLeaf(YType.uint32, "cipSecGlobalOutUncompOctWraps")
+
+            self.cipsecglobalprevioustunnels = YLeaf(YType.uint32, "cipSecGlobalPreviousTunnels")
+
+            self.cipsecglobalprotocolusefails = YLeaf(YType.uint32, "cipSecGlobalProtocolUseFails")
+
+            self.cipsecglobalsyscapfails = YLeaf(YType.uint32, "cipSecGlobalSysCapFails")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cipsecglobalactivetunnels",
+                            "cipsecglobalhcindecompoctets",
+                            "cipsecglobalhcinoctets",
+                            "cipsecglobalhcoutoctets",
+                            "cipsecglobalhcoutuncompoctets",
+                            "cipsecglobalinauthfails",
+                            "cipsecglobalinauths",
+                            "cipsecglobalindecompoctets",
+                            "cipsecglobalindecompoctwraps",
+                            "cipsecglobalindecryptfails",
+                            "cipsecglobalindecrypts",
+                            "cipsecglobalindrops",
+                            "cipsecglobalinoctets",
+                            "cipsecglobalinoctwraps",
+                            "cipsecglobalinpkts",
+                            "cipsecglobalinreplaydrops",
+                            "cipsecglobalnosafails",
+                            "cipsecglobaloutauthfails",
+                            "cipsecglobaloutauths",
+                            "cipsecglobaloutdrops",
+                            "cipsecglobaloutencryptfails",
+                            "cipsecglobaloutencrypts",
+                            "cipsecglobaloutoctets",
+                            "cipsecglobaloutoctwraps",
+                            "cipsecglobaloutpkts",
+                            "cipsecglobaloutuncompoctets",
+                            "cipsecglobaloutuncompoctwraps",
+                            "cipsecglobalprevioustunnels",
+                            "cipsecglobalprotocolusefails",
+                            "cipsecglobalsyscapfails") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsecglobalstats, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsecglobalstats, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cipsecglobalactivetunnels.is_set or
+                self.cipsecglobalhcindecompoctets.is_set or
+                self.cipsecglobalhcinoctets.is_set or
+                self.cipsecglobalhcoutoctets.is_set or
+                self.cipsecglobalhcoutuncompoctets.is_set or
+                self.cipsecglobalinauthfails.is_set or
+                self.cipsecglobalinauths.is_set or
+                self.cipsecglobalindecompoctets.is_set or
+                self.cipsecglobalindecompoctwraps.is_set or
+                self.cipsecglobalindecryptfails.is_set or
+                self.cipsecglobalindecrypts.is_set or
+                self.cipsecglobalindrops.is_set or
+                self.cipsecglobalinoctets.is_set or
+                self.cipsecglobalinoctwraps.is_set or
+                self.cipsecglobalinpkts.is_set or
+                self.cipsecglobalinreplaydrops.is_set or
+                self.cipsecglobalnosafails.is_set or
+                self.cipsecglobaloutauthfails.is_set or
+                self.cipsecglobaloutauths.is_set or
+                self.cipsecglobaloutdrops.is_set or
+                self.cipsecglobaloutencryptfails.is_set or
+                self.cipsecglobaloutencrypts.is_set or
+                self.cipsecglobaloutoctets.is_set or
+                self.cipsecglobaloutoctwraps.is_set or
+                self.cipsecglobaloutpkts.is_set or
+                self.cipsecglobaloutuncompoctets.is_set or
+                self.cipsecglobaloutuncompoctwraps.is_set or
+                self.cipsecglobalprevioustunnels.is_set or
+                self.cipsecglobalprotocolusefails.is_set or
+                self.cipsecglobalsyscapfails.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cipsecglobalactivetunnels.yfilter != YFilter.not_set or
+                self.cipsecglobalhcindecompoctets.yfilter != YFilter.not_set or
+                self.cipsecglobalhcinoctets.yfilter != YFilter.not_set or
+                self.cipsecglobalhcoutoctets.yfilter != YFilter.not_set or
+                self.cipsecglobalhcoutuncompoctets.yfilter != YFilter.not_set or
+                self.cipsecglobalinauthfails.yfilter != YFilter.not_set or
+                self.cipsecglobalinauths.yfilter != YFilter.not_set or
+                self.cipsecglobalindecompoctets.yfilter != YFilter.not_set or
+                self.cipsecglobalindecompoctwraps.yfilter != YFilter.not_set or
+                self.cipsecglobalindecryptfails.yfilter != YFilter.not_set or
+                self.cipsecglobalindecrypts.yfilter != YFilter.not_set or
+                self.cipsecglobalindrops.yfilter != YFilter.not_set or
+                self.cipsecglobalinoctets.yfilter != YFilter.not_set or
+                self.cipsecglobalinoctwraps.yfilter != YFilter.not_set or
+                self.cipsecglobalinpkts.yfilter != YFilter.not_set or
+                self.cipsecglobalinreplaydrops.yfilter != YFilter.not_set or
+                self.cipsecglobalnosafails.yfilter != YFilter.not_set or
+                self.cipsecglobaloutauthfails.yfilter != YFilter.not_set or
+                self.cipsecglobaloutauths.yfilter != YFilter.not_set or
+                self.cipsecglobaloutdrops.yfilter != YFilter.not_set or
+                self.cipsecglobaloutencryptfails.yfilter != YFilter.not_set or
+                self.cipsecglobaloutencrypts.yfilter != YFilter.not_set or
+                self.cipsecglobaloutoctets.yfilter != YFilter.not_set or
+                self.cipsecglobaloutoctwraps.yfilter != YFilter.not_set or
+                self.cipsecglobaloutpkts.yfilter != YFilter.not_set or
+                self.cipsecglobaloutuncompoctets.yfilter != YFilter.not_set or
+                self.cipsecglobaloutuncompoctwraps.yfilter != YFilter.not_set or
+                self.cipsecglobalprevioustunnels.yfilter != YFilter.not_set or
+                self.cipsecglobalprotocolusefails.yfilter != YFilter.not_set or
+                self.cipsecglobalsyscapfails.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecGlobalStats" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cipsecglobalactivetunnels.is_set or self.cipsecglobalactivetunnels.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalactivetunnels.get_name_leafdata())
+            if (self.cipsecglobalhcindecompoctets.is_set or self.cipsecglobalhcindecompoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalhcindecompoctets.get_name_leafdata())
+            if (self.cipsecglobalhcinoctets.is_set or self.cipsecglobalhcinoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalhcinoctets.get_name_leafdata())
+            if (self.cipsecglobalhcoutoctets.is_set or self.cipsecglobalhcoutoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalhcoutoctets.get_name_leafdata())
+            if (self.cipsecglobalhcoutuncompoctets.is_set or self.cipsecglobalhcoutuncompoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalhcoutuncompoctets.get_name_leafdata())
+            if (self.cipsecglobalinauthfails.is_set or self.cipsecglobalinauthfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalinauthfails.get_name_leafdata())
+            if (self.cipsecglobalinauths.is_set or self.cipsecglobalinauths.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalinauths.get_name_leafdata())
+            if (self.cipsecglobalindecompoctets.is_set or self.cipsecglobalindecompoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalindecompoctets.get_name_leafdata())
+            if (self.cipsecglobalindecompoctwraps.is_set or self.cipsecglobalindecompoctwraps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalindecompoctwraps.get_name_leafdata())
+            if (self.cipsecglobalindecryptfails.is_set or self.cipsecglobalindecryptfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalindecryptfails.get_name_leafdata())
+            if (self.cipsecglobalindecrypts.is_set or self.cipsecglobalindecrypts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalindecrypts.get_name_leafdata())
+            if (self.cipsecglobalindrops.is_set or self.cipsecglobalindrops.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalindrops.get_name_leafdata())
+            if (self.cipsecglobalinoctets.is_set or self.cipsecglobalinoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalinoctets.get_name_leafdata())
+            if (self.cipsecglobalinoctwraps.is_set or self.cipsecglobalinoctwraps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalinoctwraps.get_name_leafdata())
+            if (self.cipsecglobalinpkts.is_set or self.cipsecglobalinpkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalinpkts.get_name_leafdata())
+            if (self.cipsecglobalinreplaydrops.is_set or self.cipsecglobalinreplaydrops.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalinreplaydrops.get_name_leafdata())
+            if (self.cipsecglobalnosafails.is_set or self.cipsecglobalnosafails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalnosafails.get_name_leafdata())
+            if (self.cipsecglobaloutauthfails.is_set or self.cipsecglobaloutauthfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutauthfails.get_name_leafdata())
+            if (self.cipsecglobaloutauths.is_set or self.cipsecglobaloutauths.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutauths.get_name_leafdata())
+            if (self.cipsecglobaloutdrops.is_set or self.cipsecglobaloutdrops.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutdrops.get_name_leafdata())
+            if (self.cipsecglobaloutencryptfails.is_set or self.cipsecglobaloutencryptfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutencryptfails.get_name_leafdata())
+            if (self.cipsecglobaloutencrypts.is_set or self.cipsecglobaloutencrypts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutencrypts.get_name_leafdata())
+            if (self.cipsecglobaloutoctets.is_set or self.cipsecglobaloutoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutoctets.get_name_leafdata())
+            if (self.cipsecglobaloutoctwraps.is_set or self.cipsecglobaloutoctwraps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutoctwraps.get_name_leafdata())
+            if (self.cipsecglobaloutpkts.is_set or self.cipsecglobaloutpkts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutpkts.get_name_leafdata())
+            if (self.cipsecglobaloutuncompoctets.is_set or self.cipsecglobaloutuncompoctets.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutuncompoctets.get_name_leafdata())
+            if (self.cipsecglobaloutuncompoctwraps.is_set or self.cipsecglobaloutuncompoctwraps.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobaloutuncompoctwraps.get_name_leafdata())
+            if (self.cipsecglobalprevioustunnels.is_set or self.cipsecglobalprevioustunnels.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalprevioustunnels.get_name_leafdata())
+            if (self.cipsecglobalprotocolusefails.is_set or self.cipsecglobalprotocolusefails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalprotocolusefails.get_name_leafdata())
+            if (self.cipsecglobalsyscapfails.is_set or self.cipsecglobalsyscapfails.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecglobalsyscapfails.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecGlobalActiveTunnels" or name == "cipSecGlobalHcInDecompOctets" or name == "cipSecGlobalHcInOctets" or name == "cipSecGlobalHcOutOctets" or name == "cipSecGlobalHcOutUncompOctets" or name == "cipSecGlobalInAuthFails" or name == "cipSecGlobalInAuths" or name == "cipSecGlobalInDecompOctets" or name == "cipSecGlobalInDecompOctWraps" or name == "cipSecGlobalInDecryptFails" or name == "cipSecGlobalInDecrypts" or name == "cipSecGlobalInDrops" or name == "cipSecGlobalInOctets" or name == "cipSecGlobalInOctWraps" or name == "cipSecGlobalInPkts" or name == "cipSecGlobalInReplayDrops" or name == "cipSecGlobalNoSaFails" or name == "cipSecGlobalOutAuthFails" or name == "cipSecGlobalOutAuths" or name == "cipSecGlobalOutDrops" or name == "cipSecGlobalOutEncryptFails" or name == "cipSecGlobalOutEncrypts" or name == "cipSecGlobalOutOctets" or name == "cipSecGlobalOutOctWraps" or name == "cipSecGlobalOutPkts" or name == "cipSecGlobalOutUncompOctets" or name == "cipSecGlobalOutUncompOctWraps" or name == "cipSecGlobalPreviousTunnels" or name == "cipSecGlobalProtocolUseFails" or name == "cipSecGlobalSysCapFails"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cipsecglobalactivetunnels is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cipSecGlobalActiveTunnels"):
+                self.cipsecglobalactivetunnels = value
+                self.cipsecglobalactivetunnels.value_namespace = name_space
+                self.cipsecglobalactivetunnels.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalHcInDecompOctets"):
+                self.cipsecglobalhcindecompoctets = value
+                self.cipsecglobalhcindecompoctets.value_namespace = name_space
+                self.cipsecglobalhcindecompoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalHcInOctets"):
+                self.cipsecglobalhcinoctets = value
+                self.cipsecglobalhcinoctets.value_namespace = name_space
+                self.cipsecglobalhcinoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalHcOutOctets"):
+                self.cipsecglobalhcoutoctets = value
+                self.cipsecglobalhcoutoctets.value_namespace = name_space
+                self.cipsecglobalhcoutoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalHcOutUncompOctets"):
+                self.cipsecglobalhcoutuncompoctets = value
+                self.cipsecglobalhcoutuncompoctets.value_namespace = name_space
+                self.cipsecglobalhcoutuncompoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInAuthFails"):
+                self.cipsecglobalinauthfails = value
+                self.cipsecglobalinauthfails.value_namespace = name_space
+                self.cipsecglobalinauthfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInAuths"):
+                self.cipsecglobalinauths = value
+                self.cipsecglobalinauths.value_namespace = name_space
+                self.cipsecglobalinauths.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInDecompOctets"):
+                self.cipsecglobalindecompoctets = value
+                self.cipsecglobalindecompoctets.value_namespace = name_space
+                self.cipsecglobalindecompoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInDecompOctWraps"):
+                self.cipsecglobalindecompoctwraps = value
+                self.cipsecglobalindecompoctwraps.value_namespace = name_space
+                self.cipsecglobalindecompoctwraps.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInDecryptFails"):
+                self.cipsecglobalindecryptfails = value
+                self.cipsecglobalindecryptfails.value_namespace = name_space
+                self.cipsecglobalindecryptfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInDecrypts"):
+                self.cipsecglobalindecrypts = value
+                self.cipsecglobalindecrypts.value_namespace = name_space
+                self.cipsecglobalindecrypts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInDrops"):
+                self.cipsecglobalindrops = value
+                self.cipsecglobalindrops.value_namespace = name_space
+                self.cipsecglobalindrops.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInOctets"):
+                self.cipsecglobalinoctets = value
+                self.cipsecglobalinoctets.value_namespace = name_space
+                self.cipsecglobalinoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInOctWraps"):
+                self.cipsecglobalinoctwraps = value
+                self.cipsecglobalinoctwraps.value_namespace = name_space
+                self.cipsecglobalinoctwraps.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInPkts"):
+                self.cipsecglobalinpkts = value
+                self.cipsecglobalinpkts.value_namespace = name_space
+                self.cipsecglobalinpkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalInReplayDrops"):
+                self.cipsecglobalinreplaydrops = value
+                self.cipsecglobalinreplaydrops.value_namespace = name_space
+                self.cipsecglobalinreplaydrops.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalNoSaFails"):
+                self.cipsecglobalnosafails = value
+                self.cipsecglobalnosafails.value_namespace = name_space
+                self.cipsecglobalnosafails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutAuthFails"):
+                self.cipsecglobaloutauthfails = value
+                self.cipsecglobaloutauthfails.value_namespace = name_space
+                self.cipsecglobaloutauthfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutAuths"):
+                self.cipsecglobaloutauths = value
+                self.cipsecglobaloutauths.value_namespace = name_space
+                self.cipsecglobaloutauths.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutDrops"):
+                self.cipsecglobaloutdrops = value
+                self.cipsecglobaloutdrops.value_namespace = name_space
+                self.cipsecglobaloutdrops.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutEncryptFails"):
+                self.cipsecglobaloutencryptfails = value
+                self.cipsecglobaloutencryptfails.value_namespace = name_space
+                self.cipsecglobaloutencryptfails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutEncrypts"):
+                self.cipsecglobaloutencrypts = value
+                self.cipsecglobaloutencrypts.value_namespace = name_space
+                self.cipsecglobaloutencrypts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutOctets"):
+                self.cipsecglobaloutoctets = value
+                self.cipsecglobaloutoctets.value_namespace = name_space
+                self.cipsecglobaloutoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutOctWraps"):
+                self.cipsecglobaloutoctwraps = value
+                self.cipsecglobaloutoctwraps.value_namespace = name_space
+                self.cipsecglobaloutoctwraps.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutPkts"):
+                self.cipsecglobaloutpkts = value
+                self.cipsecglobaloutpkts.value_namespace = name_space
+                self.cipsecglobaloutpkts.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutUncompOctets"):
+                self.cipsecglobaloutuncompoctets = value
+                self.cipsecglobaloutuncompoctets.value_namespace = name_space
+                self.cipsecglobaloutuncompoctets.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalOutUncompOctWraps"):
+                self.cipsecglobaloutuncompoctwraps = value
+                self.cipsecglobaloutuncompoctwraps.value_namespace = name_space
+                self.cipsecglobaloutuncompoctwraps.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalPreviousTunnels"):
+                self.cipsecglobalprevioustunnels = value
+                self.cipsecglobalprevioustunnels.value_namespace = name_space
+                self.cipsecglobalprevioustunnels.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalProtocolUseFails"):
+                self.cipsecglobalprotocolusefails = value
+                self.cipsecglobalprotocolusefails.value_namespace = name_space
+                self.cipsecglobalprotocolusefails.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecGlobalSysCapFails"):
+                self.cipsecglobalsyscapfails = value
+                self.cipsecglobalsyscapfails.value_namespace = name_space
+                self.cipsecglobalsyscapfails.value_namespace_prefix = name_space_prefix
 
-            if self.cipsecglobalhcindecompoctets is not None:
-                return True
 
-            if self.cipsecglobalhcinoctets is not None:
-                return True
-
-            if self.cipsecglobalhcoutoctets is not None:
-                return True
-
-            if self.cipsecglobalhcoutuncompoctets is not None:
-                return True
-
-            if self.cipsecglobalinauthfails is not None:
-                return True
-
-            if self.cipsecglobalinauths is not None:
-                return True
-
-            if self.cipsecglobalindecompoctets is not None:
-                return True
-
-            if self.cipsecglobalindecompoctwraps is not None:
-                return True
-
-            if self.cipsecglobalindecryptfails is not None:
-                return True
-
-            if self.cipsecglobalindecrypts is not None:
-                return True
-
-            if self.cipsecglobalindrops is not None:
-                return True
-
-            if self.cipsecglobalinoctets is not None:
-                return True
-
-            if self.cipsecglobalinoctwraps is not None:
-                return True
-
-            if self.cipsecglobalinpkts is not None:
-                return True
-
-            if self.cipsecglobalinreplaydrops is not None:
-                return True
-
-            if self.cipsecglobalnosafails is not None:
-                return True
-
-            if self.cipsecglobaloutauthfails is not None:
-                return True
-
-            if self.cipsecglobaloutauths is not None:
-                return True
-
-            if self.cipsecglobaloutdrops is not None:
-                return True
-
-            if self.cipsecglobaloutencryptfails is not None:
-                return True
-
-            if self.cipsecglobaloutencrypts is not None:
-                return True
-
-            if self.cipsecglobaloutoctets is not None:
-                return True
-
-            if self.cipsecglobaloutoctwraps is not None:
-                return True
-
-            if self.cipsecglobaloutpkts is not None:
-                return True
-
-            if self.cipsecglobaloutuncompoctets is not None:
-                return True
-
-            if self.cipsecglobaloutuncompoctwraps is not None:
-                return True
-
-            if self.cipsecglobalprevioustunnels is not None:
-                return True
-
-            if self.cipsecglobalprotocolusefails is not None:
-                return True
-
-            if self.cipsecglobalsyscapfails is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecglobalstats']['meta_info']
-
-
-    class Cipsechistglobalcntl(object):
+    class Cipsechistglobalcntl(Entity):
         """
         
         
         .. attribute:: cipsechistcheckpoint
         
         	The current state of check point processing.  This object will return ready when the agent is  ready to create on\-demand history entries for  active IPsec Tunnels or checkPoint when the  agent is currently creating on\-demand history  entries for active IPsec Tunnels.  By setting this value to checkPoint, the agent  will create\: a) an entry in the IPsec Phase\-1 Tunnel History     for each active IPsec Phase\-1 Tunnel and b) an entry in the IPsec Phase\-2 Tunnel History     Table and an entry in the IPsec Phase\-2     Tunnel EndPoint History Table    for each active IPsec Phase\-2 Tunnel
-        	**type**\:   :py:class:`CipsechistcheckpointEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl.CipsechistcheckpointEnum>`
+        	**type**\:   :py:class:`Cipsechistcheckpoint <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl.Cipsechistcheckpoint>`
         
         .. attribute:: cipsechisttablesize
         
@@ -1424,13 +1944,43 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsechistcheckpoint = None
-            self.cipsechisttablesize = None
+            super(CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl, self).__init__()
 
-        class CipsechistcheckpointEnum(Enum):
+            self.yang_name = "cipSecHistGlobalCntl"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsechistcheckpoint = YLeaf(YType.enumeration, "cipSecHistCheckPoint")
+
+            self.cipsechisttablesize = YLeaf(YType.int32, "cipSecHistTableSize")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cipsechistcheckpoint",
+                            "cipsechisttablesize") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl, self).__setattr__(name, value)
+
+        class Cipsechistcheckpoint(Enum):
             """
-            CipsechistcheckpointEnum
+            Cipsechistcheckpoint
 
             The current state of check point processing.
 
@@ -1466,42 +2016,68 @@ class CiscoIpsecFlowMonitorMib(object):
 
             """
 
-            ready = 1
+            ready = Enum.YLeaf(1, "ready")
 
-            checkPoint = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl.CipsechistcheckpointEnum']
+            checkPoint = Enum.YLeaf(2, "checkPoint")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.cipsechistcheckpoint.is_set or
+                self.cipsechisttablesize.is_set)
 
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecHistGlobalCntl'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cipsechistcheckpoint.yfilter != YFilter.not_set or
+                self.cipsechisttablesize.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecHistGlobalCntl" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cipsechistcheckpoint.is_set or self.cipsechistcheckpoint.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsechistcheckpoint.get_name_leafdata())
+            if (self.cipsechisttablesize.is_set or self.cipsechisttablesize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsechisttablesize.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecHistCheckPoint" or name == "cipSecHistTableSize"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cipsechistcheckpoint is not None:
-                return True
-
-            if self.cipsechisttablesize is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cipSecHistCheckPoint"):
+                self.cipsechistcheckpoint = value
+                self.cipsechistcheckpoint.value_namespace = name_space
+                self.cipsechistcheckpoint.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecHistTableSize"):
+                self.cipsechisttablesize = value
+                self.cipsechisttablesize.value_namespace = name_space
+                self.cipsechisttablesize.value_namespace_prefix = name_space_prefix
 
 
-    class Cipsecfailglobalcntl(object):
+    class Cipsecfailglobalcntl(Entity):
         """
         
         
@@ -1520,98 +2096,152 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecfailtablesize = None
+            super(CiscoIpsecFlowMonitorMib.Cipsecfailglobalcntl, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cipSecFailGlobalCntl"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
 
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecFailGlobalCntl'
+            self.cipsecfailtablesize = YLeaf(YType.int32, "cipSecFailTableSize")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cipsecfailtablesize") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsecfailglobalcntl, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsecfailglobalcntl, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.cipsecfailtablesize is not None:
+        def has_data(self):
+            return self.cipsecfailtablesize.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cipsecfailtablesize.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecFailGlobalCntl" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cipsecfailtablesize.is_set or self.cipsecfailtablesize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsecfailtablesize.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecFailTableSize"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecfailglobalcntl']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cipSecFailTableSize"):
+                self.cipsecfailtablesize = value
+                self.cipsecfailtablesize.value_namespace = name_space
+                self.cipsecfailtablesize.value_namespace_prefix = name_space_prefix
 
 
-    class Cipsectrapcntl(object):
+    class Cipsectrapcntl(Entity):
         """
         
         
         .. attribute:: cipsectrapcntlikecertcrlfailure
         
         	This object defines the administrative state of sending the  IPsec IKE Phase\-1 Certificate/CRL Failure TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlikenosa
         
         	This object defines the administrative state of sending the  IPsec IKE Phase\-1 No Security Association TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlikeprotocolfail
         
         	This object defines the administrative state of sending the  IPsec IKE Phase\-1 Protocol Failure TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlikesysfailure
         
         	This object defines the administrative state of sending the  IPsec IKE Phase\-1 System Failure TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntliketunnelstart
         
         	This object defines the administrative state of sending the IPsec IKE Phase\-1 Tunnel Start TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntliketunnelstop
         
         	This object defines the administrative state of sending the  IPsec IKE Phase\-1 Tunnel Stop TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlipsecearlytunterm
         
         	This object defines the administrative state of sending the IPsec  Phase\-2 Early Tunnel Termination TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlipsecnosa
         
         	This object defines the administrative state of sending the IPsec  Phase\-2  No Security Association TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlipsecprotocolfail
         
         	This object defines the administrative state of sending the IPsec  Phase\-2 Protocol Failure TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlipsecsetupfailure
         
         	This object defines the administrative state of sending the IPsec  Phase\-2 Set Up Failure TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlipsecsysfailure
         
         	This object defines the administrative state of sending the IPsec  Phase\-2 System Failure TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlipsectunnelstart
         
         	This object defines the administrative state of sending the IPsec  Phase\-2 Tunnel Start TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         .. attribute:: cipsectrapcntlipsectunnelstop
         
         	This object defines the administrative state of sending the IPsec  Phase\-2 Tunnel Stop TRAP
-        	**type**\:   :py:class:`TrapstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TrapstatusEnum>`
+        	**type**\:   :py:class:`Trapstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Trapstatus>`
         
         
 
@@ -1621,79 +2251,218 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsectrapcntlikecertcrlfailure = None
-            self.cipsectrapcntlikenosa = None
-            self.cipsectrapcntlikeprotocolfail = None
-            self.cipsectrapcntlikesysfailure = None
-            self.cipsectrapcntliketunnelstart = None
-            self.cipsectrapcntliketunnelstop = None
-            self.cipsectrapcntlipsecearlytunterm = None
-            self.cipsectrapcntlipsecnosa = None
-            self.cipsectrapcntlipsecprotocolfail = None
-            self.cipsectrapcntlipsecsetupfailure = None
-            self.cipsectrapcntlipsecsysfailure = None
-            self.cipsectrapcntlipsectunnelstart = None
-            self.cipsectrapcntlipsectunnelstop = None
+            super(CiscoIpsecFlowMonitorMib.Cipsectrapcntl, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cipSecTrapCntl"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
 
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTrapCntl'
+            self.cipsectrapcntlikecertcrlfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIkeCertCrlFailure")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cipsectrapcntlikenosa = YLeaf(YType.enumeration, "cipSecTrapCntlIkeNoSa")
+
+            self.cipsectrapcntlikeprotocolfail = YLeaf(YType.enumeration, "cipSecTrapCntlIkeProtocolFail")
+
+            self.cipsectrapcntlikesysfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIkeSysFailure")
+
+            self.cipsectrapcntliketunnelstart = YLeaf(YType.enumeration, "cipSecTrapCntlIkeTunnelStart")
+
+            self.cipsectrapcntliketunnelstop = YLeaf(YType.enumeration, "cipSecTrapCntlIkeTunnelStop")
+
+            self.cipsectrapcntlipsecearlytunterm = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecEarlyTunTerm")
+
+            self.cipsectrapcntlipsecnosa = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecNoSa")
+
+            self.cipsectrapcntlipsecprotocolfail = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecProtocolFail")
+
+            self.cipsectrapcntlipsecsetupfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecSetUpFailure")
+
+            self.cipsectrapcntlipsecsysfailure = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecSysFailure")
+
+            self.cipsectrapcntlipsectunnelstart = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecTunnelStart")
+
+            self.cipsectrapcntlipsectunnelstop = YLeaf(YType.enumeration, "cipSecTrapCntlIpSecTunnelStop")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cipsectrapcntlikecertcrlfailure",
+                            "cipsectrapcntlikenosa",
+                            "cipsectrapcntlikeprotocolfail",
+                            "cipsectrapcntlikesysfailure",
+                            "cipsectrapcntliketunnelstart",
+                            "cipsectrapcntliketunnelstop",
+                            "cipsectrapcntlipsecearlytunterm",
+                            "cipsectrapcntlipsecnosa",
+                            "cipsectrapcntlipsecprotocolfail",
+                            "cipsectrapcntlipsecsetupfailure",
+                            "cipsectrapcntlipsecsysfailure",
+                            "cipsectrapcntlipsectunnelstart",
+                            "cipsectrapcntlipsectunnelstop") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsectrapcntl, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsectrapcntl, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cipsectrapcntlikecertcrlfailure.is_set or
+                self.cipsectrapcntlikenosa.is_set or
+                self.cipsectrapcntlikeprotocolfail.is_set or
+                self.cipsectrapcntlikesysfailure.is_set or
+                self.cipsectrapcntliketunnelstart.is_set or
+                self.cipsectrapcntliketunnelstop.is_set or
+                self.cipsectrapcntlipsecearlytunterm.is_set or
+                self.cipsectrapcntlipsecnosa.is_set or
+                self.cipsectrapcntlipsecprotocolfail.is_set or
+                self.cipsectrapcntlipsecsetupfailure.is_set or
+                self.cipsectrapcntlipsecsysfailure.is_set or
+                self.cipsectrapcntlipsectunnelstart.is_set or
+                self.cipsectrapcntlipsectunnelstop.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cipsectrapcntlikecertcrlfailure.yfilter != YFilter.not_set or
+                self.cipsectrapcntlikenosa.yfilter != YFilter.not_set or
+                self.cipsectrapcntlikeprotocolfail.yfilter != YFilter.not_set or
+                self.cipsectrapcntlikesysfailure.yfilter != YFilter.not_set or
+                self.cipsectrapcntliketunnelstart.yfilter != YFilter.not_set or
+                self.cipsectrapcntliketunnelstop.yfilter != YFilter.not_set or
+                self.cipsectrapcntlipsecearlytunterm.yfilter != YFilter.not_set or
+                self.cipsectrapcntlipsecnosa.yfilter != YFilter.not_set or
+                self.cipsectrapcntlipsecprotocolfail.yfilter != YFilter.not_set or
+                self.cipsectrapcntlipsecsetupfailure.yfilter != YFilter.not_set or
+                self.cipsectrapcntlipsecsysfailure.yfilter != YFilter.not_set or
+                self.cipsectrapcntlipsectunnelstart.yfilter != YFilter.not_set or
+                self.cipsectrapcntlipsectunnelstop.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecTrapCntl" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cipsectrapcntlikecertcrlfailure.is_set or self.cipsectrapcntlikecertcrlfailure.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlikecertcrlfailure.get_name_leafdata())
+            if (self.cipsectrapcntlikenosa.is_set or self.cipsectrapcntlikenosa.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlikenosa.get_name_leafdata())
+            if (self.cipsectrapcntlikeprotocolfail.is_set or self.cipsectrapcntlikeprotocolfail.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlikeprotocolfail.get_name_leafdata())
+            if (self.cipsectrapcntlikesysfailure.is_set or self.cipsectrapcntlikesysfailure.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlikesysfailure.get_name_leafdata())
+            if (self.cipsectrapcntliketunnelstart.is_set or self.cipsectrapcntliketunnelstart.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntliketunnelstart.get_name_leafdata())
+            if (self.cipsectrapcntliketunnelstop.is_set or self.cipsectrapcntliketunnelstop.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntliketunnelstop.get_name_leafdata())
+            if (self.cipsectrapcntlipsecearlytunterm.is_set or self.cipsectrapcntlipsecearlytunterm.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlipsecearlytunterm.get_name_leafdata())
+            if (self.cipsectrapcntlipsecnosa.is_set or self.cipsectrapcntlipsecnosa.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlipsecnosa.get_name_leafdata())
+            if (self.cipsectrapcntlipsecprotocolfail.is_set or self.cipsectrapcntlipsecprotocolfail.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlipsecprotocolfail.get_name_leafdata())
+            if (self.cipsectrapcntlipsecsetupfailure.is_set or self.cipsectrapcntlipsecsetupfailure.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlipsecsetupfailure.get_name_leafdata())
+            if (self.cipsectrapcntlipsecsysfailure.is_set or self.cipsectrapcntlipsecsysfailure.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlipsecsysfailure.get_name_leafdata())
+            if (self.cipsectrapcntlipsectunnelstart.is_set or self.cipsectrapcntlipsectunnelstart.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlipsectunnelstart.get_name_leafdata())
+            if (self.cipsectrapcntlipsectunnelstop.is_set or self.cipsectrapcntlipsectunnelstop.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cipsectrapcntlipsectunnelstop.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecTrapCntlIkeCertCrlFailure" or name == "cipSecTrapCntlIkeNoSa" or name == "cipSecTrapCntlIkeProtocolFail" or name == "cipSecTrapCntlIkeSysFailure" or name == "cipSecTrapCntlIkeTunnelStart" or name == "cipSecTrapCntlIkeTunnelStop" or name == "cipSecTrapCntlIpSecEarlyTunTerm" or name == "cipSecTrapCntlIpSecNoSa" or name == "cipSecTrapCntlIpSecProtocolFail" or name == "cipSecTrapCntlIpSecSetUpFailure" or name == "cipSecTrapCntlIpSecSysFailure" or name == "cipSecTrapCntlIpSecTunnelStart" or name == "cipSecTrapCntlIpSecTunnelStop"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cipsectrapcntlikecertcrlfailure is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cipSecTrapCntlIkeCertCrlFailure"):
+                self.cipsectrapcntlikecertcrlfailure = value
+                self.cipsectrapcntlikecertcrlfailure.value_namespace = name_space
+                self.cipsectrapcntlikecertcrlfailure.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIkeNoSa"):
+                self.cipsectrapcntlikenosa = value
+                self.cipsectrapcntlikenosa.value_namespace = name_space
+                self.cipsectrapcntlikenosa.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIkeProtocolFail"):
+                self.cipsectrapcntlikeprotocolfail = value
+                self.cipsectrapcntlikeprotocolfail.value_namespace = name_space
+                self.cipsectrapcntlikeprotocolfail.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIkeSysFailure"):
+                self.cipsectrapcntlikesysfailure = value
+                self.cipsectrapcntlikesysfailure.value_namespace = name_space
+                self.cipsectrapcntlikesysfailure.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIkeTunnelStart"):
+                self.cipsectrapcntliketunnelstart = value
+                self.cipsectrapcntliketunnelstart.value_namespace = name_space
+                self.cipsectrapcntliketunnelstart.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIkeTunnelStop"):
+                self.cipsectrapcntliketunnelstop = value
+                self.cipsectrapcntliketunnelstop.value_namespace = name_space
+                self.cipsectrapcntliketunnelstop.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIpSecEarlyTunTerm"):
+                self.cipsectrapcntlipsecearlytunterm = value
+                self.cipsectrapcntlipsecearlytunterm.value_namespace = name_space
+                self.cipsectrapcntlipsecearlytunterm.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIpSecNoSa"):
+                self.cipsectrapcntlipsecnosa = value
+                self.cipsectrapcntlipsecnosa.value_namespace = name_space
+                self.cipsectrapcntlipsecnosa.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIpSecProtocolFail"):
+                self.cipsectrapcntlipsecprotocolfail = value
+                self.cipsectrapcntlipsecprotocolfail.value_namespace = name_space
+                self.cipsectrapcntlipsecprotocolfail.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIpSecSetUpFailure"):
+                self.cipsectrapcntlipsecsetupfailure = value
+                self.cipsectrapcntlipsecsetupfailure.value_namespace = name_space
+                self.cipsectrapcntlipsecsetupfailure.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIpSecSysFailure"):
+                self.cipsectrapcntlipsecsysfailure = value
+                self.cipsectrapcntlipsecsysfailure.value_namespace = name_space
+                self.cipsectrapcntlipsecsysfailure.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIpSecTunnelStart"):
+                self.cipsectrapcntlipsectunnelstart = value
+                self.cipsectrapcntlipsectunnelstart.value_namespace = name_space
+                self.cipsectrapcntlipsectunnelstart.value_namespace_prefix = name_space_prefix
+            if(value_path == "cipSecTrapCntlIpSecTunnelStop"):
+                self.cipsectrapcntlipsectunnelstop = value
+                self.cipsectrapcntlipsectunnelstop.value_namespace = name_space
+                self.cipsectrapcntlipsectunnelstop.value_namespace_prefix = name_space_prefix
 
-            if self.cipsectrapcntlikenosa is not None:
-                return True
 
-            if self.cipsectrapcntlikeprotocolfail is not None:
-                return True
-
-            if self.cipsectrapcntlikesysfailure is not None:
-                return True
-
-            if self.cipsectrapcntliketunnelstart is not None:
-                return True
-
-            if self.cipsectrapcntliketunnelstop is not None:
-                return True
-
-            if self.cipsectrapcntlipsecearlytunterm is not None:
-                return True
-
-            if self.cipsectrapcntlipsecnosa is not None:
-                return True
-
-            if self.cipsectrapcntlipsecprotocolfail is not None:
-                return True
-
-            if self.cipsectrapcntlipsecsetupfailure is not None:
-                return True
-
-            if self.cipsectrapcntlipsecsysfailure is not None:
-                return True
-
-            if self.cipsectrapcntlipsectunnelstart is not None:
-                return True
-
-            if self.cipsectrapcntlipsectunnelstop is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsectrapcntl']['meta_info']
-
-
-    class Cikepeertable(object):
+    class Cikepeertable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Peer Table.
         There is one entry in this table for each IPsec
@@ -1716,13 +2485,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cikepeerentry = YList()
-            self.cikepeerentry.parent = self
-            self.cikepeerentry.name = 'cikepeerentry'
+            super(CiscoIpsecFlowMonitorMib.Cikepeertable, self).__init__()
+
+            self.yang_name = "cikePeerTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cikepeerentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cikepeertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cikepeertable, self).__setattr__(name, value)
 
 
-        class Cikepeerentry(object):
+        class Cikepeerentry(Entity):
             """
             Each entry contains the attributes associated
             with an IPsec Phase\-1 IKE peer association.
@@ -1730,7 +2525,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cikepeerlocaltype  <key>
             
             	The type of local peer identity.  The local peer may be identified by\: 1. an IP address, or 2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: cikepeerlocalvalue  <key>
             
@@ -1740,7 +2535,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cikepeerremotetype  <key>
             
             	The type of remote peer identity.  The remote peer may be identified by\: 1. an IP address, or 2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: cikepeerremotevalue  <key>
             
@@ -1790,95 +2585,231 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cikepeerlocaltype = None
-                self.cikepeerlocalvalue = None
-                self.cikepeerremotetype = None
-                self.cikepeerremotevalue = None
-                self.cikepeerintindex = None
-                self.cikepeeractivetime = None
-                self.cikepeeractivetunnelindex = None
-                self.cikepeerlocaladdr = None
-                self.cikepeerremoteaddr = None
+                super(CiscoIpsecFlowMonitorMib.Cikepeertable.Cikepeerentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cikepeerlocaltype is None:
-                    raise YPYModelError('Key property cikepeerlocaltype is None')
-                if self.cikepeerlocalvalue is None:
-                    raise YPYModelError('Key property cikepeerlocalvalue is None')
-                if self.cikepeerremotetype is None:
-                    raise YPYModelError('Key property cikepeerremotetype is None')
-                if self.cikepeerremotevalue is None:
-                    raise YPYModelError('Key property cikepeerremotevalue is None')
-                if self.cikepeerintindex is None:
-                    raise YPYModelError('Key property cikepeerintindex is None')
+                self.yang_name = "cikePeerEntry"
+                self.yang_parent_name = "cikePeerTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerLocalType = ' + str(self.cikepeerlocaltype) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerLocalValue = ' + str(self.cikepeerlocalvalue) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerRemoteType = ' + str(self.cikepeerremotetype) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerRemoteValue = ' + str(self.cikepeerremotevalue) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerIntIndex = ' + str(self.cikepeerintindex) + ']'
+                self.cikepeerlocaltype = YLeaf(YType.enumeration, "cikePeerLocalType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cikepeerlocalvalue = YLeaf(YType.str, "cikePeerLocalValue")
+
+                self.cikepeerremotetype = YLeaf(YType.enumeration, "cikePeerRemoteType")
+
+                self.cikepeerremotevalue = YLeaf(YType.str, "cikePeerRemoteValue")
+
+                self.cikepeerintindex = YLeaf(YType.int32, "cikePeerIntIndex")
+
+                self.cikepeeractivetime = YLeaf(YType.int32, "cikePeerActiveTime")
+
+                self.cikepeeractivetunnelindex = YLeaf(YType.int32, "cikePeerActiveTunnelIndex")
+
+                self.cikepeerlocaladdr = YLeaf(YType.str, "cikePeerLocalAddr")
+
+                self.cikepeerremoteaddr = YLeaf(YType.str, "cikePeerRemoteAddr")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cikepeerlocaltype",
+                                "cikepeerlocalvalue",
+                                "cikepeerremotetype",
+                                "cikepeerremotevalue",
+                                "cikepeerintindex",
+                                "cikepeeractivetime",
+                                "cikepeeractivetunnelindex",
+                                "cikepeerlocaladdr",
+                                "cikepeerremoteaddr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cikepeertable.Cikepeerentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cikepeertable.Cikepeerentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cikepeerlocaltype.is_set or
+                    self.cikepeerlocalvalue.is_set or
+                    self.cikepeerremotetype.is_set or
+                    self.cikepeerremotevalue.is_set or
+                    self.cikepeerintindex.is_set or
+                    self.cikepeeractivetime.is_set or
+                    self.cikepeeractivetunnelindex.is_set or
+                    self.cikepeerlocaladdr.is_set or
+                    self.cikepeerremoteaddr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cikepeerlocaltype.yfilter != YFilter.not_set or
+                    self.cikepeerlocalvalue.yfilter != YFilter.not_set or
+                    self.cikepeerremotetype.yfilter != YFilter.not_set or
+                    self.cikepeerremotevalue.yfilter != YFilter.not_set or
+                    self.cikepeerintindex.yfilter != YFilter.not_set or
+                    self.cikepeeractivetime.yfilter != YFilter.not_set or
+                    self.cikepeeractivetunnelindex.yfilter != YFilter.not_set or
+                    self.cikepeerlocaladdr.yfilter != YFilter.not_set or
+                    self.cikepeerremoteaddr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cikePeerEntry" + "[cikePeerLocalType='" + self.cikepeerlocaltype.get() + "']" + "[cikePeerLocalValue='" + self.cikepeerlocalvalue.get() + "']" + "[cikePeerRemoteType='" + self.cikepeerremotetype.get() + "']" + "[cikePeerRemoteValue='" + self.cikepeerremotevalue.get() + "']" + "[cikePeerIntIndex='" + self.cikepeerintindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cikepeerlocaltype.is_set or self.cikepeerlocaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeerlocaltype.get_name_leafdata())
+                if (self.cikepeerlocalvalue.is_set or self.cikepeerlocalvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeerlocalvalue.get_name_leafdata())
+                if (self.cikepeerremotetype.is_set or self.cikepeerremotetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeerremotetype.get_name_leafdata())
+                if (self.cikepeerremotevalue.is_set or self.cikepeerremotevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeerremotevalue.get_name_leafdata())
+                if (self.cikepeerintindex.is_set or self.cikepeerintindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeerintindex.get_name_leafdata())
+                if (self.cikepeeractivetime.is_set or self.cikepeeractivetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeeractivetime.get_name_leafdata())
+                if (self.cikepeeractivetunnelindex.is_set or self.cikepeeractivetunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeeractivetunnelindex.get_name_leafdata())
+                if (self.cikepeerlocaladdr.is_set or self.cikepeerlocaladdr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeerlocaladdr.get_name_leafdata())
+                if (self.cikepeerremoteaddr.is_set or self.cikepeerremoteaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeerremoteaddr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cikePeerLocalType" or name == "cikePeerLocalValue" or name == "cikePeerRemoteType" or name == "cikePeerRemoteValue" or name == "cikePeerIntIndex" or name == "cikePeerActiveTime" or name == "cikePeerActiveTunnelIndex" or name == "cikePeerLocalAddr" or name == "cikePeerRemoteAddr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cikepeerlocaltype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cikePeerLocalType"):
+                    self.cikepeerlocaltype = value
+                    self.cikepeerlocaltype.value_namespace = name_space
+                    self.cikepeerlocaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerLocalValue"):
+                    self.cikepeerlocalvalue = value
+                    self.cikepeerlocalvalue.value_namespace = name_space
+                    self.cikepeerlocalvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerRemoteType"):
+                    self.cikepeerremotetype = value
+                    self.cikepeerremotetype.value_namespace = name_space
+                    self.cikepeerremotetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerRemoteValue"):
+                    self.cikepeerremotevalue = value
+                    self.cikepeerremotevalue.value_namespace = name_space
+                    self.cikepeerremotevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerIntIndex"):
+                    self.cikepeerintindex = value
+                    self.cikepeerintindex.value_namespace = name_space
+                    self.cikepeerintindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerActiveTime"):
+                    self.cikepeeractivetime = value
+                    self.cikepeeractivetime.value_namespace = name_space
+                    self.cikepeeractivetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerActiveTunnelIndex"):
+                    self.cikepeeractivetunnelindex = value
+                    self.cikepeeractivetunnelindex.value_namespace = name_space
+                    self.cikepeeractivetunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerLocalAddr"):
+                    self.cikepeerlocaladdr = value
+                    self.cikepeerlocaladdr.value_namespace = name_space
+                    self.cikepeerlocaladdr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerRemoteAddr"):
+                    self.cikepeerremoteaddr = value
+                    self.cikepeerremoteaddr.value_namespace = name_space
+                    self.cikepeerremoteaddr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cikepeerentry:
+                if (c.has_data()):
                     return True
-
-                if self.cikepeerlocalvalue is not None:
-                    return True
-
-                if self.cikepeerremotetype is not None:
-                    return True
-
-                if self.cikepeerremotevalue is not None:
-                    return True
-
-                if self.cikepeerintindex is not None:
-                    return True
-
-                if self.cikepeeractivetime is not None:
-                    return True
-
-                if self.cikepeeractivetunnelindex is not None:
-                    return True
-
-                if self.cikepeerlocaladdr is not None:
-                    return True
-
-                if self.cikepeerremoteaddr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikepeertable.Cikepeerentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cikepeerentry is not None:
-                for child_ref in self.cikepeerentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cikepeerentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cikePeerTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cikePeerEntry"):
+                for c in self.cikepeerentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cikepeertable.Cikepeerentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cikepeerentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cikePeerEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikepeertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciketunneltable(object):
+    class Ciketunneltable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Tunnel Table.
         There is one entry in this table for each active IPsec
@@ -1897,13 +2828,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.ciketunnelentry = YList()
-            self.ciketunnelentry.parent = self
-            self.ciketunnelentry.name = 'ciketunnelentry'
+            super(CiscoIpsecFlowMonitorMib.Ciketunneltable, self).__init__()
+
+            self.yang_name = "cikeTunnelTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.ciketunnelentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Ciketunneltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Ciketunneltable, self).__setattr__(name, value)
 
 
-        class Ciketunnelentry(object):
+        class Ciketunnelentry(Entity):
             """
             Each entry contains the attributes associated with
             an active IPsec Phase\-1 IKE Tunnel.
@@ -1925,22 +2882,22 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunauthmethod
             
             	The authentication method used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`IkeauthmethodEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkeauthmethodEnum>`
+            	**type**\:   :py:class:`Ikeauthmethod <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikeauthmethod>`
             
             .. attribute:: ciketundiffhellmangrp
             
             	The Diffie Hellman Group used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`DiffhellmangrpEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.DiffhellmangrpEnum>`
+            	**type**\:   :py:class:`Diffhellmangrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Diffhellmangrp>`
             
             .. attribute:: ciketunencryptalgo
             
             	The encryption algorithm used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`EncryptalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncryptalgoEnum>`
+            	**type**\:   :py:class:`Encryptalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encryptalgo>`
             
             .. attribute:: ciketunhashalgo
             
             	The hash algorithm used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`IkehashalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkehashalgoEnum>`
+            	**type**\:   :py:class:`Ikehashalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikehashalgo>`
             
             .. attribute:: ciketunindroppkts
             
@@ -2038,7 +2995,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunlocaltype
             
             	The type of local peer identity.  The local peer may be identified by\:  1. an IP address, or  2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: ciketunlocalvalue
             
@@ -2048,7 +3005,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunnegomode
             
             	The negotiation mode of the IPsec Phase\-1 IKE Tunnel
-            	**type**\:   :py:class:`IkenegomodeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkenegomodeEnum>`
+            	**type**\:   :py:class:`Ikenegomode <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikenegomode>`
             
             .. attribute:: ciketunoutdroppkts
             
@@ -2137,7 +3094,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunremotetype
             
             	The type of remote peer identity. The remote peer may be identified by\:  1. an IP address, or  2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: ciketunremotevalue
             
@@ -2156,7 +3113,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunstatus
             
             	The status of the MIB table row.  This object can be used to bring the tunnel down  by setting value of this object to destroy(2).  This object cannot be used to create  a MIB table row
-            	**type**\:   :py:class:`TunnelstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TunnelstatusEnum>`
+            	**type**\:   :py:class:`Tunnelstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Tunnelstatus>`
             
             .. attribute:: ciketuntotalrefreshes
             
@@ -2175,191 +3132,517 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.ciketunindex = None
-                self.ciketunactivetime = None
-                self.ciketunauthmethod = None
-                self.ciketundiffhellmangrp = None
-                self.ciketunencryptalgo = None
-                self.ciketunhashalgo = None
-                self.ciketunindroppkts = None
-                self.ciketuninnotifys = None
-                self.ciketuninoctets = None
-                self.ciketuninp2exchginvalids = None
-                self.ciketuninp2exchgrejects = None
-                self.ciketuninp2exchgs = None
-                self.ciketuninp2sadelrequests = None
-                self.ciketuninpkts = None
-                self.ciketunlifetime = None
-                self.ciketunlocaladdr = None
-                self.ciketunlocalname = None
-                self.ciketunlocaltype = None
-                self.ciketunlocalvalue = None
-                self.ciketunnegomode = None
-                self.ciketunoutdroppkts = None
-                self.ciketunoutnotifys = None
-                self.ciketunoutoctets = None
-                self.ciketunoutp2exchginvalids = None
-                self.ciketunoutp2exchgrejects = None
-                self.ciketunoutp2exchgs = None
-                self.ciketunoutp2sadelrequests = None
-                self.ciketunoutpkts = None
-                self.ciketunremoteaddr = None
-                self.ciketunremotename = None
-                self.ciketunremotetype = None
-                self.ciketunremotevalue = None
-                self.ciketunsarefreshthreshold = None
-                self.ciketunstatus = None
-                self.ciketuntotalrefreshes = None
+                super(CiscoIpsecFlowMonitorMib.Ciketunneltable.Ciketunnelentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciketunindex is None:
-                    raise YPYModelError('Key property ciketunindex is None')
+                self.yang_name = "cikeTunnelEntry"
+                self.yang_parent_name = "cikeTunnelTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunnelTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunnelEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunIndex = ' + str(self.ciketunindex) + ']'
+                self.ciketunindex = YLeaf(YType.int32, "cikeTunIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciketunactivetime = YLeaf(YType.int32, "cikeTunActiveTime")
+
+                self.ciketunauthmethod = YLeaf(YType.enumeration, "cikeTunAuthMethod")
+
+                self.ciketundiffhellmangrp = YLeaf(YType.enumeration, "cikeTunDiffHellmanGrp")
+
+                self.ciketunencryptalgo = YLeaf(YType.enumeration, "cikeTunEncryptAlgo")
+
+                self.ciketunhashalgo = YLeaf(YType.enumeration, "cikeTunHashAlgo")
+
+                self.ciketunindroppkts = YLeaf(YType.uint32, "cikeTunInDropPkts")
+
+                self.ciketuninnotifys = YLeaf(YType.uint32, "cikeTunInNotifys")
+
+                self.ciketuninoctets = YLeaf(YType.uint32, "cikeTunInOctets")
+
+                self.ciketuninp2exchginvalids = YLeaf(YType.uint32, "cikeTunInP2ExchgInvalids")
+
+                self.ciketuninp2exchgrejects = YLeaf(YType.uint32, "cikeTunInP2ExchgRejects")
+
+                self.ciketuninp2exchgs = YLeaf(YType.uint32, "cikeTunInP2Exchgs")
+
+                self.ciketuninp2sadelrequests = YLeaf(YType.uint32, "cikeTunInP2SaDelRequests")
+
+                self.ciketuninpkts = YLeaf(YType.uint32, "cikeTunInPkts")
+
+                self.ciketunlifetime = YLeaf(YType.int32, "cikeTunLifeTime")
+
+                self.ciketunlocaladdr = YLeaf(YType.str, "cikeTunLocalAddr")
+
+                self.ciketunlocalname = YLeaf(YType.str, "cikeTunLocalName")
+
+                self.ciketunlocaltype = YLeaf(YType.enumeration, "cikeTunLocalType")
+
+                self.ciketunlocalvalue = YLeaf(YType.str, "cikeTunLocalValue")
+
+                self.ciketunnegomode = YLeaf(YType.enumeration, "cikeTunNegoMode")
+
+                self.ciketunoutdroppkts = YLeaf(YType.uint32, "cikeTunOutDropPkts")
+
+                self.ciketunoutnotifys = YLeaf(YType.uint32, "cikeTunOutNotifys")
+
+                self.ciketunoutoctets = YLeaf(YType.uint32, "cikeTunOutOctets")
+
+                self.ciketunoutp2exchginvalids = YLeaf(YType.uint32, "cikeTunOutP2ExchgInvalids")
+
+                self.ciketunoutp2exchgrejects = YLeaf(YType.uint32, "cikeTunOutP2ExchgRejects")
+
+                self.ciketunoutp2exchgs = YLeaf(YType.uint32, "cikeTunOutP2Exchgs")
+
+                self.ciketunoutp2sadelrequests = YLeaf(YType.uint32, "cikeTunOutP2SaDelRequests")
+
+                self.ciketunoutpkts = YLeaf(YType.uint32, "cikeTunOutPkts")
+
+                self.ciketunremoteaddr = YLeaf(YType.str, "cikeTunRemoteAddr")
+
+                self.ciketunremotename = YLeaf(YType.str, "cikeTunRemoteName")
+
+                self.ciketunremotetype = YLeaf(YType.enumeration, "cikeTunRemoteType")
+
+                self.ciketunremotevalue = YLeaf(YType.str, "cikeTunRemoteValue")
+
+                self.ciketunsarefreshthreshold = YLeaf(YType.int32, "cikeTunSaRefreshThreshold")
+
+                self.ciketunstatus = YLeaf(YType.enumeration, "cikeTunStatus")
+
+                self.ciketuntotalrefreshes = YLeaf(YType.uint32, "cikeTunTotalRefreshes")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciketunindex",
+                                "ciketunactivetime",
+                                "ciketunauthmethod",
+                                "ciketundiffhellmangrp",
+                                "ciketunencryptalgo",
+                                "ciketunhashalgo",
+                                "ciketunindroppkts",
+                                "ciketuninnotifys",
+                                "ciketuninoctets",
+                                "ciketuninp2exchginvalids",
+                                "ciketuninp2exchgrejects",
+                                "ciketuninp2exchgs",
+                                "ciketuninp2sadelrequests",
+                                "ciketuninpkts",
+                                "ciketunlifetime",
+                                "ciketunlocaladdr",
+                                "ciketunlocalname",
+                                "ciketunlocaltype",
+                                "ciketunlocalvalue",
+                                "ciketunnegomode",
+                                "ciketunoutdroppkts",
+                                "ciketunoutnotifys",
+                                "ciketunoutoctets",
+                                "ciketunoutp2exchginvalids",
+                                "ciketunoutp2exchgrejects",
+                                "ciketunoutp2exchgs",
+                                "ciketunoutp2sadelrequests",
+                                "ciketunoutpkts",
+                                "ciketunremoteaddr",
+                                "ciketunremotename",
+                                "ciketunremotetype",
+                                "ciketunremotevalue",
+                                "ciketunsarefreshthreshold",
+                                "ciketunstatus",
+                                "ciketuntotalrefreshes") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Ciketunneltable.Ciketunnelentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Ciketunneltable.Ciketunnelentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciketunindex.is_set or
+                    self.ciketunactivetime.is_set or
+                    self.ciketunauthmethod.is_set or
+                    self.ciketundiffhellmangrp.is_set or
+                    self.ciketunencryptalgo.is_set or
+                    self.ciketunhashalgo.is_set or
+                    self.ciketunindroppkts.is_set or
+                    self.ciketuninnotifys.is_set or
+                    self.ciketuninoctets.is_set or
+                    self.ciketuninp2exchginvalids.is_set or
+                    self.ciketuninp2exchgrejects.is_set or
+                    self.ciketuninp2exchgs.is_set or
+                    self.ciketuninp2sadelrequests.is_set or
+                    self.ciketuninpkts.is_set or
+                    self.ciketunlifetime.is_set or
+                    self.ciketunlocaladdr.is_set or
+                    self.ciketunlocalname.is_set or
+                    self.ciketunlocaltype.is_set or
+                    self.ciketunlocalvalue.is_set or
+                    self.ciketunnegomode.is_set or
+                    self.ciketunoutdroppkts.is_set or
+                    self.ciketunoutnotifys.is_set or
+                    self.ciketunoutoctets.is_set or
+                    self.ciketunoutp2exchginvalids.is_set or
+                    self.ciketunoutp2exchgrejects.is_set or
+                    self.ciketunoutp2exchgs.is_set or
+                    self.ciketunoutp2sadelrequests.is_set or
+                    self.ciketunoutpkts.is_set or
+                    self.ciketunremoteaddr.is_set or
+                    self.ciketunremotename.is_set or
+                    self.ciketunremotetype.is_set or
+                    self.ciketunremotevalue.is_set or
+                    self.ciketunsarefreshthreshold.is_set or
+                    self.ciketunstatus.is_set or
+                    self.ciketuntotalrefreshes.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciketunindex.yfilter != YFilter.not_set or
+                    self.ciketunactivetime.yfilter != YFilter.not_set or
+                    self.ciketunauthmethod.yfilter != YFilter.not_set or
+                    self.ciketundiffhellmangrp.yfilter != YFilter.not_set or
+                    self.ciketunencryptalgo.yfilter != YFilter.not_set or
+                    self.ciketunhashalgo.yfilter != YFilter.not_set or
+                    self.ciketunindroppkts.yfilter != YFilter.not_set or
+                    self.ciketuninnotifys.yfilter != YFilter.not_set or
+                    self.ciketuninoctets.yfilter != YFilter.not_set or
+                    self.ciketuninp2exchginvalids.yfilter != YFilter.not_set or
+                    self.ciketuninp2exchgrejects.yfilter != YFilter.not_set or
+                    self.ciketuninp2exchgs.yfilter != YFilter.not_set or
+                    self.ciketuninp2sadelrequests.yfilter != YFilter.not_set or
+                    self.ciketuninpkts.yfilter != YFilter.not_set or
+                    self.ciketunlifetime.yfilter != YFilter.not_set or
+                    self.ciketunlocaladdr.yfilter != YFilter.not_set or
+                    self.ciketunlocalname.yfilter != YFilter.not_set or
+                    self.ciketunlocaltype.yfilter != YFilter.not_set or
+                    self.ciketunlocalvalue.yfilter != YFilter.not_set or
+                    self.ciketunnegomode.yfilter != YFilter.not_set or
+                    self.ciketunoutdroppkts.yfilter != YFilter.not_set or
+                    self.ciketunoutnotifys.yfilter != YFilter.not_set or
+                    self.ciketunoutoctets.yfilter != YFilter.not_set or
+                    self.ciketunoutp2exchginvalids.yfilter != YFilter.not_set or
+                    self.ciketunoutp2exchgrejects.yfilter != YFilter.not_set or
+                    self.ciketunoutp2exchgs.yfilter != YFilter.not_set or
+                    self.ciketunoutp2sadelrequests.yfilter != YFilter.not_set or
+                    self.ciketunoutpkts.yfilter != YFilter.not_set or
+                    self.ciketunremoteaddr.yfilter != YFilter.not_set or
+                    self.ciketunremotename.yfilter != YFilter.not_set or
+                    self.ciketunremotetype.yfilter != YFilter.not_set or
+                    self.ciketunremotevalue.yfilter != YFilter.not_set or
+                    self.ciketunsarefreshthreshold.yfilter != YFilter.not_set or
+                    self.ciketunstatus.yfilter != YFilter.not_set or
+                    self.ciketuntotalrefreshes.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cikeTunnelEntry" + "[cikeTunIndex='" + self.ciketunindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciketunindex.is_set or self.ciketunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunindex.get_name_leafdata())
+                if (self.ciketunactivetime.is_set or self.ciketunactivetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunactivetime.get_name_leafdata())
+                if (self.ciketunauthmethod.is_set or self.ciketunauthmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunauthmethod.get_name_leafdata())
+                if (self.ciketundiffhellmangrp.is_set or self.ciketundiffhellmangrp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketundiffhellmangrp.get_name_leafdata())
+                if (self.ciketunencryptalgo.is_set or self.ciketunencryptalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunencryptalgo.get_name_leafdata())
+                if (self.ciketunhashalgo.is_set or self.ciketunhashalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhashalgo.get_name_leafdata())
+                if (self.ciketunindroppkts.is_set or self.ciketunindroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunindroppkts.get_name_leafdata())
+                if (self.ciketuninnotifys.is_set or self.ciketuninnotifys.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuninnotifys.get_name_leafdata())
+                if (self.ciketuninoctets.is_set or self.ciketuninoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuninoctets.get_name_leafdata())
+                if (self.ciketuninp2exchginvalids.is_set or self.ciketuninp2exchginvalids.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuninp2exchginvalids.get_name_leafdata())
+                if (self.ciketuninp2exchgrejects.is_set or self.ciketuninp2exchgrejects.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuninp2exchgrejects.get_name_leafdata())
+                if (self.ciketuninp2exchgs.is_set or self.ciketuninp2exchgs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuninp2exchgs.get_name_leafdata())
+                if (self.ciketuninp2sadelrequests.is_set or self.ciketuninp2sadelrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuninp2sadelrequests.get_name_leafdata())
+                if (self.ciketuninpkts.is_set or self.ciketuninpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuninpkts.get_name_leafdata())
+                if (self.ciketunlifetime.is_set or self.ciketunlifetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunlifetime.get_name_leafdata())
+                if (self.ciketunlocaladdr.is_set or self.ciketunlocaladdr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunlocaladdr.get_name_leafdata())
+                if (self.ciketunlocalname.is_set or self.ciketunlocalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunlocalname.get_name_leafdata())
+                if (self.ciketunlocaltype.is_set or self.ciketunlocaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunlocaltype.get_name_leafdata())
+                if (self.ciketunlocalvalue.is_set or self.ciketunlocalvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunlocalvalue.get_name_leafdata())
+                if (self.ciketunnegomode.is_set or self.ciketunnegomode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunnegomode.get_name_leafdata())
+                if (self.ciketunoutdroppkts.is_set or self.ciketunoutdroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutdroppkts.get_name_leafdata())
+                if (self.ciketunoutnotifys.is_set or self.ciketunoutnotifys.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutnotifys.get_name_leafdata())
+                if (self.ciketunoutoctets.is_set or self.ciketunoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutoctets.get_name_leafdata())
+                if (self.ciketunoutp2exchginvalids.is_set or self.ciketunoutp2exchginvalids.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutp2exchginvalids.get_name_leafdata())
+                if (self.ciketunoutp2exchgrejects.is_set or self.ciketunoutp2exchgrejects.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutp2exchgrejects.get_name_leafdata())
+                if (self.ciketunoutp2exchgs.is_set or self.ciketunoutp2exchgs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutp2exchgs.get_name_leafdata())
+                if (self.ciketunoutp2sadelrequests.is_set or self.ciketunoutp2sadelrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutp2sadelrequests.get_name_leafdata())
+                if (self.ciketunoutpkts.is_set or self.ciketunoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunoutpkts.get_name_leafdata())
+                if (self.ciketunremoteaddr.is_set or self.ciketunremoteaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunremoteaddr.get_name_leafdata())
+                if (self.ciketunremotename.is_set or self.ciketunremotename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunremotename.get_name_leafdata())
+                if (self.ciketunremotetype.is_set or self.ciketunremotetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunremotetype.get_name_leafdata())
+                if (self.ciketunremotevalue.is_set or self.ciketunremotevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunremotevalue.get_name_leafdata())
+                if (self.ciketunsarefreshthreshold.is_set or self.ciketunsarefreshthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunsarefreshthreshold.get_name_leafdata())
+                if (self.ciketunstatus.is_set or self.ciketunstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunstatus.get_name_leafdata())
+                if (self.ciketuntotalrefreshes.is_set or self.ciketuntotalrefreshes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketuntotalrefreshes.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cikeTunIndex" or name == "cikeTunActiveTime" or name == "cikeTunAuthMethod" or name == "cikeTunDiffHellmanGrp" or name == "cikeTunEncryptAlgo" or name == "cikeTunHashAlgo" or name == "cikeTunInDropPkts" or name == "cikeTunInNotifys" or name == "cikeTunInOctets" or name == "cikeTunInP2ExchgInvalids" or name == "cikeTunInP2ExchgRejects" or name == "cikeTunInP2Exchgs" or name == "cikeTunInP2SaDelRequests" or name == "cikeTunInPkts" or name == "cikeTunLifeTime" or name == "cikeTunLocalAddr" or name == "cikeTunLocalName" or name == "cikeTunLocalType" or name == "cikeTunLocalValue" or name == "cikeTunNegoMode" or name == "cikeTunOutDropPkts" or name == "cikeTunOutNotifys" or name == "cikeTunOutOctets" or name == "cikeTunOutP2ExchgInvalids" or name == "cikeTunOutP2ExchgRejects" or name == "cikeTunOutP2Exchgs" or name == "cikeTunOutP2SaDelRequests" or name == "cikeTunOutPkts" or name == "cikeTunRemoteAddr" or name == "cikeTunRemoteName" or name == "cikeTunRemoteType" or name == "cikeTunRemoteValue" or name == "cikeTunSaRefreshThreshold" or name == "cikeTunStatus" or name == "cikeTunTotalRefreshes"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciketunindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cikeTunIndex"):
+                    self.ciketunindex = value
+                    self.ciketunindex.value_namespace = name_space
+                    self.ciketunindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunActiveTime"):
+                    self.ciketunactivetime = value
+                    self.ciketunactivetime.value_namespace = name_space
+                    self.ciketunactivetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunAuthMethod"):
+                    self.ciketunauthmethod = value
+                    self.ciketunauthmethod.value_namespace = name_space
+                    self.ciketunauthmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunDiffHellmanGrp"):
+                    self.ciketundiffhellmangrp = value
+                    self.ciketundiffhellmangrp.value_namespace = name_space
+                    self.ciketundiffhellmangrp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunEncryptAlgo"):
+                    self.ciketunencryptalgo = value
+                    self.ciketunencryptalgo.value_namespace = name_space
+                    self.ciketunencryptalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHashAlgo"):
+                    self.ciketunhashalgo = value
+                    self.ciketunhashalgo.value_namespace = name_space
+                    self.ciketunhashalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInDropPkts"):
+                    self.ciketunindroppkts = value
+                    self.ciketunindroppkts.value_namespace = name_space
+                    self.ciketunindroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInNotifys"):
+                    self.ciketuninnotifys = value
+                    self.ciketuninnotifys.value_namespace = name_space
+                    self.ciketuninnotifys.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInOctets"):
+                    self.ciketuninoctets = value
+                    self.ciketuninoctets.value_namespace = name_space
+                    self.ciketuninoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInP2ExchgInvalids"):
+                    self.ciketuninp2exchginvalids = value
+                    self.ciketuninp2exchginvalids.value_namespace = name_space
+                    self.ciketuninp2exchginvalids.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInP2ExchgRejects"):
+                    self.ciketuninp2exchgrejects = value
+                    self.ciketuninp2exchgrejects.value_namespace = name_space
+                    self.ciketuninp2exchgrejects.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInP2Exchgs"):
+                    self.ciketuninp2exchgs = value
+                    self.ciketuninp2exchgs.value_namespace = name_space
+                    self.ciketuninp2exchgs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInP2SaDelRequests"):
+                    self.ciketuninp2sadelrequests = value
+                    self.ciketuninp2sadelrequests.value_namespace = name_space
+                    self.ciketuninp2sadelrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunInPkts"):
+                    self.ciketuninpkts = value
+                    self.ciketuninpkts.value_namespace = name_space
+                    self.ciketuninpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunLifeTime"):
+                    self.ciketunlifetime = value
+                    self.ciketunlifetime.value_namespace = name_space
+                    self.ciketunlifetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunLocalAddr"):
+                    self.ciketunlocaladdr = value
+                    self.ciketunlocaladdr.value_namespace = name_space
+                    self.ciketunlocaladdr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunLocalName"):
+                    self.ciketunlocalname = value
+                    self.ciketunlocalname.value_namespace = name_space
+                    self.ciketunlocalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunLocalType"):
+                    self.ciketunlocaltype = value
+                    self.ciketunlocaltype.value_namespace = name_space
+                    self.ciketunlocaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunLocalValue"):
+                    self.ciketunlocalvalue = value
+                    self.ciketunlocalvalue.value_namespace = name_space
+                    self.ciketunlocalvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunNegoMode"):
+                    self.ciketunnegomode = value
+                    self.ciketunnegomode.value_namespace = name_space
+                    self.ciketunnegomode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutDropPkts"):
+                    self.ciketunoutdroppkts = value
+                    self.ciketunoutdroppkts.value_namespace = name_space
+                    self.ciketunoutdroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutNotifys"):
+                    self.ciketunoutnotifys = value
+                    self.ciketunoutnotifys.value_namespace = name_space
+                    self.ciketunoutnotifys.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutOctets"):
+                    self.ciketunoutoctets = value
+                    self.ciketunoutoctets.value_namespace = name_space
+                    self.ciketunoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutP2ExchgInvalids"):
+                    self.ciketunoutp2exchginvalids = value
+                    self.ciketunoutp2exchginvalids.value_namespace = name_space
+                    self.ciketunoutp2exchginvalids.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutP2ExchgRejects"):
+                    self.ciketunoutp2exchgrejects = value
+                    self.ciketunoutp2exchgrejects.value_namespace = name_space
+                    self.ciketunoutp2exchgrejects.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutP2Exchgs"):
+                    self.ciketunoutp2exchgs = value
+                    self.ciketunoutp2exchgs.value_namespace = name_space
+                    self.ciketunoutp2exchgs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutP2SaDelRequests"):
+                    self.ciketunoutp2sadelrequests = value
+                    self.ciketunoutp2sadelrequests.value_namespace = name_space
+                    self.ciketunoutp2sadelrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunOutPkts"):
+                    self.ciketunoutpkts = value
+                    self.ciketunoutpkts.value_namespace = name_space
+                    self.ciketunoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunRemoteAddr"):
+                    self.ciketunremoteaddr = value
+                    self.ciketunremoteaddr.value_namespace = name_space
+                    self.ciketunremoteaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunRemoteName"):
+                    self.ciketunremotename = value
+                    self.ciketunremotename.value_namespace = name_space
+                    self.ciketunremotename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunRemoteType"):
+                    self.ciketunremotetype = value
+                    self.ciketunremotetype.value_namespace = name_space
+                    self.ciketunremotetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunRemoteValue"):
+                    self.ciketunremotevalue = value
+                    self.ciketunremotevalue.value_namespace = name_space
+                    self.ciketunremotevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunSaRefreshThreshold"):
+                    self.ciketunsarefreshthreshold = value
+                    self.ciketunsarefreshthreshold.value_namespace = name_space
+                    self.ciketunsarefreshthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunStatus"):
+                    self.ciketunstatus = value
+                    self.ciketunstatus.value_namespace = name_space
+                    self.ciketunstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunTotalRefreshes"):
+                    self.ciketuntotalrefreshes = value
+                    self.ciketuntotalrefreshes.value_namespace = name_space
+                    self.ciketuntotalrefreshes.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciketunnelentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciketunactivetime is not None:
-                    return True
-
-                if self.ciketunauthmethod is not None:
-                    return True
-
-                if self.ciketundiffhellmangrp is not None:
-                    return True
-
-                if self.ciketunencryptalgo is not None:
-                    return True
-
-                if self.ciketunhashalgo is not None:
-                    return True
-
-                if self.ciketunindroppkts is not None:
-                    return True
-
-                if self.ciketuninnotifys is not None:
-                    return True
-
-                if self.ciketuninoctets is not None:
-                    return True
-
-                if self.ciketuninp2exchginvalids is not None:
-                    return True
-
-                if self.ciketuninp2exchgrejects is not None:
-                    return True
-
-                if self.ciketuninp2exchgs is not None:
-                    return True
-
-                if self.ciketuninp2sadelrequests is not None:
-                    return True
-
-                if self.ciketuninpkts is not None:
-                    return True
-
-                if self.ciketunlifetime is not None:
-                    return True
-
-                if self.ciketunlocaladdr is not None:
-                    return True
-
-                if self.ciketunlocalname is not None:
-                    return True
-
-                if self.ciketunlocaltype is not None:
-                    return True
-
-                if self.ciketunlocalvalue is not None:
-                    return True
-
-                if self.ciketunnegomode is not None:
-                    return True
-
-                if self.ciketunoutdroppkts is not None:
-                    return True
-
-                if self.ciketunoutnotifys is not None:
-                    return True
-
-                if self.ciketunoutoctets is not None:
-                    return True
-
-                if self.ciketunoutp2exchginvalids is not None:
-                    return True
-
-                if self.ciketunoutp2exchgrejects is not None:
-                    return True
-
-                if self.ciketunoutp2exchgs is not None:
-                    return True
-
-                if self.ciketunoutp2sadelrequests is not None:
-                    return True
-
-                if self.ciketunoutpkts is not None:
-                    return True
-
-                if self.ciketunremoteaddr is not None:
-                    return True
-
-                if self.ciketunremotename is not None:
-                    return True
-
-                if self.ciketunremotetype is not None:
-                    return True
-
-                if self.ciketunremotevalue is not None:
-                    return True
-
-                if self.ciketunsarefreshthreshold is not None:
-                    return True
-
-                if self.ciketunstatus is not None:
-                    return True
-
-                if self.ciketuntotalrefreshes is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Ciketunneltable.Ciketunnelentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunnelTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciketunnelentry is not None:
-                for child_ref in self.ciketunnelentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciketunnelentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cikeTunnelTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cikeTunnelEntry"):
+                for c in self.ciketunnelentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Ciketunneltable.Ciketunnelentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciketunnelentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cikeTunnelEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Ciketunneltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cikepeercorrtable(object):
+    class Cikepeercorrtable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Peer
         Association to IPsec Phase\-2 Tunnel
@@ -2380,13 +3663,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cikepeercorrentry = YList()
-            self.cikepeercorrentry.parent = self
-            self.cikepeercorrentry.name = 'cikepeercorrentry'
+            super(CiscoIpsecFlowMonitorMib.Cikepeercorrtable, self).__init__()
+
+            self.yang_name = "cikePeerCorrTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cikepeercorrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cikepeercorrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cikepeercorrtable, self).__setattr__(name, value)
 
 
-        class Cikepeercorrentry(object):
+        class Cikepeercorrentry(Entity):
             """
             Each entry contains the attributes of an
             IPsec Phase\-1 IKE Peer Association to IPsec
@@ -2395,7 +3704,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cikepeercorrlocaltype  <key>
             
             	The type of local peer identity. The local peer may be identified by\: 1. an IP address, or 2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: cikepeercorrlocalvalue  <key>
             
@@ -2405,7 +3714,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cikepeercorrremotetype  <key>
             
             	The type of remote peer identity. The remote peer may be identified by\: 1. an IP address, or 2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: cikepeercorrremotevalue  <key>
             
@@ -2441,89 +3750,209 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cikepeercorrlocaltype = None
-                self.cikepeercorrlocalvalue = None
-                self.cikepeercorrremotetype = None
-                self.cikepeercorrremotevalue = None
-                self.cikepeercorrintindex = None
-                self.cikepeercorrseqnum = None
-                self.cikepeercorripsectunindex = None
+                super(CiscoIpsecFlowMonitorMib.Cikepeercorrtable.Cikepeercorrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cikepeercorrlocaltype is None:
-                    raise YPYModelError('Key property cikepeercorrlocaltype is None')
-                if self.cikepeercorrlocalvalue is None:
-                    raise YPYModelError('Key property cikepeercorrlocalvalue is None')
-                if self.cikepeercorrremotetype is None:
-                    raise YPYModelError('Key property cikepeercorrremotetype is None')
-                if self.cikepeercorrremotevalue is None:
-                    raise YPYModelError('Key property cikepeercorrremotevalue is None')
-                if self.cikepeercorrintindex is None:
-                    raise YPYModelError('Key property cikepeercorrintindex is None')
-                if self.cikepeercorrseqnum is None:
-                    raise YPYModelError('Key property cikepeercorrseqnum is None')
+                self.yang_name = "cikePeerCorrEntry"
+                self.yang_parent_name = "cikePeerCorrTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrLocalType = ' + str(self.cikepeercorrlocaltype) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrLocalValue = ' + str(self.cikepeercorrlocalvalue) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrRemoteType = ' + str(self.cikepeercorrremotetype) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrRemoteValue = ' + str(self.cikepeercorrremotevalue) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrIntIndex = ' + str(self.cikepeercorrintindex) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrSeqNum = ' + str(self.cikepeercorrseqnum) + ']'
+                self.cikepeercorrlocaltype = YLeaf(YType.enumeration, "cikePeerCorrLocalType")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cikepeercorrlocalvalue = YLeaf(YType.str, "cikePeerCorrLocalValue")
+
+                self.cikepeercorrremotetype = YLeaf(YType.enumeration, "cikePeerCorrRemoteType")
+
+                self.cikepeercorrremotevalue = YLeaf(YType.str, "cikePeerCorrRemoteValue")
+
+                self.cikepeercorrintindex = YLeaf(YType.int32, "cikePeerCorrIntIndex")
+
+                self.cikepeercorrseqnum = YLeaf(YType.int32, "cikePeerCorrSeqNum")
+
+                self.cikepeercorripsectunindex = YLeaf(YType.int32, "cikePeerCorrIpSecTunIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cikepeercorrlocaltype",
+                                "cikepeercorrlocalvalue",
+                                "cikepeercorrremotetype",
+                                "cikepeercorrremotevalue",
+                                "cikepeercorrintindex",
+                                "cikepeercorrseqnum",
+                                "cikepeercorripsectunindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cikepeercorrtable.Cikepeercorrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cikepeercorrtable.Cikepeercorrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cikepeercorrlocaltype.is_set or
+                    self.cikepeercorrlocalvalue.is_set or
+                    self.cikepeercorrremotetype.is_set or
+                    self.cikepeercorrremotevalue.is_set or
+                    self.cikepeercorrintindex.is_set or
+                    self.cikepeercorrseqnum.is_set or
+                    self.cikepeercorripsectunindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cikepeercorrlocaltype.yfilter != YFilter.not_set or
+                    self.cikepeercorrlocalvalue.yfilter != YFilter.not_set or
+                    self.cikepeercorrremotetype.yfilter != YFilter.not_set or
+                    self.cikepeercorrremotevalue.yfilter != YFilter.not_set or
+                    self.cikepeercorrintindex.yfilter != YFilter.not_set or
+                    self.cikepeercorrseqnum.yfilter != YFilter.not_set or
+                    self.cikepeercorripsectunindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cikePeerCorrEntry" + "[cikePeerCorrLocalType='" + self.cikepeercorrlocaltype.get() + "']" + "[cikePeerCorrLocalValue='" + self.cikepeercorrlocalvalue.get() + "']" + "[cikePeerCorrRemoteType='" + self.cikepeercorrremotetype.get() + "']" + "[cikePeerCorrRemoteValue='" + self.cikepeercorrremotevalue.get() + "']" + "[cikePeerCorrIntIndex='" + self.cikepeercorrintindex.get() + "']" + "[cikePeerCorrSeqNum='" + self.cikepeercorrseqnum.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerCorrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cikepeercorrlocaltype.is_set or self.cikepeercorrlocaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeercorrlocaltype.get_name_leafdata())
+                if (self.cikepeercorrlocalvalue.is_set or self.cikepeercorrlocalvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeercorrlocalvalue.get_name_leafdata())
+                if (self.cikepeercorrremotetype.is_set or self.cikepeercorrremotetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeercorrremotetype.get_name_leafdata())
+                if (self.cikepeercorrremotevalue.is_set or self.cikepeercorrremotevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeercorrremotevalue.get_name_leafdata())
+                if (self.cikepeercorrintindex.is_set or self.cikepeercorrintindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeercorrintindex.get_name_leafdata())
+                if (self.cikepeercorrseqnum.is_set or self.cikepeercorrseqnum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeercorrseqnum.get_name_leafdata())
+                if (self.cikepeercorripsectunindex.is_set or self.cikepeercorripsectunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikepeercorripsectunindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cikePeerCorrLocalType" or name == "cikePeerCorrLocalValue" or name == "cikePeerCorrRemoteType" or name == "cikePeerCorrRemoteValue" or name == "cikePeerCorrIntIndex" or name == "cikePeerCorrSeqNum" or name == "cikePeerCorrIpSecTunIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cikepeercorrlocaltype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cikePeerCorrLocalType"):
+                    self.cikepeercorrlocaltype = value
+                    self.cikepeercorrlocaltype.value_namespace = name_space
+                    self.cikepeercorrlocaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerCorrLocalValue"):
+                    self.cikepeercorrlocalvalue = value
+                    self.cikepeercorrlocalvalue.value_namespace = name_space
+                    self.cikepeercorrlocalvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerCorrRemoteType"):
+                    self.cikepeercorrremotetype = value
+                    self.cikepeercorrremotetype.value_namespace = name_space
+                    self.cikepeercorrremotetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerCorrRemoteValue"):
+                    self.cikepeercorrremotevalue = value
+                    self.cikepeercorrremotevalue.value_namespace = name_space
+                    self.cikepeercorrremotevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerCorrIntIndex"):
+                    self.cikepeercorrintindex = value
+                    self.cikepeercorrintindex.value_namespace = name_space
+                    self.cikepeercorrintindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerCorrSeqNum"):
+                    self.cikepeercorrseqnum = value
+                    self.cikepeercorrseqnum.value_namespace = name_space
+                    self.cikepeercorrseqnum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePeerCorrIpSecTunIndex"):
+                    self.cikepeercorripsectunindex = value
+                    self.cikepeercorripsectunindex.value_namespace = name_space
+                    self.cikepeercorripsectunindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cikepeercorrentry:
+                if (c.has_data()):
                     return True
-
-                if self.cikepeercorrlocalvalue is not None:
-                    return True
-
-                if self.cikepeercorrremotetype is not None:
-                    return True
-
-                if self.cikepeercorrremotevalue is not None:
-                    return True
-
-                if self.cikepeercorrintindex is not None:
-                    return True
-
-                if self.cikepeercorrseqnum is not None:
-                    return True
-
-                if self.cikepeercorripsectunindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikepeercorrtable.Cikepeercorrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePeerCorrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cikepeercorrentry is not None:
-                for child_ref in self.cikepeercorrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cikepeercorrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cikePeerCorrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cikePeerCorrEntry"):
+                for c in self.cikepeercorrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cikepeercorrtable.Cikepeercorrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cikepeercorrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cikePeerCorrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikepeercorrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cikephase1Gwstatstable(object):
+    class Cikephase1Gwstatstable(Entity):
         """
         Phase\-1 IKE stats information is included in this table.
         Each entry is related to a specific gateway which is 
@@ -2542,13 +3971,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cikephase1gwstatsentry = YList()
-            self.cikephase1gwstatsentry.parent = self
-            self.cikephase1gwstatsentry.name = 'cikephase1gwstatsentry'
+            super(CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable, self).__init__()
+
+            self.yang_name = "cikePhase1GWStatsTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cikephase1gwstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable, self).__setattr__(name, value)
 
 
-        class Cikephase1Gwstatsentry(object):
+        class Cikephase1Gwstatsentry(Entity):
             """
             Each entry contains the attributes of an Phase\-1 IKE stats
             information for the related gateway.
@@ -2805,159 +4260,429 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cmgwindex = None
-                self.cikephase1gwactivetunnels = None
-                self.cikephase1gwauthfails = None
-                self.cikephase1gwdecryptfails = None
-                self.cikephase1gwhashvalidfails = None
-                self.cikephase1gwindroppkts = None
-                self.cikephase1gwinittunnelfails = None
-                self.cikephase1gwinittunnels = None
-                self.cikephase1gwinnotifys = None
-                self.cikephase1gwinoctets = None
-                self.cikephase1gwinp2exchginvalids = None
-                self.cikephase1gwinp2exchgrejects = None
-                self.cikephase1gwinp2exchgs = None
-                self.cikephase1gwinp2sadelrequests = None
-                self.cikephase1gwinpkts = None
-                self.cikephase1gwnosafails = None
-                self.cikephase1gwoutdroppkts = None
-                self.cikephase1gwoutnotifys = None
-                self.cikephase1gwoutoctets = None
-                self.cikephase1gwoutp2exchginvalids = None
-                self.cikephase1gwoutp2exchgrejects = None
-                self.cikephase1gwoutp2exchgs = None
-                self.cikephase1gwoutp2sadelrequests = None
-                self.cikephase1gwoutpkts = None
-                self.cikephase1gwprevioustunnels = None
-                self.cikephase1gwresptunnelfails = None
-                self.cikephase1gwsyscapfails = None
+                super(CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable.Cikephase1Gwstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cmgwindex is None:
-                    raise YPYModelError('Key property cmgwindex is None')
+                self.yang_name = "cikePhase1GWStatsEntry"
+                self.yang_parent_name = "cikePhase1GWStatsTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePhase1GWStatsTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePhase1GWStatsEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cmgwIndex = ' + str(self.cmgwindex) + ']'
+                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cikephase1gwactivetunnels = YLeaf(YType.uint32, "cikePhase1GWActiveTunnels")
+
+                self.cikephase1gwauthfails = YLeaf(YType.uint32, "cikePhase1GWAuthFails")
+
+                self.cikephase1gwdecryptfails = YLeaf(YType.uint32, "cikePhase1GWDecryptFails")
+
+                self.cikephase1gwhashvalidfails = YLeaf(YType.uint32, "cikePhase1GWHashValidFails")
+
+                self.cikephase1gwindroppkts = YLeaf(YType.uint32, "cikePhase1GWInDropPkts")
+
+                self.cikephase1gwinittunnelfails = YLeaf(YType.uint32, "cikePhase1GWInitTunnelFails")
+
+                self.cikephase1gwinittunnels = YLeaf(YType.uint32, "cikePhase1GWInitTunnels")
+
+                self.cikephase1gwinnotifys = YLeaf(YType.uint32, "cikePhase1GWInNotifys")
+
+                self.cikephase1gwinoctets = YLeaf(YType.uint32, "cikePhase1GWInOctets")
+
+                self.cikephase1gwinp2exchginvalids = YLeaf(YType.uint32, "cikePhase1GWInP2ExchgInvalids")
+
+                self.cikephase1gwinp2exchgrejects = YLeaf(YType.uint32, "cikePhase1GWInP2ExchgRejects")
+
+                self.cikephase1gwinp2exchgs = YLeaf(YType.uint32, "cikePhase1GWInP2Exchgs")
+
+                self.cikephase1gwinp2sadelrequests = YLeaf(YType.uint32, "cikePhase1GWInP2SaDelRequests")
+
+                self.cikephase1gwinpkts = YLeaf(YType.uint32, "cikePhase1GWInPkts")
+
+                self.cikephase1gwnosafails = YLeaf(YType.uint32, "cikePhase1GWNoSaFails")
+
+                self.cikephase1gwoutdroppkts = YLeaf(YType.uint32, "cikePhase1GWOutDropPkts")
+
+                self.cikephase1gwoutnotifys = YLeaf(YType.uint32, "cikePhase1GWOutNotifys")
+
+                self.cikephase1gwoutoctets = YLeaf(YType.uint32, "cikePhase1GWOutOctets")
+
+                self.cikephase1gwoutp2exchginvalids = YLeaf(YType.uint32, "cikePhase1GWOutP2ExchgInvalids")
+
+                self.cikephase1gwoutp2exchgrejects = YLeaf(YType.uint32, "cikePhase1GWOutP2ExchgRejects")
+
+                self.cikephase1gwoutp2exchgs = YLeaf(YType.uint32, "cikePhase1GWOutP2Exchgs")
+
+                self.cikephase1gwoutp2sadelrequests = YLeaf(YType.uint32, "cikePhase1GWOutP2SaDelRequests")
+
+                self.cikephase1gwoutpkts = YLeaf(YType.uint32, "cikePhase1GWOutPkts")
+
+                self.cikephase1gwprevioustunnels = YLeaf(YType.uint32, "cikePhase1GWPreviousTunnels")
+
+                self.cikephase1gwresptunnelfails = YLeaf(YType.uint32, "cikePhase1GWRespTunnelFails")
+
+                self.cikephase1gwsyscapfails = YLeaf(YType.uint32, "cikePhase1GWSysCapFails")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cmgwindex",
+                                "cikephase1gwactivetunnels",
+                                "cikephase1gwauthfails",
+                                "cikephase1gwdecryptfails",
+                                "cikephase1gwhashvalidfails",
+                                "cikephase1gwindroppkts",
+                                "cikephase1gwinittunnelfails",
+                                "cikephase1gwinittunnels",
+                                "cikephase1gwinnotifys",
+                                "cikephase1gwinoctets",
+                                "cikephase1gwinp2exchginvalids",
+                                "cikephase1gwinp2exchgrejects",
+                                "cikephase1gwinp2exchgs",
+                                "cikephase1gwinp2sadelrequests",
+                                "cikephase1gwinpkts",
+                                "cikephase1gwnosafails",
+                                "cikephase1gwoutdroppkts",
+                                "cikephase1gwoutnotifys",
+                                "cikephase1gwoutoctets",
+                                "cikephase1gwoutp2exchginvalids",
+                                "cikephase1gwoutp2exchgrejects",
+                                "cikephase1gwoutp2exchgs",
+                                "cikephase1gwoutp2sadelrequests",
+                                "cikephase1gwoutpkts",
+                                "cikephase1gwprevioustunnels",
+                                "cikephase1gwresptunnelfails",
+                                "cikephase1gwsyscapfails") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable.Cikephase1Gwstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable.Cikephase1Gwstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cmgwindex.is_set or
+                    self.cikephase1gwactivetunnels.is_set or
+                    self.cikephase1gwauthfails.is_set or
+                    self.cikephase1gwdecryptfails.is_set or
+                    self.cikephase1gwhashvalidfails.is_set or
+                    self.cikephase1gwindroppkts.is_set or
+                    self.cikephase1gwinittunnelfails.is_set or
+                    self.cikephase1gwinittunnels.is_set or
+                    self.cikephase1gwinnotifys.is_set or
+                    self.cikephase1gwinoctets.is_set or
+                    self.cikephase1gwinp2exchginvalids.is_set or
+                    self.cikephase1gwinp2exchgrejects.is_set or
+                    self.cikephase1gwinp2exchgs.is_set or
+                    self.cikephase1gwinp2sadelrequests.is_set or
+                    self.cikephase1gwinpkts.is_set or
+                    self.cikephase1gwnosafails.is_set or
+                    self.cikephase1gwoutdroppkts.is_set or
+                    self.cikephase1gwoutnotifys.is_set or
+                    self.cikephase1gwoutoctets.is_set or
+                    self.cikephase1gwoutp2exchginvalids.is_set or
+                    self.cikephase1gwoutp2exchgrejects.is_set or
+                    self.cikephase1gwoutp2exchgs.is_set or
+                    self.cikephase1gwoutp2sadelrequests.is_set or
+                    self.cikephase1gwoutpkts.is_set or
+                    self.cikephase1gwprevioustunnels.is_set or
+                    self.cikephase1gwresptunnelfails.is_set or
+                    self.cikephase1gwsyscapfails.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cmgwindex.yfilter != YFilter.not_set or
+                    self.cikephase1gwactivetunnels.yfilter != YFilter.not_set or
+                    self.cikephase1gwauthfails.yfilter != YFilter.not_set or
+                    self.cikephase1gwdecryptfails.yfilter != YFilter.not_set or
+                    self.cikephase1gwhashvalidfails.yfilter != YFilter.not_set or
+                    self.cikephase1gwindroppkts.yfilter != YFilter.not_set or
+                    self.cikephase1gwinittunnelfails.yfilter != YFilter.not_set or
+                    self.cikephase1gwinittunnels.yfilter != YFilter.not_set or
+                    self.cikephase1gwinnotifys.yfilter != YFilter.not_set or
+                    self.cikephase1gwinoctets.yfilter != YFilter.not_set or
+                    self.cikephase1gwinp2exchginvalids.yfilter != YFilter.not_set or
+                    self.cikephase1gwinp2exchgrejects.yfilter != YFilter.not_set or
+                    self.cikephase1gwinp2exchgs.yfilter != YFilter.not_set or
+                    self.cikephase1gwinp2sadelrequests.yfilter != YFilter.not_set or
+                    self.cikephase1gwinpkts.yfilter != YFilter.not_set or
+                    self.cikephase1gwnosafails.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutdroppkts.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutnotifys.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutoctets.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutp2exchginvalids.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutp2exchgrejects.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutp2exchgs.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutp2sadelrequests.yfilter != YFilter.not_set or
+                    self.cikephase1gwoutpkts.yfilter != YFilter.not_set or
+                    self.cikephase1gwprevioustunnels.yfilter != YFilter.not_set or
+                    self.cikephase1gwresptunnelfails.yfilter != YFilter.not_set or
+                    self.cikephase1gwsyscapfails.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cikePhase1GWStatsEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePhase1GWStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cmgwindex.is_set or self.cmgwindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmgwindex.get_name_leafdata())
+                if (self.cikephase1gwactivetunnels.is_set or self.cikephase1gwactivetunnels.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwactivetunnels.get_name_leafdata())
+                if (self.cikephase1gwauthfails.is_set or self.cikephase1gwauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwauthfails.get_name_leafdata())
+                if (self.cikephase1gwdecryptfails.is_set or self.cikephase1gwdecryptfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwdecryptfails.get_name_leafdata())
+                if (self.cikephase1gwhashvalidfails.is_set or self.cikephase1gwhashvalidfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwhashvalidfails.get_name_leafdata())
+                if (self.cikephase1gwindroppkts.is_set or self.cikephase1gwindroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwindroppkts.get_name_leafdata())
+                if (self.cikephase1gwinittunnelfails.is_set or self.cikephase1gwinittunnelfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinittunnelfails.get_name_leafdata())
+                if (self.cikephase1gwinittunnels.is_set or self.cikephase1gwinittunnels.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinittunnels.get_name_leafdata())
+                if (self.cikephase1gwinnotifys.is_set or self.cikephase1gwinnotifys.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinnotifys.get_name_leafdata())
+                if (self.cikephase1gwinoctets.is_set or self.cikephase1gwinoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinoctets.get_name_leafdata())
+                if (self.cikephase1gwinp2exchginvalids.is_set or self.cikephase1gwinp2exchginvalids.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinp2exchginvalids.get_name_leafdata())
+                if (self.cikephase1gwinp2exchgrejects.is_set or self.cikephase1gwinp2exchgrejects.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinp2exchgrejects.get_name_leafdata())
+                if (self.cikephase1gwinp2exchgs.is_set or self.cikephase1gwinp2exchgs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinp2exchgs.get_name_leafdata())
+                if (self.cikephase1gwinp2sadelrequests.is_set or self.cikephase1gwinp2sadelrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinp2sadelrequests.get_name_leafdata())
+                if (self.cikephase1gwinpkts.is_set or self.cikephase1gwinpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwinpkts.get_name_leafdata())
+                if (self.cikephase1gwnosafails.is_set or self.cikephase1gwnosafails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwnosafails.get_name_leafdata())
+                if (self.cikephase1gwoutdroppkts.is_set or self.cikephase1gwoutdroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutdroppkts.get_name_leafdata())
+                if (self.cikephase1gwoutnotifys.is_set or self.cikephase1gwoutnotifys.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutnotifys.get_name_leafdata())
+                if (self.cikephase1gwoutoctets.is_set or self.cikephase1gwoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutoctets.get_name_leafdata())
+                if (self.cikephase1gwoutp2exchginvalids.is_set or self.cikephase1gwoutp2exchginvalids.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutp2exchginvalids.get_name_leafdata())
+                if (self.cikephase1gwoutp2exchgrejects.is_set or self.cikephase1gwoutp2exchgrejects.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutp2exchgrejects.get_name_leafdata())
+                if (self.cikephase1gwoutp2exchgs.is_set or self.cikephase1gwoutp2exchgs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutp2exchgs.get_name_leafdata())
+                if (self.cikephase1gwoutp2sadelrequests.is_set or self.cikephase1gwoutp2sadelrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutp2sadelrequests.get_name_leafdata())
+                if (self.cikephase1gwoutpkts.is_set or self.cikephase1gwoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwoutpkts.get_name_leafdata())
+                if (self.cikephase1gwprevioustunnels.is_set or self.cikephase1gwprevioustunnels.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwprevioustunnels.get_name_leafdata())
+                if (self.cikephase1gwresptunnelfails.is_set or self.cikephase1gwresptunnelfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwresptunnelfails.get_name_leafdata())
+                if (self.cikephase1gwsyscapfails.is_set or self.cikephase1gwsyscapfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikephase1gwsyscapfails.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cmgwIndex" or name == "cikePhase1GWActiveTunnels" or name == "cikePhase1GWAuthFails" or name == "cikePhase1GWDecryptFails" or name == "cikePhase1GWHashValidFails" or name == "cikePhase1GWInDropPkts" or name == "cikePhase1GWInitTunnelFails" or name == "cikePhase1GWInitTunnels" or name == "cikePhase1GWInNotifys" or name == "cikePhase1GWInOctets" or name == "cikePhase1GWInP2ExchgInvalids" or name == "cikePhase1GWInP2ExchgRejects" or name == "cikePhase1GWInP2Exchgs" or name == "cikePhase1GWInP2SaDelRequests" or name == "cikePhase1GWInPkts" or name == "cikePhase1GWNoSaFails" or name == "cikePhase1GWOutDropPkts" or name == "cikePhase1GWOutNotifys" or name == "cikePhase1GWOutOctets" or name == "cikePhase1GWOutP2ExchgInvalids" or name == "cikePhase1GWOutP2ExchgRejects" or name == "cikePhase1GWOutP2Exchgs" or name == "cikePhase1GWOutP2SaDelRequests" or name == "cikePhase1GWOutPkts" or name == "cikePhase1GWPreviousTunnels" or name == "cikePhase1GWRespTunnelFails" or name == "cikePhase1GWSysCapFails"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cmgwindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cmgwIndex"):
+                    self.cmgwindex = value
+                    self.cmgwindex.value_namespace = name_space
+                    self.cmgwindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWActiveTunnels"):
+                    self.cikephase1gwactivetunnels = value
+                    self.cikephase1gwactivetunnels.value_namespace = name_space
+                    self.cikephase1gwactivetunnels.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWAuthFails"):
+                    self.cikephase1gwauthfails = value
+                    self.cikephase1gwauthfails.value_namespace = name_space
+                    self.cikephase1gwauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWDecryptFails"):
+                    self.cikephase1gwdecryptfails = value
+                    self.cikephase1gwdecryptfails.value_namespace = name_space
+                    self.cikephase1gwdecryptfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWHashValidFails"):
+                    self.cikephase1gwhashvalidfails = value
+                    self.cikephase1gwhashvalidfails.value_namespace = name_space
+                    self.cikephase1gwhashvalidfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInDropPkts"):
+                    self.cikephase1gwindroppkts = value
+                    self.cikephase1gwindroppkts.value_namespace = name_space
+                    self.cikephase1gwindroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInitTunnelFails"):
+                    self.cikephase1gwinittunnelfails = value
+                    self.cikephase1gwinittunnelfails.value_namespace = name_space
+                    self.cikephase1gwinittunnelfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInitTunnels"):
+                    self.cikephase1gwinittunnels = value
+                    self.cikephase1gwinittunnels.value_namespace = name_space
+                    self.cikephase1gwinittunnels.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInNotifys"):
+                    self.cikephase1gwinnotifys = value
+                    self.cikephase1gwinnotifys.value_namespace = name_space
+                    self.cikephase1gwinnotifys.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInOctets"):
+                    self.cikephase1gwinoctets = value
+                    self.cikephase1gwinoctets.value_namespace = name_space
+                    self.cikephase1gwinoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInP2ExchgInvalids"):
+                    self.cikephase1gwinp2exchginvalids = value
+                    self.cikephase1gwinp2exchginvalids.value_namespace = name_space
+                    self.cikephase1gwinp2exchginvalids.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInP2ExchgRejects"):
+                    self.cikephase1gwinp2exchgrejects = value
+                    self.cikephase1gwinp2exchgrejects.value_namespace = name_space
+                    self.cikephase1gwinp2exchgrejects.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInP2Exchgs"):
+                    self.cikephase1gwinp2exchgs = value
+                    self.cikephase1gwinp2exchgs.value_namespace = name_space
+                    self.cikephase1gwinp2exchgs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInP2SaDelRequests"):
+                    self.cikephase1gwinp2sadelrequests = value
+                    self.cikephase1gwinp2sadelrequests.value_namespace = name_space
+                    self.cikephase1gwinp2sadelrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWInPkts"):
+                    self.cikephase1gwinpkts = value
+                    self.cikephase1gwinpkts.value_namespace = name_space
+                    self.cikephase1gwinpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWNoSaFails"):
+                    self.cikephase1gwnosafails = value
+                    self.cikephase1gwnosafails.value_namespace = name_space
+                    self.cikephase1gwnosafails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutDropPkts"):
+                    self.cikephase1gwoutdroppkts = value
+                    self.cikephase1gwoutdroppkts.value_namespace = name_space
+                    self.cikephase1gwoutdroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutNotifys"):
+                    self.cikephase1gwoutnotifys = value
+                    self.cikephase1gwoutnotifys.value_namespace = name_space
+                    self.cikephase1gwoutnotifys.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutOctets"):
+                    self.cikephase1gwoutoctets = value
+                    self.cikephase1gwoutoctets.value_namespace = name_space
+                    self.cikephase1gwoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutP2ExchgInvalids"):
+                    self.cikephase1gwoutp2exchginvalids = value
+                    self.cikephase1gwoutp2exchginvalids.value_namespace = name_space
+                    self.cikephase1gwoutp2exchginvalids.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutP2ExchgRejects"):
+                    self.cikephase1gwoutp2exchgrejects = value
+                    self.cikephase1gwoutp2exchgrejects.value_namespace = name_space
+                    self.cikephase1gwoutp2exchgrejects.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutP2Exchgs"):
+                    self.cikephase1gwoutp2exchgs = value
+                    self.cikephase1gwoutp2exchgs.value_namespace = name_space
+                    self.cikephase1gwoutp2exchgs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutP2SaDelRequests"):
+                    self.cikephase1gwoutp2sadelrequests = value
+                    self.cikephase1gwoutp2sadelrequests.value_namespace = name_space
+                    self.cikephase1gwoutp2sadelrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWOutPkts"):
+                    self.cikephase1gwoutpkts = value
+                    self.cikephase1gwoutpkts.value_namespace = name_space
+                    self.cikephase1gwoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWPreviousTunnels"):
+                    self.cikephase1gwprevioustunnels = value
+                    self.cikephase1gwprevioustunnels.value_namespace = name_space
+                    self.cikephase1gwprevioustunnels.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWRespTunnelFails"):
+                    self.cikephase1gwresptunnelfails = value
+                    self.cikephase1gwresptunnelfails.value_namespace = name_space
+                    self.cikephase1gwresptunnelfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikePhase1GWSysCapFails"):
+                    self.cikephase1gwsyscapfails = value
+                    self.cikephase1gwsyscapfails.value_namespace = name_space
+                    self.cikephase1gwsyscapfails.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cikephase1gwstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cikephase1gwactivetunnels is not None:
-                    return True
-
-                if self.cikephase1gwauthfails is not None:
-                    return True
-
-                if self.cikephase1gwdecryptfails is not None:
-                    return True
-
-                if self.cikephase1gwhashvalidfails is not None:
-                    return True
-
-                if self.cikephase1gwindroppkts is not None:
-                    return True
-
-                if self.cikephase1gwinittunnelfails is not None:
-                    return True
-
-                if self.cikephase1gwinittunnels is not None:
-                    return True
-
-                if self.cikephase1gwinnotifys is not None:
-                    return True
-
-                if self.cikephase1gwinoctets is not None:
-                    return True
-
-                if self.cikephase1gwinp2exchginvalids is not None:
-                    return True
-
-                if self.cikephase1gwinp2exchgrejects is not None:
-                    return True
-
-                if self.cikephase1gwinp2exchgs is not None:
-                    return True
-
-                if self.cikephase1gwinp2sadelrequests is not None:
-                    return True
-
-                if self.cikephase1gwinpkts is not None:
-                    return True
-
-                if self.cikephase1gwnosafails is not None:
-                    return True
-
-                if self.cikephase1gwoutdroppkts is not None:
-                    return True
-
-                if self.cikephase1gwoutnotifys is not None:
-                    return True
-
-                if self.cikephase1gwoutoctets is not None:
-                    return True
-
-                if self.cikephase1gwoutp2exchginvalids is not None:
-                    return True
-
-                if self.cikephase1gwoutp2exchgrejects is not None:
-                    return True
-
-                if self.cikephase1gwoutp2exchgs is not None:
-                    return True
-
-                if self.cikephase1gwoutp2sadelrequests is not None:
-                    return True
-
-                if self.cikephase1gwoutpkts is not None:
-                    return True
-
-                if self.cikephase1gwprevioustunnels is not None:
-                    return True
-
-                if self.cikephase1gwresptunnelfails is not None:
-                    return True
-
-                if self.cikephase1gwsyscapfails is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable.Cikephase1Gwstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikePhase1GWStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cikephase1gwstatsentry is not None:
-                for child_ref in self.cikephase1gwstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cikephase1gwstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cikePhase1GWStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cikePhase1GWStatsEntry"):
+                for c in self.cikephase1gwstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable.Cikephase1Gwstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cikephase1gwstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cikePhase1GWStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipsectunneltable(object):
+    class Cipsectunneltable(Entity):
         """
         The IPsec Phase\-2 Tunnel Table.
         There is one entry in this table for 
@@ -2976,13 +4701,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsectunnelentry = YList()
-            self.cipsectunnelentry.parent = self
-            self.cipsectunnelentry.name = 'cipsectunnelentry'
+            super(CiscoIpsecFlowMonitorMib.Cipsectunneltable, self).__init__()
+
+            self.yang_name = "cipSecTunnelTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsectunnelentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsectunneltable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsectunneltable, self).__setattr__(name, value)
 
 
-        class Cipsectunnelentry(object):
+        class Cipsectunnelentry(Entity):
             """
             Each entry contains the attributes
             associated with an active IPsec Phase\-2 Tunnel.
@@ -3011,7 +4762,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectunencapmode
             
             	The encapsulation mode used by the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`EncapmodeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncapmodeEnum>`
+            	**type**\:   :py:class:`Encapmode <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encapmode>`
             
             .. attribute:: cipsectunexpiredsainstances
             
@@ -3166,32 +4917,32 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectuninsaahauthalgo
             
             	The authentication algorithm used by the inbound authentication header (AH) security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectuninsadecompalgo
             
             	The decompression algorithm used by the inbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`CompalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CompalgoEnum>`
+            	**type**\:   :py:class:`Compalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Compalgo>`
             
             .. attribute:: cipsectuninsadiffhellmangrp
             
             	The Diffie Hellman Group used by the inbound security association of the  IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`DiffhellmangrpEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.DiffhellmangrpEnum>`
+            	**type**\:   :py:class:`Diffhellmangrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Diffhellmangrp>`
             
             .. attribute:: cipsectuninsaencryptalgo
             
             	The encryption algorithm used by the inbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`EncryptalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncryptalgoEnum>`
+            	**type**\:   :py:class:`Encryptalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encryptalgo>`
             
             .. attribute:: cipsectuninsaespauthalgo
             
             	The authentication algorithm used by the inbound encapsulation security protocol (ESP) security  association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectunkeytype
             
             	The type of key used by the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`KeytypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.KeytypeEnum>`
+            	**type**\:   :py:class:`Keytype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Keytype>`
             
             .. attribute:: cipsectunlifesize
             
@@ -3293,27 +5044,27 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectunoutsaahauthalgo
             
             	The authentication algorithm used by the outbound authentication header (AH) security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectunoutsacompalgo
             
             	The compression algorithm used by the inbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`CompalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CompalgoEnum>`
+            	**type**\:   :py:class:`Compalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Compalgo>`
             
             .. attribute:: cipsectunoutsadiffhellmangrp
             
             	The Diffie Hellman Group used by the outbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`DiffhellmangrpEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.DiffhellmangrpEnum>`
+            	**type**\:   :py:class:`Diffhellmangrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Diffhellmangrp>`
             
             .. attribute:: cipsectunoutsaencryptalgo
             
             	The encryption algorithm used by the outbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`EncryptalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncryptalgoEnum>`
+            	**type**\:   :py:class:`Encryptalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encryptalgo>`
             
             .. attribute:: cipsectunoutsaespauthalgo
             
             	The authentication algorithm used by the inbound encapsulation security protocol (ESP)  security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectunoutuncompoctets
             
@@ -3361,7 +5112,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectunstatus
             
             	The status of the MIB table row.  This object can be used to bring the tunnel down by setting value of this object to destroy(2). When the value is set to destroy(2), the SA bundle is destroyed and this row is deleted from this table.  When this MIB value is queried, the value of active(1) is always returned, if the instance  exists.  This object cannot be used to create a MIB  table row
-            	**type**\:   :py:class:`TunnelstatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.TunnelstatusEnum>`
+            	**type**\:   :py:class:`Tunnelstatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Tunnelstatus>`
             
             .. attribute:: cipsectuntotalrefreshes
             
@@ -3380,255 +5131,693 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipsectunindex = None
-                self.cipsectunactivetime = None
-                self.cipsectuncurrentsainstances = None
-                self.cipsectunencapmode = None
-                self.cipsectunexpiredsainstances = None
-                self.cipsectunhcindecompoctets = None
-                self.cipsectunhcinoctets = None
-                self.cipsectunhcoutoctets = None
-                self.cipsectunhcoutuncompoctets = None
-                self.cipsectuniketunnelalive = None
-                self.cipsectuniketunnelindex = None
-                self.cipsectuninauthfails = None
-                self.cipsectuninauths = None
-                self.cipsectunindecompoctets = None
-                self.cipsectunindecompoctwraps = None
-                self.cipsectunindecryptfails = None
-                self.cipsectunindecrypts = None
-                self.cipsectunindroppkts = None
-                self.cipsectuninoctets = None
-                self.cipsectuninoctwraps = None
-                self.cipsectuninpkts = None
-                self.cipsectuninreplaydroppkts = None
-                self.cipsectuninsaahauthalgo = None
-                self.cipsectuninsadecompalgo = None
-                self.cipsectuninsadiffhellmangrp = None
-                self.cipsectuninsaencryptalgo = None
-                self.cipsectuninsaespauthalgo = None
-                self.cipsectunkeytype = None
-                self.cipsectunlifesize = None
-                self.cipsectunlifetime = None
-                self.cipsectunlocaladdr = None
-                self.cipsectunoutauthfails = None
-                self.cipsectunoutauths = None
-                self.cipsectunoutdroppkts = None
-                self.cipsectunoutencryptfails = None
-                self.cipsectunoutencrypts = None
-                self.cipsectunoutoctets = None
-                self.cipsectunoutoctwraps = None
-                self.cipsectunoutpkts = None
-                self.cipsectunoutsaahauthalgo = None
-                self.cipsectunoutsacompalgo = None
-                self.cipsectunoutsadiffhellmangrp = None
-                self.cipsectunoutsaencryptalgo = None
-                self.cipsectunoutsaespauthalgo = None
-                self.cipsectunoutuncompoctets = None
-                self.cipsectunoutuncompoctwraps = None
-                self.cipsectunremoteaddr = None
-                self.cipsectunsalifesizethreshold = None
-                self.cipsectunsalifetimethreshold = None
-                self.cipsectunstatus = None
-                self.cipsectuntotalrefreshes = None
+                super(CiscoIpsecFlowMonitorMib.Cipsectunneltable.Cipsectunnelentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cipsectunindex is None:
-                    raise YPYModelError('Key property cipsectunindex is None')
+                self.yang_name = "cipSecTunnelEntry"
+                self.yang_parent_name = "cipSecTunnelTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunnelTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunnelEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunIndex = ' + str(self.cipsectunindex) + ']'
+                self.cipsectunindex = YLeaf(YType.int32, "cipSecTunIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cipsectunactivetime = YLeaf(YType.int32, "cipSecTunActiveTime")
+
+                self.cipsectuncurrentsainstances = YLeaf(YType.uint32, "cipSecTunCurrentSaInstances")
+
+                self.cipsectunencapmode = YLeaf(YType.enumeration, "cipSecTunEncapMode")
+
+                self.cipsectunexpiredsainstances = YLeaf(YType.uint32, "cipSecTunExpiredSaInstances")
+
+                self.cipsectunhcindecompoctets = YLeaf(YType.uint64, "cipSecTunHcInDecompOctets")
+
+                self.cipsectunhcinoctets = YLeaf(YType.uint64, "cipSecTunHcInOctets")
+
+                self.cipsectunhcoutoctets = YLeaf(YType.uint64, "cipSecTunHcOutOctets")
+
+                self.cipsectunhcoutuncompoctets = YLeaf(YType.uint64, "cipSecTunHcOutUncompOctets")
+
+                self.cipsectuniketunnelalive = YLeaf(YType.boolean, "cipSecTunIkeTunnelAlive")
+
+                self.cipsectuniketunnelindex = YLeaf(YType.int32, "cipSecTunIkeTunnelIndex")
+
+                self.cipsectuninauthfails = YLeaf(YType.uint32, "cipSecTunInAuthFails")
+
+                self.cipsectuninauths = YLeaf(YType.uint32, "cipSecTunInAuths")
+
+                self.cipsectunindecompoctets = YLeaf(YType.uint32, "cipSecTunInDecompOctets")
+
+                self.cipsectunindecompoctwraps = YLeaf(YType.uint32, "cipSecTunInDecompOctWraps")
+
+                self.cipsectunindecryptfails = YLeaf(YType.uint32, "cipSecTunInDecryptFails")
+
+                self.cipsectunindecrypts = YLeaf(YType.uint32, "cipSecTunInDecrypts")
+
+                self.cipsectunindroppkts = YLeaf(YType.uint32, "cipSecTunInDropPkts")
+
+                self.cipsectuninoctets = YLeaf(YType.uint32, "cipSecTunInOctets")
+
+                self.cipsectuninoctwraps = YLeaf(YType.uint32, "cipSecTunInOctWraps")
+
+                self.cipsectuninpkts = YLeaf(YType.uint32, "cipSecTunInPkts")
+
+                self.cipsectuninreplaydroppkts = YLeaf(YType.uint32, "cipSecTunInReplayDropPkts")
+
+                self.cipsectuninsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunInSaAhAuthAlgo")
+
+                self.cipsectuninsadecompalgo = YLeaf(YType.enumeration, "cipSecTunInSaDecompAlgo")
+
+                self.cipsectuninsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunInSaDiffHellmanGrp")
+
+                self.cipsectuninsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunInSaEncryptAlgo")
+
+                self.cipsectuninsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunInSaEspAuthAlgo")
+
+                self.cipsectunkeytype = YLeaf(YType.enumeration, "cipSecTunKeyType")
+
+                self.cipsectunlifesize = YLeaf(YType.int32, "cipSecTunLifeSize")
+
+                self.cipsectunlifetime = YLeaf(YType.int32, "cipSecTunLifeTime")
+
+                self.cipsectunlocaladdr = YLeaf(YType.str, "cipSecTunLocalAddr")
+
+                self.cipsectunoutauthfails = YLeaf(YType.uint32, "cipSecTunOutAuthFails")
+
+                self.cipsectunoutauths = YLeaf(YType.uint32, "cipSecTunOutAuths")
+
+                self.cipsectunoutdroppkts = YLeaf(YType.uint32, "cipSecTunOutDropPkts")
+
+                self.cipsectunoutencryptfails = YLeaf(YType.uint32, "cipSecTunOutEncryptFails")
+
+                self.cipsectunoutencrypts = YLeaf(YType.uint32, "cipSecTunOutEncrypts")
+
+                self.cipsectunoutoctets = YLeaf(YType.uint32, "cipSecTunOutOctets")
+
+                self.cipsectunoutoctwraps = YLeaf(YType.uint32, "cipSecTunOutOctWraps")
+
+                self.cipsectunoutpkts = YLeaf(YType.uint32, "cipSecTunOutPkts")
+
+                self.cipsectunoutsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunOutSaAhAuthAlgo")
+
+                self.cipsectunoutsacompalgo = YLeaf(YType.enumeration, "cipSecTunOutSaCompAlgo")
+
+                self.cipsectunoutsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunOutSaDiffHellmanGrp")
+
+                self.cipsectunoutsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunOutSaEncryptAlgo")
+
+                self.cipsectunoutsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunOutSaEspAuthAlgo")
+
+                self.cipsectunoutuncompoctets = YLeaf(YType.uint32, "cipSecTunOutUncompOctets")
+
+                self.cipsectunoutuncompoctwraps = YLeaf(YType.uint32, "cipSecTunOutUncompOctWraps")
+
+                self.cipsectunremoteaddr = YLeaf(YType.str, "cipSecTunRemoteAddr")
+
+                self.cipsectunsalifesizethreshold = YLeaf(YType.int32, "cipSecTunSaLifeSizeThreshold")
+
+                self.cipsectunsalifetimethreshold = YLeaf(YType.int32, "cipSecTunSaLifeTimeThreshold")
+
+                self.cipsectunstatus = YLeaf(YType.enumeration, "cipSecTunStatus")
+
+                self.cipsectuntotalrefreshes = YLeaf(YType.uint32, "cipSecTunTotalRefreshes")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipsectunindex",
+                                "cipsectunactivetime",
+                                "cipsectuncurrentsainstances",
+                                "cipsectunencapmode",
+                                "cipsectunexpiredsainstances",
+                                "cipsectunhcindecompoctets",
+                                "cipsectunhcinoctets",
+                                "cipsectunhcoutoctets",
+                                "cipsectunhcoutuncompoctets",
+                                "cipsectuniketunnelalive",
+                                "cipsectuniketunnelindex",
+                                "cipsectuninauthfails",
+                                "cipsectuninauths",
+                                "cipsectunindecompoctets",
+                                "cipsectunindecompoctwraps",
+                                "cipsectunindecryptfails",
+                                "cipsectunindecrypts",
+                                "cipsectunindroppkts",
+                                "cipsectuninoctets",
+                                "cipsectuninoctwraps",
+                                "cipsectuninpkts",
+                                "cipsectuninreplaydroppkts",
+                                "cipsectuninsaahauthalgo",
+                                "cipsectuninsadecompalgo",
+                                "cipsectuninsadiffhellmangrp",
+                                "cipsectuninsaencryptalgo",
+                                "cipsectuninsaespauthalgo",
+                                "cipsectunkeytype",
+                                "cipsectunlifesize",
+                                "cipsectunlifetime",
+                                "cipsectunlocaladdr",
+                                "cipsectunoutauthfails",
+                                "cipsectunoutauths",
+                                "cipsectunoutdroppkts",
+                                "cipsectunoutencryptfails",
+                                "cipsectunoutencrypts",
+                                "cipsectunoutoctets",
+                                "cipsectunoutoctwraps",
+                                "cipsectunoutpkts",
+                                "cipsectunoutsaahauthalgo",
+                                "cipsectunoutsacompalgo",
+                                "cipsectunoutsadiffhellmangrp",
+                                "cipsectunoutsaencryptalgo",
+                                "cipsectunoutsaespauthalgo",
+                                "cipsectunoutuncompoctets",
+                                "cipsectunoutuncompoctwraps",
+                                "cipsectunremoteaddr",
+                                "cipsectunsalifesizethreshold",
+                                "cipsectunsalifetimethreshold",
+                                "cipsectunstatus",
+                                "cipsectuntotalrefreshes") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cipsectunneltable.Cipsectunnelentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cipsectunneltable.Cipsectunnelentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cipsectunindex.is_set or
+                    self.cipsectunactivetime.is_set or
+                    self.cipsectuncurrentsainstances.is_set or
+                    self.cipsectunencapmode.is_set or
+                    self.cipsectunexpiredsainstances.is_set or
+                    self.cipsectunhcindecompoctets.is_set or
+                    self.cipsectunhcinoctets.is_set or
+                    self.cipsectunhcoutoctets.is_set or
+                    self.cipsectunhcoutuncompoctets.is_set or
+                    self.cipsectuniketunnelalive.is_set or
+                    self.cipsectuniketunnelindex.is_set or
+                    self.cipsectuninauthfails.is_set or
+                    self.cipsectuninauths.is_set or
+                    self.cipsectunindecompoctets.is_set or
+                    self.cipsectunindecompoctwraps.is_set or
+                    self.cipsectunindecryptfails.is_set or
+                    self.cipsectunindecrypts.is_set or
+                    self.cipsectunindroppkts.is_set or
+                    self.cipsectuninoctets.is_set or
+                    self.cipsectuninoctwraps.is_set or
+                    self.cipsectuninpkts.is_set or
+                    self.cipsectuninreplaydroppkts.is_set or
+                    self.cipsectuninsaahauthalgo.is_set or
+                    self.cipsectuninsadecompalgo.is_set or
+                    self.cipsectuninsadiffhellmangrp.is_set or
+                    self.cipsectuninsaencryptalgo.is_set or
+                    self.cipsectuninsaespauthalgo.is_set or
+                    self.cipsectunkeytype.is_set or
+                    self.cipsectunlifesize.is_set or
+                    self.cipsectunlifetime.is_set or
+                    self.cipsectunlocaladdr.is_set or
+                    self.cipsectunoutauthfails.is_set or
+                    self.cipsectunoutauths.is_set or
+                    self.cipsectunoutdroppkts.is_set or
+                    self.cipsectunoutencryptfails.is_set or
+                    self.cipsectunoutencrypts.is_set or
+                    self.cipsectunoutoctets.is_set or
+                    self.cipsectunoutoctwraps.is_set or
+                    self.cipsectunoutpkts.is_set or
+                    self.cipsectunoutsaahauthalgo.is_set or
+                    self.cipsectunoutsacompalgo.is_set or
+                    self.cipsectunoutsadiffhellmangrp.is_set or
+                    self.cipsectunoutsaencryptalgo.is_set or
+                    self.cipsectunoutsaespauthalgo.is_set or
+                    self.cipsectunoutuncompoctets.is_set or
+                    self.cipsectunoutuncompoctwraps.is_set or
+                    self.cipsectunremoteaddr.is_set or
+                    self.cipsectunsalifesizethreshold.is_set or
+                    self.cipsectunsalifetimethreshold.is_set or
+                    self.cipsectunstatus.is_set or
+                    self.cipsectuntotalrefreshes.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipsectunindex.yfilter != YFilter.not_set or
+                    self.cipsectunactivetime.yfilter != YFilter.not_set or
+                    self.cipsectuncurrentsainstances.yfilter != YFilter.not_set or
+                    self.cipsectunencapmode.yfilter != YFilter.not_set or
+                    self.cipsectunexpiredsainstances.yfilter != YFilter.not_set or
+                    self.cipsectunhcindecompoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhcinoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhcoutoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhcoutuncompoctets.yfilter != YFilter.not_set or
+                    self.cipsectuniketunnelalive.yfilter != YFilter.not_set or
+                    self.cipsectuniketunnelindex.yfilter != YFilter.not_set or
+                    self.cipsectuninauthfails.yfilter != YFilter.not_set or
+                    self.cipsectuninauths.yfilter != YFilter.not_set or
+                    self.cipsectunindecompoctets.yfilter != YFilter.not_set or
+                    self.cipsectunindecompoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectunindecryptfails.yfilter != YFilter.not_set or
+                    self.cipsectunindecrypts.yfilter != YFilter.not_set or
+                    self.cipsectunindroppkts.yfilter != YFilter.not_set or
+                    self.cipsectuninoctets.yfilter != YFilter.not_set or
+                    self.cipsectuninoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectuninpkts.yfilter != YFilter.not_set or
+                    self.cipsectuninreplaydroppkts.yfilter != YFilter.not_set or
+                    self.cipsectuninsaahauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectuninsadecompalgo.yfilter != YFilter.not_set or
+                    self.cipsectuninsadiffhellmangrp.yfilter != YFilter.not_set or
+                    self.cipsectuninsaencryptalgo.yfilter != YFilter.not_set or
+                    self.cipsectuninsaespauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectunkeytype.yfilter != YFilter.not_set or
+                    self.cipsectunlifesize.yfilter != YFilter.not_set or
+                    self.cipsectunlifetime.yfilter != YFilter.not_set or
+                    self.cipsectunlocaladdr.yfilter != YFilter.not_set or
+                    self.cipsectunoutauthfails.yfilter != YFilter.not_set or
+                    self.cipsectunoutauths.yfilter != YFilter.not_set or
+                    self.cipsectunoutdroppkts.yfilter != YFilter.not_set or
+                    self.cipsectunoutencryptfails.yfilter != YFilter.not_set or
+                    self.cipsectunoutencrypts.yfilter != YFilter.not_set or
+                    self.cipsectunoutoctets.yfilter != YFilter.not_set or
+                    self.cipsectunoutoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectunoutpkts.yfilter != YFilter.not_set or
+                    self.cipsectunoutsaahauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectunoutsacompalgo.yfilter != YFilter.not_set or
+                    self.cipsectunoutsadiffhellmangrp.yfilter != YFilter.not_set or
+                    self.cipsectunoutsaencryptalgo.yfilter != YFilter.not_set or
+                    self.cipsectunoutsaespauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectunoutuncompoctets.yfilter != YFilter.not_set or
+                    self.cipsectunoutuncompoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectunremoteaddr.yfilter != YFilter.not_set or
+                    self.cipsectunsalifesizethreshold.yfilter != YFilter.not_set or
+                    self.cipsectunsalifetimethreshold.yfilter != YFilter.not_set or
+                    self.cipsectunstatus.yfilter != YFilter.not_set or
+                    self.cipsectuntotalrefreshes.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipSecTunnelEntry" + "[cipSecTunIndex='" + self.cipsectunindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipsectunindex.is_set or self.cipsectunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindex.get_name_leafdata())
+                if (self.cipsectunactivetime.is_set or self.cipsectunactivetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunactivetime.get_name_leafdata())
+                if (self.cipsectuncurrentsainstances.is_set or self.cipsectuncurrentsainstances.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuncurrentsainstances.get_name_leafdata())
+                if (self.cipsectunencapmode.is_set or self.cipsectunencapmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunencapmode.get_name_leafdata())
+                if (self.cipsectunexpiredsainstances.is_set or self.cipsectunexpiredsainstances.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunexpiredsainstances.get_name_leafdata())
+                if (self.cipsectunhcindecompoctets.is_set or self.cipsectunhcindecompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhcindecompoctets.get_name_leafdata())
+                if (self.cipsectunhcinoctets.is_set or self.cipsectunhcinoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhcinoctets.get_name_leafdata())
+                if (self.cipsectunhcoutoctets.is_set or self.cipsectunhcoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhcoutoctets.get_name_leafdata())
+                if (self.cipsectunhcoutuncompoctets.is_set or self.cipsectunhcoutuncompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhcoutuncompoctets.get_name_leafdata())
+                if (self.cipsectuniketunnelalive.is_set or self.cipsectuniketunnelalive.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuniketunnelalive.get_name_leafdata())
+                if (self.cipsectuniketunnelindex.is_set or self.cipsectuniketunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuniketunnelindex.get_name_leafdata())
+                if (self.cipsectuninauthfails.is_set or self.cipsectuninauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninauthfails.get_name_leafdata())
+                if (self.cipsectuninauths.is_set or self.cipsectuninauths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninauths.get_name_leafdata())
+                if (self.cipsectunindecompoctets.is_set or self.cipsectunindecompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindecompoctets.get_name_leafdata())
+                if (self.cipsectunindecompoctwraps.is_set or self.cipsectunindecompoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindecompoctwraps.get_name_leafdata())
+                if (self.cipsectunindecryptfails.is_set or self.cipsectunindecryptfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindecryptfails.get_name_leafdata())
+                if (self.cipsectunindecrypts.is_set or self.cipsectunindecrypts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindecrypts.get_name_leafdata())
+                if (self.cipsectunindroppkts.is_set or self.cipsectunindroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindroppkts.get_name_leafdata())
+                if (self.cipsectuninoctets.is_set or self.cipsectuninoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninoctets.get_name_leafdata())
+                if (self.cipsectuninoctwraps.is_set or self.cipsectuninoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninoctwraps.get_name_leafdata())
+                if (self.cipsectuninpkts.is_set or self.cipsectuninpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninpkts.get_name_leafdata())
+                if (self.cipsectuninreplaydroppkts.is_set or self.cipsectuninreplaydroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninreplaydroppkts.get_name_leafdata())
+                if (self.cipsectuninsaahauthalgo.is_set or self.cipsectuninsaahauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninsaahauthalgo.get_name_leafdata())
+                if (self.cipsectuninsadecompalgo.is_set or self.cipsectuninsadecompalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninsadecompalgo.get_name_leafdata())
+                if (self.cipsectuninsadiffhellmangrp.is_set or self.cipsectuninsadiffhellmangrp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninsadiffhellmangrp.get_name_leafdata())
+                if (self.cipsectuninsaencryptalgo.is_set or self.cipsectuninsaencryptalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninsaencryptalgo.get_name_leafdata())
+                if (self.cipsectuninsaespauthalgo.is_set or self.cipsectuninsaespauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuninsaespauthalgo.get_name_leafdata())
+                if (self.cipsectunkeytype.is_set or self.cipsectunkeytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunkeytype.get_name_leafdata())
+                if (self.cipsectunlifesize.is_set or self.cipsectunlifesize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunlifesize.get_name_leafdata())
+                if (self.cipsectunlifetime.is_set or self.cipsectunlifetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunlifetime.get_name_leafdata())
+                if (self.cipsectunlocaladdr.is_set or self.cipsectunlocaladdr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunlocaladdr.get_name_leafdata())
+                if (self.cipsectunoutauthfails.is_set or self.cipsectunoutauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutauthfails.get_name_leafdata())
+                if (self.cipsectunoutauths.is_set or self.cipsectunoutauths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutauths.get_name_leafdata())
+                if (self.cipsectunoutdroppkts.is_set or self.cipsectunoutdroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutdroppkts.get_name_leafdata())
+                if (self.cipsectunoutencryptfails.is_set or self.cipsectunoutencryptfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutencryptfails.get_name_leafdata())
+                if (self.cipsectunoutencrypts.is_set or self.cipsectunoutencrypts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutencrypts.get_name_leafdata())
+                if (self.cipsectunoutoctets.is_set or self.cipsectunoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutoctets.get_name_leafdata())
+                if (self.cipsectunoutoctwraps.is_set or self.cipsectunoutoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutoctwraps.get_name_leafdata())
+                if (self.cipsectunoutpkts.is_set or self.cipsectunoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutpkts.get_name_leafdata())
+                if (self.cipsectunoutsaahauthalgo.is_set or self.cipsectunoutsaahauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutsaahauthalgo.get_name_leafdata())
+                if (self.cipsectunoutsacompalgo.is_set or self.cipsectunoutsacompalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutsacompalgo.get_name_leafdata())
+                if (self.cipsectunoutsadiffhellmangrp.is_set or self.cipsectunoutsadiffhellmangrp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutsadiffhellmangrp.get_name_leafdata())
+                if (self.cipsectunoutsaencryptalgo.is_set or self.cipsectunoutsaencryptalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutsaencryptalgo.get_name_leafdata())
+                if (self.cipsectunoutsaespauthalgo.is_set or self.cipsectunoutsaespauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutsaespauthalgo.get_name_leafdata())
+                if (self.cipsectunoutuncompoctets.is_set or self.cipsectunoutuncompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutuncompoctets.get_name_leafdata())
+                if (self.cipsectunoutuncompoctwraps.is_set or self.cipsectunoutuncompoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunoutuncompoctwraps.get_name_leafdata())
+                if (self.cipsectunremoteaddr.is_set or self.cipsectunremoteaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunremoteaddr.get_name_leafdata())
+                if (self.cipsectunsalifesizethreshold.is_set or self.cipsectunsalifesizethreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunsalifesizethreshold.get_name_leafdata())
+                if (self.cipsectunsalifetimethreshold.is_set or self.cipsectunsalifetimethreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunsalifetimethreshold.get_name_leafdata())
+                if (self.cipsectunstatus.is_set or self.cipsectunstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunstatus.get_name_leafdata())
+                if (self.cipsectuntotalrefreshes.is_set or self.cipsectuntotalrefreshes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectuntotalrefreshes.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipSecTunIndex" or name == "cipSecTunActiveTime" or name == "cipSecTunCurrentSaInstances" or name == "cipSecTunEncapMode" or name == "cipSecTunExpiredSaInstances" or name == "cipSecTunHcInDecompOctets" or name == "cipSecTunHcInOctets" or name == "cipSecTunHcOutOctets" or name == "cipSecTunHcOutUncompOctets" or name == "cipSecTunIkeTunnelAlive" or name == "cipSecTunIkeTunnelIndex" or name == "cipSecTunInAuthFails" or name == "cipSecTunInAuths" or name == "cipSecTunInDecompOctets" or name == "cipSecTunInDecompOctWraps" or name == "cipSecTunInDecryptFails" or name == "cipSecTunInDecrypts" or name == "cipSecTunInDropPkts" or name == "cipSecTunInOctets" or name == "cipSecTunInOctWraps" or name == "cipSecTunInPkts" or name == "cipSecTunInReplayDropPkts" or name == "cipSecTunInSaAhAuthAlgo" or name == "cipSecTunInSaDecompAlgo" or name == "cipSecTunInSaDiffHellmanGrp" or name == "cipSecTunInSaEncryptAlgo" or name == "cipSecTunInSaEspAuthAlgo" or name == "cipSecTunKeyType" or name == "cipSecTunLifeSize" or name == "cipSecTunLifeTime" or name == "cipSecTunLocalAddr" or name == "cipSecTunOutAuthFails" or name == "cipSecTunOutAuths" or name == "cipSecTunOutDropPkts" or name == "cipSecTunOutEncryptFails" or name == "cipSecTunOutEncrypts" or name == "cipSecTunOutOctets" or name == "cipSecTunOutOctWraps" or name == "cipSecTunOutPkts" or name == "cipSecTunOutSaAhAuthAlgo" or name == "cipSecTunOutSaCompAlgo" or name == "cipSecTunOutSaDiffHellmanGrp" or name == "cipSecTunOutSaEncryptAlgo" or name == "cipSecTunOutSaEspAuthAlgo" or name == "cipSecTunOutUncompOctets" or name == "cipSecTunOutUncompOctWraps" or name == "cipSecTunRemoteAddr" or name == "cipSecTunSaLifeSizeThreshold" or name == "cipSecTunSaLifeTimeThreshold" or name == "cipSecTunStatus" or name == "cipSecTunTotalRefreshes"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipsectunindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipSecTunIndex"):
+                    self.cipsectunindex = value
+                    self.cipsectunindex.value_namespace = name_space
+                    self.cipsectunindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunActiveTime"):
+                    self.cipsectunactivetime = value
+                    self.cipsectunactivetime.value_namespace = name_space
+                    self.cipsectunactivetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunCurrentSaInstances"):
+                    self.cipsectuncurrentsainstances = value
+                    self.cipsectuncurrentsainstances.value_namespace = name_space
+                    self.cipsectuncurrentsainstances.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunEncapMode"):
+                    self.cipsectunencapmode = value
+                    self.cipsectunencapmode.value_namespace = name_space
+                    self.cipsectunencapmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunExpiredSaInstances"):
+                    self.cipsectunexpiredsainstances = value
+                    self.cipsectunexpiredsainstances.value_namespace = name_space
+                    self.cipsectunexpiredsainstances.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHcInDecompOctets"):
+                    self.cipsectunhcindecompoctets = value
+                    self.cipsectunhcindecompoctets.value_namespace = name_space
+                    self.cipsectunhcindecompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHcInOctets"):
+                    self.cipsectunhcinoctets = value
+                    self.cipsectunhcinoctets.value_namespace = name_space
+                    self.cipsectunhcinoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHcOutOctets"):
+                    self.cipsectunhcoutoctets = value
+                    self.cipsectunhcoutoctets.value_namespace = name_space
+                    self.cipsectunhcoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHcOutUncompOctets"):
+                    self.cipsectunhcoutuncompoctets = value
+                    self.cipsectunhcoutuncompoctets.value_namespace = name_space
+                    self.cipsectunhcoutuncompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunIkeTunnelAlive"):
+                    self.cipsectuniketunnelalive = value
+                    self.cipsectuniketunnelalive.value_namespace = name_space
+                    self.cipsectuniketunnelalive.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunIkeTunnelIndex"):
+                    self.cipsectuniketunnelindex = value
+                    self.cipsectuniketunnelindex.value_namespace = name_space
+                    self.cipsectuniketunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInAuthFails"):
+                    self.cipsectuninauthfails = value
+                    self.cipsectuninauthfails.value_namespace = name_space
+                    self.cipsectuninauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInAuths"):
+                    self.cipsectuninauths = value
+                    self.cipsectuninauths.value_namespace = name_space
+                    self.cipsectuninauths.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInDecompOctets"):
+                    self.cipsectunindecompoctets = value
+                    self.cipsectunindecompoctets.value_namespace = name_space
+                    self.cipsectunindecompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInDecompOctWraps"):
+                    self.cipsectunindecompoctwraps = value
+                    self.cipsectunindecompoctwraps.value_namespace = name_space
+                    self.cipsectunindecompoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInDecryptFails"):
+                    self.cipsectunindecryptfails = value
+                    self.cipsectunindecryptfails.value_namespace = name_space
+                    self.cipsectunindecryptfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInDecrypts"):
+                    self.cipsectunindecrypts = value
+                    self.cipsectunindecrypts.value_namespace = name_space
+                    self.cipsectunindecrypts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInDropPkts"):
+                    self.cipsectunindroppkts = value
+                    self.cipsectunindroppkts.value_namespace = name_space
+                    self.cipsectunindroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInOctets"):
+                    self.cipsectuninoctets = value
+                    self.cipsectuninoctets.value_namespace = name_space
+                    self.cipsectuninoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInOctWraps"):
+                    self.cipsectuninoctwraps = value
+                    self.cipsectuninoctwraps.value_namespace = name_space
+                    self.cipsectuninoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInPkts"):
+                    self.cipsectuninpkts = value
+                    self.cipsectuninpkts.value_namespace = name_space
+                    self.cipsectuninpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInReplayDropPkts"):
+                    self.cipsectuninreplaydroppkts = value
+                    self.cipsectuninreplaydroppkts.value_namespace = name_space
+                    self.cipsectuninreplaydroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInSaAhAuthAlgo"):
+                    self.cipsectuninsaahauthalgo = value
+                    self.cipsectuninsaahauthalgo.value_namespace = name_space
+                    self.cipsectuninsaahauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInSaDecompAlgo"):
+                    self.cipsectuninsadecompalgo = value
+                    self.cipsectuninsadecompalgo.value_namespace = name_space
+                    self.cipsectuninsadecompalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInSaDiffHellmanGrp"):
+                    self.cipsectuninsadiffhellmangrp = value
+                    self.cipsectuninsadiffhellmangrp.value_namespace = name_space
+                    self.cipsectuninsadiffhellmangrp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInSaEncryptAlgo"):
+                    self.cipsectuninsaencryptalgo = value
+                    self.cipsectuninsaencryptalgo.value_namespace = name_space
+                    self.cipsectuninsaencryptalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunInSaEspAuthAlgo"):
+                    self.cipsectuninsaespauthalgo = value
+                    self.cipsectuninsaespauthalgo.value_namespace = name_space
+                    self.cipsectuninsaespauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunKeyType"):
+                    self.cipsectunkeytype = value
+                    self.cipsectunkeytype.value_namespace = name_space
+                    self.cipsectunkeytype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunLifeSize"):
+                    self.cipsectunlifesize = value
+                    self.cipsectunlifesize.value_namespace = name_space
+                    self.cipsectunlifesize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunLifeTime"):
+                    self.cipsectunlifetime = value
+                    self.cipsectunlifetime.value_namespace = name_space
+                    self.cipsectunlifetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunLocalAddr"):
+                    self.cipsectunlocaladdr = value
+                    self.cipsectunlocaladdr.value_namespace = name_space
+                    self.cipsectunlocaladdr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutAuthFails"):
+                    self.cipsectunoutauthfails = value
+                    self.cipsectunoutauthfails.value_namespace = name_space
+                    self.cipsectunoutauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutAuths"):
+                    self.cipsectunoutauths = value
+                    self.cipsectunoutauths.value_namespace = name_space
+                    self.cipsectunoutauths.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutDropPkts"):
+                    self.cipsectunoutdroppkts = value
+                    self.cipsectunoutdroppkts.value_namespace = name_space
+                    self.cipsectunoutdroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutEncryptFails"):
+                    self.cipsectunoutencryptfails = value
+                    self.cipsectunoutencryptfails.value_namespace = name_space
+                    self.cipsectunoutencryptfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutEncrypts"):
+                    self.cipsectunoutencrypts = value
+                    self.cipsectunoutencrypts.value_namespace = name_space
+                    self.cipsectunoutencrypts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutOctets"):
+                    self.cipsectunoutoctets = value
+                    self.cipsectunoutoctets.value_namespace = name_space
+                    self.cipsectunoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutOctWraps"):
+                    self.cipsectunoutoctwraps = value
+                    self.cipsectunoutoctwraps.value_namespace = name_space
+                    self.cipsectunoutoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutPkts"):
+                    self.cipsectunoutpkts = value
+                    self.cipsectunoutpkts.value_namespace = name_space
+                    self.cipsectunoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutSaAhAuthAlgo"):
+                    self.cipsectunoutsaahauthalgo = value
+                    self.cipsectunoutsaahauthalgo.value_namespace = name_space
+                    self.cipsectunoutsaahauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutSaCompAlgo"):
+                    self.cipsectunoutsacompalgo = value
+                    self.cipsectunoutsacompalgo.value_namespace = name_space
+                    self.cipsectunoutsacompalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutSaDiffHellmanGrp"):
+                    self.cipsectunoutsadiffhellmangrp = value
+                    self.cipsectunoutsadiffhellmangrp.value_namespace = name_space
+                    self.cipsectunoutsadiffhellmangrp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutSaEncryptAlgo"):
+                    self.cipsectunoutsaencryptalgo = value
+                    self.cipsectunoutsaencryptalgo.value_namespace = name_space
+                    self.cipsectunoutsaencryptalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutSaEspAuthAlgo"):
+                    self.cipsectunoutsaespauthalgo = value
+                    self.cipsectunoutsaespauthalgo.value_namespace = name_space
+                    self.cipsectunoutsaespauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutUncompOctets"):
+                    self.cipsectunoutuncompoctets = value
+                    self.cipsectunoutuncompoctets.value_namespace = name_space
+                    self.cipsectunoutuncompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunOutUncompOctWraps"):
+                    self.cipsectunoutuncompoctwraps = value
+                    self.cipsectunoutuncompoctwraps.value_namespace = name_space
+                    self.cipsectunoutuncompoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunRemoteAddr"):
+                    self.cipsectunremoteaddr = value
+                    self.cipsectunremoteaddr.value_namespace = name_space
+                    self.cipsectunremoteaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunSaLifeSizeThreshold"):
+                    self.cipsectunsalifesizethreshold = value
+                    self.cipsectunsalifesizethreshold.value_namespace = name_space
+                    self.cipsectunsalifesizethreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunSaLifeTimeThreshold"):
+                    self.cipsectunsalifetimethreshold = value
+                    self.cipsectunsalifetimethreshold.value_namespace = name_space
+                    self.cipsectunsalifetimethreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunStatus"):
+                    self.cipsectunstatus = value
+                    self.cipsectunstatus.value_namespace = name_space
+                    self.cipsectunstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunTotalRefreshes"):
+                    self.cipsectuntotalrefreshes = value
+                    self.cipsectuntotalrefreshes.value_namespace = name_space
+                    self.cipsectuntotalrefreshes.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipsectunnelentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipsectunactivetime is not None:
-                    return True
-
-                if self.cipsectuncurrentsainstances is not None:
-                    return True
-
-                if self.cipsectunencapmode is not None:
-                    return True
-
-                if self.cipsectunexpiredsainstances is not None:
-                    return True
-
-                if self.cipsectunhcindecompoctets is not None:
-                    return True
-
-                if self.cipsectunhcinoctets is not None:
-                    return True
-
-                if self.cipsectunhcoutoctets is not None:
-                    return True
-
-                if self.cipsectunhcoutuncompoctets is not None:
-                    return True
-
-                if self.cipsectuniketunnelalive is not None:
-                    return True
-
-                if self.cipsectuniketunnelindex is not None:
-                    return True
-
-                if self.cipsectuninauthfails is not None:
-                    return True
-
-                if self.cipsectuninauths is not None:
-                    return True
-
-                if self.cipsectunindecompoctets is not None:
-                    return True
-
-                if self.cipsectunindecompoctwraps is not None:
-                    return True
-
-                if self.cipsectunindecryptfails is not None:
-                    return True
-
-                if self.cipsectunindecrypts is not None:
-                    return True
-
-                if self.cipsectunindroppkts is not None:
-                    return True
-
-                if self.cipsectuninoctets is not None:
-                    return True
-
-                if self.cipsectuninoctwraps is not None:
-                    return True
-
-                if self.cipsectuninpkts is not None:
-                    return True
-
-                if self.cipsectuninreplaydroppkts is not None:
-                    return True
-
-                if self.cipsectuninsaahauthalgo is not None:
-                    return True
-
-                if self.cipsectuninsadecompalgo is not None:
-                    return True
-
-                if self.cipsectuninsadiffhellmangrp is not None:
-                    return True
-
-                if self.cipsectuninsaencryptalgo is not None:
-                    return True
-
-                if self.cipsectuninsaespauthalgo is not None:
-                    return True
-
-                if self.cipsectunkeytype is not None:
-                    return True
-
-                if self.cipsectunlifesize is not None:
-                    return True
-
-                if self.cipsectunlifetime is not None:
-                    return True
-
-                if self.cipsectunlocaladdr is not None:
-                    return True
-
-                if self.cipsectunoutauthfails is not None:
-                    return True
-
-                if self.cipsectunoutauths is not None:
-                    return True
-
-                if self.cipsectunoutdroppkts is not None:
-                    return True
-
-                if self.cipsectunoutencryptfails is not None:
-                    return True
-
-                if self.cipsectunoutencrypts is not None:
-                    return True
-
-                if self.cipsectunoutoctets is not None:
-                    return True
-
-                if self.cipsectunoutoctwraps is not None:
-                    return True
-
-                if self.cipsectunoutpkts is not None:
-                    return True
-
-                if self.cipsectunoutsaahauthalgo is not None:
-                    return True
-
-                if self.cipsectunoutsacompalgo is not None:
-                    return True
-
-                if self.cipsectunoutsadiffhellmangrp is not None:
-                    return True
-
-                if self.cipsectunoutsaencryptalgo is not None:
-                    return True
-
-                if self.cipsectunoutsaespauthalgo is not None:
-                    return True
-
-                if self.cipsectunoutuncompoctets is not None:
-                    return True
-
-                if self.cipsectunoutuncompoctwraps is not None:
-                    return True
-
-                if self.cipsectunremoteaddr is not None:
-                    return True
-
-                if self.cipsectunsalifesizethreshold is not None:
-                    return True
-
-                if self.cipsectunsalifetimethreshold is not None:
-                    return True
-
-                if self.cipsectunstatus is not None:
-                    return True
-
-                if self.cipsectuntotalrefreshes is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsectunneltable.Cipsectunnelentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunnelTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipsectunnelentry is not None:
-                for child_ref in self.cipsectunnelentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipsectunnelentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecTunnelTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipSecTunnelEntry"):
+                for c in self.cipsectunnelentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cipsectunneltable.Cipsectunnelentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipsectunnelentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecTunnelEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsectunneltable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipsecendpttable(object):
+    class Cipsecendpttable(Entity):
         """
         The IPsec Phase\-2 Tunnel Endpoint Table.
         This table contains an entry for each 
@@ -3648,13 +5837,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecendptentry = YList()
-            self.cipsecendptentry.parent = self
-            self.cipsecendptentry.name = 'cipsecendptentry'
+            super(CiscoIpsecFlowMonitorMib.Cipsecendpttable, self).__init__()
+
+            self.yang_name = "cipSecEndPtTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsecendptentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsecendpttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsecendpttable, self).__setattr__(name, value)
 
 
-        class Cipsecendptentry(object):
+        class Cipsecendptentry(Entity):
             """
             An IPsec Phase\-2 Tunnel Endpoint entry.
             
@@ -3710,7 +5925,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsecendptlocaltype
             
             	The type of identity for the local Endpoint. Possible values are\: 1) a single IP address, or 2) an IP address range, or 3) an IP subnet
-            	**type**\:   :py:class:`EndpttypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EndpttypeEnum>`
+            	**type**\:   :py:class:`Endpttype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Endpttype>`
             
             .. attribute:: cipsecendptremoteaddr1
             
@@ -3748,7 +5963,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsecendptremotetype
             
             	The type of identity for the remote Endpoint. Possible values are\: 1) a single IP address, or 2) an IP address range, or 3) an IP subnet
-            	**type**\:   :py:class:`EndpttypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EndpttypeEnum>`
+            	**type**\:   :py:class:`Endpttype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Endpttype>`
             
             
 
@@ -3758,109 +5973,286 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipsectunindex = None
-                self.cipsecendptindex = None
-                self.cipsecendptlocaladdr1 = None
-                self.cipsecendptlocaladdr2 = None
-                self.cipsecendptlocalname = None
-                self.cipsecendptlocalport = None
-                self.cipsecendptlocalprotocol = None
-                self.cipsecendptlocaltype = None
-                self.cipsecendptremoteaddr1 = None
-                self.cipsecendptremoteaddr2 = None
-                self.cipsecendptremotename = None
-                self.cipsecendptremoteport = None
-                self.cipsecendptremoteprotocol = None
-                self.cipsecendptremotetype = None
+                super(CiscoIpsecFlowMonitorMib.Cipsecendpttable.Cipsecendptentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cipsectunindex is None:
-                    raise YPYModelError('Key property cipsectunindex is None')
-                if self.cipsecendptindex is None:
-                    raise YPYModelError('Key property cipsecendptindex is None')
+                self.yang_name = "cipSecEndPtEntry"
+                self.yang_parent_name = "cipSecEndPtTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunIndex = ' + str(self.cipsectunindex) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtIndex = ' + str(self.cipsecendptindex) + ']'
+                self.cipsectunindex = YLeaf(YType.str, "cipSecTunIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cipsecendptindex = YLeaf(YType.int32, "cipSecEndPtIndex")
+
+                self.cipsecendptlocaladdr1 = YLeaf(YType.str, "cipSecEndPtLocalAddr1")
+
+                self.cipsecendptlocaladdr2 = YLeaf(YType.str, "cipSecEndPtLocalAddr2")
+
+                self.cipsecendptlocalname = YLeaf(YType.str, "cipSecEndPtLocalName")
+
+                self.cipsecendptlocalport = YLeaf(YType.int32, "cipSecEndPtLocalPort")
+
+                self.cipsecendptlocalprotocol = YLeaf(YType.int32, "cipSecEndPtLocalProtocol")
+
+                self.cipsecendptlocaltype = YLeaf(YType.enumeration, "cipSecEndPtLocalType")
+
+                self.cipsecendptremoteaddr1 = YLeaf(YType.str, "cipSecEndPtRemoteAddr1")
+
+                self.cipsecendptremoteaddr2 = YLeaf(YType.str, "cipSecEndPtRemoteAddr2")
+
+                self.cipsecendptremotename = YLeaf(YType.str, "cipSecEndPtRemoteName")
+
+                self.cipsecendptremoteport = YLeaf(YType.int32, "cipSecEndPtRemotePort")
+
+                self.cipsecendptremoteprotocol = YLeaf(YType.int32, "cipSecEndPtRemoteProtocol")
+
+                self.cipsecendptremotetype = YLeaf(YType.enumeration, "cipSecEndPtRemoteType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipsectunindex",
+                                "cipsecendptindex",
+                                "cipsecendptlocaladdr1",
+                                "cipsecendptlocaladdr2",
+                                "cipsecendptlocalname",
+                                "cipsecendptlocalport",
+                                "cipsecendptlocalprotocol",
+                                "cipsecendptlocaltype",
+                                "cipsecendptremoteaddr1",
+                                "cipsecendptremoteaddr2",
+                                "cipsecendptremotename",
+                                "cipsecendptremoteport",
+                                "cipsecendptremoteprotocol",
+                                "cipsecendptremotetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cipsecendpttable.Cipsecendptentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cipsecendpttable.Cipsecendptentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cipsectunindex.is_set or
+                    self.cipsecendptindex.is_set or
+                    self.cipsecendptlocaladdr1.is_set or
+                    self.cipsecendptlocaladdr2.is_set or
+                    self.cipsecendptlocalname.is_set or
+                    self.cipsecendptlocalport.is_set or
+                    self.cipsecendptlocalprotocol.is_set or
+                    self.cipsecendptlocaltype.is_set or
+                    self.cipsecendptremoteaddr1.is_set or
+                    self.cipsecendptremoteaddr2.is_set or
+                    self.cipsecendptremotename.is_set or
+                    self.cipsecendptremoteport.is_set or
+                    self.cipsecendptremoteprotocol.is_set or
+                    self.cipsecendptremotetype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipsectunindex.yfilter != YFilter.not_set or
+                    self.cipsecendptindex.yfilter != YFilter.not_set or
+                    self.cipsecendptlocaladdr1.yfilter != YFilter.not_set or
+                    self.cipsecendptlocaladdr2.yfilter != YFilter.not_set or
+                    self.cipsecendptlocalname.yfilter != YFilter.not_set or
+                    self.cipsecendptlocalport.yfilter != YFilter.not_set or
+                    self.cipsecendptlocalprotocol.yfilter != YFilter.not_set or
+                    self.cipsecendptlocaltype.yfilter != YFilter.not_set or
+                    self.cipsecendptremoteaddr1.yfilter != YFilter.not_set or
+                    self.cipsecendptremoteaddr2.yfilter != YFilter.not_set or
+                    self.cipsecendptremotename.yfilter != YFilter.not_set or
+                    self.cipsecendptremoteport.yfilter != YFilter.not_set or
+                    self.cipsecendptremoteprotocol.yfilter != YFilter.not_set or
+                    self.cipsecendptremotetype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipSecEndPtEntry" + "[cipSecTunIndex='" + self.cipsectunindex.get() + "']" + "[cipSecEndPtIndex='" + self.cipsecendptindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipsectunindex.is_set or self.cipsectunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindex.get_name_leafdata())
+                if (self.cipsecendptindex.is_set or self.cipsecendptindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptindex.get_name_leafdata())
+                if (self.cipsecendptlocaladdr1.is_set or self.cipsecendptlocaladdr1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptlocaladdr1.get_name_leafdata())
+                if (self.cipsecendptlocaladdr2.is_set or self.cipsecendptlocaladdr2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptlocaladdr2.get_name_leafdata())
+                if (self.cipsecendptlocalname.is_set or self.cipsecendptlocalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptlocalname.get_name_leafdata())
+                if (self.cipsecendptlocalport.is_set or self.cipsecendptlocalport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptlocalport.get_name_leafdata())
+                if (self.cipsecendptlocalprotocol.is_set or self.cipsecendptlocalprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptlocalprotocol.get_name_leafdata())
+                if (self.cipsecendptlocaltype.is_set or self.cipsecendptlocaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptlocaltype.get_name_leafdata())
+                if (self.cipsecendptremoteaddr1.is_set or self.cipsecendptremoteaddr1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptremoteaddr1.get_name_leafdata())
+                if (self.cipsecendptremoteaddr2.is_set or self.cipsecendptremoteaddr2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptremoteaddr2.get_name_leafdata())
+                if (self.cipsecendptremotename.is_set or self.cipsecendptremotename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptremotename.get_name_leafdata())
+                if (self.cipsecendptremoteport.is_set or self.cipsecendptremoteport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptremoteport.get_name_leafdata())
+                if (self.cipsecendptremoteprotocol.is_set or self.cipsecendptremoteprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptremoteprotocol.get_name_leafdata())
+                if (self.cipsecendptremotetype.is_set or self.cipsecendptremotetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendptremotetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipSecTunIndex" or name == "cipSecEndPtIndex" or name == "cipSecEndPtLocalAddr1" or name == "cipSecEndPtLocalAddr2" or name == "cipSecEndPtLocalName" or name == "cipSecEndPtLocalPort" or name == "cipSecEndPtLocalProtocol" or name == "cipSecEndPtLocalType" or name == "cipSecEndPtRemoteAddr1" or name == "cipSecEndPtRemoteAddr2" or name == "cipSecEndPtRemoteName" or name == "cipSecEndPtRemotePort" or name == "cipSecEndPtRemoteProtocol" or name == "cipSecEndPtRemoteType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipsectunindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipSecTunIndex"):
+                    self.cipsectunindex = value
+                    self.cipsectunindex.value_namespace = name_space
+                    self.cipsectunindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtIndex"):
+                    self.cipsecendptindex = value
+                    self.cipsecendptindex.value_namespace = name_space
+                    self.cipsecendptindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtLocalAddr1"):
+                    self.cipsecendptlocaladdr1 = value
+                    self.cipsecendptlocaladdr1.value_namespace = name_space
+                    self.cipsecendptlocaladdr1.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtLocalAddr2"):
+                    self.cipsecendptlocaladdr2 = value
+                    self.cipsecendptlocaladdr2.value_namespace = name_space
+                    self.cipsecendptlocaladdr2.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtLocalName"):
+                    self.cipsecendptlocalname = value
+                    self.cipsecendptlocalname.value_namespace = name_space
+                    self.cipsecendptlocalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtLocalPort"):
+                    self.cipsecendptlocalport = value
+                    self.cipsecendptlocalport.value_namespace = name_space
+                    self.cipsecendptlocalport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtLocalProtocol"):
+                    self.cipsecendptlocalprotocol = value
+                    self.cipsecendptlocalprotocol.value_namespace = name_space
+                    self.cipsecendptlocalprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtLocalType"):
+                    self.cipsecendptlocaltype = value
+                    self.cipsecendptlocaltype.value_namespace = name_space
+                    self.cipsecendptlocaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtRemoteAddr1"):
+                    self.cipsecendptremoteaddr1 = value
+                    self.cipsecendptremoteaddr1.value_namespace = name_space
+                    self.cipsecendptremoteaddr1.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtRemoteAddr2"):
+                    self.cipsecendptremoteaddr2 = value
+                    self.cipsecendptremoteaddr2.value_namespace = name_space
+                    self.cipsecendptremoteaddr2.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtRemoteName"):
+                    self.cipsecendptremotename = value
+                    self.cipsecendptremotename.value_namespace = name_space
+                    self.cipsecendptremotename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtRemotePort"):
+                    self.cipsecendptremoteport = value
+                    self.cipsecendptremoteport.value_namespace = name_space
+                    self.cipsecendptremoteport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtRemoteProtocol"):
+                    self.cipsecendptremoteprotocol = value
+                    self.cipsecendptremoteprotocol.value_namespace = name_space
+                    self.cipsecendptremoteprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtRemoteType"):
+                    self.cipsecendptremotetype = value
+                    self.cipsecendptremotetype.value_namespace = name_space
+                    self.cipsecendptremotetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipsecendptentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipsecendptindex is not None:
-                    return True
-
-                if self.cipsecendptlocaladdr1 is not None:
-                    return True
-
-                if self.cipsecendptlocaladdr2 is not None:
-                    return True
-
-                if self.cipsecendptlocalname is not None:
-                    return True
-
-                if self.cipsecendptlocalport is not None:
-                    return True
-
-                if self.cipsecendptlocalprotocol is not None:
-                    return True
-
-                if self.cipsecendptlocaltype is not None:
-                    return True
-
-                if self.cipsecendptremoteaddr1 is not None:
-                    return True
-
-                if self.cipsecendptremoteaddr2 is not None:
-                    return True
-
-                if self.cipsecendptremotename is not None:
-                    return True
-
-                if self.cipsecendptremoteport is not None:
-                    return True
-
-                if self.cipsecendptremoteprotocol is not None:
-                    return True
-
-                if self.cipsecendptremotetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecendpttable.Cipsecendptentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipsecendptentry is not None:
-                for child_ref in self.cipsecendptentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipsecendptentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecEndPtTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipSecEndPtEntry"):
+                for c in self.cipsecendptentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cipsecendpttable.Cipsecendptentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipsecendptentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecEndPtEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecendpttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipsecspitable(object):
+    class Cipsecspitable(Entity):
         """
         The IPsec Phase\-2 Security Protection Index Table.
         This table contains an entry for each active 
@@ -3880,13 +6272,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecspientry = YList()
-            self.cipsecspientry.parent = self
-            self.cipsecspientry.name = 'cipsecspientry'
+            super(CiscoIpsecFlowMonitorMib.Cipsecspitable, self).__init__()
+
+            self.yang_name = "cipSecSpiTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsecspientry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsecspitable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsecspitable, self).__setattr__(name, value)
 
 
-        class Cipsecspientry(object):
+        class Cipsecspientry(Entity):
             """
             Each entry contains the attributes associated with
             active and expiring IPsec Phase\-2 
@@ -3911,17 +6329,17 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsecspidirection
             
             	The direction of the SPI
-            	**type**\:   :py:class:`CipsecspidirectionEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.CipsecspidirectionEnum>`
+            	**type**\:   :py:class:`Cipsecspidirection <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.Cipsecspidirection>`
             
             .. attribute:: cipsecspiprotocol
             
             	The protocol of the SPI
-            	**type**\:   :py:class:`CipsecspiprotocolEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.CipsecspiprotocolEnum>`
+            	**type**\:   :py:class:`Cipsecspiprotocol <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.Cipsecspiprotocol>`
             
             .. attribute:: cipsecspistatus
             
             	The status of the SPI
-            	**type**\:   :py:class:`CipsecspistatusEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.CipsecspistatusEnum>`
+            	**type**\:   :py:class:`Cipsecspistatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.Cipsecspistatus>`
             
             .. attribute:: cipsecspivalue
             
@@ -3938,17 +6356,55 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipsectunindex = None
-                self.cipsecspiindex = None
-                self.cipsecspidirection = None
-                self.cipsecspiprotocol = None
-                self.cipsecspistatus = None
-                self.cipsecspivalue = None
+                super(CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry, self).__init__()
 
-            class CipsecspidirectionEnum(Enum):
+                self.yang_name = "cipSecSpiEntry"
+                self.yang_parent_name = "cipSecSpiTable"
+
+                self.cipsectunindex = YLeaf(YType.str, "cipSecTunIndex")
+
+                self.cipsecspiindex = YLeaf(YType.int32, "cipSecSpiIndex")
+
+                self.cipsecspidirection = YLeaf(YType.enumeration, "cipSecSpiDirection")
+
+                self.cipsecspiprotocol = YLeaf(YType.enumeration, "cipSecSpiProtocol")
+
+                self.cipsecspistatus = YLeaf(YType.enumeration, "cipSecSpiStatus")
+
+                self.cipsecspivalue = YLeaf(YType.uint32, "cipSecSpiValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipsectunindex",
+                                "cipsecspiindex",
+                                "cipsecspidirection",
+                                "cipsecspiprotocol",
+                                "cipsecspistatus",
+                                "cipsecspivalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry, self).__setattr__(name, value)
+
+            class Cipsecspidirection(Enum):
                 """
-                CipsecspidirectionEnum
+                Cipsecspidirection
 
                 The direction of the SPI.
 
@@ -3958,20 +6414,14 @@ class CiscoIpsecFlowMonitorMib(object):
 
                 """
 
-                in_ = 1
+                in_ = Enum.YLeaf(1, "in")
 
-                out = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                    return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.CipsecspidirectionEnum']
+                out = Enum.YLeaf(2, "out")
 
 
-            class CipsecspiprotocolEnum(Enum):
+            class Cipsecspiprotocol(Enum):
                 """
-                CipsecspiprotocolEnum
+                Cipsecspiprotocol
 
                 The protocol of the SPI.
 
@@ -3983,22 +6433,16 @@ class CiscoIpsecFlowMonitorMib(object):
 
                 """
 
-                ah = 1
+                ah = Enum.YLeaf(1, "ah")
 
-                esp = 2
+                esp = Enum.YLeaf(2, "esp")
 
-                ipcomp = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                    return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.CipsecspiprotocolEnum']
+                ipcomp = Enum.YLeaf(3, "ipcomp")
 
 
-            class CipsecspistatusEnum(Enum):
+            class Cipsecspistatus(Enum):
                 """
-                CipsecspistatusEnum
+                Cipsecspistatus
 
                 The status of the SPI.
 
@@ -4008,80 +6452,157 @@ class CiscoIpsecFlowMonitorMib(object):
 
                 """
 
-                active = 1
+                active = Enum.YLeaf(1, "active")
 
-                expiring = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                    return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry.CipsecspistatusEnum']
+                expiring = Enum.YLeaf(2, "expiring")
 
 
-            @property
-            def _common_path(self):
-                if self.cipsectunindex is None:
-                    raise YPYModelError('Key property cipsectunindex is None')
-                if self.cipsecspiindex is None:
-                    raise YPYModelError('Key property cipsecspiindex is None')
+            def has_data(self):
+                return (
+                    self.cipsectunindex.is_set or
+                    self.cipsecspiindex.is_set or
+                    self.cipsecspidirection.is_set or
+                    self.cipsecspiprotocol.is_set or
+                    self.cipsecspistatus.is_set or
+                    self.cipsecspivalue.is_set)
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecSpiTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecSpiEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunIndex = ' + str(self.cipsectunindex) + '][CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecSpiIndex = ' + str(self.cipsecspiindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipsectunindex.yfilter != YFilter.not_set or
+                    self.cipsecspiindex.yfilter != YFilter.not_set or
+                    self.cipsecspidirection.yfilter != YFilter.not_set or
+                    self.cipsecspiprotocol.yfilter != YFilter.not_set or
+                    self.cipsecspistatus.yfilter != YFilter.not_set or
+                    self.cipsecspivalue.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipSecSpiEntry" + "[cipSecTunIndex='" + self.cipsectunindex.get() + "']" + "[cipSecSpiIndex='" + self.cipsecspiindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecSpiTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipsectunindex.is_set or self.cipsectunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunindex.get_name_leafdata())
+                if (self.cipsecspiindex.is_set or self.cipsecspiindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecspiindex.get_name_leafdata())
+                if (self.cipsecspidirection.is_set or self.cipsecspidirection.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecspidirection.get_name_leafdata())
+                if (self.cipsecspiprotocol.is_set or self.cipsecspiprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecspiprotocol.get_name_leafdata())
+                if (self.cipsecspistatus.is_set or self.cipsecspistatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecspistatus.get_name_leafdata())
+                if (self.cipsecspivalue.is_set or self.cipsecspivalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecspivalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipSecTunIndex" or name == "cipSecSpiIndex" or name == "cipSecSpiDirection" or name == "cipSecSpiProtocol" or name == "cipSecSpiStatus" or name == "cipSecSpiValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipsectunindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipSecTunIndex"):
+                    self.cipsectunindex = value
+                    self.cipsectunindex.value_namespace = name_space
+                    self.cipsectunindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecSpiIndex"):
+                    self.cipsecspiindex = value
+                    self.cipsecspiindex.value_namespace = name_space
+                    self.cipsecspiindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecSpiDirection"):
+                    self.cipsecspidirection = value
+                    self.cipsecspidirection.value_namespace = name_space
+                    self.cipsecspidirection.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecSpiProtocol"):
+                    self.cipsecspiprotocol = value
+                    self.cipsecspiprotocol.value_namespace = name_space
+                    self.cipsecspiprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecSpiStatus"):
+                    self.cipsecspistatus = value
+                    self.cipsecspistatus.value_namespace = name_space
+                    self.cipsecspistatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecSpiValue"):
+                    self.cipsecspivalue = value
+                    self.cipsecspivalue.value_namespace = name_space
+                    self.cipsecspivalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipsecspientry:
+                if (c.has_data()):
                     return True
-
-                if self.cipsecspiindex is not None:
-                    return True
-
-                if self.cipsecspidirection is not None:
-                    return True
-
-                if self.cipsecspiprotocol is not None:
-                    return True
-
-                if self.cipsecspistatus is not None:
-                    return True
-
-                if self.cipsecspivalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecSpiTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipsecspientry is not None:
-                for child_ref in self.cipsecspientry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipsecspientry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecSpiTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipSecSpiEntry"):
+                for c in self.cipsecspientry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cipsecspitable.Cipsecspientry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipsecspientry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecSpiEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecspitable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipsecphase2Gwstatstable(object):
+    class Cipsecphase2Gwstatstable(Entity):
         """
         Phase\-2 IPsec stats information is included in this table.
         Each entry is related to a specific gateway which is 
@@ -4100,13 +6621,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecphase2gwstatsentry = YList()
-            self.cipsecphase2gwstatsentry.parent = self
-            self.cipsecphase2gwstatsentry.name = 'cipsecphase2gwstatsentry'
+            super(CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable, self).__init__()
+
+            self.yang_name = "cipSecPhase2GWStatsTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsecphase2gwstatsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable, self).__setattr__(name, value)
 
 
-        class Cipsecphase2Gwstatsentry(object):
+        class Cipsecphase2Gwstatsentry(Entity):
             """
             Each entry contains the attributes of an Phase\-2 IPsec stats
             information for the related gateway.
@@ -4363,159 +6910,429 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cmgwindex = None
-                self.cipsecphase2gwactivetunnels = None
-                self.cipsecphase2gwinauthfails = None
-                self.cipsecphase2gwinauths = None
-                self.cipsecphase2gwindecompoctets = None
-                self.cipsecphase2gwindecompoctwraps = None
-                self.cipsecphase2gwindecryptfails = None
-                self.cipsecphase2gwindecrypts = None
-                self.cipsecphase2gwindrops = None
-                self.cipsecphase2gwinoctets = None
-                self.cipsecphase2gwinoctwraps = None
-                self.cipsecphase2gwinpkts = None
-                self.cipsecphase2gwinreplaydrops = None
-                self.cipsecphase2gwnosafails = None
-                self.cipsecphase2gwoutauthfails = None
-                self.cipsecphase2gwoutauths = None
-                self.cipsecphase2gwoutdrops = None
-                self.cipsecphase2gwoutencryptfails = None
-                self.cipsecphase2gwoutencrypts = None
-                self.cipsecphase2gwoutoctets = None
-                self.cipsecphase2gwoutoctwraps = None
-                self.cipsecphase2gwoutpkts = None
-                self.cipsecphase2gwoutuncompoctets = None
-                self.cipsecphase2gwoutuncompoctwraps = None
-                self.cipsecphase2gwprevioustunnels = None
-                self.cipsecphase2gwprotocolusefails = None
-                self.cipsecphase2gwsyscapfails = None
+                super(CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cmgwindex is None:
-                    raise YPYModelError('Key property cmgwindex is None')
+                self.yang_name = "cipSecPhase2GWStatsEntry"
+                self.yang_parent_name = "cipSecPhase2GWStatsTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecPhase2GWStatsTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecPhase2GWStatsEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cmgwIndex = ' + str(self.cmgwindex) + ']'
+                self.cmgwindex = YLeaf(YType.str, "cmgwIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cipsecphase2gwactivetunnels = YLeaf(YType.uint32, "cipSecPhase2GWActiveTunnels")
+
+                self.cipsecphase2gwinauthfails = YLeaf(YType.uint32, "cipSecPhase2GWInAuthFails")
+
+                self.cipsecphase2gwinauths = YLeaf(YType.uint32, "cipSecPhase2GWInAuths")
+
+                self.cipsecphase2gwindecompoctets = YLeaf(YType.uint32, "cipSecPhase2GWInDecompOctets")
+
+                self.cipsecphase2gwindecompoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWInDecompOctWraps")
+
+                self.cipsecphase2gwindecryptfails = YLeaf(YType.uint32, "cipSecPhase2GWInDecryptFails")
+
+                self.cipsecphase2gwindecrypts = YLeaf(YType.uint32, "cipSecPhase2GWInDecrypts")
+
+                self.cipsecphase2gwindrops = YLeaf(YType.uint32, "cipSecPhase2GWInDrops")
+
+                self.cipsecphase2gwinoctets = YLeaf(YType.uint32, "cipSecPhase2GWInOctets")
+
+                self.cipsecphase2gwinoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWInOctWraps")
+
+                self.cipsecphase2gwinpkts = YLeaf(YType.uint32, "cipSecPhase2GWInPkts")
+
+                self.cipsecphase2gwinreplaydrops = YLeaf(YType.uint32, "cipSecPhase2GWInReplayDrops")
+
+                self.cipsecphase2gwnosafails = YLeaf(YType.uint32, "cipSecPhase2GWNoSaFails")
+
+                self.cipsecphase2gwoutauthfails = YLeaf(YType.uint32, "cipSecPhase2GWOutAuthFails")
+
+                self.cipsecphase2gwoutauths = YLeaf(YType.uint32, "cipSecPhase2GWOutAuths")
+
+                self.cipsecphase2gwoutdrops = YLeaf(YType.uint32, "cipSecPhase2GWOutDrops")
+
+                self.cipsecphase2gwoutencryptfails = YLeaf(YType.uint32, "cipSecPhase2GWOutEncryptFails")
+
+                self.cipsecphase2gwoutencrypts = YLeaf(YType.uint32, "cipSecPhase2GWOutEncrypts")
+
+                self.cipsecphase2gwoutoctets = YLeaf(YType.uint32, "cipSecPhase2GWOutOctets")
+
+                self.cipsecphase2gwoutoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWOutOctWraps")
+
+                self.cipsecphase2gwoutpkts = YLeaf(YType.uint32, "cipSecPhase2GWOutPkts")
+
+                self.cipsecphase2gwoutuncompoctets = YLeaf(YType.uint32, "cipSecPhase2GWOutUncompOctets")
+
+                self.cipsecphase2gwoutuncompoctwraps = YLeaf(YType.uint32, "cipSecPhase2GWOutUncompOctWraps")
+
+                self.cipsecphase2gwprevioustunnels = YLeaf(YType.uint32, "cipSecPhase2GWPreviousTunnels")
+
+                self.cipsecphase2gwprotocolusefails = YLeaf(YType.uint32, "cipSecPhase2GWProtocolUseFails")
+
+                self.cipsecphase2gwsyscapfails = YLeaf(YType.uint32, "cipSecPhase2GWSysCapFails")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cmgwindex",
+                                "cipsecphase2gwactivetunnels",
+                                "cipsecphase2gwinauthfails",
+                                "cipsecphase2gwinauths",
+                                "cipsecphase2gwindecompoctets",
+                                "cipsecphase2gwindecompoctwraps",
+                                "cipsecphase2gwindecryptfails",
+                                "cipsecphase2gwindecrypts",
+                                "cipsecphase2gwindrops",
+                                "cipsecphase2gwinoctets",
+                                "cipsecphase2gwinoctwraps",
+                                "cipsecphase2gwinpkts",
+                                "cipsecphase2gwinreplaydrops",
+                                "cipsecphase2gwnosafails",
+                                "cipsecphase2gwoutauthfails",
+                                "cipsecphase2gwoutauths",
+                                "cipsecphase2gwoutdrops",
+                                "cipsecphase2gwoutencryptfails",
+                                "cipsecphase2gwoutencrypts",
+                                "cipsecphase2gwoutoctets",
+                                "cipsecphase2gwoutoctwraps",
+                                "cipsecphase2gwoutpkts",
+                                "cipsecphase2gwoutuncompoctets",
+                                "cipsecphase2gwoutuncompoctwraps",
+                                "cipsecphase2gwprevioustunnels",
+                                "cipsecphase2gwprotocolusefails",
+                                "cipsecphase2gwsyscapfails") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cmgwindex.is_set or
+                    self.cipsecphase2gwactivetunnels.is_set or
+                    self.cipsecphase2gwinauthfails.is_set or
+                    self.cipsecphase2gwinauths.is_set or
+                    self.cipsecphase2gwindecompoctets.is_set or
+                    self.cipsecphase2gwindecompoctwraps.is_set or
+                    self.cipsecphase2gwindecryptfails.is_set or
+                    self.cipsecphase2gwindecrypts.is_set or
+                    self.cipsecphase2gwindrops.is_set or
+                    self.cipsecphase2gwinoctets.is_set or
+                    self.cipsecphase2gwinoctwraps.is_set or
+                    self.cipsecphase2gwinpkts.is_set or
+                    self.cipsecphase2gwinreplaydrops.is_set or
+                    self.cipsecphase2gwnosafails.is_set or
+                    self.cipsecphase2gwoutauthfails.is_set or
+                    self.cipsecphase2gwoutauths.is_set or
+                    self.cipsecphase2gwoutdrops.is_set or
+                    self.cipsecphase2gwoutencryptfails.is_set or
+                    self.cipsecphase2gwoutencrypts.is_set or
+                    self.cipsecphase2gwoutoctets.is_set or
+                    self.cipsecphase2gwoutoctwraps.is_set or
+                    self.cipsecphase2gwoutpkts.is_set or
+                    self.cipsecphase2gwoutuncompoctets.is_set or
+                    self.cipsecphase2gwoutuncompoctwraps.is_set or
+                    self.cipsecphase2gwprevioustunnels.is_set or
+                    self.cipsecphase2gwprotocolusefails.is_set or
+                    self.cipsecphase2gwsyscapfails.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cmgwindex.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwactivetunnels.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwinauthfails.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwinauths.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwindecompoctets.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwindecompoctwraps.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwindecryptfails.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwindecrypts.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwindrops.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwinoctets.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwinoctwraps.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwinpkts.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwinreplaydrops.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwnosafails.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutauthfails.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutauths.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutdrops.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutencryptfails.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutencrypts.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutoctets.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutoctwraps.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutpkts.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutuncompoctets.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwoutuncompoctwraps.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwprevioustunnels.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwprotocolusefails.yfilter != YFilter.not_set or
+                    self.cipsecphase2gwsyscapfails.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipSecPhase2GWStatsEntry" + "[cmgwIndex='" + self.cmgwindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecPhase2GWStatsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cmgwindex.is_set or self.cmgwindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cmgwindex.get_name_leafdata())
+                if (self.cipsecphase2gwactivetunnels.is_set or self.cipsecphase2gwactivetunnels.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwactivetunnels.get_name_leafdata())
+                if (self.cipsecphase2gwinauthfails.is_set or self.cipsecphase2gwinauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwinauthfails.get_name_leafdata())
+                if (self.cipsecphase2gwinauths.is_set or self.cipsecphase2gwinauths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwinauths.get_name_leafdata())
+                if (self.cipsecphase2gwindecompoctets.is_set or self.cipsecphase2gwindecompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwindecompoctets.get_name_leafdata())
+                if (self.cipsecphase2gwindecompoctwraps.is_set or self.cipsecphase2gwindecompoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwindecompoctwraps.get_name_leafdata())
+                if (self.cipsecphase2gwindecryptfails.is_set or self.cipsecphase2gwindecryptfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwindecryptfails.get_name_leafdata())
+                if (self.cipsecphase2gwindecrypts.is_set or self.cipsecphase2gwindecrypts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwindecrypts.get_name_leafdata())
+                if (self.cipsecphase2gwindrops.is_set or self.cipsecphase2gwindrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwindrops.get_name_leafdata())
+                if (self.cipsecphase2gwinoctets.is_set or self.cipsecphase2gwinoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwinoctets.get_name_leafdata())
+                if (self.cipsecphase2gwinoctwraps.is_set or self.cipsecphase2gwinoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwinoctwraps.get_name_leafdata())
+                if (self.cipsecphase2gwinpkts.is_set or self.cipsecphase2gwinpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwinpkts.get_name_leafdata())
+                if (self.cipsecphase2gwinreplaydrops.is_set or self.cipsecphase2gwinreplaydrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwinreplaydrops.get_name_leafdata())
+                if (self.cipsecphase2gwnosafails.is_set or self.cipsecphase2gwnosafails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwnosafails.get_name_leafdata())
+                if (self.cipsecphase2gwoutauthfails.is_set or self.cipsecphase2gwoutauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutauthfails.get_name_leafdata())
+                if (self.cipsecphase2gwoutauths.is_set or self.cipsecphase2gwoutauths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutauths.get_name_leafdata())
+                if (self.cipsecphase2gwoutdrops.is_set or self.cipsecphase2gwoutdrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutdrops.get_name_leafdata())
+                if (self.cipsecphase2gwoutencryptfails.is_set or self.cipsecphase2gwoutencryptfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutencryptfails.get_name_leafdata())
+                if (self.cipsecphase2gwoutencrypts.is_set or self.cipsecphase2gwoutencrypts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutencrypts.get_name_leafdata())
+                if (self.cipsecphase2gwoutoctets.is_set or self.cipsecphase2gwoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutoctets.get_name_leafdata())
+                if (self.cipsecphase2gwoutoctwraps.is_set or self.cipsecphase2gwoutoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutoctwraps.get_name_leafdata())
+                if (self.cipsecphase2gwoutpkts.is_set or self.cipsecphase2gwoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutpkts.get_name_leafdata())
+                if (self.cipsecphase2gwoutuncompoctets.is_set or self.cipsecphase2gwoutuncompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutuncompoctets.get_name_leafdata())
+                if (self.cipsecphase2gwoutuncompoctwraps.is_set or self.cipsecphase2gwoutuncompoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwoutuncompoctwraps.get_name_leafdata())
+                if (self.cipsecphase2gwprevioustunnels.is_set or self.cipsecphase2gwprevioustunnels.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwprevioustunnels.get_name_leafdata())
+                if (self.cipsecphase2gwprotocolusefails.is_set or self.cipsecphase2gwprotocolusefails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwprotocolusefails.get_name_leafdata())
+                if (self.cipsecphase2gwsyscapfails.is_set or self.cipsecphase2gwsyscapfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecphase2gwsyscapfails.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cmgwIndex" or name == "cipSecPhase2GWActiveTunnels" or name == "cipSecPhase2GWInAuthFails" or name == "cipSecPhase2GWInAuths" or name == "cipSecPhase2GWInDecompOctets" or name == "cipSecPhase2GWInDecompOctWraps" or name == "cipSecPhase2GWInDecryptFails" or name == "cipSecPhase2GWInDecrypts" or name == "cipSecPhase2GWInDrops" or name == "cipSecPhase2GWInOctets" or name == "cipSecPhase2GWInOctWraps" or name == "cipSecPhase2GWInPkts" or name == "cipSecPhase2GWInReplayDrops" or name == "cipSecPhase2GWNoSaFails" or name == "cipSecPhase2GWOutAuthFails" or name == "cipSecPhase2GWOutAuths" or name == "cipSecPhase2GWOutDrops" or name == "cipSecPhase2GWOutEncryptFails" or name == "cipSecPhase2GWOutEncrypts" or name == "cipSecPhase2GWOutOctets" or name == "cipSecPhase2GWOutOctWraps" or name == "cipSecPhase2GWOutPkts" or name == "cipSecPhase2GWOutUncompOctets" or name == "cipSecPhase2GWOutUncompOctWraps" or name == "cipSecPhase2GWPreviousTunnels" or name == "cipSecPhase2GWProtocolUseFails" or name == "cipSecPhase2GWSysCapFails"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cmgwindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cmgwIndex"):
+                    self.cmgwindex = value
+                    self.cmgwindex.value_namespace = name_space
+                    self.cmgwindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWActiveTunnels"):
+                    self.cipsecphase2gwactivetunnels = value
+                    self.cipsecphase2gwactivetunnels.value_namespace = name_space
+                    self.cipsecphase2gwactivetunnels.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInAuthFails"):
+                    self.cipsecphase2gwinauthfails = value
+                    self.cipsecphase2gwinauthfails.value_namespace = name_space
+                    self.cipsecphase2gwinauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInAuths"):
+                    self.cipsecphase2gwinauths = value
+                    self.cipsecphase2gwinauths.value_namespace = name_space
+                    self.cipsecphase2gwinauths.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInDecompOctets"):
+                    self.cipsecphase2gwindecompoctets = value
+                    self.cipsecphase2gwindecompoctets.value_namespace = name_space
+                    self.cipsecphase2gwindecompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInDecompOctWraps"):
+                    self.cipsecphase2gwindecompoctwraps = value
+                    self.cipsecphase2gwindecompoctwraps.value_namespace = name_space
+                    self.cipsecphase2gwindecompoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInDecryptFails"):
+                    self.cipsecphase2gwindecryptfails = value
+                    self.cipsecphase2gwindecryptfails.value_namespace = name_space
+                    self.cipsecphase2gwindecryptfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInDecrypts"):
+                    self.cipsecphase2gwindecrypts = value
+                    self.cipsecphase2gwindecrypts.value_namespace = name_space
+                    self.cipsecphase2gwindecrypts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInDrops"):
+                    self.cipsecphase2gwindrops = value
+                    self.cipsecphase2gwindrops.value_namespace = name_space
+                    self.cipsecphase2gwindrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInOctets"):
+                    self.cipsecphase2gwinoctets = value
+                    self.cipsecphase2gwinoctets.value_namespace = name_space
+                    self.cipsecphase2gwinoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInOctWraps"):
+                    self.cipsecphase2gwinoctwraps = value
+                    self.cipsecphase2gwinoctwraps.value_namespace = name_space
+                    self.cipsecphase2gwinoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInPkts"):
+                    self.cipsecphase2gwinpkts = value
+                    self.cipsecphase2gwinpkts.value_namespace = name_space
+                    self.cipsecphase2gwinpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWInReplayDrops"):
+                    self.cipsecphase2gwinreplaydrops = value
+                    self.cipsecphase2gwinreplaydrops.value_namespace = name_space
+                    self.cipsecphase2gwinreplaydrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWNoSaFails"):
+                    self.cipsecphase2gwnosafails = value
+                    self.cipsecphase2gwnosafails.value_namespace = name_space
+                    self.cipsecphase2gwnosafails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutAuthFails"):
+                    self.cipsecphase2gwoutauthfails = value
+                    self.cipsecphase2gwoutauthfails.value_namespace = name_space
+                    self.cipsecphase2gwoutauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutAuths"):
+                    self.cipsecphase2gwoutauths = value
+                    self.cipsecphase2gwoutauths.value_namespace = name_space
+                    self.cipsecphase2gwoutauths.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutDrops"):
+                    self.cipsecphase2gwoutdrops = value
+                    self.cipsecphase2gwoutdrops.value_namespace = name_space
+                    self.cipsecphase2gwoutdrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutEncryptFails"):
+                    self.cipsecphase2gwoutencryptfails = value
+                    self.cipsecphase2gwoutencryptfails.value_namespace = name_space
+                    self.cipsecphase2gwoutencryptfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutEncrypts"):
+                    self.cipsecphase2gwoutencrypts = value
+                    self.cipsecphase2gwoutencrypts.value_namespace = name_space
+                    self.cipsecphase2gwoutencrypts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutOctets"):
+                    self.cipsecphase2gwoutoctets = value
+                    self.cipsecphase2gwoutoctets.value_namespace = name_space
+                    self.cipsecphase2gwoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutOctWraps"):
+                    self.cipsecphase2gwoutoctwraps = value
+                    self.cipsecphase2gwoutoctwraps.value_namespace = name_space
+                    self.cipsecphase2gwoutoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutPkts"):
+                    self.cipsecphase2gwoutpkts = value
+                    self.cipsecphase2gwoutpkts.value_namespace = name_space
+                    self.cipsecphase2gwoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutUncompOctets"):
+                    self.cipsecphase2gwoutuncompoctets = value
+                    self.cipsecphase2gwoutuncompoctets.value_namespace = name_space
+                    self.cipsecphase2gwoutuncompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWOutUncompOctWraps"):
+                    self.cipsecphase2gwoutuncompoctwraps = value
+                    self.cipsecphase2gwoutuncompoctwraps.value_namespace = name_space
+                    self.cipsecphase2gwoutuncompoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWPreviousTunnels"):
+                    self.cipsecphase2gwprevioustunnels = value
+                    self.cipsecphase2gwprevioustunnels.value_namespace = name_space
+                    self.cipsecphase2gwprevioustunnels.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWProtocolUseFails"):
+                    self.cipsecphase2gwprotocolusefails = value
+                    self.cipsecphase2gwprotocolusefails.value_namespace = name_space
+                    self.cipsecphase2gwprotocolusefails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecPhase2GWSysCapFails"):
+                    self.cipsecphase2gwsyscapfails = value
+                    self.cipsecphase2gwsyscapfails.value_namespace = name_space
+                    self.cipsecphase2gwsyscapfails.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipsecphase2gwstatsentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipsecphase2gwactivetunnels is not None:
-                    return True
-
-                if self.cipsecphase2gwinauthfails is not None:
-                    return True
-
-                if self.cipsecphase2gwinauths is not None:
-                    return True
-
-                if self.cipsecphase2gwindecompoctets is not None:
-                    return True
-
-                if self.cipsecphase2gwindecompoctwraps is not None:
-                    return True
-
-                if self.cipsecphase2gwindecryptfails is not None:
-                    return True
-
-                if self.cipsecphase2gwindecrypts is not None:
-                    return True
-
-                if self.cipsecphase2gwindrops is not None:
-                    return True
-
-                if self.cipsecphase2gwinoctets is not None:
-                    return True
-
-                if self.cipsecphase2gwinoctwraps is not None:
-                    return True
-
-                if self.cipsecphase2gwinpkts is not None:
-                    return True
-
-                if self.cipsecphase2gwinreplaydrops is not None:
-                    return True
-
-                if self.cipsecphase2gwnosafails is not None:
-                    return True
-
-                if self.cipsecphase2gwoutauthfails is not None:
-                    return True
-
-                if self.cipsecphase2gwoutauths is not None:
-                    return True
-
-                if self.cipsecphase2gwoutdrops is not None:
-                    return True
-
-                if self.cipsecphase2gwoutencryptfails is not None:
-                    return True
-
-                if self.cipsecphase2gwoutencrypts is not None:
-                    return True
-
-                if self.cipsecphase2gwoutoctets is not None:
-                    return True
-
-                if self.cipsecphase2gwoutoctwraps is not None:
-                    return True
-
-                if self.cipsecphase2gwoutpkts is not None:
-                    return True
-
-                if self.cipsecphase2gwoutuncompoctets is not None:
-                    return True
-
-                if self.cipsecphase2gwoutuncompoctwraps is not None:
-                    return True
-
-                if self.cipsecphase2gwprevioustunnels is not None:
-                    return True
-
-                if self.cipsecphase2gwprotocolusefails is not None:
-                    return True
-
-                if self.cipsecphase2gwsyscapfails is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecPhase2GWStatsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipsecphase2gwstatsentry is not None:
-                for child_ref in self.cipsecphase2gwstatsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipsecphase2gwstatsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecPhase2GWStatsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipSecPhase2GWStatsEntry"):
+                for c in self.cipsecphase2gwstatsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipsecphase2gwstatsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecPhase2GWStatsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciketunnelhisttable(object):
+    class Ciketunnelhisttable(Entity):
         """
         The IPsec Phase\-1 Internet Key Exchange Tunnel
         History Table.  This table is implemented as a 
@@ -4536,13 +7353,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.ciketunnelhistentry = YList()
-            self.ciketunnelhistentry.parent = self
-            self.ciketunnelhistentry.name = 'ciketunnelhistentry'
+            super(CiscoIpsecFlowMonitorMib.Ciketunnelhisttable, self).__init__()
+
+            self.yang_name = "cikeTunnelHistTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.ciketunnelhistentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Ciketunnelhisttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Ciketunnelhisttable, self).__setattr__(name, value)
 
 
-        class Ciketunnelhistentry(object):
+        class Ciketunnelhistentry(Entity):
             """
             Each entry contains the attributes
             associated with a previously active IPsec 
@@ -4572,22 +7415,22 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunhistauthmethod
             
             	The authentication method used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`IkeauthmethodEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkeauthmethodEnum>`
+            	**type**\:   :py:class:`Ikeauthmethod <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikeauthmethod>`
             
             .. attribute:: ciketunhistdiffhellmangrp
             
             	The Diffie Hellman Group used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`DiffhellmangrpEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.DiffhellmangrpEnum>`
+            	**type**\:   :py:class:`Diffhellmangrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Diffhellmangrp>`
             
             .. attribute:: ciketunhistencryptalgo
             
             	The encryption algorithm used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`EncryptalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncryptalgoEnum>`
+            	**type**\:   :py:class:`Encryptalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encryptalgo>`
             
             .. attribute:: ciketunhisthashalgo
             
             	The hash algorithm used in IPsec Phase\-1 IKE negotiations
-            	**type**\:   :py:class:`IkehashalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkehashalgoEnum>`
+            	**type**\:   :py:class:`Ikehashalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikehashalgo>`
             
             .. attribute:: ciketunhistindroppkts
             
@@ -4683,7 +7526,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunhistnegomode
             
             	The negotiation mode of the IPsec Phase\-1 IKE Tunnel
-            	**type**\:   :py:class:`IkenegomodeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkenegomodeEnum>`
+            	**type**\:   :py:class:`Ikenegomode <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikenegomode>`
             
             .. attribute:: ciketunhistoutdroppkts
             
@@ -4767,7 +7610,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunhistpeerlocaltype
             
             	The type of local peer identity.  The local peer may be identified by\:  1. an IP address, or  2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: ciketunhistpeerlocalvalue
             
@@ -4777,7 +7620,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunhistpeerremotetype
             
             	The type of remote peer identity.  The remote peer may be identified by\:  1. an IP address, or  2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: ciketunhistpeerremotevalue
             
@@ -4806,7 +7649,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: ciketunhisttermreason
             
             	The reason the IPsec Phase\-1 IKE Tunnel was terminated. Possible reasons include\: 1 = other 2 = normal termination 3 = operator request 4 = peer delete request was received 5 = contact with peer was lost 6 = local failure occurred. 7 = operator initiated check point request
-            	**type**\:   :py:class:`CiketunhisttermreasonEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry.CiketunhisttermreasonEnum>`
+            	**type**\:   :py:class:`Ciketunhisttermreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry.Ciketunhisttermreason>`
             
             .. attribute:: ciketunhisttotalrefreshes
             
@@ -4834,49 +7677,151 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.ciketunhistindex = None
-                self.ciketunhistactiveindex = None
-                self.ciketunhistactivetime = None
-                self.ciketunhistauthmethod = None
-                self.ciketunhistdiffhellmangrp = None
-                self.ciketunhistencryptalgo = None
-                self.ciketunhisthashalgo = None
-                self.ciketunhistindroppkts = None
-                self.ciketunhistinnotifys = None
-                self.ciketunhistinoctets = None
-                self.ciketunhistinp2exchginvalids = None
-                self.ciketunhistinp2exchgrejects = None
-                self.ciketunhistinp2exchgs = None
-                self.ciketunhistinp2sadelrequests = None
-                self.ciketunhistinpkts = None
-                self.ciketunhistlifetime = None
-                self.ciketunhistlocaladdr = None
-                self.ciketunhistlocalname = None
-                self.ciketunhistnegomode = None
-                self.ciketunhistoutdroppkts = None
-                self.ciketunhistoutnotifys = None
-                self.ciketunhistoutoctets = None
-                self.ciketunhistoutp2exchginvalids = None
-                self.ciketunhistoutp2exchgrejects = None
-                self.ciketunhistoutp2exchgs = None
-                self.ciketunhistoutp2sadelrequests = None
-                self.ciketunhistoutpkts = None
-                self.ciketunhistpeerintindex = None
-                self.ciketunhistpeerlocaltype = None
-                self.ciketunhistpeerlocalvalue = None
-                self.ciketunhistpeerremotetype = None
-                self.ciketunhistpeerremotevalue = None
-                self.ciketunhistremoteaddr = None
-                self.ciketunhistremotename = None
-                self.ciketunhiststarttime = None
-                self.ciketunhisttermreason = None
-                self.ciketunhisttotalrefreshes = None
-                self.ciketunhisttotalsas = None
+                super(CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry, self).__init__()
 
-            class CiketunhisttermreasonEnum(Enum):
+                self.yang_name = "cikeTunnelHistEntry"
+                self.yang_parent_name = "cikeTunnelHistTable"
+
+                self.ciketunhistindex = YLeaf(YType.int32, "cikeTunHistIndex")
+
+                self.ciketunhistactiveindex = YLeaf(YType.int32, "cikeTunHistActiveIndex")
+
+                self.ciketunhistactivetime = YLeaf(YType.int32, "cikeTunHistActiveTime")
+
+                self.ciketunhistauthmethod = YLeaf(YType.enumeration, "cikeTunHistAuthMethod")
+
+                self.ciketunhistdiffhellmangrp = YLeaf(YType.enumeration, "cikeTunHistDiffHellmanGrp")
+
+                self.ciketunhistencryptalgo = YLeaf(YType.enumeration, "cikeTunHistEncryptAlgo")
+
+                self.ciketunhisthashalgo = YLeaf(YType.enumeration, "cikeTunHistHashAlgo")
+
+                self.ciketunhistindroppkts = YLeaf(YType.uint32, "cikeTunHistInDropPkts")
+
+                self.ciketunhistinnotifys = YLeaf(YType.uint32, "cikeTunHistInNotifys")
+
+                self.ciketunhistinoctets = YLeaf(YType.uint32, "cikeTunHistInOctets")
+
+                self.ciketunhistinp2exchginvalids = YLeaf(YType.uint32, "cikeTunHistInP2ExchgInvalids")
+
+                self.ciketunhistinp2exchgrejects = YLeaf(YType.uint32, "cikeTunHistInP2ExchgRejects")
+
+                self.ciketunhistinp2exchgs = YLeaf(YType.uint32, "cikeTunHistInP2Exchgs")
+
+                self.ciketunhistinp2sadelrequests = YLeaf(YType.uint32, "cikeTunHistInP2SaDelRequests")
+
+                self.ciketunhistinpkts = YLeaf(YType.uint32, "cikeTunHistInPkts")
+
+                self.ciketunhistlifetime = YLeaf(YType.int32, "cikeTunHistLifeTime")
+
+                self.ciketunhistlocaladdr = YLeaf(YType.str, "cikeTunHistLocalAddr")
+
+                self.ciketunhistlocalname = YLeaf(YType.str, "cikeTunHistLocalName")
+
+                self.ciketunhistnegomode = YLeaf(YType.enumeration, "cikeTunHistNegoMode")
+
+                self.ciketunhistoutdroppkts = YLeaf(YType.uint32, "cikeTunHistOutDropPkts")
+
+                self.ciketunhistoutnotifys = YLeaf(YType.uint32, "cikeTunHistOutNotifys")
+
+                self.ciketunhistoutoctets = YLeaf(YType.uint32, "cikeTunHistOutOctets")
+
+                self.ciketunhistoutp2exchginvalids = YLeaf(YType.uint32, "cikeTunHistOutP2ExchgInvalids")
+
+                self.ciketunhistoutp2exchgrejects = YLeaf(YType.uint32, "cikeTunHistOutP2ExchgRejects")
+
+                self.ciketunhistoutp2exchgs = YLeaf(YType.uint32, "cikeTunHistOutP2Exchgs")
+
+                self.ciketunhistoutp2sadelrequests = YLeaf(YType.uint32, "cikeTunHistOutP2SaDelRequests")
+
+                self.ciketunhistoutpkts = YLeaf(YType.uint32, "cikeTunHistOutPkts")
+
+                self.ciketunhistpeerintindex = YLeaf(YType.int32, "cikeTunHistPeerIntIndex")
+
+                self.ciketunhistpeerlocaltype = YLeaf(YType.enumeration, "cikeTunHistPeerLocalType")
+
+                self.ciketunhistpeerlocalvalue = YLeaf(YType.str, "cikeTunHistPeerLocalValue")
+
+                self.ciketunhistpeerremotetype = YLeaf(YType.enumeration, "cikeTunHistPeerRemoteType")
+
+                self.ciketunhistpeerremotevalue = YLeaf(YType.str, "cikeTunHistPeerRemoteValue")
+
+                self.ciketunhistremoteaddr = YLeaf(YType.str, "cikeTunHistRemoteAddr")
+
+                self.ciketunhistremotename = YLeaf(YType.str, "cikeTunHistRemoteName")
+
+                self.ciketunhiststarttime = YLeaf(YType.uint32, "cikeTunHistStartTime")
+
+                self.ciketunhisttermreason = YLeaf(YType.enumeration, "cikeTunHistTermReason")
+
+                self.ciketunhisttotalrefreshes = YLeaf(YType.uint32, "cikeTunHistTotalRefreshes")
+
+                self.ciketunhisttotalsas = YLeaf(YType.uint32, "cikeTunHistTotalSas")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciketunhistindex",
+                                "ciketunhistactiveindex",
+                                "ciketunhistactivetime",
+                                "ciketunhistauthmethod",
+                                "ciketunhistdiffhellmangrp",
+                                "ciketunhistencryptalgo",
+                                "ciketunhisthashalgo",
+                                "ciketunhistindroppkts",
+                                "ciketunhistinnotifys",
+                                "ciketunhistinoctets",
+                                "ciketunhistinp2exchginvalids",
+                                "ciketunhistinp2exchgrejects",
+                                "ciketunhistinp2exchgs",
+                                "ciketunhistinp2sadelrequests",
+                                "ciketunhistinpkts",
+                                "ciketunhistlifetime",
+                                "ciketunhistlocaladdr",
+                                "ciketunhistlocalname",
+                                "ciketunhistnegomode",
+                                "ciketunhistoutdroppkts",
+                                "ciketunhistoutnotifys",
+                                "ciketunhistoutoctets",
+                                "ciketunhistoutp2exchginvalids",
+                                "ciketunhistoutp2exchgrejects",
+                                "ciketunhistoutp2exchgs",
+                                "ciketunhistoutp2sadelrequests",
+                                "ciketunhistoutpkts",
+                                "ciketunhistpeerintindex",
+                                "ciketunhistpeerlocaltype",
+                                "ciketunhistpeerlocalvalue",
+                                "ciketunhistpeerremotetype",
+                                "ciketunhistpeerremotevalue",
+                                "ciketunhistremoteaddr",
+                                "ciketunhistremotename",
+                                "ciketunhiststarttime",
+                                "ciketunhisttermreason",
+                                "ciketunhisttotalrefreshes",
+                                "ciketunhisttotalsas") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry, self).__setattr__(name, value)
+
+            class Ciketunhisttermreason(Enum):
                 """
-                CiketunhisttermreasonEnum
+                Ciketunhisttermreason
 
                 The reason the IPsec Phase\-1 IKE Tunnel was terminated.
 
@@ -4912,184 +7857,423 @@ class CiscoIpsecFlowMonitorMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                normal = 2
+                normal = Enum.YLeaf(2, "normal")
 
-                operRequest = 3
+                operRequest = Enum.YLeaf(3, "operRequest")
 
-                peerDelRequest = 4
+                peerDelRequest = Enum.YLeaf(4, "peerDelRequest")
 
-                peerLost = 5
+                peerLost = Enum.YLeaf(5, "peerLost")
 
-                localFailure = 6
+                localFailure = Enum.YLeaf(6, "localFailure")
 
-                checkPointReg = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                    return meta._meta_table['CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry.CiketunhisttermreasonEnum']
+                checkPointReg = Enum.YLeaf(7, "checkPointReg")
 
 
-            @property
-            def _common_path(self):
-                if self.ciketunhistindex is None:
-                    raise YPYModelError('Key property ciketunhistindex is None')
+            def has_data(self):
+                return (
+                    self.ciketunhistindex.is_set or
+                    self.ciketunhistactiveindex.is_set or
+                    self.ciketunhistactivetime.is_set or
+                    self.ciketunhistauthmethod.is_set or
+                    self.ciketunhistdiffhellmangrp.is_set or
+                    self.ciketunhistencryptalgo.is_set or
+                    self.ciketunhisthashalgo.is_set or
+                    self.ciketunhistindroppkts.is_set or
+                    self.ciketunhistinnotifys.is_set or
+                    self.ciketunhistinoctets.is_set or
+                    self.ciketunhistinp2exchginvalids.is_set or
+                    self.ciketunhistinp2exchgrejects.is_set or
+                    self.ciketunhistinp2exchgs.is_set or
+                    self.ciketunhistinp2sadelrequests.is_set or
+                    self.ciketunhistinpkts.is_set or
+                    self.ciketunhistlifetime.is_set or
+                    self.ciketunhistlocaladdr.is_set or
+                    self.ciketunhistlocalname.is_set or
+                    self.ciketunhistnegomode.is_set or
+                    self.ciketunhistoutdroppkts.is_set or
+                    self.ciketunhistoutnotifys.is_set or
+                    self.ciketunhistoutoctets.is_set or
+                    self.ciketunhistoutp2exchginvalids.is_set or
+                    self.ciketunhistoutp2exchgrejects.is_set or
+                    self.ciketunhistoutp2exchgs.is_set or
+                    self.ciketunhistoutp2sadelrequests.is_set or
+                    self.ciketunhistoutpkts.is_set or
+                    self.ciketunhistpeerintindex.is_set or
+                    self.ciketunhistpeerlocaltype.is_set or
+                    self.ciketunhistpeerlocalvalue.is_set or
+                    self.ciketunhistpeerremotetype.is_set or
+                    self.ciketunhistpeerremotevalue.is_set or
+                    self.ciketunhistremoteaddr.is_set or
+                    self.ciketunhistremotename.is_set or
+                    self.ciketunhiststarttime.is_set or
+                    self.ciketunhisttermreason.is_set or
+                    self.ciketunhisttotalrefreshes.is_set or
+                    self.ciketunhisttotalsas.is_set)
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunnelHistTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunnelHistEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunHistIndex = ' + str(self.ciketunhistindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciketunhistindex.yfilter != YFilter.not_set or
+                    self.ciketunhistactiveindex.yfilter != YFilter.not_set or
+                    self.ciketunhistactivetime.yfilter != YFilter.not_set or
+                    self.ciketunhistauthmethod.yfilter != YFilter.not_set or
+                    self.ciketunhistdiffhellmangrp.yfilter != YFilter.not_set or
+                    self.ciketunhistencryptalgo.yfilter != YFilter.not_set or
+                    self.ciketunhisthashalgo.yfilter != YFilter.not_set or
+                    self.ciketunhistindroppkts.yfilter != YFilter.not_set or
+                    self.ciketunhistinnotifys.yfilter != YFilter.not_set or
+                    self.ciketunhistinoctets.yfilter != YFilter.not_set or
+                    self.ciketunhistinp2exchginvalids.yfilter != YFilter.not_set or
+                    self.ciketunhistinp2exchgrejects.yfilter != YFilter.not_set or
+                    self.ciketunhistinp2exchgs.yfilter != YFilter.not_set or
+                    self.ciketunhistinp2sadelrequests.yfilter != YFilter.not_set or
+                    self.ciketunhistinpkts.yfilter != YFilter.not_set or
+                    self.ciketunhistlifetime.yfilter != YFilter.not_set or
+                    self.ciketunhistlocaladdr.yfilter != YFilter.not_set or
+                    self.ciketunhistlocalname.yfilter != YFilter.not_set or
+                    self.ciketunhistnegomode.yfilter != YFilter.not_set or
+                    self.ciketunhistoutdroppkts.yfilter != YFilter.not_set or
+                    self.ciketunhistoutnotifys.yfilter != YFilter.not_set or
+                    self.ciketunhistoutoctets.yfilter != YFilter.not_set or
+                    self.ciketunhistoutp2exchginvalids.yfilter != YFilter.not_set or
+                    self.ciketunhistoutp2exchgrejects.yfilter != YFilter.not_set or
+                    self.ciketunhistoutp2exchgs.yfilter != YFilter.not_set or
+                    self.ciketunhistoutp2sadelrequests.yfilter != YFilter.not_set or
+                    self.ciketunhistoutpkts.yfilter != YFilter.not_set or
+                    self.ciketunhistpeerintindex.yfilter != YFilter.not_set or
+                    self.ciketunhistpeerlocaltype.yfilter != YFilter.not_set or
+                    self.ciketunhistpeerlocalvalue.yfilter != YFilter.not_set or
+                    self.ciketunhistpeerremotetype.yfilter != YFilter.not_set or
+                    self.ciketunhistpeerremotevalue.yfilter != YFilter.not_set or
+                    self.ciketunhistremoteaddr.yfilter != YFilter.not_set or
+                    self.ciketunhistremotename.yfilter != YFilter.not_set or
+                    self.ciketunhiststarttime.yfilter != YFilter.not_set or
+                    self.ciketunhisttermreason.yfilter != YFilter.not_set or
+                    self.ciketunhisttotalrefreshes.yfilter != YFilter.not_set or
+                    self.ciketunhisttotalsas.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cikeTunnelHistEntry" + "[cikeTunHistIndex='" + self.ciketunhistindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelHistTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciketunhistindex.is_set or self.ciketunhistindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistindex.get_name_leafdata())
+                if (self.ciketunhistactiveindex.is_set or self.ciketunhistactiveindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistactiveindex.get_name_leafdata())
+                if (self.ciketunhistactivetime.is_set or self.ciketunhistactivetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistactivetime.get_name_leafdata())
+                if (self.ciketunhistauthmethod.is_set or self.ciketunhistauthmethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistauthmethod.get_name_leafdata())
+                if (self.ciketunhistdiffhellmangrp.is_set or self.ciketunhistdiffhellmangrp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistdiffhellmangrp.get_name_leafdata())
+                if (self.ciketunhistencryptalgo.is_set or self.ciketunhistencryptalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistencryptalgo.get_name_leafdata())
+                if (self.ciketunhisthashalgo.is_set or self.ciketunhisthashalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhisthashalgo.get_name_leafdata())
+                if (self.ciketunhistindroppkts.is_set or self.ciketunhistindroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistindroppkts.get_name_leafdata())
+                if (self.ciketunhistinnotifys.is_set or self.ciketunhistinnotifys.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistinnotifys.get_name_leafdata())
+                if (self.ciketunhistinoctets.is_set or self.ciketunhistinoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistinoctets.get_name_leafdata())
+                if (self.ciketunhistinp2exchginvalids.is_set or self.ciketunhistinp2exchginvalids.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistinp2exchginvalids.get_name_leafdata())
+                if (self.ciketunhistinp2exchgrejects.is_set or self.ciketunhistinp2exchgrejects.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistinp2exchgrejects.get_name_leafdata())
+                if (self.ciketunhistinp2exchgs.is_set or self.ciketunhistinp2exchgs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistinp2exchgs.get_name_leafdata())
+                if (self.ciketunhistinp2sadelrequests.is_set or self.ciketunhistinp2sadelrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistinp2sadelrequests.get_name_leafdata())
+                if (self.ciketunhistinpkts.is_set or self.ciketunhistinpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistinpkts.get_name_leafdata())
+                if (self.ciketunhistlifetime.is_set or self.ciketunhistlifetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistlifetime.get_name_leafdata())
+                if (self.ciketunhistlocaladdr.is_set or self.ciketunhistlocaladdr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistlocaladdr.get_name_leafdata())
+                if (self.ciketunhistlocalname.is_set or self.ciketunhistlocalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistlocalname.get_name_leafdata())
+                if (self.ciketunhistnegomode.is_set or self.ciketunhistnegomode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistnegomode.get_name_leafdata())
+                if (self.ciketunhistoutdroppkts.is_set or self.ciketunhistoutdroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutdroppkts.get_name_leafdata())
+                if (self.ciketunhistoutnotifys.is_set or self.ciketunhistoutnotifys.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutnotifys.get_name_leafdata())
+                if (self.ciketunhistoutoctets.is_set or self.ciketunhistoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutoctets.get_name_leafdata())
+                if (self.ciketunhistoutp2exchginvalids.is_set or self.ciketunhistoutp2exchginvalids.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutp2exchginvalids.get_name_leafdata())
+                if (self.ciketunhistoutp2exchgrejects.is_set or self.ciketunhistoutp2exchgrejects.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutp2exchgrejects.get_name_leafdata())
+                if (self.ciketunhistoutp2exchgs.is_set or self.ciketunhistoutp2exchgs.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutp2exchgs.get_name_leafdata())
+                if (self.ciketunhistoutp2sadelrequests.is_set or self.ciketunhistoutp2sadelrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutp2sadelrequests.get_name_leafdata())
+                if (self.ciketunhistoutpkts.is_set or self.ciketunhistoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistoutpkts.get_name_leafdata())
+                if (self.ciketunhistpeerintindex.is_set or self.ciketunhistpeerintindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistpeerintindex.get_name_leafdata())
+                if (self.ciketunhistpeerlocaltype.is_set or self.ciketunhistpeerlocaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistpeerlocaltype.get_name_leafdata())
+                if (self.ciketunhistpeerlocalvalue.is_set or self.ciketunhistpeerlocalvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistpeerlocalvalue.get_name_leafdata())
+                if (self.ciketunhistpeerremotetype.is_set or self.ciketunhistpeerremotetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistpeerremotetype.get_name_leafdata())
+                if (self.ciketunhistpeerremotevalue.is_set or self.ciketunhistpeerremotevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistpeerremotevalue.get_name_leafdata())
+                if (self.ciketunhistremoteaddr.is_set or self.ciketunhistremoteaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistremoteaddr.get_name_leafdata())
+                if (self.ciketunhistremotename.is_set or self.ciketunhistremotename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhistremotename.get_name_leafdata())
+                if (self.ciketunhiststarttime.is_set or self.ciketunhiststarttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhiststarttime.get_name_leafdata())
+                if (self.ciketunhisttermreason.is_set or self.ciketunhisttermreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhisttermreason.get_name_leafdata())
+                if (self.ciketunhisttotalrefreshes.is_set or self.ciketunhisttotalrefreshes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhisttotalrefreshes.get_name_leafdata())
+                if (self.ciketunhisttotalsas.is_set or self.ciketunhisttotalsas.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciketunhisttotalsas.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cikeTunHistIndex" or name == "cikeTunHistActiveIndex" or name == "cikeTunHistActiveTime" or name == "cikeTunHistAuthMethod" or name == "cikeTunHistDiffHellmanGrp" or name == "cikeTunHistEncryptAlgo" or name == "cikeTunHistHashAlgo" or name == "cikeTunHistInDropPkts" or name == "cikeTunHistInNotifys" or name == "cikeTunHistInOctets" or name == "cikeTunHistInP2ExchgInvalids" or name == "cikeTunHistInP2ExchgRejects" or name == "cikeTunHistInP2Exchgs" or name == "cikeTunHistInP2SaDelRequests" or name == "cikeTunHistInPkts" or name == "cikeTunHistLifeTime" or name == "cikeTunHistLocalAddr" or name == "cikeTunHistLocalName" or name == "cikeTunHistNegoMode" or name == "cikeTunHistOutDropPkts" or name == "cikeTunHistOutNotifys" or name == "cikeTunHistOutOctets" or name == "cikeTunHistOutP2ExchgInvalids" or name == "cikeTunHistOutP2ExchgRejects" or name == "cikeTunHistOutP2Exchgs" or name == "cikeTunHistOutP2SaDelRequests" or name == "cikeTunHistOutPkts" or name == "cikeTunHistPeerIntIndex" or name == "cikeTunHistPeerLocalType" or name == "cikeTunHistPeerLocalValue" or name == "cikeTunHistPeerRemoteType" or name == "cikeTunHistPeerRemoteValue" or name == "cikeTunHistRemoteAddr" or name == "cikeTunHistRemoteName" or name == "cikeTunHistStartTime" or name == "cikeTunHistTermReason" or name == "cikeTunHistTotalRefreshes" or name == "cikeTunHistTotalSas"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciketunhistindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cikeTunHistIndex"):
+                    self.ciketunhistindex = value
+                    self.ciketunhistindex.value_namespace = name_space
+                    self.ciketunhistindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistActiveIndex"):
+                    self.ciketunhistactiveindex = value
+                    self.ciketunhistactiveindex.value_namespace = name_space
+                    self.ciketunhistactiveindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistActiveTime"):
+                    self.ciketunhistactivetime = value
+                    self.ciketunhistactivetime.value_namespace = name_space
+                    self.ciketunhistactivetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistAuthMethod"):
+                    self.ciketunhistauthmethod = value
+                    self.ciketunhistauthmethod.value_namespace = name_space
+                    self.ciketunhistauthmethod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistDiffHellmanGrp"):
+                    self.ciketunhistdiffhellmangrp = value
+                    self.ciketunhistdiffhellmangrp.value_namespace = name_space
+                    self.ciketunhistdiffhellmangrp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistEncryptAlgo"):
+                    self.ciketunhistencryptalgo = value
+                    self.ciketunhistencryptalgo.value_namespace = name_space
+                    self.ciketunhistencryptalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistHashAlgo"):
+                    self.ciketunhisthashalgo = value
+                    self.ciketunhisthashalgo.value_namespace = name_space
+                    self.ciketunhisthashalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInDropPkts"):
+                    self.ciketunhistindroppkts = value
+                    self.ciketunhistindroppkts.value_namespace = name_space
+                    self.ciketunhistindroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInNotifys"):
+                    self.ciketunhistinnotifys = value
+                    self.ciketunhistinnotifys.value_namespace = name_space
+                    self.ciketunhistinnotifys.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInOctets"):
+                    self.ciketunhistinoctets = value
+                    self.ciketunhistinoctets.value_namespace = name_space
+                    self.ciketunhistinoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInP2ExchgInvalids"):
+                    self.ciketunhistinp2exchginvalids = value
+                    self.ciketunhistinp2exchginvalids.value_namespace = name_space
+                    self.ciketunhistinp2exchginvalids.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInP2ExchgRejects"):
+                    self.ciketunhistinp2exchgrejects = value
+                    self.ciketunhistinp2exchgrejects.value_namespace = name_space
+                    self.ciketunhistinp2exchgrejects.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInP2Exchgs"):
+                    self.ciketunhistinp2exchgs = value
+                    self.ciketunhistinp2exchgs.value_namespace = name_space
+                    self.ciketunhistinp2exchgs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInP2SaDelRequests"):
+                    self.ciketunhistinp2sadelrequests = value
+                    self.ciketunhistinp2sadelrequests.value_namespace = name_space
+                    self.ciketunhistinp2sadelrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistInPkts"):
+                    self.ciketunhistinpkts = value
+                    self.ciketunhistinpkts.value_namespace = name_space
+                    self.ciketunhistinpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistLifeTime"):
+                    self.ciketunhistlifetime = value
+                    self.ciketunhistlifetime.value_namespace = name_space
+                    self.ciketunhistlifetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistLocalAddr"):
+                    self.ciketunhistlocaladdr = value
+                    self.ciketunhistlocaladdr.value_namespace = name_space
+                    self.ciketunhistlocaladdr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistLocalName"):
+                    self.ciketunhistlocalname = value
+                    self.ciketunhistlocalname.value_namespace = name_space
+                    self.ciketunhistlocalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistNegoMode"):
+                    self.ciketunhistnegomode = value
+                    self.ciketunhistnegomode.value_namespace = name_space
+                    self.ciketunhistnegomode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutDropPkts"):
+                    self.ciketunhistoutdroppkts = value
+                    self.ciketunhistoutdroppkts.value_namespace = name_space
+                    self.ciketunhistoutdroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutNotifys"):
+                    self.ciketunhistoutnotifys = value
+                    self.ciketunhistoutnotifys.value_namespace = name_space
+                    self.ciketunhistoutnotifys.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutOctets"):
+                    self.ciketunhistoutoctets = value
+                    self.ciketunhistoutoctets.value_namespace = name_space
+                    self.ciketunhistoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutP2ExchgInvalids"):
+                    self.ciketunhistoutp2exchginvalids = value
+                    self.ciketunhistoutp2exchginvalids.value_namespace = name_space
+                    self.ciketunhistoutp2exchginvalids.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutP2ExchgRejects"):
+                    self.ciketunhistoutp2exchgrejects = value
+                    self.ciketunhistoutp2exchgrejects.value_namespace = name_space
+                    self.ciketunhistoutp2exchgrejects.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutP2Exchgs"):
+                    self.ciketunhistoutp2exchgs = value
+                    self.ciketunhistoutp2exchgs.value_namespace = name_space
+                    self.ciketunhistoutp2exchgs.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutP2SaDelRequests"):
+                    self.ciketunhistoutp2sadelrequests = value
+                    self.ciketunhistoutp2sadelrequests.value_namespace = name_space
+                    self.ciketunhistoutp2sadelrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistOutPkts"):
+                    self.ciketunhistoutpkts = value
+                    self.ciketunhistoutpkts.value_namespace = name_space
+                    self.ciketunhistoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistPeerIntIndex"):
+                    self.ciketunhistpeerintindex = value
+                    self.ciketunhistpeerintindex.value_namespace = name_space
+                    self.ciketunhistpeerintindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistPeerLocalType"):
+                    self.ciketunhistpeerlocaltype = value
+                    self.ciketunhistpeerlocaltype.value_namespace = name_space
+                    self.ciketunhistpeerlocaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistPeerLocalValue"):
+                    self.ciketunhistpeerlocalvalue = value
+                    self.ciketunhistpeerlocalvalue.value_namespace = name_space
+                    self.ciketunhistpeerlocalvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistPeerRemoteType"):
+                    self.ciketunhistpeerremotetype = value
+                    self.ciketunhistpeerremotetype.value_namespace = name_space
+                    self.ciketunhistpeerremotetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistPeerRemoteValue"):
+                    self.ciketunhistpeerremotevalue = value
+                    self.ciketunhistpeerremotevalue.value_namespace = name_space
+                    self.ciketunhistpeerremotevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistRemoteAddr"):
+                    self.ciketunhistremoteaddr = value
+                    self.ciketunhistremoteaddr.value_namespace = name_space
+                    self.ciketunhistremoteaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistRemoteName"):
+                    self.ciketunhistremotename = value
+                    self.ciketunhistremotename.value_namespace = name_space
+                    self.ciketunhistremotename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistStartTime"):
+                    self.ciketunhiststarttime = value
+                    self.ciketunhiststarttime.value_namespace = name_space
+                    self.ciketunhiststarttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistTermReason"):
+                    self.ciketunhisttermreason = value
+                    self.ciketunhisttermreason.value_namespace = name_space
+                    self.ciketunhisttermreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistTotalRefreshes"):
+                    self.ciketunhisttotalrefreshes = value
+                    self.ciketunhisttotalrefreshes.value_namespace = name_space
+                    self.ciketunhisttotalrefreshes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeTunHistTotalSas"):
+                    self.ciketunhisttotalsas = value
+                    self.ciketunhisttotalsas.value_namespace = name_space
+                    self.ciketunhisttotalsas.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciketunnelhistentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciketunhistactiveindex is not None:
-                    return True
-
-                if self.ciketunhistactivetime is not None:
-                    return True
-
-                if self.ciketunhistauthmethod is not None:
-                    return True
-
-                if self.ciketunhistdiffhellmangrp is not None:
-                    return True
-
-                if self.ciketunhistencryptalgo is not None:
-                    return True
-
-                if self.ciketunhisthashalgo is not None:
-                    return True
-
-                if self.ciketunhistindroppkts is not None:
-                    return True
-
-                if self.ciketunhistinnotifys is not None:
-                    return True
-
-                if self.ciketunhistinoctets is not None:
-                    return True
-
-                if self.ciketunhistinp2exchginvalids is not None:
-                    return True
-
-                if self.ciketunhistinp2exchgrejects is not None:
-                    return True
-
-                if self.ciketunhistinp2exchgs is not None:
-                    return True
-
-                if self.ciketunhistinp2sadelrequests is not None:
-                    return True
-
-                if self.ciketunhistinpkts is not None:
-                    return True
-
-                if self.ciketunhistlifetime is not None:
-                    return True
-
-                if self.ciketunhistlocaladdr is not None:
-                    return True
-
-                if self.ciketunhistlocalname is not None:
-                    return True
-
-                if self.ciketunhistnegomode is not None:
-                    return True
-
-                if self.ciketunhistoutdroppkts is not None:
-                    return True
-
-                if self.ciketunhistoutnotifys is not None:
-                    return True
-
-                if self.ciketunhistoutoctets is not None:
-                    return True
-
-                if self.ciketunhistoutp2exchginvalids is not None:
-                    return True
-
-                if self.ciketunhistoutp2exchgrejects is not None:
-                    return True
-
-                if self.ciketunhistoutp2exchgs is not None:
-                    return True
-
-                if self.ciketunhistoutp2sadelrequests is not None:
-                    return True
-
-                if self.ciketunhistoutpkts is not None:
-                    return True
-
-                if self.ciketunhistpeerintindex is not None:
-                    return True
-
-                if self.ciketunhistpeerlocaltype is not None:
-                    return True
-
-                if self.ciketunhistpeerlocalvalue is not None:
-                    return True
-
-                if self.ciketunhistpeerremotetype is not None:
-                    return True
-
-                if self.ciketunhistpeerremotevalue is not None:
-                    return True
-
-                if self.ciketunhistremoteaddr is not None:
-                    return True
-
-                if self.ciketunhistremotename is not None:
-                    return True
-
-                if self.ciketunhiststarttime is not None:
-                    return True
-
-                if self.ciketunhisttermreason is not None:
-                    return True
-
-                if self.ciketunhisttotalrefreshes is not None:
-                    return True
-
-                if self.ciketunhisttotalsas is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeTunnelHistTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciketunnelhistentry is not None:
-                for child_ref in self.ciketunnelhistentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciketunnelhistentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cikeTunnelHistTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cikeTunnelHistEntry"):
+                for c in self.ciketunnelhistentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Ciketunnelhisttable.Ciketunnelhistentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciketunnelhistentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cikeTunnelHistEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Ciketunnelhisttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipsectunnelhisttable(object):
+    class Cipsectunnelhisttable(Entity):
         """
         The IPsec Phase\-2 Tunnel History Table.
         This table is implemented as a sliding 
@@ -5111,13 +8295,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsectunnelhistentry = YList()
-            self.cipsectunnelhistentry.parent = self
-            self.cipsectunnelhistentry.name = 'cipsectunnelhistentry'
+            super(CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable, self).__init__()
+
+            self.yang_name = "cipSecTunnelHistTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsectunnelhistentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable, self).__setattr__(name, value)
 
 
-        class Cipsectunnelhistentry(object):
+        class Cipsectunnelhistentry(Entity):
             """
             Each entry contains the attributes associated with
             a previously active IPsec Phase\-2 Tunnel.
@@ -5146,7 +8356,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectunhistencapmode
             
             	The encapsulation mode used by the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`EncapmodeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncapmodeEnum>`
+            	**type**\:   :py:class:`Encapmode <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encapmode>`
             
             .. attribute:: cipsectunhisthcindecompoctets
             
@@ -5287,32 +8497,32 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectunhistinsaahauthalgo
             
             	The authentication algorithm used by the inbound authentication header (AH) security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectunhistinsadecompalgo
             
             	The decompression algorithm used by the inbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`CompalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CompalgoEnum>`
+            	**type**\:   :py:class:`Compalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Compalgo>`
             
             .. attribute:: cipsectunhistinsadiffhellmangrp
             
             	The Diffie Hellman Group used by the inbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`DiffhellmangrpEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.DiffhellmangrpEnum>`
+            	**type**\:   :py:class:`Diffhellmangrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Diffhellmangrp>`
             
             .. attribute:: cipsectunhistinsaencryptalgo
             
             	The encryption algorithm used by the inbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`EncryptalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncryptalgoEnum>`
+            	**type**\:   :py:class:`Encryptalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encryptalgo>`
             
             .. attribute:: cipsectunhistinsaespauthalgo
             
             	The authentication algorithm used by the inbound encapsulation security protocol (ESP)  security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectunhistkeytype
             
             	The type of key used by the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`KeytypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.KeytypeEnum>`
+            	**type**\:   :py:class:`Keytype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Keytype>`
             
             .. attribute:: cipsectunhistlifesize
             
@@ -5414,27 +8624,27 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectunhistoutsaahauthalgo
             
             	The authentication algorithm used by the outbound authentication header (AH) security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectunhistoutsacompalgo
             
             	The compression algorithm used by the inbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`CompalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CompalgoEnum>`
+            	**type**\:   :py:class:`Compalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Compalgo>`
             
             .. attribute:: cipsectunhistoutsadiffhellmangrp
             
             	The Diffie Hellman Group used by the outbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`DiffhellmangrpEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.DiffhellmangrpEnum>`
+            	**type**\:   :py:class:`Diffhellmangrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Diffhellmangrp>`
             
             .. attribute:: cipsectunhistoutsaencryptalgo
             
             	The encryption algorithm used by the outbound security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`EncryptalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EncryptalgoEnum>`
+            	**type**\:   :py:class:`Encryptalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Encryptalgo>`
             
             .. attribute:: cipsectunhistoutsaespauthalgo
             
             	The authentication algorithm used by the inbound encapsulation security protocol (ESP)  security association of the IPsec Phase\-2 Tunnel
-            	**type**\:   :py:class:`AuthalgoEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.AuthalgoEnum>`
+            	**type**\:   :py:class:`Authalgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Authalgo>`
             
             .. attribute:: cipsectunhistoutuncompoctets
             
@@ -5471,7 +8681,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsectunhisttermreason
             
             	The reason the IPsec Phase\-2 Tunnel was terminated. Possible reasons include\: 1 = other 2 = normal termination 3 = operator request 4 = peer delete request was received 5 = contact with peer was lost 6 = local failure occurred 7 = operator initiated check point request
-            	**type**\:   :py:class:`CipsectunhisttermreasonEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry.CipsectunhisttermreasonEnum>`
+            	**type**\:   :py:class:`Cipsectunhisttermreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry.Cipsectunhisttermreason>`
             
             .. attribute:: cipsectunhisttotalrefreshes
             
@@ -5499,60 +8709,184 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipsectunhistindex = None
-                self.cipsectunhistactiveindex = None
-                self.cipsectunhistactivetime = None
-                self.cipsectunhistencapmode = None
-                self.cipsectunhisthcindecompoctets = None
-                self.cipsectunhisthcinoctets = None
-                self.cipsectunhisthcoutoctets = None
-                self.cipsectunhisthcoutuncompoctets = None
-                self.cipsectunhistiketunnelindex = None
-                self.cipsectunhistinauthfails = None
-                self.cipsectunhistinauths = None
-                self.cipsectunhistindecompoctets = None
-                self.cipsectunhistindecompoctwraps = None
-                self.cipsectunhistindecryptfails = None
-                self.cipsectunhistindecrypts = None
-                self.cipsectunhistindroppkts = None
-                self.cipsectunhistinoctets = None
-                self.cipsectunhistinoctwraps = None
-                self.cipsectunhistinpkts = None
-                self.cipsectunhistinreplaydroppkts = None
-                self.cipsectunhistinsaahauthalgo = None
-                self.cipsectunhistinsadecompalgo = None
-                self.cipsectunhistinsadiffhellmangrp = None
-                self.cipsectunhistinsaencryptalgo = None
-                self.cipsectunhistinsaespauthalgo = None
-                self.cipsectunhistkeytype = None
-                self.cipsectunhistlifesize = None
-                self.cipsectunhistlifetime = None
-                self.cipsectunhistlocaladdr = None
-                self.cipsectunhistoutauthfails = None
-                self.cipsectunhistoutauths = None
-                self.cipsectunhistoutdroppkts = None
-                self.cipsectunhistoutencryptfails = None
-                self.cipsectunhistoutencrypts = None
-                self.cipsectunhistoutoctets = None
-                self.cipsectunhistoutoctwraps = None
-                self.cipsectunhistoutpkts = None
-                self.cipsectunhistoutsaahauthalgo = None
-                self.cipsectunhistoutsacompalgo = None
-                self.cipsectunhistoutsadiffhellmangrp = None
-                self.cipsectunhistoutsaencryptalgo = None
-                self.cipsectunhistoutsaespauthalgo = None
-                self.cipsectunhistoutuncompoctets = None
-                self.cipsectunhistoutuncompoctwraps = None
-                self.cipsectunhistremoteaddr = None
-                self.cipsectunhiststarttime = None
-                self.cipsectunhisttermreason = None
-                self.cipsectunhisttotalrefreshes = None
-                self.cipsectunhisttotalsas = None
+                super(CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry, self).__init__()
 
-            class CipsectunhisttermreasonEnum(Enum):
+                self.yang_name = "cipSecTunnelHistEntry"
+                self.yang_parent_name = "cipSecTunnelHistTable"
+
+                self.cipsectunhistindex = YLeaf(YType.int32, "cipSecTunHistIndex")
+
+                self.cipsectunhistactiveindex = YLeaf(YType.int32, "cipSecTunHistActiveIndex")
+
+                self.cipsectunhistactivetime = YLeaf(YType.int32, "cipSecTunHistActiveTime")
+
+                self.cipsectunhistencapmode = YLeaf(YType.enumeration, "cipSecTunHistEncapMode")
+
+                self.cipsectunhisthcindecompoctets = YLeaf(YType.uint64, "cipSecTunHistHcInDecompOctets")
+
+                self.cipsectunhisthcinoctets = YLeaf(YType.uint64, "cipSecTunHistHcInOctets")
+
+                self.cipsectunhisthcoutoctets = YLeaf(YType.uint64, "cipSecTunHistHcOutOctets")
+
+                self.cipsectunhisthcoutuncompoctets = YLeaf(YType.uint64, "cipSecTunHistHcOutUncompOctets")
+
+                self.cipsectunhistiketunnelindex = YLeaf(YType.int32, "cipSecTunHistIkeTunnelIndex")
+
+                self.cipsectunhistinauthfails = YLeaf(YType.uint32, "cipSecTunHistInAuthFails")
+
+                self.cipsectunhistinauths = YLeaf(YType.uint32, "cipSecTunHistInAuths")
+
+                self.cipsectunhistindecompoctets = YLeaf(YType.uint32, "cipSecTunHistInDecompOctets")
+
+                self.cipsectunhistindecompoctwraps = YLeaf(YType.uint32, "cipSecTunHistInDecompOctWraps")
+
+                self.cipsectunhistindecryptfails = YLeaf(YType.uint32, "cipSecTunHistInDecryptFails")
+
+                self.cipsectunhistindecrypts = YLeaf(YType.uint32, "cipSecTunHistInDecrypts")
+
+                self.cipsectunhistindroppkts = YLeaf(YType.uint32, "cipSecTunHistInDropPkts")
+
+                self.cipsectunhistinoctets = YLeaf(YType.uint32, "cipSecTunHistInOctets")
+
+                self.cipsectunhistinoctwraps = YLeaf(YType.uint32, "cipSecTunHistInOctWraps")
+
+                self.cipsectunhistinpkts = YLeaf(YType.uint32, "cipSecTunHistInPkts")
+
+                self.cipsectunhistinreplaydroppkts = YLeaf(YType.uint32, "cipSecTunHistInReplayDropPkts")
+
+                self.cipsectunhistinsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaAhAuthAlgo")
+
+                self.cipsectunhistinsadecompalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaDecompAlgo")
+
+                self.cipsectunhistinsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunHistInSaDiffHellmanGrp")
+
+                self.cipsectunhistinsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaEncryptAlgo")
+
+                self.cipsectunhistinsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunHistInSaEspAuthAlgo")
+
+                self.cipsectunhistkeytype = YLeaf(YType.enumeration, "cipSecTunHistKeyType")
+
+                self.cipsectunhistlifesize = YLeaf(YType.int32, "cipSecTunHistLifeSize")
+
+                self.cipsectunhistlifetime = YLeaf(YType.int32, "cipSecTunHistLifeTime")
+
+                self.cipsectunhistlocaladdr = YLeaf(YType.str, "cipSecTunHistLocalAddr")
+
+                self.cipsectunhistoutauthfails = YLeaf(YType.uint32, "cipSecTunHistOutAuthFails")
+
+                self.cipsectunhistoutauths = YLeaf(YType.uint32, "cipSecTunHistOutAuths")
+
+                self.cipsectunhistoutdroppkts = YLeaf(YType.uint32, "cipSecTunHistOutDropPkts")
+
+                self.cipsectunhistoutencryptfails = YLeaf(YType.uint32, "cipSecTunHistOutEncryptFails")
+
+                self.cipsectunhistoutencrypts = YLeaf(YType.uint32, "cipSecTunHistOutEncrypts")
+
+                self.cipsectunhistoutoctets = YLeaf(YType.uint32, "cipSecTunHistOutOctets")
+
+                self.cipsectunhistoutoctwraps = YLeaf(YType.uint32, "cipSecTunHistOutOctWraps")
+
+                self.cipsectunhistoutpkts = YLeaf(YType.uint32, "cipSecTunHistOutPkts")
+
+                self.cipsectunhistoutsaahauthalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaAhAuthAlgo")
+
+                self.cipsectunhistoutsacompalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaCompAlgo")
+
+                self.cipsectunhistoutsadiffhellmangrp = YLeaf(YType.enumeration, "cipSecTunHistOutSaDiffHellmanGrp")
+
+                self.cipsectunhistoutsaencryptalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaEncryptAlgo")
+
+                self.cipsectunhistoutsaespauthalgo = YLeaf(YType.enumeration, "cipSecTunHistOutSaEspAuthAlgo")
+
+                self.cipsectunhistoutuncompoctets = YLeaf(YType.uint32, "cipSecTunHistOutUncompOctets")
+
+                self.cipsectunhistoutuncompoctwraps = YLeaf(YType.uint32, "cipSecTunHistOutUncompOctWraps")
+
+                self.cipsectunhistremoteaddr = YLeaf(YType.str, "cipSecTunHistRemoteAddr")
+
+                self.cipsectunhiststarttime = YLeaf(YType.uint32, "cipSecTunHistStartTime")
+
+                self.cipsectunhisttermreason = YLeaf(YType.enumeration, "cipSecTunHistTermReason")
+
+                self.cipsectunhisttotalrefreshes = YLeaf(YType.uint32, "cipSecTunHistTotalRefreshes")
+
+                self.cipsectunhisttotalsas = YLeaf(YType.uint32, "cipSecTunHistTotalSas")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipsectunhistindex",
+                                "cipsectunhistactiveindex",
+                                "cipsectunhistactivetime",
+                                "cipsectunhistencapmode",
+                                "cipsectunhisthcindecompoctets",
+                                "cipsectunhisthcinoctets",
+                                "cipsectunhisthcoutoctets",
+                                "cipsectunhisthcoutuncompoctets",
+                                "cipsectunhistiketunnelindex",
+                                "cipsectunhistinauthfails",
+                                "cipsectunhistinauths",
+                                "cipsectunhistindecompoctets",
+                                "cipsectunhistindecompoctwraps",
+                                "cipsectunhistindecryptfails",
+                                "cipsectunhistindecrypts",
+                                "cipsectunhistindroppkts",
+                                "cipsectunhistinoctets",
+                                "cipsectunhistinoctwraps",
+                                "cipsectunhistinpkts",
+                                "cipsectunhistinreplaydroppkts",
+                                "cipsectunhistinsaahauthalgo",
+                                "cipsectunhistinsadecompalgo",
+                                "cipsectunhistinsadiffhellmangrp",
+                                "cipsectunhistinsaencryptalgo",
+                                "cipsectunhistinsaespauthalgo",
+                                "cipsectunhistkeytype",
+                                "cipsectunhistlifesize",
+                                "cipsectunhistlifetime",
+                                "cipsectunhistlocaladdr",
+                                "cipsectunhistoutauthfails",
+                                "cipsectunhistoutauths",
+                                "cipsectunhistoutdroppkts",
+                                "cipsectunhistoutencryptfails",
+                                "cipsectunhistoutencrypts",
+                                "cipsectunhistoutoctets",
+                                "cipsectunhistoutoctwraps",
+                                "cipsectunhistoutpkts",
+                                "cipsectunhistoutsaahauthalgo",
+                                "cipsectunhistoutsacompalgo",
+                                "cipsectunhistoutsadiffhellmangrp",
+                                "cipsectunhistoutsaencryptalgo",
+                                "cipsectunhistoutsaespauthalgo",
+                                "cipsectunhistoutuncompoctets",
+                                "cipsectunhistoutuncompoctwraps",
+                                "cipsectunhistremoteaddr",
+                                "cipsectunhiststarttime",
+                                "cipsectunhisttermreason",
+                                "cipsectunhisttotalrefreshes",
+                                "cipsectunhisttotalsas") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry, self).__setattr__(name, value)
+
+            class Cipsectunhisttermreason(Enum):
                 """
-                CipsectunhisttermreasonEnum
+                Cipsectunhisttermreason
 
                 The reason the IPsec Phase\-2 Tunnel was terminated.
 
@@ -5588,217 +8922,511 @@ class CiscoIpsecFlowMonitorMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                normal = 2
+                normal = Enum.YLeaf(2, "normal")
 
-                operRequest = 3
+                operRequest = Enum.YLeaf(3, "operRequest")
 
-                peerDelRequest = 4
+                peerDelRequest = Enum.YLeaf(4, "peerDelRequest")
 
-                peerLost = 5
+                peerLost = Enum.YLeaf(5, "peerLost")
 
-                seqNumRollOver = 6
+                seqNumRollOver = Enum.YLeaf(6, "seqNumRollOver")
 
-                checkPointReq = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                    return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry.CipsectunhisttermreasonEnum']
+                checkPointReq = Enum.YLeaf(7, "checkPointReq")
 
 
-            @property
-            def _common_path(self):
-                if self.cipsectunhistindex is None:
-                    raise YPYModelError('Key property cipsectunhistindex is None')
+            def has_data(self):
+                return (
+                    self.cipsectunhistindex.is_set or
+                    self.cipsectunhistactiveindex.is_set or
+                    self.cipsectunhistactivetime.is_set or
+                    self.cipsectunhistencapmode.is_set or
+                    self.cipsectunhisthcindecompoctets.is_set or
+                    self.cipsectunhisthcinoctets.is_set or
+                    self.cipsectunhisthcoutoctets.is_set or
+                    self.cipsectunhisthcoutuncompoctets.is_set or
+                    self.cipsectunhistiketunnelindex.is_set or
+                    self.cipsectunhistinauthfails.is_set or
+                    self.cipsectunhistinauths.is_set or
+                    self.cipsectunhistindecompoctets.is_set or
+                    self.cipsectunhistindecompoctwraps.is_set or
+                    self.cipsectunhistindecryptfails.is_set or
+                    self.cipsectunhistindecrypts.is_set or
+                    self.cipsectunhistindroppkts.is_set or
+                    self.cipsectunhistinoctets.is_set or
+                    self.cipsectunhistinoctwraps.is_set or
+                    self.cipsectunhistinpkts.is_set or
+                    self.cipsectunhistinreplaydroppkts.is_set or
+                    self.cipsectunhistinsaahauthalgo.is_set or
+                    self.cipsectunhistinsadecompalgo.is_set or
+                    self.cipsectunhistinsadiffhellmangrp.is_set or
+                    self.cipsectunhistinsaencryptalgo.is_set or
+                    self.cipsectunhistinsaespauthalgo.is_set or
+                    self.cipsectunhistkeytype.is_set or
+                    self.cipsectunhistlifesize.is_set or
+                    self.cipsectunhistlifetime.is_set or
+                    self.cipsectunhistlocaladdr.is_set or
+                    self.cipsectunhistoutauthfails.is_set or
+                    self.cipsectunhistoutauths.is_set or
+                    self.cipsectunhistoutdroppkts.is_set or
+                    self.cipsectunhistoutencryptfails.is_set or
+                    self.cipsectunhistoutencrypts.is_set or
+                    self.cipsectunhistoutoctets.is_set or
+                    self.cipsectunhistoutoctwraps.is_set or
+                    self.cipsectunhistoutpkts.is_set or
+                    self.cipsectunhistoutsaahauthalgo.is_set or
+                    self.cipsectunhistoutsacompalgo.is_set or
+                    self.cipsectunhistoutsadiffhellmangrp.is_set or
+                    self.cipsectunhistoutsaencryptalgo.is_set or
+                    self.cipsectunhistoutsaespauthalgo.is_set or
+                    self.cipsectunhistoutuncompoctets.is_set or
+                    self.cipsectunhistoutuncompoctwraps.is_set or
+                    self.cipsectunhistremoteaddr.is_set or
+                    self.cipsectunhiststarttime.is_set or
+                    self.cipsectunhisttermreason.is_set or
+                    self.cipsectunhisttotalrefreshes.is_set or
+                    self.cipsectunhisttotalsas.is_set)
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunnelHistTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunnelHistEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunHistIndex = ' + str(self.cipsectunhistindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipsectunhistindex.yfilter != YFilter.not_set or
+                    self.cipsectunhistactiveindex.yfilter != YFilter.not_set or
+                    self.cipsectunhistactivetime.yfilter != YFilter.not_set or
+                    self.cipsectunhistencapmode.yfilter != YFilter.not_set or
+                    self.cipsectunhisthcindecompoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhisthcinoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhisthcoutoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhisthcoutuncompoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhistiketunnelindex.yfilter != YFilter.not_set or
+                    self.cipsectunhistinauthfails.yfilter != YFilter.not_set or
+                    self.cipsectunhistinauths.yfilter != YFilter.not_set or
+                    self.cipsectunhistindecompoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhistindecompoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectunhistindecryptfails.yfilter != YFilter.not_set or
+                    self.cipsectunhistindecrypts.yfilter != YFilter.not_set or
+                    self.cipsectunhistindroppkts.yfilter != YFilter.not_set or
+                    self.cipsectunhistinoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhistinoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectunhistinpkts.yfilter != YFilter.not_set or
+                    self.cipsectunhistinreplaydroppkts.yfilter != YFilter.not_set or
+                    self.cipsectunhistinsaahauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistinsadecompalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistinsadiffhellmangrp.yfilter != YFilter.not_set or
+                    self.cipsectunhistinsaencryptalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistinsaespauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistkeytype.yfilter != YFilter.not_set or
+                    self.cipsectunhistlifesize.yfilter != YFilter.not_set or
+                    self.cipsectunhistlifetime.yfilter != YFilter.not_set or
+                    self.cipsectunhistlocaladdr.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutauthfails.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutauths.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutdroppkts.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutencryptfails.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutencrypts.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutpkts.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutsaahauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutsacompalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutsadiffhellmangrp.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutsaencryptalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutsaespauthalgo.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutuncompoctets.yfilter != YFilter.not_set or
+                    self.cipsectunhistoutuncompoctwraps.yfilter != YFilter.not_set or
+                    self.cipsectunhistremoteaddr.yfilter != YFilter.not_set or
+                    self.cipsectunhiststarttime.yfilter != YFilter.not_set or
+                    self.cipsectunhisttermreason.yfilter != YFilter.not_set or
+                    self.cipsectunhisttotalrefreshes.yfilter != YFilter.not_set or
+                    self.cipsectunhisttotalsas.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipSecTunnelHistEntry" + "[cipSecTunHistIndex='" + self.cipsectunhistindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelHistTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipsectunhistindex.is_set or self.cipsectunhistindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistindex.get_name_leafdata())
+                if (self.cipsectunhistactiveindex.is_set or self.cipsectunhistactiveindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistactiveindex.get_name_leafdata())
+                if (self.cipsectunhistactivetime.is_set or self.cipsectunhistactivetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistactivetime.get_name_leafdata())
+                if (self.cipsectunhistencapmode.is_set or self.cipsectunhistencapmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistencapmode.get_name_leafdata())
+                if (self.cipsectunhisthcindecompoctets.is_set or self.cipsectunhisthcindecompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhisthcindecompoctets.get_name_leafdata())
+                if (self.cipsectunhisthcinoctets.is_set or self.cipsectunhisthcinoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhisthcinoctets.get_name_leafdata())
+                if (self.cipsectunhisthcoutoctets.is_set or self.cipsectunhisthcoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhisthcoutoctets.get_name_leafdata())
+                if (self.cipsectunhisthcoutuncompoctets.is_set or self.cipsectunhisthcoutuncompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhisthcoutuncompoctets.get_name_leafdata())
+                if (self.cipsectunhistiketunnelindex.is_set or self.cipsectunhistiketunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistiketunnelindex.get_name_leafdata())
+                if (self.cipsectunhistinauthfails.is_set or self.cipsectunhistinauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinauthfails.get_name_leafdata())
+                if (self.cipsectunhistinauths.is_set or self.cipsectunhistinauths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinauths.get_name_leafdata())
+                if (self.cipsectunhistindecompoctets.is_set or self.cipsectunhistindecompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistindecompoctets.get_name_leafdata())
+                if (self.cipsectunhistindecompoctwraps.is_set or self.cipsectunhistindecompoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistindecompoctwraps.get_name_leafdata())
+                if (self.cipsectunhistindecryptfails.is_set or self.cipsectunhistindecryptfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistindecryptfails.get_name_leafdata())
+                if (self.cipsectunhistindecrypts.is_set or self.cipsectunhistindecrypts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistindecrypts.get_name_leafdata())
+                if (self.cipsectunhistindroppkts.is_set or self.cipsectunhistindroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistindroppkts.get_name_leafdata())
+                if (self.cipsectunhistinoctets.is_set or self.cipsectunhistinoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinoctets.get_name_leafdata())
+                if (self.cipsectunhistinoctwraps.is_set or self.cipsectunhistinoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinoctwraps.get_name_leafdata())
+                if (self.cipsectunhistinpkts.is_set or self.cipsectunhistinpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinpkts.get_name_leafdata())
+                if (self.cipsectunhistinreplaydroppkts.is_set or self.cipsectunhistinreplaydroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinreplaydroppkts.get_name_leafdata())
+                if (self.cipsectunhistinsaahauthalgo.is_set or self.cipsectunhistinsaahauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinsaahauthalgo.get_name_leafdata())
+                if (self.cipsectunhistinsadecompalgo.is_set or self.cipsectunhistinsadecompalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinsadecompalgo.get_name_leafdata())
+                if (self.cipsectunhistinsadiffhellmangrp.is_set or self.cipsectunhistinsadiffhellmangrp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinsadiffhellmangrp.get_name_leafdata())
+                if (self.cipsectunhistinsaencryptalgo.is_set or self.cipsectunhistinsaencryptalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinsaencryptalgo.get_name_leafdata())
+                if (self.cipsectunhistinsaespauthalgo.is_set or self.cipsectunhistinsaespauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistinsaespauthalgo.get_name_leafdata())
+                if (self.cipsectunhistkeytype.is_set or self.cipsectunhistkeytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistkeytype.get_name_leafdata())
+                if (self.cipsectunhistlifesize.is_set or self.cipsectunhistlifesize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistlifesize.get_name_leafdata())
+                if (self.cipsectunhistlifetime.is_set or self.cipsectunhistlifetime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistlifetime.get_name_leafdata())
+                if (self.cipsectunhistlocaladdr.is_set or self.cipsectunhistlocaladdr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistlocaladdr.get_name_leafdata())
+                if (self.cipsectunhistoutauthfails.is_set or self.cipsectunhistoutauthfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutauthfails.get_name_leafdata())
+                if (self.cipsectunhistoutauths.is_set or self.cipsectunhistoutauths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutauths.get_name_leafdata())
+                if (self.cipsectunhistoutdroppkts.is_set or self.cipsectunhistoutdroppkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutdroppkts.get_name_leafdata())
+                if (self.cipsectunhistoutencryptfails.is_set or self.cipsectunhistoutencryptfails.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutencryptfails.get_name_leafdata())
+                if (self.cipsectunhistoutencrypts.is_set or self.cipsectunhistoutencrypts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutencrypts.get_name_leafdata())
+                if (self.cipsectunhistoutoctets.is_set or self.cipsectunhistoutoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutoctets.get_name_leafdata())
+                if (self.cipsectunhistoutoctwraps.is_set or self.cipsectunhistoutoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutoctwraps.get_name_leafdata())
+                if (self.cipsectunhistoutpkts.is_set or self.cipsectunhistoutpkts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutpkts.get_name_leafdata())
+                if (self.cipsectunhistoutsaahauthalgo.is_set or self.cipsectunhistoutsaahauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutsaahauthalgo.get_name_leafdata())
+                if (self.cipsectunhistoutsacompalgo.is_set or self.cipsectunhistoutsacompalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutsacompalgo.get_name_leafdata())
+                if (self.cipsectunhistoutsadiffhellmangrp.is_set or self.cipsectunhistoutsadiffhellmangrp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutsadiffhellmangrp.get_name_leafdata())
+                if (self.cipsectunhistoutsaencryptalgo.is_set or self.cipsectunhistoutsaencryptalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutsaencryptalgo.get_name_leafdata())
+                if (self.cipsectunhistoutsaespauthalgo.is_set or self.cipsectunhistoutsaespauthalgo.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutsaespauthalgo.get_name_leafdata())
+                if (self.cipsectunhistoutuncompoctets.is_set or self.cipsectunhistoutuncompoctets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutuncompoctets.get_name_leafdata())
+                if (self.cipsectunhistoutuncompoctwraps.is_set or self.cipsectunhistoutuncompoctwraps.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistoutuncompoctwraps.get_name_leafdata())
+                if (self.cipsectunhistremoteaddr.is_set or self.cipsectunhistremoteaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhistremoteaddr.get_name_leafdata())
+                if (self.cipsectunhiststarttime.is_set or self.cipsectunhiststarttime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhiststarttime.get_name_leafdata())
+                if (self.cipsectunhisttermreason.is_set or self.cipsectunhisttermreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhisttermreason.get_name_leafdata())
+                if (self.cipsectunhisttotalrefreshes.is_set or self.cipsectunhisttotalrefreshes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhisttotalrefreshes.get_name_leafdata())
+                if (self.cipsectunhisttotalsas.is_set or self.cipsectunhisttotalsas.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsectunhisttotalsas.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipSecTunHistIndex" or name == "cipSecTunHistActiveIndex" or name == "cipSecTunHistActiveTime" or name == "cipSecTunHistEncapMode" or name == "cipSecTunHistHcInDecompOctets" or name == "cipSecTunHistHcInOctets" or name == "cipSecTunHistHcOutOctets" or name == "cipSecTunHistHcOutUncompOctets" or name == "cipSecTunHistIkeTunnelIndex" or name == "cipSecTunHistInAuthFails" or name == "cipSecTunHistInAuths" or name == "cipSecTunHistInDecompOctets" or name == "cipSecTunHistInDecompOctWraps" or name == "cipSecTunHistInDecryptFails" or name == "cipSecTunHistInDecrypts" or name == "cipSecTunHistInDropPkts" or name == "cipSecTunHistInOctets" or name == "cipSecTunHistInOctWraps" or name == "cipSecTunHistInPkts" or name == "cipSecTunHistInReplayDropPkts" or name == "cipSecTunHistInSaAhAuthAlgo" or name == "cipSecTunHistInSaDecompAlgo" or name == "cipSecTunHistInSaDiffHellmanGrp" or name == "cipSecTunHistInSaEncryptAlgo" or name == "cipSecTunHistInSaEspAuthAlgo" or name == "cipSecTunHistKeyType" or name == "cipSecTunHistLifeSize" or name == "cipSecTunHistLifeTime" or name == "cipSecTunHistLocalAddr" or name == "cipSecTunHistOutAuthFails" or name == "cipSecTunHistOutAuths" or name == "cipSecTunHistOutDropPkts" or name == "cipSecTunHistOutEncryptFails" or name == "cipSecTunHistOutEncrypts" or name == "cipSecTunHistOutOctets" or name == "cipSecTunHistOutOctWraps" or name == "cipSecTunHistOutPkts" or name == "cipSecTunHistOutSaAhAuthAlgo" or name == "cipSecTunHistOutSaCompAlgo" or name == "cipSecTunHistOutSaDiffHellmanGrp" or name == "cipSecTunHistOutSaEncryptAlgo" or name == "cipSecTunHistOutSaEspAuthAlgo" or name == "cipSecTunHistOutUncompOctets" or name == "cipSecTunHistOutUncompOctWraps" or name == "cipSecTunHistRemoteAddr" or name == "cipSecTunHistStartTime" or name == "cipSecTunHistTermReason" or name == "cipSecTunHistTotalRefreshes" or name == "cipSecTunHistTotalSas"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipsectunhistindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipSecTunHistIndex"):
+                    self.cipsectunhistindex = value
+                    self.cipsectunhistindex.value_namespace = name_space
+                    self.cipsectunhistindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistActiveIndex"):
+                    self.cipsectunhistactiveindex = value
+                    self.cipsectunhistactiveindex.value_namespace = name_space
+                    self.cipsectunhistactiveindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistActiveTime"):
+                    self.cipsectunhistactivetime = value
+                    self.cipsectunhistactivetime.value_namespace = name_space
+                    self.cipsectunhistactivetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistEncapMode"):
+                    self.cipsectunhistencapmode = value
+                    self.cipsectunhistencapmode.value_namespace = name_space
+                    self.cipsectunhistencapmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistHcInDecompOctets"):
+                    self.cipsectunhisthcindecompoctets = value
+                    self.cipsectunhisthcindecompoctets.value_namespace = name_space
+                    self.cipsectunhisthcindecompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistHcInOctets"):
+                    self.cipsectunhisthcinoctets = value
+                    self.cipsectunhisthcinoctets.value_namespace = name_space
+                    self.cipsectunhisthcinoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistHcOutOctets"):
+                    self.cipsectunhisthcoutoctets = value
+                    self.cipsectunhisthcoutoctets.value_namespace = name_space
+                    self.cipsectunhisthcoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistHcOutUncompOctets"):
+                    self.cipsectunhisthcoutuncompoctets = value
+                    self.cipsectunhisthcoutuncompoctets.value_namespace = name_space
+                    self.cipsectunhisthcoutuncompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistIkeTunnelIndex"):
+                    self.cipsectunhistiketunnelindex = value
+                    self.cipsectunhistiketunnelindex.value_namespace = name_space
+                    self.cipsectunhistiketunnelindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInAuthFails"):
+                    self.cipsectunhistinauthfails = value
+                    self.cipsectunhistinauthfails.value_namespace = name_space
+                    self.cipsectunhistinauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInAuths"):
+                    self.cipsectunhistinauths = value
+                    self.cipsectunhistinauths.value_namespace = name_space
+                    self.cipsectunhistinauths.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInDecompOctets"):
+                    self.cipsectunhistindecompoctets = value
+                    self.cipsectunhistindecompoctets.value_namespace = name_space
+                    self.cipsectunhistindecompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInDecompOctWraps"):
+                    self.cipsectunhistindecompoctwraps = value
+                    self.cipsectunhistindecompoctwraps.value_namespace = name_space
+                    self.cipsectunhistindecompoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInDecryptFails"):
+                    self.cipsectunhistindecryptfails = value
+                    self.cipsectunhistindecryptfails.value_namespace = name_space
+                    self.cipsectunhistindecryptfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInDecrypts"):
+                    self.cipsectunhistindecrypts = value
+                    self.cipsectunhistindecrypts.value_namespace = name_space
+                    self.cipsectunhistindecrypts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInDropPkts"):
+                    self.cipsectunhistindroppkts = value
+                    self.cipsectunhistindroppkts.value_namespace = name_space
+                    self.cipsectunhistindroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInOctets"):
+                    self.cipsectunhistinoctets = value
+                    self.cipsectunhistinoctets.value_namespace = name_space
+                    self.cipsectunhistinoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInOctWraps"):
+                    self.cipsectunhistinoctwraps = value
+                    self.cipsectunhistinoctwraps.value_namespace = name_space
+                    self.cipsectunhistinoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInPkts"):
+                    self.cipsectunhistinpkts = value
+                    self.cipsectunhistinpkts.value_namespace = name_space
+                    self.cipsectunhistinpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInReplayDropPkts"):
+                    self.cipsectunhistinreplaydroppkts = value
+                    self.cipsectunhistinreplaydroppkts.value_namespace = name_space
+                    self.cipsectunhistinreplaydroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInSaAhAuthAlgo"):
+                    self.cipsectunhistinsaahauthalgo = value
+                    self.cipsectunhistinsaahauthalgo.value_namespace = name_space
+                    self.cipsectunhistinsaahauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInSaDecompAlgo"):
+                    self.cipsectunhistinsadecompalgo = value
+                    self.cipsectunhistinsadecompalgo.value_namespace = name_space
+                    self.cipsectunhistinsadecompalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInSaDiffHellmanGrp"):
+                    self.cipsectunhistinsadiffhellmangrp = value
+                    self.cipsectunhistinsadiffhellmangrp.value_namespace = name_space
+                    self.cipsectunhistinsadiffhellmangrp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInSaEncryptAlgo"):
+                    self.cipsectunhistinsaencryptalgo = value
+                    self.cipsectunhistinsaencryptalgo.value_namespace = name_space
+                    self.cipsectunhistinsaencryptalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistInSaEspAuthAlgo"):
+                    self.cipsectunhistinsaespauthalgo = value
+                    self.cipsectunhistinsaespauthalgo.value_namespace = name_space
+                    self.cipsectunhistinsaespauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistKeyType"):
+                    self.cipsectunhistkeytype = value
+                    self.cipsectunhistkeytype.value_namespace = name_space
+                    self.cipsectunhistkeytype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistLifeSize"):
+                    self.cipsectunhistlifesize = value
+                    self.cipsectunhistlifesize.value_namespace = name_space
+                    self.cipsectunhistlifesize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistLifeTime"):
+                    self.cipsectunhistlifetime = value
+                    self.cipsectunhistlifetime.value_namespace = name_space
+                    self.cipsectunhistlifetime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistLocalAddr"):
+                    self.cipsectunhistlocaladdr = value
+                    self.cipsectunhistlocaladdr.value_namespace = name_space
+                    self.cipsectunhistlocaladdr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutAuthFails"):
+                    self.cipsectunhistoutauthfails = value
+                    self.cipsectunhistoutauthfails.value_namespace = name_space
+                    self.cipsectunhistoutauthfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutAuths"):
+                    self.cipsectunhistoutauths = value
+                    self.cipsectunhistoutauths.value_namespace = name_space
+                    self.cipsectunhistoutauths.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutDropPkts"):
+                    self.cipsectunhistoutdroppkts = value
+                    self.cipsectunhistoutdroppkts.value_namespace = name_space
+                    self.cipsectunhistoutdroppkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutEncryptFails"):
+                    self.cipsectunhistoutencryptfails = value
+                    self.cipsectunhistoutencryptfails.value_namespace = name_space
+                    self.cipsectunhistoutencryptfails.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutEncrypts"):
+                    self.cipsectunhistoutencrypts = value
+                    self.cipsectunhistoutencrypts.value_namespace = name_space
+                    self.cipsectunhistoutencrypts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutOctets"):
+                    self.cipsectunhistoutoctets = value
+                    self.cipsectunhistoutoctets.value_namespace = name_space
+                    self.cipsectunhistoutoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutOctWraps"):
+                    self.cipsectunhistoutoctwraps = value
+                    self.cipsectunhistoutoctwraps.value_namespace = name_space
+                    self.cipsectunhistoutoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutPkts"):
+                    self.cipsectunhistoutpkts = value
+                    self.cipsectunhistoutpkts.value_namespace = name_space
+                    self.cipsectunhistoutpkts.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutSaAhAuthAlgo"):
+                    self.cipsectunhistoutsaahauthalgo = value
+                    self.cipsectunhistoutsaahauthalgo.value_namespace = name_space
+                    self.cipsectunhistoutsaahauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutSaCompAlgo"):
+                    self.cipsectunhistoutsacompalgo = value
+                    self.cipsectunhistoutsacompalgo.value_namespace = name_space
+                    self.cipsectunhistoutsacompalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutSaDiffHellmanGrp"):
+                    self.cipsectunhistoutsadiffhellmangrp = value
+                    self.cipsectunhistoutsadiffhellmangrp.value_namespace = name_space
+                    self.cipsectunhistoutsadiffhellmangrp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutSaEncryptAlgo"):
+                    self.cipsectunhistoutsaencryptalgo = value
+                    self.cipsectunhistoutsaencryptalgo.value_namespace = name_space
+                    self.cipsectunhistoutsaencryptalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutSaEspAuthAlgo"):
+                    self.cipsectunhistoutsaespauthalgo = value
+                    self.cipsectunhistoutsaespauthalgo.value_namespace = name_space
+                    self.cipsectunhistoutsaespauthalgo.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutUncompOctets"):
+                    self.cipsectunhistoutuncompoctets = value
+                    self.cipsectunhistoutuncompoctets.value_namespace = name_space
+                    self.cipsectunhistoutuncompoctets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistOutUncompOctWraps"):
+                    self.cipsectunhistoutuncompoctwraps = value
+                    self.cipsectunhistoutuncompoctwraps.value_namespace = name_space
+                    self.cipsectunhistoutuncompoctwraps.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistRemoteAddr"):
+                    self.cipsectunhistremoteaddr = value
+                    self.cipsectunhistremoteaddr.value_namespace = name_space
+                    self.cipsectunhistremoteaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistStartTime"):
+                    self.cipsectunhiststarttime = value
+                    self.cipsectunhiststarttime.value_namespace = name_space
+                    self.cipsectunhiststarttime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistTermReason"):
+                    self.cipsectunhisttermreason = value
+                    self.cipsectunhisttermreason.value_namespace = name_space
+                    self.cipsectunhisttermreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistTotalRefreshes"):
+                    self.cipsectunhisttotalrefreshes = value
+                    self.cipsectunhisttotalrefreshes.value_namespace = name_space
+                    self.cipsectunhisttotalrefreshes.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecTunHistTotalSas"):
+                    self.cipsectunhisttotalsas = value
+                    self.cipsectunhisttotalsas.value_namespace = name_space
+                    self.cipsectunhisttotalsas.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipsectunnelhistentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipsectunhistactiveindex is not None:
-                    return True
-
-                if self.cipsectunhistactivetime is not None:
-                    return True
-
-                if self.cipsectunhistencapmode is not None:
-                    return True
-
-                if self.cipsectunhisthcindecompoctets is not None:
-                    return True
-
-                if self.cipsectunhisthcinoctets is not None:
-                    return True
-
-                if self.cipsectunhisthcoutoctets is not None:
-                    return True
-
-                if self.cipsectunhisthcoutuncompoctets is not None:
-                    return True
-
-                if self.cipsectunhistiketunnelindex is not None:
-                    return True
-
-                if self.cipsectunhistinauthfails is not None:
-                    return True
-
-                if self.cipsectunhistinauths is not None:
-                    return True
-
-                if self.cipsectunhistindecompoctets is not None:
-                    return True
-
-                if self.cipsectunhistindecompoctwraps is not None:
-                    return True
-
-                if self.cipsectunhistindecryptfails is not None:
-                    return True
-
-                if self.cipsectunhistindecrypts is not None:
-                    return True
-
-                if self.cipsectunhistindroppkts is not None:
-                    return True
-
-                if self.cipsectunhistinoctets is not None:
-                    return True
-
-                if self.cipsectunhistinoctwraps is not None:
-                    return True
-
-                if self.cipsectunhistinpkts is not None:
-                    return True
-
-                if self.cipsectunhistinreplaydroppkts is not None:
-                    return True
-
-                if self.cipsectunhistinsaahauthalgo is not None:
-                    return True
-
-                if self.cipsectunhistinsadecompalgo is not None:
-                    return True
-
-                if self.cipsectunhistinsadiffhellmangrp is not None:
-                    return True
-
-                if self.cipsectunhistinsaencryptalgo is not None:
-                    return True
-
-                if self.cipsectunhistinsaespauthalgo is not None:
-                    return True
-
-                if self.cipsectunhistkeytype is not None:
-                    return True
-
-                if self.cipsectunhistlifesize is not None:
-                    return True
-
-                if self.cipsectunhistlifetime is not None:
-                    return True
-
-                if self.cipsectunhistlocaladdr is not None:
-                    return True
-
-                if self.cipsectunhistoutauthfails is not None:
-                    return True
-
-                if self.cipsectunhistoutauths is not None:
-                    return True
-
-                if self.cipsectunhistoutdroppkts is not None:
-                    return True
-
-                if self.cipsectunhistoutencryptfails is not None:
-                    return True
-
-                if self.cipsectunhistoutencrypts is not None:
-                    return True
-
-                if self.cipsectunhistoutoctets is not None:
-                    return True
-
-                if self.cipsectunhistoutoctwraps is not None:
-                    return True
-
-                if self.cipsectunhistoutpkts is not None:
-                    return True
-
-                if self.cipsectunhistoutsaahauthalgo is not None:
-                    return True
-
-                if self.cipsectunhistoutsacompalgo is not None:
-                    return True
-
-                if self.cipsectunhistoutsadiffhellmangrp is not None:
-                    return True
-
-                if self.cipsectunhistoutsaencryptalgo is not None:
-                    return True
-
-                if self.cipsectunhistoutsaespauthalgo is not None:
-                    return True
-
-                if self.cipsectunhistoutuncompoctets is not None:
-                    return True
-
-                if self.cipsectunhistoutuncompoctwraps is not None:
-                    return True
-
-                if self.cipsectunhistremoteaddr is not None:
-                    return True
-
-                if self.cipsectunhiststarttime is not None:
-                    return True
-
-                if self.cipsectunhisttermreason is not None:
-                    return True
-
-                if self.cipsectunhisttotalrefreshes is not None:
-                    return True
-
-                if self.cipsectunhisttotalsas is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecTunnelHistTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipsectunnelhistentry is not None:
-                for child_ref in self.cipsectunnelhistentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipsectunnelhistentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecTunnelHistTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipSecTunnelHistEntry"):
+                for c in self.cipsectunnelhistentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable.Cipsectunnelhistentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipsectunnelhistentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecTunnelHistEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipsecendpthisttable(object):
+    class Cipsecendpthisttable(Entity):
         """
         The IPsec Phase\-2 Tunnel Endpoint History Table.
         This table is implemented as a 
@@ -5820,13 +9448,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecendpthistentry = YList()
-            self.cipsecendpthistentry.parent = self
-            self.cipsecendpthistentry.name = 'cipsecendpthistentry'
+            super(CiscoIpsecFlowMonitorMib.Cipsecendpthisttable, self).__init__()
+
+            self.yang_name = "cipSecEndPtHistTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsecendpthistentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsecendpthisttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsecendpthisttable, self).__setattr__(name, value)
 
 
-        class Cipsecendpthistentry(object):
+        class Cipsecendpthistentry(Entity):
             """
             Each entry contains the attributes associated with
             a previously active IPsec Phase\-2 Tunnel Endpoint.
@@ -5881,7 +9535,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsecendpthistlocaltype
             
             	The type of identity for the local Endpoint. Possible values are\: 1) a single IP address, or 2) an IP address range, or 3) an IP subnet
-            	**type**\:   :py:class:`EndpttypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EndpttypeEnum>`
+            	**type**\:   :py:class:`Endpttype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Endpttype>`
             
             .. attribute:: cipsecendpthistremoteaddr1
             
@@ -5919,7 +9573,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsecendpthistremotetype
             
             	The type of identity for the remote Endpoint. Possible values are\: 1) a single IP address, or 2) an IP address range, or 3) an IP subnet
-            	**type**\:   :py:class:`EndpttypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.EndpttypeEnum>`
+            	**type**\:   :py:class:`Endpttype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Endpttype>`
             
             .. attribute:: cipsecendpthisttunindex
             
@@ -5936,111 +9590,297 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipsecendpthistindex = None
-                self.cipsecendpthistactiveindex = None
-                self.cipsecendpthistlocaladdr1 = None
-                self.cipsecendpthistlocaladdr2 = None
-                self.cipsecendpthistlocalname = None
-                self.cipsecendpthistlocalport = None
-                self.cipsecendpthistlocalprotocol = None
-                self.cipsecendpthistlocaltype = None
-                self.cipsecendpthistremoteaddr1 = None
-                self.cipsecendpthistremoteaddr2 = None
-                self.cipsecendpthistremotename = None
-                self.cipsecendpthistremoteport = None
-                self.cipsecendpthistremoteprotocol = None
-                self.cipsecendpthistremotetype = None
-                self.cipsecendpthisttunindex = None
+                super(CiscoIpsecFlowMonitorMib.Cipsecendpthisttable.Cipsecendpthistentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cipsecendpthistindex is None:
-                    raise YPYModelError('Key property cipsecendpthistindex is None')
+                self.yang_name = "cipSecEndPtHistEntry"
+                self.yang_parent_name = "cipSecEndPtHistTable"
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtHistTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtHistEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtHistIndex = ' + str(self.cipsecendpthistindex) + ']'
+                self.cipsecendpthistindex = YLeaf(YType.int32, "cipSecEndPtHistIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cipsecendpthistactiveindex = YLeaf(YType.int32, "cipSecEndPtHistActiveIndex")
+
+                self.cipsecendpthistlocaladdr1 = YLeaf(YType.str, "cipSecEndPtHistLocalAddr1")
+
+                self.cipsecendpthistlocaladdr2 = YLeaf(YType.str, "cipSecEndPtHistLocalAddr2")
+
+                self.cipsecendpthistlocalname = YLeaf(YType.str, "cipSecEndPtHistLocalName")
+
+                self.cipsecendpthistlocalport = YLeaf(YType.int32, "cipSecEndPtHistLocalPort")
+
+                self.cipsecendpthistlocalprotocol = YLeaf(YType.int32, "cipSecEndPtHistLocalProtocol")
+
+                self.cipsecendpthistlocaltype = YLeaf(YType.enumeration, "cipSecEndPtHistLocalType")
+
+                self.cipsecendpthistremoteaddr1 = YLeaf(YType.str, "cipSecEndPtHistRemoteAddr1")
+
+                self.cipsecendpthistremoteaddr2 = YLeaf(YType.str, "cipSecEndPtHistRemoteAddr2")
+
+                self.cipsecendpthistremotename = YLeaf(YType.str, "cipSecEndPtHistRemoteName")
+
+                self.cipsecendpthistremoteport = YLeaf(YType.int32, "cipSecEndPtHistRemotePort")
+
+                self.cipsecendpthistremoteprotocol = YLeaf(YType.int32, "cipSecEndPtHistRemoteProtocol")
+
+                self.cipsecendpthistremotetype = YLeaf(YType.enumeration, "cipSecEndPtHistRemoteType")
+
+                self.cipsecendpthisttunindex = YLeaf(YType.int32, "cipSecEndPtHistTunIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipsecendpthistindex",
+                                "cipsecendpthistactiveindex",
+                                "cipsecendpthistlocaladdr1",
+                                "cipsecendpthistlocaladdr2",
+                                "cipsecendpthistlocalname",
+                                "cipsecendpthistlocalport",
+                                "cipsecendpthistlocalprotocol",
+                                "cipsecendpthistlocaltype",
+                                "cipsecendpthistremoteaddr1",
+                                "cipsecendpthistremoteaddr2",
+                                "cipsecendpthistremotename",
+                                "cipsecendpthistremoteport",
+                                "cipsecendpthistremoteprotocol",
+                                "cipsecendpthistremotetype",
+                                "cipsecendpthisttunindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cipsecendpthisttable.Cipsecendpthistentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cipsecendpthisttable.Cipsecendpthistentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cipsecendpthistindex.is_set or
+                    self.cipsecendpthistactiveindex.is_set or
+                    self.cipsecendpthistlocaladdr1.is_set or
+                    self.cipsecendpthistlocaladdr2.is_set or
+                    self.cipsecendpthistlocalname.is_set or
+                    self.cipsecendpthistlocalport.is_set or
+                    self.cipsecendpthistlocalprotocol.is_set or
+                    self.cipsecendpthistlocaltype.is_set or
+                    self.cipsecendpthistremoteaddr1.is_set or
+                    self.cipsecendpthistremoteaddr2.is_set or
+                    self.cipsecendpthistremotename.is_set or
+                    self.cipsecendpthistremoteport.is_set or
+                    self.cipsecendpthistremoteprotocol.is_set or
+                    self.cipsecendpthistremotetype.is_set or
+                    self.cipsecendpthisttunindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipsecendpthistindex.yfilter != YFilter.not_set or
+                    self.cipsecendpthistactiveindex.yfilter != YFilter.not_set or
+                    self.cipsecendpthistlocaladdr1.yfilter != YFilter.not_set or
+                    self.cipsecendpthistlocaladdr2.yfilter != YFilter.not_set or
+                    self.cipsecendpthistlocalname.yfilter != YFilter.not_set or
+                    self.cipsecendpthistlocalport.yfilter != YFilter.not_set or
+                    self.cipsecendpthistlocalprotocol.yfilter != YFilter.not_set or
+                    self.cipsecendpthistlocaltype.yfilter != YFilter.not_set or
+                    self.cipsecendpthistremoteaddr1.yfilter != YFilter.not_set or
+                    self.cipsecendpthistremoteaddr2.yfilter != YFilter.not_set or
+                    self.cipsecendpthistremotename.yfilter != YFilter.not_set or
+                    self.cipsecendpthistremoteport.yfilter != YFilter.not_set or
+                    self.cipsecendpthistremoteprotocol.yfilter != YFilter.not_set or
+                    self.cipsecendpthistremotetype.yfilter != YFilter.not_set or
+                    self.cipsecendpthisttunindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipSecEndPtHistEntry" + "[cipSecEndPtHistIndex='" + self.cipsecendpthistindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtHistTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipsecendpthistindex.is_set or self.cipsecendpthistindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistindex.get_name_leafdata())
+                if (self.cipsecendpthistactiveindex.is_set or self.cipsecendpthistactiveindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistactiveindex.get_name_leafdata())
+                if (self.cipsecendpthistlocaladdr1.is_set or self.cipsecendpthistlocaladdr1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistlocaladdr1.get_name_leafdata())
+                if (self.cipsecendpthistlocaladdr2.is_set or self.cipsecendpthistlocaladdr2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistlocaladdr2.get_name_leafdata())
+                if (self.cipsecendpthistlocalname.is_set or self.cipsecendpthistlocalname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistlocalname.get_name_leafdata())
+                if (self.cipsecendpthistlocalport.is_set or self.cipsecendpthistlocalport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistlocalport.get_name_leafdata())
+                if (self.cipsecendpthistlocalprotocol.is_set or self.cipsecendpthistlocalprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistlocalprotocol.get_name_leafdata())
+                if (self.cipsecendpthistlocaltype.is_set or self.cipsecendpthistlocaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistlocaltype.get_name_leafdata())
+                if (self.cipsecendpthistremoteaddr1.is_set or self.cipsecendpthistremoteaddr1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistremoteaddr1.get_name_leafdata())
+                if (self.cipsecendpthistremoteaddr2.is_set or self.cipsecendpthistremoteaddr2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistremoteaddr2.get_name_leafdata())
+                if (self.cipsecendpthistremotename.is_set or self.cipsecendpthistremotename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistremotename.get_name_leafdata())
+                if (self.cipsecendpthistremoteport.is_set or self.cipsecendpthistremoteport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistremoteport.get_name_leafdata())
+                if (self.cipsecendpthistremoteprotocol.is_set or self.cipsecendpthistremoteprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistremoteprotocol.get_name_leafdata())
+                if (self.cipsecendpthistremotetype.is_set or self.cipsecendpthistremotetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthistremotetype.get_name_leafdata())
+                if (self.cipsecendpthisttunindex.is_set or self.cipsecendpthisttunindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecendpthisttunindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipSecEndPtHistIndex" or name == "cipSecEndPtHistActiveIndex" or name == "cipSecEndPtHistLocalAddr1" or name == "cipSecEndPtHistLocalAddr2" or name == "cipSecEndPtHistLocalName" or name == "cipSecEndPtHistLocalPort" or name == "cipSecEndPtHistLocalProtocol" or name == "cipSecEndPtHistLocalType" or name == "cipSecEndPtHistRemoteAddr1" or name == "cipSecEndPtHistRemoteAddr2" or name == "cipSecEndPtHistRemoteName" or name == "cipSecEndPtHistRemotePort" or name == "cipSecEndPtHistRemoteProtocol" or name == "cipSecEndPtHistRemoteType" or name == "cipSecEndPtHistTunIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipsecendpthistindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipSecEndPtHistIndex"):
+                    self.cipsecendpthistindex = value
+                    self.cipsecendpthistindex.value_namespace = name_space
+                    self.cipsecendpthistindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistActiveIndex"):
+                    self.cipsecendpthistactiveindex = value
+                    self.cipsecendpthistactiveindex.value_namespace = name_space
+                    self.cipsecendpthistactiveindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistLocalAddr1"):
+                    self.cipsecendpthistlocaladdr1 = value
+                    self.cipsecendpthistlocaladdr1.value_namespace = name_space
+                    self.cipsecendpthistlocaladdr1.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistLocalAddr2"):
+                    self.cipsecendpthistlocaladdr2 = value
+                    self.cipsecendpthistlocaladdr2.value_namespace = name_space
+                    self.cipsecendpthistlocaladdr2.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistLocalName"):
+                    self.cipsecendpthistlocalname = value
+                    self.cipsecendpthistlocalname.value_namespace = name_space
+                    self.cipsecendpthistlocalname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistLocalPort"):
+                    self.cipsecendpthistlocalport = value
+                    self.cipsecendpthistlocalport.value_namespace = name_space
+                    self.cipsecendpthistlocalport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistLocalProtocol"):
+                    self.cipsecendpthistlocalprotocol = value
+                    self.cipsecendpthistlocalprotocol.value_namespace = name_space
+                    self.cipsecendpthistlocalprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistLocalType"):
+                    self.cipsecendpthistlocaltype = value
+                    self.cipsecendpthistlocaltype.value_namespace = name_space
+                    self.cipsecendpthistlocaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistRemoteAddr1"):
+                    self.cipsecendpthistremoteaddr1 = value
+                    self.cipsecendpthistremoteaddr1.value_namespace = name_space
+                    self.cipsecendpthistremoteaddr1.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistRemoteAddr2"):
+                    self.cipsecendpthistremoteaddr2 = value
+                    self.cipsecendpthistremoteaddr2.value_namespace = name_space
+                    self.cipsecendpthistremoteaddr2.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistRemoteName"):
+                    self.cipsecendpthistremotename = value
+                    self.cipsecendpthistremotename.value_namespace = name_space
+                    self.cipsecendpthistremotename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistRemotePort"):
+                    self.cipsecendpthistremoteport = value
+                    self.cipsecendpthistremoteport.value_namespace = name_space
+                    self.cipsecendpthistremoteport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistRemoteProtocol"):
+                    self.cipsecendpthistremoteprotocol = value
+                    self.cipsecendpthistremoteprotocol.value_namespace = name_space
+                    self.cipsecendpthistremoteprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistRemoteType"):
+                    self.cipsecendpthistremotetype = value
+                    self.cipsecendpthistremotetype.value_namespace = name_space
+                    self.cipsecendpthistremotetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecEndPtHistTunIndex"):
+                    self.cipsecendpthisttunindex = value
+                    self.cipsecendpthisttunindex.value_namespace = name_space
+                    self.cipsecendpthisttunindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipsecendpthistentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipsecendpthistactiveindex is not None:
-                    return True
-
-                if self.cipsecendpthistlocaladdr1 is not None:
-                    return True
-
-                if self.cipsecendpthistlocaladdr2 is not None:
-                    return True
-
-                if self.cipsecendpthistlocalname is not None:
-                    return True
-
-                if self.cipsecendpthistlocalport is not None:
-                    return True
-
-                if self.cipsecendpthistlocalprotocol is not None:
-                    return True
-
-                if self.cipsecendpthistlocaltype is not None:
-                    return True
-
-                if self.cipsecendpthistremoteaddr1 is not None:
-                    return True
-
-                if self.cipsecendpthistremoteaddr2 is not None:
-                    return True
-
-                if self.cipsecendpthistremotename is not None:
-                    return True
-
-                if self.cipsecendpthistremoteport is not None:
-                    return True
-
-                if self.cipsecendpthistremoteprotocol is not None:
-                    return True
-
-                if self.cipsecendpthistremotetype is not None:
-                    return True
-
-                if self.cipsecendpthisttunindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecendpthisttable.Cipsecendpthistentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecEndPtHistTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipsecendpthistentry is not None:
-                for child_ref in self.cipsecendpthistentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipsecendpthistentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecEndPtHistTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipSecEndPtHistEntry"):
+                for c in self.cipsecendpthistentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cipsecendpthisttable.Cipsecendpthistentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipsecendpthistentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecEndPtHistEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecendpthisttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cikefailtable(object):
+    class Cikefailtable(Entity):
         """
         The IPsec Phase\-1 Failure Table.
         This table is implemented as a sliding 
@@ -6061,13 +9901,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cikefailentry = YList()
-            self.cikefailentry.parent = self
-            self.cikefailentry.name = 'cikefailentry'
+            super(CiscoIpsecFlowMonitorMib.Cikefailtable, self).__init__()
+
+            self.yang_name = "cikeFailTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cikefailentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cikefailtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cikefailtable, self).__setattr__(name, value)
 
 
-        class Cikefailentry(object):
+        class Cikefailentry(Entity):
             """
             Each entry contains the attributes associated
             with
@@ -6090,7 +9956,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cikefaillocaltype
             
             	The type of local peer identity.  The local peer may be identified by\:  1. an IP address, or  2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: cikefaillocalvalue
             
@@ -6100,7 +9966,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cikefailreason
             
             	The reason for the failure.  Possible reasons include\: 1 = other 2 = peer delete request was received 3 = contact with peer was lost 4 = local failure occurred 5 = authentication failure 6 = hash validation failure 7 = encryption failure 8 = internal error occurred 9 = system capacity failure 10 = proposal failure 11 = peer's certificate is unavailable 12 = peer's certificate was found invalid 13 = local certificate expired 14 = certificate revoke list (crl) failure 15 = peer encoding error 16 = non\-existent security association 17 = operator requested termination
-            	**type**\:   :py:class:`CikefailreasonEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry.CikefailreasonEnum>`
+            	**type**\:   :py:class:`Cikefailreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry.Cikefailreason>`
             
             .. attribute:: cikefailremoteaddr
             
@@ -6112,7 +9978,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cikefailremotetype
             
             	The type of remote peer identity.  The remote peer may be identified by\:  1. an IP address, or  2. a host name
-            	**type**\:   :py:class:`IkepeertypeEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.IkepeertypeEnum>`
+            	**type**\:   :py:class:`Ikepeertype <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.Ikepeertype>`
             
             .. attribute:: cikefailremotevalue
             
@@ -6134,20 +10000,64 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cikefailindex = None
-                self.cikefaillocaladdr = None
-                self.cikefaillocaltype = None
-                self.cikefaillocalvalue = None
-                self.cikefailreason = None
-                self.cikefailremoteaddr = None
-                self.cikefailremotetype = None
-                self.cikefailremotevalue = None
-                self.cikefailtime = None
+                super(CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry, self).__init__()
 
-            class CikefailreasonEnum(Enum):
+                self.yang_name = "cikeFailEntry"
+                self.yang_parent_name = "cikeFailTable"
+
+                self.cikefailindex = YLeaf(YType.int32, "cikeFailIndex")
+
+                self.cikefaillocaladdr = YLeaf(YType.str, "cikeFailLocalAddr")
+
+                self.cikefaillocaltype = YLeaf(YType.enumeration, "cikeFailLocalType")
+
+                self.cikefaillocalvalue = YLeaf(YType.str, "cikeFailLocalValue")
+
+                self.cikefailreason = YLeaf(YType.enumeration, "cikeFailReason")
+
+                self.cikefailremoteaddr = YLeaf(YType.str, "cikeFailRemoteAddr")
+
+                self.cikefailremotetype = YLeaf(YType.enumeration, "cikeFailRemoteType")
+
+                self.cikefailremotevalue = YLeaf(YType.str, "cikeFailRemoteValue")
+
+                self.cikefailtime = YLeaf(YType.uint32, "cikeFailTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cikefailindex",
+                                "cikefaillocaladdr",
+                                "cikefaillocaltype",
+                                "cikefaillocalvalue",
+                                "cikefailreason",
+                                "cikefailremoteaddr",
+                                "cikefailremotetype",
+                                "cikefailremotevalue",
+                                "cikefailtime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry, self).__setattr__(name, value)
+
+            class Cikefailreason(Enum):
                 """
-                CikefailreasonEnum
+                Cikefailreason
 
                 The reason for the failure.  Possible reasons include\:
 
@@ -6221,117 +10131,211 @@ class CiscoIpsecFlowMonitorMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                peerDelRequest = 2
+                peerDelRequest = Enum.YLeaf(2, "peerDelRequest")
 
-                peerLost = 3
+                peerLost = Enum.YLeaf(3, "peerLost")
 
-                localFailure = 4
+                localFailure = Enum.YLeaf(4, "localFailure")
 
-                authFailure = 5
+                authFailure = Enum.YLeaf(5, "authFailure")
 
-                hashValidation = 6
+                hashValidation = Enum.YLeaf(6, "hashValidation")
 
-                encryptFailure = 7
+                encryptFailure = Enum.YLeaf(7, "encryptFailure")
 
-                internalError = 8
+                internalError = Enum.YLeaf(8, "internalError")
 
-                sysCapExceeded = 9
+                sysCapExceeded = Enum.YLeaf(9, "sysCapExceeded")
 
-                proposalFailure = 10
+                proposalFailure = Enum.YLeaf(10, "proposalFailure")
 
-                peerCertUnavailable = 11
+                peerCertUnavailable = Enum.YLeaf(11, "peerCertUnavailable")
 
-                peerCertNotValid = 12
+                peerCertNotValid = Enum.YLeaf(12, "peerCertNotValid")
 
-                localCertExpired = 13
+                localCertExpired = Enum.YLeaf(13, "localCertExpired")
 
-                crlFailure = 14
+                crlFailure = Enum.YLeaf(14, "crlFailure")
 
-                peerEncodingError = 15
+                peerEncodingError = Enum.YLeaf(15, "peerEncodingError")
 
-                nonExistentSa = 16
+                nonExistentSa = Enum.YLeaf(16, "nonExistentSa")
 
-                operRequest = 17
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                    return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry.CikefailreasonEnum']
+                operRequest = Enum.YLeaf(17, "operRequest")
 
 
-            @property
-            def _common_path(self):
-                if self.cikefailindex is None:
-                    raise YPYModelError('Key property cikefailindex is None')
+            def has_data(self):
+                return (
+                    self.cikefailindex.is_set or
+                    self.cikefaillocaladdr.is_set or
+                    self.cikefaillocaltype.is_set or
+                    self.cikefaillocalvalue.is_set or
+                    self.cikefailreason.is_set or
+                    self.cikefailremoteaddr.is_set or
+                    self.cikefailremotetype.is_set or
+                    self.cikefailremotevalue.is_set or
+                    self.cikefailtime.is_set)
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeFailTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeFailEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cikeFailIndex = ' + str(self.cikefailindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cikefailindex.yfilter != YFilter.not_set or
+                    self.cikefaillocaladdr.yfilter != YFilter.not_set or
+                    self.cikefaillocaltype.yfilter != YFilter.not_set or
+                    self.cikefaillocalvalue.yfilter != YFilter.not_set or
+                    self.cikefailreason.yfilter != YFilter.not_set or
+                    self.cikefailremoteaddr.yfilter != YFilter.not_set or
+                    self.cikefailremotetype.yfilter != YFilter.not_set or
+                    self.cikefailremotevalue.yfilter != YFilter.not_set or
+                    self.cikefailtime.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cikeFailEntry" + "[cikeFailIndex='" + self.cikefailindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeFailTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cikefailindex.is_set or self.cikefailindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefailindex.get_name_leafdata())
+                if (self.cikefaillocaladdr.is_set or self.cikefaillocaladdr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefaillocaladdr.get_name_leafdata())
+                if (self.cikefaillocaltype.is_set or self.cikefaillocaltype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefaillocaltype.get_name_leafdata())
+                if (self.cikefaillocalvalue.is_set or self.cikefaillocalvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefaillocalvalue.get_name_leafdata())
+                if (self.cikefailreason.is_set or self.cikefailreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefailreason.get_name_leafdata())
+                if (self.cikefailremoteaddr.is_set or self.cikefailremoteaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefailremoteaddr.get_name_leafdata())
+                if (self.cikefailremotetype.is_set or self.cikefailremotetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefailremotetype.get_name_leafdata())
+                if (self.cikefailremotevalue.is_set or self.cikefailremotevalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefailremotevalue.get_name_leafdata())
+                if (self.cikefailtime.is_set or self.cikefailtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cikefailtime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cikeFailIndex" or name == "cikeFailLocalAddr" or name == "cikeFailLocalType" or name == "cikeFailLocalValue" or name == "cikeFailReason" or name == "cikeFailRemoteAddr" or name == "cikeFailRemoteType" or name == "cikeFailRemoteValue" or name == "cikeFailTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cikefailindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cikeFailIndex"):
+                    self.cikefailindex = value
+                    self.cikefailindex.value_namespace = name_space
+                    self.cikefailindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailLocalAddr"):
+                    self.cikefaillocaladdr = value
+                    self.cikefaillocaladdr.value_namespace = name_space
+                    self.cikefaillocaladdr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailLocalType"):
+                    self.cikefaillocaltype = value
+                    self.cikefaillocaltype.value_namespace = name_space
+                    self.cikefaillocaltype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailLocalValue"):
+                    self.cikefaillocalvalue = value
+                    self.cikefaillocalvalue.value_namespace = name_space
+                    self.cikefaillocalvalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailReason"):
+                    self.cikefailreason = value
+                    self.cikefailreason.value_namespace = name_space
+                    self.cikefailreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailRemoteAddr"):
+                    self.cikefailremoteaddr = value
+                    self.cikefailremoteaddr.value_namespace = name_space
+                    self.cikefailremoteaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailRemoteType"):
+                    self.cikefailremotetype = value
+                    self.cikefailremotetype.value_namespace = name_space
+                    self.cikefailremotetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailRemoteValue"):
+                    self.cikefailremotevalue = value
+                    self.cikefailremotevalue.value_namespace = name_space
+                    self.cikefailremotevalue.value_namespace_prefix = name_space_prefix
+                if(value_path == "cikeFailTime"):
+                    self.cikefailtime = value
+                    self.cikefailtime.value_namespace = name_space
+                    self.cikefailtime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cikefailentry:
+                if (c.has_data()):
                     return True
-
-                if self.cikefaillocaladdr is not None:
-                    return True
-
-                if self.cikefaillocaltype is not None:
-                    return True
-
-                if self.cikefaillocalvalue is not None:
-                    return True
-
-                if self.cikefailreason is not None:
-                    return True
-
-                if self.cikefailremoteaddr is not None:
-                    return True
-
-                if self.cikefailremotetype is not None:
-                    return True
-
-                if self.cikefailremotevalue is not None:
-                    return True
-
-                if self.cikefailtime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cikeFailTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cikefailentry is not None:
-                for child_ref in self.cikefailentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cikefailentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cikeFailTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cikeFailEntry"):
+                for c in self.cikefailentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cikefailtable.Cikefailentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cikefailentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cikeFailEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cikefailtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cipsecfailtable(object):
+    class Cipsecfailtable(Entity):
         """
         The IPsec Phase\-2 Failure Table.
         This table is implemented as a sliding window 
@@ -6352,13 +10356,39 @@ class CiscoIpsecFlowMonitorMib(object):
         _revision = '2007-10-24'
 
         def __init__(self):
-            self.parent = None
-            self.cipsecfailentry = YList()
-            self.cipsecfailentry.parent = self
-            self.cipsecfailentry.name = 'cipsecfailentry'
+            super(CiscoIpsecFlowMonitorMib.Cipsecfailtable, self).__init__()
+
+            self.yang_name = "cipSecFailTable"
+            self.yang_parent_name = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+
+            self.cipsecfailentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoIpsecFlowMonitorMib.Cipsecfailtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoIpsecFlowMonitorMib.Cipsecfailtable, self).__setattr__(name, value)
 
 
-        class Cipsecfailentry(object):
+        class Cipsecfailentry(Entity):
             """
             Each entry contains the attributes associated with
             an IPsec Phase\-1 failure.
@@ -6387,7 +10417,7 @@ class CiscoIpsecFlowMonitorMib(object):
             .. attribute:: cipsecfailreason
             
             	The reason for the failure.  Possible reasons include\:   1 = other   2 = internal error occurred   3 = peer encoding error   4 = proposal failure   5 = protocol use failure   6 = non\-existent security association   7 = decryption failure   8 = encryption failure   9 = inbound authentication failure  10 = outbound authentication failure  11 = compression failure  12 = system capacity failure  13 = peer delete request was received  14 = contact with peer was lost  15 = sequence number rolled over  16 = operator requested termination
-            	**type**\:   :py:class:`CipsecfailreasonEnum <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry.CipsecfailreasonEnum>`
+            	**type**\:   :py:class:`Cipsecfailreason <ydk.models.cisco_ios_xe.CISCO_IPSEC_FLOW_MONITOR_MIB.CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry.Cipsecfailreason>`
             
             .. attribute:: cipsecfailsaspi
             
@@ -6418,18 +10448,58 @@ class CiscoIpsecFlowMonitorMib(object):
             _revision = '2007-10-24'
 
             def __init__(self):
-                self.parent = None
-                self.cipsecfailindex = None
-                self.cipsecfailpktdstaddr = None
-                self.cipsecfailpktsrcaddr = None
-                self.cipsecfailreason = None
-                self.cipsecfailsaspi = None
-                self.cipsecfailtime = None
-                self.cipsecfailtunnelindex = None
+                super(CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry, self).__init__()
 
-            class CipsecfailreasonEnum(Enum):
+                self.yang_name = "cipSecFailEntry"
+                self.yang_parent_name = "cipSecFailTable"
+
+                self.cipsecfailindex = YLeaf(YType.int32, "cipSecFailIndex")
+
+                self.cipsecfailpktdstaddr = YLeaf(YType.str, "cipSecFailPktDstAddr")
+
+                self.cipsecfailpktsrcaddr = YLeaf(YType.str, "cipSecFailPktSrcAddr")
+
+                self.cipsecfailreason = YLeaf(YType.enumeration, "cipSecFailReason")
+
+                self.cipsecfailsaspi = YLeaf(YType.int32, "cipSecFailSaSpi")
+
+                self.cipsecfailtime = YLeaf(YType.uint32, "cipSecFailTime")
+
+                self.cipsecfailtunnelindex = YLeaf(YType.int32, "cipSecFailTunnelIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cipsecfailindex",
+                                "cipsecfailpktdstaddr",
+                                "cipsecfailpktsrcaddr",
+                                "cipsecfailreason",
+                                "cipsecfailsaspi",
+                                "cipsecfailtime",
+                                "cipsecfailtunnelindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry, self).__setattr__(name, value)
+
+            class Cipsecfailreason(Enum):
                 """
-                CipsecfailreasonEnum
+                Cipsecfailreason
 
                 The reason for the failure.  Possible reasons
 
@@ -6501,179 +10571,402 @@ class CiscoIpsecFlowMonitorMib(object):
 
                 """
 
-                other = 1
+                other = Enum.YLeaf(1, "other")
 
-                internalError = 2
+                internalError = Enum.YLeaf(2, "internalError")
 
-                peerEncodingError = 3
+                peerEncodingError = Enum.YLeaf(3, "peerEncodingError")
 
-                proposalFailure = 4
+                proposalFailure = Enum.YLeaf(4, "proposalFailure")
 
-                protocolUseFail = 5
+                protocolUseFail = Enum.YLeaf(5, "protocolUseFail")
 
-                nonExistentSa = 6
+                nonExistentSa = Enum.YLeaf(6, "nonExistentSa")
 
-                decryptFailure = 7
+                decryptFailure = Enum.YLeaf(7, "decryptFailure")
 
-                encryptFailure = 8
+                encryptFailure = Enum.YLeaf(8, "encryptFailure")
 
-                inAuthFailure = 9
+                inAuthFailure = Enum.YLeaf(9, "inAuthFailure")
 
-                outAuthFailure = 10
+                outAuthFailure = Enum.YLeaf(10, "outAuthFailure")
 
-                compression = 11
+                compression = Enum.YLeaf(11, "compression")
 
-                sysCapExceeded = 12
+                sysCapExceeded = Enum.YLeaf(12, "sysCapExceeded")
 
-                peerDelRequest = 13
+                peerDelRequest = Enum.YLeaf(13, "peerDelRequest")
 
-                peerLost = 14
+                peerLost = Enum.YLeaf(14, "peerLost")
 
-                seqNumRollOver = 15
+                seqNumRollOver = Enum.YLeaf(15, "seqNumRollOver")
 
-                operRequest = 16
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                    return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry.CipsecfailreasonEnum']
+                operRequest = Enum.YLeaf(16, "operRequest")
 
 
-            @property
-            def _common_path(self):
-                if self.cipsecfailindex is None:
-                    raise YPYModelError('Key property cipsecfailindex is None')
+            def has_data(self):
+                return (
+                    self.cipsecfailindex.is_set or
+                    self.cipsecfailpktdstaddr.is_set or
+                    self.cipsecfailpktsrcaddr.is_set or
+                    self.cipsecfailreason.is_set or
+                    self.cipsecfailsaspi.is_set or
+                    self.cipsecfailtime.is_set or
+                    self.cipsecfailtunnelindex.is_set)
 
-                return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecFailTable/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecFailEntry[CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecFailIndex = ' + str(self.cipsecfailindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cipsecfailindex.yfilter != YFilter.not_set or
+                    self.cipsecfailpktdstaddr.yfilter != YFilter.not_set or
+                    self.cipsecfailpktsrcaddr.yfilter != YFilter.not_set or
+                    self.cipsecfailreason.yfilter != YFilter.not_set or
+                    self.cipsecfailsaspi.yfilter != YFilter.not_set or
+                    self.cipsecfailtime.yfilter != YFilter.not_set or
+                    self.cipsecfailtunnelindex.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cipSecFailEntry" + "[cipSecFailIndex='" + self.cipsecfailindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecFailTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cipsecfailindex.is_set or self.cipsecfailindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecfailindex.get_name_leafdata())
+                if (self.cipsecfailpktdstaddr.is_set or self.cipsecfailpktdstaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecfailpktdstaddr.get_name_leafdata())
+                if (self.cipsecfailpktsrcaddr.is_set or self.cipsecfailpktsrcaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecfailpktsrcaddr.get_name_leafdata())
+                if (self.cipsecfailreason.is_set or self.cipsecfailreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecfailreason.get_name_leafdata())
+                if (self.cipsecfailsaspi.is_set or self.cipsecfailsaspi.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecfailsaspi.get_name_leafdata())
+                if (self.cipsecfailtime.is_set or self.cipsecfailtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecfailtime.get_name_leafdata())
+                if (self.cipsecfailtunnelindex.is_set or self.cipsecfailtunnelindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cipsecfailtunnelindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cipSecFailIndex" or name == "cipSecFailPktDstAddr" or name == "cipSecFailPktSrcAddr" or name == "cipSecFailReason" or name == "cipSecFailSaSpi" or name == "cipSecFailTime" or name == "cipSecFailTunnelIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cipsecfailindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cipSecFailIndex"):
+                    self.cipsecfailindex = value
+                    self.cipsecfailindex.value_namespace = name_space
+                    self.cipsecfailindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecFailPktDstAddr"):
+                    self.cipsecfailpktdstaddr = value
+                    self.cipsecfailpktdstaddr.value_namespace = name_space
+                    self.cipsecfailpktdstaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecFailPktSrcAddr"):
+                    self.cipsecfailpktsrcaddr = value
+                    self.cipsecfailpktsrcaddr.value_namespace = name_space
+                    self.cipsecfailpktsrcaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecFailReason"):
+                    self.cipsecfailreason = value
+                    self.cipsecfailreason.value_namespace = name_space
+                    self.cipsecfailreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecFailSaSpi"):
+                    self.cipsecfailsaspi = value
+                    self.cipsecfailsaspi.value_namespace = name_space
+                    self.cipsecfailsaspi.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecFailTime"):
+                    self.cipsecfailtime = value
+                    self.cipsecfailtime.value_namespace = name_space
+                    self.cipsecfailtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "cipSecFailTunnelIndex"):
+                    self.cipsecfailtunnelindex = value
+                    self.cipsecfailtunnelindex.value_namespace = name_space
+                    self.cipsecfailtunnelindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cipsecfailentry:
+                if (c.has_data()):
                     return True
-
-                if self.cipsecfailpktdstaddr is not None:
-                    return True
-
-                if self.cipsecfailpktsrcaddr is not None:
-                    return True
-
-                if self.cipsecfailreason is not None:
-                    return True
-
-                if self.cipsecfailsaspi is not None:
-                    return True
-
-                if self.cipsecfailtime is not None:
-                    return True
-
-                if self.cipsecfailtunnelindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-                return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/CISCO-IPSEC-FLOW-MONITOR-MIB:cipSecFailTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cipsecfailentry is not None:
-                for child_ref in self.cipsecfailentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cipsecfailentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cipSecFailTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cipSecFailEntry"):
+                for c in self.cipsecfailentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoIpsecFlowMonitorMib.Cipsecfailtable.Cipsecfailentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cipsecfailentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cipSecFailEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-            return meta._meta_table['CiscoIpsecFlowMonitorMib.Cipsecfailtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cikefailtable is not None and self.cikefailtable.has_data()) or
+            (self.cikeglobalstats is not None and self.cikeglobalstats.has_data()) or
+            (self.cikepeercorrtable is not None and self.cikepeercorrtable.has_data()) or
+            (self.cikepeertable is not None and self.cikepeertable.has_data()) or
+            (self.cikephase1gwstatstable is not None and self.cikephase1gwstatstable.has_data()) or
+            (self.ciketunnelhisttable is not None and self.ciketunnelhisttable.has_data()) or
+            (self.ciketunneltable is not None and self.ciketunneltable.has_data()) or
+            (self.cipsecendpthisttable is not None and self.cipsecendpthisttable.has_data()) or
+            (self.cipsecendpttable is not None and self.cipsecendpttable.has_data()) or
+            (self.cipsecfailglobalcntl is not None and self.cipsecfailglobalcntl.has_data()) or
+            (self.cipsecfailtable is not None and self.cipsecfailtable.has_data()) or
+            (self.cipsecglobalstats is not None and self.cipsecglobalstats.has_data()) or
+            (self.cipsechistglobalcntl is not None and self.cipsechistglobalcntl.has_data()) or
+            (self.cipseclevels is not None and self.cipseclevels.has_data()) or
+            (self.cipsecphase2gwstatstable is not None and self.cipsecphase2gwstatstable.has_data()) or
+            (self.cipsecspitable is not None and self.cipsecspitable.has_data()) or
+            (self.cipsectrapcntl is not None and self.cipsectrapcntl.has_data()) or
+            (self.cipsectunnelhisttable is not None and self.cipsectunnelhisttable.has_data()) or
+            (self.cipsectunneltable is not None and self.cipsectunneltable.has_data()))
 
-        return '/CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cikefailtable is not None and self.cikefailtable.has_operation()) or
+            (self.cikeglobalstats is not None and self.cikeglobalstats.has_operation()) or
+            (self.cikepeercorrtable is not None and self.cikepeercorrtable.has_operation()) or
+            (self.cikepeertable is not None and self.cikepeertable.has_operation()) or
+            (self.cikephase1gwstatstable is not None and self.cikephase1gwstatstable.has_operation()) or
+            (self.ciketunnelhisttable is not None and self.ciketunnelhisttable.has_operation()) or
+            (self.ciketunneltable is not None and self.ciketunneltable.has_operation()) or
+            (self.cipsecendpthisttable is not None and self.cipsecendpthisttable.has_operation()) or
+            (self.cipsecendpttable is not None and self.cipsecendpttable.has_operation()) or
+            (self.cipsecfailglobalcntl is not None and self.cipsecfailglobalcntl.has_operation()) or
+            (self.cipsecfailtable is not None and self.cipsecfailtable.has_operation()) or
+            (self.cipsecglobalstats is not None and self.cipsecglobalstats.has_operation()) or
+            (self.cipsechistglobalcntl is not None and self.cipsechistglobalcntl.has_operation()) or
+            (self.cipseclevels is not None and self.cipseclevels.has_operation()) or
+            (self.cipsecphase2gwstatstable is not None and self.cipsecphase2gwstatstable.has_operation()) or
+            (self.cipsecspitable is not None and self.cipsecspitable.has_operation()) or
+            (self.cipsectrapcntl is not None and self.cipsectrapcntl.has_operation()) or
+            (self.cipsectunnelhisttable is not None and self.cipsectunnelhisttable.has_operation()) or
+            (self.cipsectunneltable is not None and self.cipsectunneltable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cikeFailTable"):
+            if (self.cikefailtable is None):
+                self.cikefailtable = CiscoIpsecFlowMonitorMib.Cikefailtable()
+                self.cikefailtable.parent = self
+                self._children_name_map["cikefailtable"] = "cikeFailTable"
+            return self.cikefailtable
+
+        if (child_yang_name == "cikeGlobalStats"):
+            if (self.cikeglobalstats is None):
+                self.cikeglobalstats = CiscoIpsecFlowMonitorMib.Cikeglobalstats()
+                self.cikeglobalstats.parent = self
+                self._children_name_map["cikeglobalstats"] = "cikeGlobalStats"
+            return self.cikeglobalstats
+
+        if (child_yang_name == "cikePeerCorrTable"):
+            if (self.cikepeercorrtable is None):
+                self.cikepeercorrtable = CiscoIpsecFlowMonitorMib.Cikepeercorrtable()
+                self.cikepeercorrtable.parent = self
+                self._children_name_map["cikepeercorrtable"] = "cikePeerCorrTable"
+            return self.cikepeercorrtable
+
+        if (child_yang_name == "cikePeerTable"):
+            if (self.cikepeertable is None):
+                self.cikepeertable = CiscoIpsecFlowMonitorMib.Cikepeertable()
+                self.cikepeertable.parent = self
+                self._children_name_map["cikepeertable"] = "cikePeerTable"
+            return self.cikepeertable
+
+        if (child_yang_name == "cikePhase1GWStatsTable"):
+            if (self.cikephase1gwstatstable is None):
+                self.cikephase1gwstatstable = CiscoIpsecFlowMonitorMib.Cikephase1Gwstatstable()
+                self.cikephase1gwstatstable.parent = self
+                self._children_name_map["cikephase1gwstatstable"] = "cikePhase1GWStatsTable"
+            return self.cikephase1gwstatstable
+
+        if (child_yang_name == "cikeTunnelHistTable"):
+            if (self.ciketunnelhisttable is None):
+                self.ciketunnelhisttable = CiscoIpsecFlowMonitorMib.Ciketunnelhisttable()
+                self.ciketunnelhisttable.parent = self
+                self._children_name_map["ciketunnelhisttable"] = "cikeTunnelHistTable"
+            return self.ciketunnelhisttable
+
+        if (child_yang_name == "cikeTunnelTable"):
+            if (self.ciketunneltable is None):
+                self.ciketunneltable = CiscoIpsecFlowMonitorMib.Ciketunneltable()
+                self.ciketunneltable.parent = self
+                self._children_name_map["ciketunneltable"] = "cikeTunnelTable"
+            return self.ciketunneltable
+
+        if (child_yang_name == "cipSecEndPtHistTable"):
+            if (self.cipsecendpthisttable is None):
+                self.cipsecendpthisttable = CiscoIpsecFlowMonitorMib.Cipsecendpthisttable()
+                self.cipsecendpthisttable.parent = self
+                self._children_name_map["cipsecendpthisttable"] = "cipSecEndPtHistTable"
+            return self.cipsecendpthisttable
+
+        if (child_yang_name == "cipSecEndPtTable"):
+            if (self.cipsecendpttable is None):
+                self.cipsecendpttable = CiscoIpsecFlowMonitorMib.Cipsecendpttable()
+                self.cipsecendpttable.parent = self
+                self._children_name_map["cipsecendpttable"] = "cipSecEndPtTable"
+            return self.cipsecendpttable
+
+        if (child_yang_name == "cipSecFailGlobalCntl"):
+            if (self.cipsecfailglobalcntl is None):
+                self.cipsecfailglobalcntl = CiscoIpsecFlowMonitorMib.Cipsecfailglobalcntl()
+                self.cipsecfailglobalcntl.parent = self
+                self._children_name_map["cipsecfailglobalcntl"] = "cipSecFailGlobalCntl"
+            return self.cipsecfailglobalcntl
+
+        if (child_yang_name == "cipSecFailTable"):
+            if (self.cipsecfailtable is None):
+                self.cipsecfailtable = CiscoIpsecFlowMonitorMib.Cipsecfailtable()
+                self.cipsecfailtable.parent = self
+                self._children_name_map["cipsecfailtable"] = "cipSecFailTable"
+            return self.cipsecfailtable
+
+        if (child_yang_name == "cipSecGlobalStats"):
+            if (self.cipsecglobalstats is None):
+                self.cipsecglobalstats = CiscoIpsecFlowMonitorMib.Cipsecglobalstats()
+                self.cipsecglobalstats.parent = self
+                self._children_name_map["cipsecglobalstats"] = "cipSecGlobalStats"
+            return self.cipsecglobalstats
+
+        if (child_yang_name == "cipSecHistGlobalCntl"):
+            if (self.cipsechistglobalcntl is None):
+                self.cipsechistglobalcntl = CiscoIpsecFlowMonitorMib.Cipsechistglobalcntl()
+                self.cipsechistglobalcntl.parent = self
+                self._children_name_map["cipsechistglobalcntl"] = "cipSecHistGlobalCntl"
+            return self.cipsechistglobalcntl
+
+        if (child_yang_name == "cipSecLevels"):
+            if (self.cipseclevels is None):
+                self.cipseclevels = CiscoIpsecFlowMonitorMib.Cipseclevels()
+                self.cipseclevels.parent = self
+                self._children_name_map["cipseclevels"] = "cipSecLevels"
+            return self.cipseclevels
+
+        if (child_yang_name == "cipSecPhase2GWStatsTable"):
+            if (self.cipsecphase2gwstatstable is None):
+                self.cipsecphase2gwstatstable = CiscoIpsecFlowMonitorMib.Cipsecphase2Gwstatstable()
+                self.cipsecphase2gwstatstable.parent = self
+                self._children_name_map["cipsecphase2gwstatstable"] = "cipSecPhase2GWStatsTable"
+            return self.cipsecphase2gwstatstable
+
+        if (child_yang_name == "cipSecSpiTable"):
+            if (self.cipsecspitable is None):
+                self.cipsecspitable = CiscoIpsecFlowMonitorMib.Cipsecspitable()
+                self.cipsecspitable.parent = self
+                self._children_name_map["cipsecspitable"] = "cipSecSpiTable"
+            return self.cipsecspitable
+
+        if (child_yang_name == "cipSecTrapCntl"):
+            if (self.cipsectrapcntl is None):
+                self.cipsectrapcntl = CiscoIpsecFlowMonitorMib.Cipsectrapcntl()
+                self.cipsectrapcntl.parent = self
+                self._children_name_map["cipsectrapcntl"] = "cipSecTrapCntl"
+            return self.cipsectrapcntl
+
+        if (child_yang_name == "cipSecTunnelHistTable"):
+            if (self.cipsectunnelhisttable is None):
+                self.cipsectunnelhisttable = CiscoIpsecFlowMonitorMib.Cipsectunnelhisttable()
+                self.cipsectunnelhisttable.parent = self
+                self._children_name_map["cipsectunnelhisttable"] = "cipSecTunnelHistTable"
+            return self.cipsectunnelhisttable
+
+        if (child_yang_name == "cipSecTunnelTable"):
+            if (self.cipsectunneltable is None):
+                self.cipsectunneltable = CiscoIpsecFlowMonitorMib.Cipsectunneltable()
+                self.cipsectunneltable.parent = self
+                self._children_name_map["cipsectunneltable"] = "cipSecTunnelTable"
+            return self.cipsectunneltable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cikeFailTable" or name == "cikeGlobalStats" or name == "cikePeerCorrTable" or name == "cikePeerTable" or name == "cikePhase1GWStatsTable" or name == "cikeTunnelHistTable" or name == "cikeTunnelTable" or name == "cipSecEndPtHistTable" or name == "cipSecEndPtTable" or name == "cipSecFailGlobalCntl" or name == "cipSecFailTable" or name == "cipSecGlobalStats" or name == "cipSecHistGlobalCntl" or name == "cipSecLevels" or name == "cipSecPhase2GWStatsTable" or name == "cipSecSpiTable" or name == "cipSecTrapCntl" or name == "cipSecTunnelHistTable" or name == "cipSecTunnelTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cikefailtable is not None and self.cikefailtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cikeglobalstats is not None and self.cikeglobalstats._has_data():
-            return True
-
-        if self.cikepeercorrtable is not None and self.cikepeercorrtable._has_data():
-            return True
-
-        if self.cikepeertable is not None and self.cikepeertable._has_data():
-            return True
-
-        if self.cikephase1gwstatstable is not None and self.cikephase1gwstatstable._has_data():
-            return True
-
-        if self.ciketunnelhisttable is not None and self.ciketunnelhisttable._has_data():
-            return True
-
-        if self.ciketunneltable is not None and self.ciketunneltable._has_data():
-            return True
-
-        if self.cipsecendpthisttable is not None and self.cipsecendpthisttable._has_data():
-            return True
-
-        if self.cipsecendpttable is not None and self.cipsecendpttable._has_data():
-            return True
-
-        if self.cipsecfailglobalcntl is not None and self.cipsecfailglobalcntl._has_data():
-            return True
-
-        if self.cipsecfailtable is not None and self.cipsecfailtable._has_data():
-            return True
-
-        if self.cipsecglobalstats is not None and self.cipsecglobalstats._has_data():
-            return True
-
-        if self.cipsechistglobalcntl is not None and self.cipsechistglobalcntl._has_data():
-            return True
-
-        if self.cipseclevels is not None and self.cipseclevels._has_data():
-            return True
-
-        if self.cipsecphase2gwstatstable is not None and self.cipsecphase2gwstatstable._has_data():
-            return True
-
-        if self.cipsecspitable is not None and self.cipsecspitable._has_data():
-            return True
-
-        if self.cipsectrapcntl is not None and self.cipsectrapcntl._has_data():
-            return True
-
-        if self.cipsectunnelhisttable is not None and self.cipsectunnelhisttable._has_data():
-            return True
-
-        if self.cipsectunneltable is not None and self.cipsectunneltable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_IPSEC_FLOW_MONITOR_MIB as meta
-        return meta._meta_table['CiscoIpsecFlowMonitorMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoIpsecFlowMonitorMib()
+        return self._top_entity
 

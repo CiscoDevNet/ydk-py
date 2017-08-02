@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class TacacsDscpValueEnum(Enum):
+class TacacsDscpValue(Enum):
     """
-    TacacsDscpValueEnum
+    TacacsDscpValue
 
     Tacacs dscp value
 
@@ -117,53 +111,47 @@ class TacacsDscpValueEnum(Enum):
 
     """
 
-    af11 = 10
+    af11 = Enum.YLeaf(10, "af11")
 
-    af12 = 12
+    af12 = Enum.YLeaf(12, "af12")
 
-    af13 = 14
+    af13 = Enum.YLeaf(14, "af13")
 
-    af21 = 18
+    af21 = Enum.YLeaf(18, "af21")
 
-    af22 = 20
+    af22 = Enum.YLeaf(20, "af22")
 
-    af23 = 22
+    af23 = Enum.YLeaf(22, "af23")
 
-    af31 = 26
+    af31 = Enum.YLeaf(26, "af31")
 
-    af32 = 28
+    af32 = Enum.YLeaf(28, "af32")
 
-    af33 = 30
+    af33 = Enum.YLeaf(30, "af33")
 
-    af41 = 34
+    af41 = Enum.YLeaf(34, "af41")
 
-    af42 = 36
+    af42 = Enum.YLeaf(36, "af42")
 
-    af43 = 38
+    af43 = Enum.YLeaf(38, "af43")
 
-    cs1 = 8
+    cs1 = Enum.YLeaf(8, "cs1")
 
-    cs2 = 16
+    cs2 = Enum.YLeaf(16, "cs2")
 
-    cs3 = 24
+    cs3 = Enum.YLeaf(24, "cs3")
 
-    cs4 = 32
+    cs4 = Enum.YLeaf(32, "cs4")
 
-    cs5 = 40
+    cs5 = Enum.YLeaf(40, "cs5")
 
-    cs6 = 48
+    cs6 = Enum.YLeaf(48, "cs6")
 
-    cs7 = 56
+    cs7 = Enum.YLeaf(56, "cs7")
 
-    default = 0
+    default = Enum.YLeaf(0, "default")
 
-    ef = 46
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_tacacs_cfg as meta
-        return meta._meta_table['TacacsDscpValueEnum']
+    ef = Enum.YLeaf(46, "ef")
 
 
 

@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class BfdAfIdEnum(Enum):
+class BfdAfId(Enum):
     """
-    BfdAfIdEnum
+    BfdAfId
 
     Bfd af id
 
@@ -44,22 +38,16 @@ class BfdAfIdEnum(Enum):
 
     """
 
-    bfd_af_id_none = 0
+    bfd_af_id_none = Enum.YLeaf(0, "bfd-af-id-none")
 
-    bfd_af_id_ipv4 = 2
+    bfd_af_id_ipv4 = Enum.YLeaf(2, "bfd-af-id-ipv4")
 
-    bfd_af_id_ipv6 = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-        return meta._meta_table['BfdAfIdEnum']
+    bfd_af_id_ipv6 = Enum.YLeaf(10, "bfd-af-id-ipv6")
 
 
-class SbfdAddressFamilyEnum(Enum):
+class SbfdAddressFamily(Enum):
     """
-    SbfdAddressFamilyEnum
+    SbfdAddressFamily
 
     Sbfd address family
 
@@ -73,19 +61,13 @@ class SbfdAddressFamilyEnum(Enum):
 
     """
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-        return meta._meta_table['SbfdAddressFamilyEnum']
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
 
 
-class Sbfd(object):
+class Sbfd(Entity):
     """
     Seamless BFD (S\-BFD) operational data
     
@@ -102,11 +84,19 @@ class Sbfd(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Sbfd, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "sbfd"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-sbfd-oper"
+
         self.target_identifier = Sbfd.TargetIdentifier()
         self.target_identifier.parent = self
+        self._children_name_map["target_identifier"] = "target-identifier"
+        self._children_yang_names.add("target-identifier")
 
 
-    class TargetIdentifier(object):
+    class TargetIdentifier(Entity):
         """
         Target\-identifier information
         
@@ -128,14 +118,23 @@ class Sbfd(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Sbfd.TargetIdentifier, self).__init__()
+
+            self.yang_name = "target-identifier"
+            self.yang_parent_name = "sbfd"
+
             self.local_vrfs = Sbfd.TargetIdentifier.LocalVrfs()
             self.local_vrfs.parent = self
+            self._children_name_map["local_vrfs"] = "local-vrfs"
+            self._children_yang_names.add("local-vrfs")
+
             self.remote_vrfs = Sbfd.TargetIdentifier.RemoteVrfs()
             self.remote_vrfs.parent = self
+            self._children_name_map["remote_vrfs"] = "remote-vrfs"
+            self._children_yang_names.add("remote-vrfs")
 
 
-        class RemoteVrfs(object):
+        class RemoteVrfs(Entity):
             """
             SBFD remote discriminator data
             
@@ -152,13 +151,39 @@ class Sbfd(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.remote_vrf = YList()
-                self.remote_vrf.parent = self
-                self.remote_vrf.name = 'remote_vrf'
+                super(Sbfd.TargetIdentifier.RemoteVrfs, self).__init__()
+
+                self.yang_name = "remote-vrfs"
+                self.yang_parent_name = "target-identifier"
+
+                self.remote_vrf = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Sbfd.TargetIdentifier.RemoteVrfs, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Sbfd.TargetIdentifier.RemoteVrfs, self).__setattr__(name, value)
 
 
-            class RemoteVrf(object):
+            class RemoteVrf(Entity):
                 """
                 Table of remote discriminator data per VRF
                 
@@ -182,14 +207,41 @@ class Sbfd(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.vrf_name = None
-                    self.remote_discriminator = YList()
-                    self.remote_discriminator.parent = self
-                    self.remote_discriminator.name = 'remote_discriminator'
+                    super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, self).__init__()
+
+                    self.yang_name = "remote-vrf"
+                    self.yang_parent_name = "remote-vrfs"
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    self.remote_discriminator = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("vrf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, self).__setattr__(name, value)
 
 
-                class RemoteDiscriminator(object):
+                class RemoteDiscriminator(Entity):
                     """
                     SBFD remote discriminator 
                     
@@ -242,7 +294,7 @@ class Sbfd(object):
                     .. attribute:: tid_type
                     
                     	Target identifier for sbfd
-                    	**type**\:   :py:class:`SbfdAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamilyEnum>`
+                    	**type**\:   :py:class:`SbfdAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamily>`
                     
                     .. attribute:: vrf_name
                     
@@ -264,27 +316,72 @@ class Sbfd(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.address = None
-                        self.discr = None
-                        self.discr_src = None
+                        super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, self).__init__()
+
+                        self.yang_name = "remote-discriminator"
+                        self.yang_parent_name = "remote-vrf"
+
+                        self.address = YLeaf(YType.str, "address")
+
+                        self.discr = YLeaf(YType.uint32, "discr")
+
+                        self.discr_src = YLeaf(YType.str, "discr-src")
+
+                        self.remote_discriminator = YLeaf(YType.int32, "remote-discriminator")
+
+                        self.status = YLeaf(YType.str, "status")
+
+                        self.tid_type = YLeaf(YType.enumeration, "tid-type")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+
                         self.ip_address = Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress()
                         self.ip_address.parent = self
-                        self.remote_discriminator = None
-                        self.status = None
-                        self.tid_type = None
-                        self.vrf_name = None
-                        self.vrf_name_xr = None
+                        self._children_name_map["ip_address"] = "ip-address"
+                        self._children_yang_names.add("ip-address")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("address",
+                                        "discr",
+                                        "discr_src",
+                                        "remote_discriminator",
+                                        "status",
+                                        "tid_type",
+                                        "vrf_name",
+                                        "vrf_name_xr") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, self).__setattr__(name, value)
 
 
-                    class IpAddress(object):
+                    class IpAddress(Entity):
                         """
                         IP address
                         
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.BfdAfId>`
                         
                         .. attribute:: dummy
                         
@@ -315,140 +412,352 @@ class Sbfd(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.afi = None
-                            self.dummy = None
-                            self.ipv4 = None
-                            self.ipv6 = None
+                            super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "ip-address"
+                            self.yang_parent_name = "remote-discriminator"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-sbfd-oper:ip-address'
+                            self.afi = YLeaf(YType.enumeration, "afi")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.dummy = YLeaf(YType.uint8, "dummy")
+
+                            self.ipv4 = YLeaf(YType.str, "ipv4")
+
+                            self.ipv6 = YLeaf(YType.str, "ipv6")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("afi",
+                                            "dummy",
+                                            "ipv4",
+                                            "ipv6") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.afi.is_set or
+                                self.dummy.is_set or
+                                self.ipv4.is_set or
+                                self.ipv6.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.afi.yfilter != YFilter.not_set or
+                                self.dummy.yfilter != YFilter.not_set or
+                                self.ipv4.yfilter != YFilter.not_set or
+                                self.ipv6.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ip-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.afi.is_set or self.afi.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.afi.get_name_leafdata())
+                            if (self.dummy.is_set or self.dummy.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dummy.get_name_leafdata())
+                            if (self.ipv4.is_set or self.ipv4.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4.get_name_leafdata())
+                            if (self.ipv6.is_set or self.ipv6.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "afi" or name == "dummy" or name == "ipv4" or name == "ipv6"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.afi is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "afi"):
+                                self.afi = value
+                                self.afi.value_namespace = name_space
+                                self.afi.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dummy"):
+                                self.dummy = value
+                                self.dummy.value_namespace = name_space
+                                self.dummy.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4"):
+                                self.ipv4 = value
+                                self.ipv4.value_namespace = name_space
+                                self.ipv4.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6"):
+                                self.ipv6 = value
+                                self.ipv6.value_namespace = name_space
+                                self.ipv6.value_namespace_prefix = name_space_prefix
 
-                            if self.dummy is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.address.is_set or
+                            self.discr.is_set or
+                            self.discr_src.is_set or
+                            self.remote_discriminator.is_set or
+                            self.status.is_set or
+                            self.tid_type.is_set or
+                            self.vrf_name.is_set or
+                            self.vrf_name_xr.is_set or
+                            (self.ip_address is not None and self.ip_address.has_data()))
 
-                            if self.ipv4 is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.address.yfilter != YFilter.not_set or
+                            self.discr.yfilter != YFilter.not_set or
+                            self.discr_src.yfilter != YFilter.not_set or
+                            self.remote_discriminator.yfilter != YFilter.not_set or
+                            self.status.yfilter != YFilter.not_set or
+                            self.tid_type.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set or
+                            self.vrf_name_xr.yfilter != YFilter.not_set or
+                            (self.ip_address is not None and self.ip_address.has_operation()))
 
-                            if self.ipv6 is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "remote-discriminator" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-                            return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
+                        if (self.address.is_set or self.address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.address.get_name_leafdata())
+                        if (self.discr.is_set or self.discr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.discr.get_name_leafdata())
+                        if (self.discr_src.is_set or self.discr_src.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.discr_src.get_name_leafdata())
+                        if (self.remote_discriminator.is_set or self.remote_discriminator.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_discriminator.get_name_leafdata())
+                        if (self.status.is_set or self.status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.status.get_name_leafdata())
+                        if (self.tid_type.is_set or self.tid_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tid_type.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                        if (self.vrf_name_xr.is_set or self.vrf_name_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name_xr.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-sbfd-oper:remote-discriminator'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "ip-address"):
+                            if (self.ip_address is None):
+                                self.ip_address = Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress()
+                                self.ip_address.parent = self
+                                self._children_name_map["ip_address"] = "ip-address"
+                            return self.ip_address
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ip-address" or name == "address" or name == "discr" or name == "discr-src" or name == "remote-discriminator" or name == "status" or name == "tid-type" or name == "vrf-name" or name == "vrf-name-xr"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.address is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "address"):
+                            self.address = value
+                            self.address.value_namespace = name_space
+                            self.address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "discr"):
+                            self.discr = value
+                            self.discr.value_namespace = name_space
+                            self.discr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "discr-src"):
+                            self.discr_src = value
+                            self.discr_src.value_namespace = name_space
+                            self.discr_src.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-discriminator"):
+                            self.remote_discriminator = value
+                            self.remote_discriminator.value_namespace = name_space
+                            self.remote_discriminator.value_namespace_prefix = name_space_prefix
+                        if(value_path == "status"):
+                            self.status = value
+                            self.status.value_namespace = name_space
+                            self.status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tid-type"):
+                            self.tid_type = value
+                            self.tid_type.value_namespace = name_space
+                            self.tid_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name-xr"):
+                            self.vrf_name_xr = value
+                            self.vrf_name_xr.value_namespace = name_space
+                            self.vrf_name_xr.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.remote_discriminator:
+                        if (c.has_data()):
                             return True
+                    return self.vrf_name.is_set
 
-                        if self.discr is not None:
+                def has_operation(self):
+                    for c in self.remote_discriminator:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.vrf_name.yfilter != YFilter.not_set)
 
-                        if self.discr_src is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "remote-vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-                        if self.ip_address is not None and self.ip_address._has_data():
-                            return True
+                    return path_buffer
 
-                        if self.remote_discriminator is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/remote-vrfs/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.status is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
 
-                        if self.tid_type is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.vrf_name is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.vrf_name_xr is not None:
-                            return True
+                    if (child_yang_name == "remote-discriminator"):
+                        for c in self.remote_discriminator:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.remote_discriminator.append(c)
+                        return c
 
-                        return False
+                    return None
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-                        return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.vrf_name is None:
-                        raise YPYModelError('Key property vrf_name is None')
-
-                    return '/Cisco-IOS-XR-ip-sbfd-oper:sbfd/Cisco-IOS-XR-ip-sbfd-oper:target-identifier/Cisco-IOS-XR-ip-sbfd-oper:remote-vrfs/Cisco-IOS-XR-ip-sbfd-oper:remote-vrf[Cisco-IOS-XR-ip-sbfd-oper:vrf-name = ' + str(self.vrf_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.vrf_name is not None:
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "remote-discriminator" or name == "vrf-name"):
                         return True
-
-                    if self.remote_discriminator is not None:
-                        for child_ref in self.remote_discriminator:
-                            if child_ref._has_data():
-                                return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-                    return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "vrf-name"):
+                        self.vrf_name = value
+                        self.vrf_name.value_namespace = name_space
+                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-sbfd-oper:sbfd/Cisco-IOS-XR-ip-sbfd-oper:target-identifier/Cisco-IOS-XR-ip-sbfd-oper:remote-vrfs'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                for c in self.remote_vrf:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            def _has_data(self):
-                if self.remote_vrf is not None:
-                    for child_ref in self.remote_vrf:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.remote_vrf:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "remote-vrfs" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "remote-vrf"):
+                    for c in self.remote_vrf:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.remote_vrf.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "remote-vrf"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-                return meta._meta_table['Sbfd.TargetIdentifier.RemoteVrfs']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class LocalVrfs(object):
+        class LocalVrfs(Entity):
             """
             SBFD local discriminator  data
             
@@ -465,13 +774,39 @@ class Sbfd(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.local_vrf = YList()
-                self.local_vrf.parent = self
-                self.local_vrf.name = 'local_vrf'
+                super(Sbfd.TargetIdentifier.LocalVrfs, self).__init__()
+
+                self.yang_name = "local-vrfs"
+                self.yang_parent_name = "target-identifier"
+
+                self.local_vrf = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Sbfd.TargetIdentifier.LocalVrfs, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Sbfd.TargetIdentifier.LocalVrfs, self).__setattr__(name, value)
 
 
-            class LocalVrf(object):
+            class LocalVrf(Entity):
                 """
                 Table of local discriminator data per VRF
                 
@@ -495,14 +830,41 @@ class Sbfd(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.vrf_name = None
-                    self.local_discriminator = YList()
-                    self.local_discriminator.parent = self
-                    self.local_discriminator.name = 'local_discriminator'
+                    super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__init__()
+
+                    self.yang_name = "local-vrf"
+                    self.yang_parent_name = "local-vrfs"
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    self.local_discriminator = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("vrf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, self).__setattr__(name, value)
 
 
-                class LocalDiscriminator(object):
+                class LocalDiscriminator(Entity):
                     """
                     SBFD local discriminator 
                     
@@ -555,145 +917,377 @@ class Sbfd(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.discr = None
-                        self.discr_src = None
-                        self.flags = None
-                        self.local_discriminator = None
-                        self.status = None
-                        self.vrf_name = None
-                        self.vrf_name_xr = None
+                        super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "local-discriminator"
+                        self.yang_parent_name = "local-vrf"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-sbfd-oper:local-discriminator'
+                        self.discr = YLeaf(YType.uint32, "discr")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.discr_src = YLeaf(YType.str, "discr-src")
+
+                        self.flags = YLeaf(YType.str, "flags")
+
+                        self.local_discriminator = YLeaf(YType.int32, "local-discriminator")
+
+                        self.status = YLeaf(YType.str, "status")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        self.vrf_name_xr = YLeaf(YType.str, "vrf-name-xr")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("discr",
+                                        "discr_src",
+                                        "flags",
+                                        "local_discriminator",
+                                        "status",
+                                        "vrf_name",
+                                        "vrf_name_xr") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.discr.is_set or
+                            self.discr_src.is_set or
+                            self.flags.is_set or
+                            self.local_discriminator.is_set or
+                            self.status.is_set or
+                            self.vrf_name.is_set or
+                            self.vrf_name_xr.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.discr.yfilter != YFilter.not_set or
+                            self.discr_src.yfilter != YFilter.not_set or
+                            self.flags.yfilter != YFilter.not_set or
+                            self.local_discriminator.yfilter != YFilter.not_set or
+                            self.status.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set or
+                            self.vrf_name_xr.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "local-discriminator" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.discr.is_set or self.discr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.discr.get_name_leafdata())
+                        if (self.discr_src.is_set or self.discr_src.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.discr_src.get_name_leafdata())
+                        if (self.flags.is_set or self.flags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.flags.get_name_leafdata())
+                        if (self.local_discriminator.is_set or self.local_discriminator.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.local_discriminator.get_name_leafdata())
+                        if (self.status.is_set or self.status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.status.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+                        if (self.vrf_name_xr.is_set or self.vrf_name_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name_xr.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "discr" or name == "discr-src" or name == "flags" or name == "local-discriminator" or name == "status" or name == "vrf-name" or name == "vrf-name-xr"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.discr is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "discr"):
+                            self.discr = value
+                            self.discr.value_namespace = name_space
+                            self.discr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "discr-src"):
+                            self.discr_src = value
+                            self.discr_src.value_namespace = name_space
+                            self.discr_src.value_namespace_prefix = name_space_prefix
+                        if(value_path == "flags"):
+                            self.flags = value
+                            self.flags.value_namespace = name_space
+                            self.flags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "local-discriminator"):
+                            self.local_discriminator = value
+                            self.local_discriminator.value_namespace = name_space
+                            self.local_discriminator.value_namespace_prefix = name_space_prefix
+                        if(value_path == "status"):
+                            self.status = value
+                            self.status.value_namespace = name_space
+                            self.status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name-xr"):
+                            self.vrf_name_xr = value
+                            self.vrf_name_xr.value_namespace = name_space
+                            self.vrf_name_xr.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.local_discriminator:
+                        if (c.has_data()):
                             return True
+                    return self.vrf_name.is_set
 
-                        if self.discr_src is not None:
+                def has_operation(self):
+                    for c in self.local_discriminator:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.vrf_name.yfilter != YFilter.not_set)
 
-                        if self.flags is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "local-vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-                        if self.local_discriminator is not None:
-                            return True
+                    return path_buffer
 
-                        if self.status is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/local-vrfs/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.vrf_name is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
 
-                        if self.vrf_name_xr is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-                        return meta._meta_table['Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator']['meta_info']
+                    if (child_yang_name == "local-discriminator"):
+                        for c in self.local_discriminator:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.local_discriminator.append(c)
+                        return c
 
-                @property
-                def _common_path(self):
-                    if self.vrf_name is None:
-                        raise YPYModelError('Key property vrf_name is None')
+                    return None
 
-                    return '/Cisco-IOS-XR-ip-sbfd-oper:sbfd/Cisco-IOS-XR-ip-sbfd-oper:target-identifier/Cisco-IOS-XR-ip-sbfd-oper:local-vrfs/Cisco-IOS-XR-ip-sbfd-oper:local-vrf[Cisco-IOS-XR-ip-sbfd-oper:vrf-name = ' + str(self.vrf_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.vrf_name is not None:
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "local-discriminator" or name == "vrf-name"):
                         return True
-
-                    if self.local_discriminator is not None:
-                        for child_ref in self.local_discriminator:
-                            if child_ref._has_data():
-                                return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-                    return meta._meta_table['Sbfd.TargetIdentifier.LocalVrfs.LocalVrf']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "vrf-name"):
+                        self.vrf_name = value
+                        self.vrf_name.value_namespace = name_space
+                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-sbfd-oper:sbfd/Cisco-IOS-XR-ip-sbfd-oper:target-identifier/Cisco-IOS-XR-ip-sbfd-oper:local-vrfs'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                for c in self.local_vrf:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            def _has_data(self):
-                if self.local_vrf is not None:
-                    for child_ref in self.local_vrf:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.local_vrf:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "local-vrfs" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "local-vrf"):
+                    for c in self.local_vrf:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Sbfd.TargetIdentifier.LocalVrfs.LocalVrf()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.local_vrf.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "local-vrf"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-                return meta._meta_table['Sbfd.TargetIdentifier.LocalVrfs']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.local_vrfs is not None and self.local_vrfs.has_data()) or
+                (self.remote_vrfs is not None and self.remote_vrfs.has_data()))
 
-            return '/Cisco-IOS-XR-ip-sbfd-oper:sbfd/Cisco-IOS-XR-ip-sbfd-oper:target-identifier'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.local_vrfs is not None and self.local_vrfs.has_operation()) or
+                (self.remote_vrfs is not None and self.remote_vrfs.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "target-identifier" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-sbfd-oper:sbfd/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "local-vrfs"):
+                if (self.local_vrfs is None):
+                    self.local_vrfs = Sbfd.TargetIdentifier.LocalVrfs()
+                    self.local_vrfs.parent = self
+                    self._children_name_map["local_vrfs"] = "local-vrfs"
+                return self.local_vrfs
+
+            if (child_yang_name == "remote-vrfs"):
+                if (self.remote_vrfs is None):
+                    self.remote_vrfs = Sbfd.TargetIdentifier.RemoteVrfs()
+                    self.remote_vrfs.parent = self
+                    self._children_name_map["remote_vrfs"] = "remote-vrfs"
+                return self.remote_vrfs
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "local-vrfs" or name == "remote-vrfs"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.local_vrfs is not None and self.local_vrfs._has_data():
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-            if self.remote_vrfs is not None and self.remote_vrfs._has_data():
-                return True
+    def has_data(self):
+        return (self.target_identifier is not None and self.target_identifier.has_data())
 
-            return False
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.target_identifier is not None and self.target_identifier.has_operation()))
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-            return meta._meta_table['Sbfd.TargetIdentifier']['meta_info']
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-sbfd-oper:sbfd" + path_buffer
 
-    @property
-    def _common_path(self):
+        return path_buffer
 
-        return '/Cisco-IOS-XR-ip-sbfd-oper:sbfd'
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-    def _has_data(self):
-        if self.target_identifier is not None and self.target_identifier._has_data():
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "target-identifier"):
+            if (self.target_identifier is None):
+                self.target_identifier = Sbfd.TargetIdentifier()
+                self.target_identifier.parent = self
+                self._children_name_map["target_identifier"] = "target-identifier"
+            return self.target_identifier
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "target-identifier"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_sbfd_oper as meta
-        return meta._meta_table['Sbfd']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Sbfd()
+        return self._top_entity
 

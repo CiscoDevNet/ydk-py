@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SpaFailureReasonEnum(Enum):
+class SpaFailureReason(Enum):
     """
-    SpaFailureReasonEnum
+    SpaFailureReason
 
     SPA failure reasons
 
@@ -65,32 +59,26 @@ class SpaFailureReasonEnum(Enum):
 
     """
 
-    spa_failure_reason_unknown = 1
+    spa_failure_reason_unknown = Enum.YLeaf(1, "spa-failure-reason-unknown")
 
-    spa_failure_reason_spi_failure = 2
+    spa_failure_reason_spi_failure = Enum.YLeaf(2, "spa-failure-reason-spi-failure")
 
-    spa_failure_reason_boot = 3
+    spa_failure_reason_boot = Enum.YLeaf(3, "spa-failure-reason-boot")
 
-    spa_failure_reason_hw_failed = 4
+    spa_failure_reason_hw_failed = Enum.YLeaf(4, "spa-failure-reason-hw-failed")
 
-    spa_failure_reason_sw_failed = 5
+    spa_failure_reason_sw_failed = Enum.YLeaf(5, "spa-failure-reason-sw-failed")
 
-    spa_failure_reason_sw_restart = 6
+    spa_failure_reason_sw_restart = Enum.YLeaf(6, "spa-failure-reason-sw-restart")
 
-    spa_failure_reason_check_fpd = 7
+    spa_failure_reason_check_fpd = Enum.YLeaf(7, "spa-failure-reason-check-fpd")
 
-    spa_failure_reason_read_type = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-        return meta._meta_table['SpaFailureReasonEnum']
+    spa_failure_reason_read_type = Enum.YLeaf(8, "spa-failure-reason-read-type")
 
 
-class SpaOperStateEnum(Enum):
+class SpaOperState(Enum):
     """
-    SpaOperStateEnum
+    SpaOperState
 
     SPA operational states
 
@@ -112,24 +100,18 @@ class SpaOperStateEnum(Enum):
 
     """
 
-    spa_state_reset = 1
+    spa_state_reset = Enum.YLeaf(1, "spa-state-reset")
 
-    spa_state_failed = 2
+    spa_state_failed = Enum.YLeaf(2, "spa-state-failed")
 
-    spa_state_booting = 3
+    spa_state_booting = Enum.YLeaf(3, "spa-state-booting")
 
-    spa_state_ready = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-        return meta._meta_table['SpaOperStateEnum']
+    spa_state_ready = Enum.YLeaf(4, "spa-state-ready")
 
 
-class SpaResetReasonEnum(Enum):
+class SpaResetReason(Enum):
     """
-    SpaResetReasonEnum
+    SpaResetReason
 
     SPA reset reasons
 
@@ -155,25 +137,19 @@ class SpaResetReasonEnum(Enum):
 
     """
 
-    spa_reset_reason_unknown = 1
+    spa_reset_reason_unknown = Enum.YLeaf(1, "spa-reset-reason-unknown")
 
-    spa_reset_reason_manual = 2
+    spa_reset_reason_manual = Enum.YLeaf(2, "spa-reset-reason-manual")
 
-    spa_reset_reason_fpd_upgrade = 3
+    spa_reset_reason_fpd_upgrade = Enum.YLeaf(3, "spa-reset-reason-fpd-upgrade")
 
-    spa_reset_reason_audit_fail = 4
+    spa_reset_reason_audit_fail = Enum.YLeaf(4, "spa-reset-reason-audit-fail")
 
-    spa_reset_reason_failure = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-        return meta._meta_table['SpaResetReasonEnum']
+    spa_reset_reason_failure = Enum.YLeaf(5, "spa-reset-reason-failure")
 
 
 
-class MpaInternal(object):
+class MpaInternal(Entity):
     """
     Management LAN Operational data space
     
@@ -190,11 +166,19 @@ class MpaInternal(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(MpaInternal, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "mpa-internal"
+        self.yang_parent_name = "Cisco-IOS-XR-asr9k-lc-fca-oper"
+
         self.nodes = MpaInternal.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         Table of nodes
         
@@ -211,13 +195,39 @@ class MpaInternal(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(MpaInternal.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "mpa-internal"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(MpaInternal.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(MpaInternal.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             Number
             
@@ -241,14 +251,41 @@ class MpaInternal(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node = None
-                self.bay = YList()
-                self.bay.parent = self
-                self.bay.name = 'bay'
+                super(MpaInternal.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node = YLeaf(YType.str, "node")
+
+                self.bay = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(MpaInternal.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(MpaInternal.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Bay(object):
+            class Bay(Entity):
                 """
                 Number
                 
@@ -272,13 +309,44 @@ class MpaInternal(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.number = None
+                    super(MpaInternal.Nodes.Node.Bay, self).__init__()
+
+                    self.yang_name = "bay"
+                    self.yang_parent_name = "node"
+
+                    self.number = YLeaf(YType.int32, "number")
+
                     self.ifsubsies = MpaInternal.Nodes.Node.Bay.Ifsubsies()
                     self.ifsubsies.parent = self
+                    self._children_name_map["ifsubsies"] = "ifsubsies"
+                    self._children_yang_names.add("ifsubsies")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("number") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(MpaInternal.Nodes.Node.Bay, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(MpaInternal.Nodes.Node.Bay, self).__setattr__(name, value)
 
 
-                class Ifsubsies(object):
+                class Ifsubsies(Entity):
                     """
                     Table of Ifsubsys
                     
@@ -295,13 +363,39 @@ class MpaInternal(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ifsubsy = YList()
-                        self.ifsubsy.parent = self
-                        self.ifsubsy.name = 'ifsubsy'
+                        super(MpaInternal.Nodes.Node.Bay.Ifsubsies, self).__init__()
+
+                        self.yang_name = "ifsubsies"
+                        self.yang_parent_name = "bay"
+
+                        self.ifsubsy = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(MpaInternal.Nodes.Node.Bay.Ifsubsies, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(MpaInternal.Nodes.Node.Bay.Ifsubsies, self).__setattr__(name, value)
 
 
-                    class Ifsubsy(object):
+                    class Ifsubsy(Entity):
                         """
                         Number
                         
@@ -325,13 +419,44 @@ class MpaInternal(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.number = None
+                            super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy, self).__init__()
+
+                            self.yang_name = "ifsubsy"
+                            self.yang_parent_name = "ifsubsies"
+
+                            self.number = YLeaf(YType.str, "number")
+
                             self.mpa_internal_info = MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo()
                             self.mpa_internal_info.parent = self
+                            self._children_name_map["mpa_internal_info"] = "mpa-internal-info"
+                            self._children_yang_names.add("mpa-internal-info")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("number") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy, self).__setattr__(name, value)
 
 
-                        class MpaInternalInfo(object):
+                        class MpaInternalInfo(Entity):
                             """
                             mpa internal info
                             
@@ -413,216 +538,525 @@ class MpaInternal(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.bay = None
-                                self.ep_idprom_data = None
-                                self.ep_idprom_major = None
-                                self.ep_idprom_minor = None
-                                self.ep_presence = None
-                                self.ep_state = None
-                                self.ep_type = None
-                                self.if_event = None
-                                self.if_state = None
-                                self.ifsubsys = None
+                                super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mpa-internal-info"
+                                self.yang_parent_name = "ifsubsy"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal-info'
+                                self.bay = YLeaf(YType.uint32, "bay")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.ep_idprom_data = YLeaf(YType.str, "ep-idprom-data")
+
+                                self.ep_idprom_major = YLeaf(YType.uint8, "ep-idprom-major")
+
+                                self.ep_idprom_minor = YLeaf(YType.uint8, "ep-idprom-minor")
+
+                                self.ep_presence = YLeaf(YType.uint8, "ep-presence")
+
+                                self.ep_state = YLeaf(YType.uint8, "ep-state")
+
+                                self.ep_type = YLeaf(YType.uint32, "ep-type")
+
+                                self.if_event = YLeaf(YType.uint8, "if-event")
+
+                                self.if_state = YLeaf(YType.uint8, "if-state")
+
+                                self.ifsubsys = YLeaf(YType.uint32, "ifsubsys")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("bay",
+                                                "ep_idprom_data",
+                                                "ep_idprom_major",
+                                                "ep_idprom_minor",
+                                                "ep_presence",
+                                                "ep_state",
+                                                "ep_type",
+                                                "if_event",
+                                                "if_state",
+                                                "ifsubsys") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.bay.is_set or
+                                    self.ep_idprom_data.is_set or
+                                    self.ep_idprom_major.is_set or
+                                    self.ep_idprom_minor.is_set or
+                                    self.ep_presence.is_set or
+                                    self.ep_state.is_set or
+                                    self.ep_type.is_set or
+                                    self.if_event.is_set or
+                                    self.if_state.is_set or
+                                    self.ifsubsys.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.bay.yfilter != YFilter.not_set or
+                                    self.ep_idprom_data.yfilter != YFilter.not_set or
+                                    self.ep_idprom_major.yfilter != YFilter.not_set or
+                                    self.ep_idprom_minor.yfilter != YFilter.not_set or
+                                    self.ep_presence.yfilter != YFilter.not_set or
+                                    self.ep_state.yfilter != YFilter.not_set or
+                                    self.ep_type.yfilter != YFilter.not_set or
+                                    self.if_event.yfilter != YFilter.not_set or
+                                    self.if_state.yfilter != YFilter.not_set or
+                                    self.ifsubsys.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mpa-internal-info" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.bay.is_set or self.bay.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.bay.get_name_leafdata())
+                                if (self.ep_idprom_data.is_set or self.ep_idprom_data.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ep_idprom_data.get_name_leafdata())
+                                if (self.ep_idprom_major.is_set or self.ep_idprom_major.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ep_idprom_major.get_name_leafdata())
+                                if (self.ep_idprom_minor.is_set or self.ep_idprom_minor.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ep_idprom_minor.get_name_leafdata())
+                                if (self.ep_presence.is_set or self.ep_presence.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ep_presence.get_name_leafdata())
+                                if (self.ep_state.is_set or self.ep_state.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ep_state.get_name_leafdata())
+                                if (self.ep_type.is_set or self.ep_type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ep_type.get_name_leafdata())
+                                if (self.if_event.is_set or self.if_event.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.if_event.get_name_leafdata())
+                                if (self.if_state.is_set or self.if_state.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.if_state.get_name_leafdata())
+                                if (self.ifsubsys.is_set or self.ifsubsys.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ifsubsys.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "bay" or name == "ep-idprom-data" or name == "ep-idprom-major" or name == "ep-idprom-minor" or name == "ep-presence" or name == "ep-state" or name == "ep-type" or name == "if-event" or name == "if-state" or name == "ifsubsys"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.bay is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "bay"):
+                                    self.bay = value
+                                    self.bay.value_namespace = name_space
+                                    self.bay.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ep-idprom-data"):
+                                    self.ep_idprom_data = value
+                                    self.ep_idprom_data.value_namespace = name_space
+                                    self.ep_idprom_data.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ep-idprom-major"):
+                                    self.ep_idprom_major = value
+                                    self.ep_idprom_major.value_namespace = name_space
+                                    self.ep_idprom_major.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ep-idprom-minor"):
+                                    self.ep_idprom_minor = value
+                                    self.ep_idprom_minor.value_namespace = name_space
+                                    self.ep_idprom_minor.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ep-presence"):
+                                    self.ep_presence = value
+                                    self.ep_presence.value_namespace = name_space
+                                    self.ep_presence.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ep-state"):
+                                    self.ep_state = value
+                                    self.ep_state.value_namespace = name_space
+                                    self.ep_state.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ep-type"):
+                                    self.ep_type = value
+                                    self.ep_type.value_namespace = name_space
+                                    self.ep_type.value_namespace_prefix = name_space_prefix
+                                if(value_path == "if-event"):
+                                    self.if_event = value
+                                    self.if_event.value_namespace = name_space
+                                    self.if_event.value_namespace_prefix = name_space_prefix
+                                if(value_path == "if-state"):
+                                    self.if_state = value
+                                    self.if_state.value_namespace = name_space
+                                    self.if_state.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ifsubsys"):
+                                    self.ifsubsys = value
+                                    self.ifsubsys.value_namespace = name_space
+                                    self.ifsubsys.value_namespace_prefix = name_space_prefix
 
-                                if self.ep_idprom_data is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.number.is_set or
+                                (self.mpa_internal_info is not None and self.mpa_internal_info.has_data()))
 
-                                if self.ep_idprom_major is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.number.yfilter != YFilter.not_set or
+                                (self.mpa_internal_info is not None and self.mpa_internal_info.has_operation()))
 
-                                if self.ep_idprom_minor is not None:
-                                    return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "ifsubsy" + "[number='" + self.number.get() + "']" + path_buffer
 
-                                if self.ep_presence is not None:
-                                    return True
+                            return path_buffer
 
-                                if self.ep_state is not None:
-                                    return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                if self.ep_type is not None:
-                                    return True
+                            leaf_name_data = LeafDataList()
+                            if (self.number.is_set or self.number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.number.get_name_leafdata())
 
-                                if self.if_event is not None:
-                                    return True
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                                if self.if_state is not None:
-                                    return True
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
 
-                                if self.ifsubsys is not None:
-                                    return True
+                            if (child_yang_name == "mpa-internal-info"):
+                                if (self.mpa_internal_info is None):
+                                    self.mpa_internal_info = MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo()
+                                    self.mpa_internal_info.parent = self
+                                    self._children_name_map["mpa_internal_info"] = "mpa-internal-info"
+                                return self.mpa_internal_info
 
-                                return False
+                            return None
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                                return meta._meta_table['MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy.MpaInternalInfo']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.number is None:
-                                raise YPYModelError('Key property number is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-fca-oper:ifsubsy[Cisco-IOS-XR-asr9k-lc-fca-oper:number = ' + str(self.number) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "mpa-internal-info" or name == "number"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.number is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "number"):
+                                self.number = value
+                                self.number.value_namespace = name_space
+                                self.number.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.ifsubsy:
+                            if (c.has_data()):
                                 return True
-
-                            if self.mpa_internal_info is not None and self.mpa_internal_info._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                            return meta._meta_table['MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-fca-oper:ifsubsies'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.ifsubsy is not None:
-                            for child_ref in self.ifsubsy:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.ifsubsy:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                        return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ifsubsies" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                        return meta._meta_table['MpaInternal.Nodes.Node.Bay.Ifsubsies']['meta_info']
+                        return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.number is None:
-                        raise YPYModelError('Key property number is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-fca-oper:bay[Cisco-IOS-XR-asr9k-lc-fca-oper:number = ' + str(self.number) + ']'
+                        leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                def _has_data(self):
-                    if self.number is not None:
-                        return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                    if self.ifsubsies is not None and self.ifsubsies._has_data():
-                        return True
+                        if (child_yang_name == "ifsubsy"):
+                            for c in self.ifsubsy:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = MpaInternal.Nodes.Node.Bay.Ifsubsies.Ifsubsy()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.ifsubsy.append(c)
+                            return c
 
-                    return False
+                        return None
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                    return meta._meta_table['MpaInternal.Nodes.Node.Bay']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.node is None:
-                    raise YPYModelError('Key property node is None')
-
-                return '/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal/Cisco-IOS-XR-asr9k-lc-fca-oper:nodes/Cisco-IOS-XR-asr9k-lc-fca-oper:node[Cisco-IOS-XR-asr9k-lc-fca-oper:node = ' + str(self.node) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.node is not None:
-                    return True
-
-                if self.bay is not None:
-                    for child_ref in self.bay:
-                        if child_ref._has_data():
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ifsubsy"):
                             return True
+                        return False
 
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.number.is_set or
+                        (self.ifsubsies is not None and self.ifsubsies.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.number.yfilter != YFilter.not_set or
+                        (self.ifsubsies is not None and self.ifsubsies.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bay" + "[number='" + self.number.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.number.is_set or self.number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "ifsubsies"):
+                        if (self.ifsubsies is None):
+                            self.ifsubsies = MpaInternal.Nodes.Node.Bay.Ifsubsies()
+                            self.ifsubsies.parent = self
+                            self._children_name_map["ifsubsies"] = "ifsubsies"
+                        return self.ifsubsies
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ifsubsies" or name == "number"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "number"):
+                        self.number = value
+                        self.number.value_namespace = name_space
+                        self.number.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.bay:
+                    if (c.has_data()):
+                        return True
+                return self.node.is_set
+
+            def has_operation(self):
+                for c in self.bay:
+                    if (c.has_operation()):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node='" + self.node.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node.is_set or self.node.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "bay"):
+                    for c in self.bay:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = MpaInternal.Nodes.Node.Bay()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.bay.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "bay" or name == "node"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                return meta._meta_table['MpaInternal.Nodes.Node']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node"):
+                    self.node = value
+                    self.node.value_namespace = name_space
+                    self.node.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal/Cisco-IOS-XR-asr9k-lc-fca-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = MpaInternal.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-            return meta._meta_table['MpaInternal.Nodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
 
-        return '/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal" + path_buffer
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = MpaInternal.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-        return meta._meta_table['MpaInternal']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = MpaInternal()
+        return self._top_entity
 
-class Mpa(object):
+class Mpa(Entity):
     """
     mpa
     
@@ -639,11 +1073,19 @@ class Mpa(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Mpa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "mpa"
+        self.yang_parent_name = "Cisco-IOS-XR-asr9k-lc-fca-oper"
+
         self.nodes = Mpa.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         Table of nodes
         
@@ -660,13 +1102,39 @@ class Mpa(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(Mpa.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "mpa"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Mpa.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Mpa.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             Number
             
@@ -690,14 +1158,41 @@ class Mpa(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node = None
-                self.bay = YList()
-                self.bay.parent = self
-                self.bay.name = 'bay'
+                super(Mpa.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node = YLeaf(YType.str, "node")
+
+                self.bay = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Mpa.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Mpa.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Bay(object):
+            class Bay(Entity):
                 """
                 Number
                 
@@ -721,13 +1216,44 @@ class Mpa(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.number = None
+                    super(Mpa.Nodes.Node.Bay, self).__init__()
+
+                    self.yang_name = "bay"
+                    self.yang_parent_name = "node"
+
+                    self.number = YLeaf(YType.int32, "number")
+
                     self.mpa_detail_table = Mpa.Nodes.Node.Bay.MpaDetailTable()
                     self.mpa_detail_table.parent = self
+                    self._children_name_map["mpa_detail_table"] = "mpa-detail-table"
+                    self._children_yang_names.add("mpa-detail-table")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("number") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Mpa.Nodes.Node.Bay, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Mpa.Nodes.Node.Bay, self).__setattr__(name, value)
 
 
-                class MpaDetailTable(object):
+                class MpaDetailTable(Entity):
                     """
                     Table of Mpa Detail Info
                     
@@ -744,12 +1270,18 @@ class Mpa(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Mpa.Nodes.Node.Bay.MpaDetailTable, self).__init__()
+
+                        self.yang_name = "mpa-detail-table"
+                        self.yang_parent_name = "bay"
+
                         self.mpa_detail = Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail()
                         self.mpa_detail.parent = self
+                        self._children_name_map["mpa_detail"] = "mpa-detail"
+                        self._children_yang_names.add("mpa-detail")
 
 
-                    class MpaDetail(object):
+                    class MpaDetail(Entity):
                         """
                         mpa detail status info
                         
@@ -797,7 +1329,7 @@ class Mpa(object):
                         .. attribute:: last_failure_reason
                         
                         	Last Failure Reason
-                        	**type**\:   :py:class:`SpaFailureReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaFailureReasonEnum>`
+                        	**type**\:   :py:class:`SpaFailureReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaFailureReason>`
                         
                         .. attribute:: last_ready_time
                         
@@ -811,12 +1343,12 @@ class Mpa(object):
                         .. attribute:: last_reset_reason
                         
                         	Last reset reason
-                        	**type**\:   :py:class:`SpaResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaResetReasonEnum>`
+                        	**type**\:   :py:class:`SpaResetReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaResetReason>`
                         
                         .. attribute:: spa_oper_state
                         
                         	SPA operational state
-                        	**type**\:   :py:class:`SpaOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaOperStateEnum>`
+                        	**type**\:   :py:class:`SpaOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper.SpaOperState>`
                         
                         .. attribute:: spa_type
                         
@@ -842,195 +1374,489 @@ class Mpa(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.bay_number = None
-                            self.insertion_time = None
-                            self.is_spa_admin_up = None
-                            self.is_spa_in_reset = None
-                            self.is_spa_inserted = None
-                            self.is_spa_power_admin_up = None
-                            self.is_spa_powered = None
-                            self.last_failure_reason = None
-                            self.last_ready_time = None
-                            self.last_reset_reason = None
-                            self.spa_oper_state = None
-                            self.spa_type = None
-                            self.up_time = None
+                            super(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "mpa-detail"
+                            self.yang_parent_name = "mpa-detail-table"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-detail'
+                            self.bay_number = YLeaf(YType.uint16, "bay-number")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.insertion_time = YLeaf(YType.uint32, "insertion-time")
+
+                            self.is_spa_admin_up = YLeaf(YType.boolean, "is-spa-admin-up")
+
+                            self.is_spa_in_reset = YLeaf(YType.boolean, "is-spa-in-reset")
+
+                            self.is_spa_inserted = YLeaf(YType.boolean, "is-spa-inserted")
+
+                            self.is_spa_power_admin_up = YLeaf(YType.boolean, "is-spa-power-admin-up")
+
+                            self.is_spa_powered = YLeaf(YType.boolean, "is-spa-powered")
+
+                            self.last_failure_reason = YLeaf(YType.enumeration, "last-failure-reason")
+
+                            self.last_ready_time = YLeaf(YType.uint32, "last-ready-time")
+
+                            self.last_reset_reason = YLeaf(YType.enumeration, "last-reset-reason")
+
+                            self.spa_oper_state = YLeaf(YType.enumeration, "spa-oper-state")
+
+                            self.spa_type = YLeaf(YType.uint16, "spa-type")
+
+                            self.up_time = YLeaf(YType.uint32, "up-time")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("bay_number",
+                                            "insertion_time",
+                                            "is_spa_admin_up",
+                                            "is_spa_in_reset",
+                                            "is_spa_inserted",
+                                            "is_spa_power_admin_up",
+                                            "is_spa_powered",
+                                            "last_failure_reason",
+                                            "last_ready_time",
+                                            "last_reset_reason",
+                                            "spa_oper_state",
+                                            "spa_type",
+                                            "up_time") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.bay_number.is_set or
+                                self.insertion_time.is_set or
+                                self.is_spa_admin_up.is_set or
+                                self.is_spa_in_reset.is_set or
+                                self.is_spa_inserted.is_set or
+                                self.is_spa_power_admin_up.is_set or
+                                self.is_spa_powered.is_set or
+                                self.last_failure_reason.is_set or
+                                self.last_ready_time.is_set or
+                                self.last_reset_reason.is_set or
+                                self.spa_oper_state.is_set or
+                                self.spa_type.is_set or
+                                self.up_time.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.bay_number.yfilter != YFilter.not_set or
+                                self.insertion_time.yfilter != YFilter.not_set or
+                                self.is_spa_admin_up.yfilter != YFilter.not_set or
+                                self.is_spa_in_reset.yfilter != YFilter.not_set or
+                                self.is_spa_inserted.yfilter != YFilter.not_set or
+                                self.is_spa_power_admin_up.yfilter != YFilter.not_set or
+                                self.is_spa_powered.yfilter != YFilter.not_set or
+                                self.last_failure_reason.yfilter != YFilter.not_set or
+                                self.last_ready_time.yfilter != YFilter.not_set or
+                                self.last_reset_reason.yfilter != YFilter.not_set or
+                                self.spa_oper_state.yfilter != YFilter.not_set or
+                                self.spa_type.yfilter != YFilter.not_set or
+                                self.up_time.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "mpa-detail" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.bay_number.is_set or self.bay_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bay_number.get_name_leafdata())
+                            if (self.insertion_time.is_set or self.insertion_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.insertion_time.get_name_leafdata())
+                            if (self.is_spa_admin_up.is_set or self.is_spa_admin_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_spa_admin_up.get_name_leafdata())
+                            if (self.is_spa_in_reset.is_set or self.is_spa_in_reset.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_spa_in_reset.get_name_leafdata())
+                            if (self.is_spa_inserted.is_set or self.is_spa_inserted.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_spa_inserted.get_name_leafdata())
+                            if (self.is_spa_power_admin_up.is_set or self.is_spa_power_admin_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_spa_power_admin_up.get_name_leafdata())
+                            if (self.is_spa_powered.is_set or self.is_spa_powered.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_spa_powered.get_name_leafdata())
+                            if (self.last_failure_reason.is_set or self.last_failure_reason.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_failure_reason.get_name_leafdata())
+                            if (self.last_ready_time.is_set or self.last_ready_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_ready_time.get_name_leafdata())
+                            if (self.last_reset_reason.is_set or self.last_reset_reason.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_reset_reason.get_name_leafdata())
+                            if (self.spa_oper_state.is_set or self.spa_oper_state.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spa_oper_state.get_name_leafdata())
+                            if (self.spa_type.is_set or self.spa_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spa_type.get_name_leafdata())
+                            if (self.up_time.is_set or self.up_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.up_time.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "bay-number" or name == "insertion-time" or name == "is-spa-admin-up" or name == "is-spa-in-reset" or name == "is-spa-inserted" or name == "is-spa-power-admin-up" or name == "is-spa-powered" or name == "last-failure-reason" or name == "last-ready-time" or name == "last-reset-reason" or name == "spa-oper-state" or name == "spa-type" or name == "up-time"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.bay_number is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "bay-number"):
+                                self.bay_number = value
+                                self.bay_number.value_namespace = name_space
+                                self.bay_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "insertion-time"):
+                                self.insertion_time = value
+                                self.insertion_time.value_namespace = name_space
+                                self.insertion_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-spa-admin-up"):
+                                self.is_spa_admin_up = value
+                                self.is_spa_admin_up.value_namespace = name_space
+                                self.is_spa_admin_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-spa-in-reset"):
+                                self.is_spa_in_reset = value
+                                self.is_spa_in_reset.value_namespace = name_space
+                                self.is_spa_in_reset.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-spa-inserted"):
+                                self.is_spa_inserted = value
+                                self.is_spa_inserted.value_namespace = name_space
+                                self.is_spa_inserted.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-spa-power-admin-up"):
+                                self.is_spa_power_admin_up = value
+                                self.is_spa_power_admin_up.value_namespace = name_space
+                                self.is_spa_power_admin_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-spa-powered"):
+                                self.is_spa_powered = value
+                                self.is_spa_powered.value_namespace = name_space
+                                self.is_spa_powered.value_namespace_prefix = name_space_prefix
+                            if(value_path == "last-failure-reason"):
+                                self.last_failure_reason = value
+                                self.last_failure_reason.value_namespace = name_space
+                                self.last_failure_reason.value_namespace_prefix = name_space_prefix
+                            if(value_path == "last-ready-time"):
+                                self.last_ready_time = value
+                                self.last_ready_time.value_namespace = name_space
+                                self.last_ready_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "last-reset-reason"):
+                                self.last_reset_reason = value
+                                self.last_reset_reason.value_namespace = name_space
+                                self.last_reset_reason.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spa-oper-state"):
+                                self.spa_oper_state = value
+                                self.spa_oper_state.value_namespace = name_space
+                                self.spa_oper_state.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spa-type"):
+                                self.spa_type = value
+                                self.spa_type.value_namespace = name_space
+                                self.spa_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "up-time"):
+                                self.up_time = value
+                                self.up_time.value_namespace = name_space
+                                self.up_time.value_namespace_prefix = name_space_prefix
 
-                            if self.insertion_time is not None:
-                                return True
+                    def has_data(self):
+                        return (self.mpa_detail is not None and self.mpa_detail.has_data())
 
-                            if self.is_spa_admin_up is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.mpa_detail is not None and self.mpa_detail.has_operation()))
 
-                            if self.is_spa_in_reset is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "mpa-detail-table" + path_buffer
 
-                            if self.is_spa_inserted is not None:
-                                return True
+                        return path_buffer
 
-                            if self.is_spa_power_admin_up is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            if self.is_spa_powered is not None:
-                                return True
+                        leaf_name_data = LeafDataList()
 
-                            if self.last_failure_reason is not None:
-                                return True
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                            if self.last_ready_time is not None:
-                                return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                            if self.last_reset_reason is not None:
-                                return True
+                        if (child_yang_name == "mpa-detail"):
+                            if (self.mpa_detail is None):
+                                self.mpa_detail = Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail()
+                                self.mpa_detail.parent = self
+                                self._children_name_map["mpa_detail"] = "mpa-detail"
+                            return self.mpa_detail
 
-                            if self.spa_oper_state is not None:
-                                return True
+                        return None
 
-                            if self.spa_type is not None:
-                                return True
-
-                            if self.up_time is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                            return meta._meta_table['Mpa.Nodes.Node.Bay.MpaDetailTable.MpaDetail']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-detail-table'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.mpa_detail is not None and self.mpa_detail._has_data():
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "mpa-detail"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                        return meta._meta_table['Mpa.Nodes.Node.Bay.MpaDetailTable']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.number is None:
-                        raise YPYModelError('Key property number is None')
+                def has_data(self):
+                    return (
+                        self.number.is_set or
+                        (self.mpa_detail_table is not None and self.mpa_detail_table.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-fca-oper:bay[Cisco-IOS-XR-asr9k-lc-fca-oper:number = ' + str(self.number) + ']'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.number.yfilter != YFilter.not_set or
+                        (self.mpa_detail_table is not None and self.mpa_detail_table.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bay" + "[number='" + self.number.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.number.is_set or self.number.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.number.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "mpa-detail-table"):
+                        if (self.mpa_detail_table is None):
+                            self.mpa_detail_table = Mpa.Nodes.Node.Bay.MpaDetailTable()
+                            self.mpa_detail_table.parent = self
+                            self._children_name_map["mpa_detail_table"] = "mpa-detail-table"
+                        return self.mpa_detail_table
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mpa-detail-table" or name == "number"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.number is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "number"):
+                        self.number = value
+                        self.number.value_namespace = name_space
+                        self.number.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.bay:
+                    if (c.has_data()):
                         return True
+                return self.node.is_set
 
-                    if self.mpa_detail_table is not None and self.mpa_detail_table._has_data():
+            def has_operation(self):
+                for c in self.bay:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node.yfilter != YFilter.not_set)
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node='" + self.node.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                    return meta._meta_table['Mpa.Nodes.Node.Bay']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node is None:
-                    raise YPYModelError('Key property node is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa/Cisco-IOS-XR-asr9k-lc-fca-oper:nodes/Cisco-IOS-XR-asr9k-lc-fca-oper:node[Cisco-IOS-XR-asr9k-lc-fca-oper:node = ' + str(self.node) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.node.is_set or self.node.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-            def _has_data(self):
-                if self.node is not None:
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "bay"):
+                    for c in self.bay:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Mpa.Nodes.Node.Bay()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.bay.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "bay" or name == "node"):
                     return True
-
-                if self.bay is not None:
-                    for child_ref in self.bay:
-                        if child_ref._has_data():
-                            return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-                return meta._meta_table['Mpa.Nodes.Node']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node"):
+                    self.node = value
+                    self.node.value_namespace = name_space
+                    self.node.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa/Cisco-IOS-XR-asr9k-lc-fca-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Mpa.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-            return meta._meta_table['Mpa.Nodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
 
-        return '/Cisco-IOS-XR-asr9k-lc-fca-oper:mpa'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa" + path_buffer
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = Mpa.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_lc_fca_oper as meta
-        return meta._meta_table['Mpa']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Mpa()
+        return self._top_entity
 

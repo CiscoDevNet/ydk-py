@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AtmPvcDataEnum(Enum):
+class AtmPvcData(Enum):
     """
-    AtmPvcDataEnum
+    AtmPvcData
 
     Atm pvc data
 
@@ -40,22 +34,16 @@ class AtmPvcDataEnum(Enum):
 
     """
 
-    data = 0
+    data = Enum.YLeaf(0, "data")
 
-    ilmi = 2
+    ilmi = Enum.YLeaf(2, "ilmi")
 
-    layer2 = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmPvcDataEnum']
+    layer2 = Enum.YLeaf(3, "layer2")
 
 
-class AtmPvcEncapsulationEnum(Enum):
+class AtmPvcEncapsulation(Enum):
     """
-    AtmPvcEncapsulationEnum
+    AtmPvcEncapsulation
 
     Atm pvc encapsulation
 
@@ -81,26 +69,20 @@ class AtmPvcEncapsulationEnum(Enum):
 
     """
 
-    snap = 3
+    snap = Enum.YLeaf(3, "snap")
 
-    vc_mux = 4
+    vc_mux = Enum.YLeaf(4, "vc-mux")
 
-    nlpid = 5
+    nlpid = Enum.YLeaf(5, "nlpid")
 
-    aal0 = 7
+    aal0 = Enum.YLeaf(7, "aal0")
 
-    aal5 = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmPvcEncapsulationEnum']
+    aal5 = Enum.YLeaf(8, "aal5")
 
 
-class AtmPvcShapingEnum(Enum):
+class AtmPvcShaping(Enum):
     """
-    AtmPvcShapingEnum
+    AtmPvcShaping
 
     Atm pvc shaping
 
@@ -122,24 +104,18 @@ class AtmPvcShapingEnum(Enum):
 
     """
 
-    cbr = 1
+    cbr = Enum.YLeaf(1, "cbr")
 
-    vbr_nrt = 2
+    vbr_nrt = Enum.YLeaf(2, "vbr-nrt")
 
-    vbr_rt = 3
+    vbr_rt = Enum.YLeaf(3, "vbr-rt")
 
-    ubr = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmPvcShapingEnum']
+    ubr = Enum.YLeaf(6, "ubr")
 
 
-class AtmVpShapingEnum(Enum):
+class AtmVpShaping(Enum):
     """
-    AtmVpShapingEnum
+    AtmVpShaping
 
     Atm vp shaping
 
@@ -161,19 +137,13 @@ class AtmVpShapingEnum(Enum):
 
     """
 
-    cbr = 1
+    cbr = Enum.YLeaf(1, "cbr")
 
-    vbr_nrt = 2
+    vbr_nrt = Enum.YLeaf(2, "vbr-nrt")
 
-    vbr_rt = 3
+    vbr_rt = Enum.YLeaf(3, "vbr-rt")
 
-    ubr = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_atm_common_datatypes as meta
-        return meta._meta_table['AtmVpShapingEnum']
+    ubr = Enum.YLeaf(6, "ubr")
 
 
 

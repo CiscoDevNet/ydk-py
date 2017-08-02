@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class XrXmlSessionAlarmRegisterEnum(Enum):
+class XrXmlSessionAlarmRegister(Enum):
     """
-    XrXmlSessionAlarmRegisterEnum
+    XrXmlSessionAlarmRegister
 
     AlarmNotify
 
@@ -41,20 +35,14 @@ class XrXmlSessionAlarmRegisterEnum(Enum):
 
     """
 
-    registered = 1
+    registered = Enum.YLeaf(1, "registered")
 
-    not_registered = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-        return meta._meta_table['XrXmlSessionAlarmRegisterEnum']
+    not_registered = Enum.YLeaf(2, "not-registered")
 
 
-class XrXmlSessionStateEnum(Enum):
+class XrXmlSessionState(Enum):
     """
-    XrXmlSessionStateEnum
+    XrXmlSessionState
 
     SessionState
 
@@ -68,19 +56,13 @@ class XrXmlSessionStateEnum(Enum):
 
     """
 
-    idle = 1
+    idle = Enum.YLeaf(1, "idle")
 
-    busy = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-        return meta._meta_table['XrXmlSessionStateEnum']
+    busy = Enum.YLeaf(2, "busy")
 
 
 
-class Netconf(object):
+class Netconf(Entity):
     """
     NETCONF operational information
     
@@ -97,11 +79,19 @@ class Netconf(object):
     _revision = '2015-07-30'
 
     def __init__(self):
+        super(Netconf, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "netconf"
+        self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-oper"
+
         self.agent = Netconf.Agent()
         self.agent.parent = self
+        self._children_name_map["agent"] = "agent"
+        self._children_yang_names.add("agent")
 
 
-    class Agent(object):
+    class Agent(Entity):
         """
         NETCONF agent operational information
         
@@ -118,12 +108,18 @@ class Netconf(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
+            super(Netconf.Agent, self).__init__()
+
+            self.yang_name = "agent"
+            self.yang_parent_name = "netconf"
+
             self.tty = Netconf.Agent.Tty()
             self.tty.parent = self
+            self._children_name_map["tty"] = "tty"
+            self._children_yang_names.add("tty")
 
 
-        class Tty(object):
+        class Tty(Entity):
             """
             NETCONF agent over TTY
             
@@ -140,12 +136,18 @@ class Netconf(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
+                super(Netconf.Agent.Tty, self).__init__()
+
+                self.yang_name = "tty"
+                self.yang_parent_name = "agent"
+
                 self.sessions = Netconf.Agent.Tty.Sessions()
                 self.sessions.parent = self
+                self._children_name_map["sessions"] = "sessions"
+                self._children_yang_names.add("sessions")
 
 
-            class Sessions(object):
+            class Sessions(Entity):
                 """
                 Session information
                 
@@ -162,13 +164,39 @@ class Netconf(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session = YList()
-                    self.session.parent = self
-                    self.session.name = 'session'
+                    super(Netconf.Agent.Tty.Sessions, self).__init__()
+
+                    self.yang_name = "sessions"
+                    self.yang_parent_name = "tty"
+
+                    self.session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Netconf.Agent.Tty.Sessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Netconf.Agent.Tty.Sessions, self).__setattr__(name, value)
 
 
-                class Session(object):
+                class Session(Entity):
                     """
                     Session information
                     
@@ -187,7 +215,7 @@ class Netconf(object):
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegisterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegisterEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: client_address
                     
@@ -236,7 +264,7 @@ class Netconf(object):
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionStateEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: username
                     
@@ -256,159 +284,410 @@ class Netconf(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_id = None
-                        self.admin_config_session_id = None
-                        self.alarm_notification = None
-                        self.client_address = None
-                        self.client_port = None
-                        self.config_session_id = None
-                        self.elapsed_time = None
-                        self.last_state_change = None
-                        self.start_time = None
-                        self.state = None
-                        self.username = None
-                        self.vrf_name = None
+                        super(Netconf.Agent.Tty.Sessions.Session, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.session_id is None:
-                            raise YPYModelError('Key property session_id is None')
+                        self.yang_name = "session"
+                        self.yang_parent_name = "sessions"
 
-                        return '/Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:tty/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions/Cisco-IOS-XR-man-xml-ttyagent-oper:session[Cisco-IOS-XR-man-xml-ttyagent-oper:session-id = ' + str(self.session_id) + ']'
+                        self.session_id = YLeaf(YType.int32, "session-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
+
+                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
+
+                        self.client_address = YLeaf(YType.str, "client-address")
+
+                        self.client_port = YLeaf(YType.uint32, "client-port")
+
+                        self.config_session_id = YLeaf(YType.str, "config-session-id")
+
+                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
+
+                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
+
+                        self.start_time = YLeaf(YType.uint32, "start-time")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.username = YLeaf(YType.str, "username")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_id",
+                                        "admin_config_session_id",
+                                        "alarm_notification",
+                                        "client_address",
+                                        "client_port",
+                                        "config_session_id",
+                                        "elapsed_time",
+                                        "last_state_change",
+                                        "start_time",
+                                        "state",
+                                        "username",
+                                        "vrf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Netconf.Agent.Tty.Sessions.Session, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Netconf.Agent.Tty.Sessions.Session, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.session_id.is_set or
+                            self.admin_config_session_id.is_set or
+                            self.alarm_notification.is_set or
+                            self.client_address.is_set or
+                            self.client_port.is_set or
+                            self.config_session_id.is_set or
+                            self.elapsed_time.is_set or
+                            self.last_state_change.is_set or
+                            self.start_time.is_set or
+                            self.state.is_set or
+                            self.username.is_set or
+                            self.vrf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.admin_config_session_id.yfilter != YFilter.not_set or
+                            self.alarm_notification.yfilter != YFilter.not_set or
+                            self.client_address.yfilter != YFilter.not_set or
+                            self.client_port.yfilter != YFilter.not_set or
+                            self.config_session_id.yfilter != YFilter.not_set or
+                            self.elapsed_time.yfilter != YFilter.not_set or
+                            self.last_state_change.yfilter != YFilter.not_set or
+                            self.start_time.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set or
+                            self.username.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session" + "[session-id='" + self.session_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.admin_config_session_id.is_set or self.admin_config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.admin_config_session_id.get_name_leafdata())
+                        if (self.alarm_notification.is_set or self.alarm_notification.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.alarm_notification.get_name_leafdata())
+                        if (self.client_address.is_set or self.client_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_address.get_name_leafdata())
+                        if (self.client_port.is_set or self.client_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_port.get_name_leafdata())
+                        if (self.config_session_id.is_set or self.config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.config_session_id.get_name_leafdata())
+                        if (self.elapsed_time.is_set or self.elapsed_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.elapsed_time.get_name_leafdata())
+                        if (self.last_state_change.is_set or self.last_state_change.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_state_change.get_name_leafdata())
+                        if (self.start_time.is_set or self.start_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.start_time.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+                        if (self.username.is_set or self.username.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.username.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-id" or name == "admin-config-session-id" or name == "alarm-notification" or name == "client-address" or name == "client-port" or name == "config-session-id" or name == "elapsed-time" or name == "last-state-change" or name == "start-time" or name == "state" or name == "username" or name == "vrf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.session_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "admin-config-session-id"):
+                            self.admin_config_session_id = value
+                            self.admin_config_session_id.value_namespace = name_space
+                            self.admin_config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "alarm-notification"):
+                            self.alarm_notification = value
+                            self.alarm_notification.value_namespace = name_space
+                            self.alarm_notification.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-address"):
+                            self.client_address = value
+                            self.client_address.value_namespace = name_space
+                            self.client_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-port"):
+                            self.client_port = value
+                            self.client_port.value_namespace = name_space
+                            self.client_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "config-session-id"):
+                            self.config_session_id = value
+                            self.config_session_id.value_namespace = name_space
+                            self.config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "elapsed-time"):
+                            self.elapsed_time = value
+                            self.elapsed_time.value_namespace = name_space
+                            self.elapsed_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-state-change"):
+                            self.last_state_change = value
+                            self.last_state_change.value_namespace = name_space
+                            self.last_state_change.value_namespace_prefix = name_space_prefix
+                        if(value_path == "start-time"):
+                            self.start_time = value
+                            self.start_time.value_namespace = name_space
+                            self.start_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "username"):
+                            self.username = value
+                            self.username.value_namespace = name_space
+                            self.username.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session:
+                        if (c.has_data()):
                             return True
-
-                        if self.admin_config_session_id is not None:
-                            return True
-
-                        if self.alarm_notification is not None:
-                            return True
-
-                        if self.client_address is not None:
-                            return True
-
-                        if self.client_port is not None:
-                            return True
-
-                        if self.config_session_id is not None:
-                            return True
-
-                        if self.elapsed_time is not None:
-                            return True
-
-                        if self.last_state_change is not None:
-                            return True
-
-                        if self.start_time is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        if self.username is not None:
-                            return True
-
-                        if self.vrf_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                        return meta._meta_table['Netconf.Agent.Tty.Sessions.Session']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:tty/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session is not None:
-                        for child_ref in self.session:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session"):
+                        for c in self.session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Netconf.Agent.Tty.Sessions.Session()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                    return meta._meta_table['Netconf.Agent.Tty.Sessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (self.sessions is not None and self.sessions.has_data())
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:tty'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.sessions is not None and self.sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "tty" + path_buffer
 
-            def _has_data(self):
-                if self.sessions is not None and self.sessions._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sessions"):
+                    if (self.sessions is None):
+                        self.sessions = Netconf.Agent.Tty.Sessions()
+                        self.sessions.parent = self
+                        self._children_name_map["sessions"] = "sessions"
+                    return self.sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sessions"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                return meta._meta_table['Netconf.Agent.Tty']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.tty is not None and self.tty.has_data())
 
-            return '/Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/Cisco-IOS-XR-man-xml-ttyagent-oper:agent'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.tty is not None and self.tty.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "agent" + path_buffer
 
-        def _has_data(self):
-            if self.tty is not None and self.tty._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "tty"):
+                if (self.tty is None):
+                    self.tty = Netconf.Agent.Tty()
+                    self.tty.parent = self
+                    self._children_name_map["tty"] = "tty"
+                return self.tty
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "tty"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-            return meta._meta_table['Netconf.Agent']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.agent is not None and self.agent.has_data())
 
-        return '/Cisco-IOS-XR-man-xml-ttyagent-oper:netconf'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.agent is not None and self.agent.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf" + path_buffer
 
-    def _has_data(self):
-        if self.agent is not None and self.agent._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "agent"):
+            if (self.agent is None):
+                self.agent = Netconf.Agent()
+                self.agent.parent = self
+                self._children_name_map["agent"] = "agent"
+            return self.agent
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "agent"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-        return meta._meta_table['Netconf']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Netconf()
+        return self._top_entity
 
-class XrXml(object):
+class XrXml(Entity):
     """
     xr xml
     
@@ -425,11 +704,19 @@ class XrXml(object):
     _revision = '2015-07-30'
 
     def __init__(self):
+        super(XrXml, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "xr-xml"
+        self.yang_parent_name = "Cisco-IOS-XR-man-xml-ttyagent-oper"
+
         self.agent = XrXml.Agent()
         self.agent.parent = self
+        self._children_name_map["agent"] = "agent"
+        self._children_yang_names.add("agent")
 
 
-    class Agent(object):
+    class Agent(Entity):
         """
         XML agents
         
@@ -456,16 +743,28 @@ class XrXml(object):
         _revision = '2015-07-30'
 
         def __init__(self):
-            self.parent = None
+            super(XrXml.Agent, self).__init__()
+
+            self.yang_name = "agent"
+            self.yang_parent_name = "xr-xml"
+
             self.default = XrXml.Agent.Default()
             self.default.parent = self
+            self._children_name_map["default"] = "default"
+            self._children_yang_names.add("default")
+
             self.ssl = XrXml.Agent.Ssl()
             self.ssl.parent = self
+            self._children_name_map["ssl"] = "ssl"
+            self._children_yang_names.add("ssl")
+
             self.tty = XrXml.Agent.Tty()
             self.tty.parent = self
+            self._children_name_map["tty"] = "tty"
+            self._children_yang_names.add("tty")
 
 
-        class Tty(object):
+        class Tty(Entity):
             """
             TTY sessions information
             
@@ -482,12 +781,18 @@ class XrXml(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
+                super(XrXml.Agent.Tty, self).__init__()
+
+                self.yang_name = "tty"
+                self.yang_parent_name = "agent"
+
                 self.sessions = XrXml.Agent.Tty.Sessions()
                 self.sessions.parent = self
+                self._children_name_map["sessions"] = "sessions"
+                self._children_yang_names.add("sessions")
 
 
-            class Sessions(object):
+            class Sessions(Entity):
                 """
                 sessions information
                 
@@ -504,13 +809,39 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session = YList()
-                    self.session.parent = self
-                    self.session.name = 'session'
+                    super(XrXml.Agent.Tty.Sessions, self).__init__()
+
+                    self.yang_name = "sessions"
+                    self.yang_parent_name = "tty"
+
+                    self.session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Tty.Sessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Tty.Sessions, self).__setattr__(name, value)
 
 
-                class Session(object):
+                class Session(Entity):
                     """
                     xml sessions information
                     
@@ -529,7 +860,7 @@ class XrXml(object):
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegisterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegisterEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: client_address
                     
@@ -578,7 +909,7 @@ class XrXml(object):
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionStateEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: username
                     
@@ -598,119 +929,312 @@ class XrXml(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_id = None
-                        self.admin_config_session_id = None
-                        self.alarm_notification = None
-                        self.client_address = None
-                        self.client_port = None
-                        self.config_session_id = None
-                        self.elapsed_time = None
-                        self.last_state_change = None
-                        self.start_time = None
-                        self.state = None
-                        self.username = None
-                        self.vrf_name = None
+                        super(XrXml.Agent.Tty.Sessions.Session, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.session_id is None:
-                            raise YPYModelError('Key property session_id is None')
+                        self.yang_name = "session"
+                        self.yang_parent_name = "sessions"
 
-                        return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:tty/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions/Cisco-IOS-XR-man-xml-ttyagent-oper:session[Cisco-IOS-XR-man-xml-ttyagent-oper:session-id = ' + str(self.session_id) + ']'
+                        self.session_id = YLeaf(YType.int32, "session-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
+
+                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
+
+                        self.client_address = YLeaf(YType.str, "client-address")
+
+                        self.client_port = YLeaf(YType.uint32, "client-port")
+
+                        self.config_session_id = YLeaf(YType.str, "config-session-id")
+
+                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
+
+                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
+
+                        self.start_time = YLeaf(YType.uint32, "start-time")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.username = YLeaf(YType.str, "username")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_id",
+                                        "admin_config_session_id",
+                                        "alarm_notification",
+                                        "client_address",
+                                        "client_port",
+                                        "config_session_id",
+                                        "elapsed_time",
+                                        "last_state_change",
+                                        "start_time",
+                                        "state",
+                                        "username",
+                                        "vrf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(XrXml.Agent.Tty.Sessions.Session, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(XrXml.Agent.Tty.Sessions.Session, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.session_id.is_set or
+                            self.admin_config_session_id.is_set or
+                            self.alarm_notification.is_set or
+                            self.client_address.is_set or
+                            self.client_port.is_set or
+                            self.config_session_id.is_set or
+                            self.elapsed_time.is_set or
+                            self.last_state_change.is_set or
+                            self.start_time.is_set or
+                            self.state.is_set or
+                            self.username.is_set or
+                            self.vrf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.admin_config_session_id.yfilter != YFilter.not_set or
+                            self.alarm_notification.yfilter != YFilter.not_set or
+                            self.client_address.yfilter != YFilter.not_set or
+                            self.client_port.yfilter != YFilter.not_set or
+                            self.config_session_id.yfilter != YFilter.not_set or
+                            self.elapsed_time.yfilter != YFilter.not_set or
+                            self.last_state_change.yfilter != YFilter.not_set or
+                            self.start_time.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set or
+                            self.username.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session" + "[session-id='" + self.session_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.admin_config_session_id.is_set or self.admin_config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.admin_config_session_id.get_name_leafdata())
+                        if (self.alarm_notification.is_set or self.alarm_notification.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.alarm_notification.get_name_leafdata())
+                        if (self.client_address.is_set or self.client_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_address.get_name_leafdata())
+                        if (self.client_port.is_set or self.client_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_port.get_name_leafdata())
+                        if (self.config_session_id.is_set or self.config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.config_session_id.get_name_leafdata())
+                        if (self.elapsed_time.is_set or self.elapsed_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.elapsed_time.get_name_leafdata())
+                        if (self.last_state_change.is_set or self.last_state_change.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_state_change.get_name_leafdata())
+                        if (self.start_time.is_set or self.start_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.start_time.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+                        if (self.username.is_set or self.username.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.username.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-id" or name == "admin-config-session-id" or name == "alarm-notification" or name == "client-address" or name == "client-port" or name == "config-session-id" or name == "elapsed-time" or name == "last-state-change" or name == "start-time" or name == "state" or name == "username" or name == "vrf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.session_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "admin-config-session-id"):
+                            self.admin_config_session_id = value
+                            self.admin_config_session_id.value_namespace = name_space
+                            self.admin_config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "alarm-notification"):
+                            self.alarm_notification = value
+                            self.alarm_notification.value_namespace = name_space
+                            self.alarm_notification.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-address"):
+                            self.client_address = value
+                            self.client_address.value_namespace = name_space
+                            self.client_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-port"):
+                            self.client_port = value
+                            self.client_port.value_namespace = name_space
+                            self.client_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "config-session-id"):
+                            self.config_session_id = value
+                            self.config_session_id.value_namespace = name_space
+                            self.config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "elapsed-time"):
+                            self.elapsed_time = value
+                            self.elapsed_time.value_namespace = name_space
+                            self.elapsed_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-state-change"):
+                            self.last_state_change = value
+                            self.last_state_change.value_namespace = name_space
+                            self.last_state_change.value_namespace_prefix = name_space_prefix
+                        if(value_path == "start-time"):
+                            self.start_time = value
+                            self.start_time.value_namespace = name_space
+                            self.start_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "username"):
+                            self.username = value
+                            self.username.value_namespace = name_space
+                            self.username.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session:
+                        if (c.has_data()):
                             return True
-
-                        if self.admin_config_session_id is not None:
-                            return True
-
-                        if self.alarm_notification is not None:
-                            return True
-
-                        if self.client_address is not None:
-                            return True
-
-                        if self.client_port is not None:
-                            return True
-
-                        if self.config_session_id is not None:
-                            return True
-
-                        if self.elapsed_time is not None:
-                            return True
-
-                        if self.last_state_change is not None:
-                            return True
-
-                        if self.start_time is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        if self.username is not None:
-                            return True
-
-                        if self.vrf_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                        return meta._meta_table['XrXml.Agent.Tty.Sessions.Session']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:tty/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session is not None:
-                        for child_ref in self.session:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session"):
+                        for c in self.session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = XrXml.Agent.Tty.Sessions.Session()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                    return meta._meta_table['XrXml.Agent.Tty.Sessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (self.sessions is not None and self.sessions.has_data())
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:tty'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.sessions is not None and self.sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "tty" + path_buffer
 
-            def _has_data(self):
-                if self.sessions is not None and self.sessions._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sessions"):
+                    if (self.sessions is None):
+                        self.sessions = XrXml.Agent.Tty.Sessions()
+                        self.sessions.parent = self
+                        self._children_name_map["sessions"] = "sessions"
+                    return self.sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sessions"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                return meta._meta_table['XrXml.Agent.Tty']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Default(object):
+        class Default(Entity):
             """
             Default sessions information
             
@@ -727,12 +1251,18 @@ class XrXml(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
+                super(XrXml.Agent.Default, self).__init__()
+
+                self.yang_name = "default"
+                self.yang_parent_name = "agent"
+
                 self.sessions = XrXml.Agent.Default.Sessions()
                 self.sessions.parent = self
+                self._children_name_map["sessions"] = "sessions"
+                self._children_yang_names.add("sessions")
 
 
-            class Sessions(object):
+            class Sessions(Entity):
                 """
                 sessions information
                 
@@ -749,13 +1279,39 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session = YList()
-                    self.session.parent = self
-                    self.session.name = 'session'
+                    super(XrXml.Agent.Default.Sessions, self).__init__()
+
+                    self.yang_name = "sessions"
+                    self.yang_parent_name = "default"
+
+                    self.session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Default.Sessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Default.Sessions, self).__setattr__(name, value)
 
 
-                class Session(object):
+                class Session(Entity):
                     """
                     xml sessions information
                     
@@ -774,7 +1330,7 @@ class XrXml(object):
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegisterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegisterEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: client_address
                     
@@ -823,7 +1379,7 @@ class XrXml(object):
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionStateEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: username
                     
@@ -843,119 +1399,312 @@ class XrXml(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_id = None
-                        self.admin_config_session_id = None
-                        self.alarm_notification = None
-                        self.client_address = None
-                        self.client_port = None
-                        self.config_session_id = None
-                        self.elapsed_time = None
-                        self.last_state_change = None
-                        self.start_time = None
-                        self.state = None
-                        self.username = None
-                        self.vrf_name = None
+                        super(XrXml.Agent.Default.Sessions.Session, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.session_id is None:
-                            raise YPYModelError('Key property session_id is None')
+                        self.yang_name = "session"
+                        self.yang_parent_name = "sessions"
 
-                        return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:default/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions/Cisco-IOS-XR-man-xml-ttyagent-oper:session[Cisco-IOS-XR-man-xml-ttyagent-oper:session-id = ' + str(self.session_id) + ']'
+                        self.session_id = YLeaf(YType.int32, "session-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
+
+                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
+
+                        self.client_address = YLeaf(YType.str, "client-address")
+
+                        self.client_port = YLeaf(YType.uint32, "client-port")
+
+                        self.config_session_id = YLeaf(YType.str, "config-session-id")
+
+                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
+
+                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
+
+                        self.start_time = YLeaf(YType.uint32, "start-time")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.username = YLeaf(YType.str, "username")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_id",
+                                        "admin_config_session_id",
+                                        "alarm_notification",
+                                        "client_address",
+                                        "client_port",
+                                        "config_session_id",
+                                        "elapsed_time",
+                                        "last_state_change",
+                                        "start_time",
+                                        "state",
+                                        "username",
+                                        "vrf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(XrXml.Agent.Default.Sessions.Session, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(XrXml.Agent.Default.Sessions.Session, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.session_id.is_set or
+                            self.admin_config_session_id.is_set or
+                            self.alarm_notification.is_set or
+                            self.client_address.is_set or
+                            self.client_port.is_set or
+                            self.config_session_id.is_set or
+                            self.elapsed_time.is_set or
+                            self.last_state_change.is_set or
+                            self.start_time.is_set or
+                            self.state.is_set or
+                            self.username.is_set or
+                            self.vrf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.admin_config_session_id.yfilter != YFilter.not_set or
+                            self.alarm_notification.yfilter != YFilter.not_set or
+                            self.client_address.yfilter != YFilter.not_set or
+                            self.client_port.yfilter != YFilter.not_set or
+                            self.config_session_id.yfilter != YFilter.not_set or
+                            self.elapsed_time.yfilter != YFilter.not_set or
+                            self.last_state_change.yfilter != YFilter.not_set or
+                            self.start_time.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set or
+                            self.username.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session" + "[session-id='" + self.session_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.admin_config_session_id.is_set or self.admin_config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.admin_config_session_id.get_name_leafdata())
+                        if (self.alarm_notification.is_set or self.alarm_notification.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.alarm_notification.get_name_leafdata())
+                        if (self.client_address.is_set or self.client_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_address.get_name_leafdata())
+                        if (self.client_port.is_set or self.client_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_port.get_name_leafdata())
+                        if (self.config_session_id.is_set or self.config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.config_session_id.get_name_leafdata())
+                        if (self.elapsed_time.is_set or self.elapsed_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.elapsed_time.get_name_leafdata())
+                        if (self.last_state_change.is_set or self.last_state_change.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_state_change.get_name_leafdata())
+                        if (self.start_time.is_set or self.start_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.start_time.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+                        if (self.username.is_set or self.username.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.username.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-id" or name == "admin-config-session-id" or name == "alarm-notification" or name == "client-address" or name == "client-port" or name == "config-session-id" or name == "elapsed-time" or name == "last-state-change" or name == "start-time" or name == "state" or name == "username" or name == "vrf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.session_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "admin-config-session-id"):
+                            self.admin_config_session_id = value
+                            self.admin_config_session_id.value_namespace = name_space
+                            self.admin_config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "alarm-notification"):
+                            self.alarm_notification = value
+                            self.alarm_notification.value_namespace = name_space
+                            self.alarm_notification.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-address"):
+                            self.client_address = value
+                            self.client_address.value_namespace = name_space
+                            self.client_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-port"):
+                            self.client_port = value
+                            self.client_port.value_namespace = name_space
+                            self.client_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "config-session-id"):
+                            self.config_session_id = value
+                            self.config_session_id.value_namespace = name_space
+                            self.config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "elapsed-time"):
+                            self.elapsed_time = value
+                            self.elapsed_time.value_namespace = name_space
+                            self.elapsed_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-state-change"):
+                            self.last_state_change = value
+                            self.last_state_change.value_namespace = name_space
+                            self.last_state_change.value_namespace_prefix = name_space_prefix
+                        if(value_path == "start-time"):
+                            self.start_time = value
+                            self.start_time.value_namespace = name_space
+                            self.start_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "username"):
+                            self.username = value
+                            self.username.value_namespace = name_space
+                            self.username.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session:
+                        if (c.has_data()):
                             return True
-
-                        if self.admin_config_session_id is not None:
-                            return True
-
-                        if self.alarm_notification is not None:
-                            return True
-
-                        if self.client_address is not None:
-                            return True
-
-                        if self.client_port is not None:
-                            return True
-
-                        if self.config_session_id is not None:
-                            return True
-
-                        if self.elapsed_time is not None:
-                            return True
-
-                        if self.last_state_change is not None:
-                            return True
-
-                        if self.start_time is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        if self.username is not None:
-                            return True
-
-                        if self.vrf_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                        return meta._meta_table['XrXml.Agent.Default.Sessions.Session']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:default/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session is not None:
-                        for child_ref in self.session:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session"):
+                        for c in self.session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = XrXml.Agent.Default.Sessions.Session()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                    return meta._meta_table['XrXml.Agent.Default.Sessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (self.sessions is not None and self.sessions.has_data())
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:default'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.sessions is not None and self.sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "default" + path_buffer
 
-            def _has_data(self):
-                if self.sessions is not None and self.sessions._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sessions"):
+                    if (self.sessions is None):
+                        self.sessions = XrXml.Agent.Default.Sessions()
+                        self.sessions.parent = self
+                        self._children_name_map["sessions"] = "sessions"
+                    return self.sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sessions"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                return meta._meta_table['XrXml.Agent.Default']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Ssl(object):
+        class Ssl(Entity):
             """
             SSL sessions information
             
@@ -972,12 +1721,18 @@ class XrXml(object):
             _revision = '2015-07-30'
 
             def __init__(self):
-                self.parent = None
+                super(XrXml.Agent.Ssl, self).__init__()
+
+                self.yang_name = "ssl"
+                self.yang_parent_name = "agent"
+
                 self.sessions = XrXml.Agent.Ssl.Sessions()
                 self.sessions.parent = self
+                self._children_name_map["sessions"] = "sessions"
+                self._children_yang_names.add("sessions")
 
 
-            class Sessions(object):
+            class Sessions(Entity):
                 """
                 sessions information
                 
@@ -994,13 +1749,39 @@ class XrXml(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session = YList()
-                    self.session.parent = self
-                    self.session.name = 'session'
+                    super(XrXml.Agent.Ssl.Sessions, self).__init__()
+
+                    self.yang_name = "sessions"
+                    self.yang_parent_name = "ssl"
+
+                    self.session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(XrXml.Agent.Ssl.Sessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(XrXml.Agent.Ssl.Sessions, self).__setattr__(name, value)
 
 
-                class Session(object):
+                class Session(Entity):
                     """
                     xml sessions information
                     
@@ -1019,7 +1800,7 @@ class XrXml(object):
                     .. attribute:: alarm_notification
                     
                     	is the session registered for alarm notifications
-                    	**type**\:   :py:class:`XrXmlSessionAlarmRegisterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegisterEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionAlarmRegister <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionAlarmRegister>`
                     
                     .. attribute:: client_address
                     
@@ -1068,7 +1849,7 @@ class XrXml(object):
                     .. attribute:: state
                     
                     	state of the session idle/busy
-                    	**type**\:   :py:class:`XrXmlSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionStateEnum>`
+                    	**type**\:   :py:class:`XrXmlSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper.XrXmlSessionState>`
                     
                     .. attribute:: username
                     
@@ -1088,161 +1869,425 @@ class XrXml(object):
                     _revision = '2015-07-30'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_id = None
-                        self.admin_config_session_id = None
-                        self.alarm_notification = None
-                        self.client_address = None
-                        self.client_port = None
-                        self.config_session_id = None
-                        self.elapsed_time = None
-                        self.last_state_change = None
-                        self.start_time = None
-                        self.state = None
-                        self.username = None
-                        self.vrf_name = None
+                        super(XrXml.Agent.Ssl.Sessions.Session, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.session_id is None:
-                            raise YPYModelError('Key property session_id is None')
+                        self.yang_name = "session"
+                        self.yang_parent_name = "sessions"
 
-                        return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:ssl/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions/Cisco-IOS-XR-man-xml-ttyagent-oper:session[Cisco-IOS-XR-man-xml-ttyagent-oper:session-id = ' + str(self.session_id) + ']'
+                        self.session_id = YLeaf(YType.int32, "session-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.admin_config_session_id = YLeaf(YType.str, "admin-config-session-id")
+
+                        self.alarm_notification = YLeaf(YType.enumeration, "alarm-notification")
+
+                        self.client_address = YLeaf(YType.str, "client-address")
+
+                        self.client_port = YLeaf(YType.uint32, "client-port")
+
+                        self.config_session_id = YLeaf(YType.str, "config-session-id")
+
+                        self.elapsed_time = YLeaf(YType.uint32, "elapsed-time")
+
+                        self.last_state_change = YLeaf(YType.uint32, "last-state-change")
+
+                        self.start_time = YLeaf(YType.uint32, "start-time")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.username = YLeaf(YType.str, "username")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_id",
+                                        "admin_config_session_id",
+                                        "alarm_notification",
+                                        "client_address",
+                                        "client_port",
+                                        "config_session_id",
+                                        "elapsed_time",
+                                        "last_state_change",
+                                        "start_time",
+                                        "state",
+                                        "username",
+                                        "vrf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(XrXml.Agent.Ssl.Sessions.Session, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(XrXml.Agent.Ssl.Sessions.Session, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.session_id.is_set or
+                            self.admin_config_session_id.is_set or
+                            self.alarm_notification.is_set or
+                            self.client_address.is_set or
+                            self.client_port.is_set or
+                            self.config_session_id.is_set or
+                            self.elapsed_time.is_set or
+                            self.last_state_change.is_set or
+                            self.start_time.is_set or
+                            self.state.is_set or
+                            self.username.is_set or
+                            self.vrf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.admin_config_session_id.yfilter != YFilter.not_set or
+                            self.alarm_notification.yfilter != YFilter.not_set or
+                            self.client_address.yfilter != YFilter.not_set or
+                            self.client_port.yfilter != YFilter.not_set or
+                            self.config_session_id.yfilter != YFilter.not_set or
+                            self.elapsed_time.yfilter != YFilter.not_set or
+                            self.last_state_change.yfilter != YFilter.not_set or
+                            self.start_time.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set or
+                            self.username.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session" + "[session-id='" + self.session_id.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.admin_config_session_id.is_set or self.admin_config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.admin_config_session_id.get_name_leafdata())
+                        if (self.alarm_notification.is_set or self.alarm_notification.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.alarm_notification.get_name_leafdata())
+                        if (self.client_address.is_set or self.client_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_address.get_name_leafdata())
+                        if (self.client_port.is_set or self.client_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_port.get_name_leafdata())
+                        if (self.config_session_id.is_set or self.config_session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.config_session_id.get_name_leafdata())
+                        if (self.elapsed_time.is_set or self.elapsed_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.elapsed_time.get_name_leafdata())
+                        if (self.last_state_change.is_set or self.last_state_change.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_state_change.get_name_leafdata())
+                        if (self.start_time.is_set or self.start_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.start_time.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+                        if (self.username.is_set or self.username.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.username.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-id" or name == "admin-config-session-id" or name == "alarm-notification" or name == "client-address" or name == "client-port" or name == "config-session-id" or name == "elapsed-time" or name == "last-state-change" or name == "start-time" or name == "state" or name == "username" or name == "vrf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.session_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "admin-config-session-id"):
+                            self.admin_config_session_id = value
+                            self.admin_config_session_id.value_namespace = name_space
+                            self.admin_config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "alarm-notification"):
+                            self.alarm_notification = value
+                            self.alarm_notification.value_namespace = name_space
+                            self.alarm_notification.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-address"):
+                            self.client_address = value
+                            self.client_address.value_namespace = name_space
+                            self.client_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "client-port"):
+                            self.client_port = value
+                            self.client_port.value_namespace = name_space
+                            self.client_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "config-session-id"):
+                            self.config_session_id = value
+                            self.config_session_id.value_namespace = name_space
+                            self.config_session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "elapsed-time"):
+                            self.elapsed_time = value
+                            self.elapsed_time.value_namespace = name_space
+                            self.elapsed_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-state-change"):
+                            self.last_state_change = value
+                            self.last_state_change.value_namespace = name_space
+                            self.last_state_change.value_namespace_prefix = name_space_prefix
+                        if(value_path == "start-time"):
+                            self.start_time = value
+                            self.start_time.value_namespace = name_space
+                            self.start_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "username"):
+                            self.username = value
+                            self.username.value_namespace = name_space
+                            self.username.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session:
+                        if (c.has_data()):
                             return True
-
-                        if self.admin_config_session_id is not None:
-                            return True
-
-                        if self.alarm_notification is not None:
-                            return True
-
-                        if self.client_address is not None:
-                            return True
-
-                        if self.client_port is not None:
-                            return True
-
-                        if self.config_session_id is not None:
-                            return True
-
-                        if self.elapsed_time is not None:
-                            return True
-
-                        if self.last_state_change is not None:
-                            return True
-
-                        if self.start_time is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        if self.username is not None:
-                            return True
-
-                        if self.vrf_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                        return meta._meta_table['XrXml.Agent.Ssl.Sessions.Session']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:ssl/Cisco-IOS-XR-man-xml-ttyagent-oper:sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session is not None:
-                        for child_ref in self.session:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session"):
+                        for c in self.session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = XrXml.Agent.Ssl.Sessions.Session()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                    return meta._meta_table['XrXml.Agent.Ssl.Sessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (self.sessions is not None and self.sessions.has_data())
 
-                return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent/Cisco-IOS-XR-man-xml-ttyagent-oper:ssl'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.sessions is not None and self.sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ssl" + path_buffer
 
-            def _has_data(self):
-                if self.sessions is not None and self.sessions._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "sessions"):
+                    if (self.sessions is None):
+                        self.sessions = XrXml.Agent.Ssl.Sessions()
+                        self.sessions.parent = self
+                        self._children_name_map["sessions"] = "sessions"
+                    return self.sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "sessions"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-                return meta._meta_table['XrXml.Agent.Ssl']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.default is not None and self.default.has_data()) or
+                (self.ssl is not None and self.ssl.has_data()) or
+                (self.tty is not None and self.tty.has_data()))
 
-            return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/Cisco-IOS-XR-man-xml-ttyagent-oper:agent'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.default is not None and self.default.has_operation()) or
+                (self.ssl is not None and self.ssl.has_operation()) or
+                (self.tty is not None and self.tty.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "agent" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "default"):
+                if (self.default is None):
+                    self.default = XrXml.Agent.Default()
+                    self.default.parent = self
+                    self._children_name_map["default"] = "default"
+                return self.default
+
+            if (child_yang_name == "ssl"):
+                if (self.ssl is None):
+                    self.ssl = XrXml.Agent.Ssl()
+                    self.ssl.parent = self
+                    self._children_name_map["ssl"] = "ssl"
+                return self.ssl
+
+            if (child_yang_name == "tty"):
+                if (self.tty is None):
+                    self.tty = XrXml.Agent.Tty()
+                    self.tty.parent = self
+                    self._children_name_map["tty"] = "tty"
+                return self.tty
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "default" or name == "ssl" or name == "tty"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.default is not None and self.default._has_data():
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-            if self.ssl is not None and self.ssl._has_data():
-                return True
+    def has_data(self):
+        return (self.agent is not None and self.agent.has_data())
 
-            if self.tty is not None and self.tty._has_data():
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.agent is not None and self.agent.has_operation()))
 
-            return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml" + path_buffer
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-            return meta._meta_table['XrXml.Agent']['meta_info']
+        return path_buffer
 
-    @property
-    def _common_path(self):
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-        return '/Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml'
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-    def _has_data(self):
-        if self.agent is not None and self.agent._has_data():
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "agent"):
+            if (self.agent is None):
+                self.agent = XrXml.Agent()
+                self.agent.parent = self
+                self._children_name_map["agent"] = "agent"
+            return self.agent
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "agent"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_oper as meta
-        return meta._meta_table['XrXml']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = XrXml()
+        return self._top_entity
 

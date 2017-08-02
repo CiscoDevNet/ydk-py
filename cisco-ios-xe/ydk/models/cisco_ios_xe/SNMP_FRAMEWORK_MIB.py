@@ -7,23 +7,16 @@ version of this MIB module is part of RFC 3411;
 see the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentityIdentity
-
-class SnmpsecuritylevelEnum(Enum):
+class Snmpsecuritylevel(Enum):
     """
-    SnmpsecuritylevelEnum
+    Snmpsecuritylevel
 
     A Level of Security at which SNMP messages can be
 
@@ -57,21 +50,31 @@ class SnmpsecuritylevelEnum(Enum):
 
     """
 
-    noAuthNoPriv = 1
+    noAuthNoPriv = Enum.YLeaf(1, "noAuthNoPriv")
 
-    authNoPriv = 2
+    authNoPriv = Enum.YLeaf(2, "authNoPriv")
 
-    authPriv = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMP_FRAMEWORK_MIB as meta
-        return meta._meta_table['SnmpsecuritylevelEnum']
+    authPriv = Enum.YLeaf(3, "authPriv")
 
 
 
-class SnmpauthprotocolsIdentity(ObjectIdentityIdentity):
+class Snmpprivprotocols(Identity):
+    """
+    Registration point for standards\-track privacy
+    protocols used in SNMP Management Frameworks.
+    
+    
+
+    """
+
+    _prefix = 'SNMP-FRAMEWORK-MIB'
+    _revision = '2002-10-14'
+
+    def __init__(self):
+        super(Snmpprivprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpPrivProtocols")
+
+
+class Snmpauthprotocols(Identity):
     """
     Registration point for standards\-track
     authentication protocols used in SNMP Management
@@ -85,36 +88,10 @@ class SnmpauthprotocolsIdentity(ObjectIdentityIdentity):
     _revision = '2002-10-14'
 
     def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMP_FRAMEWORK_MIB as meta
-        return meta._meta_table['SnmpauthprotocolsIdentity']['meta_info']
+        super(Snmpauthprotocols, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB", "SNMP-FRAMEWORK-MIB:snmpAuthProtocols")
 
 
-class SnmpprivprotocolsIdentity(ObjectIdentityIdentity):
-    """
-    Registration point for standards\-track privacy
-    protocols used in SNMP Management Frameworks.
-    
-    
-
-    """
-
-    _prefix = 'SNMP-FRAMEWORK-MIB'
-    _revision = '2002-10-14'
-
-    def __init__(self):
-        ObjectIdentityIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMP_FRAMEWORK_MIB as meta
-        return meta._meta_table['SnmpprivprotocolsIdentity']['meta_info']
-
-
-class SnmpFrameworkMib(object):
+class SnmpFrameworkMib(Entity):
     """
     
     
@@ -131,11 +108,19 @@ class SnmpFrameworkMib(object):
     _revision = '2002-10-14'
 
     def __init__(self):
+        super(SnmpFrameworkMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "SNMP-FRAMEWORK-MIB"
+        self.yang_parent_name = "SNMP-FRAMEWORK-MIB"
+
         self.snmpengine = SnmpFrameworkMib.Snmpengine()
         self.snmpengine.parent = self
+        self._children_name_map["snmpengine"] = "snmpEngine"
+        self._children_yang_names.add("snmpEngine")
 
 
-    class Snmpengine(object):
+    class Snmpengine(Entity):
         """
         
         
@@ -177,59 +162,165 @@ class SnmpFrameworkMib(object):
         _revision = '2002-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.snmpengineboots = None
-            self.snmpengineid = None
-            self.snmpenginemaxmessagesize = None
-            self.snmpenginetime = None
+            super(SnmpFrameworkMib.Snmpengine, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "snmpEngine"
+            self.yang_parent_name = "SNMP-FRAMEWORK-MIB"
 
-            return '/SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB/SNMP-FRAMEWORK-MIB:snmpEngine'
+            self.snmpengineboots = YLeaf(YType.int32, "snmpEngineBoots")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.snmpengineid = YLeaf(YType.str, "snmpEngineID")
+
+            self.snmpenginemaxmessagesize = YLeaf(YType.int32, "snmpEngineMaxMessageSize")
+
+            self.snmpenginetime = YLeaf(YType.int32, "snmpEngineTime")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("snmpengineboots",
+                            "snmpengineid",
+                            "snmpenginemaxmessagesize",
+                            "snmpenginetime") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SnmpFrameworkMib.Snmpengine, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SnmpFrameworkMib.Snmpengine, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.snmpengineboots.is_set or
+                self.snmpengineid.is_set or
+                self.snmpenginemaxmessagesize.is_set or
+                self.snmpenginetime.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.snmpengineboots.yfilter != YFilter.not_set or
+                self.snmpengineid.yfilter != YFilter.not_set or
+                self.snmpenginemaxmessagesize.yfilter != YFilter.not_set or
+                self.snmpenginetime.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "snmpEngine" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.snmpengineboots.is_set or self.snmpengineboots.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpengineboots.get_name_leafdata())
+            if (self.snmpengineid.is_set or self.snmpengineid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpengineid.get_name_leafdata())
+            if (self.snmpenginemaxmessagesize.is_set or self.snmpenginemaxmessagesize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpenginemaxmessagesize.get_name_leafdata())
+            if (self.snmpenginetime.is_set or self.snmpenginetime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpenginetime.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "snmpEngineBoots" or name == "snmpEngineID" or name == "snmpEngineMaxMessageSize" or name == "snmpEngineTime"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.snmpengineboots is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "snmpEngineBoots"):
+                self.snmpengineboots = value
+                self.snmpengineboots.value_namespace = name_space
+                self.snmpengineboots.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpEngineID"):
+                self.snmpengineid = value
+                self.snmpengineid.value_namespace = name_space
+                self.snmpengineid.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpEngineMaxMessageSize"):
+                self.snmpenginemaxmessagesize = value
+                self.snmpenginemaxmessagesize.value_namespace = name_space
+                self.snmpenginemaxmessagesize.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpEngineTime"):
+                self.snmpenginetime = value
+                self.snmpenginetime.value_namespace = name_space
+                self.snmpenginetime.value_namespace_prefix = name_space_prefix
 
-            if self.snmpengineid is not None:
-                return True
+    def has_data(self):
+        return (self.snmpengine is not None and self.snmpengine.has_data())
 
-            if self.snmpenginemaxmessagesize is not None:
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.snmpengine is not None and self.snmpengine.has_operation()))
 
-            if self.snmpenginetime is not None:
-                return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB" + path_buffer
 
-            return False
+        return path_buffer
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMP_FRAMEWORK_MIB as meta
-            return meta._meta_table['SnmpFrameworkMib.Snmpengine']['meta_info']
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-    @property
-    def _common_path(self):
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-        return '/SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB'
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-    def _has_data(self):
-        if self.snmpengine is not None and self.snmpengine._has_data():
+        if (child_yang_name == "snmpEngine"):
+            if (self.snmpengine is None):
+                self.snmpengine = SnmpFrameworkMib.Snmpengine()
+                self.snmpengine.parent = self
+                self._children_name_map["snmpengine"] = "snmpEngine"
+            return self.snmpengine
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "snmpEngine"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMP_FRAMEWORK_MIB as meta
-        return meta._meta_table['SnmpFrameworkMib']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SnmpFrameworkMib()
+        return self._top_entity
 

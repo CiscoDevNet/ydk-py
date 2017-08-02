@@ -18,22 +18,16 @@ Acronyms\:
   CFM\: Connection Fault Management
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class RttmoncodectypeEnum(Enum):
+class Rttmoncodectype(Enum):
     """
-    RttmoncodectypeEnum
+    Rttmoncodectype
 
     Specifies the codec type to be used with the jitter probe.
 
@@ -57,24 +51,18 @@ class RttmoncodectypeEnum(Enum):
 
     """
 
-    notApplicable = 0
+    notApplicable = Enum.YLeaf(0, "notApplicable")
 
-    g711ulaw = 1
+    g711ulaw = Enum.YLeaf(1, "g711ulaw")
 
-    g711alaw = 2
+    g711alaw = Enum.YLeaf(2, "g711alaw")
 
-    g729a = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmoncodectypeEnum']
+    g729a = Enum.YLeaf(3, "g729a")
 
 
-class RttmonlsppingreplymodeEnum(Enum):
+class Rttmonlsppingreplymode(Enum):
     """
-    RttmonlsppingreplymodeEnum
+    Rttmonlsppingreplymode
 
     Specifies the Reply mode for the MPLS LSP Echo request
 
@@ -96,20 +84,14 @@ class RttmonlsppingreplymodeEnum(Enum):
 
     """
 
-    replyIpv4Udp = 1
+    replyIpv4Udp = Enum.YLeaf(1, "replyIpv4Udp")
 
-    replyIpv4UdpRA = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmonlsppingreplymodeEnum']
+    replyIpv4UdpRA = Enum.YLeaf(2, "replyIpv4UdpRA")
 
 
-class RttmonoperationEnum(Enum):
+class Rttmonoperation(Enum):
     """
-    RttmonoperationEnum
+    Rttmonoperation
 
     The following are specific RTT operations for a
 
@@ -155,32 +137,26 @@ class RttmonoperationEnum(Enum):
 
     """
 
-    notApplicable = 0
+    notApplicable = Enum.YLeaf(0, "notApplicable")
 
-    httpGet = 1
+    httpGet = Enum.YLeaf(1, "httpGet")
 
-    httpRaw = 2
+    httpRaw = Enum.YLeaf(2, "httpRaw")
 
-    ftpGet = 3
+    ftpGet = Enum.YLeaf(3, "ftpGet")
 
-    ftpPassive = 4
+    ftpPassive = Enum.YLeaf(4, "ftpPassive")
 
-    ftpActive = 5
+    ftpActive = Enum.YLeaf(5, "ftpActive")
 
-    voipDTAlertRinging = 6
+    voipDTAlertRinging = Enum.YLeaf(6, "voipDTAlertRinging")
 
-    voipDTConnectOK = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmonoperationEnum']
+    voipDTConnectOK = Enum.YLeaf(7, "voipDTConnectOK")
 
 
-class RttmonprotocolEnum(Enum):
+class Rttmonprotocol(Enum):
     """
-    RttmonprotocolEnum
+    Rttmonprotocol
 
     Specifies the protocol to be used to perform the timed
 
@@ -342,6 +318,8 @@ class RttmonprotocolEnum(Enum):
 
                           performance
 
+    .. data:: none = 0
+
     .. data:: notApplicable = 1
 
     .. data:: ipIcmpEcho = 2
@@ -426,102 +404,102 @@ class RttmonprotocolEnum(Enum):
 
     .. data:: y1731slm = 42
 
+    .. data:: y1731dmmv1 = 43
+
     """
 
-    notApplicable = 1
+    none = Enum.YLeaf(0, "none")
 
-    ipIcmpEcho = 2
+    notApplicable = Enum.YLeaf(1, "notApplicable")
 
-    ipUdpEchoAppl = 3
+    ipIcmpEcho = Enum.YLeaf(2, "ipIcmpEcho")
 
-    snaRUEcho = 4
+    ipUdpEchoAppl = Enum.YLeaf(3, "ipUdpEchoAppl")
 
-    snaLU0EchoAppl = 5
+    snaRUEcho = Enum.YLeaf(4, "snaRUEcho")
 
-    snaLU2EchoAppl = 6
+    snaLU0EchoAppl = Enum.YLeaf(5, "snaLU0EchoAppl")
 
-    snaLU62Echo = 7
+    snaLU2EchoAppl = Enum.YLeaf(6, "snaLU2EchoAppl")
 
-    snaLU62EchoAppl = 8
+    snaLU62Echo = Enum.YLeaf(7, "snaLU62Echo")
 
-    appleTalkEcho = 9
+    snaLU62EchoAppl = Enum.YLeaf(8, "snaLU62EchoAppl")
 
-    appleTalkEchoAppl = 10
+    appleTalkEcho = Enum.YLeaf(9, "appleTalkEcho")
 
-    decNetEcho = 11
+    appleTalkEchoAppl = Enum.YLeaf(10, "appleTalkEchoAppl")
 
-    decNetEchoAppl = 12
+    decNetEcho = Enum.YLeaf(11, "decNetEcho")
 
-    ipxEcho = 13
+    decNetEchoAppl = Enum.YLeaf(12, "decNetEchoAppl")
 
-    ipxEchoAppl = 14
+    ipxEcho = Enum.YLeaf(13, "ipxEcho")
 
-    isoClnsEcho = 15
+    ipxEchoAppl = Enum.YLeaf(14, "ipxEchoAppl")
 
-    isoClnsEchoAppl = 16
+    isoClnsEcho = Enum.YLeaf(15, "isoClnsEcho")
 
-    vinesEcho = 17
+    isoClnsEchoAppl = Enum.YLeaf(16, "isoClnsEchoAppl")
 
-    vinesEchoAppl = 18
+    vinesEcho = Enum.YLeaf(17, "vinesEcho")
 
-    xnsEcho = 19
+    vinesEchoAppl = Enum.YLeaf(18, "vinesEchoAppl")
 
-    xnsEchoAppl = 20
+    xnsEcho = Enum.YLeaf(19, "xnsEcho")
 
-    apolloEcho = 21
+    xnsEchoAppl = Enum.YLeaf(20, "xnsEchoAppl")
 
-    apolloEchoAppl = 22
+    apolloEcho = Enum.YLeaf(21, "apolloEcho")
 
-    netbiosEchoAppl = 23
+    apolloEchoAppl = Enum.YLeaf(22, "apolloEchoAppl")
 
-    ipTcpConn = 24
+    netbiosEchoAppl = Enum.YLeaf(23, "netbiosEchoAppl")
 
-    httpAppl = 25
+    ipTcpConn = Enum.YLeaf(24, "ipTcpConn")
 
-    dnsAppl = 26
+    httpAppl = Enum.YLeaf(25, "httpAppl")
 
-    jitterAppl = 27
+    dnsAppl = Enum.YLeaf(26, "dnsAppl")
 
-    dlswAppl = 28
+    jitterAppl = Enum.YLeaf(27, "jitterAppl")
 
-    dhcpAppl = 29
+    dlswAppl = Enum.YLeaf(28, "dlswAppl")
 
-    ftpAppl = 30
+    dhcpAppl = Enum.YLeaf(29, "dhcpAppl")
 
-    mplsLspPingAppl = 31
+    ftpAppl = Enum.YLeaf(30, "ftpAppl")
 
-    voipAppl = 32
+    mplsLspPingAppl = Enum.YLeaf(31, "mplsLspPingAppl")
 
-    rtpAppl = 33
+    voipAppl = Enum.YLeaf(32, "voipAppl")
 
-    icmpJitterAppl = 34
+    rtpAppl = Enum.YLeaf(33, "rtpAppl")
 
-    ethernetPingAppl = 35
+    icmpJitterAppl = Enum.YLeaf(34, "icmpJitterAppl")
 
-    ethernetJitterAppl = 36
+    ethernetPingAppl = Enum.YLeaf(35, "ethernetPingAppl")
 
-    videoAppl = 37
+    ethernetJitterAppl = Enum.YLeaf(36, "ethernetJitterAppl")
 
-    y1731dmm = 38
+    videoAppl = Enum.YLeaf(37, "videoAppl")
 
-    y17311dm = 39
+    y1731dmm = Enum.YLeaf(38, "y1731dmm")
 
-    y1731lmm = 40
+    y17311dm = Enum.YLeaf(39, "y17311dm")
 
-    mcastJitterAppl = 41
+    y1731lmm = Enum.YLeaf(40, "y1731lmm")
 
-    y1731slm = 42
+    mcastJitterAppl = Enum.YLeaf(41, "mcastJitterAppl")
 
+    y1731slm = Enum.YLeaf(42, "y1731slm")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmonprotocolEnum']
+    y1731dmmv1 = Enum.YLeaf(43, "y1731dmmv1")
 
 
-class RttmonreactvarEnum(Enum):
+class Rttmonreactvar(Enum):
     """
-    RttmonreactvarEnum
+    Rttmonreactvar
 
     The following are specific Reaction variables for a
 
@@ -681,80 +659,74 @@ class RttmonreactvarEnum(Enum):
 
     """
 
-    rtt = 1
+    rtt = Enum.YLeaf(1, "rtt")
 
-    jitterSDAvg = 2
+    jitterSDAvg = Enum.YLeaf(2, "jitterSDAvg")
 
-    jitterDSAvg = 3
+    jitterDSAvg = Enum.YLeaf(3, "jitterDSAvg")
 
-    packetLossSD = 4
+    packetLossSD = Enum.YLeaf(4, "packetLossSD")
 
-    packetLossDS = 5
+    packetLossDS = Enum.YLeaf(5, "packetLossDS")
 
-    mos = 6
+    mos = Enum.YLeaf(6, "mos")
 
-    timeout = 7
+    timeout = Enum.YLeaf(7, "timeout")
 
-    connectionLoss = 8
+    connectionLoss = Enum.YLeaf(8, "connectionLoss")
 
-    verifyError = 9
+    verifyError = Enum.YLeaf(9, "verifyError")
 
-    jitterAvg = 10
+    jitterAvg = Enum.YLeaf(10, "jitterAvg")
 
-    icpif = 11
+    icpif = Enum.YLeaf(11, "icpif")
 
-    packetMIA = 12
+    packetMIA = Enum.YLeaf(12, "packetMIA")
 
-    packetLateArrival = 13
+    packetLateArrival = Enum.YLeaf(13, "packetLateArrival")
 
-    packetOutOfSequence = 14
+    packetOutOfSequence = Enum.YLeaf(14, "packetOutOfSequence")
 
-    maxOfPositiveSD = 15
+    maxOfPositiveSD = Enum.YLeaf(15, "maxOfPositiveSD")
 
-    maxOfNegativeSD = 16
+    maxOfNegativeSD = Enum.YLeaf(16, "maxOfNegativeSD")
 
-    maxOfPositiveDS = 17
+    maxOfPositiveDS = Enum.YLeaf(17, "maxOfPositiveDS")
 
-    maxOfNegativeDS = 18
+    maxOfNegativeDS = Enum.YLeaf(18, "maxOfNegativeDS")
 
-    iaJitterDS = 19
+    iaJitterDS = Enum.YLeaf(19, "iaJitterDS")
 
-    frameLossDS = 20
+    frameLossDS = Enum.YLeaf(20, "frameLossDS")
 
-    mosLQDS = 21
+    mosLQDS = Enum.YLeaf(21, "mosLQDS")
 
-    mosCQDS = 22
+    mosCQDS = Enum.YLeaf(22, "mosCQDS")
 
-    rFactorDS = 23
+    rFactorDS = Enum.YLeaf(23, "rFactorDS")
 
-    successivePacketLoss = 24
+    successivePacketLoss = Enum.YLeaf(24, "successivePacketLoss")
 
-    maxOfLatencyDS = 25
+    maxOfLatencyDS = Enum.YLeaf(25, "maxOfLatencyDS")
 
-    maxOfLatencySD = 26
+    maxOfLatencySD = Enum.YLeaf(26, "maxOfLatencySD")
 
-    latencyDSAvg = 27
+    latencyDSAvg = Enum.YLeaf(27, "latencyDSAvg")
 
-    latencySDAvg = 28
+    latencySDAvg = Enum.YLeaf(28, "latencySDAvg")
 
-    packetLoss = 29
+    packetLoss = Enum.YLeaf(29, "packetLoss")
 
-    iaJitterSD = 30
+    iaJitterSD = Enum.YLeaf(30, "iaJitterSD")
 
-    mosCQSD = 31
+    mosCQSD = Enum.YLeaf(31, "mosCQSD")
 
-    rFactorSD = 32
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmonreactvarEnum']
+    rFactorSD = Enum.YLeaf(32, "rFactorSD")
 
 
-class RttmonrtttypeEnum(Enum):
+class Rttmonrtttype(Enum):
     """
-    RttmonrtttypeEnum
+    Rttmonrtttype
 
     Specifies the type of RTT operation to be performed.
 
@@ -890,6 +862,8 @@ class RttmonrtttypeEnum(Enum):
 
     udp jitter stream analysis on a multicast network.
 
+    .. data:: none = 0
+
     .. data:: echo = 1
 
     .. data:: pathEcho = 2
@@ -942,66 +916,62 @@ class RttmonrtttypeEnum(Enum):
 
     """
 
-    echo = 1
+    none = Enum.YLeaf(0, "none")
 
-    pathEcho = 2
+    echo = Enum.YLeaf(1, "echo")
 
-    fileIO = 3
+    pathEcho = Enum.YLeaf(2, "pathEcho")
 
-    script = 4
+    fileIO = Enum.YLeaf(3, "fileIO")
 
-    udpEcho = 5
+    script = Enum.YLeaf(4, "script")
 
-    tcpConnect = 6
+    udpEcho = Enum.YLeaf(5, "udpEcho")
 
-    http = 7
+    tcpConnect = Enum.YLeaf(6, "tcpConnect")
 
-    dns = 8
+    http = Enum.YLeaf(7, "http")
 
-    jitter = 9
+    dns = Enum.YLeaf(8, "dns")
 
-    dlsw = 10
+    jitter = Enum.YLeaf(9, "jitter")
 
-    dhcp = 11
+    dlsw = Enum.YLeaf(10, "dlsw")
 
-    ftp = 12
+    dhcp = Enum.YLeaf(11, "dhcp")
 
-    voip = 13
+    ftp = Enum.YLeaf(12, "ftp")
 
-    rtp = 14
+    voip = Enum.YLeaf(13, "voip")
 
-    lspGroup = 15
+    rtp = Enum.YLeaf(14, "rtp")
 
-    icmpjitter = 16
+    lspGroup = Enum.YLeaf(15, "lspGroup")
 
-    lspPing = 17
+    icmpjitter = Enum.YLeaf(16, "icmpjitter")
 
-    lspTrace = 18
+    lspPing = Enum.YLeaf(17, "lspPing")
 
-    ethernetPing = 19
+    lspTrace = Enum.YLeaf(18, "lspTrace")
 
-    ethernetJitter = 20
+    ethernetPing = Enum.YLeaf(19, "ethernetPing")
 
-    lspPingPseudowire = 21
+    ethernetJitter = Enum.YLeaf(20, "ethernetJitter")
 
-    video = 22
+    lspPingPseudowire = Enum.YLeaf(21, "lspPingPseudowire")
 
-    y1731Delay = 23
+    video = Enum.YLeaf(22, "video")
 
-    y1731Loss = 24
+    y1731Delay = Enum.YLeaf(23, "y1731Delay")
 
-    mcastJitter = 25
+    y1731Loss = Enum.YLeaf(24, "y1731Loss")
 
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmonrtttypeEnum']
+    mcastJitter = Enum.YLeaf(25, "mcastJitter")
 
 
-class RttmplsvpnmonlpdfailuresenseEnum(Enum):
+class Rttmplsvpnmonlpdfailuresense(Enum):
     """
-    RttmplsvpnmonlpdfailuresenseEnum
+    Rttmplsvpnmonlpdfailuresense
 
     These are the defined values for the causes of failure in
 
@@ -1081,30 +1051,24 @@ class RttmplsvpnmonlpdfailuresenseEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    noPath = 2
+    noPath = Enum.YLeaf(2, "noPath")
 
-    allPathsBroken = 3
+    allPathsBroken = Enum.YLeaf(3, "allPathsBroken")
 
-    allPathsUnexplorable = 4
+    allPathsUnexplorable = Enum.YLeaf(4, "allPathsUnexplorable")
 
-    allPathsBrokenOrUnexplorable = 5
+    allPathsBrokenOrUnexplorable = Enum.YLeaf(5, "allPathsBrokenOrUnexplorable")
 
-    timeout = 6
+    timeout = Enum.YLeaf(6, "timeout")
 
-    error = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmplsvpnmonlpdfailuresenseEnum']
+    error = Enum.YLeaf(7, "error")
 
 
-class RttmplsvpnmonlpdgrpstatusEnum(Enum):
+class Rttmplsvpnmonlpdgrpstatus(Enum):
     """
-    RttmplsvpnmonlpdgrpstatusEnum
+    Rttmplsvpnmonlpdgrpstatus
 
     These are the defined values for the status of the LPD Group.
 
@@ -1144,24 +1108,18 @@ class RttmplsvpnmonlpdgrpstatusEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    up = 2
+    up = Enum.YLeaf(2, "up")
 
-    partial = 3
+    partial = Enum.YLeaf(3, "partial")
 
-    down = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmplsvpnmonlpdgrpstatusEnum']
+    down = Enum.YLeaf(4, "down")
 
 
-class RttmplsvpnmonrtttypeEnum(Enum):
+class Rttmplsvpnmonrtttype(Enum):
     """
-    RttmplsvpnmonrtttypeEnum
+    Rttmplsvpnmonrtttype
 
     Specifies the type of RTT operation to be performed for
 
@@ -1187,22 +1145,16 @@ class RttmplsvpnmonrtttypeEnum(Enum):
 
     """
 
-    jitter = 1
+    jitter = Enum.YLeaf(1, "jitter")
 
-    echo = 2
+    echo = Enum.YLeaf(2, "echo")
 
-    pathEcho = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttmplsvpnmonrtttypeEnum']
+    pathEcho = Enum.YLeaf(3, "pathEcho")
 
 
-class RttresetEnum(Enum):
+class Rttreset(Enum):
     """
-    RttresetEnum
+    Rttreset
 
     When the value set to 'reset', the entire RTT application
 
@@ -1218,20 +1170,14 @@ class RttresetEnum(Enum):
 
     """
 
-    ready = 1
+    ready = Enum.YLeaf(1, "ready")
 
-    reset = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttresetEnum']
+    reset = Enum.YLeaf(2, "reset")
 
 
-class RttresponsesenseEnum(Enum):
+class Rttresponsesense(Enum):
     """
-    RttresponsesenseEnum
+    Rttresponsesense
 
     These are the defined values for a completion status
 
@@ -1513,89 +1459,83 @@ class RttresponsesenseEnum(Enum):
 
     """
 
-    other = 0
+    other = Enum.YLeaf(0, "other")
 
-    ok = 1
+    ok = Enum.YLeaf(1, "ok")
 
-    disconnected = 2
+    disconnected = Enum.YLeaf(2, "disconnected")
 
-    overThreshold = 3
+    overThreshold = Enum.YLeaf(3, "overThreshold")
 
-    timeout = 4
+    timeout = Enum.YLeaf(4, "timeout")
 
-    busy = 5
+    busy = Enum.YLeaf(5, "busy")
 
-    notConnected = 6
+    notConnected = Enum.YLeaf(6, "notConnected")
 
-    dropped = 7
+    dropped = Enum.YLeaf(7, "dropped")
 
-    sequenceError = 8
+    sequenceError = Enum.YLeaf(8, "sequenceError")
 
-    verifyError = 9
+    verifyError = Enum.YLeaf(9, "verifyError")
 
-    applicationSpecific = 10
+    applicationSpecific = Enum.YLeaf(10, "applicationSpecific")
 
-    dnsServerTimeout = 11
+    dnsServerTimeout = Enum.YLeaf(11, "dnsServerTimeout")
 
-    tcpConnectTimeout = 12
+    tcpConnectTimeout = Enum.YLeaf(12, "tcpConnectTimeout")
 
-    httpTransactionTimeout = 13
+    httpTransactionTimeout = Enum.YLeaf(13, "httpTransactionTimeout")
 
-    dnsQueryError = 14
+    dnsQueryError = Enum.YLeaf(14, "dnsQueryError")
 
-    httpError = 15
+    httpError = Enum.YLeaf(15, "httpError")
 
-    error = 16
+    error = Enum.YLeaf(16, "error")
 
-    mplsLspEchoTxError = 17
+    mplsLspEchoTxError = Enum.YLeaf(17, "mplsLspEchoTxError")
 
-    mplsLspUnreachable = 18
+    mplsLspUnreachable = Enum.YLeaf(18, "mplsLspUnreachable")
 
-    mplsLspMalformedReq = 19
+    mplsLspMalformedReq = Enum.YLeaf(19, "mplsLspMalformedReq")
 
-    mplsLspReachButNotFEC = 20
+    mplsLspReachButNotFEC = Enum.YLeaf(20, "mplsLspReachButNotFEC")
 
-    enableOk = 21
+    enableOk = Enum.YLeaf(21, "enableOk")
 
-    enableNoConnect = 22
+    enableNoConnect = Enum.YLeaf(22, "enableNoConnect")
 
-    enableVersionFail = 23
+    enableVersionFail = Enum.YLeaf(23, "enableVersionFail")
 
-    enableInternalError = 24
+    enableInternalError = Enum.YLeaf(24, "enableInternalError")
 
-    enableAbort = 25
+    enableAbort = Enum.YLeaf(25, "enableAbort")
 
-    enableFail = 26
+    enableFail = Enum.YLeaf(26, "enableFail")
 
-    enableAuthFail = 27
+    enableAuthFail = Enum.YLeaf(27, "enableAuthFail")
 
-    enableFormatError = 28
+    enableFormatError = Enum.YLeaf(28, "enableFormatError")
 
-    enablePortInUse = 29
+    enablePortInUse = Enum.YLeaf(29, "enablePortInUse")
 
-    statsRetrieveOk = 30
+    statsRetrieveOk = Enum.YLeaf(30, "statsRetrieveOk")
 
-    statsRetrieveNoConnect = 31
+    statsRetrieveNoConnect = Enum.YLeaf(31, "statsRetrieveNoConnect")
 
-    statsRetrieveVersionFail = 32
+    statsRetrieveVersionFail = Enum.YLeaf(32, "statsRetrieveVersionFail")
 
-    statsRetrieveInternalError = 33
+    statsRetrieveInternalError = Enum.YLeaf(33, "statsRetrieveInternalError")
 
-    statsRetrieveAbort = 34
+    statsRetrieveAbort = Enum.YLeaf(34, "statsRetrieveAbort")
 
-    statsRetrieveFail = 35
+    statsRetrieveFail = Enum.YLeaf(35, "statsRetrieveFail")
 
-    statsRetrieveAuthFail = 36
+    statsRetrieveAuthFail = Enum.YLeaf(36, "statsRetrieveAuthFail")
 
-    statsRetrieveFormatError = 37
+    statsRetrieveFormatError = Enum.YLeaf(37, "statsRetrieveFormatError")
 
-    statsRetrievePortInUse = 38
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_RTTMON_TC_MIB as meta
-        return meta._meta_table['RttresponsesenseEnum']
+    statsRetrievePortInUse = Enum.YLeaf(38, "statsRetrievePortInUse")
 
 
 

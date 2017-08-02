@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class PppoeMaLimitStateEnum(Enum):
+class PppoeMaLimitState(Enum):
     """
-    PppoeMaLimitStateEnum
+    PppoeMaLimitState
 
     Pppoe ma limit state
 
@@ -44,22 +38,16 @@ class PppoeMaLimitStateEnum(Enum):
 
     """
 
-    ok = 0
+    ok = Enum.YLeaf(0, "ok")
 
-    warning = 1
+    warning = Enum.YLeaf(1, "warning")
 
-    block = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-        return meta._meta_table['PppoeMaLimitStateEnum']
+    block = Enum.YLeaf(2, "block")
 
 
-class PppoeMaSessionIdbSrgStateEnum(Enum):
+class PppoeMaSessionIdbSrgState(Enum):
     """
-    PppoeMaSessionIdbSrgStateEnum
+    PppoeMaSessionIdbSrgState
 
     Pppoe ma session idb srg state
 
@@ -77,22 +65,16 @@ class PppoeMaSessionIdbSrgStateEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    active = 1
+    active = Enum.YLeaf(1, "active")
 
-    standby = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-        return meta._meta_table['PppoeMaSessionIdbSrgStateEnum']
+    standby = Enum.YLeaf(2, "standby")
 
 
-class PppoeMaThrottleStateEnum(Enum):
+class PppoeMaThrottleState(Enum):
     """
-    PppoeMaThrottleStateEnum
+    PppoeMaThrottleState
 
     Pppoe ma throttle state
 
@@ -110,21 +92,15 @@ class PppoeMaThrottleStateEnum(Enum):
 
     """
 
-    idle = 0
+    idle = Enum.YLeaf(0, "idle")
 
-    monitor = 1
+    monitor = Enum.YLeaf(1, "monitor")
 
-    block = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-        return meta._meta_table['PppoeMaThrottleStateEnum']
+    block = Enum.YLeaf(2, "block")
 
 
 
-class Pppoe(object):
+class Pppoe(Entity):
     """
     PPPoE operational data
     
@@ -146,13 +122,24 @@ class Pppoe(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Pppoe, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "pppoe"
+        self.yang_parent_name = "Cisco-IOS-XR-subscriber-pppoe-ma-oper"
+
         self.access_interface_statistics = Pppoe.AccessInterfaceStatistics()
         self.access_interface_statistics.parent = self
+        self._children_name_map["access_interface_statistics"] = "access-interface-statistics"
+        self._children_yang_names.add("access-interface-statistics")
+
         self.nodes = Pppoe.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class AccessInterfaceStatistics(object):
+    class AccessInterfaceStatistics(Entity):
         """
         PPPoE access interface statistics information
         
@@ -169,13 +156,39 @@ class Pppoe(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.access_interface_statistic = YList()
-            self.access_interface_statistic.parent = self
-            self.access_interface_statistic.name = 'access_interface_statistic'
+            super(Pppoe.AccessInterfaceStatistics, self).__init__()
+
+            self.yang_name = "access-interface-statistics"
+            self.yang_parent_name = "pppoe"
+
+            self.access_interface_statistic = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Pppoe.AccessInterfaceStatistics, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Pppoe.AccessInterfaceStatistics, self).__setattr__(name, value)
 
 
-        class AccessInterfaceStatistic(object):
+        class AccessInterfaceStatistic(Entity):
             """
             Statistics information for a PPPoE\-enabled
             access interface
@@ -200,13 +213,44 @@ class Pppoe(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
+                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic, self).__init__()
+
+                self.yang_name = "access-interface-statistic"
+                self.yang_parent_name = "access-interface-statistics"
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
                 self.packet_counts = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts()
                 self.packet_counts.parent = self
+                self._children_name_map["packet_counts"] = "packet-counts"
+                self._children_yang_names.add("packet-counts")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic, self).__setattr__(name, value)
 
 
-            class PacketCounts(object):
+            class PacketCounts(Entity):
                 """
                 Packet Counts
                 
@@ -258,26 +302,53 @@ class Pppoe(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts, self).__init__()
+
+                    self.yang_name = "packet-counts"
+                    self.yang_parent_name = "access-interface-statistic"
+
                     self.other = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other()
                     self.other.parent = self
+                    self._children_name_map["other"] = "other"
+                    self._children_yang_names.add("other")
+
                     self.padi = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi()
                     self.padi.parent = self
+                    self._children_name_map["padi"] = "padi"
+                    self._children_yang_names.add("padi")
+
                     self.pado = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado()
                     self.pado.parent = self
+                    self._children_name_map["pado"] = "pado"
+                    self._children_yang_names.add("pado")
+
                     self.padr = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr()
                     self.padr.parent = self
+                    self._children_name_map["padr"] = "padr"
+                    self._children_yang_names.add("padr")
+
                     self.pads_error = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError()
                     self.pads_error.parent = self
+                    self._children_name_map["pads_error"] = "pads-error"
+                    self._children_yang_names.add("pads-error")
+
                     self.pads_success = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess()
                     self.pads_success.parent = self
+                    self._children_name_map["pads_success"] = "pads-success"
+                    self._children_yang_names.add("pads-success")
+
                     self.padt = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt()
                     self.padt.parent = self
+                    self._children_name_map["padt"] = "padt"
+                    self._children_yang_names.add("padt")
+
                     self.session_state = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState()
                     self.session_state.parent = self
+                    self._children_name_map["session_state"] = "session-state"
+                    self._children_yang_names.add("session-state")
 
 
-                class Padi(object):
+                class Padi(Entity):
                     """
                     PADI counts
                     
@@ -310,41 +381,108 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "padi"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:padi'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "padi" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
-
-                        if self.received is not None:
-                            return True
-
-                        if self.sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
 
-                class Pado(object):
+                class Pado(Entity):
                     """
                     PADO counts
                     
@@ -377,41 +515,108 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "pado"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pado'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "pado" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
-
-                        if self.received is not None:
-                            return True
-
-                        if self.sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
 
-                class Padr(object):
+                class Padr(Entity):
                     """
                     PADR counts
                     
@@ -444,41 +649,108 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "padr"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:padr'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "padr" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
-
-                        if self.received is not None:
-                            return True
-
-                        if self.sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
 
-                class PadsSuccess(object):
+                class PadsSuccess(Entity):
                     """
                     PADS Success counts
                     
@@ -511,41 +783,108 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "pads-success"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pads-success'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "pads-success" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
-
-                        if self.received is not None:
-                            return True
-
-                        if self.sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
 
-                class PadsError(object):
+                class PadsError(Entity):
                     """
                     PADS Error counts
                     
@@ -578,41 +917,108 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "pads-error"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pads-error'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "pads-error" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
-
-                        if self.received is not None:
-                            return True
-
-                        if self.sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
 
-                class Padt(object):
+                class Padt(Entity):
                     """
                     PADT counts
                     
@@ -645,41 +1051,108 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "padt"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:padt'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "padt" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
-
-                        if self.received is not None:
-                            return True
-
-                        if self.sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
 
-                class SessionState(object):
+                class SessionState(Entity):
                     """
                     Session Stage counts
                     
@@ -712,41 +1185,108 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "session-state"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:session-state'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session-state" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
-
-                        if self.received is not None:
-                            return True
-
-                        if self.sent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
 
-                class Other(object):
+                class Other(Entity):
                     """
                     Other counts
                     
@@ -779,131 +1319,333 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dropped = None
-                        self.received = None
-                        self.sent = None
+                        super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "other"
+                        self.yang_parent_name = "packet-counts"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:other'
+                        self.dropped = YLeaf(YType.uint32, "dropped")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.received = YLeaf(YType.uint32, "received")
+
+                        self.sent = YLeaf(YType.uint32, "sent")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dropped",
+                                        "received",
+                                        "sent") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dropped.is_set or
+                            self.received.is_set or
+                            self.sent.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dropped.yfilter != YFilter.not_set or
+                            self.received.yfilter != YFilter.not_set or
+                            self.sent.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "other" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dropped.get_name_leafdata())
+                        if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received.get_name_leafdata())
+                        if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dropped" or name == "received" or name == "sent"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.dropped is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dropped"):
+                            self.dropped = value
+                            self.dropped.value_namespace = name_space
+                            self.dropped.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received"):
+                            self.received = value
+                            self.received.value_namespace = name_space
+                            self.received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent"):
+                            self.sent = value
+                            self.sent.value_namespace = name_space
+                            self.sent.value_namespace_prefix = name_space_prefix
 
-                        if self.received is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        (self.other is not None and self.other.has_data()) or
+                        (self.padi is not None and self.padi.has_data()) or
+                        (self.pado is not None and self.pado.has_data()) or
+                        (self.padr is not None and self.padr.has_data()) or
+                        (self.pads_error is not None and self.pads_error.has_data()) or
+                        (self.pads_success is not None and self.pads_success.has_data()) or
+                        (self.padt is not None and self.padt.has_data()) or
+                        (self.session_state is not None and self.session_state.has_data()))
 
-                        if self.sent is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.other is not None and self.other.has_operation()) or
+                        (self.padi is not None and self.padi.has_operation()) or
+                        (self.pado is not None and self.pado.has_operation()) or
+                        (self.padr is not None and self.padr.has_operation()) or
+                        (self.pads_error is not None and self.pads_error.has_operation()) or
+                        (self.pads_success is not None and self.pads_success.has_operation()) or
+                        (self.padt is not None and self.padt.has_operation()) or
+                        (self.session_state is not None and self.session_state.has_operation()))
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "packet-counts" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:packet-counts'
+                    leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "other"):
+                        if (self.other is None):
+                            self.other = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other()
+                            self.other.parent = self
+                            self._children_name_map["other"] = "other"
+                        return self.other
+
+                    if (child_yang_name == "padi"):
+                        if (self.padi is None):
+                            self.padi = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi()
+                            self.padi.parent = self
+                            self._children_name_map["padi"] = "padi"
+                        return self.padi
+
+                    if (child_yang_name == "pado"):
+                        if (self.pado is None):
+                            self.pado = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado()
+                            self.pado.parent = self
+                            self._children_name_map["pado"] = "pado"
+                        return self.pado
+
+                    if (child_yang_name == "padr"):
+                        if (self.padr is None):
+                            self.padr = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr()
+                            self.padr.parent = self
+                            self._children_name_map["padr"] = "padr"
+                        return self.padr
+
+                    if (child_yang_name == "pads-error"):
+                        if (self.pads_error is None):
+                            self.pads_error = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError()
+                            self.pads_error.parent = self
+                            self._children_name_map["pads_error"] = "pads-error"
+                        return self.pads_error
+
+                    if (child_yang_name == "pads-success"):
+                        if (self.pads_success is None):
+                            self.pads_success = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess()
+                            self.pads_success.parent = self
+                            self._children_name_map["pads_success"] = "pads-success"
+                        return self.pads_success
+
+                    if (child_yang_name == "padt"):
+                        if (self.padt is None):
+                            self.padt = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt()
+                            self.padt.parent = self
+                            self._children_name_map["padt"] = "padt"
+                        return self.padt
+
+                    if (child_yang_name == "session-state"):
+                        if (self.session_state is None):
+                            self.session_state = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState()
+                            self.session_state.parent = self
+                            self._children_name_map["session_state"] = "session-state"
+                        return self.session_state
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "other" or name == "padi" or name == "pado" or name == "padr" or name == "pads-error" or name == "pads-success" or name == "padt" or name == "session-state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.other is not None and self.other._has_data():
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-                    if self.padi is not None and self.padi._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    (self.packet_counts is not None and self.packet_counts.has_data()))
 
-                    if self.pado is not None and self.pado._has_data():
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    (self.packet_counts is not None and self.packet_counts.has_operation()))
 
-                    if self.padr is not None and self.padr._has_data():
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "access-interface-statistic" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                    if self.pads_error is not None and self.pads_error._has_data():
-                        return True
+                return path_buffer
 
-                    if self.pads_success is not None and self.pads_success._has_data():
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/access-interface-statistics/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.padt is not None and self.padt._has_data():
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
 
-                    if self.session_state is not None and self.session_state._has_data():
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    return False
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                    return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts']['meta_info']
+                if (child_yang_name == "packet-counts"):
+                    if (self.packet_counts is None):
+                        self.packet_counts = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts()
+                        self.packet_counts.parent = self
+                        self._children_name_map["packet_counts"] = "packet-counts"
+                    return self.packet_counts
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+                return None
 
-                return '/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/Cisco-IOS-XR-subscriber-pppoe-ma-oper:access-interface-statistics/Cisco-IOS-XR-subscriber-pppoe-ma-oper:access-interface-statistic[Cisco-IOS-XR-subscriber-pppoe-ma-oper:interface-name = ' + str(self.interface_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "packet-counts" or name == "interface-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.access_interface_statistic:
+                if (c.has_data()):
                     return True
-
-                if self.packet_counts is not None and self.packet_counts._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                return meta._meta_table['Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/Cisco-IOS-XR-subscriber-pppoe-ma-oper:access-interface-statistics'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.access_interface_statistic is not None:
-                for child_ref in self.access_interface_statistic:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.access_interface_statistic:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "access-interface-statistics" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "access-interface-statistic"):
+                for c in self.access_interface_statistic:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.access_interface_statistic.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "access-interface-statistic"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-            return meta._meta_table['Pppoe.AccessInterfaceStatistics']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         Per\-node PPPoE operational data
         
@@ -920,13 +1662,39 @@ class Pppoe(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(Pppoe.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "pppoe"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Pppoe.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Pppoe.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             PPPoE operational data for a particular node
             
@@ -970,21 +1738,64 @@ class Pppoe(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(Pppoe.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.access_interface = Pppoe.Nodes.Node.AccessInterface()
                 self.access_interface.parent = self
+                self._children_name_map["access_interface"] = "access-interface"
+                self._children_yang_names.add("access-interface")
+
                 self.bba_groups = Pppoe.Nodes.Node.BbaGroups()
                 self.bba_groups.parent = self
+                self._children_name_map["bba_groups"] = "bba-groups"
+                self._children_yang_names.add("bba-groups")
+
                 self.interfaces = Pppoe.Nodes.Node.Interfaces()
                 self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
                 self.statistics = Pppoe.Nodes.Node.Statistics()
                 self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+                self._children_yang_names.add("statistics")
+
                 self.summary_total = Pppoe.Nodes.Node.SummaryTotal()
                 self.summary_total.parent = self
+                self._children_name_map["summary_total"] = "summary-total"
+                self._children_yang_names.add("summary-total")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Pppoe.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Pppoe.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Statistics(object):
+            class Statistics(Entity):
                 """
                 PPPoE statistics for a given node
                 
@@ -1006,14 +1817,23 @@ class Pppoe(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Pppoe.Nodes.Node.Statistics, self).__init__()
+
+                    self.yang_name = "statistics"
+                    self.yang_parent_name = "node"
+
                     self.packet_counts = Pppoe.Nodes.Node.Statistics.PacketCounts()
                     self.packet_counts.parent = self
+                    self._children_name_map["packet_counts"] = "packet-counts"
+                    self._children_yang_names.add("packet-counts")
+
                     self.packet_error_counts = Pppoe.Nodes.Node.Statistics.PacketErrorCounts()
                     self.packet_error_counts.parent = self
+                    self._children_name_map["packet_error_counts"] = "packet-error-counts"
+                    self._children_yang_names.add("packet-error-counts")
 
 
-                class PacketCounts(object):
+                class PacketCounts(Entity):
                     """
                     Packet Counts
                     
@@ -1065,26 +1885,53 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Pppoe.Nodes.Node.Statistics.PacketCounts, self).__init__()
+
+                        self.yang_name = "packet-counts"
+                        self.yang_parent_name = "statistics"
+
                         self.other = Pppoe.Nodes.Node.Statistics.PacketCounts.Other()
                         self.other.parent = self
+                        self._children_name_map["other"] = "other"
+                        self._children_yang_names.add("other")
+
                         self.padi = Pppoe.Nodes.Node.Statistics.PacketCounts.Padi()
                         self.padi.parent = self
+                        self._children_name_map["padi"] = "padi"
+                        self._children_yang_names.add("padi")
+
                         self.pado = Pppoe.Nodes.Node.Statistics.PacketCounts.Pado()
                         self.pado.parent = self
+                        self._children_name_map["pado"] = "pado"
+                        self._children_yang_names.add("pado")
+
                         self.padr = Pppoe.Nodes.Node.Statistics.PacketCounts.Padr()
                         self.padr.parent = self
+                        self._children_name_map["padr"] = "padr"
+                        self._children_yang_names.add("padr")
+
                         self.pads_error = Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError()
                         self.pads_error.parent = self
+                        self._children_name_map["pads_error"] = "pads-error"
+                        self._children_yang_names.add("pads-error")
+
                         self.pads_success = Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess()
                         self.pads_success.parent = self
+                        self._children_name_map["pads_success"] = "pads-success"
+                        self._children_yang_names.add("pads-success")
+
                         self.padt = Pppoe.Nodes.Node.Statistics.PacketCounts.Padt()
                         self.padt.parent = self
+                        self._children_name_map["padt"] = "padt"
+                        self._children_yang_names.add("padt")
+
                         self.session_state = Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState()
                         self.session_state.parent = self
+                        self._children_name_map["session_state"] = "session-state"
+                        self._children_yang_names.add("session-state")
 
 
-                    class Padi(object):
+                    class Padi(Entity):
                         """
                         PADI counts
                         
@@ -1117,41 +1964,108 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "padi"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:padi'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "padi" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
-
-                            if self.received is not None:
-                                return True
-
-                            if self.sent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Padi']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
 
-                    class Pado(object):
+                    class Pado(Entity):
                         """
                         PADO counts
                         
@@ -1184,41 +2098,108 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "pado"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pado'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "pado" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
-
-                            if self.received is not None:
-                                return True
-
-                            if self.sent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Pado']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
 
-                    class Padr(object):
+                    class Padr(Entity):
                         """
                         PADR counts
                         
@@ -1251,41 +2232,108 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "padr"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:padr'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "padr" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
-
-                            if self.received is not None:
-                                return True
-
-                            if self.sent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Padr']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
 
-                    class PadsSuccess(object):
+                    class PadsSuccess(Entity):
                         """
                         PADS Success counts
                         
@@ -1318,41 +2366,108 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "pads-success"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pads-success'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "pads-success" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
-
-                            if self.received is not None:
-                                return True
-
-                            if self.sent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
 
-                    class PadsError(object):
+                    class PadsError(Entity):
                         """
                         PADS Error counts
                         
@@ -1385,41 +2500,108 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "pads-error"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pads-error'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "pads-error" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
-
-                            if self.received is not None:
-                                return True
-
-                            if self.sent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
 
-                    class Padt(object):
+                    class Padt(Entity):
                         """
                         PADT counts
                         
@@ -1452,41 +2634,108 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "padt"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:padt'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "padt" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
-
-                            if self.received is not None:
-                                return True
-
-                            if self.sent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Padt']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
 
-                    class SessionState(object):
+                    class SessionState(Entity):
                         """
                         Session Stage counts
                         
@@ -1519,41 +2768,108 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "session-state"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:session-state'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "session-state" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
-
-                            if self.received is not None:
-                                return True
-
-                            if self.sent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
 
-                    class Other(object):
+                    class Other(Entity):
                         """
                         Other counts
                         
@@ -1586,84 +2902,220 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.dropped = None
-                            self.received = None
-                            self.sent = None
+                            super(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "other"
+                            self.yang_parent_name = "packet-counts"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:other'
+                            self.dropped = YLeaf(YType.uint32, "dropped")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.received = YLeaf(YType.uint32, "received")
+
+                            self.sent = YLeaf(YType.uint32, "sent")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("dropped",
+                                            "received",
+                                            "sent") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.dropped.is_set or
+                                self.received.is_set or
+                                self.sent.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.dropped.yfilter != YFilter.not_set or
+                                self.received.yfilter != YFilter.not_set or
+                                self.sent.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "other" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.dropped.is_set or self.dropped.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dropped.get_name_leafdata())
+                            if (self.received.is_set or self.received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.received.get_name_leafdata())
+                            if (self.sent.is_set or self.sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sent.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dropped" or name == "received" or name == "sent"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.dropped is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "dropped"):
+                                self.dropped = value
+                                self.dropped.value_namespace = name_space
+                                self.dropped.value_namespace_prefix = name_space_prefix
+                            if(value_path == "received"):
+                                self.received = value
+                                self.received.value_namespace = name_space
+                                self.received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sent"):
+                                self.sent = value
+                                self.sent.value_namespace = name_space
+                                self.sent.value_namespace_prefix = name_space_prefix
 
-                            if self.received is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            (self.other is not None and self.other.has_data()) or
+                            (self.padi is not None and self.padi.has_data()) or
+                            (self.pado is not None and self.pado.has_data()) or
+                            (self.padr is not None and self.padr.has_data()) or
+                            (self.pads_error is not None and self.pads_error.has_data()) or
+                            (self.pads_success is not None and self.pads_success.has_data()) or
+                            (self.padt is not None and self.padt.has_data()) or
+                            (self.session_state is not None and self.session_state.has_data()))
 
-                            if self.sent is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.other is not None and self.other.has_operation()) or
+                            (self.padi is not None and self.padi.has_operation()) or
+                            (self.pado is not None and self.pado.has_operation()) or
+                            (self.padr is not None and self.padr.has_operation()) or
+                            (self.pads_error is not None and self.pads_error.has_operation()) or
+                            (self.pads_success is not None and self.pads_success.has_operation()) or
+                            (self.padt is not None and self.padt.has_operation()) or
+                            (self.session_state is not None and self.session_state.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "packet-counts" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts.Other']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:packet-counts'
+                        leaf_name_data = LeafDataList()
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "other"):
+                            if (self.other is None):
+                                self.other = Pppoe.Nodes.Node.Statistics.PacketCounts.Other()
+                                self.other.parent = self
+                                self._children_name_map["other"] = "other"
+                            return self.other
+
+                        if (child_yang_name == "padi"):
+                            if (self.padi is None):
+                                self.padi = Pppoe.Nodes.Node.Statistics.PacketCounts.Padi()
+                                self.padi.parent = self
+                                self._children_name_map["padi"] = "padi"
+                            return self.padi
+
+                        if (child_yang_name == "pado"):
+                            if (self.pado is None):
+                                self.pado = Pppoe.Nodes.Node.Statistics.PacketCounts.Pado()
+                                self.pado.parent = self
+                                self._children_name_map["pado"] = "pado"
+                            return self.pado
+
+                        if (child_yang_name == "padr"):
+                            if (self.padr is None):
+                                self.padr = Pppoe.Nodes.Node.Statistics.PacketCounts.Padr()
+                                self.padr.parent = self
+                                self._children_name_map["padr"] = "padr"
+                            return self.padr
+
+                        if (child_yang_name == "pads-error"):
+                            if (self.pads_error is None):
+                                self.pads_error = Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError()
+                                self.pads_error.parent = self
+                                self._children_name_map["pads_error"] = "pads-error"
+                            return self.pads_error
+
+                        if (child_yang_name == "pads-success"):
+                            if (self.pads_success is None):
+                                self.pads_success = Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess()
+                                self.pads_success.parent = self
+                                self._children_name_map["pads_success"] = "pads-success"
+                            return self.pads_success
+
+                        if (child_yang_name == "padt"):
+                            if (self.padt is None):
+                                self.padt = Pppoe.Nodes.Node.Statistics.PacketCounts.Padt()
+                                self.padt.parent = self
+                                self._children_name_map["padt"] = "padt"
+                            return self.padt
+
+                        if (child_yang_name == "session-state"):
+                            if (self.session_state is None):
+                                self.session_state = Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState()
+                                self.session_state.parent = self
+                                self._children_name_map["session_state"] = "session-state"
+                            return self.session_state
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "other" or name == "padi" or name == "pado" or name == "padr" or name == "pads-error" or name == "pads-success" or name == "padt" or name == "session-state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.other is not None and self.other._has_data():
-                            return True
-
-                        if self.padi is not None and self.padi._has_data():
-                            return True
-
-                        if self.pado is not None and self.pado._has_data():
-                            return True
-
-                        if self.padr is not None and self.padr._has_data():
-                            return True
-
-                        if self.pads_error is not None and self.pads_error._has_data():
-                            return True
-
-                        if self.pads_success is not None and self.pads_success._has_data():
-                            return True
-
-                        if self.padt is not None and self.padt._has_data():
-                            return True
-
-                        if self.session_state is not None and self.session_state._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketCounts']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class PacketErrorCounts(object):
+                class PacketErrorCounts(Entity):
                     """
                     Packet Error Counts
                     
@@ -2039,262 +3491,705 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bad_packet_length = None
-                        self.bad_tag_length_field = None
-                        self.bad_vendor_tag_length_field = None
-                        self.duplicate_host_uniq_tag_received = None
-                        self.duplicate_relay_session_id_tag_received = None
-                        self.invalid_ale_tag = None
-                        self.invalid_dsl_tag = None
-                        self.invalid_iana_code_invendor_tag = None
-                        self.invalid_iwf_tag = None
-                        self.invalid_max_payload_tag = None
-                        self.invalid_peer_mac = None
-                        self.invalid_service_name = None
-                        self.invalid_version_type_value = None
-                        self.invalid_vlan_tags = None
-                        self.multiple_ale_tags = None
-                        self.multiple_circuit_id_tags = None
-                        self.multiple_host_uniq_tags = None
-                        self.multiple_iwf_tags = None
-                        self.multiple_max_payload_tags = None
-                        self.multiple_of_the_same_dsl_tag = None
-                        self.multiple_relay_session_id_tags = None
-                        self.multiple_remote_id_tags = None
-                        self.multiple_service_name_tags = None
-                        self.multiple_vendor_specific_tags = None
-                        self.no_iana_code_invendor_tag = None
-                        self.no_interface_handle = None
-                        self.no_packet_mac_address = None
-                        self.no_packet_payload = None
-                        self.no_service_name_tag = None
-                        self.no_space_left_in_packet = None
-                        self.packet_on_srg_slave = None
-                        self.packet_too_long = None
-                        self.pado_received = None
-                        self.pads_received = None
-                        self.padt_before_pads_sent = None
-                        self.padt_for_unknown_session = None
-                        self.padt_with_wrong_peer_mac = None
-                        self.padt_with_wrong_vlan_tags = None
-                        self.session_stage_packet_for_unknown_session = None
-                        self.session_stage_packet_with_no_error = None
-                        self.session_stage_packet_with_wrong_mac = None
-                        self.session_stage_packet_with_wrong_vlan_tags = None
-                        self.tag_too_short = None
-                        self.unexpected_ac_name_tag = None
-                        self.unexpected_error_tags = None
-                        self.unexpected_session_id_in_packet = None
-                        self.unknown_interface = None
-                        self.unknown_packet_type_received = None
-                        self.unknown_tag_received = None
-                        self.unknownvendor_tag = None
-                        self.vendor_tag_too_short = None
-                        self.zero_length_host_uniq = None
+                        super(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "packet-error-counts"
+                        self.yang_parent_name = "statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:packet-error-counts'
+                        self.bad_packet_length = YLeaf(YType.uint32, "bad-packet-length")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.bad_tag_length_field = YLeaf(YType.uint32, "bad-tag-length-field")
+
+                        self.bad_vendor_tag_length_field = YLeaf(YType.uint32, "bad-vendor-tag-length-field")
+
+                        self.duplicate_host_uniq_tag_received = YLeaf(YType.uint32, "duplicate-host-uniq-tag-received")
+
+                        self.duplicate_relay_session_id_tag_received = YLeaf(YType.uint32, "duplicate-relay-session-id-tag-received")
+
+                        self.invalid_ale_tag = YLeaf(YType.uint32, "invalid-ale-tag")
+
+                        self.invalid_dsl_tag = YLeaf(YType.uint32, "invalid-dsl-tag")
+
+                        self.invalid_iana_code_invendor_tag = YLeaf(YType.uint32, "invalid-iana-code-invendor-tag")
+
+                        self.invalid_iwf_tag = YLeaf(YType.uint32, "invalid-iwf-tag")
+
+                        self.invalid_max_payload_tag = YLeaf(YType.uint32, "invalid-max-payload-tag")
+
+                        self.invalid_peer_mac = YLeaf(YType.uint32, "invalid-peer-mac")
+
+                        self.invalid_service_name = YLeaf(YType.uint32, "invalid-service-name")
+
+                        self.invalid_version_type_value = YLeaf(YType.uint32, "invalid-version-type-value")
+
+                        self.invalid_vlan_tags = YLeaf(YType.uint32, "invalid-vlan-tags")
+
+                        self.multiple_ale_tags = YLeaf(YType.uint32, "multiple-ale-tags")
+
+                        self.multiple_circuit_id_tags = YLeaf(YType.uint32, "multiple-circuit-id-tags")
+
+                        self.multiple_host_uniq_tags = YLeaf(YType.uint32, "multiple-host-uniq-tags")
+
+                        self.multiple_iwf_tags = YLeaf(YType.uint32, "multiple-iwf-tags")
+
+                        self.multiple_max_payload_tags = YLeaf(YType.uint32, "multiple-max-payload-tags")
+
+                        self.multiple_of_the_same_dsl_tag = YLeaf(YType.uint32, "multiple-of-the-same-dsl-tag")
+
+                        self.multiple_relay_session_id_tags = YLeaf(YType.uint32, "multiple-relay-session-id-tags")
+
+                        self.multiple_remote_id_tags = YLeaf(YType.uint32, "multiple-remote-id-tags")
+
+                        self.multiple_service_name_tags = YLeaf(YType.uint32, "multiple-service-name-tags")
+
+                        self.multiple_vendor_specific_tags = YLeaf(YType.uint32, "multiple-vendor-specific-tags")
+
+                        self.no_iana_code_invendor_tag = YLeaf(YType.uint32, "no-iana-code-invendor-tag")
+
+                        self.no_interface_handle = YLeaf(YType.uint32, "no-interface-handle")
+
+                        self.no_packet_mac_address = YLeaf(YType.uint32, "no-packet-mac-address")
+
+                        self.no_packet_payload = YLeaf(YType.uint32, "no-packet-payload")
+
+                        self.no_service_name_tag = YLeaf(YType.uint32, "no-service-name-tag")
+
+                        self.no_space_left_in_packet = YLeaf(YType.uint32, "no-space-left-in-packet")
+
+                        self.packet_on_srg_slave = YLeaf(YType.uint32, "packet-on-srg-slave")
+
+                        self.packet_too_long = YLeaf(YType.uint32, "packet-too-long")
+
+                        self.pado_received = YLeaf(YType.uint32, "pado-received")
+
+                        self.pads_received = YLeaf(YType.uint32, "pads-received")
+
+                        self.padt_before_pads_sent = YLeaf(YType.uint32, "padt-before-pads-sent")
+
+                        self.padt_for_unknown_session = YLeaf(YType.uint32, "padt-for-unknown-session")
+
+                        self.padt_with_wrong_peer_mac = YLeaf(YType.uint32, "padt-with-wrong-peer-mac")
+
+                        self.padt_with_wrong_vlan_tags = YLeaf(YType.uint32, "padt-with-wrong-vlan-tags")
+
+                        self.session_stage_packet_for_unknown_session = YLeaf(YType.uint32, "session-stage-packet-for-unknown-session")
+
+                        self.session_stage_packet_with_no_error = YLeaf(YType.uint32, "session-stage-packet-with-no-error")
+
+                        self.session_stage_packet_with_wrong_mac = YLeaf(YType.uint32, "session-stage-packet-with-wrong-mac")
+
+                        self.session_stage_packet_with_wrong_vlan_tags = YLeaf(YType.uint32, "session-stage-packet-with-wrong-vlan-tags")
+
+                        self.tag_too_short = YLeaf(YType.uint32, "tag-too-short")
+
+                        self.unexpected_ac_name_tag = YLeaf(YType.uint32, "unexpected-ac-name-tag")
+
+                        self.unexpected_error_tags = YLeaf(YType.uint32, "unexpected-error-tags")
+
+                        self.unexpected_session_id_in_packet = YLeaf(YType.uint32, "unexpected-session-id-in-packet")
+
+                        self.unknown_interface = YLeaf(YType.uint32, "unknown-interface")
+
+                        self.unknown_packet_type_received = YLeaf(YType.uint32, "unknown-packet-type-received")
+
+                        self.unknown_tag_received = YLeaf(YType.uint32, "unknown-tag-received")
+
+                        self.unknownvendor_tag = YLeaf(YType.uint32, "unknownvendor-tag")
+
+                        self.vendor_tag_too_short = YLeaf(YType.uint32, "vendor-tag-too-short")
+
+                        self.zero_length_host_uniq = YLeaf(YType.uint32, "zero-length-host-uniq")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bad_packet_length",
+                                        "bad_tag_length_field",
+                                        "bad_vendor_tag_length_field",
+                                        "duplicate_host_uniq_tag_received",
+                                        "duplicate_relay_session_id_tag_received",
+                                        "invalid_ale_tag",
+                                        "invalid_dsl_tag",
+                                        "invalid_iana_code_invendor_tag",
+                                        "invalid_iwf_tag",
+                                        "invalid_max_payload_tag",
+                                        "invalid_peer_mac",
+                                        "invalid_service_name",
+                                        "invalid_version_type_value",
+                                        "invalid_vlan_tags",
+                                        "multiple_ale_tags",
+                                        "multiple_circuit_id_tags",
+                                        "multiple_host_uniq_tags",
+                                        "multiple_iwf_tags",
+                                        "multiple_max_payload_tags",
+                                        "multiple_of_the_same_dsl_tag",
+                                        "multiple_relay_session_id_tags",
+                                        "multiple_remote_id_tags",
+                                        "multiple_service_name_tags",
+                                        "multiple_vendor_specific_tags",
+                                        "no_iana_code_invendor_tag",
+                                        "no_interface_handle",
+                                        "no_packet_mac_address",
+                                        "no_packet_payload",
+                                        "no_service_name_tag",
+                                        "no_space_left_in_packet",
+                                        "packet_on_srg_slave",
+                                        "packet_too_long",
+                                        "pado_received",
+                                        "pads_received",
+                                        "padt_before_pads_sent",
+                                        "padt_for_unknown_session",
+                                        "padt_with_wrong_peer_mac",
+                                        "padt_with_wrong_vlan_tags",
+                                        "session_stage_packet_for_unknown_session",
+                                        "session_stage_packet_with_no_error",
+                                        "session_stage_packet_with_wrong_mac",
+                                        "session_stage_packet_with_wrong_vlan_tags",
+                                        "tag_too_short",
+                                        "unexpected_ac_name_tag",
+                                        "unexpected_error_tags",
+                                        "unexpected_session_id_in_packet",
+                                        "unknown_interface",
+                                        "unknown_packet_type_received",
+                                        "unknown_tag_received",
+                                        "unknownvendor_tag",
+                                        "vendor_tag_too_short",
+                                        "zero_length_host_uniq") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.bad_packet_length.is_set or
+                            self.bad_tag_length_field.is_set or
+                            self.bad_vendor_tag_length_field.is_set or
+                            self.duplicate_host_uniq_tag_received.is_set or
+                            self.duplicate_relay_session_id_tag_received.is_set or
+                            self.invalid_ale_tag.is_set or
+                            self.invalid_dsl_tag.is_set or
+                            self.invalid_iana_code_invendor_tag.is_set or
+                            self.invalid_iwf_tag.is_set or
+                            self.invalid_max_payload_tag.is_set or
+                            self.invalid_peer_mac.is_set or
+                            self.invalid_service_name.is_set or
+                            self.invalid_version_type_value.is_set or
+                            self.invalid_vlan_tags.is_set or
+                            self.multiple_ale_tags.is_set or
+                            self.multiple_circuit_id_tags.is_set or
+                            self.multiple_host_uniq_tags.is_set or
+                            self.multiple_iwf_tags.is_set or
+                            self.multiple_max_payload_tags.is_set or
+                            self.multiple_of_the_same_dsl_tag.is_set or
+                            self.multiple_relay_session_id_tags.is_set or
+                            self.multiple_remote_id_tags.is_set or
+                            self.multiple_service_name_tags.is_set or
+                            self.multiple_vendor_specific_tags.is_set or
+                            self.no_iana_code_invendor_tag.is_set or
+                            self.no_interface_handle.is_set or
+                            self.no_packet_mac_address.is_set or
+                            self.no_packet_payload.is_set or
+                            self.no_service_name_tag.is_set or
+                            self.no_space_left_in_packet.is_set or
+                            self.packet_on_srg_slave.is_set or
+                            self.packet_too_long.is_set or
+                            self.pado_received.is_set or
+                            self.pads_received.is_set or
+                            self.padt_before_pads_sent.is_set or
+                            self.padt_for_unknown_session.is_set or
+                            self.padt_with_wrong_peer_mac.is_set or
+                            self.padt_with_wrong_vlan_tags.is_set or
+                            self.session_stage_packet_for_unknown_session.is_set or
+                            self.session_stage_packet_with_no_error.is_set or
+                            self.session_stage_packet_with_wrong_mac.is_set or
+                            self.session_stage_packet_with_wrong_vlan_tags.is_set or
+                            self.tag_too_short.is_set or
+                            self.unexpected_ac_name_tag.is_set or
+                            self.unexpected_error_tags.is_set or
+                            self.unexpected_session_id_in_packet.is_set or
+                            self.unknown_interface.is_set or
+                            self.unknown_packet_type_received.is_set or
+                            self.unknown_tag_received.is_set or
+                            self.unknownvendor_tag.is_set or
+                            self.vendor_tag_too_short.is_set or
+                            self.zero_length_host_uniq.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bad_packet_length.yfilter != YFilter.not_set or
+                            self.bad_tag_length_field.yfilter != YFilter.not_set or
+                            self.bad_vendor_tag_length_field.yfilter != YFilter.not_set or
+                            self.duplicate_host_uniq_tag_received.yfilter != YFilter.not_set or
+                            self.duplicate_relay_session_id_tag_received.yfilter != YFilter.not_set or
+                            self.invalid_ale_tag.yfilter != YFilter.not_set or
+                            self.invalid_dsl_tag.yfilter != YFilter.not_set or
+                            self.invalid_iana_code_invendor_tag.yfilter != YFilter.not_set or
+                            self.invalid_iwf_tag.yfilter != YFilter.not_set or
+                            self.invalid_max_payload_tag.yfilter != YFilter.not_set or
+                            self.invalid_peer_mac.yfilter != YFilter.not_set or
+                            self.invalid_service_name.yfilter != YFilter.not_set or
+                            self.invalid_version_type_value.yfilter != YFilter.not_set or
+                            self.invalid_vlan_tags.yfilter != YFilter.not_set or
+                            self.multiple_ale_tags.yfilter != YFilter.not_set or
+                            self.multiple_circuit_id_tags.yfilter != YFilter.not_set or
+                            self.multiple_host_uniq_tags.yfilter != YFilter.not_set or
+                            self.multiple_iwf_tags.yfilter != YFilter.not_set or
+                            self.multiple_max_payload_tags.yfilter != YFilter.not_set or
+                            self.multiple_of_the_same_dsl_tag.yfilter != YFilter.not_set or
+                            self.multiple_relay_session_id_tags.yfilter != YFilter.not_set or
+                            self.multiple_remote_id_tags.yfilter != YFilter.not_set or
+                            self.multiple_service_name_tags.yfilter != YFilter.not_set or
+                            self.multiple_vendor_specific_tags.yfilter != YFilter.not_set or
+                            self.no_iana_code_invendor_tag.yfilter != YFilter.not_set or
+                            self.no_interface_handle.yfilter != YFilter.not_set or
+                            self.no_packet_mac_address.yfilter != YFilter.not_set or
+                            self.no_packet_payload.yfilter != YFilter.not_set or
+                            self.no_service_name_tag.yfilter != YFilter.not_set or
+                            self.no_space_left_in_packet.yfilter != YFilter.not_set or
+                            self.packet_on_srg_slave.yfilter != YFilter.not_set or
+                            self.packet_too_long.yfilter != YFilter.not_set or
+                            self.pado_received.yfilter != YFilter.not_set or
+                            self.pads_received.yfilter != YFilter.not_set or
+                            self.padt_before_pads_sent.yfilter != YFilter.not_set or
+                            self.padt_for_unknown_session.yfilter != YFilter.not_set or
+                            self.padt_with_wrong_peer_mac.yfilter != YFilter.not_set or
+                            self.padt_with_wrong_vlan_tags.yfilter != YFilter.not_set or
+                            self.session_stage_packet_for_unknown_session.yfilter != YFilter.not_set or
+                            self.session_stage_packet_with_no_error.yfilter != YFilter.not_set or
+                            self.session_stage_packet_with_wrong_mac.yfilter != YFilter.not_set or
+                            self.session_stage_packet_with_wrong_vlan_tags.yfilter != YFilter.not_set or
+                            self.tag_too_short.yfilter != YFilter.not_set or
+                            self.unexpected_ac_name_tag.yfilter != YFilter.not_set or
+                            self.unexpected_error_tags.yfilter != YFilter.not_set or
+                            self.unexpected_session_id_in_packet.yfilter != YFilter.not_set or
+                            self.unknown_interface.yfilter != YFilter.not_set or
+                            self.unknown_packet_type_received.yfilter != YFilter.not_set or
+                            self.unknown_tag_received.yfilter != YFilter.not_set or
+                            self.unknownvendor_tag.yfilter != YFilter.not_set or
+                            self.vendor_tag_too_short.yfilter != YFilter.not_set or
+                            self.zero_length_host_uniq.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "packet-error-counts" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.bad_packet_length.is_set or self.bad_packet_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bad_packet_length.get_name_leafdata())
+                        if (self.bad_tag_length_field.is_set or self.bad_tag_length_field.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bad_tag_length_field.get_name_leafdata())
+                        if (self.bad_vendor_tag_length_field.is_set or self.bad_vendor_tag_length_field.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bad_vendor_tag_length_field.get_name_leafdata())
+                        if (self.duplicate_host_uniq_tag_received.is_set or self.duplicate_host_uniq_tag_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.duplicate_host_uniq_tag_received.get_name_leafdata())
+                        if (self.duplicate_relay_session_id_tag_received.is_set or self.duplicate_relay_session_id_tag_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.duplicate_relay_session_id_tag_received.get_name_leafdata())
+                        if (self.invalid_ale_tag.is_set or self.invalid_ale_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_ale_tag.get_name_leafdata())
+                        if (self.invalid_dsl_tag.is_set or self.invalid_dsl_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_dsl_tag.get_name_leafdata())
+                        if (self.invalid_iana_code_invendor_tag.is_set or self.invalid_iana_code_invendor_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_iana_code_invendor_tag.get_name_leafdata())
+                        if (self.invalid_iwf_tag.is_set or self.invalid_iwf_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_iwf_tag.get_name_leafdata())
+                        if (self.invalid_max_payload_tag.is_set or self.invalid_max_payload_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_max_payload_tag.get_name_leafdata())
+                        if (self.invalid_peer_mac.is_set or self.invalid_peer_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_peer_mac.get_name_leafdata())
+                        if (self.invalid_service_name.is_set or self.invalid_service_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_service_name.get_name_leafdata())
+                        if (self.invalid_version_type_value.is_set or self.invalid_version_type_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_version_type_value.get_name_leafdata())
+                        if (self.invalid_vlan_tags.is_set or self.invalid_vlan_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_vlan_tags.get_name_leafdata())
+                        if (self.multiple_ale_tags.is_set or self.multiple_ale_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_ale_tags.get_name_leafdata())
+                        if (self.multiple_circuit_id_tags.is_set or self.multiple_circuit_id_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_circuit_id_tags.get_name_leafdata())
+                        if (self.multiple_host_uniq_tags.is_set or self.multiple_host_uniq_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_host_uniq_tags.get_name_leafdata())
+                        if (self.multiple_iwf_tags.is_set or self.multiple_iwf_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_iwf_tags.get_name_leafdata())
+                        if (self.multiple_max_payload_tags.is_set or self.multiple_max_payload_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_max_payload_tags.get_name_leafdata())
+                        if (self.multiple_of_the_same_dsl_tag.is_set or self.multiple_of_the_same_dsl_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_of_the_same_dsl_tag.get_name_leafdata())
+                        if (self.multiple_relay_session_id_tags.is_set or self.multiple_relay_session_id_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_relay_session_id_tags.get_name_leafdata())
+                        if (self.multiple_remote_id_tags.is_set or self.multiple_remote_id_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_remote_id_tags.get_name_leafdata())
+                        if (self.multiple_service_name_tags.is_set or self.multiple_service_name_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_service_name_tags.get_name_leafdata())
+                        if (self.multiple_vendor_specific_tags.is_set or self.multiple_vendor_specific_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multiple_vendor_specific_tags.get_name_leafdata())
+                        if (self.no_iana_code_invendor_tag.is_set or self.no_iana_code_invendor_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.no_iana_code_invendor_tag.get_name_leafdata())
+                        if (self.no_interface_handle.is_set or self.no_interface_handle.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.no_interface_handle.get_name_leafdata())
+                        if (self.no_packet_mac_address.is_set or self.no_packet_mac_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.no_packet_mac_address.get_name_leafdata())
+                        if (self.no_packet_payload.is_set or self.no_packet_payload.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.no_packet_payload.get_name_leafdata())
+                        if (self.no_service_name_tag.is_set or self.no_service_name_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.no_service_name_tag.get_name_leafdata())
+                        if (self.no_space_left_in_packet.is_set or self.no_space_left_in_packet.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.no_space_left_in_packet.get_name_leafdata())
+                        if (self.packet_on_srg_slave.is_set or self.packet_on_srg_slave.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packet_on_srg_slave.get_name_leafdata())
+                        if (self.packet_too_long.is_set or self.packet_too_long.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packet_too_long.get_name_leafdata())
+                        if (self.pado_received.is_set or self.pado_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pado_received.get_name_leafdata())
+                        if (self.pads_received.is_set or self.pads_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pads_received.get_name_leafdata())
+                        if (self.padt_before_pads_sent.is_set or self.padt_before_pads_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.padt_before_pads_sent.get_name_leafdata())
+                        if (self.padt_for_unknown_session.is_set or self.padt_for_unknown_session.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.padt_for_unknown_session.get_name_leafdata())
+                        if (self.padt_with_wrong_peer_mac.is_set or self.padt_with_wrong_peer_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.padt_with_wrong_peer_mac.get_name_leafdata())
+                        if (self.padt_with_wrong_vlan_tags.is_set or self.padt_with_wrong_vlan_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.padt_with_wrong_vlan_tags.get_name_leafdata())
+                        if (self.session_stage_packet_for_unknown_session.is_set or self.session_stage_packet_for_unknown_session.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_stage_packet_for_unknown_session.get_name_leafdata())
+                        if (self.session_stage_packet_with_no_error.is_set or self.session_stage_packet_with_no_error.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_stage_packet_with_no_error.get_name_leafdata())
+                        if (self.session_stage_packet_with_wrong_mac.is_set or self.session_stage_packet_with_wrong_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_stage_packet_with_wrong_mac.get_name_leafdata())
+                        if (self.session_stage_packet_with_wrong_vlan_tags.is_set or self.session_stage_packet_with_wrong_vlan_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_stage_packet_with_wrong_vlan_tags.get_name_leafdata())
+                        if (self.tag_too_short.is_set or self.tag_too_short.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tag_too_short.get_name_leafdata())
+                        if (self.unexpected_ac_name_tag.is_set or self.unexpected_ac_name_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unexpected_ac_name_tag.get_name_leafdata())
+                        if (self.unexpected_error_tags.is_set or self.unexpected_error_tags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unexpected_error_tags.get_name_leafdata())
+                        if (self.unexpected_session_id_in_packet.is_set or self.unexpected_session_id_in_packet.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unexpected_session_id_in_packet.get_name_leafdata())
+                        if (self.unknown_interface.is_set or self.unknown_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_interface.get_name_leafdata())
+                        if (self.unknown_packet_type_received.is_set or self.unknown_packet_type_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_packet_type_received.get_name_leafdata())
+                        if (self.unknown_tag_received.is_set or self.unknown_tag_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_tag_received.get_name_leafdata())
+                        if (self.unknownvendor_tag.is_set or self.unknownvendor_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknownvendor_tag.get_name_leafdata())
+                        if (self.vendor_tag_too_short.is_set or self.vendor_tag_too_short.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vendor_tag_too_short.get_name_leafdata())
+                        if (self.zero_length_host_uniq.is_set or self.zero_length_host_uniq.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.zero_length_host_uniq.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "bad-packet-length" or name == "bad-tag-length-field" or name == "bad-vendor-tag-length-field" or name == "duplicate-host-uniq-tag-received" or name == "duplicate-relay-session-id-tag-received" or name == "invalid-ale-tag" or name == "invalid-dsl-tag" or name == "invalid-iana-code-invendor-tag" or name == "invalid-iwf-tag" or name == "invalid-max-payload-tag" or name == "invalid-peer-mac" or name == "invalid-service-name" or name == "invalid-version-type-value" or name == "invalid-vlan-tags" or name == "multiple-ale-tags" or name == "multiple-circuit-id-tags" or name == "multiple-host-uniq-tags" or name == "multiple-iwf-tags" or name == "multiple-max-payload-tags" or name == "multiple-of-the-same-dsl-tag" or name == "multiple-relay-session-id-tags" or name == "multiple-remote-id-tags" or name == "multiple-service-name-tags" or name == "multiple-vendor-specific-tags" or name == "no-iana-code-invendor-tag" or name == "no-interface-handle" or name == "no-packet-mac-address" or name == "no-packet-payload" or name == "no-service-name-tag" or name == "no-space-left-in-packet" or name == "packet-on-srg-slave" or name == "packet-too-long" or name == "pado-received" or name == "pads-received" or name == "padt-before-pads-sent" or name == "padt-for-unknown-session" or name == "padt-with-wrong-peer-mac" or name == "padt-with-wrong-vlan-tags" or name == "session-stage-packet-for-unknown-session" or name == "session-stage-packet-with-no-error" or name == "session-stage-packet-with-wrong-mac" or name == "session-stage-packet-with-wrong-vlan-tags" or name == "tag-too-short" or name == "unexpected-ac-name-tag" or name == "unexpected-error-tags" or name == "unexpected-session-id-in-packet" or name == "unknown-interface" or name == "unknown-packet-type-received" or name == "unknown-tag-received" or name == "unknownvendor-tag" or name == "vendor-tag-too-short" or name == "zero-length-host-uniq"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.bad_packet_length is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bad-packet-length"):
+                            self.bad_packet_length = value
+                            self.bad_packet_length.value_namespace = name_space
+                            self.bad_packet_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bad-tag-length-field"):
+                            self.bad_tag_length_field = value
+                            self.bad_tag_length_field.value_namespace = name_space
+                            self.bad_tag_length_field.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bad-vendor-tag-length-field"):
+                            self.bad_vendor_tag_length_field = value
+                            self.bad_vendor_tag_length_field.value_namespace = name_space
+                            self.bad_vendor_tag_length_field.value_namespace_prefix = name_space_prefix
+                        if(value_path == "duplicate-host-uniq-tag-received"):
+                            self.duplicate_host_uniq_tag_received = value
+                            self.duplicate_host_uniq_tag_received.value_namespace = name_space
+                            self.duplicate_host_uniq_tag_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "duplicate-relay-session-id-tag-received"):
+                            self.duplicate_relay_session_id_tag_received = value
+                            self.duplicate_relay_session_id_tag_received.value_namespace = name_space
+                            self.duplicate_relay_session_id_tag_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-ale-tag"):
+                            self.invalid_ale_tag = value
+                            self.invalid_ale_tag.value_namespace = name_space
+                            self.invalid_ale_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-dsl-tag"):
+                            self.invalid_dsl_tag = value
+                            self.invalid_dsl_tag.value_namespace = name_space
+                            self.invalid_dsl_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-iana-code-invendor-tag"):
+                            self.invalid_iana_code_invendor_tag = value
+                            self.invalid_iana_code_invendor_tag.value_namespace = name_space
+                            self.invalid_iana_code_invendor_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-iwf-tag"):
+                            self.invalid_iwf_tag = value
+                            self.invalid_iwf_tag.value_namespace = name_space
+                            self.invalid_iwf_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-max-payload-tag"):
+                            self.invalid_max_payload_tag = value
+                            self.invalid_max_payload_tag.value_namespace = name_space
+                            self.invalid_max_payload_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-peer-mac"):
+                            self.invalid_peer_mac = value
+                            self.invalid_peer_mac.value_namespace = name_space
+                            self.invalid_peer_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-service-name"):
+                            self.invalid_service_name = value
+                            self.invalid_service_name.value_namespace = name_space
+                            self.invalid_service_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-version-type-value"):
+                            self.invalid_version_type_value = value
+                            self.invalid_version_type_value.value_namespace = name_space
+                            self.invalid_version_type_value.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-vlan-tags"):
+                            self.invalid_vlan_tags = value
+                            self.invalid_vlan_tags.value_namespace = name_space
+                            self.invalid_vlan_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-ale-tags"):
+                            self.multiple_ale_tags = value
+                            self.multiple_ale_tags.value_namespace = name_space
+                            self.multiple_ale_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-circuit-id-tags"):
+                            self.multiple_circuit_id_tags = value
+                            self.multiple_circuit_id_tags.value_namespace = name_space
+                            self.multiple_circuit_id_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-host-uniq-tags"):
+                            self.multiple_host_uniq_tags = value
+                            self.multiple_host_uniq_tags.value_namespace = name_space
+                            self.multiple_host_uniq_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-iwf-tags"):
+                            self.multiple_iwf_tags = value
+                            self.multiple_iwf_tags.value_namespace = name_space
+                            self.multiple_iwf_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-max-payload-tags"):
+                            self.multiple_max_payload_tags = value
+                            self.multiple_max_payload_tags.value_namespace = name_space
+                            self.multiple_max_payload_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-of-the-same-dsl-tag"):
+                            self.multiple_of_the_same_dsl_tag = value
+                            self.multiple_of_the_same_dsl_tag.value_namespace = name_space
+                            self.multiple_of_the_same_dsl_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-relay-session-id-tags"):
+                            self.multiple_relay_session_id_tags = value
+                            self.multiple_relay_session_id_tags.value_namespace = name_space
+                            self.multiple_relay_session_id_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-remote-id-tags"):
+                            self.multiple_remote_id_tags = value
+                            self.multiple_remote_id_tags.value_namespace = name_space
+                            self.multiple_remote_id_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-service-name-tags"):
+                            self.multiple_service_name_tags = value
+                            self.multiple_service_name_tags.value_namespace = name_space
+                            self.multiple_service_name_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multiple-vendor-specific-tags"):
+                            self.multiple_vendor_specific_tags = value
+                            self.multiple_vendor_specific_tags.value_namespace = name_space
+                            self.multiple_vendor_specific_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "no-iana-code-invendor-tag"):
+                            self.no_iana_code_invendor_tag = value
+                            self.no_iana_code_invendor_tag.value_namespace = name_space
+                            self.no_iana_code_invendor_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "no-interface-handle"):
+                            self.no_interface_handle = value
+                            self.no_interface_handle.value_namespace = name_space
+                            self.no_interface_handle.value_namespace_prefix = name_space_prefix
+                        if(value_path == "no-packet-mac-address"):
+                            self.no_packet_mac_address = value
+                            self.no_packet_mac_address.value_namespace = name_space
+                            self.no_packet_mac_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "no-packet-payload"):
+                            self.no_packet_payload = value
+                            self.no_packet_payload.value_namespace = name_space
+                            self.no_packet_payload.value_namespace_prefix = name_space_prefix
+                        if(value_path == "no-service-name-tag"):
+                            self.no_service_name_tag = value
+                            self.no_service_name_tag.value_namespace = name_space
+                            self.no_service_name_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "no-space-left-in-packet"):
+                            self.no_space_left_in_packet = value
+                            self.no_space_left_in_packet.value_namespace = name_space
+                            self.no_space_left_in_packet.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packet-on-srg-slave"):
+                            self.packet_on_srg_slave = value
+                            self.packet_on_srg_slave.value_namespace = name_space
+                            self.packet_on_srg_slave.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packet-too-long"):
+                            self.packet_too_long = value
+                            self.packet_too_long.value_namespace = name_space
+                            self.packet_too_long.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pado-received"):
+                            self.pado_received = value
+                            self.pado_received.value_namespace = name_space
+                            self.pado_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pads-received"):
+                            self.pads_received = value
+                            self.pads_received.value_namespace = name_space
+                            self.pads_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "padt-before-pads-sent"):
+                            self.padt_before_pads_sent = value
+                            self.padt_before_pads_sent.value_namespace = name_space
+                            self.padt_before_pads_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "padt-for-unknown-session"):
+                            self.padt_for_unknown_session = value
+                            self.padt_for_unknown_session.value_namespace = name_space
+                            self.padt_for_unknown_session.value_namespace_prefix = name_space_prefix
+                        if(value_path == "padt-with-wrong-peer-mac"):
+                            self.padt_with_wrong_peer_mac = value
+                            self.padt_with_wrong_peer_mac.value_namespace = name_space
+                            self.padt_with_wrong_peer_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "padt-with-wrong-vlan-tags"):
+                            self.padt_with_wrong_vlan_tags = value
+                            self.padt_with_wrong_vlan_tags.value_namespace = name_space
+                            self.padt_with_wrong_vlan_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-stage-packet-for-unknown-session"):
+                            self.session_stage_packet_for_unknown_session = value
+                            self.session_stage_packet_for_unknown_session.value_namespace = name_space
+                            self.session_stage_packet_for_unknown_session.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-stage-packet-with-no-error"):
+                            self.session_stage_packet_with_no_error = value
+                            self.session_stage_packet_with_no_error.value_namespace = name_space
+                            self.session_stage_packet_with_no_error.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-stage-packet-with-wrong-mac"):
+                            self.session_stage_packet_with_wrong_mac = value
+                            self.session_stage_packet_with_wrong_mac.value_namespace = name_space
+                            self.session_stage_packet_with_wrong_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-stage-packet-with-wrong-vlan-tags"):
+                            self.session_stage_packet_with_wrong_vlan_tags = value
+                            self.session_stage_packet_with_wrong_vlan_tags.value_namespace = name_space
+                            self.session_stage_packet_with_wrong_vlan_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tag-too-short"):
+                            self.tag_too_short = value
+                            self.tag_too_short.value_namespace = name_space
+                            self.tag_too_short.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unexpected-ac-name-tag"):
+                            self.unexpected_ac_name_tag = value
+                            self.unexpected_ac_name_tag.value_namespace = name_space
+                            self.unexpected_ac_name_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unexpected-error-tags"):
+                            self.unexpected_error_tags = value
+                            self.unexpected_error_tags.value_namespace = name_space
+                            self.unexpected_error_tags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unexpected-session-id-in-packet"):
+                            self.unexpected_session_id_in_packet = value
+                            self.unexpected_session_id_in_packet.value_namespace = name_space
+                            self.unexpected_session_id_in_packet.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-interface"):
+                            self.unknown_interface = value
+                            self.unknown_interface.value_namespace = name_space
+                            self.unknown_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-packet-type-received"):
+                            self.unknown_packet_type_received = value
+                            self.unknown_packet_type_received.value_namespace = name_space
+                            self.unknown_packet_type_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-tag-received"):
+                            self.unknown_tag_received = value
+                            self.unknown_tag_received.value_namespace = name_space
+                            self.unknown_tag_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknownvendor-tag"):
+                            self.unknownvendor_tag = value
+                            self.unknownvendor_tag.value_namespace = name_space
+                            self.unknownvendor_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vendor-tag-too-short"):
+                            self.vendor_tag_too_short = value
+                            self.vendor_tag_too_short.value_namespace = name_space
+                            self.vendor_tag_too_short.value_namespace_prefix = name_space_prefix
+                        if(value_path == "zero-length-host-uniq"):
+                            self.zero_length_host_uniq = value
+                            self.zero_length_host_uniq.value_namespace = name_space
+                            self.zero_length_host_uniq.value_namespace_prefix = name_space_prefix
 
-                        if self.bad_tag_length_field is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        (self.packet_counts is not None and self.packet_counts.has_data()) or
+                        (self.packet_error_counts is not None and self.packet_error_counts.has_data()))
 
-                        if self.bad_vendor_tag_length_field is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.packet_counts is not None and self.packet_counts.has_operation()) or
+                        (self.packet_error_counts is not None and self.packet_error_counts.has_operation()))
 
-                        if self.duplicate_host_uniq_tag_received is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "statistics" + path_buffer
 
-                        if self.duplicate_relay_session_id_tag_received is not None:
-                            return True
+                    return path_buffer
 
-                        if self.invalid_ale_tag is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.invalid_dsl_tag is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
 
-                        if self.invalid_iana_code_invendor_tag is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.invalid_iwf_tag is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.invalid_max_payload_tag is not None:
-                            return True
+                    if (child_yang_name == "packet-counts"):
+                        if (self.packet_counts is None):
+                            self.packet_counts = Pppoe.Nodes.Node.Statistics.PacketCounts()
+                            self.packet_counts.parent = self
+                            self._children_name_map["packet_counts"] = "packet-counts"
+                        return self.packet_counts
 
-                        if self.invalid_peer_mac is not None:
-                            return True
+                    if (child_yang_name == "packet-error-counts"):
+                        if (self.packet_error_counts is None):
+                            self.packet_error_counts = Pppoe.Nodes.Node.Statistics.PacketErrorCounts()
+                            self.packet_error_counts.parent = self
+                            self._children_name_map["packet_error_counts"] = "packet-error-counts"
+                        return self.packet_error_counts
 
-                        if self.invalid_service_name is not None:
-                            return True
+                    return None
 
-                        if self.invalid_version_type_value is not None:
-                            return True
-
-                        if self.invalid_vlan_tags is not None:
-                            return True
-
-                        if self.multiple_ale_tags is not None:
-                            return True
-
-                        if self.multiple_circuit_id_tags is not None:
-                            return True
-
-                        if self.multiple_host_uniq_tags is not None:
-                            return True
-
-                        if self.multiple_iwf_tags is not None:
-                            return True
-
-                        if self.multiple_max_payload_tags is not None:
-                            return True
-
-                        if self.multiple_of_the_same_dsl_tag is not None:
-                            return True
-
-                        if self.multiple_relay_session_id_tags is not None:
-                            return True
-
-                        if self.multiple_remote_id_tags is not None:
-                            return True
-
-                        if self.multiple_service_name_tags is not None:
-                            return True
-
-                        if self.multiple_vendor_specific_tags is not None:
-                            return True
-
-                        if self.no_iana_code_invendor_tag is not None:
-                            return True
-
-                        if self.no_interface_handle is not None:
-                            return True
-
-                        if self.no_packet_mac_address is not None:
-                            return True
-
-                        if self.no_packet_payload is not None:
-                            return True
-
-                        if self.no_service_name_tag is not None:
-                            return True
-
-                        if self.no_space_left_in_packet is not None:
-                            return True
-
-                        if self.packet_on_srg_slave is not None:
-                            return True
-
-                        if self.packet_too_long is not None:
-                            return True
-
-                        if self.pado_received is not None:
-                            return True
-
-                        if self.pads_received is not None:
-                            return True
-
-                        if self.padt_before_pads_sent is not None:
-                            return True
-
-                        if self.padt_for_unknown_session is not None:
-                            return True
-
-                        if self.padt_with_wrong_peer_mac is not None:
-                            return True
-
-                        if self.padt_with_wrong_vlan_tags is not None:
-                            return True
-
-                        if self.session_stage_packet_for_unknown_session is not None:
-                            return True
-
-                        if self.session_stage_packet_with_no_error is not None:
-                            return True
-
-                        if self.session_stage_packet_with_wrong_mac is not None:
-                            return True
-
-                        if self.session_stage_packet_with_wrong_vlan_tags is not None:
-                            return True
-
-                        if self.tag_too_short is not None:
-                            return True
-
-                        if self.unexpected_ac_name_tag is not None:
-                            return True
-
-                        if self.unexpected_error_tags is not None:
-                            return True
-
-                        if self.unexpected_session_id_in_packet is not None:
-                            return True
-
-                        if self.unknown_interface is not None:
-                            return True
-
-                        if self.unknown_packet_type_received is not None:
-                            return True
-
-                        if self.unknown_tag_received is not None:
-                            return True
-
-                        if self.unknownvendor_tag is not None:
-                            return True
-
-                        if self.vendor_tag_too_short is not None:
-                            return True
-
-                        if self.zero_length_host_uniq is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.Nodes.Node.Statistics.PacketErrorCounts']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:statistics'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "packet-counts" or name == "packet-error-counts"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.packet_counts is not None and self.packet_counts._has_data():
-                        return True
-
-                    if self.packet_error_counts is not None and self.packet_error_counts._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                    return meta._meta_table['Pppoe.Nodes.Node.Statistics']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class AccessInterface(object):
+            class AccessInterface(Entity):
                 """
                 PPPoE access interface information
                 
@@ -2311,12 +4206,18 @@ class Pppoe(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Pppoe.Nodes.Node.AccessInterface, self).__init__()
+
+                    self.yang_name = "access-interface"
+                    self.yang_parent_name = "node"
+
                     self.summaries = Pppoe.Nodes.Node.AccessInterface.Summaries()
                     self.summaries.parent = self
+                    self._children_name_map["summaries"] = "summaries"
+                    self._children_yang_names.add("summaries")
 
 
-                class Summaries(object):
+                class Summaries(Entity):
                     """
                     PPPoE access interface summary information
                     
@@ -2333,13 +4234,39 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.summary = YList()
-                        self.summary.parent = self
-                        self.summary.name = 'summary'
+                        super(Pppoe.Nodes.Node.AccessInterface.Summaries, self).__init__()
+
+                        self.yang_name = "summaries"
+                        self.yang_parent_name = "access-interface"
+
+                        self.summary = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.Nodes.Node.AccessInterface.Summaries, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.Nodes.Node.AccessInterface.Summaries, self).__setattr__(name, value)
 
 
-                    class Summary(object):
+                    class Summary(Entity):
                         """
                         Summary information for a PPPoE\-enabled
                         access interface
@@ -2406,109 +4333,268 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface_name = None
-                            self.bba_group_name = None
-                            self.incomplete_sessions = None
-                            self.interface_name_xr = None
-                            self.interface_state = None
-                            self.is_ready = None
-                            self.mac_address = None
-                            self.sessions = None
+                            super(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.interface_name is None:
-                                raise YPYModelError('Key property interface_name is None')
+                            self.yang_name = "summary"
+                            self.yang_parent_name = "summaries"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:summary[Cisco-IOS-XR-subscriber-pppoe-ma-oper:interface-name = ' + str(self.interface_name) + ']'
+                            self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.bba_group_name = YLeaf(YType.str, "bba-group-name")
+
+                            self.incomplete_sessions = YLeaf(YType.uint32, "incomplete-sessions")
+
+                            self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                            self.interface_state = YLeaf(YType.uint32, "interface-state")
+
+                            self.is_ready = YLeaf(YType.int32, "is-ready")
+
+                            self.mac_address = YLeaf(YType.str, "mac-address")
+
+                            self.sessions = YLeaf(YType.uint32, "sessions")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface_name",
+                                            "bba_group_name",
+                                            "incomplete_sessions",
+                                            "interface_name_xr",
+                                            "interface_state",
+                                            "is_ready",
+                                            "mac_address",
+                                            "sessions") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interface_name.is_set or
+                                self.bba_group_name.is_set or
+                                self.incomplete_sessions.is_set or
+                                self.interface_name_xr.is_set or
+                                self.interface_state.is_set or
+                                self.is_ready.is_set or
+                                self.mac_address.is_set or
+                                self.sessions.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.bba_group_name.yfilter != YFilter.not_set or
+                                self.incomplete_sessions.yfilter != YFilter.not_set or
+                                self.interface_name_xr.yfilter != YFilter.not_set or
+                                self.interface_state.yfilter != YFilter.not_set or
+                                self.is_ready.yfilter != YFilter.not_set or
+                                self.mac_address.yfilter != YFilter.not_set or
+                                self.sessions.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "summary" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.bba_group_name.is_set or self.bba_group_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bba_group_name.get_name_leafdata())
+                            if (self.incomplete_sessions.is_set or self.incomplete_sessions.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.incomplete_sessions.get_name_leafdata())
+                            if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                            if (self.interface_state.is_set or self.interface_state.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_state.get_name_leafdata())
+                            if (self.is_ready.is_set or self.is_ready.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_ready.get_name_leafdata())
+                            if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mac_address.get_name_leafdata())
+                            if (self.sessions.is_set or self.sessions.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sessions.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-name" or name == "bba-group-name" or name == "incomplete-sessions" or name == "interface-name-xr" or name == "interface-state" or name == "is-ready" or name == "mac-address" or name == "sessions"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.interface_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "bba-group-name"):
+                                self.bba_group_name = value
+                                self.bba_group_name.value_namespace = name_space
+                                self.bba_group_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "incomplete-sessions"):
+                                self.incomplete_sessions = value
+                                self.incomplete_sessions.value_namespace = name_space
+                                self.incomplete_sessions.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-name-xr"):
+                                self.interface_name_xr = value
+                                self.interface_name_xr.value_namespace = name_space
+                                self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-state"):
+                                self.interface_state = value
+                                self.interface_state.value_namespace = name_space
+                                self.interface_state.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-ready"):
+                                self.is_ready = value
+                                self.is_ready.value_namespace = name_space
+                                self.is_ready.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mac-address"):
+                                self.mac_address = value
+                                self.mac_address.value_namespace = name_space
+                                self.mac_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sessions"):
+                                self.sessions = value
+                                self.sessions.value_namespace = name_space
+                                self.sessions.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.summary:
+                            if (c.has_data()):
                                 return True
-
-                            if self.bba_group_name is not None:
-                                return True
-
-                            if self.incomplete_sessions is not None:
-                                return True
-
-                            if self.interface_name_xr is not None:
-                                return True
-
-                            if self.interface_state is not None:
-                                return True
-
-                            if self.is_ready is not None:
-                                return True
-
-                            if self.mac_address is not None:
-                                return True
-
-                            if self.sessions is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.AccessInterface.Summaries.Summary']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:summaries'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.summary is not None:
-                            for child_ref in self.summary:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.summary:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "summaries" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "summary"):
+                            for c in self.summary:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Pppoe.Nodes.Node.AccessInterface.Summaries.Summary()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.summary.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "summary"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.Nodes.Node.AccessInterface.Summaries']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (self.summaries is not None and self.summaries.has_data())
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:access-interface'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.summaries is not None and self.summaries.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "access-interface" + path_buffer
 
-                def _has_data(self):
-                    if self.summaries is not None and self.summaries._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "summaries"):
+                        if (self.summaries is None):
+                            self.summaries = Pppoe.Nodes.Node.AccessInterface.Summaries()
+                            self.summaries.parent = self
+                            self._children_name_map["summaries"] = "summaries"
+                        return self.summaries
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "summaries"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                    return meta._meta_table['Pppoe.Nodes.Node.AccessInterface']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Interfaces(object):
+            class Interfaces(Entity):
                 """
                 Per interface PPPoE operational data
                 
@@ -2525,13 +4611,39 @@ class Pppoe(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
+                    super(Pppoe.Nodes.Node.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "node"
+
+                    self.interface = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Pppoe.Nodes.Node.Interfaces, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Pppoe.Nodes.Node.Interfaces, self).__setattr__(name, value)
 
 
-                class Interface(object):
+                class Interface(Entity):
                     """
                     Data for a PPPoE interface
                     
@@ -2592,7 +4704,7 @@ class Pppoe(object):
                     .. attribute:: srg_state
                     
                     	SRG state
-                    	**type**\:   :py:class:`PppoeMaSessionIdbSrgStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionIdbSrgStateEnum>`
+                    	**type**\:   :py:class:`PppoeMaSessionIdbSrgState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionIdbSrgState>`
                     
                     .. attribute:: tags
                     
@@ -2621,23 +4733,74 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.access_interface_name = None
-                        self.bba_group_name = None
-                        self.interface_name_xr = None
-                        self.is_complete = None
-                        self.local_mac_address = None
-                        self.peer_mac_address = None
-                        self.session_id = None
-                        self.srg_state = None
+                        super(Pppoe.Nodes.Node.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.access_interface_name = YLeaf(YType.str, "access-interface-name")
+
+                        self.bba_group_name = YLeaf(YType.str, "bba-group-name")
+
+                        self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                        self.is_complete = YLeaf(YType.int32, "is-complete")
+
+                        self.local_mac_address = YLeaf(YType.str, "local-mac-address")
+
+                        self.peer_mac_address = YLeaf(YType.str, "peer-mac-address")
+
+                        self.session_id = YLeaf(YType.uint16, "session-id")
+
+                        self.srg_state = YLeaf(YType.enumeration, "srg-state")
+
+                        self.vlan_inner_id = YLeaf(YType.uint16, "vlan-inner-id")
+
+                        self.vlan_outer_id = YLeaf(YType.uint16, "vlan-outer-id")
+
                         self.tags = Pppoe.Nodes.Node.Interfaces.Interface.Tags()
                         self.tags.parent = self
-                        self.vlan_inner_id = None
-                        self.vlan_outer_id = None
+                        self._children_name_map["tags"] = "tags"
+                        self._children_yang_names.add("tags")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface_name",
+                                        "access_interface_name",
+                                        "bba_group_name",
+                                        "interface_name_xr",
+                                        "is_complete",
+                                        "local_mac_address",
+                                        "peer_mac_address",
+                                        "session_id",
+                                        "srg_state",
+                                        "vlan_inner_id",
+                                        "vlan_outer_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.Nodes.Node.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                    class Tags(object):
+                    class Tags(Entity):
                         """
                         Tags
                         
@@ -2795,33 +4958,104 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(Pppoe.Nodes.Node.Interfaces.Interface.Tags, self).__init__()
+
+                            self.yang_name = "tags"
+                            self.yang_parent_name = "interface"
+
+                            self.circuit_id = YLeaf(YType.str, "circuit-id")
+
+                            self.dsl_actual_delay_down = YLeaf(YType.uint32, "dsl-actual-delay-down")
+
+                            self.dsl_actual_delay_up = YLeaf(YType.uint32, "dsl-actual-delay-up")
+
+                            self.dsl_actual_down = YLeaf(YType.uint32, "dsl-actual-down")
+
+                            self.dsl_actual_up = YLeaf(YType.uint32, "dsl-actual-up")
+
+                            self.dsl_attain_down = YLeaf(YType.uint32, "dsl-attain-down")
+
+                            self.dsl_attain_up = YLeaf(YType.uint32, "dsl-attain-up")
+
+                            self.dsl_max_delay_down = YLeaf(YType.uint32, "dsl-max-delay-down")
+
+                            self.dsl_max_delay_up = YLeaf(YType.uint32, "dsl-max-delay-up")
+
+                            self.dsl_max_down = YLeaf(YType.uint32, "dsl-max-down")
+
+                            self.dsl_max_up = YLeaf(YType.uint32, "dsl-max-up")
+
+                            self.dsl_min_down = YLeaf(YType.uint32, "dsl-min-down")
+
+                            self.dsl_min_down_low = YLeaf(YType.uint32, "dsl-min-down-low")
+
+                            self.dsl_min_up = YLeaf(YType.uint32, "dsl-min-up")
+
+                            self.dsl_min_up_low = YLeaf(YType.uint32, "dsl-min-up-low")
+
+                            self.host_uniq = YLeaf(YType.str, "host-uniq")
+
+                            self.is_iwf = YLeaf(YType.int32, "is-iwf")
+
+                            self.max_payload = YLeaf(YType.uint16, "max-payload")
+
+                            self.relay_session_id = YLeaf(YType.str, "relay-session-id")
+
+                            self.remote_id = YLeaf(YType.str, "remote-id")
+
+                            self.service_name = YLeaf(YType.str, "service-name")
+
                             self.access_loop_encapsulation = Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation()
                             self.access_loop_encapsulation.parent = self
-                            self.circuit_id = None
-                            self.dsl_actual_delay_down = None
-                            self.dsl_actual_delay_up = None
-                            self.dsl_actual_down = None
-                            self.dsl_actual_up = None
-                            self.dsl_attain_down = None
-                            self.dsl_attain_up = None
-                            self.dsl_max_delay_down = None
-                            self.dsl_max_delay_up = None
-                            self.dsl_max_down = None
-                            self.dsl_max_up = None
-                            self.dsl_min_down = None
-                            self.dsl_min_down_low = None
-                            self.dsl_min_up = None
-                            self.dsl_min_up_low = None
-                            self.host_uniq = None
-                            self.is_iwf = None
-                            self.max_payload = None
-                            self.relay_session_id = None
-                            self.remote_id = None
-                            self.service_name = None
+                            self._children_name_map["access_loop_encapsulation"] = "access-loop-encapsulation"
+                            self._children_yang_names.add("access-loop-encapsulation")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("circuit_id",
+                                            "dsl_actual_delay_down",
+                                            "dsl_actual_delay_up",
+                                            "dsl_actual_down",
+                                            "dsl_actual_up",
+                                            "dsl_attain_down",
+                                            "dsl_attain_up",
+                                            "dsl_max_delay_down",
+                                            "dsl_max_delay_up",
+                                            "dsl_max_down",
+                                            "dsl_max_up",
+                                            "dsl_min_down",
+                                            "dsl_min_down_low",
+                                            "dsl_min_up",
+                                            "dsl_min_up_low",
+                                            "host_uniq",
+                                            "is_iwf",
+                                            "max_payload",
+                                            "relay_session_id",
+                                            "remote_id",
+                                            "service_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.Interfaces.Interface.Tags, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.Interfaces.Interface.Tags, self).__setattr__(name, value)
 
 
-                        class AccessLoopEncapsulation(object):
+                        class AccessLoopEncapsulation(Entity):
                             """
                             Access Loop Encapsulation
                             
@@ -2854,207 +5088,517 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.data_link = None
-                                self.encaps1 = None
-                                self.encaps2 = None
+                                super(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "access-loop-encapsulation"
+                                self.yang_parent_name = "tags"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:access-loop-encapsulation'
+                                self.data_link = YLeaf(YType.uint8, "data-link")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.encaps1 = YLeaf(YType.uint8, "encaps1")
+
+                                self.encaps2 = YLeaf(YType.uint8, "encaps2")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("data_link",
+                                                "encaps1",
+                                                "encaps2") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.data_link.is_set or
+                                    self.encaps1.is_set or
+                                    self.encaps2.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.data_link.yfilter != YFilter.not_set or
+                                    self.encaps1.yfilter != YFilter.not_set or
+                                    self.encaps2.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "access-loop-encapsulation" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.data_link.is_set or self.data_link.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.data_link.get_name_leafdata())
+                                if (self.encaps1.is_set or self.encaps1.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.encaps1.get_name_leafdata())
+                                if (self.encaps2.is_set or self.encaps2.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.encaps2.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "data-link" or name == "encaps1" or name == "encaps2"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.data_link is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "data-link"):
+                                    self.data_link = value
+                                    self.data_link.value_namespace = name_space
+                                    self.data_link.value_namespace_prefix = name_space_prefix
+                                if(value_path == "encaps1"):
+                                    self.encaps1 = value
+                                    self.encaps1.value_namespace = name_space
+                                    self.encaps1.value_namespace_prefix = name_space_prefix
+                                if(value_path == "encaps2"):
+                                    self.encaps2 = value
+                                    self.encaps2.value_namespace = name_space
+                                    self.encaps2.value_namespace_prefix = name_space_prefix
 
-                                if self.encaps1 is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.circuit_id.is_set or
+                                self.dsl_actual_delay_down.is_set or
+                                self.dsl_actual_delay_up.is_set or
+                                self.dsl_actual_down.is_set or
+                                self.dsl_actual_up.is_set or
+                                self.dsl_attain_down.is_set or
+                                self.dsl_attain_up.is_set or
+                                self.dsl_max_delay_down.is_set or
+                                self.dsl_max_delay_up.is_set or
+                                self.dsl_max_down.is_set or
+                                self.dsl_max_up.is_set or
+                                self.dsl_min_down.is_set or
+                                self.dsl_min_down_low.is_set or
+                                self.dsl_min_up.is_set or
+                                self.dsl_min_up_low.is_set or
+                                self.host_uniq.is_set or
+                                self.is_iwf.is_set or
+                                self.max_payload.is_set or
+                                self.relay_session_id.is_set or
+                                self.remote_id.is_set or
+                                self.service_name.is_set or
+                                (self.access_loop_encapsulation is not None and self.access_loop_encapsulation.has_data()))
 
-                                if self.encaps2 is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.circuit_id.yfilter != YFilter.not_set or
+                                self.dsl_actual_delay_down.yfilter != YFilter.not_set or
+                                self.dsl_actual_delay_up.yfilter != YFilter.not_set or
+                                self.dsl_actual_down.yfilter != YFilter.not_set or
+                                self.dsl_actual_up.yfilter != YFilter.not_set or
+                                self.dsl_attain_down.yfilter != YFilter.not_set or
+                                self.dsl_attain_up.yfilter != YFilter.not_set or
+                                self.dsl_max_delay_down.yfilter != YFilter.not_set or
+                                self.dsl_max_delay_up.yfilter != YFilter.not_set or
+                                self.dsl_max_down.yfilter != YFilter.not_set or
+                                self.dsl_max_up.yfilter != YFilter.not_set or
+                                self.dsl_min_down.yfilter != YFilter.not_set or
+                                self.dsl_min_down_low.yfilter != YFilter.not_set or
+                                self.dsl_min_up.yfilter != YFilter.not_set or
+                                self.dsl_min_up_low.yfilter != YFilter.not_set or
+                                self.host_uniq.yfilter != YFilter.not_set or
+                                self.is_iwf.yfilter != YFilter.not_set or
+                                self.max_payload.yfilter != YFilter.not_set or
+                                self.relay_session_id.yfilter != YFilter.not_set or
+                                self.remote_id.yfilter != YFilter.not_set or
+                                self.service_name.yfilter != YFilter.not_set or
+                                (self.access_loop_encapsulation is not None and self.access_loop_encapsulation.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "tags" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:tags'
+                            leaf_name_data = LeafDataList()
+                            if (self.circuit_id.is_set or self.circuit_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.circuit_id.get_name_leafdata())
+                            if (self.dsl_actual_delay_down.is_set or self.dsl_actual_delay_down.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_actual_delay_down.get_name_leafdata())
+                            if (self.dsl_actual_delay_up.is_set or self.dsl_actual_delay_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_actual_delay_up.get_name_leafdata())
+                            if (self.dsl_actual_down.is_set or self.dsl_actual_down.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_actual_down.get_name_leafdata())
+                            if (self.dsl_actual_up.is_set or self.dsl_actual_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_actual_up.get_name_leafdata())
+                            if (self.dsl_attain_down.is_set or self.dsl_attain_down.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_attain_down.get_name_leafdata())
+                            if (self.dsl_attain_up.is_set or self.dsl_attain_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_attain_up.get_name_leafdata())
+                            if (self.dsl_max_delay_down.is_set or self.dsl_max_delay_down.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_max_delay_down.get_name_leafdata())
+                            if (self.dsl_max_delay_up.is_set or self.dsl_max_delay_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_max_delay_up.get_name_leafdata())
+                            if (self.dsl_max_down.is_set or self.dsl_max_down.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_max_down.get_name_leafdata())
+                            if (self.dsl_max_up.is_set or self.dsl_max_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_max_up.get_name_leafdata())
+                            if (self.dsl_min_down.is_set or self.dsl_min_down.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_min_down.get_name_leafdata())
+                            if (self.dsl_min_down_low.is_set or self.dsl_min_down_low.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_min_down_low.get_name_leafdata())
+                            if (self.dsl_min_up.is_set or self.dsl_min_up.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_min_up.get_name_leafdata())
+                            if (self.dsl_min_up_low.is_set or self.dsl_min_up_low.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.dsl_min_up_low.get_name_leafdata())
+                            if (self.host_uniq.is_set or self.host_uniq.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.host_uniq.get_name_leafdata())
+                            if (self.is_iwf.is_set or self.is_iwf.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_iwf.get_name_leafdata())
+                            if (self.max_payload.is_set or self.max_payload.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.max_payload.get_name_leafdata())
+                            if (self.relay_session_id.is_set or self.relay_session_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.relay_session_id.get_name_leafdata())
+                            if (self.remote_id.is_set or self.remote_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.remote_id.get_name_leafdata())
+                            if (self.service_name.is_set or self.service_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.service_name.get_name_leafdata())
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "access-loop-encapsulation"):
+                                if (self.access_loop_encapsulation is None):
+                                    self.access_loop_encapsulation = Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation()
+                                    self.access_loop_encapsulation.parent = self
+                                    self._children_name_map["access_loop_encapsulation"] = "access-loop-encapsulation"
+                                return self.access_loop_encapsulation
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "access-loop-encapsulation" or name == "circuit-id" or name == "dsl-actual-delay-down" or name == "dsl-actual-delay-up" or name == "dsl-actual-down" or name == "dsl-actual-up" or name == "dsl-attain-down" or name == "dsl-attain-up" or name == "dsl-max-delay-down" or name == "dsl-max-delay-up" or name == "dsl-max-down" or name == "dsl-max-up" or name == "dsl-min-down" or name == "dsl-min-down-low" or name == "dsl-min-up" or name == "dsl-min-up-low" or name == "host-uniq" or name == "is-iwf" or name == "max-payload" or name == "relay-session-id" or name == "remote-id" or name == "service-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.access_loop_encapsulation is not None and self.access_loop_encapsulation._has_data():
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "circuit-id"):
+                                self.circuit_id = value
+                                self.circuit_id.value_namespace = name_space
+                                self.circuit_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-actual-delay-down"):
+                                self.dsl_actual_delay_down = value
+                                self.dsl_actual_delay_down.value_namespace = name_space
+                                self.dsl_actual_delay_down.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-actual-delay-up"):
+                                self.dsl_actual_delay_up = value
+                                self.dsl_actual_delay_up.value_namespace = name_space
+                                self.dsl_actual_delay_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-actual-down"):
+                                self.dsl_actual_down = value
+                                self.dsl_actual_down.value_namespace = name_space
+                                self.dsl_actual_down.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-actual-up"):
+                                self.dsl_actual_up = value
+                                self.dsl_actual_up.value_namespace = name_space
+                                self.dsl_actual_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-attain-down"):
+                                self.dsl_attain_down = value
+                                self.dsl_attain_down.value_namespace = name_space
+                                self.dsl_attain_down.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-attain-up"):
+                                self.dsl_attain_up = value
+                                self.dsl_attain_up.value_namespace = name_space
+                                self.dsl_attain_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-max-delay-down"):
+                                self.dsl_max_delay_down = value
+                                self.dsl_max_delay_down.value_namespace = name_space
+                                self.dsl_max_delay_down.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-max-delay-up"):
+                                self.dsl_max_delay_up = value
+                                self.dsl_max_delay_up.value_namespace = name_space
+                                self.dsl_max_delay_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-max-down"):
+                                self.dsl_max_down = value
+                                self.dsl_max_down.value_namespace = name_space
+                                self.dsl_max_down.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-max-up"):
+                                self.dsl_max_up = value
+                                self.dsl_max_up.value_namespace = name_space
+                                self.dsl_max_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-min-down"):
+                                self.dsl_min_down = value
+                                self.dsl_min_down.value_namespace = name_space
+                                self.dsl_min_down.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-min-down-low"):
+                                self.dsl_min_down_low = value
+                                self.dsl_min_down_low.value_namespace = name_space
+                                self.dsl_min_down_low.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-min-up"):
+                                self.dsl_min_up = value
+                                self.dsl_min_up.value_namespace = name_space
+                                self.dsl_min_up.value_namespace_prefix = name_space_prefix
+                            if(value_path == "dsl-min-up-low"):
+                                self.dsl_min_up_low = value
+                                self.dsl_min_up_low.value_namespace = name_space
+                                self.dsl_min_up_low.value_namespace_prefix = name_space_prefix
+                            if(value_path == "host-uniq"):
+                                self.host_uniq = value
+                                self.host_uniq.value_namespace = name_space
+                                self.host_uniq.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-iwf"):
+                                self.is_iwf = value
+                                self.is_iwf.value_namespace = name_space
+                                self.is_iwf.value_namespace_prefix = name_space_prefix
+                            if(value_path == "max-payload"):
+                                self.max_payload = value
+                                self.max_payload.value_namespace = name_space
+                                self.max_payload.value_namespace_prefix = name_space_prefix
+                            if(value_path == "relay-session-id"):
+                                self.relay_session_id = value
+                                self.relay_session_id.value_namespace = name_space
+                                self.relay_session_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "remote-id"):
+                                self.remote_id = value
+                                self.remote_id.value_namespace = name_space
+                                self.remote_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "service-name"):
+                                self.service_name = value
+                                self.service_name.value_namespace = name_space
+                                self.service_name.value_namespace_prefix = name_space_prefix
 
-                            if self.circuit_id is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.interface_name.is_set or
+                            self.access_interface_name.is_set or
+                            self.bba_group_name.is_set or
+                            self.interface_name_xr.is_set or
+                            self.is_complete.is_set or
+                            self.local_mac_address.is_set or
+                            self.peer_mac_address.is_set or
+                            self.session_id.is_set or
+                            self.srg_state.is_set or
+                            self.vlan_inner_id.is_set or
+                            self.vlan_outer_id.is_set or
+                            (self.tags is not None and self.tags.has_data()))
 
-                            if self.dsl_actual_delay_down is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.access_interface_name.yfilter != YFilter.not_set or
+                            self.bba_group_name.yfilter != YFilter.not_set or
+                            self.interface_name_xr.yfilter != YFilter.not_set or
+                            self.is_complete.yfilter != YFilter.not_set or
+                            self.local_mac_address.yfilter != YFilter.not_set or
+                            self.peer_mac_address.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.srg_state.yfilter != YFilter.not_set or
+                            self.vlan_inner_id.yfilter != YFilter.not_set or
+                            self.vlan_outer_id.yfilter != YFilter.not_set or
+                            (self.tags is not None and self.tags.has_operation()))
 
-                            if self.dsl_actual_delay_up is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                            if self.dsl_actual_down is not None:
-                                return True
+                        return path_buffer
 
-                            if self.dsl_actual_up is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            if self.dsl_attain_down is not None:
-                                return True
+                        leaf_name_data = LeafDataList()
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.access_interface_name.is_set or self.access_interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.access_interface_name.get_name_leafdata())
+                        if (self.bba_group_name.is_set or self.bba_group_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bba_group_name.get_name_leafdata())
+                        if (self.interface_name_xr.is_set or self.interface_name_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name_xr.get_name_leafdata())
+                        if (self.is_complete.is_set or self.is_complete.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_complete.get_name_leafdata())
+                        if (self.local_mac_address.is_set or self.local_mac_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.local_mac_address.get_name_leafdata())
+                        if (self.peer_mac_address.is_set or self.peer_mac_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_mac_address.get_name_leafdata())
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.srg_state.is_set or self.srg_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.srg_state.get_name_leafdata())
+                        if (self.vlan_inner_id.is_set or self.vlan_inner_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vlan_inner_id.get_name_leafdata())
+                        if (self.vlan_outer_id.is_set or self.vlan_outer_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vlan_outer_id.get_name_leafdata())
 
-                            if self.dsl_attain_up is not None:
-                                return True
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                            if self.dsl_max_delay_down is not None:
-                                return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                            if self.dsl_max_delay_up is not None:
-                                return True
+                        if (child_yang_name == "tags"):
+                            if (self.tags is None):
+                                self.tags = Pppoe.Nodes.Node.Interfaces.Interface.Tags()
+                                self.tags.parent = self
+                                self._children_name_map["tags"] = "tags"
+                            return self.tags
 
-                            if self.dsl_max_down is not None:
-                                return True
+                        return None
 
-                            if self.dsl_max_up is not None:
-                                return True
-
-                            if self.dsl_min_down is not None:
-                                return True
-
-                            if self.dsl_min_down_low is not None:
-                                return True
-
-                            if self.dsl_min_up is not None:
-                                return True
-
-                            if self.dsl_min_up_low is not None:
-                                return True
-
-                            if self.host_uniq is not None:
-                                return True
-
-                            if self.is_iwf is not None:
-                                return True
-
-                            if self.max_payload is not None:
-                                return True
-
-                            if self.relay_session_id is not None:
-                                return True
-
-                            if self.remote_id is not None:
-                                return True
-
-                            if self.service_name is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.Interfaces.Interface.Tags']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYModelError('Key property interface_name is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:interface[Cisco-IOS-XR-subscriber-pppoe-ma-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "tags" or name == "interface-name" or name == "access-interface-name" or name == "bba-group-name" or name == "interface-name-xr" or name == "is-complete" or name == "local-mac-address" or name == "peer-mac-address" or name == "session-id" or name == "srg-state" or name == "vlan-inner-id" or name == "vlan-outer-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "access-interface-name"):
+                            self.access_interface_name = value
+                            self.access_interface_name.value_namespace = name_space
+                            self.access_interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bba-group-name"):
+                            self.bba_group_name = value
+                            self.bba_group_name.value_namespace = name_space
+                            self.bba_group_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name-xr"):
+                            self.interface_name_xr = value
+                            self.interface_name_xr.value_namespace = name_space
+                            self.interface_name_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-complete"):
+                            self.is_complete = value
+                            self.is_complete.value_namespace = name_space
+                            self.is_complete.value_namespace_prefix = name_space_prefix
+                        if(value_path == "local-mac-address"):
+                            self.local_mac_address = value
+                            self.local_mac_address.value_namespace = name_space
+                            self.local_mac_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-mac-address"):
+                            self.peer_mac_address = value
+                            self.peer_mac_address.value_namespace = name_space
+                            self.peer_mac_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "srg-state"):
+                            self.srg_state = value
+                            self.srg_state.value_namespace = name_space
+                            self.srg_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vlan-inner-id"):
+                            self.vlan_inner_id = value
+                            self.vlan_inner_id.value_namespace = name_space
+                            self.vlan_inner_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vlan-outer-id"):
+                            self.vlan_outer_id = value
+                            self.vlan_outer_id.value_namespace = name_space
+                            self.vlan_outer_id.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface:
+                        if (c.has_data()):
                             return True
-
-                        if self.access_interface_name is not None:
-                            return True
-
-                        if self.bba_group_name is not None:
-                            return True
-
-                        if self.interface_name_xr is not None:
-                            return True
-
-                        if self.is_complete is not None:
-                            return True
-
-                        if self.local_mac_address is not None:
-                            return True
-
-                        if self.peer_mac_address is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        if self.srg_state is not None:
-                            return True
-
-                        if self.tags is not None and self.tags._has_data():
-                            return True
-
-                        if self.vlan_inner_id is not None:
-                            return True
-
-                        if self.vlan_outer_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.Nodes.Node.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.interface:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interface"):
+                        for c in self.interface:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Pppoe.Nodes.Node.Interfaces.Interface()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                    return meta._meta_table['Pppoe.Nodes.Node.Interfaces']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class BbaGroups(object):
+            class BbaGroups(Entity):
                 """
                 PPPoE BBA\-Group information
                 
@@ -3071,13 +5615,39 @@ class Pppoe(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bba_group = YList()
-                    self.bba_group.parent = self
-                    self.bba_group.name = 'bba_group'
+                    super(Pppoe.Nodes.Node.BbaGroups, self).__init__()
+
+                    self.yang_name = "bba-groups"
+                    self.yang_parent_name = "node"
+
+                    self.bba_group = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Pppoe.Nodes.Node.BbaGroups, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Pppoe.Nodes.Node.BbaGroups, self).__setattr__(name, value)
 
 
-                class BbaGroup(object):
+                class BbaGroup(Entity):
                     """
                     PPPoE BBA\-Group information
                     
@@ -3116,19 +5686,59 @@ class Pppoe(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bba_group_name = None
+                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup, self).__init__()
+
+                        self.yang_name = "bba-group"
+                        self.yang_parent_name = "bba-groups"
+
+                        self.bba_group_name = YLeaf(YType.str, "bba-group-name")
+
                         self.limit_config = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig()
                         self.limit_config.parent = self
+                        self._children_name_map["limit_config"] = "limit-config"
+                        self._children_yang_names.add("limit-config")
+
                         self.limits = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits()
                         self.limits.parent = self
+                        self._children_name_map["limits"] = "limits"
+                        self._children_yang_names.add("limits")
+
                         self.throttle_config = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig()
                         self.throttle_config.parent = self
+                        self._children_name_map["throttle_config"] = "throttle-config"
+                        self._children_yang_names.add("throttle-config")
+
                         self.throttles = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles()
                         self.throttles.parent = self
+                        self._children_name_map["throttles"] = "throttles"
+                        self._children_yang_names.add("throttles")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bba_group_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup, self).__setattr__(name, value)
 
 
-                    class LimitConfig(object):
+                    class LimitConfig(Entity):
                         """
                         BBA\-Group limit configuration information
                         
@@ -3200,34 +5810,73 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig, self).__init__()
+
+                            self.yang_name = "limit-config"
+                            self.yang_parent_name = "bba-group"
+
                             self.access_intf = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf()
                             self.access_intf.parent = self
+                            self._children_name_map["access_intf"] = "access-intf"
+                            self._children_yang_names.add("access-intf")
+
                             self.card = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card()
                             self.card.parent = self
+                            self._children_name_map["card"] = "card"
+                            self._children_yang_names.add("card")
+
                             self.circuit_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId()
                             self.circuit_id.parent = self
+                            self._children_name_map["circuit_id"] = "circuit-id"
+                            self._children_yang_names.add("circuit-id")
+
                             self.circuit_id_and_remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId()
                             self.circuit_id_and_remote_id.parent = self
+                            self._children_name_map["circuit_id_and_remote_id"] = "circuit-id-and-remote-id"
+                            self._children_yang_names.add("circuit-id-and-remote-id")
+
                             self.inner_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId()
                             self.inner_vlan_id.parent = self
+                            self._children_name_map["inner_vlan_id"] = "inner-vlan-id"
+                            self._children_yang_names.add("inner-vlan-id")
+
                             self.mac = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac()
                             self.mac.parent = self
+                            self._children_name_map["mac"] = "mac"
+                            self._children_yang_names.add("mac")
+
                             self.mac_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface()
                             self.mac_access_interface.parent = self
+                            self._children_name_map["mac_access_interface"] = "mac-access-interface"
+                            self._children_yang_names.add("mac-access-interface")
+
                             self.mac_iwf = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf()
                             self.mac_iwf.parent = self
+                            self._children_name_map["mac_iwf"] = "mac-iwf"
+                            self._children_yang_names.add("mac-iwf")
+
                             self.mac_iwf_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface()
                             self.mac_iwf_access_interface.parent = self
+                            self._children_name_map["mac_iwf_access_interface"] = "mac-iwf-access-interface"
+                            self._children_yang_names.add("mac-iwf-access-interface")
+
                             self.outer_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId()
                             self.outer_vlan_id.parent = self
+                            self._children_name_map["outer_vlan_id"] = "outer-vlan-id"
+                            self._children_yang_names.add("outer-vlan-id")
+
                             self.remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId()
                             self.remote_id.parent = self
+                            self._children_name_map["remote_id"] = "remote-id"
+                            self._children_yang_names.add("remote-id")
+
                             self.vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId()
                             self.vlan_id.parent = self
+                            self._children_name_map["vlan_id"] = "vlan-id"
+                            self._children_yang_names.add("vlan-id")
 
 
-                        class Card(object):
+                        class Card(Entity):
                             """
                             Card
                             
@@ -3260,41 +5909,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "card"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:card'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "card" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class AccessIntf(object):
+                        class AccessIntf(Entity):
                             """
                             Access Interface
                             
@@ -3327,41 +6043,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "access-intf"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:access-intf'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "access-intf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class Mac(object):
+                        class Mac(Entity):
                             """
                             MAC
                             
@@ -3394,41 +6177,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mac"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:mac'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mac" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class MacIwf(object):
+                        class MacIwf(Entity):
                             """
                             MAC IWF
                             
@@ -3461,41 +6311,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mac-iwf"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:mac-iwf'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mac-iwf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class MacAccessInterface(object):
+                        class MacAccessInterface(Entity):
                             """
                             MAC Access Interface
                             
@@ -3528,41 +6445,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mac-access-interface"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:mac-access-interface'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mac-access-interface" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class MacIwfAccessInterface(object):
+                        class MacIwfAccessInterface(Entity):
                             """
                             MAC IWF Access Interface
                             
@@ -3595,41 +6579,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mac-iwf-access-interface"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:mac-iwf-access-interface'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mac-iwf-access-interface" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class CircuitId(object):
+                        class CircuitId(Entity):
                             """
                             Circuit ID
                             
@@ -3662,41 +6713,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "circuit-id"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:circuit-id'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "circuit-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class RemoteId(object):
+                        class RemoteId(Entity):
                             """
                             Remote ID
                             
@@ -3729,41 +6847,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "remote-id"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:remote-id'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "remote-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class CircuitIdAndRemoteId(object):
+                        class CircuitIdAndRemoteId(Entity):
                             """
                             Circuit ID and Remote ID
                             
@@ -3796,41 +6981,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "circuit-id-and-remote-id"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:circuit-id-and-remote-id'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "circuit-id-and-remote-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class OuterVlanId(object):
+                        class OuterVlanId(Entity):
                             """
                             Outer VLAN ID
                             
@@ -3863,41 +7115,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "outer-vlan-id"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:outer-vlan-id'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "outer-vlan-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class InnerVlanId(object):
+                        class InnerVlanId(Entity):
                             """
                             Inner VLAN ID
                             
@@ -3930,41 +7249,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "inner-vlan-id"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:inner-vlan-id'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "inner-vlan-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
-
-                                if self.radius_override_enabled is not None:
-                                    return True
-
-                                if self.threshold is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class VlanId(object):
+                        class VlanId(Entity):
                             """
                             VLAN ID
                             
@@ -3997,96 +7383,256 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.max_limit = None
-                                self.radius_override_enabled = None
-                                self.threshold = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "vlan-id"
+                                self.yang_parent_name = "limit-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:vlan-id'
+                                self.max_limit = YLeaf(YType.uint32, "max-limit")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.radius_override_enabled = YLeaf(YType.int32, "radius-override-enabled")
+
+                                self.threshold = YLeaf(YType.uint32, "threshold")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("max_limit",
+                                                "radius_override_enabled",
+                                                "threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.max_limit.is_set or
+                                    self.radius_override_enabled.is_set or
+                                    self.threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.max_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_enabled.yfilter != YFilter.not_set or
+                                    self.threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "vlan-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.max_limit.is_set or self.max_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.max_limit.get_name_leafdata())
+                                if (self.radius_override_enabled.is_set or self.radius_override_enabled.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_enabled.get_name_leafdata())
+                                if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "max-limit" or name == "radius-override-enabled" or name == "threshold"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.max_limit is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "max-limit"):
+                                    self.max_limit = value
+                                    self.max_limit.value_namespace = name_space
+                                    self.max_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-enabled"):
+                                    self.radius_override_enabled = value
+                                    self.radius_override_enabled.value_namespace = name_space
+                                    self.radius_override_enabled.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold"):
+                                    self.threshold = value
+                                    self.threshold.value_namespace = name_space
+                                    self.threshold.value_namespace_prefix = name_space_prefix
 
-                                if self.radius_override_enabled is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                (self.access_intf is not None and self.access_intf.has_data()) or
+                                (self.card is not None and self.card.has_data()) or
+                                (self.circuit_id is not None and self.circuit_id.has_data()) or
+                                (self.circuit_id_and_remote_id is not None and self.circuit_id_and_remote_id.has_data()) or
+                                (self.inner_vlan_id is not None and self.inner_vlan_id.has_data()) or
+                                (self.mac is not None and self.mac.has_data()) or
+                                (self.mac_access_interface is not None and self.mac_access_interface.has_data()) or
+                                (self.mac_iwf is not None and self.mac_iwf.has_data()) or
+                                (self.mac_iwf_access_interface is not None and self.mac_iwf_access_interface.has_data()) or
+                                (self.outer_vlan_id is not None and self.outer_vlan_id.has_data()) or
+                                (self.remote_id is not None and self.remote_id.has_data()) or
+                                (self.vlan_id is not None and self.vlan_id.has_data()))
 
-                                if self.threshold is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.access_intf is not None and self.access_intf.has_operation()) or
+                                (self.card is not None and self.card.has_operation()) or
+                                (self.circuit_id is not None and self.circuit_id.has_operation()) or
+                                (self.circuit_id_and_remote_id is not None and self.circuit_id_and_remote_id.has_operation()) or
+                                (self.inner_vlan_id is not None and self.inner_vlan_id.has_operation()) or
+                                (self.mac is not None and self.mac.has_operation()) or
+                                (self.mac_access_interface is not None and self.mac_access_interface.has_operation()) or
+                                (self.mac_iwf is not None and self.mac_iwf.has_operation()) or
+                                (self.mac_iwf_access_interface is not None and self.mac_iwf_access_interface.has_operation()) or
+                                (self.outer_vlan_id is not None and self.outer_vlan_id.has_operation()) or
+                                (self.remote_id is not None and self.remote_id.has_operation()) or
+                                (self.vlan_id is not None and self.vlan_id.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "limit-config" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:limit-config'
+                            leaf_name_data = LeafDataList()
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "access-intf"):
+                                if (self.access_intf is None):
+                                    self.access_intf = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf()
+                                    self.access_intf.parent = self
+                                    self._children_name_map["access_intf"] = "access-intf"
+                                return self.access_intf
+
+                            if (child_yang_name == "card"):
+                                if (self.card is None):
+                                    self.card = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card()
+                                    self.card.parent = self
+                                    self._children_name_map["card"] = "card"
+                                return self.card
+
+                            if (child_yang_name == "circuit-id"):
+                                if (self.circuit_id is None):
+                                    self.circuit_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId()
+                                    self.circuit_id.parent = self
+                                    self._children_name_map["circuit_id"] = "circuit-id"
+                                return self.circuit_id
+
+                            if (child_yang_name == "circuit-id-and-remote-id"):
+                                if (self.circuit_id_and_remote_id is None):
+                                    self.circuit_id_and_remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId()
+                                    self.circuit_id_and_remote_id.parent = self
+                                    self._children_name_map["circuit_id_and_remote_id"] = "circuit-id-and-remote-id"
+                                return self.circuit_id_and_remote_id
+
+                            if (child_yang_name == "inner-vlan-id"):
+                                if (self.inner_vlan_id is None):
+                                    self.inner_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId()
+                                    self.inner_vlan_id.parent = self
+                                    self._children_name_map["inner_vlan_id"] = "inner-vlan-id"
+                                return self.inner_vlan_id
+
+                            if (child_yang_name == "mac"):
+                                if (self.mac is None):
+                                    self.mac = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac()
+                                    self.mac.parent = self
+                                    self._children_name_map["mac"] = "mac"
+                                return self.mac
+
+                            if (child_yang_name == "mac-access-interface"):
+                                if (self.mac_access_interface is None):
+                                    self.mac_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface()
+                                    self.mac_access_interface.parent = self
+                                    self._children_name_map["mac_access_interface"] = "mac-access-interface"
+                                return self.mac_access_interface
+
+                            if (child_yang_name == "mac-iwf"):
+                                if (self.mac_iwf is None):
+                                    self.mac_iwf = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf()
+                                    self.mac_iwf.parent = self
+                                    self._children_name_map["mac_iwf"] = "mac-iwf"
+                                return self.mac_iwf
+
+                            if (child_yang_name == "mac-iwf-access-interface"):
+                                if (self.mac_iwf_access_interface is None):
+                                    self.mac_iwf_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface()
+                                    self.mac_iwf_access_interface.parent = self
+                                    self._children_name_map["mac_iwf_access_interface"] = "mac-iwf-access-interface"
+                                return self.mac_iwf_access_interface
+
+                            if (child_yang_name == "outer-vlan-id"):
+                                if (self.outer_vlan_id is None):
+                                    self.outer_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId()
+                                    self.outer_vlan_id.parent = self
+                                    self._children_name_map["outer_vlan_id"] = "outer-vlan-id"
+                                return self.outer_vlan_id
+
+                            if (child_yang_name == "remote-id"):
+                                if (self.remote_id is None):
+                                    self.remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId()
+                                    self.remote_id.parent = self
+                                    self._children_name_map["remote_id"] = "remote-id"
+                                return self.remote_id
+
+                            if (child_yang_name == "vlan-id"):
+                                if (self.vlan_id is None):
+                                    self.vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId()
+                                    self.vlan_id.parent = self
+                                    self._children_name_map["vlan_id"] = "vlan-id"
+                                return self.vlan_id
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "access-intf" or name == "card" or name == "circuit-id" or name == "circuit-id-and-remote-id" or name == "inner-vlan-id" or name == "mac" or name == "mac-access-interface" or name == "mac-iwf" or name == "mac-iwf-access-interface" or name == "outer-vlan-id" or name == "remote-id" or name == "vlan-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.access_intf is not None and self.access_intf._has_data():
-                                return True
-
-                            if self.card is not None and self.card._has_data():
-                                return True
-
-                            if self.circuit_id is not None and self.circuit_id._has_data():
-                                return True
-
-                            if self.circuit_id_and_remote_id is not None and self.circuit_id_and_remote_id._has_data():
-                                return True
-
-                            if self.inner_vlan_id is not None and self.inner_vlan_id._has_data():
-                                return True
-
-                            if self.mac is not None and self.mac._has_data():
-                                return True
-
-                            if self.mac_access_interface is not None and self.mac_access_interface._has_data():
-                                return True
-
-                            if self.mac_iwf is not None and self.mac_iwf._has_data():
-                                return True
-
-                            if self.mac_iwf_access_interface is not None and self.mac_iwf_access_interface._has_data():
-                                return True
-
-                            if self.outer_vlan_id is not None and self.outer_vlan_id._has_data():
-                                return True
-
-                            if self.remote_id is not None and self.remote_id._has_data():
-                                return True
-
-                            if self.vlan_id is not None and self.vlan_id._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class Limits(object):
+                    class Limits(Entity):
                         """
                         PPPoE session limit information
                         
@@ -4103,13 +7649,39 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.limit = YList()
-                            self.limit.parent = self
-                            self.limit.name = 'limit'
+                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits, self).__init__()
+
+                            self.yang_name = "limits"
+                            self.yang_parent_name = "bba-group"
+
+                            self.limit = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits, self).__setattr__(name, value)
 
 
-                        class Limit(object):
+                        class Limit(Entity):
                             """
                             PPPoE session limit state
                             
@@ -4184,7 +7756,7 @@ class Pppoe(object):
                             .. attribute:: state
                             
                             	State
-                            	**type**\:   :py:class:`PppoeMaLimitStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaLimitStateEnum>`
+                            	**type**\:   :py:class:`PppoeMaLimitState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaLimitState>`
                             
                             
 
@@ -4194,97 +7766,253 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.circuit_id = None
-                                self.inner_vlan_id = None
-                                self.interface_name = None
-                                self.iwf = None
-                                self.mac_address = None
-                                self.outer_vlan_id = None
-                                self.override_limit = None
-                                self.radius_override_set = None
-                                self.remote_id = None
-                                self.session_count = None
-                                self.state = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "limit"
+                                self.yang_parent_name = "limits"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:limit'
+                                self.circuit_id = YLeaf(YType.str, "circuit-id")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.inner_vlan_id = YLeaf(YType.uint32, "inner-vlan-id")
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.iwf = YLeaf(YType.boolean, "iwf")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                self.outer_vlan_id = YLeaf(YType.uint32, "outer-vlan-id")
+
+                                self.override_limit = YLeaf(YType.uint32, "override-limit")
+
+                                self.radius_override_set = YLeaf(YType.int32, "radius-override-set")
+
+                                self.remote_id = YLeaf(YType.str, "remote-id")
+
+                                self.session_count = YLeaf(YType.uint32, "session-count")
+
+                                self.state = YLeaf(YType.enumeration, "state")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("circuit_id",
+                                                "inner_vlan_id",
+                                                "interface_name",
+                                                "iwf",
+                                                "mac_address",
+                                                "outer_vlan_id",
+                                                "override_limit",
+                                                "radius_override_set",
+                                                "remote_id",
+                                                "session_count",
+                                                "state") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.circuit_id.is_set or
+                                    self.inner_vlan_id.is_set or
+                                    self.interface_name.is_set or
+                                    self.iwf.is_set or
+                                    self.mac_address.is_set or
+                                    self.outer_vlan_id.is_set or
+                                    self.override_limit.is_set or
+                                    self.radius_override_set.is_set or
+                                    self.remote_id.is_set or
+                                    self.session_count.is_set or
+                                    self.state.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.circuit_id.yfilter != YFilter.not_set or
+                                    self.inner_vlan_id.yfilter != YFilter.not_set or
+                                    self.interface_name.yfilter != YFilter.not_set or
+                                    self.iwf.yfilter != YFilter.not_set or
+                                    self.mac_address.yfilter != YFilter.not_set or
+                                    self.outer_vlan_id.yfilter != YFilter.not_set or
+                                    self.override_limit.yfilter != YFilter.not_set or
+                                    self.radius_override_set.yfilter != YFilter.not_set or
+                                    self.remote_id.yfilter != YFilter.not_set or
+                                    self.session_count.yfilter != YFilter.not_set or
+                                    self.state.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "limit" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.circuit_id.is_set or self.circuit_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.circuit_id.get_name_leafdata())
+                                if (self.inner_vlan_id.is_set or self.inner_vlan_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.inner_vlan_id.get_name_leafdata())
+                                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                if (self.iwf.is_set or self.iwf.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.iwf.get_name_leafdata())
+                                if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mac_address.get_name_leafdata())
+                                if (self.outer_vlan_id.is_set or self.outer_vlan_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.outer_vlan_id.get_name_leafdata())
+                                if (self.override_limit.is_set or self.override_limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.override_limit.get_name_leafdata())
+                                if (self.radius_override_set.is_set or self.radius_override_set.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.radius_override_set.get_name_leafdata())
+                                if (self.remote_id.is_set or self.remote_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.remote_id.get_name_leafdata())
+                                if (self.session_count.is_set or self.session_count.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.session_count.get_name_leafdata())
+                                if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.state.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "circuit-id" or name == "inner-vlan-id" or name == "interface-name" or name == "iwf" or name == "mac-address" or name == "outer-vlan-id" or name == "override-limit" or name == "radius-override-set" or name == "remote-id" or name == "session-count" or name == "state"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.circuit_id is not None:
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "circuit-id"):
+                                    self.circuit_id = value
+                                    self.circuit_id.value_namespace = name_space
+                                    self.circuit_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "inner-vlan-id"):
+                                    self.inner_vlan_id = value
+                                    self.inner_vlan_id.value_namespace = name_space
+                                    self.inner_vlan_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "interface-name"):
+                                    self.interface_name = value
+                                    self.interface_name.value_namespace = name_space
+                                    self.interface_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "iwf"):
+                                    self.iwf = value
+                                    self.iwf.value_namespace = name_space
+                                    self.iwf.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mac-address"):
+                                    self.mac_address = value
+                                    self.mac_address.value_namespace = name_space
+                                    self.mac_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "outer-vlan-id"):
+                                    self.outer_vlan_id = value
+                                    self.outer_vlan_id.value_namespace = name_space
+                                    self.outer_vlan_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "override-limit"):
+                                    self.override_limit = value
+                                    self.override_limit.value_namespace = name_space
+                                    self.override_limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "radius-override-set"):
+                                    self.radius_override_set = value
+                                    self.radius_override_set.value_namespace = name_space
+                                    self.radius_override_set.value_namespace_prefix = name_space_prefix
+                                if(value_path == "remote-id"):
+                                    self.remote_id = value
+                                    self.remote_id.value_namespace = name_space
+                                    self.remote_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "session-count"):
+                                    self.session_count = value
+                                    self.session_count.value_namespace = name_space
+                                    self.session_count.value_namespace_prefix = name_space_prefix
+                                if(value_path == "state"):
+                                    self.state = value
+                                    self.state.value_namespace = name_space
+                                    self.state.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.limit:
+                                if (c.has_data()):
                                     return True
-
-                                if self.inner_vlan_id is not None:
-                                    return True
-
-                                if self.interface_name is not None:
-                                    return True
-
-                                if self.iwf is not None:
-                                    return True
-
-                                if self.mac_address is not None:
-                                    return True
-
-                                if self.outer_vlan_id is not None:
-                                    return True
-
-                                if self.override_limit is not None:
-                                    return True
-
-                                if self.radius_override_set is not None:
-                                    return True
-
-                                if self.remote_id is not None:
-                                    return True
-
-                                if self.session_count is not None:
-                                    return True
-
-                                if self.state is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:limits'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
                             return False
 
-                        def _has_data(self):
-                            if self.limit is not None:
-                                for child_ref in self.limit:
-                                    if child_ref._has_data():
-                                        return True
+                        def has_operation(self):
+                            for c in self.limit:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "limits" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "limit"):
+                                for c in self.limit:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.limit.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "limit"):
+                                return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class Throttles(object):
+                    class Throttles(Entity):
                         """
                         PPPoE throttle information
                         
@@ -4301,13 +8029,39 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.throttle = YList()
-                            self.throttle.parent = self
-                            self.throttle.name = 'throttle'
+                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles, self).__init__()
+
+                            self.yang_name = "throttles"
+                            self.yang_parent_name = "bba-group"
+
+                            self.throttle = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles, self).__setattr__(name, value)
 
 
-                        class Throttle(object):
+                        class Throttle(Entity):
                             """
                             PPPoE session throttle state
                             
@@ -4384,7 +8138,7 @@ class Pppoe(object):
                             .. attribute:: state
                             
                             	State
-                            	**type**\:   :py:class:`PppoeMaThrottleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaThrottleStateEnum>`
+                            	**type**\:   :py:class:`PppoeMaThrottleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaThrottleState>`
                             
                             .. attribute:: time_left
                             
@@ -4403,101 +8157,264 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.circuit_id = None
-                                self.inner_vlan_id = None
-                                self.interface_name = None
-                                self.iwf = None
-                                self.mac_address = None
-                                self.outer_vlan_id = None
-                                self.padi_count = None
-                                self.padr_count = None
-                                self.remote_id = None
-                                self.since_reset = None
-                                self.state = None
-                                self.time_left = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "throttle"
+                                self.yang_parent_name = "throttles"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:throttle'
+                                self.circuit_id = YLeaf(YType.str, "circuit-id")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.inner_vlan_id = YLeaf(YType.uint32, "inner-vlan-id")
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.iwf = YLeaf(YType.boolean, "iwf")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                self.outer_vlan_id = YLeaf(YType.uint32, "outer-vlan-id")
+
+                                self.padi_count = YLeaf(YType.uint32, "padi-count")
+
+                                self.padr_count = YLeaf(YType.uint32, "padr-count")
+
+                                self.remote_id = YLeaf(YType.str, "remote-id")
+
+                                self.since_reset = YLeaf(YType.uint32, "since-reset")
+
+                                self.state = YLeaf(YType.enumeration, "state")
+
+                                self.time_left = YLeaf(YType.uint32, "time-left")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("circuit_id",
+                                                "inner_vlan_id",
+                                                "interface_name",
+                                                "iwf",
+                                                "mac_address",
+                                                "outer_vlan_id",
+                                                "padi_count",
+                                                "padr_count",
+                                                "remote_id",
+                                                "since_reset",
+                                                "state",
+                                                "time_left") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.circuit_id.is_set or
+                                    self.inner_vlan_id.is_set or
+                                    self.interface_name.is_set or
+                                    self.iwf.is_set or
+                                    self.mac_address.is_set or
+                                    self.outer_vlan_id.is_set or
+                                    self.padi_count.is_set or
+                                    self.padr_count.is_set or
+                                    self.remote_id.is_set or
+                                    self.since_reset.is_set or
+                                    self.state.is_set or
+                                    self.time_left.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.circuit_id.yfilter != YFilter.not_set or
+                                    self.inner_vlan_id.yfilter != YFilter.not_set or
+                                    self.interface_name.yfilter != YFilter.not_set or
+                                    self.iwf.yfilter != YFilter.not_set or
+                                    self.mac_address.yfilter != YFilter.not_set or
+                                    self.outer_vlan_id.yfilter != YFilter.not_set or
+                                    self.padi_count.yfilter != YFilter.not_set or
+                                    self.padr_count.yfilter != YFilter.not_set or
+                                    self.remote_id.yfilter != YFilter.not_set or
+                                    self.since_reset.yfilter != YFilter.not_set or
+                                    self.state.yfilter != YFilter.not_set or
+                                    self.time_left.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "throttle" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.circuit_id.is_set or self.circuit_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.circuit_id.get_name_leafdata())
+                                if (self.inner_vlan_id.is_set or self.inner_vlan_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.inner_vlan_id.get_name_leafdata())
+                                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                if (self.iwf.is_set or self.iwf.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.iwf.get_name_leafdata())
+                                if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mac_address.get_name_leafdata())
+                                if (self.outer_vlan_id.is_set or self.outer_vlan_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.outer_vlan_id.get_name_leafdata())
+                                if (self.padi_count.is_set or self.padi_count.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.padi_count.get_name_leafdata())
+                                if (self.padr_count.is_set or self.padr_count.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.padr_count.get_name_leafdata())
+                                if (self.remote_id.is_set or self.remote_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.remote_id.get_name_leafdata())
+                                if (self.since_reset.is_set or self.since_reset.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.since_reset.get_name_leafdata())
+                                if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.state.get_name_leafdata())
+                                if (self.time_left.is_set or self.time_left.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.time_left.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "circuit-id" or name == "inner-vlan-id" or name == "interface-name" or name == "iwf" or name == "mac-address" or name == "outer-vlan-id" or name == "padi-count" or name == "padr-count" or name == "remote-id" or name == "since-reset" or name == "state" or name == "time-left"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.circuit_id is not None:
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "circuit-id"):
+                                    self.circuit_id = value
+                                    self.circuit_id.value_namespace = name_space
+                                    self.circuit_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "inner-vlan-id"):
+                                    self.inner_vlan_id = value
+                                    self.inner_vlan_id.value_namespace = name_space
+                                    self.inner_vlan_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "interface-name"):
+                                    self.interface_name = value
+                                    self.interface_name.value_namespace = name_space
+                                    self.interface_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "iwf"):
+                                    self.iwf = value
+                                    self.iwf.value_namespace = name_space
+                                    self.iwf.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mac-address"):
+                                    self.mac_address = value
+                                    self.mac_address.value_namespace = name_space
+                                    self.mac_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "outer-vlan-id"):
+                                    self.outer_vlan_id = value
+                                    self.outer_vlan_id.value_namespace = name_space
+                                    self.outer_vlan_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "padi-count"):
+                                    self.padi_count = value
+                                    self.padi_count.value_namespace = name_space
+                                    self.padi_count.value_namespace_prefix = name_space_prefix
+                                if(value_path == "padr-count"):
+                                    self.padr_count = value
+                                    self.padr_count.value_namespace = name_space
+                                    self.padr_count.value_namespace_prefix = name_space_prefix
+                                if(value_path == "remote-id"):
+                                    self.remote_id = value
+                                    self.remote_id.value_namespace = name_space
+                                    self.remote_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "since-reset"):
+                                    self.since_reset = value
+                                    self.since_reset.value_namespace = name_space
+                                    self.since_reset.value_namespace_prefix = name_space_prefix
+                                if(value_path == "state"):
+                                    self.state = value
+                                    self.state.value_namespace = name_space
+                                    self.state.value_namespace_prefix = name_space_prefix
+                                if(value_path == "time-left"):
+                                    self.time_left = value
+                                    self.time_left.value_namespace = name_space
+                                    self.time_left.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.throttle:
+                                if (c.has_data()):
                                     return True
-
-                                if self.inner_vlan_id is not None:
-                                    return True
-
-                                if self.interface_name is not None:
-                                    return True
-
-                                if self.iwf is not None:
-                                    return True
-
-                                if self.mac_address is not None:
-                                    return True
-
-                                if self.outer_vlan_id is not None:
-                                    return True
-
-                                if self.padi_count is not None:
-                                    return True
-
-                                if self.padr_count is not None:
-                                    return True
-
-                                if self.remote_id is not None:
-                                    return True
-
-                                if self.since_reset is not None:
-                                    return True
-
-                                if self.state is not None:
-                                    return True
-
-                                if self.time_left is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:throttles'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
                             return False
 
-                        def _has_data(self):
-                            if self.throttle is not None:
-                                for child_ref in self.throttle:
-                                    if child_ref._has_data():
-                                        return True
+                        def has_operation(self):
+                            for c in self.throttle:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "throttles" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "throttle"):
+                                for c in self.throttle:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.throttle.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "throttle"):
+                                return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class ThrottleConfig(object):
+                    class ThrottleConfig(Entity):
                         """
                         BBA\-Group throttle configuration information
                         
@@ -4554,28 +8471,58 @@ class Pppoe(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig, self).__init__()
+
+                            self.yang_name = "throttle-config"
+                            self.yang_parent_name = "bba-group"
+
                             self.circuit_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId()
                             self.circuit_id.parent = self
+                            self._children_name_map["circuit_id"] = "circuit-id"
+                            self._children_yang_names.add("circuit-id")
+
                             self.circuit_id_and_remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId()
                             self.circuit_id_and_remote_id.parent = self
+                            self._children_name_map["circuit_id_and_remote_id"] = "circuit-id-and-remote-id"
+                            self._children_yang_names.add("circuit-id-and-remote-id")
+
                             self.inner_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId()
                             self.inner_vlan_id.parent = self
+                            self._children_name_map["inner_vlan_id"] = "inner-vlan-id"
+                            self._children_yang_names.add("inner-vlan-id")
+
                             self.mac = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac()
                             self.mac.parent = self
+                            self._children_name_map["mac"] = "mac"
+                            self._children_yang_names.add("mac")
+
                             self.mac_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface()
                             self.mac_access_interface.parent = self
+                            self._children_name_map["mac_access_interface"] = "mac-access-interface"
+                            self._children_yang_names.add("mac-access-interface")
+
                             self.mac_iwf_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface()
                             self.mac_iwf_access_interface.parent = self
+                            self._children_name_map["mac_iwf_access_interface"] = "mac-iwf-access-interface"
+                            self._children_yang_names.add("mac-iwf-access-interface")
+
                             self.outer_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId()
                             self.outer_vlan_id.parent = self
+                            self._children_name_map["outer_vlan_id"] = "outer-vlan-id"
+                            self._children_yang_names.add("outer-vlan-id")
+
                             self.remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId()
                             self.remote_id.parent = self
+                            self._children_name_map["remote_id"] = "remote-id"
+                            self._children_yang_names.add("remote-id")
+
                             self.vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId()
                             self.vlan_id.parent = self
+                            self._children_name_map["vlan_id"] = "vlan-id"
+                            self._children_yang_names.add("vlan-id")
 
 
-                        class Mac(object):
+                        class Mac(Entity):
                             """
                             MAC
                             
@@ -4608,41 +8555,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mac"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:mac'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mac" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class MacAccessInterface(object):
+                        class MacAccessInterface(Entity):
                             """
                             MAC Access Interface
                             
@@ -4675,41 +8689,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mac-access-interface"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:mac-access-interface'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mac-access-interface" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class MacIwfAccessInterface(object):
+                        class MacIwfAccessInterface(Entity):
                             """
                             MAC IWF Access Interface
                             
@@ -4742,41 +8823,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mac-iwf-access-interface"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:mac-iwf-access-interface'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mac-iwf-access-interface" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class CircuitId(object):
+                        class CircuitId(Entity):
                             """
                             Circuit ID
                             
@@ -4809,41 +8957,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "circuit-id"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:circuit-id'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "circuit-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class RemoteId(object):
+                        class RemoteId(Entity):
                             """
                             Remote ID
                             
@@ -4876,41 +9091,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "remote-id"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:remote-id'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "remote-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class CircuitIdAndRemoteId(object):
+                        class CircuitIdAndRemoteId(Entity):
                             """
                             Circuit ID and Remote ID
                             
@@ -4943,41 +9225,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "circuit-id-and-remote-id"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:circuit-id-and-remote-id'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "circuit-id-and-remote-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class OuterVlanId(object):
+                        class OuterVlanId(Entity):
                             """
                             Outer VLAN ID
                             
@@ -5010,41 +9359,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "outer-vlan-id"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:outer-vlan-id'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "outer-vlan-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class InnerVlanId(object):
+                        class InnerVlanId(Entity):
                             """
                             Inner VLAN ID
                             
@@ -5077,41 +9493,108 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "inner-vlan-id"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:inner-vlan-id'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "inner-vlan-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
-
-                                if self.limit is not None:
-                                    return True
-
-                                if self.request_period is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
 
-                        class VlanId(object):
+                        class VlanId(Entity):
                             """
                             VLAN ID
                             
@@ -5144,147 +9627,369 @@ class Pppoe(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.blocking_period = None
-                                self.limit = None
-                                self.request_period = None
+                                super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "vlan-id"
+                                self.yang_parent_name = "throttle-config"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:vlan-id'
+                                self.blocking_period = YLeaf(YType.uint32, "blocking-period")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request_period = YLeaf(YType.uint32, "request-period")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("blocking_period",
+                                                "limit",
+                                                "request_period") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.blocking_period.is_set or
+                                    self.limit.is_set or
+                                    self.request_period.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.blocking_period.yfilter != YFilter.not_set or
+                                    self.limit.yfilter != YFilter.not_set or
+                                    self.request_period.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "vlan-id" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.blocking_period.is_set or self.blocking_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.blocking_period.get_name_leafdata())
+                                if (self.limit.is_set or self.limit.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.limit.get_name_leafdata())
+                                if (self.request_period.is_set or self.request_period.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.request_period.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "blocking-period" or name == "limit" or name == "request-period"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.blocking_period is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "blocking-period"):
+                                    self.blocking_period = value
+                                    self.blocking_period.value_namespace = name_space
+                                    self.blocking_period.value_namespace_prefix = name_space_prefix
+                                if(value_path == "limit"):
+                                    self.limit = value
+                                    self.limit.value_namespace = name_space
+                                    self.limit.value_namespace_prefix = name_space_prefix
+                                if(value_path == "request-period"):
+                                    self.request_period = value
+                                    self.request_period.value_namespace = name_space
+                                    self.request_period.value_namespace_prefix = name_space_prefix
 
-                                if self.limit is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                (self.circuit_id is not None and self.circuit_id.has_data()) or
+                                (self.circuit_id_and_remote_id is not None and self.circuit_id_and_remote_id.has_data()) or
+                                (self.inner_vlan_id is not None and self.inner_vlan_id.has_data()) or
+                                (self.mac is not None and self.mac.has_data()) or
+                                (self.mac_access_interface is not None and self.mac_access_interface.has_data()) or
+                                (self.mac_iwf_access_interface is not None and self.mac_iwf_access_interface.has_data()) or
+                                (self.outer_vlan_id is not None and self.outer_vlan_id.has_data()) or
+                                (self.remote_id is not None and self.remote_id.has_data()) or
+                                (self.vlan_id is not None and self.vlan_id.has_data()))
 
-                                if self.request_period is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.circuit_id is not None and self.circuit_id.has_operation()) or
+                                (self.circuit_id_and_remote_id is not None and self.circuit_id_and_remote_id.has_operation()) or
+                                (self.inner_vlan_id is not None and self.inner_vlan_id.has_operation()) or
+                                (self.mac is not None and self.mac.has_operation()) or
+                                (self.mac_access_interface is not None and self.mac_access_interface.has_operation()) or
+                                (self.mac_iwf_access_interface is not None and self.mac_iwf_access_interface.has_operation()) or
+                                (self.outer_vlan_id is not None and self.outer_vlan_id.has_operation()) or
+                                (self.remote_id is not None and self.remote_id.has_operation()) or
+                                (self.vlan_id is not None and self.vlan_id.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "throttle-config" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                                return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:throttle-config'
+                            leaf_name_data = LeafDataList()
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "circuit-id"):
+                                if (self.circuit_id is None):
+                                    self.circuit_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId()
+                                    self.circuit_id.parent = self
+                                    self._children_name_map["circuit_id"] = "circuit-id"
+                                return self.circuit_id
+
+                            if (child_yang_name == "circuit-id-and-remote-id"):
+                                if (self.circuit_id_and_remote_id is None):
+                                    self.circuit_id_and_remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId()
+                                    self.circuit_id_and_remote_id.parent = self
+                                    self._children_name_map["circuit_id_and_remote_id"] = "circuit-id-and-remote-id"
+                                return self.circuit_id_and_remote_id
+
+                            if (child_yang_name == "inner-vlan-id"):
+                                if (self.inner_vlan_id is None):
+                                    self.inner_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId()
+                                    self.inner_vlan_id.parent = self
+                                    self._children_name_map["inner_vlan_id"] = "inner-vlan-id"
+                                return self.inner_vlan_id
+
+                            if (child_yang_name == "mac"):
+                                if (self.mac is None):
+                                    self.mac = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac()
+                                    self.mac.parent = self
+                                    self._children_name_map["mac"] = "mac"
+                                return self.mac
+
+                            if (child_yang_name == "mac-access-interface"):
+                                if (self.mac_access_interface is None):
+                                    self.mac_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface()
+                                    self.mac_access_interface.parent = self
+                                    self._children_name_map["mac_access_interface"] = "mac-access-interface"
+                                return self.mac_access_interface
+
+                            if (child_yang_name == "mac-iwf-access-interface"):
+                                if (self.mac_iwf_access_interface is None):
+                                    self.mac_iwf_access_interface = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface()
+                                    self.mac_iwf_access_interface.parent = self
+                                    self._children_name_map["mac_iwf_access_interface"] = "mac-iwf-access-interface"
+                                return self.mac_iwf_access_interface
+
+                            if (child_yang_name == "outer-vlan-id"):
+                                if (self.outer_vlan_id is None):
+                                    self.outer_vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId()
+                                    self.outer_vlan_id.parent = self
+                                    self._children_name_map["outer_vlan_id"] = "outer-vlan-id"
+                                return self.outer_vlan_id
+
+                            if (child_yang_name == "remote-id"):
+                                if (self.remote_id is None):
+                                    self.remote_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId()
+                                    self.remote_id.parent = self
+                                    self._children_name_map["remote_id"] = "remote-id"
+                                return self.remote_id
+
+                            if (child_yang_name == "vlan-id"):
+                                if (self.vlan_id is None):
+                                    self.vlan_id = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId()
+                                    self.vlan_id.parent = self
+                                    self._children_name_map["vlan_id"] = "vlan-id"
+                                return self.vlan_id
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "circuit-id" or name == "circuit-id-and-remote-id" or name == "inner-vlan-id" or name == "mac" or name == "mac-access-interface" or name == "mac-iwf-access-interface" or name == "outer-vlan-id" or name == "remote-id" or name == "vlan-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.circuit_id is not None and self.circuit_id._has_data():
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                            if self.circuit_id_and_remote_id is not None and self.circuit_id_and_remote_id._has_data():
-                                return True
+                    def has_data(self):
+                        return (
+                            self.bba_group_name.is_set or
+                            (self.limit_config is not None and self.limit_config.has_data()) or
+                            (self.limits is not None and self.limits.has_data()) or
+                            (self.throttle_config is not None and self.throttle_config.has_data()) or
+                            (self.throttles is not None and self.throttles.has_data()))
 
-                            if self.inner_vlan_id is not None and self.inner_vlan_id._has_data():
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bba_group_name.yfilter != YFilter.not_set or
+                            (self.limit_config is not None and self.limit_config.has_operation()) or
+                            (self.limits is not None and self.limits.has_operation()) or
+                            (self.throttle_config is not None and self.throttle_config.has_operation()) or
+                            (self.throttles is not None and self.throttles.has_operation()))
 
-                            if self.mac is not None and self.mac._has_data():
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "bba-group" + "[bba-group-name='" + self.bba_group_name.get() + "']" + path_buffer
 
-                            if self.mac_access_interface is not None and self.mac_access_interface._has_data():
-                                return True
+                        return path_buffer
 
-                            if self.mac_iwf_access_interface is not None and self.mac_iwf_access_interface._has_data():
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            if self.outer_vlan_id is not None and self.outer_vlan_id._has_data():
-                                return True
+                        leaf_name_data = LeafDataList()
+                        if (self.bba_group_name.is_set or self.bba_group_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bba_group_name.get_name_leafdata())
 
-                            if self.remote_id is not None and self.remote_id._has_data():
-                                return True
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                            if self.vlan_id is not None and self.vlan_id._has_data():
-                                return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                            return False
+                        if (child_yang_name == "limit-config"):
+                            if (self.limit_config is None):
+                                self.limit_config = Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig()
+                                self.limit_config.parent = self
+                                self._children_name_map["limit_config"] = "limit-config"
+                            return self.limit_config
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                            return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig']['meta_info']
+                        if (child_yang_name == "limits"):
+                            if (self.limits is None):
+                                self.limits = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits()
+                                self.limits.parent = self
+                                self._children_name_map["limits"] = "limits"
+                            return self.limits
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.bba_group_name is None:
-                            raise YPYModelError('Key property bba_group_name is None')
+                        if (child_yang_name == "throttle-config"):
+                            if (self.throttle_config is None):
+                                self.throttle_config = Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig()
+                                self.throttle_config.parent = self
+                                self._children_name_map["throttle_config"] = "throttle-config"
+                            return self.throttle_config
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:bba-group[Cisco-IOS-XR-subscriber-pppoe-ma-oper:bba-group-name = ' + str(self.bba_group_name) + ']'
+                        if (child_yang_name == "throttles"):
+                            if (self.throttles is None):
+                                self.throttles = Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles()
+                                self.throttles.parent = self
+                                self._children_name_map["throttles"] = "throttles"
+                            return self.throttles
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "limit-config" or name == "limits" or name == "throttle-config" or name == "throttles" or name == "bba-group-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.bba_group_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bba-group-name"):
+                            self.bba_group_name = value
+                            self.bba_group_name.value_namespace = name_space
+                            self.bba_group_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.bba_group:
+                        if (c.has_data()):
                             return True
-
-                        if self.limit_config is not None and self.limit_config._has_data():
-                            return True
-
-                        if self.limits is not None and self.limits._has_data():
-                            return True
-
-                        if self.throttle_config is not None and self.throttle_config._has_data():
-                            return True
-
-                        if self.throttles is not None and self.throttles._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                        return meta._meta_table['Pppoe.Nodes.Node.BbaGroups.BbaGroup']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:bba-groups'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.bba_group is not None:
-                        for child_ref in self.bba_group:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.bba_group:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bba-groups" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "bba-group"):
+                        for c in self.bba_group:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Pppoe.Nodes.Node.BbaGroups.BbaGroup()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.bba_group.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bba-group"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                    return meta._meta_table['Pppoe.Nodes.Node.BbaGroups']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class SummaryTotal(object):
+            class SummaryTotal(Entity):
                 """
                 PPPoE statistics for a given node
                 
@@ -5366,147 +10071,390 @@ class Pppoe(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.complete_sessions = None
-                    self.flow_control_disconnected_sessions = None
-                    self.flow_control_dropped_sessions = None
-                    self.flow_control_in_flight_sessions = None
-                    self.flow_control_limit = None
-                    self.flow_control_successful_sessions = None
-                    self.incomplete_sessions = None
-                    self.not_ready_access_interfaces = None
-                    self.pppoema_subscriber_infra_flow_control = None
-                    self.ready_access_interfaces = None
+                    super(Pppoe.Nodes.Node.SummaryTotal, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "summary-total"
+                    self.yang_parent_name = "node"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-oper:summary-total'
+                    self.complete_sessions = YLeaf(YType.uint32, "complete-sessions")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.flow_control_disconnected_sessions = YLeaf(YType.uint64, "flow-control-disconnected-sessions")
+
+                    self.flow_control_dropped_sessions = YLeaf(YType.uint64, "flow-control-dropped-sessions")
+
+                    self.flow_control_in_flight_sessions = YLeaf(YType.uint32, "flow-control-in-flight-sessions")
+
+                    self.flow_control_limit = YLeaf(YType.uint32, "flow-control-limit")
+
+                    self.flow_control_successful_sessions = YLeaf(YType.uint64, "flow-control-successful-sessions")
+
+                    self.incomplete_sessions = YLeaf(YType.uint32, "incomplete-sessions")
+
+                    self.not_ready_access_interfaces = YLeaf(YType.uint32, "not-ready-access-interfaces")
+
+                    self.pppoema_subscriber_infra_flow_control = YLeaf(YType.uint32, "pppoema-subscriber-infra-flow-control")
+
+                    self.ready_access_interfaces = YLeaf(YType.uint32, "ready-access-interfaces")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("complete_sessions",
+                                    "flow_control_disconnected_sessions",
+                                    "flow_control_dropped_sessions",
+                                    "flow_control_in_flight_sessions",
+                                    "flow_control_limit",
+                                    "flow_control_successful_sessions",
+                                    "incomplete_sessions",
+                                    "not_ready_access_interfaces",
+                                    "pppoema_subscriber_infra_flow_control",
+                                    "ready_access_interfaces") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Pppoe.Nodes.Node.SummaryTotal, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Pppoe.Nodes.Node.SummaryTotal, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.complete_sessions.is_set or
+                        self.flow_control_disconnected_sessions.is_set or
+                        self.flow_control_dropped_sessions.is_set or
+                        self.flow_control_in_flight_sessions.is_set or
+                        self.flow_control_limit.is_set or
+                        self.flow_control_successful_sessions.is_set or
+                        self.incomplete_sessions.is_set or
+                        self.not_ready_access_interfaces.is_set or
+                        self.pppoema_subscriber_infra_flow_control.is_set or
+                        self.ready_access_interfaces.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.complete_sessions.yfilter != YFilter.not_set or
+                        self.flow_control_disconnected_sessions.yfilter != YFilter.not_set or
+                        self.flow_control_dropped_sessions.yfilter != YFilter.not_set or
+                        self.flow_control_in_flight_sessions.yfilter != YFilter.not_set or
+                        self.flow_control_limit.yfilter != YFilter.not_set or
+                        self.flow_control_successful_sessions.yfilter != YFilter.not_set or
+                        self.incomplete_sessions.yfilter != YFilter.not_set or
+                        self.not_ready_access_interfaces.yfilter != YFilter.not_set or
+                        self.pppoema_subscriber_infra_flow_control.yfilter != YFilter.not_set or
+                        self.ready_access_interfaces.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "summary-total" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.complete_sessions.is_set or self.complete_sessions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.complete_sessions.get_name_leafdata())
+                    if (self.flow_control_disconnected_sessions.is_set or self.flow_control_disconnected_sessions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flow_control_disconnected_sessions.get_name_leafdata())
+                    if (self.flow_control_dropped_sessions.is_set or self.flow_control_dropped_sessions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flow_control_dropped_sessions.get_name_leafdata())
+                    if (self.flow_control_in_flight_sessions.is_set or self.flow_control_in_flight_sessions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flow_control_in_flight_sessions.get_name_leafdata())
+                    if (self.flow_control_limit.is_set or self.flow_control_limit.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flow_control_limit.get_name_leafdata())
+                    if (self.flow_control_successful_sessions.is_set or self.flow_control_successful_sessions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flow_control_successful_sessions.get_name_leafdata())
+                    if (self.incomplete_sessions.is_set or self.incomplete_sessions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.incomplete_sessions.get_name_leafdata())
+                    if (self.not_ready_access_interfaces.is_set or self.not_ready_access_interfaces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.not_ready_access_interfaces.get_name_leafdata())
+                    if (self.pppoema_subscriber_infra_flow_control.is_set or self.pppoema_subscriber_infra_flow_control.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pppoema_subscriber_infra_flow_control.get_name_leafdata())
+                    if (self.ready_access_interfaces.is_set or self.ready_access_interfaces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ready_access_interfaces.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "complete-sessions" or name == "flow-control-disconnected-sessions" or name == "flow-control-dropped-sessions" or name == "flow-control-in-flight-sessions" or name == "flow-control-limit" or name == "flow-control-successful-sessions" or name == "incomplete-sessions" or name == "not-ready-access-interfaces" or name == "pppoema-subscriber-infra-flow-control" or name == "ready-access-interfaces"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.complete_sessions is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "complete-sessions"):
+                        self.complete_sessions = value
+                        self.complete_sessions.value_namespace = name_space
+                        self.complete_sessions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flow-control-disconnected-sessions"):
+                        self.flow_control_disconnected_sessions = value
+                        self.flow_control_disconnected_sessions.value_namespace = name_space
+                        self.flow_control_disconnected_sessions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flow-control-dropped-sessions"):
+                        self.flow_control_dropped_sessions = value
+                        self.flow_control_dropped_sessions.value_namespace = name_space
+                        self.flow_control_dropped_sessions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flow-control-in-flight-sessions"):
+                        self.flow_control_in_flight_sessions = value
+                        self.flow_control_in_flight_sessions.value_namespace = name_space
+                        self.flow_control_in_flight_sessions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flow-control-limit"):
+                        self.flow_control_limit = value
+                        self.flow_control_limit.value_namespace = name_space
+                        self.flow_control_limit.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flow-control-successful-sessions"):
+                        self.flow_control_successful_sessions = value
+                        self.flow_control_successful_sessions.value_namespace = name_space
+                        self.flow_control_successful_sessions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "incomplete-sessions"):
+                        self.incomplete_sessions = value
+                        self.incomplete_sessions.value_namespace = name_space
+                        self.incomplete_sessions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "not-ready-access-interfaces"):
+                        self.not_ready_access_interfaces = value
+                        self.not_ready_access_interfaces.value_namespace = name_space
+                        self.not_ready_access_interfaces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pppoema-subscriber-infra-flow-control"):
+                        self.pppoema_subscriber_infra_flow_control = value
+                        self.pppoema_subscriber_infra_flow_control.value_namespace = name_space
+                        self.pppoema_subscriber_infra_flow_control.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ready-access-interfaces"):
+                        self.ready_access_interfaces = value
+                        self.ready_access_interfaces.value_namespace = name_space
+                        self.ready_access_interfaces.value_namespace_prefix = name_space_prefix
 
-                    if self.flow_control_disconnected_sessions is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.access_interface is not None and self.access_interface.has_data()) or
+                    (self.bba_groups is not None and self.bba_groups.has_data()) or
+                    (self.interfaces is not None and self.interfaces.has_data()) or
+                    (self.statistics is not None and self.statistics.has_data()) or
+                    (self.summary_total is not None and self.summary_total.has_data()))
 
-                    if self.flow_control_dropped_sessions is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.access_interface is not None and self.access_interface.has_operation()) or
+                    (self.bba_groups is not None and self.bba_groups.has_operation()) or
+                    (self.interfaces is not None and self.interfaces.has_operation()) or
+                    (self.statistics is not None and self.statistics.has_operation()) or
+                    (self.summary_total is not None and self.summary_total.has_operation()))
 
-                    if self.flow_control_in_flight_sessions is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
 
-                    if self.flow_control_limit is not None:
-                        return True
+                return path_buffer
 
-                    if self.flow_control_successful_sessions is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.incomplete_sessions is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
 
-                    if self.not_ready_access_interfaces is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.pppoema_subscriber_infra_flow_control is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.ready_access_interfaces is not None:
-                        return True
+                if (child_yang_name == "access-interface"):
+                    if (self.access_interface is None):
+                        self.access_interface = Pppoe.Nodes.Node.AccessInterface()
+                        self.access_interface.parent = self
+                        self._children_name_map["access_interface"] = "access-interface"
+                    return self.access_interface
 
-                    return False
+                if (child_yang_name == "bba-groups"):
+                    if (self.bba_groups is None):
+                        self.bba_groups = Pppoe.Nodes.Node.BbaGroups()
+                        self.bba_groups.parent = self
+                        self._children_name_map["bba_groups"] = "bba-groups"
+                    return self.bba_groups
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                    return meta._meta_table['Pppoe.Nodes.Node.SummaryTotal']['meta_info']
+                if (child_yang_name == "interfaces"):
+                    if (self.interfaces is None):
+                        self.interfaces = Pppoe.Nodes.Node.Interfaces()
+                        self.interfaces.parent = self
+                        self._children_name_map["interfaces"] = "interfaces"
+                    return self.interfaces
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                if (child_yang_name == "statistics"):
+                    if (self.statistics is None):
+                        self.statistics = Pppoe.Nodes.Node.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                    return self.statistics
 
-                return '/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/Cisco-IOS-XR-subscriber-pppoe-ma-oper:nodes/Cisco-IOS-XR-subscriber-pppoe-ma-oper:node[Cisco-IOS-XR-subscriber-pppoe-ma-oper:node-name = ' + str(self.node_name) + ']'
+                if (child_yang_name == "summary-total"):
+                    if (self.summary_total is None):
+                        self.summary_total = Pppoe.Nodes.Node.SummaryTotal()
+                        self.summary_total.parent = self
+                        self._children_name_map["summary_total"] = "summary-total"
+                    return self.summary_total
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "access-interface" or name == "bba-groups" or name == "interfaces" or name == "statistics" or name == "summary-total" or name == "node-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.node_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
                     return True
-
-                if self.access_interface is not None and self.access_interface._has_data():
-                    return True
-
-                if self.bba_groups is not None and self.bba_groups._has_data():
-                    return True
-
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                if self.statistics is not None and self.statistics._has_data():
-                    return True
-
-                if self.summary_total is not None and self.summary_total._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-                return meta._meta_table['Pppoe.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/Cisco-IOS-XR-subscriber-pppoe-ma-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Pppoe.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-            return meta._meta_table['Pppoe.Nodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.access_interface_statistics is not None and self.access_interface_statistics.has_data()) or
+            (self.nodes is not None and self.nodes.has_data()))
 
-        return '/Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.access_interface_statistics is not None and self.access_interface_statistics.has_operation()) or
+            (self.nodes is not None and self.nodes.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "access-interface-statistics"):
+            if (self.access_interface_statistics is None):
+                self.access_interface_statistics = Pppoe.AccessInterfaceStatistics()
+                self.access_interface_statistics.parent = self
+                self._children_name_map["access_interface_statistics"] = "access-interface-statistics"
+            return self.access_interface_statistics
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = Pppoe.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "access-interface-statistics" or name == "nodes"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.access_interface_statistics is not None and self.access_interface_statistics._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.nodes is not None and self.nodes._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_pppoe_ma_oper as meta
-        return meta._meta_table['Pppoe']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Pppoe()
+        return self._top_entity
 

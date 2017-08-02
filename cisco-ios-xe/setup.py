@@ -24,14 +24,11 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['enum34==1.1.3',
-                        'lxml>=3.4.4',
-                        'ncclient>=0.4.7',
-                        'ydk>=0.5.4']
+INSTALL_REQUIREMENTS = ['ydk>=0.6.0']
 
 NMSP_PKG_NAME = "ydk-models-cisco-ios-xe"
-NMSP_PKG_VERSION = "16.5.1"
-NMSP_PKG_DEPENDENCIES = ['ydk-models-ietf>=0.1.2']
+NMSP_PKG_VERSION = "16.6.1"
+NMSP_PKG_DEPENDENCIES = ['ydk-models-ietf>=0.1.3', 'ydk-models-openconfig>=0.1.3']
 
 
 if NMSP_PKG_DEPENDENCIES != "$DEPENDENCY$":
@@ -42,8 +39,8 @@ YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
                                       'ncclient', 'samples'])
 
 
-DESCRIPTION = "YDK bundle for Cisco IOS XR models"
-LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for Cisco IOS XE YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for Cisco IOS XE models uses the YDK core package and additional model bundles."
+DESCRIPTION = "YDK bundle for Cisco IOS XE models"
+LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for Cisco IOS XE YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for Cisco IOS XE models uses the YDK core package and additional model bundles.  You can find the SDK documentation at http://ydk.cisco.com/py/docs"
 
 setup(
     name=NMSP_PKG_NAME,
@@ -75,5 +72,6 @@ setup(
     keywords='yang, C++11, python bindings',
     packages=YDK_PACKAGES,
     namespace_packages=NMSP_PACKAGES,
-    install_requires=INSTALL_REQUIREMENTS
+    install_requires=INSTALL_REQUIREMENTS,
+    include_package_data=True
 )

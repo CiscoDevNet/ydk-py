@@ -2,22 +2,16 @@
 
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class RowstatusEnum(Enum):
+class Rowstatus(Enum):
     """
-    RowstatusEnum
+    Rowstatus
 
     The RowStatus textual convention is used to manage the
 
@@ -785,28 +779,22 @@ class RowstatusEnum(Enum):
 
     """
 
-    active = 1
+    active = Enum.YLeaf(1, "active")
 
-    notInService = 2
+    notInService = Enum.YLeaf(2, "notInService")
 
-    notReady = 3
+    notReady = Enum.YLeaf(3, "notReady")
 
-    createAndGo = 4
+    createAndGo = Enum.YLeaf(4, "createAndGo")
 
-    createAndWait = 5
+    createAndWait = Enum.YLeaf(5, "createAndWait")
 
-    destroy = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMPv2_TC as meta
-        return meta._meta_table['RowstatusEnum']
+    destroy = Enum.YLeaf(6, "destroy")
 
 
-class StoragetypeEnum(Enum):
+class Storagetype(Enum):
     """
-    StoragetypeEnum
+    Storagetype
 
     Describes the memory realization of a conceptual row.  A
 
@@ -848,26 +836,20 @@ class StoragetypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    volatile = 2
+    volatile = Enum.YLeaf(2, "volatile")
 
-    nonVolatile = 3
+    nonVolatile = Enum.YLeaf(3, "nonVolatile")
 
-    permanent = 4
+    permanent = Enum.YLeaf(4, "permanent")
 
-    readOnly = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMPv2_TC as meta
-        return meta._meta_table['StoragetypeEnum']
+    readOnly = Enum.YLeaf(5, "readOnly")
 
 
-class TruthvalueEnum(Enum):
+class Truthvalue(Enum):
     """
-    TruthvalueEnum
+    Truthvalue
 
     Represents a boolean value.
 
@@ -877,15 +859,9 @@ class TruthvalueEnum(Enum):
 
     """
 
-    true = 1
+    true = Enum.YLeaf(1, "true")
 
-    false = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMPv2_TC as meta
-        return meta._meta_table['TruthvalueEnum']
+    false = Enum.YLeaf(2, "false")
 
 
 

@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class MppAllowEnum(Enum):
+class MppAllow(Enum):
     """
-    MppAllowEnum
+    MppAllow
 
     MPP protocol types
 
@@ -65,31 +59,25 @@ class MppAllowEnum(Enum):
 
     """
 
-    ssh = 0
+    ssh = Enum.YLeaf(0, "ssh")
 
-    telnet = 1
+    telnet = Enum.YLeaf(1, "telnet")
 
-    snmp = 2
+    snmp = Enum.YLeaf(2, "snmp")
 
-    tftp = 3
+    tftp = Enum.YLeaf(3, "tftp")
 
-    http = 4
+    http = Enum.YLeaf(4, "http")
 
-    xr_xml = 5
+    xr_xml = Enum.YLeaf(5, "xr-xml")
 
-    netconf = 6
+    netconf = Enum.YLeaf(6, "netconf")
 
-    all = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-        return meta._meta_table['MppAllowEnum']
+    all = Enum.YLeaf(7, "all")
 
 
 
-class MppAfIdBaseIdentity(object):
+class MppAfIdBase(Identity):
     """
     Base identity for Mpp\-af\-id
     
@@ -101,15 +89,10 @@ class MppAfIdBaseIdentity(object):
     _revision = '2015-01-07'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-        return meta._meta_table['MppAfIdBaseIdentity']['meta_info']
+        super(MppAfIdBase, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper:Mpp-af-id-base")
 
 
-class ManagementPlaneProtection(object):
+class ManagementPlaneProtection(Entity):
     """
     Management Plane Protection (MPP) operational
     data
@@ -132,13 +115,24 @@ class ManagementPlaneProtection(object):
     _revision = '2015-01-07'
 
     def __init__(self):
+        super(ManagementPlaneProtection, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "management-plane-protection"
+        self.yang_parent_name = "Cisco-IOS-XR-lib-mpp-oper"
+
         self.inband = ManagementPlaneProtection.Inband()
         self.inband.parent = self
+        self._children_name_map["inband"] = "inband"
+        self._children_yang_names.add("inband")
+
         self.outband = ManagementPlaneProtection.Outband()
         self.outband.parent = self
+        self._children_name_map["outband"] = "outband"
+        self._children_yang_names.add("outband")
 
 
-    class Outband(object):
+    class Outband(Entity):
         """
         Management Plane Protection (MPP) outband
         interface data
@@ -161,14 +155,23 @@ class ManagementPlaneProtection(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
+            super(ManagementPlaneProtection.Outband, self).__init__()
+
+            self.yang_name = "outband"
+            self.yang_parent_name = "management-plane-protection"
+
             self.interfaces = ManagementPlaneProtection.Outband.Interfaces()
             self.interfaces.parent = self
+            self._children_name_map["interfaces"] = "interfaces"
+            self._children_yang_names.add("interfaces")
+
             self.vrf = ManagementPlaneProtection.Outband.Vrf()
             self.vrf.parent = self
+            self._children_name_map["vrf"] = "vrf"
+            self._children_yang_names.add("vrf")
 
 
-        class Vrf(object):
+        class Vrf(Entity):
             """
             Outband VRF information
             
@@ -185,31 +188,85 @@ class ManagementPlaneProtection(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.vrf_name = None
+                super(ManagementPlaneProtection.Outband.Vrf, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "vrf"
+                self.yang_parent_name = "outband"
 
-                return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/Cisco-IOS-XR-lib-mpp-oper:outband/Cisco-IOS-XR-lib-mpp-oper:vrf'
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ManagementPlaneProtection.Outband.Vrf, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ManagementPlaneProtection.Outband.Vrf, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.vrf_name is not None:
+            def has_data(self):
+                return self.vrf_name.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vrf" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "vrf-name"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                return meta._meta_table['ManagementPlaneProtection.Outband.Vrf']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-        class Interfaces(object):
+        class Interfaces(Entity):
             """
             List of inband/outband interfaces
             
@@ -226,13 +283,39 @@ class ManagementPlaneProtection(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
+                super(ManagementPlaneProtection.Outband.Interfaces, self).__init__()
+
+                self.yang_name = "interfaces"
+                self.yang_parent_name = "outband"
+
+                self.interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ManagementPlaneProtection.Outband.Interfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ManagementPlaneProtection.Outband.Interfaces, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 MPP interface information
                 
@@ -254,21 +337,48 @@ class ManagementPlaneProtection(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.protocol = YList()
-                    self.protocol.parent = self
-                    self.protocol.name = 'protocol'
+                    super(ManagementPlaneProtection.Outband.Interfaces.Interface, self).__init__()
+
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "interfaces"
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.protocol = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(ManagementPlaneProtection.Outband.Interfaces.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(ManagementPlaneProtection.Outband.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                class Protocol(object):
+                class Protocol(Entity):
                     """
                     MPP Interface protocols
                     
                     .. attribute:: allow
                     
                     	MPP allow
-                    	**type**\:   :py:class:`MppAllowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllowEnum>`
+                    	**type**\:   :py:class:`MppAllow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllow>`
                     
                     .. attribute:: is_all_peers_allowed
                     
@@ -288,22 +398,51 @@ class ManagementPlaneProtection(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.allow = None
-                        self.is_all_peers_allowed = None
-                        self.peer_address = YList()
-                        self.peer_address.parent = self
-                        self.peer_address.name = 'peer_address'
+                        super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, self).__init__()
+
+                        self.yang_name = "protocol"
+                        self.yang_parent_name = "interface"
+
+                        self.allow = YLeaf(YType.enumeration, "allow")
+
+                        self.is_all_peers_allowed = YLeaf(YType.boolean, "is-all-peers-allowed")
+
+                        self.peer_address = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("allow",
+                                        "is_all_peers_allowed") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, self).__setattr__(name, value)
 
 
-                    class PeerAddress(object):
+                    class PeerAddress(Entity):
                         """
                         List of peer addresses
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`MppAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBaseIdentity>`
+                        	**type**\:   :py:class:`MppAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBase>`
                         
                         .. attribute:: ipv4_address
                         
@@ -327,143 +466,360 @@ class ManagementPlaneProtection(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "peer-address"
+                            self.yang_parent_name = "protocol"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-lib-mpp-oper:peer-address'
+                            self.af_name = YLeaf(YType.identityref, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "peer-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.peer_address:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.allow.is_set or
+                            self.is_all_peers_allowed.is_set)
 
-                            if self.ipv4_address is not None:
+                    def has_operation(self):
+                        for c in self.peer_address:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.allow.yfilter != YFilter.not_set or
+                            self.is_all_peers_allowed.yfilter != YFilter.not_set)
 
-                            if self.ipv6_address is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "protocol" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                            return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
+                        if (self.allow.is_set or self.allow.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.allow.get_name_leafdata())
+                        if (self.is_all_peers_allowed.is_set or self.is_all_peers_allowed.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_all_peers_allowed.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-lib-mpp-oper:protocol'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "peer-address"):
+                            for c in self.peer_address:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.peer_address.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "peer-address" or name == "allow" or name == "is-all-peers-allowed"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.allow is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "allow"):
+                            self.allow = value
+                            self.allow.value_namespace = name_space
+                            self.allow.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-all-peers-allowed"):
+                            self.is_all_peers_allowed = value
+                            self.is_all_peers_allowed.value_namespace = name_space
+                            self.is_all_peers_allowed.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.protocol:
+                        if (c.has_data()):
                             return True
+                    return self.interface_name.is_set
 
-                        if self.is_all_peers_allowed is not None:
+                def has_operation(self):
+                    for c in self.protocol:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set)
 
-                        if self.peer_address is not None:
-                            for child_ref in self.peer_address:
-                                if child_ref._has_data():
-                                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                        return False
+                    return path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                        return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol']['meta_info']
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/interfaces/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
 
-                    return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/Cisco-IOS-XR-lib-mpp-oper:outband/Cisco-IOS-XR-lib-mpp-oper:interfaces/Cisco-IOS-XR-lib-mpp-oper:interface[Cisco-IOS-XR-lib-mpp-oper:interface-name = ' + str(self.interface_name) + ']'
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                    if (child_yang_name == "protocol"):
+                        for c in self.protocol:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.protocol.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "protocol" or name == "interface-name"):
                         return True
-
-                    if self.protocol is not None:
-                        for child_ref in self.protocol:
-                            if child_ref._has_data():
-                                return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                    return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces.Interface']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/Cisco-IOS-XR-lib-mpp-oper:outband/Cisco-IOS-XR-lib-mpp-oper:interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                for c in self.interface:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            def _has_data(self):
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = ManagementPlaneProtection.Outband.Interfaces.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                return meta._meta_table['ManagementPlaneProtection.Outband.Interfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.interfaces is not None and self.interfaces.has_data()) or
+                (self.vrf is not None and self.vrf.has_data()))
 
-            return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/Cisco-IOS-XR-lib-mpp-oper:outband'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.interfaces is not None and self.interfaces.has_operation()) or
+                (self.vrf is not None and self.vrf.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "outband" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interfaces"):
+                if (self.interfaces is None):
+                    self.interfaces = ManagementPlaneProtection.Outband.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                return self.interfaces
+
+            if (child_yang_name == "vrf"):
+                if (self.vrf is None):
+                    self.vrf = ManagementPlaneProtection.Outband.Vrf()
+                    self.vrf.parent = self
+                    self._children_name_map["vrf"] = "vrf"
+                return self.vrf
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interfaces" or name == "vrf"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.interfaces is not None and self.interfaces._has_data():
-                return True
-
-            if self.vrf is not None and self.vrf._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-            return meta._meta_table['ManagementPlaneProtection.Outband']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Inband(object):
+    class Inband(Entity):
         """
         Management Plane Protection (MPP) inband
         interface data
@@ -481,12 +837,18 @@ class ManagementPlaneProtection(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
+            super(ManagementPlaneProtection.Inband, self).__init__()
+
+            self.yang_name = "inband"
+            self.yang_parent_name = "management-plane-protection"
+
             self.interfaces = ManagementPlaneProtection.Inband.Interfaces()
             self.interfaces.parent = self
+            self._children_name_map["interfaces"] = "interfaces"
+            self._children_yang_names.add("interfaces")
 
 
-        class Interfaces(object):
+        class Interfaces(Entity):
             """
             List of inband/outband interfaces
             
@@ -503,13 +865,39 @@ class ManagementPlaneProtection(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
+                super(ManagementPlaneProtection.Inband.Interfaces, self).__init__()
+
+                self.yang_name = "interfaces"
+                self.yang_parent_name = "inband"
+
+                self.interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(ManagementPlaneProtection.Inband.Interfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(ManagementPlaneProtection.Inband.Interfaces, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 MPP interface information
                 
@@ -531,21 +919,48 @@ class ManagementPlaneProtection(object):
                 _revision = '2015-01-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.protocol = YList()
-                    self.protocol.parent = self
-                    self.protocol.name = 'protocol'
+                    super(ManagementPlaneProtection.Inband.Interfaces.Interface, self).__init__()
+
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "interfaces"
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.protocol = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(ManagementPlaneProtection.Inband.Interfaces.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(ManagementPlaneProtection.Inband.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                class Protocol(object):
+                class Protocol(Entity):
                     """
                     MPP Interface protocols
                     
                     .. attribute:: allow
                     
                     	MPP allow
-                    	**type**\:   :py:class:`MppAllowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllowEnum>`
+                    	**type**\:   :py:class:`MppAllow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllow>`
                     
                     .. attribute:: is_all_peers_allowed
                     
@@ -565,22 +980,51 @@ class ManagementPlaneProtection(object):
                     _revision = '2015-01-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.allow = None
-                        self.is_all_peers_allowed = None
-                        self.peer_address = YList()
-                        self.peer_address.parent = self
-                        self.peer_address.name = 'peer_address'
+                        super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, self).__init__()
+
+                        self.yang_name = "protocol"
+                        self.yang_parent_name = "interface"
+
+                        self.allow = YLeaf(YType.enumeration, "allow")
+
+                        self.is_all_peers_allowed = YLeaf(YType.boolean, "is-all-peers-allowed")
+
+                        self.peer_address = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("allow",
+                                        "is_all_peers_allowed") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, self).__setattr__(name, value)
 
 
-                    class PeerAddress(object):
+                    class PeerAddress(Entity):
                         """
                         List of peer addresses
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`MppAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBaseIdentity>`
+                        	**type**\:   :py:class:`MppAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBase>`
                         
                         .. attribute:: ipv4_address
                         
@@ -604,163 +1048,410 @@ class ManagementPlaneProtection(object):
                         _revision = '2015-01-07'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "peer-address"
+                            self.yang_parent_name = "protocol"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-lib-mpp-oper:peer-address'
+                            self.af_name = YLeaf(YType.identityref, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "peer-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.peer_address:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.allow.is_set or
+                            self.is_all_peers_allowed.is_set)
 
-                            if self.ipv4_address is not None:
+                    def has_operation(self):
+                        for c in self.peer_address:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.allow.yfilter != YFilter.not_set or
+                            self.is_all_peers_allowed.yfilter != YFilter.not_set)
 
-                            if self.ipv6_address is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "protocol" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                            return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
+                        if (self.allow.is_set or self.allow.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.allow.get_name_leafdata())
+                        if (self.is_all_peers_allowed.is_set or self.is_all_peers_allowed.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_all_peers_allowed.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-lib-mpp-oper:protocol'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "peer-address"):
+                            for c in self.peer_address:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.peer_address.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "peer-address" or name == "allow" or name == "is-all-peers-allowed"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.allow is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "allow"):
+                            self.allow = value
+                            self.allow.value_namespace = name_space
+                            self.allow.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-all-peers-allowed"):
+                            self.is_all_peers_allowed = value
+                            self.is_all_peers_allowed.value_namespace = name_space
+                            self.is_all_peers_allowed.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.protocol:
+                        if (c.has_data()):
                             return True
+                    return self.interface_name.is_set
 
-                        if self.is_all_peers_allowed is not None:
+                def has_operation(self):
+                    for c in self.protocol:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set)
 
-                        if self.peer_address is not None:
-                            for child_ref in self.peer_address:
-                                if child_ref._has_data():
-                                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                        return False
+                    return path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                        return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol']['meta_info']
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/interfaces/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
 
-                    return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/Cisco-IOS-XR-lib-mpp-oper:inband/Cisco-IOS-XR-lib-mpp-oper:interfaces/Cisco-IOS-XR-lib-mpp-oper:interface[Cisco-IOS-XR-lib-mpp-oper:interface-name = ' + str(self.interface_name) + ']'
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                    if (child_yang_name == "protocol"):
+                        for c in self.protocol:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.protocol.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "protocol" or name == "interface-name"):
                         return True
-
-                    if self.protocol is not None:
-                        for child_ref in self.protocol:
-                            if child_ref._has_data():
-                                return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                    return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces.Interface']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/Cisco-IOS-XR-lib-mpp-oper:inband/Cisco-IOS-XR-lib-mpp-oper:interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                for c in self.interface:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            def _has_data(self):
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = ManagementPlaneProtection.Inband.Interfaces.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-                return meta._meta_table['ManagementPlaneProtection.Inband.Interfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.interfaces is not None and self.interfaces.has_data())
 
-            return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/Cisco-IOS-XR-lib-mpp-oper:inband'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.interfaces is not None and self.interfaces.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "inband" + path_buffer
 
-        def _has_data(self):
-            if self.interfaces is not None and self.interfaces._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interfaces"):
+                if (self.interfaces is None):
+                    self.interfaces = ManagementPlaneProtection.Inband.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                return self.interfaces
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interfaces"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-            return meta._meta_table['ManagementPlaneProtection.Inband']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.inband is not None and self.inband.has_data()) or
+            (self.outband is not None and self.outband.has_data()))
 
-        return '/Cisco-IOS-XR-lib-mpp-oper:management-plane-protection'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.inband is not None and self.inband.has_operation()) or
+            (self.outband is not None and self.outband.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "inband"):
+            if (self.inband is None):
+                self.inband = ManagementPlaneProtection.Inband()
+                self.inband.parent = self
+                self._children_name_map["inband"] = "inband"
+            return self.inband
+
+        if (child_yang_name == "outband"):
+            if (self.outband is None):
+                self.outband = ManagementPlaneProtection.Outband()
+                self.outband.parent = self
+                self._children_name_map["outband"] = "outband"
+            return self.outband
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "inband" or name == "outband"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.inband is not None and self.inband._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.outband is not None and self.outband._has_data():
-            return True
+    def clone_ptr(self):
+        self._top_entity = ManagementPlaneProtection()
+        return self._top_entity
 
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-        return meta._meta_table['ManagementPlaneProtection']['meta_info']
-
-
-class Ipv4Identity(MppAfIdBaseIdentity):
+class Ipv4(Identity):
     """
     IPv4 address family
     
@@ -772,15 +1463,10 @@ class Ipv4Identity(MppAfIdBaseIdentity):
     _revision = '2015-01-07'
 
     def __init__(self):
-        MppAfIdBaseIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-        return meta._meta_table['Ipv4Identity']['meta_info']
+        super(Ipv4, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper:ipv4")
 
 
-class Ipv6Identity(MppAfIdBaseIdentity):
+class Ipv6(Identity):
     """
     IPv6 address family
     
@@ -792,11 +1478,6 @@ class Ipv6Identity(MppAfIdBaseIdentity):
     _revision = '2015-01-07'
 
     def __init__(self):
-        MppAfIdBaseIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_mpp_oper as meta
-        return meta._meta_table['Ipv6Identity']['meta_info']
+        super(Ipv6, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper:ipv6")
 
 

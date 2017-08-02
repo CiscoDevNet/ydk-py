@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SpanMirrorIntervalEnum(Enum):
+class SpanMirrorInterval(Enum):
     """
-    SpanMirrorIntervalEnum
+    SpanMirrorInterval
 
     Span mirror interval
 
@@ -56,28 +50,22 @@ class SpanMirrorIntervalEnum(Enum):
 
     """
 
-    Y_512 = 1
+    Y_512 = Enum.YLeaf(1, "512")
 
-    Y_1k = 2
+    Y_1k = Enum.YLeaf(2, "1k")
 
-    Y_2k = 3
+    Y_2k = Enum.YLeaf(3, "2k")
 
-    Y_4k = 4
+    Y_4k = Enum.YLeaf(4, "4k")
 
-    Y_8k = 5
+    Y_8k = Enum.YLeaf(5, "8k")
 
-    Y_16k = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg as meta
-        return meta._meta_table['SpanMirrorIntervalEnum']
+    Y_16k = Enum.YLeaf(6, "16k")
 
 
-class SpanTrafficDirectionEnum(Enum):
+class SpanTrafficDirection(Enum):
     """
-    SpanTrafficDirectionEnum
+    SpanTrafficDirection
 
     Span traffic direction
 
@@ -91,15 +79,9 @@ class SpanTrafficDirectionEnum(Enum):
 
     """
 
-    rx_only = 1
+    rx_only = Enum.YLeaf(1, "rx-only")
 
-    tx_only = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg as meta
-        return meta._meta_table['SpanTrafficDirectionEnum']
+    tx_only = Enum.YLeaf(2, "tx-only")
 
 
 

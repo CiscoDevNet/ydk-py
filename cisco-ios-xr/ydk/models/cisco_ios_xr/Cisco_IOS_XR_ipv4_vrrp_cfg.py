@@ -15,21 +15,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Vrrp(object):
+class Vrrp(Entity):
     """
     VRRP configuration
     
@@ -51,13 +45,24 @@ class Vrrp(object):
     _revision = '2016-12-16'
 
     def __init__(self):
+        super(Vrrp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "vrrp"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv4-vrrp-cfg"
+
         self.interfaces = Vrrp.Interfaces()
         self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
+
         self.logging = Vrrp.Logging()
         self.logging.parent = self
+        self._children_name_map["logging"] = "logging"
+        self._children_yang_names.add("logging")
 
 
-    class Logging(object):
+    class Logging(Entity):
         """
         VRRP logging options
         
@@ -74,31 +79,85 @@ class Vrrp(object):
         _revision = '2016-12-16'
 
         def __init__(self):
-            self.parent = None
-            self.state_change_disable = None
+            super(Vrrp.Logging, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "logging"
+            self.yang_parent_name = "vrrp"
 
-            return '/Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/Cisco-IOS-XR-ipv4-vrrp-cfg:logging'
+            self.state_change_disable = YLeaf(YType.empty, "state-change-disable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("state_change_disable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Vrrp.Logging, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Vrrp.Logging, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.state_change_disable is not None:
+        def has_data(self):
+            return self.state_change_disable.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.state_change_disable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "logging" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.state_change_disable.is_set or self.state_change_disable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.state_change_disable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "state-change-disable"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-            return meta._meta_table['Vrrp.Logging']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "state-change-disable"):
+                self.state_change_disable = value
+                self.state_change_disable.value_namespace = name_space
+                self.state_change_disable.value_namespace_prefix = name_space_prefix
 
 
-    class Interfaces(object):
+    class Interfaces(Entity):
         """
         Interface configuration table
         
@@ -115,13 +174,39 @@ class Vrrp(object):
         _revision = '2016-12-16'
 
         def __init__(self):
-            self.parent = None
-            self.interface = YList()
-            self.interface.parent = self
-            self.interface.name = 'interface'
+            super(Vrrp.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "vrrp"
+
+            self.interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Vrrp.Interfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Vrrp.Interfaces, self).__setattr__(name, value)
 
 
-        class Interface(object):
+        class Interface(Entity):
             """
             The interface being configured
             
@@ -171,20 +256,62 @@ class Vrrp(object):
             _revision = '2016-12-16'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
+                super(Vrrp.Interfaces.Interface, self).__init__()
+
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.mac_refresh = YLeaf(YType.uint32, "mac-refresh")
+
                 self.bfd = Vrrp.Interfaces.Interface.Bfd()
                 self.bfd.parent = self
+                self._children_name_map["bfd"] = "bfd"
+                self._children_yang_names.add("bfd")
+
                 self.delay = Vrrp.Interfaces.Interface.Delay()
                 self.delay.parent = self
+                self._children_name_map["delay"] = "delay"
+                self._children_yang_names.add("delay")
+
                 self.ipv4 = Vrrp.Interfaces.Interface.Ipv4()
                 self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+                self._children_yang_names.add("ipv4")
+
                 self.ipv6 = Vrrp.Interfaces.Interface.Ipv6()
                 self.ipv6.parent = self
-                self.mac_refresh = None
+                self._children_name_map["ipv6"] = "ipv6"
+                self._children_yang_names.add("ipv6")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name",
+                                "mac_refresh") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Vrrp.Interfaces.Interface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Vrrp.Interfaces.Interface, self).__setattr__(name, value)
 
 
-            class Ipv6(object):
+            class Ipv6(Entity):
                 """
                 IPv6 VRRP configuration
                 
@@ -206,14 +333,23 @@ class Vrrp(object):
                 _revision = '2016-12-16'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Vrrp.Interfaces.Interface.Ipv6, self).__init__()
+
+                    self.yang_name = "ipv6"
+                    self.yang_parent_name = "interface"
+
                     self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters()
                     self.slave_virtual_routers.parent = self
+                    self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
+                    self._children_yang_names.add("slave-virtual-routers")
+
                     self.version3 = Vrrp.Interfaces.Interface.Ipv6.Version3()
                     self.version3.parent = self
+                    self._children_name_map["version3"] = "version3"
+                    self._children_yang_names.add("version3")
 
 
-                class Version3(object):
+                class Version3(Entity):
                     """
                     Version 3 VRRP configuration
                     
@@ -230,12 +366,18 @@ class Vrrp(object):
                     _revision = '2016-12-16'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Vrrp.Interfaces.Interface.Ipv6.Version3, self).__init__()
+
+                        self.yang_name = "version3"
+                        self.yang_parent_name = "ipv6"
+
                         self.virtual_routers = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters()
                         self.virtual_routers.parent = self
+                        self._children_name_map["virtual_routers"] = "virtual-routers"
+                        self._children_yang_names.add("virtual-routers")
 
 
-                    class VirtualRouters(object):
+                    class VirtualRouters(Entity):
                         """
                         The VRRP virtual router configuration table
                         
@@ -252,13 +394,39 @@ class Vrrp(object):
                         _revision = '2016-12-16'
 
                         def __init__(self):
-                            self.parent = None
-                            self.virtual_router = YList()
-                            self.virtual_router.parent = self
-                            self.virtual_router.name = 'virtual_router'
+                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, self).__init__()
+
+                            self.yang_name = "virtual-routers"
+                            self.yang_parent_name = "version3"
+
+                            self.virtual_router = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, self).__setattr__(name, value)
 
 
-                        class VirtualRouter(object):
+                        class VirtualRouter(Entity):
                             """
                             The VRRP virtual router being configured
                             
@@ -349,26 +517,79 @@ class Vrrp(object):
                             _revision = '2016-12-16'
 
                             def __init__(self):
-                                self.parent = None
-                                self.vr_id = None
-                                self.accept_mode_disable = None
-                                self.bfd = None
+                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, self).__init__()
+
+                                self.yang_name = "virtual-router"
+                                self.yang_parent_name = "virtual-routers"
+
+                                self.vr_id = YLeaf(YType.uint32, "vr-id")
+
+                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                                self.bfd = YLeaf(YType.str, "bfd")
+
+                                self.preempt = YLeaf(YType.uint32, "preempt")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
                                 self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses()
                                 self.global_ipv6_addresses.parent = self
+                                self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                                self._children_yang_names.add("global-ipv6-addresses")
+
                                 self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address()
                                 self.link_local_ipv6_address.parent = self
-                                self.preempt = None
-                                self.priority = None
-                                self.session_name = None
+                                self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                                self._children_yang_names.add("link-local-ipv6-address")
+
                                 self.timer = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer()
                                 self.timer.parent = self
+                                self._children_name_map["timer"] = "timer"
+                                self._children_yang_names.add("timer")
+
                                 self.tracked_objects = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
                                 self.tracked_objects.parent = self
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
                                 self.tracks = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks()
                                 self.tracks.parent = self
+                                self._children_name_map["tracks"] = "tracks"
+                                self._children_yang_names.add("tracks")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("vr_id",
+                                                "accept_mode_disable",
+                                                "bfd",
+                                                "preempt",
+                                                "priority",
+                                                "session_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, self).__setattr__(name, value)
 
 
-                            class GlobalIpv6Addresses(object):
+                            class GlobalIpv6Addresses(Entity):
                                 """
                                 The table of VRRP virtual global IPv6
                                 addresses
@@ -386,13 +607,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.global_ipv6_address = YList()
-                                    self.global_ipv6_address.parent = self
-                                    self.global_ipv6_address.name = 'global_ipv6_address'
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, self).__init__()
+
+                                    self.yang_name = "global-ipv6-addresses"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.global_ipv6_address = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, self).__setattr__(name, value)
 
 
-                                class GlobalIpv6Address(object):
+                                class GlobalIpv6Address(Entity):
                                     """
                                     A VRRP virtual global IPv6 IP address
                                     
@@ -421,59 +668,142 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.ip_address = None
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.ip_address is None:
-                                            raise YPYModelError('Key property ip_address is None')
+                                        self.yang_name = "global-ipv6-address"
+                                        self.yang_parent_name = "global-ipv6-addresses"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:global-ipv6-address[Cisco-IOS-XR-ipv4-vrrp-cfg:ip-address = ' + str(self.ip_address) + ']'
+                                        self.ip_address = YLeaf(YType.str, "ip-address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("ip_address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
 
-                                    def _has_data(self):
-                                        if self.ip_address is not None:
+                                    def has_data(self):
+                                        return self.ip_address.is_set
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.ip_address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "global-ipv6-address" + "[ip-address='" + self.ip_address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ip_address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "ip-address"):
                                             return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "ip-address"):
+                                            self.ip_address = value
+                                            self.ip_address.value_namespace = name_space
+                                            self.ip_address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:global-ipv6-addresses'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.global_ipv6_address is not None:
-                                        for child_ref in self.global_ipv6_address:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.global_ipv6_address:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses']['meta_info']
+                                def has_operation(self):
+                                    for c in self.global_ipv6_address:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "global-ipv6-addresses" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "global-ipv6-address"):
+                                        for c in self.global_ipv6_address:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.global_ipv6_address.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "global-ipv6-address"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Tracks(object):
+                            class Tracks(Entity):
                                 """
                                 Track an item, reducing priority if it
                                 goes down
@@ -491,13 +821,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.track = YList()
-                                    self.track.parent = self
-                                    self.track.name = 'track'
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
+
+                                    self.yang_name = "tracks"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.track = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, self).__setattr__(name, value)
 
 
-                                class Track(object):
+                                class Track(Entity):
                                     """
                                     Object to be tracked
                                     
@@ -525,63 +881,154 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-                                        self.priority = None
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
+                                        self.yang_name = "track"
+                                        self.yang_parent_name = "tracks"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:track[Cisco-IOS-XR-ipv4-vrrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority = YLeaf(YType.uint32, "priority")
 
-                                    def _has_data(self):
-                                        if self.interface_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("interface_name",
+                                                        "priority") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.interface_name.is_set or
+                                            self.priority.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.interface_name.yfilter != YFilter.not_set or
+                                            self.priority.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "track" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                        if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "interface-name" or name == "priority"):
                                             return True
-
-                                        if self.priority is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "interface-name"):
+                                            self.interface_name = value
+                                            self.interface_name.value_namespace = name_space
+                                            self.interface_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority"):
+                                            self.priority = value
+                                            self.priority.value_namespace = name_space
+                                            self.priority.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracks'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.track is not None:
-                                        for child_ref in self.track:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.track:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks']['meta_info']
+                                def has_operation(self):
+                                    for c in self.track:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracks" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "track"):
+                                        for c in self.track:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.track.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "track"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Timer(object):
+                            class Timer(Entity):
                                 """
                                 Set advertisement timer
                                 
@@ -625,45 +1072,119 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.advertisement_time_in_msec = None
-                                    self.advertisement_time_in_sec = None
-                                    self.forced = None
-                                    self.in_msec = None
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "timer"
+                                    self.yang_parent_name = "virtual-router"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:timer'
+                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
 
-                                def _has_data(self):
-                                    if self.advertisement_time_in_msec is not None:
+                                    self.forced = YLeaf(YType.boolean, "forced")
+
+                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("advertisement_time_in_msec",
+                                                    "advertisement_time_in_sec",
+                                                    "forced",
+                                                    "in_msec") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.advertisement_time_in_msec.is_set or
+                                        self.advertisement_time_in_sec.is_set or
+                                        self.forced.is_set or
+                                        self.in_msec.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.advertisement_time_in_msec.yfilter != YFilter.not_set or
+                                        self.advertisement_time_in_sec.yfilter != YFilter.not_set or
+                                        self.forced.yfilter != YFilter.not_set or
+                                        self.in_msec.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "timer" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.advertisement_time_in_msec.is_set or self.advertisement_time_in_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.advertisement_time_in_msec.get_name_leafdata())
+                                    if (self.advertisement_time_in_sec.is_set or self.advertisement_time_in_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.advertisement_time_in_sec.get_name_leafdata())
+                                    if (self.forced.is_set or self.forced.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.forced.get_name_leafdata())
+                                    if (self.in_msec.is_set or self.in_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.in_msec.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "advertisement-time-in-msec" or name == "advertisement-time-in-sec" or name == "forced" or name == "in-msec"):
                                         return True
-
-                                    if self.advertisement_time_in_sec is not None:
-                                        return True
-
-                                    if self.forced is not None:
-                                        return True
-
-                                    if self.in_msec is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "advertisement-time-in-msec"):
+                                        self.advertisement_time_in_msec = value
+                                        self.advertisement_time_in_msec.value_namespace = name_space
+                                        self.advertisement_time_in_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "advertisement-time-in-sec"):
+                                        self.advertisement_time_in_sec = value
+                                        self.advertisement_time_in_sec.value_namespace = name_space
+                                        self.advertisement_time_in_sec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "forced"):
+                                        self.forced = value
+                                        self.forced.value_namespace = name_space
+                                        self.forced.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "in-msec"):
+                                        self.in_msec = value
+                                        self.in_msec.value_namespace = name_space
+                                        self.in_msec.value_namespace_prefix = name_space_prefix
 
 
-                            class TrackedObjects(object):
+                            class TrackedObjects(Entity):
                                 """
                                 Track an object, reducing priority if it
                                 goes down
@@ -681,13 +1202,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_object = YList()
-                                    self.tracked_object.parent = self
-                                    self.tracked_object.name = 'tracked_object'
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.tracked_object = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__setattr__(name, value)
 
 
-                                class TrackedObject(object):
+                                class TrackedObject(Entity):
                                     """
                                     Object to be tracked
                                     
@@ -715,63 +1262,154 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.object_name = None
-                                        self.priority_decrement = None
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.object_name is None:
-                                            raise YPYModelError('Key property object_name is None')
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracked-object[Cisco-IOS-XR-ipv4-vrrp-cfg:object-name = ' + str(self.object_name) + ']'
+                                        self.object_name = YLeaf(YType.str, "object-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.object_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("object_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.object_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.object_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-object" + "[object-name='" + self.object_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.object_name.is_set or self.object_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.object_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "object-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "object-name"):
+                                            self.object_name = value
+                                            self.object_name.value_namespace = name_space
+                                            self.object_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracked-objects'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_object is not None:
-                                        for child_ref in self.tracked_object:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-objects" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-object"):
+                                        for c in self.tracked_object:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_object.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-object"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class LinkLocalIpv6Address(object):
+                            class LinkLocalIpv6Address(Entity):
                                 """
                                 The VRRP IPv6 virtual linklocal address
                                 
@@ -807,137 +1445,334 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.auto_configure = None
-                                    self.ip_address = None
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "link-local-ipv6-address"
+                                    self.yang_parent_name = "virtual-router"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:link-local-ipv6-address'
+                                    self.auto_configure = YLeaf(YType.boolean, "auto-configure")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.ip_address = YLeaf(YType.str, "ip-address")
 
-                                def _has_data(self):
-                                    if self.auto_configure is not None:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("auto_configure",
+                                                    "ip_address") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.auto_configure.is_set or
+                                        self.ip_address.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.auto_configure.yfilter != YFilter.not_set or
+                                        self.ip_address.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "link-local-ipv6-address" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.auto_configure.is_set or self.auto_configure.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.auto_configure.get_name_leafdata())
+                                    if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.ip_address.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "auto-configure" or name == "ip-address"):
                                         return True
-
-                                    if self.ip_address is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "auto-configure"):
+                                        self.auto_configure = value
+                                        self.auto_configure.value_namespace = name_space
+                                        self.auto_configure.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "ip-address"):
+                                        self.ip_address = value
+                                        self.ip_address.value_namespace = name_space
+                                        self.ip_address.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.vr_id is None:
-                                    raise YPYModelError('Key property vr_id is None')
+                            def has_data(self):
+                                return (
+                                    self.vr_id.is_set or
+                                    self.accept_mode_disable.is_set or
+                                    self.bfd.is_set or
+                                    self.preempt.is_set or
+                                    self.priority.is_set or
+                                    self.session_name.is_set or
+                                    (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_data()) or
+                                    (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_data()) or
+                                    (self.timer is not None and self.timer.has_data()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_data()) or
+                                    (self.tracks is not None and self.tracks.has_data()))
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:virtual-router[Cisco-IOS-XR-ipv4-vrrp-cfg:vr-id = ' + str(self.vr_id) + ']'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.vr_id.yfilter != YFilter.not_set or
+                                    self.accept_mode_disable.yfilter != YFilter.not_set or
+                                    self.bfd.yfilter != YFilter.not_set or
+                                    self.preempt.yfilter != YFilter.not_set or
+                                    self.priority.yfilter != YFilter.not_set or
+                                    self.session_name.yfilter != YFilter.not_set or
+                                    (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_operation()) or
+                                    (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_operation()) or
+                                    (self.timer is not None and self.timer.has_operation()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_operation()) or
+                                    (self.tracks is not None and self.tracks.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "virtual-router" + "[vr-id='" + self.vr_id.get() + "']" + path_buffer
 
-                            def _has_data(self):
-                                if self.vr_id is not None:
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.vr_id.is_set or self.vr_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vr_id.get_name_leafdata())
+                                if (self.accept_mode_disable.is_set or self.accept_mode_disable.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.accept_mode_disable.get_name_leafdata())
+                                if (self.bfd.is_set or self.bfd.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.bfd.get_name_leafdata())
+                                if (self.preempt.is_set or self.preempt.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.preempt.get_name_leafdata())
+                                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.priority.get_name_leafdata())
+                                if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.session_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "global-ipv6-addresses"):
+                                    if (self.global_ipv6_addresses is None):
+                                        self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses()
+                                        self.global_ipv6_addresses.parent = self
+                                        self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                                    return self.global_ipv6_addresses
+
+                                if (child_yang_name == "link-local-ipv6-address"):
+                                    if (self.link_local_ipv6_address is None):
+                                        self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address()
+                                        self.link_local_ipv6_address.parent = self
+                                        self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                                    return self.link_local_ipv6_address
+
+                                if (child_yang_name == "timer"):
+                                    if (self.timer is None):
+                                        self.timer = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer()
+                                        self.timer.parent = self
+                                        self._children_name_map["timer"] = "timer"
+                                    return self.timer
+
+                                if (child_yang_name == "tracked-objects"):
+                                    if (self.tracked_objects is None):
+                                        self.tracked_objects = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
+                                        self.tracked_objects.parent = self
+                                        self._children_name_map["tracked_objects"] = "tracked-objects"
+                                    return self.tracked_objects
+
+                                if (child_yang_name == "tracks"):
+                                    if (self.tracks is None):
+                                        self.tracks = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks()
+                                        self.tracks.parent = self
+                                        self._children_name_map["tracks"] = "tracks"
+                                    return self.tracks
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "global-ipv6-addresses" or name == "link-local-ipv6-address" or name == "timer" or name == "tracked-objects" or name == "tracks" or name == "vr-id" or name == "accept-mode-disable" or name == "bfd" or name == "preempt" or name == "priority" or name == "session-name"):
                                     return True
-
-                                if self.accept_mode_disable is not None:
-                                    return True
-
-                                if self.bfd is not None:
-                                    return True
-
-                                if self.global_ipv6_addresses is not None and self.global_ipv6_addresses._has_data():
-                                    return True
-
-                                if self.link_local_ipv6_address is not None and self.link_local_ipv6_address._has_data():
-                                    return True
-
-                                if self.preempt is not None:
-                                    return True
-
-                                if self.priority is not None:
-                                    return True
-
-                                if self.session_name is not None:
-                                    return True
-
-                                if self.timer is not None and self.timer._has_data():
-                                    return True
-
-                                if self.tracked_objects is not None and self.tracked_objects._has_data():
-                                    return True
-
-                                if self.tracks is not None and self.tracks._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "vr-id"):
+                                    self.vr_id = value
+                                    self.vr_id.value_namespace = name_space
+                                    self.vr_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "accept-mode-disable"):
+                                    self.accept_mode_disable = value
+                                    self.accept_mode_disable.value_namespace = name_space
+                                    self.accept_mode_disable.value_namespace_prefix = name_space_prefix
+                                if(value_path == "bfd"):
+                                    self.bfd = value
+                                    self.bfd.value_namespace = name_space
+                                    self.bfd.value_namespace_prefix = name_space_prefix
+                                if(value_path == "preempt"):
+                                    self.preempt = value
+                                    self.preempt.value_namespace = name_space
+                                    self.preempt.value_namespace_prefix = name_space_prefix
+                                if(value_path == "priority"):
+                                    self.priority = value
+                                    self.priority.value_namespace = name_space
+                                    self.priority.value_namespace_prefix = name_space_prefix
+                                if(value_path == "session-name"):
+                                    self.session_name = value
+                                    self.session_name.value_namespace = name_space
+                                    self.session_name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:virtual-routers'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.virtual_router is not None:
-                                for child_ref in self.virtual_router:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.virtual_router:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters']['meta_info']
+                        def has_operation(self):
+                            for c in self.virtual_router:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "virtual-routers" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:version3'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.virtual_routers is not None and self.virtual_routers._has_data():
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "virtual-router"):
+                                for c in self.virtual_router:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.virtual_router.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "virtual-router"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (self.virtual_routers is not None and self.virtual_routers.has_data())
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.virtual_routers is not None and self.virtual_routers.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "version3" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "virtual-routers"):
+                            if (self.virtual_routers is None):
+                                self.virtual_routers = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters()
+                                self.virtual_routers.parent = self
+                                self._children_name_map["virtual_routers"] = "virtual-routers"
+                            return self.virtual_routers
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "virtual-routers"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class SlaveVirtualRouters(object):
+                class SlaveVirtualRouters(Entity):
                     """
                     The VRRP slave group configuration table
                     
@@ -954,13 +1789,39 @@ class Vrrp(object):
                     _revision = '2016-12-16'
 
                     def __init__(self):
-                        self.parent = None
-                        self.slave_virtual_router = YList()
-                        self.slave_virtual_router.parent = self
-                        self.slave_virtual_router.name = 'slave_virtual_router'
+                        super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, self).__init__()
+
+                        self.yang_name = "slave-virtual-routers"
+                        self.yang_parent_name = "ipv6"
+
+                        self.slave_virtual_router = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, self).__setattr__(name, value)
 
 
-                    class SlaveVirtualRouter(object):
+                    class SlaveVirtualRouter(Entity):
                         """
                         The VRRP slave being configured
                         
@@ -999,17 +1860,55 @@ class Vrrp(object):
                         _revision = '2016-12-16'
 
                         def __init__(self):
-                            self.parent = None
-                            self.slave_virtual_router_id = None
-                            self.accept_mode_disable = None
-                            self.follow = None
+                            super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
+
+                            self.yang_name = "slave-virtual-router"
+                            self.yang_parent_name = "slave-virtual-routers"
+
+                            self.slave_virtual_router_id = YLeaf(YType.uint32, "slave-virtual-router-id")
+
+                            self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                            self.follow = YLeaf(YType.str, "follow")
+
                             self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses()
                             self.global_ipv6_addresses.parent = self
+                            self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                            self._children_yang_names.add("global-ipv6-addresses")
+
                             self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address()
                             self.link_local_ipv6_address.parent = self
+                            self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                            self._children_yang_names.add("link-local-ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("slave_virtual_router_id",
+                                            "accept_mode_disable",
+                                            "follow") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, self).__setattr__(name, value)
 
 
-                        class LinkLocalIpv6Address(object):
+                        class LinkLocalIpv6Address(Entity):
                             """
                             The VRRP IPv6 virtual linklocal address
                             
@@ -1045,37 +1944,97 @@ class Vrrp(object):
                             _revision = '2016-12-16'
 
                             def __init__(self):
-                                self.parent = None
-                                self.auto_configure = None
-                                self.ip_address = None
+                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "link-local-ipv6-address"
+                                self.yang_parent_name = "slave-virtual-router"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:link-local-ipv6-address'
+                                self.auto_configure = YLeaf(YType.boolean, "auto-configure")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.ip_address = YLeaf(YType.str, "ip-address")
 
-                            def _has_data(self):
-                                if self.auto_configure is not None:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("auto_configure",
+                                                "ip_address") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.auto_configure.is_set or
+                                    self.ip_address.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.auto_configure.yfilter != YFilter.not_set or
+                                    self.ip_address.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "link-local-ipv6-address" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.auto_configure.is_set or self.auto_configure.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.auto_configure.get_name_leafdata())
+                                if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ip_address.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "auto-configure" or name == "ip-address"):
                                     return True
-
-                                if self.ip_address is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "auto-configure"):
+                                    self.auto_configure = value
+                                    self.auto_configure.value_namespace = name_space
+                                    self.auto_configure.value_namespace_prefix = name_space_prefix
+                                if(value_path == "ip-address"):
+                                    self.ip_address = value
+                                    self.ip_address.value_namespace = name_space
+                                    self.ip_address.value_namespace_prefix = name_space_prefix
 
 
-                        class GlobalIpv6Addresses(object):
+                        class GlobalIpv6Addresses(Entity):
                             """
                             The table of VRRP virtual global IPv6
                             addresses
@@ -1093,13 +2052,39 @@ class Vrrp(object):
                             _revision = '2016-12-16'
 
                             def __init__(self):
-                                self.parent = None
-                                self.global_ipv6_address = YList()
-                                self.global_ipv6_address.parent = self
-                                self.global_ipv6_address.name = 'global_ipv6_address'
+                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, self).__init__()
+
+                                self.yang_name = "global-ipv6-addresses"
+                                self.yang_parent_name = "slave-virtual-router"
+
+                                self.global_ipv6_address = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, self).__setattr__(name, value)
 
 
-                            class GlobalIpv6Address(object):
+                            class GlobalIpv6Address(Entity):
                                 """
                                 A VRRP virtual global IPv6 IP address
                                 
@@ -1128,144 +2113,338 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.ip_address = None
+                                    super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.ip_address is None:
-                                        raise YPYModelError('Key property ip_address is None')
+                                    self.yang_name = "global-ipv6-address"
+                                    self.yang_parent_name = "global-ipv6-addresses"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:global-ipv6-address[Cisco-IOS-XR-ipv4-vrrp-cfg:ip-address = ' + str(self.ip_address) + ']'
+                                    self.ip_address = YLeaf(YType.str, "ip-address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("ip_address") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__setattr__(name, value)
 
-                                def _has_data(self):
-                                    if self.ip_address is not None:
+                                def has_data(self):
+                                    return self.ip_address.is_set
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.ip_address.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "global-ipv6-address" + "[ip-address='" + self.ip_address.get() + "']" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.ip_address.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "ip-address"):
                                         return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "ip-address"):
+                                        self.ip_address = value
+                                        self.ip_address.value_namespace = name_space
+                                        self.ip_address.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:global-ipv6-addresses'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if self.global_ipv6_address is not None:
-                                    for child_ref in self.global_ipv6_address:
-                                        if child_ref._has_data():
-                                            return True
-
+                            def has_data(self):
+                                for c in self.global_ipv6_address:
+                                    if (c.has_data()):
+                                        return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses']['meta_info']
+                            def has_operation(self):
+                                for c in self.global_ipv6_address:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.slave_virtual_router_id is None:
-                                raise YPYModelError('Key property slave_virtual_router_id is None')
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "global-ipv6-addresses" + path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:slave-virtual-router[Cisco-IOS-XR-ipv4-vrrp-cfg:slave-virtual-router-id = ' + str(self.slave_virtual_router_id) + ']'
+                                return path_buffer
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def _has_data(self):
-                            if self.slave_virtual_router_id is not None:
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "global-ipv6-address"):
+                                    for c in self.global_ipv6_address:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.global_ipv6_address.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "global-ipv6-address"):
+                                    return True
+                                return False
+
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
+
+                        def has_data(self):
+                            return (
+                                self.slave_virtual_router_id.is_set or
+                                self.accept_mode_disable.is_set or
+                                self.follow.is_set or
+                                (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_data()) or
+                                (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_data()))
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.slave_virtual_router_id.yfilter != YFilter.not_set or
+                                self.accept_mode_disable.yfilter != YFilter.not_set or
+                                self.follow.yfilter != YFilter.not_set or
+                                (self.global_ipv6_addresses is not None and self.global_ipv6_addresses.has_operation()) or
+                                (self.link_local_ipv6_address is not None and self.link_local_ipv6_address.has_operation()))
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "slave-virtual-router" + "[slave-virtual-router-id='" + self.slave_virtual_router_id.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.slave_virtual_router_id.is_set or self.slave_virtual_router_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.slave_virtual_router_id.get_name_leafdata())
+                            if (self.accept_mode_disable.is_set or self.accept_mode_disable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.accept_mode_disable.get_name_leafdata())
+                            if (self.follow.is_set or self.follow.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.follow.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "global-ipv6-addresses"):
+                                if (self.global_ipv6_addresses is None):
+                                    self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses()
+                                    self.global_ipv6_addresses.parent = self
+                                    self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                                return self.global_ipv6_addresses
+
+                            if (child_yang_name == "link-local-ipv6-address"):
+                                if (self.link_local_ipv6_address is None):
+                                    self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address()
+                                    self.link_local_ipv6_address.parent = self
+                                    self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                                return self.link_local_ipv6_address
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "global-ipv6-addresses" or name == "link-local-ipv6-address" or name == "slave-virtual-router-id" or name == "accept-mode-disable" or name == "follow"):
                                 return True
-
-                            if self.accept_mode_disable is not None:
-                                return True
-
-                            if self.follow is not None:
-                                return True
-
-                            if self.global_ipv6_addresses is not None and self.global_ipv6_addresses._has_data():
-                                return True
-
-                            if self.link_local_ipv6_address is not None and self.link_local_ipv6_address._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "slave-virtual-router-id"):
+                                self.slave_virtual_router_id = value
+                                self.slave_virtual_router_id.value_namespace = name_space
+                                self.slave_virtual_router_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "accept-mode-disable"):
+                                self.accept_mode_disable = value
+                                self.accept_mode_disable.value_namespace = name_space
+                                self.accept_mode_disable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "follow"):
+                                self.follow = value
+                                self.follow.value_namespace = name_space
+                                self.follow.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:slave-virtual-routers'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.slave_virtual_router is not None:
-                            for child_ref in self.slave_virtual_router:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.slave_virtual_router:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters']['meta_info']
+                    def has_operation(self):
+                        for c in self.slave_virtual_router:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "slave-virtual-routers" + path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:ipv6'
+                        return path_buffer
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def _has_data(self):
-                    if self.slave_virtual_routers is not None and self.slave_virtual_routers._has_data():
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "slave-virtual-router"):
+                            for c in self.slave_virtual_router:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.slave_virtual_router.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "slave-virtual-router"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        (self.slave_virtual_routers is not None and self.slave_virtual_routers.has_data()) or
+                        (self.version3 is not None and self.version3.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.slave_virtual_routers is not None and self.slave_virtual_routers.has_operation()) or
+                        (self.version3 is not None and self.version3.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv6" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "slave-virtual-routers"):
+                        if (self.slave_virtual_routers is None):
+                            self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters()
+                            self.slave_virtual_routers.parent = self
+                            self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
+                        return self.slave_virtual_routers
+
+                    if (child_yang_name == "version3"):
+                        if (self.version3 is None):
+                            self.version3 = Vrrp.Interfaces.Interface.Ipv6.Version3()
+                            self.version3.parent = self
+                            self._children_name_map["version3"] = "version3"
+                        return self.version3
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "slave-virtual-routers" or name == "version3"):
                         return True
-
-                    if self.version3 is not None and self.version3._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Delay(object):
+            class Delay(Entity):
                 """
                 Minimum and Reload Delay
                 
@@ -1295,37 +2474,97 @@ class Vrrp(object):
                 _revision = '2016-12-16'
 
                 def __init__(self):
-                    self.parent = None
-                    self.min_delay = None
-                    self.reload_delay = None
+                    super(Vrrp.Interfaces.Interface.Delay, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "delay"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:delay'
+                    self.min_delay = YLeaf(YType.uint32, "min-delay")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.reload_delay = YLeaf(YType.uint32, "reload-delay")
 
-                def _has_data(self):
-                    if self.min_delay is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("min_delay",
+                                    "reload_delay") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Vrrp.Interfaces.Interface.Delay, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Vrrp.Interfaces.Interface.Delay, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.min_delay.is_set or
+                        self.reload_delay.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.min_delay.yfilter != YFilter.not_set or
+                        self.reload_delay.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "delay" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.min_delay.is_set or self.min_delay.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.min_delay.get_name_leafdata())
+                    if (self.reload_delay.is_set or self.reload_delay.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reload_delay.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "min-delay" or name == "reload-delay"):
                         return True
-
-                    if self.reload_delay is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                    return meta._meta_table['Vrrp.Interfaces.Interface.Delay']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "min-delay"):
+                        self.min_delay = value
+                        self.min_delay.value_namespace = name_space
+                        self.min_delay.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reload-delay"):
+                        self.reload_delay = value
+                        self.reload_delay.value_namespace = name_space
+                        self.reload_delay.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv4(object):
+            class Ipv4(Entity):
                 """
                 IPv4 VRRP configuration
                 
@@ -1352,16 +2591,28 @@ class Vrrp(object):
                 _revision = '2016-12-16'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Vrrp.Interfaces.Interface.Ipv4, self).__init__()
+
+                    self.yang_name = "ipv4"
+                    self.yang_parent_name = "interface"
+
                     self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters()
                     self.slave_virtual_routers.parent = self
+                    self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
+                    self._children_yang_names.add("slave-virtual-routers")
+
                     self.version2 = Vrrp.Interfaces.Interface.Ipv4.Version2()
                     self.version2.parent = self
+                    self._children_name_map["version2"] = "version2"
+                    self._children_yang_names.add("version2")
+
                     self.version3 = Vrrp.Interfaces.Interface.Ipv4.Version3()
                     self.version3.parent = self
+                    self._children_name_map["version3"] = "version3"
+                    self._children_yang_names.add("version3")
 
 
-                class Version3(object):
+                class Version3(Entity):
                     """
                     Version 3 VRRP configuration
                     
@@ -1378,12 +2629,18 @@ class Vrrp(object):
                     _revision = '2016-12-16'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Vrrp.Interfaces.Interface.Ipv4.Version3, self).__init__()
+
+                        self.yang_name = "version3"
+                        self.yang_parent_name = "ipv4"
+
                         self.virtual_routers = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters()
                         self.virtual_routers.parent = self
+                        self._children_name_map["virtual_routers"] = "virtual-routers"
+                        self._children_yang_names.add("virtual-routers")
 
 
-                    class VirtualRouters(object):
+                    class VirtualRouters(Entity):
                         """
                         The VRRP virtual router configuration table
                         
@@ -1400,13 +2657,39 @@ class Vrrp(object):
                         _revision = '2016-12-16'
 
                         def __init__(self):
-                            self.parent = None
-                            self.virtual_router = YList()
-                            self.virtual_router.parent = self
-                            self.virtual_router.name = 'virtual_router'
+                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, self).__init__()
+
+                            self.yang_name = "virtual-routers"
+                            self.yang_parent_name = "version3"
+
+                            self.virtual_router = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, self).__setattr__(name, value)
 
 
-                        class VirtualRouter(object):
+                        class VirtualRouter(Entity):
                             """
                             The VRRP virtual router being configured
                             
@@ -1489,25 +2772,77 @@ class Vrrp(object):
                             _revision = '2016-12-16'
 
                             def __init__(self):
-                                self.parent = None
-                                self.vr_id = None
-                                self.accept_mode_disable = None
-                                self.bfd = None
-                                self.preempt = None
-                                self.primary_ipv4_address = None
-                                self.priority = None
+                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, self).__init__()
+
+                                self.yang_name = "virtual-router"
+                                self.yang_parent_name = "virtual-routers"
+
+                                self.vr_id = YLeaf(YType.uint32, "vr-id")
+
+                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                                self.bfd = YLeaf(YType.str, "bfd")
+
+                                self.preempt = YLeaf(YType.uint32, "preempt")
+
+                                self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
                                 self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
                                 self.secondary_ipv4_addresses.parent = self
-                                self.session_name = None
+                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                self._children_yang_names.add("secondary-ipv4-addresses")
+
                                 self.timer = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer()
                                 self.timer.parent = self
+                                self._children_name_map["timer"] = "timer"
+                                self._children_yang_names.add("timer")
+
                                 self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
                                 self.tracked_objects.parent = self
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
                                 self.tracks = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks()
                                 self.tracks.parent = self
+                                self._children_name_map["tracks"] = "tracks"
+                                self._children_yang_names.add("tracks")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("vr_id",
+                                                "accept_mode_disable",
+                                                "bfd",
+                                                "preempt",
+                                                "primary_ipv4_address",
+                                                "priority",
+                                                "session_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, self).__setattr__(name, value)
 
 
-                            class Timer(object):
+                            class Timer(Entity):
                                 """
                                 Set advertisement timer
                                 
@@ -1551,45 +2886,119 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.advertisement_time_in_msec = None
-                                    self.advertisement_time_in_sec = None
-                                    self.forced = None
-                                    self.in_msec = None
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "timer"
+                                    self.yang_parent_name = "virtual-router"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:timer'
+                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
 
-                                def _has_data(self):
-                                    if self.advertisement_time_in_msec is not None:
+                                    self.forced = YLeaf(YType.boolean, "forced")
+
+                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("advertisement_time_in_msec",
+                                                    "advertisement_time_in_sec",
+                                                    "forced",
+                                                    "in_msec") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.advertisement_time_in_msec.is_set or
+                                        self.advertisement_time_in_sec.is_set or
+                                        self.forced.is_set or
+                                        self.in_msec.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.advertisement_time_in_msec.yfilter != YFilter.not_set or
+                                        self.advertisement_time_in_sec.yfilter != YFilter.not_set or
+                                        self.forced.yfilter != YFilter.not_set or
+                                        self.in_msec.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "timer" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.advertisement_time_in_msec.is_set or self.advertisement_time_in_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.advertisement_time_in_msec.get_name_leafdata())
+                                    if (self.advertisement_time_in_sec.is_set or self.advertisement_time_in_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.advertisement_time_in_sec.get_name_leafdata())
+                                    if (self.forced.is_set or self.forced.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.forced.get_name_leafdata())
+                                    if (self.in_msec.is_set or self.in_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.in_msec.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "advertisement-time-in-msec" or name == "advertisement-time-in-sec" or name == "forced" or name == "in-msec"):
                                         return True
-
-                                    if self.advertisement_time_in_sec is not None:
-                                        return True
-
-                                    if self.forced is not None:
-                                        return True
-
-                                    if self.in_msec is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "advertisement-time-in-msec"):
+                                        self.advertisement_time_in_msec = value
+                                        self.advertisement_time_in_msec.value_namespace = name_space
+                                        self.advertisement_time_in_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "advertisement-time-in-sec"):
+                                        self.advertisement_time_in_sec = value
+                                        self.advertisement_time_in_sec.value_namespace = name_space
+                                        self.advertisement_time_in_sec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "forced"):
+                                        self.forced = value
+                                        self.forced.value_namespace = name_space
+                                        self.forced.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "in-msec"):
+                                        self.in_msec = value
+                                        self.in_msec.value_namespace = name_space
+                                        self.in_msec.value_namespace_prefix = name_space_prefix
 
 
-                            class SecondaryIpv4Addresses(object):
+                            class SecondaryIpv4Addresses(Entity):
                                 """
                                 The table of VRRP secondary IPv4 addresses
                                 
@@ -1606,13 +3015,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.secondary_ipv4_address = YList()
-                                    self.secondary_ipv4_address.parent = self
-                                    self.secondary_ipv4_address.name = 'secondary_ipv4_address'
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__init__()
+
+                                    self.yang_name = "secondary-ipv4-addresses"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.secondary_ipv4_address = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__setattr__(name, value)
 
 
-                                class SecondaryIpv4Address(object):
+                                class SecondaryIpv4Address(Entity):
                                     """
                                     A VRRP secondary IPv4 address
                                     
@@ -1631,59 +3066,142 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.ip_address = None
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.ip_address is None:
-                                            raise YPYModelError('Key property ip_address is None')
+                                        self.yang_name = "secondary-ipv4-address"
+                                        self.yang_parent_name = "secondary-ipv4-addresses"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:secondary-ipv4-address[Cisco-IOS-XR-ipv4-vrrp-cfg:ip-address = ' + str(self.ip_address) + ']'
+                                        self.ip_address = YLeaf(YType.str, "ip-address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("ip_address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
 
-                                    def _has_data(self):
-                                        if self.ip_address is not None:
+                                    def has_data(self):
+                                        return self.ip_address.is_set
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.ip_address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "secondary-ipv4-address" + "[ip-address='" + self.ip_address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ip_address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "ip-address"):
                                             return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "ip-address"):
+                                            self.ip_address = value
+                                            self.ip_address.value_namespace = name_space
+                                            self.ip_address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:secondary-ipv4-addresses'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.secondary_ipv4_address is not None:
-                                        for child_ref in self.secondary_ipv4_address:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses']['meta_info']
+                                def has_operation(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "secondary-ipv4-addresses" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "secondary-ipv4-address"):
+                                        for c in self.secondary_ipv4_address:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.secondary_ipv4_address.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "secondary-ipv4-address"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class TrackedObjects(object):
+                            class TrackedObjects(Entity):
                                 """
                                 Track an object, reducing priority if it
                                 goes down
@@ -1701,13 +3219,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_object = YList()
-                                    self.tracked_object.parent = self
-                                    self.tracked_object.name = 'tracked_object'
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.tracked_object = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__setattr__(name, value)
 
 
-                                class TrackedObject(object):
+                                class TrackedObject(Entity):
                                     """
                                     Object to be tracked
                                     
@@ -1735,63 +3279,154 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.object_name = None
-                                        self.priority_decrement = None
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.object_name is None:
-                                            raise YPYModelError('Key property object_name is None')
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracked-object[Cisco-IOS-XR-ipv4-vrrp-cfg:object-name = ' + str(self.object_name) + ']'
+                                        self.object_name = YLeaf(YType.str, "object-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.object_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("object_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.object_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.object_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-object" + "[object-name='" + self.object_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.object_name.is_set or self.object_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.object_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "object-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "object-name"):
+                                            self.object_name = value
+                                            self.object_name.value_namespace = name_space
+                                            self.object_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracked-objects'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_object is not None:
-                                        for child_ref in self.tracked_object:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-objects" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-object"):
+                                        for c in self.tracked_object:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_object.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-object"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Tracks(object):
+                            class Tracks(Entity):
                                 """
                                 Track an item, reducing priority if it
                                 goes down
@@ -1809,13 +3444,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.track = YList()
-                                    self.track.parent = self
-                                    self.track.name = 'track'
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
+
+                                    self.yang_name = "tracks"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.track = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, self).__setattr__(name, value)
 
 
-                                class Track(object):
+                                class Track(Entity):
                                     """
                                     Object to be tracked
                                     
@@ -1843,163 +3504,390 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-                                        self.priority = None
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
+                                        self.yang_name = "track"
+                                        self.yang_parent_name = "tracks"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:track[Cisco-IOS-XR-ipv4-vrrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority = YLeaf(YType.uint32, "priority")
 
-                                    def _has_data(self):
-                                        if self.interface_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("interface_name",
+                                                        "priority") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.interface_name.is_set or
+                                            self.priority.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.interface_name.yfilter != YFilter.not_set or
+                                            self.priority.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "track" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                        if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "interface-name" or name == "priority"):
                                             return True
-
-                                        if self.priority is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "interface-name"):
+                                            self.interface_name = value
+                                            self.interface_name.value_namespace = name_space
+                                            self.interface_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority"):
+                                            self.priority = value
+                                            self.priority.value_namespace = name_space
+                                            self.priority.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracks'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.track is not None:
-                                        for child_ref in self.track:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.track:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks']['meta_info']
+                                def has_operation(self):
+                                    for c in self.track:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.vr_id is None:
-                                    raise YPYModelError('Key property vr_id is None')
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracks" + path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:virtual-router[Cisco-IOS-XR-ipv4-vrrp-cfg:vr-id = ' + str(self.vr_id) + ']'
+                                    return path_buffer
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def _has_data(self):
-                                if self.vr_id is not None:
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "track"):
+                                        for c in self.track:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.track.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "track"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
+
+                            def has_data(self):
+                                return (
+                                    self.vr_id.is_set or
+                                    self.accept_mode_disable.is_set or
+                                    self.bfd.is_set or
+                                    self.preempt.is_set or
+                                    self.primary_ipv4_address.is_set or
+                                    self.priority.is_set or
+                                    self.session_name.is_set or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_data()) or
+                                    (self.timer is not None and self.timer.has_data()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_data()) or
+                                    (self.tracks is not None and self.tracks.has_data()))
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.vr_id.yfilter != YFilter.not_set or
+                                    self.accept_mode_disable.yfilter != YFilter.not_set or
+                                    self.bfd.yfilter != YFilter.not_set or
+                                    self.preempt.yfilter != YFilter.not_set or
+                                    self.primary_ipv4_address.yfilter != YFilter.not_set or
+                                    self.priority.yfilter != YFilter.not_set or
+                                    self.session_name.yfilter != YFilter.not_set or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_operation()) or
+                                    (self.timer is not None and self.timer.has_operation()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_operation()) or
+                                    (self.tracks is not None and self.tracks.has_operation()))
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "virtual-router" + "[vr-id='" + self.vr_id.get() + "']" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.vr_id.is_set or self.vr_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vr_id.get_name_leafdata())
+                                if (self.accept_mode_disable.is_set or self.accept_mode_disable.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.accept_mode_disable.get_name_leafdata())
+                                if (self.bfd.is_set or self.bfd.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.bfd.get_name_leafdata())
+                                if (self.preempt.is_set or self.preempt.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.preempt.get_name_leafdata())
+                                if (self.primary_ipv4_address.is_set or self.primary_ipv4_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.primary_ipv4_address.get_name_leafdata())
+                                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.priority.get_name_leafdata())
+                                if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.session_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "secondary-ipv4-addresses"):
+                                    if (self.secondary_ipv4_addresses is None):
+                                        self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
+                                        self.secondary_ipv4_addresses.parent = self
+                                        self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                    return self.secondary_ipv4_addresses
+
+                                if (child_yang_name == "timer"):
+                                    if (self.timer is None):
+                                        self.timer = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer()
+                                        self.timer.parent = self
+                                        self._children_name_map["timer"] = "timer"
+                                    return self.timer
+
+                                if (child_yang_name == "tracked-objects"):
+                                    if (self.tracked_objects is None):
+                                        self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
+                                        self.tracked_objects.parent = self
+                                        self._children_name_map["tracked_objects"] = "tracked-objects"
+                                    return self.tracked_objects
+
+                                if (child_yang_name == "tracks"):
+                                    if (self.tracks is None):
+                                        self.tracks = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks()
+                                        self.tracks.parent = self
+                                        self._children_name_map["tracks"] = "tracks"
+                                    return self.tracks
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "secondary-ipv4-addresses" or name == "timer" or name == "tracked-objects" or name == "tracks" or name == "vr-id" or name == "accept-mode-disable" or name == "bfd" or name == "preempt" or name == "primary-ipv4-address" or name == "priority" or name == "session-name"):
                                     return True
-
-                                if self.accept_mode_disable is not None:
-                                    return True
-
-                                if self.bfd is not None:
-                                    return True
-
-                                if self.preempt is not None:
-                                    return True
-
-                                if self.primary_ipv4_address is not None:
-                                    return True
-
-                                if self.priority is not None:
-                                    return True
-
-                                if self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses._has_data():
-                                    return True
-
-                                if self.session_name is not None:
-                                    return True
-
-                                if self.timer is not None and self.timer._has_data():
-                                    return True
-
-                                if self.tracked_objects is not None and self.tracked_objects._has_data():
-                                    return True
-
-                                if self.tracks is not None and self.tracks._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "vr-id"):
+                                    self.vr_id = value
+                                    self.vr_id.value_namespace = name_space
+                                    self.vr_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "accept-mode-disable"):
+                                    self.accept_mode_disable = value
+                                    self.accept_mode_disable.value_namespace = name_space
+                                    self.accept_mode_disable.value_namespace_prefix = name_space_prefix
+                                if(value_path == "bfd"):
+                                    self.bfd = value
+                                    self.bfd.value_namespace = name_space
+                                    self.bfd.value_namespace_prefix = name_space_prefix
+                                if(value_path == "preempt"):
+                                    self.preempt = value
+                                    self.preempt.value_namespace = name_space
+                                    self.preempt.value_namespace_prefix = name_space_prefix
+                                if(value_path == "primary-ipv4-address"):
+                                    self.primary_ipv4_address = value
+                                    self.primary_ipv4_address.value_namespace = name_space
+                                    self.primary_ipv4_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "priority"):
+                                    self.priority = value
+                                    self.priority.value_namespace = name_space
+                                    self.priority.value_namespace_prefix = name_space_prefix
+                                if(value_path == "session-name"):
+                                    self.session_name = value
+                                    self.session_name.value_namespace = name_space
+                                    self.session_name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:virtual-routers'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.virtual_router is not None:
-                                for child_ref in self.virtual_router:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.virtual_router:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters']['meta_info']
+                        def has_operation(self):
+                            for c in self.virtual_router:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "virtual-routers" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:version3'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.virtual_routers is not None and self.virtual_routers._has_data():
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "virtual-router"):
+                                for c in self.virtual_router:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.virtual_router.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "virtual-router"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (self.virtual_routers is not None and self.virtual_routers.has_data())
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.virtual_routers is not None and self.virtual_routers.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "version3" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "virtual-routers"):
+                            if (self.virtual_routers is None):
+                                self.virtual_routers = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters()
+                                self.virtual_routers.parent = self
+                                self._children_name_map["virtual_routers"] = "virtual-routers"
+                            return self.virtual_routers
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "virtual-routers"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class SlaveVirtualRouters(object):
+                class SlaveVirtualRouters(Entity):
                     """
                     The VRRP slave group configuration table
                     
@@ -2016,13 +3904,39 @@ class Vrrp(object):
                     _revision = '2016-12-16'
 
                     def __init__(self):
-                        self.parent = None
-                        self.slave_virtual_router = YList()
-                        self.slave_virtual_router.parent = self
-                        self.slave_virtual_router.name = 'slave_virtual_router'
+                        super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters, self).__init__()
+
+                        self.yang_name = "slave-virtual-routers"
+                        self.yang_parent_name = "ipv4"
+
+                        self.slave_virtual_router = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters, self).__setattr__(name, value)
 
 
-                    class SlaveVirtualRouter(object):
+                    class SlaveVirtualRouter(Entity):
                         """
                         The VRRP slave being configured
                         
@@ -2063,16 +3977,53 @@ class Vrrp(object):
                         _revision = '2016-12-16'
 
                         def __init__(self):
-                            self.parent = None
-                            self.slave_virtual_router_id = None
-                            self.accept_mode_disable = None
-                            self.follow = None
-                            self.primary_ipv4_address = None
+                            super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
+
+                            self.yang_name = "slave-virtual-router"
+                            self.yang_parent_name = "slave-virtual-routers"
+
+                            self.slave_virtual_router_id = YLeaf(YType.uint32, "slave-virtual-router-id")
+
+                            self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                            self.follow = YLeaf(YType.str, "follow")
+
+                            self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
+
                             self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses()
                             self.secondary_ipv4_addresses.parent = self
+                            self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                            self._children_yang_names.add("secondary-ipv4-addresses")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("slave_virtual_router_id",
+                                            "accept_mode_disable",
+                                            "follow",
+                                            "primary_ipv4_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, self).__setattr__(name, value)
 
 
-                        class SecondaryIpv4Addresses(object):
+                        class SecondaryIpv4Addresses(Entity):
                             """
                             The table of VRRP secondary IPv4 addresses
                             
@@ -2089,13 +4040,39 @@ class Vrrp(object):
                             _revision = '2016-12-16'
 
                             def __init__(self):
-                                self.parent = None
-                                self.secondary_ipv4_address = YList()
-                                self.secondary_ipv4_address.parent = self
-                                self.secondary_ipv4_address.name = 'secondary_ipv4_address'
+                                super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses, self).__init__()
+
+                                self.yang_name = "secondary-ipv4-addresses"
+                                self.yang_parent_name = "slave-virtual-router"
+
+                                self.secondary_ipv4_address = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses, self).__setattr__(name, value)
 
 
-                            class SecondaryIpv4Address(object):
+                            class SecondaryIpv4Address(Entity):
                                 """
                                 A VRRP secondary IPv4 address
                                 
@@ -2114,119 +4091,279 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.ip_address = None
+                                    super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.ip_address is None:
-                                        raise YPYModelError('Key property ip_address is None')
+                                    self.yang_name = "secondary-ipv4-address"
+                                    self.yang_parent_name = "secondary-ipv4-addresses"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:secondary-ipv4-address[Cisco-IOS-XR-ipv4-vrrp-cfg:ip-address = ' + str(self.ip_address) + ']'
+                                    self.ip_address = YLeaf(YType.str, "ip-address")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("ip_address") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
 
-                                def _has_data(self):
-                                    if self.ip_address is not None:
+                                def has_data(self):
+                                    return self.ip_address.is_set
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.ip_address.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "secondary-ipv4-address" + "[ip-address='" + self.ip_address.get() + "']" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.ip_address.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "ip-address"):
                                         return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "ip-address"):
+                                        self.ip_address = value
+                                        self.ip_address.value_namespace = name_space
+                                        self.ip_address.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:secondary-ipv4-addresses'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if self.secondary_ipv4_address is not None:
-                                    for child_ref in self.secondary_ipv4_address:
-                                        if child_ref._has_data():
-                                            return True
-
+                            def has_data(self):
+                                for c in self.secondary_ipv4_address:
+                                    if (c.has_data()):
+                                        return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses']['meta_info']
+                            def has_operation(self):
+                                for c in self.secondary_ipv4_address:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.slave_virtual_router_id is None:
-                                raise YPYModelError('Key property slave_virtual_router_id is None')
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "secondary-ipv4-addresses" + path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:slave-virtual-router[Cisco-IOS-XR-ipv4-vrrp-cfg:slave-virtual-router-id = ' + str(self.slave_virtual_router_id) + ']'
+                                return path_buffer
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def _has_data(self):
-                            if self.slave_virtual_router_id is not None:
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "secondary-ipv4-address"):
+                                    for c in self.secondary_ipv4_address:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.secondary_ipv4_address.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "secondary-ipv4-address"):
+                                    return True
+                                return False
+
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
+
+                        def has_data(self):
+                            return (
+                                self.slave_virtual_router_id.is_set or
+                                self.accept_mode_disable.is_set or
+                                self.follow.is_set or
+                                self.primary_ipv4_address.is_set or
+                                (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_data()))
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.slave_virtual_router_id.yfilter != YFilter.not_set or
+                                self.accept_mode_disable.yfilter != YFilter.not_set or
+                                self.follow.yfilter != YFilter.not_set or
+                                self.primary_ipv4_address.yfilter != YFilter.not_set or
+                                (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_operation()))
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "slave-virtual-router" + "[slave-virtual-router-id='" + self.slave_virtual_router_id.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.slave_virtual_router_id.is_set or self.slave_virtual_router_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.slave_virtual_router_id.get_name_leafdata())
+                            if (self.accept_mode_disable.is_set or self.accept_mode_disable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.accept_mode_disable.get_name_leafdata())
+                            if (self.follow.is_set or self.follow.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.follow.get_name_leafdata())
+                            if (self.primary_ipv4_address.is_set or self.primary_ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.primary_ipv4_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "secondary-ipv4-addresses"):
+                                if (self.secondary_ipv4_addresses is None):
+                                    self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses()
+                                    self.secondary_ipv4_addresses.parent = self
+                                    self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                return self.secondary_ipv4_addresses
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "secondary-ipv4-addresses" or name == "slave-virtual-router-id" or name == "accept-mode-disable" or name == "follow" or name == "primary-ipv4-address"):
                                 return True
-
-                            if self.accept_mode_disable is not None:
-                                return True
-
-                            if self.follow is not None:
-                                return True
-
-                            if self.primary_ipv4_address is not None:
-                                return True
-
-                            if self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "slave-virtual-router-id"):
+                                self.slave_virtual_router_id = value
+                                self.slave_virtual_router_id.value_namespace = name_space
+                                self.slave_virtual_router_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "accept-mode-disable"):
+                                self.accept_mode_disable = value
+                                self.accept_mode_disable.value_namespace = name_space
+                                self.accept_mode_disable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "follow"):
+                                self.follow = value
+                                self.follow.value_namespace = name_space
+                                self.follow.value_namespace_prefix = name_space_prefix
+                            if(value_path == "primary-ipv4-address"):
+                                self.primary_ipv4_address = value
+                                self.primary_ipv4_address.value_namespace = name_space
+                                self.primary_ipv4_address.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:slave-virtual-routers'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.slave_virtual_router is not None:
-                            for child_ref in self.slave_virtual_router:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.slave_virtual_router:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters']['meta_info']
+                    def has_operation(self):
+                        for c in self.slave_virtual_router:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "slave-virtual-routers" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "slave-virtual-router"):
+                            for c in self.slave_virtual_router:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.slave_virtual_router.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "slave-virtual-router"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Version2(object):
+                class Version2(Entity):
                     """
                     Version 2 VRRP configuration
                     
@@ -2243,12 +4380,18 @@ class Vrrp(object):
                     _revision = '2016-12-16'
 
                     def __init__(self):
-                        self.parent = None
+                        super(Vrrp.Interfaces.Interface.Ipv4.Version2, self).__init__()
+
+                        self.yang_name = "version2"
+                        self.yang_parent_name = "ipv4"
+
                         self.virtual_routers = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters()
                         self.virtual_routers.parent = self
+                        self._children_name_map["virtual_routers"] = "virtual-routers"
+                        self._children_yang_names.add("virtual-routers")
 
 
-                    class VirtualRouters(object):
+                    class VirtualRouters(Entity):
                         """
                         The VRRP virtual router configuration table
                         
@@ -2265,13 +4408,39 @@ class Vrrp(object):
                         _revision = '2016-12-16'
 
                         def __init__(self):
-                            self.parent = None
-                            self.virtual_router = YList()
-                            self.virtual_router.parent = self
-                            self.virtual_router.name = 'virtual_router'
+                            super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters, self).__init__()
+
+                            self.yang_name = "virtual-routers"
+                            self.yang_parent_name = "version2"
+
+                            self.virtual_router = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters, self).__setattr__(name, value)
 
 
-                        class VirtualRouter(object):
+                        class VirtualRouter(Entity):
                             """
                             The VRRP virtual router being configured
                             
@@ -2359,26 +4528,80 @@ class Vrrp(object):
                             _revision = '2016-12-16'
 
                             def __init__(self):
-                                self.parent = None
-                                self.vr_id = None
-                                self.accept_mode_disable = None
-                                self.bfd = None
-                                self.preempt = None
-                                self.primary_ipv4_address = None
-                                self.priority = None
+                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter, self).__init__()
+
+                                self.yang_name = "virtual-router"
+                                self.yang_parent_name = "virtual-routers"
+
+                                self.vr_id = YLeaf(YType.uint32, "vr-id")
+
+                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                                self.bfd = YLeaf(YType.str, "bfd")
+
+                                self.preempt = YLeaf(YType.uint32, "preempt")
+
+                                self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
+                                self.text_password = YLeaf(YType.str, "text-password")
+
                                 self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
                                 self.secondary_ipv4_addresses.parent = self
-                                self.session_name = None
-                                self.text_password = None
+                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                self._children_yang_names.add("secondary-ipv4-addresses")
+
                                 self.timer = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer()
                                 self.timer.parent = self
+                                self._children_name_map["timer"] = "timer"
+                                self._children_yang_names.add("timer")
+
                                 self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects()
                                 self.tracked_objects.parent = self
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
                                 self.tracks = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks()
                                 self.tracks.parent = self
+                                self._children_name_map["tracks"] = "tracks"
+                                self._children_yang_names.add("tracks")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("vr_id",
+                                                "accept_mode_disable",
+                                                "bfd",
+                                                "preempt",
+                                                "primary_ipv4_address",
+                                                "priority",
+                                                "session_name",
+                                                "text_password") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter, self).__setattr__(name, value)
 
 
-                            class Timer(object):
+                            class Timer(Entity):
                                 """
                                 Set advertisement timer
                                 
@@ -2422,45 +4645,119 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.advertisement_time_in_msec = None
-                                    self.advertisement_time_in_sec = None
-                                    self.forced = None
-                                    self.in_msec = None
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "timer"
+                                    self.yang_parent_name = "virtual-router"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:timer'
+                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
 
-                                def _has_data(self):
-                                    if self.advertisement_time_in_msec is not None:
+                                    self.forced = YLeaf(YType.boolean, "forced")
+
+                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("advertisement_time_in_msec",
+                                                    "advertisement_time_in_sec",
+                                                    "forced",
+                                                    "in_msec") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.advertisement_time_in_msec.is_set or
+                                        self.advertisement_time_in_sec.is_set or
+                                        self.forced.is_set or
+                                        self.in_msec.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.advertisement_time_in_msec.yfilter != YFilter.not_set or
+                                        self.advertisement_time_in_sec.yfilter != YFilter.not_set or
+                                        self.forced.yfilter != YFilter.not_set or
+                                        self.in_msec.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "timer" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.advertisement_time_in_msec.is_set or self.advertisement_time_in_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.advertisement_time_in_msec.get_name_leafdata())
+                                    if (self.advertisement_time_in_sec.is_set or self.advertisement_time_in_sec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.advertisement_time_in_sec.get_name_leafdata())
+                                    if (self.forced.is_set or self.forced.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.forced.get_name_leafdata())
+                                    if (self.in_msec.is_set or self.in_msec.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.in_msec.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "advertisement-time-in-msec" or name == "advertisement-time-in-sec" or name == "forced" or name == "in-msec"):
                                         return True
-
-                                    if self.advertisement_time_in_sec is not None:
-                                        return True
-
-                                    if self.forced is not None:
-                                        return True
-
-                                    if self.in_msec is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "advertisement-time-in-msec"):
+                                        self.advertisement_time_in_msec = value
+                                        self.advertisement_time_in_msec.value_namespace = name_space
+                                        self.advertisement_time_in_msec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "advertisement-time-in-sec"):
+                                        self.advertisement_time_in_sec = value
+                                        self.advertisement_time_in_sec.value_namespace = name_space
+                                        self.advertisement_time_in_sec.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "forced"):
+                                        self.forced = value
+                                        self.forced.value_namespace = name_space
+                                        self.forced.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "in-msec"):
+                                        self.in_msec = value
+                                        self.in_msec.value_namespace = name_space
+                                        self.in_msec.value_namespace_prefix = name_space_prefix
 
 
-                            class SecondaryIpv4Addresses(object):
+                            class SecondaryIpv4Addresses(Entity):
                                 """
                                 The table of VRRP secondary IPv4 addresses
                                 
@@ -2477,13 +4774,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.secondary_ipv4_address = YList()
-                                    self.secondary_ipv4_address.parent = self
-                                    self.secondary_ipv4_address.name = 'secondary_ipv4_address'
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__init__()
+
+                                    self.yang_name = "secondary-ipv4-addresses"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.secondary_ipv4_address = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__setattr__(name, value)
 
 
-                                class SecondaryIpv4Address(object):
+                                class SecondaryIpv4Address(Entity):
                                     """
                                     A VRRP secondary IPv4 address
                                     
@@ -2502,59 +4825,142 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.ip_address = None
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.ip_address is None:
-                                            raise YPYModelError('Key property ip_address is None')
+                                        self.yang_name = "secondary-ipv4-address"
+                                        self.yang_parent_name = "secondary-ipv4-addresses"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:secondary-ipv4-address[Cisco-IOS-XR-ipv4-vrrp-cfg:ip-address = ' + str(self.ip_address) + ']'
+                                        self.ip_address = YLeaf(YType.str, "ip-address")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("ip_address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__setattr__(name, value)
 
-                                    def _has_data(self):
-                                        if self.ip_address is not None:
+                                    def has_data(self):
+                                        return self.ip_address.is_set
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.ip_address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "secondary-ipv4-address" + "[ip-address='" + self.ip_address.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ip_address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "ip-address"):
                                             return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "ip-address"):
+                                            self.ip_address = value
+                                            self.ip_address.value_namespace = name_space
+                                            self.ip_address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:secondary-ipv4-addresses'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.secondary_ipv4_address is not None:
-                                        for child_ref in self.secondary_ipv4_address:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses']['meta_info']
+                                def has_operation(self):
+                                    for c in self.secondary_ipv4_address:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "secondary-ipv4-addresses" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "secondary-ipv4-address"):
+                                        for c in self.secondary_ipv4_address:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.secondary_ipv4_address.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "secondary-ipv4-address"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class Tracks(object):
+                            class Tracks(Entity):
                                 """
                                 Track an item, reducing priority if it
                                 goes down
@@ -2572,13 +4978,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.track = YList()
-                                    self.track.parent = self
-                                    self.track.name = 'track'
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks, self).__init__()
+
+                                    self.yang_name = "tracks"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.track = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks, self).__setattr__(name, value)
 
 
-                                class Track(object):
+                                class Track(Entity):
                                     """
                                     Object to be tracked
                                     
@@ -2606,63 +5038,154 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.interface_name = None
-                                        self.priority = None
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.interface_name is None:
-                                            raise YPYModelError('Key property interface_name is None')
+                                        self.yang_name = "track"
+                                        self.yang_parent_name = "tracks"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:track[Cisco-IOS-XR-ipv4-vrrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority = YLeaf(YType.uint32, "priority")
 
-                                    def _has_data(self):
-                                        if self.interface_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("interface_name",
+                                                        "priority") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.interface_name.is_set or
+                                            self.priority.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.interface_name.yfilter != YFilter.not_set or
+                                            self.priority.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "track" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                        if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "interface-name" or name == "priority"):
                                             return True
-
-                                        if self.priority is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "interface-name"):
+                                            self.interface_name = value
+                                            self.interface_name.value_namespace = name_space
+                                            self.interface_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority"):
+                                            self.priority = value
+                                            self.priority.value_namespace = name_space
+                                            self.priority.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracks'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.track is not None:
-                                        for child_ref in self.track:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.track:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks']['meta_info']
+                                def has_operation(self):
+                                    for c in self.track:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracks" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "track"):
+                                        for c in self.track:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.track.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "track"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class TrackedObjects(object):
+                            class TrackedObjects(Entity):
                                 """
                                 Track an object, reducing priority if it
                                 goes down
@@ -2680,13 +5203,39 @@ class Vrrp(object):
                                 _revision = '2016-12-16'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.tracked_object = YList()
-                                    self.tracked_object.parent = self
-                                    self.tracked_object.name = 'tracked_object'
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "virtual-router"
+
+                                    self.tracked_object = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, self).__setattr__(name, value)
 
 
-                                class TrackedObject(object):
+                                class TrackedObject(Entity):
                                     """
                                     Object to be tracked
                                     
@@ -2714,194 +5263,465 @@ class Vrrp(object):
                                     _revision = '2016-12-16'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.object_name = None
-                                        self.priority_decrement = None
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.object_name is None:
-                                            raise YPYModelError('Key property object_name is None')
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracked-object[Cisco-IOS-XR-ipv4-vrrp-cfg:object-name = ' + str(self.object_name) + ']'
+                                        self.object_name = YLeaf(YType.str, "object-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
 
-                                    def _has_data(self):
-                                        if self.object_name is not None:
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("object_name",
+                                                        "priority_decrement") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.object_name.is_set or
+                                            self.priority_decrement.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.object_name.yfilter != YFilter.not_set or
+                                            self.priority_decrement.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "tracked-object" + "[object-name='" + self.object_name.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.object_name.is_set or self.object_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.object_name.get_name_leafdata())
+                                        if (self.priority_decrement.is_set or self.priority_decrement.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.priority_decrement.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "object-name" or name == "priority-decrement"):
                                             return True
-
-                                        if self.priority_decrement is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "object-name"):
+                                            self.object_name = value
+                                            self.object_name.value_namespace = name_space
+                                            self.object_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "priority-decrement"):
+                                            self.priority_decrement = value
+                                            self.priority_decrement.value_namespace = name_space
+                                            self.priority_decrement.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:tracked-objects'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.tracked_object is not None:
-                                        for child_ref in self.tracked_object:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects']['meta_info']
+                                def has_operation(self):
+                                    for c in self.tracked_object:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.vr_id is None:
-                                    raise YPYModelError('Key property vr_id is None')
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "tracked-objects" + path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:virtual-router[Cisco-IOS-XR-ipv4-vrrp-cfg:vr-id = ' + str(self.vr_id) + ']'
+                                    return path_buffer
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def _has_data(self):
-                                if self.vr_id is not None:
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "tracked-object"):
+                                        for c in self.tracked_object:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.tracked_object.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "tracked-object"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
+
+                            def has_data(self):
+                                return (
+                                    self.vr_id.is_set or
+                                    self.accept_mode_disable.is_set or
+                                    self.bfd.is_set or
+                                    self.preempt.is_set or
+                                    self.primary_ipv4_address.is_set or
+                                    self.priority.is_set or
+                                    self.session_name.is_set or
+                                    self.text_password.is_set or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_data()) or
+                                    (self.timer is not None and self.timer.has_data()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_data()) or
+                                    (self.tracks is not None and self.tracks.has_data()))
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.vr_id.yfilter != YFilter.not_set or
+                                    self.accept_mode_disable.yfilter != YFilter.not_set or
+                                    self.bfd.yfilter != YFilter.not_set or
+                                    self.preempt.yfilter != YFilter.not_set or
+                                    self.primary_ipv4_address.yfilter != YFilter.not_set or
+                                    self.priority.yfilter != YFilter.not_set or
+                                    self.session_name.yfilter != YFilter.not_set or
+                                    self.text_password.yfilter != YFilter.not_set or
+                                    (self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses.has_operation()) or
+                                    (self.timer is not None and self.timer.has_operation()) or
+                                    (self.tracked_objects is not None and self.tracked_objects.has_operation()) or
+                                    (self.tracks is not None and self.tracks.has_operation()))
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "virtual-router" + "[vr-id='" + self.vr_id.get() + "']" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.vr_id.is_set or self.vr_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vr_id.get_name_leafdata())
+                                if (self.accept_mode_disable.is_set or self.accept_mode_disable.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.accept_mode_disable.get_name_leafdata())
+                                if (self.bfd.is_set or self.bfd.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.bfd.get_name_leafdata())
+                                if (self.preempt.is_set or self.preempt.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.preempt.get_name_leafdata())
+                                if (self.primary_ipv4_address.is_set or self.primary_ipv4_address.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.primary_ipv4_address.get_name_leafdata())
+                                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.priority.get_name_leafdata())
+                                if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.session_name.get_name_leafdata())
+                                if (self.text_password.is_set or self.text_password.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.text_password.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "secondary-ipv4-addresses"):
+                                    if (self.secondary_ipv4_addresses is None):
+                                        self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
+                                        self.secondary_ipv4_addresses.parent = self
+                                        self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                    return self.secondary_ipv4_addresses
+
+                                if (child_yang_name == "timer"):
+                                    if (self.timer is None):
+                                        self.timer = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer()
+                                        self.timer.parent = self
+                                        self._children_name_map["timer"] = "timer"
+                                    return self.timer
+
+                                if (child_yang_name == "tracked-objects"):
+                                    if (self.tracked_objects is None):
+                                        self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects()
+                                        self.tracked_objects.parent = self
+                                        self._children_name_map["tracked_objects"] = "tracked-objects"
+                                    return self.tracked_objects
+
+                                if (child_yang_name == "tracks"):
+                                    if (self.tracks is None):
+                                        self.tracks = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks()
+                                        self.tracks.parent = self
+                                        self._children_name_map["tracks"] = "tracks"
+                                    return self.tracks
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "secondary-ipv4-addresses" or name == "timer" or name == "tracked-objects" or name == "tracks" or name == "vr-id" or name == "accept-mode-disable" or name == "bfd" or name == "preempt" or name == "primary-ipv4-address" or name == "priority" or name == "session-name" or name == "text-password"):
                                     return True
-
-                                if self.accept_mode_disable is not None:
-                                    return True
-
-                                if self.bfd is not None:
-                                    return True
-
-                                if self.preempt is not None:
-                                    return True
-
-                                if self.primary_ipv4_address is not None:
-                                    return True
-
-                                if self.priority is not None:
-                                    return True
-
-                                if self.secondary_ipv4_addresses is not None and self.secondary_ipv4_addresses._has_data():
-                                    return True
-
-                                if self.session_name is not None:
-                                    return True
-
-                                if self.text_password is not None:
-                                    return True
-
-                                if self.timer is not None and self.timer._has_data():
-                                    return True
-
-                                if self.tracked_objects is not None and self.tracked_objects._has_data():
-                                    return True
-
-                                if self.tracks is not None and self.tracks._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "vr-id"):
+                                    self.vr_id = value
+                                    self.vr_id.value_namespace = name_space
+                                    self.vr_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "accept-mode-disable"):
+                                    self.accept_mode_disable = value
+                                    self.accept_mode_disable.value_namespace = name_space
+                                    self.accept_mode_disable.value_namespace_prefix = name_space_prefix
+                                if(value_path == "bfd"):
+                                    self.bfd = value
+                                    self.bfd.value_namespace = name_space
+                                    self.bfd.value_namespace_prefix = name_space_prefix
+                                if(value_path == "preempt"):
+                                    self.preempt = value
+                                    self.preempt.value_namespace = name_space
+                                    self.preempt.value_namespace_prefix = name_space_prefix
+                                if(value_path == "primary-ipv4-address"):
+                                    self.primary_ipv4_address = value
+                                    self.primary_ipv4_address.value_namespace = name_space
+                                    self.primary_ipv4_address.value_namespace_prefix = name_space_prefix
+                                if(value_path == "priority"):
+                                    self.priority = value
+                                    self.priority.value_namespace = name_space
+                                    self.priority.value_namespace_prefix = name_space_prefix
+                                if(value_path == "session-name"):
+                                    self.session_name = value
+                                    self.session_name.value_namespace = name_space
+                                    self.session_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "text-password"):
+                                    self.text_password = value
+                                    self.text_password.value_namespace = name_space
+                                    self.text_password.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:virtual-routers'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if self.virtual_router is not None:
-                                for child_ref in self.virtual_router:
-                                    if child_ref._has_data():
-                                        return True
-
+                        def has_data(self):
+                            for c in self.virtual_router:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters']['meta_info']
+                        def has_operation(self):
+                            for c in self.virtual_router:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "virtual-routers" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:version2'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.virtual_routers is not None and self.virtual_routers._has_data():
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "virtual-router"):
+                                for c in self.virtual_router:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.virtual_router.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "virtual-router"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (self.virtual_routers is not None and self.virtual_routers.has_data())
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.virtual_routers is not None and self.virtual_routers.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "version2" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "virtual-routers"):
+                            if (self.virtual_routers is None):
+                                self.virtual_routers = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters()
+                                self.virtual_routers.parent = self
+                                self._children_name_map["virtual_routers"] = "virtual-routers"
+                            return self.virtual_routers
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "virtual-routers"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version2']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.slave_virtual_routers is not None and self.slave_virtual_routers.has_data()) or
+                        (self.version2 is not None and self.version2.has_data()) or
+                        (self.version3 is not None and self.version3.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:ipv4'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.slave_virtual_routers is not None and self.slave_virtual_routers.has_operation()) or
+                        (self.version2 is not None and self.version2.has_operation()) or
+                        (self.version3 is not None and self.version3.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "ipv4" + path_buffer
 
-                def _has_data(self):
-                    if self.slave_virtual_routers is not None and self.slave_virtual_routers._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "slave-virtual-routers"):
+                        if (self.slave_virtual_routers is None):
+                            self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters()
+                            self.slave_virtual_routers.parent = self
+                            self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
+                        return self.slave_virtual_routers
+
+                    if (child_yang_name == "version2"):
+                        if (self.version2 is None):
+                            self.version2 = Vrrp.Interfaces.Interface.Ipv4.Version2()
+                            self.version2.parent = self
+                            self._children_name_map["version2"] = "version2"
+                        return self.version2
+
+                    if (child_yang_name == "version3"):
+                        if (self.version3 is None):
+                            self.version3 = Vrrp.Interfaces.Interface.Ipv4.Version3()
+                            self.version3.parent = self
+                            self._children_name_map["version3"] = "version3"
+                        return self.version3
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "slave-virtual-routers" or name == "version2" or name == "version3"):
                         return True
-
-                    if self.version2 is not None and self.version2._has_data():
-                        return True
-
-                    if self.version3 is not None and self.version3._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Bfd(object):
+            class Bfd(Entity):
                 """
                 BFD configuration
                 
@@ -2929,115 +5749,301 @@ class Vrrp(object):
                 _revision = '2016-12-16'
 
                 def __init__(self):
-                    self.parent = None
-                    self.detection_multiplier = None
-                    self.interval = None
+                    super(Vrrp.Interfaces.Interface.Bfd, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "bfd"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-vrrp-cfg:bfd'
+                    self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.interval = YLeaf(YType.uint32, "interval")
 
-                def _has_data(self):
-                    if self.detection_multiplier is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("detection_multiplier",
+                                    "interval") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Vrrp.Interfaces.Interface.Bfd, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Vrrp.Interfaces.Interface.Bfd, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.detection_multiplier.is_set or
+                        self.interval.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.detection_multiplier.yfilter != YFilter.not_set or
+                        self.interval.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bfd" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.detection_multiplier.is_set or self.detection_multiplier.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.detection_multiplier.get_name_leafdata())
+                    if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interval.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "detection-multiplier" or name == "interval"):
                         return True
-
-                    if self.interval is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                    return meta._meta_table['Vrrp.Interfaces.Interface.Bfd']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "detection-multiplier"):
+                        self.detection_multiplier = value
+                        self.detection_multiplier.value_namespace = name_space
+                        self.detection_multiplier.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interval"):
+                        self.interval = value
+                        self.interval.value_namespace = name_space
+                        self.interval.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    self.mac_refresh.is_set or
+                    (self.bfd is not None and self.bfd.has_data()) or
+                    (self.delay is not None and self.delay.has_data()) or
+                    (self.ipv4 is not None and self.ipv4.has_data()) or
+                    (self.ipv6 is not None and self.ipv6.has_data()))
 
-                return '/Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/Cisco-IOS-XR-ipv4-vrrp-cfg:interfaces/Cisco-IOS-XR-ipv4-vrrp-cfg:interface[Cisco-IOS-XR-ipv4-vrrp-cfg:interface-name = ' + str(self.interface_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    self.mac_refresh.yfilter != YFilter.not_set or
+                    (self.bfd is not None and self.bfd.has_operation()) or
+                    (self.delay is not None and self.delay.has_operation()) or
+                    (self.ipv4 is not None and self.ipv4.has_operation()) or
+                    (self.ipv6 is not None and self.ipv6.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.interface_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                if (self.mac_refresh.is_set or self.mac_refresh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.mac_refresh.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "bfd"):
+                    if (self.bfd is None):
+                        self.bfd = Vrrp.Interfaces.Interface.Bfd()
+                        self.bfd.parent = self
+                        self._children_name_map["bfd"] = "bfd"
+                    return self.bfd
+
+                if (child_yang_name == "delay"):
+                    if (self.delay is None):
+                        self.delay = Vrrp.Interfaces.Interface.Delay()
+                        self.delay.parent = self
+                        self._children_name_map["delay"] = "delay"
+                    return self.delay
+
+                if (child_yang_name == "ipv4"):
+                    if (self.ipv4 is None):
+                        self.ipv4 = Vrrp.Interfaces.Interface.Ipv4()
+                        self.ipv4.parent = self
+                        self._children_name_map["ipv4"] = "ipv4"
+                    return self.ipv4
+
+                if (child_yang_name == "ipv6"):
+                    if (self.ipv6 is None):
+                        self.ipv6 = Vrrp.Interfaces.Interface.Ipv6()
+                        self.ipv6.parent = self
+                        self._children_name_map["ipv6"] = "ipv6"
+                    return self.ipv6
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "bfd" or name == "delay" or name == "ipv4" or name == "ipv6" or name == "interface-name" or name == "mac-refresh"):
                     return True
-
-                if self.bfd is not None and self.bfd._has_data():
-                    return True
-
-                if self.delay is not None and self.delay._has_data():
-                    return True
-
-                if self.ipv4 is not None and self.ipv4._has_data():
-                    return True
-
-                if self.ipv6 is not None and self.ipv6._has_data():
-                    return True
-
-                if self.mac_refresh is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                return meta._meta_table['Vrrp.Interfaces.Interface']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "mac-refresh"):
+                    self.mac_refresh = value
+                    self.mac_refresh.value_namespace = name_space
+                    self.mac_refresh.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/Cisco-IOS-XR-ipv4-vrrp-cfg:interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.interface is not None:
-                for child_ref in self.interface:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.interface:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-            return meta._meta_table['Vrrp.Interfaces']['meta_info']
+        def has_operation(self):
+            for c in self.interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "interfaces" + path_buffer
 
-        return '/Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.interfaces is not None and self.interfaces._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interface"):
+                for c in self.interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Vrrp.Interfaces.Interface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interface"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            (self.interfaces is not None and self.interfaces.has_data()) or
+            (self.logging is not None and self.logging.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.interfaces is not None and self.interfaces.has_operation()) or
+            (self.logging is not None and self.logging.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "interfaces"):
+            if (self.interfaces is None):
+                self.interfaces = Vrrp.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+            return self.interfaces
+
+        if (child_yang_name == "logging"):
+            if (self.logging is None):
+                self.logging = Vrrp.Logging()
+                self.logging.parent = self
+                self._children_name_map["logging"] = "logging"
+            return self.logging
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "interfaces" or name == "logging"):
             return True
-
-        if self.logging is not None and self.logging._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-        return meta._meta_table['Vrrp']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Vrrp()
+        return self._top_entity
 

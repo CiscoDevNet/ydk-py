@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SourcePolicyEnum(Enum):
+class SourcePolicy(Enum):
     """
-    SourcePolicyEnum
+    SourcePolicy
 
     Source policy
 
@@ -40,19 +34,13 @@ class SourcePolicyEnum(Enum):
 
     """
 
-    vrf = 1
+    vrf = Enum.YLeaf(1, "vrf")
 
-    rfc = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
-        return meta._meta_table['SourcePolicyEnum']
+    rfc = Enum.YLeaf(2, "rfc")
 
 
 
-class Icmp(object):
+class Icmp(Entity):
     """
     IP ICMP configuration data
     
@@ -69,12 +57,40 @@ class Icmp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.ip_protocol = YList()
-        self.ip_protocol.parent = self
-        self.ip_protocol.name = 'ip_protocol'
+        super(Icmp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "icmp"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-icmp-cfg"
+
+        self.ip_protocol = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Icmp, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Icmp, self).__setattr__(name, value)
 
 
-    class IpProtocol(object):
+    class IpProtocol(Entity):
         """
         IP Protocol Type
         
@@ -103,15 +119,49 @@ class Icmp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.protocol_type = None
+            super(Icmp.IpProtocol, self).__init__()
+
+            self.yang_name = "ip-protocol"
+            self.yang_parent_name = "icmp"
+
+            self.protocol_type = YLeaf(YType.str, "protocol-type")
+
             self.rate_limit = Icmp.IpProtocol.RateLimit()
             self.rate_limit.parent = self
+            self._children_name_map["rate_limit"] = "rate-limit"
+            self._children_yang_names.add("rate-limit")
+
             self.source = Icmp.IpProtocol.Source()
             self.source.parent = self
+            self._children_name_map["source"] = "source"
+            self._children_yang_names.add("source")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("protocol_type") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Icmp.IpProtocol, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Icmp.IpProtocol, self).__setattr__(name, value)
 
 
-        class RateLimit(object):
+        class RateLimit(Entity):
             """
             Set ratelimit of ICMP packets
             
@@ -128,12 +178,18 @@ class Icmp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(Icmp.IpProtocol.RateLimit, self).__init__()
+
+                self.yang_name = "rate-limit"
+                self.yang_parent_name = "ip-protocol"
+
                 self.unreachable = Icmp.IpProtocol.RateLimit.Unreachable()
                 self.unreachable.parent = self
+                self._children_name_map["unreachable"] = "unreachable"
+                self._children_yang_names.add("unreachable")
 
 
-            class Unreachable(object):
+            class Unreachable(Entity):
                 """
                 Set unreachable ICMP packets ratelimit
                 
@@ -159,66 +215,152 @@ class Icmp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.fragmentation = None
-                    self.rate = None
+                    super(Icmp.IpProtocol.RateLimit.Unreachable, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "unreachable"
+                    self.yang_parent_name = "rate-limit"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-icmp-cfg:unreachable'
+                    self.fragmentation = YLeaf(YType.uint32, "fragmentation")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rate = YLeaf(YType.uint32, "rate")
 
-                def _has_data(self):
-                    if self.fragmentation is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("fragmentation",
+                                    "rate") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Icmp.IpProtocol.RateLimit.Unreachable, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Icmp.IpProtocol.RateLimit.Unreachable, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.fragmentation.is_set or
+                        self.rate.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.fragmentation.yfilter != YFilter.not_set or
+                        self.rate.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "unreachable" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.fragmentation.is_set or self.fragmentation.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.fragmentation.get_name_leafdata())
+                    if (self.rate.is_set or self.rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rate.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "fragmentation" or name == "rate"):
                         return True
-
-                    if self.rate is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
-                    return meta._meta_table['Icmp.IpProtocol.RateLimit.Unreachable']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "fragmentation"):
+                        self.fragmentation = value
+                        self.fragmentation.value_namespace = name_space
+                        self.fragmentation.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rate"):
+                        self.rate = value
+                        self.rate.value_namespace = name_space
+                        self.rate.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
+            def has_data(self):
+                return (self.unreachable is not None and self.unreachable.has_data())
 
-                return self.parent._common_path +'/Cisco-IOS-XR-ip-icmp-cfg:rate-limit'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.unreachable is not None and self.unreachable.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rate-limit" + path_buffer
 
-            def _has_data(self):
-                if self.unreachable is not None and self.unreachable._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "unreachable"):
+                    if (self.unreachable is None):
+                        self.unreachable = Icmp.IpProtocol.RateLimit.Unreachable()
+                        self.unreachable.parent = self
+                        self._children_name_map["unreachable"] = "unreachable"
+                    return self.unreachable
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "unreachable"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
-                return meta._meta_table['Icmp.IpProtocol.RateLimit']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Source(object):
+        class Source(Entity):
             """
             IP ICMP Source Address Selection Policy
             
             .. attribute:: source_address_policy
             
             	Configure Source Address Policy
-            	**type**\:   :py:class:`SourcePolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicyEnum>`
+            	**type**\:   :py:class:`SourcePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicy>`
             
             
 
@@ -228,79 +370,205 @@ class Icmp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.source_address_policy = None
+                super(Icmp.IpProtocol.Source, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
+                self.yang_name = "source"
+                self.yang_parent_name = "ip-protocol"
 
-                return self.parent._common_path +'/Cisco-IOS-XR-ip-icmp-cfg:source'
+                self.source_address_policy = YLeaf(YType.enumeration, "source-address-policy")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("source_address_policy") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Icmp.IpProtocol.Source, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Icmp.IpProtocol.Source, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.source_address_policy is not None:
+            def has_data(self):
+                return self.source_address_policy.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.source_address_policy.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "source" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.source_address_policy.is_set or self.source_address_policy.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.source_address_policy.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "source-address-policy"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
-                return meta._meta_table['Icmp.IpProtocol.Source']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "source-address-policy"):
+                    self.source_address_policy = value
+                    self.source_address_policy.value_namespace = name_space
+                    self.source_address_policy.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-            if self.protocol_type is None:
-                raise YPYModelError('Key property protocol_type is None')
+        def has_data(self):
+            return (
+                self.protocol_type.is_set or
+                (self.rate_limit is not None and self.rate_limit.has_data()) or
+                (self.source is not None and self.source.has_data()))
 
-            return '/Cisco-IOS-XR-ip-icmp-cfg:icmp/Cisco-IOS-XR-ip-icmp-cfg:ip-protocol[Cisco-IOS-XR-ip-icmp-cfg:protocol-type = ' + str(self.protocol_type) + ']'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.protocol_type.yfilter != YFilter.not_set or
+                (self.rate_limit is not None and self.rate_limit.has_operation()) or
+                (self.source is not None and self.source.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ip-protocol" + "[protocol-type='" + self.protocol_type.get() + "']" + path_buffer
 
-        def _has_data(self):
-            if self.protocol_type is not None:
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-icmp-cfg:icmp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.protocol_type.is_set or self.protocol_type.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.protocol_type.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rate-limit"):
+                if (self.rate_limit is None):
+                    self.rate_limit = Icmp.IpProtocol.RateLimit()
+                    self.rate_limit.parent = self
+                    self._children_name_map["rate_limit"] = "rate-limit"
+                return self.rate_limit
+
+            if (child_yang_name == "source"):
+                if (self.source is None):
+                    self.source = Icmp.IpProtocol.Source()
+                    self.source.parent = self
+                    self._children_name_map["source"] = "source"
+                return self.source
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rate-limit" or name == "source" or name == "protocol-type"):
                 return True
-
-            if self.rate_limit is not None and self.rate_limit._has_data():
-                return True
-
-            if self.source is not None and self.source._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
-            return meta._meta_table['Icmp.IpProtocol']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "protocol-type"):
+                self.protocol_type = value
+                self.protocol_type.value_namespace = name_space
+                self.protocol_type.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-ip-icmp-cfg:icmp'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if self.ip_protocol is not None:
-            for child_ref in self.ip_protocol:
-                if child_ref._has_data():
-                    return True
-
+    def has_data(self):
+        for c in self.ip_protocol:
+            if (c.has_data()):
+                return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_icmp_cfg as meta
-        return meta._meta_table['Icmp']['meta_info']
+    def has_operation(self):
+        for c in self.ip_protocol:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-icmp-cfg:icmp" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ip-protocol"):
+            for c in self.ip_protocol:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = Icmp.IpProtocol()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.ip_protocol.append(c)
+            return c
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ip-protocol"):
+            return True
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = Icmp()
+        return self._top_entity
 

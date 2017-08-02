@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SlaBucketsSizeUnitsEnumEnum(Enum):
+class SlaBucketsSizeUnitsEnum(Enum):
     """
-    SlaBucketsSizeUnitsEnumEnum
+    SlaBucketsSizeUnitsEnum
 
     Sla buckets size units enum
 
@@ -38,20 +32,14 @@ class SlaBucketsSizeUnitsEnumEnum(Enum):
 
     """
 
-    buckets_per_probe = 0
+    buckets_per_probe = Enum.YLeaf(0, "buckets-per-probe")
 
-    probes_per_bucket = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaBucketsSizeUnitsEnumEnum']
+    probes_per_bucket = Enum.YLeaf(1, "probes-per-bucket")
 
 
-class SlaBurstIntervalUnitsEnumEnum(Enum):
+class SlaBurstIntervalUnitsEnum(Enum):
     """
-    SlaBurstIntervalUnitsEnumEnum
+    SlaBurstIntervalUnitsEnum
 
     Sla burst interval units enum
 
@@ -85,26 +73,20 @@ class SlaBurstIntervalUnitsEnumEnum(Enum):
 
     """
 
-    once = 1
+    once = Enum.YLeaf(1, "once")
 
-    milliseconds = 2
+    milliseconds = Enum.YLeaf(2, "milliseconds")
 
-    seconds = 3
+    seconds = Enum.YLeaf(3, "seconds")
 
-    minutes = 4
+    minutes = Enum.YLeaf(4, "minutes")
 
-    hours = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaBurstIntervalUnitsEnumEnum']
+    hours = Enum.YLeaf(5, "hours")
 
 
-class SlaOnDemandProbeDurationUnitsEnumEnum(Enum):
+class SlaOnDemandProbeDurationUnitsEnum(Enum):
     """
-    SlaOnDemandProbeDurationUnitsEnumEnum
+    SlaOnDemandProbeDurationUnitsEnum
 
     Sla on demand probe duration units enum
 
@@ -128,22 +110,16 @@ class SlaOnDemandProbeDurationUnitsEnumEnum(Enum):
 
     """
 
-    seconds = 3
+    seconds = Enum.YLeaf(3, "seconds")
 
-    minutes = 4
+    minutes = Enum.YLeaf(4, "minutes")
 
-    hours = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandProbeDurationUnitsEnumEnum']
+    hours = Enum.YLeaf(5, "hours")
 
 
-class SlaOnDemandRepeatIntervalUnitsEnumEnum(Enum):
+class SlaOnDemandRepeatIntervalUnitsEnum(Enum):
     """
-    SlaOnDemandRepeatIntervalUnitsEnumEnum
+    SlaOnDemandRepeatIntervalUnitsEnum
 
     Sla on demand repeat interval units enum
 
@@ -167,22 +143,16 @@ class SlaOnDemandRepeatIntervalUnitsEnumEnum(Enum):
 
     """
 
-    seconds = 3
+    seconds = Enum.YLeaf(3, "seconds")
 
-    minutes = 4
+    minutes = Enum.YLeaf(4, "minutes")
 
-    hours = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandRepeatIntervalUnitsEnumEnum']
+    hours = Enum.YLeaf(5, "hours")
 
 
-class SlaOnDemandStartMonthEnumEnum(Enum):
+class SlaOnDemandStartMonthEnum(Enum):
     """
-    SlaOnDemandStartMonthEnumEnum
+    SlaOnDemandStartMonthEnum
 
     Sla on demand start month enum
 
@@ -236,40 +206,34 @@ class SlaOnDemandStartMonthEnumEnum(Enum):
 
     """
 
-    january = 0
+    january = Enum.YLeaf(0, "january")
 
-    february = 1
+    february = Enum.YLeaf(1, "february")
 
-    march = 2
+    march = Enum.YLeaf(2, "march")
 
-    april = 3
+    april = Enum.YLeaf(3, "april")
 
-    may = 4
+    may = Enum.YLeaf(4, "may")
 
-    june = 5
+    june = Enum.YLeaf(5, "june")
 
-    july = 6
+    july = Enum.YLeaf(6, "july")
 
-    august = 7
+    august = Enum.YLeaf(7, "august")
 
-    september = 8
+    september = Enum.YLeaf(8, "september")
 
-    october = 9
+    october = Enum.YLeaf(9, "october")
 
-    november = 10
+    november = Enum.YLeaf(10, "november")
 
-    december = 11
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandStartMonthEnumEnum']
+    december = Enum.YLeaf(11, "december")
 
 
-class SlaOnDemandStartTimeRelativeUnitsEnumEnum(Enum):
+class SlaOnDemandStartTimeRelativeUnitsEnum(Enum):
     """
-    SlaOnDemandStartTimeRelativeUnitsEnumEnum
+    SlaOnDemandStartTimeRelativeUnitsEnum
 
     Sla on demand start time relative units enum
 
@@ -287,22 +251,16 @@ class SlaOnDemandStartTimeRelativeUnitsEnumEnum(Enum):
 
     """
 
-    seconds = 3
+    seconds = Enum.YLeaf(3, "seconds")
 
-    minutes = 4
+    minutes = Enum.YLeaf(4, "minutes")
 
-    hours = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandStartTimeRelativeUnitsEnumEnum']
+    hours = Enum.YLeaf(5, "hours")
 
 
-class SlaOnDemandStartTimeTypesEnumEnum(Enum):
+class SlaOnDemandStartTimeTypesEnum(Enum):
     """
-    SlaOnDemandStartTimeTypesEnumEnum
+    SlaOnDemandStartTimeTypesEnum
 
     Sla on demand start time types enum
 
@@ -320,22 +278,16 @@ class SlaOnDemandStartTimeTypesEnumEnum(Enum):
 
     """
 
-    now = 0
+    now = Enum.YLeaf(0, "now")
 
-    absolute = 1
+    absolute = Enum.YLeaf(1, "absolute")
 
-    relative = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaOnDemandStartTimeTypesEnumEnum']
+    relative = Enum.YLeaf(2, "relative")
 
 
-class SlaPacketIntervalUnitsEnumEnum(Enum):
+class SlaPacketIntervalUnitsEnum(Enum):
     """
-    SlaPacketIntervalUnitsEnumEnum
+    SlaPacketIntervalUnitsEnum
 
     Sla packet interval units enum
 
@@ -363,26 +315,20 @@ class SlaPacketIntervalUnitsEnumEnum(Enum):
 
     """
 
-    once = 1
+    once = Enum.YLeaf(1, "once")
 
-    milliseconds = 2
+    milliseconds = Enum.YLeaf(2, "milliseconds")
 
-    seconds = 3
+    seconds = Enum.YLeaf(3, "seconds")
 
-    minutes = 4
+    minutes = Enum.YLeaf(4, "minutes")
 
-    hours = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaPacketIntervalUnitsEnumEnum']
+    hours = Enum.YLeaf(5, "hours")
 
 
-class SlaPaddingPatternEnum(Enum):
+class SlaPaddingPattern(Enum):
     """
-    SlaPaddingPatternEnum
+    SlaPaddingPattern
 
     Sla padding pattern
 
@@ -400,20 +346,14 @@ class SlaPaddingPatternEnum(Enum):
 
     """
 
-    hex = 0
+    hex = Enum.YLeaf(0, "hex")
 
-    pseudo_random = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaPaddingPatternEnum']
+    pseudo_random = Enum.YLeaf(1, "pseudo-random")
 
 
-class SlaProbeDurationUnitsEnumEnum(Enum):
+class SlaProbeDurationUnitsEnum(Enum):
     """
-    SlaProbeDurationUnitsEnumEnum
+    SlaProbeDurationUnitsEnum
 
     Sla probe duration units enum
 
@@ -445,26 +385,20 @@ class SlaProbeDurationUnitsEnumEnum(Enum):
 
     """
 
-    seconds = 3
+    seconds = Enum.YLeaf(3, "seconds")
 
-    minutes = 4
+    minutes = Enum.YLeaf(4, "minutes")
 
-    hours = 5
+    hours = Enum.YLeaf(5, "hours")
 
-    day = 6
+    day = Enum.YLeaf(6, "day")
 
-    week = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaProbeDurationUnitsEnumEnum']
+    week = Enum.YLeaf(7, "week")
 
 
-class SlaProbeIntervalDayEnumEnum(Enum):
+class SlaProbeIntervalDayEnum(Enum):
     """
-    SlaProbeIntervalDayEnumEnum
+    SlaProbeIntervalDayEnum
 
     Sla probe interval day enum
 
@@ -498,30 +432,24 @@ class SlaProbeIntervalDayEnumEnum(Enum):
 
     """
 
-    monday = 1
+    monday = Enum.YLeaf(1, "monday")
 
-    tuesday = 2
+    tuesday = Enum.YLeaf(2, "tuesday")
 
-    wednesday = 3
+    wednesday = Enum.YLeaf(3, "wednesday")
 
-    thursday = 4
+    thursday = Enum.YLeaf(4, "thursday")
 
-    friday = 5
+    friday = Enum.YLeaf(5, "friday")
 
-    saturday = 6
+    saturday = Enum.YLeaf(6, "saturday")
 
-    sunday = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaProbeIntervalDayEnumEnum']
+    sunday = Enum.YLeaf(7, "sunday")
 
 
-class SlaProbeIntervalUnitsEnumEnum(Enum):
+class SlaProbeIntervalUnitsEnum(Enum):
     """
-    SlaProbeIntervalUnitsEnumEnum
+    SlaProbeIntervalUnitsEnum
 
     Sla probe interval units enum
 
@@ -547,24 +475,18 @@ class SlaProbeIntervalUnitsEnumEnum(Enum):
 
     """
 
-    minutes = 4
+    minutes = Enum.YLeaf(4, "minutes")
 
-    hours = 5
+    hours = Enum.YLeaf(5, "hours")
 
-    day = 6
+    day = Enum.YLeaf(6, "day")
 
-    week = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaProbeIntervalUnitsEnumEnum']
+    week = Enum.YLeaf(7, "week")
 
 
-class SlaSendEnum(Enum):
+class SlaSend(Enum):
     """
-    SlaSendEnum
+    SlaSend
 
     Sla send
 
@@ -578,20 +500,14 @@ class SlaSendEnum(Enum):
 
     """
 
-    packet = 0
+    packet = Enum.YLeaf(0, "packet")
 
-    burst = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaSendEnum']
+    burst = Enum.YLeaf(1, "burst")
 
 
-class SlaStatisticTypeEnumEnum(Enum):
+class SlaStatisticTypeEnum(Enum):
     """
-    SlaStatisticTypeEnumEnum
+    SlaStatisticTypeEnum
 
     Sla statistic type enum
 
@@ -629,27 +545,21 @@ class SlaStatisticTypeEnumEnum(Enum):
 
     """
 
-    round_trip_delay = 1
+    round_trip_delay = Enum.YLeaf(1, "round-trip-delay")
 
-    one_way_delay_sd = 2
+    one_way_delay_sd = Enum.YLeaf(2, "one-way-delay-sd")
 
-    one_way_delay_ds = 3
+    one_way_delay_ds = Enum.YLeaf(3, "one-way-delay-ds")
 
-    round_trip_jitter = 4
+    round_trip_jitter = Enum.YLeaf(4, "round-trip-jitter")
 
-    one_way_jitter_sd = 5
+    one_way_jitter_sd = Enum.YLeaf(5, "one-way-jitter-sd")
 
-    one_way_jitter_ds = 6
+    one_way_jitter_ds = Enum.YLeaf(6, "one-way-jitter-ds")
 
-    one_way_loss_sd = 7
+    one_way_loss_sd = Enum.YLeaf(7, "one-way-loss-sd")
 
-    one_way_loss_ds = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_sla_datatypes as meta
-        return meta._meta_table['SlaStatisticTypeEnumEnum']
+    one_way_loss_ds = Enum.YLeaf(8, "one-way-loss-ds")
 
 
 

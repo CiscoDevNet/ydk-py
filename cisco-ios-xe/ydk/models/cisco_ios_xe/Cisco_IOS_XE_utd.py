@@ -5,22 +5,16 @@ Copyright (c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SyslogLevelTypeEnum(Enum):
+class SyslogLevelType(Enum):
     """
-    SyslogLevelTypeEnum
+    SyslogLevelType
 
     .. data:: alert = 0
 
@@ -40,27 +34,21 @@ class SyslogLevelTypeEnum(Enum):
 
     """
 
-    alert = 0
+    alert = Enum.YLeaf(0, "alert")
 
-    crit = 1
+    crit = Enum.YLeaf(1, "crit")
 
-    debug = 2
+    debug = Enum.YLeaf(2, "debug")
 
-    emerg = 3
+    emerg = Enum.YLeaf(3, "emerg")
 
-    err = 4
+    err = Enum.YLeaf(4, "err")
 
-    info = 5
+    info = Enum.YLeaf(5, "info")
 
-    notice = 6
+    notice = Enum.YLeaf(6, "notice")
 
-    warning = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_utd as meta
-        return meta._meta_table['SyslogLevelTypeEnum']
+    warning = Enum.YLeaf(7, "warning")
 
 
 

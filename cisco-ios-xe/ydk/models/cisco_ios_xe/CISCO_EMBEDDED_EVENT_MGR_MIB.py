@@ -20,22 +20,16 @@ run.  Developers write and customize Embedded Event Manager
 policies to handle faults and events.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class NotifysourceEnum(Enum):
+class Notifysource(Enum):
     """
-    NotifysourceEnum
+    Notifysource
 
     The notification source of the history entry.
 
@@ -53,19 +47,13 @@ class NotifysourceEnum(Enum):
 
     """
 
-    server = 1
+    server = Enum.YLeaf(1, "server")
 
-    policy = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-        return meta._meta_table['NotifysourceEnum']
+    policy = Enum.YLeaf(2, "policy")
 
 
 
-class CiscoEmbeddedEventMgrMib(object):
+class CiscoEmbeddedEventMgrMib(Entity):
     """
     
     
@@ -97,17 +85,34 @@ class CiscoEmbeddedEventMgrMib(object):
     _revision = '2006-11-07'
 
     def __init__(self):
+        super(CiscoEmbeddedEventMgrMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+        self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+
         self.ceemeventmaptable = CiscoEmbeddedEventMgrMib.Ceemeventmaptable()
         self.ceemeventmaptable.parent = self
+        self._children_name_map["ceemeventmaptable"] = "ceemEventMapTable"
+        self._children_yang_names.add("ceemEventMapTable")
+
         self.ceemhistory = CiscoEmbeddedEventMgrMib.Ceemhistory()
         self.ceemhistory.parent = self
+        self._children_name_map["ceemhistory"] = "ceemHistory"
+        self._children_yang_names.add("ceemHistory")
+
         self.ceemhistoryeventtable = CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable()
         self.ceemhistoryeventtable.parent = self
+        self._children_name_map["ceemhistoryeventtable"] = "ceemHistoryEventTable"
+        self._children_yang_names.add("ceemHistoryEventTable")
+
         self.ceemregisteredpolicytable = CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable()
         self.ceemregisteredpolicytable.parent = self
+        self._children_name_map["ceemregisteredpolicytable"] = "ceemRegisteredPolicyTable"
+        self._children_yang_names.add("ceemRegisteredPolicyTable")
 
 
-    class Ceemhistory(object):
+    class Ceemhistory(Entity):
         """
         
         
@@ -133,35 +138,97 @@ class CiscoEmbeddedEventMgrMib(object):
         _revision = '2006-11-07'
 
         def __init__(self):
-            self.parent = None
-            self.ceemhistorylastevententry = None
-            self.ceemhistorymaxevententries = None
+            super(CiscoEmbeddedEventMgrMib.Ceemhistory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ceemHistory"
+            self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
 
-            return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemHistory'
+            self.ceemhistorylastevententry = YLeaf(YType.uint32, "ceemHistoryLastEventEntry")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.ceemhistorymaxevententries = YLeaf(YType.int32, "ceemHistoryMaxEventEntries")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ceemhistorylastevententry",
+                            "ceemhistorymaxevententries") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEmbeddedEventMgrMib.Ceemhistory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEmbeddedEventMgrMib.Ceemhistory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.ceemhistorylastevententry.is_set or
+                self.ceemhistorymaxevententries.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ceemhistorylastevententry.yfilter != YFilter.not_set or
+                self.ceemhistorymaxevententries.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceemHistory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ceemhistorylastevententry.is_set or self.ceemhistorylastevententry.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceemhistorylastevententry.get_name_leafdata())
+            if (self.ceemhistorymaxevententries.is_set or self.ceemhistorymaxevententries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ceemhistorymaxevententries.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceemHistoryLastEventEntry" or name == "ceemHistoryMaxEventEntries"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ceemhistorylastevententry is not None:
-                return True
-
-            if self.ceemhistorymaxevententries is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-            return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemhistory']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ceemHistoryLastEventEntry"):
+                self.ceemhistorylastevententry = value
+                self.ceemhistorylastevententry.value_namespace = name_space
+                self.ceemhistorylastevententry.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceemHistoryMaxEventEntries"):
+                self.ceemhistorymaxevententries = value
+                self.ceemhistorymaxevententries.value_namespace = name_space
+                self.ceemhistorymaxevententries.value_namespace_prefix = name_space_prefix
 
 
-    class Ceemeventmaptable(object):
+    class Ceemeventmaptable(Entity):
         """
         A table containing information about ceemEventIndex
         value mapping.  Each conceptual row specifies a 
@@ -185,13 +252,39 @@ class CiscoEmbeddedEventMgrMib(object):
         _revision = '2006-11-07'
 
         def __init__(self):
-            self.parent = None
-            self.ceemeventmapentry = YList()
-            self.ceemeventmapentry.parent = self
-            self.ceemeventmapentry.name = 'ceemeventmapentry'
+            super(CiscoEmbeddedEventMgrMib.Ceemeventmaptable, self).__init__()
+
+            self.yang_name = "ceemEventMapTable"
+            self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+
+            self.ceemeventmapentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEmbeddedEventMgrMib.Ceemeventmaptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEmbeddedEventMgrMib.Ceemeventmaptable, self).__setattr__(name, value)
 
 
-        class Ceemeventmapentry(object):
+        class Ceemeventmapentry(Entity):
             """
             A mapping between an event type and an event description.
             
@@ -222,63 +315,165 @@ class CiscoEmbeddedEventMgrMib(object):
             _revision = '2006-11-07'
 
             def __init__(self):
-                self.parent = None
-                self.ceemeventindex = None
-                self.ceemeventdescrtext = None
-                self.ceemeventname = None
+                super(CiscoEmbeddedEventMgrMib.Ceemeventmaptable.Ceemeventmapentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ceemeventindex is None:
-                    raise YPYModelError('Key property ceemeventindex is None')
+                self.yang_name = "ceemEventMapEntry"
+                self.yang_parent_name = "ceemEventMapTable"
 
-                return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemEventMapTable/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemEventMapEntry[CISCO-EMBEDDED-EVENT-MGR-MIB:ceemEventIndex = ' + str(self.ceemeventindex) + ']'
+                self.ceemeventindex = YLeaf(YType.uint32, "ceemEventIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceemeventdescrtext = YLeaf(YType.str, "ceemEventDescrText")
+
+                self.ceemeventname = YLeaf(YType.str, "ceemEventName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceemeventindex",
+                                "ceemeventdescrtext",
+                                "ceemeventname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEmbeddedEventMgrMib.Ceemeventmaptable.Ceemeventmapentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEmbeddedEventMgrMib.Ceemeventmaptable.Ceemeventmapentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ceemeventindex.is_set or
+                    self.ceemeventdescrtext.is_set or
+                    self.ceemeventname.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceemeventindex.yfilter != YFilter.not_set or
+                    self.ceemeventdescrtext.yfilter != YFilter.not_set or
+                    self.ceemeventname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceemEventMapEntry" + "[ceemEventIndex='" + self.ceemeventindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemEventMapTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceemeventindex.is_set or self.ceemeventindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemeventindex.get_name_leafdata())
+                if (self.ceemeventdescrtext.is_set or self.ceemeventdescrtext.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemeventdescrtext.get_name_leafdata())
+                if (self.ceemeventname.is_set or self.ceemeventname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemeventname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ceemEventIndex" or name == "ceemEventDescrText" or name == "ceemEventName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceemeventindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ceemEventIndex"):
+                    self.ceemeventindex = value
+                    self.ceemeventindex.value_namespace = name_space
+                    self.ceemeventindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemEventDescrText"):
+                    self.ceemeventdescrtext = value
+                    self.ceemeventdescrtext.value_namespace = name_space
+                    self.ceemeventdescrtext.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemEventName"):
+                    self.ceemeventname = value
+                    self.ceemeventname.value_namespace = name_space
+                    self.ceemeventname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceemeventmapentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceemeventdescrtext is not None:
-                    return True
-
-                if self.ceemeventname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-                return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemeventmaptable.Ceemeventmapentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemEventMapTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceemeventmapentry is not None:
-                for child_ref in self.ceemeventmapentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceemeventmapentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceemEventMapTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceemEventMapEntry"):
+                for c in self.ceemeventmapentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEmbeddedEventMgrMib.Ceemeventmaptable.Ceemeventmapentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceemeventmapentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceemEventMapEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-            return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemeventmaptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceemhistoryeventtable(object):
+    class Ceemhistoryeventtable(Entity):
         """
         A table of Embedded Event Manager events generated by this
         router.  Conceptual row entries are dynamically added into 
@@ -305,13 +500,39 @@ class CiscoEmbeddedEventMgrMib(object):
         _revision = '2006-11-07'
 
         def __init__(self):
-            self.parent = None
-            self.ceemhistoryevententry = YList()
-            self.ceemhistoryevententry.parent = self
-            self.ceemhistoryevententry.name = 'ceemhistoryevententry'
+            super(CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable, self).__init__()
+
+            self.yang_name = "ceemHistoryEventTable"
+            self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+
+            self.ceemhistoryevententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable, self).__setattr__(name, value)
 
 
-        class Ceemhistoryevententry(object):
+        class Ceemhistoryevententry(Entity):
             """
             Information about an Embedded Event Manager event which has
             been generated by this router.  It provides up to four event
@@ -385,7 +606,7 @@ class CiscoEmbeddedEventMgrMib(object):
             .. attribute:: ceemhistorynotifytype
             
             	The notification type that was sent from the Embedded Event Manager.  The valid values are server or policy
-            	**type**\:   :py:class:`NotifysourceEnum <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.NotifysourceEnum>`
+            	**type**\:   :py:class:`Notifysource <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.Notifysource>`
             
             .. attribute:: ceemhistorypolicyexitstatus
             
@@ -437,115 +658,308 @@ class CiscoEmbeddedEventMgrMib(object):
             _revision = '2006-11-07'
 
             def __init__(self):
-                self.parent = None
-                self.ceemhistoryeventindex = None
-                self.ceemhistoryeventtype1 = None
-                self.ceemhistoryeventtype2 = None
-                self.ceemhistoryeventtype3 = None
-                self.ceemhistoryeventtype4 = None
-                self.ceemhistoryeventtype5 = None
-                self.ceemhistoryeventtype6 = None
-                self.ceemhistoryeventtype7 = None
-                self.ceemhistoryeventtype8 = None
-                self.ceemhistorynotifytype = None
-                self.ceemhistorypolicyexitstatus = None
-                self.ceemhistorypolicyintdata1 = None
-                self.ceemhistorypolicyintdata2 = None
-                self.ceemhistorypolicyname = None
-                self.ceemhistorypolicypath = None
-                self.ceemhistorypolicystrdata = None
+                super(CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable.Ceemhistoryevententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ceemhistoryeventindex is None:
-                    raise YPYModelError('Key property ceemhistoryeventindex is None')
+                self.yang_name = "ceemHistoryEventEntry"
+                self.yang_parent_name = "ceemHistoryEventTable"
 
-                return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemHistoryEventTable/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemHistoryEventEntry[CISCO-EMBEDDED-EVENT-MGR-MIB:ceemHistoryEventIndex = ' + str(self.ceemhistoryeventindex) + ']'
+                self.ceemhistoryeventindex = YLeaf(YType.uint32, "ceemHistoryEventIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ceemhistoryeventtype1 = YLeaf(YType.uint32, "ceemHistoryEventType1")
+
+                self.ceemhistoryeventtype2 = YLeaf(YType.uint32, "ceemHistoryEventType2")
+
+                self.ceemhistoryeventtype3 = YLeaf(YType.uint32, "ceemHistoryEventType3")
+
+                self.ceemhistoryeventtype4 = YLeaf(YType.uint32, "ceemHistoryEventType4")
+
+                self.ceemhistoryeventtype5 = YLeaf(YType.uint32, "ceemHistoryEventType5")
+
+                self.ceemhistoryeventtype6 = YLeaf(YType.uint32, "ceemHistoryEventType6")
+
+                self.ceemhistoryeventtype7 = YLeaf(YType.uint32, "ceemHistoryEventType7")
+
+                self.ceemhistoryeventtype8 = YLeaf(YType.uint32, "ceemHistoryEventType8")
+
+                self.ceemhistorynotifytype = YLeaf(YType.enumeration, "ceemHistoryNotifyType")
+
+                self.ceemhistorypolicyexitstatus = YLeaf(YType.int32, "ceemHistoryPolicyExitStatus")
+
+                self.ceemhistorypolicyintdata1 = YLeaf(YType.int32, "ceemHistoryPolicyIntData1")
+
+                self.ceemhistorypolicyintdata2 = YLeaf(YType.int32, "ceemHistoryPolicyIntData2")
+
+                self.ceemhistorypolicyname = YLeaf(YType.str, "ceemHistoryPolicyName")
+
+                self.ceemhistorypolicypath = YLeaf(YType.str, "ceemHistoryPolicyPath")
+
+                self.ceemhistorypolicystrdata = YLeaf(YType.str, "ceemHistoryPolicyStrData")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceemhistoryeventindex",
+                                "ceemhistoryeventtype1",
+                                "ceemhistoryeventtype2",
+                                "ceemhistoryeventtype3",
+                                "ceemhistoryeventtype4",
+                                "ceemhistoryeventtype5",
+                                "ceemhistoryeventtype6",
+                                "ceemhistoryeventtype7",
+                                "ceemhistoryeventtype8",
+                                "ceemhistorynotifytype",
+                                "ceemhistorypolicyexitstatus",
+                                "ceemhistorypolicyintdata1",
+                                "ceemhistorypolicyintdata2",
+                                "ceemhistorypolicyname",
+                                "ceemhistorypolicypath",
+                                "ceemhistorypolicystrdata") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable.Ceemhistoryevententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable.Ceemhistoryevententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ceemhistoryeventindex.is_set or
+                    self.ceemhistoryeventtype1.is_set or
+                    self.ceemhistoryeventtype2.is_set or
+                    self.ceemhistoryeventtype3.is_set or
+                    self.ceemhistoryeventtype4.is_set or
+                    self.ceemhistoryeventtype5.is_set or
+                    self.ceemhistoryeventtype6.is_set or
+                    self.ceemhistoryeventtype7.is_set or
+                    self.ceemhistoryeventtype8.is_set or
+                    self.ceemhistorynotifytype.is_set or
+                    self.ceemhistorypolicyexitstatus.is_set or
+                    self.ceemhistorypolicyintdata1.is_set or
+                    self.ceemhistorypolicyintdata2.is_set or
+                    self.ceemhistorypolicyname.is_set or
+                    self.ceemhistorypolicypath.is_set or
+                    self.ceemhistorypolicystrdata.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventindex.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype1.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype2.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype3.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype4.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype5.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype6.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype7.yfilter != YFilter.not_set or
+                    self.ceemhistoryeventtype8.yfilter != YFilter.not_set or
+                    self.ceemhistorynotifytype.yfilter != YFilter.not_set or
+                    self.ceemhistorypolicyexitstatus.yfilter != YFilter.not_set or
+                    self.ceemhistorypolicyintdata1.yfilter != YFilter.not_set or
+                    self.ceemhistorypolicyintdata2.yfilter != YFilter.not_set or
+                    self.ceemhistorypolicyname.yfilter != YFilter.not_set or
+                    self.ceemhistorypolicypath.yfilter != YFilter.not_set or
+                    self.ceemhistorypolicystrdata.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceemHistoryEventEntry" + "[ceemHistoryEventIndex='" + self.ceemhistoryeventindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemHistoryEventTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceemhistoryeventindex.is_set or self.ceemhistoryeventindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventindex.get_name_leafdata())
+                if (self.ceemhistoryeventtype1.is_set or self.ceemhistoryeventtype1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype1.get_name_leafdata())
+                if (self.ceemhistoryeventtype2.is_set or self.ceemhistoryeventtype2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype2.get_name_leafdata())
+                if (self.ceemhistoryeventtype3.is_set or self.ceemhistoryeventtype3.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype3.get_name_leafdata())
+                if (self.ceemhistoryeventtype4.is_set or self.ceemhistoryeventtype4.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype4.get_name_leafdata())
+                if (self.ceemhistoryeventtype5.is_set or self.ceemhistoryeventtype5.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype5.get_name_leafdata())
+                if (self.ceemhistoryeventtype6.is_set or self.ceemhistoryeventtype6.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype6.get_name_leafdata())
+                if (self.ceemhistoryeventtype7.is_set or self.ceemhistoryeventtype7.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype7.get_name_leafdata())
+                if (self.ceemhistoryeventtype8.is_set or self.ceemhistoryeventtype8.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistoryeventtype8.get_name_leafdata())
+                if (self.ceemhistorynotifytype.is_set or self.ceemhistorynotifytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistorynotifytype.get_name_leafdata())
+                if (self.ceemhistorypolicyexitstatus.is_set or self.ceemhistorypolicyexitstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistorypolicyexitstatus.get_name_leafdata())
+                if (self.ceemhistorypolicyintdata1.is_set or self.ceemhistorypolicyintdata1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistorypolicyintdata1.get_name_leafdata())
+                if (self.ceemhistorypolicyintdata2.is_set or self.ceemhistorypolicyintdata2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistorypolicyintdata2.get_name_leafdata())
+                if (self.ceemhistorypolicyname.is_set or self.ceemhistorypolicyname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistorypolicyname.get_name_leafdata())
+                if (self.ceemhistorypolicypath.is_set or self.ceemhistorypolicypath.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistorypolicypath.get_name_leafdata())
+                if (self.ceemhistorypolicystrdata.is_set or self.ceemhistorypolicystrdata.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemhistorypolicystrdata.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ceemHistoryEventIndex" or name == "ceemHistoryEventType1" or name == "ceemHistoryEventType2" or name == "ceemHistoryEventType3" or name == "ceemHistoryEventType4" or name == "ceemHistoryEventType5" or name == "ceemHistoryEventType6" or name == "ceemHistoryEventType7" or name == "ceemHistoryEventType8" or name == "ceemHistoryNotifyType" or name == "ceemHistoryPolicyExitStatus" or name == "ceemHistoryPolicyIntData1" or name == "ceemHistoryPolicyIntData2" or name == "ceemHistoryPolicyName" or name == "ceemHistoryPolicyPath" or name == "ceemHistoryPolicyStrData"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceemhistoryeventindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ceemHistoryEventIndex"):
+                    self.ceemhistoryeventindex = value
+                    self.ceemhistoryeventindex.value_namespace = name_space
+                    self.ceemhistoryeventindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType1"):
+                    self.ceemhistoryeventtype1 = value
+                    self.ceemhistoryeventtype1.value_namespace = name_space
+                    self.ceemhistoryeventtype1.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType2"):
+                    self.ceemhistoryeventtype2 = value
+                    self.ceemhistoryeventtype2.value_namespace = name_space
+                    self.ceemhistoryeventtype2.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType3"):
+                    self.ceemhistoryeventtype3 = value
+                    self.ceemhistoryeventtype3.value_namespace = name_space
+                    self.ceemhistoryeventtype3.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType4"):
+                    self.ceemhistoryeventtype4 = value
+                    self.ceemhistoryeventtype4.value_namespace = name_space
+                    self.ceemhistoryeventtype4.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType5"):
+                    self.ceemhistoryeventtype5 = value
+                    self.ceemhistoryeventtype5.value_namespace = name_space
+                    self.ceemhistoryeventtype5.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType6"):
+                    self.ceemhistoryeventtype6 = value
+                    self.ceemhistoryeventtype6.value_namespace = name_space
+                    self.ceemhistoryeventtype6.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType7"):
+                    self.ceemhistoryeventtype7 = value
+                    self.ceemhistoryeventtype7.value_namespace = name_space
+                    self.ceemhistoryeventtype7.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryEventType8"):
+                    self.ceemhistoryeventtype8 = value
+                    self.ceemhistoryeventtype8.value_namespace = name_space
+                    self.ceemhistoryeventtype8.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryNotifyType"):
+                    self.ceemhistorynotifytype = value
+                    self.ceemhistorynotifytype.value_namespace = name_space
+                    self.ceemhistorynotifytype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryPolicyExitStatus"):
+                    self.ceemhistorypolicyexitstatus = value
+                    self.ceemhistorypolicyexitstatus.value_namespace = name_space
+                    self.ceemhistorypolicyexitstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryPolicyIntData1"):
+                    self.ceemhistorypolicyintdata1 = value
+                    self.ceemhistorypolicyintdata1.value_namespace = name_space
+                    self.ceemhistorypolicyintdata1.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryPolicyIntData2"):
+                    self.ceemhistorypolicyintdata2 = value
+                    self.ceemhistorypolicyintdata2.value_namespace = name_space
+                    self.ceemhistorypolicyintdata2.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryPolicyName"):
+                    self.ceemhistorypolicyname = value
+                    self.ceemhistorypolicyname.value_namespace = name_space
+                    self.ceemhistorypolicyname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryPolicyPath"):
+                    self.ceemhistorypolicypath = value
+                    self.ceemhistorypolicypath.value_namespace = name_space
+                    self.ceemhistorypolicypath.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemHistoryPolicyStrData"):
+                    self.ceemhistorypolicystrdata = value
+                    self.ceemhistorypolicystrdata.value_namespace = name_space
+                    self.ceemhistorypolicystrdata.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceemhistoryevententry:
+                if (c.has_data()):
                     return True
-
-                if self.ceemhistoryeventtype1 is not None:
-                    return True
-
-                if self.ceemhistoryeventtype2 is not None:
-                    return True
-
-                if self.ceemhistoryeventtype3 is not None:
-                    return True
-
-                if self.ceemhistoryeventtype4 is not None:
-                    return True
-
-                if self.ceemhistoryeventtype5 is not None:
-                    return True
-
-                if self.ceemhistoryeventtype6 is not None:
-                    return True
-
-                if self.ceemhistoryeventtype7 is not None:
-                    return True
-
-                if self.ceemhistoryeventtype8 is not None:
-                    return True
-
-                if self.ceemhistorynotifytype is not None:
-                    return True
-
-                if self.ceemhistorypolicyexitstatus is not None:
-                    return True
-
-                if self.ceemhistorypolicyintdata1 is not None:
-                    return True
-
-                if self.ceemhistorypolicyintdata2 is not None:
-                    return True
-
-                if self.ceemhistorypolicyname is not None:
-                    return True
-
-                if self.ceemhistorypolicypath is not None:
-                    return True
-
-                if self.ceemhistorypolicystrdata is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-                return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable.Ceemhistoryevententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemHistoryEventTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceemhistoryevententry is not None:
-                for child_ref in self.ceemhistoryevententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceemhistoryevententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceemHistoryEventTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceemHistoryEventEntry"):
+                for c in self.ceemhistoryevententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable.Ceemhistoryevententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceemhistoryevententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceemHistoryEventEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-            return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ceemregisteredpolicytable(object):
+    class Ceemregisteredpolicytable(Entity):
         """
         A table of Embedded Event Manager policies registered on a system.
         The number of entries depends on the configuration of the system.  The 
@@ -564,13 +978,39 @@ class CiscoEmbeddedEventMgrMib(object):
         _revision = '2006-11-07'
 
         def __init__(self):
-            self.parent = None
-            self.ceemregisteredpolicyentry = YList()
-            self.ceemregisteredpolicyentry.parent = self
-            self.ceemregisteredpolicyentry.name = 'ceemregisteredpolicyentry'
+            super(CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable, self).__init__()
+
+            self.yang_name = "ceemRegisteredPolicyTable"
+            self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+
+            self.ceemregisteredpolicyentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable, self).__setattr__(name, value)
 
 
-        class Ceemregisteredpolicyentry(object):
+        class Ceemregisteredpolicyentry(Entity):
             """
             An entry in the table of Embedded Event Manager policies that are
             registered.  It provides up to four event types to support complex 
@@ -679,12 +1119,12 @@ class CiscoEmbeddedEventMgrMib(object):
             .. attribute:: ceemregisteredpolicystatus
             
             	This status indicates whether the policy is enabled or disabled
-            	**type**\:   :py:class:`CeemregisteredpolicystatusEnum <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.CeemregisteredpolicystatusEnum>`
+            	**type**\:   :py:class:`Ceemregisteredpolicystatus <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.Ceemregisteredpolicystatus>`
             
             .. attribute:: ceemregisteredpolicytype
             
             	This variable indicates whether this is a user or system policy
-            	**type**\:   :py:class:`CeemregisteredpolicytypeEnum <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.CeemregisteredpolicytypeEnum>`
+            	**type**\:   :py:class:`Ceemregisteredpolicytype <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.Ceemregisteredpolicytype>`
             
             
 
@@ -694,28 +1134,88 @@ class CiscoEmbeddedEventMgrMib(object):
             _revision = '2006-11-07'
 
             def __init__(self):
-                self.parent = None
-                self.ceemregisteredpolicyindex = None
-                self.ceemregisteredpolicyenabledtime = None
-                self.ceemregisteredpolicyeventtype1 = None
-                self.ceemregisteredpolicyeventtype2 = None
-                self.ceemregisteredpolicyeventtype3 = None
-                self.ceemregisteredpolicyeventtype4 = None
-                self.ceemregisteredpolicyeventtype5 = None
-                self.ceemregisteredpolicyeventtype6 = None
-                self.ceemregisteredpolicyeventtype7 = None
-                self.ceemregisteredpolicyeventtype8 = None
-                self.ceemregisteredpolicyname = None
-                self.ceemregisteredpolicynotifflag = None
-                self.ceemregisteredpolicyregtime = None
-                self.ceemregisteredpolicyruncount = None
-                self.ceemregisteredpolicyruntime = None
-                self.ceemregisteredpolicystatus = None
-                self.ceemregisteredpolicytype = None
+                super(CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry, self).__init__()
 
-            class CeemregisteredpolicystatusEnum(Enum):
+                self.yang_name = "ceemRegisteredPolicyEntry"
+                self.yang_parent_name = "ceemRegisteredPolicyTable"
+
+                self.ceemregisteredpolicyindex = YLeaf(YType.uint32, "ceemRegisteredPolicyIndex")
+
+                self.ceemregisteredpolicyenabledtime = YLeaf(YType.str, "ceemRegisteredPolicyEnabledTime")
+
+                self.ceemregisteredpolicyeventtype1 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType1")
+
+                self.ceemregisteredpolicyeventtype2 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType2")
+
+                self.ceemregisteredpolicyeventtype3 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType3")
+
+                self.ceemregisteredpolicyeventtype4 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType4")
+
+                self.ceemregisteredpolicyeventtype5 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType5")
+
+                self.ceemregisteredpolicyeventtype6 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType6")
+
+                self.ceemregisteredpolicyeventtype7 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType7")
+
+                self.ceemregisteredpolicyeventtype8 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType8")
+
+                self.ceemregisteredpolicyname = YLeaf(YType.str, "ceemRegisteredPolicyName")
+
+                self.ceemregisteredpolicynotifflag = YLeaf(YType.boolean, "ceemRegisteredPolicyNotifFlag")
+
+                self.ceemregisteredpolicyregtime = YLeaf(YType.str, "ceemRegisteredPolicyRegTime")
+
+                self.ceemregisteredpolicyruncount = YLeaf(YType.uint32, "ceemRegisteredPolicyRunCount")
+
+                self.ceemregisteredpolicyruntime = YLeaf(YType.str, "ceemRegisteredPolicyRunTime")
+
+                self.ceemregisteredpolicystatus = YLeaf(YType.enumeration, "ceemRegisteredPolicyStatus")
+
+                self.ceemregisteredpolicytype = YLeaf(YType.enumeration, "ceemRegisteredPolicyType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ceemregisteredpolicyindex",
+                                "ceemregisteredpolicyenabledtime",
+                                "ceemregisteredpolicyeventtype1",
+                                "ceemregisteredpolicyeventtype2",
+                                "ceemregisteredpolicyeventtype3",
+                                "ceemregisteredpolicyeventtype4",
+                                "ceemregisteredpolicyeventtype5",
+                                "ceemregisteredpolicyeventtype6",
+                                "ceemregisteredpolicyeventtype7",
+                                "ceemregisteredpolicyeventtype8",
+                                "ceemregisteredpolicyname",
+                                "ceemregisteredpolicynotifflag",
+                                "ceemregisteredpolicyregtime",
+                                "ceemregisteredpolicyruncount",
+                                "ceemregisteredpolicyruntime",
+                                "ceemregisteredpolicystatus",
+                                "ceemregisteredpolicytype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry, self).__setattr__(name, value)
+
+            class Ceemregisteredpolicystatus(Enum):
                 """
-                CeemregisteredpolicystatusEnum
+                Ceemregisteredpolicystatus
 
                 This status indicates whether the policy is enabled or disabled.
 
@@ -725,20 +1225,14 @@ class CiscoEmbeddedEventMgrMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-                    return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.CeemregisteredpolicystatusEnum']
+                disabled = Enum.YLeaf(2, "disabled")
 
 
-            class CeemregisteredpolicytypeEnum(Enum):
+            class Ceemregisteredpolicytype(Enum):
                 """
-                CeemregisteredpolicytypeEnum
+                Ceemregisteredpolicytype
 
                 This variable indicates whether this is a user or system policy.
 
@@ -748,136 +1242,319 @@ class CiscoEmbeddedEventMgrMib(object):
 
                 """
 
-                user = 1
+                user = Enum.YLeaf(1, "user")
 
-                system = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-                    return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.CeemregisteredpolicytypeEnum']
+                system = Enum.YLeaf(2, "system")
 
 
-            @property
-            def _common_path(self):
-                if self.ceemregisteredpolicyindex is None:
-                    raise YPYModelError('Key property ceemregisteredpolicyindex is None')
+            def has_data(self):
+                return (
+                    self.ceemregisteredpolicyindex.is_set or
+                    self.ceemregisteredpolicyenabledtime.is_set or
+                    self.ceemregisteredpolicyeventtype1.is_set or
+                    self.ceemregisteredpolicyeventtype2.is_set or
+                    self.ceemregisteredpolicyeventtype3.is_set or
+                    self.ceemregisteredpolicyeventtype4.is_set or
+                    self.ceemregisteredpolicyeventtype5.is_set or
+                    self.ceemregisteredpolicyeventtype6.is_set or
+                    self.ceemregisteredpolicyeventtype7.is_set or
+                    self.ceemregisteredpolicyeventtype8.is_set or
+                    self.ceemregisteredpolicyname.is_set or
+                    self.ceemregisteredpolicynotifflag.is_set or
+                    self.ceemregisteredpolicyregtime.is_set or
+                    self.ceemregisteredpolicyruncount.is_set or
+                    self.ceemregisteredpolicyruntime.is_set or
+                    self.ceemregisteredpolicystatus.is_set or
+                    self.ceemregisteredpolicytype.is_set)
 
-                return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemRegisteredPolicyTable/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemRegisteredPolicyEntry[CISCO-EMBEDDED-EVENT-MGR-MIB:ceemRegisteredPolicyIndex = ' + str(self.ceemregisteredpolicyindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyindex.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyenabledtime.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype1.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype2.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype3.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype4.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype5.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype6.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype7.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyeventtype8.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyname.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicynotifflag.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyregtime.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyruncount.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicyruntime.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicystatus.yfilter != YFilter.not_set or
+                    self.ceemregisteredpolicytype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceemRegisteredPolicyEntry" + "[ceemRegisteredPolicyIndex='" + self.ceemregisteredpolicyindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemRegisteredPolicyTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ceemregisteredpolicyindex.is_set or self.ceemregisteredpolicyindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyindex.get_name_leafdata())
+                if (self.ceemregisteredpolicyenabledtime.is_set or self.ceemregisteredpolicyenabledtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyenabledtime.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype1.is_set or self.ceemregisteredpolicyeventtype1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype1.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype2.is_set or self.ceemregisteredpolicyeventtype2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype2.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype3.is_set or self.ceemregisteredpolicyeventtype3.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype3.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype4.is_set or self.ceemregisteredpolicyeventtype4.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype4.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype5.is_set or self.ceemregisteredpolicyeventtype5.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype5.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype6.is_set or self.ceemregisteredpolicyeventtype6.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype6.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype7.is_set or self.ceemregisteredpolicyeventtype7.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype7.get_name_leafdata())
+                if (self.ceemregisteredpolicyeventtype8.is_set or self.ceemregisteredpolicyeventtype8.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyeventtype8.get_name_leafdata())
+                if (self.ceemregisteredpolicyname.is_set or self.ceemregisteredpolicyname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyname.get_name_leafdata())
+                if (self.ceemregisteredpolicynotifflag.is_set or self.ceemregisteredpolicynotifflag.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicynotifflag.get_name_leafdata())
+                if (self.ceemregisteredpolicyregtime.is_set or self.ceemregisteredpolicyregtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyregtime.get_name_leafdata())
+                if (self.ceemregisteredpolicyruncount.is_set or self.ceemregisteredpolicyruncount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyruncount.get_name_leafdata())
+                if (self.ceemregisteredpolicyruntime.is_set or self.ceemregisteredpolicyruntime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicyruntime.get_name_leafdata())
+                if (self.ceemregisteredpolicystatus.is_set or self.ceemregisteredpolicystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicystatus.get_name_leafdata())
+                if (self.ceemregisteredpolicytype.is_set or self.ceemregisteredpolicytype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ceemregisteredpolicytype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ceemRegisteredPolicyIndex" or name == "ceemRegisteredPolicyEnabledTime" or name == "ceemRegisteredPolicyEventType1" or name == "ceemRegisteredPolicyEventType2" or name == "ceemRegisteredPolicyEventType3" or name == "ceemRegisteredPolicyEventType4" or name == "ceemRegisteredPolicyEventType5" or name == "ceemRegisteredPolicyEventType6" or name == "ceemRegisteredPolicyEventType7" or name == "ceemRegisteredPolicyEventType8" or name == "ceemRegisteredPolicyName" or name == "ceemRegisteredPolicyNotifFlag" or name == "ceemRegisteredPolicyRegTime" or name == "ceemRegisteredPolicyRunCount" or name == "ceemRegisteredPolicyRunTime" or name == "ceemRegisteredPolicyStatus" or name == "ceemRegisteredPolicyType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ceemregisteredpolicyindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ceemRegisteredPolicyIndex"):
+                    self.ceemregisteredpolicyindex = value
+                    self.ceemregisteredpolicyindex.value_namespace = name_space
+                    self.ceemregisteredpolicyindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEnabledTime"):
+                    self.ceemregisteredpolicyenabledtime = value
+                    self.ceemregisteredpolicyenabledtime.value_namespace = name_space
+                    self.ceemregisteredpolicyenabledtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType1"):
+                    self.ceemregisteredpolicyeventtype1 = value
+                    self.ceemregisteredpolicyeventtype1.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype1.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType2"):
+                    self.ceemregisteredpolicyeventtype2 = value
+                    self.ceemregisteredpolicyeventtype2.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype2.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType3"):
+                    self.ceemregisteredpolicyeventtype3 = value
+                    self.ceemregisteredpolicyeventtype3.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype3.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType4"):
+                    self.ceemregisteredpolicyeventtype4 = value
+                    self.ceemregisteredpolicyeventtype4.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype4.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType5"):
+                    self.ceemregisteredpolicyeventtype5 = value
+                    self.ceemregisteredpolicyeventtype5.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype5.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType6"):
+                    self.ceemregisteredpolicyeventtype6 = value
+                    self.ceemregisteredpolicyeventtype6.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype6.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType7"):
+                    self.ceemregisteredpolicyeventtype7 = value
+                    self.ceemregisteredpolicyeventtype7.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype7.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyEventType8"):
+                    self.ceemregisteredpolicyeventtype8 = value
+                    self.ceemregisteredpolicyeventtype8.value_namespace = name_space
+                    self.ceemregisteredpolicyeventtype8.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyName"):
+                    self.ceemregisteredpolicyname = value
+                    self.ceemregisteredpolicyname.value_namespace = name_space
+                    self.ceemregisteredpolicyname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyNotifFlag"):
+                    self.ceemregisteredpolicynotifflag = value
+                    self.ceemregisteredpolicynotifflag.value_namespace = name_space
+                    self.ceemregisteredpolicynotifflag.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyRegTime"):
+                    self.ceemregisteredpolicyregtime = value
+                    self.ceemregisteredpolicyregtime.value_namespace = name_space
+                    self.ceemregisteredpolicyregtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyRunCount"):
+                    self.ceemregisteredpolicyruncount = value
+                    self.ceemregisteredpolicyruncount.value_namespace = name_space
+                    self.ceemregisteredpolicyruncount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyRunTime"):
+                    self.ceemregisteredpolicyruntime = value
+                    self.ceemregisteredpolicyruntime.value_namespace = name_space
+                    self.ceemregisteredpolicyruntime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyStatus"):
+                    self.ceemregisteredpolicystatus = value
+                    self.ceemregisteredpolicystatus.value_namespace = name_space
+                    self.ceemregisteredpolicystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceemRegisteredPolicyType"):
+                    self.ceemregisteredpolicytype = value
+                    self.ceemregisteredpolicytype.value_namespace = name_space
+                    self.ceemregisteredpolicytype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ceemregisteredpolicyentry:
+                if (c.has_data()):
                     return True
-
-                if self.ceemregisteredpolicyenabledtime is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype1 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype2 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype3 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype4 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype5 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype6 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype7 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyeventtype8 is not None:
-                    return True
-
-                if self.ceemregisteredpolicyname is not None:
-                    return True
-
-                if self.ceemregisteredpolicynotifflag is not None:
-                    return True
-
-                if self.ceemregisteredpolicyregtime is not None:
-                    return True
-
-                if self.ceemregisteredpolicyruncount is not None:
-                    return True
-
-                if self.ceemregisteredpolicyruntime is not None:
-                    return True
-
-                if self.ceemregisteredpolicystatus is not None:
-                    return True
-
-                if self.ceemregisteredpolicytype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-                return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/CISCO-EMBEDDED-EVENT-MGR-MIB:ceemRegisteredPolicyTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ceemregisteredpolicyentry is not None:
-                for child_ref in self.ceemregisteredpolicyentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ceemregisteredpolicyentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceemRegisteredPolicyTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceemRegisteredPolicyEntry"):
+                for c in self.ceemregisteredpolicyentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable.Ceemregisteredpolicyentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ceemregisteredpolicyentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceemRegisteredPolicyEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-            return meta._meta_table['CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ceemeventmaptable is not None and self.ceemeventmaptable.has_data()) or
+            (self.ceemhistory is not None and self.ceemhistory.has_data()) or
+            (self.ceemhistoryeventtable is not None and self.ceemhistoryeventtable.has_data()) or
+            (self.ceemregisteredpolicytable is not None and self.ceemregisteredpolicytable.has_data()))
 
-        return '/CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ceemeventmaptable is not None and self.ceemeventmaptable.has_operation()) or
+            (self.ceemhistory is not None and self.ceemhistory.has_operation()) or
+            (self.ceemhistoryeventtable is not None and self.ceemhistoryeventtable.has_operation()) or
+            (self.ceemregisteredpolicytable is not None and self.ceemregisteredpolicytable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ceemEventMapTable"):
+            if (self.ceemeventmaptable is None):
+                self.ceemeventmaptable = CiscoEmbeddedEventMgrMib.Ceemeventmaptable()
+                self.ceemeventmaptable.parent = self
+                self._children_name_map["ceemeventmaptable"] = "ceemEventMapTable"
+            return self.ceemeventmaptable
+
+        if (child_yang_name == "ceemHistory"):
+            if (self.ceemhistory is None):
+                self.ceemhistory = CiscoEmbeddedEventMgrMib.Ceemhistory()
+                self.ceemhistory.parent = self
+                self._children_name_map["ceemhistory"] = "ceemHistory"
+            return self.ceemhistory
+
+        if (child_yang_name == "ceemHistoryEventTable"):
+            if (self.ceemhistoryeventtable is None):
+                self.ceemhistoryeventtable = CiscoEmbeddedEventMgrMib.Ceemhistoryeventtable()
+                self.ceemhistoryeventtable.parent = self
+                self._children_name_map["ceemhistoryeventtable"] = "ceemHistoryEventTable"
+            return self.ceemhistoryeventtable
+
+        if (child_yang_name == "ceemRegisteredPolicyTable"):
+            if (self.ceemregisteredpolicytable is None):
+                self.ceemregisteredpolicytable = CiscoEmbeddedEventMgrMib.Ceemregisteredpolicytable()
+                self.ceemregisteredpolicytable.parent = self
+                self._children_name_map["ceemregisteredpolicytable"] = "ceemRegisteredPolicyTable"
+            return self.ceemregisteredpolicytable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ceemEventMapTable" or name == "ceemHistory" or name == "ceemHistoryEventTable" or name == "ceemRegisteredPolicyTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ceemeventmaptable is not None and self.ceemeventmaptable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ceemhistory is not None and self.ceemhistory._has_data():
-            return True
-
-        if self.ceemhistoryeventtable is not None and self.ceemhistoryeventtable._has_data():
-            return True
-
-        if self.ceemregisteredpolicytable is not None and self.ceemregisteredpolicytable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_EMBEDDED_EVENT_MGR_MIB as meta
-        return meta._meta_table['CiscoEmbeddedEventMgrMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoEmbeddedEventMgrMib()
+        return self._top_entity
 

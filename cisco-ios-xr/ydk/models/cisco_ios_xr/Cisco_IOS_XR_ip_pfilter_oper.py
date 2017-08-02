@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class PfilterMa(object):
+class PfilterMa(Entity):
     """
     Root class of PfilterMa Oper schema
     
@@ -42,11 +36,19 @@ class PfilterMa(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(PfilterMa, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "pfilter-ma"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-pfilter-oper"
+
         self.nodes = PfilterMa.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         Node\-specific operational data
         
@@ -63,13 +65,39 @@ class PfilterMa(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(PfilterMa.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "pfilter-ma"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(PfilterMa.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(PfilterMa.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             PfilterMa operational data for a particular
             node
@@ -94,13 +122,44 @@ class PfilterMa(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(PfilterMa.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.process = PfilterMa.Nodes.Node.Process()
                 self.process.parent = self
+                self._children_name_map["process"] = "process"
+                self._children_yang_names.add("process")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(PfilterMa.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(PfilterMa.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Process(object):
+            class Process(Entity):
                 """
                 Operational data for pfilter
                 
@@ -122,14 +181,23 @@ class PfilterMa(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(PfilterMa.Nodes.Node.Process, self).__init__()
+
+                    self.yang_name = "process"
+                    self.yang_parent_name = "node"
+
                     self.ipv4 = PfilterMa.Nodes.Node.Process.Ipv4()
                     self.ipv4.parent = self
+                    self._children_name_map["ipv4"] = "ipv4"
+                    self._children_yang_names.add("ipv4")
+
                     self.ipv6 = PfilterMa.Nodes.Node.Process.Ipv6()
                     self.ipv6.parent = self
+                    self._children_name_map["ipv6"] = "ipv6"
+                    self._children_yang_names.add("ipv6")
 
 
-                class Ipv6(object):
+                class Ipv6(Entity):
                     """
                     Operational data for pfilter
                     
@@ -146,12 +214,18 @@ class PfilterMa(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(PfilterMa.Nodes.Node.Process.Ipv6, self).__init__()
+
+                        self.yang_name = "ipv6"
+                        self.yang_parent_name = "process"
+
                         self.acl_info_table = PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable()
                         self.acl_info_table.parent = self
+                        self._children_name_map["acl_info_table"] = "acl-info-table"
+                        self._children_yang_names.add("acl-info-table")
 
 
-                    class AclInfoTable(object):
+                    class AclInfoTable(Entity):
                         """
                         Operational data for pfilter
                         
@@ -168,12 +242,18 @@ class PfilterMa(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable, self).__init__()
+
+                            self.yang_name = "acl-info-table"
+                            self.yang_parent_name = "ipv6"
+
                             self.interface_infos = PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos()
                             self.interface_infos.parent = self
+                            self._children_name_map["interface_infos"] = "interface-infos"
+                            self._children_yang_names.add("interface-infos")
 
 
-                        class InterfaceInfos(object):
+                        class InterfaceInfos(Entity):
                             """
                             Operational data for pfilter
                             
@@ -190,13 +270,39 @@ class PfilterMa(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.interface_info = YList()
-                                self.interface_info.parent = self
-                                self.interface_info.name = 'interface_info'
+                                super(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos, self).__init__()
+
+                                self.yang_name = "interface-infos"
+                                self.yang_parent_name = "acl-info-table"
+
+                                self.interface_info = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos, self).__setattr__(name, value)
 
 
-                            class InterfaceInfo(object):
+                            class InterfaceInfo(Entity):
                                 """
                                 Operational data for pfilter in bag
                                 
@@ -220,107 +326,250 @@ class PfilterMa(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.interface_name = None
-                                    self.acl_info = None
+                                    super(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.interface_name is None:
-                                        raise YPYModelError('Key property interface_name is None')
+                                    self.yang_name = "interface-info"
+                                    self.yang_parent_name = "interface-infos"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface-info[Cisco-IOS-XR-ip-pfilter-oper:interface-name = ' + str(self.interface_name) + ']'
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.acl_info = YLeaf(YType.str, "acl-info")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("interface_name",
+                                                    "acl_info") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.interface_name.is_set or
+                                        self.acl_info.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.interface_name.yfilter != YFilter.not_set or
+                                        self.acl_info.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "interface-info" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                    if (self.acl_info.is_set or self.acl_info.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.acl_info.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "interface-name" or name == "acl-info"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.interface_name is not None:
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "interface-name"):
+                                        self.interface_name = value
+                                        self.interface_name.value_namespace = name_space
+                                        self.interface_name.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "acl-info"):
+                                        self.acl_info = value
+                                        self.acl_info.value_namespace = name_space
+                                        self.acl_info.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.interface_info:
+                                    if (c.has_data()):
                                         return True
-
-                                    if self.acl_info is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                                    return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface-infos'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
                                 return False
 
-                            def _has_data(self):
-                                if self.interface_info is not None:
-                                    for child_ref in self.interface_info:
-                                        if child_ref._has_data():
-                                            return True
+                            def has_operation(self):
+                                for c in self.interface_info:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "interface-infos" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "interface-info"):
+                                    for c in self.interface_info:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.interface_info.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "interface-info"):
+                                    return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                                return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (self.interface_infos is not None and self.interface_infos.has_data())
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:acl-info-table'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.interface_infos is not None and self.interface_infos.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "acl-info-table" + path_buffer
 
-                        def _has_data(self):
-                            if self.interface_infos is not None and self.interface_infos._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "interface-infos"):
+                                if (self.interface_infos is None):
+                                    self.interface_infos = PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos()
+                                    self.interface_infos.parent = self
+                                    self._children_name_map["interface_infos"] = "interface-infos"
+                                return self.interface_infos
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-infos"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                            return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (self.acl_info_table is not None and self.acl_info_table.has_data())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:ipv6'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.acl_info_table is not None and self.acl_info_table.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipv6" + path_buffer
 
-                    def _has_data(self):
-                        if self.acl_info_table is not None and self.acl_info_table._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "acl-info-table"):
+                            if (self.acl_info_table is None):
+                                self.acl_info_table = PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable()
+                                self.acl_info_table.parent = self
+                                self._children_name_map["acl_info_table"] = "acl-info-table"
+                            return self.acl_info_table
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "acl-info-table"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                        return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv6']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Ipv4(object):
+                class Ipv4(Entity):
                     """
                     Operational data for pfilter
                     
@@ -337,12 +586,18 @@ class PfilterMa(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(PfilterMa.Nodes.Node.Process.Ipv4, self).__init__()
+
+                        self.yang_name = "ipv4"
+                        self.yang_parent_name = "process"
+
                         self.acl_info_table = PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable()
                         self.acl_info_table.parent = self
+                        self._children_name_map["acl_info_table"] = "acl-info-table"
+                        self._children_yang_names.add("acl-info-table")
 
 
-                    class AclInfoTable(object):
+                    class AclInfoTable(Entity):
                         """
                         Operational data for pfilter
                         
@@ -359,12 +614,18 @@ class PfilterMa(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable, self).__init__()
+
+                            self.yang_name = "acl-info-table"
+                            self.yang_parent_name = "ipv4"
+
                             self.interface_infos = PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos()
                             self.interface_infos.parent = self
+                            self._children_name_map["interface_infos"] = "interface-infos"
+                            self._children_yang_names.add("interface-infos")
 
 
-                        class InterfaceInfos(object):
+                        class InterfaceInfos(Entity):
                             """
                             Operational data for pfilter
                             
@@ -381,13 +642,39 @@ class PfilterMa(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.interface_info = YList()
-                                self.interface_info.parent = self
-                                self.interface_info.name = 'interface_info'
+                                super(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos, self).__init__()
+
+                                self.yang_name = "interface-infos"
+                                self.yang_parent_name = "acl-info-table"
+
+                                self.interface_info = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos, self).__setattr__(name, value)
 
 
-                            class InterfaceInfo(object):
+                            class InterfaceInfo(Entity):
                                 """
                                 Operational data for pfilter in bag
                                 
@@ -411,195 +698,467 @@ class PfilterMa(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.interface_name = None
-                                    self.acl_info = None
+                                    super(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.interface_name is None:
-                                        raise YPYModelError('Key property interface_name is None')
+                                    self.yang_name = "interface-info"
+                                    self.yang_parent_name = "interface-infos"
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface-info[Cisco-IOS-XR-ip-pfilter-oper:interface-name = ' + str(self.interface_name) + ']'
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    self.acl_info = YLeaf(YType.str, "acl-info")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("interface_name",
+                                                    "acl_info") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.interface_name.is_set or
+                                        self.acl_info.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.interface_name.yfilter != YFilter.not_set or
+                                        self.acl_info.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "interface-info" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                    if (self.acl_info.is_set or self.acl_info.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.acl_info.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "interface-name" or name == "acl-info"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.interface_name is not None:
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "interface-name"):
+                                        self.interface_name = value
+                                        self.interface_name.value_namespace = name_space
+                                        self.interface_name.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "acl-info"):
+                                        self.acl_info = value
+                                        self.acl_info.value_namespace = name_space
+                                        self.acl_info.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.interface_info:
+                                    if (c.has_data()):
                                         return True
-
-                                    if self.acl_info is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                                    return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:interface-infos'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
                                 return False
 
-                            def _has_data(self):
-                                if self.interface_info is not None:
-                                    for child_ref in self.interface_info:
-                                        if child_ref._has_data():
-                                            return True
+                            def has_operation(self):
+                                for c in self.interface_info:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "interface-infos" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "interface-info"):
+                                    for c in self.interface_info:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.interface_info.append(c)
+                                    return c
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "interface-info"):
+                                    return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                                return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (self.interface_infos is not None and self.interface_infos.has_data())
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:acl-info-table'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.interface_infos is not None and self.interface_infos.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "acl-info-table" + path_buffer
 
-                        def _has_data(self):
-                            if self.interface_infos is not None and self.interface_infos._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "interface-infos"):
+                                if (self.interface_infos is None):
+                                    self.interface_infos = PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos()
+                                    self.interface_infos.parent = self
+                                    self._children_name_map["interface_infos"] = "interface-infos"
+                                return self.interface_infos
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-infos"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                            return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (self.acl_info_table is not None and self.acl_info_table.has_data())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:ipv4'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.acl_info_table is not None and self.acl_info_table.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipv4" + path_buffer
 
-                    def _has_data(self):
-                        if self.acl_info_table is not None and self.acl_info_table._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "acl-info-table"):
+                            if (self.acl_info_table is None):
+                                self.acl_info_table = PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable()
+                                self.acl_info_table.parent = self
+                                self._children_name_map["acl_info_table"] = "acl-info-table"
+                            return self.acl_info_table
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "acl-info-table"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                        return meta._meta_table['PfilterMa.Nodes.Node.Process.Ipv4']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.ipv4 is not None and self.ipv4.has_data()) or
+                        (self.ipv6 is not None and self.ipv6.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-oper:process'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.ipv4 is not None and self.ipv4.has_operation()) or
+                        (self.ipv6 is not None and self.ipv6.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "process" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "ipv4"):
+                        if (self.ipv4 is None):
+                            self.ipv4 = PfilterMa.Nodes.Node.Process.Ipv4()
+                            self.ipv4.parent = self
+                            self._children_name_map["ipv4"] = "ipv4"
+                        return self.ipv4
+
+                    if (child_yang_name == "ipv6"):
+                        if (self.ipv6 is None):
+                            self.ipv6 = PfilterMa.Nodes.Node.Process.Ipv6()
+                            self.ipv6.parent = self
+                            self._children_name_map["ipv6"] = "ipv6"
+                        return self.ipv6
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ipv4" or name == "ipv6"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.ipv4 is not None and self.ipv4._has_data():
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-                    if self.ipv6 is not None and self.ipv6._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.process is not None and self.process.has_data()))
 
-                    return False
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.process is not None and self.process.has_operation()))
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                    return meta._meta_table['PfilterMa.Nodes.Node.Process']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/Cisco-IOS-XR-ip-pfilter-oper:nodes/Cisco-IOS-XR-ip-pfilter-oper:node[Cisco-IOS-XR-ip-pfilter-oper:node-name = ' + str(self.node_name) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "process"):
+                    if (self.process is None):
+                        self.process = PfilterMa.Nodes.Node.Process()
+                        self.process.parent = self
+                        self._children_name_map["process"] = "process"
+                    return self.process
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "process" or name == "node-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.node_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
                     return True
-
-                if self.process is not None and self.process._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-                return meta._meta_table['PfilterMa.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/Cisco-IOS-XR-ip-pfilter-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = PfilterMa.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-            return meta._meta_table['PfilterMa.Nodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
 
-        return '/Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma" + path_buffer
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = PfilterMa.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_pfilter_oper as meta
-        return meta._meta_table['PfilterMa']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = PfilterMa()
+        return self._top_entity
 

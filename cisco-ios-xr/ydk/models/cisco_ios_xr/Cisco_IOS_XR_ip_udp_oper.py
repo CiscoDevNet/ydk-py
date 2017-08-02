@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AddrFamilyEnum(Enum):
+class AddrFamily(Enum):
     """
-    AddrFamilyEnum
+    AddrFamily
 
     Address Family Types
 
@@ -201,100 +195,94 @@ class AddrFamilyEnum(Enum):
 
     """
 
-    unspecified = 0
+    unspecified = Enum.YLeaf(0, "unspecified")
 
-    local = 1
+    local = Enum.YLeaf(1, "local")
 
-    inet = 2
+    inet = Enum.YLeaf(2, "inet")
 
-    implink = 3
+    implink = Enum.YLeaf(3, "implink")
 
-    pup = 4
+    pup = Enum.YLeaf(4, "pup")
 
-    chaos = 5
+    chaos = Enum.YLeaf(5, "chaos")
 
-    ns = 6
+    ns = Enum.YLeaf(6, "ns")
 
-    iso = 7
+    iso = Enum.YLeaf(7, "iso")
 
-    ecma = 8
+    ecma = Enum.YLeaf(8, "ecma")
 
-    data_kit = 9
+    data_kit = Enum.YLeaf(9, "data-kit")
 
-    ccitt = 10
+    ccitt = Enum.YLeaf(10, "ccitt")
 
-    sna = 11
+    sna = Enum.YLeaf(11, "sna")
 
-    de_cnet = 12
+    de_cnet = Enum.YLeaf(12, "de-cnet")
 
-    dli = 13
+    dli = Enum.YLeaf(13, "dli")
 
-    lat = 14
+    lat = Enum.YLeaf(14, "lat")
 
-    hylink = 15
+    hylink = Enum.YLeaf(15, "hylink")
 
-    appletalk = 16
+    appletalk = Enum.YLeaf(16, "appletalk")
 
-    route = 17
+    route = Enum.YLeaf(17, "route")
 
-    link = 18
+    link = Enum.YLeaf(18, "link")
 
-    pseudo_xtp = 19
+    pseudo_xtp = Enum.YLeaf(19, "pseudo-xtp")
 
-    coip = 20
+    coip = Enum.YLeaf(20, "coip")
 
-    cnt = 21
+    cnt = Enum.YLeaf(21, "cnt")
 
-    pseudo_rtip = 22
+    pseudo_rtip = Enum.YLeaf(22, "pseudo-rtip")
 
-    ipx = 23
+    ipx = Enum.YLeaf(23, "ipx")
 
-    sip = 24
+    sip = Enum.YLeaf(24, "sip")
 
-    pseudo_pip = 25
+    pseudo_pip = Enum.YLeaf(25, "pseudo-pip")
 
-    inet6 = 26
+    inet6 = Enum.YLeaf(26, "inet6")
 
-    snap = 27
+    snap = Enum.YLeaf(27, "snap")
 
-    clnl = 28
+    clnl = Enum.YLeaf(28, "clnl")
 
-    chdlc = 29
+    chdlc = Enum.YLeaf(29, "chdlc")
 
-    ppp = 30
+    ppp = Enum.YLeaf(30, "ppp")
 
-    host_cas = 31
+    host_cas = Enum.YLeaf(31, "host-cas")
 
-    dsp = 32
+    dsp = Enum.YLeaf(32, "dsp")
 
-    sap = 33
+    sap = Enum.YLeaf(33, "sap")
 
-    atm = 34
+    atm = Enum.YLeaf(34, "atm")
 
-    fr = 35
+    fr = Enum.YLeaf(35, "fr")
 
-    mso = 36
+    mso = Enum.YLeaf(36, "mso")
 
-    dchan = 37
+    dchan = Enum.YLeaf(37, "dchan")
 
-    cas = 38
+    cas = Enum.YLeaf(38, "cas")
 
-    nat = 39
+    nat = Enum.YLeaf(39, "nat")
 
-    ether = 40
+    ether = Enum.YLeaf(40, "ether")
 
-    srp = 41
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['AddrFamilyEnum']
+    srp = Enum.YLeaf(41, "srp")
 
 
-class LptsPcbQueryEnum(Enum):
+class LptsPcbQuery(Enum):
     """
-    LptsPcbQueryEnum
+    LptsPcbQuery
 
     Lpts pcb query
 
@@ -316,24 +304,18 @@ class LptsPcbQueryEnum(Enum):
 
     """
 
-    all = 0
+    all = Enum.YLeaf(0, "all")
 
-    static_policy = 1
+    static_policy = Enum.YLeaf(1, "static-policy")
 
-    interface = 2
+    interface = Enum.YLeaf(2, "interface")
 
-    packet = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['LptsPcbQueryEnum']
+    packet = Enum.YLeaf(3, "packet")
 
 
-class MessageTypeIcmpEnum(Enum):
+class MessageTypeIcmp(Enum):
     """
-    MessageTypeIcmpEnum
+    MessageTypeIcmp
 
     LPTS ICMP message types
 
@@ -435,64 +417,58 @@ class MessageTypeIcmpEnum(Enum):
 
     """
 
-    echo_reply = 0
+    echo_reply = Enum.YLeaf(0, "echo-reply")
 
-    destination_unreachable = 3
+    destination_unreachable = Enum.YLeaf(3, "destination-unreachable")
 
-    source_quench = 4
+    source_quench = Enum.YLeaf(4, "source-quench")
 
-    redirect = 5
+    redirect = Enum.YLeaf(5, "redirect")
 
-    alternate_host_address = 6
+    alternate_host_address = Enum.YLeaf(6, "alternate-host-address")
 
-    echo = 8
+    echo = Enum.YLeaf(8, "echo")
 
-    router_advertisement = 9
+    router_advertisement = Enum.YLeaf(9, "router-advertisement")
 
-    router_selection = 10
+    router_selection = Enum.YLeaf(10, "router-selection")
 
-    time_exceeded = 11
+    time_exceeded = Enum.YLeaf(11, "time-exceeded")
 
-    parameter_problem = 12
+    parameter_problem = Enum.YLeaf(12, "parameter-problem")
 
-    time_stamp = 13
+    time_stamp = Enum.YLeaf(13, "time-stamp")
 
-    time_stamp_reply = 14
+    time_stamp_reply = Enum.YLeaf(14, "time-stamp-reply")
 
-    information_request = 15
+    information_request = Enum.YLeaf(15, "information-request")
 
-    information_reply = 16
+    information_reply = Enum.YLeaf(16, "information-reply")
 
-    address_mask_request = 17
+    address_mask_request = Enum.YLeaf(17, "address-mask-request")
 
-    address_mask_reply = 18
+    address_mask_reply = Enum.YLeaf(18, "address-mask-reply")
 
-    trace_route = 30
+    trace_route = Enum.YLeaf(30, "trace-route")
 
-    datagram_conversion_error = 31
+    datagram_conversion_error = Enum.YLeaf(31, "datagram-conversion-error")
 
-    mobile_host_redirect = 32
+    mobile_host_redirect = Enum.YLeaf(32, "mobile-host-redirect")
 
-    where_are_you = 33
+    where_are_you = Enum.YLeaf(33, "where-are-you")
 
-    iam_here = 34
+    iam_here = Enum.YLeaf(34, "iam-here")
 
-    mobile_registration_request = 35
+    mobile_registration_request = Enum.YLeaf(35, "mobile-registration-request")
 
-    mobile_registration_reply = 36
+    mobile_registration_reply = Enum.YLeaf(36, "mobile-registration-reply")
 
-    domain_name_request = 37
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmpEnum']
+    domain_name_request = Enum.YLeaf(37, "domain-name-request")
 
 
-class MessageTypeIcmpEnum(Enum):
+class MessageTypeIcmp(Enum):
     """
-    MessageTypeIcmpEnum
+    MessageTypeIcmp
 
     LPTS ICMP message types
 
@@ -594,64 +570,58 @@ class MessageTypeIcmpEnum(Enum):
 
     """
 
-    echo_reply = 0
+    echo_reply = Enum.YLeaf(0, "echo-reply")
 
-    destination_unreachable = 3
+    destination_unreachable = Enum.YLeaf(3, "destination-unreachable")
 
-    source_quench = 4
+    source_quench = Enum.YLeaf(4, "source-quench")
 
-    redirect = 5
+    redirect = Enum.YLeaf(5, "redirect")
 
-    alternate_host_address = 6
+    alternate_host_address = Enum.YLeaf(6, "alternate-host-address")
 
-    echo = 8
+    echo = Enum.YLeaf(8, "echo")
 
-    router_advertisement = 9
+    router_advertisement = Enum.YLeaf(9, "router-advertisement")
 
-    router_selection = 10
+    router_selection = Enum.YLeaf(10, "router-selection")
 
-    time_exceeded = 11
+    time_exceeded = Enum.YLeaf(11, "time-exceeded")
 
-    parameter_problem = 12
+    parameter_problem = Enum.YLeaf(12, "parameter-problem")
 
-    time_stamp = 13
+    time_stamp = Enum.YLeaf(13, "time-stamp")
 
-    time_stamp_reply = 14
+    time_stamp_reply = Enum.YLeaf(14, "time-stamp-reply")
 
-    information_request = 15
+    information_request = Enum.YLeaf(15, "information-request")
 
-    information_reply = 16
+    information_reply = Enum.YLeaf(16, "information-reply")
 
-    address_mask_request = 17
+    address_mask_request = Enum.YLeaf(17, "address-mask-request")
 
-    address_mask_reply = 18
+    address_mask_reply = Enum.YLeaf(18, "address-mask-reply")
 
-    trace_route = 30
+    trace_route = Enum.YLeaf(30, "trace-route")
 
-    datagram_conversion_error = 31
+    datagram_conversion_error = Enum.YLeaf(31, "datagram-conversion-error")
 
-    mobile_host_redirect = 32
+    mobile_host_redirect = Enum.YLeaf(32, "mobile-host-redirect")
 
-    where_are_you = 33
+    where_are_you = Enum.YLeaf(33, "where-are-you")
 
-    iam_here = 34
+    iam_here = Enum.YLeaf(34, "iam-here")
 
-    mobile_registration_request = 35
+    mobile_registration_request = Enum.YLeaf(35, "mobile-registration-request")
 
-    mobile_registration_reply = 36
+    mobile_registration_reply = Enum.YLeaf(36, "mobile-registration-reply")
 
-    domain_name_request = 37
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmpEnum']
+    domain_name_request = Enum.YLeaf(37, "domain-name-request")
 
 
-class MessageTypeIcmpv6Enum(Enum):
+class MessageTypeIcmpv6(Enum):
     """
-    MessageTypeIcmpv6Enum
+    MessageTypeIcmpv6
 
     LPTS ICMPv6 message types
 
@@ -805,78 +775,72 @@ class MessageTypeIcmpv6Enum(Enum):
 
     """
 
-    destination_unreachable = 1
+    destination_unreachable = Enum.YLeaf(1, "destination-unreachable")
 
-    packet_too_big = 2
+    packet_too_big = Enum.YLeaf(2, "packet-too-big")
 
-    time_exceeded = 3
+    time_exceeded = Enum.YLeaf(3, "time-exceeded")
 
-    parameter_problem = 4
+    parameter_problem = Enum.YLeaf(4, "parameter-problem")
 
-    echo_request = 128
+    echo_request = Enum.YLeaf(128, "echo-request")
 
-    echo_reply = 129
+    echo_reply = Enum.YLeaf(129, "echo-reply")
 
-    multicast_listener_query = 130
+    multicast_listener_query = Enum.YLeaf(130, "multicast-listener-query")
 
-    multicast_listener_report = 131
+    multicast_listener_report = Enum.YLeaf(131, "multicast-listener-report")
 
-    multicast_listener_done = 132
+    multicast_listener_done = Enum.YLeaf(132, "multicast-listener-done")
 
-    router_solicitation = 133
+    router_solicitation = Enum.YLeaf(133, "router-solicitation")
 
-    router_advertisement = 134
+    router_advertisement = Enum.YLeaf(134, "router-advertisement")
 
-    neighbor_solicitation = 135
+    neighbor_solicitation = Enum.YLeaf(135, "neighbor-solicitation")
 
-    neighbor_advertisement = 136
+    neighbor_advertisement = Enum.YLeaf(136, "neighbor-advertisement")
 
-    redirect_message = 137
+    redirect_message = Enum.YLeaf(137, "redirect-message")
 
-    router_renumbering = 138
+    router_renumbering = Enum.YLeaf(138, "router-renumbering")
 
-    node_information_query = 139
+    node_information_query = Enum.YLeaf(139, "node-information-query")
 
-    node_information_reply = 140
+    node_information_reply = Enum.YLeaf(140, "node-information-reply")
 
-    inverse_neighbor_discovery_solicitaion = 141
+    inverse_neighbor_discovery_solicitaion = Enum.YLeaf(141, "inverse-neighbor-discovery-solicitaion")
 
-    inverse_neighbor_discover_advertisement = 142
+    inverse_neighbor_discover_advertisement = Enum.YLeaf(142, "inverse-neighbor-discover-advertisement")
 
-    v2_multicast_listener_report = 143
+    v2_multicast_listener_report = Enum.YLeaf(143, "v2-multicast-listener-report")
 
-    home_agent_address_discovery_request = 144
+    home_agent_address_discovery_request = Enum.YLeaf(144, "home-agent-address-discovery-request")
 
-    home_agent_address_discovery_reply = 145
+    home_agent_address_discovery_reply = Enum.YLeaf(145, "home-agent-address-discovery-reply")
 
-    mobile_prefix_solicitation = 146
+    mobile_prefix_solicitation = Enum.YLeaf(146, "mobile-prefix-solicitation")
 
-    mobile_prefix_advertisement = 147
+    mobile_prefix_advertisement = Enum.YLeaf(147, "mobile-prefix-advertisement")
 
-    certification_path_solicitation_message = 148
+    certification_path_solicitation_message = Enum.YLeaf(148, "certification-path-solicitation-message")
 
-    certification_path_advertisement_message = 149
+    certification_path_advertisement_message = Enum.YLeaf(149, "certification-path-advertisement-message")
 
-    experimental_mobility_protocols = 150
+    experimental_mobility_protocols = Enum.YLeaf(150, "experimental-mobility-protocols")
 
-    multicast_router_advertisement = 151
+    multicast_router_advertisement = Enum.YLeaf(151, "multicast-router-advertisement")
 
-    multicast_router_solicitation = 152
+    multicast_router_solicitation = Enum.YLeaf(152, "multicast-router-solicitation")
 
-    multicast_router_termination = 153
+    multicast_router_termination = Enum.YLeaf(153, "multicast-router-termination")
 
-    fmipv6_messages = 154
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmpv6Enum']
+    fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
-class MessageTypeIcmpv6Enum(Enum):
+class MessageTypeIcmpv6(Enum):
     """
-    MessageTypeIcmpv6Enum
+    MessageTypeIcmpv6
 
     LPTS ICMPv6 message types
 
@@ -1030,78 +994,72 @@ class MessageTypeIcmpv6Enum(Enum):
 
     """
 
-    destination_unreachable = 1
+    destination_unreachable = Enum.YLeaf(1, "destination-unreachable")
 
-    packet_too_big = 2
+    packet_too_big = Enum.YLeaf(2, "packet-too-big")
 
-    time_exceeded = 3
+    time_exceeded = Enum.YLeaf(3, "time-exceeded")
 
-    parameter_problem = 4
+    parameter_problem = Enum.YLeaf(4, "parameter-problem")
 
-    echo_request = 128
+    echo_request = Enum.YLeaf(128, "echo-request")
 
-    echo_reply = 129
+    echo_reply = Enum.YLeaf(129, "echo-reply")
 
-    multicast_listener_query = 130
+    multicast_listener_query = Enum.YLeaf(130, "multicast-listener-query")
 
-    multicast_listener_report = 131
+    multicast_listener_report = Enum.YLeaf(131, "multicast-listener-report")
 
-    multicast_listener_done = 132
+    multicast_listener_done = Enum.YLeaf(132, "multicast-listener-done")
 
-    router_solicitation = 133
+    router_solicitation = Enum.YLeaf(133, "router-solicitation")
 
-    router_advertisement = 134
+    router_advertisement = Enum.YLeaf(134, "router-advertisement")
 
-    neighbor_solicitation = 135
+    neighbor_solicitation = Enum.YLeaf(135, "neighbor-solicitation")
 
-    neighbor_advertisement = 136
+    neighbor_advertisement = Enum.YLeaf(136, "neighbor-advertisement")
 
-    redirect_message = 137
+    redirect_message = Enum.YLeaf(137, "redirect-message")
 
-    router_renumbering = 138
+    router_renumbering = Enum.YLeaf(138, "router-renumbering")
 
-    node_information_query = 139
+    node_information_query = Enum.YLeaf(139, "node-information-query")
 
-    node_information_reply = 140
+    node_information_reply = Enum.YLeaf(140, "node-information-reply")
 
-    inverse_neighbor_discovery_solicitaion = 141
+    inverse_neighbor_discovery_solicitaion = Enum.YLeaf(141, "inverse-neighbor-discovery-solicitaion")
 
-    inverse_neighbor_discover_advertisement = 142
+    inverse_neighbor_discover_advertisement = Enum.YLeaf(142, "inverse-neighbor-discover-advertisement")
 
-    v2_multicast_listener_report = 143
+    v2_multicast_listener_report = Enum.YLeaf(143, "v2-multicast-listener-report")
 
-    home_agent_address_discovery_request = 144
+    home_agent_address_discovery_request = Enum.YLeaf(144, "home-agent-address-discovery-request")
 
-    home_agent_address_discovery_reply = 145
+    home_agent_address_discovery_reply = Enum.YLeaf(145, "home-agent-address-discovery-reply")
 
-    mobile_prefix_solicitation = 146
+    mobile_prefix_solicitation = Enum.YLeaf(146, "mobile-prefix-solicitation")
 
-    mobile_prefix_advertisement = 147
+    mobile_prefix_advertisement = Enum.YLeaf(147, "mobile-prefix-advertisement")
 
-    certification_path_solicitation_message = 148
+    certification_path_solicitation_message = Enum.YLeaf(148, "certification-path-solicitation-message")
 
-    certification_path_advertisement_message = 149
+    certification_path_advertisement_message = Enum.YLeaf(149, "certification-path-advertisement-message")
 
-    experimental_mobility_protocols = 150
+    experimental_mobility_protocols = Enum.YLeaf(150, "experimental-mobility-protocols")
 
-    multicast_router_advertisement = 151
+    multicast_router_advertisement = Enum.YLeaf(151, "multicast-router-advertisement")
 
-    multicast_router_solicitation = 152
+    multicast_router_solicitation = Enum.YLeaf(152, "multicast-router-solicitation")
 
-    multicast_router_termination = 153
+    multicast_router_termination = Enum.YLeaf(153, "multicast-router-termination")
 
-    fmipv6_messages = 154
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIcmpv6Enum']
+    fmipv6_messages = Enum.YLeaf(154, "fmipv6-messages")
 
 
-class MessageTypeIgmpEnum(Enum):
+class MessageTypeIgmp(Enum):
     """
-    MessageTypeIgmpEnum
+    MessageTypeIgmp
 
     LPTS IGMP message types
 
@@ -1161,42 +1119,36 @@ class MessageTypeIgmpEnum(Enum):
 
     """
 
-    membership_query = 17
+    membership_query = Enum.YLeaf(17, "membership-query")
 
-    v1_membership_report = 18
+    v1_membership_report = Enum.YLeaf(18, "v1-membership-report")
 
-    dvmrp = 19
+    dvmrp = Enum.YLeaf(19, "dvmrp")
 
-    pi_mv1 = 20
+    pi_mv1 = Enum.YLeaf(20, "pi-mv1")
 
-    cisco_trace_messages = 21
+    cisco_trace_messages = Enum.YLeaf(21, "cisco-trace-messages")
 
-    v2_membership_report = 22
+    v2_membership_report = Enum.YLeaf(22, "v2-membership-report")
 
-    v2_leave_group = 23
+    v2_leave_group = Enum.YLeaf(23, "v2-leave-group")
 
-    multicast_traceroute_response = 30
+    multicast_traceroute_response = Enum.YLeaf(30, "multicast-traceroute-response")
 
-    multicast_traceroute = 31
+    multicast_traceroute = Enum.YLeaf(31, "multicast-traceroute")
 
-    v3_membership_report = 34
+    v3_membership_report = Enum.YLeaf(34, "v3-membership-report")
 
-    multicast_router_advertisement = 48
+    multicast_router_advertisement = Enum.YLeaf(48, "multicast-router-advertisement")
 
-    multicast_router_solicitation = 49
+    multicast_router_solicitation = Enum.YLeaf(49, "multicast-router-solicitation")
 
-    multicast_router_termination = 50
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIgmpEnum']
+    multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
 
 
-class MessageTypeIgmpEnum(Enum):
+class MessageTypeIgmp(Enum):
     """
-    MessageTypeIgmpEnum
+    MessageTypeIgmp
 
     LPTS IGMP message types
 
@@ -1256,42 +1208,36 @@ class MessageTypeIgmpEnum(Enum):
 
     """
 
-    membership_query = 17
+    membership_query = Enum.YLeaf(17, "membership-query")
 
-    v1_membership_report = 18
+    v1_membership_report = Enum.YLeaf(18, "v1-membership-report")
 
-    dvmrp = 19
+    dvmrp = Enum.YLeaf(19, "dvmrp")
 
-    pi_mv1 = 20
+    pi_mv1 = Enum.YLeaf(20, "pi-mv1")
 
-    cisco_trace_messages = 21
+    cisco_trace_messages = Enum.YLeaf(21, "cisco-trace-messages")
 
-    v2_membership_report = 22
+    v2_membership_report = Enum.YLeaf(22, "v2-membership-report")
 
-    v2_leave_group = 23
+    v2_leave_group = Enum.YLeaf(23, "v2-leave-group")
 
-    multicast_traceroute_response = 30
+    multicast_traceroute_response = Enum.YLeaf(30, "multicast-traceroute-response")
 
-    multicast_traceroute = 31
+    multicast_traceroute = Enum.YLeaf(31, "multicast-traceroute")
 
-    v3_membership_report = 34
+    v3_membership_report = Enum.YLeaf(34, "v3-membership-report")
 
-    multicast_router_advertisement = 48
+    multicast_router_advertisement = Enum.YLeaf(48, "multicast-router-advertisement")
 
-    multicast_router_solicitation = 49
+    multicast_router_solicitation = Enum.YLeaf(49, "multicast-router-solicitation")
 
-    multicast_router_termination = 50
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['MessageTypeIgmpEnum']
+    multicast_router_termination = Enum.YLeaf(50, "multicast-router-termination")
 
 
-class PacketEnum(Enum):
+class Packet(Enum):
     """
-    PacketEnum
+    Packet
 
     Packet type
 
@@ -1313,24 +1259,18 @@ class PacketEnum(Enum):
 
     """
 
-    icmp = 0
+    icmp = Enum.YLeaf(0, "icmp")
 
-    icm_pv6 = 1
+    icm_pv6 = Enum.YLeaf(1, "icm-pv6")
 
-    igmp = 2
+    igmp = Enum.YLeaf(2, "igmp")
 
-    unknown = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['PacketEnum']
+    unknown = Enum.YLeaf(3, "unknown")
 
 
-class UdpAddressFamilyEnum(Enum):
+class UdpAddressFamily(Enum):
     """
-    UdpAddressFamilyEnum
+    UdpAddressFamily
 
     Address Family Type
 
@@ -1344,19 +1284,13 @@ class UdpAddressFamilyEnum(Enum):
 
     """
 
-    ipv4 = 2
+    ipv4 = Enum.YLeaf(2, "ipv4")
 
-    ipv6 = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['UdpAddressFamilyEnum']
+    ipv6 = Enum.YLeaf(10, "ipv6")
 
 
 
-class Udp(object):
+class Udp(Entity):
     """
     IP UDP Operational Data
     
@@ -1373,11 +1307,19 @@ class Udp(object):
     _revision = '2016-02-26'
 
     def __init__(self):
+        super(Udp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "udp"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-udp-oper"
+
         self.nodes = Udp.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         Node\-specific UDP operational data
         
@@ -1394,13 +1336,39 @@ class Udp(object):
         _revision = '2016-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(Udp.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "udp"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Udp.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Udp.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             UDP operational data for a particular node
             
@@ -1424,13 +1392,44 @@ class Udp(object):
             _revision = '2016-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(Udp.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.statistics = Udp.Nodes.Node.Statistics()
                 self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+                self._children_yang_names.add("statistics")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Udp.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Udp.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Statistics(object):
+            class Statistics(Entity):
                 """
                 Statistical UDP operational data for a node
                 
@@ -1452,14 +1451,23 @@ class Udp(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Udp.Nodes.Node.Statistics, self).__init__()
+
+                    self.yang_name = "statistics"
+                    self.yang_parent_name = "node"
+
                     self.ipv4_traffic = Udp.Nodes.Node.Statistics.Ipv4Traffic()
                     self.ipv4_traffic.parent = self
+                    self._children_name_map["ipv4_traffic"] = "ipv4-traffic"
+                    self._children_yang_names.add("ipv4-traffic")
+
                     self.ipv6_traffic = Udp.Nodes.Node.Statistics.Ipv6Traffic()
                     self.ipv6_traffic.parent = self
+                    self._children_name_map["ipv6_traffic"] = "ipv6-traffic"
+                    self._children_yang_names.add("ipv6-traffic")
 
 
-                class Ipv4Traffic(object):
+                class Ipv4Traffic(Entity):
                     """
                     UDP Traffic statistics for IPv4
                     
@@ -1513,53 +1521,141 @@ class Udp(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.udp_bad_length_packets = None
-                        self.udp_checksum_error_packets = None
-                        self.udp_dropped_packets = None
-                        self.udp_input_packets = None
-                        self.udp_no_port_packets = None
-                        self.udp_output_packets = None
+                        super(Udp.Nodes.Node.Statistics.Ipv4Traffic, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ipv4-traffic"
+                        self.yang_parent_name = "statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:ipv4-traffic'
+                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.udp_checksum_error_packets = YLeaf(YType.uint32, "udp-checksum-error-packets")
+
+                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
+
+                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
+
+                        self.udp_no_port_packets = YLeaf(YType.uint32, "udp-no-port-packets")
+
+                        self.udp_output_packets = YLeaf(YType.uint32, "udp-output-packets")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("udp_bad_length_packets",
+                                        "udp_checksum_error_packets",
+                                        "udp_dropped_packets",
+                                        "udp_input_packets",
+                                        "udp_no_port_packets",
+                                        "udp_output_packets") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Udp.Nodes.Node.Statistics.Ipv4Traffic, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Udp.Nodes.Node.Statistics.Ipv4Traffic, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.udp_bad_length_packets.is_set or
+                            self.udp_checksum_error_packets.is_set or
+                            self.udp_dropped_packets.is_set or
+                            self.udp_input_packets.is_set or
+                            self.udp_no_port_packets.is_set or
+                            self.udp_output_packets.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.udp_bad_length_packets.yfilter != YFilter.not_set or
+                            self.udp_checksum_error_packets.yfilter != YFilter.not_set or
+                            self.udp_dropped_packets.yfilter != YFilter.not_set or
+                            self.udp_input_packets.yfilter != YFilter.not_set or
+                            self.udp_no_port_packets.yfilter != YFilter.not_set or
+                            self.udp_output_packets.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipv4-traffic" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.udp_bad_length_packets.is_set or self.udp_bad_length_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_bad_length_packets.get_name_leafdata())
+                        if (self.udp_checksum_error_packets.is_set or self.udp_checksum_error_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_checksum_error_packets.get_name_leafdata())
+                        if (self.udp_dropped_packets.is_set or self.udp_dropped_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_dropped_packets.get_name_leafdata())
+                        if (self.udp_input_packets.is_set or self.udp_input_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_input_packets.get_name_leafdata())
+                        if (self.udp_no_port_packets.is_set or self.udp_no_port_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_no_port_packets.get_name_leafdata())
+                        if (self.udp_output_packets.is_set or self.udp_output_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_output_packets.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "udp-bad-length-packets" or name == "udp-checksum-error-packets" or name == "udp-dropped-packets" or name == "udp-input-packets" or name == "udp-no-port-packets" or name == "udp-output-packets"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.udp_bad_length_packets is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "udp-bad-length-packets"):
+                            self.udp_bad_length_packets = value
+                            self.udp_bad_length_packets.value_namespace = name_space
+                            self.udp_bad_length_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-checksum-error-packets"):
+                            self.udp_checksum_error_packets = value
+                            self.udp_checksum_error_packets.value_namespace = name_space
+                            self.udp_checksum_error_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-dropped-packets"):
+                            self.udp_dropped_packets = value
+                            self.udp_dropped_packets.value_namespace = name_space
+                            self.udp_dropped_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-input-packets"):
+                            self.udp_input_packets = value
+                            self.udp_input_packets.value_namespace = name_space
+                            self.udp_input_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-no-port-packets"):
+                            self.udp_no_port_packets = value
+                            self.udp_no_port_packets.value_namespace = name_space
+                            self.udp_no_port_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-output-packets"):
+                            self.udp_output_packets = value
+                            self.udp_output_packets.value_namespace = name_space
+                            self.udp_output_packets.value_namespace_prefix = name_space_prefix
 
-                        if self.udp_checksum_error_packets is not None:
-                            return True
 
-                        if self.udp_dropped_packets is not None:
-                            return True
-
-                        if self.udp_input_packets is not None:
-                            return True
-
-                        if self.udp_no_port_packets is not None:
-                            return True
-
-                        if self.udp_output_packets is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['Udp.Nodes.Node.Statistics.Ipv4Traffic']['meta_info']
-
-
-                class Ipv6Traffic(object):
+                class Ipv6Traffic(Entity):
                     """
                     UDP Traffic statistics for IPv6
                     
@@ -1613,145 +1709,362 @@ class Udp(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.udp_bad_length_packets = None
-                        self.udp_checksum_error_packets = None
-                        self.udp_dropped_packets = None
-                        self.udp_input_packets = None
-                        self.udp_no_port_packets = None
-                        self.udp_output_packets = None
+                        super(Udp.Nodes.Node.Statistics.Ipv6Traffic, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ipv6-traffic"
+                        self.yang_parent_name = "statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:ipv6-traffic'
+                        self.udp_bad_length_packets = YLeaf(YType.uint32, "udp-bad-length-packets")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.udp_checksum_error_packets = YLeaf(YType.uint32, "udp-checksum-error-packets")
+
+                        self.udp_dropped_packets = YLeaf(YType.uint32, "udp-dropped-packets")
+
+                        self.udp_input_packets = YLeaf(YType.uint32, "udp-input-packets")
+
+                        self.udp_no_port_packets = YLeaf(YType.uint32, "udp-no-port-packets")
+
+                        self.udp_output_packets = YLeaf(YType.uint32, "udp-output-packets")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("udp_bad_length_packets",
+                                        "udp_checksum_error_packets",
+                                        "udp_dropped_packets",
+                                        "udp_input_packets",
+                                        "udp_no_port_packets",
+                                        "udp_output_packets") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Udp.Nodes.Node.Statistics.Ipv6Traffic, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Udp.Nodes.Node.Statistics.Ipv6Traffic, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.udp_bad_length_packets.is_set or
+                            self.udp_checksum_error_packets.is_set or
+                            self.udp_dropped_packets.is_set or
+                            self.udp_input_packets.is_set or
+                            self.udp_no_port_packets.is_set or
+                            self.udp_output_packets.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.udp_bad_length_packets.yfilter != YFilter.not_set or
+                            self.udp_checksum_error_packets.yfilter != YFilter.not_set or
+                            self.udp_dropped_packets.yfilter != YFilter.not_set or
+                            self.udp_input_packets.yfilter != YFilter.not_set or
+                            self.udp_no_port_packets.yfilter != YFilter.not_set or
+                            self.udp_output_packets.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipv6-traffic" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.udp_bad_length_packets.is_set or self.udp_bad_length_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_bad_length_packets.get_name_leafdata())
+                        if (self.udp_checksum_error_packets.is_set or self.udp_checksum_error_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_checksum_error_packets.get_name_leafdata())
+                        if (self.udp_dropped_packets.is_set or self.udp_dropped_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_dropped_packets.get_name_leafdata())
+                        if (self.udp_input_packets.is_set or self.udp_input_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_input_packets.get_name_leafdata())
+                        if (self.udp_no_port_packets.is_set or self.udp_no_port_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_no_port_packets.get_name_leafdata())
+                        if (self.udp_output_packets.is_set or self.udp_output_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.udp_output_packets.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "udp-bad-length-packets" or name == "udp-checksum-error-packets" or name == "udp-dropped-packets" or name == "udp-input-packets" or name == "udp-no-port-packets" or name == "udp-output-packets"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.udp_bad_length_packets is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "udp-bad-length-packets"):
+                            self.udp_bad_length_packets = value
+                            self.udp_bad_length_packets.value_namespace = name_space
+                            self.udp_bad_length_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-checksum-error-packets"):
+                            self.udp_checksum_error_packets = value
+                            self.udp_checksum_error_packets.value_namespace = name_space
+                            self.udp_checksum_error_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-dropped-packets"):
+                            self.udp_dropped_packets = value
+                            self.udp_dropped_packets.value_namespace = name_space
+                            self.udp_dropped_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-input-packets"):
+                            self.udp_input_packets = value
+                            self.udp_input_packets.value_namespace = name_space
+                            self.udp_input_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-no-port-packets"):
+                            self.udp_no_port_packets = value
+                            self.udp_no_port_packets.value_namespace = name_space
+                            self.udp_no_port_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "udp-output-packets"):
+                            self.udp_output_packets = value
+                            self.udp_output_packets.value_namespace = name_space
+                            self.udp_output_packets.value_namespace_prefix = name_space_prefix
 
-                        if self.udp_checksum_error_packets is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        (self.ipv4_traffic is not None and self.ipv4_traffic.has_data()) or
+                        (self.ipv6_traffic is not None and self.ipv6_traffic.has_data()))
 
-                        if self.udp_dropped_packets is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.ipv4_traffic is not None and self.ipv4_traffic.has_operation()) or
+                        (self.ipv6_traffic is not None and self.ipv6_traffic.has_operation()))
 
-                        if self.udp_input_packets is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "statistics" + path_buffer
 
-                        if self.udp_no_port_packets is not None:
-                            return True
+                    return path_buffer
 
-                        if self.udp_output_packets is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return False
+                    leaf_name_data = LeafDataList()
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['Udp.Nodes.Node.Statistics.Ipv6Traffic']['meta_info']
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:statistics'
+                    if (child_yang_name == "ipv4-traffic"):
+                        if (self.ipv4_traffic is None):
+                            self.ipv4_traffic = Udp.Nodes.Node.Statistics.Ipv4Traffic()
+                            self.ipv4_traffic.parent = self
+                            self._children_name_map["ipv4_traffic"] = "ipv4-traffic"
+                        return self.ipv4_traffic
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    if (child_yang_name == "ipv6-traffic"):
+                        if (self.ipv6_traffic is None):
+                            self.ipv6_traffic = Udp.Nodes.Node.Statistics.Ipv6Traffic()
+                            self.ipv6_traffic.parent = self
+                            self._children_name_map["ipv6_traffic"] = "ipv6-traffic"
+                        return self.ipv6_traffic
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ipv4-traffic" or name == "ipv6-traffic"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.ipv4_traffic is not None and self.ipv4_traffic._has_data():
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-                    if self.ipv6_traffic is not None and self.ipv6_traffic._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.statistics is not None and self.statistics.has_data()))
 
-                    return False
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.statistics is not None and self.statistics.has_operation()))
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                    return meta._meta_table['Udp.Nodes.Node.Statistics']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XR-ip-udp-oper:udp/Cisco-IOS-XR-ip-udp-oper:nodes/Cisco-IOS-XR-ip-udp-oper:node[Cisco-IOS-XR-ip-udp-oper:node-name = ' + str(self.node_name) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-udp-oper:udp/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "statistics"):
+                    if (self.statistics is None):
+                        self.statistics = Udp.Nodes.Node.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                    return self.statistics
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "statistics" or name == "node-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.node_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
                     return True
-
-                if self.statistics is not None and self.statistics._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                return meta._meta_table['Udp.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-udp-oper:udp/Cisco-IOS-XR-ip-udp-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-udp-oper:udp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Udp.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-            return meta._meta_table['Udp.Nodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
 
-        return '/Cisco-IOS-XR-ip-udp-oper:udp'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-udp-oper:udp" + path_buffer
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = Udp.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['Udp']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Udp()
+        return self._top_entity
 
-class UdpConnection(object):
+class UdpConnection(Entity):
     """
     udp connection
     
@@ -1768,11 +2081,19 @@ class UdpConnection(object):
     _revision = '2016-02-26'
 
     def __init__(self):
+        super(UdpConnection, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "udp-connection"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-udp-oper"
+
         self.nodes = UdpConnection.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         List of UDP connections nodes
         
@@ -1789,13 +2110,39 @@ class UdpConnection(object):
         _revision = '2016-02-26'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(UdpConnection.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "udp-connection"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(UdpConnection.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(UdpConnection.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             Information about a particular node
             
@@ -1834,19 +2181,59 @@ class UdpConnection(object):
             _revision = '2016-02-26'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
+                super(UdpConnection.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
                 self.lpts = UdpConnection.Nodes.Node.Lpts()
                 self.lpts.parent = self
+                self._children_name_map["lpts"] = "lpts"
+                self._children_yang_names.add("lpts")
+
                 self.pcb_briefs = UdpConnection.Nodes.Node.PcbBriefs()
                 self.pcb_briefs.parent = self
+                self._children_name_map["pcb_briefs"] = "pcb-briefs"
+                self._children_yang_names.add("pcb-briefs")
+
                 self.pcb_details = UdpConnection.Nodes.Node.PcbDetails()
                 self.pcb_details.parent = self
+                self._children_name_map["pcb_details"] = "pcb-details"
+                self._children_yang_names.add("pcb-details")
+
                 self.statistics = UdpConnection.Nodes.Node.Statistics()
                 self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+                self._children_yang_names.add("statistics")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(UdpConnection.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(UdpConnection.Nodes.Node, self).__setattr__(name, value)
 
 
-            class Statistics(object):
+            class Statistics(Entity):
                 """
                 Statistics of UDP connections
                 
@@ -1873,16 +2260,28 @@ class UdpConnection(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
+                    super(UdpConnection.Nodes.Node.Statistics, self).__init__()
+
+                    self.yang_name = "statistics"
+                    self.yang_parent_name = "node"
+
                     self.clients = UdpConnection.Nodes.Node.Statistics.Clients()
                     self.clients.parent = self
+                    self._children_name_map["clients"] = "clients"
+                    self._children_yang_names.add("clients")
+
                     self.pcb_statistics = UdpConnection.Nodes.Node.Statistics.PcbStatistics()
                     self.pcb_statistics.parent = self
+                    self._children_name_map["pcb_statistics"] = "pcb-statistics"
+                    self._children_yang_names.add("pcb-statistics")
+
                     self.summary = UdpConnection.Nodes.Node.Statistics.Summary()
                     self.summary.parent = self
+                    self._children_name_map["summary"] = "summary"
+                    self._children_yang_names.add("summary")
 
 
-                class Clients(object):
+                class Clients(Entity):
                     """
                     Table listing clients
                     
@@ -1899,13 +2298,39 @@ class UdpConnection(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.client = YList()
-                        self.client.parent = self
-                        self.client.name = 'client'
+                        super(UdpConnection.Nodes.Node.Statistics.Clients, self).__init__()
+
+                        self.yang_name = "clients"
+                        self.yang_parent_name = "statistics"
+
+                        self.client = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(UdpConnection.Nodes.Node.Statistics.Clients, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(UdpConnection.Nodes.Node.Statistics.Clients, self).__setattr__(name, value)
 
 
-                    class Client(object):
+                    class Client(Entity):
                         """
                         Describing Client ID
                         
@@ -1966,83 +2391,209 @@ class UdpConnection(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self.client_id = None
-                            self.client_jid = None
-                            self.client_name = None
-                            self.ipv4_received_packets = None
-                            self.ipv4_sent_packets = None
-                            self.ipv6_received_packets = None
-                            self.ipv6_sent_packets = None
+                            super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.client_id is None:
-                                raise YPYModelError('Key property client_id is None')
+                            self.yang_name = "client"
+                            self.yang_parent_name = "clients"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:client[Cisco-IOS-XR-ip-udp-oper:client-id = ' + str(self.client_id) + ']'
+                            self.client_id = YLeaf(YType.uint32, "client-id")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.client_jid = YLeaf(YType.int32, "client-jid")
+
+                            self.client_name = YLeaf(YType.str, "client-name")
+
+                            self.ipv4_received_packets = YLeaf(YType.uint32, "ipv4-received-packets")
+
+                            self.ipv4_sent_packets = YLeaf(YType.uint32, "ipv4-sent-packets")
+
+                            self.ipv6_received_packets = YLeaf(YType.uint32, "ipv6-received-packets")
+
+                            self.ipv6_sent_packets = YLeaf(YType.uint32, "ipv6-sent-packets")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("client_id",
+                                            "client_jid",
+                                            "client_name",
+                                            "ipv4_received_packets",
+                                            "ipv4_sent_packets",
+                                            "ipv6_received_packets",
+                                            "ipv6_sent_packets") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(UdpConnection.Nodes.Node.Statistics.Clients.Client, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.client_id.is_set or
+                                self.client_jid.is_set or
+                                self.client_name.is_set or
+                                self.ipv4_received_packets.is_set or
+                                self.ipv4_sent_packets.is_set or
+                                self.ipv6_received_packets.is_set or
+                                self.ipv6_sent_packets.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.client_id.yfilter != YFilter.not_set or
+                                self.client_jid.yfilter != YFilter.not_set or
+                                self.client_name.yfilter != YFilter.not_set or
+                                self.ipv4_received_packets.yfilter != YFilter.not_set or
+                                self.ipv4_sent_packets.yfilter != YFilter.not_set or
+                                self.ipv6_received_packets.yfilter != YFilter.not_set or
+                                self.ipv6_sent_packets.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "client" + "[client-id='" + self.client_id.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.client_id.is_set or self.client_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.client_id.get_name_leafdata())
+                            if (self.client_jid.is_set or self.client_jid.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.client_jid.get_name_leafdata())
+                            if (self.client_name.is_set or self.client_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.client_name.get_name_leafdata())
+                            if (self.ipv4_received_packets.is_set or self.ipv4_received_packets.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_received_packets.get_name_leafdata())
+                            if (self.ipv4_sent_packets.is_set or self.ipv4_sent_packets.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_sent_packets.get_name_leafdata())
+                            if (self.ipv6_received_packets.is_set or self.ipv6_received_packets.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_received_packets.get_name_leafdata())
+                            if (self.ipv6_sent_packets.is_set or self.ipv6_sent_packets.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_sent_packets.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "client-id" or name == "client-jid" or name == "client-name" or name == "ipv4-received-packets" or name == "ipv4-sent-packets" or name == "ipv6-received-packets" or name == "ipv6-sent-packets"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.client_id is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "client-id"):
+                                self.client_id = value
+                                self.client_id.value_namespace = name_space
+                                self.client_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "client-jid"):
+                                self.client_jid = value
+                                self.client_jid.value_namespace = name_space
+                                self.client_jid.value_namespace_prefix = name_space_prefix
+                            if(value_path == "client-name"):
+                                self.client_name = value
+                                self.client_name.value_namespace = name_space
+                                self.client_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-received-packets"):
+                                self.ipv4_received_packets = value
+                                self.ipv4_received_packets.value_namespace = name_space
+                                self.ipv4_received_packets.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-sent-packets"):
+                                self.ipv4_sent_packets = value
+                                self.ipv4_sent_packets.value_namespace = name_space
+                                self.ipv4_sent_packets.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-received-packets"):
+                                self.ipv6_received_packets = value
+                                self.ipv6_received_packets.value_namespace = name_space
+                                self.ipv6_received_packets.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-sent-packets"):
+                                self.ipv6_sent_packets = value
+                                self.ipv6_sent_packets.value_namespace = name_space
+                                self.ipv6_sent_packets.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.client:
+                            if (c.has_data()):
                                 return True
-
-                            if self.client_jid is not None:
-                                return True
-
-                            if self.client_name is not None:
-                                return True
-
-                            if self.ipv4_received_packets is not None:
-                                return True
-
-                            if self.ipv4_sent_packets is not None:
-                                return True
-
-                            if self.ipv6_received_packets is not None:
-                                return True
-
-                            if self.ipv6_sent_packets is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                            return meta._meta_table['UdpConnection.Nodes.Node.Statistics.Clients.Client']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:clients'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.client is not None:
-                            for child_ref in self.client:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.client:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "clients" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "client"):
+                            for c in self.client:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = UdpConnection.Nodes.Node.Statistics.Clients.Client()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.client.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "client"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['UdpConnection.Nodes.Node.Statistics.Clients']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Summary(object):
+                class Summary(Entity):
                     """
                     Summary statistics across all UDP connections
                     
@@ -2124,69 +2675,185 @@ class UdpConnection(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.cloned_packets = None
-                        self.failed_clone_packets = None
-                        self.forward_broadcast_packets = None
-                        self.received_bad_checksum_packets = None
-                        self.received_drop_packets = None
-                        self.received_no_port_packets = None
-                        self.received_too_short_packets = None
-                        self.received_total_packets = None
-                        self.sent_error_packets = None
-                        self.sent_total_packets = None
+                        super(UdpConnection.Nodes.Node.Statistics.Summary, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "summary"
+                        self.yang_parent_name = "statistics"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:summary'
+                        self.cloned_packets = YLeaf(YType.uint32, "cloned-packets")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.failed_clone_packets = YLeaf(YType.uint32, "failed-clone-packets")
+
+                        self.forward_broadcast_packets = YLeaf(YType.uint32, "forward-broadcast-packets")
+
+                        self.received_bad_checksum_packets = YLeaf(YType.uint32, "received-bad-checksum-packets")
+
+                        self.received_drop_packets = YLeaf(YType.uint32, "received-drop-packets")
+
+                        self.received_no_port_packets = YLeaf(YType.uint32, "received-no-port-packets")
+
+                        self.received_too_short_packets = YLeaf(YType.uint32, "received-too-short-packets")
+
+                        self.received_total_packets = YLeaf(YType.uint32, "received-total-packets")
+
+                        self.sent_error_packets = YLeaf(YType.uint32, "sent-error-packets")
+
+                        self.sent_total_packets = YLeaf(YType.uint32, "sent-total-packets")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("cloned_packets",
+                                        "failed_clone_packets",
+                                        "forward_broadcast_packets",
+                                        "received_bad_checksum_packets",
+                                        "received_drop_packets",
+                                        "received_no_port_packets",
+                                        "received_too_short_packets",
+                                        "received_total_packets",
+                                        "sent_error_packets",
+                                        "sent_total_packets") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(UdpConnection.Nodes.Node.Statistics.Summary, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(UdpConnection.Nodes.Node.Statistics.Summary, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.cloned_packets.is_set or
+                            self.failed_clone_packets.is_set or
+                            self.forward_broadcast_packets.is_set or
+                            self.received_bad_checksum_packets.is_set or
+                            self.received_drop_packets.is_set or
+                            self.received_no_port_packets.is_set or
+                            self.received_too_short_packets.is_set or
+                            self.received_total_packets.is_set or
+                            self.sent_error_packets.is_set or
+                            self.sent_total_packets.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.cloned_packets.yfilter != YFilter.not_set or
+                            self.failed_clone_packets.yfilter != YFilter.not_set or
+                            self.forward_broadcast_packets.yfilter != YFilter.not_set or
+                            self.received_bad_checksum_packets.yfilter != YFilter.not_set or
+                            self.received_drop_packets.yfilter != YFilter.not_set or
+                            self.received_no_port_packets.yfilter != YFilter.not_set or
+                            self.received_too_short_packets.yfilter != YFilter.not_set or
+                            self.received_total_packets.yfilter != YFilter.not_set or
+                            self.sent_error_packets.yfilter != YFilter.not_set or
+                            self.sent_total_packets.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "summary" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.cloned_packets.is_set or self.cloned_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.cloned_packets.get_name_leafdata())
+                        if (self.failed_clone_packets.is_set or self.failed_clone_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.failed_clone_packets.get_name_leafdata())
+                        if (self.forward_broadcast_packets.is_set or self.forward_broadcast_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.forward_broadcast_packets.get_name_leafdata())
+                        if (self.received_bad_checksum_packets.is_set or self.received_bad_checksum_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received_bad_checksum_packets.get_name_leafdata())
+                        if (self.received_drop_packets.is_set or self.received_drop_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received_drop_packets.get_name_leafdata())
+                        if (self.received_no_port_packets.is_set or self.received_no_port_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received_no_port_packets.get_name_leafdata())
+                        if (self.received_too_short_packets.is_set or self.received_too_short_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received_too_short_packets.get_name_leafdata())
+                        if (self.received_total_packets.is_set or self.received_total_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.received_total_packets.get_name_leafdata())
+                        if (self.sent_error_packets.is_set or self.sent_error_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent_error_packets.get_name_leafdata())
+                        if (self.sent_total_packets.is_set or self.sent_total_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sent_total_packets.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "cloned-packets" or name == "failed-clone-packets" or name == "forward-broadcast-packets" or name == "received-bad-checksum-packets" or name == "received-drop-packets" or name == "received-no-port-packets" or name == "received-too-short-packets" or name == "received-total-packets" or name == "sent-error-packets" or name == "sent-total-packets"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.cloned_packets is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "cloned-packets"):
+                            self.cloned_packets = value
+                            self.cloned_packets.value_namespace = name_space
+                            self.cloned_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "failed-clone-packets"):
+                            self.failed_clone_packets = value
+                            self.failed_clone_packets.value_namespace = name_space
+                            self.failed_clone_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "forward-broadcast-packets"):
+                            self.forward_broadcast_packets = value
+                            self.forward_broadcast_packets.value_namespace = name_space
+                            self.forward_broadcast_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received-bad-checksum-packets"):
+                            self.received_bad_checksum_packets = value
+                            self.received_bad_checksum_packets.value_namespace = name_space
+                            self.received_bad_checksum_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received-drop-packets"):
+                            self.received_drop_packets = value
+                            self.received_drop_packets.value_namespace = name_space
+                            self.received_drop_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received-no-port-packets"):
+                            self.received_no_port_packets = value
+                            self.received_no_port_packets.value_namespace = name_space
+                            self.received_no_port_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received-too-short-packets"):
+                            self.received_too_short_packets = value
+                            self.received_too_short_packets.value_namespace = name_space
+                            self.received_too_short_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "received-total-packets"):
+                            self.received_total_packets = value
+                            self.received_total_packets.value_namespace = name_space
+                            self.received_total_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent-error-packets"):
+                            self.sent_error_packets = value
+                            self.sent_error_packets.value_namespace = name_space
+                            self.sent_error_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sent-total-packets"):
+                            self.sent_total_packets = value
+                            self.sent_total_packets.value_namespace = name_space
+                            self.sent_total_packets.value_namespace_prefix = name_space_prefix
 
-                        if self.failed_clone_packets is not None:
-                            return True
 
-                        if self.forward_broadcast_packets is not None:
-                            return True
-
-                        if self.received_bad_checksum_packets is not None:
-                            return True
-
-                        if self.received_drop_packets is not None:
-                            return True
-
-                        if self.received_no_port_packets is not None:
-                            return True
-
-                        if self.received_too_short_packets is not None:
-                            return True
-
-                        if self.received_total_packets is not None:
-                            return True
-
-                        if self.sent_error_packets is not None:
-                            return True
-
-                        if self.sent_total_packets is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['UdpConnection.Nodes.Node.Statistics.Summary']['meta_info']
-
-
-                class PcbStatistics(object):
+                class PcbStatistics(Entity):
                     """
                     Table listing the UDP connections for which
                     statistics are provided
@@ -2204,13 +2871,39 @@ class UdpConnection(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.pcb_statistic = YList()
-                        self.pcb_statistic.parent = self
-                        self.pcb_statistic.name = 'pcb_statistic'
+                        super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__init__()
+
+                        self.yang_name = "pcb-statistics"
+                        self.yang_parent_name = "statistics"
+
+                        self.pcb_statistic = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics, self).__setattr__(name, value)
 
 
-                    class PcbStatistic(object):
+                    class PcbStatistic(Entity):
                         """
                         Satistics associated with a particular PCB
                         
@@ -2251,17 +2944,55 @@ class UdpConnection(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self.pcb_address = None
-                            self.is_paw_socket = None
+                            super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__init__()
+
+                            self.yang_name = "pcb-statistic"
+                            self.yang_parent_name = "pcb-statistics"
+
+                            self.pcb_address = YLeaf(YType.int32, "pcb-address")
+
+                            self.is_paw_socket = YLeaf(YType.boolean, "is-paw-socket")
+
+                            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
                             self.receive = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive()
                             self.receive.parent = self
+                            self._children_name_map["receive"] = "receive"
+                            self._children_yang_names.add("receive")
+
                             self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
                             self.send.parent = self
-                            self.vrf_id = None
+                            self._children_name_map["send"] = "send"
+                            self._children_yang_names.add("send")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("pcb_address",
+                                            "is_paw_socket",
+                                            "vrf_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic, self).__setattr__(name, value)
 
 
-                        class Send(object):
+                        class Send(Entity):
                             """
                             UDP send statistics
                             
@@ -2317,53 +3048,141 @@ class UdpConnection(object):
                             _revision = '2016-02-26'
 
                             def __init__(self):
-                                self.parent = None
-                                self.failed_queued_net_io_packets = None
-                                self.failed_queued_network_packets = None
-                                self.received_application_bytes = None
-                                self.received_xipc_pulses = None
-                                self.sent_net_io_packets = None
-                                self.sent_network_packets = None
+                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "send"
+                                self.yang_parent_name = "pcb-statistic"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:send'
+                                self.failed_queued_net_io_packets = YLeaf(YType.uint32, "failed-queued-net-io-packets")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.failed_queued_network_packets = YLeaf(YType.uint32, "failed-queued-network-packets")
+
+                                self.received_application_bytes = YLeaf(YType.uint64, "received-application-bytes")
+
+                                self.received_xipc_pulses = YLeaf(YType.uint64, "received-xipc-pulses")
+
+                                self.sent_net_io_packets = YLeaf(YType.uint64, "sent-net-io-packets")
+
+                                self.sent_network_packets = YLeaf(YType.uint64, "sent-network-packets")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("failed_queued_net_io_packets",
+                                                "failed_queued_network_packets",
+                                                "received_application_bytes",
+                                                "received_xipc_pulses",
+                                                "sent_net_io_packets",
+                                                "sent_network_packets") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.failed_queued_net_io_packets.is_set or
+                                    self.failed_queued_network_packets.is_set or
+                                    self.received_application_bytes.is_set or
+                                    self.received_xipc_pulses.is_set or
+                                    self.sent_net_io_packets.is_set or
+                                    self.sent_network_packets.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.failed_queued_net_io_packets.yfilter != YFilter.not_set or
+                                    self.failed_queued_network_packets.yfilter != YFilter.not_set or
+                                    self.received_application_bytes.yfilter != YFilter.not_set or
+                                    self.received_xipc_pulses.yfilter != YFilter.not_set or
+                                    self.sent_net_io_packets.yfilter != YFilter.not_set or
+                                    self.sent_network_packets.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "send" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.failed_queued_net_io_packets.is_set or self.failed_queued_net_io_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.failed_queued_net_io_packets.get_name_leafdata())
+                                if (self.failed_queued_network_packets.is_set or self.failed_queued_network_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.failed_queued_network_packets.get_name_leafdata())
+                                if (self.received_application_bytes.is_set or self.received_application_bytes.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.received_application_bytes.get_name_leafdata())
+                                if (self.received_xipc_pulses.is_set or self.received_xipc_pulses.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.received_xipc_pulses.get_name_leafdata())
+                                if (self.sent_net_io_packets.is_set or self.sent_net_io_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.sent_net_io_packets.get_name_leafdata())
+                                if (self.sent_network_packets.is_set or self.sent_network_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.sent_network_packets.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "failed-queued-net-io-packets" or name == "failed-queued-network-packets" or name == "received-application-bytes" or name == "received-xipc-pulses" or name == "sent-net-io-packets" or name == "sent-network-packets"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.failed_queued_net_io_packets is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "failed-queued-net-io-packets"):
+                                    self.failed_queued_net_io_packets = value
+                                    self.failed_queued_net_io_packets.value_namespace = name_space
+                                    self.failed_queued_net_io_packets.value_namespace_prefix = name_space_prefix
+                                if(value_path == "failed-queued-network-packets"):
+                                    self.failed_queued_network_packets = value
+                                    self.failed_queued_network_packets.value_namespace = name_space
+                                    self.failed_queued_network_packets.value_namespace_prefix = name_space_prefix
+                                if(value_path == "received-application-bytes"):
+                                    self.received_application_bytes = value
+                                    self.received_application_bytes.value_namespace = name_space
+                                    self.received_application_bytes.value_namespace_prefix = name_space_prefix
+                                if(value_path == "received-xipc-pulses"):
+                                    self.received_xipc_pulses = value
+                                    self.received_xipc_pulses.value_namespace = name_space
+                                    self.received_xipc_pulses.value_namespace_prefix = name_space_prefix
+                                if(value_path == "sent-net-io-packets"):
+                                    self.sent_net_io_packets = value
+                                    self.sent_net_io_packets.value_namespace = name_space
+                                    self.sent_net_io_packets.value_namespace_prefix = name_space_prefix
+                                if(value_path == "sent-network-packets"):
+                                    self.sent_network_packets = value
+                                    self.sent_network_packets.value_namespace = name_space
+                                    self.sent_network_packets.value_namespace_prefix = name_space_prefix
 
-                                if self.failed_queued_network_packets is not None:
-                                    return True
 
-                                if self.received_application_bytes is not None:
-                                    return True
-
-                                if self.received_xipc_pulses is not None:
-                                    return True
-
-                                if self.sent_net_io_packets is not None:
-                                    return True
-
-                                if self.sent_network_packets is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send']['meta_info']
-
-
-                        class Receive(object):
+                        class Receive(Entity):
                             """
                             UDP receive statistics
                             
@@ -2410,137 +3229,335 @@ class UdpConnection(object):
                             _revision = '2016-02-26'
 
                             def __init__(self):
-                                self.parent = None
-                                self.failed_queued_application_packets = None
-                                self.failed_queued_application_socket_packets = None
-                                self.queued_application_packets = None
-                                self.queued_application_socket_packets = None
-                                self.received_network_packets = None
+                                super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "receive"
+                                self.yang_parent_name = "pcb-statistic"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:receive'
+                                self.failed_queued_application_packets = YLeaf(YType.uint32, "failed-queued-application-packets")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.failed_queued_application_socket_packets = YLeaf(YType.uint32, "failed-queued-application-socket-packets")
+
+                                self.queued_application_packets = YLeaf(YType.uint64, "queued-application-packets")
+
+                                self.queued_application_socket_packets = YLeaf(YType.uint64, "queued-application-socket-packets")
+
+                                self.received_network_packets = YLeaf(YType.uint64, "received-network-packets")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("failed_queued_application_packets",
+                                                "failed_queued_application_socket_packets",
+                                                "queued_application_packets",
+                                                "queued_application_socket_packets",
+                                                "received_network_packets") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.failed_queued_application_packets.is_set or
+                                    self.failed_queued_application_socket_packets.is_set or
+                                    self.queued_application_packets.is_set or
+                                    self.queued_application_socket_packets.is_set or
+                                    self.received_network_packets.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.failed_queued_application_packets.yfilter != YFilter.not_set or
+                                    self.failed_queued_application_socket_packets.yfilter != YFilter.not_set or
+                                    self.queued_application_packets.yfilter != YFilter.not_set or
+                                    self.queued_application_socket_packets.yfilter != YFilter.not_set or
+                                    self.received_network_packets.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "receive" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.failed_queued_application_packets.is_set or self.failed_queued_application_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.failed_queued_application_packets.get_name_leafdata())
+                                if (self.failed_queued_application_socket_packets.is_set or self.failed_queued_application_socket_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.failed_queued_application_socket_packets.get_name_leafdata())
+                                if (self.queued_application_packets.is_set or self.queued_application_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.queued_application_packets.get_name_leafdata())
+                                if (self.queued_application_socket_packets.is_set or self.queued_application_socket_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.queued_application_socket_packets.get_name_leafdata())
+                                if (self.received_network_packets.is_set or self.received_network_packets.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.received_network_packets.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "failed-queued-application-packets" or name == "failed-queued-application-socket-packets" or name == "queued-application-packets" or name == "queued-application-socket-packets" or name == "received-network-packets"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.failed_queued_application_packets is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "failed-queued-application-packets"):
+                                    self.failed_queued_application_packets = value
+                                    self.failed_queued_application_packets.value_namespace = name_space
+                                    self.failed_queued_application_packets.value_namespace_prefix = name_space_prefix
+                                if(value_path == "failed-queued-application-socket-packets"):
+                                    self.failed_queued_application_socket_packets = value
+                                    self.failed_queued_application_socket_packets.value_namespace = name_space
+                                    self.failed_queued_application_socket_packets.value_namespace_prefix = name_space_prefix
+                                if(value_path == "queued-application-packets"):
+                                    self.queued_application_packets = value
+                                    self.queued_application_packets.value_namespace = name_space
+                                    self.queued_application_packets.value_namespace_prefix = name_space_prefix
+                                if(value_path == "queued-application-socket-packets"):
+                                    self.queued_application_socket_packets = value
+                                    self.queued_application_socket_packets.value_namespace = name_space
+                                    self.queued_application_socket_packets.value_namespace_prefix = name_space_prefix
+                                if(value_path == "received-network-packets"):
+                                    self.received_network_packets = value
+                                    self.received_network_packets.value_namespace = name_space
+                                    self.received_network_packets.value_namespace_prefix = name_space_prefix
 
-                                if self.failed_queued_application_socket_packets is not None:
-                                    return True
+                        def has_data(self):
+                            return (
+                                self.pcb_address.is_set or
+                                self.is_paw_socket.is_set or
+                                self.vrf_id.is_set or
+                                (self.receive is not None and self.receive.has_data()) or
+                                (self.send is not None and self.send.has_data()))
 
-                                if self.queued_application_packets is not None:
-                                    return True
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.pcb_address.yfilter != YFilter.not_set or
+                                self.is_paw_socket.yfilter != YFilter.not_set or
+                                self.vrf_id.yfilter != YFilter.not_set or
+                                (self.receive is not None and self.receive.has_operation()) or
+                                (self.send is not None and self.send.has_operation()))
 
-                                if self.queued_application_socket_packets is not None:
-                                    return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "pcb-statistic" + "[pcb-address='" + self.pcb_address.get() + "']" + path_buffer
 
-                                if self.received_network_packets is not None:
-                                    return True
+                            return path_buffer
 
-                                return False
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive']['meta_info']
+                            leaf_name_data = LeafDataList()
+                            if (self.pcb_address.is_set or self.pcb_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pcb_address.get_name_leafdata())
+                            if (self.is_paw_socket.is_set or self.is_paw_socket.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_paw_socket.get_name_leafdata())
+                            if (self.vrf_id.is_set or self.vrf_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.vrf_id.get_name_leafdata())
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.pcb_address is None:
-                                raise YPYModelError('Key property pcb_address is None')
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-statistic[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            if (child_yang_name == "receive"):
+                                if (self.receive is None):
+                                    self.receive = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive()
+                                    self.receive.parent = self
+                                    self._children_name_map["receive"] = "receive"
+                                return self.receive
+
+                            if (child_yang_name == "send"):
+                                if (self.send is None):
+                                    self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
+                                    self.send.parent = self
+                                    self._children_name_map["send"] = "send"
+                                return self.send
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "receive" or name == "send" or name == "pcb-address" or name == "is-paw-socket" or name == "vrf-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.pcb_address is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "pcb-address"):
+                                self.pcb_address = value
+                                self.pcb_address.value_namespace = name_space
+                                self.pcb_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-paw-socket"):
+                                self.is_paw_socket = value
+                                self.is_paw_socket.value_namespace = name_space
+                                self.is_paw_socket.value_namespace_prefix = name_space_prefix
+                            if(value_path == "vrf-id"):
+                                self.vrf_id = value
+                                self.vrf_id.value_namespace = name_space
+                                self.vrf_id.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.pcb_statistic:
+                            if (c.has_data()):
                                 return True
-
-                            if self.is_paw_socket is not None:
-                                return True
-
-                            if self.receive is not None and self.receive._has_data():
-                                return True
-
-                            if self.send is not None and self.send._has_data():
-                                return True
-
-                            if self.vrf_id is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                            return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-statistics'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.pcb_statistic is not None:
-                            for child_ref in self.pcb_statistic:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.pcb_statistic:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "pcb-statistics" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "pcb-statistic"):
+                            for c in self.pcb_statistic:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.pcb_statistic.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "pcb-statistic"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['UdpConnection.Nodes.Node.Statistics.PcbStatistics']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.clients is not None and self.clients.has_data()) or
+                        (self.pcb_statistics is not None and self.pcb_statistics.has_data()) or
+                        (self.summary is not None and self.summary.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:statistics'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.clients is not None and self.clients.has_operation()) or
+                        (self.pcb_statistics is not None and self.pcb_statistics.has_operation()) or
+                        (self.summary is not None and self.summary.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "statistics" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "clients"):
+                        if (self.clients is None):
+                            self.clients = UdpConnection.Nodes.Node.Statistics.Clients()
+                            self.clients.parent = self
+                            self._children_name_map["clients"] = "clients"
+                        return self.clients
+
+                    if (child_yang_name == "pcb-statistics"):
+                        if (self.pcb_statistics is None):
+                            self.pcb_statistics = UdpConnection.Nodes.Node.Statistics.PcbStatistics()
+                            self.pcb_statistics.parent = self
+                            self._children_name_map["pcb_statistics"] = "pcb-statistics"
+                        return self.pcb_statistics
+
+                    if (child_yang_name == "summary"):
+                        if (self.summary is None):
+                            self.summary = UdpConnection.Nodes.Node.Statistics.Summary()
+                            self.summary.parent = self
+                            self._children_name_map["summary"] = "summary"
+                        return self.summary
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "clients" or name == "pcb-statistics" or name == "summary"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.clients is not None and self.clients._has_data():
-                        return True
-
-                    if self.pcb_statistics is not None and self.pcb_statistics._has_data():
-                        return True
-
-                    if self.summary is not None and self.summary._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                    return meta._meta_table['UdpConnection.Nodes.Node.Statistics']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Lpts(object):
+            class Lpts(Entity):
                 """
                 LPTS statistical data
                 
@@ -2557,12 +3574,18 @@ class UdpConnection(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
+                    super(UdpConnection.Nodes.Node.Lpts, self).__init__()
+
+                    self.yang_name = "lpts"
+                    self.yang_parent_name = "node"
+
                     self.queries = UdpConnection.Nodes.Node.Lpts.Queries()
                     self.queries.parent = self
+                    self._children_name_map["queries"] = "queries"
+                    self._children_yang_names.add("queries")
 
 
-                class Queries(object):
+                class Queries(Entity):
                     """
                     List of query options
                     
@@ -2579,20 +3602,46 @@ class UdpConnection(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.query = YList()
-                        self.query.parent = self
-                        self.query.name = 'query'
+                        super(UdpConnection.Nodes.Node.Lpts.Queries, self).__init__()
+
+                        self.yang_name = "queries"
+                        self.yang_parent_name = "lpts"
+
+                        self.query = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(UdpConnection.Nodes.Node.Lpts.Queries, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(UdpConnection.Nodes.Node.Lpts.Queries, self).__setattr__(name, value)
 
 
-                    class Query(object):
+                    class Query(Entity):
                         """
                         Query option
                         
                         .. attribute:: query_name  <key>
                         
                         	Query option
-                        	**type**\:   :py:class:`LptsPcbQueryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQueryEnum>`
+                        	**type**\:   :py:class:`LptsPcbQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQuery>`
                         
                         .. attribute:: pcbs
                         
@@ -2607,13 +3656,44 @@ class UdpConnection(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self.query_name = None
+                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query, self).__init__()
+
+                            self.yang_name = "query"
+                            self.yang_parent_name = "queries"
+
+                            self.query_name = YLeaf(YType.enumeration, "query-name")
+
                             self.pcbs = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs()
                             self.pcbs.parent = self
+                            self._children_name_map["pcbs"] = "pcbs"
+                            self._children_yang_names.add("pcbs")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("query_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query, self).__setattr__(name, value)
 
 
-                        class Pcbs(object):
+                        class Pcbs(Entity):
                             """
                             List of PCBs
                             
@@ -2630,13 +3710,39 @@ class UdpConnection(object):
                             _revision = '2016-02-26'
 
                             def __init__(self):
-                                self.parent = None
-                                self.pcb = YList()
-                                self.pcb.parent = self
-                                self.pcb.name = 'pcb'
+                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs, self).__init__()
+
+                                self.yang_name = "pcbs"
+                                self.yang_parent_name = "query"
+
+                                self.pcb = YList(self)
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in () and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs, self).__setattr__(name, value)
 
 
-                            class Pcb(object):
+                            class Pcb(Entity):
                                 """
                                 A PCB information
                                 
@@ -2691,27 +3797,70 @@ class UdpConnection(object):
                                 _revision = '2016-02-26'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.pcb_address = None
+                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, self).__init__()
+
+                                    self.yang_name = "pcb"
+                                    self.yang_parent_name = "pcbs"
+
+                                    self.pcb_address = YLeaf(YType.int32, "pcb-address")
+
+                                    self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+
+                                    self.l4_protocol = YLeaf(YType.uint32, "l4-protocol")
+
+                                    self.local_port = YLeaf(YType.uint16, "local-port")
+
                                     self.common = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common()
                                     self.common.parent = self
+                                    self._children_name_map["common"] = "common"
+                                    self._children_yang_names.add("common")
+
                                     self.foreign_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress()
                                     self.foreign_address.parent = self
-                                    self.foreign_port = None
-                                    self.l4_protocol = None
+                                    self._children_name_map["foreign_address"] = "foreign-address"
+                                    self._children_yang_names.add("foreign-address")
+
                                     self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress()
                                     self.local_address.parent = self
-                                    self.local_port = None
+                                    self._children_name_map["local_address"] = "local-address"
+                                    self._children_yang_names.add("local-address")
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("pcb_address",
+                                                    "foreign_port",
+                                                    "l4_protocol",
+                                                    "local_port") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb, self).__setattr__(name, value)
 
 
-                                class LocalAddress(object):
+                                class LocalAddress(Entity):
                                     """
                                     Local IP address
                                     
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -2735,48 +3884,115 @@ class UdpConnection(object):
                                     _revision = '2016-02-26'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.af_name = None
-                                        self.ipv4_address = None
-                                        self.ipv6_address = None
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "local-address"
+                                        self.yang_parent_name = "pcb"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
+                                        self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("af_name",
+                                                        "ipv4_address",
+                                                        "ipv6_address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.af_name.is_set or
+                                            self.ipv4_address.is_set or
+                                            self.ipv6_address.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.af_name.yfilter != YFilter.not_set or
+                                            self.ipv4_address.yfilter != YFilter.not_set or
+                                            self.ipv6_address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "local-address" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                                        if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.af_name is not None:
-                                            return True
-
-                                        if self.ipv4_address is not None:
-                                            return True
-
-                                        if self.ipv6_address is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "af-name"):
+                                            self.af_name = value
+                                            self.af_name.value_namespace = name_space
+                                            self.af_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "ipv4-address"):
+                                            self.ipv4_address = value
+                                            self.ipv4_address.value_namespace = name_space
+                                            self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "ipv6-address"):
+                                            self.ipv6_address = value
+                                            self.ipv6_address.value_namespace = name_space
+                                            self.ipv6_address.value_namespace_prefix = name_space_prefix
 
 
-                                class ForeignAddress(object):
+                                class ForeignAddress(Entity):
                                     """
                                     Remote IP address
                                     
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -2800,48 +4016,115 @@ class UdpConnection(object):
                                     _revision = '2016-02-26'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.af_name = None
-                                        self.ipv4_address = None
-                                        self.ipv6_address = None
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "foreign-address"
+                                        self.yang_parent_name = "pcb"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:foreign-address'
+                                        self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("af_name",
+                                                        "ipv4_address",
+                                                        "ipv6_address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.af_name.is_set or
+                                            self.ipv4_address.is_set or
+                                            self.ipv6_address.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.af_name.yfilter != YFilter.not_set or
+                                            self.ipv4_address.yfilter != YFilter.not_set or
+                                            self.ipv6_address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "foreign-address" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                                        if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.af_name is not None:
-                                            return True
-
-                                        if self.ipv4_address is not None:
-                                            return True
-
-                                        if self.ipv6_address is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "af-name"):
+                                            self.af_name = value
+                                            self.af_name.value_namespace = name_space
+                                            self.af_name.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "ipv4-address"):
+                                            self.ipv4_address = value
+                                            self.ipv4_address.value_namespace = name_space
+                                            self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "ipv6-address"):
+                                            self.ipv6_address = value
+                                            self.ipv6_address.value_namespace = name_space
+                                            self.ipv6_address.value_namespace_prefix = name_space_prefix
 
 
-                                class Common(object):
+                                class Common(Entity):
                                     """
                                     Common PCB information
                                     
                                     .. attribute:: af_name
                                     
                                     	Address Family
-                                    	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                    	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                     
                                     .. attribute:: lpts_pcb
                                     
@@ -2856,13 +4139,44 @@ class UdpConnection(object):
                                     _revision = '2016-02-26'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.af_name = None
+                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, self).__init__()
+
+                                        self.yang_name = "common"
+                                        self.yang_parent_name = "pcb"
+
+                                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
                                         self.lpts_pcb = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb()
                                         self.lpts_pcb.parent = self
+                                        self._children_name_map["lpts_pcb"] = "lpts-pcb"
+                                        self._children_yang_names.add("lpts-pcb")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("af_name") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common, self).__setattr__(name, value)
 
 
-                                    class LptsPcb(object):
+                                    class LptsPcb(Entity):
                                         """
                                         LPTS PCB information
                                         
@@ -2908,21 +4222,59 @@ class UdpConnection(object):
                                         _revision = '2016-02-26'
 
                                         def __init__(self):
-                                            self.parent = None
+                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, self).__init__()
+
+                                            self.yang_name = "lpts-pcb"
+                                            self.yang_parent_name = "common"
+
+                                            self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
+
+                                            self.ttl = YLeaf(YType.uint8, "ttl")
+
                                             self.accept_mask = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask()
                                             self.accept_mask.parent = self
-                                            self.filter = YList()
-                                            self.filter.parent = self
-                                            self.filter.name = 'filter'
-                                            self.flow_types_info = None
+                                            self._children_name_map["accept_mask"] = "accept-mask"
+                                            self._children_yang_names.add("accept-mask")
+
                                             self.lpts_flags = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags()
                                             self.lpts_flags.parent = self
+                                            self._children_name_map["lpts_flags"] = "lpts-flags"
+                                            self._children_yang_names.add("lpts-flags")
+
                                             self.options = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options()
                                             self.options.parent = self
-                                            self.ttl = None
+                                            self._children_name_map["options"] = "options"
+                                            self._children_yang_names.add("options")
+
+                                            self.filter = YList(self)
+
+                                        def __setattr__(self, name, value):
+                                            self._check_monkey_patching_error(name, value)
+                                            with _handle_type_error():
+                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                        "Please use list append or extend method."
+                                                                        .format(value))
+                                                if isinstance(value, Enum.YLeaf):
+                                                    value = value.name
+                                                if name in ("flow_types_info",
+                                                            "ttl") and name in self.__dict__:
+                                                    if isinstance(value, YLeaf):
+                                                        self.__dict__[name].set(value.get())
+                                                    elif isinstance(value, YLeafList):
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, self).__setattr__(name, value)
+                                                    else:
+                                                        self.__dict__[name].set(value)
+                                                else:
+                                                    if hasattr(value, "parent") and name != "parent":
+                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                            value.parent = self
+                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                            value.parent = self
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb, self).__setattr__(name, value)
 
 
-                                        class Options(object):
+                                        class Options(Entity):
                                             """
                                             Receive options
                                             
@@ -2944,37 +4296,97 @@ class UdpConnection(object):
                                             _revision = '2016-02-26'
 
                                             def __init__(self):
-                                                self.parent = None
-                                                self.is_ip_sla = None
-                                                self.is_receive_filter = None
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__init__()
 
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                self.yang_name = "options"
+                                                self.yang_parent_name = "lpts-pcb"
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:options'
+                                                self.is_ip_sla = YLeaf(YType.boolean, "is-ip-sla")
 
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
+                                                self.is_receive_filter = YLeaf(YType.boolean, "is-receive-filter")
+
+                                            def __setattr__(self, name, value):
+                                                self._check_monkey_patching_error(name, value)
+                                                with _handle_type_error():
+                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                            "Please use list append or extend method."
+                                                                            .format(value))
+                                                    if isinstance(value, Enum.YLeaf):
+                                                        value = value.name
+                                                    if name in ("is_ip_sla",
+                                                                "is_receive_filter") and name in self.__dict__:
+                                                        if isinstance(value, YLeaf):
+                                                            self.__dict__[name].set(value.get())
+                                                        elif isinstance(value, YLeafList):
+                                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__setattr__(name, value)
+                                                        else:
+                                                            self.__dict__[name].set(value)
+                                                    else:
+                                                        if hasattr(value, "parent") and name != "parent":
+                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                value.parent = self
+                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                value.parent = self
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options, self).__setattr__(name, value)
+
+                                            def has_data(self):
+                                                return (
+                                                    self.is_ip_sla.is_set or
+                                                    self.is_receive_filter.is_set)
+
+                                            def has_operation(self):
+                                                return (
+                                                    self.yfilter != YFilter.not_set or
+                                                    self.is_ip_sla.yfilter != YFilter.not_set or
+                                                    self.is_receive_filter.yfilter != YFilter.not_set)
+
+                                            def get_segment_path(self):
+                                                path_buffer = ""
+                                                path_buffer = "options" + path_buffer
+
+                                                return path_buffer
+
+                                            def get_entity_path(self, ancestor):
+                                                path_buffer = ""
+                                                if (ancestor is None):
+                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                else:
+                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                leaf_name_data = LeafDataList()
+                                                if (self.is_ip_sla.is_set or self.is_ip_sla.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_ip_sla.get_name_leafdata())
+                                                if (self.is_receive_filter.is_set or self.is_receive_filter.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_receive_filter.get_name_leafdata())
+
+                                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                return entity_path
+
+                                            def get_child_by_name(self, child_yang_name, segment_path):
+                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                if child is not None:
+                                                    return child
+
+                                                return None
+
+                                            def has_leaf_or_child_of_name(self, name):
+                                                if(name == "is-ip-sla" or name == "is-receive-filter"):
+                                                    return True
                                                 return False
 
-                                            def _has_data(self):
-                                                if self.is_ip_sla is not None:
-                                                    return True
-
-                                                if self.is_receive_filter is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options']['meta_info']
+                                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                if(value_path == "is-ip-sla"):
+                                                    self.is_ip_sla = value
+                                                    self.is_ip_sla.value_namespace = name_space
+                                                    self.is_ip_sla.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-receive-filter"):
+                                                    self.is_receive_filter = value
+                                                    self.is_receive_filter.value_namespace = name_space
+                                                    self.is_receive_filter.value_namespace_prefix = name_space_prefix
 
 
-                                        class LptsFlags(object):
+                                        class LptsFlags(Entity):
                                             """
                                             LPTS flags
                                             
@@ -3001,41 +4413,108 @@ class UdpConnection(object):
                                             _revision = '2016-02-26'
 
                                             def __init__(self):
-                                                self.parent = None
-                                                self.is_ignore_vrf_filter = None
-                                                self.is_local_address_ignore = None
-                                                self.is_pcb_bound = None
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__init__()
 
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                self.yang_name = "lpts-flags"
+                                                self.yang_parent_name = "lpts-pcb"
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:lpts-flags'
+                                                self.is_ignore_vrf_filter = YLeaf(YType.boolean, "is-ignore-vrf-filter")
 
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
+                                                self.is_local_address_ignore = YLeaf(YType.boolean, "is-local-address-ignore")
+
+                                                self.is_pcb_bound = YLeaf(YType.boolean, "is-pcb-bound")
+
+                                            def __setattr__(self, name, value):
+                                                self._check_monkey_patching_error(name, value)
+                                                with _handle_type_error():
+                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                            "Please use list append or extend method."
+                                                                            .format(value))
+                                                    if isinstance(value, Enum.YLeaf):
+                                                        value = value.name
+                                                    if name in ("is_ignore_vrf_filter",
+                                                                "is_local_address_ignore",
+                                                                "is_pcb_bound") and name in self.__dict__:
+                                                        if isinstance(value, YLeaf):
+                                                            self.__dict__[name].set(value.get())
+                                                        elif isinstance(value, YLeafList):
+                                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__setattr__(name, value)
+                                                        else:
+                                                            self.__dict__[name].set(value)
+                                                    else:
+                                                        if hasattr(value, "parent") and name != "parent":
+                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                value.parent = self
+                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                value.parent = self
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags, self).__setattr__(name, value)
+
+                                            def has_data(self):
+                                                return (
+                                                    self.is_ignore_vrf_filter.is_set or
+                                                    self.is_local_address_ignore.is_set or
+                                                    self.is_pcb_bound.is_set)
+
+                                            def has_operation(self):
+                                                return (
+                                                    self.yfilter != YFilter.not_set or
+                                                    self.is_ignore_vrf_filter.yfilter != YFilter.not_set or
+                                                    self.is_local_address_ignore.yfilter != YFilter.not_set or
+                                                    self.is_pcb_bound.yfilter != YFilter.not_set)
+
+                                            def get_segment_path(self):
+                                                path_buffer = ""
+                                                path_buffer = "lpts-flags" + path_buffer
+
+                                                return path_buffer
+
+                                            def get_entity_path(self, ancestor):
+                                                path_buffer = ""
+                                                if (ancestor is None):
+                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                else:
+                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                leaf_name_data = LeafDataList()
+                                                if (self.is_ignore_vrf_filter.is_set or self.is_ignore_vrf_filter.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_ignore_vrf_filter.get_name_leafdata())
+                                                if (self.is_local_address_ignore.is_set or self.is_local_address_ignore.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_local_address_ignore.get_name_leafdata())
+                                                if (self.is_pcb_bound.is_set or self.is_pcb_bound.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_pcb_bound.get_name_leafdata())
+
+                                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                return entity_path
+
+                                            def get_child_by_name(self, child_yang_name, segment_path):
+                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                if child is not None:
+                                                    return child
+
+                                                return None
+
+                                            def has_leaf_or_child_of_name(self, name):
+                                                if(name == "is-ignore-vrf-filter" or name == "is-local-address-ignore" or name == "is-pcb-bound"):
+                                                    return True
                                                 return False
 
-                                            def _has_data(self):
-                                                if self.is_ignore_vrf_filter is not None:
-                                                    return True
-
-                                                if self.is_local_address_ignore is not None:
-                                                    return True
-
-                                                if self.is_pcb_bound is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags']['meta_info']
+                                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                if(value_path == "is-ignore-vrf-filter"):
+                                                    self.is_ignore_vrf_filter = value
+                                                    self.is_ignore_vrf_filter.value_namespace = name_space
+                                                    self.is_ignore_vrf_filter.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-local-address-ignore"):
+                                                    self.is_local_address_ignore = value
+                                                    self.is_local_address_ignore.value_namespace = name_space
+                                                    self.is_local_address_ignore.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-pcb-bound"):
+                                                    self.is_pcb_bound = value
+                                                    self.is_pcb_bound.value_namespace = name_space
+                                                    self.is_pcb_bound.value_namespace_prefix = name_space_prefix
 
 
-                                        class AcceptMask(object):
+                                        class AcceptMask(Entity):
                                             """
                                             AcceptMask
                                             
@@ -3077,53 +4556,141 @@ class UdpConnection(object):
                                             _revision = '2016-02-26'
 
                                             def __init__(self):
-                                                self.parent = None
-                                                self.is_interface = None
-                                                self.is_local_address = None
-                                                self.is_local_port = None
-                                                self.is_packet_type = None
-                                                self.is_remote_address = None
-                                                self.is_remote_port = None
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, self).__init__()
 
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                                self.yang_name = "accept-mask"
+                                                self.yang_parent_name = "lpts-pcb"
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:accept-mask'
+                                                self.is_interface = YLeaf(YType.boolean, "is-interface")
 
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
+                                                self.is_local_address = YLeaf(YType.boolean, "is-local-address")
+
+                                                self.is_local_port = YLeaf(YType.boolean, "is-local-port")
+
+                                                self.is_packet_type = YLeaf(YType.boolean, "is-packet-type")
+
+                                                self.is_remote_address = YLeaf(YType.boolean, "is-remote-address")
+
+                                                self.is_remote_port = YLeaf(YType.boolean, "is-remote-port")
+
+                                            def __setattr__(self, name, value):
+                                                self._check_monkey_patching_error(name, value)
+                                                with _handle_type_error():
+                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                            "Please use list append or extend method."
+                                                                            .format(value))
+                                                    if isinstance(value, Enum.YLeaf):
+                                                        value = value.name
+                                                    if name in ("is_interface",
+                                                                "is_local_address",
+                                                                "is_local_port",
+                                                                "is_packet_type",
+                                                                "is_remote_address",
+                                                                "is_remote_port") and name in self.__dict__:
+                                                        if isinstance(value, YLeaf):
+                                                            self.__dict__[name].set(value.get())
+                                                        elif isinstance(value, YLeafList):
+                                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, self).__setattr__(name, value)
+                                                        else:
+                                                            self.__dict__[name].set(value)
+                                                    else:
+                                                        if hasattr(value, "parent") and name != "parent":
+                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                value.parent = self
+                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                value.parent = self
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask, self).__setattr__(name, value)
+
+                                            def has_data(self):
+                                                return (
+                                                    self.is_interface.is_set or
+                                                    self.is_local_address.is_set or
+                                                    self.is_local_port.is_set or
+                                                    self.is_packet_type.is_set or
+                                                    self.is_remote_address.is_set or
+                                                    self.is_remote_port.is_set)
+
+                                            def has_operation(self):
+                                                return (
+                                                    self.yfilter != YFilter.not_set or
+                                                    self.is_interface.yfilter != YFilter.not_set or
+                                                    self.is_local_address.yfilter != YFilter.not_set or
+                                                    self.is_local_port.yfilter != YFilter.not_set or
+                                                    self.is_packet_type.yfilter != YFilter.not_set or
+                                                    self.is_remote_address.yfilter != YFilter.not_set or
+                                                    self.is_remote_port.yfilter != YFilter.not_set)
+
+                                            def get_segment_path(self):
+                                                path_buffer = ""
+                                                path_buffer = "accept-mask" + path_buffer
+
+                                                return path_buffer
+
+                                            def get_entity_path(self, ancestor):
+                                                path_buffer = ""
+                                                if (ancestor is None):
+                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                else:
+                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                leaf_name_data = LeafDataList()
+                                                if (self.is_interface.is_set or self.is_interface.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_interface.get_name_leafdata())
+                                                if (self.is_local_address.is_set or self.is_local_address.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_local_address.get_name_leafdata())
+                                                if (self.is_local_port.is_set or self.is_local_port.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_local_port.get_name_leafdata())
+                                                if (self.is_packet_type.is_set or self.is_packet_type.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_packet_type.get_name_leafdata())
+                                                if (self.is_remote_address.is_set or self.is_remote_address.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_remote_address.get_name_leafdata())
+                                                if (self.is_remote_port.is_set or self.is_remote_port.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.is_remote_port.get_name_leafdata())
+
+                                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                return entity_path
+
+                                            def get_child_by_name(self, child_yang_name, segment_path):
+                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                if child is not None:
+                                                    return child
+
+                                                return None
+
+                                            def has_leaf_or_child_of_name(self, name):
+                                                if(name == "is-interface" or name == "is-local-address" or name == "is-local-port" or name == "is-packet-type" or name == "is-remote-address" or name == "is-remote-port"):
+                                                    return True
                                                 return False
 
-                                            def _has_data(self):
-                                                if self.is_interface is not None:
-                                                    return True
+                                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                if(value_path == "is-interface"):
+                                                    self.is_interface = value
+                                                    self.is_interface.value_namespace = name_space
+                                                    self.is_interface.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-local-address"):
+                                                    self.is_local_address = value
+                                                    self.is_local_address.value_namespace = name_space
+                                                    self.is_local_address.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-local-port"):
+                                                    self.is_local_port = value
+                                                    self.is_local_port.value_namespace = name_space
+                                                    self.is_local_port.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-packet-type"):
+                                                    self.is_packet_type = value
+                                                    self.is_packet_type.value_namespace = name_space
+                                                    self.is_packet_type.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-remote-address"):
+                                                    self.is_remote_address = value
+                                                    self.is_remote_address.value_namespace = name_space
+                                                    self.is_remote_address.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "is-remote-port"):
+                                                    self.is_remote_port = value
+                                                    self.is_remote_port.value_namespace = name_space
+                                                    self.is_remote_port.value_namespace_prefix = name_space_prefix
 
-                                                if self.is_local_address is not None:
-                                                    return True
 
-                                                if self.is_local_port is not None:
-                                                    return True
-
-                                                if self.is_packet_type is not None:
-                                                    return True
-
-                                                if self.is_remote_address is not None:
-                                                    return True
-
-                                                if self.is_remote_port is not None:
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask']['meta_info']
-
-
-                                        class Filter(object):
+                                        class Filter(Entity):
                                             """
                                             Interface Filters
                                             
@@ -3206,41 +4773,92 @@ class UdpConnection(object):
                                             _revision = '2016-02-26'
 
                                             def __init__(self):
-                                                self.parent = None
-                                                self.flow_types_info = None
-                                                self.interface_name = None
+                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, self).__init__()
+
+                                                self.yang_name = "filter"
+                                                self.yang_parent_name = "lpts-pcb"
+
+                                                self.flow_types_info = YLeaf(YType.uint32, "flow-types-info")
+
+                                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                                self.local_length = YLeaf(YType.uint16, "local-length")
+
+                                                self.priority = YLeaf(YType.uint8, "priority")
+
+                                                self.receive_local_port = YLeaf(YType.uint16, "receive-local-port")
+
+                                                self.receive_remote_port = YLeaf(YType.uint16, "receive-remote-port")
+
+                                                self.remote_length = YLeaf(YType.uint16, "remote-length")
+
+                                                self.ttl = YLeaf(YType.uint8, "ttl")
+
                                                 self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress()
                                                 self.local_address.parent = self
-                                                self.local_length = None
+                                                self._children_name_map["local_address"] = "local-address"
+                                                self._children_yang_names.add("local-address")
+
                                                 self.packet_type = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType()
                                                 self.packet_type.parent = self
-                                                self.priority = None
-                                                self.receive_local_port = None
-                                                self.receive_remote_port = None
+                                                self._children_name_map["packet_type"] = "packet-type"
+                                                self._children_yang_names.add("packet-type")
+
                                                 self.remote_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress()
                                                 self.remote_address.parent = self
-                                                self.remote_length = None
-                                                self.ttl = None
+                                                self._children_name_map["remote_address"] = "remote-address"
+                                                self._children_yang_names.add("remote-address")
+
+                                            def __setattr__(self, name, value):
+                                                self._check_monkey_patching_error(name, value)
+                                                with _handle_type_error():
+                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                            "Please use list append or extend method."
+                                                                            .format(value))
+                                                    if isinstance(value, Enum.YLeaf):
+                                                        value = value.name
+                                                    if name in ("flow_types_info",
+                                                                "interface_name",
+                                                                "local_length",
+                                                                "priority",
+                                                                "receive_local_port",
+                                                                "receive_remote_port",
+                                                                "remote_length",
+                                                                "ttl") and name in self.__dict__:
+                                                        if isinstance(value, YLeaf):
+                                                            self.__dict__[name].set(value.get())
+                                                        elif isinstance(value, YLeafList):
+                                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, self).__setattr__(name, value)
+                                                        else:
+                                                            self.__dict__[name].set(value)
+                                                    else:
+                                                        if hasattr(value, "parent") and name != "parent":
+                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                value.parent = self
+                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                value.parent = self
+                                                        super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter, self).__setattr__(name, value)
 
 
-                                            class PacketType(object):
+                                            class PacketType(Entity):
                                                 """
                                                 Protocol\-specific packet type
                                                 
                                                 .. attribute:: icm_pv6_message_type
                                                 
                                                 	ICMPv6 message type
-                                                	**type**\:   :py:class:`MessageTypeIcmpv6Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6Enum>`
+                                                	**type**\:   :py:class:`MessageTypeIcmpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6>`
                                                 
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
-                                                	**type**\:   :py:class:`MessageTypeIcmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpEnum>`
+                                                	**type**\:   :py:class:`MessageTypeIcmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmp>`
                                                 
                                                 .. attribute:: igmp_message_type
                                                 
                                                 	IGMP message type
-                                                	**type**\:   :py:class:`MessageTypeIgmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmpEnum>`
+                                                	**type**\:   :py:class:`MessageTypeIgmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmp>`
                                                 
                                                 .. attribute:: message_id
                                                 
@@ -3252,7 +4870,7 @@ class UdpConnection(object):
                                                 .. attribute:: type
                                                 
                                                 	Type
-                                                	**type**\:   :py:class:`PacketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.PacketEnum>`
+                                                	**type**\:   :py:class:`Packet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Packet>`
                                                 
                                                 
 
@@ -3262,56 +4880,137 @@ class UdpConnection(object):
                                                 _revision = '2016-02-26'
 
                                                 def __init__(self):
-                                                    self.parent = None
-                                                    self.icm_pv6_message_type = None
-                                                    self.icmp_message_type = None
-                                                    self.igmp_message_type = None
-                                                    self.message_id = None
-                                                    self.type = None
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, self).__init__()
 
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    self.yang_name = "packet-type"
+                                                    self.yang_parent_name = "filter"
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:packet-type'
+                                                    self.icm_pv6_message_type = YLeaf(YType.enumeration, "icm-pv6-message-type")
 
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    self.icmp_message_type = YLeaf(YType.enumeration, "icmp-message-type")
+
+                                                    self.igmp_message_type = YLeaf(YType.enumeration, "igmp-message-type")
+
+                                                    self.message_id = YLeaf(YType.uint32, "message-id")
+
+                                                    self.type = YLeaf(YType.enumeration, "type")
+
+                                                def __setattr__(self, name, value):
+                                                    self._check_monkey_patching_error(name, value)
+                                                    with _handle_type_error():
+                                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                "Please use list append or extend method."
+                                                                                .format(value))
+                                                        if isinstance(value, Enum.YLeaf):
+                                                            value = value.name
+                                                        if name in ("icm_pv6_message_type",
+                                                                    "icmp_message_type",
+                                                                    "igmp_message_type",
+                                                                    "message_id",
+                                                                    "type") and name in self.__dict__:
+                                                            if isinstance(value, YLeaf):
+                                                                self.__dict__[name].set(value.get())
+                                                            elif isinstance(value, YLeafList):
+                                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, self).__setattr__(name, value)
+                                                            else:
+                                                                self.__dict__[name].set(value)
+                                                        else:
+                                                            if hasattr(value, "parent") and name != "parent":
+                                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                    value.parent = self
+                                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                    value.parent = self
+                                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType, self).__setattr__(name, value)
+
+                                                def has_data(self):
+                                                    return (
+                                                        self.icm_pv6_message_type.is_set or
+                                                        self.icmp_message_type.is_set or
+                                                        self.igmp_message_type.is_set or
+                                                        self.message_id.is_set or
+                                                        self.type.is_set)
+
+                                                def has_operation(self):
+                                                    return (
+                                                        self.yfilter != YFilter.not_set or
+                                                        self.icm_pv6_message_type.yfilter != YFilter.not_set or
+                                                        self.icmp_message_type.yfilter != YFilter.not_set or
+                                                        self.igmp_message_type.yfilter != YFilter.not_set or
+                                                        self.message_id.yfilter != YFilter.not_set or
+                                                        self.type.yfilter != YFilter.not_set)
+
+                                                def get_segment_path(self):
+                                                    path_buffer = ""
+                                                    path_buffer = "packet-type" + path_buffer
+
+                                                    return path_buffer
+
+                                                def get_entity_path(self, ancestor):
+                                                    path_buffer = ""
+                                                    if (ancestor is None):
+                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                    else:
+                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                    leaf_name_data = LeafDataList()
+                                                    if (self.icm_pv6_message_type.is_set or self.icm_pv6_message_type.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.icm_pv6_message_type.get_name_leafdata())
+                                                    if (self.icmp_message_type.is_set or self.icmp_message_type.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.icmp_message_type.get_name_leafdata())
+                                                    if (self.igmp_message_type.is_set or self.igmp_message_type.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.igmp_message_type.get_name_leafdata())
+                                                    if (self.message_id.is_set or self.message_id.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.message_id.get_name_leafdata())
+                                                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.type.get_name_leafdata())
+
+                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                    return entity_path
+
+                                                def get_child_by_name(self, child_yang_name, segment_path):
+                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                    if child is not None:
+                                                        return child
+
+                                                    return None
+
+                                                def has_leaf_or_child_of_name(self, name):
+                                                    if(name == "icm-pv6-message-type" or name == "icmp-message-type" or name == "igmp-message-type" or name == "message-id" or name == "type"):
+                                                        return True
                                                     return False
 
-                                                def _has_data(self):
-                                                    if self.icm_pv6_message_type is not None:
-                                                        return True
+                                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                    if(value_path == "icm-pv6-message-type"):
+                                                        self.icm_pv6_message_type = value
+                                                        self.icm_pv6_message_type.value_namespace = name_space
+                                                        self.icm_pv6_message_type.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "icmp-message-type"):
+                                                        self.icmp_message_type = value
+                                                        self.icmp_message_type.value_namespace = name_space
+                                                        self.icmp_message_type.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "igmp-message-type"):
+                                                        self.igmp_message_type = value
+                                                        self.igmp_message_type.value_namespace = name_space
+                                                        self.igmp_message_type.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "message-id"):
+                                                        self.message_id = value
+                                                        self.message_id.value_namespace = name_space
+                                                        self.message_id.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "type"):
+                                                        self.type = value
+                                                        self.type.value_namespace = name_space
+                                                        self.type.value_namespace_prefix = name_space_prefix
 
-                                                    if self.icmp_message_type is not None:
-                                                        return True
 
-                                                    if self.igmp_message_type is not None:
-                                                        return True
-
-                                                    if self.message_id is not None:
-                                                        return True
-
-                                                    if self.type is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType']['meta_info']
-
-
-                                            class RemoteAddress(object):
+                                            class RemoteAddress(Entity):
                                                 """
                                                 Remote address
                                                 
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
@@ -3335,48 +5034,115 @@ class UdpConnection(object):
                                                 _revision = '2016-02-26'
 
                                                 def __init__(self):
-                                                    self.parent = None
-                                                    self.af_name = None
-                                                    self.ipv4_address = None
-                                                    self.ipv6_address = None
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, self).__init__()
 
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    self.yang_name = "remote-address"
+                                                    self.yang_parent_name = "filter"
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:remote-address'
+                                                    self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                                                def __setattr__(self, name, value):
+                                                    self._check_monkey_patching_error(name, value)
+                                                    with _handle_type_error():
+                                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                "Please use list append or extend method."
+                                                                                .format(value))
+                                                        if isinstance(value, Enum.YLeaf):
+                                                            value = value.name
+                                                        if name in ("af_name",
+                                                                    "ipv4_address",
+                                                                    "ipv6_address") and name in self.__dict__:
+                                                            if isinstance(value, YLeaf):
+                                                                self.__dict__[name].set(value.get())
+                                                            elif isinstance(value, YLeafList):
+                                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, self).__setattr__(name, value)
+                                                            else:
+                                                                self.__dict__[name].set(value)
+                                                        else:
+                                                            if hasattr(value, "parent") and name != "parent":
+                                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                    value.parent = self
+                                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                    value.parent = self
+                                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress, self).__setattr__(name, value)
+
+                                                def has_data(self):
+                                                    return (
+                                                        self.af_name.is_set or
+                                                        self.ipv4_address.is_set or
+                                                        self.ipv6_address.is_set)
+
+                                                def has_operation(self):
+                                                    return (
+                                                        self.yfilter != YFilter.not_set or
+                                                        self.af_name.yfilter != YFilter.not_set or
+                                                        self.ipv4_address.yfilter != YFilter.not_set or
+                                                        self.ipv6_address.yfilter != YFilter.not_set)
+
+                                                def get_segment_path(self):
+                                                    path_buffer = ""
+                                                    path_buffer = "remote-address" + path_buffer
+
+                                                    return path_buffer
+
+                                                def get_entity_path(self, ancestor):
+                                                    path_buffer = ""
+                                                    if (ancestor is None):
+                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                    else:
+                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                    leaf_name_data = LeafDataList()
+                                                    if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.af_name.get_name_leafdata())
+                                                    if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                                    if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                    return entity_path
+
+                                                def get_child_by_name(self, child_yang_name, segment_path):
+                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                    if child is not None:
+                                                        return child
+
+                                                    return None
+
+                                                def has_leaf_or_child_of_name(self, name):
+                                                    if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                                        return True
                                                     return False
 
-                                                def _has_data(self):
-                                                    if self.af_name is not None:
-                                                        return True
-
-                                                    if self.ipv4_address is not None:
-                                                        return True
-
-                                                    if self.ipv6_address is not None:
-                                                        return True
-
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress']['meta_info']
+                                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                    if(value_path == "af-name"):
+                                                        self.af_name = value
+                                                        self.af_name.value_namespace = name_space
+                                                        self.af_name.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "ipv4-address"):
+                                                        self.ipv4_address = value
+                                                        self.ipv4_address.value_namespace = name_space
+                                                        self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "ipv6-address"):
+                                                        self.ipv6_address = value
+                                                        self.ipv6_address.value_namespace = name_space
+                                                        self.ipv6_address.value_namespace_prefix = name_space_prefix
 
 
-                                            class LocalAddress(object):
+                                            class LocalAddress(Entity):
                                                 """
                                                 Local address
                                                 
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                                	**type**\:   :py:class:`AddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamily>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
@@ -3400,296 +5166,710 @@ class UdpConnection(object):
                                                 _revision = '2016-02-26'
 
                                                 def __init__(self):
-                                                    self.parent = None
-                                                    self.af_name = None
-                                                    self.ipv4_address = None
-                                                    self.ipv6_address = None
+                                                    super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__init__()
 
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    self.yang_name = "local-address"
+                                                    self.yang_parent_name = "filter"
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
+                                                    self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                                                def __setattr__(self, name, value):
+                                                    self._check_monkey_patching_error(name, value)
+                                                    with _handle_type_error():
+                                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                "Please use list append or extend method."
+                                                                                .format(value))
+                                                        if isinstance(value, Enum.YLeaf):
+                                                            value = value.name
+                                                        if name in ("af_name",
+                                                                    "ipv4_address",
+                                                                    "ipv6_address") and name in self.__dict__:
+                                                            if isinstance(value, YLeaf):
+                                                                self.__dict__[name].set(value.get())
+                                                            elif isinstance(value, YLeafList):
+                                                                super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__setattr__(name, value)
+                                                            else:
+                                                                self.__dict__[name].set(value)
+                                                        else:
+                                                            if hasattr(value, "parent") and name != "parent":
+                                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                    value.parent = self
+                                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                    value.parent = self
+                                                            super(UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress, self).__setattr__(name, value)
+
+                                                def has_data(self):
+                                                    return (
+                                                        self.af_name.is_set or
+                                                        self.ipv4_address.is_set or
+                                                        self.ipv6_address.is_set)
+
+                                                def has_operation(self):
+                                                    return (
+                                                        self.yfilter != YFilter.not_set or
+                                                        self.af_name.yfilter != YFilter.not_set or
+                                                        self.ipv4_address.yfilter != YFilter.not_set or
+                                                        self.ipv6_address.yfilter != YFilter.not_set)
+
+                                                def get_segment_path(self):
+                                                    path_buffer = ""
+                                                    path_buffer = "local-address" + path_buffer
+
+                                                    return path_buffer
+
+                                                def get_entity_path(self, ancestor):
+                                                    path_buffer = ""
+                                                    if (ancestor is None):
+                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                    else:
+                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                    leaf_name_data = LeafDataList()
+                                                    if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.af_name.get_name_leafdata())
+                                                    if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                                                    if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                    return entity_path
+
+                                                def get_child_by_name(self, child_yang_name, segment_path):
+                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                    if child is not None:
+                                                        return child
+
+                                                    return None
+
+                                                def has_leaf_or_child_of_name(self, name):
+                                                    if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                                        return True
                                                     return False
 
-                                                def _has_data(self):
-                                                    if self.af_name is not None:
-                                                        return True
+                                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                    if(value_path == "af-name"):
+                                                        self.af_name = value
+                                                        self.af_name.value_namespace = name_space
+                                                        self.af_name.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "ipv4-address"):
+                                                        self.ipv4_address = value
+                                                        self.ipv4_address.value_namespace = name_space
+                                                        self.ipv4_address.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "ipv6-address"):
+                                                        self.ipv6_address = value
+                                                        self.ipv6_address.value_namespace = name_space
+                                                        self.ipv6_address.value_namespace_prefix = name_space_prefix
 
-                                                    if self.ipv4_address is not None:
-                                                        return True
+                                            def has_data(self):
+                                                return (
+                                                    self.flow_types_info.is_set or
+                                                    self.interface_name.is_set or
+                                                    self.local_length.is_set or
+                                                    self.priority.is_set or
+                                                    self.receive_local_port.is_set or
+                                                    self.receive_remote_port.is_set or
+                                                    self.remote_length.is_set or
+                                                    self.ttl.is_set or
+                                                    (self.local_address is not None and self.local_address.has_data()) or
+                                                    (self.packet_type is not None and self.packet_type.has_data()) or
+                                                    (self.remote_address is not None and self.remote_address.has_data()))
 
-                                                    if self.ipv6_address is not None:
-                                                        return True
+                                            def has_operation(self):
+                                                return (
+                                                    self.yfilter != YFilter.not_set or
+                                                    self.flow_types_info.yfilter != YFilter.not_set or
+                                                    self.interface_name.yfilter != YFilter.not_set or
+                                                    self.local_length.yfilter != YFilter.not_set or
+                                                    self.priority.yfilter != YFilter.not_set or
+                                                    self.receive_local_port.yfilter != YFilter.not_set or
+                                                    self.receive_remote_port.yfilter != YFilter.not_set or
+                                                    self.remote_length.yfilter != YFilter.not_set or
+                                                    self.ttl.yfilter != YFilter.not_set or
+                                                    (self.local_address is not None and self.local_address.has_operation()) or
+                                                    (self.packet_type is not None and self.packet_type.has_operation()) or
+                                                    (self.remote_address is not None and self.remote_address.has_operation()))
 
-                                                    return False
+                                            def get_segment_path(self):
+                                                path_buffer = ""
+                                                path_buffer = "filter" + path_buffer
 
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress']['meta_info']
+                                                return path_buffer
 
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                            def get_entity_path(self, ancestor):
+                                                path_buffer = ""
+                                                if (ancestor is None):
+                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                else:
+                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                                return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:filter'
+                                                leaf_name_data = LeafDataList()
+                                                if (self.flow_types_info.is_set or self.flow_types_info.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.flow_types_info.get_name_leafdata())
+                                                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.interface_name.get_name_leafdata())
+                                                if (self.local_length.is_set or self.local_length.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.local_length.get_name_leafdata())
+                                                if (self.priority.is_set or self.priority.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.priority.get_name_leafdata())
+                                                if (self.receive_local_port.is_set or self.receive_local_port.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.receive_local_port.get_name_leafdata())
+                                                if (self.receive_remote_port.is_set or self.receive_remote_port.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.receive_remote_port.get_name_leafdata())
+                                                if (self.remote_length.is_set or self.remote_length.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.remote_length.get_name_leafdata())
+                                                if (self.ttl.is_set or self.ttl.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.ttl.get_name_leafdata())
 
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
+                                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                return entity_path
+
+                                            def get_child_by_name(self, child_yang_name, segment_path):
+                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                if child is not None:
+                                                    return child
+
+                                                if (child_yang_name == "local-address"):
+                                                    if (self.local_address is None):
+                                                        self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress()
+                                                        self.local_address.parent = self
+                                                        self._children_name_map["local_address"] = "local-address"
+                                                    return self.local_address
+
+                                                if (child_yang_name == "packet-type"):
+                                                    if (self.packet_type is None):
+                                                        self.packet_type = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType()
+                                                        self.packet_type.parent = self
+                                                        self._children_name_map["packet_type"] = "packet-type"
+                                                    return self.packet_type
+
+                                                if (child_yang_name == "remote-address"):
+                                                    if (self.remote_address is None):
+                                                        self.remote_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress()
+                                                        self.remote_address.parent = self
+                                                        self._children_name_map["remote_address"] = "remote-address"
+                                                    return self.remote_address
+
+                                                return None
+
+                                            def has_leaf_or_child_of_name(self, name):
+                                                if(name == "local-address" or name == "packet-type" or name == "remote-address" or name == "flow-types-info" or name == "interface-name" or name == "local-length" or name == "priority" or name == "receive-local-port" or name == "receive-remote-port" or name == "remote-length" or name == "ttl"):
+                                                    return True
                                                 return False
 
-                                            def _has_data(self):
-                                                if self.flow_types_info is not None:
+                                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                if(value_path == "flow-types-info"):
+                                                    self.flow_types_info = value
+                                                    self.flow_types_info.value_namespace = name_space
+                                                    self.flow_types_info.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "interface-name"):
+                                                    self.interface_name = value
+                                                    self.interface_name.value_namespace = name_space
+                                                    self.interface_name.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "local-length"):
+                                                    self.local_length = value
+                                                    self.local_length.value_namespace = name_space
+                                                    self.local_length.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "priority"):
+                                                    self.priority = value
+                                                    self.priority.value_namespace = name_space
+                                                    self.priority.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "receive-local-port"):
+                                                    self.receive_local_port = value
+                                                    self.receive_local_port.value_namespace = name_space
+                                                    self.receive_local_port.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "receive-remote-port"):
+                                                    self.receive_remote_port = value
+                                                    self.receive_remote_port.value_namespace = name_space
+                                                    self.receive_remote_port.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "remote-length"):
+                                                    self.remote_length = value
+                                                    self.remote_length.value_namespace = name_space
+                                                    self.remote_length.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "ttl"):
+                                                    self.ttl = value
+                                                    self.ttl.value_namespace = name_space
+                                                    self.ttl.value_namespace_prefix = name_space_prefix
+
+                                        def has_data(self):
+                                            for c in self.filter:
+                                                if (c.has_data()):
                                                     return True
+                                            return (
+                                                self.flow_types_info.is_set or
+                                                self.ttl.is_set or
+                                                (self.accept_mask is not None and self.accept_mask.has_data()) or
+                                                (self.lpts_flags is not None and self.lpts_flags.has_data()) or
+                                                (self.options is not None and self.options.has_data()))
 
-                                                if self.interface_name is not None:
+                                        def has_operation(self):
+                                            for c in self.filter:
+                                                if (c.has_operation()):
                                                     return True
+                                            return (
+                                                self.yfilter != YFilter.not_set or
+                                                self.flow_types_info.yfilter != YFilter.not_set or
+                                                self.ttl.yfilter != YFilter.not_set or
+                                                (self.accept_mask is not None and self.accept_mask.has_operation()) or
+                                                (self.lpts_flags is not None and self.lpts_flags.has_operation()) or
+                                                (self.options is not None and self.options.has_operation()))
 
-                                                if self.local_address is not None and self.local_address._has_data():
-                                                    return True
+                                        def get_segment_path(self):
+                                            path_buffer = ""
+                                            path_buffer = "lpts-pcb" + path_buffer
 
-                                                if self.local_length is not None:
-                                                    return True
+                                            return path_buffer
 
-                                                if self.packet_type is not None and self.packet_type._has_data():
-                                                    return True
+                                        def get_entity_path(self, ancestor):
+                                            path_buffer = ""
+                                            if (ancestor is None):
+                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                            else:
+                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                                if self.priority is not None:
-                                                    return True
+                                            leaf_name_data = LeafDataList()
+                                            if (self.flow_types_info.is_set or self.flow_types_info.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.flow_types_info.get_name_leafdata())
+                                            if (self.ttl.is_set or self.ttl.yfilter != YFilter.not_set):
+                                                leaf_name_data.append(self.ttl.get_name_leafdata())
 
-                                                if self.receive_local_port is not None:
-                                                    return True
+                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                            return entity_path
 
-                                                if self.receive_remote_port is not None:
-                                                    return True
+                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                            if child is not None:
+                                                return child
 
-                                                if self.remote_address is not None and self.remote_address._has_data():
-                                                    return True
+                                            if (child_yang_name == "accept-mask"):
+                                                if (self.accept_mask is None):
+                                                    self.accept_mask = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask()
+                                                    self.accept_mask.parent = self
+                                                    self._children_name_map["accept_mask"] = "accept-mask"
+                                                return self.accept_mask
 
-                                                if self.remote_length is not None:
-                                                    return True
+                                            if (child_yang_name == "filter"):
+                                                for c in self.filter:
+                                                    segment = c.get_segment_path()
+                                                    if (segment_path == segment):
+                                                        return c
+                                                c = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter()
+                                                c.parent = self
+                                                local_reference_key = "ydk::seg::%s" % segment_path
+                                                self._local_refs[local_reference_key] = c
+                                                self.filter.append(c)
+                                                return c
 
-                                                if self.ttl is not None:
-                                                    return True
+                                            if (child_yang_name == "lpts-flags"):
+                                                if (self.lpts_flags is None):
+                                                    self.lpts_flags = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags()
+                                                    self.lpts_flags.parent = self
+                                                    self._children_name_map["lpts_flags"] = "lpts-flags"
+                                                return self.lpts_flags
 
-                                                return False
+                                            if (child_yang_name == "options"):
+                                                if (self.options is None):
+                                                    self.options = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options()
+                                                    self.options.parent = self
+                                                    self._children_name_map["options"] = "options"
+                                                return self.options
 
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter']['meta_info']
+                                            return None
 
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:lpts-pcb'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
+                                        def has_leaf_or_child_of_name(self, name):
+                                            if(name == "accept-mask" or name == "filter" or name == "lpts-flags" or name == "options" or name == "flow-types-info" or name == "ttl"):
+                                                return True
                                             return False
 
-                                        def _has_data(self):
-                                            if self.accept_mask is not None and self.accept_mask._has_data():
-                                                return True
+                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                            if(value_path == "flow-types-info"):
+                                                self.flow_types_info = value
+                                                self.flow_types_info.value_namespace = name_space
+                                                self.flow_types_info.value_namespace_prefix = name_space_prefix
+                                            if(value_path == "ttl"):
+                                                self.ttl = value
+                                                self.ttl.value_namespace = name_space
+                                                self.ttl.value_namespace_prefix = name_space_prefix
 
-                                            if self.filter is not None:
-                                                for child_ref in self.filter:
-                                                    if child_ref._has_data():
-                                                        return True
+                                    def has_data(self):
+                                        return (
+                                            self.af_name.is_set or
+                                            (self.lpts_pcb is not None and self.lpts_pcb.has_data()))
 
-                                            if self.flow_types_info is not None:
-                                                return True
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.af_name.yfilter != YFilter.not_set or
+                                            (self.lpts_pcb is not None and self.lpts_pcb.has_operation()))
 
-                                            if self.lpts_flags is not None and self.lpts_flags._has_data():
-                                                return True
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "common" + path_buffer
 
-                                            if self.options is not None and self.options._has_data():
-                                                return True
+                                        return path_buffer
 
-                                            if self.ttl is not None:
-                                                return True
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                            return False
+                                        leaf_name_data = LeafDataList()
+                                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.af_name.get_name_leafdata())
 
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                            return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb']['meta_info']
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:common'
+                                        if (child_yang_name == "lpts-pcb"):
+                                            if (self.lpts_pcb is None):
+                                                self.lpts_pcb = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb()
+                                                self.lpts_pcb.parent = self
+                                                self._children_name_map["lpts_pcb"] = "lpts-pcb"
+                                            return self.lpts_pcb
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "lpts-pcb" or name == "af-name"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.af_name is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "af-name"):
+                                            self.af_name = value
+                                            self.af_name.value_namespace = name_space
+                                            self.af_name.value_namespace_prefix = name_space_prefix
 
-                                        if self.lpts_pcb is not None and self.lpts_pcb._has_data():
-                                            return True
+                                def has_data(self):
+                                    return (
+                                        self.pcb_address.is_set or
+                                        self.foreign_port.is_set or
+                                        self.l4_protocol.is_set or
+                                        self.local_port.is_set or
+                                        (self.common is not None and self.common.has_data()) or
+                                        (self.foreign_address is not None and self.foreign_address.has_data()) or
+                                        (self.local_address is not None and self.local_address.has_data()))
 
-                                        return False
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.pcb_address.yfilter != YFilter.not_set or
+                                        self.foreign_port.yfilter != YFilter.not_set or
+                                        self.l4_protocol.yfilter != YFilter.not_set or
+                                        self.local_port.yfilter != YFilter.not_set or
+                                        (self.common is not None and self.common.has_operation()) or
+                                        (self.foreign_address is not None and self.foreign_address.has_operation()) or
+                                        (self.local_address is not None and self.local_address.has_operation()))
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common']['meta_info']
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "pcb" + "[pcb-address='" + self.pcb_address.get() + "']" + path_buffer
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-                                    if self.pcb_address is None:
-                                        raise YPYModelError('Key property pcb_address is None')
+                                    return path_buffer
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
+                                    leaf_name_data = LeafDataList()
+                                    if (self.pcb_address.is_set or self.pcb_address.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.pcb_address.get_name_leafdata())
+                                    if (self.foreign_port.is_set or self.foreign_port.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.foreign_port.get_name_leafdata())
+                                    if (self.l4_protocol.is_set or self.l4_protocol.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.l4_protocol.get_name_leafdata())
+                                    if (self.local_port.is_set or self.local_port.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.local_port.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "common"):
+                                        if (self.common is None):
+                                            self.common = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common()
+                                            self.common.parent = self
+                                            self._children_name_map["common"] = "common"
+                                        return self.common
+
+                                    if (child_yang_name == "foreign-address"):
+                                        if (self.foreign_address is None):
+                                            self.foreign_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress()
+                                            self.foreign_address.parent = self
+                                            self._children_name_map["foreign_address"] = "foreign-address"
+                                        return self.foreign_address
+
+                                    if (child_yang_name == "local-address"):
+                                        if (self.local_address is None):
+                                            self.local_address = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress()
+                                            self.local_address.parent = self
+                                            self._children_name_map["local_address"] = "local-address"
+                                        return self.local_address
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "common" or name == "foreign-address" or name == "local-address" or name == "pcb-address" or name == "foreign-port" or name == "l4-protocol" or name == "local-port"):
+                                        return True
                                     return False
 
-                                def _has_data(self):
-                                    if self.pcb_address is not None:
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "pcb-address"):
+                                        self.pcb_address = value
+                                        self.pcb_address.value_namespace = name_space
+                                        self.pcb_address.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "foreign-port"):
+                                        self.foreign_port = value
+                                        self.foreign_port.value_namespace = name_space
+                                        self.foreign_port.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "l4-protocol"):
+                                        self.l4_protocol = value
+                                        self.l4_protocol.value_namespace = name_space
+                                        self.l4_protocol.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "local-port"):
+                                        self.local_port = value
+                                        self.local_port.value_namespace = name_space
+                                        self.local_port.value_namespace_prefix = name_space_prefix
+
+                            def has_data(self):
+                                for c in self.pcb:
+                                    if (c.has_data()):
                                         return True
-
-                                    if self.common is not None and self.common._has_data():
-                                        return True
-
-                                    if self.foreign_address is not None and self.foreign_address._has_data():
-                                        return True
-
-                                    if self.foreign_port is not None:
-                                        return True
-
-                                    if self.l4_protocol is not None:
-                                        return True
-
-                                    if self.local_address is not None and self.local_address._has_data():
-                                        return True
-
-                                    if self.local_port is not None:
-                                        return True
-
-                                    return False
-
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb']['meta_info']
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcbs'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
                                 return False
 
-                            def _has_data(self):
-                                if self.pcb is not None:
-                                    for child_ref in self.pcb:
-                                        if child_ref._has_data():
-                                            return True
+                            def has_operation(self):
+                                for c in self.pcb:
+                                    if (c.has_operation()):
+                                        return True
+                                return self.yfilter != YFilter.not_set
 
-                                return False
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "pcbs" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                                return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs']['meta_info']
+                                return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.query_name is None:
-                                raise YPYModelError('Key property query_name is None')
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:query[Cisco-IOS-XR-ip-udp-oper:query-name = ' + str(self.query_name) + ']'
+                                leaf_name_data = LeafDataList()
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
 
-                        def _has_data(self):
-                            if self.query_name is not None:
-                                return True
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
 
-                            if self.pcbs is not None and self.pcbs._has_data():
-                                return True
+                                if (child_yang_name == "pcb"):
+                                    for c in self.pcb:
+                                        segment = c.get_segment_path()
+                                        if (segment_path == segment):
+                                            return c
+                                    c = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb()
+                                    c.parent = self
+                                    local_reference_key = "ydk::seg::%s" % segment_path
+                                    self._local_refs[local_reference_key] = c
+                                    self.pcb.append(c)
+                                    return c
 
-                            return False
+                                return None
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                            return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries.Query']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:queries'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.query is not None:
-                            for child_ref in self.query:
-                                if child_ref._has_data():
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "pcb"):
                                     return True
+                                return False
 
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
+
+                        def has_data(self):
+                            return (
+                                self.query_name.is_set or
+                                (self.pcbs is not None and self.pcbs.has_data()))
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.query_name.yfilter != YFilter.not_set or
+                                (self.pcbs is not None and self.pcbs.has_operation()))
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "query" + "[query-name='" + self.query_name.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.query_name.is_set or self.query_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.query_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "pcbs"):
+                                if (self.pcbs is None):
+                                    self.pcbs = UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs()
+                                    self.pcbs.parent = self
+                                    self._children_name_map["pcbs"] = "pcbs"
+                                return self.pcbs
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "pcbs" or name == "query-name"):
+                                return True
+                            return False
+
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "query-name"):
+                                self.query_name = value
+                                self.query_name.value_namespace = name_space
+                                self.query_name.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.query:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['UdpConnection.Nodes.Node.Lpts.Queries']['meta_info']
+                    def has_operation(self):
+                        for c in self.query:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "queries" + path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:lpts'
+                        return path_buffer
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def _has_data(self):
-                    if self.queries is not None and self.queries._has_data():
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "query"):
+                            for c in self.query:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = UdpConnection.Nodes.Node.Lpts.Queries.Query()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.query.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "query"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (self.queries is not None and self.queries.has_data())
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.queries is not None and self.queries.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "lpts" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "queries"):
+                        if (self.queries is None):
+                            self.queries = UdpConnection.Nodes.Node.Lpts.Queries()
+                            self.queries.parent = self
+                            self._children_name_map["queries"] = "queries"
+                        return self.queries
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "queries"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                    return meta._meta_table['UdpConnection.Nodes.Node.Lpts']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class PcbDetails(object):
+            class PcbDetails(Entity):
                 """
                 Detail information for list of UDP connections
                 .
@@ -3707,13 +5887,39 @@ class UdpConnection(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
-                    self.pcb_detail = YList()
-                    self.pcb_detail.parent = self
-                    self.pcb_detail.name = 'pcb_detail'
+                    super(UdpConnection.Nodes.Node.PcbDetails, self).__init__()
+
+                    self.yang_name = "pcb-details"
+                    self.yang_parent_name = "node"
+
+                    self.pcb_detail = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(UdpConnection.Nodes.Node.PcbDetails, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(UdpConnection.Nodes.Node.PcbDetails, self).__setattr__(name, value)
 
 
-                class PcbDetail(object):
+                class PcbDetail(Entity):
                     """
                     Detail information about a UDP connection
                     
@@ -3727,7 +5933,7 @@ class UdpConnection(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                     
                     .. attribute:: foreign_address
                     
@@ -3789,29 +5995,77 @@ class UdpConnection(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.pcb_address = None
-                        self.af_name = None
+                        super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, self).__init__()
+
+                        self.yang_name = "pcb-detail"
+                        self.yang_parent_name = "pcb-details"
+
+                        self.pcb_address = YLeaf(YType.int32, "pcb-address")
+
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+
+                        self.local_port = YLeaf(YType.uint16, "local-port")
+
+                        self.local_process_id = YLeaf(YType.uint32, "local-process-id")
+
+                        self.receive_queue = YLeaf(YType.uint32, "receive-queue")
+
+                        self.send_queue = YLeaf(YType.uint32, "send-queue")
+
+                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
                         self.foreign_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress()
                         self.foreign_address.parent = self
-                        self.foreign_port = None
+                        self._children_name_map["foreign_address"] = "foreign-address"
+                        self._children_yang_names.add("foreign-address")
+
                         self.local_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress()
                         self.local_address.parent = self
-                        self.local_port = None
-                        self.local_process_id = None
-                        self.receive_queue = None
-                        self.send_queue = None
-                        self.vrf_id = None
+                        self._children_name_map["local_address"] = "local-address"
+                        self._children_yang_names.add("local-address")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("pcb_address",
+                                        "af_name",
+                                        "foreign_port",
+                                        "local_port",
+                                        "local_process_id",
+                                        "receive_queue",
+                                        "send_queue",
+                                        "vrf_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail, self).__setattr__(name, value)
 
 
-                    class LocalAddress(object):
+                    class LocalAddress(Entity):
                         """
                         Local address
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
@@ -3835,48 +6089,115 @@ class UdpConnection(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "local-address"
+                            self.yang_parent_name = "pcb-detail"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
+                            self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "local-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
-                                return True
-
-                            if self.ipv4_address is not None:
-                                return True
-
-                            if self.ipv6_address is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                            return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
 
 
-                    class ForeignAddress(object):
+                    class ForeignAddress(Entity):
                         """
                         Foreign address
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
@@ -3900,116 +6221,286 @@ class UdpConnection(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "foreign-address"
+                            self.yang_parent_name = "pcb-detail"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:foreign-address'
+                            self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "foreign-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
 
-                            if self.ipv4_address is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.pcb_address.is_set or
+                            self.af_name.is_set or
+                            self.foreign_port.is_set or
+                            self.local_port.is_set or
+                            self.local_process_id.is_set or
+                            self.receive_queue.is_set or
+                            self.send_queue.is_set or
+                            self.vrf_id.is_set or
+                            (self.foreign_address is not None and self.foreign_address.has_data()) or
+                            (self.local_address is not None and self.local_address.has_data()))
 
-                            if self.ipv6_address is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.pcb_address.yfilter != YFilter.not_set or
+                            self.af_name.yfilter != YFilter.not_set or
+                            self.foreign_port.yfilter != YFilter.not_set or
+                            self.local_port.yfilter != YFilter.not_set or
+                            self.local_process_id.yfilter != YFilter.not_set or
+                            self.receive_queue.yfilter != YFilter.not_set or
+                            self.send_queue.yfilter != YFilter.not_set or
+                            self.vrf_id.yfilter != YFilter.not_set or
+                            (self.foreign_address is not None and self.foreign_address.has_operation()) or
+                            (self.local_address is not None and self.local_address.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "pcb-detail" + "[pcb-address='" + self.pcb_address.get() + "']" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                            return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.pcb_address is None:
-                            raise YPYModelError('Key property pcb_address is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-detail[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
+                        leaf_name_data = LeafDataList()
+                        if (self.pcb_address.is_set or self.pcb_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pcb_address.get_name_leafdata())
+                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                        if (self.foreign_port.is_set or self.foreign_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.foreign_port.get_name_leafdata())
+                        if (self.local_port.is_set or self.local_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.local_port.get_name_leafdata())
+                        if (self.local_process_id.is_set or self.local_process_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.local_process_id.get_name_leafdata())
+                        if (self.receive_queue.is_set or self.receive_queue.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.receive_queue.get_name_leafdata())
+                        if (self.send_queue.is_set or self.send_queue.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_queue.get_name_leafdata())
+                        if (self.vrf_id.is_set or self.vrf_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_id.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "foreign-address"):
+                            if (self.foreign_address is None):
+                                self.foreign_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress()
+                                self.foreign_address.parent = self
+                                self._children_name_map["foreign_address"] = "foreign-address"
+                            return self.foreign_address
+
+                        if (child_yang_name == "local-address"):
+                            if (self.local_address is None):
+                                self.local_address = UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress()
+                                self.local_address.parent = self
+                                self._children_name_map["local_address"] = "local-address"
+                            return self.local_address
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "foreign-address" or name == "local-address" or name == "pcb-address" or name == "af-name" or name == "foreign-port" or name == "local-port" or name == "local-process-id" or name == "receive-queue" or name == "send-queue" or name == "vrf-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.pcb_address is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "pcb-address"):
+                            self.pcb_address = value
+                            self.pcb_address.value_namespace = name_space
+                            self.pcb_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "af-name"):
+                            self.af_name = value
+                            self.af_name.value_namespace = name_space
+                            self.af_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "foreign-port"):
+                            self.foreign_port = value
+                            self.foreign_port.value_namespace = name_space
+                            self.foreign_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "local-port"):
+                            self.local_port = value
+                            self.local_port.value_namespace = name_space
+                            self.local_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "local-process-id"):
+                            self.local_process_id = value
+                            self.local_process_id.value_namespace = name_space
+                            self.local_process_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "receive-queue"):
+                            self.receive_queue = value
+                            self.receive_queue.value_namespace = name_space
+                            self.receive_queue.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-queue"):
+                            self.send_queue = value
+                            self.send_queue.value_namespace = name_space
+                            self.send_queue.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-id"):
+                            self.vrf_id = value
+                            self.vrf_id.value_namespace = name_space
+                            self.vrf_id.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.pcb_detail:
+                        if (c.has_data()):
                             return True
-
-                        if self.af_name is not None:
-                            return True
-
-                        if self.foreign_address is not None and self.foreign_address._has_data():
-                            return True
-
-                        if self.foreign_port is not None:
-                            return True
-
-                        if self.local_address is not None and self.local_address._has_data():
-                            return True
-
-                        if self.local_port is not None:
-                            return True
-
-                        if self.local_process_id is not None:
-                            return True
-
-                        if self.receive_queue is not None:
-                            return True
-
-                        if self.send_queue is not None:
-                            return True
-
-                        if self.vrf_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails.PcbDetail']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-details'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.pcb_detail is not None:
-                        for child_ref in self.pcb_detail:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.pcb_detail:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "pcb-details" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "pcb-detail"):
+                        for c in self.pcb_detail:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = UdpConnection.Nodes.Node.PcbDetails.PcbDetail()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.pcb_detail.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "pcb-detail"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                    return meta._meta_table['UdpConnection.Nodes.Node.PcbDetails']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class PcbBriefs(object):
+            class PcbBriefs(Entity):
                 """
                 Brief information for list of UDP connections.
                 
@@ -4026,13 +6517,39 @@ class UdpConnection(object):
                 _revision = '2016-02-26'
 
                 def __init__(self):
-                    self.parent = None
-                    self.pcb_brief = YList()
-                    self.pcb_brief.parent = self
-                    self.pcb_brief.name = 'pcb_brief'
+                    super(UdpConnection.Nodes.Node.PcbBriefs, self).__init__()
+
+                    self.yang_name = "pcb-briefs"
+                    self.yang_parent_name = "node"
+
+                    self.pcb_brief = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(UdpConnection.Nodes.Node.PcbBriefs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(UdpConnection.Nodes.Node.PcbBriefs, self).__setattr__(name, value)
 
 
-                class PcbBrief(object):
+                class PcbBrief(Entity):
                     """
                     Brief information about a UDP connection
                     
@@ -4046,7 +6563,7 @@ class UdpConnection(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                    	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                     
                     .. attribute:: foreign_address
                     
@@ -4101,28 +6618,74 @@ class UdpConnection(object):
                     _revision = '2016-02-26'
 
                     def __init__(self):
-                        self.parent = None
-                        self.pcb_address = None
-                        self.af_name = None
+                        super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__init__()
+
+                        self.yang_name = "pcb-brief"
+                        self.yang_parent_name = "pcb-briefs"
+
+                        self.pcb_address = YLeaf(YType.int32, "pcb-address")
+
+                        self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                        self.foreign_port = YLeaf(YType.uint16, "foreign-port")
+
+                        self.local_port = YLeaf(YType.uint16, "local-port")
+
+                        self.receive_queue = YLeaf(YType.uint32, "receive-queue")
+
+                        self.send_queue = YLeaf(YType.uint32, "send-queue")
+
+                        self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
                         self.foreign_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress()
                         self.foreign_address.parent = self
-                        self.foreign_port = None
+                        self._children_name_map["foreign_address"] = "foreign-address"
+                        self._children_yang_names.add("foreign-address")
+
                         self.local_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress()
                         self.local_address.parent = self
-                        self.local_port = None
-                        self.receive_queue = None
-                        self.send_queue = None
-                        self.vrf_id = None
+                        self._children_name_map["local_address"] = "local-address"
+                        self._children_yang_names.add("local-address")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("pcb_address",
+                                        "af_name",
+                                        "foreign_port",
+                                        "local_port",
+                                        "receive_queue",
+                                        "send_queue",
+                                        "vrf_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief, self).__setattr__(name, value)
 
 
-                    class LocalAddress(object):
+                    class LocalAddress(Entity):
                         """
                         Local address
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
@@ -4146,48 +6709,115 @@ class UdpConnection(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "local-address"
+                            self.yang_parent_name = "pcb-brief"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:local-address'
+                            self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "local-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
-                                return True
-
-                            if self.ipv4_address is not None:
-                                return True
-
-                            if self.ipv6_address is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                            return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
 
 
-                    class ForeignAddress(object):
+                    class ForeignAddress(Entity):
                         """
                         Foreign address
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamily>`
                         
                         .. attribute:: ipv4_address
                         
@@ -4211,185 +6841,464 @@ class UdpConnection(object):
                         _revision = '2016-02-26'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "foreign-address"
+                            self.yang_parent_name = "pcb-brief"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:foreign-address'
+                            self.af_name = YLeaf(YType.enumeration, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "foreign-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
-                                return True
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
 
-                            if self.ipv4_address is not None:
-                                return True
+                    def has_data(self):
+                        return (
+                            self.pcb_address.is_set or
+                            self.af_name.is_set or
+                            self.foreign_port.is_set or
+                            self.local_port.is_set or
+                            self.receive_queue.is_set or
+                            self.send_queue.is_set or
+                            self.vrf_id.is_set or
+                            (self.foreign_address is not None and self.foreign_address.has_data()) or
+                            (self.local_address is not None and self.local_address.has_data()))
 
-                            if self.ipv6_address is not None:
-                                return True
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.pcb_address.yfilter != YFilter.not_set or
+                            self.af_name.yfilter != YFilter.not_set or
+                            self.foreign_port.yfilter != YFilter.not_set or
+                            self.local_port.yfilter != YFilter.not_set or
+                            self.receive_queue.yfilter != YFilter.not_set or
+                            self.send_queue.yfilter != YFilter.not_set or
+                            self.vrf_id.yfilter != YFilter.not_set or
+                            (self.foreign_address is not None and self.foreign_address.has_operation()) or
+                            (self.local_address is not None and self.local_address.has_operation()))
 
-                            return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "pcb-brief" + "[pcb-address='" + self.pcb_address.get() + "']" + path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                            return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress']['meta_info']
+                        return path_buffer
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.pcb_address is None:
-                            raise YPYModelError('Key property pcb_address is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-brief[Cisco-IOS-XR-ip-udp-oper:pcb-address = ' + str(self.pcb_address) + ']'
+                        leaf_name_data = LeafDataList()
+                        if (self.pcb_address.is_set or self.pcb_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pcb_address.get_name_leafdata())
+                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                        if (self.foreign_port.is_set or self.foreign_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.foreign_port.get_name_leafdata())
+                        if (self.local_port.is_set or self.local_port.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.local_port.get_name_leafdata())
+                        if (self.receive_queue.is_set or self.receive_queue.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.receive_queue.get_name_leafdata())
+                        if (self.send_queue.is_set or self.send_queue.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_queue.get_name_leafdata())
+                        if (self.vrf_id.is_set or self.vrf_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_id.get_name_leafdata())
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "foreign-address"):
+                            if (self.foreign_address is None):
+                                self.foreign_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress()
+                                self.foreign_address.parent = self
+                                self._children_name_map["foreign_address"] = "foreign-address"
+                            return self.foreign_address
+
+                        if (child_yang_name == "local-address"):
+                            if (self.local_address is None):
+                                self.local_address = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress()
+                                self.local_address.parent = self
+                                self._children_name_map["local_address"] = "local-address"
+                            return self.local_address
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "foreign-address" or name == "local-address" or name == "pcb-address" or name == "af-name" or name == "foreign-port" or name == "local-port" or name == "receive-queue" or name == "send-queue" or name == "vrf-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.pcb_address is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "pcb-address"):
+                            self.pcb_address = value
+                            self.pcb_address.value_namespace = name_space
+                            self.pcb_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "af-name"):
+                            self.af_name = value
+                            self.af_name.value_namespace = name_space
+                            self.af_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "foreign-port"):
+                            self.foreign_port = value
+                            self.foreign_port.value_namespace = name_space
+                            self.foreign_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "local-port"):
+                            self.local_port = value
+                            self.local_port.value_namespace = name_space
+                            self.local_port.value_namespace_prefix = name_space_prefix
+                        if(value_path == "receive-queue"):
+                            self.receive_queue = value
+                            self.receive_queue.value_namespace = name_space
+                            self.receive_queue.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-queue"):
+                            self.send_queue = value
+                            self.send_queue.value_namespace = name_space
+                            self.send_queue.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-id"):
+                            self.vrf_id = value
+                            self.vrf_id.value_namespace = name_space
+                            self.vrf_id.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.pcb_brief:
+                        if (c.has_data()):
                             return True
-
-                        if self.af_name is not None:
-                            return True
-
-                        if self.foreign_address is not None and self.foreign_address._has_data():
-                            return True
-
-                        if self.foreign_port is not None:
-                            return True
-
-                        if self.local_address is not None and self.local_address._has_data():
-                            return True
-
-                        if self.local_port is not None:
-                            return True
-
-                        if self.receive_queue is not None:
-                            return True
-
-                        if self.send_queue is not None:
-                            return True
-
-                        if self.vrf_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                        return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs.PcbBrief']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-udp-oper:pcb-briefs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.pcb_brief is not None:
-                        for child_ref in self.pcb_brief:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.pcb_brief:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "pcb-briefs" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                    return meta._meta_table['UdpConnection.Nodes.Node.PcbBriefs']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-ip-udp-oper:udp-connection/Cisco-IOS-XR-ip-udp-oper:nodes/Cisco-IOS-XR-ip-udp-oper:node[Cisco-IOS-XR-ip-udp-oper:node-name = ' + str(self.node_name) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.node_name is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.lpts is not None and self.lpts._has_data():
-                    return True
+                    if (child_yang_name == "pcb-brief"):
+                        for c in self.pcb_brief:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = UdpConnection.Nodes.Node.PcbBriefs.PcbBrief()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.pcb_brief.append(c)
+                        return c
 
-                if self.pcb_briefs is not None and self.pcb_briefs._has_data():
-                    return True
+                    return None
 
-                if self.pcb_details is not None and self.pcb_details._has_data():
-                    return True
-
-                if self.statistics is not None and self.statistics._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-                return meta._meta_table['UdpConnection.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-udp-oper:udp-connection/Cisco-IOS-XR-ip-udp-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "pcb-brief"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.lpts is not None and self.lpts.has_data()) or
+                    (self.pcb_briefs is not None and self.pcb_briefs.has_data()) or
+                    (self.pcb_details is not None and self.pcb_details.has_data()) or
+                    (self.statistics is not None and self.statistics.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.lpts is not None and self.lpts.has_operation()) or
+                    (self.pcb_briefs is not None and self.pcb_briefs.has_operation()) or
+                    (self.pcb_details is not None and self.pcb_details.has_operation()) or
+                    (self.statistics is not None and self.statistics.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "lpts"):
+                    if (self.lpts is None):
+                        self.lpts = UdpConnection.Nodes.Node.Lpts()
+                        self.lpts.parent = self
+                        self._children_name_map["lpts"] = "lpts"
+                    return self.lpts
+
+                if (child_yang_name == "pcb-briefs"):
+                    if (self.pcb_briefs is None):
+                        self.pcb_briefs = UdpConnection.Nodes.Node.PcbBriefs()
+                        self.pcb_briefs.parent = self
+                        self._children_name_map["pcb_briefs"] = "pcb-briefs"
+                    return self.pcb_briefs
+
+                if (child_yang_name == "pcb-details"):
+                    if (self.pcb_details is None):
+                        self.pcb_details = UdpConnection.Nodes.Node.PcbDetails()
+                        self.pcb_details.parent = self
+                        self._children_name_map["pcb_details"] = "pcb-details"
+                    return self.pcb_details
+
+                if (child_yang_name == "statistics"):
+                    if (self.statistics is None):
+                        self.statistics = UdpConnection.Nodes.Node.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                    return self.statistics
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "lpts" or name == "pcb-briefs" or name == "pcb-details" or name == "statistics" or name == "node-name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-            return meta._meta_table['UdpConnection.Nodes']['meta_info']
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
 
-        return '/Cisco-IOS-XR-ip-udp-oper:udp-connection'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-udp-oper:udp-connection/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = UdpConnection.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-udp-oper:udp-connection" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = UdpConnection.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_udp_oper as meta
-        return meta._meta_table['UdpConnection']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = UdpConnection()
+        return self._top_entity
 

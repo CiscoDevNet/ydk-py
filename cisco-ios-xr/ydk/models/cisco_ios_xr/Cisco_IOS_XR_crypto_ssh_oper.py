@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AuthenEnum(Enum):
+class Authen(Enum):
     """
-    AuthenEnum
+    Authen
 
     SSH session authentication types
 
@@ -45,22 +39,16 @@ class AuthenEnum(Enum):
 
     """
 
-    password = 0
+    password = Enum.YLeaf(0, "password")
 
-    rsa_public_key = 1
+    rsa_public_key = Enum.YLeaf(1, "rsa-public-key")
 
-    keyboard_interactive = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['AuthenEnum']
+    keyboard_interactive = Enum.YLeaf(2, "keyboard-interactive")
 
 
-class CipherEnum(Enum):
+class Cipher(Enum):
     """
-    CipherEnum
+    Cipher
 
     SSH session in and out cipher standards
 
@@ -108,30 +96,24 @@ class CipherEnum(Enum):
 
     """
 
-    aes128_cbc = 0
+    aes128_cbc = Enum.YLeaf(0, "aes128-cbc")
 
-    aes192_cbc = 1
+    aes192_cbc = Enum.YLeaf(1, "aes192-cbc")
 
-    aes256_cbc = 2
+    aes256_cbc = Enum.YLeaf(2, "aes256-cbc")
 
-    triple_des_cbc = 3
+    triple_des_cbc = Enum.YLeaf(3, "triple-des-cbc")
 
-    aes128_ctr = 4
+    aes128_ctr = Enum.YLeaf(4, "aes128-ctr")
 
-    aes192_ctr = 5
+    aes192_ctr = Enum.YLeaf(5, "aes192-ctr")
 
-    aes256_ctr = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['CipherEnum']
+    aes256_ctr = Enum.YLeaf(6, "aes256-ctr")
 
 
-class ConnectionEnum(Enum):
+class Connection(Enum):
     """
-    ConnectionEnum
+    Connection
 
     SSH channel connection types
 
@@ -159,30 +141,36 @@ class ConnectionEnum(Enum):
 
     	Netconf Subsystem
 
+    .. data:: tl1_subsystem = 6
+
+    	TL1 Subsystem
+
+    .. data:: netconf_xml_subsystem = 7
+
+    	Netconf XML Subsystem
+
     """
 
-    undefined = 0
+    undefined = Enum.YLeaf(0, "undefined")
 
-    shell = 1
+    shell = Enum.YLeaf(1, "shell")
 
-    exec_ = 2
+    exec_ = Enum.YLeaf(2, "exec")
 
-    scp = 3
+    scp = Enum.YLeaf(3, "scp")
 
-    sftp_subsystem = 4
+    sftp_subsystem = Enum.YLeaf(4, "sftp-subsystem")
 
-    netconf_subsystem = 5
+    netconf_subsystem = Enum.YLeaf(5, "netconf-subsystem")
 
+    tl1_subsystem = Enum.YLeaf(6, "tl1-subsystem")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['ConnectionEnum']
+    netconf_xml_subsystem = Enum.YLeaf(7, "netconf-xml-subsystem")
 
 
-class HostkeyEnum(Enum):
+class Hostkey(Enum):
     """
-    HostkeyEnum
+    Hostkey
 
     SSH session authentication types
 
@@ -196,20 +184,14 @@ class HostkeyEnum(Enum):
 
     """
 
-    ssh_dss = 0
+    ssh_dss = Enum.YLeaf(0, "ssh-dss")
 
-    ssh_rsa = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['HostkeyEnum']
+    ssh_rsa = Enum.YLeaf(1, "ssh-rsa")
 
 
-class KexNameEnum(Enum):
+class KexName(Enum):
     """
-    KexNameEnum
+    KexName
 
     Different key\-exchange(kex) algorithms
 
@@ -261,36 +243,30 @@ class KexNameEnum(Enum):
 
     """
 
-    diffie_hellman_group1 = 0
+    diffie_hellman_group1 = Enum.YLeaf(0, "diffie-hellman-group1")
 
-    diffie_hellman_group14 = 1
+    diffie_hellman_group14 = Enum.YLeaf(1, "diffie-hellman-group14")
 
-    diffie_hellman_group15 = 2
+    diffie_hellman_group15 = Enum.YLeaf(2, "diffie-hellman-group15")
 
-    diffie_hellman_group16 = 3
+    diffie_hellman_group16 = Enum.YLeaf(3, "diffie-hellman-group16")
 
-    diffie_hellman_group17 = 4
+    diffie_hellman_group17 = Enum.YLeaf(4, "diffie-hellman-group17")
 
-    diffie_hellman_group18 = 5
+    diffie_hellman_group18 = Enum.YLeaf(5, "diffie-hellman-group18")
 
-    ecdh_nistp256 = 6
+    ecdh_nistp256 = Enum.YLeaf(6, "ecdh-nistp256")
 
-    ecdh_nistp384 = 7
+    ecdh_nistp384 = Enum.YLeaf(7, "ecdh-nistp384")
 
-    ecdh_nistp521 = 8
+    ecdh_nistp521 = Enum.YLeaf(8, "ecdh-nistp521")
 
-    password_authenticated = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['KexNameEnum']
+    password_authenticated = Enum.YLeaf(9, "password-authenticated")
 
 
-class MacEnum(Enum):
+class Mac(Enum):
     """
-    MacEnum
+    Mac
 
     Different Message Authentication Code(MAC)
 
@@ -322,24 +298,18 @@ class MacEnum(Enum):
 
     """
 
-    hmac_md5 = 0
+    hmac_md5 = Enum.YLeaf(0, "hmac-md5")
 
-    hmac_sha1 = 1
+    hmac_sha1 = Enum.YLeaf(1, "hmac-sha1")
 
-    hmac_sha2_256 = 2
+    hmac_sha2_256 = Enum.YLeaf(2, "hmac-sha2-256")
 
-    hmac_sha2_512 = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['MacEnum']
+    hmac_sha2_512 = Enum.YLeaf(3, "hmac-sha2-512")
 
 
-class StatesEnum(Enum):
+class States(Enum):
     """
-    StatesEnum
+    States
 
     SSH session states
 
@@ -397,42 +367,36 @@ class StatesEnum(Enum):
 
     """
 
-    open = 1
+    open = Enum.YLeaf(1, "open")
 
-    version_ok = 2
+    version_ok = Enum.YLeaf(2, "version-ok")
 
-    key_exchange_initialize = 3
+    key_exchange_initialize = Enum.YLeaf(3, "key-exchange-initialize")
 
-    key_exchange_dh = 4
+    key_exchange_dh = Enum.YLeaf(4, "key-exchange-dh")
 
-    new_keys = 5
+    new_keys = Enum.YLeaf(5, "new-keys")
 
-    authenticate_information = 6
+    authenticate_information = Enum.YLeaf(6, "authenticate-information")
 
-    authenticated = 7
+    authenticated = Enum.YLeaf(7, "authenticated")
 
-    channel_open = 8
+    channel_open = Enum.YLeaf(8, "channel-open")
 
-    pty_open = 9
+    pty_open = Enum.YLeaf(9, "pty-open")
 
-    session_open = 10
+    session_open = Enum.YLeaf(10, "session-open")
 
-    rekey = 11
+    rekey = Enum.YLeaf(11, "rekey")
 
-    suspended = 12
+    suspended = Enum.YLeaf(12, "suspended")
 
-    session_closed = 13
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['StatesEnum']
+    session_closed = Enum.YLeaf(13, "session-closed")
 
 
-class VersionEnum(Enum):
+class Version(Enum):
     """
-    VersionEnum
+    Version
 
     SSH state versions
 
@@ -446,19 +410,13 @@ class VersionEnum(Enum):
 
     """
 
-    v2 = 0
+    v2 = Enum.YLeaf(0, "v2")
 
-    v1 = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['VersionEnum']
+    v1 = Enum.YLeaf(1, "v1")
 
 
 
-class Ssh1(object):
+class Ssh1(Entity):
     """
     Crypto Secure Shell(SSH) data
     
@@ -475,11 +433,19 @@ class Ssh1(object):
     _revision = '2015-06-02'
 
     def __init__(self):
+        super(Ssh1, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ssh1"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-ssh-oper"
+
         self.kex = Ssh1.Kex()
         self.kex.parent = self
+        self._children_name_map["kex"] = "kex"
+        self._children_yang_names.add("kex")
 
 
-    class Kex(object):
+    class Kex(Entity):
         """
         key exchange method data
         
@@ -496,12 +462,18 @@ class Ssh1(object):
         _revision = '2015-06-02'
 
         def __init__(self):
-            self.parent = None
+            super(Ssh1.Kex, self).__init__()
+
+            self.yang_name = "kex"
+            self.yang_parent_name = "ssh1"
+
             self.nodes = Ssh1.Kex.Nodes()
             self.nodes.parent = self
+            self._children_name_map["nodes"] = "nodes"
+            self._children_yang_names.add("nodes")
 
 
-        class Nodes(object):
+        class Nodes(Entity):
             """
             Node\-specific ssh session details
             
@@ -518,13 +490,39 @@ class Ssh1(object):
             _revision = '2015-06-02'
 
             def __init__(self):
-                self.parent = None
-                self.node = YList()
-                self.node.parent = self
-                self.node.name = 'node'
+                super(Ssh1.Kex.Nodes, self).__init__()
+
+                self.yang_name = "nodes"
+                self.yang_parent_name = "kex"
+
+                self.node = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ssh1.Kex.Nodes, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ssh1.Kex.Nodes, self).__setattr__(name, value)
 
 
-            class Node(object):
+            class Node(Entity):
                 """
                 SSH session details for a particular node
                 
@@ -553,15 +551,49 @@ class Ssh1(object):
                 _revision = '2015-06-02'
 
                 def __init__(self):
-                    self.parent = None
-                    self.node_name = None
+                    super(Ssh1.Kex.Nodes.Node, self).__init__()
+
+                    self.yang_name = "node"
+                    self.yang_parent_name = "nodes"
+
+                    self.node_name = YLeaf(YType.str, "node-name")
+
                     self.incoming_sessions = Ssh1.Kex.Nodes.Node.IncomingSessions()
                     self.incoming_sessions.parent = self
+                    self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                    self._children_yang_names.add("incoming-sessions")
+
                     self.outgoing_connections = Ssh1.Kex.Nodes.Node.OutgoingConnections()
                     self.outgoing_connections.parent = self
+                    self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                    self._children_yang_names.add("outgoing-connections")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("node_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ssh1.Kex.Nodes.Node, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ssh1.Kex.Nodes.Node, self).__setattr__(name, value)
 
 
-                class IncomingSessions(object):
+                class IncomingSessions(Entity):
                     """
                     List of incoming sessions
                     
@@ -578,45 +610,71 @@ class Ssh1(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_detail_info = YList()
-                        self.session_detail_info.parent = self
-                        self.session_detail_info.name = 'session_detail_info'
+                        super(Ssh1.Kex.Nodes.Node.IncomingSessions, self).__init__()
+
+                        self.yang_name = "incoming-sessions"
+                        self.yang_parent_name = "node"
+
+                        self.session_detail_info = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh1.Kex.Nodes.Node.IncomingSessions, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh1.Kex.Nodes.Node.IncomingSessions, self).__setattr__(name, value)
 
 
-                    class SessionDetailInfo(object):
+                    class SessionDetailInfo(Entity):
                         """
                         session detail info
                         
                         .. attribute:: in_cipher
                         
                         	In cipher algorithm
-                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                         
                         .. attribute:: in_mac
                         
                         	In MAC
-                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                         
                         .. attribute:: key_exchange
                         
                         	Key exchange name
-                        	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                        	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
                         
                         .. attribute:: out_cipher
                         
                         	Out cipher algorithm
-                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                         
                         .. attribute:: out_mac
                         
                         	Out MAC
-                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                         
                         .. attribute:: public_key
                         
                         	Host key algorithm
-                        	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                        	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                         
                         .. attribute:: session_id
                         
@@ -633,81 +691,209 @@ class Ssh1(object):
                         _revision = '2015-06-02'
 
                         def __init__(self):
-                            self.parent = None
-                            self.in_cipher = None
-                            self.in_mac = None
-                            self.key_exchange = None
-                            self.out_cipher = None
-                            self.out_mac = None
-                            self.public_key = None
-                            self.session_id = None
+                            super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "session-detail-info"
+                            self.yang_parent_name = "incoming-sessions"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:session-detail-info'
+                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
+
+                            self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                            self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("in_cipher",
+                                            "in_mac",
+                                            "key_exchange",
+                                            "out_cipher",
+                                            "out_mac",
+                                            "public_key",
+                                            "session_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.in_cipher.is_set or
+                                self.in_mac.is_set or
+                                self.key_exchange.is_set or
+                                self.out_cipher.is_set or
+                                self.out_mac.is_set or
+                                self.public_key.is_set or
+                                self.session_id.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.in_cipher.yfilter != YFilter.not_set or
+                                self.in_mac.yfilter != YFilter.not_set or
+                                self.key_exchange.yfilter != YFilter.not_set or
+                                self.out_cipher.yfilter != YFilter.not_set or
+                                self.out_mac.yfilter != YFilter.not_set or
+                                self.public_key.yfilter != YFilter.not_set or
+                                self.session_id.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "session-detail-info" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.in_cipher.is_set or self.in_cipher.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.in_cipher.get_name_leafdata())
+                            if (self.in_mac.is_set or self.in_mac.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.in_mac.get_name_leafdata())
+                            if (self.key_exchange.is_set or self.key_exchange.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.key_exchange.get_name_leafdata())
+                            if (self.out_cipher.is_set or self.out_cipher.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.out_cipher.get_name_leafdata())
+                            if (self.out_mac.is_set or self.out_mac.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.out_mac.get_name_leafdata())
+                            if (self.public_key.is_set or self.public_key.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.public_key.get_name_leafdata())
+                            if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "in-cipher" or name == "in-mac" or name == "key-exchange" or name == "out-cipher" or name == "out-mac" or name == "public-key" or name == "session-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.in_cipher is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "in-cipher"):
+                                self.in_cipher = value
+                                self.in_cipher.value_namespace = name_space
+                                self.in_cipher.value_namespace_prefix = name_space_prefix
+                            if(value_path == "in-mac"):
+                                self.in_mac = value
+                                self.in_mac.value_namespace = name_space
+                                self.in_mac.value_namespace_prefix = name_space_prefix
+                            if(value_path == "key-exchange"):
+                                self.key_exchange = value
+                                self.key_exchange.value_namespace = name_space
+                                self.key_exchange.value_namespace_prefix = name_space_prefix
+                            if(value_path == "out-cipher"):
+                                self.out_cipher = value
+                                self.out_cipher.value_namespace = name_space
+                                self.out_cipher.value_namespace_prefix = name_space_prefix
+                            if(value_path == "out-mac"):
+                                self.out_mac = value
+                                self.out_mac.value_namespace = name_space
+                                self.out_mac.value_namespace_prefix = name_space_prefix
+                            if(value_path == "public-key"):
+                                self.public_key = value
+                                self.public_key.value_namespace = name_space
+                                self.public_key.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-id"):
+                                self.session_id = value
+                                self.session_id.value_namespace = name_space
+                                self.session_id.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.session_detail_info:
+                            if (c.has_data()):
                                 return True
-
-                            if self.in_mac is not None:
-                                return True
-
-                            if self.key_exchange is not None:
-                                return True
-
-                            if self.out_cipher is not None:
-                                return True
-
-                            if self.out_mac is not None:
-                                return True
-
-                            if self.public_key is not None:
-                                return True
-
-                            if self.session_id is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                            return meta._meta_table['Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.session_detail_info is not None:
-                            for child_ref in self.session_detail_info:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.session_detail_info:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "incoming-sessions" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "session-detail-info"):
+                            for c in self.session_detail_info:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.session_detail_info.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-detail-info"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh1.Kex.Nodes.Node.IncomingSessions']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class OutgoingConnections(object):
+                class OutgoingConnections(Entity):
                     """
                     List of outgoing connections
                     
@@ -724,45 +910,71 @@ class Ssh1(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_detail_info = YList()
-                        self.session_detail_info.parent = self
-                        self.session_detail_info.name = 'session_detail_info'
+                        super(Ssh1.Kex.Nodes.Node.OutgoingConnections, self).__init__()
+
+                        self.yang_name = "outgoing-connections"
+                        self.yang_parent_name = "node"
+
+                        self.session_detail_info = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh1.Kex.Nodes.Node.OutgoingConnections, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh1.Kex.Nodes.Node.OutgoingConnections, self).__setattr__(name, value)
 
 
-                    class SessionDetailInfo(object):
+                    class SessionDetailInfo(Entity):
                         """
                         session detail info
                         
                         .. attribute:: in_cipher
                         
                         	In cipher algorithm
-                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                         
                         .. attribute:: in_mac
                         
                         	In MAC
-                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                         
                         .. attribute:: key_exchange
                         
                         	Key exchange name
-                        	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                        	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
                         
                         .. attribute:: out_cipher
                         
                         	Out cipher algorithm
-                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                         
                         .. attribute:: out_mac
                         
                         	Out MAC
-                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                         
                         .. attribute:: public_key
                         
                         	Host key algorithm
-                        	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                        	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                         
                         .. attribute:: session_id
                         
@@ -779,171 +991,429 @@ class Ssh1(object):
                         _revision = '2015-06-02'
 
                         def __init__(self):
-                            self.parent = None
-                            self.in_cipher = None
-                            self.in_mac = None
-                            self.key_exchange = None
-                            self.out_cipher = None
-                            self.out_mac = None
-                            self.public_key = None
-                            self.session_id = None
+                            super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "session-detail-info"
+                            self.yang_parent_name = "outgoing-connections"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:session-detail-info'
+                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
+
+                            self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                            self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("in_cipher",
+                                            "in_mac",
+                                            "key_exchange",
+                                            "out_cipher",
+                                            "out_mac",
+                                            "public_key",
+                                            "session_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.in_cipher.is_set or
+                                self.in_mac.is_set or
+                                self.key_exchange.is_set or
+                                self.out_cipher.is_set or
+                                self.out_mac.is_set or
+                                self.public_key.is_set or
+                                self.session_id.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.in_cipher.yfilter != YFilter.not_set or
+                                self.in_mac.yfilter != YFilter.not_set or
+                                self.key_exchange.yfilter != YFilter.not_set or
+                                self.out_cipher.yfilter != YFilter.not_set or
+                                self.out_mac.yfilter != YFilter.not_set or
+                                self.public_key.yfilter != YFilter.not_set or
+                                self.session_id.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "session-detail-info" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.in_cipher.is_set or self.in_cipher.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.in_cipher.get_name_leafdata())
+                            if (self.in_mac.is_set or self.in_mac.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.in_mac.get_name_leafdata())
+                            if (self.key_exchange.is_set or self.key_exchange.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.key_exchange.get_name_leafdata())
+                            if (self.out_cipher.is_set or self.out_cipher.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.out_cipher.get_name_leafdata())
+                            if (self.out_mac.is_set or self.out_mac.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.out_mac.get_name_leafdata())
+                            if (self.public_key.is_set or self.public_key.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.public_key.get_name_leafdata())
+                            if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "in-cipher" or name == "in-mac" or name == "key-exchange" or name == "out-cipher" or name == "out-mac" or name == "public-key" or name == "session-id"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.in_cipher is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "in-cipher"):
+                                self.in_cipher = value
+                                self.in_cipher.value_namespace = name_space
+                                self.in_cipher.value_namespace_prefix = name_space_prefix
+                            if(value_path == "in-mac"):
+                                self.in_mac = value
+                                self.in_mac.value_namespace = name_space
+                                self.in_mac.value_namespace_prefix = name_space_prefix
+                            if(value_path == "key-exchange"):
+                                self.key_exchange = value
+                                self.key_exchange.value_namespace = name_space
+                                self.key_exchange.value_namespace_prefix = name_space_prefix
+                            if(value_path == "out-cipher"):
+                                self.out_cipher = value
+                                self.out_cipher.value_namespace = name_space
+                                self.out_cipher.value_namespace_prefix = name_space_prefix
+                            if(value_path == "out-mac"):
+                                self.out_mac = value
+                                self.out_mac.value_namespace = name_space
+                                self.out_mac.value_namespace_prefix = name_space_prefix
+                            if(value_path == "public-key"):
+                                self.public_key = value
+                                self.public_key.value_namespace = name_space
+                                self.public_key.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-id"):
+                                self.session_id = value
+                                self.session_id.value_namespace = name_space
+                                self.session_id.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.session_detail_info:
+                            if (c.has_data()):
                                 return True
-
-                            if self.in_mac is not None:
-                                return True
-
-                            if self.key_exchange is not None:
-                                return True
-
-                            if self.out_cipher is not None:
-                                return True
-
-                            if self.out_mac is not None:
-                                return True
-
-                            if self.public_key is not None:
-                                return True
-
-                            if self.session_id is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                            return meta._meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.session_detail_info is not None:
-                            for child_ref in self.session_detail_info:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.session_detail_info:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                        return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outgoing-connections" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh1.Kex.Nodes.Node.OutgoingConnections']['meta_info']
+                        return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.node_name is None:
-                        raise YPYModelError('Key property node_name is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1/Cisco-IOS-XR-crypto-ssh-oper:kex/Cisco-IOS-XR-crypto-ssh-oper:nodes/Cisco-IOS-XR-crypto-ssh-oper:node[Cisco-IOS-XR-crypto-ssh-oper:node-name = ' + str(self.node_name) + ']'
+                        leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                def _has_data(self):
-                    if self.node_name is not None:
-                        return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                    if self.incoming_sessions is not None and self.incoming_sessions._has_data():
-                        return True
+                        if (child_yang_name == "session-detail-info"):
+                            for c in self.session_detail_info:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.session_detail_info.append(c)
+                            return c
 
-                    if self.outgoing_connections is not None and self.outgoing_connections._has_data():
-                        return True
+                        return None
 
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                    return meta._meta_table['Ssh1.Kex.Nodes.Node']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1/Cisco-IOS-XR-crypto-ssh-oper:kex/Cisco-IOS-XR-crypto-ssh-oper:nodes'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.node is not None:
-                    for child_ref in self.node:
-                        if child_ref._has_data():
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-detail-info"):
                             return True
+                        return False
 
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.node_name.is_set or
+                        (self.incoming_sessions is not None and self.incoming_sessions.has_data()) or
+                        (self.outgoing_connections is not None and self.outgoing_connections.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.node_name.yfilter != YFilter.not_set or
+                        (self.incoming_sessions is not None and self.incoming_sessions.has_operation()) or
+                        (self.outgoing_connections is not None and self.outgoing_connections.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "incoming-sessions"):
+                        if (self.incoming_sessions is None):
+                            self.incoming_sessions = Ssh1.Kex.Nodes.Node.IncomingSessions()
+                            self.incoming_sessions.parent = self
+                            self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                        return self.incoming_sessions
+
+                    if (child_yang_name == "outgoing-connections"):
+                        if (self.outgoing_connections is None):
+                            self.outgoing_connections = Ssh1.Kex.Nodes.Node.OutgoingConnections()
+                            self.outgoing_connections.parent = self
+                            self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                        return self.outgoing_connections
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "incoming-sessions" or name == "outgoing-connections" or name == "node-name"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "node-name"):
+                        self.node_name = value
+                        self.node_name.value_namespace = name_space
+                        self.node_name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.node:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                return meta._meta_table['Ssh1.Kex.Nodes']['meta_info']
+            def has_operation(self):
+                for c in self.node:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "nodes" + path_buffer
 
-            return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1/Cisco-IOS-XR-crypto-ssh-oper:kex'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.nodes is not None and self.nodes._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "node"):
+                    for c in self.node:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Ssh1.Kex.Nodes.Node()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.node.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "node"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (self.nodes is not None and self.nodes.has_data())
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.nodes is not None and self.nodes.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "kex" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "nodes"):
+                if (self.nodes is None):
+                    self.nodes = Ssh1.Kex.Nodes()
+                    self.nodes.parent = self
+                    self._children_name_map["nodes"] = "nodes"
+                return self.nodes
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "nodes"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-            return meta._meta_table['Ssh1.Kex']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.kex is not None and self.kex.has_data())
 
-        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh1'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.kex is not None and self.kex.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh1" + path_buffer
 
-    def _has_data(self):
-        if self.kex is not None and self.kex._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "kex"):
+            if (self.kex is None):
+                self.kex = Ssh1.Kex()
+                self.kex.parent = self
+                self._children_name_map["kex"] = "kex"
+            return self.kex
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "kex"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Ssh1']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Ssh1()
+        return self._top_entity
 
-class Ssh(object):
+class Ssh(Entity):
     """
     ssh
     
@@ -960,11 +1430,19 @@ class Ssh(object):
     _revision = '2015-06-02'
 
     def __init__(self):
+        super(Ssh, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ssh"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-ssh-oper"
+
         self.session = Ssh.Session()
         self.session.parent = self
+        self._children_name_map["session"] = "session"
+        self._children_yang_names.add("session")
 
 
-    class Session(object):
+    class Session(Entity):
         """
         Crypto SSH session
         
@@ -991,16 +1469,28 @@ class Ssh(object):
         _revision = '2015-06-02'
 
         def __init__(self):
-            self.parent = None
+            super(Ssh.Session, self).__init__()
+
+            self.yang_name = "session"
+            self.yang_parent_name = "ssh"
+
             self.brief = Ssh.Session.Brief()
             self.brief.parent = self
+            self._children_name_map["brief"] = "brief"
+            self._children_yang_names.add("brief")
+
             self.detail = Ssh.Session.Detail()
             self.detail.parent = self
+            self._children_name_map["detail"] = "detail"
+            self._children_yang_names.add("detail")
+
             self.rekey = Ssh.Session.Rekey()
             self.rekey.parent = self
+            self._children_name_map["rekey"] = "rekey"
+            self._children_yang_names.add("rekey")
 
 
-        class Rekey(object):
+        class Rekey(Entity):
             """
             SSH session rekey information
             
@@ -1022,14 +1512,23 @@ class Ssh(object):
             _revision = '2015-06-02'
 
             def __init__(self):
-                self.parent = None
+                super(Ssh.Session.Rekey, self).__init__()
+
+                self.yang_name = "rekey"
+                self.yang_parent_name = "session"
+
                 self.incoming_sessions = Ssh.Session.Rekey.IncomingSessions()
                 self.incoming_sessions.parent = self
+                self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                self._children_yang_names.add("incoming-sessions")
+
                 self.outgoing_connections = Ssh.Session.Rekey.OutgoingConnections()
                 self.outgoing_connections.parent = self
+                self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                self._children_yang_names.add("outgoing-connections")
 
 
-            class IncomingSessions(object):
+            class IncomingSessions(Entity):
                 """
                 List of incoming sessions
                 
@@ -1046,13 +1545,39 @@ class Ssh(object):
                 _revision = '2015-06-02'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session_rekey_info = YList()
-                    self.session_rekey_info.parent = self
-                    self.session_rekey_info.name = 'session_rekey_info'
+                    super(Ssh.Session.Rekey.IncomingSessions, self).__init__()
+
+                    self.yang_name = "incoming-sessions"
+                    self.yang_parent_name = "rekey"
+
+                    self.session_rekey_info = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ssh.Session.Rekey.IncomingSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ssh.Session.Rekey.IncomingSessions, self).__setattr__(name, value)
 
 
-                class SessionRekeyInfo(object):
+                class SessionRekeyInfo(Entity):
                     """
                     session rekey info
                     
@@ -1088,65 +1613,176 @@ class Ssh(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_id = None
-                        self.session_rekey_count = None
-                        self.time_to_rekey = None
-                        self.volume_to_rekey = None
+                        super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "session-rekey-info"
+                        self.yang_parent_name = "incoming-sessions"
 
-                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions/Cisco-IOS-XR-crypto-ssh-oper:session-rekey-info'
+                        self.session_id = YLeaf(YType.uint32, "session-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.session_rekey_count = YLeaf(YType.uint32, "session-rekey-count")
+
+                        self.time_to_rekey = YLeaf(YType.str, "time-to-rekey")
+
+                        self.volume_to_rekey = YLeaf(YType.str, "volume-to-rekey")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_id",
+                                        "session_rekey_count",
+                                        "time_to_rekey",
+                                        "volume_to_rekey") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.session_id.is_set or
+                            self.session_rekey_count.is_set or
+                            self.time_to_rekey.is_set or
+                            self.volume_to_rekey.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.session_rekey_count.yfilter != YFilter.not_set or
+                            self.time_to_rekey.yfilter != YFilter.not_set or
+                            self.volume_to_rekey.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session-rekey-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.session_rekey_count.is_set or self.session_rekey_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_rekey_count.get_name_leafdata())
+                        if (self.time_to_rekey.is_set or self.time_to_rekey.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.time_to_rekey.get_name_leafdata())
+                        if (self.volume_to_rekey.is_set or self.volume_to_rekey.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.volume_to_rekey.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-id" or name == "session-rekey-count" or name == "time-to-rekey" or name == "volume-to-rekey"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.session_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-rekey-count"):
+                            self.session_rekey_count = value
+                            self.session_rekey_count.value_namespace = name_space
+                            self.session_rekey_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "time-to-rekey"):
+                            self.time_to_rekey = value
+                            self.time_to_rekey.value_namespace = name_space
+                            self.time_to_rekey.value_namespace_prefix = name_space_prefix
+                        if(value_path == "volume-to-rekey"):
+                            self.volume_to_rekey = value
+                            self.volume_to_rekey.value_namespace = name_space
+                            self.volume_to_rekey.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session_rekey_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.session_rekey_count is not None:
-                            return True
-
-                        if self.time_to_rekey is not None:
-                            return True
-
-                        if self.volume_to_rekey is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session_rekey_info is not None:
-                        for child_ref in self.session_rekey_info:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session_rekey_info:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "incoming-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session-rekey-info"):
+                        for c in self.session_rekey_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session_rekey_info.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session-rekey-info"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                    return meta._meta_table['Ssh.Session.Rekey.IncomingSessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class OutgoingConnections(object):
+            class OutgoingConnections(Entity):
                 """
                 List of outgoing connections
                 
@@ -1163,13 +1799,39 @@ class Ssh(object):
                 _revision = '2015-06-02'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session_rekey_info = YList()
-                    self.session_rekey_info.parent = self
-                    self.session_rekey_info.name = 'session_rekey_info'
+                    super(Ssh.Session.Rekey.OutgoingConnections, self).__init__()
+
+                    self.yang_name = "outgoing-connections"
+                    self.yang_parent_name = "rekey"
+
+                    self.session_rekey_info = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ssh.Session.Rekey.OutgoingConnections, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ssh.Session.Rekey.OutgoingConnections, self).__setattr__(name, value)
 
 
-                class SessionRekeyInfo(object):
+                class SessionRekeyInfo(Entity):
                     """
                     session rekey info
                     
@@ -1205,88 +1867,234 @@ class Ssh(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_id = None
-                        self.session_rekey_count = None
-                        self.time_to_rekey = None
-                        self.volume_to_rekey = None
+                        super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "session-rekey-info"
+                        self.yang_parent_name = "outgoing-connections"
 
-                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections/Cisco-IOS-XR-crypto-ssh-oper:session-rekey-info'
+                        self.session_id = YLeaf(YType.uint32, "session-id")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.session_rekey_count = YLeaf(YType.uint32, "session-rekey-count")
+
+                        self.time_to_rekey = YLeaf(YType.str, "time-to-rekey")
+
+                        self.volume_to_rekey = YLeaf(YType.str, "volume-to-rekey")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_id",
+                                        "session_rekey_count",
+                                        "time_to_rekey",
+                                        "volume_to_rekey") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.session_id.is_set or
+                            self.session_rekey_count.is_set or
+                            self.time_to_rekey.is_set or
+                            self.volume_to_rekey.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.session_rekey_count.yfilter != YFilter.not_set or
+                            self.time_to_rekey.yfilter != YFilter.not_set or
+                            self.volume_to_rekey.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session-rekey-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.session_rekey_count.is_set or self.session_rekey_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_rekey_count.get_name_leafdata())
+                        if (self.time_to_rekey.is_set or self.time_to_rekey.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.time_to_rekey.get_name_leafdata())
+                        if (self.volume_to_rekey.is_set or self.volume_to_rekey.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.volume_to_rekey.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "session-id" or name == "session-rekey-count" or name == "time-to-rekey" or name == "volume-to-rekey"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.session_id is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-rekey-count"):
+                            self.session_rekey_count = value
+                            self.session_rekey_count.value_namespace = name_space
+                            self.session_rekey_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "time-to-rekey"):
+                            self.time_to_rekey = value
+                            self.time_to_rekey.value_namespace = name_space
+                            self.time_to_rekey.value_namespace_prefix = name_space_prefix
+                        if(value_path == "volume-to-rekey"):
+                            self.volume_to_rekey = value
+                            self.volume_to_rekey.value_namespace = name_space
+                            self.volume_to_rekey.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session_rekey_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.session_rekey_count is not None:
-                            return True
-
-                        if self.time_to_rekey is not None:
-                            return True
-
-                        if self.volume_to_rekey is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session_rekey_info is not None:
-                        for child_ref in self.session_rekey_info:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session_rekey_info:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "outgoing-connections" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session-rekey-info"):
+                        for c in self.session_rekey_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session_rekey_info.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session-rekey-info"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                    return meta._meta_table['Ssh.Session.Rekey.OutgoingConnections']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    (self.incoming_sessions is not None and self.incoming_sessions.has_data()) or
+                    (self.outgoing_connections is not None and self.outgoing_connections.has_data()))
 
-                return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:rekey'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.incoming_sessions is not None and self.incoming_sessions.has_operation()) or
+                    (self.outgoing_connections is not None and self.outgoing_connections.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rekey" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "incoming-sessions"):
+                    if (self.incoming_sessions is None):
+                        self.incoming_sessions = Ssh.Session.Rekey.IncomingSessions()
+                        self.incoming_sessions.parent = self
+                        self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                    return self.incoming_sessions
+
+                if (child_yang_name == "outgoing-connections"):
+                    if (self.outgoing_connections is None):
+                        self.outgoing_connections = Ssh.Session.Rekey.OutgoingConnections()
+                        self.outgoing_connections.parent = self
+                        self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                    return self.outgoing_connections
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "incoming-sessions" or name == "outgoing-connections"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.incoming_sessions is not None and self.incoming_sessions._has_data():
-                    return True
-
-                if self.outgoing_connections is not None and self.outgoing_connections._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                return meta._meta_table['Ssh.Session.Rekey']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Brief(object):
+        class Brief(Entity):
             """
             SSH session brief information
             
@@ -1308,14 +2116,23 @@ class Ssh(object):
             _revision = '2015-06-02'
 
             def __init__(self):
-                self.parent = None
+                super(Ssh.Session.Brief, self).__init__()
+
+                self.yang_name = "brief"
+                self.yang_parent_name = "session"
+
                 self.incoming_sessions = Ssh.Session.Brief.IncomingSessions()
                 self.incoming_sessions.parent = self
+                self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                self._children_yang_names.add("incoming-sessions")
+
                 self.outgoing_sessions = Ssh.Session.Brief.OutgoingSessions()
                 self.outgoing_sessions.parent = self
+                self._children_name_map["outgoing_sessions"] = "outgoing-sessions"
+                self._children_yang_names.add("outgoing-sessions")
 
 
-            class IncomingSessions(object):
+            class IncomingSessions(Entity):
                 """
                 List of incoming sessions
                 
@@ -1332,20 +2149,46 @@ class Ssh(object):
                 _revision = '2015-06-02'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session_brief_info = YList()
-                    self.session_brief_info.parent = self
-                    self.session_brief_info.name = 'session_brief_info'
+                    super(Ssh.Session.Brief.IncomingSessions, self).__init__()
+
+                    self.yang_name = "incoming-sessions"
+                    self.yang_parent_name = "brief"
+
+                    self.session_brief_info = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ssh.Session.Brief.IncomingSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ssh.Session.Brief.IncomingSessions, self).__setattr__(name, value)
 
 
-                class SessionBriefInfo(object):
+                class SessionBriefInfo(Entity):
                     """
                     session brief info
                     
                     .. attribute:: authentication_type
                     
                     	Authentication method
-                    	**type**\:   :py:class:`AuthenEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
+                    	**type**\:   :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
                     
                     .. attribute:: channel_id
                     
@@ -1357,7 +2200,7 @@ class Ssh(object):
                     .. attribute:: connection_type
                     
                     	Channel Connection Type
-                    	**type**\:   :py:class:`ConnectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
+                    	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
                     
                     .. attribute:: host_address
                     
@@ -1381,7 +2224,7 @@ class Ssh(object):
                     .. attribute:: session_state
                     
                     	SSH session state
-                    	**type**\:   :py:class:`StatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
+                    	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
                     
                     .. attribute:: user_id
                     
@@ -1391,7 +2234,7 @@ class Ssh(object):
                     .. attribute:: version
                     
                     	SSH state version
-                    	**type**\:   :py:class:`VersionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
+                    	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
                     
                     .. attribute:: vty_assigned
                     
@@ -1413,93 +2256,253 @@ class Ssh(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.authentication_type = None
-                        self.channel_id = None
-                        self.connection_type = None
-                        self.host_address = None
-                        self.node_name = None
-                        self.session_id = None
-                        self.session_state = None
-                        self.user_id = None
-                        self.version = None
-                        self.vty_assigned = None
-                        self.vty_line_number = None
+                        super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "session-brief-info"
+                        self.yang_parent_name = "incoming-sessions"
 
-                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:brief/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions/Cisco-IOS-XR-crypto-ssh-oper:session-brief-info'
+                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.channel_id = YLeaf(YType.uint32, "channel-id")
+
+                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
+
+                        self.host_address = YLeaf(YType.str, "host-address")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        self.session_state = YLeaf(YType.enumeration, "session-state")
+
+                        self.user_id = YLeaf(YType.str, "user-id")
+
+                        self.version = YLeaf(YType.enumeration, "version")
+
+                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
+
+                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("authentication_type",
+                                        "channel_id",
+                                        "connection_type",
+                                        "host_address",
+                                        "node_name",
+                                        "session_id",
+                                        "session_state",
+                                        "user_id",
+                                        "version",
+                                        "vty_assigned",
+                                        "vty_line_number") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.authentication_type.is_set or
+                            self.channel_id.is_set or
+                            self.connection_type.is_set or
+                            self.host_address.is_set or
+                            self.node_name.is_set or
+                            self.session_id.is_set or
+                            self.session_state.is_set or
+                            self.user_id.is_set or
+                            self.version.is_set or
+                            self.vty_assigned.is_set or
+                            self.vty_line_number.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.authentication_type.yfilter != YFilter.not_set or
+                            self.channel_id.yfilter != YFilter.not_set or
+                            self.connection_type.yfilter != YFilter.not_set or
+                            self.host_address.yfilter != YFilter.not_set or
+                            self.node_name.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.session_state.yfilter != YFilter.not_set or
+                            self.user_id.yfilter != YFilter.not_set or
+                            self.version.yfilter != YFilter.not_set or
+                            self.vty_assigned.yfilter != YFilter.not_set or
+                            self.vty_line_number.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session-brief-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.authentication_type.is_set or self.authentication_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.authentication_type.get_name_leafdata())
+                        if (self.channel_id.is_set or self.channel_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.channel_id.get_name_leafdata())
+                        if (self.connection_type.is_set or self.connection_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.connection_type.get_name_leafdata())
+                        if (self.host_address.is_set or self.host_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.host_address.get_name_leafdata())
+                        if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.node_name.get_name_leafdata())
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.session_state.is_set or self.session_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_state.get_name_leafdata())
+                        if (self.user_id.is_set or self.user_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.user_id.get_name_leafdata())
+                        if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version.get_name_leafdata())
+                        if (self.vty_assigned.is_set or self.vty_assigned.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vty_assigned.get_name_leafdata())
+                        if (self.vty_line_number.is_set or self.vty_line_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vty_line_number.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "authentication-type" or name == "channel-id" or name == "connection-type" or name == "host-address" or name == "node-name" or name == "session-id" or name == "session-state" or name == "user-id" or name == "version" or name == "vty-assigned" or name == "vty-line-number"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.authentication_type is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "authentication-type"):
+                            self.authentication_type = value
+                            self.authentication_type.value_namespace = name_space
+                            self.authentication_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "channel-id"):
+                            self.channel_id = value
+                            self.channel_id.value_namespace = name_space
+                            self.channel_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "connection-type"):
+                            self.connection_type = value
+                            self.connection_type.value_namespace = name_space
+                            self.connection_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "host-address"):
+                            self.host_address = value
+                            self.host_address.value_namespace = name_space
+                            self.host_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "node-name"):
+                            self.node_name = value
+                            self.node_name.value_namespace = name_space
+                            self.node_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-state"):
+                            self.session_state = value
+                            self.session_state.value_namespace = name_space
+                            self.session_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "user-id"):
+                            self.user_id = value
+                            self.user_id.value_namespace = name_space
+                            self.user_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "version"):
+                            self.version = value
+                            self.version.value_namespace = name_space
+                            self.version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vty-assigned"):
+                            self.vty_assigned = value
+                            self.vty_assigned.value_namespace = name_space
+                            self.vty_assigned.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vty-line-number"):
+                            self.vty_line_number = value
+                            self.vty_line_number.value_namespace = name_space
+                            self.vty_line_number.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session_brief_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.channel_id is not None:
-                            return True
-
-                        if self.connection_type is not None:
-                            return True
-
-                        if self.host_address is not None:
-                            return True
-
-                        if self.node_name is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        if self.session_state is not None:
-                            return True
-
-                        if self.user_id is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
-                        if self.vty_assigned is not None:
-                            return True
-
-                        if self.vty_line_number is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh.Session.Brief.IncomingSessions.SessionBriefInfo']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:brief/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session_brief_info is not None:
-                        for child_ref in self.session_brief_info:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session_brief_info:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "incoming-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session-brief-info"):
+                        for c in self.session_brief_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ssh.Session.Brief.IncomingSessions.SessionBriefInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session_brief_info.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session-brief-info"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                    return meta._meta_table['Ssh.Session.Brief.IncomingSessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class OutgoingSessions(object):
+            class OutgoingSessions(Entity):
                 """
                 List of outgoing sessions
                 
@@ -1516,20 +2519,46 @@ class Ssh(object):
                 _revision = '2015-06-02'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session_brief_info = YList()
-                    self.session_brief_info.parent = self
-                    self.session_brief_info.name = 'session_brief_info'
+                    super(Ssh.Session.Brief.OutgoingSessions, self).__init__()
+
+                    self.yang_name = "outgoing-sessions"
+                    self.yang_parent_name = "brief"
+
+                    self.session_brief_info = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ssh.Session.Brief.OutgoingSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ssh.Session.Brief.OutgoingSessions, self).__setattr__(name, value)
 
 
-                class SessionBriefInfo(object):
+                class SessionBriefInfo(Entity):
                     """
                     session brief info
                     
                     .. attribute:: authentication_type
                     
                     	Authentication method
-                    	**type**\:   :py:class:`AuthenEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
+                    	**type**\:   :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
                     
                     .. attribute:: channel_id
                     
@@ -1541,7 +2570,7 @@ class Ssh(object):
                     .. attribute:: connection_type
                     
                     	Channel Connection Type
-                    	**type**\:   :py:class:`ConnectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
+                    	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
                     
                     .. attribute:: host_address
                     
@@ -1565,7 +2594,7 @@ class Ssh(object):
                     .. attribute:: session_state
                     
                     	SSH session state
-                    	**type**\:   :py:class:`StatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
+                    	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
                     
                     .. attribute:: user_id
                     
@@ -1575,7 +2604,7 @@ class Ssh(object):
                     .. attribute:: version
                     
                     	SSH state version
-                    	**type**\:   :py:class:`VersionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
+                    	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
                     
                     .. attribute:: vty_assigned
                     
@@ -1597,116 +2626,311 @@ class Ssh(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.authentication_type = None
-                        self.channel_id = None
-                        self.connection_type = None
-                        self.host_address = None
-                        self.node_name = None
-                        self.session_id = None
-                        self.session_state = None
-                        self.user_id = None
-                        self.version = None
-                        self.vty_assigned = None
-                        self.vty_line_number = None
+                        super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "session-brief-info"
+                        self.yang_parent_name = "outgoing-sessions"
 
-                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:brief/Cisco-IOS-XR-crypto-ssh-oper:outgoing-sessions/Cisco-IOS-XR-crypto-ssh-oper:session-brief-info'
+                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.channel_id = YLeaf(YType.uint32, "channel-id")
+
+                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
+
+                        self.host_address = YLeaf(YType.str, "host-address")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        self.session_state = YLeaf(YType.enumeration, "session-state")
+
+                        self.user_id = YLeaf(YType.str, "user-id")
+
+                        self.version = YLeaf(YType.enumeration, "version")
+
+                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
+
+                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("authentication_type",
+                                        "channel_id",
+                                        "connection_type",
+                                        "host_address",
+                                        "node_name",
+                                        "session_id",
+                                        "session_state",
+                                        "user_id",
+                                        "version",
+                                        "vty_assigned",
+                                        "vty_line_number") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.authentication_type.is_set or
+                            self.channel_id.is_set or
+                            self.connection_type.is_set or
+                            self.host_address.is_set or
+                            self.node_name.is_set or
+                            self.session_id.is_set or
+                            self.session_state.is_set or
+                            self.user_id.is_set or
+                            self.version.is_set or
+                            self.vty_assigned.is_set or
+                            self.vty_line_number.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.authentication_type.yfilter != YFilter.not_set or
+                            self.channel_id.yfilter != YFilter.not_set or
+                            self.connection_type.yfilter != YFilter.not_set or
+                            self.host_address.yfilter != YFilter.not_set or
+                            self.node_name.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set or
+                            self.session_state.yfilter != YFilter.not_set or
+                            self.user_id.yfilter != YFilter.not_set or
+                            self.version.yfilter != YFilter.not_set or
+                            self.vty_assigned.yfilter != YFilter.not_set or
+                            self.vty_line_number.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session-brief-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.authentication_type.is_set or self.authentication_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.authentication_type.get_name_leafdata())
+                        if (self.channel_id.is_set or self.channel_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.channel_id.get_name_leafdata())
+                        if (self.connection_type.is_set or self.connection_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.connection_type.get_name_leafdata())
+                        if (self.host_address.is_set or self.host_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.host_address.get_name_leafdata())
+                        if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.node_name.get_name_leafdata())
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+                        if (self.session_state.is_set or self.session_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_state.get_name_leafdata())
+                        if (self.user_id.is_set or self.user_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.user_id.get_name_leafdata())
+                        if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version.get_name_leafdata())
+                        if (self.vty_assigned.is_set or self.vty_assigned.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vty_assigned.get_name_leafdata())
+                        if (self.vty_line_number.is_set or self.vty_line_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vty_line_number.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "authentication-type" or name == "channel-id" or name == "connection-type" or name == "host-address" or name == "node-name" or name == "session-id" or name == "session-state" or name == "user-id" or name == "version" or name == "vty-assigned" or name == "vty-line-number"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.authentication_type is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "authentication-type"):
+                            self.authentication_type = value
+                            self.authentication_type.value_namespace = name_space
+                            self.authentication_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "channel-id"):
+                            self.channel_id = value
+                            self.channel_id.value_namespace = name_space
+                            self.channel_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "connection-type"):
+                            self.connection_type = value
+                            self.connection_type.value_namespace = name_space
+                            self.connection_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "host-address"):
+                            self.host_address = value
+                            self.host_address.value_namespace = name_space
+                            self.host_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "node-name"):
+                            self.node_name = value
+                            self.node_name.value_namespace = name_space
+                            self.node_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-state"):
+                            self.session_state = value
+                            self.session_state.value_namespace = name_space
+                            self.session_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "user-id"):
+                            self.user_id = value
+                            self.user_id.value_namespace = name_space
+                            self.user_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "version"):
+                            self.version = value
+                            self.version.value_namespace = name_space
+                            self.version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vty-assigned"):
+                            self.vty_assigned = value
+                            self.vty_assigned.value_namespace = name_space
+                            self.vty_assigned.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vty-line-number"):
+                            self.vty_line_number = value
+                            self.vty_line_number.value_namespace = name_space
+                            self.vty_line_number.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session_brief_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.channel_id is not None:
-                            return True
-
-                        if self.connection_type is not None:
-                            return True
-
-                        if self.host_address is not None:
-                            return True
-
-                        if self.node_name is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        if self.session_state is not None:
-                            return True
-
-                        if self.user_id is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
-                        if self.vty_assigned is not None:
-                            return True
-
-                        if self.vty_line_number is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:brief/Cisco-IOS-XR-crypto-ssh-oper:outgoing-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session_brief_info is not None:
-                        for child_ref in self.session_brief_info:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session_brief_info:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "outgoing-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session-brief-info"):
+                        for c in self.session_brief_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session_brief_info.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session-brief-info"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                    return meta._meta_table['Ssh.Session.Brief.OutgoingSessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    (self.incoming_sessions is not None and self.incoming_sessions.has_data()) or
+                    (self.outgoing_sessions is not None and self.outgoing_sessions.has_data()))
 
-                return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:brief'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.incoming_sessions is not None and self.incoming_sessions.has_operation()) or
+                    (self.outgoing_sessions is not None and self.outgoing_sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "brief" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "incoming-sessions"):
+                    if (self.incoming_sessions is None):
+                        self.incoming_sessions = Ssh.Session.Brief.IncomingSessions()
+                        self.incoming_sessions.parent = self
+                        self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                    return self.incoming_sessions
+
+                if (child_yang_name == "outgoing-sessions"):
+                    if (self.outgoing_sessions is None):
+                        self.outgoing_sessions = Ssh.Session.Brief.OutgoingSessions()
+                        self.outgoing_sessions.parent = self
+                        self._children_name_map["outgoing_sessions"] = "outgoing-sessions"
+                    return self.outgoing_sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "incoming-sessions" or name == "outgoing-sessions"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.incoming_sessions is not None and self.incoming_sessions._has_data():
-                    return True
-
-                if self.outgoing_sessions is not None and self.outgoing_sessions._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                return meta._meta_table['Ssh.Session.Brief']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Detail(object):
+        class Detail(Entity):
             """
             SSH session detail information
             
@@ -1728,14 +2952,23 @@ class Ssh(object):
             _revision = '2015-06-02'
 
             def __init__(self):
-                self.parent = None
+                super(Ssh.Session.Detail, self).__init__()
+
+                self.yang_name = "detail"
+                self.yang_parent_name = "session"
+
                 self.incoming_sessions = Ssh.Session.Detail.IncomingSessions()
                 self.incoming_sessions.parent = self
+                self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                self._children_yang_names.add("incoming-sessions")
+
                 self.outgoing_connections = Ssh.Session.Detail.OutgoingConnections()
                 self.outgoing_connections.parent = self
+                self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                self._children_yang_names.add("outgoing-connections")
 
 
-            class IncomingSessions(object):
+            class IncomingSessions(Entity):
                 """
                 List of incoming sessions
                 
@@ -1752,45 +2985,71 @@ class Ssh(object):
                 _revision = '2015-06-02'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session_detail_info = YList()
-                    self.session_detail_info.parent = self
-                    self.session_detail_info.name = 'session_detail_info'
+                    super(Ssh.Session.Detail.IncomingSessions, self).__init__()
+
+                    self.yang_name = "incoming-sessions"
+                    self.yang_parent_name = "detail"
+
+                    self.session_detail_info = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ssh.Session.Detail.IncomingSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ssh.Session.Detail.IncomingSessions, self).__setattr__(name, value)
 
 
-                class SessionDetailInfo(object):
+                class SessionDetailInfo(Entity):
                     """
                     session detail info
                     
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
                     .. attribute:: in_mac
                     
                     	In MAC
-                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
                     .. attribute:: key_exchange
                     
                     	Key exchange name
-                    	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                    	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
-                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
-                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
-                    	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                    	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                     
                     .. attribute:: session_id
                     
@@ -1807,77 +3066,209 @@ class Ssh(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.in_cipher = None
-                        self.in_mac = None
-                        self.key_exchange = None
-                        self.out_cipher = None
-                        self.out_mac = None
-                        self.public_key = None
-                        self.session_id = None
+                        super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "session-detail-info"
+                        self.yang_parent_name = "incoming-sessions"
 
-                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:detail/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions/Cisco-IOS-XR-crypto-ssh-oper:session-detail-info'
+                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
+
+                        self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("in_cipher",
+                                        "in_mac",
+                                        "key_exchange",
+                                        "out_cipher",
+                                        "out_mac",
+                                        "public_key",
+                                        "session_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.in_cipher.is_set or
+                            self.in_mac.is_set or
+                            self.key_exchange.is_set or
+                            self.out_cipher.is_set or
+                            self.out_mac.is_set or
+                            self.public_key.is_set or
+                            self.session_id.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.in_cipher.yfilter != YFilter.not_set or
+                            self.in_mac.yfilter != YFilter.not_set or
+                            self.key_exchange.yfilter != YFilter.not_set or
+                            self.out_cipher.yfilter != YFilter.not_set or
+                            self.out_mac.yfilter != YFilter.not_set or
+                            self.public_key.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session-detail-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.in_cipher.is_set or self.in_cipher.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.in_cipher.get_name_leafdata())
+                        if (self.in_mac.is_set or self.in_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.in_mac.get_name_leafdata())
+                        if (self.key_exchange.is_set or self.key_exchange.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.key_exchange.get_name_leafdata())
+                        if (self.out_cipher.is_set or self.out_cipher.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.out_cipher.get_name_leafdata())
+                        if (self.out_mac.is_set or self.out_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.out_mac.get_name_leafdata())
+                        if (self.public_key.is_set or self.public_key.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.public_key.get_name_leafdata())
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "in-cipher" or name == "in-mac" or name == "key-exchange" or name == "out-cipher" or name == "out-mac" or name == "public-key" or name == "session-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.in_cipher is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "in-cipher"):
+                            self.in_cipher = value
+                            self.in_cipher.value_namespace = name_space
+                            self.in_cipher.value_namespace_prefix = name_space_prefix
+                        if(value_path == "in-mac"):
+                            self.in_mac = value
+                            self.in_mac.value_namespace = name_space
+                            self.in_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "key-exchange"):
+                            self.key_exchange = value
+                            self.key_exchange.value_namespace = name_space
+                            self.key_exchange.value_namespace_prefix = name_space_prefix
+                        if(value_path == "out-cipher"):
+                            self.out_cipher = value
+                            self.out_cipher.value_namespace = name_space
+                            self.out_cipher.value_namespace_prefix = name_space_prefix
+                        if(value_path == "out-mac"):
+                            self.out_mac = value
+                            self.out_mac.value_namespace = name_space
+                            self.out_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "public-key"):
+                            self.public_key = value
+                            self.public_key.value_namespace = name_space
+                            self.public_key.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session_detail_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.in_mac is not None:
-                            return True
-
-                        if self.key_exchange is not None:
-                            return True
-
-                        if self.out_cipher is not None:
-                            return True
-
-                        if self.out_mac is not None:
-                            return True
-
-                        if self.public_key is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh.Session.Detail.IncomingSessions.SessionDetailInfo']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:detail/Cisco-IOS-XR-crypto-ssh-oper:incoming-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session_detail_info is not None:
-                        for child_ref in self.session_detail_info:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session_detail_info:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "incoming-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session-detail-info"):
+                        for c in self.session_detail_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ssh.Session.Detail.IncomingSessions.SessionDetailInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session_detail_info.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session-detail-info"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                    return meta._meta_table['Ssh.Session.Detail.IncomingSessions']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class OutgoingConnections(object):
+            class OutgoingConnections(Entity):
                 """
                 List of outgoing connections
                 
@@ -1894,45 +3285,71 @@ class Ssh(object):
                 _revision = '2015-06-02'
 
                 def __init__(self):
-                    self.parent = None
-                    self.session_detail_info = YList()
-                    self.session_detail_info.parent = self
-                    self.session_detail_info.name = 'session_detail_info'
+                    super(Ssh.Session.Detail.OutgoingConnections, self).__init__()
+
+                    self.yang_name = "outgoing-connections"
+                    self.yang_parent_name = "detail"
+
+                    self.session_detail_info = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ssh.Session.Detail.OutgoingConnections, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ssh.Session.Detail.OutgoingConnections, self).__setattr__(name, value)
 
 
-                class SessionDetailInfo(object):
+                class SessionDetailInfo(Entity):
                     """
                     session detail info
                     
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
                     .. attribute:: in_mac
                     
                     	In MAC
-                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
                     .. attribute:: key_exchange
                     
                     	Key exchange name
-                    	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                    	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
-                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
-                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
-                    	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                    	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
                     
                     .. attribute:: session_id
                     
@@ -1949,142 +3366,380 @@ class Ssh(object):
                     _revision = '2015-06-02'
 
                     def __init__(self):
-                        self.parent = None
-                        self.in_cipher = None
-                        self.in_mac = None
-                        self.key_exchange = None
-                        self.out_cipher = None
-                        self.out_mac = None
-                        self.public_key = None
-                        self.session_id = None
+                        super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "session-detail-info"
+                        self.yang_parent_name = "outgoing-connections"
 
-                        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:detail/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections/Cisco-IOS-XR-crypto-ssh-oper:session-detail-info'
+                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
+
+                        self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("in_cipher",
+                                        "in_mac",
+                                        "key_exchange",
+                                        "out_cipher",
+                                        "out_mac",
+                                        "public_key",
+                                        "session_id") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.in_cipher.is_set or
+                            self.in_mac.is_set or
+                            self.key_exchange.is_set or
+                            self.out_cipher.is_set or
+                            self.out_mac.is_set or
+                            self.public_key.is_set or
+                            self.session_id.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.in_cipher.yfilter != YFilter.not_set or
+                            self.in_mac.yfilter != YFilter.not_set or
+                            self.key_exchange.yfilter != YFilter.not_set or
+                            self.out_cipher.yfilter != YFilter.not_set or
+                            self.out_mac.yfilter != YFilter.not_set or
+                            self.public_key.yfilter != YFilter.not_set or
+                            self.session_id.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session-detail-info" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.in_cipher.is_set or self.in_cipher.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.in_cipher.get_name_leafdata())
+                        if (self.in_mac.is_set or self.in_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.in_mac.get_name_leafdata())
+                        if (self.key_exchange.is_set or self.key_exchange.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.key_exchange.get_name_leafdata())
+                        if (self.out_cipher.is_set or self.out_cipher.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.out_cipher.get_name_leafdata())
+                        if (self.out_mac.is_set or self.out_mac.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.out_mac.get_name_leafdata())
+                        if (self.public_key.is_set or self.public_key.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.public_key.get_name_leafdata())
+                        if (self.session_id.is_set or self.session_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_id.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "in-cipher" or name == "in-mac" or name == "key-exchange" or name == "out-cipher" or name == "out-mac" or name == "public-key" or name == "session-id"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.in_cipher is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "in-cipher"):
+                            self.in_cipher = value
+                            self.in_cipher.value_namespace = name_space
+                            self.in_cipher.value_namespace_prefix = name_space_prefix
+                        if(value_path == "in-mac"):
+                            self.in_mac = value
+                            self.in_mac.value_namespace = name_space
+                            self.in_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "key-exchange"):
+                            self.key_exchange = value
+                            self.key_exchange.value_namespace = name_space
+                            self.key_exchange.value_namespace_prefix = name_space_prefix
+                        if(value_path == "out-cipher"):
+                            self.out_cipher = value
+                            self.out_cipher.value_namespace = name_space
+                            self.out_cipher.value_namespace_prefix = name_space_prefix
+                        if(value_path == "out-mac"):
+                            self.out_mac = value
+                            self.out_mac.value_namespace = name_space
+                            self.out_mac.value_namespace_prefix = name_space_prefix
+                        if(value_path == "public-key"):
+                            self.public_key = value
+                            self.public_key.value_namespace = name_space
+                            self.public_key.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-id"):
+                            self.session_id = value
+                            self.session_id.value_namespace = name_space
+                            self.session_id.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.session_detail_info:
+                        if (c.has_data()):
                             return True
-
-                        if self.in_mac is not None:
-                            return True
-
-                        if self.key_exchange is not None:
-                            return True
-
-                        if self.out_cipher is not None:
-                            return True
-
-                        if self.out_mac is not None:
-                            return True
-
-                        if self.public_key is not None:
-                            return True
-
-                        if self.session_id is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                        return meta._meta_table['Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:detail/Cisco-IOS-XR-crypto-ssh-oper:outgoing-connections'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.session_detail_info is not None:
-                        for child_ref in self.session_detail_info:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.session_detail_info:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "outgoing-connections" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "session-detail-info"):
+                        for c in self.session_detail_info:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.session_detail_info.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "session-detail-info"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                    return meta._meta_table['Ssh.Session.Detail.OutgoingConnections']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    (self.incoming_sessions is not None and self.incoming_sessions.has_data()) or
+                    (self.outgoing_connections is not None and self.outgoing_connections.has_data()))
 
-                return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session/Cisco-IOS-XR-crypto-ssh-oper:detail'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.incoming_sessions is not None and self.incoming_sessions.has_operation()) or
+                    (self.outgoing_connections is not None and self.outgoing_connections.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "detail" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "incoming-sessions"):
+                    if (self.incoming_sessions is None):
+                        self.incoming_sessions = Ssh.Session.Detail.IncomingSessions()
+                        self.incoming_sessions.parent = self
+                        self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                    return self.incoming_sessions
+
+                if (child_yang_name == "outgoing-connections"):
+                    if (self.outgoing_connections is None):
+                        self.outgoing_connections = Ssh.Session.Detail.OutgoingConnections()
+                        self.outgoing_connections.parent = self
+                        self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                    return self.outgoing_connections
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "incoming-sessions" or name == "outgoing-connections"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.incoming_sessions is not None and self.incoming_sessions._has_data():
-                    return True
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-                if self.outgoing_connections is not None and self.outgoing_connections._has_data():
-                    return True
+        def has_data(self):
+            return (
+                (self.brief is not None and self.brief.has_data()) or
+                (self.detail is not None and self.detail.has_data()) or
+                (self.rekey is not None and self.rekey.has_data()))
 
-                return False
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.brief is not None and self.brief.has_operation()) or
+                (self.detail is not None and self.detail.has_operation()) or
+                (self.rekey is not None and self.rekey.has_operation()))
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-                return meta._meta_table['Ssh.Session.Detail']['meta_info']
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "session" + path_buffer
 
-        @property
-        def _common_path(self):
+            return path_buffer
 
-            return '/Cisco-IOS-XR-crypto-ssh-oper:ssh/Cisco-IOS-XR-crypto-ssh-oper:session'
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "brief"):
+                if (self.brief is None):
+                    self.brief = Ssh.Session.Brief()
+                    self.brief.parent = self
+                    self._children_name_map["brief"] = "brief"
+                return self.brief
+
+            if (child_yang_name == "detail"):
+                if (self.detail is None):
+                    self.detail = Ssh.Session.Detail()
+                    self.detail.parent = self
+                    self._children_name_map["detail"] = "detail"
+                return self.detail
+
+            if (child_yang_name == "rekey"):
+                if (self.rekey is None):
+                    self.rekey = Ssh.Session.Rekey()
+                    self.rekey.parent = self
+                    self._children_name_map["rekey"] = "rekey"
+                return self.rekey
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "brief" or name == "detail" or name == "rekey"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.brief is not None and self.brief._has_data():
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-            if self.detail is not None and self.detail._has_data():
-                return True
+    def has_data(self):
+        return (self.session is not None and self.session.has_data())
 
-            if self.rekey is not None and self.rekey._has_data():
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.session is not None and self.session.has_operation()))
 
-            return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-crypto-ssh-oper:ssh" + path_buffer
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-            return meta._meta_table['Ssh.Session']['meta_info']
+        return path_buffer
 
-    @property
-    def _common_path(self):
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-        return '/Cisco-IOS-XR-crypto-ssh-oper:ssh'
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-    def _has_data(self):
-        if self.session is not None and self.session._has_data():
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "session"):
+            if (self.session is None):
+                self.session = Ssh.Session()
+                self.session.parent = self
+                self._children_name_map["session"] = "session"
+            return self.session
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "session"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_ssh_oper as meta
-        return meta._meta_table['Ssh']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Ssh()
+        return self._top_entity
 

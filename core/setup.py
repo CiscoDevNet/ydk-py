@@ -32,11 +32,8 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.5.5'
-INSTALL_REQUIREMENTS = ['enum34==1.1.3',
-                        'lxml>=3.4.4',
-                        'ncclient>=0.4.7',
-                        'pybind11==2.0.1']
+VERSION = '0.6.0'
+INSTALL_REQUIREMENTS = ['pybind11>=2.1.1']
 
 
 LONG_DESCRIPTION = '''
@@ -76,7 +73,7 @@ class YdkBuildExtension(build_ext):
             import pybind11
         except ImportError:
             import pip
-            pip.main(['install', 'pybind11==2.0.1'])
+            pip.main(['install', 'pybind11>=2.1.1'])
             import pybind11
 
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
@@ -111,7 +108,7 @@ def get_python_library():
         library_prefix = sysconfig.get_config_var('PYTHONFRAMEWORKPREFIX')
         library_path = os.path.join(library_prefix, sysconfig.get_config_var('LDLIBRARY'))
 
-    assert os.path.exists(library_path), 'Could not find python library in {0}. Check your python installation'.format(library_path)
+#assert os.path.exists(library_path), 'Could not find python library in {0}. Check your python installation'.format(library_path)
     return library_path
 
 
@@ -153,9 +150,9 @@ setup(
     keywords='yang, C++11, python bindings',
     packages=YDK_PACKAGES,
     install_requires=INSTALL_REQUIREMENTS,
-#    ext_modules=[CMakeExtension('ydk_')],
-#    cmdclass={
-#             'build_ext' :YdkBuildExtension
-#             },
+    ext_modules=[CMakeExtension('ydk_')],
+    cmdclass={
+             'build_ext' :YdkBuildExtension
+             },
     zip_safe=False,
 )

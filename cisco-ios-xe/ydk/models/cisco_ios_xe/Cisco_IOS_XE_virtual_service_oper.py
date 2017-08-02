@@ -4,21 +4,15 @@ This module contains a collection of YANG definitions for monitoring
 virtual services in a Network Element.Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class VirtualServices(object):
+class VirtualServices(Entity):
     """
     Names and Status of virtual services on the device
     
@@ -35,12 +29,40 @@ class VirtualServices(object):
     _revision = '2017-02-07'
 
     def __init__(self):
-        self.virtual_service = YList()
-        self.virtual_service.parent = self
-        self.virtual_service.name = 'virtual_service'
+        super(VirtualServices, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "virtual-services"
+        self.yang_parent_name = "Cisco-IOS-XE-virtual-service-oper"
+
+        self.virtual_service = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(VirtualServices, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(VirtualServices, self).__setattr__(name, value)
 
 
-    class VirtualService(object):
+    class VirtualService(Entity):
         """
         A virtual service.
         
@@ -92,25 +114,74 @@ class VirtualServices(object):
         _revision = '2017-02-07'
 
         def __init__(self):
-            self.parent = None
-            self.name = None
+            super(VirtualServices.VirtualService, self).__init__()
+
+            self.yang_name = "virtual-service"
+            self.yang_parent_name = "virtual-services"
+
+            self.name = YLeaf(YType.str, "name")
+
             self.attached_devices = VirtualServices.VirtualService.AttachedDevices()
             self.attached_devices.parent = self
+            self._children_name_map["attached_devices"] = "attached-devices"
+            self._children_yang_names.add("attached-devices")
+
             self.details = VirtualServices.VirtualService.Details()
             self.details.parent = self
+            self._children_name_map["details"] = "details"
+            self._children_yang_names.add("details")
+
             self.guest_routes = VirtualServices.VirtualService.GuestRoutes()
             self.guest_routes.parent = self
+            self._children_name_map["guest_routes"] = "guest-routes"
+            self._children_yang_names.add("guest-routes")
+
             self.network_interfaces = VirtualServices.VirtualService.NetworkInterfaces()
             self.network_interfaces.parent = self
+            self._children_name_map["network_interfaces"] = "network-interfaces"
+            self._children_yang_names.add("network-interfaces")
+
             self.network_utils = VirtualServices.VirtualService.NetworkUtils()
             self.network_utils.parent = self
+            self._children_name_map["network_utils"] = "network-utils"
+            self._children_yang_names.add("network-utils")
+
             self.storage_utils = VirtualServices.VirtualService.StorageUtils()
             self.storage_utils.parent = self
+            self._children_name_map["storage_utils"] = "storage-utils"
+            self._children_yang_names.add("storage-utils")
+
             self.utilization = VirtualServices.VirtualService.Utilization()
             self.utilization.parent = self
+            self._children_name_map["utilization"] = "utilization"
+            self._children_yang_names.add("utilization")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("name") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(VirtualServices.VirtualService, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(VirtualServices.VirtualService, self).__setattr__(name, value)
 
 
-        class Details(object):
+        class Details(Entity):
             """
             Details of the virtual service.
             
@@ -157,21 +228,65 @@ class VirtualServices(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.activated_profile_name = None
+                super(VirtualServices.VirtualService.Details, self).__init__()
+
+                self.yang_name = "details"
+                self.yang_parent_name = "virtual-service"
+
+                self.activated_profile_name = YLeaf(YType.str, "activated-profile-name")
+
+                self.guest_interface = YLeaf(YType.str, "guest-interface")
+
+                self.state = YLeaf(YType.str, "state")
+
                 self.detailed_guest_status = VirtualServices.VirtualService.Details.DetailedGuestStatus()
                 self.detailed_guest_status.parent = self
-                self.guest_interface = None
+                self._children_name_map["detailed_guest_status"] = "detailed-guest-status"
+                self._children_yang_names.add("detailed-guest-status")
+
                 self.package_information = VirtualServices.VirtualService.Details.PackageInformation()
                 self.package_information.parent = self
+                self._children_name_map["package_information"] = "package-information"
+                self._children_yang_names.add("package-information")
+
                 self.resource_admission = VirtualServices.VirtualService.Details.ResourceAdmission()
                 self.resource_admission.parent = self
+                self._children_name_map["resource_admission"] = "resource-admission"
+                self._children_yang_names.add("resource-admission")
+
                 self.resource_reservation = VirtualServices.VirtualService.Details.ResourceReservation()
                 self.resource_reservation.parent = self
-                self.state = None
+                self._children_name_map["resource_reservation"] = "resource-reservation"
+                self._children_yang_names.add("resource-reservation")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("activated_profile_name",
+                                "guest_interface",
+                                "state") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VirtualServices.VirtualService.Details, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VirtualServices.VirtualService.Details, self).__setattr__(name, value)
 
 
-            class PackageInformation(object):
+            class PackageInformation(Entity):
                 """
                 Details of the package for the virtual\-service.
                 
@@ -208,18 +323,57 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
+                    super(VirtualServices.VirtualService.Details.PackageInformation, self).__init__()
+
+                    self.yang_name = "package-information"
+                    self.yang_parent_name = "details"
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.path = YLeaf(YType.str, "path")
+
                     self.application = VirtualServices.VirtualService.Details.PackageInformation.Application()
                     self.application.parent = self
+                    self._children_name_map["application"] = "application"
+                    self._children_yang_names.add("application")
+
                     self.licensing = VirtualServices.VirtualService.Details.PackageInformation.Licensing()
                     self.licensing.parent = self
-                    self.name = None
-                    self.path = None
+                    self._children_name_map["licensing"] = "licensing"
+                    self._children_yang_names.add("licensing")
+
                     self.signing = VirtualServices.VirtualService.Details.PackageInformation.Signing()
                     self.signing.parent = self
+                    self._children_name_map["signing"] = "signing"
+                    self._children_yang_names.add("signing")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("name",
+                                    "path") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.Details.PackageInformation, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.Details.PackageInformation, self).__setattr__(name, value)
 
 
-                class Application(object):
+                class Application(Entity):
                     """
                     Details of the application.
                     
@@ -246,41 +400,108 @@ class VirtualServices(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.description = None
-                        self.installed_version = None
-                        self.name = None
+                        super(VirtualServices.VirtualService.Details.PackageInformation.Application, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "application"
+                        self.yang_parent_name = "package-information"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:application'
+                        self.description = YLeaf(YType.str, "description")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.installed_version = YLeaf(YType.str, "installed-version")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("description",
+                                        "installed_version",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(VirtualServices.VirtualService.Details.PackageInformation.Application, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(VirtualServices.VirtualService.Details.PackageInformation.Application, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.description.is_set or
+                            self.installed_version.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.description.yfilter != YFilter.not_set or
+                            self.installed_version.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "application" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.description.is_set or self.description.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.description.get_name_leafdata())
+                        if (self.installed_version.is_set or self.installed_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.installed_version.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "description" or name == "installed-version" or name == "name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.description is not None:
-                            return True
-
-                        if self.installed_version is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                        return meta._meta_table['VirtualServices.VirtualService.Details.PackageInformation.Application']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "description"):
+                            self.description = value
+                            self.description.value_namespace = name_space
+                            self.description.value_namespace_prefix = name_space_prefix
+                        if(value_path == "installed-version"):
+                            self.installed_version = value
+                            self.installed_version.value_namespace = name_space
+                            self.installed_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class Signing(object):
+                class Signing(Entity):
                     """
                     Details of the key signing.
                     
@@ -302,37 +523,97 @@ class VirtualServices(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.key_type = None
-                        self.method = None
+                        super(VirtualServices.VirtualService.Details.PackageInformation.Signing, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "signing"
+                        self.yang_parent_name = "package-information"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:signing'
+                        self.key_type = YLeaf(YType.str, "key-type")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.method = YLeaf(YType.str, "method")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("key_type",
+                                        "method") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(VirtualServices.VirtualService.Details.PackageInformation.Signing, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(VirtualServices.VirtualService.Details.PackageInformation.Signing, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.key_type.is_set or
+                            self.method.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.key_type.yfilter != YFilter.not_set or
+                            self.method.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "signing" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.key_type.is_set or self.key_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.key_type.get_name_leafdata())
+                        if (self.method.is_set or self.method.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.method.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "key-type" or name == "method"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.key_type is not None:
-                            return True
-
-                        if self.method is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                        return meta._meta_table['VirtualServices.VirtualService.Details.PackageInformation.Signing']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "key-type"):
+                            self.key_type = value
+                            self.key_type.value_namespace = name_space
+                            self.key_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "method"):
+                            self.method = value
+                            self.method.value_namespace = name_space
+                            self.method.value_namespace_prefix = name_space_prefix
 
 
-                class Licensing(object):
+                class Licensing(Entity):
                     """
                     Details about the license.
                     
@@ -354,71 +635,179 @@ class VirtualServices(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.name = None
-                        self.version = None
+                        super(VirtualServices.VirtualService.Details.PackageInformation.Licensing, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "licensing"
+                        self.yang_parent_name = "package-information"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:licensing'
+                        self.name = YLeaf(YType.str, "name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.version = YLeaf(YType.str, "version")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("name",
+                                        "version") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(VirtualServices.VirtualService.Details.PackageInformation.Licensing, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(VirtualServices.VirtualService.Details.PackageInformation.Licensing, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.name.is_set or
+                            self.version.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set or
+                            self.version.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "licensing" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+                        if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "name" or name == "version"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.name is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "version"):
+                            self.version = value
+                            self.version.value_namespace = name_space
+                            self.version.value_namespace_prefix = name_space_prefix
 
-                        if self.version is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        self.name.is_set or
+                        self.path.is_set or
+                        (self.application is not None and self.application.has_data()) or
+                        (self.licensing is not None and self.licensing.has_data()) or
+                        (self.signing is not None and self.signing.has_data()))
 
-                        return False
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        self.path.yfilter != YFilter.not_set or
+                        (self.application is not None and self.application.has_operation()) or
+                        (self.licensing is not None and self.licensing.has_operation()) or
+                        (self.signing is not None and self.signing.has_operation()))
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                        return meta._meta_table['VirtualServices.VirtualService.Details.PackageInformation.Licensing']['meta_info']
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "package-information" + path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    return path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:package-information'
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    leaf_name_data = LeafDataList()
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
+                    if (self.path.is_set or self.path.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "application"):
+                        if (self.application is None):
+                            self.application = VirtualServices.VirtualService.Details.PackageInformation.Application()
+                            self.application.parent = self
+                            self._children_name_map["application"] = "application"
+                        return self.application
+
+                    if (child_yang_name == "licensing"):
+                        if (self.licensing is None):
+                            self.licensing = VirtualServices.VirtualService.Details.PackageInformation.Licensing()
+                            self.licensing.parent = self
+                            self._children_name_map["licensing"] = "licensing"
+                        return self.licensing
+
+                    if (child_yang_name == "signing"):
+                        if (self.signing is None):
+                            self.signing = VirtualServices.VirtualService.Details.PackageInformation.Signing()
+                            self.signing.parent = self
+                            self._children_name_map["signing"] = "signing"
+                        return self.signing
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "application" or name == "licensing" or name == "signing" or name == "name" or name == "path"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.application is not None and self.application._has_data():
-                        return True
-
-                    if self.licensing is not None and self.licensing._has_data():
-                        return True
-
-                    if self.name is not None:
-                        return True
-
-                    if self.path is not None:
-                        return True
-
-                    if self.signing is not None and self.signing._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.Details.PackageInformation']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path"):
+                        self.path = value
+                        self.path.value_namespace = name_space
+                        self.path.value_namespace_prefix = name_space_prefix
 
 
-            class DetailedGuestStatus(object):
+            class DetailedGuestStatus(Entity):
                 """
                 Details on the guest status.
                 
@@ -435,12 +824,18 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
+                    super(VirtualServices.VirtualService.Details.DetailedGuestStatus, self).__init__()
+
+                    self.yang_name = "detailed-guest-status"
+                    self.yang_parent_name = "details"
+
                     self.processes = VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes()
                     self.processes.parent = self
+                    self._children_name_map["processes"] = "processes"
+                    self._children_yang_names.add("processes")
 
 
-                class Processes(object):
+                class Processes(Entity):
                     """
                     All the processes.
                     
@@ -477,71 +872,178 @@ class VirtualServices(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.memory = None
-                        self.name = None
-                        self.pid = None
-                        self.status = None
-                        self.uptime = None
+                        super(VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "processes"
+                        self.yang_parent_name = "detailed-guest-status"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:processes'
+                        self.memory = YLeaf(YType.str, "memory")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.name = YLeaf(YType.str, "name")
+
+                        self.pid = YLeaf(YType.str, "pid")
+
+                        self.status = YLeaf(YType.str, "status")
+
+                        self.uptime = YLeaf(YType.str, "uptime")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("memory",
+                                        "name",
+                                        "pid",
+                                        "status",
+                                        "uptime") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.memory.is_set or
+                            self.name.is_set or
+                            self.pid.is_set or
+                            self.status.is_set or
+                            self.uptime.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.memory.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set or
+                            self.pid.yfilter != YFilter.not_set or
+                            self.status.yfilter != YFilter.not_set or
+                            self.uptime.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "processes" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.memory.is_set or self.memory.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.memory.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+                        if (self.pid.is_set or self.pid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pid.get_name_leafdata())
+                        if (self.status.is_set or self.status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.status.get_name_leafdata())
+                        if (self.uptime.is_set or self.uptime.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.uptime.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "memory" or name == "name" or name == "pid" or name == "status" or name == "uptime"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.memory is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "memory"):
+                            self.memory = value
+                            self.memory.value_namespace = name_space
+                            self.memory.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pid"):
+                            self.pid = value
+                            self.pid.value_namespace = name_space
+                            self.pid.value_namespace_prefix = name_space_prefix
+                        if(value_path == "status"):
+                            self.status = value
+                            self.status.value_namespace = name_space
+                            self.status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "uptime"):
+                            self.uptime = value
+                            self.uptime.value_namespace = name_space
+                            self.uptime.value_namespace_prefix = name_space_prefix
 
-                        if self.name is not None:
-                            return True
+                def has_data(self):
+                    return (self.processes is not None and self.processes.has_data())
 
-                        if self.pid is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.processes is not None and self.processes.has_operation()))
 
-                        if self.status is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "detailed-guest-status" + path_buffer
 
-                        if self.uptime is not None:
-                            return True
+                    return path_buffer
 
-                        return False
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                        return meta._meta_table['VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes']['meta_info']
+                    leaf_name_data = LeafDataList()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:detailed-guest-status'
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                    if (child_yang_name == "processes"):
+                        if (self.processes is None):
+                            self.processes = VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes()
+                            self.processes.parent = self
+                            self._children_name_map["processes"] = "processes"
+                        return self.processes
 
-                def _has_data(self):
-                    if self.processes is not None and self.processes._has_data():
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "processes"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.Details.DetailedGuestStatus']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class ResourceReservation(object):
+            class ResourceReservation(Entity):
                 """
                 Details of the resources reserved for this virtual service.
                 
@@ -574,41 +1076,108 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.cpu = None
-                    self.disk = None
-                    self.memory = None
+                    super(VirtualServices.VirtualService.Details.ResourceReservation, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "resource-reservation"
+                    self.yang_parent_name = "details"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:resource-reservation'
+                    self.cpu = YLeaf(YType.uint64, "cpu")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.disk = YLeaf(YType.uint64, "disk")
+
+                    self.memory = YLeaf(YType.uint64, "memory")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("cpu",
+                                    "disk",
+                                    "memory") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.Details.ResourceReservation, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.Details.ResourceReservation, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.cpu.is_set or
+                        self.disk.is_set or
+                        self.memory.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.cpu.yfilter != YFilter.not_set or
+                        self.disk.yfilter != YFilter.not_set or
+                        self.memory.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "resource-reservation" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.cpu.is_set or self.cpu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.cpu.get_name_leafdata())
+                    if (self.disk.is_set or self.disk.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.disk.get_name_leafdata())
+                    if (self.memory.is_set or self.memory.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "cpu" or name == "disk" or name == "memory"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.cpu is not None:
-                        return True
-
-                    if self.disk is not None:
-                        return True
-
-                    if self.memory is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.Details.ResourceReservation']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "cpu"):
+                        self.cpu = value
+                        self.cpu.value_namespace = name_space
+                        self.cpu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "disk"):
+                        self.disk = value
+                        self.disk.value_namespace = name_space
+                        self.disk.value_namespace_prefix = name_space_prefix
+                    if(value_path == "memory"):
+                        self.memory = value
+                        self.memory.value_namespace = name_space
+                        self.memory.value_namespace_prefix = name_space_prefix
 
 
-            class ResourceAdmission(object):
+            class ResourceAdmission(Entity):
                 """
                 Resources being allocated for the virtual\-service.
                 
@@ -647,89 +1216,229 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.cpu = None
-                    self.disk_space = None
-                    self.memory = None
-                    self.state = None
-                    self.vcpus = None
+                    super(VirtualServices.VirtualService.Details.ResourceAdmission, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "resource-admission"
+                    self.yang_parent_name = "details"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:resource-admission'
+                    self.cpu = YLeaf(YType.uint64, "cpu")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.disk_space = YLeaf(YType.str, "disk-space")
+
+                    self.memory = YLeaf(YType.str, "memory")
+
+                    self.state = YLeaf(YType.str, "state")
+
+                    self.vcpus = YLeaf(YType.str, "vcpus")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("cpu",
+                                    "disk_space",
+                                    "memory",
+                                    "state",
+                                    "vcpus") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.Details.ResourceAdmission, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.Details.ResourceAdmission, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.cpu.is_set or
+                        self.disk_space.is_set or
+                        self.memory.is_set or
+                        self.state.is_set or
+                        self.vcpus.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.cpu.yfilter != YFilter.not_set or
+                        self.disk_space.yfilter != YFilter.not_set or
+                        self.memory.yfilter != YFilter.not_set or
+                        self.state.yfilter != YFilter.not_set or
+                        self.vcpus.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "resource-admission" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.cpu.is_set or self.cpu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.cpu.get_name_leafdata())
+                    if (self.disk_space.is_set or self.disk_space.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.disk_space.get_name_leafdata())
+                    if (self.memory.is_set or self.memory.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory.get_name_leafdata())
+                    if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state.get_name_leafdata())
+                    if (self.vcpus.is_set or self.vcpus.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vcpus.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "cpu" or name == "disk-space" or name == "memory" or name == "state" or name == "vcpus"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.cpu is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "cpu"):
+                        self.cpu = value
+                        self.cpu.value_namespace = name_space
+                        self.cpu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "disk-space"):
+                        self.disk_space = value
+                        self.disk_space.value_namespace = name_space
+                        self.disk_space.value_namespace_prefix = name_space_prefix
+                    if(value_path == "memory"):
+                        self.memory = value
+                        self.memory.value_namespace = name_space
+                        self.memory.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state"):
+                        self.state = value
+                        self.state.value_namespace = name_space
+                        self.state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vcpus"):
+                        self.vcpus = value
+                        self.vcpus.value_namespace = name_space
+                        self.vcpus.value_namespace_prefix = name_space_prefix
 
-                    if self.disk_space is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.activated_profile_name.is_set or
+                    self.guest_interface.is_set or
+                    self.state.is_set or
+                    (self.detailed_guest_status is not None and self.detailed_guest_status.has_data()) or
+                    (self.package_information is not None and self.package_information.has_data()) or
+                    (self.resource_admission is not None and self.resource_admission.has_data()) or
+                    (self.resource_reservation is not None and self.resource_reservation.has_data()))
 
-                    if self.memory is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.activated_profile_name.yfilter != YFilter.not_set or
+                    self.guest_interface.yfilter != YFilter.not_set or
+                    self.state.yfilter != YFilter.not_set or
+                    (self.detailed_guest_status is not None and self.detailed_guest_status.has_operation()) or
+                    (self.package_information is not None and self.package_information.has_operation()) or
+                    (self.resource_admission is not None and self.resource_admission.has_operation()) or
+                    (self.resource_reservation is not None and self.resource_reservation.has_operation()))
 
-                    if self.state is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "details" + path_buffer
 
-                    if self.vcpus is not None:
-                        return True
+                return path_buffer
 
-                    return False
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.Details.ResourceAdmission']['meta_info']
+                leaf_name_data = LeafDataList()
+                if (self.activated_profile_name.is_set or self.activated_profile_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.activated_profile_name.get_name_leafdata())
+                if (self.guest_interface.is_set or self.guest_interface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.guest_interface.get_name_leafdata())
+                if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.state.get_name_leafdata())
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:details'
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                if (child_yang_name == "detailed-guest-status"):
+                    if (self.detailed_guest_status is None):
+                        self.detailed_guest_status = VirtualServices.VirtualService.Details.DetailedGuestStatus()
+                        self.detailed_guest_status.parent = self
+                        self._children_name_map["detailed_guest_status"] = "detailed-guest-status"
+                    return self.detailed_guest_status
+
+                if (child_yang_name == "package-information"):
+                    if (self.package_information is None):
+                        self.package_information = VirtualServices.VirtualService.Details.PackageInformation()
+                        self.package_information.parent = self
+                        self._children_name_map["package_information"] = "package-information"
+                    return self.package_information
+
+                if (child_yang_name == "resource-admission"):
+                    if (self.resource_admission is None):
+                        self.resource_admission = VirtualServices.VirtualService.Details.ResourceAdmission()
+                        self.resource_admission.parent = self
+                        self._children_name_map["resource_admission"] = "resource-admission"
+                    return self.resource_admission
+
+                if (child_yang_name == "resource-reservation"):
+                    if (self.resource_reservation is None):
+                        self.resource_reservation = VirtualServices.VirtualService.Details.ResourceReservation()
+                        self.resource_reservation.parent = self
+                        self._children_name_map["resource_reservation"] = "resource-reservation"
+                    return self.resource_reservation
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "detailed-guest-status" or name == "package-information" or name == "resource-admission" or name == "resource-reservation" or name == "activated-profile-name" or name == "guest-interface" or name == "state"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.activated_profile_name is not None:
-                    return True
-
-                if self.detailed_guest_status is not None and self.detailed_guest_status._has_data():
-                    return True
-
-                if self.guest_interface is not None:
-                    return True
-
-                if self.package_information is not None and self.package_information._has_data():
-                    return True
-
-                if self.resource_admission is not None and self.resource_admission._has_data():
-                    return True
-
-                if self.resource_reservation is not None and self.resource_reservation._has_data():
-                    return True
-
-                if self.state is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                return meta._meta_table['VirtualServices.VirtualService.Details']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "activated-profile-name"):
+                    self.activated_profile_name = value
+                    self.activated_profile_name.value_namespace = name_space
+                    self.activated_profile_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "guest-interface"):
+                    self.guest_interface = value
+                    self.guest_interface.value_namespace = name_space
+                    self.guest_interface.value_namespace_prefix = name_space_prefix
+                if(value_path == "state"):
+                    self.state = value
+                    self.state.value_namespace = name_space
+                    self.state.value_namespace_prefix = name_space_prefix
 
 
-        class Utilization(object):
+        class Utilization(Entity):
             """
             Utilization of device resources for a virtual\-service.
             
@@ -756,15 +1465,49 @@ class VirtualServices(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
+                super(VirtualServices.VirtualService.Utilization, self).__init__()
+
+                self.yang_name = "utilization"
+                self.yang_parent_name = "virtual-service"
+
+                self.name = YLeaf(YType.str, "name")
+
                 self.cpu_util = VirtualServices.VirtualService.Utilization.CpuUtil()
                 self.cpu_util.parent = self
+                self._children_name_map["cpu_util"] = "cpu-util"
+                self._children_yang_names.add("cpu-util")
+
                 self.memory_util = VirtualServices.VirtualService.Utilization.MemoryUtil()
                 self.memory_util.parent = self
-                self.name = None
+                self._children_name_map["memory_util"] = "memory-util"
+                self._children_yang_names.add("memory-util")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VirtualServices.VirtualService.Utilization, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VirtualServices.VirtualService.Utilization, self).__setattr__(name, value)
 
 
-            class CpuUtil(object):
+            class CpuUtil(Entity):
                 """
                 Details on the CPU utilization for the virtual\-service.
                 
@@ -795,41 +1538,108 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.actual_application_util = None
-                    self.cpu_state = None
-                    self.requested_application_util = None
+                    super(VirtualServices.VirtualService.Utilization.CpuUtil, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "cpu-util"
+                    self.yang_parent_name = "utilization"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:cpu-util'
+                    self.actual_application_util = YLeaf(YType.uint64, "actual-application-util")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.cpu_state = YLeaf(YType.str, "cpu-state")
+
+                    self.requested_application_util = YLeaf(YType.uint64, "requested-application-util")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("actual_application_util",
+                                    "cpu_state",
+                                    "requested_application_util") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.Utilization.CpuUtil, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.Utilization.CpuUtil, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.actual_application_util.is_set or
+                        self.cpu_state.is_set or
+                        self.requested_application_util.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.actual_application_util.yfilter != YFilter.not_set or
+                        self.cpu_state.yfilter != YFilter.not_set or
+                        self.requested_application_util.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "cpu-util" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.actual_application_util.is_set or self.actual_application_util.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.actual_application_util.get_name_leafdata())
+                    if (self.cpu_state.is_set or self.cpu_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.cpu_state.get_name_leafdata())
+                    if (self.requested_application_util.is_set or self.requested_application_util.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.requested_application_util.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "actual-application-util" or name == "cpu-state" or name == "requested-application-util"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.actual_application_util is not None:
-                        return True
-
-                    if self.cpu_state is not None:
-                        return True
-
-                    if self.requested_application_util is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.Utilization.CpuUtil']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "actual-application-util"):
+                        self.actual_application_util = value
+                        self.actual_application_util.value_namespace = name_space
+                        self.actual_application_util.value_namespace_prefix = name_space_prefix
+                    if(value_path == "cpu-state"):
+                        self.cpu_state = value
+                        self.cpu_state.value_namespace = name_space
+                        self.cpu_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "requested-application-util"):
+                        self.requested_application_util = value
+                        self.requested_application_util.value_namespace = name_space
+                        self.requested_application_util.value_namespace_prefix = name_space_prefix
 
 
-            class MemoryUtil(object):
+            class MemoryUtil(Entity):
                 """
                 Details on the memory usage for the virtual\-service.
                 
@@ -851,65 +1661,162 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.memory_allocation = None
-                    self.memory_used = None
+                    super(VirtualServices.VirtualService.Utilization.MemoryUtil, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "memory-util"
+                    self.yang_parent_name = "utilization"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:memory-util'
+                    self.memory_allocation = YLeaf(YType.str, "memory-allocation")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.memory_used = YLeaf(YType.str, "memory-used")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("memory_allocation",
+                                    "memory_used") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.Utilization.MemoryUtil, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.Utilization.MemoryUtil, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.memory_allocation.is_set or
+                        self.memory_used.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.memory_allocation.yfilter != YFilter.not_set or
+                        self.memory_used.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "memory-util" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.memory_allocation.is_set or self.memory_allocation.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory_allocation.get_name_leafdata())
+                    if (self.memory_used.is_set or self.memory_used.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.memory_used.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "memory-allocation" or name == "memory-used"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.memory_allocation is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "memory-allocation"):
+                        self.memory_allocation = value
+                        self.memory_allocation.value_namespace = name_space
+                        self.memory_allocation.value_namespace_prefix = name_space_prefix
+                    if(value_path == "memory-used"):
+                        self.memory_used = value
+                        self.memory_used.value_namespace = name_space
+                        self.memory_used.value_namespace_prefix = name_space_prefix
 
-                    if self.memory_used is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.name.is_set or
+                    (self.cpu_util is not None and self.cpu_util.has_data()) or
+                    (self.memory_util is not None and self.memory_util.has_data()))
 
-                    return False
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.name.yfilter != YFilter.not_set or
+                    (self.cpu_util is not None and self.cpu_util.has_operation()) or
+                    (self.memory_util is not None and self.memory_util.has_operation()))
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.Utilization.MemoryUtil']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "utilization" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
+                return path_buffer
 
-                return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:utilization'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "cpu-util"):
+                    if (self.cpu_util is None):
+                        self.cpu_util = VirtualServices.VirtualService.Utilization.CpuUtil()
+                        self.cpu_util.parent = self
+                        self._children_name_map["cpu_util"] = "cpu-util"
+                    return self.cpu_util
+
+                if (child_yang_name == "memory-util"):
+                    if (self.memory_util is None):
+                        self.memory_util = VirtualServices.VirtualService.Utilization.MemoryUtil()
+                        self.memory_util.parent = self
+                        self._children_name_map["memory_util"] = "memory-util"
+                    return self.memory_util
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cpu-util" or name == "memory-util" or name == "name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cpu_util is not None and self.cpu_util._has_data():
-                    return True
-
-                if self.memory_util is not None and self.memory_util._has_data():
-                    return True
-
-                if self.name is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                return meta._meta_table['VirtualServices.VirtualService.Utilization']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "name"):
+                    self.name = value
+                    self.name.value_namespace = name_space
+                    self.name.value_namespace_prefix = name_space_prefix
 
 
-        class NetworkUtils(object):
+        class NetworkUtils(Entity):
             """
             list of the network utilizations for the virtual\-service.
             
@@ -926,13 +1833,39 @@ class VirtualServices(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.network_util = YList()
-                self.network_util.parent = self
-                self.network_util.name = 'network_util'
+                super(VirtualServices.VirtualService.NetworkUtils, self).__init__()
+
+                self.yang_name = "network-utils"
+                self.yang_parent_name = "virtual-service"
+
+                self.network_util = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VirtualServices.VirtualService.NetworkUtils, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VirtualServices.VirtualService.NetworkUtils, self).__setattr__(name, value)
 
 
-            class NetworkUtil(object):
+            class NetworkUtil(Entity):
                 """
                 Details on a network utilization for the virtual\-service.
                 
@@ -996,89 +1929,220 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.name = None
-                    self.alias = None
-                    self.rx_bytes = None
-                    self.rx_errors = None
-                    self.rx_packets = None
-                    self.tx_bytes = None
-                    self.tx_errors = None
-                    self.tx_packets = None
+                    super(VirtualServices.VirtualService.NetworkUtils.NetworkUtil, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.name is None:
-                        raise YPYModelError('Key property name is None')
-                    if self.alias is None:
-                        raise YPYModelError('Key property alias is None')
+                    self.yang_name = "network-util"
+                    self.yang_parent_name = "network-utils"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:network-util[Cisco-IOS-XE-virtual-service-oper:name = ' + str(self.name) + '][Cisco-IOS-XE-virtual-service-oper:alias = ' + str(self.alias) + ']'
+                    self.name = YLeaf(YType.str, "name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.alias = YLeaf(YType.str, "alias")
+
+                    self.rx_bytes = YLeaf(YType.uint64, "rx-bytes")
+
+                    self.rx_errors = YLeaf(YType.uint64, "rx-errors")
+
+                    self.rx_packets = YLeaf(YType.uint64, "rx-packets")
+
+                    self.tx_bytes = YLeaf(YType.uint64, "tx-bytes")
+
+                    self.tx_errors = YLeaf(YType.uint64, "tx-errors")
+
+                    self.tx_packets = YLeaf(YType.uint64, "tx-packets")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("name",
+                                    "alias",
+                                    "rx_bytes",
+                                    "rx_errors",
+                                    "rx_packets",
+                                    "tx_bytes",
+                                    "tx_errors",
+                                    "tx_packets") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.NetworkUtils.NetworkUtil, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.NetworkUtils.NetworkUtil, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.name.is_set or
+                        self.alias.is_set or
+                        self.rx_bytes.is_set or
+                        self.rx_errors.is_set or
+                        self.rx_packets.is_set or
+                        self.tx_bytes.is_set or
+                        self.tx_errors.is_set or
+                        self.tx_packets.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        self.alias.yfilter != YFilter.not_set or
+                        self.rx_bytes.yfilter != YFilter.not_set or
+                        self.rx_errors.yfilter != YFilter.not_set or
+                        self.rx_packets.yfilter != YFilter.not_set or
+                        self.tx_bytes.yfilter != YFilter.not_set or
+                        self.tx_errors.yfilter != YFilter.not_set or
+                        self.tx_packets.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "network-util" + "[name='" + self.name.get() + "']" + "[alias='" + self.alias.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
+                    if (self.alias.is_set or self.alias.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.alias.get_name_leafdata())
+                    if (self.rx_bytes.is_set or self.rx_bytes.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rx_bytes.get_name_leafdata())
+                    if (self.rx_errors.is_set or self.rx_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rx_errors.get_name_leafdata())
+                    if (self.rx_packets.is_set or self.rx_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rx_packets.get_name_leafdata())
+                    if (self.tx_bytes.is_set or self.tx_bytes.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_bytes.get_name_leafdata())
+                    if (self.tx_errors.is_set or self.tx_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_errors.get_name_leafdata())
+                    if (self.tx_packets.is_set or self.tx_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.tx_packets.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "name" or name == "alias" or name == "rx-bytes" or name == "rx-errors" or name == "rx-packets" or name == "tx-bytes" or name == "tx-errors" or name == "tx-packets"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "alias"):
+                        self.alias = value
+                        self.alias.value_namespace = name_space
+                        self.alias.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rx-bytes"):
+                        self.rx_bytes = value
+                        self.rx_bytes.value_namespace = name_space
+                        self.rx_bytes.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rx-errors"):
+                        self.rx_errors = value
+                        self.rx_errors.value_namespace = name_space
+                        self.rx_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rx-packets"):
+                        self.rx_packets = value
+                        self.rx_packets.value_namespace = name_space
+                        self.rx_packets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-bytes"):
+                        self.tx_bytes = value
+                        self.tx_bytes.value_namespace = name_space
+                        self.tx_bytes.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-errors"):
+                        self.tx_errors = value
+                        self.tx_errors.value_namespace = name_space
+                        self.tx_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "tx-packets"):
+                        self.tx_packets = value
+                        self.tx_packets.value_namespace = name_space
+                        self.tx_packets.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.network_util:
+                    if (c.has_data()):
                         return True
-
-                    if self.alias is not None:
-                        return True
-
-                    if self.rx_bytes is not None:
-                        return True
-
-                    if self.rx_errors is not None:
-                        return True
-
-                    if self.rx_packets is not None:
-                        return True
-
-                    if self.tx_bytes is not None:
-                        return True
-
-                    if self.tx_errors is not None:
-                        return True
-
-                    if self.tx_packets is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.NetworkUtils.NetworkUtil']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:network-utils'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.network_util is not None:
-                    for child_ref in self.network_util:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.network_util:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "network-utils" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "network-util"):
+                    for c in self.network_util:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = VirtualServices.VirtualService.NetworkUtils.NetworkUtil()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.network_util.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "network-util"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                return meta._meta_table['VirtualServices.VirtualService.NetworkUtils']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class StorageUtils(object):
+        class StorageUtils(Entity):
             """
             List of the storage utilizations for the virtual\-service.
             
@@ -1095,13 +2159,39 @@ class VirtualServices(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.storage_util = YList()
-                self.storage_util.parent = self
-                self.storage_util.name = 'storage_util'
+                super(VirtualServices.VirtualService.StorageUtils, self).__init__()
+
+                self.yang_name = "storage-utils"
+                self.yang_parent_name = "virtual-service"
+
+                self.storage_util = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VirtualServices.VirtualService.StorageUtils, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VirtualServices.VirtualService.StorageUtils, self).__setattr__(name, value)
 
 
-            class StorageUtil(object):
+            class StorageUtil(Entity):
                 """
                 Details on a storage utilization for the virtual\-service.
                 
@@ -1182,101 +2272,253 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.name = None
-                    self.alias = None
-                    self.available = None
-                    self.capacity = None
-                    self.errors = None
-                    self.rd_bytes = None
-                    self.rd_requests = None
-                    self.usage = None
-                    self.used = None
-                    self.wr_bytes = None
-                    self.wr_requests = None
+                    super(VirtualServices.VirtualService.StorageUtils.StorageUtil, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.name is None:
-                        raise YPYModelError('Key property name is None')
-                    if self.alias is None:
-                        raise YPYModelError('Key property alias is None')
+                    self.yang_name = "storage-util"
+                    self.yang_parent_name = "storage-utils"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:storage-util[Cisco-IOS-XE-virtual-service-oper:name = ' + str(self.name) + '][Cisco-IOS-XE-virtual-service-oper:alias = ' + str(self.alias) + ']'
+                    self.name = YLeaf(YType.str, "name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.alias = YLeaf(YType.str, "alias")
+
+                    self.available = YLeaf(YType.str, "available")
+
+                    self.capacity = YLeaf(YType.uint64, "capacity")
+
+                    self.errors = YLeaf(YType.uint64, "errors")
+
+                    self.rd_bytes = YLeaf(YType.uint64, "rd-bytes")
+
+                    self.rd_requests = YLeaf(YType.uint64, "rd-requests")
+
+                    self.usage = YLeaf(YType.str, "usage")
+
+                    self.used = YLeaf(YType.uint64, "used")
+
+                    self.wr_bytes = YLeaf(YType.uint64, "wr-bytes")
+
+                    self.wr_requests = YLeaf(YType.uint64, "wr-requests")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("name",
+                                    "alias",
+                                    "available",
+                                    "capacity",
+                                    "errors",
+                                    "rd_bytes",
+                                    "rd_requests",
+                                    "usage",
+                                    "used",
+                                    "wr_bytes",
+                                    "wr_requests") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.StorageUtils.StorageUtil, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.StorageUtils.StorageUtil, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.name.is_set or
+                        self.alias.is_set or
+                        self.available.is_set or
+                        self.capacity.is_set or
+                        self.errors.is_set or
+                        self.rd_bytes.is_set or
+                        self.rd_requests.is_set or
+                        self.usage.is_set or
+                        self.used.is_set or
+                        self.wr_bytes.is_set or
+                        self.wr_requests.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        self.alias.yfilter != YFilter.not_set or
+                        self.available.yfilter != YFilter.not_set or
+                        self.capacity.yfilter != YFilter.not_set or
+                        self.errors.yfilter != YFilter.not_set or
+                        self.rd_bytes.yfilter != YFilter.not_set or
+                        self.rd_requests.yfilter != YFilter.not_set or
+                        self.usage.yfilter != YFilter.not_set or
+                        self.used.yfilter != YFilter.not_set or
+                        self.wr_bytes.yfilter != YFilter.not_set or
+                        self.wr_requests.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "storage-util" + "[name='" + self.name.get() + "']" + "[alias='" + self.alias.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
+                    if (self.alias.is_set or self.alias.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.alias.get_name_leafdata())
+                    if (self.available.is_set or self.available.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.available.get_name_leafdata())
+                    if (self.capacity.is_set or self.capacity.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.capacity.get_name_leafdata())
+                    if (self.errors.is_set or self.errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.errors.get_name_leafdata())
+                    if (self.rd_bytes.is_set or self.rd_bytes.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rd_bytes.get_name_leafdata())
+                    if (self.rd_requests.is_set or self.rd_requests.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rd_requests.get_name_leafdata())
+                    if (self.usage.is_set or self.usage.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.usage.get_name_leafdata())
+                    if (self.used.is_set or self.used.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.used.get_name_leafdata())
+                    if (self.wr_bytes.is_set or self.wr_bytes.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.wr_bytes.get_name_leafdata())
+                    if (self.wr_requests.is_set or self.wr_requests.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.wr_requests.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "name" or name == "alias" or name == "available" or name == "capacity" or name == "errors" or name == "rd-bytes" or name == "rd-requests" or name == "usage" or name == "used" or name == "wr-bytes" or name == "wr-requests"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "alias"):
+                        self.alias = value
+                        self.alias.value_namespace = name_space
+                        self.alias.value_namespace_prefix = name_space_prefix
+                    if(value_path == "available"):
+                        self.available = value
+                        self.available.value_namespace = name_space
+                        self.available.value_namespace_prefix = name_space_prefix
+                    if(value_path == "capacity"):
+                        self.capacity = value
+                        self.capacity.value_namespace = name_space
+                        self.capacity.value_namespace_prefix = name_space_prefix
+                    if(value_path == "errors"):
+                        self.errors = value
+                        self.errors.value_namespace = name_space
+                        self.errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rd-bytes"):
+                        self.rd_bytes = value
+                        self.rd_bytes.value_namespace = name_space
+                        self.rd_bytes.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rd-requests"):
+                        self.rd_requests = value
+                        self.rd_requests.value_namespace = name_space
+                        self.rd_requests.value_namespace_prefix = name_space_prefix
+                    if(value_path == "usage"):
+                        self.usage = value
+                        self.usage.value_namespace = name_space
+                        self.usage.value_namespace_prefix = name_space_prefix
+                    if(value_path == "used"):
+                        self.used = value
+                        self.used.value_namespace = name_space
+                        self.used.value_namespace_prefix = name_space_prefix
+                    if(value_path == "wr-bytes"):
+                        self.wr_bytes = value
+                        self.wr_bytes.value_namespace = name_space
+                        self.wr_bytes.value_namespace_prefix = name_space_prefix
+                    if(value_path == "wr-requests"):
+                        self.wr_requests = value
+                        self.wr_requests.value_namespace = name_space
+                        self.wr_requests.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.storage_util:
+                    if (c.has_data()):
                         return True
-
-                    if self.alias is not None:
-                        return True
-
-                    if self.available is not None:
-                        return True
-
-                    if self.capacity is not None:
-                        return True
-
-                    if self.errors is not None:
-                        return True
-
-                    if self.rd_bytes is not None:
-                        return True
-
-                    if self.rd_requests is not None:
-                        return True
-
-                    if self.usage is not None:
-                        return True
-
-                    if self.used is not None:
-                        return True
-
-                    if self.wr_bytes is not None:
-                        return True
-
-                    if self.wr_requests is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.StorageUtils.StorageUtil']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:storage-utils'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.storage_util is not None:
-                    for child_ref in self.storage_util:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.storage_util:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "storage-utils" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "storage-util"):
+                    for c in self.storage_util:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = VirtualServices.VirtualService.StorageUtils.StorageUtil()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.storage_util.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "storage-util"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                return meta._meta_table['VirtualServices.VirtualService.StorageUtils']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class AttachedDevices(object):
+        class AttachedDevices(Entity):
             """
             Details for the devices attached to this virtual service.
             
@@ -1293,13 +2535,39 @@ class VirtualServices(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.attached_device = YList()
-                self.attached_device.parent = self
-                self.attached_device.name = 'attached_device'
+                super(VirtualServices.VirtualService.AttachedDevices, self).__init__()
+
+                self.yang_name = "attached-devices"
+                self.yang_parent_name = "virtual-service"
+
+                self.attached_device = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VirtualServices.VirtualService.AttachedDevices, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VirtualServices.VirtualService.AttachedDevices, self).__setattr__(name, value)
 
 
-            class AttachedDevice(object):
+            class AttachedDevice(Entity):
                 """
                 List of attached devices.
                 
@@ -1326,67 +2594,165 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.name = None
-                    self.alias = None
-                    self.type = None
+                    super(VirtualServices.VirtualService.AttachedDevices.AttachedDevice, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.name is None:
-                        raise YPYModelError('Key property name is None')
+                    self.yang_name = "attached-device"
+                    self.yang_parent_name = "attached-devices"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:attached-device[Cisco-IOS-XE-virtual-service-oper:name = ' + str(self.name) + ']'
+                    self.name = YLeaf(YType.str, "name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.alias = YLeaf(YType.str, "alias")
+
+                    self.type = YLeaf(YType.str, "type")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("name",
+                                    "alias",
+                                    "type") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.AttachedDevices.AttachedDevice, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.AttachedDevices.AttachedDevice, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.name.is_set or
+                        self.alias.is_set or
+                        self.type.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        self.alias.yfilter != YFilter.not_set or
+                        self.type.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "attached-device" + "[name='" + self.name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
+                    if (self.alias.is_set or self.alias.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.alias.get_name_leafdata())
+                    if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.type.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "name" or name == "alias" or name == "type"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "alias"):
+                        self.alias = value
+                        self.alias.value_namespace = name_space
+                        self.alias.value_namespace_prefix = name_space_prefix
+                    if(value_path == "type"):
+                        self.type = value
+                        self.type.value_namespace = name_space
+                        self.type.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.attached_device:
+                    if (c.has_data()):
                         return True
-
-                    if self.alias is not None:
-                        return True
-
-                    if self.type is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.AttachedDevices.AttachedDevice']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:attached-devices'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.attached_device is not None:
-                    for child_ref in self.attached_device:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.attached_device:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "attached-devices" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "attached-device"):
+                    for c in self.attached_device:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = VirtualServices.VirtualService.AttachedDevices.AttachedDevice()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.attached_device.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "attached-device"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                return meta._meta_table['VirtualServices.VirtualService.AttachedDevices']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class NetworkInterfaces(object):
+        class NetworkInterfaces(Entity):
             """
             Details for the network interfaces.
             
@@ -1403,13 +2769,39 @@ class VirtualServices(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.network_interface = YList()
-                self.network_interface.parent = self
-                self.network_interface.name = 'network_interface'
+                super(VirtualServices.VirtualService.NetworkInterfaces, self).__init__()
+
+                self.yang_name = "network-interfaces"
+                self.yang_parent_name = "virtual-service"
+
+                self.network_interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VirtualServices.VirtualService.NetworkInterfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VirtualServices.VirtualService.NetworkInterfaces, self).__setattr__(name, value)
 
 
-            class NetworkInterface(object):
+            class NetworkInterface(Entity):
                 """
                 Details for a network interface.
                 
@@ -1433,63 +2825,154 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.mac_address = None
-                    self.attached_interface = None
+                    super(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.mac_address is None:
-                        raise YPYModelError('Key property mac_address is None')
+                    self.yang_name = "network-interface"
+                    self.yang_parent_name = "network-interfaces"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:network-interface[Cisco-IOS-XE-virtual-service-oper:mac-address = ' + str(self.mac_address) + ']'
+                    self.mac_address = YLeaf(YType.str, "mac-address")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.attached_interface = YLeaf(YType.str, "attached-interface")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("mac_address",
+                                    "attached_interface") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.mac_address.is_set or
+                        self.attached_interface.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.mac_address.yfilter != YFilter.not_set or
+                        self.attached_interface.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "network-interface" + "[mac-address='" + self.mac_address.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mac_address.get_name_leafdata())
+                    if (self.attached_interface.is_set or self.attached_interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.attached_interface.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mac-address" or name == "attached-interface"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.mac_address is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "mac-address"):
+                        self.mac_address = value
+                        self.mac_address.value_namespace = name_space
+                        self.mac_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "attached-interface"):
+                        self.attached_interface = value
+                        self.attached_interface.value_namespace = name_space
+                        self.attached_interface.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.network_interface:
+                    if (c.has_data()):
                         return True
-
-                    if self.attached_interface is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:network-interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.network_interface is not None:
-                    for child_ref in self.network_interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.network_interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "network-interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "network-interface"):
+                    for c in self.network_interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.network_interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "network-interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                return meta._meta_table['VirtualServices.VirtualService.NetworkInterfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class GuestRoutes(object):
+        class GuestRoutes(Entity):
             """
             Routes for the guest interface.
             
@@ -1506,13 +2989,39 @@ class VirtualServices(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.guest_route = YList()
-                self.guest_route.parent = self
-                self.guest_route.name = 'guest_route'
+                super(VirtualServices.VirtualService.GuestRoutes, self).__init__()
+
+                self.yang_name = "guest-routes"
+                self.yang_parent_name = "virtual-service"
+
+                self.guest_route = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(VirtualServices.VirtualService.GuestRoutes, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(VirtualServices.VirtualService.GuestRoutes, self).__setattr__(name, value)
 
 
-            class GuestRoute(object):
+            class GuestRoute(Entity):
                 """
                 List of guest routes for a guest interface.
                 
@@ -1529,120 +3038,307 @@ class VirtualServices(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.route = None
+                    super(VirtualServices.VirtualService.GuestRoutes.GuestRoute, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.route is None:
-                        raise YPYModelError('Key property route is None')
+                    self.yang_name = "guest-route"
+                    self.yang_parent_name = "guest-routes"
 
-                    return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:guest-route[Cisco-IOS-XE-virtual-service-oper:route = ' + str(self.route) + ']'
+                    self.route = YLeaf(YType.str, "route")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("route") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(VirtualServices.VirtualService.GuestRoutes.GuestRoute, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(VirtualServices.VirtualService.GuestRoutes.GuestRoute, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.route is not None:
+                def has_data(self):
+                    return self.route.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.route.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "guest-route" + "[route='" + self.route.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.route.is_set or self.route.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "route"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                    return meta._meta_table['VirtualServices.VirtualService.GuestRoutes.GuestRoute']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "route"):
+                        self.route = value
+                        self.route.value_namespace = name_space
+                        self.route.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XE-virtual-service-oper:guest-routes'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                for c in self.guest_route:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            def _has_data(self):
-                if self.guest_route is not None:
-                    for child_ref in self.guest_route:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.guest_route:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "guest-routes" + path_buffer
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-                return meta._meta_table['VirtualServices.VirtualService.GuestRoutes']['meta_info']
+                return path_buffer
 
-        @property
-        def _common_path(self):
-            if self.name is None:
-                raise YPYModelError('Key property name is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            return '/Cisco-IOS-XE-virtual-service-oper:virtual-services/Cisco-IOS-XE-virtual-service-oper:virtual-service[Cisco-IOS-XE-virtual-service-oper:name = ' + str(self.name) + ']'
+                leaf_name_data = LeafDataList()
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-        def _has_data(self):
-            if self.name is not None:
-                return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-            if self.attached_devices is not None and self.attached_devices._has_data():
-                return True
+                if (child_yang_name == "guest-route"):
+                    for c in self.guest_route:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = VirtualServices.VirtualService.GuestRoutes.GuestRoute()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.guest_route.append(c)
+                    return c
 
-            if self.details is not None and self.details._has_data():
-                return True
+                return None
 
-            if self.guest_routes is not None and self.guest_routes._has_data():
-                return True
-
-            if self.network_interfaces is not None and self.network_interfaces._has_data():
-                return True
-
-            if self.network_utils is not None and self.network_utils._has_data():
-                return True
-
-            if self.storage_utils is not None and self.storage_utils._has_data():
-                return True
-
-            if self.utilization is not None and self.utilization._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-            return meta._meta_table['VirtualServices.VirtualService']['meta_info']
-
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XE-virtual-service-oper:virtual-services'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
-
-    def _has_data(self):
-        if self.virtual_service is not None:
-            for child_ref in self.virtual_service:
-                if child_ref._has_data():
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "guest-route"):
                     return True
+                return False
 
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (
+                self.name.is_set or
+                (self.attached_devices is not None and self.attached_devices.has_data()) or
+                (self.details is not None and self.details.has_data()) or
+                (self.guest_routes is not None and self.guest_routes.has_data()) or
+                (self.network_interfaces is not None and self.network_interfaces.has_data()) or
+                (self.network_utils is not None and self.network_utils.has_data()) or
+                (self.storage_utils is not None and self.storage_utils.has_data()) or
+                (self.utilization is not None and self.utilization.has_data()))
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.name.yfilter != YFilter.not_set or
+                (self.attached_devices is not None and self.attached_devices.has_operation()) or
+                (self.details is not None and self.details.has_operation()) or
+                (self.guest_routes is not None and self.guest_routes.has_operation()) or
+                (self.network_interfaces is not None and self.network_interfaces.has_operation()) or
+                (self.network_utils is not None and self.network_utils.has_operation()) or
+                (self.storage_utils is not None and self.storage_utils.has_operation()) or
+                (self.utilization is not None and self.utilization.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "virtual-service" + "[name='" + self.name.get() + "']" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XE-virtual-service-oper:virtual-services/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.name.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "attached-devices"):
+                if (self.attached_devices is None):
+                    self.attached_devices = VirtualServices.VirtualService.AttachedDevices()
+                    self.attached_devices.parent = self
+                    self._children_name_map["attached_devices"] = "attached-devices"
+                return self.attached_devices
+
+            if (child_yang_name == "details"):
+                if (self.details is None):
+                    self.details = VirtualServices.VirtualService.Details()
+                    self.details.parent = self
+                    self._children_name_map["details"] = "details"
+                return self.details
+
+            if (child_yang_name == "guest-routes"):
+                if (self.guest_routes is None):
+                    self.guest_routes = VirtualServices.VirtualService.GuestRoutes()
+                    self.guest_routes.parent = self
+                    self._children_name_map["guest_routes"] = "guest-routes"
+                return self.guest_routes
+
+            if (child_yang_name == "network-interfaces"):
+                if (self.network_interfaces is None):
+                    self.network_interfaces = VirtualServices.VirtualService.NetworkInterfaces()
+                    self.network_interfaces.parent = self
+                    self._children_name_map["network_interfaces"] = "network-interfaces"
+                return self.network_interfaces
+
+            if (child_yang_name == "network-utils"):
+                if (self.network_utils is None):
+                    self.network_utils = VirtualServices.VirtualService.NetworkUtils()
+                    self.network_utils.parent = self
+                    self._children_name_map["network_utils"] = "network-utils"
+                return self.network_utils
+
+            if (child_yang_name == "storage-utils"):
+                if (self.storage_utils is None):
+                    self.storage_utils = VirtualServices.VirtualService.StorageUtils()
+                    self.storage_utils.parent = self
+                    self._children_name_map["storage_utils"] = "storage-utils"
+                return self.storage_utils
+
+            if (child_yang_name == "utilization"):
+                if (self.utilization is None):
+                    self.utilization = VirtualServices.VirtualService.Utilization()
+                    self.utilization.parent = self
+                    self._children_name_map["utilization"] = "utilization"
+                return self.utilization
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "attached-devices" or name == "details" or name == "guest-routes" or name == "network-interfaces" or name == "network-utils" or name == "storage-utils" or name == "utilization" or name == "name"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "name"):
+                self.name = value
+                self.name.value_namespace = name_space
+                self.name.value_namespace_prefix = name_space_prefix
+
+    def has_data(self):
+        for c in self.virtual_service:
+            if (c.has_data()):
+                return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_virtual_service_oper as meta
-        return meta._meta_table['VirtualServices']['meta_info']
+    def has_operation(self):
+        for c in self.virtual_service:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XE-virtual-service-oper:virtual-services" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "virtual-service"):
+            for c in self.virtual_service:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = VirtualServices.VirtualService()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.virtual_service.append(c)
+            return c
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "virtual-service"):
+            return True
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = VirtualServices()
+        return self._top_entity
 

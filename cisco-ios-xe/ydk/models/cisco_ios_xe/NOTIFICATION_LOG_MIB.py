@@ -4,21 +4,15 @@ The MIB module for logging SNMP Notifications, that is, Traps
 and Informs.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class NotificationLogMib(object):
+class NotificationLogMib(Entity):
     """
     
     
@@ -55,19 +49,39 @@ class NotificationLogMib(object):
     _revision = '2000-11-27'
 
     def __init__(self):
+        super(NotificationLogMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "NOTIFICATION-LOG-MIB"
+        self.yang_parent_name = "NOTIFICATION-LOG-MIB"
+
         self.nlmconfig = NotificationLogMib.Nlmconfig()
         self.nlmconfig.parent = self
+        self._children_name_map["nlmconfig"] = "nlmConfig"
+        self._children_yang_names.add("nlmConfig")
+
         self.nlmconfiglogtable = NotificationLogMib.Nlmconfiglogtable()
         self.nlmconfiglogtable.parent = self
+        self._children_name_map["nlmconfiglogtable"] = "nlmConfigLogTable"
+        self._children_yang_names.add("nlmConfigLogTable")
+
         self.nlmlogtable = NotificationLogMib.Nlmlogtable()
         self.nlmlogtable.parent = self
+        self._children_name_map["nlmlogtable"] = "nlmLogTable"
+        self._children_yang_names.add("nlmLogTable")
+
         self.nlmlogvariabletable = NotificationLogMib.Nlmlogvariabletable()
         self.nlmlogvariabletable.parent = self
+        self._children_name_map["nlmlogvariabletable"] = "nlmLogVariableTable"
+        self._children_yang_names.add("nlmLogVariableTable")
+
         self.nlmstats = NotificationLogMib.Nlmstats()
         self.nlmstats.parent = self
+        self._children_name_map["nlmstats"] = "nlmStats"
+        self._children_yang_names.add("nlmStats")
 
 
-    class Nlmconfig(object):
+    class Nlmconfig(Entity):
         """
         
         
@@ -95,35 +109,97 @@ class NotificationLogMib(object):
         _revision = '2000-11-27'
 
         def __init__(self):
-            self.parent = None
-            self.nlmconfigglobalageout = None
-            self.nlmconfigglobalentrylimit = None
+            super(NotificationLogMib.Nlmconfig, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "nlmConfig"
+            self.yang_parent_name = "NOTIFICATION-LOG-MIB"
 
-            return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmConfig'
+            self.nlmconfigglobalageout = YLeaf(YType.uint32, "nlmConfigGlobalAgeOut")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.nlmconfigglobalentrylimit = YLeaf(YType.uint32, "nlmConfigGlobalEntryLimit")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("nlmconfigglobalageout",
+                            "nlmconfigglobalentrylimit") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NotificationLogMib.Nlmconfig, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NotificationLogMib.Nlmconfig, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.nlmconfigglobalageout.is_set or
+                self.nlmconfigglobalentrylimit.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.nlmconfigglobalageout.yfilter != YFilter.not_set or
+                self.nlmconfigglobalentrylimit.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nlmConfig" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.nlmconfigglobalageout.is_set or self.nlmconfigglobalageout.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.nlmconfigglobalageout.get_name_leafdata())
+            if (self.nlmconfigglobalentrylimit.is_set or self.nlmconfigglobalentrylimit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.nlmconfigglobalentrylimit.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "nlmConfigGlobalAgeOut" or name == "nlmConfigGlobalEntryLimit"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.nlmconfigglobalageout is not None:
-                return True
-
-            if self.nlmconfigglobalentrylimit is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-            return meta._meta_table['NotificationLogMib.Nlmconfig']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "nlmConfigGlobalAgeOut"):
+                self.nlmconfigglobalageout = value
+                self.nlmconfigglobalageout.value_namespace = name_space
+                self.nlmconfigglobalageout.value_namespace_prefix = name_space_prefix
+            if(value_path == "nlmConfigGlobalEntryLimit"):
+                self.nlmconfigglobalentrylimit = value
+                self.nlmconfigglobalentrylimit.value_namespace = name_space
+                self.nlmconfigglobalentrylimit.value_namespace_prefix = name_space_prefix
 
 
-    class Nlmstats(object):
+    class Nlmstats(Entity):
         """
         
         
@@ -153,35 +229,97 @@ class NotificationLogMib(object):
         _revision = '2000-11-27'
 
         def __init__(self):
-            self.parent = None
-            self.nlmstatsglobalnotificationsbumped = None
-            self.nlmstatsglobalnotificationslogged = None
+            super(NotificationLogMib.Nlmstats, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "nlmStats"
+            self.yang_parent_name = "NOTIFICATION-LOG-MIB"
 
-            return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmStats'
+            self.nlmstatsglobalnotificationsbumped = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsBumped")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.nlmstatsglobalnotificationslogged = YLeaf(YType.uint32, "nlmStatsGlobalNotificationsLogged")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("nlmstatsglobalnotificationsbumped",
+                            "nlmstatsglobalnotificationslogged") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NotificationLogMib.Nlmstats, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NotificationLogMib.Nlmstats, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.nlmstatsglobalnotificationsbumped.is_set or
+                self.nlmstatsglobalnotificationslogged.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.nlmstatsglobalnotificationsbumped.yfilter != YFilter.not_set or
+                self.nlmstatsglobalnotificationslogged.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nlmStats" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.nlmstatsglobalnotificationsbumped.is_set or self.nlmstatsglobalnotificationsbumped.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.nlmstatsglobalnotificationsbumped.get_name_leafdata())
+            if (self.nlmstatsglobalnotificationslogged.is_set or self.nlmstatsglobalnotificationslogged.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.nlmstatsglobalnotificationslogged.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "nlmStatsGlobalNotificationsBumped" or name == "nlmStatsGlobalNotificationsLogged"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.nlmstatsglobalnotificationsbumped is not None:
-                return True
-
-            if self.nlmstatsglobalnotificationslogged is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-            return meta._meta_table['NotificationLogMib.Nlmstats']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "nlmStatsGlobalNotificationsBumped"):
+                self.nlmstatsglobalnotificationsbumped = value
+                self.nlmstatsglobalnotificationsbumped.value_namespace = name_space
+                self.nlmstatsglobalnotificationsbumped.value_namespace_prefix = name_space_prefix
+            if(value_path == "nlmStatsGlobalNotificationsLogged"):
+                self.nlmstatsglobalnotificationslogged = value
+                self.nlmstatsglobalnotificationslogged.value_namespace = name_space
+                self.nlmstatsglobalnotificationslogged.value_namespace_prefix = name_space_prefix
 
 
-    class Nlmconfiglogtable(object):
+    class Nlmconfiglogtable(Entity):
         """
         A table of logging control entries.
         
@@ -198,13 +336,39 @@ class NotificationLogMib(object):
         _revision = '2000-11-27'
 
         def __init__(self):
-            self.parent = None
-            self.nlmconfiglogentry = YList()
-            self.nlmconfiglogentry.parent = self
-            self.nlmconfiglogentry.name = 'nlmconfiglogentry'
+            super(NotificationLogMib.Nlmconfiglogtable, self).__init__()
+
+            self.yang_name = "nlmConfigLogTable"
+            self.yang_parent_name = "NOTIFICATION-LOG-MIB"
+
+            self.nlmconfiglogentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NotificationLogMib.Nlmconfiglogtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NotificationLogMib.Nlmconfiglogtable, self).__setattr__(name, value)
 
 
-        class Nlmconfiglogentry(object):
+        class Nlmconfiglogentry(Entity):
             """
             A logging control entry.  Depending on the entry's storage type
             entries may be supplied by the system or created and deleted by
@@ -220,7 +384,7 @@ class NotificationLogMib(object):
             .. attribute:: nlmconfiglogadminstatus
             
             	Control to enable or disable the log without otherwise disturbing the log's entry.  Please be aware that contention between multiple managers trying to set this object to different values MAY affect the reliability and completeness of data seen by each manager
-            	**type**\:   :py:class:`NlmconfiglogadminstatusEnum <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry.NlmconfiglogadminstatusEnum>`
+            	**type**\:   :py:class:`Nlmconfiglogadminstatus <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry.Nlmconfiglogadminstatus>`
             
             .. attribute:: nlmconfiglogentrylimit
             
@@ -232,7 +396,7 @@ class NotificationLogMib(object):
             .. attribute:: nlmconfiglogentrystatus
             
             	Control for creating and deleting entries.  Entries may be modified while active.  For non\-null\-named logs, the managed system records the security credentials from the request that sets nlmConfigLogStatus to 'active' and uses that identity to apply access control to the objects in the Notification to decide if that Notification may be logged
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: nlmconfiglogfiltername
             
@@ -244,12 +408,12 @@ class NotificationLogMib(object):
             .. attribute:: nlmconfiglogoperstatus
             
             	The operational status of this log\:  disabled  administratively disabled  operational    administratively enabled and working  noFilter  administratively enabled but either           nlmConfigLogFilterName is zero length           or does not name an existing entry in           snmpNotifyFilterTable
-            	**type**\:   :py:class:`NlmconfiglogoperstatusEnum <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry.NlmconfiglogoperstatusEnum>`
+            	**type**\:   :py:class:`Nlmconfiglogoperstatus <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry.Nlmconfiglogoperstatus>`
             
             .. attribute:: nlmconfiglogstoragetype
             
             	The storage type of this conceptual row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: nlmstatslognotificationsbumped
             
@@ -277,20 +441,64 @@ class NotificationLogMib(object):
             _revision = '2000-11-27'
 
             def __init__(self):
-                self.parent = None
-                self.nlmlogname = None
-                self.nlmconfiglogadminstatus = None
-                self.nlmconfiglogentrylimit = None
-                self.nlmconfiglogentrystatus = None
-                self.nlmconfiglogfiltername = None
-                self.nlmconfiglogoperstatus = None
-                self.nlmconfiglogstoragetype = None
-                self.nlmstatslognotificationsbumped = None
-                self.nlmstatslognotificationslogged = None
+                super(NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry, self).__init__()
 
-            class NlmconfiglogadminstatusEnum(Enum):
+                self.yang_name = "nlmConfigLogEntry"
+                self.yang_parent_name = "nlmConfigLogTable"
+
+                self.nlmlogname = YLeaf(YType.str, "nlmLogName")
+
+                self.nlmconfiglogadminstatus = YLeaf(YType.enumeration, "nlmConfigLogAdminStatus")
+
+                self.nlmconfiglogentrylimit = YLeaf(YType.uint32, "nlmConfigLogEntryLimit")
+
+                self.nlmconfiglogentrystatus = YLeaf(YType.enumeration, "nlmConfigLogEntryStatus")
+
+                self.nlmconfiglogfiltername = YLeaf(YType.str, "nlmConfigLogFilterName")
+
+                self.nlmconfiglogoperstatus = YLeaf(YType.enumeration, "nlmConfigLogOperStatus")
+
+                self.nlmconfiglogstoragetype = YLeaf(YType.enumeration, "nlmConfigLogStorageType")
+
+                self.nlmstatslognotificationsbumped = YLeaf(YType.uint32, "nlmStatsLogNotificationsBumped")
+
+                self.nlmstatslognotificationslogged = YLeaf(YType.uint32, "nlmStatsLogNotificationsLogged")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("nlmlogname",
+                                "nlmconfiglogadminstatus",
+                                "nlmconfiglogentrylimit",
+                                "nlmconfiglogentrystatus",
+                                "nlmconfiglogfiltername",
+                                "nlmconfiglogoperstatus",
+                                "nlmconfiglogstoragetype",
+                                "nlmstatslognotificationsbumped",
+                                "nlmstatslognotificationslogged") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry, self).__setattr__(name, value)
+
+            class Nlmconfiglogadminstatus(Enum):
                 """
-                NlmconfiglogadminstatusEnum
+                Nlmconfiglogadminstatus
 
                 Control to enable or disable the log without otherwise
 
@@ -308,20 +516,14 @@ class NotificationLogMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-                    return meta._meta_table['NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry.NlmconfiglogadminstatusEnum']
+                disabled = Enum.YLeaf(2, "disabled")
 
 
-            class NlmconfiglogoperstatusEnum(Enum):
+            class Nlmconfiglogoperstatus(Enum):
                 """
-                NlmconfiglogoperstatusEnum
+                Nlmconfiglogoperstatus
 
                 The operational status of this log\:
 
@@ -345,89 +547,183 @@ class NotificationLogMib(object):
 
                 """
 
-                disabled = 1
+                disabled = Enum.YLeaf(1, "disabled")
 
-                operational = 2
+                operational = Enum.YLeaf(2, "operational")
 
-                noFilter = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-                    return meta._meta_table['NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry.NlmconfiglogoperstatusEnum']
+                noFilter = Enum.YLeaf(3, "noFilter")
 
 
-            @property
-            def _common_path(self):
-                if self.nlmlogname is None:
-                    raise YPYModelError('Key property nlmlogname is None')
+            def has_data(self):
+                return (
+                    self.nlmlogname.is_set or
+                    self.nlmconfiglogadminstatus.is_set or
+                    self.nlmconfiglogentrylimit.is_set or
+                    self.nlmconfiglogentrystatus.is_set or
+                    self.nlmconfiglogfiltername.is_set or
+                    self.nlmconfiglogoperstatus.is_set or
+                    self.nlmconfiglogstoragetype.is_set or
+                    self.nlmstatslognotificationsbumped.is_set or
+                    self.nlmstatslognotificationslogged.is_set)
 
-                return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmConfigLogTable/NOTIFICATION-LOG-MIB:nlmConfigLogEntry[NOTIFICATION-LOG-MIB:nlmLogName = ' + str(self.nlmlogname) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.nlmlogname.yfilter != YFilter.not_set or
+                    self.nlmconfiglogadminstatus.yfilter != YFilter.not_set or
+                    self.nlmconfiglogentrylimit.yfilter != YFilter.not_set or
+                    self.nlmconfiglogentrystatus.yfilter != YFilter.not_set or
+                    self.nlmconfiglogfiltername.yfilter != YFilter.not_set or
+                    self.nlmconfiglogoperstatus.yfilter != YFilter.not_set or
+                    self.nlmconfiglogstoragetype.yfilter != YFilter.not_set or
+                    self.nlmstatslognotificationsbumped.yfilter != YFilter.not_set or
+                    self.nlmstatslognotificationslogged.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "nlmConfigLogEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmConfigLogTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.nlmlogname.is_set or self.nlmlogname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogname.get_name_leafdata())
+                if (self.nlmconfiglogadminstatus.is_set or self.nlmconfiglogadminstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmconfiglogadminstatus.get_name_leafdata())
+                if (self.nlmconfiglogentrylimit.is_set or self.nlmconfiglogentrylimit.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmconfiglogentrylimit.get_name_leafdata())
+                if (self.nlmconfiglogentrystatus.is_set or self.nlmconfiglogentrystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmconfiglogentrystatus.get_name_leafdata())
+                if (self.nlmconfiglogfiltername.is_set or self.nlmconfiglogfiltername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmconfiglogfiltername.get_name_leafdata())
+                if (self.nlmconfiglogoperstatus.is_set or self.nlmconfiglogoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmconfiglogoperstatus.get_name_leafdata())
+                if (self.nlmconfiglogstoragetype.is_set or self.nlmconfiglogstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmconfiglogstoragetype.get_name_leafdata())
+                if (self.nlmstatslognotificationsbumped.is_set or self.nlmstatslognotificationsbumped.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmstatslognotificationsbumped.get_name_leafdata())
+                if (self.nlmstatslognotificationslogged.is_set or self.nlmstatslognotificationslogged.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmstatslognotificationslogged.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "nlmLogName" or name == "nlmConfigLogAdminStatus" or name == "nlmConfigLogEntryLimit" or name == "nlmConfigLogEntryStatus" or name == "nlmConfigLogFilterName" or name == "nlmConfigLogOperStatus" or name == "nlmConfigLogStorageType" or name == "nlmStatsLogNotificationsBumped" or name == "nlmStatsLogNotificationsLogged"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.nlmlogname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "nlmLogName"):
+                    self.nlmlogname = value
+                    self.nlmlogname.value_namespace = name_space
+                    self.nlmlogname.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmConfigLogAdminStatus"):
+                    self.nlmconfiglogadminstatus = value
+                    self.nlmconfiglogadminstatus.value_namespace = name_space
+                    self.nlmconfiglogadminstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmConfigLogEntryLimit"):
+                    self.nlmconfiglogentrylimit = value
+                    self.nlmconfiglogentrylimit.value_namespace = name_space
+                    self.nlmconfiglogentrylimit.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmConfigLogEntryStatus"):
+                    self.nlmconfiglogentrystatus = value
+                    self.nlmconfiglogentrystatus.value_namespace = name_space
+                    self.nlmconfiglogentrystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmConfigLogFilterName"):
+                    self.nlmconfiglogfiltername = value
+                    self.nlmconfiglogfiltername.value_namespace = name_space
+                    self.nlmconfiglogfiltername.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmConfigLogOperStatus"):
+                    self.nlmconfiglogoperstatus = value
+                    self.nlmconfiglogoperstatus.value_namespace = name_space
+                    self.nlmconfiglogoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmConfigLogStorageType"):
+                    self.nlmconfiglogstoragetype = value
+                    self.nlmconfiglogstoragetype.value_namespace = name_space
+                    self.nlmconfiglogstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmStatsLogNotificationsBumped"):
+                    self.nlmstatslognotificationsbumped = value
+                    self.nlmstatslognotificationsbumped.value_namespace = name_space
+                    self.nlmstatslognotificationsbumped.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmStatsLogNotificationsLogged"):
+                    self.nlmstatslognotificationslogged = value
+                    self.nlmstatslognotificationslogged.value_namespace = name_space
+                    self.nlmstatslognotificationslogged.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.nlmconfiglogentry:
+                if (c.has_data()):
                     return True
-
-                if self.nlmconfiglogadminstatus is not None:
-                    return True
-
-                if self.nlmconfiglogentrylimit is not None:
-                    return True
-
-                if self.nlmconfiglogentrystatus is not None:
-                    return True
-
-                if self.nlmconfiglogfiltername is not None:
-                    return True
-
-                if self.nlmconfiglogoperstatus is not None:
-                    return True
-
-                if self.nlmconfiglogstoragetype is not None:
-                    return True
-
-                if self.nlmstatslognotificationsbumped is not None:
-                    return True
-
-                if self.nlmstatslognotificationslogged is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-                return meta._meta_table['NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmConfigLogTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.nlmconfiglogentry is not None:
-                for child_ref in self.nlmconfiglogentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.nlmconfiglogentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nlmConfigLogTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "nlmConfigLogEntry"):
+                for c in self.nlmconfiglogentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NotificationLogMib.Nlmconfiglogtable.Nlmconfiglogentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.nlmconfiglogentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "nlmConfigLogEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-            return meta._meta_table['NotificationLogMib.Nlmconfiglogtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Nlmlogtable(object):
+    class Nlmlogtable(Entity):
         """
         A table of Notification log entries.
         
@@ -455,13 +751,39 @@ class NotificationLogMib(object):
         _revision = '2000-11-27'
 
         def __init__(self):
-            self.parent = None
-            self.nlmlogentry = YList()
-            self.nlmlogentry.parent = self
-            self.nlmlogentry.name = 'nlmlogentry'
+            super(NotificationLogMib.Nlmlogtable, self).__init__()
+
+            self.yang_name = "nlmLogTable"
+            self.yang_parent_name = "NOTIFICATION-LOG-MIB"
+
+            self.nlmlogentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NotificationLogMib.Nlmlogtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NotificationLogMib.Nlmlogtable, self).__setattr__(name, value)
 
 
-        class Nlmlogentry(object):
+        class Nlmlogentry(Entity):
             """
             A Notification log entry.
             
@@ -559,93 +881,242 @@ class NotificationLogMib(object):
             _revision = '2000-11-27'
 
             def __init__(self):
-                self.parent = None
-                self.nlmlogname = None
-                self.nlmlogindex = None
-                self.nlmlogcontextengineid = None
-                self.nlmlogcontextname = None
-                self.nlmlogdateandtime = None
-                self.nlmlogengineid = None
-                self.nlmlogenginetaddress = None
-                self.nlmlogenginetdomain = None
-                self.nlmlognotificationid = None
-                self.nlmlogtime = None
+                super(NotificationLogMib.Nlmlogtable.Nlmlogentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.nlmlogname is None:
-                    raise YPYModelError('Key property nlmlogname is None')
-                if self.nlmlogindex is None:
-                    raise YPYModelError('Key property nlmlogindex is None')
+                self.yang_name = "nlmLogEntry"
+                self.yang_parent_name = "nlmLogTable"
 
-                return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmLogTable/NOTIFICATION-LOG-MIB:nlmLogEntry[NOTIFICATION-LOG-MIB:nlmLogName = ' + str(self.nlmlogname) + '][NOTIFICATION-LOG-MIB:nlmLogIndex = ' + str(self.nlmlogindex) + ']'
+                self.nlmlogname = YLeaf(YType.str, "nlmLogName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.nlmlogindex = YLeaf(YType.uint32, "nlmLogIndex")
+
+                self.nlmlogcontextengineid = YLeaf(YType.str, "nlmLogContextEngineID")
+
+                self.nlmlogcontextname = YLeaf(YType.str, "nlmLogContextName")
+
+                self.nlmlogdateandtime = YLeaf(YType.str, "nlmLogDateAndTime")
+
+                self.nlmlogengineid = YLeaf(YType.str, "nlmLogEngineID")
+
+                self.nlmlogenginetaddress = YLeaf(YType.str, "nlmLogEngineTAddress")
+
+                self.nlmlogenginetdomain = YLeaf(YType.str, "nlmLogEngineTDomain")
+
+                self.nlmlognotificationid = YLeaf(YType.str, "nlmLogNotificationID")
+
+                self.nlmlogtime = YLeaf(YType.uint32, "nlmLogTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("nlmlogname",
+                                "nlmlogindex",
+                                "nlmlogcontextengineid",
+                                "nlmlogcontextname",
+                                "nlmlogdateandtime",
+                                "nlmlogengineid",
+                                "nlmlogenginetaddress",
+                                "nlmlogenginetdomain",
+                                "nlmlognotificationid",
+                                "nlmlogtime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NotificationLogMib.Nlmlogtable.Nlmlogentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NotificationLogMib.Nlmlogtable.Nlmlogentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.nlmlogname.is_set or
+                    self.nlmlogindex.is_set or
+                    self.nlmlogcontextengineid.is_set or
+                    self.nlmlogcontextname.is_set or
+                    self.nlmlogdateandtime.is_set or
+                    self.nlmlogengineid.is_set or
+                    self.nlmlogenginetaddress.is_set or
+                    self.nlmlogenginetdomain.is_set or
+                    self.nlmlognotificationid.is_set or
+                    self.nlmlogtime.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.nlmlogname.yfilter != YFilter.not_set or
+                    self.nlmlogindex.yfilter != YFilter.not_set or
+                    self.nlmlogcontextengineid.yfilter != YFilter.not_set or
+                    self.nlmlogcontextname.yfilter != YFilter.not_set or
+                    self.nlmlogdateandtime.yfilter != YFilter.not_set or
+                    self.nlmlogengineid.yfilter != YFilter.not_set or
+                    self.nlmlogenginetaddress.yfilter != YFilter.not_set or
+                    self.nlmlogenginetdomain.yfilter != YFilter.not_set or
+                    self.nlmlognotificationid.yfilter != YFilter.not_set or
+                    self.nlmlogtime.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "nlmLogEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']" + "[nlmLogIndex='" + self.nlmlogindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.nlmlogname.is_set or self.nlmlogname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogname.get_name_leafdata())
+                if (self.nlmlogindex.is_set or self.nlmlogindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogindex.get_name_leafdata())
+                if (self.nlmlogcontextengineid.is_set or self.nlmlogcontextengineid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogcontextengineid.get_name_leafdata())
+                if (self.nlmlogcontextname.is_set or self.nlmlogcontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogcontextname.get_name_leafdata())
+                if (self.nlmlogdateandtime.is_set or self.nlmlogdateandtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogdateandtime.get_name_leafdata())
+                if (self.nlmlogengineid.is_set or self.nlmlogengineid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogengineid.get_name_leafdata())
+                if (self.nlmlogenginetaddress.is_set or self.nlmlogenginetaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogenginetaddress.get_name_leafdata())
+                if (self.nlmlogenginetdomain.is_set or self.nlmlogenginetdomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogenginetdomain.get_name_leafdata())
+                if (self.nlmlognotificationid.is_set or self.nlmlognotificationid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlognotificationid.get_name_leafdata())
+                if (self.nlmlogtime.is_set or self.nlmlogtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogtime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "nlmLogName" or name == "nlmLogIndex" or name == "nlmLogContextEngineID" or name == "nlmLogContextName" or name == "nlmLogDateAndTime" or name == "nlmLogEngineID" or name == "nlmLogEngineTAddress" or name == "nlmLogEngineTDomain" or name == "nlmLogNotificationID" or name == "nlmLogTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.nlmlogname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "nlmLogName"):
+                    self.nlmlogname = value
+                    self.nlmlogname.value_namespace = name_space
+                    self.nlmlogname.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogIndex"):
+                    self.nlmlogindex = value
+                    self.nlmlogindex.value_namespace = name_space
+                    self.nlmlogindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogContextEngineID"):
+                    self.nlmlogcontextengineid = value
+                    self.nlmlogcontextengineid.value_namespace = name_space
+                    self.nlmlogcontextengineid.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogContextName"):
+                    self.nlmlogcontextname = value
+                    self.nlmlogcontextname.value_namespace = name_space
+                    self.nlmlogcontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogDateAndTime"):
+                    self.nlmlogdateandtime = value
+                    self.nlmlogdateandtime.value_namespace = name_space
+                    self.nlmlogdateandtime.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogEngineID"):
+                    self.nlmlogengineid = value
+                    self.nlmlogengineid.value_namespace = name_space
+                    self.nlmlogengineid.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogEngineTAddress"):
+                    self.nlmlogenginetaddress = value
+                    self.nlmlogenginetaddress.value_namespace = name_space
+                    self.nlmlogenginetaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogEngineTDomain"):
+                    self.nlmlogenginetdomain = value
+                    self.nlmlogenginetdomain.value_namespace = name_space
+                    self.nlmlogenginetdomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogNotificationID"):
+                    self.nlmlognotificationid = value
+                    self.nlmlognotificationid.value_namespace = name_space
+                    self.nlmlognotificationid.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogTime"):
+                    self.nlmlogtime = value
+                    self.nlmlogtime.value_namespace = name_space
+                    self.nlmlogtime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.nlmlogentry:
+                if (c.has_data()):
                     return True
-
-                if self.nlmlogindex is not None:
-                    return True
-
-                if self.nlmlogcontextengineid is not None:
-                    return True
-
-                if self.nlmlogcontextname is not None:
-                    return True
-
-                if self.nlmlogdateandtime is not None:
-                    return True
-
-                if self.nlmlogengineid is not None:
-                    return True
-
-                if self.nlmlogenginetaddress is not None:
-                    return True
-
-                if self.nlmlogenginetdomain is not None:
-                    return True
-
-                if self.nlmlognotificationid is not None:
-                    return True
-
-                if self.nlmlogtime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-                return meta._meta_table['NotificationLogMib.Nlmlogtable.Nlmlogentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmLogTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.nlmlogentry is not None:
-                for child_ref in self.nlmlogentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.nlmlogentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nlmLogTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "nlmLogEntry"):
+                for c in self.nlmlogentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NotificationLogMib.Nlmlogtable.Nlmlogentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.nlmlogentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "nlmLogEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-            return meta._meta_table['NotificationLogMib.Nlmlogtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Nlmlogvariabletable(object):
+    class Nlmlogvariabletable(Entity):
         """
         A table of variables to go with Notification log entries.
         
@@ -662,13 +1133,39 @@ class NotificationLogMib(object):
         _revision = '2000-11-27'
 
         def __init__(self):
-            self.parent = None
-            self.nlmlogvariableentry = YList()
-            self.nlmlogvariableentry.parent = self
-            self.nlmlogvariableentry.name = 'nlmlogvariableentry'
+            super(NotificationLogMib.Nlmlogvariabletable, self).__init__()
+
+            self.yang_name = "nlmLogVariableTable"
+            self.yang_parent_name = "NOTIFICATION-LOG-MIB"
+
+            self.nlmlogvariableentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(NotificationLogMib.Nlmlogvariabletable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(NotificationLogMib.Nlmlogvariabletable, self).__setattr__(name, value)
 
 
-        class Nlmlogvariableentry(object):
+        class Nlmlogvariableentry(Entity):
             """
             A Notification log entry variable.
             
@@ -769,7 +1266,7 @@ class NotificationLogMib(object):
             .. attribute:: nlmlogvariablevaluetype
             
             	The type of the value.  One and only one of the value objects that follow must be instantiated, based on this type
-            	**type**\:   :py:class:`NlmlogvariablevaluetypeEnum <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry.NlmlogvariablevaluetypeEnum>`
+            	**type**\:   :py:class:`Nlmlogvariablevaluetype <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry.Nlmlogvariablevaluetype>`
             
             
 
@@ -779,25 +1276,79 @@ class NotificationLogMib(object):
             _revision = '2000-11-27'
 
             def __init__(self):
-                self.parent = None
-                self.nlmlogname = None
-                self.nlmlogindex = None
-                self.nlmlogvariableindex = None
-                self.nlmlogvariablecounter32val = None
-                self.nlmlogvariablecounter64val = None
-                self.nlmlogvariableid = None
-                self.nlmlogvariableinteger32val = None
-                self.nlmlogvariableipaddressval = None
-                self.nlmlogvariableoctetstringval = None
-                self.nlmlogvariableoidval = None
-                self.nlmlogvariableopaqueval = None
-                self.nlmlogvariabletimeticksval = None
-                self.nlmlogvariableunsigned32val = None
-                self.nlmlogvariablevaluetype = None
+                super(NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry, self).__init__()
 
-            class NlmlogvariablevaluetypeEnum(Enum):
+                self.yang_name = "nlmLogVariableEntry"
+                self.yang_parent_name = "nlmLogVariableTable"
+
+                self.nlmlogname = YLeaf(YType.str, "nlmLogName")
+
+                self.nlmlogindex = YLeaf(YType.str, "nlmLogIndex")
+
+                self.nlmlogvariableindex = YLeaf(YType.uint32, "nlmLogVariableIndex")
+
+                self.nlmlogvariablecounter32val = YLeaf(YType.uint32, "nlmLogVariableCounter32Val")
+
+                self.nlmlogvariablecounter64val = YLeaf(YType.uint64, "nlmLogVariableCounter64Val")
+
+                self.nlmlogvariableid = YLeaf(YType.str, "nlmLogVariableID")
+
+                self.nlmlogvariableinteger32val = YLeaf(YType.int32, "nlmLogVariableInteger32Val")
+
+                self.nlmlogvariableipaddressval = YLeaf(YType.str, "nlmLogVariableIpAddressVal")
+
+                self.nlmlogvariableoctetstringval = YLeaf(YType.str, "nlmLogVariableOctetStringVal")
+
+                self.nlmlogvariableoidval = YLeaf(YType.str, "nlmLogVariableOidVal")
+
+                self.nlmlogvariableopaqueval = YLeaf(YType.str, "nlmLogVariableOpaqueVal")
+
+                self.nlmlogvariabletimeticksval = YLeaf(YType.uint32, "nlmLogVariableTimeTicksVal")
+
+                self.nlmlogvariableunsigned32val = YLeaf(YType.uint32, "nlmLogVariableUnsigned32Val")
+
+                self.nlmlogvariablevaluetype = YLeaf(YType.enumeration, "nlmLogVariableValueType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("nlmlogname",
+                                "nlmlogindex",
+                                "nlmlogvariableindex",
+                                "nlmlogvariablecounter32val",
+                                "nlmlogvariablecounter64val",
+                                "nlmlogvariableid",
+                                "nlmlogvariableinteger32val",
+                                "nlmlogvariableipaddressval",
+                                "nlmlogvariableoctetstringval",
+                                "nlmlogvariableoidval",
+                                "nlmlogvariableopaqueval",
+                                "nlmlogvariabletimeticksval",
+                                "nlmlogvariableunsigned32val",
+                                "nlmlogvariablevaluetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry, self).__setattr__(name, value)
+
+            class Nlmlogvariablevaluetype(Enum):
                 """
-                NlmlogvariablevaluetypeEnum
+                Nlmlogvariablevaluetype
 
                 The type of the value.  One and only one of the value
 
@@ -823,148 +1374,318 @@ class NotificationLogMib(object):
 
                 """
 
-                counter32 = 1
+                counter32 = Enum.YLeaf(1, "counter32")
 
-                unsigned32 = 2
+                unsigned32 = Enum.YLeaf(2, "unsigned32")
 
-                timeTicks = 3
+                timeTicks = Enum.YLeaf(3, "timeTicks")
 
-                integer32 = 4
+                integer32 = Enum.YLeaf(4, "integer32")
 
-                ipAddress = 5
+                ipAddress = Enum.YLeaf(5, "ipAddress")
 
-                octetString = 6
+                octetString = Enum.YLeaf(6, "octetString")
 
-                objectId = 7
+                objectId = Enum.YLeaf(7, "objectId")
 
-                counter64 = 8
+                counter64 = Enum.YLeaf(8, "counter64")
 
-                opaque = 9
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-                    return meta._meta_table['NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry.NlmlogvariablevaluetypeEnum']
+                opaque = Enum.YLeaf(9, "opaque")
 
 
-            @property
-            def _common_path(self):
-                if self.nlmlogname is None:
-                    raise YPYModelError('Key property nlmlogname is None')
-                if self.nlmlogindex is None:
-                    raise YPYModelError('Key property nlmlogindex is None')
-                if self.nlmlogvariableindex is None:
-                    raise YPYModelError('Key property nlmlogvariableindex is None')
+            def has_data(self):
+                return (
+                    self.nlmlogname.is_set or
+                    self.nlmlogindex.is_set or
+                    self.nlmlogvariableindex.is_set or
+                    self.nlmlogvariablecounter32val.is_set or
+                    self.nlmlogvariablecounter64val.is_set or
+                    self.nlmlogvariableid.is_set or
+                    self.nlmlogvariableinteger32val.is_set or
+                    self.nlmlogvariableipaddressval.is_set or
+                    self.nlmlogvariableoctetstringval.is_set or
+                    self.nlmlogvariableoidval.is_set or
+                    self.nlmlogvariableopaqueval.is_set or
+                    self.nlmlogvariabletimeticksval.is_set or
+                    self.nlmlogvariableunsigned32val.is_set or
+                    self.nlmlogvariablevaluetype.is_set)
 
-                return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmLogVariableTable/NOTIFICATION-LOG-MIB:nlmLogVariableEntry[NOTIFICATION-LOG-MIB:nlmLogName = ' + str(self.nlmlogname) + '][NOTIFICATION-LOG-MIB:nlmLogIndex = ' + str(self.nlmlogindex) + '][NOTIFICATION-LOG-MIB:nlmLogVariableIndex = ' + str(self.nlmlogvariableindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.nlmlogname.yfilter != YFilter.not_set or
+                    self.nlmlogindex.yfilter != YFilter.not_set or
+                    self.nlmlogvariableindex.yfilter != YFilter.not_set or
+                    self.nlmlogvariablecounter32val.yfilter != YFilter.not_set or
+                    self.nlmlogvariablecounter64val.yfilter != YFilter.not_set or
+                    self.nlmlogvariableid.yfilter != YFilter.not_set or
+                    self.nlmlogvariableinteger32val.yfilter != YFilter.not_set or
+                    self.nlmlogvariableipaddressval.yfilter != YFilter.not_set or
+                    self.nlmlogvariableoctetstringval.yfilter != YFilter.not_set or
+                    self.nlmlogvariableoidval.yfilter != YFilter.not_set or
+                    self.nlmlogvariableopaqueval.yfilter != YFilter.not_set or
+                    self.nlmlogvariabletimeticksval.yfilter != YFilter.not_set or
+                    self.nlmlogvariableunsigned32val.yfilter != YFilter.not_set or
+                    self.nlmlogvariablevaluetype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "nlmLogVariableEntry" + "[nlmLogName='" + self.nlmlogname.get() + "']" + "[nlmLogIndex='" + self.nlmlogindex.get() + "']" + "[nlmLogVariableIndex='" + self.nlmlogvariableindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogVariableTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.nlmlogname.is_set or self.nlmlogname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogname.get_name_leafdata())
+                if (self.nlmlogindex.is_set or self.nlmlogindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogindex.get_name_leafdata())
+                if (self.nlmlogvariableindex.is_set or self.nlmlogvariableindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableindex.get_name_leafdata())
+                if (self.nlmlogvariablecounter32val.is_set or self.nlmlogvariablecounter32val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariablecounter32val.get_name_leafdata())
+                if (self.nlmlogvariablecounter64val.is_set or self.nlmlogvariablecounter64val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariablecounter64val.get_name_leafdata())
+                if (self.nlmlogvariableid.is_set or self.nlmlogvariableid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableid.get_name_leafdata())
+                if (self.nlmlogvariableinteger32val.is_set or self.nlmlogvariableinteger32val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableinteger32val.get_name_leafdata())
+                if (self.nlmlogvariableipaddressval.is_set or self.nlmlogvariableipaddressval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableipaddressval.get_name_leafdata())
+                if (self.nlmlogvariableoctetstringval.is_set or self.nlmlogvariableoctetstringval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableoctetstringval.get_name_leafdata())
+                if (self.nlmlogvariableoidval.is_set or self.nlmlogvariableoidval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableoidval.get_name_leafdata())
+                if (self.nlmlogvariableopaqueval.is_set or self.nlmlogvariableopaqueval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableopaqueval.get_name_leafdata())
+                if (self.nlmlogvariabletimeticksval.is_set or self.nlmlogvariabletimeticksval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariabletimeticksval.get_name_leafdata())
+                if (self.nlmlogvariableunsigned32val.is_set or self.nlmlogvariableunsigned32val.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariableunsigned32val.get_name_leafdata())
+                if (self.nlmlogvariablevaluetype.is_set or self.nlmlogvariablevaluetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nlmlogvariablevaluetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "nlmLogName" or name == "nlmLogIndex" or name == "nlmLogVariableIndex" or name == "nlmLogVariableCounter32Val" or name == "nlmLogVariableCounter64Val" or name == "nlmLogVariableID" or name == "nlmLogVariableInteger32Val" or name == "nlmLogVariableIpAddressVal" or name == "nlmLogVariableOctetStringVal" or name == "nlmLogVariableOidVal" or name == "nlmLogVariableOpaqueVal" or name == "nlmLogVariableTimeTicksVal" or name == "nlmLogVariableUnsigned32Val" or name == "nlmLogVariableValueType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.nlmlogname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "nlmLogName"):
+                    self.nlmlogname = value
+                    self.nlmlogname.value_namespace = name_space
+                    self.nlmlogname.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogIndex"):
+                    self.nlmlogindex = value
+                    self.nlmlogindex.value_namespace = name_space
+                    self.nlmlogindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableIndex"):
+                    self.nlmlogvariableindex = value
+                    self.nlmlogvariableindex.value_namespace = name_space
+                    self.nlmlogvariableindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableCounter32Val"):
+                    self.nlmlogvariablecounter32val = value
+                    self.nlmlogvariablecounter32val.value_namespace = name_space
+                    self.nlmlogvariablecounter32val.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableCounter64Val"):
+                    self.nlmlogvariablecounter64val = value
+                    self.nlmlogvariablecounter64val.value_namespace = name_space
+                    self.nlmlogvariablecounter64val.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableID"):
+                    self.nlmlogvariableid = value
+                    self.nlmlogvariableid.value_namespace = name_space
+                    self.nlmlogvariableid.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableInteger32Val"):
+                    self.nlmlogvariableinteger32val = value
+                    self.nlmlogvariableinteger32val.value_namespace = name_space
+                    self.nlmlogvariableinteger32val.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableIpAddressVal"):
+                    self.nlmlogvariableipaddressval = value
+                    self.nlmlogvariableipaddressval.value_namespace = name_space
+                    self.nlmlogvariableipaddressval.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableOctetStringVal"):
+                    self.nlmlogvariableoctetstringval = value
+                    self.nlmlogvariableoctetstringval.value_namespace = name_space
+                    self.nlmlogvariableoctetstringval.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableOidVal"):
+                    self.nlmlogvariableoidval = value
+                    self.nlmlogvariableoidval.value_namespace = name_space
+                    self.nlmlogvariableoidval.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableOpaqueVal"):
+                    self.nlmlogvariableopaqueval = value
+                    self.nlmlogvariableopaqueval.value_namespace = name_space
+                    self.nlmlogvariableopaqueval.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableTimeTicksVal"):
+                    self.nlmlogvariabletimeticksval = value
+                    self.nlmlogvariabletimeticksval.value_namespace = name_space
+                    self.nlmlogvariabletimeticksval.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableUnsigned32Val"):
+                    self.nlmlogvariableunsigned32val = value
+                    self.nlmlogvariableunsigned32val.value_namespace = name_space
+                    self.nlmlogvariableunsigned32val.value_namespace_prefix = name_space_prefix
+                if(value_path == "nlmLogVariableValueType"):
+                    self.nlmlogvariablevaluetype = value
+                    self.nlmlogvariablevaluetype.value_namespace = name_space
+                    self.nlmlogvariablevaluetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.nlmlogvariableentry:
+                if (c.has_data()):
                     return True
-
-                if self.nlmlogindex is not None:
-                    return True
-
-                if self.nlmlogvariableindex is not None:
-                    return True
-
-                if self.nlmlogvariablecounter32val is not None:
-                    return True
-
-                if self.nlmlogvariablecounter64val is not None:
-                    return True
-
-                if self.nlmlogvariableid is not None:
-                    return True
-
-                if self.nlmlogvariableinteger32val is not None:
-                    return True
-
-                if self.nlmlogvariableipaddressval is not None:
-                    return True
-
-                if self.nlmlogvariableoctetstringval is not None:
-                    return True
-
-                if self.nlmlogvariableoidval is not None:
-                    return True
-
-                if self.nlmlogvariableopaqueval is not None:
-                    return True
-
-                if self.nlmlogvariabletimeticksval is not None:
-                    return True
-
-                if self.nlmlogvariableunsigned32val is not None:
-                    return True
-
-                if self.nlmlogvariablevaluetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-                return meta._meta_table['NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/NOTIFICATION-LOG-MIB:nlmLogVariableTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.nlmlogvariableentry is not None:
-                for child_ref in self.nlmlogvariableentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.nlmlogvariableentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nlmLogVariableTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "nlmLogVariableEntry"):
+                for c in self.nlmlogvariableentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = NotificationLogMib.Nlmlogvariabletable.Nlmlogvariableentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.nlmlogvariableentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "nlmLogVariableEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-            return meta._meta_table['NotificationLogMib.Nlmlogvariabletable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.nlmconfig is not None and self.nlmconfig.has_data()) or
+            (self.nlmconfiglogtable is not None and self.nlmconfiglogtable.has_data()) or
+            (self.nlmlogtable is not None and self.nlmlogtable.has_data()) or
+            (self.nlmlogvariabletable is not None and self.nlmlogvariabletable.has_data()) or
+            (self.nlmstats is not None and self.nlmstats.has_data()))
 
-        return '/NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nlmconfig is not None and self.nlmconfig.has_operation()) or
+            (self.nlmconfiglogtable is not None and self.nlmconfiglogtable.has_operation()) or
+            (self.nlmlogtable is not None and self.nlmlogtable.has_operation()) or
+            (self.nlmlogvariabletable is not None and self.nlmlogvariabletable.has_operation()) or
+            (self.nlmstats is not None and self.nlmstats.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nlmConfig"):
+            if (self.nlmconfig is None):
+                self.nlmconfig = NotificationLogMib.Nlmconfig()
+                self.nlmconfig.parent = self
+                self._children_name_map["nlmconfig"] = "nlmConfig"
+            return self.nlmconfig
+
+        if (child_yang_name == "nlmConfigLogTable"):
+            if (self.nlmconfiglogtable is None):
+                self.nlmconfiglogtable = NotificationLogMib.Nlmconfiglogtable()
+                self.nlmconfiglogtable.parent = self
+                self._children_name_map["nlmconfiglogtable"] = "nlmConfigLogTable"
+            return self.nlmconfiglogtable
+
+        if (child_yang_name == "nlmLogTable"):
+            if (self.nlmlogtable is None):
+                self.nlmlogtable = NotificationLogMib.Nlmlogtable()
+                self.nlmlogtable.parent = self
+                self._children_name_map["nlmlogtable"] = "nlmLogTable"
+            return self.nlmlogtable
+
+        if (child_yang_name == "nlmLogVariableTable"):
+            if (self.nlmlogvariabletable is None):
+                self.nlmlogvariabletable = NotificationLogMib.Nlmlogvariabletable()
+                self.nlmlogvariabletable.parent = self
+                self._children_name_map["nlmlogvariabletable"] = "nlmLogVariableTable"
+            return self.nlmlogvariabletable
+
+        if (child_yang_name == "nlmStats"):
+            if (self.nlmstats is None):
+                self.nlmstats = NotificationLogMib.Nlmstats()
+                self.nlmstats.parent = self
+                self._children_name_map["nlmstats"] = "nlmStats"
+            return self.nlmstats
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nlmConfig" or name == "nlmConfigLogTable" or name == "nlmLogTable" or name == "nlmLogVariableTable" or name == "nlmStats"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.nlmconfig is not None and self.nlmconfig._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.nlmconfiglogtable is not None and self.nlmconfiglogtable._has_data():
-            return True
-
-        if self.nlmlogtable is not None and self.nlmlogtable._has_data():
-            return True
-
-        if self.nlmlogvariabletable is not None and self.nlmlogvariabletable._has_data():
-            return True
-
-        if self.nlmstats is not None and self.nlmstats._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _NOTIFICATION_LOG_MIB as meta
-        return meta._meta_table['NotificationLogMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = NotificationLogMib()
+        return self._top_entity
 

@@ -9,22 +9,16 @@ Terms and Acronyms
 MPLS\: Multi Protocol Label Switching
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class IetfMplsLabelEnum(Enum):
+class IetfMplsLabel(Enum):
     """
-    IetfMplsLabelEnum
+    IetfMplsLabel
 
     Temporary type until IETF definition
 
@@ -42,17 +36,11 @@ class IetfMplsLabelEnum(Enum):
 
     """
 
-    v4_explicit_null = 0
+    v4_explicit_null = Enum.YLeaf(0, "v4-explicit-null")
 
-    v6_explicit_null = 2
+    v6_explicit_null = Enum.YLeaf(2, "v6-explicit-null")
 
-    implicit_null = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _common_mpls_types as meta
-        return meta._meta_table['IetfMplsLabelEnum']
+    implicit_null = Enum.YLeaf(3, "implicit-null")
 
 
 

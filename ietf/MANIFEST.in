@@ -1,4 +1,4 @@
 include README.md
 include setup.py
-global-include CMakeLists.txt *.cmake
-include python.cpp
+include ydk/models/ietf/_yang/*.yang
+

@@ -16,22 +16,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EgressFilteringEnum(Enum):
+class EgressFiltering(Enum):
     """
-    EgressFilteringEnum
+    EgressFiltering
 
     Egress filtering
 
@@ -49,22 +43,16 @@ class EgressFilteringEnum(Enum):
 
     """
 
-    egress_filtering_type_strict = 1
+    egress_filtering_type_strict = Enum.YLeaf(1, "egress-filtering-type-strict")
 
-    egress_filtering_type_disable = 2
+    egress_filtering_type_disable = Enum.YLeaf(2, "egress-filtering-type-disable")
 
-    egress_filtering_type_default = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['EgressFilteringEnum']
+    egress_filtering_type_default = Enum.YLeaf(3, "egress-filtering-type-default")
 
 
-class FilteringEnum(Enum):
+class Filtering(Enum):
     """
-    FilteringEnum
+    Filtering
 
     Filtering
 
@@ -82,20 +70,14 @@ class FilteringEnum(Enum):
 
     """
 
-    filtering_type_dot1q = 0
+    filtering_type_dot1q = Enum.YLeaf(0, "filtering-type-dot1q")
 
-    filtering_type_dot1ad = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['FilteringEnum']
+    filtering_type_dot1ad = Enum.YLeaf(1, "filtering-type-dot1ad")
 
 
-class L2ProtocolModeEnum(Enum):
+class L2ProtocolMode(Enum):
     """
-    L2ProtocolModeEnum
+    L2ProtocolMode
 
     L2 protocol mode
 
@@ -117,24 +99,18 @@ class L2ProtocolModeEnum(Enum):
 
     """
 
-    forward = 0
+    forward = Enum.YLeaf(0, "forward")
 
-    drop = 1
+    drop = Enum.YLeaf(1, "drop")
 
-    tunnel = 2
+    tunnel = Enum.YLeaf(2, "tunnel")
 
-    reverse_tunnel = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['L2ProtocolModeEnum']
+    reverse_tunnel = Enum.YLeaf(3, "reverse-tunnel")
 
 
-class L2ProtocolNameEnum(Enum):
+class L2ProtocolName(Enum):
     """
-    L2ProtocolNameEnum
+    L2ProtocolName
 
     L2 protocol name
 
@@ -160,25 +136,19 @@ class L2ProtocolNameEnum(Enum):
 
     """
 
-    cdp = 0
+    cdp = Enum.YLeaf(0, "cdp")
 
-    stp = 1
+    stp = Enum.YLeaf(1, "stp")
 
-    vtp = 2
+    vtp = Enum.YLeaf(2, "vtp")
 
-    pvst = 3
+    pvst = Enum.YLeaf(3, "pvst")
 
-    cpsv = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['L2ProtocolNameEnum']
+    cpsv = Enum.YLeaf(4, "cpsv")
 
 
 
-class EthernetFeatures(object):
+class EthernetFeatures(Entity):
     """
     Ethernet Features Configuration
     
@@ -205,15 +175,29 @@ class EthernetFeatures(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(EthernetFeatures, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ethernet-features"
+        self.yang_parent_name = "Cisco-IOS-XR-l2-eth-infra-cfg"
+
         self.cfm = EthernetFeatures.Cfm()
         self.cfm.parent = self
+        self._children_name_map["cfm"] = "cfm"
+        self._children_yang_names.add("cfm")
+
         self.egress_filtering = EthernetFeatures.EgressFiltering()
         self.egress_filtering.parent = self
+        self._children_name_map["egress_filtering"] = "egress-filtering"
+        self._children_yang_names.add("egress-filtering")
+
         self.ether_link_oam = EthernetFeatures.EtherLinkOam()
         self.ether_link_oam.parent = self
+        self._children_name_map["ether_link_oam"] = "ether-link-oam"
+        self._children_yang_names.add("ether-link-oam")
 
 
-    class EgressFiltering(object):
+    class EgressFiltering(Entity):
         """
         Egress Filtering Configuration
         
@@ -230,31 +214,85 @@ class EthernetFeatures(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.egress_filtering_default_on = None
+            super(EthernetFeatures.EgressFiltering, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "egress-filtering"
+            self.yang_parent_name = "ethernet-features"
 
-            return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-l2-eth-infra-cfg:egress-filtering'
+            self.egress_filtering_default_on = YLeaf(YType.empty, "egress-filtering-default-on")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("egress_filtering_default_on") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EthernetFeatures.EgressFiltering, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EthernetFeatures.EgressFiltering, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.egress_filtering_default_on is not None:
+        def has_data(self):
+            return self.egress_filtering_default_on.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.egress_filtering_default_on.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "egress-filtering" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.egress_filtering_default_on.is_set or self.egress_filtering_default_on.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.egress_filtering_default_on.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "egress-filtering-default-on"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-            return meta._meta_table['EthernetFeatures.EgressFiltering']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "egress-filtering-default-on"):
+                self.egress_filtering_default_on = value
+                self.egress_filtering_default_on.value_namespace = name_space
+                self.egress_filtering_default_on.value_namespace_prefix = name_space_prefix
 
 
-    class Cfm(object):
+    class Cfm(Entity):
         """
         CFM global configuration
         
@@ -281,15 +319,49 @@ class EthernetFeatures(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(EthernetFeatures.Cfm, self).__init__()
+
+            self.yang_name = "cfm"
+            self.yang_parent_name = "ethernet-features"
+
+            self.nv_satellite_sla_processing_disable = YLeaf(YType.empty, "nv-satellite-sla-processing-disable")
+
             self.domains = EthernetFeatures.Cfm.Domains()
             self.domains.parent = self
-            self.nv_satellite_sla_processing_disable = None
+            self._children_name_map["domains"] = "domains"
+            self._children_yang_names.add("domains")
+
             self.traceroute_cache = EthernetFeatures.Cfm.TracerouteCache()
             self.traceroute_cache.parent = self
+            self._children_name_map["traceroute_cache"] = "traceroute-cache"
+            self._children_yang_names.add("traceroute-cache")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("nv_satellite_sla_processing_disable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EthernetFeatures.Cfm, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EthernetFeatures.Cfm, self).__setattr__(name, value)
 
 
-        class TracerouteCache(object):
+        class TracerouteCache(Entity):
             """
             Traceroute Cache Configuration
             
@@ -319,35 +391,97 @@ class EthernetFeatures(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.cache_size = None
-                self.hold_time = None
+                super(EthernetFeatures.Cfm.TracerouteCache, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "traceroute-cache"
+                self.yang_parent_name = "cfm"
 
-                return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/Cisco-IOS-XR-ethernet-cfm-cfg:traceroute-cache'
+                self.cache_size = YLeaf(YType.uint32, "cache-size")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.hold_time = YLeaf(YType.uint32, "hold-time")
 
-            def _has_data(self):
-                if self.cache_size is not None:
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cache_size",
+                                "hold_time") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EthernetFeatures.Cfm.TracerouteCache, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EthernetFeatures.Cfm.TracerouteCache, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cache_size.is_set or
+                    self.hold_time.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cache_size.yfilter != YFilter.not_set or
+                    self.hold_time.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "traceroute-cache" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cache_size.is_set or self.cache_size.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cache_size.get_name_leafdata())
+                if (self.hold_time.is_set or self.hold_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.hold_time.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cache-size" or name == "hold-time"):
                     return True
-
-                if self.hold_time is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                return meta._meta_table['EthernetFeatures.Cfm.TracerouteCache']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cache-size"):
+                    self.cache_size = value
+                    self.cache_size.value_namespace = name_space
+                    self.cache_size.value_namespace_prefix = name_space_prefix
+                if(value_path == "hold-time"):
+                    self.hold_time = value
+                    self.hold_time.value_namespace = name_space
+                    self.hold_time.value_namespace_prefix = name_space_prefix
 
 
-        class Domains(object):
+        class Domains(Entity):
             """
             Domain\-specific global configuration
             
@@ -364,13 +498,39 @@ class EthernetFeatures(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.domain = YList()
-                self.domain.parent = self
-                self.domain.name = 'domain'
+                super(EthernetFeatures.Cfm.Domains, self).__init__()
+
+                self.yang_name = "domains"
+                self.yang_parent_name = "cfm"
+
+                self.domain = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EthernetFeatures.Cfm.Domains, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EthernetFeatures.Cfm.Domains, self).__setattr__(name, value)
 
 
-            class Domain(object):
+            class Domain(Entity):
                 """
                 Configuration for a particular Maintenance
                 Domain
@@ -400,15 +560,49 @@ class EthernetFeatures(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.domain = None
+                    super(EthernetFeatures.Cfm.Domains.Domain, self).__init__()
+
+                    self.yang_name = "domain"
+                    self.yang_parent_name = "domains"
+
+                    self.domain = YLeaf(YType.str, "domain")
+
                     self.domain_properties = EthernetFeatures.Cfm.Domains.Domain.DomainProperties()
                     self.domain_properties.parent = self
+                    self._children_name_map["domain_properties"] = "domain-properties"
+                    self._children_yang_names.add("domain-properties")
+
                     self.services = EthernetFeatures.Cfm.Domains.Domain.Services()
                     self.services.parent = self
+                    self._children_name_map["services"] = "services"
+                    self._children_yang_names.add("services")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("domain") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(EthernetFeatures.Cfm.Domains.Domain, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(EthernetFeatures.Cfm.Domains.Domain, self).__setattr__(name, value)
 
 
-                class Services(object):
+                class Services(Entity):
                     """
                     Service\-specific global configuration
                     
@@ -425,13 +619,39 @@ class EthernetFeatures(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.service = YList()
-                        self.service.parent = self
-                        self.service.name = 'service'
+                        super(EthernetFeatures.Cfm.Domains.Domain.Services, self).__init__()
+
+                        self.yang_name = "services"
+                        self.yang_parent_name = "domain"
+
+                        self.service = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services, self).__setattr__(name, value)
 
 
-                    class Service(object):
+                    class Service(Entity):
                         """
                         Configuration for a particular Service
                         (Maintenance Association)
@@ -544,28 +764,92 @@ class EthernetFeatures(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.service = None
+                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service, self).__init__()
+
+                            self.yang_name = "service"
+                            self.yang_parent_name = "services"
+
+                            self.service = YLeaf(YType.str, "service")
+
+                            self.continuity_check_archive_hold_time = YLeaf(YType.uint32, "continuity-check-archive-hold-time")
+
+                            self.continuity_check_auto_traceroute = YLeaf(YType.empty, "continuity-check-auto-traceroute")
+
+                            self.log_ais = YLeaf(YType.empty, "log-ais")
+
+                            self.log_continuity_check_errors = YLeaf(YType.empty, "log-continuity-check-errors")
+
+                            self.log_continuity_check_state_changes = YLeaf(YType.empty, "log-continuity-check-state-changes")
+
+                            self.log_cross_check_errors = YLeaf(YType.empty, "log-cross-check-errors")
+
+                            self.log_efd = YLeaf(YType.empty, "log-efd")
+
+                            self.maximum_meps = YLeaf(YType.uint32, "maximum-meps")
+
+                            self.tags = YLeaf(YType.uint32, "tags")
+
                             self.ais = EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais()
                             self.ais.parent = self
-                            self.continuity_check_archive_hold_time = None
-                            self.continuity_check_auto_traceroute = None
+                            self._children_name_map["ais"] = "ais"
+                            self._children_yang_names.add("ais")
+
                             self.continuity_check_interval = None
+                            self._children_name_map["continuity_check_interval"] = "continuity-check-interval"
+                            self._children_yang_names.add("continuity-check-interval")
+
                             self.cross_check = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck()
                             self.cross_check.parent = self
+                            self._children_name_map["cross_check"] = "cross-check"
+                            self._children_yang_names.add("cross-check")
+
                             self.efd2 = None
-                            self.log_ais = None
-                            self.log_continuity_check_errors = None
-                            self.log_continuity_check_state_changes = None
-                            self.log_cross_check_errors = None
-                            self.log_efd = None
-                            self.maximum_meps = None
+                            self._children_name_map["efd2"] = "efd2"
+                            self._children_yang_names.add("efd2")
+
                             self.mip_auto_creation = None
+                            self._children_name_map["mip_auto_creation"] = "mip-auto-creation"
+                            self._children_yang_names.add("mip-auto-creation")
+
                             self.service_properties = None
-                            self.tags = None
+                            self._children_name_map["service_properties"] = "service-properties"
+                            self._children_yang_names.add("service-properties")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("service",
+                                            "continuity_check_archive_hold_time",
+                                            "continuity_check_auto_traceroute",
+                                            "log_ais",
+                                            "log_continuity_check_errors",
+                                            "log_continuity_check_state_changes",
+                                            "log_cross_check_errors",
+                                            "log_efd",
+                                            "maximum_meps",
+                                            "tags") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service, self).__setattr__(name, value)
 
 
-                        class Efd2(object):
+                        class Efd2(Entity):
                             """
                             Enable EFD to bring down ports when MEPs
                             detect errors
@@ -582,11 +866,6 @@ class EthernetFeatures(object):
                             	Enable protection switching notifications
                             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -597,40 +876,98 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.enable = None
-                                self.protection_switching_enable = None
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "efd2"
+                                self.yang_parent_name = "service"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:efd2'
+                                self.enable = YLeaf(YType.empty, "enable")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.protection_switching_enable = YLeaf(YType.empty, "protection-switching-enable")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("enable",
+                                                "protection_switching_enable") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.enable.is_set or
+                                    self.protection_switching_enable.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.enable.yfilter != YFilter.not_set or
+                                    self.protection_switching_enable.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "efd2" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.enable.get_name_leafdata())
+                                if (self.protection_switching_enable.is_set or self.protection_switching_enable.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.protection_switching_enable.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "enable" or name == "protection-switching-enable"):
                                     return True
-                                if self.enable is not None:
-                                    return True
-
-                                if self.protection_switching_enable is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "enable"):
+                                    self.enable = value
+                                    self.enable.value_namespace = name_space
+                                    self.enable.value_namespace_prefix = name_space_prefix
+                                if(value_path == "protection-switching-enable"):
+                                    self.protection_switching_enable = value
+                                    self.protection_switching_enable.value_namespace = name_space
+                                    self.protection_switching_enable.value_namespace_prefix = name_space_prefix
 
 
-                        class ContinuityCheckInterval(object):
+                        class ContinuityCheckInterval(Entity):
                             """
                             Continuity Check Interval and Loss
                             Threshold.  Configuring the interval
@@ -639,7 +976,7 @@ class EthernetFeatures(object):
                             .. attribute:: ccm_interval
                             
                             	CCM Interval
-                            	**type**\:   :py:class:`CfmCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
+                            	**type**\:   :py:class:`CfmCcmInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmInterval>`
                             
                             	**mandatory**\: True
                             
@@ -650,11 +987,6 @@ class EthernetFeatures(object):
                             
                             	**range:** 2..255
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -665,40 +997,98 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.ccm_interval = None
-                                self.loss_threshold = None
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "continuity-check-interval"
+                                self.yang_parent_name = "service"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:continuity-check-interval'
+                                self.ccm_interval = YLeaf(YType.enumeration, "ccm-interval")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.loss_threshold = YLeaf(YType.uint32, "loss-threshold")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ccm_interval",
+                                                "loss_threshold") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ccm_interval.is_set or
+                                    self.loss_threshold.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ccm_interval.yfilter != YFilter.not_set or
+                                    self.loss_threshold.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "continuity-check-interval" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ccm_interval.is_set or self.ccm_interval.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ccm_interval.get_name_leafdata())
+                                if (self.loss_threshold.is_set or self.loss_threshold.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.loss_threshold.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ccm-interval" or name == "loss-threshold"):
                                     return True
-                                if self.ccm_interval is not None:
-                                    return True
-
-                                if self.loss_threshold is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ccm-interval"):
+                                    self.ccm_interval = value
+                                    self.ccm_interval.value_namespace = name_space
+                                    self.ccm_interval.value_namespace_prefix = name_space_prefix
+                                if(value_path == "loss-threshold"):
+                                    self.loss_threshold = value
+                                    self.loss_threshold.value_namespace = name_space
+                                    self.loss_threshold.value_namespace_prefix = name_space_prefix
 
 
-                        class MipAutoCreation(object):
+                        class MipAutoCreation(Entity):
                             """
                             MIP Auto\-creation Policy
                             
@@ -710,14 +1100,9 @@ class EthernetFeatures(object):
                             .. attribute:: mip_policy
                             
                             	MIP Auto\-creation Policy
-                            	**type**\:   :py:class:`CfmMipPolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicyEnum>`
+                            	**type**\:   :py:class:`CfmMipPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMipPolicy>`
                             
                             	**mandatory**\: True
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
                             
                             
 
@@ -729,40 +1114,98 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.ccm_learning_enable = None
-                                self.mip_policy = None
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "mip-auto-creation"
+                                self.yang_parent_name = "service"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:mip-auto-creation'
+                                self.ccm_learning_enable = YLeaf(YType.empty, "ccm-learning-enable")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.mip_policy = YLeaf(YType.enumeration, "mip-policy")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ccm_learning_enable",
+                                                "mip_policy") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ccm_learning_enable.is_set or
+                                    self.mip_policy.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ccm_learning_enable.yfilter != YFilter.not_set or
+                                    self.mip_policy.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "mip-auto-creation" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ccm_learning_enable.is_set or self.ccm_learning_enable.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ccm_learning_enable.get_name_leafdata())
+                                if (self.mip_policy.is_set or self.mip_policy.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.mip_policy.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ccm-learning-enable" or name == "mip-policy"):
                                     return True
-                                if self.ccm_learning_enable is not None:
-                                    return True
-
-                                if self.mip_policy is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ccm-learning-enable"):
+                                    self.ccm_learning_enable = value
+                                    self.ccm_learning_enable.value_namespace = name_space
+                                    self.ccm_learning_enable.value_namespace_prefix = name_space_prefix
+                                if(value_path == "mip-policy"):
+                                    self.mip_policy = value
+                                    self.mip_policy.value_namespace = name_space
+                                    self.mip_policy.value_namespace_prefix = name_space_prefix
 
 
-                        class Ais(object):
+                        class Ais(Entity):
                             """
                             Service specific AIS configuration
                             
@@ -781,18 +1224,24 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, self).__init__()
+
+                                self.yang_name = "ais"
+                                self.yang_parent_name = "service"
+
                                 self.transmission = None
+                                self._children_name_map["transmission"] = "transmission"
+                                self._children_yang_names.add("transmission")
 
 
-                            class Transmission(object):
+                            class Transmission(Entity):
                                 """
                                 AIS transmission configuration
                                 
                                 .. attribute:: ais_interval
                                 
                                 	AIS Interval
-                                	**type**\:   :py:class:`CfmAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisIntervalEnum>`
+                                	**type**\:   :py:class:`CfmAisInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisInterval>`
                                 
                                 .. attribute:: cos
                                 
@@ -800,11 +1249,6 @@ class EthernetFeatures(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..7
-                                
-                                .. attribute:: _is_presence
-                                
-                                	Is present if this instance represents presence container else not
-                                	**type**\: bool
                                 
                                 
 
@@ -816,62 +1260,146 @@ class EthernetFeatures(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self._is_presence = True
-                                    self.ais_interval = None
-                                    self.cos = None
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, self).__init__()
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                    self.yang_name = "transmission"
+                                    self.yang_parent_name = "ais"
+                                    self.is_presence_container = True
 
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:transmission'
+                                    self.ais_interval = YLeaf(YType.enumeration, "ais-interval")
 
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
+                                    self.cos = YLeaf(YType.uint32, "cos")
 
-                                def _has_data(self):
-                                    if self._is_presence:
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in ("ais_interval",
+                                                    "cos") and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, self).__setattr__(name, value)
+
+                                def has_data(self):
+                                    return (
+                                        self.ais_interval.is_set or
+                                        self.cos.is_set)
+
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        self.ais_interval.yfilter != YFilter.not_set or
+                                        self.cos.yfilter != YFilter.not_set)
+
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "transmission" + path_buffer
+
+                                    return path_buffer
+
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                    leaf_name_data = LeafDataList()
+                                    if (self.ais_interval.is_set or self.ais_interval.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.ais_interval.get_name_leafdata())
+                                    if (self.cos.is_set or self.cos.yfilter != YFilter.not_set):
+                                        leaf_name_data.append(self.cos.get_name_leafdata())
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "ais-interval" or name == "cos"):
                                         return True
-                                    if self.ais_interval is not None:
-                                        return True
-
-                                    if self.cos is not None:
-                                        return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                    return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    if(value_path == "ais-interval"):
+                                        self.ais_interval = value
+                                        self.ais_interval.value_namespace = name_space
+                                        self.ais_interval.value_namespace_prefix = name_space_prefix
+                                    if(value_path == "cos"):
+                                        self.cos = value
+                                        self.cos.value_namespace = name_space
+                                        self.cos.value_namespace_prefix = name_space_prefix
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                            def has_data(self):
+                                return (self.transmission is not None)
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:ais'
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    (self.transmission is not None and self.transmission.has_operation()))
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "ais" + path_buffer
 
-                            def _has_data(self):
-                                if self.transmission is not None and self.transmission._has_data():
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "transmission"):
+                                    if (self.transmission is None):
+                                        self.transmission = EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission()
+                                        self.transmission.parent = self
+                                        self._children_name_map["transmission"] = "transmission"
+                                    return self.transmission
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "transmission"):
                                     return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                pass
 
 
-                        class CrossCheck(object):
+                        class CrossCheck(Entity):
                             """
                             Cross\-check configuration
                             
@@ -893,13 +1421,44 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.auto = None
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, self).__init__()
+
+                                self.yang_name = "cross-check"
+                                self.yang_parent_name = "service"
+
+                                self.auto = YLeaf(YType.empty, "auto")
+
                                 self.cross_check_meps = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps()
                                 self.cross_check_meps.parent = self
+                                self._children_name_map["cross_check_meps"] = "cross-check-meps"
+                                self._children_yang_names.add("cross-check-meps")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("auto") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, self).__setattr__(name, value)
 
 
-                            class CrossCheckMeps(object):
+                            class CrossCheckMeps(Entity):
                                 """
                                 Cross\-check MEPs
                                 
@@ -916,13 +1475,39 @@ class EthernetFeatures(object):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.cross_check_mep = YList()
-                                    self.cross_check_mep.parent = self
-                                    self.cross_check_mep.name = 'cross_check_mep'
+                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, self).__init__()
+
+                                    self.yang_name = "cross-check-meps"
+                                    self.yang_parent_name = "cross-check"
+
+                                    self.cross_check_mep = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, self).__setattr__(name, value)
 
 
-                                class CrossCheckMep(object):
+                                class CrossCheckMep(Entity):
                                     """
                                     MEP ID and optional MAC Address for
                                     Cross\-check
@@ -954,92 +1539,221 @@ class EthernetFeatures(object):
                                     _revision = '2015-11-09'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.mep_id = None
-                                        self.enable_mac_address = None
-                                        self.mac_address = None
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.mep_id is None:
-                                            raise YPYModelError('Key property mep_id is None')
+                                        self.yang_name = "cross-check-mep"
+                                        self.yang_parent_name = "cross-check-meps"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:cross-check-mep[Cisco-IOS-XR-ethernet-cfm-cfg:mep-id = ' + str(self.mep_id) + ']'
+                                        self.mep_id = YLeaf(YType.uint32, "mep-id")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
+                                        self.enable_mac_address = YLeaf(YType.empty, "enable-mac-address")
 
-                                    def _has_data(self):
-                                        if self.mep_id is not None:
+                                        self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("mep_id",
+                                                        "enable_mac_address",
+                                                        "mac_address") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.mep_id.is_set or
+                                            self.enable_mac_address.is_set or
+                                            self.mac_address.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.mep_id.yfilter != YFilter.not_set or
+                                            self.enable_mac_address.yfilter != YFilter.not_set or
+                                            self.mac_address.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "cross-check-mep" + "[mep-id='" + self.mep_id.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.mep_id.is_set or self.mep_id.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.mep_id.get_name_leafdata())
+                                        if (self.enable_mac_address.is_set or self.enable_mac_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.enable_mac_address.get_name_leafdata())
+                                        if (self.mac_address.is_set or self.mac_address.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.mac_address.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "mep-id" or name == "enable-mac-address" or name == "mac-address"):
                                             return True
-
-                                        if self.enable_mac_address is not None:
-                                            return True
-
-                                        if self.mac_address is not None:
-                                            return True
-
                                         return False
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep']['meta_info']
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "mep-id"):
+                                            self.mep_id = value
+                                            self.mep_id.value_namespace = name_space
+                                            self.mep_id.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "enable-mac-address"):
+                                            self.enable_mac_address = value
+                                            self.enable_mac_address.value_namespace = name_space
+                                            self.enable_mac_address.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "mac-address"):
+                                            self.mac_address = value
+                                            self.mac_address.value_namespace = name_space
+                                            self.mac_address.value_namespace_prefix = name_space_prefix
 
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:cross-check-meps'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return True
-
-                                def _has_data(self):
-                                    if self.cross_check_mep is not None:
-                                        for child_ref in self.cross_check_mep:
-                                            if child_ref._has_data():
-                                                return True
-
+                                def has_data(self):
+                                    for c in self.cross_check_mep:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                    return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps']['meta_info']
+                                def has_operation(self):
+                                    for c in self.cross_check_mep:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "cross-check-meps" + path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:cross-check'
+                                    return path_buffer
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def _has_data(self):
-                                if self.auto is not None:
+                                    leaf_name_data = LeafDataList()
+
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
+
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
+
+                                    if (child_yang_name == "cross-check-mep"):
+                                        for c in self.cross_check_mep:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.cross_check_mep.append(c)
+                                        return c
+
+                                    return None
+
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "cross-check-mep"):
+                                        return True
+                                    return False
+
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
+
+                            def has_data(self):
+                                return (
+                                    self.auto.is_set or
+                                    (self.cross_check_meps is not None and self.cross_check_meps.has_data()))
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.auto.yfilter != YFilter.not_set or
+                                    (self.cross_check_meps is not None and self.cross_check_meps.has_operation()))
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "cross-check" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.auto.is_set or self.auto.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.auto.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "cross-check-meps"):
+                                    if (self.cross_check_meps is None):
+                                        self.cross_check_meps = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps()
+                                        self.cross_check_meps.parent = self
+                                        self._children_name_map["cross_check_meps"] = "cross-check-meps"
+                                    return self.cross_check_meps
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "cross-check-meps" or name == "auto"):
                                     return True
-
-                                if self.cross_check_meps is not None and self.cross_check_meps._has_data():
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "auto"):
+                                    self.auto = value
+                                    self.auto.value_namespace = name_space
+                                    self.auto.value_namespace_prefix = name_space_prefix
 
 
-                        class ServiceProperties(object):
+                        class ServiceProperties(Entity):
                             """
                             Fundamental properties of the service
                             (maintenance association)
@@ -1066,14 +1780,14 @@ class EthernetFeatures(object):
                             .. attribute:: service_type
                             
                             	Type of Service
-                            	**type**\:   :py:class:`CfmServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmServiceEnum>`
+                            	**type**\:   :py:class:`CfmService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmService>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: short_ma_name_format
                             
                             	Short MA Name Format
-                            	**type**\:   :py:class:`CfmShortMaNameFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmShortMaNameFormatEnum>`
+                            	**type**\:   :py:class:`CfmShortMaNameFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmShortMaNameFormat>`
                             
                             .. attribute:: short_ma_name_icc
                             
@@ -1122,11 +1836,6 @@ class EthernetFeatures(object):
                             	Bridge Domain or Cross\-connect name, if Service Type is BridgeDomain or CrossConnect
                             	**type**\:  str
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -1137,173 +1846,438 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.ce_id = None
-                                self.group_name = None
-                                self.remote_ce_id = None
-                                self.service_type = None
-                                self.short_ma_name_format = None
-                                self.short_ma_name_icc = None
-                                self.short_ma_name_number = None
-                                self.short_ma_name_oui = None
-                                self.short_ma_name_string = None
-                                self.short_ma_name_umc = None
-                                self.short_ma_name_vpn_index = None
-                                self.switching_name = None
+                                super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "service-properties"
+                                self.yang_parent_name = "service"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:service-properties'
+                                self.ce_id = YLeaf(YType.uint32, "ce-id")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.group_name = YLeaf(YType.str, "group-name")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                                self.remote_ce_id = YLeaf(YType.uint32, "remote-ce-id")
+
+                                self.service_type = YLeaf(YType.enumeration, "service-type")
+
+                                self.short_ma_name_format = YLeaf(YType.enumeration, "short-ma-name-format")
+
+                                self.short_ma_name_icc = YLeaf(YType.str, "short-ma-name-icc")
+
+                                self.short_ma_name_number = YLeaf(YType.uint32, "short-ma-name-number")
+
+                                self.short_ma_name_oui = YLeaf(YType.uint32, "short-ma-name-oui")
+
+                                self.short_ma_name_string = YLeaf(YType.str, "short-ma-name-string")
+
+                                self.short_ma_name_umc = YLeaf(YType.str, "short-ma-name-umc")
+
+                                self.short_ma_name_vpn_index = YLeaf(YType.int32, "short-ma-name-vpn-index")
+
+                                self.switching_name = YLeaf(YType.str, "switching-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("ce_id",
+                                                "group_name",
+                                                "remote_ce_id",
+                                                "service_type",
+                                                "short_ma_name_format",
+                                                "short_ma_name_icc",
+                                                "short_ma_name_number",
+                                                "short_ma_name_oui",
+                                                "short_ma_name_string",
+                                                "short_ma_name_umc",
+                                                "short_ma_name_vpn_index",
+                                                "switching_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.ce_id.is_set or
+                                    self.group_name.is_set or
+                                    self.remote_ce_id.is_set or
+                                    self.service_type.is_set or
+                                    self.short_ma_name_format.is_set or
+                                    self.short_ma_name_icc.is_set or
+                                    self.short_ma_name_number.is_set or
+                                    self.short_ma_name_oui.is_set or
+                                    self.short_ma_name_string.is_set or
+                                    self.short_ma_name_umc.is_set or
+                                    self.short_ma_name_vpn_index.is_set or
+                                    self.switching_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.ce_id.yfilter != YFilter.not_set or
+                                    self.group_name.yfilter != YFilter.not_set or
+                                    self.remote_ce_id.yfilter != YFilter.not_set or
+                                    self.service_type.yfilter != YFilter.not_set or
+                                    self.short_ma_name_format.yfilter != YFilter.not_set or
+                                    self.short_ma_name_icc.yfilter != YFilter.not_set or
+                                    self.short_ma_name_number.yfilter != YFilter.not_set or
+                                    self.short_ma_name_oui.yfilter != YFilter.not_set or
+                                    self.short_ma_name_string.yfilter != YFilter.not_set or
+                                    self.short_ma_name_umc.yfilter != YFilter.not_set or
+                                    self.short_ma_name_vpn_index.yfilter != YFilter.not_set or
+                                    self.switching_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "service-properties" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.ce_id.is_set or self.ce_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.ce_id.get_name_leafdata())
+                                if (self.group_name.is_set or self.group_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.group_name.get_name_leafdata())
+                                if (self.remote_ce_id.is_set or self.remote_ce_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.remote_ce_id.get_name_leafdata())
+                                if (self.service_type.is_set or self.service_type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.service_type.get_name_leafdata())
+                                if (self.short_ma_name_format.is_set or self.short_ma_name_format.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.short_ma_name_format.get_name_leafdata())
+                                if (self.short_ma_name_icc.is_set or self.short_ma_name_icc.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.short_ma_name_icc.get_name_leafdata())
+                                if (self.short_ma_name_number.is_set or self.short_ma_name_number.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.short_ma_name_number.get_name_leafdata())
+                                if (self.short_ma_name_oui.is_set or self.short_ma_name_oui.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.short_ma_name_oui.get_name_leafdata())
+                                if (self.short_ma_name_string.is_set or self.short_ma_name_string.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.short_ma_name_string.get_name_leafdata())
+                                if (self.short_ma_name_umc.is_set or self.short_ma_name_umc.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.short_ma_name_umc.get_name_leafdata())
+                                if (self.short_ma_name_vpn_index.is_set or self.short_ma_name_vpn_index.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.short_ma_name_vpn_index.get_name_leafdata())
+                                if (self.switching_name.is_set or self.switching_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.switching_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "ce-id" or name == "group-name" or name == "remote-ce-id" or name == "service-type" or name == "short-ma-name-format" or name == "short-ma-name-icc" or name == "short-ma-name-number" or name == "short-ma-name-oui" or name == "short-ma-name-string" or name == "short-ma-name-umc" or name == "short-ma-name-vpn-index" or name == "switching-name"):
                                     return True
-                                if self.ce_id is not None:
-                                    return True
-
-                                if self.group_name is not None:
-                                    return True
-
-                                if self.remote_ce_id is not None:
-                                    return True
-
-                                if self.service_type is not None:
-                                    return True
-
-                                if self.short_ma_name_format is not None:
-                                    return True
-
-                                if self.short_ma_name_icc is not None:
-                                    return True
-
-                                if self.short_ma_name_number is not None:
-                                    return True
-
-                                if self.short_ma_name_oui is not None:
-                                    return True
-
-                                if self.short_ma_name_string is not None:
-                                    return True
-
-                                if self.short_ma_name_umc is not None:
-                                    return True
-
-                                if self.short_ma_name_vpn_index is not None:
-                                    return True
-
-                                if self.switching_name is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "ce-id"):
+                                    self.ce_id = value
+                                    self.ce_id.value_namespace = name_space
+                                    self.ce_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "group-name"):
+                                    self.group_name = value
+                                    self.group_name.value_namespace = name_space
+                                    self.group_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "remote-ce-id"):
+                                    self.remote_ce_id = value
+                                    self.remote_ce_id.value_namespace = name_space
+                                    self.remote_ce_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "service-type"):
+                                    self.service_type = value
+                                    self.service_type.value_namespace = name_space
+                                    self.service_type.value_namespace_prefix = name_space_prefix
+                                if(value_path == "short-ma-name-format"):
+                                    self.short_ma_name_format = value
+                                    self.short_ma_name_format.value_namespace = name_space
+                                    self.short_ma_name_format.value_namespace_prefix = name_space_prefix
+                                if(value_path == "short-ma-name-icc"):
+                                    self.short_ma_name_icc = value
+                                    self.short_ma_name_icc.value_namespace = name_space
+                                    self.short_ma_name_icc.value_namespace_prefix = name_space_prefix
+                                if(value_path == "short-ma-name-number"):
+                                    self.short_ma_name_number = value
+                                    self.short_ma_name_number.value_namespace = name_space
+                                    self.short_ma_name_number.value_namespace_prefix = name_space_prefix
+                                if(value_path == "short-ma-name-oui"):
+                                    self.short_ma_name_oui = value
+                                    self.short_ma_name_oui.value_namespace = name_space
+                                    self.short_ma_name_oui.value_namespace_prefix = name_space_prefix
+                                if(value_path == "short-ma-name-string"):
+                                    self.short_ma_name_string = value
+                                    self.short_ma_name_string.value_namespace = name_space
+                                    self.short_ma_name_string.value_namespace_prefix = name_space_prefix
+                                if(value_path == "short-ma-name-umc"):
+                                    self.short_ma_name_umc = value
+                                    self.short_ma_name_umc.value_namespace = name_space
+                                    self.short_ma_name_umc.value_namespace_prefix = name_space_prefix
+                                if(value_path == "short-ma-name-vpn-index"):
+                                    self.short_ma_name_vpn_index = value
+                                    self.short_ma_name_vpn_index.value_namespace = name_space
+                                    self.short_ma_name_vpn_index.value_namespace_prefix = name_space_prefix
+                                if(value_path == "switching-name"):
+                                    self.switching_name = value
+                                    self.switching_name.value_namespace = name_space
+                                    self.switching_name.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.service is None:
-                                raise YPYModelError('Key property service is None')
+                        def has_data(self):
+                            return (
+                                self.service.is_set or
+                                self.continuity_check_archive_hold_time.is_set or
+                                self.continuity_check_auto_traceroute.is_set or
+                                self.log_ais.is_set or
+                                self.log_continuity_check_errors.is_set or
+                                self.log_continuity_check_state_changes.is_set or
+                                self.log_cross_check_errors.is_set or
+                                self.log_efd.is_set or
+                                self.maximum_meps.is_set or
+                                self.tags.is_set or
+                                (self.ais is not None and self.ais.has_data()) or
+                                (self.cross_check is not None and self.cross_check.has_data()) or
+                                (self.continuity_check_interval is not None) or
+                                (self.efd2 is not None) or
+                                (self.mip_auto_creation is not None) or
+                                (self.service_properties is not None))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:service[Cisco-IOS-XR-ethernet-cfm-cfg:service = ' + str(self.service) + ']'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.service.yfilter != YFilter.not_set or
+                                self.continuity_check_archive_hold_time.yfilter != YFilter.not_set or
+                                self.continuity_check_auto_traceroute.yfilter != YFilter.not_set or
+                                self.log_ais.yfilter != YFilter.not_set or
+                                self.log_continuity_check_errors.yfilter != YFilter.not_set or
+                                self.log_continuity_check_state_changes.yfilter != YFilter.not_set or
+                                self.log_cross_check_errors.yfilter != YFilter.not_set or
+                                self.log_efd.yfilter != YFilter.not_set or
+                                self.maximum_meps.yfilter != YFilter.not_set or
+                                self.tags.yfilter != YFilter.not_set or
+                                (self.ais is not None and self.ais.has_operation()) or
+                                (self.continuity_check_interval is not None and self.continuity_check_interval.has_operation()) or
+                                (self.cross_check is not None and self.cross_check.has_operation()) or
+                                (self.efd2 is not None and self.efd2.has_operation()) or
+                                (self.mip_auto_creation is not None and self.mip_auto_creation.has_operation()) or
+                                (self.service_properties is not None and self.service_properties.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "service" + "[service='" + self.service.get() + "']" + path_buffer
 
-                        def _has_data(self):
-                            if self.service is not None:
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.service.is_set or self.service.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.service.get_name_leafdata())
+                            if (self.continuity_check_archive_hold_time.is_set or self.continuity_check_archive_hold_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.continuity_check_archive_hold_time.get_name_leafdata())
+                            if (self.continuity_check_auto_traceroute.is_set or self.continuity_check_auto_traceroute.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.continuity_check_auto_traceroute.get_name_leafdata())
+                            if (self.log_ais.is_set or self.log_ais.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.log_ais.get_name_leafdata())
+                            if (self.log_continuity_check_errors.is_set or self.log_continuity_check_errors.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.log_continuity_check_errors.get_name_leafdata())
+                            if (self.log_continuity_check_state_changes.is_set or self.log_continuity_check_state_changes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.log_continuity_check_state_changes.get_name_leafdata())
+                            if (self.log_cross_check_errors.is_set or self.log_cross_check_errors.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.log_cross_check_errors.get_name_leafdata())
+                            if (self.log_efd.is_set or self.log_efd.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.log_efd.get_name_leafdata())
+                            if (self.maximum_meps.is_set or self.maximum_meps.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.maximum_meps.get_name_leafdata())
+                            if (self.tags.is_set or self.tags.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.tags.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "ais"):
+                                if (self.ais is None):
+                                    self.ais = EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais()
+                                    self.ais.parent = self
+                                    self._children_name_map["ais"] = "ais"
+                                return self.ais
+
+                            if (child_yang_name == "continuity-check-interval"):
+                                if (self.continuity_check_interval is None):
+                                    self.continuity_check_interval = EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval()
+                                    self.continuity_check_interval.parent = self
+                                    self._children_name_map["continuity_check_interval"] = "continuity-check-interval"
+                                return self.continuity_check_interval
+
+                            if (child_yang_name == "cross-check"):
+                                if (self.cross_check is None):
+                                    self.cross_check = EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck()
+                                    self.cross_check.parent = self
+                                    self._children_name_map["cross_check"] = "cross-check"
+                                return self.cross_check
+
+                            if (child_yang_name == "efd2"):
+                                if (self.efd2 is None):
+                                    self.efd2 = EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2()
+                                    self.efd2.parent = self
+                                    self._children_name_map["efd2"] = "efd2"
+                                return self.efd2
+
+                            if (child_yang_name == "mip-auto-creation"):
+                                if (self.mip_auto_creation is None):
+                                    self.mip_auto_creation = EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation()
+                                    self.mip_auto_creation.parent = self
+                                    self._children_name_map["mip_auto_creation"] = "mip-auto-creation"
+                                return self.mip_auto_creation
+
+                            if (child_yang_name == "service-properties"):
+                                if (self.service_properties is None):
+                                    self.service_properties = EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties()
+                                    self.service_properties.parent = self
+                                    self._children_name_map["service_properties"] = "service-properties"
+                                return self.service_properties
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "ais" or name == "continuity-check-interval" or name == "cross-check" or name == "efd2" or name == "mip-auto-creation" or name == "service-properties" or name == "service" or name == "continuity-check-archive-hold-time" or name == "continuity-check-auto-traceroute" or name == "log-ais" or name == "log-continuity-check-errors" or name == "log-continuity-check-state-changes" or name == "log-cross-check-errors" or name == "log-efd" or name == "maximum-meps" or name == "tags"):
                                 return True
-
-                            if self.ais is not None and self.ais._has_data():
-                                return True
-
-                            if self.continuity_check_archive_hold_time is not None:
-                                return True
-
-                            if self.continuity_check_auto_traceroute is not None:
-                                return True
-
-                            if self.continuity_check_interval is not None and self.continuity_check_interval._has_data():
-                                return True
-
-                            if self.cross_check is not None and self.cross_check._has_data():
-                                return True
-
-                            if self.efd2 is not None and self.efd2._has_data():
-                                return True
-
-                            if self.log_ais is not None:
-                                return True
-
-                            if self.log_continuity_check_errors is not None:
-                                return True
-
-                            if self.log_continuity_check_state_changes is not None:
-                                return True
-
-                            if self.log_cross_check_errors is not None:
-                                return True
-
-                            if self.log_efd is not None:
-                                return True
-
-                            if self.maximum_meps is not None:
-                                return True
-
-                            if self.mip_auto_creation is not None and self.mip_auto_creation._has_data():
-                                return True
-
-                            if self.service_properties is not None and self.service_properties._has_data():
-                                return True
-
-                            if self.tags is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services.Service']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "service"):
+                                self.service = value
+                                self.service.value_namespace = name_space
+                                self.service.value_namespace_prefix = name_space_prefix
+                            if(value_path == "continuity-check-archive-hold-time"):
+                                self.continuity_check_archive_hold_time = value
+                                self.continuity_check_archive_hold_time.value_namespace = name_space
+                                self.continuity_check_archive_hold_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "continuity-check-auto-traceroute"):
+                                self.continuity_check_auto_traceroute = value
+                                self.continuity_check_auto_traceroute.value_namespace = name_space
+                                self.continuity_check_auto_traceroute.value_namespace_prefix = name_space_prefix
+                            if(value_path == "log-ais"):
+                                self.log_ais = value
+                                self.log_ais.value_namespace = name_space
+                                self.log_ais.value_namespace_prefix = name_space_prefix
+                            if(value_path == "log-continuity-check-errors"):
+                                self.log_continuity_check_errors = value
+                                self.log_continuity_check_errors.value_namespace = name_space
+                                self.log_continuity_check_errors.value_namespace_prefix = name_space_prefix
+                            if(value_path == "log-continuity-check-state-changes"):
+                                self.log_continuity_check_state_changes = value
+                                self.log_continuity_check_state_changes.value_namespace = name_space
+                                self.log_continuity_check_state_changes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "log-cross-check-errors"):
+                                self.log_cross_check_errors = value
+                                self.log_cross_check_errors.value_namespace = name_space
+                                self.log_cross_check_errors.value_namespace_prefix = name_space_prefix
+                            if(value_path == "log-efd"):
+                                self.log_efd = value
+                                self.log_efd.value_namespace = name_space
+                                self.log_efd.value_namespace_prefix = name_space_prefix
+                            if(value_path == "maximum-meps"):
+                                self.maximum_meps = value
+                                self.maximum_meps.value_namespace = name_space
+                                self.maximum_meps.value_namespace_prefix = name_space_prefix
+                            if(value_path == "tags"):
+                                self.tags = value
+                                self.tags.value_namespace = name_space
+                                self.tags.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:services'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.service is not None:
-                            for child_ref in self.service:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.service:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.Services']['meta_info']
+                    def has_operation(self):
+                        for c in self.service:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "services" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "service"):
+                            for c in self.service:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = EthernetFeatures.Cfm.Domains.Domain.Services.Service()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.service.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "service"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class DomainProperties(object):
+                class DomainProperties(Entity):
                     """
                     Fundamental properties of the domain
                     
@@ -1317,7 +2291,7 @@ class EthernetFeatures(object):
                     .. attribute:: mdid_format
                     
                     	Maintenance Domain ID Format
-                    	**type**\:   :py:class:`CfmMdidFormatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormatEnum>`
+                    	**type**\:   :py:class:`CfmMdidFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmMdidFormat>`
                     
                     .. attribute:: mdid_mac_address
                     
@@ -1348,125 +2322,317 @@ class EthernetFeatures(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.level = None
-                        self.mdid_format = None
-                        self.mdid_mac_address = None
-                        self.mdid_number = None
-                        self.mdid_string = None
+                        super(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "domain-properties"
+                        self.yang_parent_name = "domain"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-cfm-cfg:domain-properties'
+                        self.level = YLeaf(YType.uint32, "level")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.mdid_format = YLeaf(YType.enumeration, "mdid-format")
 
-                    def _has_data(self):
-                        if self.level is not None:
+                        self.mdid_mac_address = YLeaf(YType.str, "mdid-mac-address")
+
+                        self.mdid_number = YLeaf(YType.uint32, "mdid-number")
+
+                        self.mdid_string = YLeaf(YType.str, "mdid-string")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("level",
+                                        "mdid_format",
+                                        "mdid_mac_address",
+                                        "mdid_number",
+                                        "mdid_string") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.level.is_set or
+                            self.mdid_format.is_set or
+                            self.mdid_mac_address.is_set or
+                            self.mdid_number.is_set or
+                            self.mdid_string.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.level.yfilter != YFilter.not_set or
+                            self.mdid_format.yfilter != YFilter.not_set or
+                            self.mdid_mac_address.yfilter != YFilter.not_set or
+                            self.mdid_number.yfilter != YFilter.not_set or
+                            self.mdid_string.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "domain-properties" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.level.is_set or self.level.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.level.get_name_leafdata())
+                        if (self.mdid_format.is_set or self.mdid_format.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mdid_format.get_name_leafdata())
+                        if (self.mdid_mac_address.is_set or self.mdid_mac_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mdid_mac_address.get_name_leafdata())
+                        if (self.mdid_number.is_set or self.mdid_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mdid_number.get_name_leafdata())
+                        if (self.mdid_string.is_set or self.mdid_string.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mdid_string.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "level" or name == "mdid-format" or name == "mdid-mac-address" or name == "mdid-number" or name == "mdid-string"):
                             return True
-
-                        if self.mdid_format is not None:
-                            return True
-
-                        if self.mdid_mac_address is not None:
-                            return True
-
-                        if self.mdid_number is not None:
-                            return True
-
-                        if self.mdid_string is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain.DomainProperties']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "level"):
+                            self.level = value
+                            self.level.value_namespace = name_space
+                            self.level.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mdid-format"):
+                            self.mdid_format = value
+                            self.mdid_format.value_namespace = name_space
+                            self.mdid_format.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mdid-mac-address"):
+                            self.mdid_mac_address = value
+                            self.mdid_mac_address.value_namespace = name_space
+                            self.mdid_mac_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mdid-number"):
+                            self.mdid_number = value
+                            self.mdid_number.value_namespace = name_space
+                            self.mdid_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mdid-string"):
+                            self.mdid_string = value
+                            self.mdid_string.value_namespace = name_space
+                            self.mdid_string.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.domain is None:
-                        raise YPYModelError('Key property domain is None')
+                def has_data(self):
+                    return (
+                        self.domain.is_set or
+                        (self.domain_properties is not None and self.domain_properties.has_data()) or
+                        (self.services is not None and self.services.has_data()))
 
-                    return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/Cisco-IOS-XR-ethernet-cfm-cfg:domains/Cisco-IOS-XR-ethernet-cfm-cfg:domain[Cisco-IOS-XR-ethernet-cfm-cfg:domain = ' + str(self.domain) + ']'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.domain.yfilter != YFilter.not_set or
+                        (self.domain_properties is not None and self.domain_properties.has_operation()) or
+                        (self.services is not None and self.services.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "domain" + "[domain='" + self.domain.get() + "']" + path_buffer
 
-                def _has_data(self):
-                    if self.domain is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.domain.is_set or self.domain.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.domain.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "domain-properties"):
+                        if (self.domain_properties is None):
+                            self.domain_properties = EthernetFeatures.Cfm.Domains.Domain.DomainProperties()
+                            self.domain_properties.parent = self
+                            self._children_name_map["domain_properties"] = "domain-properties"
+                        return self.domain_properties
+
+                    if (child_yang_name == "services"):
+                        if (self.services is None):
+                            self.services = EthernetFeatures.Cfm.Domains.Domain.Services()
+                            self.services.parent = self
+                            self._children_name_map["services"] = "services"
+                        return self.services
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "domain-properties" or name == "services" or name == "domain"):
                         return True
-
-                    if self.domain_properties is not None and self.domain_properties._has_data():
-                        return True
-
-                    if self.services is not None and self.services._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                    return meta._meta_table['EthernetFeatures.Cfm.Domains.Domain']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "domain"):
+                        self.domain = value
+                        self.domain.value_namespace = name_space
+                        self.domain.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/Cisco-IOS-XR-ethernet-cfm-cfg:domains'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.domain is not None:
-                    for child_ref in self.domain:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.domain:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                return meta._meta_table['EthernetFeatures.Cfm.Domains']['meta_info']
+            def has_operation(self):
+                for c in self.domain:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "domains" + path_buffer
 
-            return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.domains is not None and self.domains._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "domain"):
+                    for c in self.domain:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = EthernetFeatures.Cfm.Domains.Domain()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.domain.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "domain"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (
+                self.nv_satellite_sla_processing_disable.is_set or
+                (self.domains is not None and self.domains.has_data()) or
+                (self.traceroute_cache is not None and self.traceroute_cache.has_data()))
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.nv_satellite_sla_processing_disable.yfilter != YFilter.not_set or
+                (self.domains is not None and self.domains.has_operation()) or
+                (self.traceroute_cache is not None and self.traceroute_cache.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "Cisco-IOS-XR-ethernet-cfm-cfg:cfm" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.nv_satellite_sla_processing_disable.is_set or self.nv_satellite_sla_processing_disable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.nv_satellite_sla_processing_disable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "domains"):
+                if (self.domains is None):
+                    self.domains = EthernetFeatures.Cfm.Domains()
+                    self.domains.parent = self
+                    self._children_name_map["domains"] = "domains"
+                return self.domains
+
+            if (child_yang_name == "traceroute-cache"):
+                if (self.traceroute_cache is None):
+                    self.traceroute_cache = EthernetFeatures.Cfm.TracerouteCache()
+                    self.traceroute_cache.parent = self
+                    self._children_name_map["traceroute_cache"] = "traceroute-cache"
+                return self.traceroute_cache
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "domains" or name == "traceroute-cache" or name == "nv-satellite-sla-processing-disable"):
                 return True
-
-            if self.nv_satellite_sla_processing_disable is not None:
-                return True
-
-            if self.traceroute_cache is not None and self.traceroute_cache._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-            return meta._meta_table['EthernetFeatures.Cfm']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "nv-satellite-sla-processing-disable"):
+                self.nv_satellite_sla_processing_disable = value
+                self.nv_satellite_sla_processing_disable.value_namespace = name_space
+                self.nv_satellite_sla_processing_disable.value_namespace_prefix = name_space_prefix
 
 
-    class EtherLinkOam(object):
+    class EtherLinkOam(Entity):
         """
         Ethernet Link OAM Global Configuration
         
@@ -1483,12 +2649,18 @@ class EthernetFeatures(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(EthernetFeatures.EtherLinkOam, self).__init__()
+
+            self.yang_name = "ether-link-oam"
+            self.yang_parent_name = "ethernet-features"
+
             self.profiles = EthernetFeatures.EtherLinkOam.Profiles()
             self.profiles.parent = self
+            self._children_name_map["profiles"] = "profiles"
+            self._children_yang_names.add("profiles")
 
 
-        class Profiles(object):
+        class Profiles(Entity):
             """
             Table of Ethernet Link OAM profiles
             
@@ -1505,13 +2677,39 @@ class EthernetFeatures(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.profile = YList()
-                self.profile.parent = self
-                self.profile.name = 'profile'
+                super(EthernetFeatures.EtherLinkOam.Profiles, self).__init__()
+
+                self.yang_name = "profiles"
+                self.yang_parent_name = "ether-link-oam"
+
+                self.profile = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EthernetFeatures.EtherLinkOam.Profiles, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EthernetFeatures.EtherLinkOam.Profiles, self).__setattr__(name, value)
 
 
-            class Profile(object):
+            class Profile(Entity):
                 """
                 Name of the profile
                 
@@ -1530,7 +2728,7 @@ class EthernetFeatures(object):
                 .. attribute:: hello_interval
                 
                 	Possible Ethernet Link OAM hello intervals
-                	**type**\:   :py:class:`EtherLinkOamHelloIntervalEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamHelloIntervalEnumEnum>`
+                	**type**\:   :py:class:`EtherLinkOamHelloIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamHelloIntervalEnum>`
                 
                 .. attribute:: link_monitoring
                 
@@ -1545,7 +2743,7 @@ class EthernetFeatures(object):
                 .. attribute:: mode
                 
                 	Set the OAM mode to passive
-                	**type**\:   :py:class:`EtherLinkOamModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamModeEnumEnum>`
+                	**type**\:   :py:class:`EtherLinkOamModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamModeEnum>`
                 
                 .. attribute:: remote_loopback
                 
@@ -1577,75 +2775,124 @@ class EthernetFeatures(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.profile = None
+                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile, self).__init__()
+
+                    self.yang_name = "profile"
+                    self.yang_parent_name = "profiles"
+
+                    self.profile = YLeaf(YType.str, "profile")
+
+                    self.hello_interval = YLeaf(YType.enumeration, "hello-interval")
+
+                    self.mib_retrieval = YLeaf(YType.boolean, "mib-retrieval")
+
+                    self.mode = YLeaf(YType.enumeration, "mode")
+
+                    self.remote_loopback = YLeaf(YType.boolean, "remote-loopback")
+
+                    self.timeout = YLeaf(YType.uint32, "timeout")
+
+                    self.udlf = YLeaf(YType.boolean, "udlf")
+
                     self.action = EthernetFeatures.EtherLinkOam.Profiles.Profile.Action()
                     self.action.parent = self
-                    self.hello_interval = None
+                    self._children_name_map["action"] = "action"
+                    self._children_yang_names.add("action")
+
                     self.link_monitoring = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring()
                     self.link_monitoring.parent = self
-                    self.mib_retrieval = None
-                    self.mode = None
-                    self.remote_loopback = None
+                    self._children_name_map["link_monitoring"] = "link-monitoring"
+                    self._children_yang_names.add("link-monitoring")
+
                     self.require_remote = EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote()
                     self.require_remote.parent = self
-                    self.timeout = None
-                    self.udlf = None
+                    self._children_name_map["require_remote"] = "require-remote"
+                    self._children_yang_names.add("require-remote")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("profile",
+                                    "hello_interval",
+                                    "mib_retrieval",
+                                    "mode",
+                                    "remote_loopback",
+                                    "timeout",
+                                    "udlf") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile, self).__setattr__(name, value)
 
 
-                class Action(object):
+                class Action(Entity):
                     """
                     Configure action parameters
                     
                     .. attribute:: capabilities_conflict
                     
                     	Action to perform when a capabilities conflict occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: critical_event
                     
                     	Action to perform when a critical event occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
                     
                     .. attribute:: discovery_timeout
                     
                     	Action to perform when discovery timeout occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: dying_gasp
                     
                     	Action to perform when a dying gasp occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
                     
                     .. attribute:: high_threshold
                     
                     	Action to perform when a high\-threshold event occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnum>`
                     
                     .. attribute:: link_fault
                     
                     	Action to perform when a link fault message is received
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: remote_loopback
                     
                     	Action to perform when remote loopback is entered or exited
-                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum>`
                     
                     .. attribute:: session_down
                     
                     	Action to perform when a session goes down
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     .. attribute:: session_up
                     
                     	Action to perform when a session comes up
-                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnum>`
                     
                     .. attribute:: wiring_conflict
                     
                     	Action to perform when a wiring conflict occurs
-                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfd>`
                     
                     
 
@@ -1655,69 +2902,185 @@ class EthernetFeatures(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.capabilities_conflict = None
-                        self.critical_event = None
-                        self.discovery_timeout = None
-                        self.dying_gasp = None
-                        self.high_threshold = None
-                        self.link_fault = None
-                        self.remote_loopback = None
-                        self.session_down = None
-                        self.session_up = None
-                        self.wiring_conflict = None
+                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "action"
+                        self.yang_parent_name = "profile"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:action'
+                        self.capabilities_conflict = YLeaf(YType.enumeration, "capabilities-conflict")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.critical_event = YLeaf(YType.enumeration, "critical-event")
 
-                    def _has_data(self):
-                        if self.capabilities_conflict is not None:
+                        self.discovery_timeout = YLeaf(YType.enumeration, "discovery-timeout")
+
+                        self.dying_gasp = YLeaf(YType.enumeration, "dying-gasp")
+
+                        self.high_threshold = YLeaf(YType.enumeration, "high-threshold")
+
+                        self.link_fault = YLeaf(YType.enumeration, "link-fault")
+
+                        self.remote_loopback = YLeaf(YType.enumeration, "remote-loopback")
+
+                        self.session_down = YLeaf(YType.enumeration, "session-down")
+
+                        self.session_up = YLeaf(YType.enumeration, "session-up")
+
+                        self.wiring_conflict = YLeaf(YType.enumeration, "wiring-conflict")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("capabilities_conflict",
+                                        "critical_event",
+                                        "discovery_timeout",
+                                        "dying_gasp",
+                                        "high_threshold",
+                                        "link_fault",
+                                        "remote_loopback",
+                                        "session_down",
+                                        "session_up",
+                                        "wiring_conflict") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.capabilities_conflict.is_set or
+                            self.critical_event.is_set or
+                            self.discovery_timeout.is_set or
+                            self.dying_gasp.is_set or
+                            self.high_threshold.is_set or
+                            self.link_fault.is_set or
+                            self.remote_loopback.is_set or
+                            self.session_down.is_set or
+                            self.session_up.is_set or
+                            self.wiring_conflict.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.capabilities_conflict.yfilter != YFilter.not_set or
+                            self.critical_event.yfilter != YFilter.not_set or
+                            self.discovery_timeout.yfilter != YFilter.not_set or
+                            self.dying_gasp.yfilter != YFilter.not_set or
+                            self.high_threshold.yfilter != YFilter.not_set or
+                            self.link_fault.yfilter != YFilter.not_set or
+                            self.remote_loopback.yfilter != YFilter.not_set or
+                            self.session_down.yfilter != YFilter.not_set or
+                            self.session_up.yfilter != YFilter.not_set or
+                            self.wiring_conflict.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "action" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.capabilities_conflict.is_set or self.capabilities_conflict.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.capabilities_conflict.get_name_leafdata())
+                        if (self.critical_event.is_set or self.critical_event.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.critical_event.get_name_leafdata())
+                        if (self.discovery_timeout.is_set or self.discovery_timeout.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.discovery_timeout.get_name_leafdata())
+                        if (self.dying_gasp.is_set or self.dying_gasp.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dying_gasp.get_name_leafdata())
+                        if (self.high_threshold.is_set or self.high_threshold.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.high_threshold.get_name_leafdata())
+                        if (self.link_fault.is_set or self.link_fault.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.link_fault.get_name_leafdata())
+                        if (self.remote_loopback.is_set or self.remote_loopback.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_loopback.get_name_leafdata())
+                        if (self.session_down.is_set or self.session_down.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_down.get_name_leafdata())
+                        if (self.session_up.is_set or self.session_up.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_up.get_name_leafdata())
+                        if (self.wiring_conflict.is_set or self.wiring_conflict.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.wiring_conflict.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "capabilities-conflict" or name == "critical-event" or name == "discovery-timeout" or name == "dying-gasp" or name == "high-threshold" or name == "link-fault" or name == "remote-loopback" or name == "session-down" or name == "session-up" or name == "wiring-conflict"):
                             return True
-
-                        if self.critical_event is not None:
-                            return True
-
-                        if self.discovery_timeout is not None:
-                            return True
-
-                        if self.dying_gasp is not None:
-                            return True
-
-                        if self.high_threshold is not None:
-                            return True
-
-                        if self.link_fault is not None:
-                            return True
-
-                        if self.remote_loopback is not None:
-                            return True
-
-                        if self.session_down is not None:
-                            return True
-
-                        if self.session_up is not None:
-                            return True
-
-                        if self.wiring_conflict is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.Action']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "capabilities-conflict"):
+                            self.capabilities_conflict = value
+                            self.capabilities_conflict.value_namespace = name_space
+                            self.capabilities_conflict.value_namespace_prefix = name_space_prefix
+                        if(value_path == "critical-event"):
+                            self.critical_event = value
+                            self.critical_event.value_namespace = name_space
+                            self.critical_event.value_namespace_prefix = name_space_prefix
+                        if(value_path == "discovery-timeout"):
+                            self.discovery_timeout = value
+                            self.discovery_timeout.value_namespace = name_space
+                            self.discovery_timeout.value_namespace_prefix = name_space_prefix
+                        if(value_path == "dying-gasp"):
+                            self.dying_gasp = value
+                            self.dying_gasp.value_namespace = name_space
+                            self.dying_gasp.value_namespace_prefix = name_space_prefix
+                        if(value_path == "high-threshold"):
+                            self.high_threshold = value
+                            self.high_threshold.value_namespace = name_space
+                            self.high_threshold.value_namespace_prefix = name_space_prefix
+                        if(value_path == "link-fault"):
+                            self.link_fault = value
+                            self.link_fault.value_namespace = name_space
+                            self.link_fault.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-loopback"):
+                            self.remote_loopback = value
+                            self.remote_loopback.value_namespace = name_space
+                            self.remote_loopback.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-down"):
+                            self.session_down = value
+                            self.session_down.value_namespace = name_space
+                            self.session_down.value_namespace_prefix = name_space_prefix
+                        if(value_path == "session-up"):
+                            self.session_up = value
+                            self.session_up.value_namespace = name_space
+                            self.session_up.value_namespace_prefix = name_space_prefix
+                        if(value_path == "wiring-conflict"):
+                            self.wiring_conflict = value
+                            self.wiring_conflict.value_namespace = name_space
+                            self.wiring_conflict.value_namespace_prefix = name_space_prefix
 
 
-                class RequireRemote(object):
+                class RequireRemote(Entity):
                     """
                     Configure remote requirement parameters
                     
@@ -1734,7 +3097,7 @@ class EthernetFeatures(object):
                     .. attribute:: mode
                     
                     	Possible required OAM modes
-                    	**type**\:   :py:class:`EtherLinkOamRequireModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamRequireModeEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamRequireModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamRequireModeEnum>`
                     
                     .. attribute:: remote_loopback
                     
@@ -1749,45 +3112,119 @@ class EthernetFeatures(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.link_monitoring = None
-                        self.mib_retrieval = None
-                        self.mode = None
-                        self.remote_loopback = None
+                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "require-remote"
+                        self.yang_parent_name = "profile"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:require-remote'
+                        self.link_monitoring = YLeaf(YType.boolean, "link-monitoring")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.mib_retrieval = YLeaf(YType.boolean, "mib-retrieval")
 
-                    def _has_data(self):
-                        if self.link_monitoring is not None:
+                        self.mode = YLeaf(YType.enumeration, "mode")
+
+                        self.remote_loopback = YLeaf(YType.boolean, "remote-loopback")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("link_monitoring",
+                                        "mib_retrieval",
+                                        "mode",
+                                        "remote_loopback") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.link_monitoring.is_set or
+                            self.mib_retrieval.is_set or
+                            self.mode.is_set or
+                            self.remote_loopback.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.link_monitoring.yfilter != YFilter.not_set or
+                            self.mib_retrieval.yfilter != YFilter.not_set or
+                            self.mode.yfilter != YFilter.not_set or
+                            self.remote_loopback.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "require-remote" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.link_monitoring.is_set or self.link_monitoring.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.link_monitoring.get_name_leafdata())
+                        if (self.mib_retrieval.is_set or self.mib_retrieval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mib_retrieval.get_name_leafdata())
+                        if (self.mode.is_set or self.mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mode.get_name_leafdata())
+                        if (self.remote_loopback.is_set or self.remote_loopback.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_loopback.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "link-monitoring" or name == "mib-retrieval" or name == "mode" or name == "remote-loopback"):
                             return True
-
-                        if self.mib_retrieval is not None:
-                            return True
-
-                        if self.mode is not None:
-                            return True
-
-                        if self.remote_loopback is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "link-monitoring"):
+                            self.link_monitoring = value
+                            self.link_monitoring.value_namespace = name_space
+                            self.link_monitoring.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mib-retrieval"):
+                            self.mib_retrieval = value
+                            self.mib_retrieval.value_namespace = name_space
+                            self.mib_retrieval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mode"):
+                            self.mode = value
+                            self.mode.value_namespace = name_space
+                            self.mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-loopback"):
+                            self.remote_loopback = value
+                            self.remote_loopback.value_namespace = name_space
+                            self.remote_loopback.value_namespace_prefix = name_space_prefix
 
 
-                class LinkMonitoring(object):
+                class LinkMonitoring(Entity):
                     """
                     Configure link monitor parameters
                     
@@ -1824,19 +3261,59 @@ class EthernetFeatures(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring, self).__init__()
+
+                        self.yang_name = "link-monitoring"
+                        self.yang_parent_name = "profile"
+
+                        self.monitoring = YLeaf(YType.boolean, "monitoring")
+
                         self.frame = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame()
                         self.frame.parent = self
+                        self._children_name_map["frame"] = "frame"
+                        self._children_yang_names.add("frame")
+
                         self.frame_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod()
                         self.frame_period.parent = self
+                        self._children_name_map["frame_period"] = "frame-period"
+                        self._children_yang_names.add("frame-period")
+
                         self.frame_seconds = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds()
                         self.frame_seconds.parent = self
-                        self.monitoring = None
+                        self._children_name_map["frame_seconds"] = "frame-seconds"
+                        self._children_yang_names.add("frame-seconds")
+
                         self.symbol_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod()
                         self.symbol_period.parent = self
+                        self._children_name_map["symbol_period"] = "symbol-period"
+                        self._children_yang_names.add("symbol-period")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("monitoring") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring, self).__setattr__(name, value)
 
 
-                    class SymbolPeriod(object):
+                    class SymbolPeriod(Entity):
                         """
                         Symbol\-period event configuration
                         
@@ -1860,13 +3337,22 @@ class EthernetFeatures(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod, self).__init__()
+
+                            self.yang_name = "symbol-period"
+                            self.yang_parent_name = "link-monitoring"
+
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold()
                             self.threshold.parent = self
+                            self._children_name_map["threshold"] = "threshold"
+                            self._children_yang_names.add("threshold")
+
                             self.window = None
+                            self._children_name_map["window"] = "window"
+                            self._children_yang_names.add("window")
 
 
-                        class Window(object):
+                        class Window(Entity):
                             """
                             Window size configuration for symbol\-period
                             events
@@ -1874,14 +3360,14 @@ class EthernetFeatures(object):
                             .. attribute:: multiplier
                             
                             	The multiplier to use for this window (only valid if 'Units' is Symbols and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
                             .. attribute:: units
                             
                             	Units to use for this window
-                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsSymbolsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsSymbolsEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsSymbolsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsSymbolsEnum>`
                             
                             	**mandatory**\: True
                             
@@ -1894,11 +3380,6 @@ class EthernetFeatures(object):
                             
                             	**mandatory**\: True
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -1909,44 +3390,109 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.multiplier = None
-                                self.units = None
-                                self.window = None
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "window"
+                                self.yang_parent_name = "symbol-period"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:window'
+                                self.multiplier = YLeaf(YType.enumeration, "multiplier")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.units = YLeaf(YType.enumeration, "units")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                                self.window = YLeaf(YType.uint32, "window")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("multiplier",
+                                                "units",
+                                                "window") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.multiplier.is_set or
+                                    self.units.is_set or
+                                    self.window.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.multiplier.yfilter != YFilter.not_set or
+                                    self.units.yfilter != YFilter.not_set or
+                                    self.window.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "window" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.multiplier.is_set or self.multiplier.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier.get_name_leafdata())
+                                if (self.units.is_set or self.units.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.units.get_name_leafdata())
+                                if (self.window.is_set or self.window.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.window.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "multiplier" or name == "units" or name == "window"):
                                     return True
-                                if self.multiplier is not None:
-                                    return True
-
-                                if self.units is not None:
-                                    return True
-
-                                if self.window is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "multiplier"):
+                                    self.multiplier = value
+                                    self.multiplier.value_namespace = name_space
+                                    self.multiplier.value_namespace_prefix = name_space_prefix
+                                if(value_path == "units"):
+                                    self.units = value
+                                    self.units.value_namespace = name_space
+                                    self.units.value_namespace_prefix = name_space_prefix
+                                if(value_path == "window"):
+                                    self.window = value
+                                    self.window.value_namespace = name_space
+                                    self.window.value_namespace_prefix = name_space_prefix
 
 
-                        class Threshold(object):
+                        class Threshold(Entity):
                             """
                             Threshold configuration for symbol\-period
                             events
@@ -1954,12 +3500,12 @@ class EthernetFeatures(object):
                             .. attribute:: multiplier_high
                             
                             	The multiplier to use for the high threshold (only valid if 'Units' is Symbols and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             .. attribute:: multiplier_low
                             
                             	The multiplier to use for the low threshold (only valid if 'Units' is Symbols and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
@@ -1982,7 +3528,7 @@ class EthernetFeatures(object):
                             .. attribute:: units
                             
                             	The units to use for these thresholds
-                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsSymbolsEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsSymbolsEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsSymbolsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsSymbolsEnum>`
                             
                             	**default value**\: symbols
                             
@@ -1994,74 +3540,188 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.multiplier_high = None
-                                self.multiplier_low = None
-                                self.threshold_high = None
-                                self.threshold_low = None
-                                self.units = None
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "threshold"
+                                self.yang_parent_name = "symbol-period"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+                                self.multiplier_high = YLeaf(YType.enumeration, "multiplier-high")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.multiplier_low = YLeaf(YType.enumeration, "multiplier-low")
 
-                            def _has_data(self):
-                                if self.multiplier_high is not None:
+                                self.threshold_high = YLeaf(YType.uint32, "threshold-high")
+
+                                self.threshold_low = YLeaf(YType.uint32, "threshold-low")
+
+                                self.units = YLeaf(YType.enumeration, "units")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("multiplier_high",
+                                                "multiplier_low",
+                                                "threshold_high",
+                                                "threshold_low",
+                                                "units") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.multiplier_high.is_set or
+                                    self.multiplier_low.is_set or
+                                    self.threshold_high.is_set or
+                                    self.threshold_low.is_set or
+                                    self.units.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.multiplier_high.yfilter != YFilter.not_set or
+                                    self.multiplier_low.yfilter != YFilter.not_set or
+                                    self.threshold_high.yfilter != YFilter.not_set or
+                                    self.threshold_low.yfilter != YFilter.not_set or
+                                    self.units.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "threshold" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.multiplier_high.is_set or self.multiplier_high.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier_high.get_name_leafdata())
+                                if (self.multiplier_low.is_set or self.multiplier_low.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier_low.get_name_leafdata())
+                                if (self.threshold_high.is_set or self.threshold_high.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_high.get_name_leafdata())
+                                if (self.threshold_low.is_set or self.threshold_low.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_low.get_name_leafdata())
+                                if (self.units.is_set or self.units.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.units.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "multiplier-high" or name == "multiplier-low" or name == "threshold-high" or name == "threshold-low" or name == "units"):
                                     return True
-
-                                if self.multiplier_low is not None:
-                                    return True
-
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
-                                if self.units is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "multiplier-high"):
+                                    self.multiplier_high = value
+                                    self.multiplier_high.value_namespace = name_space
+                                    self.multiplier_high.value_namespace_prefix = name_space_prefix
+                                if(value_path == "multiplier-low"):
+                                    self.multiplier_low = value
+                                    self.multiplier_low.value_namespace = name_space
+                                    self.multiplier_low.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold-high"):
+                                    self.threshold_high = value
+                                    self.threshold_high.value_namespace = name_space
+                                    self.threshold_high.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold-low"):
+                                    self.threshold_low = value
+                                    self.threshold_low.value_namespace = name_space
+                                    self.threshold_low.value_namespace_prefix = name_space_prefix
+                                if(value_path == "units"):
+                                    self.units = value
+                                    self.units.value_namespace = name_space
+                                    self.units.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                (self.threshold is not None and self.threshold.has_data()) or
+                                (self.window is not None))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:symbol-period'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.threshold is not None and self.threshold.has_operation()) or
+                                (self.window is not None and self.window.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "symbol-period" + path_buffer
 
-                        def _has_data(self):
-                            if self.threshold is not None and self.threshold._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "threshold"):
+                                if (self.threshold is None):
+                                    self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold()
+                                    self.threshold.parent = self
+                                    self._children_name_map["threshold"] = "threshold"
+                                return self.threshold
+
+                            if (child_yang_name == "window"):
+                                if (self.window is None):
+                                    self.window = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window()
+                                    self.window.parent = self
+                                    self._children_name_map["window"] = "window"
+                                return self.window
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "threshold" or name == "window"):
                                 return True
-
-                            if self.window is not None and self.window._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class FramePeriod(object):
+                    class FramePeriod(Entity):
                         """
                         Frame\-period event configuration
                         
@@ -2085,13 +3745,22 @@ class EthernetFeatures(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod, self).__init__()
+
+                            self.yang_name = "frame-period"
+                            self.yang_parent_name = "link-monitoring"
+
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold()
                             self.threshold.parent = self
+                            self._children_name_map["threshold"] = "threshold"
+                            self._children_yang_names.add("threshold")
+
                             self.window = None
+                            self._children_name_map["window"] = "window"
+                            self._children_yang_names.add("window")
 
 
-                        class Window(object):
+                        class Window(Entity):
                             """
                             Window size configuration for frame\-period
                             events
@@ -2099,14 +3768,14 @@ class EthernetFeatures(object):
                             .. attribute:: multiplier
                             
                             	The multiplier to use for this window (only valid if 'Units' is Frames and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
                             .. attribute:: units
                             
                             	The units to use for this window
-                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsFramesEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsFramesEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamWindowUnitsFramesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamWindowUnitsFramesEnum>`
                             
                             	**mandatory**\: True
                             
@@ -2119,11 +3788,6 @@ class EthernetFeatures(object):
                             
                             	**mandatory**\: True
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
                             
 
                             This class is a :ref:`presence class<presence-class>`
@@ -2134,44 +3798,109 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.multiplier = None
-                                self.units = None
-                                self.window = None
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "window"
+                                self.yang_parent_name = "frame-period"
+                                self.is_presence_container = True
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:window'
+                                self.multiplier = YLeaf(YType.enumeration, "multiplier")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.units = YLeaf(YType.enumeration, "units")
 
-                            def _has_data(self):
-                                if self._is_presence:
+                                self.window = YLeaf(YType.uint32, "window")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("multiplier",
+                                                "units",
+                                                "window") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.multiplier.is_set or
+                                    self.units.is_set or
+                                    self.window.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.multiplier.yfilter != YFilter.not_set or
+                                    self.units.yfilter != YFilter.not_set or
+                                    self.window.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "window" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.multiplier.is_set or self.multiplier.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier.get_name_leafdata())
+                                if (self.units.is_set or self.units.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.units.get_name_leafdata())
+                                if (self.window.is_set or self.window.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.window.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "multiplier" or name == "units" or name == "window"):
                                     return True
-                                if self.multiplier is not None:
-                                    return True
-
-                                if self.units is not None:
-                                    return True
-
-                                if self.window is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "multiplier"):
+                                    self.multiplier = value
+                                    self.multiplier.value_namespace = name_space
+                                    self.multiplier.value_namespace_prefix = name_space_prefix
+                                if(value_path == "units"):
+                                    self.units = value
+                                    self.units.value_namespace = name_space
+                                    self.units.value_namespace_prefix = name_space_prefix
+                                if(value_path == "window"):
+                                    self.window = value
+                                    self.window.value_namespace = name_space
+                                    self.window.value_namespace_prefix = name_space_prefix
 
 
-                        class Threshold(object):
+                        class Threshold(Entity):
                             """
                             Threshold configuration for frame\-period
                             events
@@ -2179,12 +3908,12 @@ class EthernetFeatures(object):
                             .. attribute:: multiplier_high
                             
                             	The multiplier to use for the high threshold (only valid if 'Units' is Frames and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             .. attribute:: multiplier_low
                             
                             	The multiplier to use for the low threshold (only valid if 'Units' is Frames and treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
@@ -2207,7 +3936,7 @@ class EthernetFeatures(object):
                             .. attribute:: units
                             
                             	The units to use for these thresholds
-                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsFramesEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsFramesEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdUnitsFramesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdUnitsFramesEnum>`
                             
                             	**default value**\: ppm
                             
@@ -2219,74 +3948,188 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.multiplier_high = None
-                                self.multiplier_low = None
-                                self.threshold_high = None
-                                self.threshold_low = None
-                                self.units = None
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "threshold"
+                                self.yang_parent_name = "frame-period"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+                                self.multiplier_high = YLeaf(YType.enumeration, "multiplier-high")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.multiplier_low = YLeaf(YType.enumeration, "multiplier-low")
 
-                            def _has_data(self):
-                                if self.multiplier_high is not None:
+                                self.threshold_high = YLeaf(YType.uint32, "threshold-high")
+
+                                self.threshold_low = YLeaf(YType.uint32, "threshold-low")
+
+                                self.units = YLeaf(YType.enumeration, "units")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("multiplier_high",
+                                                "multiplier_low",
+                                                "threshold_high",
+                                                "threshold_low",
+                                                "units") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.multiplier_high.is_set or
+                                    self.multiplier_low.is_set or
+                                    self.threshold_high.is_set or
+                                    self.threshold_low.is_set or
+                                    self.units.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.multiplier_high.yfilter != YFilter.not_set or
+                                    self.multiplier_low.yfilter != YFilter.not_set or
+                                    self.threshold_high.yfilter != YFilter.not_set or
+                                    self.threshold_low.yfilter != YFilter.not_set or
+                                    self.units.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "threshold" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.multiplier_high.is_set or self.multiplier_high.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier_high.get_name_leafdata())
+                                if (self.multiplier_low.is_set or self.multiplier_low.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier_low.get_name_leafdata())
+                                if (self.threshold_high.is_set or self.threshold_high.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_high.get_name_leafdata())
+                                if (self.threshold_low.is_set or self.threshold_low.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_low.get_name_leafdata())
+                                if (self.units.is_set or self.units.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.units.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "multiplier-high" or name == "multiplier-low" or name == "threshold-high" or name == "threshold-low" or name == "units"):
                                     return True
-
-                                if self.multiplier_low is not None:
-                                    return True
-
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
-                                if self.units is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "multiplier-high"):
+                                    self.multiplier_high = value
+                                    self.multiplier_high.value_namespace = name_space
+                                    self.multiplier_high.value_namespace_prefix = name_space_prefix
+                                if(value_path == "multiplier-low"):
+                                    self.multiplier_low = value
+                                    self.multiplier_low.value_namespace = name_space
+                                    self.multiplier_low.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold-high"):
+                                    self.threshold_high = value
+                                    self.threshold_high.value_namespace = name_space
+                                    self.threshold_high.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold-low"):
+                                    self.threshold_low = value
+                                    self.threshold_low.value_namespace = name_space
+                                    self.threshold_low.value_namespace_prefix = name_space_prefix
+                                if(value_path == "units"):
+                                    self.units = value
+                                    self.units.value_namespace = name_space
+                                    self.units.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                (self.threshold is not None and self.threshold.has_data()) or
+                                (self.window is not None))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-period'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.threshold is not None and self.threshold.has_operation()) or
+                                (self.window is not None and self.window.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "frame-period" + path_buffer
 
-                        def _has_data(self):
-                            if self.threshold is not None and self.threshold._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "threshold"):
+                                if (self.threshold is None):
+                                    self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold()
+                                    self.threshold.parent = self
+                                    self._children_name_map["threshold"] = "threshold"
+                                return self.threshold
+
+                            if (child_yang_name == "window"):
+                                if (self.window is None):
+                                    self.window = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window()
+                                    self.window.parent = self
+                                    self._children_name_map["window"] = "window"
+                                return self.window
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "threshold" or name == "window"):
                                 return True
-
-                            if self.window is not None and self.window._has_data():
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class FrameSeconds(object):
+                    class FrameSeconds(Entity):
                         """
                         Frame\-seconds event configuration
                         
@@ -2314,13 +4157,44 @@ class EthernetFeatures(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds, self).__init__()
+
+                            self.yang_name = "frame-seconds"
+                            self.yang_parent_name = "link-monitoring"
+
+                            self.window = YLeaf(YType.uint32, "window")
+
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold()
                             self.threshold.parent = self
-                            self.window = None
+                            self._children_name_map["threshold"] = "threshold"
+                            self._children_yang_names.add("threshold")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("window") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds, self).__setattr__(name, value)
 
 
-                        class Threshold(object):
+                        class Threshold(Entity):
                             """
                             Threshold configuration for frame\-seconds
                             events
@@ -2353,62 +4227,153 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.threshold_high = None
-                                self.threshold_low = None
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "threshold"
+                                self.yang_parent_name = "frame-seconds"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+                                self.threshold_high = YLeaf(YType.uint32, "threshold-high")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.threshold_low = YLeaf(YType.uint32, "threshold-low")
 
-                            def _has_data(self):
-                                if self.threshold_high is not None:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("threshold_high",
+                                                "threshold_low") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.threshold_high.is_set or
+                                    self.threshold_low.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.threshold_high.yfilter != YFilter.not_set or
+                                    self.threshold_low.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "threshold" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.threshold_high.is_set or self.threshold_high.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_high.get_name_leafdata())
+                                if (self.threshold_low.is_set or self.threshold_low.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_low.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "threshold-high" or name == "threshold-low"):
                                     return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "threshold-high"):
+                                    self.threshold_high = value
+                                    self.threshold_high.value_namespace = name_space
+                                    self.threshold_high.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold-low"):
+                                    self.threshold_low = value
+                                    self.threshold_low.value_namespace = name_space
+                                    self.threshold_low.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                self.window.is_set or
+                                (self.threshold is not None and self.threshold.has_data()))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame-seconds'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.window.yfilter != YFilter.not_set or
+                                (self.threshold is not None and self.threshold.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "frame-seconds" + path_buffer
 
-                        def _has_data(self):
-                            if self.threshold is not None and self.threshold._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.window.is_set or self.window.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.window.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "threshold"):
+                                if (self.threshold is None):
+                                    self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold()
+                                    self.threshold.parent = self
+                                    self._children_name_map["threshold"] = "threshold"
+                                return self.threshold
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "threshold" or name == "window"):
                                 return True
-
-                            if self.window is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "window"):
+                                self.window = value
+                                self.window.value_namespace = name_space
+                                self.window.value_namespace_prefix = name_space_prefix
 
 
-                    class Frame(object):
+                    class Frame(Entity):
                         """
                         Frame event configuration
                         
@@ -2436,25 +4401,56 @@ class EthernetFeatures(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame, self).__init__()
+
+                            self.yang_name = "frame"
+                            self.yang_parent_name = "link-monitoring"
+
+                            self.window = YLeaf(YType.uint32, "window")
+
                             self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold()
                             self.threshold.parent = self
-                            self.window = None
+                            self._children_name_map["threshold"] = "threshold"
+                            self._children_yang_names.add("threshold")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("window") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame, self).__setattr__(name, value)
 
 
-                        class Threshold(object):
+                        class Threshold(Entity):
                             """
                             Threshold configuration for frame events
                             
                             .. attribute:: multiplier_high
                             
                             	The multiplier to use for the high threshold (treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             .. attribute:: multiplier_low
                             
                             	The multiplier to use for the low threshold (treated as 1 if unspecified)
-                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnumEnum>`
+                            	**type**\:   :py:class:`EtherLinkOamThresholdWindowMultiplierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamThresholdWindowMultiplierEnum>`
                             
                             	**default value**\: none
                             
@@ -2482,217 +4478,550 @@ class EthernetFeatures(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.multiplier_high = None
-                                self.multiplier_low = None
-                                self.threshold_high = None
-                                self.threshold_low = None
+                                super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "threshold"
+                                self.yang_parent_name = "frame"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:threshold'
+                                self.multiplier_high = YLeaf(YType.enumeration, "multiplier-high")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.multiplier_low = YLeaf(YType.enumeration, "multiplier-low")
 
-                            def _has_data(self):
-                                if self.multiplier_high is not None:
+                                self.threshold_high = YLeaf(YType.uint32, "threshold-high")
+
+                                self.threshold_low = YLeaf(YType.uint32, "threshold-low")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("multiplier_high",
+                                                "multiplier_low",
+                                                "threshold_high",
+                                                "threshold_low") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.multiplier_high.is_set or
+                                    self.multiplier_low.is_set or
+                                    self.threshold_high.is_set or
+                                    self.threshold_low.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.multiplier_high.yfilter != YFilter.not_set or
+                                    self.multiplier_low.yfilter != YFilter.not_set or
+                                    self.threshold_high.yfilter != YFilter.not_set or
+                                    self.threshold_low.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "threshold" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.multiplier_high.is_set or self.multiplier_high.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier_high.get_name_leafdata())
+                                if (self.multiplier_low.is_set or self.multiplier_low.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.multiplier_low.get_name_leafdata())
+                                if (self.threshold_high.is_set or self.threshold_high.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_high.get_name_leafdata())
+                                if (self.threshold_low.is_set or self.threshold_low.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.threshold_low.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "multiplier-high" or name == "multiplier-low" or name == "threshold-high" or name == "threshold-low"):
                                     return True
-
-                                if self.multiplier_low is not None:
-                                    return True
-
-                                if self.threshold_high is not None:
-                                    return True
-
-                                if self.threshold_low is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "multiplier-high"):
+                                    self.multiplier_high = value
+                                    self.multiplier_high.value_namespace = name_space
+                                    self.multiplier_high.value_namespace_prefix = name_space_prefix
+                                if(value_path == "multiplier-low"):
+                                    self.multiplier_low = value
+                                    self.multiplier_low.value_namespace = name_space
+                                    self.multiplier_low.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold-high"):
+                                    self.threshold_high = value
+                                    self.threshold_high.value_namespace = name_space
+                                    self.threshold_high.value_namespace_prefix = name_space_prefix
+                                if(value_path == "threshold-low"):
+                                    self.threshold_low = value
+                                    self.threshold_low.value_namespace = name_space
+                                    self.threshold_low.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (
+                                self.window.is_set or
+                                (self.threshold is not None and self.threshold.has_data()))
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:frame'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.window.yfilter != YFilter.not_set or
+                                (self.threshold is not None and self.threshold.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "frame" + path_buffer
 
-                        def _has_data(self):
-                            if self.threshold is not None and self.threshold._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.window.is_set or self.window.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.window.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "threshold"):
+                                if (self.threshold is None):
+                                    self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold()
+                                    self.threshold.parent = self
+                                    self._children_name_map["threshold"] = "threshold"
+                                return self.threshold
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "threshold" or name == "window"):
                                 return True
-
-                            if self.window is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                            return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "window"):
+                                self.window = value
+                                self.window.value_namespace = name_space
+                                self.window.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            self.monitoring.is_set or
+                            (self.frame is not None and self.frame.has_data()) or
+                            (self.frame_period is not None and self.frame_period.has_data()) or
+                            (self.frame_seconds is not None and self.frame_seconds.has_data()) or
+                            (self.symbol_period is not None and self.symbol_period.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ethernet-link-oam-cfg:link-monitoring'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.monitoring.yfilter != YFilter.not_set or
+                            (self.frame is not None and self.frame.has_operation()) or
+                            (self.frame_period is not None and self.frame_period.has_operation()) or
+                            (self.frame_seconds is not None and self.frame_seconds.has_operation()) or
+                            (self.symbol_period is not None and self.symbol_period.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "link-monitoring" + path_buffer
 
-                    def _has_data(self):
-                        if self.frame is not None and self.frame._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.monitoring.is_set or self.monitoring.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.monitoring.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "frame"):
+                            if (self.frame is None):
+                                self.frame = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame()
+                                self.frame.parent = self
+                                self._children_name_map["frame"] = "frame"
+                            return self.frame
+
+                        if (child_yang_name == "frame-period"):
+                            if (self.frame_period is None):
+                                self.frame_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod()
+                                self.frame_period.parent = self
+                                self._children_name_map["frame_period"] = "frame-period"
+                            return self.frame_period
+
+                        if (child_yang_name == "frame-seconds"):
+                            if (self.frame_seconds is None):
+                                self.frame_seconds = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds()
+                                self.frame_seconds.parent = self
+                                self._children_name_map["frame_seconds"] = "frame-seconds"
+                            return self.frame_seconds
+
+                        if (child_yang_name == "symbol-period"):
+                            if (self.symbol_period is None):
+                                self.symbol_period = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod()
+                                self.symbol_period.parent = self
+                                self._children_name_map["symbol_period"] = "symbol-period"
+                            return self.symbol_period
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "frame" or name == "frame-period" or name == "frame-seconds" or name == "symbol-period" or name == "monitoring"):
                             return True
-
-                        if self.frame_period is not None and self.frame_period._has_data():
-                            return True
-
-                        if self.frame_seconds is not None and self.frame_seconds._has_data():
-                            return True
-
-                        if self.monitoring is not None:
-                            return True
-
-                        if self.symbol_period is not None and self.symbol_period._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                        return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "monitoring"):
+                            self.monitoring = value
+                            self.monitoring.value_namespace = name_space
+                            self.monitoring.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.profile is None:
-                        raise YPYModelError('Key property profile is None')
+                def has_data(self):
+                    return (
+                        self.profile.is_set or
+                        self.hello_interval.is_set or
+                        self.mib_retrieval.is_set or
+                        self.mode.is_set or
+                        self.remote_loopback.is_set or
+                        self.timeout.is_set or
+                        self.udlf.is_set or
+                        (self.action is not None and self.action.has_data()) or
+                        (self.link_monitoring is not None and self.link_monitoring.has_data()) or
+                        (self.require_remote is not None and self.require_remote.has_data()))
 
-                    return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-cfg:profiles/Cisco-IOS-XR-ethernet-link-oam-cfg:profile[Cisco-IOS-XR-ethernet-link-oam-cfg:profile = ' + str(self.profile) + ']'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.profile.yfilter != YFilter.not_set or
+                        self.hello_interval.yfilter != YFilter.not_set or
+                        self.mib_retrieval.yfilter != YFilter.not_set or
+                        self.mode.yfilter != YFilter.not_set or
+                        self.remote_loopback.yfilter != YFilter.not_set or
+                        self.timeout.yfilter != YFilter.not_set or
+                        self.udlf.yfilter != YFilter.not_set or
+                        (self.action is not None and self.action.has_operation()) or
+                        (self.link_monitoring is not None and self.link_monitoring.has_operation()) or
+                        (self.require_remote is not None and self.require_remote.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "profile" + "[profile='" + self.profile.get() + "']" + path_buffer
 
-                def _has_data(self):
-                    if self.profile is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.profile.is_set or self.profile.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.profile.get_name_leafdata())
+                    if (self.hello_interval.is_set or self.hello_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_interval.get_name_leafdata())
+                    if (self.mib_retrieval.is_set or self.mib_retrieval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mib_retrieval.get_name_leafdata())
+                    if (self.mode.is_set or self.mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mode.get_name_leafdata())
+                    if (self.remote_loopback.is_set or self.remote_loopback.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.remote_loopback.get_name_leafdata())
+                    if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timeout.get_name_leafdata())
+                    if (self.udlf.is_set or self.udlf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.udlf.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "action"):
+                        if (self.action is None):
+                            self.action = EthernetFeatures.EtherLinkOam.Profiles.Profile.Action()
+                            self.action.parent = self
+                            self._children_name_map["action"] = "action"
+                        return self.action
+
+                    if (child_yang_name == "link-monitoring"):
+                        if (self.link_monitoring is None):
+                            self.link_monitoring = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring()
+                            self.link_monitoring.parent = self
+                            self._children_name_map["link_monitoring"] = "link-monitoring"
+                        return self.link_monitoring
+
+                    if (child_yang_name == "require-remote"):
+                        if (self.require_remote is None):
+                            self.require_remote = EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote()
+                            self.require_remote.parent = self
+                            self._children_name_map["require_remote"] = "require-remote"
+                        return self.require_remote
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "action" or name == "link-monitoring" or name == "require-remote" or name == "profile" or name == "hello-interval" or name == "mib-retrieval" or name == "mode" or name == "remote-loopback" or name == "timeout" or name == "udlf"):
                         return True
-
-                    if self.action is not None and self.action._has_data():
-                        return True
-
-                    if self.hello_interval is not None:
-                        return True
-
-                    if self.link_monitoring is not None and self.link_monitoring._has_data():
-                        return True
-
-                    if self.mib_retrieval is not None:
-                        return True
-
-                    if self.mode is not None:
-                        return True
-
-                    if self.remote_loopback is not None:
-                        return True
-
-                    if self.require_remote is not None and self.require_remote._has_data():
-                        return True
-
-                    if self.timeout is not None:
-                        return True
-
-                    if self.udlf is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                    return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles.Profile']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "profile"):
+                        self.profile = value
+                        self.profile.value_namespace = name_space
+                        self.profile.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-interval"):
+                        self.hello_interval = value
+                        self.hello_interval.value_namespace = name_space
+                        self.hello_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mib-retrieval"):
+                        self.mib_retrieval = value
+                        self.mib_retrieval.value_namespace = name_space
+                        self.mib_retrieval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mode"):
+                        self.mode = value
+                        self.mode.value_namespace = name_space
+                        self.mode.value_namespace_prefix = name_space_prefix
+                    if(value_path == "remote-loopback"):
+                        self.remote_loopback = value
+                        self.remote_loopback.value_namespace = name_space
+                        self.remote_loopback.value_namespace_prefix = name_space_prefix
+                    if(value_path == "timeout"):
+                        self.timeout = value
+                        self.timeout.value_namespace = name_space
+                        self.timeout.value_namespace_prefix = name_space_prefix
+                    if(value_path == "udlf"):
+                        self.udlf = value
+                        self.udlf.value_namespace = name_space
+                        self.udlf.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/Cisco-IOS-XR-ethernet-link-oam-cfg:profiles'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if self.profile is not None:
-                    for child_ref in self.profile:
-                        if child_ref._has_data():
-                            return True
-
+            def has_data(self):
+                for c in self.profile:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-                return meta._meta_table['EthernetFeatures.EtherLinkOam.Profiles']['meta_info']
+            def has_operation(self):
+                for c in self.profile:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "profiles" + path_buffer
 
-            return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-        def _has_data(self):
-            if self.profiles is not None and self.profiles._has_data():
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "profile"):
+                    for c in self.profile:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = EthernetFeatures.EtherLinkOam.Profiles.Profile()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.profile.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "profile"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (self.profiles is not None and self.profiles.has_data())
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.profiles is not None and self.profiles.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "profiles"):
+                if (self.profiles is None):
+                    self.profiles = EthernetFeatures.EtherLinkOam.Profiles()
+                    self.profiles.parent = self
+                    self._children_name_map["profiles"] = "profiles"
+                return self.profiles
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "profiles"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-            return meta._meta_table['EthernetFeatures.EtherLinkOam']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cfm is not None and self.cfm.has_data()) or
+            (self.egress_filtering is not None and self.egress_filtering.has_data()) or
+            (self.ether_link_oam is not None and self.ether_link_oam.has_data()))
 
-        return '/Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cfm is not None and self.cfm.has_operation()) or
+            (self.egress_filtering is not None and self.egress_filtering.has_operation()) or
+            (self.ether_link_oam is not None and self.ether_link_oam.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features" + path_buffer
 
-    def _has_data(self):
-        if self.cfm is not None and self.cfm._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cfm"):
+            if (self.cfm is None):
+                self.cfm = EthernetFeatures.Cfm()
+                self.cfm.parent = self
+                self._children_name_map["cfm"] = "cfm"
+            return self.cfm
+
+        if (child_yang_name == "egress-filtering"):
+            if (self.egress_filtering is None):
+                self.egress_filtering = EthernetFeatures.EgressFiltering()
+                self.egress_filtering.parent = self
+                self._children_name_map["egress_filtering"] = "egress-filtering"
+            return self.egress_filtering
+
+        if (child_yang_name == "ether-link-oam"):
+            if (self.ether_link_oam is None):
+                self.ether_link_oam = EthernetFeatures.EtherLinkOam()
+                self.ether_link_oam.parent = self
+                self._children_name_map["ether_link_oam"] = "ether-link-oam"
+            return self.ether_link_oam
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cfm" or name == "egress-filtering" or name == "ether-link-oam"):
             return True
-
-        if self.egress_filtering is not None and self.egress_filtering._has_data():
-            return True
-
-        if self.ether_link_oam is not None and self.ether_link_oam._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_l2_eth_infra_cfg as meta
-        return meta._meta_table['EthernetFeatures']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EthernetFeatures()
+        return self._top_entity
 

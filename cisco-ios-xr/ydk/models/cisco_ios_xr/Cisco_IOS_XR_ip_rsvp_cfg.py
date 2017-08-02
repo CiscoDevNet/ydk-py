@@ -15,22 +15,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class RsvpBc0Enum(Enum):
+class RsvpBc0(Enum):
     """
-    RsvpBc0Enum
+    RsvpBc0
 
     Rsvp bc0
 
@@ -48,22 +42,16 @@ class RsvpBc0Enum(Enum):
 
     """
 
-    bc0 = 1
+    bc0 = Enum.YLeaf(1, "bc0")
 
-    global_pool = 2
+    global_pool = Enum.YLeaf(2, "global-pool")
 
-    not_specified = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpBc0Enum']
+    not_specified = Enum.YLeaf(3, "not-specified")
 
 
-class RsvpBc1Enum(Enum):
+class RsvpBc1(Enum):
     """
-    RsvpBc1Enum
+    RsvpBc1
 
     Rsvp bc1
 
@@ -77,20 +65,14 @@ class RsvpBc1Enum(Enum):
 
     """
 
-    bc1 = 1
+    bc1 = Enum.YLeaf(1, "bc1")
 
-    sub_pool = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpBc1Enum']
+    sub_pool = Enum.YLeaf(2, "sub-pool")
 
 
-class RsvpBwCfgEnum(Enum):
+class RsvpBwCfg(Enum):
     """
-    RsvpBwCfgEnum
+    RsvpBwCfg
 
     Rsvp bw cfg
 
@@ -106,20 +88,14 @@ class RsvpBwCfgEnum(Enum):
 
     """
 
-    absolute = 0
+    absolute = Enum.YLeaf(0, "absolute")
 
-    percentage = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpBwCfgEnum']
+    percentage = Enum.YLeaf(1, "percentage")
 
 
-class RsvpRdmEnum(Enum):
+class RsvpRdm(Enum):
     """
-    RsvpRdmEnum
+    RsvpRdm
 
     Rsvp rdm
 
@@ -137,21 +113,15 @@ class RsvpRdmEnum(Enum):
 
     """
 
-    rdm = 1
+    rdm = Enum.YLeaf(1, "rdm")
 
-    not_specified = 2
+    not_specified = Enum.YLeaf(2, "not-specified")
 
-    use_default_bandwidth = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['RsvpRdmEnum']
+    use_default_bandwidth = Enum.YLeaf(3, "use-default-bandwidth")
 
 
 
-class Rsvp(object):
+class Rsvp(Entity):
     """
     Global RSVP configuration commands
     
@@ -198,23 +168,49 @@ class Rsvp(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Rsvp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "rsvp"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-rsvp-cfg"
+
         self.authentication = Rsvp.Authentication()
         self.authentication.parent = self
+        self._children_name_map["authentication"] = "authentication"
+        self._children_yang_names.add("authentication")
+
         self.controllers = Rsvp.Controllers()
         self.controllers.parent = self
+        self._children_name_map["controllers"] = "controllers"
+        self._children_yang_names.add("controllers")
+
         self.global_bandwidth = Rsvp.GlobalBandwidth()
         self.global_bandwidth.parent = self
+        self._children_name_map["global_bandwidth"] = "global-bandwidth"
+        self._children_yang_names.add("global-bandwidth")
+
         self.global_logging = Rsvp.GlobalLogging()
         self.global_logging.parent = self
+        self._children_name_map["global_logging"] = "global-logging"
+        self._children_yang_names.add("global-logging")
+
         self.interfaces = Rsvp.Interfaces()
         self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
+
         self.neighbors = Rsvp.Neighbors()
         self.neighbors.parent = self
+        self._children_name_map["neighbors"] = "neighbors"
+        self._children_yang_names.add("neighbors")
+
         self.signalling = Rsvp.Signalling()
         self.signalling.parent = self
+        self._children_name_map["signalling"] = "signalling"
+        self._children_yang_names.add("signalling")
 
 
-    class Neighbors(object):
+    class Neighbors(Entity):
         """
         RSVP Neighbor Table
         
@@ -231,13 +227,39 @@ class Rsvp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.neighbor = YList()
-            self.neighbor.parent = self
-            self.neighbor.name = 'neighbor'
+            super(Rsvp.Neighbors, self).__init__()
+
+            self.yang_name = "neighbors"
+            self.yang_parent_name = "rsvp"
+
+            self.neighbor = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rsvp.Neighbors, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rsvp.Neighbors, self).__setattr__(name, value)
 
 
-        class Neighbor(object):
+        class Neighbor(Entity):
             """
             RSVP neighbor configuration
             
@@ -261,13 +283,44 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.neighbor = None
+                super(Rsvp.Neighbors.Neighbor, self).__init__()
+
+                self.yang_name = "neighbor"
+                self.yang_parent_name = "neighbors"
+
+                self.neighbor = YLeaf(YType.str, "neighbor")
+
                 self.authentication = Rsvp.Neighbors.Neighbor.Authentication()
                 self.authentication.parent = self
+                self._children_name_map["authentication"] = "authentication"
+                self._children_yang_names.add("authentication")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("neighbor") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Neighbors.Neighbor, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Neighbors.Neighbor, self).__setattr__(name, value)
 
 
-            class Authentication(object):
+            class Authentication(Entity):
                 """
                 Configure RSVP authentication
                 
@@ -307,92 +360,232 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.enable = None
-                    self.key_chain = None
-                    self.life_time = None
-                    self.window_size = None
+                    super(Rsvp.Neighbors.Neighbor.Authentication, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "authentication"
+                    self.yang_parent_name = "neighbor"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
+                    self.enable = YLeaf(YType.boolean, "enable")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.key_chain = YLeaf(YType.str, "key-chain")
 
-                def _has_data(self):
-                    if self.enable is not None:
+                    self.life_time = YLeaf(YType.uint32, "life-time")
+
+                    self.window_size = YLeaf(YType.uint32, "window-size")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("enable",
+                                    "key_chain",
+                                    "life_time",
+                                    "window_size") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rsvp.Neighbors.Neighbor.Authentication, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rsvp.Neighbors.Neighbor.Authentication, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.enable.is_set or
+                        self.key_chain.is_set or
+                        self.life_time.is_set or
+                        self.window_size.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.enable.yfilter != YFilter.not_set or
+                        self.key_chain.yfilter != YFilter.not_set or
+                        self.life_time.yfilter != YFilter.not_set or
+                        self.window_size.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "authentication" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.enable.get_name_leafdata())
+                    if (self.key_chain.is_set or self.key_chain.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.key_chain.get_name_leafdata())
+                    if (self.life_time.is_set or self.life_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.life_time.get_name_leafdata())
+                    if (self.window_size.is_set or self.window_size.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.window_size.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "enable" or name == "key-chain" or name == "life-time" or name == "window-size"):
                         return True
-
-                    if self.key_chain is not None:
-                        return True
-
-                    if self.life_time is not None:
-                        return True
-
-                    if self.window_size is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Neighbors.Neighbor.Authentication']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "enable"):
+                        self.enable = value
+                        self.enable.value_namespace = name_space
+                        self.enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "key-chain"):
+                        self.key_chain = value
+                        self.key_chain.value_namespace = name_space
+                        self.key_chain.value_namespace_prefix = name_space_prefix
+                    if(value_path == "life-time"):
+                        self.life_time = value
+                        self.life_time.value_namespace = name_space
+                        self.life_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "window-size"):
+                        self.window_size = value
+                        self.window_size.value_namespace = name_space
+                        self.window_size.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.neighbor is None:
-                    raise YPYModelError('Key property neighbor is None')
+            def has_data(self):
+                return (
+                    self.neighbor.is_set or
+                    (self.authentication is not None and self.authentication.has_data()))
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:neighbors/Cisco-IOS-XR-ip-rsvp-cfg:neighbor[Cisco-IOS-XR-ip-rsvp-cfg:neighbor = ' + str(self.neighbor) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.neighbor.yfilter != YFilter.not_set or
+                    (self.authentication is not None and self.authentication.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "neighbor" + "[neighbor='" + self.neighbor.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.neighbor is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/neighbors/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.neighbor.is_set or self.neighbor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.neighbor.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "authentication"):
+                    if (self.authentication is None):
+                        self.authentication = Rsvp.Neighbors.Neighbor.Authentication()
+                        self.authentication.parent = self
+                        self._children_name_map["authentication"] = "authentication"
+                    return self.authentication
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "authentication" or name == "neighbor"):
                     return True
-
-                if self.authentication is not None and self.authentication._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Neighbors.Neighbor']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "neighbor"):
+                    self.neighbor = value
+                    self.neighbor.value_namespace = name_space
+                    self.neighbor.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:neighbors'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.neighbor is not None:
-                for child_ref in self.neighbor:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.neighbor:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.Neighbors']['meta_info']
+        def has_operation(self):
+            for c in self.neighbor:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "neighbors" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "neighbor"):
+                for c in self.neighbor:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Rsvp.Neighbors.Neighbor()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.neighbor.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "neighbor"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Controllers(object):
+    class Controllers(Entity):
         """
         Controller table
         
@@ -409,13 +602,39 @@ class Rsvp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.controller = YList()
-            self.controller.parent = self
-            self.controller.name = 'controller'
+            super(Rsvp.Controllers, self).__init__()
+
+            self.yang_name = "controllers"
+            self.yang_parent_name = "rsvp"
+
+            self.controller = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rsvp.Controllers, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rsvp.Controllers, self).__setattr__(name, value)
 
 
-        class Controller(object):
+        class Controller(Entity):
             """
             Controller configuration
             
@@ -444,14 +663,47 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.controller_name = None
+                super(Rsvp.Controllers.Controller, self).__init__()
+
+                self.yang_name = "controller"
+                self.yang_parent_name = "controllers"
+
+                self.controller_name = YLeaf(YType.str, "controller-name")
+
+                self.enable = YLeaf(YType.empty, "enable")
+
                 self.cntl_signalling = Rsvp.Controllers.Controller.CntlSignalling()
                 self.cntl_signalling.parent = self
-                self.enable = None
+                self._children_name_map["cntl_signalling"] = "cntl-signalling"
+                self._children_yang_names.add("cntl-signalling")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("controller_name",
+                                "enable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Controllers.Controller, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Controllers.Controller, self).__setattr__(name, value)
 
 
-            class CntlSignalling(object):
+            class CntlSignalling(Entity):
                 """
                 Configure RSVP signalling parameters
                 
@@ -468,12 +720,18 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Rsvp.Controllers.Controller.CntlSignalling, self).__init__()
+
+                    self.yang_name = "cntl-signalling"
+                    self.yang_parent_name = "controller"
+
                     self.out_of_band = Rsvp.Controllers.Controller.CntlSignalling.OutOfBand()
                     self.out_of_band.parent = self
+                    self._children_name_map["out_of_band"] = "out-of-band"
+                    self._children_yang_names.add("out-of-band")
 
 
-                class OutOfBand(object):
+                class OutOfBand(Entity):
                     """
                     Configure RSVP out\-of\-band signalling parameters
                     
@@ -503,109 +761,266 @@ class Rsvp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.missed_messages = None
-                        self.refresh_interval = None
+                        super(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "out-of-band"
+                        self.yang_parent_name = "cntl-signalling"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:out-of-band'
+                        self.missed_messages = YLeaf(YType.uint32, "missed-messages")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.refresh_interval = YLeaf(YType.uint32, "refresh-interval")
 
-                    def _has_data(self):
-                        if self.missed_messages is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("missed_messages",
+                                        "refresh_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.missed_messages.is_set or
+                            self.refresh_interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.missed_messages.yfilter != YFilter.not_set or
+                            self.refresh_interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "out-of-band" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.missed_messages.is_set or self.missed_messages.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.missed_messages.get_name_leafdata())
+                        if (self.refresh_interval.is_set or self.refresh_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.refresh_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "missed-messages" or name == "refresh-interval"):
                             return True
-
-                        if self.refresh_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Controllers.Controller.CntlSignalling.OutOfBand']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "missed-messages"):
+                            self.missed_messages = value
+                            self.missed_messages.value_namespace = name_space
+                            self.missed_messages.value_namespace_prefix = name_space_prefix
+                        if(value_path == "refresh-interval"):
+                            self.refresh_interval = value
+                            self.refresh_interval.value_namespace = name_space
+                            self.refresh_interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (self.out_of_band is not None and self.out_of_band.has_data())
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:cntl-signalling'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.out_of_band is not None and self.out_of_band.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "cntl-signalling" + path_buffer
 
-                def _has_data(self):
-                    if self.out_of_band is not None and self.out_of_band._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "out-of-band"):
+                        if (self.out_of_band is None):
+                            self.out_of_band = Rsvp.Controllers.Controller.CntlSignalling.OutOfBand()
+                            self.out_of_band.parent = self
+                            self._children_name_map["out_of_band"] = "out-of-band"
+                        return self.out_of_band
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "out-of-band"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Controllers.Controller.CntlSignalling']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
-                if self.controller_name is None:
-                    raise YPYModelError('Key property controller_name is None')
+            def has_data(self):
+                return (
+                    self.controller_name.is_set or
+                    self.enable.is_set or
+                    (self.cntl_signalling is not None and self.cntl_signalling.has_data()))
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:controllers/Cisco-IOS-XR-ip-rsvp-cfg:controller[Cisco-IOS-XR-ip-rsvp-cfg:controller-name = ' + str(self.controller_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.controller_name.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    (self.cntl_signalling is not None and self.cntl_signalling.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "controller" + "[controller-name='" + self.controller_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.controller_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/controllers/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.controller_name.is_set or self.controller_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.controller_name.get_name_leafdata())
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "cntl-signalling"):
+                    if (self.cntl_signalling is None):
+                        self.cntl_signalling = Rsvp.Controllers.Controller.CntlSignalling()
+                        self.cntl_signalling.parent = self
+                        self._children_name_map["cntl_signalling"] = "cntl-signalling"
+                    return self.cntl_signalling
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cntl-signalling" or name == "controller-name" or name == "enable"):
                     return True
-
-                if self.cntl_signalling is not None and self.cntl_signalling._has_data():
-                    return True
-
-                if self.enable is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Controllers.Controller']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "controller-name"):
+                    self.controller_name = value
+                    self.controller_name.value_namespace = name_space
+                    self.controller_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:controllers'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.controller is not None:
-                for child_ref in self.controller:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.controller:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.Controllers']['meta_info']
+        def has_operation(self):
+            for c in self.controller:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "controllers" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "controller"):
+                for c in self.controller:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Rsvp.Controllers.Controller()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.controller.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "controller"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class GlobalLogging(object):
+    class GlobalLogging(Entity):
         """
         Global Logging
         
@@ -627,35 +1042,97 @@ class Rsvp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.log_issu_status = None
-            self.log_nsr_status = None
+            super(Rsvp.GlobalLogging, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "global-logging"
+            self.yang_parent_name = "rsvp"
 
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:global-logging'
+            self.log_issu_status = YLeaf(YType.empty, "log-issu-status")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.log_nsr_status = YLeaf(YType.empty, "log-nsr-status")
 
-        def _has_data(self):
-            if self.log_issu_status is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("log_issu_status",
+                            "log_nsr_status") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rsvp.GlobalLogging, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rsvp.GlobalLogging, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.log_issu_status.is_set or
+                self.log_nsr_status.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.log_issu_status.yfilter != YFilter.not_set or
+                self.log_nsr_status.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "global-logging" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.log_issu_status.is_set or self.log_issu_status.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.log_issu_status.get_name_leafdata())
+            if (self.log_nsr_status.is_set or self.log_nsr_status.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.log_nsr_status.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "log-issu-status" or name == "log-nsr-status"):
                 return True
-
-            if self.log_nsr_status is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.GlobalLogging']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "log-issu-status"):
+                self.log_issu_status = value
+                self.log_issu_status.value_namespace = name_space
+                self.log_issu_status.value_namespace_prefix = name_space_prefix
+            if(value_path == "log-nsr-status"):
+                self.log_nsr_status = value
+                self.log_nsr_status.value_namespace = name_space
+                self.log_nsr_status.value_namespace_prefix = name_space_prefix
 
 
-    class GlobalBandwidth(object):
+    class GlobalBandwidth(Entity):
         """
         Configure Global Bandwidth Parameters
         
@@ -672,12 +1149,18 @@ class Rsvp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Rsvp.GlobalBandwidth, self).__init__()
+
+            self.yang_name = "global-bandwidth"
+            self.yang_parent_name = "rsvp"
+
             self.default_interface_percent = Rsvp.GlobalBandwidth.DefaultInterfacePercent()
             self.default_interface_percent.parent = self
+            self._children_name_map["default_interface_percent"] = "default-interface-percent"
+            self._children_yang_names.add("default-interface-percent")
 
 
-        class DefaultInterfacePercent(object):
+        class DefaultInterfacePercent(Entity):
             """
             Configure Global RSVP signalling parameters
             
@@ -699,14 +1182,23 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(Rsvp.GlobalBandwidth.DefaultInterfacePercent, self).__init__()
+
+                self.yang_name = "default-interface-percent"
+                self.yang_parent_name = "global-bandwidth"
+
                 self.mam = Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam()
                 self.mam.parent = self
+                self._children_name_map["mam"] = "mam"
+                self._children_yang_names.add("mam")
+
                 self.rdm = Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm()
                 self.rdm.parent = self
+                self._children_name_map["rdm"] = "rdm"
+                self._children_yang_names.add("rdm")
 
 
-            class Mam(object):
+            class Mam(Entity):
                 """
                 Configure global default MAM I/F percent
                 bandwidth parameters
@@ -740,39 +1232,108 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bc0_percent = None
-                    self.bc1_percent = None
-                    self.max_res_percent = None
+                    super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "mam"
+                    self.yang_parent_name = "default-interface-percent"
 
-                    return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:global-bandwidth/Cisco-IOS-XR-ip-rsvp-cfg:default-interface-percent/Cisco-IOS-XR-ip-rsvp-cfg:mam'
+                    self.bc0_percent = YLeaf(YType.uint32, "bc0-percent")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.bc1_percent = YLeaf(YType.uint32, "bc1-percent")
 
-                def _has_data(self):
-                    if self.bc0_percent is not None:
+                    self.max_res_percent = YLeaf(YType.uint32, "max-res-percent")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("bc0_percent",
+                                    "bc1_percent",
+                                    "max_res_percent") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.bc0_percent.is_set or
+                        self.bc1_percent.is_set or
+                        self.max_res_percent.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.bc0_percent.yfilter != YFilter.not_set or
+                        self.bc1_percent.yfilter != YFilter.not_set or
+                        self.max_res_percent.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "mam" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/default-interface-percent/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.bc0_percent.is_set or self.bc0_percent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bc0_percent.get_name_leafdata())
+                    if (self.bc1_percent.is_set or self.bc1_percent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bc1_percent.get_name_leafdata())
+                    if (self.max_res_percent.is_set or self.max_res_percent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.max_res_percent.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bc0-percent" or name == "bc1-percent" or name == "max-res-percent"):
                         return True
-
-                    if self.bc1_percent is not None:
-                        return True
-
-                    if self.max_res_percent is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "bc0-percent"):
+                        self.bc0_percent = value
+                        self.bc0_percent.value_namespace = name_space
+                        self.bc0_percent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bc1-percent"):
+                        self.bc1_percent = value
+                        self.bc1_percent.value_namespace = name_space
+                        self.bc1_percent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "max-res-percent"):
+                        self.max_res_percent = value
+                        self.max_res_percent.value_namespace = name_space
+                        self.max_res_percent.value_namespace_prefix = name_space_prefix
 
 
-            class Rdm(object):
+            class Rdm(Entity):
                 """
                 Configure global default RDM I/F percent
                 bandwidth parameters
@@ -799,78 +1360,203 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bc0_percent = None
-                    self.bc1_percent = None
+                    super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "rdm"
+                    self.yang_parent_name = "default-interface-percent"
 
-                    return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:global-bandwidth/Cisco-IOS-XR-ip-rsvp-cfg:default-interface-percent/Cisco-IOS-XR-ip-rsvp-cfg:rdm'
+                    self.bc0_percent = YLeaf(YType.uint32, "bc0-percent")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.bc1_percent = YLeaf(YType.uint32, "bc1-percent")
 
-                def _has_data(self):
-                    if self.bc0_percent is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("bc0_percent",
+                                    "bc1_percent") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.bc0_percent.is_set or
+                        self.bc1_percent.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.bc0_percent.yfilter != YFilter.not_set or
+                        self.bc1_percent.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "rdm" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/default-interface-percent/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.bc0_percent.is_set or self.bc0_percent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bc0_percent.get_name_leafdata())
+                    if (self.bc1_percent.is_set or self.bc1_percent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bc1_percent.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bc0-percent" or name == "bc1-percent"):
                         return True
-
-                    if self.bc1_percent is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "bc0-percent"):
+                        self.bc0_percent = value
+                        self.bc0_percent.value_namespace = name_space
+                        self.bc0_percent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bc1-percent"):
+                        self.bc1_percent = value
+                        self.bc1_percent.value_namespace = name_space
+                        self.bc1_percent.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    (self.mam is not None and self.mam.has_data()) or
+                    (self.rdm is not None and self.rdm.has_data()))
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:global-bandwidth/Cisco-IOS-XR-ip-rsvp-cfg:default-interface-percent'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.mam is not None and self.mam.has_operation()) or
+                    (self.rdm is not None and self.rdm.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "default-interface-percent" + path_buffer
 
-            def _has_data(self):
-                if self.mam is not None and self.mam._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "mam"):
+                    if (self.mam is None):
+                        self.mam = Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam()
+                        self.mam.parent = self
+                        self._children_name_map["mam"] = "mam"
+                    return self.mam
+
+                if (child_yang_name == "rdm"):
+                    if (self.rdm is None):
+                        self.rdm = Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm()
+                        self.rdm.parent = self
+                        self._children_name_map["rdm"] = "rdm"
+                    return self.rdm
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "mam" or name == "rdm"):
                     return True
-
-                if self.rdm is not None and self.rdm._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.GlobalBandwidth.DefaultInterfacePercent']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (self.default_interface_percent is not None and self.default_interface_percent.has_data())
 
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:global-bandwidth'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.default_interface_percent is not None and self.default_interface_percent.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "global-bandwidth" + path_buffer
 
-        def _has_data(self):
-            if self.default_interface_percent is not None and self.default_interface_percent._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "default-interface-percent"):
+                if (self.default_interface_percent is None):
+                    self.default_interface_percent = Rsvp.GlobalBandwidth.DefaultInterfacePercent()
+                    self.default_interface_percent.parent = self
+                    self._children_name_map["default_interface_percent"] = "default-interface-percent"
+                return self.default_interface_percent
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "default-interface-percent"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.GlobalBandwidth']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Interfaces(object):
+    class Interfaces(Entity):
         """
         Interface table
         
@@ -887,13 +1573,39 @@ class Rsvp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.interface = YList()
-            self.interface.parent = self
-            self.interface.name = 'interface'
+            super(Rsvp.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "rsvp"
+
+            self.interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rsvp.Interfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rsvp.Interfaces, self).__setattr__(name, value)
 
 
-        class Interface(object):
+        class Interface(Entity):
             """
             Interface configuration
             
@@ -932,18 +1644,57 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.name = None
+                super(Rsvp.Interfaces.Interface, self).__init__()
+
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.enable = YLeaf(YType.empty, "enable")
+
                 self.authentication = Rsvp.Interfaces.Interface.Authentication()
                 self.authentication.parent = self
+                self._children_name_map["authentication"] = "authentication"
+                self._children_yang_names.add("authentication")
+
                 self.bandwidth = Rsvp.Interfaces.Interface.Bandwidth()
                 self.bandwidth.parent = self
-                self.enable = None
+                self._children_name_map["bandwidth"] = "bandwidth"
+                self._children_yang_names.add("bandwidth")
+
                 self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
                 self.if_signalling.parent = self
+                self._children_name_map["if_signalling"] = "if-signalling"
+                self._children_yang_names.add("if-signalling")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("name",
+                                "enable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Interfaces.Interface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Interfaces.Interface, self).__setattr__(name, value)
 
 
-            class IfSignalling(object):
+            class IfSignalling(Entity):
                 """
                 Configure RSVP signalling parameters
                 
@@ -1007,21 +1758,66 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.dscp = None
-                    self.hello_graceful_restart_if_based = None
+                    super(Rsvp.Interfaces.Interface.IfSignalling, self).__init__()
+
+                    self.yang_name = "if-signalling"
+                    self.yang_parent_name = "interface"
+
+                    self.dscp = YLeaf(YType.uint32, "dscp")
+
+                    self.hello_graceful_restart_if_based = YLeaf(YType.empty, "hello-graceful-restart-if-based")
+
+                    self.missed_messages = YLeaf(YType.uint32, "missed-messages")
+
+                    self.pacing = YLeaf(YType.empty, "pacing")
+
+                    self.refresh_interval = YLeaf(YType.uint32, "refresh-interval")
+
                     self.interval_rate = Rsvp.Interfaces.Interface.IfSignalling.IntervalRate()
                     self.interval_rate.parent = self
-                    self.missed_messages = None
+                    self._children_name_map["interval_rate"] = "interval-rate"
+                    self._children_yang_names.add("interval-rate")
+
                     self.out_of_band = Rsvp.Interfaces.Interface.IfSignalling.OutOfBand()
                     self.out_of_band.parent = self
-                    self.pacing = None
-                    self.refresh_interval = None
+                    self._children_name_map["out_of_band"] = "out-of-band"
+                    self._children_yang_names.add("out-of-band")
+
                     self.refresh_reduction = Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction()
                     self.refresh_reduction.parent = self
+                    self._children_name_map["refresh_reduction"] = "refresh-reduction"
+                    self._children_yang_names.add("refresh-reduction")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("dscp",
+                                    "hello_graceful_restart_if_based",
+                                    "missed_messages",
+                                    "pacing",
+                                    "refresh_interval") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rsvp.Interfaces.Interface.IfSignalling, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rsvp.Interfaces.Interface.IfSignalling, self).__setattr__(name, value)
 
 
-                class RefreshReduction(object):
+                class RefreshReduction(Entity):
                     """
                     Configure RSVP Refresh Reduction parameters
                     
@@ -1098,57 +1894,152 @@ class Rsvp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bundle_message_max_size = None
-                        self.disable = None
-                        self.reliable_ack_hold_time = None
-                        self.reliable_ack_max_size = None
-                        self.reliable_retransmit_time = None
-                        self.reliable_s_refresh = None
-                        self.summary_max_size = None
+                        super(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "refresh-reduction"
+                        self.yang_parent_name = "if-signalling"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:refresh-reduction'
+                        self.bundle_message_max_size = YLeaf(YType.uint32, "bundle-message-max-size")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.disable = YLeaf(YType.empty, "disable")
 
-                    def _has_data(self):
-                        if self.bundle_message_max_size is not None:
+                        self.reliable_ack_hold_time = YLeaf(YType.uint32, "reliable-ack-hold-time")
+
+                        self.reliable_ack_max_size = YLeaf(YType.uint32, "reliable-ack-max-size")
+
+                        self.reliable_retransmit_time = YLeaf(YType.uint32, "reliable-retransmit-time")
+
+                        self.reliable_s_refresh = YLeaf(YType.empty, "reliable-s-refresh")
+
+                        self.summary_max_size = YLeaf(YType.uint32, "summary-max-size")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bundle_message_max_size",
+                                        "disable",
+                                        "reliable_ack_hold_time",
+                                        "reliable_ack_max_size",
+                                        "reliable_retransmit_time",
+                                        "reliable_s_refresh",
+                                        "summary_max_size") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.bundle_message_max_size.is_set or
+                            self.disable.is_set or
+                            self.reliable_ack_hold_time.is_set or
+                            self.reliable_ack_max_size.is_set or
+                            self.reliable_retransmit_time.is_set or
+                            self.reliable_s_refresh.is_set or
+                            self.summary_max_size.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bundle_message_max_size.yfilter != YFilter.not_set or
+                            self.disable.yfilter != YFilter.not_set or
+                            self.reliable_ack_hold_time.yfilter != YFilter.not_set or
+                            self.reliable_ack_max_size.yfilter != YFilter.not_set or
+                            self.reliable_retransmit_time.yfilter != YFilter.not_set or
+                            self.reliable_s_refresh.yfilter != YFilter.not_set or
+                            self.summary_max_size.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "refresh-reduction" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.bundle_message_max_size.is_set or self.bundle_message_max_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bundle_message_max_size.get_name_leafdata())
+                        if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.disable.get_name_leafdata())
+                        if (self.reliable_ack_hold_time.is_set or self.reliable_ack_hold_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reliable_ack_hold_time.get_name_leafdata())
+                        if (self.reliable_ack_max_size.is_set or self.reliable_ack_max_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reliable_ack_max_size.get_name_leafdata())
+                        if (self.reliable_retransmit_time.is_set or self.reliable_retransmit_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reliable_retransmit_time.get_name_leafdata())
+                        if (self.reliable_s_refresh.is_set or self.reliable_s_refresh.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reliable_s_refresh.get_name_leafdata())
+                        if (self.summary_max_size.is_set or self.summary_max_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.summary_max_size.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "bundle-message-max-size" or name == "disable" or name == "reliable-ack-hold-time" or name == "reliable-ack-max-size" or name == "reliable-retransmit-time" or name == "reliable-s-refresh" or name == "summary-max-size"):
                             return True
-
-                        if self.disable is not None:
-                            return True
-
-                        if self.reliable_ack_hold_time is not None:
-                            return True
-
-                        if self.reliable_ack_max_size is not None:
-                            return True
-
-                        if self.reliable_retransmit_time is not None:
-                            return True
-
-                        if self.reliable_s_refresh is not None:
-                            return True
-
-                        if self.summary_max_size is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bundle-message-max-size"):
+                            self.bundle_message_max_size = value
+                            self.bundle_message_max_size.value_namespace = name_space
+                            self.bundle_message_max_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "disable"):
+                            self.disable = value
+                            self.disable.value_namespace = name_space
+                            self.disable.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reliable-ack-hold-time"):
+                            self.reliable_ack_hold_time = value
+                            self.reliable_ack_hold_time.value_namespace = name_space
+                            self.reliable_ack_hold_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reliable-ack-max-size"):
+                            self.reliable_ack_max_size = value
+                            self.reliable_ack_max_size.value_namespace = name_space
+                            self.reliable_ack_max_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reliable-retransmit-time"):
+                            self.reliable_retransmit_time = value
+                            self.reliable_retransmit_time.value_namespace = name_space
+                            self.reliable_retransmit_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reliable-s-refresh"):
+                            self.reliable_s_refresh = value
+                            self.reliable_s_refresh.value_namespace = name_space
+                            self.reliable_s_refresh.value_namespace_prefix = name_space_prefix
+                        if(value_path == "summary-max-size"):
+                            self.summary_max_size = value
+                            self.summary_max_size.value_namespace = name_space
+                            self.summary_max_size.value_namespace_prefix = name_space_prefix
 
 
-                class IntervalRate(object):
+                class IntervalRate(Entity):
                     """
                     Configure number of messages to be sent per
                     interval
@@ -1181,37 +2072,97 @@ class Rsvp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interval_size = None
-                        self.messages_per_interval = None
+                        super(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "interval-rate"
+                        self.yang_parent_name = "if-signalling"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:interval-rate'
+                        self.interval_size = YLeaf(YType.uint32, "interval-size")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.messages_per_interval = YLeaf(YType.uint32, "messages-per-interval")
 
-                    def _has_data(self):
-                        if self.interval_size is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interval_size",
+                                        "messages_per_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.interval_size.is_set or
+                            self.messages_per_interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interval_size.yfilter != YFilter.not_set or
+                            self.messages_per_interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interval-rate" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.interval_size.is_set or self.interval_size.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interval_size.get_name_leafdata())
+                        if (self.messages_per_interval.is_set or self.messages_per_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.messages_per_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interval-size" or name == "messages-per-interval"):
                             return True
-
-                        if self.messages_per_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.IntervalRate']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interval-size"):
+                            self.interval_size = value
+                            self.interval_size.value_namespace = name_space
+                            self.interval_size.value_namespace_prefix = name_space_prefix
+                        if(value_path == "messages-per-interval"):
+                            self.messages_per_interval = value
+                            self.messages_per_interval.value_namespace = name_space
+                            self.messages_per_interval.value_namespace_prefix = name_space_prefix
 
 
-                class OutOfBand(object):
+                class OutOfBand(Entity):
                     """
                     Configure RSVP out\-of\-band signalling parameters
                     
@@ -1241,80 +2192,203 @@ class Rsvp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.missed_messages = None
-                        self.refresh_interval = None
+                        super(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "out-of-band"
+                        self.yang_parent_name = "if-signalling"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:out-of-band'
+                        self.missed_messages = YLeaf(YType.uint32, "missed-messages")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.refresh_interval = YLeaf(YType.uint32, "refresh-interval")
 
-                    def _has_data(self):
-                        if self.missed_messages is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("missed_messages",
+                                        "refresh_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.missed_messages.is_set or
+                            self.refresh_interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.missed_messages.yfilter != YFilter.not_set or
+                            self.refresh_interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "out-of-band" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.missed_messages.is_set or self.missed_messages.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.missed_messages.get_name_leafdata())
+                        if (self.refresh_interval.is_set or self.refresh_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.refresh_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "missed-messages" or name == "refresh-interval"):
                             return True
-
-                        if self.refresh_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling.OutOfBand']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "missed-messages"):
+                            self.missed_messages = value
+                            self.missed_messages.value_namespace = name_space
+                            self.missed_messages.value_namespace_prefix = name_space_prefix
+                        if(value_path == "refresh-interval"):
+                            self.refresh_interval = value
+                            self.refresh_interval.value_namespace = name_space
+                            self.refresh_interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.dscp.is_set or
+                        self.hello_graceful_restart_if_based.is_set or
+                        self.missed_messages.is_set or
+                        self.pacing.is_set or
+                        self.refresh_interval.is_set or
+                        (self.interval_rate is not None and self.interval_rate.has_data()) or
+                        (self.out_of_band is not None and self.out_of_band.has_data()) or
+                        (self.refresh_reduction is not None and self.refresh_reduction.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:if-signalling'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.dscp.yfilter != YFilter.not_set or
+                        self.hello_graceful_restart_if_based.yfilter != YFilter.not_set or
+                        self.missed_messages.yfilter != YFilter.not_set or
+                        self.pacing.yfilter != YFilter.not_set or
+                        self.refresh_interval.yfilter != YFilter.not_set or
+                        (self.interval_rate is not None and self.interval_rate.has_operation()) or
+                        (self.out_of_band is not None and self.out_of_band.has_operation()) or
+                        (self.refresh_reduction is not None and self.refresh_reduction.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "if-signalling" + path_buffer
 
-                def _has_data(self):
-                    if self.dscp is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.dscp.is_set or self.dscp.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dscp.get_name_leafdata())
+                    if (self.hello_graceful_restart_if_based.is_set or self.hello_graceful_restart_if_based.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hello_graceful_restart_if_based.get_name_leafdata())
+                    if (self.missed_messages.is_set or self.missed_messages.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.missed_messages.get_name_leafdata())
+                    if (self.pacing.is_set or self.pacing.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pacing.get_name_leafdata())
+                    if (self.refresh_interval.is_set or self.refresh_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.refresh_interval.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interval-rate"):
+                        if (self.interval_rate is None):
+                            self.interval_rate = Rsvp.Interfaces.Interface.IfSignalling.IntervalRate()
+                            self.interval_rate.parent = self
+                            self._children_name_map["interval_rate"] = "interval-rate"
+                        return self.interval_rate
+
+                    if (child_yang_name == "out-of-band"):
+                        if (self.out_of_band is None):
+                            self.out_of_band = Rsvp.Interfaces.Interface.IfSignalling.OutOfBand()
+                            self.out_of_band.parent = self
+                            self._children_name_map["out_of_band"] = "out-of-band"
+                        return self.out_of_band
+
+                    if (child_yang_name == "refresh-reduction"):
+                        if (self.refresh_reduction is None):
+                            self.refresh_reduction = Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction()
+                            self.refresh_reduction.parent = self
+                            self._children_name_map["refresh_reduction"] = "refresh-reduction"
+                        return self.refresh_reduction
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interval-rate" or name == "out-of-band" or name == "refresh-reduction" or name == "dscp" or name == "hello-graceful-restart-if-based" or name == "missed-messages" or name == "pacing" or name == "refresh-interval"):
                         return True
-
-                    if self.hello_graceful_restart_if_based is not None:
-                        return True
-
-                    if self.interval_rate is not None and self.interval_rate._has_data():
-                        return True
-
-                    if self.missed_messages is not None:
-                        return True
-
-                    if self.out_of_band is not None and self.out_of_band._has_data():
-                        return True
-
-                    if self.pacing is not None:
-                        return True
-
-                    if self.refresh_interval is not None:
-                        return True
-
-                    if self.refresh_reduction is not None and self.refresh_reduction._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Interfaces.Interface.IfSignalling']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "dscp"):
+                        self.dscp = value
+                        self.dscp.value_namespace = name_space
+                        self.dscp.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hello-graceful-restart-if-based"):
+                        self.hello_graceful_restart_if_based = value
+                        self.hello_graceful_restart_if_based.value_namespace = name_space
+                        self.hello_graceful_restart_if_based.value_namespace_prefix = name_space_prefix
+                    if(value_path == "missed-messages"):
+                        self.missed_messages = value
+                        self.missed_messages.value_namespace = name_space
+                        self.missed_messages.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pacing"):
+                        self.pacing = value
+                        self.pacing.value_namespace = name_space
+                        self.pacing.value_namespace_prefix = name_space_prefix
+                    if(value_path == "refresh-interval"):
+                        self.refresh_interval = value
+                        self.refresh_interval.value_namespace = name_space
+                        self.refresh_interval.value_namespace_prefix = name_space_prefix
 
 
-            class Bandwidth(object):
+            class Bandwidth(Entity):
                 """
                 Configure Bandwidth
                 
@@ -1336,21 +2410,30 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(Rsvp.Interfaces.Interface.Bandwidth, self).__init__()
+
+                    self.yang_name = "bandwidth"
+                    self.yang_parent_name = "interface"
+
                     self.mam = Rsvp.Interfaces.Interface.Bandwidth.Mam()
                     self.mam.parent = self
+                    self._children_name_map["mam"] = "mam"
+                    self._children_yang_names.add("mam")
+
                     self.rdm = Rsvp.Interfaces.Interface.Bandwidth.Rdm()
                     self.rdm.parent = self
+                    self._children_name_map["rdm"] = "rdm"
+                    self._children_yang_names.add("rdm")
 
 
-                class Mam(object):
+                class Mam(Entity):
                     """
                     Configure MAM bandwidth parameters
                     
                     .. attribute:: bandwidth_mode
                     
                     	Absolute or Percentage bandwidth mode
-                    	**type**\:   :py:class:`RsvpBwCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
+                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
                     
                     	**units**\: percentage
                     
@@ -1390,56 +2473,137 @@ class Rsvp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bandwidth_mode = None
-                        self.bc0_bandwidth = None
-                        self.bc1_bandwidth = None
-                        self.max_resv_bandwidth = None
-                        self.max_resv_flow = None
+                        super(Rsvp.Interfaces.Interface.Bandwidth.Mam, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "mam"
+                        self.yang_parent_name = "bandwidth"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:mam'
+                        self.bandwidth_mode = YLeaf(YType.enumeration, "bandwidth-mode")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.bc0_bandwidth = YLeaf(YType.uint32, "bc0-bandwidth")
 
-                    def _has_data(self):
-                        if self.bandwidth_mode is not None:
+                        self.bc1_bandwidth = YLeaf(YType.uint32, "bc1-bandwidth")
+
+                        self.max_resv_bandwidth = YLeaf(YType.uint32, "max-resv-bandwidth")
+
+                        self.max_resv_flow = YLeaf(YType.uint32, "max-resv-flow")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bandwidth_mode",
+                                        "bc0_bandwidth",
+                                        "bc1_bandwidth",
+                                        "max_resv_bandwidth",
+                                        "max_resv_flow") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rsvp.Interfaces.Interface.Bandwidth.Mam, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rsvp.Interfaces.Interface.Bandwidth.Mam, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.bandwidth_mode.is_set or
+                            self.bc0_bandwidth.is_set or
+                            self.bc1_bandwidth.is_set or
+                            self.max_resv_bandwidth.is_set or
+                            self.max_resv_flow.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bandwidth_mode.yfilter != YFilter.not_set or
+                            self.bc0_bandwidth.yfilter != YFilter.not_set or
+                            self.bc1_bandwidth.yfilter != YFilter.not_set or
+                            self.max_resv_bandwidth.yfilter != YFilter.not_set or
+                            self.max_resv_flow.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "mam" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.bandwidth_mode.is_set or self.bandwidth_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bandwidth_mode.get_name_leafdata())
+                        if (self.bc0_bandwidth.is_set or self.bc0_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bc0_bandwidth.get_name_leafdata())
+                        if (self.bc1_bandwidth.is_set or self.bc1_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bc1_bandwidth.get_name_leafdata())
+                        if (self.max_resv_bandwidth.is_set or self.max_resv_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_resv_bandwidth.get_name_leafdata())
+                        if (self.max_resv_flow.is_set or self.max_resv_flow.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_resv_flow.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "bandwidth-mode" or name == "bc0-bandwidth" or name == "bc1-bandwidth" or name == "max-resv-bandwidth" or name == "max-resv-flow"):
                             return True
-
-                        if self.bc0_bandwidth is not None:
-                            return True
-
-                        if self.bc1_bandwidth is not None:
-                            return True
-
-                        if self.max_resv_bandwidth is not None:
-                            return True
-
-                        if self.max_resv_flow is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Mam']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bandwidth-mode"):
+                            self.bandwidth_mode = value
+                            self.bandwidth_mode.value_namespace = name_space
+                            self.bandwidth_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bc0-bandwidth"):
+                            self.bc0_bandwidth = value
+                            self.bc0_bandwidth.value_namespace = name_space
+                            self.bc0_bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bc1-bandwidth"):
+                            self.bc1_bandwidth = value
+                            self.bc1_bandwidth.value_namespace = name_space
+                            self.bc1_bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-resv-bandwidth"):
+                            self.max_resv_bandwidth = value
+                            self.max_resv_bandwidth.value_namespace = name_space
+                            self.max_resv_bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-resv-flow"):
+                            self.max_resv_flow = value
+                            self.max_resv_flow.value_namespace = name_space
+                            self.max_resv_flow.value_namespace_prefix = name_space_prefix
 
 
-                class Rdm(object):
+                class Rdm(Entity):
                     """
                     Configure RDM bandwidth parameters
                     
                     .. attribute:: bandwidth_mode
                     
                     	Absolute or Percentage bandwidth mode
-                    	**type**\:   :py:class:`RsvpBwCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfgEnum>`
+                    	**type**\:   :py:class:`RsvpBwCfg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBwCfg>`
                     
                     	**units**\: percentage
                     
@@ -1453,7 +2617,7 @@ class Rsvp(object):
                     .. attribute:: bc0_keyword
                     
                     	Set requests should always use BC0
-                    	**type**\:   :py:class:`RsvpBc0Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0Enum>`
+                    	**type**\:   :py:class:`RsvpBc0 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc0>`
                     
                     .. attribute:: bc1_bandwidth
                     
@@ -1465,7 +2629,7 @@ class Rsvp(object):
                     .. attribute:: bc1_keyword
                     
                     	Set requests should always use BC1
-                    	**type**\:   :py:class:`RsvpBc1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1Enum>`
+                    	**type**\:   :py:class:`RsvpBc1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpBc1>`
                     
                     .. attribute:: max_resv_flow
                     
@@ -1477,7 +2641,7 @@ class Rsvp(object):
                     .. attribute:: rdm_keyword
                     
                     	Set requests should always use RDM
-                    	**type**\:   :py:class:`RsvpRdmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdmEnum>`
+                    	**type**\:   :py:class:`RsvpRdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.RsvpRdm>`
                     
                     
 
@@ -1487,82 +2651,210 @@ class Rsvp(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bandwidth_mode = None
-                        self.bc0_bandwidth = None
-                        self.bc0_keyword = None
-                        self.bc1_bandwidth = None
-                        self.bc1_keyword = None
-                        self.max_resv_flow = None
-                        self.rdm_keyword = None
+                        super(Rsvp.Interfaces.Interface.Bandwidth.Rdm, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "rdm"
+                        self.yang_parent_name = "bandwidth"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:rdm'
+                        self.bandwidth_mode = YLeaf(YType.enumeration, "bandwidth-mode")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.bc0_bandwidth = YLeaf(YType.uint32, "bc0-bandwidth")
 
-                    def _has_data(self):
-                        if self.bandwidth_mode is not None:
+                        self.bc0_keyword = YLeaf(YType.enumeration, "bc0-keyword")
+
+                        self.bc1_bandwidth = YLeaf(YType.uint32, "bc1-bandwidth")
+
+                        self.bc1_keyword = YLeaf(YType.enumeration, "bc1-keyword")
+
+                        self.max_resv_flow = YLeaf(YType.uint32, "max-resv-flow")
+
+                        self.rdm_keyword = YLeaf(YType.enumeration, "rdm-keyword")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bandwidth_mode",
+                                        "bc0_bandwidth",
+                                        "bc0_keyword",
+                                        "bc1_bandwidth",
+                                        "bc1_keyword",
+                                        "max_resv_flow",
+                                        "rdm_keyword") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rsvp.Interfaces.Interface.Bandwidth.Rdm, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rsvp.Interfaces.Interface.Bandwidth.Rdm, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.bandwidth_mode.is_set or
+                            self.bc0_bandwidth.is_set or
+                            self.bc0_keyword.is_set or
+                            self.bc1_bandwidth.is_set or
+                            self.bc1_keyword.is_set or
+                            self.max_resv_flow.is_set or
+                            self.rdm_keyword.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bandwidth_mode.yfilter != YFilter.not_set or
+                            self.bc0_bandwidth.yfilter != YFilter.not_set or
+                            self.bc0_keyword.yfilter != YFilter.not_set or
+                            self.bc1_bandwidth.yfilter != YFilter.not_set or
+                            self.bc1_keyword.yfilter != YFilter.not_set or
+                            self.max_resv_flow.yfilter != YFilter.not_set or
+                            self.rdm_keyword.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "rdm" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.bandwidth_mode.is_set or self.bandwidth_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bandwidth_mode.get_name_leafdata())
+                        if (self.bc0_bandwidth.is_set or self.bc0_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bc0_bandwidth.get_name_leafdata())
+                        if (self.bc0_keyword.is_set or self.bc0_keyword.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bc0_keyword.get_name_leafdata())
+                        if (self.bc1_bandwidth.is_set or self.bc1_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bc1_bandwidth.get_name_leafdata())
+                        if (self.bc1_keyword.is_set or self.bc1_keyword.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bc1_keyword.get_name_leafdata())
+                        if (self.max_resv_flow.is_set or self.max_resv_flow.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_resv_flow.get_name_leafdata())
+                        if (self.rdm_keyword.is_set or self.rdm_keyword.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rdm_keyword.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "bandwidth-mode" or name == "bc0-bandwidth" or name == "bc0-keyword" or name == "bc1-bandwidth" or name == "bc1-keyword" or name == "max-resv-flow" or name == "rdm-keyword"):
                             return True
-
-                        if self.bc0_bandwidth is not None:
-                            return True
-
-                        if self.bc0_keyword is not None:
-                            return True
-
-                        if self.bc1_bandwidth is not None:
-                            return True
-
-                        if self.bc1_keyword is not None:
-                            return True
-
-                        if self.max_resv_flow is not None:
-                            return True
-
-                        if self.rdm_keyword is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                        return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth.Rdm']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bandwidth-mode"):
+                            self.bandwidth_mode = value
+                            self.bandwidth_mode.value_namespace = name_space
+                            self.bandwidth_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bc0-bandwidth"):
+                            self.bc0_bandwidth = value
+                            self.bc0_bandwidth.value_namespace = name_space
+                            self.bc0_bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bc0-keyword"):
+                            self.bc0_keyword = value
+                            self.bc0_keyword.value_namespace = name_space
+                            self.bc0_keyword.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bc1-bandwidth"):
+                            self.bc1_bandwidth = value
+                            self.bc1_bandwidth.value_namespace = name_space
+                            self.bc1_bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bc1-keyword"):
+                            self.bc1_keyword = value
+                            self.bc1_keyword.value_namespace = name_space
+                            self.bc1_keyword.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-resv-flow"):
+                            self.max_resv_flow = value
+                            self.max_resv_flow.value_namespace = name_space
+                            self.max_resv_flow.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rdm-keyword"):
+                            self.rdm_keyword = value
+                            self.rdm_keyword.value_namespace = name_space
+                            self.rdm_keyword.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.mam is not None and self.mam.has_data()) or
+                        (self.rdm is not None and self.rdm.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:bandwidth'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.mam is not None and self.mam.has_operation()) or
+                        (self.rdm is not None and self.rdm.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bandwidth" + path_buffer
 
-                def _has_data(self):
-                    if self.mam is not None and self.mam._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "mam"):
+                        if (self.mam is None):
+                            self.mam = Rsvp.Interfaces.Interface.Bandwidth.Mam()
+                            self.mam.parent = self
+                            self._children_name_map["mam"] = "mam"
+                        return self.mam
+
+                    if (child_yang_name == "rdm"):
+                        if (self.rdm is None):
+                            self.rdm = Rsvp.Interfaces.Interface.Bandwidth.Rdm()
+                            self.rdm.parent = self
+                            self._children_name_map["rdm"] = "rdm"
+                        return self.rdm
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mam" or name == "rdm"):
                         return True
-
-                    if self.rdm is not None and self.rdm._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Interfaces.Interface.Bandwidth']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Authentication(object):
+            class Authentication(Entity):
                 """
                 Configure RSVP authentication
                 
@@ -1602,101 +2894,258 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.enable = None
-                    self.key_chain = None
-                    self.life_time = None
-                    self.window_size = None
+                    super(Rsvp.Interfaces.Interface.Authentication, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "authentication"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
+                    self.enable = YLeaf(YType.boolean, "enable")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.key_chain = YLeaf(YType.str, "key-chain")
 
-                def _has_data(self):
-                    if self.enable is not None:
+                    self.life_time = YLeaf(YType.uint32, "life-time")
+
+                    self.window_size = YLeaf(YType.uint32, "window-size")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("enable",
+                                    "key_chain",
+                                    "life_time",
+                                    "window_size") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rsvp.Interfaces.Interface.Authentication, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rsvp.Interfaces.Interface.Authentication, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.enable.is_set or
+                        self.key_chain.is_set or
+                        self.life_time.is_set or
+                        self.window_size.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.enable.yfilter != YFilter.not_set or
+                        self.key_chain.yfilter != YFilter.not_set or
+                        self.life_time.yfilter != YFilter.not_set or
+                        self.window_size.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "authentication" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.enable.get_name_leafdata())
+                    if (self.key_chain.is_set or self.key_chain.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.key_chain.get_name_leafdata())
+                    if (self.life_time.is_set or self.life_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.life_time.get_name_leafdata())
+                    if (self.window_size.is_set or self.window_size.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.window_size.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "enable" or name == "key-chain" or name == "life-time" or name == "window-size"):
                         return True
-
-                    if self.key_chain is not None:
-                        return True
-
-                    if self.life_time is not None:
-                        return True
-
-                    if self.window_size is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Interfaces.Interface.Authentication']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "enable"):
+                        self.enable = value
+                        self.enable.value_namespace = name_space
+                        self.enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "key-chain"):
+                        self.key_chain = value
+                        self.key_chain.value_namespace = name_space
+                        self.key_chain.value_namespace_prefix = name_space_prefix
+                    if(value_path == "life-time"):
+                        self.life_time = value
+                        self.life_time.value_namespace = name_space
+                        self.life_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "window-size"):
+                        self.window_size = value
+                        self.window_size.value_namespace = name_space
+                        self.window_size.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.name is None:
-                    raise YPYModelError('Key property name is None')
+            def has_data(self):
+                return (
+                    self.name.is_set or
+                    self.enable.is_set or
+                    (self.authentication is not None and self.authentication.has_data()) or
+                    (self.bandwidth is not None and self.bandwidth.has_data()) or
+                    (self.if_signalling is not None and self.if_signalling.has_data()))
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:interfaces/Cisco-IOS-XR-ip-rsvp-cfg:interface[Cisco-IOS-XR-ip-rsvp-cfg:name = ' + str(self.name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.name.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    (self.authentication is not None and self.authentication.has_operation()) or
+                    (self.bandwidth is not None and self.bandwidth.has_operation()) or
+                    (self.if_signalling is not None and self.if_signalling.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interface" + "[name='" + self.name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.name.get_name_leafdata())
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "authentication"):
+                    if (self.authentication is None):
+                        self.authentication = Rsvp.Interfaces.Interface.Authentication()
+                        self.authentication.parent = self
+                        self._children_name_map["authentication"] = "authentication"
+                    return self.authentication
+
+                if (child_yang_name == "bandwidth"):
+                    if (self.bandwidth is None):
+                        self.bandwidth = Rsvp.Interfaces.Interface.Bandwidth()
+                        self.bandwidth.parent = self
+                        self._children_name_map["bandwidth"] = "bandwidth"
+                    return self.bandwidth
+
+                if (child_yang_name == "if-signalling"):
+                    if (self.if_signalling is None):
+                        self.if_signalling = Rsvp.Interfaces.Interface.IfSignalling()
+                        self.if_signalling.parent = self
+                        self._children_name_map["if_signalling"] = "if-signalling"
+                    return self.if_signalling
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "authentication" or name == "bandwidth" or name == "if-signalling" or name == "name" or name == "enable"):
                     return True
-
-                if self.authentication is not None and self.authentication._has_data():
-                    return True
-
-                if self.bandwidth is not None and self.bandwidth._has_data():
-                    return True
-
-                if self.enable is not None:
-                    return True
-
-                if self.if_signalling is not None and self.if_signalling._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Interfaces.Interface']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "name"):
+                    self.name = value
+                    self.name.value_namespace = name_space
+                    self.name.value_namespace_prefix = name_space_prefix
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.interface is not None:
-                for child_ref in self.interface:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.interface:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.Interfaces']['meta_info']
+        def has_operation(self):
+            for c in self.interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "interfaces" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interface"):
+                for c in self.interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Rsvp.Interfaces.Interface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interface"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Signalling(object):
+    class Signalling(Entity):
         """
         Configure Global RSVP signalling parameters
         
@@ -1753,22 +3202,67 @@ class Rsvp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Rsvp.Signalling, self).__init__()
+
+            self.yang_name = "signalling"
+            self.yang_parent_name = "rsvp"
+
+            self.hello_graceful_restart_interval = YLeaf(YType.uint32, "hello-graceful-restart-interval")
+
+            self.hello_graceful_restart_misses = YLeaf(YType.uint32, "hello-graceful-restart-misses")
+
             self.checksum = Rsvp.Signalling.Checksum()
             self.checksum.parent = self
+            self._children_name_map["checksum"] = "checksum"
+            self._children_yang_names.add("checksum")
+
             self.global_out_of_band = Rsvp.Signalling.GlobalOutOfBand()
             self.global_out_of_band.parent = self
+            self._children_name_map["global_out_of_band"] = "global-out-of-band"
+            self._children_yang_names.add("global-out-of-band")
+
             self.graceful_restart = Rsvp.Signalling.GracefulRestart()
             self.graceful_restart.parent = self
-            self.hello_graceful_restart_interval = None
-            self.hello_graceful_restart_misses = None
+            self._children_name_map["graceful_restart"] = "graceful-restart"
+            self._children_yang_names.add("graceful-restart")
+
             self.pesr = Rsvp.Signalling.Pesr()
             self.pesr.parent = self
+            self._children_name_map["pesr"] = "pesr"
+            self._children_yang_names.add("pesr")
+
             self.prefix_filtering = Rsvp.Signalling.PrefixFiltering()
             self.prefix_filtering.parent = self
+            self._children_name_map["prefix_filtering"] = "prefix-filtering"
+            self._children_yang_names.add("prefix-filtering")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("hello_graceful_restart_interval",
+                            "hello_graceful_restart_misses") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rsvp.Signalling, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rsvp.Signalling, self).__setattr__(name, value)
 
 
-        class GlobalOutOfBand(object):
+        class GlobalOutOfBand(Entity):
             """
             Configure out\-of\-band signalling parameters
             
@@ -1787,31 +3281,85 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.vrf = None
+                super(Rsvp.Signalling.GlobalOutOfBand, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "global-out-of-band"
+                self.yang_parent_name = "signalling"
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:global-out-of-band'
+                self.vrf = YLeaf(YType.str, "vrf")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Signalling.GlobalOutOfBand, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Signalling.GlobalOutOfBand, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.vrf is not None:
+            def has_data(self):
+                return self.vrf.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "global-out-of-band" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "vrf"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Signalling.GlobalOutOfBand']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf"):
+                    self.vrf = value
+                    self.vrf.value_namespace = name_space
+                    self.vrf.value_namespace_prefix = name_space_prefix
 
 
-        class GracefulRestart(object):
+        class GracefulRestart(Entity):
             """
             Configure RSVP Graceful\-Restart parameters
             
@@ -1819,6 +3367,11 @@ class Rsvp(object):
             
             	Enable RSVP graceful restart
             	**type**\:  bool
+            
+            .. attribute:: lsp_class_type
+            
+            	Send LSP's ctype for recovery and suggested label
+            	**type**\:   :py:class:`LspClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg.Rsvp.Signalling.GracefulRestart.LspClassType>`
             
             .. attribute:: recovery_time
             
@@ -1850,39 +3403,218 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.enable = None
-                self.recovery_time = None
-                self.restart_time = None
+                super(Rsvp.Signalling.GracefulRestart, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "graceful-restart"
+                self.yang_parent_name = "signalling"
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:graceful-restart'
+                self.enable = YLeaf(YType.boolean, "enable")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                self.recovery_time = YLeaf(YType.uint32, "recovery-time")
 
-            def _has_data(self):
-                if self.enable is not None:
+                self.restart_time = YLeaf(YType.uint32, "restart-time")
+
+                self.lsp_class_type = Rsvp.Signalling.GracefulRestart.LspClassType()
+                self.lsp_class_type.parent = self
+                self._children_name_map["lsp_class_type"] = "lsp-class-type"
+                self._children_yang_names.add("lsp-class-type")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("enable",
+                                "recovery_time",
+                                "restart_time") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Signalling.GracefulRestart, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Signalling.GracefulRestart, self).__setattr__(name, value)
+
+
+            class LspClassType(Entity):
+                """
+                Send LSP's ctype for recovery and suggested
+                label
+                
+                .. attribute:: enable
+                
+                	Send LSP's ctype for recovery and suggested label
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Rsvp.Signalling.GracefulRestart.LspClassType, self).__init__()
+
+                    self.yang_name = "lsp-class-type"
+                    self.yang_parent_name = "graceful-restart"
+
+                    self.enable = YLeaf(YType.boolean, "enable")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("enable") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rsvp.Signalling.GracefulRestart.LspClassType, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rsvp.Signalling.GracefulRestart.LspClassType, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return self.enable.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.enable.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "lsp-class-type" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/graceful-restart/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.enable.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "enable"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "enable"):
+                        self.enable = value
+                        self.enable.value_namespace = name_space
+                        self.enable.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                return (
+                    self.enable.is_set or
+                    self.recovery_time.is_set or
+                    self.restart_time.is_set or
+                    (self.lsp_class_type is not None and self.lsp_class_type.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    self.recovery_time.yfilter != YFilter.not_set or
+                    self.restart_time.yfilter != YFilter.not_set or
+                    (self.lsp_class_type is not None and self.lsp_class_type.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "graceful-restart" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+                if (self.recovery_time.is_set or self.recovery_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.recovery_time.get_name_leafdata())
+                if (self.restart_time.is_set or self.restart_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.restart_time.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "lsp-class-type"):
+                    if (self.lsp_class_type is None):
+                        self.lsp_class_type = Rsvp.Signalling.GracefulRestart.LspClassType()
+                        self.lsp_class_type.parent = self
+                        self._children_name_map["lsp_class_type"] = "lsp-class-type"
+                    return self.lsp_class_type
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "lsp-class-type" or name == "enable" or name == "recovery-time" or name == "restart-time"):
                     return True
-
-                if self.recovery_time is not None:
-                    return True
-
-                if self.restart_time is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Signalling.GracefulRestart']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
+                if(value_path == "recovery-time"):
+                    self.recovery_time = value
+                    self.recovery_time.value_namespace = name_space
+                    self.recovery_time.value_namespace_prefix = name_space_prefix
+                if(value_path == "restart-time"):
+                    self.restart_time = value
+                    self.restart_time.value_namespace = name_space
+                    self.restart_time.value_namespace_prefix = name_space_prefix
 
 
-        class PrefixFiltering(object):
+        class PrefixFiltering(Entity):
             """
             Configure prefix filtering parameters
             
@@ -1906,13 +3638,44 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.acl = None
+                super(Rsvp.Signalling.PrefixFiltering, self).__init__()
+
+                self.yang_name = "prefix-filtering"
+                self.yang_parent_name = "signalling"
+
+                self.acl = YLeaf(YType.str, "acl")
+
                 self.default_deny_action = Rsvp.Signalling.PrefixFiltering.DefaultDenyAction()
                 self.default_deny_action.parent = self
+                self._children_name_map["default_deny_action"] = "default-deny-action"
+                self._children_yang_names.add("default-deny-action")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("acl") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Signalling.PrefixFiltering, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Signalling.PrefixFiltering, self).__setattr__(name, value)
 
 
-            class DefaultDenyAction(object):
+            class DefaultDenyAction(Entity):
                 """
                 Configure RSVP behaviour for scenarios where
                 ACL match yields a default (implicit) deny
@@ -1930,54 +3693,141 @@ class Rsvp(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.drop = None
+                    super(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "default-deny-action"
+                    self.yang_parent_name = "prefix-filtering"
 
-                    return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:prefix-filtering/Cisco-IOS-XR-ip-rsvp-cfg:default-deny-action'
+                    self.drop = YLeaf(YType.empty, "drop")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("drop") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.drop is not None:
+                def has_data(self):
+                    return self.drop.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.drop.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "default-deny-action" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/prefix-filtering/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.drop.is_set or self.drop.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.drop.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "drop"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                    return meta._meta_table['Rsvp.Signalling.PrefixFiltering.DefaultDenyAction']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "drop"):
+                        self.drop = value
+                        self.drop.value_namespace = name_space
+                        self.drop.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    self.acl.is_set or
+                    (self.default_deny_action is not None and self.default_deny_action.has_data()))
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:prefix-filtering'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.acl.yfilter != YFilter.not_set or
+                    (self.default_deny_action is not None and self.default_deny_action.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prefix-filtering" + path_buffer
 
-            def _has_data(self):
-                if self.acl is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.acl.is_set or self.acl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.acl.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "default-deny-action"):
+                    if (self.default_deny_action is None):
+                        self.default_deny_action = Rsvp.Signalling.PrefixFiltering.DefaultDenyAction()
+                        self.default_deny_action.parent = self
+                        self._children_name_map["default_deny_action"] = "default-deny-action"
+                    return self.default_deny_action
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "default-deny-action" or name == "acl"):
                     return True
-
-                if self.default_deny_action is not None and self.default_deny_action._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Signalling.PrefixFiltering']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "acl"):
+                    self.acl = value
+                    self.acl.value_namespace = name_space
+                    self.acl.value_namespace_prefix = name_space_prefix
 
 
-        class Pesr(object):
+        class Pesr(Entity):
             """
             Sending Path Error with State\-Removal flag
             
@@ -1994,31 +3844,85 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.disable = None
+                super(Rsvp.Signalling.Pesr, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "pesr"
+                self.yang_parent_name = "signalling"
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:pesr'
+                self.disable = YLeaf(YType.empty, "disable")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("disable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Signalling.Pesr, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Signalling.Pesr, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.disable is not None:
+            def has_data(self):
+                return self.disable.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.disable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "pesr" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.disable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "disable"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Signalling.Pesr']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "disable"):
+                    self.disable = value
+                    self.disable.value_namespace = name_space
+                    self.disable.value_namespace_prefix = name_space_prefix
 
 
-        class Checksum(object):
+        class Checksum(Entity):
             """
             RSVP message checksum computation
             
@@ -2035,69 +3939,185 @@ class Rsvp(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.disable = None
+                super(Rsvp.Signalling.Checksum, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "checksum"
+                self.yang_parent_name = "signalling"
 
-                return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling/Cisco-IOS-XR-ip-rsvp-cfg:checksum'
+                self.disable = YLeaf(YType.empty, "disable")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("disable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rsvp.Signalling.Checksum, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rsvp.Signalling.Checksum, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.disable is not None:
+            def has_data(self):
+                return self.disable.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.disable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "checksum" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.disable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "disable"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-                return meta._meta_table['Rsvp.Signalling.Checksum']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "disable"):
+                    self.disable = value
+                    self.disable.value_namespace = name_space
+                    self.disable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.hello_graceful_restart_interval.is_set or
+                self.hello_graceful_restart_misses.is_set or
+                (self.checksum is not None and self.checksum.has_data()) or
+                (self.global_out_of_band is not None and self.global_out_of_band.has_data()) or
+                (self.graceful_restart is not None and self.graceful_restart.has_data()) or
+                (self.pesr is not None and self.pesr.has_data()) or
+                (self.prefix_filtering is not None and self.prefix_filtering.has_data()))
 
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:signalling'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.hello_graceful_restart_interval.yfilter != YFilter.not_set or
+                self.hello_graceful_restart_misses.yfilter != YFilter.not_set or
+                (self.checksum is not None and self.checksum.has_operation()) or
+                (self.global_out_of_band is not None and self.global_out_of_band.has_operation()) or
+                (self.graceful_restart is not None and self.graceful_restart.has_operation()) or
+                (self.pesr is not None and self.pesr.has_operation()) or
+                (self.prefix_filtering is not None and self.prefix_filtering.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "signalling" + path_buffer
 
-        def _has_data(self):
-            if self.checksum is not None and self.checksum._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.hello_graceful_restart_interval.is_set or self.hello_graceful_restart_interval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.hello_graceful_restart_interval.get_name_leafdata())
+            if (self.hello_graceful_restart_misses.is_set or self.hello_graceful_restart_misses.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.hello_graceful_restart_misses.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "checksum"):
+                if (self.checksum is None):
+                    self.checksum = Rsvp.Signalling.Checksum()
+                    self.checksum.parent = self
+                    self._children_name_map["checksum"] = "checksum"
+                return self.checksum
+
+            if (child_yang_name == "global-out-of-band"):
+                if (self.global_out_of_band is None):
+                    self.global_out_of_band = Rsvp.Signalling.GlobalOutOfBand()
+                    self.global_out_of_band.parent = self
+                    self._children_name_map["global_out_of_band"] = "global-out-of-band"
+                return self.global_out_of_band
+
+            if (child_yang_name == "graceful-restart"):
+                if (self.graceful_restart is None):
+                    self.graceful_restart = Rsvp.Signalling.GracefulRestart()
+                    self.graceful_restart.parent = self
+                    self._children_name_map["graceful_restart"] = "graceful-restart"
+                return self.graceful_restart
+
+            if (child_yang_name == "pesr"):
+                if (self.pesr is None):
+                    self.pesr = Rsvp.Signalling.Pesr()
+                    self.pesr.parent = self
+                    self._children_name_map["pesr"] = "pesr"
+                return self.pesr
+
+            if (child_yang_name == "prefix-filtering"):
+                if (self.prefix_filtering is None):
+                    self.prefix_filtering = Rsvp.Signalling.PrefixFiltering()
+                    self.prefix_filtering.parent = self
+                    self._children_name_map["prefix_filtering"] = "prefix-filtering"
+                return self.prefix_filtering
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "checksum" or name == "global-out-of-band" or name == "graceful-restart" or name == "pesr" or name == "prefix-filtering" or name == "hello-graceful-restart-interval" or name == "hello-graceful-restart-misses"):
                 return True
-
-            if self.global_out_of_band is not None and self.global_out_of_band._has_data():
-                return True
-
-            if self.graceful_restart is not None and self.graceful_restart._has_data():
-                return True
-
-            if self.hello_graceful_restart_interval is not None:
-                return True
-
-            if self.hello_graceful_restart_misses is not None:
-                return True
-
-            if self.pesr is not None and self.pesr._has_data():
-                return True
-
-            if self.prefix_filtering is not None and self.prefix_filtering._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.Signalling']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "hello-graceful-restart-interval"):
+                self.hello_graceful_restart_interval = value
+                self.hello_graceful_restart_interval.value_namespace = name_space
+                self.hello_graceful_restart_interval.value_namespace_prefix = name_space_prefix
+            if(value_path == "hello-graceful-restart-misses"):
+                self.hello_graceful_restart_misses = value
+                self.hello_graceful_restart_misses.value_namespace = name_space
+                self.hello_graceful_restart_misses.value_namespace_prefix = name_space_prefix
 
 
-    class Authentication(object):
+    class Authentication(Entity):
         """
         Configure RSVP authentication
         
@@ -2137,77 +4157,220 @@ class Rsvp(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.enable = None
-            self.key_chain = None
-            self.life_time = None
-            self.window_size = None
+            super(Rsvp.Authentication, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "authentication"
+            self.yang_parent_name = "rsvp"
 
-            return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp/Cisco-IOS-XR-ip-rsvp-cfg:authentication'
+            self.enable = YLeaf(YType.boolean, "enable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.key_chain = YLeaf(YType.str, "key-chain")
 
-        def _has_data(self):
-            if self.enable is not None:
+            self.life_time = YLeaf(YType.uint32, "life-time")
+
+            self.window_size = YLeaf(YType.uint32, "window-size")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("enable",
+                            "key_chain",
+                            "life_time",
+                            "window_size") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rsvp.Authentication, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rsvp.Authentication, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.enable.is_set or
+                self.key_chain.is_set or
+                self.life_time.is_set or
+                self.window_size.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.enable.yfilter != YFilter.not_set or
+                self.key_chain.yfilter != YFilter.not_set or
+                self.life_time.yfilter != YFilter.not_set or
+                self.window_size.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "authentication" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.enable.get_name_leafdata())
+            if (self.key_chain.is_set or self.key_chain.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.key_chain.get_name_leafdata())
+            if (self.life_time.is_set or self.life_time.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.life_time.get_name_leafdata())
+            if (self.window_size.is_set or self.window_size.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.window_size.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "enable" or name == "key-chain" or name == "life-time" or name == "window-size"):
                 return True
-
-            if self.key_chain is not None:
-                return True
-
-            if self.life_time is not None:
-                return True
-
-            if self.window_size is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-            return meta._meta_table['Rsvp.Authentication']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "enable"):
+                self.enable = value
+                self.enable.value_namespace = name_space
+                self.enable.value_namespace_prefix = name_space_prefix
+            if(value_path == "key-chain"):
+                self.key_chain = value
+                self.key_chain.value_namespace = name_space
+                self.key_chain.value_namespace_prefix = name_space_prefix
+            if(value_path == "life-time"):
+                self.life_time = value
+                self.life_time.value_namespace = name_space
+                self.life_time.value_namespace_prefix = name_space_prefix
+            if(value_path == "window-size"):
+                self.window_size = value
+                self.window_size.value_namespace = name_space
+                self.window_size.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.authentication is not None and self.authentication.has_data()) or
+            (self.controllers is not None and self.controllers.has_data()) or
+            (self.global_bandwidth is not None and self.global_bandwidth.has_data()) or
+            (self.global_logging is not None and self.global_logging.has_data()) or
+            (self.interfaces is not None and self.interfaces.has_data()) or
+            (self.neighbors is not None and self.neighbors.has_data()) or
+            (self.signalling is not None and self.signalling.has_data()))
 
-        return '/Cisco-IOS-XR-ip-rsvp-cfg:rsvp'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.authentication is not None and self.authentication.has_operation()) or
+            (self.controllers is not None and self.controllers.has_operation()) or
+            (self.global_bandwidth is not None and self.global_bandwidth.has_operation()) or
+            (self.global_logging is not None and self.global_logging.has_operation()) or
+            (self.interfaces is not None and self.interfaces.has_operation()) or
+            (self.neighbors is not None and self.neighbors.has_operation()) or
+            (self.signalling is not None and self.signalling.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-rsvp-cfg:rsvp" + path_buffer
 
-    def _has_data(self):
-        if self.authentication is not None and self.authentication._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "authentication"):
+            if (self.authentication is None):
+                self.authentication = Rsvp.Authentication()
+                self.authentication.parent = self
+                self._children_name_map["authentication"] = "authentication"
+            return self.authentication
+
+        if (child_yang_name == "controllers"):
+            if (self.controllers is None):
+                self.controllers = Rsvp.Controllers()
+                self.controllers.parent = self
+                self._children_name_map["controllers"] = "controllers"
+            return self.controllers
+
+        if (child_yang_name == "global-bandwidth"):
+            if (self.global_bandwidth is None):
+                self.global_bandwidth = Rsvp.GlobalBandwidth()
+                self.global_bandwidth.parent = self
+                self._children_name_map["global_bandwidth"] = "global-bandwidth"
+            return self.global_bandwidth
+
+        if (child_yang_name == "global-logging"):
+            if (self.global_logging is None):
+                self.global_logging = Rsvp.GlobalLogging()
+                self.global_logging.parent = self
+                self._children_name_map["global_logging"] = "global-logging"
+            return self.global_logging
+
+        if (child_yang_name == "interfaces"):
+            if (self.interfaces is None):
+                self.interfaces = Rsvp.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+            return self.interfaces
+
+        if (child_yang_name == "neighbors"):
+            if (self.neighbors is None):
+                self.neighbors = Rsvp.Neighbors()
+                self.neighbors.parent = self
+                self._children_name_map["neighbors"] = "neighbors"
+            return self.neighbors
+
+        if (child_yang_name == "signalling"):
+            if (self.signalling is None):
+                self.signalling = Rsvp.Signalling()
+                self.signalling.parent = self
+                self._children_name_map["signalling"] = "signalling"
+            return self.signalling
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "authentication" or name == "controllers" or name == "global-bandwidth" or name == "global-logging" or name == "interfaces" or name == "neighbors" or name == "signalling"):
             return True
-
-        if self.controllers is not None and self.controllers._has_data():
-            return True
-
-        if self.global_bandwidth is not None and self.global_bandwidth._has_data():
-            return True
-
-        if self.global_logging is not None and self.global_logging._has_data():
-            return True
-
-        if self.interfaces is not None and self.interfaces._has_data():
-            return True
-
-        if self.neighbors is not None and self.neighbors._has_data():
-            return True
-
-        if self.signalling is not None and self.signalling._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_cfg as meta
-        return meta._meta_table['Rsvp']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Rsvp()
+        return self._top_entity
 

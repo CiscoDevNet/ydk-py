@@ -8,22 +8,16 @@ physical entity, it must be represented by a row in the
 entPhysicalTable (see ENTITY\-MIB).
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AlarmseverityEnum(Enum):
+class Alarmseverity(Enum):
     """
-    AlarmseverityEnum
+    Alarmseverity
 
     Each alarm type defined by a vendor type employed by the
 
@@ -83,23 +77,17 @@ class AlarmseverityEnum(Enum):
 
     """
 
-    critical = 1
+    critical = Enum.YLeaf(1, "critical")
 
-    major = 2
+    major = Enum.YLeaf(2, "major")
 
-    minor = 3
+    minor = Enum.YLeaf(3, "minor")
 
-    info = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-        return meta._meta_table['AlarmseverityEnum']
+    info = Enum.YLeaf(4, "info")
 
 
 
-class CiscoEntityAlarmMib(object):
+class CiscoEntityAlarmMib(Entity):
     """
     
     
@@ -151,25 +139,54 @@ class CiscoEntityAlarmMib(object):
     _revision = '1999-07-06'
 
     def __init__(self):
+        super(CiscoEntityAlarmMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-ENTITY-ALARM-MIB"
+        self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
+
         self.cealarmdescrmaptable = CiscoEntityAlarmMib.Cealarmdescrmaptable()
         self.cealarmdescrmaptable.parent = self
+        self._children_name_map["cealarmdescrmaptable"] = "ceAlarmDescrMapTable"
+        self._children_yang_names.add("ceAlarmDescrMapTable")
+
         self.cealarmdescrtable = CiscoEntityAlarmMib.Cealarmdescrtable()
         self.cealarmdescrtable.parent = self
+        self._children_name_map["cealarmdescrtable"] = "ceAlarmDescrTable"
+        self._children_yang_names.add("ceAlarmDescrTable")
+
         self.cealarmfiltering = CiscoEntityAlarmMib.Cealarmfiltering()
         self.cealarmfiltering.parent = self
+        self._children_name_map["cealarmfiltering"] = "ceAlarmFiltering"
+        self._children_yang_names.add("ceAlarmFiltering")
+
         self.cealarmfilterprofiletable = CiscoEntityAlarmMib.Cealarmfilterprofiletable()
         self.cealarmfilterprofiletable.parent = self
+        self._children_name_map["cealarmfilterprofiletable"] = "ceAlarmFilterProfileTable"
+        self._children_yang_names.add("ceAlarmFilterProfileTable")
+
         self.cealarmhistory = CiscoEntityAlarmMib.Cealarmhistory()
         self.cealarmhistory.parent = self
+        self._children_name_map["cealarmhistory"] = "ceAlarmHistory"
+        self._children_yang_names.add("ceAlarmHistory")
+
         self.cealarmhisttable = CiscoEntityAlarmMib.Cealarmhisttable()
         self.cealarmhisttable.parent = self
+        self._children_name_map["cealarmhisttable"] = "ceAlarmHistTable"
+        self._children_yang_names.add("ceAlarmHistTable")
+
         self.cealarmmonitoring = CiscoEntityAlarmMib.Cealarmmonitoring()
         self.cealarmmonitoring.parent = self
+        self._children_name_map["cealarmmonitoring"] = "ceAlarmMonitoring"
+        self._children_yang_names.add("ceAlarmMonitoring")
+
         self.cealarmtable = CiscoEntityAlarmMib.Cealarmtable()
         self.cealarmtable.parent = self
+        self._children_name_map["cealarmtable"] = "ceAlarmTable"
+        self._children_yang_names.add("ceAlarmTable")
 
 
-    class Cealarmmonitoring(object):
+    class Cealarmmonitoring(Entity):
         """
         
         
@@ -207,43 +224,119 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmcriticalcount = None
-            self.cealarmcutoff = None
-            self.cealarmmajorcount = None
-            self.cealarmminorcount = None
+            super(CiscoEntityAlarmMib.Cealarmmonitoring, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ceAlarmMonitoring"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
 
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmMonitoring'
+            self.cealarmcriticalcount = YLeaf(YType.uint32, "ceAlarmCriticalCount")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cealarmcutoff = YLeaf(YType.boolean, "ceAlarmCutOff")
+
+            self.cealarmmajorcount = YLeaf(YType.uint32, "ceAlarmMajorCount")
+
+            self.cealarmminorcount = YLeaf(YType.uint32, "ceAlarmMinorCount")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cealarmcriticalcount",
+                            "cealarmcutoff",
+                            "cealarmmajorcount",
+                            "cealarmminorcount") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmmonitoring, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmmonitoring, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cealarmcriticalcount.is_set or
+                self.cealarmcutoff.is_set or
+                self.cealarmmajorcount.is_set or
+                self.cealarmminorcount.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cealarmcriticalcount.yfilter != YFilter.not_set or
+                self.cealarmcutoff.yfilter != YFilter.not_set or
+                self.cealarmmajorcount.yfilter != YFilter.not_set or
+                self.cealarmminorcount.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmMonitoring" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cealarmcriticalcount.is_set or self.cealarmcriticalcount.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmcriticalcount.get_name_leafdata())
+            if (self.cealarmcutoff.is_set or self.cealarmcutoff.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmcutoff.get_name_leafdata())
+            if (self.cealarmmajorcount.is_set or self.cealarmmajorcount.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmmajorcount.get_name_leafdata())
+            if (self.cealarmminorcount.is_set or self.cealarmminorcount.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmminorcount.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmCriticalCount" or name == "ceAlarmCutOff" or name == "ceAlarmMajorCount" or name == "ceAlarmMinorCount"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cealarmcriticalcount is not None:
-                return True
-
-            if self.cealarmcutoff is not None:
-                return True
-
-            if self.cealarmmajorcount is not None:
-                return True
-
-            if self.cealarmminorcount is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmmonitoring']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ceAlarmCriticalCount"):
+                self.cealarmcriticalcount = value
+                self.cealarmcriticalcount.value_namespace = name_space
+                self.cealarmcriticalcount.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceAlarmCutOff"):
+                self.cealarmcutoff = value
+                self.cealarmcutoff.value_namespace = name_space
+                self.cealarmcutoff.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceAlarmMajorCount"):
+                self.cealarmmajorcount = value
+                self.cealarmmajorcount.value_namespace = name_space
+                self.cealarmmajorcount.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceAlarmMinorCount"):
+                self.cealarmminorcount = value
+                self.cealarmminorcount.value_namespace = name_space
+                self.cealarmminorcount.value_namespace_prefix = name_space_prefix
 
 
-    class Cealarmhistory(object):
+    class Cealarmhistory(Entity):
         """
         
         
@@ -269,35 +362,97 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmhistlastindex = None
-            self.cealarmhisttablesize = None
+            super(CiscoEntityAlarmMib.Cealarmhistory, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ceAlarmHistory"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
 
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmHistory'
+            self.cealarmhistlastindex = YLeaf(YType.uint32, "ceAlarmHistLastIndex")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cealarmhisttablesize = YLeaf(YType.int32, "ceAlarmHistTableSize")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cealarmhistlastindex",
+                            "cealarmhisttablesize") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmhistory, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmhistory, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cealarmhistlastindex.is_set or
+                self.cealarmhisttablesize.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cealarmhistlastindex.yfilter != YFilter.not_set or
+                self.cealarmhisttablesize.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmHistory" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cealarmhistlastindex.is_set or self.cealarmhistlastindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmhistlastindex.get_name_leafdata())
+            if (self.cealarmhisttablesize.is_set or self.cealarmhisttablesize.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmhisttablesize.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmHistLastIndex" or name == "ceAlarmHistTableSize"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cealarmhistlastindex is not None:
-                return True
-
-            if self.cealarmhisttablesize is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmhistory']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ceAlarmHistLastIndex"):
+                self.cealarmhistlastindex = value
+                self.cealarmhistlastindex.value_namespace = name_space
+                self.cealarmhistlastindex.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceAlarmHistTableSize"):
+                self.cealarmhisttablesize = value
+                self.cealarmhisttablesize.value_namespace = name_space
+                self.cealarmhisttablesize.value_namespace_prefix = name_space_prefix
 
 
-    class Cealarmfiltering(object):
+    class Cealarmfiltering(Entity):
         """
         
         
@@ -330,39 +485,108 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmfilterprofileindexnext = None
-            self.cealarmnotifiesenable = None
-            self.cealarmsyslogenable = None
+            super(CiscoEntityAlarmMib.Cealarmfiltering, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ceAlarmFiltering"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
 
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmFiltering'
+            self.cealarmfilterprofileindexnext = YLeaf(YType.uint32, "ceAlarmFilterProfileIndexNext")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cealarmnotifiesenable = YLeaf(YType.int32, "ceAlarmNotifiesEnable")
+
+            self.cealarmsyslogenable = YLeaf(YType.int32, "ceAlarmSyslogEnable")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cealarmfilterprofileindexnext",
+                            "cealarmnotifiesenable",
+                            "cealarmsyslogenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmfiltering, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmfiltering, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cealarmfilterprofileindexnext.is_set or
+                self.cealarmnotifiesenable.is_set or
+                self.cealarmsyslogenable.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cealarmfilterprofileindexnext.yfilter != YFilter.not_set or
+                self.cealarmnotifiesenable.yfilter != YFilter.not_set or
+                self.cealarmsyslogenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmFiltering" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cealarmfilterprofileindexnext.is_set or self.cealarmfilterprofileindexnext.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmfilterprofileindexnext.get_name_leafdata())
+            if (self.cealarmnotifiesenable.is_set or self.cealarmnotifiesenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmnotifiesenable.get_name_leafdata())
+            if (self.cealarmsyslogenable.is_set or self.cealarmsyslogenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cealarmsyslogenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmFilterProfileIndexNext" or name == "ceAlarmNotifiesEnable" or name == "ceAlarmSyslogEnable"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cealarmfilterprofileindexnext is not None:
-                return True
-
-            if self.cealarmnotifiesenable is not None:
-                return True
-
-            if self.cealarmsyslogenable is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmfiltering']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ceAlarmFilterProfileIndexNext"):
+                self.cealarmfilterprofileindexnext = value
+                self.cealarmfilterprofileindexnext.value_namespace = name_space
+                self.cealarmfilterprofileindexnext.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceAlarmNotifiesEnable"):
+                self.cealarmnotifiesenable = value
+                self.cealarmnotifiesenable.value_namespace = name_space
+                self.cealarmnotifiesenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "ceAlarmSyslogEnable"):
+                self.cealarmsyslogenable = value
+                self.cealarmsyslogenable.value_namespace = name_space
+                self.cealarmsyslogenable.value_namespace_prefix = name_space_prefix
 
 
-    class Cealarmdescrmaptable(object):
+    class Cealarmdescrmaptable(Entity):
         """
         For each type of entity (represented entPhysicalVendorType
         OID), this table contains a mapping between a unique 
@@ -381,13 +605,39 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmdescrmapentry = YList()
-            self.cealarmdescrmapentry.parent = self
-            self.cealarmdescrmapentry.name = 'cealarmdescrmapentry'
+            super(CiscoEntityAlarmMib.Cealarmdescrmaptable, self).__init__()
+
+            self.yang_name = "ceAlarmDescrMapTable"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
+
+            self.cealarmdescrmapentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmdescrmaptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmdescrmaptable, self).__setattr__(name, value)
 
 
-        class Cealarmdescrmapentry(object):
+        class Cealarmdescrmapentry(Entity):
             """
             A mapping between an alarm description and a vendor type.
             
@@ -413,59 +663,154 @@ class CiscoEntityAlarmMib(object):
             _revision = '1999-07-06'
 
             def __init__(self):
-                self.parent = None
-                self.cealarmdescrindex = None
-                self.cealarmdescrvendortype = None
+                super(CiscoEntityAlarmMib.Cealarmdescrmaptable.Cealarmdescrmapentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cealarmdescrindex is None:
-                    raise YPYModelError('Key property cealarmdescrindex is None')
+                self.yang_name = "ceAlarmDescrMapEntry"
+                self.yang_parent_name = "ceAlarmDescrMapTable"
 
-                return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmDescrMapTable/CISCO-ENTITY-ALARM-MIB:ceAlarmDescrMapEntry[CISCO-ENTITY-ALARM-MIB:ceAlarmDescrIndex = ' + str(self.cealarmdescrindex) + ']'
+                self.cealarmdescrindex = YLeaf(YType.uint32, "ceAlarmDescrIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cealarmdescrvendortype = YLeaf(YType.str, "ceAlarmDescrVendorType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cealarmdescrindex",
+                                "cealarmdescrvendortype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityAlarmMib.Cealarmdescrmaptable.Cealarmdescrmapentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityAlarmMib.Cealarmdescrmaptable.Cealarmdescrmapentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cealarmdescrindex.is_set or
+                    self.cealarmdescrvendortype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cealarmdescrindex.yfilter != YFilter.not_set or
+                    self.cealarmdescrvendortype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceAlarmDescrMapEntry" + "[ceAlarmDescrIndex='" + self.cealarmdescrindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrMapTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cealarmdescrindex.is_set or self.cealarmdescrindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmdescrindex.get_name_leafdata())
+                if (self.cealarmdescrvendortype.is_set or self.cealarmdescrvendortype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmdescrvendortype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ceAlarmDescrIndex" or name == "ceAlarmDescrVendorType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cealarmdescrindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ceAlarmDescrIndex"):
+                    self.cealarmdescrindex = value
+                    self.cealarmdescrindex.value_namespace = name_space
+                    self.cealarmdescrindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmDescrVendorType"):
+                    self.cealarmdescrvendortype = value
+                    self.cealarmdescrvendortype.value_namespace = name_space
+                    self.cealarmdescrvendortype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cealarmdescrmapentry:
+                if (c.has_data()):
                     return True
-
-                if self.cealarmdescrvendortype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-                return meta._meta_table['CiscoEntityAlarmMib.Cealarmdescrmaptable.Cealarmdescrmapentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmDescrMapTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cealarmdescrmapentry is not None:
-                for child_ref in self.cealarmdescrmapentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cealarmdescrmapentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmDescrMapTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceAlarmDescrMapEntry"):
+                for c in self.cealarmdescrmapentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityAlarmMib.Cealarmdescrmaptable.Cealarmdescrmapentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cealarmdescrmapentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmDescrMapEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmdescrmaptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cealarmdescrtable(object):
+    class Cealarmdescrtable(Entity):
         """
         This table contains a description for each alarm type
         defined by each vendor type employed by the system.
@@ -486,13 +831,39 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmdescrentry = YList()
-            self.cealarmdescrentry.parent = self
-            self.cealarmdescrentry.name = 'cealarmdescrentry'
+            super(CiscoEntityAlarmMib.Cealarmdescrtable, self).__init__()
+
+            self.yang_name = "ceAlarmDescrTable"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
+
+            self.cealarmdescrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmdescrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmdescrtable, self).__setattr__(name, value)
 
 
-        class Cealarmdescrentry(object):
+        class Cealarmdescrentry(Entity):
             """
             A collection of attributes that describe an alarm type.
             
@@ -532,69 +903,176 @@ class CiscoEntityAlarmMib(object):
             _revision = '1999-07-06'
 
             def __init__(self):
-                self.parent = None
-                self.cealarmdescrindex = None
-                self.cealarmdescralarmtype = None
-                self.cealarmdescrseverity = None
-                self.cealarmdescrtext = None
+                super(CiscoEntityAlarmMib.Cealarmdescrtable.Cealarmdescrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cealarmdescrindex is None:
-                    raise YPYModelError('Key property cealarmdescrindex is None')
-                if self.cealarmdescralarmtype is None:
-                    raise YPYModelError('Key property cealarmdescralarmtype is None')
+                self.yang_name = "ceAlarmDescrEntry"
+                self.yang_parent_name = "ceAlarmDescrTable"
 
-                return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmDescrTable/CISCO-ENTITY-ALARM-MIB:ceAlarmDescrEntry[CISCO-ENTITY-ALARM-MIB:ceAlarmDescrIndex = ' + str(self.cealarmdescrindex) + '][CISCO-ENTITY-ALARM-MIB:ceAlarmDescrAlarmType = ' + str(self.cealarmdescralarmtype) + ']'
+                self.cealarmdescrindex = YLeaf(YType.str, "ceAlarmDescrIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cealarmdescralarmtype = YLeaf(YType.int32, "ceAlarmDescrAlarmType")
+
+                self.cealarmdescrseverity = YLeaf(YType.int32, "ceAlarmDescrSeverity")
+
+                self.cealarmdescrtext = YLeaf(YType.str, "ceAlarmDescrText")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cealarmdescrindex",
+                                "cealarmdescralarmtype",
+                                "cealarmdescrseverity",
+                                "cealarmdescrtext") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityAlarmMib.Cealarmdescrtable.Cealarmdescrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityAlarmMib.Cealarmdescrtable.Cealarmdescrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cealarmdescrindex.is_set or
+                    self.cealarmdescralarmtype.is_set or
+                    self.cealarmdescrseverity.is_set or
+                    self.cealarmdescrtext.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cealarmdescrindex.yfilter != YFilter.not_set or
+                    self.cealarmdescralarmtype.yfilter != YFilter.not_set or
+                    self.cealarmdescrseverity.yfilter != YFilter.not_set or
+                    self.cealarmdescrtext.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceAlarmDescrEntry" + "[ceAlarmDescrIndex='" + self.cealarmdescrindex.get() + "']" + "[ceAlarmDescrAlarmType='" + self.cealarmdescralarmtype.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cealarmdescrindex.is_set or self.cealarmdescrindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmdescrindex.get_name_leafdata())
+                if (self.cealarmdescralarmtype.is_set or self.cealarmdescralarmtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmdescralarmtype.get_name_leafdata())
+                if (self.cealarmdescrseverity.is_set or self.cealarmdescrseverity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmdescrseverity.get_name_leafdata())
+                if (self.cealarmdescrtext.is_set or self.cealarmdescrtext.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmdescrtext.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ceAlarmDescrIndex" or name == "ceAlarmDescrAlarmType" or name == "ceAlarmDescrSeverity" or name == "ceAlarmDescrText"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cealarmdescrindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ceAlarmDescrIndex"):
+                    self.cealarmdescrindex = value
+                    self.cealarmdescrindex.value_namespace = name_space
+                    self.cealarmdescrindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmDescrAlarmType"):
+                    self.cealarmdescralarmtype = value
+                    self.cealarmdescralarmtype.value_namespace = name_space
+                    self.cealarmdescralarmtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmDescrSeverity"):
+                    self.cealarmdescrseverity = value
+                    self.cealarmdescrseverity.value_namespace = name_space
+                    self.cealarmdescrseverity.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmDescrText"):
+                    self.cealarmdescrtext = value
+                    self.cealarmdescrtext.value_namespace = name_space
+                    self.cealarmdescrtext.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cealarmdescrentry:
+                if (c.has_data()):
                     return True
-
-                if self.cealarmdescralarmtype is not None:
-                    return True
-
-                if self.cealarmdescrseverity is not None:
-                    return True
-
-                if self.cealarmdescrtext is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-                return meta._meta_table['CiscoEntityAlarmMib.Cealarmdescrtable.Cealarmdescrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmDescrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cealarmdescrentry is not None:
-                for child_ref in self.cealarmdescrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cealarmdescrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmDescrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceAlarmDescrEntry"):
+                for c in self.cealarmdescrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityAlarmMib.Cealarmdescrtable.Cealarmdescrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cealarmdescrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmDescrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmdescrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cealarmtable(object):
+    class Cealarmtable(Entity):
         """
         This table specifies alarm control and status information
         related to each physical entity contained by the system,
@@ -614,13 +1092,39 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmentry = YList()
-            self.cealarmentry.parent = self
-            self.cealarmentry.name = 'cealarmentry'
+            super(CiscoEntityAlarmMib.Cealarmtable, self).__init__()
+
+            self.yang_name = "ceAlarmTable"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
+
+            self.cealarmentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmtable, self).__setattr__(name, value)
 
 
-        class Cealarmentry(object):
+        class Cealarmentry(Entity):
             """
             Alarm control and status information related to the 
             corresponding physical entity, including a list of those
@@ -664,67 +1168,176 @@ class CiscoEntityAlarmMib(object):
             _revision = '1999-07-06'
 
             def __init__(self):
-                self.parent = None
-                self.entphysicalindex = None
-                self.cealarmfilterprofile = None
-                self.cealarmlist = None
-                self.cealarmseverity = None
+                super(CiscoEntityAlarmMib.Cealarmtable.Cealarmentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.entphysicalindex is None:
-                    raise YPYModelError('Key property entphysicalindex is None')
+                self.yang_name = "ceAlarmEntry"
+                self.yang_parent_name = "ceAlarmTable"
 
-                return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmTable/CISCO-ENTITY-ALARM-MIB:ceAlarmEntry[CISCO-ENTITY-ALARM-MIB:entPhysicalIndex = ' + str(self.entphysicalindex) + ']'
+                self.entphysicalindex = YLeaf(YType.str, "entPhysicalIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cealarmfilterprofile = YLeaf(YType.uint32, "ceAlarmFilterProfile")
+
+                self.cealarmlist = YLeaf(YType.str, "ceAlarmList")
+
+                self.cealarmseverity = YLeaf(YType.int32, "ceAlarmSeverity")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("entphysicalindex",
+                                "cealarmfilterprofile",
+                                "cealarmlist",
+                                "cealarmseverity") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityAlarmMib.Cealarmtable.Cealarmentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityAlarmMib.Cealarmtable.Cealarmentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.entphysicalindex.is_set or
+                    self.cealarmfilterprofile.is_set or
+                    self.cealarmlist.is_set or
+                    self.cealarmseverity.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.entphysicalindex.yfilter != YFilter.not_set or
+                    self.cealarmfilterprofile.yfilter != YFilter.not_set or
+                    self.cealarmlist.yfilter != YFilter.not_set or
+                    self.cealarmseverity.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceAlarmEntry" + "[entPhysicalIndex='" + self.entphysicalindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.entphysicalindex.is_set or self.entphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.entphysicalindex.get_name_leafdata())
+                if (self.cealarmfilterprofile.is_set or self.cealarmfilterprofile.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmfilterprofile.get_name_leafdata())
+                if (self.cealarmlist.is_set or self.cealarmlist.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmlist.get_name_leafdata())
+                if (self.cealarmseverity.is_set or self.cealarmseverity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmseverity.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "entPhysicalIndex" or name == "ceAlarmFilterProfile" or name == "ceAlarmList" or name == "ceAlarmSeverity"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.entphysicalindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "entPhysicalIndex"):
+                    self.entphysicalindex = value
+                    self.entphysicalindex.value_namespace = name_space
+                    self.entphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmFilterProfile"):
+                    self.cealarmfilterprofile = value
+                    self.cealarmfilterprofile.value_namespace = name_space
+                    self.cealarmfilterprofile.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmList"):
+                    self.cealarmlist = value
+                    self.cealarmlist.value_namespace = name_space
+                    self.cealarmlist.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmSeverity"):
+                    self.cealarmseverity = value
+                    self.cealarmseverity.value_namespace = name_space
+                    self.cealarmseverity.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cealarmentry:
+                if (c.has_data()):
                     return True
-
-                if self.cealarmfilterprofile is not None:
-                    return True
-
-                if self.cealarmlist is not None:
-                    return True
-
-                if self.cealarmseverity is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-                return meta._meta_table['CiscoEntityAlarmMib.Cealarmtable.Cealarmentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cealarmentry is not None:
-                for child_ref in self.cealarmentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cealarmentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceAlarmEntry"):
+                for c in self.cealarmentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityAlarmMib.Cealarmtable.Cealarmentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cealarmentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cealarmhisttable(object):
+    class Cealarmhisttable(Entity):
         """
         This table contains a history of ceAlarmIndicate and
         ceAlarmClear traps generated by the agent.
@@ -742,13 +1355,39 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmhistentry = YList()
-            self.cealarmhistentry.parent = self
-            self.cealarmhistentry.name = 'cealarmhistentry'
+            super(CiscoEntityAlarmMib.Cealarmhisttable, self).__init__()
+
+            self.yang_name = "ceAlarmHistTable"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
+
+            self.cealarmhistentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmhisttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmhisttable, self).__setattr__(name, value)
 
 
-        class Cealarmhistentry(object):
+        class Cealarmhistentry(Entity):
             """
             The information conveyed by a ceAlarmIndicate or
             ceAlarmClear trap.
@@ -777,7 +1416,7 @@ class CiscoEntityAlarmMib(object):
             .. attribute:: cealarmhistseverity
             
             	This object specifies the severity of the alarm generated
-            	**type**\:   :py:class:`AlarmseverityEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB.AlarmseverityEnum>`
+            	**type**\:   :py:class:`Alarmseverity <ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB.Alarmseverity>`
             
             .. attribute:: cealarmhisttimestamp
             
@@ -789,7 +1428,7 @@ class CiscoEntityAlarmMib(object):
             .. attribute:: cealarmhisttype
             
             	This object specifies whether the agent created the entry as the result of an alarm being asserted or cleared
-            	**type**\:   :py:class:`CealarmhisttypeEnum <ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB.CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry.CealarmhisttypeEnum>`
+            	**type**\:   :py:class:`Cealarmhisttype <ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB.CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry.Cealarmhisttype>`
             
             
 
@@ -799,17 +1438,55 @@ class CiscoEntityAlarmMib(object):
             _revision = '1999-07-06'
 
             def __init__(self):
-                self.parent = None
-                self.cealarmhistindex = None
-                self.cealarmhistalarmtype = None
-                self.cealarmhistentphysicalindex = None
-                self.cealarmhistseverity = None
-                self.cealarmhisttimestamp = None
-                self.cealarmhisttype = None
+                super(CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry, self).__init__()
 
-            class CealarmhisttypeEnum(Enum):
+                self.yang_name = "ceAlarmHistEntry"
+                self.yang_parent_name = "ceAlarmHistTable"
+
+                self.cealarmhistindex = YLeaf(YType.uint32, "ceAlarmHistIndex")
+
+                self.cealarmhistalarmtype = YLeaf(YType.int32, "ceAlarmHistAlarmType")
+
+                self.cealarmhistentphysicalindex = YLeaf(YType.int32, "ceAlarmHistEntPhysicalIndex")
+
+                self.cealarmhistseverity = YLeaf(YType.enumeration, "ceAlarmHistSeverity")
+
+                self.cealarmhisttimestamp = YLeaf(YType.uint32, "ceAlarmHistTimeStamp")
+
+                self.cealarmhisttype = YLeaf(YType.enumeration, "ceAlarmHistType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cealarmhistindex",
+                                "cealarmhistalarmtype",
+                                "cealarmhistentphysicalindex",
+                                "cealarmhistseverity",
+                                "cealarmhisttimestamp",
+                                "cealarmhisttype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry, self).__setattr__(name, value)
+
+            class Cealarmhisttype(Enum):
                 """
-                CealarmhisttypeEnum
+                Cealarmhisttype
 
                 This object specifies whether the agent created the entry as
 
@@ -821,78 +1498,157 @@ class CiscoEntityAlarmMib(object):
 
                 """
 
-                asserted = 1
+                asserted = Enum.YLeaf(1, "asserted")
 
-                cleared = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-                    return meta._meta_table['CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry.CealarmhisttypeEnum']
+                cleared = Enum.YLeaf(2, "cleared")
 
 
-            @property
-            def _common_path(self):
-                if self.cealarmhistindex is None:
-                    raise YPYModelError('Key property cealarmhistindex is None')
+            def has_data(self):
+                return (
+                    self.cealarmhistindex.is_set or
+                    self.cealarmhistalarmtype.is_set or
+                    self.cealarmhistentphysicalindex.is_set or
+                    self.cealarmhistseverity.is_set or
+                    self.cealarmhisttimestamp.is_set or
+                    self.cealarmhisttype.is_set)
 
-                return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmHistTable/CISCO-ENTITY-ALARM-MIB:ceAlarmHistEntry[CISCO-ENTITY-ALARM-MIB:ceAlarmHistIndex = ' + str(self.cealarmhistindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cealarmhistindex.yfilter != YFilter.not_set or
+                    self.cealarmhistalarmtype.yfilter != YFilter.not_set or
+                    self.cealarmhistentphysicalindex.yfilter != YFilter.not_set or
+                    self.cealarmhistseverity.yfilter != YFilter.not_set or
+                    self.cealarmhisttimestamp.yfilter != YFilter.not_set or
+                    self.cealarmhisttype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceAlarmHistEntry" + "[ceAlarmHistIndex='" + self.cealarmhistindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmHistTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cealarmhistindex.is_set or self.cealarmhistindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmhistindex.get_name_leafdata())
+                if (self.cealarmhistalarmtype.is_set or self.cealarmhistalarmtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmhistalarmtype.get_name_leafdata())
+                if (self.cealarmhistentphysicalindex.is_set or self.cealarmhistentphysicalindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmhistentphysicalindex.get_name_leafdata())
+                if (self.cealarmhistseverity.is_set or self.cealarmhistseverity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmhistseverity.get_name_leafdata())
+                if (self.cealarmhisttimestamp.is_set or self.cealarmhisttimestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmhisttimestamp.get_name_leafdata())
+                if (self.cealarmhisttype.is_set or self.cealarmhisttype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmhisttype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ceAlarmHistIndex" or name == "ceAlarmHistAlarmType" or name == "ceAlarmHistEntPhysicalIndex" or name == "ceAlarmHistSeverity" or name == "ceAlarmHistTimeStamp" or name == "ceAlarmHistType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cealarmhistindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ceAlarmHistIndex"):
+                    self.cealarmhistindex = value
+                    self.cealarmhistindex.value_namespace = name_space
+                    self.cealarmhistindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmHistAlarmType"):
+                    self.cealarmhistalarmtype = value
+                    self.cealarmhistalarmtype.value_namespace = name_space
+                    self.cealarmhistalarmtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmHistEntPhysicalIndex"):
+                    self.cealarmhistentphysicalindex = value
+                    self.cealarmhistentphysicalindex.value_namespace = name_space
+                    self.cealarmhistentphysicalindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmHistSeverity"):
+                    self.cealarmhistseverity = value
+                    self.cealarmhistseverity.value_namespace = name_space
+                    self.cealarmhistseverity.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmHistTimeStamp"):
+                    self.cealarmhisttimestamp = value
+                    self.cealarmhisttimestamp.value_namespace = name_space
+                    self.cealarmhisttimestamp.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmHistType"):
+                    self.cealarmhisttype = value
+                    self.cealarmhisttype.value_namespace = name_space
+                    self.cealarmhisttype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cealarmhistentry:
+                if (c.has_data()):
                     return True
-
-                if self.cealarmhistalarmtype is not None:
-                    return True
-
-                if self.cealarmhistentphysicalindex is not None:
-                    return True
-
-                if self.cealarmhistseverity is not None:
-                    return True
-
-                if self.cealarmhisttimestamp is not None:
-                    return True
-
-                if self.cealarmhisttype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-                return meta._meta_table['CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmHistTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cealarmhistentry is not None:
-                for child_ref in self.cealarmhistentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cealarmhistentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmHistTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceAlarmHistEntry"):
+                for c in self.cealarmhistentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityAlarmMib.Cealarmhisttable.Cealarmhistentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cealarmhistentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmHistEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmhisttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cealarmfilterprofiletable(object):
+    class Cealarmfilterprofiletable(Entity):
         """
         This table contains a list of alarm filter profiles.
         
@@ -909,13 +1665,39 @@ class CiscoEntityAlarmMib(object):
         _revision = '1999-07-06'
 
         def __init__(self):
-            self.parent = None
-            self.cealarmfilterprofileentry = YList()
-            self.cealarmfilterprofileentry.parent = self
-            self.cealarmfilterprofileentry.name = 'cealarmfilterprofileentry'
+            super(CiscoEntityAlarmMib.Cealarmfilterprofiletable, self).__init__()
+
+            self.yang_name = "ceAlarmFilterProfileTable"
+            self.yang_parent_name = "CISCO-ENTITY-ALARM-MIB"
+
+            self.cealarmfilterprofileentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoEntityAlarmMib.Cealarmfilterprofiletable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoEntityAlarmMib.Cealarmfilterprofiletable, self).__setattr__(name, value)
 
 
-        class Cealarmfilterprofileentry(object):
+        class Cealarmfilterprofileentry(Entity):
             """
             When a physical entity asserts/clears an alarm AND the
             ceAlarmFilterProfile object is not '0', the agent applies
@@ -969,7 +1751,7 @@ class CiscoEntityAlarmMib(object):
             .. attribute:: cealarmfilterstatus
             
             	This object facilitates the creation, modification, or  deletion of a conceptual row in this table.  A management client can create a conceptual row in this table by setting this object to 'createAndWait' or  'createAndGo'.  If a request to create a conceptual row in this table fails, then the system is not capable of supporting any more alarm filters.  Before modifying a conceptual row in this table, the  management client must set this object to 'notInService'. After modifying a conceptual row in this table, the  management client must set this object to 'active'. This operation causes the modifications made to an alarm filter profile to take effect.  An implementation should not allow a conceptual row in this table to be deleted if one or more physical entities reference it
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cealarmfiltersyslogenabled
             
@@ -986,112 +1768,308 @@ class CiscoEntityAlarmMib(object):
             _revision = '1999-07-06'
 
             def __init__(self):
-                self.parent = None
-                self.cealarmfilterindex = None
-                self.cealarmfilteralarmsenabled = None
-                self.cealarmfilteralias = None
-                self.cealarmfilternotifiesenabled = None
-                self.cealarmfilterstatus = None
-                self.cealarmfiltersyslogenabled = None
+                super(CiscoEntityAlarmMib.Cealarmfilterprofiletable.Cealarmfilterprofileentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cealarmfilterindex is None:
-                    raise YPYModelError('Key property cealarmfilterindex is None')
+                self.yang_name = "ceAlarmFilterProfileEntry"
+                self.yang_parent_name = "ceAlarmFilterProfileTable"
 
-                return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmFilterProfileTable/CISCO-ENTITY-ALARM-MIB:ceAlarmFilterProfileEntry[CISCO-ENTITY-ALARM-MIB:ceAlarmFilterIndex = ' + str(self.cealarmfilterindex) + ']'
+                self.cealarmfilterindex = YLeaf(YType.uint32, "ceAlarmFilterIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cealarmfilteralarmsenabled = YLeaf(YType.str, "ceAlarmFilterAlarmsEnabled")
+
+                self.cealarmfilteralias = YLeaf(YType.str, "ceAlarmFilterAlias")
+
+                self.cealarmfilternotifiesenabled = YLeaf(YType.str, "ceAlarmFilterNotifiesEnabled")
+
+                self.cealarmfilterstatus = YLeaf(YType.enumeration, "ceAlarmFilterStatus")
+
+                self.cealarmfiltersyslogenabled = YLeaf(YType.str, "ceAlarmFilterSyslogEnabled")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cealarmfilterindex",
+                                "cealarmfilteralarmsenabled",
+                                "cealarmfilteralias",
+                                "cealarmfilternotifiesenabled",
+                                "cealarmfilterstatus",
+                                "cealarmfiltersyslogenabled") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoEntityAlarmMib.Cealarmfilterprofiletable.Cealarmfilterprofileentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoEntityAlarmMib.Cealarmfilterprofiletable.Cealarmfilterprofileentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cealarmfilterindex.is_set or
+                    self.cealarmfilteralarmsenabled.is_set or
+                    self.cealarmfilteralias.is_set or
+                    self.cealarmfilternotifiesenabled.is_set or
+                    self.cealarmfilterstatus.is_set or
+                    self.cealarmfiltersyslogenabled.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cealarmfilterindex.yfilter != YFilter.not_set or
+                    self.cealarmfilteralarmsenabled.yfilter != YFilter.not_set or
+                    self.cealarmfilteralias.yfilter != YFilter.not_set or
+                    self.cealarmfilternotifiesenabled.yfilter != YFilter.not_set or
+                    self.cealarmfilterstatus.yfilter != YFilter.not_set or
+                    self.cealarmfiltersyslogenabled.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ceAlarmFilterProfileEntry" + "[ceAlarmFilterIndex='" + self.cealarmfilterindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmFilterProfileTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cealarmfilterindex.is_set or self.cealarmfilterindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmfilterindex.get_name_leafdata())
+                if (self.cealarmfilteralarmsenabled.is_set or self.cealarmfilteralarmsenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmfilteralarmsenabled.get_name_leafdata())
+                if (self.cealarmfilteralias.is_set or self.cealarmfilteralias.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmfilteralias.get_name_leafdata())
+                if (self.cealarmfilternotifiesenabled.is_set or self.cealarmfilternotifiesenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmfilternotifiesenabled.get_name_leafdata())
+                if (self.cealarmfilterstatus.is_set or self.cealarmfilterstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmfilterstatus.get_name_leafdata())
+                if (self.cealarmfiltersyslogenabled.is_set or self.cealarmfiltersyslogenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cealarmfiltersyslogenabled.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ceAlarmFilterIndex" or name == "ceAlarmFilterAlarmsEnabled" or name == "ceAlarmFilterAlias" or name == "ceAlarmFilterNotifiesEnabled" or name == "ceAlarmFilterStatus" or name == "ceAlarmFilterSyslogEnabled"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cealarmfilterindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ceAlarmFilterIndex"):
+                    self.cealarmfilterindex = value
+                    self.cealarmfilterindex.value_namespace = name_space
+                    self.cealarmfilterindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmFilterAlarmsEnabled"):
+                    self.cealarmfilteralarmsenabled = value
+                    self.cealarmfilteralarmsenabled.value_namespace = name_space
+                    self.cealarmfilteralarmsenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmFilterAlias"):
+                    self.cealarmfilteralias = value
+                    self.cealarmfilteralias.value_namespace = name_space
+                    self.cealarmfilteralias.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmFilterNotifiesEnabled"):
+                    self.cealarmfilternotifiesenabled = value
+                    self.cealarmfilternotifiesenabled.value_namespace = name_space
+                    self.cealarmfilternotifiesenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmFilterStatus"):
+                    self.cealarmfilterstatus = value
+                    self.cealarmfilterstatus.value_namespace = name_space
+                    self.cealarmfilterstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ceAlarmFilterSyslogEnabled"):
+                    self.cealarmfiltersyslogenabled = value
+                    self.cealarmfiltersyslogenabled.value_namespace = name_space
+                    self.cealarmfiltersyslogenabled.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cealarmfilterprofileentry:
+                if (c.has_data()):
                     return True
-
-                if self.cealarmfilteralarmsenabled is not None:
-                    return True
-
-                if self.cealarmfilteralias is not None:
-                    return True
-
-                if self.cealarmfilternotifiesenabled is not None:
-                    return True
-
-                if self.cealarmfilterstatus is not None:
-                    return True
-
-                if self.cealarmfiltersyslogenabled is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-                return meta._meta_table['CiscoEntityAlarmMib.Cealarmfilterprofiletable.Cealarmfilterprofileentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/CISCO-ENTITY-ALARM-MIB:ceAlarmFilterProfileTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cealarmfilterprofileentry is not None:
-                for child_ref in self.cealarmfilterprofileentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cealarmfilterprofileentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ceAlarmFilterProfileTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ceAlarmFilterProfileEntry"):
+                for c in self.cealarmfilterprofileentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoEntityAlarmMib.Cealarmfilterprofiletable.Cealarmfilterprofileentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cealarmfilterprofileentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ceAlarmFilterProfileEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-            return meta._meta_table['CiscoEntityAlarmMib.Cealarmfilterprofiletable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cealarmdescrmaptable is not None and self.cealarmdescrmaptable.has_data()) or
+            (self.cealarmdescrtable is not None and self.cealarmdescrtable.has_data()) or
+            (self.cealarmfiltering is not None and self.cealarmfiltering.has_data()) or
+            (self.cealarmfilterprofiletable is not None and self.cealarmfilterprofiletable.has_data()) or
+            (self.cealarmhistory is not None and self.cealarmhistory.has_data()) or
+            (self.cealarmhisttable is not None and self.cealarmhisttable.has_data()) or
+            (self.cealarmmonitoring is not None and self.cealarmmonitoring.has_data()) or
+            (self.cealarmtable is not None and self.cealarmtable.has_data()))
 
-        return '/CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cealarmdescrmaptable is not None and self.cealarmdescrmaptable.has_operation()) or
+            (self.cealarmdescrtable is not None and self.cealarmdescrtable.has_operation()) or
+            (self.cealarmfiltering is not None and self.cealarmfiltering.has_operation()) or
+            (self.cealarmfilterprofiletable is not None and self.cealarmfilterprofiletable.has_operation()) or
+            (self.cealarmhistory is not None and self.cealarmhistory.has_operation()) or
+            (self.cealarmhisttable is not None and self.cealarmhisttable.has_operation()) or
+            (self.cealarmmonitoring is not None and self.cealarmmonitoring.has_operation()) or
+            (self.cealarmtable is not None and self.cealarmtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ceAlarmDescrMapTable"):
+            if (self.cealarmdescrmaptable is None):
+                self.cealarmdescrmaptable = CiscoEntityAlarmMib.Cealarmdescrmaptable()
+                self.cealarmdescrmaptable.parent = self
+                self._children_name_map["cealarmdescrmaptable"] = "ceAlarmDescrMapTable"
+            return self.cealarmdescrmaptable
+
+        if (child_yang_name == "ceAlarmDescrTable"):
+            if (self.cealarmdescrtable is None):
+                self.cealarmdescrtable = CiscoEntityAlarmMib.Cealarmdescrtable()
+                self.cealarmdescrtable.parent = self
+                self._children_name_map["cealarmdescrtable"] = "ceAlarmDescrTable"
+            return self.cealarmdescrtable
+
+        if (child_yang_name == "ceAlarmFiltering"):
+            if (self.cealarmfiltering is None):
+                self.cealarmfiltering = CiscoEntityAlarmMib.Cealarmfiltering()
+                self.cealarmfiltering.parent = self
+                self._children_name_map["cealarmfiltering"] = "ceAlarmFiltering"
+            return self.cealarmfiltering
+
+        if (child_yang_name == "ceAlarmFilterProfileTable"):
+            if (self.cealarmfilterprofiletable is None):
+                self.cealarmfilterprofiletable = CiscoEntityAlarmMib.Cealarmfilterprofiletable()
+                self.cealarmfilterprofiletable.parent = self
+                self._children_name_map["cealarmfilterprofiletable"] = "ceAlarmFilterProfileTable"
+            return self.cealarmfilterprofiletable
+
+        if (child_yang_name == "ceAlarmHistory"):
+            if (self.cealarmhistory is None):
+                self.cealarmhistory = CiscoEntityAlarmMib.Cealarmhistory()
+                self.cealarmhistory.parent = self
+                self._children_name_map["cealarmhistory"] = "ceAlarmHistory"
+            return self.cealarmhistory
+
+        if (child_yang_name == "ceAlarmHistTable"):
+            if (self.cealarmhisttable is None):
+                self.cealarmhisttable = CiscoEntityAlarmMib.Cealarmhisttable()
+                self.cealarmhisttable.parent = self
+                self._children_name_map["cealarmhisttable"] = "ceAlarmHistTable"
+            return self.cealarmhisttable
+
+        if (child_yang_name == "ceAlarmMonitoring"):
+            if (self.cealarmmonitoring is None):
+                self.cealarmmonitoring = CiscoEntityAlarmMib.Cealarmmonitoring()
+                self.cealarmmonitoring.parent = self
+                self._children_name_map["cealarmmonitoring"] = "ceAlarmMonitoring"
+            return self.cealarmmonitoring
+
+        if (child_yang_name == "ceAlarmTable"):
+            if (self.cealarmtable is None):
+                self.cealarmtable = CiscoEntityAlarmMib.Cealarmtable()
+                self.cealarmtable.parent = self
+                self._children_name_map["cealarmtable"] = "ceAlarmTable"
+            return self.cealarmtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ceAlarmDescrMapTable" or name == "ceAlarmDescrTable" or name == "ceAlarmFiltering" or name == "ceAlarmFilterProfileTable" or name == "ceAlarmHistory" or name == "ceAlarmHistTable" or name == "ceAlarmMonitoring" or name == "ceAlarmTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cealarmdescrmaptable is not None and self.cealarmdescrmaptable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cealarmdescrtable is not None and self.cealarmdescrtable._has_data():
-            return True
-
-        if self.cealarmfiltering is not None and self.cealarmfiltering._has_data():
-            return True
-
-        if self.cealarmfilterprofiletable is not None and self.cealarmfilterprofiletable._has_data():
-            return True
-
-        if self.cealarmhistory is not None and self.cealarmhistory._has_data():
-            return True
-
-        if self.cealarmhisttable is not None and self.cealarmhisttable._has_data():
-            return True
-
-        if self.cealarmmonitoring is not None and self.cealarmmonitoring._has_data():
-            return True
-
-        if self.cealarmtable is not None and self.cealarmtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_ENTITY_ALARM_MIB as meta
-        return meta._meta_table['CiscoEntityAlarmMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoEntityAlarmMib()
+        return self._top_entity
 

@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class IpIepHopEnum(Enum):
+class IpIepHop(Enum):
     """
-    IpIepHopEnum
+    IpIepHop
 
     Ip iep hop
 
@@ -52,26 +46,20 @@ class IpIepHopEnum(Enum):
 
     """
 
-    next_strict = 2
+    next_strict = Enum.YLeaf(2, "next-strict")
 
-    next_loose = 3
+    next_loose = Enum.YLeaf(3, "next-loose")
 
-    exclude = 4
+    exclude = Enum.YLeaf(4, "exclude")
 
-    exclude_srlg = 5
+    exclude_srlg = Enum.YLeaf(5, "exclude-srlg")
 
-    next_label = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-        return meta._meta_table['IpIepHopEnum']
+    next_label = Enum.YLeaf(6, "next-label")
 
 
-class IpIepNumEnum(Enum):
+class IpIepNum(Enum):
     """
-    IpIepNumEnum
+    IpIepNum
 
     Ip iep num
 
@@ -85,20 +73,14 @@ class IpIepNumEnum(Enum):
 
     """
 
-    unnumbered = 1
+    unnumbered = Enum.YLeaf(1, "unnumbered")
 
-    numbered = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-        return meta._meta_table['IpIepNumEnum']
+    numbered = Enum.YLeaf(2, "numbered")
 
 
-class IpIepPathEnum(Enum):
+class IpIepPath(Enum):
     """
-    IpIepPathEnum
+    IpIepPath
 
     Ip iep path
 
@@ -112,19 +94,13 @@ class IpIepPathEnum(Enum):
 
     """
 
-    identifier = 1
+    identifier = Enum.YLeaf(1, "identifier")
 
-    name = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-        return meta._meta_table['IpIepPathEnum']
+    name = Enum.YLeaf(2, "name")
 
 
 
-class IpExplicitPaths(object):
+class IpExplicitPaths(Entity):
     """
     IP Explicit Path config data
     
@@ -141,11 +117,19 @@ class IpExplicitPaths(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(IpExplicitPaths, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ip-explicit-paths"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-iep-cfg"
+
         self.paths = IpExplicitPaths.Paths()
         self.paths.parent = self
+        self._children_name_map["paths"] = "paths"
+        self._children_yang_names.add("paths")
 
 
-    class Paths(object):
+    class Paths(Entity):
         """
         A list of explicit paths
         
@@ -162,20 +146,46 @@ class IpExplicitPaths(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.path = YList()
-            self.path.parent = self
-            self.path.name = 'path'
+            super(IpExplicitPaths.Paths, self).__init__()
+
+            self.yang_name = "paths"
+            self.yang_parent_name = "ip-explicit-paths"
+
+            self.path = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IpExplicitPaths.Paths, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IpExplicitPaths.Paths, self).__setattr__(name, value)
 
 
-        class Path(object):
+        class Path(Entity):
             """
             Config data for a specific explicit path
             
             .. attribute:: type  <key>
             
             	Path type
-            	**type**\:   :py:class:`IpIepPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepPathEnum>`
+            	**type**\:   :py:class:`IpIepPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepPath>`
             
             .. attribute:: identifier
             
@@ -195,17 +205,42 @@ class IpExplicitPaths(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.type = None
-                self.identifier = YList()
-                self.identifier.parent = self
-                self.identifier.name = 'identifier'
-                self.name = YList()
-                self.name.parent = self
-                self.name.name = 'name'
+                super(IpExplicitPaths.Paths.Path, self).__init__()
+
+                self.yang_name = "path"
+                self.yang_parent_name = "paths"
+
+                self.type = YLeaf(YType.enumeration, "type")
+
+                self.identifier = YList(self)
+                self.name = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("type") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(IpExplicitPaths.Paths.Path, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(IpExplicitPaths.Paths.Path, self).__setattr__(name, value)
 
 
-            class Name(object):
+            class Name(Entity):
                 """
                 name
                 
@@ -234,14 +269,47 @@ class IpExplicitPaths(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.name = None
-                    self.disable = None
+                    super(IpExplicitPaths.Paths.Path.Name, self).__init__()
+
+                    self.yang_name = "name"
+                    self.yang_parent_name = "path"
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.disable = YLeaf(YType.empty, "disable")
+
                     self.hops = IpExplicitPaths.Paths.Path.Name.Hops()
                     self.hops.parent = self
+                    self._children_name_map["hops"] = "hops"
+                    self._children_yang_names.add("hops")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("name",
+                                    "disable") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(IpExplicitPaths.Paths.Path.Name, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(IpExplicitPaths.Paths.Path.Name, self).__setattr__(name, value)
 
 
-                class Hops(object):
+                class Hops(Entity):
                     """
                     List of Hops
                     
@@ -258,13 +326,39 @@ class IpExplicitPaths(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.hop = YList()
-                        self.hop.parent = self
-                        self.hop.name = 'hop'
+                        super(IpExplicitPaths.Paths.Path.Name.Hops, self).__init__()
+
+                        self.yang_name = "hops"
+                        self.yang_parent_name = "name"
+
+                        self.hop = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(IpExplicitPaths.Paths.Path.Name.Hops, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(IpExplicitPaths.Paths.Path.Name.Hops, self).__setattr__(name, value)
 
 
-                    class Hop(object):
+                    class Hop(Entity):
                         """
                         Hop Information
                         
@@ -278,7 +372,7 @@ class IpExplicitPaths(object):
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
-                        	**type**\:   :py:class:`IpIepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
+                        	**type**\:   :py:class:`IpIepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHop>`
                         
                         	**default value**\: next-strict
                         
@@ -310,7 +404,7 @@ class IpExplicitPaths(object):
                         .. attribute:: num_type
                         
                         	Number type Numbered or Unnumbered
-                        	**type**\:   :py:class:`IpIepNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        	**type**\:   :py:class:`IpIepNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNum>`
                         
                         	**default value**\: numbered
                         
@@ -322,109 +416,262 @@ class IpExplicitPaths(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.index_number = None
-                            self.hop_type = None
-                            self.if_index = None
-                            self.ip_address = None
-                            self.mpls_label = None
-                            self.num_type = None
+                            super(IpExplicitPaths.Paths.Path.Name.Hops.Hop, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.index_number is None:
-                                raise YPYModelError('Key property index_number is None')
+                            self.yang_name = "hop"
+                            self.yang_parent_name = "hops"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hop[Cisco-IOS-XR-ip-iep-cfg:index-number = ' + str(self.index_number) + ']'
+                            self.index_number = YLeaf(YType.uint32, "index-number")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.hop_type = YLeaf(YType.enumeration, "hop-type")
 
-                        def _has_data(self):
-                            if self.index_number is not None:
+                            self.if_index = YLeaf(YType.int32, "if-index")
+
+                            self.ip_address = YLeaf(YType.str, "ip-address")
+
+                            self.mpls_label = YLeaf(YType.int32, "mpls-label")
+
+                            self.num_type = YLeaf(YType.enumeration, "num-type")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("index_number",
+                                            "hop_type",
+                                            "if_index",
+                                            "ip_address",
+                                            "mpls_label",
+                                            "num_type") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(IpExplicitPaths.Paths.Path.Name.Hops.Hop, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(IpExplicitPaths.Paths.Path.Name.Hops.Hop, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.index_number.is_set or
+                                self.hop_type.is_set or
+                                self.if_index.is_set or
+                                self.ip_address.is_set or
+                                self.mpls_label.is_set or
+                                self.num_type.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.index_number.yfilter != YFilter.not_set or
+                                self.hop_type.yfilter != YFilter.not_set or
+                                self.if_index.yfilter != YFilter.not_set or
+                                self.ip_address.yfilter != YFilter.not_set or
+                                self.mpls_label.yfilter != YFilter.not_set or
+                                self.num_type.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "hop" + "[index-number='" + self.index_number.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.index_number.is_set or self.index_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.index_number.get_name_leafdata())
+                            if (self.hop_type.is_set or self.hop_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.hop_type.get_name_leafdata())
+                            if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.if_index.get_name_leafdata())
+                            if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ip_address.get_name_leafdata())
+                            if (self.mpls_label.is_set or self.mpls_label.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mpls_label.get_name_leafdata())
+                            if (self.num_type.is_set or self.num_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.num_type.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "index-number" or name == "hop-type" or name == "if-index" or name == "ip-address" or name == "mpls-label" or name == "num-type"):
                                 return True
-
-                            if self.hop_type is not None:
-                                return True
-
-                            if self.if_index is not None:
-                                return True
-
-                            if self.ip_address is not None:
-                                return True
-
-                            if self.mpls_label is not None:
-                                return True
-
-                            if self.num_type is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-                            return meta._meta_table['IpExplicitPaths.Paths.Path.Name.Hops.Hop']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "index-number"):
+                                self.index_number = value
+                                self.index_number.value_namespace = name_space
+                                self.index_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "hop-type"):
+                                self.hop_type = value
+                                self.hop_type.value_namespace = name_space
+                                self.hop_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "if-index"):
+                                self.if_index = value
+                                self.if_index.value_namespace = name_space
+                                self.if_index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ip-address"):
+                                self.ip_address = value
+                                self.ip_address.value_namespace = name_space
+                                self.ip_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mpls-label"):
+                                self.mpls_label = value
+                                self.mpls_label.value_namespace = name_space
+                                self.mpls_label.value_namespace_prefix = name_space_prefix
+                            if(value_path == "num-type"):
+                                self.num_type = value
+                                self.num_type.value_namespace = name_space
+                                self.num_type.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hops'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.hop is not None:
-                            for child_ref in self.hop:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.hop:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-                        return meta._meta_table['IpExplicitPaths.Paths.Path.Name.Hops']['meta_info']
+                    def has_operation(self):
+                        for c in self.hop:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.name is None:
-                        raise YPYModelError('Key property name is None')
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "hops" + path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:name[Cisco-IOS-XR-ip-iep-cfg:name = ' + str(self.name) + ']'
+                        return path_buffer
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def _has_data(self):
-                    if self.name is not None:
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "hop"):
+                            for c in self.hop:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = IpExplicitPaths.Paths.Path.Name.Hops.Hop()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.hop.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "hop"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.name.is_set or
+                        self.disable.is_set or
+                        (self.hops is not None and self.hops.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.name.yfilter != YFilter.not_set or
+                        self.disable.yfilter != YFilter.not_set or
+                        (self.hops is not None and self.hops.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "name" + "[name='" + self.name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.name.get_name_leafdata())
+                    if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.disable.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "hops"):
+                        if (self.hops is None):
+                            self.hops = IpExplicitPaths.Paths.Path.Name.Hops()
+                            self.hops.parent = self
+                            self._children_name_map["hops"] = "hops"
+                        return self.hops
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "hops" or name == "name" or name == "disable"):
                         return True
-
-                    if self.disable is not None:
-                        return True
-
-                    if self.hops is not None and self.hops._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-                    return meta._meta_table['IpExplicitPaths.Paths.Path.Name']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "name"):
+                        self.name = value
+                        self.name.value_namespace = name_space
+                        self.name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "disable"):
+                        self.disable = value
+                        self.disable.value_namespace = name_space
+                        self.disable.value_namespace_prefix = name_space_prefix
 
 
-            class Identifier(object):
+            class Identifier(Entity):
                 """
                 identifier
                 
@@ -453,14 +700,47 @@ class IpExplicitPaths(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.id = None
-                    self.disable = None
+                    super(IpExplicitPaths.Paths.Path.Identifier, self).__init__()
+
+                    self.yang_name = "identifier"
+                    self.yang_parent_name = "path"
+
+                    self.id = YLeaf(YType.uint32, "id")
+
+                    self.disable = YLeaf(YType.empty, "disable")
+
                     self.hops = IpExplicitPaths.Paths.Path.Identifier.Hops()
                     self.hops.parent = self
+                    self._children_name_map["hops"] = "hops"
+                    self._children_yang_names.add("hops")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("id",
+                                    "disable") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(IpExplicitPaths.Paths.Path.Identifier, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(IpExplicitPaths.Paths.Path.Identifier, self).__setattr__(name, value)
 
 
-                class Hops(object):
+                class Hops(Entity):
                     """
                     List of Hops
                     
@@ -477,13 +757,39 @@ class IpExplicitPaths(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.hop = YList()
-                        self.hop.parent = self
-                        self.hop.name = 'hop'
+                        super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__init__()
+
+                        self.yang_name = "hops"
+                        self.yang_parent_name = "identifier"
+
+                        self.hop = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(IpExplicitPaths.Paths.Path.Identifier.Hops, self).__setattr__(name, value)
 
 
-                    class Hop(object):
+                    class Hop(Entity):
                         """
                         Hop Information
                         
@@ -497,7 +803,7 @@ class IpExplicitPaths(object):
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
-                        	**type**\:   :py:class:`IpIepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
+                        	**type**\:   :py:class:`IpIepHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHop>`
                         
                         	**default value**\: next-strict
                         
@@ -529,7 +835,7 @@ class IpExplicitPaths(object):
                         .. attribute:: num_type
                         
                         	Number type Numbered or Unnumbered
-                        	**type**\:   :py:class:`IpIepNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        	**type**\:   :py:class:`IpIepNum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNum>`
                         
                         	**default value**\: numbered
                         
@@ -541,179 +847,447 @@ class IpExplicitPaths(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.index_number = None
-                            self.hop_type = None
-                            self.if_index = None
-                            self.ip_address = None
-                            self.mpls_label = None
-                            self.num_type = None
+                            super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.index_number is None:
-                                raise YPYModelError('Key property index_number is None')
+                            self.yang_name = "hop"
+                            self.yang_parent_name = "hops"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hop[Cisco-IOS-XR-ip-iep-cfg:index-number = ' + str(self.index_number) + ']'
+                            self.index_number = YLeaf(YType.uint32, "index-number")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.hop_type = YLeaf(YType.enumeration, "hop-type")
 
-                        def _has_data(self):
-                            if self.index_number is not None:
+                            self.if_index = YLeaf(YType.int32, "if-index")
+
+                            self.ip_address = YLeaf(YType.str, "ip-address")
+
+                            self.mpls_label = YLeaf(YType.int32, "mpls-label")
+
+                            self.num_type = YLeaf(YType.enumeration, "num-type")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("index_number",
+                                            "hop_type",
+                                            "if_index",
+                                            "ip_address",
+                                            "mpls_label",
+                                            "num_type") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.index_number.is_set or
+                                self.hop_type.is_set or
+                                self.if_index.is_set or
+                                self.ip_address.is_set or
+                                self.mpls_label.is_set or
+                                self.num_type.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.index_number.yfilter != YFilter.not_set or
+                                self.hop_type.yfilter != YFilter.not_set or
+                                self.if_index.yfilter != YFilter.not_set or
+                                self.ip_address.yfilter != YFilter.not_set or
+                                self.mpls_label.yfilter != YFilter.not_set or
+                                self.num_type.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "hop" + "[index-number='" + self.index_number.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.index_number.is_set or self.index_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.index_number.get_name_leafdata())
+                            if (self.hop_type.is_set or self.hop_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.hop_type.get_name_leafdata())
+                            if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.if_index.get_name_leafdata())
+                            if (self.ip_address.is_set or self.ip_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ip_address.get_name_leafdata())
+                            if (self.mpls_label.is_set or self.mpls_label.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mpls_label.get_name_leafdata())
+                            if (self.num_type.is_set or self.num_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.num_type.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "index-number" or name == "hop-type" or name == "if-index" or name == "ip-address" or name == "mpls-label" or name == "num-type"):
                                 return True
-
-                            if self.hop_type is not None:
-                                return True
-
-                            if self.if_index is not None:
-                                return True
-
-                            if self.ip_address is not None:
-                                return True
-
-                            if self.mpls_label is not None:
-                                return True
-
-                            if self.num_type is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-                            return meta._meta_table['IpExplicitPaths.Paths.Path.Identifier.Hops.Hop']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "index-number"):
+                                self.index_number = value
+                                self.index_number.value_namespace = name_space
+                                self.index_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "hop-type"):
+                                self.hop_type = value
+                                self.hop_type.value_namespace = name_space
+                                self.hop_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "if-index"):
+                                self.if_index = value
+                                self.if_index.value_namespace = name_space
+                                self.if_index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ip-address"):
+                                self.ip_address = value
+                                self.ip_address.value_namespace = name_space
+                                self.ip_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mpls-label"):
+                                self.mpls_label = value
+                                self.mpls_label.value_namespace = name_space
+                                self.mpls_label.value_namespace_prefix = name_space_prefix
+                            if(value_path == "num-type"):
+                                self.num_type = value
+                                self.num_type.value_namespace = name_space
+                                self.num_type.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:hops'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.hop is not None:
-                            for child_ref in self.hop:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.hop:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-                        return meta._meta_table['IpExplicitPaths.Paths.Path.Identifier.Hops']['meta_info']
+                    def has_operation(self):
+                        for c in self.hop:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.id is None:
-                        raise YPYModelError('Key property id is None')
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "hops" + path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-iep-cfg:identifier[Cisco-IOS-XR-ip-iep-cfg:id = ' + str(self.id) + ']'
+                        return path_buffer
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def _has_data(self):
-                    if self.id is not None:
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "hop"):
+                            for c in self.hop:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = IpExplicitPaths.Paths.Path.Identifier.Hops.Hop()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.hop.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "hop"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.id.is_set or
+                        self.disable.is_set or
+                        (self.hops is not None and self.hops.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.id.yfilter != YFilter.not_set or
+                        self.disable.yfilter != YFilter.not_set or
+                        (self.hops is not None and self.hops.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "identifier" + "[id='" + self.id.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.id.is_set or self.id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.id.get_name_leafdata())
+                    if (self.disable.is_set or self.disable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.disable.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "hops"):
+                        if (self.hops is None):
+                            self.hops = IpExplicitPaths.Paths.Path.Identifier.Hops()
+                            self.hops.parent = self
+                            self._children_name_map["hops"] = "hops"
+                        return self.hops
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "hops" or name == "id" or name == "disable"):
                         return True
-
-                    if self.disable is not None:
-                        return True
-
-                    if self.hops is not None and self.hops._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-                    return meta._meta_table['IpExplicitPaths.Paths.Path.Identifier']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "id"):
+                        self.id = value
+                        self.id.value_namespace = name_space
+                        self.id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "disable"):
+                        self.disable = value
+                        self.disable.value_namespace = name_space
+                        self.disable.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.type is None:
-                    raise YPYModelError('Key property type is None')
+            def has_data(self):
+                for c in self.identifier:
+                    if (c.has_data()):
+                        return True
+                for c in self.name:
+                    if (c.has_data()):
+                        return True
+                return self.type.is_set
 
-                return '/Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/Cisco-IOS-XR-ip-iep-cfg:paths/Cisco-IOS-XR-ip-iep-cfg:path[Cisco-IOS-XR-ip-iep-cfg:type = ' + str(self.type) + ']'
+            def has_operation(self):
+                for c in self.identifier:
+                    if (c.has_operation()):
+                        return True
+                for c in self.name:
+                    if (c.has_operation()):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.type.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "path" + "[type='" + self.type.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.type is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.type.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "identifier"):
+                    for c in self.identifier:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = IpExplicitPaths.Paths.Path.Identifier()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.identifier.append(c)
+                    return c
+
+                if (child_yang_name == "name"):
+                    for c in self.name:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = IpExplicitPaths.Paths.Path.Name()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.name.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "identifier" or name == "name" or name == "type"):
                     return True
-
-                if self.identifier is not None:
-                    for child_ref in self.identifier:
-                        if child_ref._has_data():
-                            return True
-
-                if self.name is not None:
-                    for child_ref in self.name:
-                        if child_ref._has_data():
-                            return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-                return meta._meta_table['IpExplicitPaths.Paths.Path']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "type"):
+                    self.type = value
+                    self.type.value_namespace = name_space
+                    self.type.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/Cisco-IOS-XR-ip-iep-cfg:paths'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.path is not None:
-                for child_ref in self.path:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.path:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-            return meta._meta_table['IpExplicitPaths.Paths']['meta_info']
+        def has_operation(self):
+            for c in self.path:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "paths" + path_buffer
 
-        return '/Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.paths is not None and self.paths._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "path"):
+                for c in self.path:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = IpExplicitPaths.Paths.Path()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.path.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "path"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.paths is not None and self.paths.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.paths is not None and self.paths.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "paths"):
+            if (self.paths is None):
+                self.paths = IpExplicitPaths.Paths()
+                self.paths.parent = self
+                self._children_name_map["paths"] = "paths"
+            return self.paths
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "paths"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_iep_cfg as meta
-        return meta._meta_table['IpExplicitPaths']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = IpExplicitPaths()
+        return self._top_entity
 

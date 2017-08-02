@@ -12,32 +12,41 @@ Overview
 
 The YANG Development Kit (YDK) is a Software Development Kit that provides API's that are modeled in YANG. The main goal of YDK is to reduce the learning curve of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles that are based on YANG models.
 
+Backward Compatibility
+----------------------
+Please see `this page <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.
+
+
 System Requirements
 -------------------
 Linux
 ~~~~~
 Ubuntu (Debian-based) - The following packages must be present in your system before installing YDK-Py::
 
-  $ sudo apt-get install python-pip zlib1g-dev python-lxml libxml2-dev libxslt1-dev python-dev
+   $ sudo apt-get install gdebi-core python3-dev python-dev
+   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.6.0/libydk_0.6.0-1_amd64.deb
+   $ sudo gdebi libydk_0.6.0-1_amd64.deb
 
 Centos (Fedora-based) - The following packages must be present in your system before installing YDK-Py::
 
-  $ sudo yum install epel-release
-  $ sudo yum install python-pip python-devel libxml2-devel libxslt-devel libcurl-devel libtool
+   $ sudo yum install epel-release libssh-devel gcc-c++
+   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.6.0/libydk-0.6.0-1.x86_64.rpm
+   $ sudo ln –fs /usr/bin/cmake3 /usr/bin/cmake && export PATH=/usr/bin:$PATH
 
 macOS
 ~~~~~
 It is required to install Xcode command line tools, `homebrew <http://brew.sh>`_ and the following homebrew packages on your system before installing YDK-Py::
 
-  $ xcode-select --install
-  $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  $ brew install python pkg-config libssh xml2 curl pcre
+   $ xcode-select --install
+   $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   $ brew install python pkg-config libssh xml2 curl pcre cmake
+   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.6.0/libydk-0.6.0-Darwin.tar.gz
+   $ sudo installer -pkg libydk-0.6.0-Darwin.pkg -target /
 
 Windows
 ~~~~~~~
-You must install the following requirements::
-  * `Python Releases for Windows <https://www.python.org/downloads/windows/>`_
-  * `Visual C++ Build Tools <http://landinghub.visualstudio.com/visual-cpp-build-tools>`_
+Currently, YDK-Py from release 0.6.0 onwards is not supported on Windows.
+
 
 Python Requirements
 -------------------
@@ -115,4 +124,4 @@ Documentation and Support
 
 Release Notes
 --------------
-The current YDK release version is 0.5.5 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.6.0 (beta). YDK-Py is licensed under the Apache 2.0 License.

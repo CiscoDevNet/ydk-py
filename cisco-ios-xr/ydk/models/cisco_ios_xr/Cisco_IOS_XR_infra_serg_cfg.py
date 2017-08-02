@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SergAddrFamilyEnum(Enum):
+class SergAddrFamily(Enum):
     """
-    SergAddrFamilyEnum
+    SergAddrFamily
 
     Serg addr family
 
@@ -40,20 +34,14 @@ class SergAddrFamilyEnum(Enum):
 
     """
 
-    ipv4 = 2
+    ipv4 = Enum.YLeaf(2, "ipv4")
 
-    ipv6 = 10
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-        return meta._meta_table['SergAddrFamilyEnum']
+    ipv6 = Enum.YLeaf(10, "ipv6")
 
 
-class SessionRedundancyGroupRoleEnum(Enum):
+class SessionRedundancyGroupRole(Enum):
     """
-    SessionRedundancyGroupRoleEnum
+    SessionRedundancyGroupRole
 
     Session redundancy group role
 
@@ -67,19 +55,13 @@ class SessionRedundancyGroupRoleEnum(Enum):
 
     """
 
-    master = 1
+    master = Enum.YLeaf(1, "master")
 
-    slave = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-        return meta._meta_table['SessionRedundancyGroupRoleEnum']
+    slave = Enum.YLeaf(2, "slave")
 
 
 
-class SessionRedundancy(object):
+class SessionRedundancy(Entity):
     """
     Session Redundancy configuration
     
@@ -105,7 +87,7 @@ class SessionRedundancy(object):
     .. attribute:: preferred_role
     
     	Set preferred role
-    	**type**\:   :py:class:`SessionRedundancyGroupRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRoleEnum>`
+    	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
     
     .. attribute:: redundancy_disable
     
@@ -132,18 +114,62 @@ class SessionRedundancy(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.enable = None
+        super(SessionRedundancy, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "session-redundancy"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-serg-cfg"
+
+        self.enable = YLeaf(YType.empty, "enable")
+
+        self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+
+        self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
+
+        self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
+
+        self.source_interface = YLeaf(YType.str, "source-interface")
+
         self.groups = SessionRedundancy.Groups()
         self.groups.parent = self
-        self.hold_timer = None
-        self.preferred_role = None
-        self.redundancy_disable = None
+        self._children_name_map["groups"] = "groups"
+        self._children_yang_names.add("groups")
+
         self.revertive_timer = SessionRedundancy.RevertiveTimer()
         self.revertive_timer.parent = self
-        self.source_interface = None
+        self._children_name_map["revertive_timer"] = "revertive-timer"
+        self._children_yang_names.add("revertive-timer")
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("enable",
+                        "hold_timer",
+                        "preferred_role",
+                        "redundancy_disable",
+                        "source_interface") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(SessionRedundancy, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(SessionRedundancy, self).__setattr__(name, value)
 
 
-    class Groups(object):
+    class Groups(Entity):
         """
         Table of Group
         
@@ -160,13 +186,39 @@ class SessionRedundancy(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.group = YList()
-            self.group.parent = self
-            self.group.name = 'group'
+            super(SessionRedundancy.Groups, self).__init__()
+
+            self.yang_name = "groups"
+            self.yang_parent_name = "session-redundancy"
+
+            self.group = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SessionRedundancy.Groups, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SessionRedundancy.Groups, self).__setattr__(name, value)
 
 
-        class Group(object):
+        class Group(Entity):
             """
             Redundancy Group configuration
             
@@ -224,7 +276,7 @@ class SessionRedundancy(object):
             .. attribute:: preferred_role
             
             	Set preferred role
-            	**type**\:   :py:class:`SessionRedundancyGroupRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRoleEnum>`
+            	**type**\:   :py:class:`SessionRedundancyGroupRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SessionRedundancyGroupRole>`
             
             .. attribute:: redundancy_disable
             
@@ -244,25 +296,78 @@ class SessionRedundancy(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.group_id = None
-                self.access_tracking_object = None
-                self.core_tracking_object = None
-                self.description = None
-                self.disable_tracking_object = None
-                self.enable = None
-                self.hold_timer = None
+                super(SessionRedundancy.Groups.Group, self).__init__()
+
+                self.yang_name = "group"
+                self.yang_parent_name = "groups"
+
+                self.group_id = YLeaf(YType.uint32, "group-id")
+
+                self.access_tracking_object = YLeaf(YType.str, "access-tracking-object")
+
+                self.core_tracking_object = YLeaf(YType.str, "core-tracking-object")
+
+                self.description = YLeaf(YType.str, "description")
+
+                self.disable_tracking_object = YLeaf(YType.empty, "disable-tracking-object")
+
+                self.enable = YLeaf(YType.empty, "enable")
+
+                self.hold_timer = YLeaf(YType.uint32, "hold-timer")
+
+                self.preferred_role = YLeaf(YType.enumeration, "preferred-role")
+
+                self.redundancy_disable = YLeaf(YType.empty, "redundancy-disable")
+
                 self.interface_list = SessionRedundancy.Groups.Group.InterfaceList()
                 self.interface_list.parent = self
+                self._children_name_map["interface_list"] = "interface-list"
+                self._children_yang_names.add("interface-list")
+
                 self.peer = SessionRedundancy.Groups.Group.Peer()
                 self.peer.parent = self
-                self.preferred_role = None
-                self.redundancy_disable = None
+                self._children_name_map["peer"] = "peer"
+                self._children_yang_names.add("peer")
+
                 self.revertive_timer = SessionRedundancy.Groups.Group.RevertiveTimer()
                 self.revertive_timer.parent = self
+                self._children_name_map["revertive_timer"] = "revertive-timer"
+                self._children_yang_names.add("revertive-timer")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("group_id",
+                                "access_tracking_object",
+                                "core_tracking_object",
+                                "description",
+                                "disable_tracking_object",
+                                "enable",
+                                "hold_timer",
+                                "preferred_role",
+                                "redundancy_disable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SessionRedundancy.Groups.Group, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SessionRedundancy.Groups.Group, self).__setattr__(name, value)
 
 
-            class Peer(object):
+            class Peer(Entity):
                 """
                 None
                 
@@ -279,19 +384,25 @@ class SessionRedundancy(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(SessionRedundancy.Groups.Group.Peer, self).__init__()
+
+                    self.yang_name = "peer"
+                    self.yang_parent_name = "group"
+
                     self.ipaddress = SessionRedundancy.Groups.Group.Peer.Ipaddress()
                     self.ipaddress.parent = self
+                    self._children_name_map["ipaddress"] = "ipaddress"
+                    self._children_yang_names.add("ipaddress")
 
 
-                class Ipaddress(object):
+                class Ipaddress(Entity):
                     """
                     IPv4 or IPv6 Address of SERG Peer
                     
                     .. attribute:: address_family
                     
                     	Type of IPv4/IPv6 address
-                    	**type**\:   :py:class:`SergAddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SergAddrFamilyEnum>`
+                    	**type**\:   :py:class:`SergAddrFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg.SergAddrFamily>`
                     
                     .. attribute:: prefix_string
                     
@@ -318,59 +429,145 @@ class SessionRedundancy(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.address_family = None
-                        self.prefix_string = None
+                        super(SessionRedundancy.Groups.Group.Peer.Ipaddress, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ipaddress"
+                        self.yang_parent_name = "peer"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:ipaddress'
+                        self.address_family = YLeaf(YType.enumeration, "address-family")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.prefix_string = YLeaf(YType.str, "prefix-string")
 
-                    def _has_data(self):
-                        if self.address_family is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("address_family",
+                                        "prefix_string") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancy.Groups.Group.Peer.Ipaddress, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancy.Groups.Group.Peer.Ipaddress, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.address_family.is_set or
+                            self.prefix_string.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.address_family.yfilter != YFilter.not_set or
+                            self.prefix_string.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipaddress" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.address_family.is_set or self.address_family.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.address_family.get_name_leafdata())
+                        if (self.prefix_string.is_set or self.prefix_string.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_string.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "address-family" or name == "prefix-string"):
                             return True
-
-                        if self.prefix_string is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                        return meta._meta_table['SessionRedundancy.Groups.Group.Peer.Ipaddress']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "address-family"):
+                            self.address_family = value
+                            self.address_family.value_namespace = name_space
+                            self.address_family.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-string"):
+                            self.prefix_string = value
+                            self.prefix_string.value_namespace = name_space
+                            self.prefix_string.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (self.ipaddress is not None and self.ipaddress.has_data())
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:peer'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.ipaddress is not None and self.ipaddress.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "peer" + path_buffer
 
-                def _has_data(self):
-                    if self.ipaddress is not None and self.ipaddress._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "ipaddress"):
+                        if (self.ipaddress is None):
+                            self.ipaddress = SessionRedundancy.Groups.Group.Peer.Ipaddress()
+                            self.ipaddress.parent = self
+                            self._children_name_map["ipaddress"] = "ipaddress"
+                        return self.ipaddress
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "ipaddress"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                    return meta._meta_table['SessionRedundancy.Groups.Group.Peer']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class RevertiveTimer(object):
+            class RevertiveTimer(Entity):
                 """
                 None
                 
@@ -398,37 +595,97 @@ class SessionRedundancy(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.max_value = None
-                    self.value = None
+                    super(SessionRedundancy.Groups.Group.RevertiveTimer, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "revertive-timer"
+                    self.yang_parent_name = "group"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:revertive-timer'
+                    self.max_value = YLeaf(YType.uint32, "max-value")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.value = YLeaf(YType.uint32, "value")
 
-                def _has_data(self):
-                    if self.max_value is not None:
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("max_value",
+                                    "value") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancy.Groups.Group.RevertiveTimer, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancy.Groups.Group.RevertiveTimer, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.max_value.is_set or
+                        self.value.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.max_value.yfilter != YFilter.not_set or
+                        self.value.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "revertive-timer" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.max_value.is_set or self.max_value.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.max_value.get_name_leafdata())
+                    if (self.value.is_set or self.value.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.value.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "max-value" or name == "value"):
                         return True
-
-                    if self.value is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                    return meta._meta_table['SessionRedundancy.Groups.Group.RevertiveTimer']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "max-value"):
+                        self.max_value = value
+                        self.max_value.value_namespace = name_space
+                        self.max_value.value_namespace_prefix = name_space_prefix
+                    if(value_path == "value"):
+                        self.value = value
+                        self.value.value_namespace = name_space
+                        self.value.value_namespace_prefix = name_space_prefix
 
 
-            class InterfaceList(object):
+            class InterfaceList(Entity):
                 """
                 List of Interfaces for this Group
                 
@@ -455,15 +712,49 @@ class SessionRedundancy(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.enable = None
+                    super(SessionRedundancy.Groups.Group.InterfaceList, self).__init__()
+
+                    self.yang_name = "interface-list"
+                    self.yang_parent_name = "group"
+
+                    self.enable = YLeaf(YType.empty, "enable")
+
                     self.interface_ranges = SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
                     self.interface_ranges.parent = self
+                    self._children_name_map["interface_ranges"] = "interface-ranges"
+                    self._children_yang_names.add("interface-ranges")
+
                     self.interfaces = SessionRedundancy.Groups.Group.InterfaceList.Interfaces()
                     self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                    self._children_yang_names.add("interfaces")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("enable") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SessionRedundancy.Groups.Group.InterfaceList, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SessionRedundancy.Groups.Group.InterfaceList, self).__setattr__(name, value)
 
 
-                class InterfaceRanges(object):
+                class InterfaceRanges(Entity):
                     """
                     Table of InterfaceRange
                     
@@ -480,13 +771,39 @@ class SessionRedundancy(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_range = YList()
-                        self.interface_range.parent = self
-                        self.interface_range.name = 'interface_range'
+                        super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__init__()
+
+                        self.yang_name = "interface-ranges"
+                        self.yang_parent_name = "interface-list"
+
+                        self.interface_range = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges, self).__setattr__(name, value)
 
 
-                    class InterfaceRange(object):
+                    class InterfaceRange(Entity):
                         """
                         Interface for this Group
                         
@@ -533,79 +850,187 @@ class SessionRedundancy(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface_name = None
-                            self.sub_interface_range_start = None
-                            self.sub_interface_range_end = None
-                            self.interface_id_range_end = None
-                            self.interface_id_range_start = None
+                            super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.interface_name is None:
-                                raise YPYModelError('Key property interface_name is None')
-                            if self.sub_interface_range_start is None:
-                                raise YPYModelError('Key property sub_interface_range_start is None')
-                            if self.sub_interface_range_end is None:
-                                raise YPYModelError('Key property sub_interface_range_end is None')
+                            self.yang_name = "interface-range"
+                            self.yang_parent_name = "interface-ranges"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:interface-range[Cisco-IOS-XR-infra-serg-cfg:interface-name = ' + str(self.interface_name) + '][Cisco-IOS-XR-infra-serg-cfg:sub-interface-range-start = ' + str(self.sub_interface_range_start) + '][Cisco-IOS-XR-infra-serg-cfg:sub-interface-range-end = ' + str(self.sub_interface_range_end) + ']'
+                            self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.sub_interface_range_start = YLeaf(YType.uint32, "sub-interface-range-start")
 
-                        def _has_data(self):
-                            if self.interface_name is not None:
+                            self.sub_interface_range_end = YLeaf(YType.uint32, "sub-interface-range-end")
+
+                            self.interface_id_range_end = YLeaf(YType.uint32, "interface-id-range-end")
+
+                            self.interface_id_range_start = YLeaf(YType.uint32, "interface-id-range-start")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface_name",
+                                            "sub_interface_range_start",
+                                            "sub_interface_range_end",
+                                            "interface_id_range_end",
+                                            "interface_id_range_start") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interface_name.is_set or
+                                self.sub_interface_range_start.is_set or
+                                self.sub_interface_range_end.is_set or
+                                self.interface_id_range_end.is_set or
+                                self.interface_id_range_start.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.sub_interface_range_start.yfilter != YFilter.not_set or
+                                self.sub_interface_range_end.yfilter != YFilter.not_set or
+                                self.interface_id_range_end.yfilter != YFilter.not_set or
+                                self.interface_id_range_start.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface-range" + "[interface-name='" + self.interface_name.get() + "']" + "[sub-interface-range-start='" + self.sub_interface_range_start.get() + "']" + "[sub-interface-range-end='" + self.sub_interface_range_end.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.sub_interface_range_start.is_set or self.sub_interface_range_start.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sub_interface_range_start.get_name_leafdata())
+                            if (self.sub_interface_range_end.is_set or self.sub_interface_range_end.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sub_interface_range_end.get_name_leafdata())
+                            if (self.interface_id_range_end.is_set or self.interface_id_range_end.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_id_range_end.get_name_leafdata())
+                            if (self.interface_id_range_start.is_set or self.interface_id_range_start.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_id_range_start.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-name" or name == "sub-interface-range-start" or name == "sub-interface-range-end" or name == "interface-id-range-end" or name == "interface-id-range-start"):
                                 return True
-
-                            if self.sub_interface_range_start is not None:
-                                return True
-
-                            if self.sub_interface_range_end is not None:
-                                return True
-
-                            if self.interface_id_range_end is not None:
-                                return True
-
-                            if self.interface_id_range_start is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                            return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sub-interface-range-start"):
+                                self.sub_interface_range_start = value
+                                self.sub_interface_range_start.value_namespace = name_space
+                                self.sub_interface_range_start.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sub-interface-range-end"):
+                                self.sub_interface_range_end = value
+                                self.sub_interface_range_end.value_namespace = name_space
+                                self.sub_interface_range_end.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-id-range-end"):
+                                self.interface_id_range_end = value
+                                self.interface_id_range_end.value_namespace = name_space
+                                self.interface_id_range_end.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-id-range-start"):
+                                self.interface_id_range_start = value
+                                self.interface_id_range_start.value_namespace = name_space
+                                self.interface_id_range_start.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:interface-ranges'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.interface_range is not None:
-                            for child_ref in self.interface_range:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.interface_range:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                        return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges']['meta_info']
+                    def has_operation(self):
+                        for c in self.interface_range:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface-ranges" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "interface-range"):
+                            for c in self.interface_range:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.interface_range.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface-range"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Interfaces(object):
+                class Interfaces(Entity):
                     """
                     Table of Interface
                     
@@ -622,13 +1047,39 @@ class SessionRedundancy(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface = YList()
-                        self.interface.parent = self
-                        self.interface.name = 'interface'
+                        super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces, self).__init__()
+
+                        self.yang_name = "interfaces"
+                        self.yang_parent_name = "interface-list"
+
+                        self.interface = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces, self).__setattr__(name, value)
 
 
-                    class Interface(object):
+                    class Interface(Entity):
                         """
                         Interface for this Group
                         
@@ -656,168 +1107,414 @@ class SessionRedundancy(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface_name = None
-                            self.interface_id = None
+                            super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.interface_name is None:
-                                raise YPYModelError('Key property interface_name is None')
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "interfaces"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:interface[Cisco-IOS-XR-infra-serg-cfg:interface-name = ' + str(self.interface_name) + ']'
+                            self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.interface_id = YLeaf(YType.uint32, "interface-id")
 
-                        def _has_data(self):
-                            if self.interface_name is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface_name",
+                                            "interface_id") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interface_name.is_set or
+                                self.interface_id.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.interface_id.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.interface_id.is_set or self.interface_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_id.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface-name" or name == "interface-id"):
                                 return True
-
-                            if self.interface_id is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                            return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-id"):
+                                self.interface_id = value
+                                self.interface_id.value_namespace = name_space
+                                self.interface_id.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:interfaces'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if self.interface is not None:
-                            for child_ref in self.interface:
-                                if child_ref._has_data():
-                                    return True
-
+                    def has_data(self):
+                        for c in self.interface:
+                            if (c.has_data()):
+                                return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                        return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList.Interfaces']['meta_info']
+                    def has_operation(self):
+                        for c in self.interface:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interfaces" + path_buffer
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-serg-cfg:interface-list'
+                        return path_buffer
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                def _has_data(self):
-                    if self.enable is not None:
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "interface"):
+                            for c in self.interface:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.interface.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.enable.is_set or
+                        (self.interface_ranges is not None and self.interface_ranges.has_data()) or
+                        (self.interfaces is not None and self.interfaces.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.enable.yfilter != YFilter.not_set or
+                        (self.interface_ranges is not None and self.interface_ranges.has_operation()) or
+                        (self.interfaces is not None and self.interfaces.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface-list" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.enable.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interface-ranges"):
+                        if (self.interface_ranges is None):
+                            self.interface_ranges = SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges()
+                            self.interface_ranges.parent = self
+                            self._children_name_map["interface_ranges"] = "interface-ranges"
+                        return self.interface_ranges
+
+                    if (child_yang_name == "interfaces"):
+                        if (self.interfaces is None):
+                            self.interfaces = SessionRedundancy.Groups.Group.InterfaceList.Interfaces()
+                            self.interfaces.parent = self
+                            self._children_name_map["interfaces"] = "interfaces"
+                        return self.interfaces
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-ranges" or name == "interfaces" or name == "enable"):
                         return True
-
-                    if self.interface_ranges is not None and self.interface_ranges._has_data():
-                        return True
-
-                    if self.interfaces is not None and self.interfaces._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                    return meta._meta_table['SessionRedundancy.Groups.Group.InterfaceList']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "enable"):
+                        self.enable = value
+                        self.enable.value_namespace = name_space
+                        self.enable.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.group_id is None:
-                    raise YPYModelError('Key property group_id is None')
+            def has_data(self):
+                return (
+                    self.group_id.is_set or
+                    self.access_tracking_object.is_set or
+                    self.core_tracking_object.is_set or
+                    self.description.is_set or
+                    self.disable_tracking_object.is_set or
+                    self.enable.is_set or
+                    self.hold_timer.is_set or
+                    self.preferred_role.is_set or
+                    self.redundancy_disable.is_set or
+                    (self.interface_list is not None and self.interface_list.has_data()) or
+                    (self.peer is not None and self.peer.has_data()) or
+                    (self.revertive_timer is not None and self.revertive_timer.has_data()))
 
-                return '/Cisco-IOS-XR-infra-serg-cfg:session-redundancy/Cisco-IOS-XR-infra-serg-cfg:groups/Cisco-IOS-XR-infra-serg-cfg:group[Cisco-IOS-XR-infra-serg-cfg:group-id = ' + str(self.group_id) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.group_id.yfilter != YFilter.not_set or
+                    self.access_tracking_object.yfilter != YFilter.not_set or
+                    self.core_tracking_object.yfilter != YFilter.not_set or
+                    self.description.yfilter != YFilter.not_set or
+                    self.disable_tracking_object.yfilter != YFilter.not_set or
+                    self.enable.yfilter != YFilter.not_set or
+                    self.hold_timer.yfilter != YFilter.not_set or
+                    self.preferred_role.yfilter != YFilter.not_set or
+                    self.redundancy_disable.yfilter != YFilter.not_set or
+                    (self.interface_list is not None and self.interface_list.has_operation()) or
+                    (self.peer is not None and self.peer.has_operation()) or
+                    (self.revertive_timer is not None and self.revertive_timer.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "group" + "[group-id='" + self.group_id.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.group_id is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-serg-cfg:session-redundancy/groups/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.group_id.is_set or self.group_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.group_id.get_name_leafdata())
+                if (self.access_tracking_object.is_set or self.access_tracking_object.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.access_tracking_object.get_name_leafdata())
+                if (self.core_tracking_object.is_set or self.core_tracking_object.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.core_tracking_object.get_name_leafdata())
+                if (self.description.is_set or self.description.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.description.get_name_leafdata())
+                if (self.disable_tracking_object.is_set or self.disable_tracking_object.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.disable_tracking_object.get_name_leafdata())
+                if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.enable.get_name_leafdata())
+                if (self.hold_timer.is_set or self.hold_timer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.hold_timer.get_name_leafdata())
+                if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.preferred_role.get_name_leafdata())
+                if (self.redundancy_disable.is_set or self.redundancy_disable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.redundancy_disable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface-list"):
+                    if (self.interface_list is None):
+                        self.interface_list = SessionRedundancy.Groups.Group.InterfaceList()
+                        self.interface_list.parent = self
+                        self._children_name_map["interface_list"] = "interface-list"
+                    return self.interface_list
+
+                if (child_yang_name == "peer"):
+                    if (self.peer is None):
+                        self.peer = SessionRedundancy.Groups.Group.Peer()
+                        self.peer.parent = self
+                        self._children_name_map["peer"] = "peer"
+                    return self.peer
+
+                if (child_yang_name == "revertive-timer"):
+                    if (self.revertive_timer is None):
+                        self.revertive_timer = SessionRedundancy.Groups.Group.RevertiveTimer()
+                        self.revertive_timer.parent = self
+                        self._children_name_map["revertive_timer"] = "revertive-timer"
+                    return self.revertive_timer
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-list" or name == "peer" or name == "revertive-timer" or name == "group-id" or name == "access-tracking-object" or name == "core-tracking-object" or name == "description" or name == "disable-tracking-object" or name == "enable" or name == "hold-timer" or name == "preferred-role" or name == "redundancy-disable"):
                     return True
-
-                if self.access_tracking_object is not None:
-                    return True
-
-                if self.core_tracking_object is not None:
-                    return True
-
-                if self.description is not None:
-                    return True
-
-                if self.disable_tracking_object is not None:
-                    return True
-
-                if self.enable is not None:
-                    return True
-
-                if self.hold_timer is not None:
-                    return True
-
-                if self.interface_list is not None and self.interface_list._has_data():
-                    return True
-
-                if self.peer is not None and self.peer._has_data():
-                    return True
-
-                if self.preferred_role is not None:
-                    return True
-
-                if self.redundancy_disable is not None:
-                    return True
-
-                if self.revertive_timer is not None and self.revertive_timer._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-                return meta._meta_table['SessionRedundancy.Groups.Group']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "group-id"):
+                    self.group_id = value
+                    self.group_id.value_namespace = name_space
+                    self.group_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "access-tracking-object"):
+                    self.access_tracking_object = value
+                    self.access_tracking_object.value_namespace = name_space
+                    self.access_tracking_object.value_namespace_prefix = name_space_prefix
+                if(value_path == "core-tracking-object"):
+                    self.core_tracking_object = value
+                    self.core_tracking_object.value_namespace = name_space
+                    self.core_tracking_object.value_namespace_prefix = name_space_prefix
+                if(value_path == "description"):
+                    self.description = value
+                    self.description.value_namespace = name_space
+                    self.description.value_namespace_prefix = name_space_prefix
+                if(value_path == "disable-tracking-object"):
+                    self.disable_tracking_object = value
+                    self.disable_tracking_object.value_namespace = name_space
+                    self.disable_tracking_object.value_namespace_prefix = name_space_prefix
+                if(value_path == "enable"):
+                    self.enable = value
+                    self.enable.value_namespace = name_space
+                    self.enable.value_namespace_prefix = name_space_prefix
+                if(value_path == "hold-timer"):
+                    self.hold_timer = value
+                    self.hold_timer.value_namespace = name_space
+                    self.hold_timer.value_namespace_prefix = name_space_prefix
+                if(value_path == "preferred-role"):
+                    self.preferred_role = value
+                    self.preferred_role.value_namespace = name_space
+                    self.preferred_role.value_namespace_prefix = name_space_prefix
+                if(value_path == "redundancy-disable"):
+                    self.redundancy_disable = value
+                    self.redundancy_disable.value_namespace = name_space
+                    self.redundancy_disable.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-serg-cfg:session-redundancy/Cisco-IOS-XR-infra-serg-cfg:groups'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.group is not None:
-                for child_ref in self.group:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.group:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-            return meta._meta_table['SessionRedundancy.Groups']['meta_info']
+        def has_operation(self):
+            for c in self.group:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "groups" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-serg-cfg:session-redundancy/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "group"):
+                for c in self.group:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SessionRedundancy.Groups.Group()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.group.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "group"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class RevertiveTimer(object):
+    class RevertiveTimer(Entity):
         """
         None
         
@@ -845,69 +1542,192 @@ class SessionRedundancy(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.max_value = None
-            self.value = None
+            super(SessionRedundancy.RevertiveTimer, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "revertive-timer"
+            self.yang_parent_name = "session-redundancy"
 
-            return '/Cisco-IOS-XR-infra-serg-cfg:session-redundancy/Cisco-IOS-XR-infra-serg-cfg:revertive-timer'
+            self.max_value = YLeaf(YType.uint32, "max-value")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.value = YLeaf(YType.uint32, "value")
 
-        def _has_data(self):
-            if self.max_value is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("max_value",
+                            "value") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SessionRedundancy.RevertiveTimer, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SessionRedundancy.RevertiveTimer, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.max_value.is_set or
+                self.value.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.max_value.yfilter != YFilter.not_set or
+                self.value.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "revertive-timer" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-serg-cfg:session-redundancy/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.max_value.is_set or self.max_value.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.max_value.get_name_leafdata())
+            if (self.value.is_set or self.value.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.value.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "max-value" or name == "value"):
                 return True
-
-            if self.value is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-            return meta._meta_table['SessionRedundancy.RevertiveTimer']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "max-value"):
+                self.max_value = value
+                self.max_value.value_namespace = name_space
+                self.max_value.value_namespace_prefix = name_space_prefix
+            if(value_path == "value"):
+                self.value = value
+                self.value.value_namespace = name_space
+                self.value.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            self.enable.is_set or
+            self.hold_timer.is_set or
+            self.preferred_role.is_set or
+            self.redundancy_disable.is_set or
+            self.source_interface.is_set or
+            (self.groups is not None and self.groups.has_data()) or
+            (self.revertive_timer is not None and self.revertive_timer.has_data()))
 
-        return '/Cisco-IOS-XR-infra-serg-cfg:session-redundancy'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.enable.yfilter != YFilter.not_set or
+            self.hold_timer.yfilter != YFilter.not_set or
+            self.preferred_role.yfilter != YFilter.not_set or
+            self.redundancy_disable.yfilter != YFilter.not_set or
+            self.source_interface.yfilter != YFilter.not_set or
+            (self.groups is not None and self.groups.has_operation()) or
+            (self.revertive_timer is not None and self.revertive_timer.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-serg-cfg:session-redundancy" + path_buffer
 
-    def _has_data(self):
-        if self.enable is not None:
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.enable.get_name_leafdata())
+        if (self.hold_timer.is_set or self.hold_timer.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.hold_timer.get_name_leafdata())
+        if (self.preferred_role.is_set or self.preferred_role.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.preferred_role.get_name_leafdata())
+        if (self.redundancy_disable.is_set or self.redundancy_disable.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.redundancy_disable.get_name_leafdata())
+        if (self.source_interface.is_set or self.source_interface.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.source_interface.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "groups"):
+            if (self.groups is None):
+                self.groups = SessionRedundancy.Groups()
+                self.groups.parent = self
+                self._children_name_map["groups"] = "groups"
+            return self.groups
+
+        if (child_yang_name == "revertive-timer"):
+            if (self.revertive_timer is None):
+                self.revertive_timer = SessionRedundancy.RevertiveTimer()
+                self.revertive_timer.parent = self
+                self._children_name_map["revertive_timer"] = "revertive-timer"
+            return self.revertive_timer
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "groups" or name == "revertive-timer" or name == "enable" or name == "hold-timer" or name == "preferred-role" or name == "redundancy-disable" or name == "source-interface"):
             return True
-
-        if self.groups is not None and self.groups._has_data():
-            return True
-
-        if self.hold_timer is not None:
-            return True
-
-        if self.preferred_role is not None:
-            return True
-
-        if self.redundancy_disable is not None:
-            return True
-
-        if self.revertive_timer is not None and self.revertive_timer._has_data():
-            return True
-
-        if self.source_interface is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_serg_cfg as meta
-        return meta._meta_table['SessionRedundancy']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "enable"):
+            self.enable = value
+            self.enable.value_namespace = name_space
+            self.enable.value_namespace_prefix = name_space_prefix
+        if(value_path == "hold-timer"):
+            self.hold_timer = value
+            self.hold_timer.value_namespace = name_space
+            self.hold_timer.value_namespace_prefix = name_space_prefix
+        if(value_path == "preferred-role"):
+            self.preferred_role = value
+            self.preferred_role.value_namespace = name_space
+            self.preferred_role.value_namespace_prefix = name_space_prefix
+        if(value_path == "redundancy-disable"):
+            self.redundancy_disable = value
+            self.redundancy_disable.value_namespace = name_space
+            self.redundancy_disable.value_namespace_prefix = name_space_prefix
+        if(value_path == "source-interface"):
+            self.source_interface = value
+            self.source_interface.value_namespace = name_space
+            self.source_interface.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = SessionRedundancy()
+        return self._top_entity
 

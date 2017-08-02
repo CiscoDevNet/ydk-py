@@ -5,39 +5,27 @@ Copyright (c) 2016\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class ClassNameTypeEnum(Enum):
+class ClassNameType(Enum):
     """
-    ClassNameTypeEnum
+    ClassNameType
 
     .. data:: class_default = 0
 
     """
 
-    class_default = 0
+    class_default = Enum.YLeaf(0, "class-default")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_policy as meta
-        return meta._meta_table['ClassNameTypeEnum']
-
-
-class PolicePacketsBytesTypeEnum(Enum):
+class PolicePacketsBytesType(Enum):
     """
-    PolicePacketsBytesTypeEnum
+    PolicePacketsBytesType
 
     .. data:: packets = 0
 
@@ -45,20 +33,14 @@ class PolicePacketsBytesTypeEnum(Enum):
 
     """
 
-    packets = 0
+    packets = Enum.YLeaf(0, "packets")
 
-    bytes = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_policy as meta
-        return meta._meta_table['PolicePacketsBytesTypeEnum']
+    bytes = Enum.YLeaf(1, "bytes")
 
 
-class PolicePpsBpsTypeEnum(Enum):
+class PolicePpsBpsType(Enum):
     """
-    PolicePpsBpsTypeEnum
+    PolicePpsBpsType
 
     .. data:: pps = 0
 
@@ -66,20 +48,14 @@ class PolicePpsBpsTypeEnum(Enum):
 
     """
 
-    pps = 0
+    pps = Enum.YLeaf(0, "pps")
 
-    bps = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_policy as meta
-        return meta._meta_table['PolicePpsBpsTypeEnum']
+    bps = Enum.YLeaf(1, "bps")
 
 
-class PolicyActionTypeEnum(Enum):
+class PolicyActionType(Enum):
     """
-    PolicyActionTypeEnum
+    PolicyActionType
 
     .. data:: bandwidth = 0
 
@@ -117,62 +93,50 @@ class PolicyActionTypeEnum(Enum):
 
     """
 
-    bandwidth = 0
+    bandwidth = Enum.YLeaf(0, "bandwidth")
 
-    compression = 1
+    compression = Enum.YLeaf(1, "compression")
 
-    drop = 2
+    drop = Enum.YLeaf(2, "drop")
 
-    estimate = 3
+    estimate = Enum.YLeaf(3, "estimate")
 
-    fair_queue = 4
+    fair_queue = Enum.YLeaf(4, "fair-queue")
 
-    forward = 5
+    forward = Enum.YLeaf(5, "forward")
 
-    netflow_sampler = 6
+    netflow_sampler = Enum.YLeaf(6, "netflow-sampler")
 
-    police = 7
+    police = Enum.YLeaf(7, "police")
 
-    priority = 8
+    priority = Enum.YLeaf(8, "priority")
 
-    queue_limit = 9
+    queue_limit = Enum.YLeaf(9, "queue-limit")
 
-    random_detect = 10
+    random_detect = Enum.YLeaf(10, "random-detect")
 
-    service_policy = 11
+    service_policy = Enum.YLeaf(11, "service-policy")
 
-    set = 12
+    set = Enum.YLeaf(12, "set")
 
-    shape = 13
+    shape = Enum.YLeaf(13, "shape")
 
-    trust = 14
+    trust = Enum.YLeaf(14, "trust")
 
-    dbl = 15
+    dbl = Enum.YLeaf(15, "dbl")
 
-    queue_buffers = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_policy as meta
-        return meta._meta_table['PolicyActionTypeEnum']
+    queue_buffers = Enum.YLeaf(16, "queue-buffers")
 
 
-class PrecedenceType2Enum(Enum):
+class PrecedenceType2(Enum):
     """
-    PrecedenceType2Enum
+    PrecedenceType2
 
     .. data:: rsvp = 0
 
     """
 
-    rsvp = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_policy as meta
-        return meta._meta_table['PrecedenceType2Enum']
+    rsvp = Enum.YLeaf(0, "rsvp")
 
 
 

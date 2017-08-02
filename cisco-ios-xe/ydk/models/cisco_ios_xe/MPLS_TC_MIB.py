@@ -6,22 +6,16 @@ management information bases (MIBs) for managing
 MPLS networks.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class MplsinitialcreationsourceEnum(Enum):
+class Mplsinitialcreationsource(Enum):
     """
-    MplsinitialcreationsourceEnum
+    Mplsinitialcreationsource
 
     The entity that originally created the object in
 
@@ -79,30 +73,24 @@ class MplsinitialcreationsourceEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    snmp = 2
+    snmp = Enum.YLeaf(2, "snmp")
 
-    ldp = 3
+    ldp = Enum.YLeaf(3, "ldp")
 
-    rsvp = 4
+    rsvp = Enum.YLeaf(4, "rsvp")
 
-    crldp = 5
+    crldp = Enum.YLeaf(5, "crldp")
 
-    policyAgent = 6
+    policyAgent = Enum.YLeaf(6, "policyAgent")
 
-    unknown = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_MIB as meta
-        return meta._meta_table['MplsinitialcreationsourceEnum']
+    unknown = Enum.YLeaf(7, "unknown")
 
 
-class MplsldplabeltypesEnum(Enum):
+class Mplsldplabeltypes(Enum):
     """
-    MplsldplabeltypesEnum
+    Mplsldplabeltypes
 
     The Layer 2 label types which are defined for MPLS
 
@@ -118,17 +106,11 @@ class MplsldplabeltypesEnum(Enum):
 
     """
 
-    generic = 1
+    generic = Enum.YLeaf(1, "generic")
 
-    atm = 2
+    atm = Enum.YLeaf(2, "atm")
 
-    frameRelay = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_MIB as meta
-        return meta._meta_table['MplsldplabeltypesEnum']
+    frameRelay = Enum.YLeaf(3, "frameRelay")
 
 
 

@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class MplsLdpDownstreamOnDemandEnum(Enum):
+class MplsLdpDownstreamOnDemand(Enum):
     """
-    MplsLdpDownstreamOnDemandEnum
+    MplsLdpDownstreamOnDemand
 
     Mpls ldp downstream on demand
 
@@ -32,18 +26,12 @@ class MplsLdpDownstreamOnDemandEnum(Enum):
 
     """
 
-    peer_acl = 1
+    peer_acl = Enum.YLeaf(1, "peer-acl")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpDownstreamOnDemandEnum']
-
-
-class MplsLdpNbrPasswordEnum(Enum):
+class MplsLdpNbrPassword(Enum):
     """
-    MplsLdpNbrPasswordEnum
+    MplsLdpNbrPassword
 
     Mpls ldp nbr password
 
@@ -59,20 +47,14 @@ class MplsLdpNbrPasswordEnum(Enum):
 
     """
 
-    disable = 1
+    disable = Enum.YLeaf(1, "disable")
 
-    specified = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpNbrPasswordEnum']
+    specified = Enum.YLeaf(2, "specified")
 
 
-class MplsLdpRouterIdEnum(Enum):
+class MplsLdpRouterId(Enum):
     """
-    MplsLdpRouterIdEnum
+    MplsLdpRouterId
 
     Mpls ldp router id
 
@@ -82,18 +64,12 @@ class MplsLdpRouterIdEnum(Enum):
 
     """
 
-    address = 1
+    address = Enum.YLeaf(1, "address")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpRouterIdEnum']
-
-
-class MplsLdpSessionProtectionEnum(Enum):
+class MplsLdpSessionProtection(Enum):
     """
-    MplsLdpSessionProtectionEnum
+    MplsLdpSessionProtection
 
     Mpls ldp session protection
 
@@ -131,28 +107,22 @@ class MplsLdpSessionProtectionEnum(Enum):
 
     """
 
-    all = 1
+    all = Enum.YLeaf(1, "all")
 
-    for_ = 2
+    for_ = Enum.YLeaf(2, "for")
 
-    all_with_duration = 3
+    all_with_duration = Enum.YLeaf(3, "all-with-duration")
 
-    for_with_duration = 4
+    for_with_duration = Enum.YLeaf(4, "for-with-duration")
 
-    all_with_forever = 5
+    all_with_forever = Enum.YLeaf(5, "all-with-forever")
 
-    for_with_forever = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpSessionProtectionEnum']
+    for_with_forever = Enum.YLeaf(6, "for-with-forever")
 
 
-class MplsLdpafNameEnum(Enum):
+class MplsLdpafName(Enum):
     """
-    MplsLdpafNameEnum
+    MplsLdpafName
 
     Mpls ldpaf name
 
@@ -166,15 +136,9 @@ class MplsLdpafNameEnum(Enum):
 
     """
 
-    ipv4 = 4
+    ipv4 = Enum.YLeaf(4, "ipv4")
 
-    ipv6 = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_ldp_cfg_datatypes as meta
-        return meta._meta_table['MplsLdpafNameEnum']
+    ipv6 = Enum.YLeaf(6, "ipv6")
 
 
 

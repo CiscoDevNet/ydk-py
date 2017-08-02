@@ -4,22 +4,16 @@ This MIB provides for the management of Cisco
 Flash Devices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class FlashfiletypeEnum(Enum):
+class Flashfiletype(Enum):
     """
-    FlashfiletypeEnum
+    Flashfiletype
 
     File types for files in a flash.
 
@@ -49,25 +43,19 @@ class FlashfiletypeEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    config = 2
+    config = Enum.YLeaf(2, "config")
 
-    image = 3
+    image = Enum.YLeaf(3, "image")
 
-    directory = 4
+    directory = Enum.YLeaf(4, "directory")
 
-    crashinfo = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-        return meta._meta_table['FlashfiletypeEnum']
+    crashinfo = Enum.YLeaf(5, "crashinfo")
 
 
 
-class CiscoFlashMib(object):
+class CiscoFlashMib(Entity):
     """
     
     
@@ -129,29 +117,64 @@ class CiscoFlashMib(object):
     _revision = '2013-08-06'
 
     def __init__(self):
+        super(CiscoFlashMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-FLASH-MIB"
+        self.yang_parent_name = "CISCO-FLASH-MIB"
+
         self.ciscoflashcfg = CiscoFlashMib.Ciscoflashcfg()
         self.ciscoflashcfg.parent = self
+        self._children_name_map["ciscoflashcfg"] = "ciscoFlashCfg"
+        self._children_yang_names.add("ciscoFlashCfg")
+
         self.ciscoflashchiptable = CiscoFlashMib.Ciscoflashchiptable()
         self.ciscoflashchiptable.parent = self
+        self._children_name_map["ciscoflashchiptable"] = "ciscoFlashChipTable"
+        self._children_yang_names.add("ciscoFlashChipTable")
+
         self.ciscoflashcopytable = CiscoFlashMib.Ciscoflashcopytable()
         self.ciscoflashcopytable.parent = self
+        self._children_name_map["ciscoflashcopytable"] = "ciscoFlashCopyTable"
+        self._children_yang_names.add("ciscoFlashCopyTable")
+
         self.ciscoflashdevice = CiscoFlashMib.Ciscoflashdevice()
         self.ciscoflashdevice.parent = self
+        self._children_name_map["ciscoflashdevice"] = "ciscoFlashDevice"
+        self._children_yang_names.add("ciscoFlashDevice")
+
         self.ciscoflashdevicetable = CiscoFlashMib.Ciscoflashdevicetable()
         self.ciscoflashdevicetable.parent = self
+        self._children_name_map["ciscoflashdevicetable"] = "ciscoFlashDeviceTable"
+        self._children_yang_names.add("ciscoFlashDeviceTable")
+
         self.ciscoflashfilebytypetable = CiscoFlashMib.Ciscoflashfilebytypetable()
         self.ciscoflashfilebytypetable.parent = self
+        self._children_name_map["ciscoflashfilebytypetable"] = "ciscoFlashFileByTypeTable"
+        self._children_yang_names.add("ciscoFlashFileByTypeTable")
+
         self.ciscoflashfiletable = CiscoFlashMib.Ciscoflashfiletable()
         self.ciscoflashfiletable.parent = self
+        self._children_name_map["ciscoflashfiletable"] = "ciscoFlashFileTable"
+        self._children_yang_names.add("ciscoFlashFileTable")
+
         self.ciscoflashmiscoptable = CiscoFlashMib.Ciscoflashmiscoptable()
         self.ciscoflashmiscoptable.parent = self
+        self._children_name_map["ciscoflashmiscoptable"] = "ciscoFlashMiscOpTable"
+        self._children_yang_names.add("ciscoFlashMiscOpTable")
+
         self.ciscoflashpartitioningtable = CiscoFlashMib.Ciscoflashpartitioningtable()
         self.ciscoflashpartitioningtable.parent = self
+        self._children_name_map["ciscoflashpartitioningtable"] = "ciscoFlashPartitioningTable"
+        self._children_yang_names.add("ciscoFlashPartitioningTable")
+
         self.ciscoflashpartitiontable = CiscoFlashMib.Ciscoflashpartitiontable()
         self.ciscoflashpartitiontable.parent = self
+        self._children_name_map["ciscoflashpartitiontable"] = "ciscoFlashPartitionTable"
+        self._children_yang_names.add("ciscoFlashPartitionTable")
 
 
-    class Ciscoflashdevice(object):
+    class Ciscoflashdevice(Entity):
         """
         
         
@@ -170,31 +193,85 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashdevicessupported = None
+            super(CiscoFlashMib.Ciscoflashdevice, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ciscoFlashDevice"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
 
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashDevice'
+            self.ciscoflashdevicessupported = YLeaf(YType.uint32, "ciscoFlashDevicesSupported")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ciscoflashdevicessupported") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashdevice, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashdevice, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.ciscoflashdevicessupported is not None:
+        def has_data(self):
+            return self.ciscoflashdevicessupported.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ciscoflashdevicessupported.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashDevice" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ciscoflashdevicessupported.is_set or self.ciscoflashdevicessupported.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciscoflashdevicessupported.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashDevicesSupported"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashdevice']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ciscoFlashDevicesSupported"):
+                self.ciscoflashdevicessupported = value
+                self.ciscoflashdevicessupported.value_namespace = name_space
+                self.ciscoflashdevicessupported.value_namespace_prefix = name_space_prefix
 
 
-    class Ciscoflashcfg(object):
+    class Ciscoflashcfg(Entity):
         """
         
         
@@ -221,39 +298,108 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashcfgdevinsnotifenable = None
-            self.ciscoflashcfgdevremnotifenable = None
-            self.ciscoflashpartitionlowspacenotifenable = None
+            super(CiscoFlashMib.Ciscoflashcfg, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "ciscoFlashCfg"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
 
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashCfg'
+            self.ciscoflashcfgdevinsnotifenable = YLeaf(YType.boolean, "ciscoFlashCfgDevInsNotifEnable")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.ciscoflashcfgdevremnotifenable = YLeaf(YType.boolean, "ciscoFlashCfgDevRemNotifEnable")
+
+            self.ciscoflashpartitionlowspacenotifenable = YLeaf(YType.boolean, "ciscoFlashPartitionLowSpaceNotifEnable")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ciscoflashcfgdevinsnotifenable",
+                            "ciscoflashcfgdevremnotifenable",
+                            "ciscoflashpartitionlowspacenotifenable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashcfg, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashcfg, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.ciscoflashcfgdevinsnotifenable.is_set or
+                self.ciscoflashcfgdevremnotifenable.is_set or
+                self.ciscoflashpartitionlowspacenotifenable.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ciscoflashcfgdevinsnotifenable.yfilter != YFilter.not_set or
+                self.ciscoflashcfgdevremnotifenable.yfilter != YFilter.not_set or
+                self.ciscoflashpartitionlowspacenotifenable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashCfg" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ciscoflashcfgdevinsnotifenable.is_set or self.ciscoflashcfgdevinsnotifenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciscoflashcfgdevinsnotifenable.get_name_leafdata())
+            if (self.ciscoflashcfgdevremnotifenable.is_set or self.ciscoflashcfgdevremnotifenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciscoflashcfgdevremnotifenable.get_name_leafdata())
+            if (self.ciscoflashpartitionlowspacenotifenable.is_set or self.ciscoflashpartitionlowspacenotifenable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ciscoflashpartitionlowspacenotifenable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashCfgDevInsNotifEnable" or name == "ciscoFlashCfgDevRemNotifEnable" or name == "ciscoFlashPartitionLowSpaceNotifEnable"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ciscoflashcfgdevinsnotifenable is not None:
-                return True
-
-            if self.ciscoflashcfgdevremnotifenable is not None:
-                return True
-
-            if self.ciscoflashpartitionlowspacenotifenable is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashcfg']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ciscoFlashCfgDevInsNotifEnable"):
+                self.ciscoflashcfgdevinsnotifenable = value
+                self.ciscoflashcfgdevinsnotifenable.value_namespace = name_space
+                self.ciscoflashcfgdevinsnotifenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciscoFlashCfgDevRemNotifEnable"):
+                self.ciscoflashcfgdevremnotifenable = value
+                self.ciscoflashcfgdevremnotifenable.value_namespace = name_space
+                self.ciscoflashcfgdevremnotifenable.value_namespace_prefix = name_space_prefix
+            if(value_path == "ciscoFlashPartitionLowSpaceNotifEnable"):
+                self.ciscoflashpartitionlowspacenotifenable = value
+                self.ciscoflashpartitionlowspacenotifenable.value_namespace = name_space
+                self.ciscoflashpartitionlowspacenotifenable.value_namespace_prefix = name_space_prefix
 
 
-    class Ciscoflashdevicetable(object):
+    class Ciscoflashdevicetable(Entity):
         """
         Table of Flash device properties for each initialized
         Flash device. Each Flash device installed in a system
@@ -296,13 +442,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashdeviceentry = YList()
-            self.ciscoflashdeviceentry.parent = self
-            self.ciscoflashdeviceentry.name = 'ciscoflashdeviceentry'
+            super(CiscoFlashMib.Ciscoflashdevicetable, self).__init__()
+
+            self.yang_name = "ciscoFlashDeviceTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashdeviceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashdevicetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashdevicetable, self).__setattr__(name, value)
 
 
-        class Ciscoflashdeviceentry(object):
+        class Ciscoflashdeviceentry(Entity):
             """
             An entry in the table of flash device properties for
             each initialized flash device.
@@ -406,7 +578,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashdeviceprogrammingjumper
             
             	This object gives the state of a jumper (if present and can be determined) that controls the programming voltage called Vpp to the Flash device. Vpp is required for programming (erasing and writing) Flash. For certain older technology chips it is also required for identifying the chips (which in turn is required to identify which programming algorithms to use; different chips require different algorithms and commands). The purpose of the jumper, on systems where it is available, is to write protect a Flash device. On most of the newer remote access routers, this jumper is unavailable since users are not expected to visit remote sites just to install and remove the jumpers when upgrading software in the Flash device. The unknown(3) value will be returned for such systems and can be interpreted to mean that a programming jumper is not present or not required on those systems. On systems where the programming jumper state can be read back via a hardware register, the installed(1) or notInstalled(2) value will be returned. This object is expected to be used in conjunction with the ciscoFlashPartitionStatus object whenever that object has the readOnly(1) value. In such a case, this object will indicate whether the programming jumper is a possible reason for the readOnly state
-            	**type**\:   :py:class:`CiscoflashdeviceprogrammingjumperEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry.CiscoflashdeviceprogrammingjumperEnum>`
+            	**type**\:   :py:class:`Ciscoflashdeviceprogrammingjumper <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry.Ciscoflashdeviceprogrammingjumper>`
             
             .. attribute:: ciscoflashdeviceremovable
             
@@ -446,28 +618,88 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashdeviceindex = None
-                self.ciscoflashdevicecard = None
-                self.ciscoflashdevicechipcount = None
-                self.ciscoflashdevicecontroller = None
-                self.ciscoflashdevicedescr = None
-                self.ciscoflashdeviceinittime = None
-                self.ciscoflashdevicemaxpartitions = None
-                self.ciscoflashdeviceminpartitionsize = None
-                self.ciscoflashdeviceminpartitionsizeextended = None
-                self.ciscoflashdevicename = None
-                self.ciscoflashdevicenameextended = None
-                self.ciscoflashdevicepartitions = None
-                self.ciscoflashdeviceprogrammingjumper = None
-                self.ciscoflashdeviceremovable = None
-                self.ciscoflashdevicesize = None
-                self.ciscoflashdevicesizeextended = None
-                self.ciscoflashphyentindex = None
+                super(CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry, self).__init__()
 
-            class CiscoflashdeviceprogrammingjumperEnum(Enum):
+                self.yang_name = "ciscoFlashDeviceEntry"
+                self.yang_parent_name = "ciscoFlashDeviceTable"
+
+                self.ciscoflashdeviceindex = YLeaf(YType.uint32, "ciscoFlashDeviceIndex")
+
+                self.ciscoflashdevicecard = YLeaf(YType.str, "ciscoFlashDeviceCard")
+
+                self.ciscoflashdevicechipcount = YLeaf(YType.int32, "ciscoFlashDeviceChipCount")
+
+                self.ciscoflashdevicecontroller = YLeaf(YType.str, "ciscoFlashDeviceController")
+
+                self.ciscoflashdevicedescr = YLeaf(YType.str, "ciscoFlashDeviceDescr")
+
+                self.ciscoflashdeviceinittime = YLeaf(YType.uint32, "ciscoFlashDeviceInitTime")
+
+                self.ciscoflashdevicemaxpartitions = YLeaf(YType.uint32, "ciscoFlashDeviceMaxPartitions")
+
+                self.ciscoflashdeviceminpartitionsize = YLeaf(YType.uint32, "ciscoFlashDeviceMinPartitionSize")
+
+                self.ciscoflashdeviceminpartitionsizeextended = YLeaf(YType.uint64, "ciscoFlashDeviceMinPartitionSizeExtended")
+
+                self.ciscoflashdevicename = YLeaf(YType.str, "ciscoFlashDeviceName")
+
+                self.ciscoflashdevicenameextended = YLeaf(YType.str, "ciscoFlashDeviceNameExtended")
+
+                self.ciscoflashdevicepartitions = YLeaf(YType.uint32, "ciscoFlashDevicePartitions")
+
+                self.ciscoflashdeviceprogrammingjumper = YLeaf(YType.enumeration, "ciscoFlashDeviceProgrammingJumper")
+
+                self.ciscoflashdeviceremovable = YLeaf(YType.boolean, "ciscoFlashDeviceRemovable")
+
+                self.ciscoflashdevicesize = YLeaf(YType.uint32, "ciscoFlashDeviceSize")
+
+                self.ciscoflashdevicesizeextended = YLeaf(YType.uint64, "ciscoFlashDeviceSizeExtended")
+
+                self.ciscoflashphyentindex = YLeaf(YType.int32, "ciscoFlashPhyEntIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashdeviceindex",
+                                "ciscoflashdevicecard",
+                                "ciscoflashdevicechipcount",
+                                "ciscoflashdevicecontroller",
+                                "ciscoflashdevicedescr",
+                                "ciscoflashdeviceinittime",
+                                "ciscoflashdevicemaxpartitions",
+                                "ciscoflashdeviceminpartitionsize",
+                                "ciscoflashdeviceminpartitionsizeextended",
+                                "ciscoflashdevicename",
+                                "ciscoflashdevicenameextended",
+                                "ciscoflashdevicepartitions",
+                                "ciscoflashdeviceprogrammingjumper",
+                                "ciscoflashdeviceremovable",
+                                "ciscoflashdevicesize",
+                                "ciscoflashdevicesizeextended",
+                                "ciscoflashphyentindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry, self).__setattr__(name, value)
+
+            class Ciscoflashdeviceprogrammingjumper(Enum):
                 """
-                CiscoflashdeviceprogrammingjumperEnum
+                Ciscoflashdeviceprogrammingjumper
 
                 This object gives the state of a jumper (if present and can be
 
@@ -523,113 +755,247 @@ class CiscoFlashMib(object):
 
                 """
 
-                installed = 1
+                installed = Enum.YLeaf(1, "installed")
 
-                notInstalled = 2
+                notInstalled = Enum.YLeaf(2, "notInstalled")
 
-                unknown = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry.CiscoflashdeviceprogrammingjumperEnum']
+                unknown = Enum.YLeaf(3, "unknown")
 
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashdeviceindex is None:
-                    raise YPYModelError('Key property ciscoflashdeviceindex is None')
+            def has_data(self):
+                return (
+                    self.ciscoflashdeviceindex.is_set or
+                    self.ciscoflashdevicecard.is_set or
+                    self.ciscoflashdevicechipcount.is_set or
+                    self.ciscoflashdevicecontroller.is_set or
+                    self.ciscoflashdevicedescr.is_set or
+                    self.ciscoflashdeviceinittime.is_set or
+                    self.ciscoflashdevicemaxpartitions.is_set or
+                    self.ciscoflashdeviceminpartitionsize.is_set or
+                    self.ciscoflashdeviceminpartitionsizeextended.is_set or
+                    self.ciscoflashdevicename.is_set or
+                    self.ciscoflashdevicenameextended.is_set or
+                    self.ciscoflashdevicepartitions.is_set or
+                    self.ciscoflashdeviceprogrammingjumper.is_set or
+                    self.ciscoflashdeviceremovable.is_set or
+                    self.ciscoflashdevicesize.is_set or
+                    self.ciscoflashdevicesizeextended.is_set or
+                    self.ciscoflashphyentindex.is_set)
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashDeviceTable/CISCO-FLASH-MIB:ciscoFlashDeviceEntry[CISCO-FLASH-MIB:ciscoFlashDeviceIndex = ' + str(self.ciscoflashdeviceindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceindex.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicecard.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicechipcount.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicecontroller.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicedescr.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceinittime.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicemaxpartitions.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceminpartitionsize.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceminpartitionsizeextended.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicename.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicenameextended.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicepartitions.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceprogrammingjumper.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceremovable.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicesize.yfilter != YFilter.not_set or
+                    self.ciscoflashdevicesizeextended.yfilter != YFilter.not_set or
+                    self.ciscoflashphyentindex.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashDeviceEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashDeviceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashdeviceindex.is_set or self.ciscoflashdeviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceindex.get_name_leafdata())
+                if (self.ciscoflashdevicecard.is_set or self.ciscoflashdevicecard.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicecard.get_name_leafdata())
+                if (self.ciscoflashdevicechipcount.is_set or self.ciscoflashdevicechipcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicechipcount.get_name_leafdata())
+                if (self.ciscoflashdevicecontroller.is_set or self.ciscoflashdevicecontroller.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicecontroller.get_name_leafdata())
+                if (self.ciscoflashdevicedescr.is_set or self.ciscoflashdevicedescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicedescr.get_name_leafdata())
+                if (self.ciscoflashdeviceinittime.is_set or self.ciscoflashdeviceinittime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceinittime.get_name_leafdata())
+                if (self.ciscoflashdevicemaxpartitions.is_set or self.ciscoflashdevicemaxpartitions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicemaxpartitions.get_name_leafdata())
+                if (self.ciscoflashdeviceminpartitionsize.is_set or self.ciscoflashdeviceminpartitionsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceminpartitionsize.get_name_leafdata())
+                if (self.ciscoflashdeviceminpartitionsizeextended.is_set or self.ciscoflashdeviceminpartitionsizeextended.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceminpartitionsizeextended.get_name_leafdata())
+                if (self.ciscoflashdevicename.is_set or self.ciscoflashdevicename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicename.get_name_leafdata())
+                if (self.ciscoflashdevicenameextended.is_set or self.ciscoflashdevicenameextended.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicenameextended.get_name_leafdata())
+                if (self.ciscoflashdevicepartitions.is_set or self.ciscoflashdevicepartitions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicepartitions.get_name_leafdata())
+                if (self.ciscoflashdeviceprogrammingjumper.is_set or self.ciscoflashdeviceprogrammingjumper.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceprogrammingjumper.get_name_leafdata())
+                if (self.ciscoflashdeviceremovable.is_set or self.ciscoflashdeviceremovable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceremovable.get_name_leafdata())
+                if (self.ciscoflashdevicesize.is_set or self.ciscoflashdevicesize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicesize.get_name_leafdata())
+                if (self.ciscoflashdevicesizeextended.is_set or self.ciscoflashdevicesizeextended.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdevicesizeextended.get_name_leafdata())
+                if (self.ciscoflashphyentindex.is_set or self.ciscoflashphyentindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashphyentindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashDeviceIndex" or name == "ciscoFlashDeviceCard" or name == "ciscoFlashDeviceChipCount" or name == "ciscoFlashDeviceController" or name == "ciscoFlashDeviceDescr" or name == "ciscoFlashDeviceInitTime" or name == "ciscoFlashDeviceMaxPartitions" or name == "ciscoFlashDeviceMinPartitionSize" or name == "ciscoFlashDeviceMinPartitionSizeExtended" or name == "ciscoFlashDeviceName" or name == "ciscoFlashDeviceNameExtended" or name == "ciscoFlashDevicePartitions" or name == "ciscoFlashDeviceProgrammingJumper" or name == "ciscoFlashDeviceRemovable" or name == "ciscoFlashDeviceSize" or name == "ciscoFlashDeviceSizeExtended" or name == "ciscoFlashPhyEntIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashdeviceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashDeviceIndex"):
+                    self.ciscoflashdeviceindex = value
+                    self.ciscoflashdeviceindex.value_namespace = name_space
+                    self.ciscoflashdeviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceCard"):
+                    self.ciscoflashdevicecard = value
+                    self.ciscoflashdevicecard.value_namespace = name_space
+                    self.ciscoflashdevicecard.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceChipCount"):
+                    self.ciscoflashdevicechipcount = value
+                    self.ciscoflashdevicechipcount.value_namespace = name_space
+                    self.ciscoflashdevicechipcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceController"):
+                    self.ciscoflashdevicecontroller = value
+                    self.ciscoflashdevicecontroller.value_namespace = name_space
+                    self.ciscoflashdevicecontroller.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceDescr"):
+                    self.ciscoflashdevicedescr = value
+                    self.ciscoflashdevicedescr.value_namespace = name_space
+                    self.ciscoflashdevicedescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceInitTime"):
+                    self.ciscoflashdeviceinittime = value
+                    self.ciscoflashdeviceinittime.value_namespace = name_space
+                    self.ciscoflashdeviceinittime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceMaxPartitions"):
+                    self.ciscoflashdevicemaxpartitions = value
+                    self.ciscoflashdevicemaxpartitions.value_namespace = name_space
+                    self.ciscoflashdevicemaxpartitions.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceMinPartitionSize"):
+                    self.ciscoflashdeviceminpartitionsize = value
+                    self.ciscoflashdeviceminpartitionsize.value_namespace = name_space
+                    self.ciscoflashdeviceminpartitionsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceMinPartitionSizeExtended"):
+                    self.ciscoflashdeviceminpartitionsizeextended = value
+                    self.ciscoflashdeviceminpartitionsizeextended.value_namespace = name_space
+                    self.ciscoflashdeviceminpartitionsizeextended.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceName"):
+                    self.ciscoflashdevicename = value
+                    self.ciscoflashdevicename.value_namespace = name_space
+                    self.ciscoflashdevicename.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceNameExtended"):
+                    self.ciscoflashdevicenameextended = value
+                    self.ciscoflashdevicenameextended.value_namespace = name_space
+                    self.ciscoflashdevicenameextended.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDevicePartitions"):
+                    self.ciscoflashdevicepartitions = value
+                    self.ciscoflashdevicepartitions.value_namespace = name_space
+                    self.ciscoflashdevicepartitions.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceProgrammingJumper"):
+                    self.ciscoflashdeviceprogrammingjumper = value
+                    self.ciscoflashdeviceprogrammingjumper.value_namespace = name_space
+                    self.ciscoflashdeviceprogrammingjumper.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceRemovable"):
+                    self.ciscoflashdeviceremovable = value
+                    self.ciscoflashdeviceremovable.value_namespace = name_space
+                    self.ciscoflashdeviceremovable.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceSize"):
+                    self.ciscoflashdevicesize = value
+                    self.ciscoflashdevicesize.value_namespace = name_space
+                    self.ciscoflashdevicesize.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceSizeExtended"):
+                    self.ciscoflashdevicesizeextended = value
+                    self.ciscoflashdevicesizeextended.value_namespace = name_space
+                    self.ciscoflashdevicesizeextended.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPhyEntIndex"):
+                    self.ciscoflashphyentindex = value
+                    self.ciscoflashphyentindex.value_namespace = name_space
+                    self.ciscoflashphyentindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashdeviceentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashdevicecard is not None:
-                    return True
-
-                if self.ciscoflashdevicechipcount is not None:
-                    return True
-
-                if self.ciscoflashdevicecontroller is not None:
-                    return True
-
-                if self.ciscoflashdevicedescr is not None:
-                    return True
-
-                if self.ciscoflashdeviceinittime is not None:
-                    return True
-
-                if self.ciscoflashdevicemaxpartitions is not None:
-                    return True
-
-                if self.ciscoflashdeviceminpartitionsize is not None:
-                    return True
-
-                if self.ciscoflashdeviceminpartitionsizeextended is not None:
-                    return True
-
-                if self.ciscoflashdevicename is not None:
-                    return True
-
-                if self.ciscoflashdevicenameextended is not None:
-                    return True
-
-                if self.ciscoflashdevicepartitions is not None:
-                    return True
-
-                if self.ciscoflashdeviceprogrammingjumper is not None:
-                    return True
-
-                if self.ciscoflashdeviceremovable is not None:
-                    return True
-
-                if self.ciscoflashdevicesize is not None:
-                    return True
-
-                if self.ciscoflashdevicesizeextended is not None:
-                    return True
-
-                if self.ciscoflashphyentindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashDeviceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashdeviceentry is not None:
-                for child_ref in self.ciscoflashdeviceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashdeviceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashDeviceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashDeviceEntry"):
+                for c in self.ciscoflashdeviceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashdevicetable.Ciscoflashdeviceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashdeviceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashDeviceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashdevicetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciscoflashchiptable(object):
+    class Ciscoflashchiptable(Entity):
         """
         Table of Flash device chip properties for each
         initialized Flash device.
@@ -649,13 +1015,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashchipentry = YList()
-            self.ciscoflashchipentry.parent = self
-            self.ciscoflashchipentry.name = 'ciscoflashchipentry'
+            super(CiscoFlashMib.Ciscoflashchiptable, self).__init__()
+
+            self.yang_name = "ciscoFlashChipTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashchipentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashchiptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashchiptable, self).__setattr__(name, value)
 
 
-        class Ciscoflashchipentry(object):
+        class Ciscoflashchipentry(Entity):
             """
             An entry in the table of chip info for each
             flash device initialized in the system.
@@ -729,85 +1121,220 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashdeviceindex = None
-                self.ciscoflashchipindex = None
-                self.ciscoflashchipcode = None
-                self.ciscoflashchipdescr = None
-                self.ciscoflashchiperaseretries = None
-                self.ciscoflashchipmaxeraseretries = None
-                self.ciscoflashchipmaxwriteretries = None
-                self.ciscoflashchipwriteretries = None
+                super(CiscoFlashMib.Ciscoflashchiptable.Ciscoflashchipentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashdeviceindex is None:
-                    raise YPYModelError('Key property ciscoflashdeviceindex is None')
-                if self.ciscoflashchipindex is None:
-                    raise YPYModelError('Key property ciscoflashchipindex is None')
+                self.yang_name = "ciscoFlashChipEntry"
+                self.yang_parent_name = "ciscoFlashChipTable"
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashChipTable/CISCO-FLASH-MIB:ciscoFlashChipEntry[CISCO-FLASH-MIB:ciscoFlashDeviceIndex = ' + str(self.ciscoflashdeviceindex) + '][CISCO-FLASH-MIB:ciscoFlashChipIndex = ' + str(self.ciscoflashchipindex) + ']'
+                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ciscoflashchipindex = YLeaf(YType.int32, "ciscoFlashChipIndex")
+
+                self.ciscoflashchipcode = YLeaf(YType.str, "ciscoFlashChipCode")
+
+                self.ciscoflashchipdescr = YLeaf(YType.str, "ciscoFlashChipDescr")
+
+                self.ciscoflashchiperaseretries = YLeaf(YType.uint32, "ciscoFlashChipEraseRetries")
+
+                self.ciscoflashchipmaxeraseretries = YLeaf(YType.uint32, "ciscoFlashChipMaxEraseRetries")
+
+                self.ciscoflashchipmaxwriteretries = YLeaf(YType.uint32, "ciscoFlashChipMaxWriteRetries")
+
+                self.ciscoflashchipwriteretries = YLeaf(YType.uint32, "ciscoFlashChipWriteRetries")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashdeviceindex",
+                                "ciscoflashchipindex",
+                                "ciscoflashchipcode",
+                                "ciscoflashchipdescr",
+                                "ciscoflashchiperaseretries",
+                                "ciscoflashchipmaxeraseretries",
+                                "ciscoflashchipmaxwriteretries",
+                                "ciscoflashchipwriteretries") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashchiptable.Ciscoflashchipentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashchiptable.Ciscoflashchipentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ciscoflashdeviceindex.is_set or
+                    self.ciscoflashchipindex.is_set or
+                    self.ciscoflashchipcode.is_set or
+                    self.ciscoflashchipdescr.is_set or
+                    self.ciscoflashchiperaseretries.is_set or
+                    self.ciscoflashchipmaxeraseretries.is_set or
+                    self.ciscoflashchipmaxwriteretries.is_set or
+                    self.ciscoflashchipwriteretries.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceindex.yfilter != YFilter.not_set or
+                    self.ciscoflashchipindex.yfilter != YFilter.not_set or
+                    self.ciscoflashchipcode.yfilter != YFilter.not_set or
+                    self.ciscoflashchipdescr.yfilter != YFilter.not_set or
+                    self.ciscoflashchiperaseretries.yfilter != YFilter.not_set or
+                    self.ciscoflashchipmaxeraseretries.yfilter != YFilter.not_set or
+                    self.ciscoflashchipmaxwriteretries.yfilter != YFilter.not_set or
+                    self.ciscoflashchipwriteretries.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashChipEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashChipIndex='" + self.ciscoflashchipindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashChipTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashdeviceindex.is_set or self.ciscoflashdeviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceindex.get_name_leafdata())
+                if (self.ciscoflashchipindex.is_set or self.ciscoflashchipindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashchipindex.get_name_leafdata())
+                if (self.ciscoflashchipcode.is_set or self.ciscoflashchipcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashchipcode.get_name_leafdata())
+                if (self.ciscoflashchipdescr.is_set or self.ciscoflashchipdescr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashchipdescr.get_name_leafdata())
+                if (self.ciscoflashchiperaseretries.is_set or self.ciscoflashchiperaseretries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashchiperaseretries.get_name_leafdata())
+                if (self.ciscoflashchipmaxeraseretries.is_set or self.ciscoflashchipmaxeraseretries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashchipmaxeraseretries.get_name_leafdata())
+                if (self.ciscoflashchipmaxwriteretries.is_set or self.ciscoflashchipmaxwriteretries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashchipmaxwriteretries.get_name_leafdata())
+                if (self.ciscoflashchipwriteretries.is_set or self.ciscoflashchipwriteretries.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashchipwriteretries.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashDeviceIndex" or name == "ciscoFlashChipIndex" or name == "ciscoFlashChipCode" or name == "ciscoFlashChipDescr" or name == "ciscoFlashChipEraseRetries" or name == "ciscoFlashChipMaxEraseRetries" or name == "ciscoFlashChipMaxWriteRetries" or name == "ciscoFlashChipWriteRetries"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashdeviceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashDeviceIndex"):
+                    self.ciscoflashdeviceindex = value
+                    self.ciscoflashdeviceindex.value_namespace = name_space
+                    self.ciscoflashdeviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashChipIndex"):
+                    self.ciscoflashchipindex = value
+                    self.ciscoflashchipindex.value_namespace = name_space
+                    self.ciscoflashchipindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashChipCode"):
+                    self.ciscoflashchipcode = value
+                    self.ciscoflashchipcode.value_namespace = name_space
+                    self.ciscoflashchipcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashChipDescr"):
+                    self.ciscoflashchipdescr = value
+                    self.ciscoflashchipdescr.value_namespace = name_space
+                    self.ciscoflashchipdescr.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashChipEraseRetries"):
+                    self.ciscoflashchiperaseretries = value
+                    self.ciscoflashchiperaseretries.value_namespace = name_space
+                    self.ciscoflashchiperaseretries.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashChipMaxEraseRetries"):
+                    self.ciscoflashchipmaxeraseretries = value
+                    self.ciscoflashchipmaxeraseretries.value_namespace = name_space
+                    self.ciscoflashchipmaxeraseretries.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashChipMaxWriteRetries"):
+                    self.ciscoflashchipmaxwriteretries = value
+                    self.ciscoflashchipmaxwriteretries.value_namespace = name_space
+                    self.ciscoflashchipmaxwriteretries.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashChipWriteRetries"):
+                    self.ciscoflashchipwriteretries = value
+                    self.ciscoflashchipwriteretries.value_namespace = name_space
+                    self.ciscoflashchipwriteretries.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashchipentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashchipindex is not None:
-                    return True
-
-                if self.ciscoflashchipcode is not None:
-                    return True
-
-                if self.ciscoflashchipdescr is not None:
-                    return True
-
-                if self.ciscoflashchiperaseretries is not None:
-                    return True
-
-                if self.ciscoflashchipmaxeraseretries is not None:
-                    return True
-
-                if self.ciscoflashchipmaxwriteretries is not None:
-                    return True
-
-                if self.ciscoflashchipwriteretries is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashchiptable.Ciscoflashchipentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashChipTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashchipentry is not None:
-                for child_ref in self.ciscoflashchipentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashchipentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashChipTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashChipEntry"):
+                for c in self.ciscoflashchipentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashchiptable.Ciscoflashchipentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashchipentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashChipEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashchiptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciscoflashpartitiontable(object):
+    class Ciscoflashpartitiontable(Entity):
         """
         Table of flash device partition properties for each
         initialized flash partition. Whenever there is no
@@ -828,13 +1355,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashpartitionentry = YList()
-            self.ciscoflashpartitionentry.parent = self
-            self.ciscoflashpartitionentry.name = 'ciscoflashpartitionentry'
+            super(CiscoFlashMib.Ciscoflashpartitiontable, self).__init__()
+
+            self.yang_name = "ciscoFlashPartitionTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashpartitionentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashpartitiontable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashpartitiontable, self).__setattr__(name, value)
 
 
-        class Ciscoflashpartitionentry(object):
+        class Ciscoflashpartitionentry(Entity):
             """
             An entry in the table of flash partition properties
             for each initialized flash partition. Each entry
@@ -860,7 +1413,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashpartitionchecksumalgorithm
             
             	Checksum algorithm identifier for checksum method used by the file system. Normally, this would be fixed for a particular file system. When a file system writes a file to Flash, it checksums the data written. The checksum then serves as a way to validate the data read back whenever the file is opened for reading. Since there is no way, when using TFTP, to guarantee that a network download has been error free (since UDP checksums may not have been enabled), this object together with the ciscoFlashFileChecksum object provides a method for any management station to regenerate the checksum of the original file on the server and compare checksums to ensure that the file download to Flash was error free. simpleChecksum represents a simple 1s complement addition of short word values. Other algorithm values will be added as necessary
-            	**type**\:   :py:class:`CiscoflashpartitionchecksumalgorithmEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.CiscoflashpartitionchecksumalgorithmEnum>`
+            	**type**\:   :py:class:`Ciscoflashpartitionchecksumalgorithm <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.Ciscoflashpartitionchecksumalgorithm>`
             
             .. attribute:: ciscoflashpartitionendchip
             
@@ -948,12 +1501,12 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashpartitionstatus
             
             	Flash partition status can be \:  \* readOnly if device is not programmable either because chips could not be recognized or an erroneous mismatch of chips was detected. Chip recognition may fail either because the chips are not supported by the system, or because the Vpp voltage required to identify chips has been disabled via the programming jumper. The ciscoFlashDeviceProgrammingJumper, ciscoFlashChipCode, and ciscoFlashChipDescr objects can be examined to get more details on the cause of this status \* runFromFlash (RFF) if current image is running from this partition. The ciscoFlashPartitionUpgradeMethod object will then indicate whether the Flash Load Helper can be used to write a file to this partition or not.  \* readWrite if partition is programmable
-            	**type**\:   :py:class:`CiscoflashpartitionstatusEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.CiscoflashpartitionstatusEnum>`
+            	**type**\:   :py:class:`Ciscoflashpartitionstatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.Ciscoflashpartitionstatus>`
             
             .. attribute:: ciscoflashpartitionupgrademethod
             
             	Flash partition upgrade method, ie., method by which new files can be downloaded into the partition. FLH stands for Flash Load Helper, a feature provided on run\-from\-Flash systems for upgrading Flash. This feature uses the bootstrap code in ROMs to help in automatic download. This object should be retrieved if the partition status is runFromFlash(2). If the partition status is readOnly(1), the upgrade method would depend on the reason for the readOnly status. For eg., it may simply be a matter of installing the programming jumper, or it may require execution of a later version of software that supports the Flash chips.  unknown      \-  the current system image does not know                 how Flash can be programmed. A possible                 method would be to reload the ROM image                 and perform the upgrade manually. rxbootFLH    \-  the Flash Load Helper is available to                 download files to Flash. A copy\-to\-flash                 command can be used and this system image                 will automatically reload the Rxboot image                 in ROM and direct it to carry out the                 download request. direct       \-  will be done directly by this image
-            	**type**\:   :py:class:`CiscoflashpartitionupgrademethodEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.CiscoflashpartitionupgrademethodEnum>`
+            	**type**\:   :py:class:`Ciscoflashpartitionupgrademethod <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.Ciscoflashpartitionupgrademethod>`
             
             
 
@@ -963,27 +1516,85 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashdeviceindex = None
-                self.ciscoflashpartitionindex = None
-                self.ciscoflashpartitionchecksumalgorithm = None
-                self.ciscoflashpartitionendchip = None
-                self.ciscoflashpartitionfilecount = None
-                self.ciscoflashpartitionfilenamelength = None
-                self.ciscoflashpartitionfreespace = None
-                self.ciscoflashpartitionfreespaceextended = None
-                self.ciscoflashpartitionlowspacenotifthreshold = None
-                self.ciscoflashpartitionname = None
-                self.ciscoflashpartitionneederasure = None
-                self.ciscoflashpartitionsize = None
-                self.ciscoflashpartitionsizeextended = None
-                self.ciscoflashpartitionstartchip = None
-                self.ciscoflashpartitionstatus = None
-                self.ciscoflashpartitionupgrademethod = None
+                super(CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry, self).__init__()
 
-            class CiscoflashpartitionchecksumalgorithmEnum(Enum):
+                self.yang_name = "ciscoFlashPartitionEntry"
+                self.yang_parent_name = "ciscoFlashPartitionTable"
+
+                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
+
+                self.ciscoflashpartitionindex = YLeaf(YType.uint32, "ciscoFlashPartitionIndex")
+
+                self.ciscoflashpartitionchecksumalgorithm = YLeaf(YType.enumeration, "ciscoFlashPartitionChecksumAlgorithm")
+
+                self.ciscoflashpartitionendchip = YLeaf(YType.int32, "ciscoFlashPartitionEndChip")
+
+                self.ciscoflashpartitionfilecount = YLeaf(YType.uint32, "ciscoFlashPartitionFileCount")
+
+                self.ciscoflashpartitionfilenamelength = YLeaf(YType.int32, "ciscoFlashPartitionFileNameLength")
+
+                self.ciscoflashpartitionfreespace = YLeaf(YType.uint32, "ciscoFlashPartitionFreeSpace")
+
+                self.ciscoflashpartitionfreespaceextended = YLeaf(YType.uint64, "ciscoFlashPartitionFreeSpaceExtended")
+
+                self.ciscoflashpartitionlowspacenotifthreshold = YLeaf(YType.int32, "ciscoFlashPartitionLowSpaceNotifThreshold")
+
+                self.ciscoflashpartitionname = YLeaf(YType.str, "ciscoFlashPartitionName")
+
+                self.ciscoflashpartitionneederasure = YLeaf(YType.boolean, "ciscoFlashPartitionNeedErasure")
+
+                self.ciscoflashpartitionsize = YLeaf(YType.uint32, "ciscoFlashPartitionSize")
+
+                self.ciscoflashpartitionsizeextended = YLeaf(YType.uint64, "ciscoFlashPartitionSizeExtended")
+
+                self.ciscoflashpartitionstartchip = YLeaf(YType.int32, "ciscoFlashPartitionStartChip")
+
+                self.ciscoflashpartitionstatus = YLeaf(YType.enumeration, "ciscoFlashPartitionStatus")
+
+                self.ciscoflashpartitionupgrademethod = YLeaf(YType.enumeration, "ciscoFlashPartitionUpgradeMethod")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashdeviceindex",
+                                "ciscoflashpartitionindex",
+                                "ciscoflashpartitionchecksumalgorithm",
+                                "ciscoflashpartitionendchip",
+                                "ciscoflashpartitionfilecount",
+                                "ciscoflashpartitionfilenamelength",
+                                "ciscoflashpartitionfreespace",
+                                "ciscoflashpartitionfreespaceextended",
+                                "ciscoflashpartitionlowspacenotifthreshold",
+                                "ciscoflashpartitionname",
+                                "ciscoflashpartitionneederasure",
+                                "ciscoflashpartitionsize",
+                                "ciscoflashpartitionsizeextended",
+                                "ciscoflashpartitionstartchip",
+                                "ciscoflashpartitionstatus",
+                                "ciscoflashpartitionupgrademethod") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry, self).__setattr__(name, value)
+
+            class Ciscoflashpartitionchecksumalgorithm(Enum):
                 """
-                CiscoflashpartitionchecksumalgorithmEnum
+                Ciscoflashpartitionchecksumalgorithm
 
                 Checksum algorithm identifier for checksum method
 
@@ -1029,22 +1640,16 @@ class CiscoFlashMib(object):
 
                 """
 
-                simpleChecksum = 1
+                simpleChecksum = Enum.YLeaf(1, "simpleChecksum")
 
-                undefined = 2
+                undefined = Enum.YLeaf(2, "undefined")
 
-                simpleCRC = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.CiscoflashpartitionchecksumalgorithmEnum']
+                simpleCRC = Enum.YLeaf(3, "simpleCRC")
 
 
-            class CiscoflashpartitionstatusEnum(Enum):
+            class Ciscoflashpartitionstatus(Enum):
                 """
-                CiscoflashpartitionstatusEnum
+                Ciscoflashpartitionstatus
 
                 Flash partition status can be \:
 
@@ -1086,22 +1691,16 @@ class CiscoFlashMib(object):
 
                 """
 
-                readOnly = 1
+                readOnly = Enum.YLeaf(1, "readOnly")
 
-                runFromFlash = 2
+                runFromFlash = Enum.YLeaf(2, "runFromFlash")
 
-                readWrite = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.CiscoflashpartitionstatusEnum']
+                readWrite = Enum.YLeaf(3, "readWrite")
 
 
-            class CiscoflashpartitionupgrademethodEnum(Enum):
+            class Ciscoflashpartitionupgrademethod(Enum):
                 """
-                CiscoflashpartitionupgrademethodEnum
+                Ciscoflashpartitionupgrademethod
 
                 Flash partition upgrade method, ie., method by which
 
@@ -1159,112 +1758,239 @@ class CiscoFlashMib(object):
 
                 """
 
-                unknown = 1
+                unknown = Enum.YLeaf(1, "unknown")
 
-                rxbootFLH = 2
+                rxbootFLH = Enum.YLeaf(2, "rxbootFLH")
 
-                direct = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry.CiscoflashpartitionupgrademethodEnum']
+                direct = Enum.YLeaf(3, "direct")
 
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashdeviceindex is None:
-                    raise YPYModelError('Key property ciscoflashdeviceindex is None')
-                if self.ciscoflashpartitionindex is None:
-                    raise YPYModelError('Key property ciscoflashpartitionindex is None')
+            def has_data(self):
+                return (
+                    self.ciscoflashdeviceindex.is_set or
+                    self.ciscoflashpartitionindex.is_set or
+                    self.ciscoflashpartitionchecksumalgorithm.is_set or
+                    self.ciscoflashpartitionendchip.is_set or
+                    self.ciscoflashpartitionfilecount.is_set or
+                    self.ciscoflashpartitionfilenamelength.is_set or
+                    self.ciscoflashpartitionfreespace.is_set or
+                    self.ciscoflashpartitionfreespaceextended.is_set or
+                    self.ciscoflashpartitionlowspacenotifthreshold.is_set or
+                    self.ciscoflashpartitionname.is_set or
+                    self.ciscoflashpartitionneederasure.is_set or
+                    self.ciscoflashpartitionsize.is_set or
+                    self.ciscoflashpartitionsizeextended.is_set or
+                    self.ciscoflashpartitionstartchip.is_set or
+                    self.ciscoflashpartitionstatus.is_set or
+                    self.ciscoflashpartitionupgrademethod.is_set)
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashPartitionTable/CISCO-FLASH-MIB:ciscoFlashPartitionEntry[CISCO-FLASH-MIB:ciscoFlashDeviceIndex = ' + str(self.ciscoflashdeviceindex) + '][CISCO-FLASH-MIB:ciscoFlashPartitionIndex = ' + str(self.ciscoflashpartitionindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceindex.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionindex.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionchecksumalgorithm.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionendchip.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionfilecount.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionfilenamelength.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionfreespace.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionfreespaceextended.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionlowspacenotifthreshold.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionname.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionneederasure.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionsize.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionsizeextended.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionstartchip.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionstatus.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionupgrademethod.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashPartitionEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashPartitionIndex='" + self.ciscoflashpartitionindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashPartitionTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashdeviceindex.is_set or self.ciscoflashdeviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceindex.get_name_leafdata())
+                if (self.ciscoflashpartitionindex.is_set or self.ciscoflashpartitionindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionindex.get_name_leafdata())
+                if (self.ciscoflashpartitionchecksumalgorithm.is_set or self.ciscoflashpartitionchecksumalgorithm.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionchecksumalgorithm.get_name_leafdata())
+                if (self.ciscoflashpartitionendchip.is_set or self.ciscoflashpartitionendchip.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionendchip.get_name_leafdata())
+                if (self.ciscoflashpartitionfilecount.is_set or self.ciscoflashpartitionfilecount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionfilecount.get_name_leafdata())
+                if (self.ciscoflashpartitionfilenamelength.is_set or self.ciscoflashpartitionfilenamelength.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionfilenamelength.get_name_leafdata())
+                if (self.ciscoflashpartitionfreespace.is_set or self.ciscoflashpartitionfreespace.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionfreespace.get_name_leafdata())
+                if (self.ciscoflashpartitionfreespaceextended.is_set or self.ciscoflashpartitionfreespaceextended.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionfreespaceextended.get_name_leafdata())
+                if (self.ciscoflashpartitionlowspacenotifthreshold.is_set or self.ciscoflashpartitionlowspacenotifthreshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionlowspacenotifthreshold.get_name_leafdata())
+                if (self.ciscoflashpartitionname.is_set or self.ciscoflashpartitionname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionname.get_name_leafdata())
+                if (self.ciscoflashpartitionneederasure.is_set or self.ciscoflashpartitionneederasure.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionneederasure.get_name_leafdata())
+                if (self.ciscoflashpartitionsize.is_set or self.ciscoflashpartitionsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionsize.get_name_leafdata())
+                if (self.ciscoflashpartitionsizeextended.is_set or self.ciscoflashpartitionsizeextended.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionsizeextended.get_name_leafdata())
+                if (self.ciscoflashpartitionstartchip.is_set or self.ciscoflashpartitionstartchip.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionstartchip.get_name_leafdata())
+                if (self.ciscoflashpartitionstatus.is_set or self.ciscoflashpartitionstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionstatus.get_name_leafdata())
+                if (self.ciscoflashpartitionupgrademethod.is_set or self.ciscoflashpartitionupgrademethod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionupgrademethod.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashDeviceIndex" or name == "ciscoFlashPartitionIndex" or name == "ciscoFlashPartitionChecksumAlgorithm" or name == "ciscoFlashPartitionEndChip" or name == "ciscoFlashPartitionFileCount" or name == "ciscoFlashPartitionFileNameLength" or name == "ciscoFlashPartitionFreeSpace" or name == "ciscoFlashPartitionFreeSpaceExtended" or name == "ciscoFlashPartitionLowSpaceNotifThreshold" or name == "ciscoFlashPartitionName" or name == "ciscoFlashPartitionNeedErasure" or name == "ciscoFlashPartitionSize" or name == "ciscoFlashPartitionSizeExtended" or name == "ciscoFlashPartitionStartChip" or name == "ciscoFlashPartitionStatus" or name == "ciscoFlashPartitionUpgradeMethod"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashdeviceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashDeviceIndex"):
+                    self.ciscoflashdeviceindex = value
+                    self.ciscoflashdeviceindex.value_namespace = name_space
+                    self.ciscoflashdeviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionIndex"):
+                    self.ciscoflashpartitionindex = value
+                    self.ciscoflashpartitionindex.value_namespace = name_space
+                    self.ciscoflashpartitionindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionChecksumAlgorithm"):
+                    self.ciscoflashpartitionchecksumalgorithm = value
+                    self.ciscoflashpartitionchecksumalgorithm.value_namespace = name_space
+                    self.ciscoflashpartitionchecksumalgorithm.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionEndChip"):
+                    self.ciscoflashpartitionendchip = value
+                    self.ciscoflashpartitionendchip.value_namespace = name_space
+                    self.ciscoflashpartitionendchip.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionFileCount"):
+                    self.ciscoflashpartitionfilecount = value
+                    self.ciscoflashpartitionfilecount.value_namespace = name_space
+                    self.ciscoflashpartitionfilecount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionFileNameLength"):
+                    self.ciscoflashpartitionfilenamelength = value
+                    self.ciscoflashpartitionfilenamelength.value_namespace = name_space
+                    self.ciscoflashpartitionfilenamelength.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionFreeSpace"):
+                    self.ciscoflashpartitionfreespace = value
+                    self.ciscoflashpartitionfreespace.value_namespace = name_space
+                    self.ciscoflashpartitionfreespace.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionFreeSpaceExtended"):
+                    self.ciscoflashpartitionfreespaceextended = value
+                    self.ciscoflashpartitionfreespaceextended.value_namespace = name_space
+                    self.ciscoflashpartitionfreespaceextended.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionLowSpaceNotifThreshold"):
+                    self.ciscoflashpartitionlowspacenotifthreshold = value
+                    self.ciscoflashpartitionlowspacenotifthreshold.value_namespace = name_space
+                    self.ciscoflashpartitionlowspacenotifthreshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionName"):
+                    self.ciscoflashpartitionname = value
+                    self.ciscoflashpartitionname.value_namespace = name_space
+                    self.ciscoflashpartitionname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionNeedErasure"):
+                    self.ciscoflashpartitionneederasure = value
+                    self.ciscoflashpartitionneederasure.value_namespace = name_space
+                    self.ciscoflashpartitionneederasure.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionSize"):
+                    self.ciscoflashpartitionsize = value
+                    self.ciscoflashpartitionsize.value_namespace = name_space
+                    self.ciscoflashpartitionsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionSizeExtended"):
+                    self.ciscoflashpartitionsizeextended = value
+                    self.ciscoflashpartitionsizeextended.value_namespace = name_space
+                    self.ciscoflashpartitionsizeextended.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionStartChip"):
+                    self.ciscoflashpartitionstartchip = value
+                    self.ciscoflashpartitionstartchip.value_namespace = name_space
+                    self.ciscoflashpartitionstartchip.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionStatus"):
+                    self.ciscoflashpartitionstatus = value
+                    self.ciscoflashpartitionstatus.value_namespace = name_space
+                    self.ciscoflashpartitionstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionUpgradeMethod"):
+                    self.ciscoflashpartitionupgrademethod = value
+                    self.ciscoflashpartitionupgrademethod.value_namespace = name_space
+                    self.ciscoflashpartitionupgrademethod.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashpartitionentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashpartitionindex is not None:
-                    return True
-
-                if self.ciscoflashpartitionchecksumalgorithm is not None:
-                    return True
-
-                if self.ciscoflashpartitionendchip is not None:
-                    return True
-
-                if self.ciscoflashpartitionfilecount is not None:
-                    return True
-
-                if self.ciscoflashpartitionfilenamelength is not None:
-                    return True
-
-                if self.ciscoflashpartitionfreespace is not None:
-                    return True
-
-                if self.ciscoflashpartitionfreespaceextended is not None:
-                    return True
-
-                if self.ciscoflashpartitionlowspacenotifthreshold is not None:
-                    return True
-
-                if self.ciscoflashpartitionname is not None:
-                    return True
-
-                if self.ciscoflashpartitionneederasure is not None:
-                    return True
-
-                if self.ciscoflashpartitionsize is not None:
-                    return True
-
-                if self.ciscoflashpartitionsizeextended is not None:
-                    return True
-
-                if self.ciscoflashpartitionstartchip is not None:
-                    return True
-
-                if self.ciscoflashpartitionstatus is not None:
-                    return True
-
-                if self.ciscoflashpartitionupgrademethod is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashPartitionTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashpartitionentry is not None:
-                for child_ref in self.ciscoflashpartitionentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashpartitionentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashPartitionTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashPartitionEntry"):
+                for c in self.ciscoflashpartitionentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashpartitiontable.Ciscoflashpartitionentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashpartitionentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashPartitionEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashpartitiontable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciscoflashfiletable(object):
+    class Ciscoflashfiletable(Entity):
         """
         Table of information for files in a Flash partition.
         
@@ -1281,13 +2007,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashfileentry = YList()
-            self.ciscoflashfileentry.parent = self
-            self.ciscoflashfileentry.name = 'ciscoflashfileentry'
+            super(CiscoFlashMib.Ciscoflashfiletable, self).__init__()
+
+            self.yang_name = "ciscoFlashFileTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashfileentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashfiletable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashfiletable, self).__setattr__(name, value)
 
 
-        class Ciscoflashfileentry(object):
+        class Ciscoflashfileentry(Entity):
             """
             An entry in the table of Flash file properties
             for each initialized Flash partition. Each entry
@@ -1350,12 +2102,12 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashfilestatus
             
             	Status of a file. A file could be explicitly deleted if the file system supports such a user command facility. Alternately, an existing good file would be automatically deleted if another good file with the same name were copied in. Note that deleted files continue to occupy prime Flash real estate.  A file is marked as having an invalid checksum if any checksum mismatch was detected while writing or reading the file. Incomplete files (files truncated either because of lack of free space, or a network download failure) are also written with a bad checksum and marked as invalid
-            	**type**\:   :py:class:`CiscoflashfilestatusEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry.CiscoflashfilestatusEnum>`
+            	**type**\:   :py:class:`Ciscoflashfilestatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry.Ciscoflashfilestatus>`
             
             .. attribute:: ciscoflashfiletype
             
             	Type of the file
-            	**type**\:   :py:class:`FlashfiletypeEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.FlashfiletypeEnum>`
+            	**type**\:   :py:class:`Flashfiletype <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.Flashfiletype>`
             
             
 
@@ -1365,20 +2117,64 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashdeviceindex = None
-                self.ciscoflashpartitionindex = None
-                self.ciscoflashfileindex = None
-                self.ciscoflashfilechecksum = None
-                self.ciscoflashfiledate = None
-                self.ciscoflashfilename = None
-                self.ciscoflashfilesize = None
-                self.ciscoflashfilestatus = None
-                self.ciscoflashfiletype = None
+                super(CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry, self).__init__()
 
-            class CiscoflashfilestatusEnum(Enum):
+                self.yang_name = "ciscoFlashFileEntry"
+                self.yang_parent_name = "ciscoFlashFileTable"
+
+                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
+
+                self.ciscoflashpartitionindex = YLeaf(YType.str, "ciscoFlashPartitionIndex")
+
+                self.ciscoflashfileindex = YLeaf(YType.uint32, "ciscoFlashFileIndex")
+
+                self.ciscoflashfilechecksum = YLeaf(YType.str, "ciscoFlashFileChecksum")
+
+                self.ciscoflashfiledate = YLeaf(YType.str, "ciscoFlashFileDate")
+
+                self.ciscoflashfilename = YLeaf(YType.str, "ciscoFlashFileName")
+
+                self.ciscoflashfilesize = YLeaf(YType.uint32, "ciscoFlashFileSize")
+
+                self.ciscoflashfilestatus = YLeaf(YType.enumeration, "ciscoFlashFileStatus")
+
+                self.ciscoflashfiletype = YLeaf(YType.enumeration, "ciscoFlashFileType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashdeviceindex",
+                                "ciscoflashpartitionindex",
+                                "ciscoflashfileindex",
+                                "ciscoflashfilechecksum",
+                                "ciscoflashfiledate",
+                                "ciscoflashfilename",
+                                "ciscoflashfilesize",
+                                "ciscoflashfilestatus",
+                                "ciscoflashfiletype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry, self).__setattr__(name, value)
+
+            class Ciscoflashfilestatus(Enum):
                 """
-                CiscoflashfilestatusEnum
+                Ciscoflashfilestatus
 
                 Status of a file.
 
@@ -1414,93 +2210,183 @@ class CiscoFlashMib(object):
 
                 """
 
-                deleted = 1
+                deleted = Enum.YLeaf(1, "deleted")
 
-                invalidChecksum = 2
+                invalidChecksum = Enum.YLeaf(2, "invalidChecksum")
 
-                valid = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry.CiscoflashfilestatusEnum']
+                valid = Enum.YLeaf(3, "valid")
 
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashdeviceindex is None:
-                    raise YPYModelError('Key property ciscoflashdeviceindex is None')
-                if self.ciscoflashpartitionindex is None:
-                    raise YPYModelError('Key property ciscoflashpartitionindex is None')
-                if self.ciscoflashfileindex is None:
-                    raise YPYModelError('Key property ciscoflashfileindex is None')
+            def has_data(self):
+                return (
+                    self.ciscoflashdeviceindex.is_set or
+                    self.ciscoflashpartitionindex.is_set or
+                    self.ciscoflashfileindex.is_set or
+                    self.ciscoflashfilechecksum.is_set or
+                    self.ciscoflashfiledate.is_set or
+                    self.ciscoflashfilename.is_set or
+                    self.ciscoflashfilesize.is_set or
+                    self.ciscoflashfilestatus.is_set or
+                    self.ciscoflashfiletype.is_set)
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashFileTable/CISCO-FLASH-MIB:ciscoFlashFileEntry[CISCO-FLASH-MIB:ciscoFlashDeviceIndex = ' + str(self.ciscoflashdeviceindex) + '][CISCO-FLASH-MIB:ciscoFlashPartitionIndex = ' + str(self.ciscoflashpartitionindex) + '][CISCO-FLASH-MIB:ciscoFlashFileIndex = ' + str(self.ciscoflashfileindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceindex.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionindex.yfilter != YFilter.not_set or
+                    self.ciscoflashfileindex.yfilter != YFilter.not_set or
+                    self.ciscoflashfilechecksum.yfilter != YFilter.not_set or
+                    self.ciscoflashfiledate.yfilter != YFilter.not_set or
+                    self.ciscoflashfilename.yfilter != YFilter.not_set or
+                    self.ciscoflashfilesize.yfilter != YFilter.not_set or
+                    self.ciscoflashfilestatus.yfilter != YFilter.not_set or
+                    self.ciscoflashfiletype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashFileEntry" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashPartitionIndex='" + self.ciscoflashpartitionindex.get() + "']" + "[ciscoFlashFileIndex='" + self.ciscoflashfileindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashFileTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashdeviceindex.is_set or self.ciscoflashdeviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceindex.get_name_leafdata())
+                if (self.ciscoflashpartitionindex.is_set or self.ciscoflashpartitionindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionindex.get_name_leafdata())
+                if (self.ciscoflashfileindex.is_set or self.ciscoflashfileindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfileindex.get_name_leafdata())
+                if (self.ciscoflashfilechecksum.is_set or self.ciscoflashfilechecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilechecksum.get_name_leafdata())
+                if (self.ciscoflashfiledate.is_set or self.ciscoflashfiledate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfiledate.get_name_leafdata())
+                if (self.ciscoflashfilename.is_set or self.ciscoflashfilename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilename.get_name_leafdata())
+                if (self.ciscoflashfilesize.is_set or self.ciscoflashfilesize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilesize.get_name_leafdata())
+                if (self.ciscoflashfilestatus.is_set or self.ciscoflashfilestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilestatus.get_name_leafdata())
+                if (self.ciscoflashfiletype.is_set or self.ciscoflashfiletype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfiletype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashDeviceIndex" or name == "ciscoFlashPartitionIndex" or name == "ciscoFlashFileIndex" or name == "ciscoFlashFileChecksum" or name == "ciscoFlashFileDate" or name == "ciscoFlashFileName" or name == "ciscoFlashFileSize" or name == "ciscoFlashFileStatus" or name == "ciscoFlashFileType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashdeviceindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashDeviceIndex"):
+                    self.ciscoflashdeviceindex = value
+                    self.ciscoflashdeviceindex.value_namespace = name_space
+                    self.ciscoflashdeviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionIndex"):
+                    self.ciscoflashpartitionindex = value
+                    self.ciscoflashpartitionindex.value_namespace = name_space
+                    self.ciscoflashpartitionindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileIndex"):
+                    self.ciscoflashfileindex = value
+                    self.ciscoflashfileindex.value_namespace = name_space
+                    self.ciscoflashfileindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileChecksum"):
+                    self.ciscoflashfilechecksum = value
+                    self.ciscoflashfilechecksum.value_namespace = name_space
+                    self.ciscoflashfilechecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileDate"):
+                    self.ciscoflashfiledate = value
+                    self.ciscoflashfiledate.value_namespace = name_space
+                    self.ciscoflashfiledate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileName"):
+                    self.ciscoflashfilename = value
+                    self.ciscoflashfilename.value_namespace = name_space
+                    self.ciscoflashfilename.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileSize"):
+                    self.ciscoflashfilesize = value
+                    self.ciscoflashfilesize.value_namespace = name_space
+                    self.ciscoflashfilesize.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileStatus"):
+                    self.ciscoflashfilestatus = value
+                    self.ciscoflashfilestatus.value_namespace = name_space
+                    self.ciscoflashfilestatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileType"):
+                    self.ciscoflashfiletype = value
+                    self.ciscoflashfiletype.value_namespace = name_space
+                    self.ciscoflashfiletype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashfileentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashpartitionindex is not None:
-                    return True
-
-                if self.ciscoflashfileindex is not None:
-                    return True
-
-                if self.ciscoflashfilechecksum is not None:
-                    return True
-
-                if self.ciscoflashfiledate is not None:
-                    return True
-
-                if self.ciscoflashfilename is not None:
-                    return True
-
-                if self.ciscoflashfilesize is not None:
-                    return True
-
-                if self.ciscoflashfilestatus is not None:
-                    return True
-
-                if self.ciscoflashfiletype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashFileTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashfileentry is not None:
-                for child_ref in self.ciscoflashfileentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashfileentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashFileTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashFileEntry"):
+                for c in self.ciscoflashfileentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashfiletable.Ciscoflashfileentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashfileentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashFileEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashfiletable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciscoflashfilebytypetable(object):
+    class Ciscoflashfilebytypetable(Entity):
         """
         Table of information for files on the manageable
         flash devices sorted by File Types.
@@ -1518,13 +2404,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashfilebytypeentry = YList()
-            self.ciscoflashfilebytypeentry.parent = self
-            self.ciscoflashfilebytypeentry.name = 'ciscoflashfilebytypeentry'
+            super(CiscoFlashMib.Ciscoflashfilebytypetable, self).__init__()
+
+            self.yang_name = "ciscoFlashFileByTypeTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashfilebytypeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashfilebytypetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashfilebytypetable, self).__setattr__(name, value)
 
 
-        class Ciscoflashfilebytypeentry(object):
+        class Ciscoflashfilebytypeentry(Entity):
             """
             An entry in the table of Flash file properties
             for each initialized Flash partition. Each entry
@@ -1544,7 +2456,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashfiletype  <key>
             
             	
-            	**type**\:   :py:class:`FlashfiletypeEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.FlashfiletypeEnum>`
+            	**type**\:   :py:class:`Flashfiletype <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.Flashfiletype>`
             
             .. attribute:: ciscoflashdeviceindex  <key>
             
@@ -1602,7 +2514,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashfilebytypestatus
             
             	This object represents exactly the same info as ciscoFlashFileStatus object in ciscoFlashFileTable
-            	**type**\:   :py:class:`CiscoflashfilebytypestatusEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry.CiscoflashfilebytypestatusEnum>`
+            	**type**\:   :py:class:`Ciscoflashfilebytypestatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry.Ciscoflashfilebytypestatus>`
             
             
 
@@ -1612,20 +2524,64 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashfiletype = None
-                self.ciscoflashdeviceindex = None
-                self.ciscoflashpartitionindex = None
-                self.ciscoflashfileindex = None
-                self.ciscoflashfilebytypechecksum = None
-                self.ciscoflashfilebytypedate = None
-                self.ciscoflashfilebytypename = None
-                self.ciscoflashfilebytypesize = None
-                self.ciscoflashfilebytypestatus = None
+                super(CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry, self).__init__()
 
-            class CiscoflashfilebytypestatusEnum(Enum):
+                self.yang_name = "ciscoFlashFileByTypeEntry"
+                self.yang_parent_name = "ciscoFlashFileByTypeTable"
+
+                self.ciscoflashfiletype = YLeaf(YType.enumeration, "ciscoFlashFileType")
+
+                self.ciscoflashdeviceindex = YLeaf(YType.str, "ciscoFlashDeviceIndex")
+
+                self.ciscoflashpartitionindex = YLeaf(YType.str, "ciscoFlashPartitionIndex")
+
+                self.ciscoflashfileindex = YLeaf(YType.str, "ciscoFlashFileIndex")
+
+                self.ciscoflashfilebytypechecksum = YLeaf(YType.str, "ciscoFlashFileByTypeChecksum")
+
+                self.ciscoflashfilebytypedate = YLeaf(YType.str, "ciscoFlashFileByTypeDate")
+
+                self.ciscoflashfilebytypename = YLeaf(YType.str, "ciscoFlashFileByTypeName")
+
+                self.ciscoflashfilebytypesize = YLeaf(YType.uint32, "ciscoFlashFileByTypeSize")
+
+                self.ciscoflashfilebytypestatus = YLeaf(YType.enumeration, "ciscoFlashFileByTypeStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashfiletype",
+                                "ciscoflashdeviceindex",
+                                "ciscoflashpartitionindex",
+                                "ciscoflashfileindex",
+                                "ciscoflashfilebytypechecksum",
+                                "ciscoflashfilebytypedate",
+                                "ciscoflashfilebytypename",
+                                "ciscoflashfilebytypesize",
+                                "ciscoflashfilebytypestatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry, self).__setattr__(name, value)
+
+            class Ciscoflashfilebytypestatus(Enum):
                 """
-                CiscoflashfilebytypestatusEnum
+                Ciscoflashfilebytypestatus
 
                 This object represents exactly the
 
@@ -1641,95 +2597,183 @@ class CiscoFlashMib(object):
 
                 """
 
-                deleted = 1
+                deleted = Enum.YLeaf(1, "deleted")
 
-                invalidChecksum = 2
+                invalidChecksum = Enum.YLeaf(2, "invalidChecksum")
 
-                valid = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry.CiscoflashfilebytypestatusEnum']
+                valid = Enum.YLeaf(3, "valid")
 
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashfiletype is None:
-                    raise YPYModelError('Key property ciscoflashfiletype is None')
-                if self.ciscoflashdeviceindex is None:
-                    raise YPYModelError('Key property ciscoflashdeviceindex is None')
-                if self.ciscoflashpartitionindex is None:
-                    raise YPYModelError('Key property ciscoflashpartitionindex is None')
-                if self.ciscoflashfileindex is None:
-                    raise YPYModelError('Key property ciscoflashfileindex is None')
+            def has_data(self):
+                return (
+                    self.ciscoflashfiletype.is_set or
+                    self.ciscoflashdeviceindex.is_set or
+                    self.ciscoflashpartitionindex.is_set or
+                    self.ciscoflashfileindex.is_set or
+                    self.ciscoflashfilebytypechecksum.is_set or
+                    self.ciscoflashfilebytypedate.is_set or
+                    self.ciscoflashfilebytypename.is_set or
+                    self.ciscoflashfilebytypesize.is_set or
+                    self.ciscoflashfilebytypestatus.is_set)
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashFileByTypeTable/CISCO-FLASH-MIB:ciscoFlashFileByTypeEntry[CISCO-FLASH-MIB:ciscoFlashFileType = ' + str(self.ciscoflashfiletype) + '][CISCO-FLASH-MIB:ciscoFlashDeviceIndex = ' + str(self.ciscoflashdeviceindex) + '][CISCO-FLASH-MIB:ciscoFlashPartitionIndex = ' + str(self.ciscoflashpartitionindex) + '][CISCO-FLASH-MIB:ciscoFlashFileIndex = ' + str(self.ciscoflashfileindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashfiletype.yfilter != YFilter.not_set or
+                    self.ciscoflashdeviceindex.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitionindex.yfilter != YFilter.not_set or
+                    self.ciscoflashfileindex.yfilter != YFilter.not_set or
+                    self.ciscoflashfilebytypechecksum.yfilter != YFilter.not_set or
+                    self.ciscoflashfilebytypedate.yfilter != YFilter.not_set or
+                    self.ciscoflashfilebytypename.yfilter != YFilter.not_set or
+                    self.ciscoflashfilebytypesize.yfilter != YFilter.not_set or
+                    self.ciscoflashfilebytypestatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashFileByTypeEntry" + "[ciscoFlashFileType='" + self.ciscoflashfiletype.get() + "']" + "[ciscoFlashDeviceIndex='" + self.ciscoflashdeviceindex.get() + "']" + "[ciscoFlashPartitionIndex='" + self.ciscoflashpartitionindex.get() + "']" + "[ciscoFlashFileIndex='" + self.ciscoflashfileindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashFileByTypeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashfiletype.is_set or self.ciscoflashfiletype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfiletype.get_name_leafdata())
+                if (self.ciscoflashdeviceindex.is_set or self.ciscoflashdeviceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashdeviceindex.get_name_leafdata())
+                if (self.ciscoflashpartitionindex.is_set or self.ciscoflashpartitionindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitionindex.get_name_leafdata())
+                if (self.ciscoflashfileindex.is_set or self.ciscoflashfileindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfileindex.get_name_leafdata())
+                if (self.ciscoflashfilebytypechecksum.is_set or self.ciscoflashfilebytypechecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilebytypechecksum.get_name_leafdata())
+                if (self.ciscoflashfilebytypedate.is_set or self.ciscoflashfilebytypedate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilebytypedate.get_name_leafdata())
+                if (self.ciscoflashfilebytypename.is_set or self.ciscoflashfilebytypename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilebytypename.get_name_leafdata())
+                if (self.ciscoflashfilebytypesize.is_set or self.ciscoflashfilebytypesize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilebytypesize.get_name_leafdata())
+                if (self.ciscoflashfilebytypestatus.is_set or self.ciscoflashfilebytypestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashfilebytypestatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashFileType" or name == "ciscoFlashDeviceIndex" or name == "ciscoFlashPartitionIndex" or name == "ciscoFlashFileIndex" or name == "ciscoFlashFileByTypeChecksum" or name == "ciscoFlashFileByTypeDate" or name == "ciscoFlashFileByTypeName" or name == "ciscoFlashFileByTypeSize" or name == "ciscoFlashFileByTypeStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashfiletype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashFileType"):
+                    self.ciscoflashfiletype = value
+                    self.ciscoflashfiletype.value_namespace = name_space
+                    self.ciscoflashfiletype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashDeviceIndex"):
+                    self.ciscoflashdeviceindex = value
+                    self.ciscoflashdeviceindex.value_namespace = name_space
+                    self.ciscoflashdeviceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitionIndex"):
+                    self.ciscoflashpartitionindex = value
+                    self.ciscoflashpartitionindex.value_namespace = name_space
+                    self.ciscoflashpartitionindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileIndex"):
+                    self.ciscoflashfileindex = value
+                    self.ciscoflashfileindex.value_namespace = name_space
+                    self.ciscoflashfileindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileByTypeChecksum"):
+                    self.ciscoflashfilebytypechecksum = value
+                    self.ciscoflashfilebytypechecksum.value_namespace = name_space
+                    self.ciscoflashfilebytypechecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileByTypeDate"):
+                    self.ciscoflashfilebytypedate = value
+                    self.ciscoflashfilebytypedate.value_namespace = name_space
+                    self.ciscoflashfilebytypedate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileByTypeName"):
+                    self.ciscoflashfilebytypename = value
+                    self.ciscoflashfilebytypename.value_namespace = name_space
+                    self.ciscoflashfilebytypename.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileByTypeSize"):
+                    self.ciscoflashfilebytypesize = value
+                    self.ciscoflashfilebytypesize.value_namespace = name_space
+                    self.ciscoflashfilebytypesize.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashFileByTypeStatus"):
+                    self.ciscoflashfilebytypestatus = value
+                    self.ciscoflashfilebytypestatus.value_namespace = name_space
+                    self.ciscoflashfilebytypestatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashfilebytypeentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashdeviceindex is not None:
-                    return True
-
-                if self.ciscoflashpartitionindex is not None:
-                    return True
-
-                if self.ciscoflashfileindex is not None:
-                    return True
-
-                if self.ciscoflashfilebytypechecksum is not None:
-                    return True
-
-                if self.ciscoflashfilebytypedate is not None:
-                    return True
-
-                if self.ciscoflashfilebytypename is not None:
-                    return True
-
-                if self.ciscoflashfilebytypesize is not None:
-                    return True
-
-                if self.ciscoflashfilebytypestatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashFileByTypeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashfilebytypeentry is not None:
-                for child_ref in self.ciscoflashfilebytypeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashfilebytypeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashFileByTypeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashFileByTypeEntry"):
+                for c in self.ciscoflashfilebytypeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashfilebytypetable.Ciscoflashfilebytypeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashfilebytypeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashFileByTypeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashfilebytypetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciscoflashcopytable(object):
+    class Ciscoflashcopytable(Entity):
         """
         A table of Flash copy operation entries. Each
         entry represents a Flash copy operation (to or
@@ -1748,13 +2792,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashcopyentry = YList()
-            self.ciscoflashcopyentry.parent = self
-            self.ciscoflashcopyentry.name = 'ciscoflashcopyentry'
+            super(CiscoFlashMib.Ciscoflashcopytable, self).__init__()
+
+            self.yang_name = "ciscoFlashCopyTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashcopyentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashcopytable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashcopytable, self).__setattr__(name, value)
 
 
-        class Ciscoflashcopyentry(object):
+        class Ciscoflashcopyentry(Entity):
             """
             A Flash copy operation entry. Each entry consists
             of a command, a source, and optional parameters such
@@ -1799,7 +2869,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashcopycommand
             
             	The copy command to be executed. Mandatory. Note that it is possible for a system to support multiple file systems (different file systems on different Flash devices, or different file systems on different partitions within a device). Each such file system may support only a subset of these commands. If a command is unsupported, the invalidOperation(3) error will be reported in the operation status.  Command                 Remarks copyToFlashWithErase    Copy a file to flash; erase                         flash before copy.                         Use the TFTP or rcp protocol. copyToFlashWithoutErase Copy a file to flash; do not                         erase.                         Note that this command will fail                         if the PartitionNeedErasure                         object specifies that the                         partition being copied to needs                         erasure.                         Use the TFTP or rcp protocol. copyFromFlash           Copy a file from flash using                         the TFTP, rcp or lex protocol.                         Note that the lex protocol                         can only be used to copy to a                         lex device. copyFromFlhLog          Copy contents of FLH log to                         server using TFTP protocol.   Command table           Parameters copyToFlashWithErase    CopyProtocol                         CopyServerAddress                         CopySourceName                         CopyDestinationName (opt)                         CopyRemoteUserName (opt)                         CopyNotifyOnCompletion (opt) copyToFlashWithoutErase CopyProtocol                         CopyServerAddress                         CopySourceName                         CopyDestinationName (opt)                         CopyRemoteUserName (opt)                         CopyNotifyOnCompletion (opt) copyFromFlash           CopyProtocol                         CopyServerAddress                         CopySourceName                         CopyDestinationName (opt)                         CopyRemoteUserName (opt)                         CopyNotifyOnCompletion (opt) copyFromFlhLog          CopyProtocol                         CopyServerAddress                         CopyDestinationName                         CopyNotifyOnCompletion (opt)
-            	**type**\:   :py:class:`CiscoflashcopycommandEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.CiscoflashcopycommandEnum>`
+            	**type**\:   :py:class:`Ciscoflashcopycommand <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.Ciscoflashcopycommand>`
             
             .. attribute:: ciscoflashcopydestinationname
             
@@ -1811,7 +2881,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashcopyentrystatus
             
             	The status of this table entry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciscoflashcopynotifyoncompletion
             
@@ -1821,7 +2891,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashcopyprotocol
             
             	The protocol to be used for any copy. Optional. Will default to tftp if not specified.  Since feature support depends on a software release, version number within the release, platform, and maybe the image type (subset type), a management station would be expected to somehow determine the protocol support for a command
-            	**type**\:   :py:class:`CiscoflashcopyprotocolEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.CiscoflashcopyprotocolEnum>`
+            	**type**\:   :py:class:`Ciscoflashcopyprotocol <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.Ciscoflashcopyprotocol>`
             
             .. attribute:: ciscoflashcopyremotepassword
             
@@ -1856,7 +2926,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashcopyserveraddrtype
             
             	This object indicates the transport type of the address contained in ciscoFlashCopyServerAddrRev1. Optional. Will default to '1' (IPv4 address type)
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ciscoflashcopysourcename
             
@@ -1868,7 +2938,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashcopystatus
             
             	The status of the specified copy operation.  copyOperationPending \:         operation request is received and         pending for validation and process  copyInProgress \:         specified operation is active  copyOperationSuccess \:         specified operation is supported and         completed successfully  copyInvalidOperation \:         command invalid or command\-protocol\-device         combination unsupported  copyInvalidProtocol \:         invalid protocol specified  copyInvalidSourceName \:         invalid source file name specified         For the  copy from flash to lex operation, this         error code will be returned when the source file         is not a valid lex image.  copyInvalidDestName \:         invalid target name (file or partition or         device name) specified         For the  copy from flash to lex operation, this         error code will be returned when no lex devices         are connected to the router or when an invalid         lex interface number has been specified in         the destination string.  copyInvalidServerAddress \:         invalid server address specified  copyDeviceBusy \:         specified device is in use and locked by         another process  copyDeviceOpenError \:         invalid device name  copyDeviceError \:         device read, write or erase error  copyDeviceNotProgrammable \:         device is read\-only but a write or erase         operation was specified  copyDeviceFull \:         device is filled to capacity  copyFileOpenError \:         invalid file name; file not found in partition  copyFileTransferError \:         file transfer was unsuccessfull; network failure  copyFileChecksumError \:         file checksum in Flash failed  copyNoMemory \:         system running low on memory  copyUnknownFailure \:         failure unknown  copyProhibited\:       stop user from overwriting current boot image file
-            	**type**\:   :py:class:`CiscoflashcopystatusEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.CiscoflashcopystatusEnum>`
+            	**type**\:   :py:class:`Ciscoflashcopystatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.Ciscoflashcopystatus>`
             
             .. attribute:: ciscoflashcopytime
             
@@ -1890,26 +2960,82 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashcopyserialnumber = None
-                self.ciscoflashcopycommand = None
-                self.ciscoflashcopydestinationname = None
-                self.ciscoflashcopyentrystatus = None
-                self.ciscoflashcopynotifyoncompletion = None
-                self.ciscoflashcopyprotocol = None
-                self.ciscoflashcopyremotepassword = None
-                self.ciscoflashcopyremoteusername = None
-                self.ciscoflashcopyserveraddress = None
-                self.ciscoflashcopyserveraddrrev1 = None
-                self.ciscoflashcopyserveraddrtype = None
-                self.ciscoflashcopysourcename = None
-                self.ciscoflashcopystatus = None
-                self.ciscoflashcopytime = None
-                self.ciscoflashcopyverify = None
+                super(CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry, self).__init__()
 
-            class CiscoflashcopycommandEnum(Enum):
+                self.yang_name = "ciscoFlashCopyEntry"
+                self.yang_parent_name = "ciscoFlashCopyTable"
+
+                self.ciscoflashcopyserialnumber = YLeaf(YType.int32, "ciscoFlashCopySerialNumber")
+
+                self.ciscoflashcopycommand = YLeaf(YType.enumeration, "ciscoFlashCopyCommand")
+
+                self.ciscoflashcopydestinationname = YLeaf(YType.str, "ciscoFlashCopyDestinationName")
+
+                self.ciscoflashcopyentrystatus = YLeaf(YType.enumeration, "ciscoFlashCopyEntryStatus")
+
+                self.ciscoflashcopynotifyoncompletion = YLeaf(YType.boolean, "ciscoFlashCopyNotifyOnCompletion")
+
+                self.ciscoflashcopyprotocol = YLeaf(YType.enumeration, "ciscoFlashCopyProtocol")
+
+                self.ciscoflashcopyremotepassword = YLeaf(YType.str, "ciscoFlashCopyRemotePassword")
+
+                self.ciscoflashcopyremoteusername = YLeaf(YType.str, "ciscoFlashCopyRemoteUserName")
+
+                self.ciscoflashcopyserveraddress = YLeaf(YType.str, "ciscoFlashCopyServerAddress")
+
+                self.ciscoflashcopyserveraddrrev1 = YLeaf(YType.str, "ciscoFlashCopyServerAddrRev1")
+
+                self.ciscoflashcopyserveraddrtype = YLeaf(YType.enumeration, "ciscoFlashCopyServerAddrType")
+
+                self.ciscoflashcopysourcename = YLeaf(YType.str, "ciscoFlashCopySourceName")
+
+                self.ciscoflashcopystatus = YLeaf(YType.enumeration, "ciscoFlashCopyStatus")
+
+                self.ciscoflashcopytime = YLeaf(YType.uint32, "ciscoFlashCopyTime")
+
+                self.ciscoflashcopyverify = YLeaf(YType.boolean, "ciscoFlashCopyVerify")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashcopyserialnumber",
+                                "ciscoflashcopycommand",
+                                "ciscoflashcopydestinationname",
+                                "ciscoflashcopyentrystatus",
+                                "ciscoflashcopynotifyoncompletion",
+                                "ciscoflashcopyprotocol",
+                                "ciscoflashcopyremotepassword",
+                                "ciscoflashcopyremoteusername",
+                                "ciscoflashcopyserveraddress",
+                                "ciscoflashcopyserveraddrrev1",
+                                "ciscoflashcopyserveraddrtype",
+                                "ciscoflashcopysourcename",
+                                "ciscoflashcopystatus",
+                                "ciscoflashcopytime",
+                                "ciscoflashcopyverify") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry, self).__setattr__(name, value)
+
+            class Ciscoflashcopycommand(Enum):
                 """
-                CiscoflashcopycommandEnum
+                Ciscoflashcopycommand
 
                 The copy command to be executed. Mandatory.
 
@@ -2021,24 +3147,18 @@ class CiscoFlashMib(object):
 
                 """
 
-                copyToFlashWithErase = 1
+                copyToFlashWithErase = Enum.YLeaf(1, "copyToFlashWithErase")
 
-                copyToFlashWithoutErase = 2
+                copyToFlashWithoutErase = Enum.YLeaf(2, "copyToFlashWithoutErase")
 
-                copyFromFlash = 3
+                copyFromFlash = Enum.YLeaf(3, "copyFromFlash")
 
-                copyFromFlhLog = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.CiscoflashcopycommandEnum']
+                copyFromFlhLog = Enum.YLeaf(4, "copyFromFlhLog")
 
 
-            class CiscoflashcopyprotocolEnum(Enum):
+            class Ciscoflashcopyprotocol(Enum):
                 """
-                CiscoflashcopyprotocolEnum
+                Ciscoflashcopyprotocol
 
                 The protocol to be used for any copy. Optional.
 
@@ -2068,28 +3188,22 @@ class CiscoFlashMib(object):
 
                 """
 
-                tftp = 1
+                tftp = Enum.YLeaf(1, "tftp")
 
-                rcp = 2
+                rcp = Enum.YLeaf(2, "rcp")
 
-                lex = 3
+                lex = Enum.YLeaf(3, "lex")
 
-                ftp = 4
+                ftp = Enum.YLeaf(4, "ftp")
 
-                scp = 5
+                scp = Enum.YLeaf(5, "scp")
 
-                sftp = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.CiscoflashcopyprotocolEnum']
+                sftp = Enum.YLeaf(6, "sftp")
 
 
-            class CiscoflashcopystatusEnum(Enum):
+            class Ciscoflashcopystatus(Enum):
                 """
-                CiscoflashcopystatusEnum
+                Ciscoflashcopystatus
 
                 The status of the specified copy operation.
 
@@ -2239,141 +3353,265 @@ class CiscoFlashMib(object):
 
                 """
 
-                copyOperationPending = 0
+                copyOperationPending = Enum.YLeaf(0, "copyOperationPending")
 
-                copyInProgress = 1
+                copyInProgress = Enum.YLeaf(1, "copyInProgress")
 
-                copyOperationSuccess = 2
+                copyOperationSuccess = Enum.YLeaf(2, "copyOperationSuccess")
 
-                copyInvalidOperation = 3
+                copyInvalidOperation = Enum.YLeaf(3, "copyInvalidOperation")
 
-                copyInvalidProtocol = 4
+                copyInvalidProtocol = Enum.YLeaf(4, "copyInvalidProtocol")
 
-                copyInvalidSourceName = 5
+                copyInvalidSourceName = Enum.YLeaf(5, "copyInvalidSourceName")
 
-                copyInvalidDestName = 6
+                copyInvalidDestName = Enum.YLeaf(6, "copyInvalidDestName")
 
-                copyInvalidServerAddress = 7
+                copyInvalidServerAddress = Enum.YLeaf(7, "copyInvalidServerAddress")
 
-                copyDeviceBusy = 8
+                copyDeviceBusy = Enum.YLeaf(8, "copyDeviceBusy")
 
-                copyDeviceOpenError = 9
+                copyDeviceOpenError = Enum.YLeaf(9, "copyDeviceOpenError")
 
-                copyDeviceError = 10
+                copyDeviceError = Enum.YLeaf(10, "copyDeviceError")
 
-                copyDeviceNotProgrammable = 11
+                copyDeviceNotProgrammable = Enum.YLeaf(11, "copyDeviceNotProgrammable")
 
-                copyDeviceFull = 12
+                copyDeviceFull = Enum.YLeaf(12, "copyDeviceFull")
 
-                copyFileOpenError = 13
+                copyFileOpenError = Enum.YLeaf(13, "copyFileOpenError")
 
-                copyFileTransferError = 14
+                copyFileTransferError = Enum.YLeaf(14, "copyFileTransferError")
 
-                copyFileChecksumError = 15
+                copyFileChecksumError = Enum.YLeaf(15, "copyFileChecksumError")
 
-                copyNoMemory = 16
+                copyNoMemory = Enum.YLeaf(16, "copyNoMemory")
 
-                copyUnknownFailure = 17
+                copyUnknownFailure = Enum.YLeaf(17, "copyUnknownFailure")
 
-                copyInvalidSignature = 18
+                copyInvalidSignature = Enum.YLeaf(18, "copyInvalidSignature")
 
-                copyProhibited = 19
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry.CiscoflashcopystatusEnum']
+                copyProhibited = Enum.YLeaf(19, "copyProhibited")
 
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashcopyserialnumber is None:
-                    raise YPYModelError('Key property ciscoflashcopyserialnumber is None')
+            def has_data(self):
+                return (
+                    self.ciscoflashcopyserialnumber.is_set or
+                    self.ciscoflashcopycommand.is_set or
+                    self.ciscoflashcopydestinationname.is_set or
+                    self.ciscoflashcopyentrystatus.is_set or
+                    self.ciscoflashcopynotifyoncompletion.is_set or
+                    self.ciscoflashcopyprotocol.is_set or
+                    self.ciscoflashcopyremotepassword.is_set or
+                    self.ciscoflashcopyremoteusername.is_set or
+                    self.ciscoflashcopyserveraddress.is_set or
+                    self.ciscoflashcopyserveraddrrev1.is_set or
+                    self.ciscoflashcopyserveraddrtype.is_set or
+                    self.ciscoflashcopysourcename.is_set or
+                    self.ciscoflashcopystatus.is_set or
+                    self.ciscoflashcopytime.is_set or
+                    self.ciscoflashcopyverify.is_set)
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashCopyTable/CISCO-FLASH-MIB:ciscoFlashCopyEntry[CISCO-FLASH-MIB:ciscoFlashCopySerialNumber = ' + str(self.ciscoflashcopyserialnumber) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyserialnumber.yfilter != YFilter.not_set or
+                    self.ciscoflashcopycommand.yfilter != YFilter.not_set or
+                    self.ciscoflashcopydestinationname.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyentrystatus.yfilter != YFilter.not_set or
+                    self.ciscoflashcopynotifyoncompletion.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyprotocol.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyremotepassword.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyremoteusername.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyserveraddress.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyserveraddrrev1.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyserveraddrtype.yfilter != YFilter.not_set or
+                    self.ciscoflashcopysourcename.yfilter != YFilter.not_set or
+                    self.ciscoflashcopystatus.yfilter != YFilter.not_set or
+                    self.ciscoflashcopytime.yfilter != YFilter.not_set or
+                    self.ciscoflashcopyverify.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashCopyEntry" + "[ciscoFlashCopySerialNumber='" + self.ciscoflashcopyserialnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashCopyTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashcopyserialnumber.is_set or self.ciscoflashcopyserialnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyserialnumber.get_name_leafdata())
+                if (self.ciscoflashcopycommand.is_set or self.ciscoflashcopycommand.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopycommand.get_name_leafdata())
+                if (self.ciscoflashcopydestinationname.is_set or self.ciscoflashcopydestinationname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopydestinationname.get_name_leafdata())
+                if (self.ciscoflashcopyentrystatus.is_set or self.ciscoflashcopyentrystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyentrystatus.get_name_leafdata())
+                if (self.ciscoflashcopynotifyoncompletion.is_set or self.ciscoflashcopynotifyoncompletion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopynotifyoncompletion.get_name_leafdata())
+                if (self.ciscoflashcopyprotocol.is_set or self.ciscoflashcopyprotocol.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyprotocol.get_name_leafdata())
+                if (self.ciscoflashcopyremotepassword.is_set or self.ciscoflashcopyremotepassword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyremotepassword.get_name_leafdata())
+                if (self.ciscoflashcopyremoteusername.is_set or self.ciscoflashcopyremoteusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyremoteusername.get_name_leafdata())
+                if (self.ciscoflashcopyserveraddress.is_set or self.ciscoflashcopyserveraddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyserveraddress.get_name_leafdata())
+                if (self.ciscoflashcopyserveraddrrev1.is_set or self.ciscoflashcopyserveraddrrev1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyserveraddrrev1.get_name_leafdata())
+                if (self.ciscoflashcopyserveraddrtype.is_set or self.ciscoflashcopyserveraddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyserveraddrtype.get_name_leafdata())
+                if (self.ciscoflashcopysourcename.is_set or self.ciscoflashcopysourcename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopysourcename.get_name_leafdata())
+                if (self.ciscoflashcopystatus.is_set or self.ciscoflashcopystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopystatus.get_name_leafdata())
+                if (self.ciscoflashcopytime.is_set or self.ciscoflashcopytime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopytime.get_name_leafdata())
+                if (self.ciscoflashcopyverify.is_set or self.ciscoflashcopyverify.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashcopyverify.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashCopySerialNumber" or name == "ciscoFlashCopyCommand" or name == "ciscoFlashCopyDestinationName" or name == "ciscoFlashCopyEntryStatus" or name == "ciscoFlashCopyNotifyOnCompletion" or name == "ciscoFlashCopyProtocol" or name == "ciscoFlashCopyRemotePassword" or name == "ciscoFlashCopyRemoteUserName" or name == "ciscoFlashCopyServerAddress" or name == "ciscoFlashCopyServerAddrRev1" or name == "ciscoFlashCopyServerAddrType" or name == "ciscoFlashCopySourceName" or name == "ciscoFlashCopyStatus" or name == "ciscoFlashCopyTime" or name == "ciscoFlashCopyVerify"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashcopyserialnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashCopySerialNumber"):
+                    self.ciscoflashcopyserialnumber = value
+                    self.ciscoflashcopyserialnumber.value_namespace = name_space
+                    self.ciscoflashcopyserialnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyCommand"):
+                    self.ciscoflashcopycommand = value
+                    self.ciscoflashcopycommand.value_namespace = name_space
+                    self.ciscoflashcopycommand.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyDestinationName"):
+                    self.ciscoflashcopydestinationname = value
+                    self.ciscoflashcopydestinationname.value_namespace = name_space
+                    self.ciscoflashcopydestinationname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyEntryStatus"):
+                    self.ciscoflashcopyentrystatus = value
+                    self.ciscoflashcopyentrystatus.value_namespace = name_space
+                    self.ciscoflashcopyentrystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyNotifyOnCompletion"):
+                    self.ciscoflashcopynotifyoncompletion = value
+                    self.ciscoflashcopynotifyoncompletion.value_namespace = name_space
+                    self.ciscoflashcopynotifyoncompletion.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyProtocol"):
+                    self.ciscoflashcopyprotocol = value
+                    self.ciscoflashcopyprotocol.value_namespace = name_space
+                    self.ciscoflashcopyprotocol.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyRemotePassword"):
+                    self.ciscoflashcopyremotepassword = value
+                    self.ciscoflashcopyremotepassword.value_namespace = name_space
+                    self.ciscoflashcopyremotepassword.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyRemoteUserName"):
+                    self.ciscoflashcopyremoteusername = value
+                    self.ciscoflashcopyremoteusername.value_namespace = name_space
+                    self.ciscoflashcopyremoteusername.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyServerAddress"):
+                    self.ciscoflashcopyserveraddress = value
+                    self.ciscoflashcopyserveraddress.value_namespace = name_space
+                    self.ciscoflashcopyserveraddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyServerAddrRev1"):
+                    self.ciscoflashcopyserveraddrrev1 = value
+                    self.ciscoflashcopyserveraddrrev1.value_namespace = name_space
+                    self.ciscoflashcopyserveraddrrev1.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyServerAddrType"):
+                    self.ciscoflashcopyserveraddrtype = value
+                    self.ciscoflashcopyserveraddrtype.value_namespace = name_space
+                    self.ciscoflashcopyserveraddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopySourceName"):
+                    self.ciscoflashcopysourcename = value
+                    self.ciscoflashcopysourcename.value_namespace = name_space
+                    self.ciscoflashcopysourcename.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyStatus"):
+                    self.ciscoflashcopystatus = value
+                    self.ciscoflashcopystatus.value_namespace = name_space
+                    self.ciscoflashcopystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyTime"):
+                    self.ciscoflashcopytime = value
+                    self.ciscoflashcopytime.value_namespace = name_space
+                    self.ciscoflashcopytime.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashCopyVerify"):
+                    self.ciscoflashcopyverify = value
+                    self.ciscoflashcopyverify.value_namespace = name_space
+                    self.ciscoflashcopyverify.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashcopyentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashcopycommand is not None:
-                    return True
-
-                if self.ciscoflashcopydestinationname is not None:
-                    return True
-
-                if self.ciscoflashcopyentrystatus is not None:
-                    return True
-
-                if self.ciscoflashcopynotifyoncompletion is not None:
-                    return True
-
-                if self.ciscoflashcopyprotocol is not None:
-                    return True
-
-                if self.ciscoflashcopyremotepassword is not None:
-                    return True
-
-                if self.ciscoflashcopyremoteusername is not None:
-                    return True
-
-                if self.ciscoflashcopyserveraddress is not None:
-                    return True
-
-                if self.ciscoflashcopyserveraddrrev1 is not None:
-                    return True
-
-                if self.ciscoflashcopyserveraddrtype is not None:
-                    return True
-
-                if self.ciscoflashcopysourcename is not None:
-                    return True
-
-                if self.ciscoflashcopystatus is not None:
-                    return True
-
-                if self.ciscoflashcopytime is not None:
-                    return True
-
-                if self.ciscoflashcopyverify is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashCopyTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashcopyentry is not None:
-                for child_ref in self.ciscoflashcopyentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashcopyentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashCopyTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashCopyEntry"):
+                for c in self.ciscoflashcopyentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashcopytable.Ciscoflashcopyentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashcopyentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashCopyEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashcopytable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciscoflashpartitioningtable(object):
+    class Ciscoflashpartitioningtable(Entity):
         """
         A table of Flash partitioning operation entries. Each
         entry represents a Flash partitioning operation that
@@ -2392,13 +3630,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashpartitioningentry = YList()
-            self.ciscoflashpartitioningentry.parent = self
-            self.ciscoflashpartitioningentry.name = 'ciscoflashpartitioningentry'
+            super(CiscoFlashMib.Ciscoflashpartitioningtable, self).__init__()
+
+            self.yang_name = "ciscoFlashPartitioningTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashpartitioningentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashpartitioningtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashpartitioningtable, self).__setattr__(name, value)
 
 
-        class Ciscoflashpartitioningentry(object):
+        class Ciscoflashpartitioningentry(Entity):
             """
             A Flash partitioning operation entry. Each entry
             consists of the command, the target device, the
@@ -2442,7 +3706,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashpartitioningcommand
             
             	The partitioning command to be executed. Mandatory. If the command is unsupported, the partitioningInvalidOperation error will be reported in the operation status.  Command                 Remarks partition               Partition a Flash device.                         All the prerequisites for                         partitioning must be met for                         this command to succeed.  Command table           Parameters 1) partition            PartitioningDestinationName                         PartitioningPartitionCount                         PartitioningPartitionSizes (opt)                         PartitioningNotifyOnCompletion (opt)
-            	**type**\:   :py:class:`CiscoflashpartitioningcommandEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry.CiscoflashpartitioningcommandEnum>`
+            	**type**\:   :py:class:`Ciscoflashpartitioningcommand <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry.Ciscoflashpartitioningcommand>`
             
             .. attribute:: ciscoflashpartitioningdestinationname
             
@@ -2454,7 +3718,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashpartitioningentrystatus
             
             	The status of this table entry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciscoflashpartitioningnotifyoncompletion
             
@@ -2476,7 +3740,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashpartitioningstatus
             
             	The status of the specified partitioning operation. partitioningInProgress \:         specified operation is active  partitioningOperationSuccess \:         specified operation is supported and completed         successfully  partitioningInvalidOperation \:         command invalid or command\-protocol\-device         combination unsupported  partitioningInvalidDestName \:         invalid target name (file or partition or         device name) specified  partitioningInvalidPartitionCount \:         invalid partition count specified for the         partitioning command  partitioningInvalidPartitionSizes \:         invalid partition size, or invalid count of         partition sizes  partitioningDeviceBusy \:         specified device is in use and locked by         another process  partitioningDeviceOpenError \:         invalid device name  partitioningDeviceError \:         device read, write or erase error  partitioningNoMemory \:         system running low on memory  partitioningUnknownFailure \:         failure unknown
-            	**type**\:   :py:class:`CiscoflashpartitioningstatusEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry.CiscoflashpartitioningstatusEnum>`
+            	**type**\:   :py:class:`Ciscoflashpartitioningstatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry.Ciscoflashpartitioningstatus>`
             
             .. attribute:: ciscoflashpartitioningtime
             
@@ -2493,20 +3757,64 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashpartitioningserialnumber = None
-                self.ciscoflashpartitioningcommand = None
-                self.ciscoflashpartitioningdestinationname = None
-                self.ciscoflashpartitioningentrystatus = None
-                self.ciscoflashpartitioningnotifyoncompletion = None
-                self.ciscoflashpartitioningpartitioncount = None
-                self.ciscoflashpartitioningpartitionsizes = None
-                self.ciscoflashpartitioningstatus = None
-                self.ciscoflashpartitioningtime = None
+                super(CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry, self).__init__()
 
-            class CiscoflashpartitioningcommandEnum(Enum):
+                self.yang_name = "ciscoFlashPartitioningEntry"
+                self.yang_parent_name = "ciscoFlashPartitioningTable"
+
+                self.ciscoflashpartitioningserialnumber = YLeaf(YType.int32, "ciscoFlashPartitioningSerialNumber")
+
+                self.ciscoflashpartitioningcommand = YLeaf(YType.enumeration, "ciscoFlashPartitioningCommand")
+
+                self.ciscoflashpartitioningdestinationname = YLeaf(YType.str, "ciscoFlashPartitioningDestinationName")
+
+                self.ciscoflashpartitioningentrystatus = YLeaf(YType.enumeration, "ciscoFlashPartitioningEntryStatus")
+
+                self.ciscoflashpartitioningnotifyoncompletion = YLeaf(YType.boolean, "ciscoFlashPartitioningNotifyOnCompletion")
+
+                self.ciscoflashpartitioningpartitioncount = YLeaf(YType.uint32, "ciscoFlashPartitioningPartitionCount")
+
+                self.ciscoflashpartitioningpartitionsizes = YLeaf(YType.str, "ciscoFlashPartitioningPartitionSizes")
+
+                self.ciscoflashpartitioningstatus = YLeaf(YType.enumeration, "ciscoFlashPartitioningStatus")
+
+                self.ciscoflashpartitioningtime = YLeaf(YType.uint32, "ciscoFlashPartitioningTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashpartitioningserialnumber",
+                                "ciscoflashpartitioningcommand",
+                                "ciscoflashpartitioningdestinationname",
+                                "ciscoflashpartitioningentrystatus",
+                                "ciscoflashpartitioningnotifyoncompletion",
+                                "ciscoflashpartitioningpartitioncount",
+                                "ciscoflashpartitioningpartitionsizes",
+                                "ciscoflashpartitioningstatus",
+                                "ciscoflashpartitioningtime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry, self).__setattr__(name, value)
+
+            class Ciscoflashpartitioningcommand(Enum):
                 """
-                CiscoflashpartitioningcommandEnum
+                Ciscoflashpartitioningcommand
 
                 The partitioning command to be executed. Mandatory.
 
@@ -2540,18 +3848,12 @@ class CiscoFlashMib(object):
 
                 """
 
-                partition = 1
+                partition = Enum.YLeaf(1, "partition")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry.CiscoflashpartitioningcommandEnum']
-
-
-            class CiscoflashpartitioningstatusEnum(Enum):
+            class Ciscoflashpartitioningstatus(Enum):
                 """
-                CiscoflashpartitioningstatusEnum
+                Ciscoflashpartitioningstatus
 
                 The status of the specified partitioning operation.
 
@@ -2635,105 +3937,199 @@ class CiscoFlashMib(object):
 
                 """
 
-                partitioningInProgress = 1
+                partitioningInProgress = Enum.YLeaf(1, "partitioningInProgress")
 
-                partitioningOperationSuccess = 2
+                partitioningOperationSuccess = Enum.YLeaf(2, "partitioningOperationSuccess")
 
-                partitioningInvalidOperation = 3
+                partitioningInvalidOperation = Enum.YLeaf(3, "partitioningInvalidOperation")
 
-                partitioningInvalidDestName = 4
+                partitioningInvalidDestName = Enum.YLeaf(4, "partitioningInvalidDestName")
 
-                partitioningInvalidPartitionCount = 5
+                partitioningInvalidPartitionCount = Enum.YLeaf(5, "partitioningInvalidPartitionCount")
 
-                partitioningInvalidPartitionSizes = 6
+                partitioningInvalidPartitionSizes = Enum.YLeaf(6, "partitioningInvalidPartitionSizes")
 
-                partitioningDeviceBusy = 7
+                partitioningDeviceBusy = Enum.YLeaf(7, "partitioningDeviceBusy")
 
-                partitioningDeviceOpenError = 8
+                partitioningDeviceOpenError = Enum.YLeaf(8, "partitioningDeviceOpenError")
 
-                partitioningDeviceError = 9
+                partitioningDeviceError = Enum.YLeaf(9, "partitioningDeviceError")
 
-                partitioningNoMemory = 10
+                partitioningNoMemory = Enum.YLeaf(10, "partitioningNoMemory")
 
-                partitioningUnknownFailure = 11
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry.CiscoflashpartitioningstatusEnum']
+                partitioningUnknownFailure = Enum.YLeaf(11, "partitioningUnknownFailure")
 
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashpartitioningserialnumber is None:
-                    raise YPYModelError('Key property ciscoflashpartitioningserialnumber is None')
+            def has_data(self):
+                return (
+                    self.ciscoflashpartitioningserialnumber.is_set or
+                    self.ciscoflashpartitioningcommand.is_set or
+                    self.ciscoflashpartitioningdestinationname.is_set or
+                    self.ciscoflashpartitioningentrystatus.is_set or
+                    self.ciscoflashpartitioningnotifyoncompletion.is_set or
+                    self.ciscoflashpartitioningpartitioncount.is_set or
+                    self.ciscoflashpartitioningpartitionsizes.is_set or
+                    self.ciscoflashpartitioningstatus.is_set or
+                    self.ciscoflashpartitioningtime.is_set)
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashPartitioningTable/CISCO-FLASH-MIB:ciscoFlashPartitioningEntry[CISCO-FLASH-MIB:ciscoFlashPartitioningSerialNumber = ' + str(self.ciscoflashpartitioningserialnumber) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningserialnumber.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningcommand.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningdestinationname.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningentrystatus.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningnotifyoncompletion.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningpartitioncount.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningpartitionsizes.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningstatus.yfilter != YFilter.not_set or
+                    self.ciscoflashpartitioningtime.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashPartitioningEntry" + "[ciscoFlashPartitioningSerialNumber='" + self.ciscoflashpartitioningserialnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashPartitioningTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashpartitioningserialnumber.is_set or self.ciscoflashpartitioningserialnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningserialnumber.get_name_leafdata())
+                if (self.ciscoflashpartitioningcommand.is_set or self.ciscoflashpartitioningcommand.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningcommand.get_name_leafdata())
+                if (self.ciscoflashpartitioningdestinationname.is_set or self.ciscoflashpartitioningdestinationname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningdestinationname.get_name_leafdata())
+                if (self.ciscoflashpartitioningentrystatus.is_set or self.ciscoflashpartitioningentrystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningentrystatus.get_name_leafdata())
+                if (self.ciscoflashpartitioningnotifyoncompletion.is_set or self.ciscoflashpartitioningnotifyoncompletion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningnotifyoncompletion.get_name_leafdata())
+                if (self.ciscoflashpartitioningpartitioncount.is_set or self.ciscoflashpartitioningpartitioncount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningpartitioncount.get_name_leafdata())
+                if (self.ciscoflashpartitioningpartitionsizes.is_set or self.ciscoflashpartitioningpartitionsizes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningpartitionsizes.get_name_leafdata())
+                if (self.ciscoflashpartitioningstatus.is_set or self.ciscoflashpartitioningstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningstatus.get_name_leafdata())
+                if (self.ciscoflashpartitioningtime.is_set or self.ciscoflashpartitioningtime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashpartitioningtime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashPartitioningSerialNumber" or name == "ciscoFlashPartitioningCommand" or name == "ciscoFlashPartitioningDestinationName" or name == "ciscoFlashPartitioningEntryStatus" or name == "ciscoFlashPartitioningNotifyOnCompletion" or name == "ciscoFlashPartitioningPartitionCount" or name == "ciscoFlashPartitioningPartitionSizes" or name == "ciscoFlashPartitioningStatus" or name == "ciscoFlashPartitioningTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashpartitioningserialnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashPartitioningSerialNumber"):
+                    self.ciscoflashpartitioningserialnumber = value
+                    self.ciscoflashpartitioningserialnumber.value_namespace = name_space
+                    self.ciscoflashpartitioningserialnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningCommand"):
+                    self.ciscoflashpartitioningcommand = value
+                    self.ciscoflashpartitioningcommand.value_namespace = name_space
+                    self.ciscoflashpartitioningcommand.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningDestinationName"):
+                    self.ciscoflashpartitioningdestinationname = value
+                    self.ciscoflashpartitioningdestinationname.value_namespace = name_space
+                    self.ciscoflashpartitioningdestinationname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningEntryStatus"):
+                    self.ciscoflashpartitioningentrystatus = value
+                    self.ciscoflashpartitioningentrystatus.value_namespace = name_space
+                    self.ciscoflashpartitioningentrystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningNotifyOnCompletion"):
+                    self.ciscoflashpartitioningnotifyoncompletion = value
+                    self.ciscoflashpartitioningnotifyoncompletion.value_namespace = name_space
+                    self.ciscoflashpartitioningnotifyoncompletion.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningPartitionCount"):
+                    self.ciscoflashpartitioningpartitioncount = value
+                    self.ciscoflashpartitioningpartitioncount.value_namespace = name_space
+                    self.ciscoflashpartitioningpartitioncount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningPartitionSizes"):
+                    self.ciscoflashpartitioningpartitionsizes = value
+                    self.ciscoflashpartitioningpartitionsizes.value_namespace = name_space
+                    self.ciscoflashpartitioningpartitionsizes.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningStatus"):
+                    self.ciscoflashpartitioningstatus = value
+                    self.ciscoflashpartitioningstatus.value_namespace = name_space
+                    self.ciscoflashpartitioningstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashPartitioningTime"):
+                    self.ciscoflashpartitioningtime = value
+                    self.ciscoflashpartitioningtime.value_namespace = name_space
+                    self.ciscoflashpartitioningtime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashpartitioningentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashpartitioningcommand is not None:
-                    return True
-
-                if self.ciscoflashpartitioningdestinationname is not None:
-                    return True
-
-                if self.ciscoflashpartitioningentrystatus is not None:
-                    return True
-
-                if self.ciscoflashpartitioningnotifyoncompletion is not None:
-                    return True
-
-                if self.ciscoflashpartitioningpartitioncount is not None:
-                    return True
-
-                if self.ciscoflashpartitioningpartitionsizes is not None:
-                    return True
-
-                if self.ciscoflashpartitioningstatus is not None:
-                    return True
-
-                if self.ciscoflashpartitioningtime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashPartitioningTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashpartitioningentry is not None:
-                for child_ref in self.ciscoflashpartitioningentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashpartitioningentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashPartitioningTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashPartitioningEntry"):
+                for c in self.ciscoflashpartitioningentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashpartitioningtable.Ciscoflashpartitioningentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashpartitioningentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashPartitioningEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashpartitioningtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ciscoflashmiscoptable(object):
+    class Ciscoflashmiscoptable(Entity):
         """
         A table of misc Flash operation entries. Each
         entry represents a Flash operation that
@@ -2752,13 +4148,39 @@ class CiscoFlashMib(object):
         _revision = '2013-08-06'
 
         def __init__(self):
-            self.parent = None
-            self.ciscoflashmiscopentry = YList()
-            self.ciscoflashmiscopentry.parent = self
-            self.ciscoflashmiscopentry.name = 'ciscoflashmiscopentry'
+            super(CiscoFlashMib.Ciscoflashmiscoptable, self).__init__()
+
+            self.yang_name = "ciscoFlashMiscOpTable"
+            self.yang_parent_name = "CISCO-FLASH-MIB"
+
+            self.ciscoflashmiscopentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoFlashMib.Ciscoflashmiscoptable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoFlashMib.Ciscoflashmiscoptable, self).__setattr__(name, value)
 
 
-        class Ciscoflashmiscopentry(object):
+        class Ciscoflashmiscopentry(Entity):
             """
             A Flash operation entry. Each entry consists of a
             command, a target, and any optional parameters.
@@ -2801,7 +4223,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashmiscopcommand
             
             	The command to be executed. Mandatory. Note that it is possible for a system to support multiple file systems (different file systems on different Flash devices, or different file systems on different partitions within a device). Each such file system may support only a subset of these commands. If a command is unsupported, the miscOpInvalidOperation(3) error will be reported in the operation status.  Command         Remarks erase           Erase flash. verify          Verify flash file checksum. delete          Delete a file. undelete        Revive a deleted file .                 Note that there are limits on                 the number of times a file can                 be deleted and undeleted. When                 this limit is exceeded, the                 system will return the appropriate                 error. squeeze         Recover space occupied by                 deleted files. This command                 preserves the good files, erases                 out the file system, then restores                 the preserved good files. format          Format a flash device.  Command table   Parameters erase           MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) verify          MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) delete          MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) undelete        MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) squeeze         MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt) format          MiscOpDestinationName                 MiscOpNotifyOnCompletion (opt)
-            	**type**\:   :py:class:`CiscoflashmiscopcommandEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry.CiscoflashmiscopcommandEnum>`
+            	**type**\:   :py:class:`Ciscoflashmiscopcommand <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry.Ciscoflashmiscopcommand>`
             
             .. attribute:: ciscoflashmiscopdestinationname
             
@@ -2813,7 +4235,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashmiscopentrystatus
             
             	The status of this table entry
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ciscoflashmiscopnotifyoncompletion
             
@@ -2823,7 +4245,7 @@ class CiscoFlashMib(object):
             .. attribute:: ciscoflashmiscopstatus
             
             	The status of the specified operation. miscOpInProgress \:         specified operation is active  miscOpOperationSuccess \:         specified operation is supported and completed         successfully  miscOpInvalidOperation \:         command invalid or command\-protocol\-device         combination unsupported  miscOpInvalidDestName \:         invalid target name (file or partition or         device name) specified  miscOpDeviceBusy \:         specified device is in use and locked by another         process  miscOpDeviceOpenError \:         invalid device name  miscOpDeviceError \:         device read, write or erase error  miscOpDeviceNotProgrammable \:         device is read\-only but a write or erase         operation was specified  miscOpFileOpenError \:         invalid file name; file not found in partition  miscOpFileDeleteFailure \:         file could not be deleted; delete count exceeded  miscOpFileUndeleteFailure \:         file could not be undeleted; undelete count         exceeded  miscOpFileChecksumError \:         file has a bad checksum  miscOpNoMemory \:         system running low on memory  miscOpUnknownFailure \:         failure unknown  miscOpSqueezeFailure \:         the squeeze operation failed  miscOpNoSuchFile \:         a valid but nonexistent file name was specified  miscOpFormatFailure \:         the format operation failed
-            	**type**\:   :py:class:`CiscoflashmiscopstatusEnum <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry.CiscoflashmiscopstatusEnum>`
+            	**type**\:   :py:class:`Ciscoflashmiscopstatus <ydk.models.cisco_ios_xe.CISCO_FLASH_MIB.CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry.Ciscoflashmiscopstatus>`
             
             .. attribute:: ciscoflashmiscoptime
             
@@ -2840,18 +4262,58 @@ class CiscoFlashMib(object):
             _revision = '2013-08-06'
 
             def __init__(self):
-                self.parent = None
-                self.ciscoflashmiscopserialnumber = None
-                self.ciscoflashmiscopcommand = None
-                self.ciscoflashmiscopdestinationname = None
-                self.ciscoflashmiscopentrystatus = None
-                self.ciscoflashmiscopnotifyoncompletion = None
-                self.ciscoflashmiscopstatus = None
-                self.ciscoflashmiscoptime = None
+                super(CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry, self).__init__()
 
-            class CiscoflashmiscopcommandEnum(Enum):
+                self.yang_name = "ciscoFlashMiscOpEntry"
+                self.yang_parent_name = "ciscoFlashMiscOpTable"
+
+                self.ciscoflashmiscopserialnumber = YLeaf(YType.int32, "ciscoFlashMiscOpSerialNumber")
+
+                self.ciscoflashmiscopcommand = YLeaf(YType.enumeration, "ciscoFlashMiscOpCommand")
+
+                self.ciscoflashmiscopdestinationname = YLeaf(YType.str, "ciscoFlashMiscOpDestinationName")
+
+                self.ciscoflashmiscopentrystatus = YLeaf(YType.enumeration, "ciscoFlashMiscOpEntryStatus")
+
+                self.ciscoflashmiscopnotifyoncompletion = YLeaf(YType.boolean, "ciscoFlashMiscOpNotifyOnCompletion")
+
+                self.ciscoflashmiscopstatus = YLeaf(YType.enumeration, "ciscoFlashMiscOpStatus")
+
+                self.ciscoflashmiscoptime = YLeaf(YType.uint32, "ciscoFlashMiscOpTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ciscoflashmiscopserialnumber",
+                                "ciscoflashmiscopcommand",
+                                "ciscoflashmiscopdestinationname",
+                                "ciscoflashmiscopentrystatus",
+                                "ciscoflashmiscopnotifyoncompletion",
+                                "ciscoflashmiscopstatus",
+                                "ciscoflashmiscoptime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry, self).__setattr__(name, value)
+
+            class Ciscoflashmiscopcommand(Enum):
                 """
-                CiscoflashmiscopcommandEnum
+                Ciscoflashmiscopcommand
 
                 The command to be executed. Mandatory.
 
@@ -2943,28 +4405,22 @@ class CiscoFlashMib(object):
 
                 """
 
-                erase = 1
+                erase = Enum.YLeaf(1, "erase")
 
-                verify = 2
+                verify = Enum.YLeaf(2, "verify")
 
-                delete = 3
+                delete = Enum.YLeaf(3, "delete")
 
-                undelete = 4
+                undelete = Enum.YLeaf(4, "undelete")
 
-                squeeze = 5
+                squeeze = Enum.YLeaf(5, "squeeze")
 
-                format = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry.CiscoflashmiscopcommandEnum']
+                format = Enum.YLeaf(6, "format")
 
 
-            class CiscoflashmiscopstatusEnum(Enum):
+            class Ciscoflashmiscopstatus(Enum):
                 """
-                CiscoflashmiscopstatusEnum
+                Ciscoflashmiscopstatus
 
                 The status of the specified operation.
 
@@ -3084,154 +4540,323 @@ class CiscoFlashMib(object):
 
                 """
 
-                miscOpInProgress = 1
+                miscOpInProgress = Enum.YLeaf(1, "miscOpInProgress")
 
-                miscOpOperationSuccess = 2
+                miscOpOperationSuccess = Enum.YLeaf(2, "miscOpOperationSuccess")
 
-                miscOpInvalidOperation = 3
+                miscOpInvalidOperation = Enum.YLeaf(3, "miscOpInvalidOperation")
 
-                miscOpInvalidDestName = 4
+                miscOpInvalidDestName = Enum.YLeaf(4, "miscOpInvalidDestName")
 
-                miscOpDeviceBusy = 5
+                miscOpDeviceBusy = Enum.YLeaf(5, "miscOpDeviceBusy")
 
-                miscOpDeviceOpenError = 6
+                miscOpDeviceOpenError = Enum.YLeaf(6, "miscOpDeviceOpenError")
 
-                miscOpDeviceError = 7
+                miscOpDeviceError = Enum.YLeaf(7, "miscOpDeviceError")
 
-                miscOpDeviceNotProgrammable = 8
+                miscOpDeviceNotProgrammable = Enum.YLeaf(8, "miscOpDeviceNotProgrammable")
 
-                miscOpFileOpenError = 9
+                miscOpFileOpenError = Enum.YLeaf(9, "miscOpFileOpenError")
 
-                miscOpFileDeleteFailure = 10
+                miscOpFileDeleteFailure = Enum.YLeaf(10, "miscOpFileDeleteFailure")
 
-                miscOpFileUndeleteFailure = 11
+                miscOpFileUndeleteFailure = Enum.YLeaf(11, "miscOpFileUndeleteFailure")
 
-                miscOpFileChecksumError = 12
+                miscOpFileChecksumError = Enum.YLeaf(12, "miscOpFileChecksumError")
 
-                miscOpNoMemory = 13
+                miscOpNoMemory = Enum.YLeaf(13, "miscOpNoMemory")
 
-                miscOpUnknownFailure = 14
+                miscOpUnknownFailure = Enum.YLeaf(14, "miscOpUnknownFailure")
 
-                miscOpSqueezeFailure = 18
+                miscOpSqueezeFailure = Enum.YLeaf(18, "miscOpSqueezeFailure")
 
-                miscOpNoSuchFile = 19
+                miscOpNoSuchFile = Enum.YLeaf(19, "miscOpNoSuchFile")
 
-                miscOpFormatFailure = 20
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                    return meta._meta_table['CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry.CiscoflashmiscopstatusEnum']
+                miscOpFormatFailure = Enum.YLeaf(20, "miscOpFormatFailure")
 
 
-            @property
-            def _common_path(self):
-                if self.ciscoflashmiscopserialnumber is None:
-                    raise YPYModelError('Key property ciscoflashmiscopserialnumber is None')
+            def has_data(self):
+                return (
+                    self.ciscoflashmiscopserialnumber.is_set or
+                    self.ciscoflashmiscopcommand.is_set or
+                    self.ciscoflashmiscopdestinationname.is_set or
+                    self.ciscoflashmiscopentrystatus.is_set or
+                    self.ciscoflashmiscopnotifyoncompletion.is_set or
+                    self.ciscoflashmiscopstatus.is_set or
+                    self.ciscoflashmiscoptime.is_set)
 
-                return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashMiscOpTable/CISCO-FLASH-MIB:ciscoFlashMiscOpEntry[CISCO-FLASH-MIB:ciscoFlashMiscOpSerialNumber = ' + str(self.ciscoflashmiscopserialnumber) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ciscoflashmiscopserialnumber.yfilter != YFilter.not_set or
+                    self.ciscoflashmiscopcommand.yfilter != YFilter.not_set or
+                    self.ciscoflashmiscopdestinationname.yfilter != YFilter.not_set or
+                    self.ciscoflashmiscopentrystatus.yfilter != YFilter.not_set or
+                    self.ciscoflashmiscopnotifyoncompletion.yfilter != YFilter.not_set or
+                    self.ciscoflashmiscopstatus.yfilter != YFilter.not_set or
+                    self.ciscoflashmiscoptime.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ciscoFlashMiscOpEntry" + "[ciscoFlashMiscOpSerialNumber='" + self.ciscoflashmiscopserialnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/ciscoFlashMiscOpTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ciscoflashmiscopserialnumber.is_set or self.ciscoflashmiscopserialnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashmiscopserialnumber.get_name_leafdata())
+                if (self.ciscoflashmiscopcommand.is_set or self.ciscoflashmiscopcommand.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashmiscopcommand.get_name_leafdata())
+                if (self.ciscoflashmiscopdestinationname.is_set or self.ciscoflashmiscopdestinationname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashmiscopdestinationname.get_name_leafdata())
+                if (self.ciscoflashmiscopentrystatus.is_set or self.ciscoflashmiscopentrystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashmiscopentrystatus.get_name_leafdata())
+                if (self.ciscoflashmiscopnotifyoncompletion.is_set or self.ciscoflashmiscopnotifyoncompletion.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashmiscopnotifyoncompletion.get_name_leafdata())
+                if (self.ciscoflashmiscopstatus.is_set or self.ciscoflashmiscopstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashmiscopstatus.get_name_leafdata())
+                if (self.ciscoflashmiscoptime.is_set or self.ciscoflashmiscoptime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ciscoflashmiscoptime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ciscoFlashMiscOpSerialNumber" or name == "ciscoFlashMiscOpCommand" or name == "ciscoFlashMiscOpDestinationName" or name == "ciscoFlashMiscOpEntryStatus" or name == "ciscoFlashMiscOpNotifyOnCompletion" or name == "ciscoFlashMiscOpStatus" or name == "ciscoFlashMiscOpTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ciscoflashmiscopserialnumber is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ciscoFlashMiscOpSerialNumber"):
+                    self.ciscoflashmiscopserialnumber = value
+                    self.ciscoflashmiscopserialnumber.value_namespace = name_space
+                    self.ciscoflashmiscopserialnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashMiscOpCommand"):
+                    self.ciscoflashmiscopcommand = value
+                    self.ciscoflashmiscopcommand.value_namespace = name_space
+                    self.ciscoflashmiscopcommand.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashMiscOpDestinationName"):
+                    self.ciscoflashmiscopdestinationname = value
+                    self.ciscoflashmiscopdestinationname.value_namespace = name_space
+                    self.ciscoflashmiscopdestinationname.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashMiscOpEntryStatus"):
+                    self.ciscoflashmiscopentrystatus = value
+                    self.ciscoflashmiscopentrystatus.value_namespace = name_space
+                    self.ciscoflashmiscopentrystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashMiscOpNotifyOnCompletion"):
+                    self.ciscoflashmiscopnotifyoncompletion = value
+                    self.ciscoflashmiscopnotifyoncompletion.value_namespace = name_space
+                    self.ciscoflashmiscopnotifyoncompletion.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashMiscOpStatus"):
+                    self.ciscoflashmiscopstatus = value
+                    self.ciscoflashmiscopstatus.value_namespace = name_space
+                    self.ciscoflashmiscopstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ciscoFlashMiscOpTime"):
+                    self.ciscoflashmiscoptime = value
+                    self.ciscoflashmiscoptime.value_namespace = name_space
+                    self.ciscoflashmiscoptime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ciscoflashmiscopentry:
+                if (c.has_data()):
                     return True
-
-                if self.ciscoflashmiscopcommand is not None:
-                    return True
-
-                if self.ciscoflashmiscopdestinationname is not None:
-                    return True
-
-                if self.ciscoflashmiscopentrystatus is not None:
-                    return True
-
-                if self.ciscoflashmiscopnotifyoncompletion is not None:
-                    return True
-
-                if self.ciscoflashmiscopstatus is not None:
-                    return True
-
-                if self.ciscoflashmiscoptime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-                return meta._meta_table['CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB/CISCO-FLASH-MIB:ciscoFlashMiscOpTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ciscoflashmiscopentry is not None:
-                for child_ref in self.ciscoflashmiscopentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ciscoflashmiscopentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ciscoFlashMiscOpTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ciscoFlashMiscOpEntry"):
+                for c in self.ciscoflashmiscopentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoFlashMib.Ciscoflashmiscoptable.Ciscoflashmiscopentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ciscoflashmiscopentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ciscoFlashMiscOpEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-            return meta._meta_table['CiscoFlashMib.Ciscoflashmiscoptable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ciscoflashcfg is not None and self.ciscoflashcfg.has_data()) or
+            (self.ciscoflashchiptable is not None and self.ciscoflashchiptable.has_data()) or
+            (self.ciscoflashcopytable is not None and self.ciscoflashcopytable.has_data()) or
+            (self.ciscoflashdevice is not None and self.ciscoflashdevice.has_data()) or
+            (self.ciscoflashdevicetable is not None and self.ciscoflashdevicetable.has_data()) or
+            (self.ciscoflashfilebytypetable is not None and self.ciscoflashfilebytypetable.has_data()) or
+            (self.ciscoflashfiletable is not None and self.ciscoflashfiletable.has_data()) or
+            (self.ciscoflashmiscoptable is not None and self.ciscoflashmiscoptable.has_data()) or
+            (self.ciscoflashpartitioningtable is not None and self.ciscoflashpartitioningtable.has_data()) or
+            (self.ciscoflashpartitiontable is not None and self.ciscoflashpartitiontable.has_data()))
 
-        return '/CISCO-FLASH-MIB:CISCO-FLASH-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ciscoflashcfg is not None and self.ciscoflashcfg.has_operation()) or
+            (self.ciscoflashchiptable is not None and self.ciscoflashchiptable.has_operation()) or
+            (self.ciscoflashcopytable is not None and self.ciscoflashcopytable.has_operation()) or
+            (self.ciscoflashdevice is not None and self.ciscoflashdevice.has_operation()) or
+            (self.ciscoflashdevicetable is not None and self.ciscoflashdevicetable.has_operation()) or
+            (self.ciscoflashfilebytypetable is not None and self.ciscoflashfilebytypetable.has_operation()) or
+            (self.ciscoflashfiletable is not None and self.ciscoflashfiletable.has_operation()) or
+            (self.ciscoflashmiscoptable is not None and self.ciscoflashmiscoptable.has_operation()) or
+            (self.ciscoflashpartitioningtable is not None and self.ciscoflashpartitioningtable.has_operation()) or
+            (self.ciscoflashpartitiontable is not None and self.ciscoflashpartitiontable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-FLASH-MIB:CISCO-FLASH-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ciscoFlashCfg"):
+            if (self.ciscoflashcfg is None):
+                self.ciscoflashcfg = CiscoFlashMib.Ciscoflashcfg()
+                self.ciscoflashcfg.parent = self
+                self._children_name_map["ciscoflashcfg"] = "ciscoFlashCfg"
+            return self.ciscoflashcfg
+
+        if (child_yang_name == "ciscoFlashChipTable"):
+            if (self.ciscoflashchiptable is None):
+                self.ciscoflashchiptable = CiscoFlashMib.Ciscoflashchiptable()
+                self.ciscoflashchiptable.parent = self
+                self._children_name_map["ciscoflashchiptable"] = "ciscoFlashChipTable"
+            return self.ciscoflashchiptable
+
+        if (child_yang_name == "ciscoFlashCopyTable"):
+            if (self.ciscoflashcopytable is None):
+                self.ciscoflashcopytable = CiscoFlashMib.Ciscoflashcopytable()
+                self.ciscoflashcopytable.parent = self
+                self._children_name_map["ciscoflashcopytable"] = "ciscoFlashCopyTable"
+            return self.ciscoflashcopytable
+
+        if (child_yang_name == "ciscoFlashDevice"):
+            if (self.ciscoflashdevice is None):
+                self.ciscoflashdevice = CiscoFlashMib.Ciscoflashdevice()
+                self.ciscoflashdevice.parent = self
+                self._children_name_map["ciscoflashdevice"] = "ciscoFlashDevice"
+            return self.ciscoflashdevice
+
+        if (child_yang_name == "ciscoFlashDeviceTable"):
+            if (self.ciscoflashdevicetable is None):
+                self.ciscoflashdevicetable = CiscoFlashMib.Ciscoflashdevicetable()
+                self.ciscoflashdevicetable.parent = self
+                self._children_name_map["ciscoflashdevicetable"] = "ciscoFlashDeviceTable"
+            return self.ciscoflashdevicetable
+
+        if (child_yang_name == "ciscoFlashFileByTypeTable"):
+            if (self.ciscoflashfilebytypetable is None):
+                self.ciscoflashfilebytypetable = CiscoFlashMib.Ciscoflashfilebytypetable()
+                self.ciscoflashfilebytypetable.parent = self
+                self._children_name_map["ciscoflashfilebytypetable"] = "ciscoFlashFileByTypeTable"
+            return self.ciscoflashfilebytypetable
+
+        if (child_yang_name == "ciscoFlashFileTable"):
+            if (self.ciscoflashfiletable is None):
+                self.ciscoflashfiletable = CiscoFlashMib.Ciscoflashfiletable()
+                self.ciscoflashfiletable.parent = self
+                self._children_name_map["ciscoflashfiletable"] = "ciscoFlashFileTable"
+            return self.ciscoflashfiletable
+
+        if (child_yang_name == "ciscoFlashMiscOpTable"):
+            if (self.ciscoflashmiscoptable is None):
+                self.ciscoflashmiscoptable = CiscoFlashMib.Ciscoflashmiscoptable()
+                self.ciscoflashmiscoptable.parent = self
+                self._children_name_map["ciscoflashmiscoptable"] = "ciscoFlashMiscOpTable"
+            return self.ciscoflashmiscoptable
+
+        if (child_yang_name == "ciscoFlashPartitioningTable"):
+            if (self.ciscoflashpartitioningtable is None):
+                self.ciscoflashpartitioningtable = CiscoFlashMib.Ciscoflashpartitioningtable()
+                self.ciscoflashpartitioningtable.parent = self
+                self._children_name_map["ciscoflashpartitioningtable"] = "ciscoFlashPartitioningTable"
+            return self.ciscoflashpartitioningtable
+
+        if (child_yang_name == "ciscoFlashPartitionTable"):
+            if (self.ciscoflashpartitiontable is None):
+                self.ciscoflashpartitiontable = CiscoFlashMib.Ciscoflashpartitiontable()
+                self.ciscoflashpartitiontable.parent = self
+                self._children_name_map["ciscoflashpartitiontable"] = "ciscoFlashPartitionTable"
+            return self.ciscoflashpartitiontable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ciscoFlashCfg" or name == "ciscoFlashChipTable" or name == "ciscoFlashCopyTable" or name == "ciscoFlashDevice" or name == "ciscoFlashDeviceTable" or name == "ciscoFlashFileByTypeTable" or name == "ciscoFlashFileTable" or name == "ciscoFlashMiscOpTable" or name == "ciscoFlashPartitioningTable" or name == "ciscoFlashPartitionTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ciscoflashcfg is not None and self.ciscoflashcfg._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ciscoflashchiptable is not None and self.ciscoflashchiptable._has_data():
-            return True
-
-        if self.ciscoflashcopytable is not None and self.ciscoflashcopytable._has_data():
-            return True
-
-        if self.ciscoflashdevice is not None and self.ciscoflashdevice._has_data():
-            return True
-
-        if self.ciscoflashdevicetable is not None and self.ciscoflashdevicetable._has_data():
-            return True
-
-        if self.ciscoflashfilebytypetable is not None and self.ciscoflashfilebytypetable._has_data():
-            return True
-
-        if self.ciscoflashfiletable is not None and self.ciscoflashfiletable._has_data():
-            return True
-
-        if self.ciscoflashmiscoptable is not None and self.ciscoflashmiscoptable._has_data():
-            return True
-
-        if self.ciscoflashpartitioningtable is not None and self.ciscoflashpartitioningtable._has_data():
-            return True
-
-        if self.ciscoflashpartitiontable is not None and self.ciscoflashpartitiontable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_FLASH_MIB as meta
-        return meta._meta_table['CiscoFlashMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoFlashMib()
+        return self._top_entity
 

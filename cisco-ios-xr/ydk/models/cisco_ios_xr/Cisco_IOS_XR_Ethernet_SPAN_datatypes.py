@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SpanSessionClassEnum(Enum):
+class SpanSessionClass(Enum):
     """
-    SpanSessionClassEnum
+    SpanSessionClass
 
     Span session class
 
@@ -40,22 +34,16 @@ class SpanSessionClassEnum(Enum):
 
     """
 
-    ethernet = 0
+    ethernet = Enum.YLeaf(0, "ethernet")
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_datatypes as meta
-        return meta._meta_table['SpanSessionClassEnum']
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
 
-class SpanSessionClassOldEnum(Enum):
+class SpanSessionClassOld(Enum):
     """
-    SpanSessionClassOldEnum
+    SpanSessionClassOld
 
     Span session class old
 
@@ -65,13 +53,7 @@ class SpanSessionClassOldEnum(Enum):
 
     """
 
-    true = 0
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_datatypes as meta
-        return meta._meta_table['SpanSessionClassOldEnum']
+    true = Enum.YLeaf(0, "true")
 
 
 

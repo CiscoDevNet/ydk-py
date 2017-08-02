@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class DwdmAdminStateEnum(Enum):
+class DwdmAdminState(Enum):
     """
-    DwdmAdminStateEnum
+    DwdmAdminState
 
     Dwdm admin state
 
@@ -48,24 +42,18 @@ class DwdmAdminStateEnum(Enum):
 
     """
 
-    out_of_service = 0
+    out_of_service = Enum.YLeaf(0, "out-of-service")
 
-    in_service = 1
+    in_service = Enum.YLeaf(1, "in-service")
 
-    maintenance = 2
+    maintenance = Enum.YLeaf(2, "maintenance")
 
-    in_service_config_allowed = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['DwdmAdminStateEnum']
+    in_service_config_allowed = Enum.YLeaf(3, "in-service-config-allowed")
 
 
-class DwdmLoopbackEnum(Enum):
+class DwdmLoopback(Enum):
     """
-    DwdmLoopbackEnum
+    DwdmLoopback
 
     Dwdm loopback
 
@@ -83,22 +71,16 @@ class DwdmLoopbackEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    line = 1
+    line = Enum.YLeaf(1, "line")
 
-    internal = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['DwdmLoopbackEnum']
+    internal = Enum.YLeaf(2, "internal")
 
 
-class EfecEnum(Enum):
+class Efec(Enum):
     """
-    EfecEnum
+    Efec
 
     Efec
 
@@ -118,22 +100,16 @@ class EfecEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    i__DOT__4 = 1
+    i__DOT__4 = Enum.YLeaf(1, "i.4")
 
-    i__DOT__7 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['EfecEnum']
+    i__DOT__7 = Enum.YLeaf(2, "i.7")
 
 
-class ExpectedTtiEnum(Enum):
+class ExpectedTti(Enum):
     """
-    ExpectedTtiEnum
+    ExpectedTti
 
     Expected tti
 
@@ -147,20 +123,14 @@ class ExpectedTtiEnum(Enum):
 
     """
 
-    expected_tti_ascii = 3
+    expected_tti_ascii = Enum.YLeaf(3, "expected-tti-ascii")
 
-    expected_tti_hex = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['ExpectedTtiEnum']
+    expected_tti_hex = Enum.YLeaf(4, "expected-tti-hex")
 
 
-class FecEnum(Enum):
+class Fec(Enum):
     """
-    FecEnum
+    Fec
 
     Fec
 
@@ -204,34 +174,28 @@ class FecEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    standard = 1
+    standard = Enum.YLeaf(1, "standard")
 
-    enhanced = 2
+    enhanced = Enum.YLeaf(2, "enhanced")
 
-    high_gain_hd = 3
+    high_gain_hd = Enum.YLeaf(3, "high-gain-hd")
 
-    long_haul_hd = 4
+    long_haul_hd = Enum.YLeaf(4, "long-haul-hd")
 
-    high_gain_sd = 5
+    high_gain_sd = Enum.YLeaf(5, "high-gain-sd")
 
-    long_haul_sd = 6
+    long_haul_sd = Enum.YLeaf(6, "long-haul-sd")
 
-    ci_bch = 7
+    ci_bch = Enum.YLeaf(7, "ci-bch")
 
-    high_gain_multivendor_hd = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['FecEnum']
+    high_gain_multivendor_hd = Enum.YLeaf(8, "high-gain-multivendor-hd")
 
 
-class FramingEnum(Enum):
+class Framing(Enum):
     """
-    FramingEnum
+    Framing
 
     Framing
 
@@ -245,20 +209,14 @@ class FramingEnum(Enum):
 
     """
 
-    opu1e = 1
+    opu1e = Enum.YLeaf(1, "opu1e")
 
-    opu2e = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['FramingEnum']
+    opu2e = Enum.YLeaf(2, "opu2e")
 
 
-class OduAlarmEnum(Enum):
+class OduAlarm(Enum):
     """
-    OduAlarmEnum
+    OduAlarm
 
     Odu alarm
 
@@ -296,32 +254,26 @@ class OduAlarmEnum(Enum):
 
     """
 
-    oci = 14
+    oci = Enum.YLeaf(14, "oci")
 
-    odu_ais = 15
+    odu_ais = Enum.YLeaf(15, "odu-ais")
 
-    lck = 16
+    lck = Enum.YLeaf(16, "lck")
 
-    odu_bdi = 17
+    odu_bdi = Enum.YLeaf(17, "odu-bdi")
 
-    odu_sf = 20
+    odu_sf = Enum.YLeaf(20, "odu-sf")
 
-    odu_sd = 21
+    odu_sd = Enum.YLeaf(21, "odu-sd")
 
-    plm = 22
+    plm = Enum.YLeaf(22, "plm")
 
-    odu_tim = 23
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['OduAlarmEnum']
+    odu_tim = Enum.YLeaf(23, "odu-tim")
 
 
-class OduThresholdEnum(Enum):
+class OduThreshold(Enum):
     """
-    OduThresholdEnum
+    OduThreshold
 
     Odu threshold
 
@@ -335,20 +287,14 @@ class OduThresholdEnum(Enum):
 
     """
 
-    odu_sd = 8
+    odu_sd = Enum.YLeaf(8, "odu-sd")
 
-    odu_sf = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['OduThresholdEnum']
+    odu_sf = Enum.YLeaf(9, "odu-sf")
 
 
-class OtuAlarmEnum(Enum):
+class OtuAlarm(Enum):
     """
-    OtuAlarmEnum
+    OtuAlarm
 
     Otu alarm
 
@@ -398,38 +344,32 @@ class OtuAlarmEnum(Enum):
 
     """
 
-    los = 0
+    los = Enum.YLeaf(0, "los")
 
-    lof = 1
+    lof = Enum.YLeaf(1, "lof")
 
-    lom = 2
+    lom = Enum.YLeaf(2, "lom")
 
-    iae = 6
+    iae = Enum.YLeaf(6, "iae")
 
-    otu_bdi = 7
+    otu_bdi = Enum.YLeaf(7, "otu-bdi")
 
-    otu_tim = 8
+    otu_tim = Enum.YLeaf(8, "otu-tim")
 
-    otu_sf = 10
+    otu_sf = Enum.YLeaf(10, "otu-sf")
 
-    otu_sd = 11
+    otu_sd = Enum.YLeaf(11, "otu-sd")
 
-    fec_mismatch = 24
+    fec_mismatch = Enum.YLeaf(24, "fec-mismatch")
 
-    prefec_sd_ber = 31
+    prefec_sd_ber = Enum.YLeaf(31, "prefec-sd-ber")
 
-    prefec_sf_ber = 32
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['OtuAlarmEnum']
+    prefec_sf_ber = Enum.YLeaf(32, "prefec-sf-ber")
 
 
-class OtuThresholdEnum(Enum):
+class OtuThreshold(Enum):
     """
-    OtuThresholdEnum
+    OtuThreshold
 
     Otu threshold
 
@@ -451,24 +391,18 @@ class OtuThresholdEnum(Enum):
 
     """
 
-    prefec_sd = 0
+    prefec_sd = Enum.YLeaf(0, "prefec-sd")
 
-    prefec_sf = 1
+    prefec_sf = Enum.YLeaf(1, "prefec-sf")
 
-    otu_sd = 4
+    otu_sd = Enum.YLeaf(4, "otu-sd")
 
-    otu_sf = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['OtuThresholdEnum']
+    otu_sf = Enum.YLeaf(5, "otu-sf")
 
 
-class PrbsModeEnum(Enum):
+class PrbsMode(Enum):
     """
-    PrbsModeEnum
+    PrbsMode
 
     Prbs mode
 
@@ -490,24 +424,18 @@ class PrbsModeEnum(Enum):
 
     """
 
-    source = 0
+    source = Enum.YLeaf(0, "source")
 
-    sink = 1
+    sink = Enum.YLeaf(1, "sink")
 
-    source_sink = 2
+    source_sink = Enum.YLeaf(2, "source-sink")
 
-    invalid = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['PrbsModeEnum']
+    invalid = Enum.YLeaf(3, "invalid")
 
 
-class PrbsPatternEnum(Enum):
+class PrbsPattern(Enum):
     """
-    PrbsPatternEnum
+    PrbsPattern
 
     Prbs pattern
 
@@ -533,26 +461,20 @@ class PrbsPatternEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    null = 1
+    null = Enum.YLeaf(1, "null")
 
-    pn11 = 2
+    pn11 = Enum.YLeaf(2, "pn11")
 
-    pn23 = 3
+    pn23 = Enum.YLeaf(3, "pn23")
 
-    pn31 = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['PrbsPatternEnum']
+    pn31 = Enum.YLeaf(4, "pn31")
 
 
-class ProactiveEnum(Enum):
+class Proactive(Enum):
     """
-    ProactiveEnum
+    Proactive
 
     Proactive
 
@@ -566,20 +488,14 @@ class ProactiveEnum(Enum):
 
     """
 
-    default = 1
+    default = Enum.YLeaf(1, "default")
 
-    graceful = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['ProactiveEnum']
+    graceful = Enum.YLeaf(2, "graceful")
 
 
-class TxTtiEnum(Enum):
+class TxTti(Enum):
     """
-    TxTtiEnum
+    TxTti
 
     Tx tti
 
@@ -593,20 +509,14 @@ class TxTtiEnum(Enum):
 
     """
 
-    tx_tti_ascii = 0
+    tx_tti_ascii = Enum.YLeaf(0, "tx-tti-ascii")
 
-    tx_tti_hex = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['TxTtiEnum']
+    tx_tti_hex = Enum.YLeaf(1, "tx-tti-hex")
 
 
-class WaveChannelNumEnum(Enum):
+class WaveChannelNum(Enum):
     """
-    WaveChannelNumEnum
+    WaveChannelNum
 
     Wave channel num
 
@@ -628,19 +538,13 @@ class WaveChannelNumEnum(Enum):
 
     """
 
-    default = 0
+    default = Enum.YLeaf(0, "default")
 
-    channel_wavelength = 1
+    channel_wavelength = Enum.YLeaf(1, "channel-wavelength")
 
-    channel_frequency = 2
+    channel_frequency = Enum.YLeaf(2, "channel-frequency")
 
-    Y_100mhz_frequency = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dwdm_ui_cfg as meta
-        return meta._meta_table['WaveChannelNumEnum']
+    Y_100mhz_frequency = Enum.YLeaf(4, "100mhz-frequency")
 
 
 

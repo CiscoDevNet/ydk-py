@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class BfdReversePathEnum(Enum):
+class BfdReversePath(Enum):
     """
-    BfdReversePathEnum
+    BfdReversePath
 
     Bfd reverse path
 
@@ -32,18 +26,12 @@ class BfdReversePathEnum(Enum):
 
     """
 
-    bfd_reverse_path_binding_label = 1
+    bfd_reverse_path_binding_label = Enum.YLeaf(1, "bfd-reverse-path-binding-label")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['BfdReversePathEnum']
-
-
-class CtypeEnum(Enum):
+class Ctype(Enum):
     """
-    CtypeEnum
+    Ctype
 
     Ctype
 
@@ -77,30 +65,24 @@ class CtypeEnum(Enum):
 
     """
 
-    ctype_null = 0
+    ctype_null = Enum.YLeaf(0, "ctype-null")
 
-    ctype_ipv4 = 1
+    ctype_ipv4 = Enum.YLeaf(1, "ctype-ipv4")
 
-    ctype_ipv4_p2p_tunnel = 7
+    ctype_ipv4_p2p_tunnel = Enum.YLeaf(7, "ctype-ipv4-p2p-tunnel")
 
-    ctype_ipv6_p2p_tunnel = 8
+    ctype_ipv6_p2p_tunnel = Enum.YLeaf(8, "ctype-ipv6-p2p-tunnel")
 
-    ctype_ipv4_uni = 9
+    ctype_ipv4_uni = Enum.YLeaf(9, "ctype-ipv4-uni")
 
-    ctype_ipv4_p2mp_tunnel = 13
+    ctype_ipv4_p2mp_tunnel = Enum.YLeaf(13, "ctype-ipv4-p2mp-tunnel")
 
-    ctype_ipv6_p2mp_tunnel = 14
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['CtypeEnum']
+    ctype_ipv6_p2mp_tunnel = Enum.YLeaf(14, "ctype-ipv6-p2mp-tunnel")
 
 
-class MplsTeAffinityValueEnum(Enum):
+class MplsTeAffinityValue(Enum):
     """
-    MplsTeAffinityValueEnum
+    MplsTeAffinityValue
 
     Mpls te affinity value
 
@@ -114,20 +96,14 @@ class MplsTeAffinityValueEnum(Enum):
 
     """
 
-    hex_value = 1
+    hex_value = Enum.YLeaf(1, "hex-value")
 
-    bit_position = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeAffinityValueEnum']
+    bit_position = Enum.YLeaf(2, "bit-position")
 
 
-class MplsTeAttrSetEnum(Enum):
+class MplsTeAttrSet(Enum):
     """
-    MplsTeAttrSetEnum
+    MplsTeAttrSet
 
     Mpls te attr set
 
@@ -173,36 +149,30 @@ class MplsTeAttrSetEnum(Enum):
 
     """
 
-    not_used = 0
+    not_used = Enum.YLeaf(0, "not-used")
 
-    static = 1
+    static = Enum.YLeaf(1, "static")
 
-    lsp = 2
+    lsp = Enum.YLeaf(2, "lsp")
 
-    unassigned = 3
+    unassigned = Enum.YLeaf(3, "unassigned")
 
-    auto_backup = 4
+    auto_backup = Enum.YLeaf(4, "auto-backup")
 
-    auto_mesh = 5
+    auto_mesh = Enum.YLeaf(5, "auto-mesh")
 
-    xro = 6
+    xro = Enum.YLeaf(6, "xro")
 
-    p2mp_te = 7
+    p2mp_te = Enum.YLeaf(7, "p2mp-te")
 
-    otn_pp = 8
+    otn_pp = Enum.YLeaf(8, "otn-pp")
 
-    p2p_te = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeAttrSetEnum']
+    p2p_te = Enum.YLeaf(9, "p2p-te")
 
 
-class MplsTeAutorouteMetricEnum(Enum):
+class MplsTeAutorouteMetric(Enum):
     """
-    MplsTeAutorouteMetricEnum
+    MplsTeAutorouteMetric
 
     Mpls te autoroute metric
 
@@ -220,22 +190,16 @@ class MplsTeAutorouteMetricEnum(Enum):
 
     """
 
-    relative = 1
+    relative = Enum.YLeaf(1, "relative")
 
-    absolute = 2
+    absolute = Enum.YLeaf(2, "absolute")
 
-    constant = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeAutorouteMetricEnum']
+    constant = Enum.YLeaf(3, "constant")
 
 
-class MplsTeBackupBandwidthClassEnum(Enum):
+class MplsTeBackupBandwidthClass(Enum):
     """
-    MplsTeBackupBandwidthClassEnum
+    MplsTeBackupBandwidthClass
 
     Mpls te backup bandwidth class
 
@@ -253,22 +217,16 @@ class MplsTeBackupBandwidthClassEnum(Enum):
 
     """
 
-    class0 = 0
+    class0 = Enum.YLeaf(0, "class0")
 
-    class1 = 1
+    class1 = Enum.YLeaf(1, "class1")
 
-    any_class = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBackupBandwidthClassEnum']
+    any_class = Enum.YLeaf(9, "any-class")
 
 
-class MplsTeBackupBandwidthPoolEnum(Enum):
+class MplsTeBackupBandwidthPool(Enum):
     """
-    MplsTeBackupBandwidthPoolEnum
+    MplsTeBackupBandwidthPool
 
     Mpls te backup bandwidth pool
 
@@ -286,22 +244,16 @@ class MplsTeBackupBandwidthPoolEnum(Enum):
 
     """
 
-    any_pool = 1
+    any_pool = Enum.YLeaf(1, "any-pool")
 
-    global_pool = 2
+    global_pool = Enum.YLeaf(2, "global-pool")
 
-    sub_pool = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBackupBandwidthPoolEnum']
+    sub_pool = Enum.YLeaf(4, "sub-pool")
 
 
-class MplsTeBandwidthDsteEnum(Enum):
+class MplsTeBandwidthDste(Enum):
     """
-    MplsTeBandwidthDsteEnum
+    MplsTeBandwidthDste
 
     Mpls te bandwidth dste
 
@@ -315,20 +267,14 @@ class MplsTeBandwidthDsteEnum(Enum):
 
     """
 
-    standard_dste = 0
+    standard_dste = Enum.YLeaf(0, "standard-dste")
 
-    pre_standard_dste = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBandwidthDsteEnum']
+    pre_standard_dste = Enum.YLeaf(1, "pre-standard-dste")
 
 
-class MplsTeBandwidthLimitEnum(Enum):
+class MplsTeBandwidthLimit(Enum):
     """
-    MplsTeBandwidthLimitEnum
+    MplsTeBandwidthLimit
 
     Mpls te bandwidth limit
 
@@ -342,20 +288,14 @@ class MplsTeBandwidthLimitEnum(Enum):
 
     """
 
-    unlimited = 64
+    unlimited = Enum.YLeaf(64, "unlimited")
 
-    limited = 128
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBandwidthLimitEnum']
+    limited = Enum.YLeaf(128, "limited")
 
 
-class MplsTeBandwidthPoolEnum(Enum):
+class MplsTeBandwidthPool(Enum):
     """
-    MplsTeBandwidthPoolEnum
+    MplsTeBandwidthPool
 
     Mpls te bandwidth pool
 
@@ -369,20 +309,14 @@ class MplsTeBandwidthPoolEnum(Enum):
 
     """
 
-    any_pool = 0
+    any_pool = Enum.YLeaf(0, "any-pool")
 
-    sub_pool = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBandwidthPoolEnum']
+    sub_pool = Enum.YLeaf(1, "sub-pool")
 
 
-class MplsTeBfdSessionDownActionEnum(Enum):
+class MplsTeBfdSessionDownAction(Enum):
     """
-    MplsTeBfdSessionDownActionEnum
+    MplsTeBfdSessionDownAction
 
     Mpls te bfd session down action
 
@@ -392,18 +326,12 @@ class MplsTeBfdSessionDownActionEnum(Enum):
 
     """
 
-    re_setup = 1
+    re_setup = Enum.YLeaf(1, "re-setup")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeBfdSessionDownActionEnum']
-
-
-class MplsTeIgpProtocolEnum(Enum):
+class MplsTeIgpProtocol(Enum):
     """
-    MplsTeIgpProtocolEnum
+    MplsTeIgpProtocol
 
     Mpls te igp protocol
 
@@ -421,22 +349,16 @@ class MplsTeIgpProtocolEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    isis = 1
+    isis = Enum.YLeaf(1, "isis")
 
-    ospf = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeIgpProtocolEnum']
+    ospf = Enum.YLeaf(2, "ospf")
 
 
-class MplsTeLogFrrProtectionEnum(Enum):
+class MplsTeLogFrrProtection(Enum):
     """
-    MplsTeLogFrrProtectionEnum
+    MplsTeLogFrrProtection
 
     Mpls te log frr protection
 
@@ -462,26 +384,20 @@ class MplsTeLogFrrProtectionEnum(Enum):
 
     """
 
-    frr_active_primary = 1
+    frr_active_primary = Enum.YLeaf(1, "frr-active-primary")
 
-    backup = 256
+    backup = Enum.YLeaf(256, "backup")
 
-    frr_ready_primary = 512
+    frr_ready_primary = Enum.YLeaf(512, "frr-ready-primary")
 
-    primary = 513
+    primary = Enum.YLeaf(513, "primary")
 
-    all = 769
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeLogFrrProtectionEnum']
+    all = Enum.YLeaf(769, "all")
 
 
-class MplsTeOtnApsProtectionEnum(Enum):
+class MplsTeOtnApsProtection(Enum):
     """
-    MplsTeOtnApsProtectionEnum
+    MplsTeOtnApsProtection
 
     Mpls te otn aps protection
 
@@ -499,22 +415,16 @@ class MplsTeOtnApsProtectionEnum(Enum):
 
     """
 
-    Y_1plus1_unidir_no_aps = 4
+    Y_1plus1_unidir_no_aps = Enum.YLeaf(4, "1plus1-unidir-no-aps")
 
-    Y_1plus1_unidir_aps = 8
+    Y_1plus1_unidir_aps = Enum.YLeaf(8, "1plus1-unidir-aps")
 
-    Y_1plus1_bdir_aps = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeOtnApsProtectionEnum']
+    Y_1plus1_bdir_aps = Enum.YLeaf(16, "1plus1-bdir-aps")
 
 
-class MplsTeOtnApsProtectionModeEnum(Enum):
+class MplsTeOtnApsProtectionMode(Enum):
     """
-    MplsTeOtnApsProtectionModeEnum
+    MplsTeOtnApsProtectionMode
 
     Mpls te otn aps protection mode
 
@@ -528,20 +438,14 @@ class MplsTeOtnApsProtectionModeEnum(Enum):
 
     """
 
-    revertive = 1
+    revertive = Enum.YLeaf(1, "revertive")
 
-    non_revertive = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeOtnApsProtectionModeEnum']
+    non_revertive = Enum.YLeaf(2, "non-revertive")
 
 
-class MplsTeOtnApsRestorationStyleEnum(Enum):
+class MplsTeOtnApsRestorationStyle(Enum):
     """
-    MplsTeOtnApsRestorationStyleEnum
+    MplsTeOtnApsRestorationStyle
 
     Mpls te otn aps restoration style
 
@@ -555,20 +459,14 @@ class MplsTeOtnApsRestorationStyleEnum(Enum):
 
     """
 
-    keep_failed_lsp = 1
+    keep_failed_lsp = Enum.YLeaf(1, "keep-failed-lsp")
 
-    delete_failed_lsp = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeOtnApsRestorationStyleEnum']
+    delete_failed_lsp = Enum.YLeaf(2, "delete-failed-lsp")
 
 
-class MplsTeOtnSncModeEnum(Enum):
+class MplsTeOtnSncMode(Enum):
     """
-    MplsTeOtnSncModeEnum
+    MplsTeOtnSncMode
 
     Mpls te otn snc mode
 
@@ -586,22 +484,16 @@ class MplsTeOtnSncModeEnum(Enum):
 
     """
 
-    snc_n = 1
+    snc_n = Enum.YLeaf(1, "snc-n")
 
-    snc_i = 2
+    snc_i = Enum.YLeaf(2, "snc-i")
 
-    snc_s = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeOtnSncModeEnum']
+    snc_s = Enum.YLeaf(3, "snc-s")
 
 
-class MplsTePathDiversityConformanceEnum(Enum):
+class MplsTePathDiversityConformance(Enum):
     """
-    MplsTePathDiversityConformanceEnum
+    MplsTePathDiversityConformance
 
     Mpls te path diversity conformance
 
@@ -615,20 +507,14 @@ class MplsTePathDiversityConformanceEnum(Enum):
 
     """
 
-    strict = 0
+    strict = Enum.YLeaf(0, "strict")
 
-    best_effort = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathDiversityConformanceEnum']
+    best_effort = Enum.YLeaf(1, "best-effort")
 
 
-class MplsTePathOptionEnum(Enum):
+class MplsTePathOption(Enum):
     """
-    MplsTePathOptionEnum
+    MplsTePathOption
 
     Mpls te path option
 
@@ -658,28 +544,22 @@ class MplsTePathOptionEnum(Enum):
 
     """
 
-    not_set = 0
+    not_set = Enum.YLeaf(0, "not-set")
 
-    dynamic = 1
+    dynamic = Enum.YLeaf(1, "dynamic")
 
-    explicit_name = 3
+    explicit_name = Enum.YLeaf(3, "explicit-name")
 
-    explicit_number = 4
+    explicit_number = Enum.YLeaf(4, "explicit-number")
 
-    no_ero = 5
+    no_ero = Enum.YLeaf(5, "no-ero")
 
-    sr = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathOptionEnum']
+    sr = Enum.YLeaf(6, "sr")
 
 
-class MplsTePathOptionPropertyEnum(Enum):
+class MplsTePathOptionProperty(Enum):
     """
-    MplsTePathOptionPropertyEnum
+    MplsTePathOptionProperty
 
     Mpls te path option property
 
@@ -707,26 +587,20 @@ class MplsTePathOptionPropertyEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    lockdown = 1
+    lockdown = Enum.YLeaf(1, "lockdown")
 
-    verbatim = 4
+    verbatim = Enum.YLeaf(4, "verbatim")
 
-    pce = 8
+    pce = Enum.YLeaf(8, "pce")
 
-    segment_routing = 16
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathOptionPropertyEnum']
+    segment_routing = Enum.YLeaf(16, "segment-routing")
 
 
-class MplsTePathOptionProtectionEnum(Enum):
+class MplsTePathOptionProtection(Enum):
     """
-    MplsTePathOptionProtectionEnum
+    MplsTePathOptionProtection
 
     Mpls te path option protection
 
@@ -740,20 +614,14 @@ class MplsTePathOptionProtectionEnum(Enum):
 
     """
 
-    active = 0
+    active = Enum.YLeaf(0, "active")
 
-    protecting = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathOptionProtectionEnum']
+    protecting = Enum.YLeaf(1, "protecting")
 
 
-class MplsTePathSelectionInvalidationTimerExpireEnum(Enum):
+class MplsTePathSelectionInvalidationTimerExpire(Enum):
     """
-    MplsTePathSelectionInvalidationTimerExpireEnum
+    MplsTePathSelectionInvalidationTimerExpire
 
     Mpls te path selection invalidation timer expire
 
@@ -767,20 +635,14 @@ class MplsTePathSelectionInvalidationTimerExpireEnum(Enum):
 
     """
 
-    tunnel_action_tear = 1
+    tunnel_action_tear = Enum.YLeaf(1, "tunnel-action-tear")
 
-    tunnel_action_drop = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionInvalidationTimerExpireEnum']
+    tunnel_action_drop = Enum.YLeaf(2, "tunnel-action-drop")
 
 
-class MplsTePathSelectionMetricEnum(Enum):
+class MplsTePathSelectionMetric(Enum):
     """
-    MplsTePathSelectionMetricEnum
+    MplsTePathSelectionMetric
 
     Mpls te path selection metric
 
@@ -798,22 +660,16 @@ class MplsTePathSelectionMetricEnum(Enum):
 
     """
 
-    igp = 1
+    igp = Enum.YLeaf(1, "igp")
 
-    te = 2
+    te = Enum.YLeaf(2, "te")
 
-    delay = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionMetricEnum']
+    delay = Enum.YLeaf(4, "delay")
 
 
-class MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum(Enum):
+class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
     """
-    MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum
+    MplsTePathSelectionSegmentRoutingAdjacencyProtection
 
     Mpls te path selection segment routing adjacency
 
@@ -837,22 +693,16 @@ class MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum(Enum):
 
     """
 
-    not_set = 0
+    not_set = Enum.YLeaf(0, "not-set")
 
-    adj_unprotected = 1
+    adj_unprotected = Enum.YLeaf(1, "adj-unprotected")
 
-    adj_protected = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum']
+    adj_protected = Enum.YLeaf(2, "adj-protected")
 
 
-class MplsTePathSelectionTiebreakerEnum(Enum):
+class MplsTePathSelectionTiebreaker(Enum):
     """
-    MplsTePathSelectionTiebreakerEnum
+    MplsTePathSelectionTiebreaker
 
     Mpls te path selection tiebreaker
 
@@ -870,22 +720,16 @@ class MplsTePathSelectionTiebreakerEnum(Enum):
 
     """
 
-    min_fill = 1
+    min_fill = Enum.YLeaf(1, "min-fill")
 
-    max_fill = 2
+    max_fill = Enum.YLeaf(2, "max-fill")
 
-    random = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTePathSelectionTiebreakerEnum']
+    random = Enum.YLeaf(3, "random")
 
 
-class MplsTeSigNameOptionEnum(Enum):
+class MplsTeSigNameOption(Enum):
     """
-    MplsTeSigNameOptionEnum
+    MplsTeSigNameOption
 
     Mpls te sig name option
 
@@ -903,22 +747,16 @@ class MplsTeSigNameOptionEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    address = 1
+    address = Enum.YLeaf(1, "address")
 
-    name = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeSigNameOptionEnum']
+    name = Enum.YLeaf(2, "name")
 
 
-class MplsTeSwitchingCapEnum(Enum):
+class MplsTeSwitchingCap(Enum):
     """
-    MplsTeSwitchingCapEnum
+    MplsTeSwitchingCap
 
     Mpls te switching cap
 
@@ -936,22 +774,16 @@ class MplsTeSwitchingCapEnum(Enum):
 
     """
 
-    psc1 = 1
+    psc1 = Enum.YLeaf(1, "psc1")
 
-    lsc = 150
+    lsc = Enum.YLeaf(150, "lsc")
 
-    fsc = 200
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeSwitchingCapEnum']
+    fsc = Enum.YLeaf(200, "fsc")
 
 
-class MplsTeTunnelAffinityEnum(Enum):
+class MplsTeTunnelAffinity(Enum):
     """
-    MplsTeTunnelAffinityEnum
+    MplsTeTunnelAffinity
 
     Mpls te tunnel affinity
 
@@ -977,26 +809,20 @@ class MplsTeTunnelAffinityEnum(Enum):
 
     """
 
-    include = 1
+    include = Enum.YLeaf(1, "include")
 
-    include_strict = 2
+    include_strict = Enum.YLeaf(2, "include-strict")
 
-    exclude = 3
+    exclude = Enum.YLeaf(3, "exclude")
 
-    exclude_all = 4
+    exclude_all = Enum.YLeaf(4, "exclude-all")
 
-    ignore = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTeTunnelAffinityEnum']
+    ignore = Enum.YLeaf(5, "ignore")
 
 
-class MplsTesrlgExcludeEnum(Enum):
+class MplsTesrlgExclude(Enum):
     """
-    MplsTesrlgExcludeEnum
+    MplsTesrlgExclude
 
     Mpls tesrlg exclude
 
@@ -1014,22 +840,16 @@ class MplsTesrlgExcludeEnum(Enum):
 
     """
 
-    mandatory = 1
+    mandatory = Enum.YLeaf(1, "mandatory")
 
-    preferred = 2
+    preferred = Enum.YLeaf(2, "preferred")
 
-    weighted = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['MplsTesrlgExcludeEnum']
+    weighted = Enum.YLeaf(3, "weighted")
 
 
-class PathInvalidationActionEnum(Enum):
+class PathInvalidationAction(Enum):
     """
-    PathInvalidationActionEnum
+    PathInvalidationAction
 
     Path invalidation action
 
@@ -1043,20 +863,14 @@ class PathInvalidationActionEnum(Enum):
 
     """
 
-    tear = 1
+    tear = Enum.YLeaf(1, "tear")
 
-    drop = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['PathInvalidationActionEnum']
+    drop = Enum.YLeaf(2, "drop")
 
 
-class SrPrependEnum(Enum):
+class SrPrepend(Enum):
     """
-    SrPrependEnum
+    SrPrepend
 
     Sr prepend
 
@@ -1074,17 +888,11 @@ class SrPrependEnum(Enum):
 
     """
 
-    none_type = 0
+    none_type = Enum.YLeaf(0, "none-type")
 
-    next_label = 1
+    next_label = Enum.YLeaf(1, "next-label")
 
-    bgp_n_hop = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
-        return meta._meta_table['SrPrependEnum']
+    bgp_n_hop = Enum.YLeaf(2, "bgp-n-hop")
 
 
 

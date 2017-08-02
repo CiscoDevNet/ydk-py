@@ -149,22 +149,16 @@ Some of the key features of this MIB are\:
          or on demand.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class CdcfileformatEnum(Enum):
+class Cdcfileformat(Enum):
     """
-    CdcfileformatEnum
+    Cdcfileformat
 
     The file formats supported are\:
 
@@ -374,22 +368,16 @@ class CdcfileformatEnum(Enum):
 
     """
 
-    cdcBulkASCII = 1
+    cdcBulkASCII = Enum.YLeaf(1, "cdcBulkASCII")
 
-    cdcBulkBinary = 2
+    cdcBulkBinary = Enum.YLeaf(2, "cdcBulkBinary")
 
-    cdcSchemaASCII = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-        return meta._meta_table['CdcfileformatEnum']
+    cdcSchemaASCII = Enum.YLeaf(3, "cdcSchemaASCII")
 
 
-class CdcfilexferstatusEnum(Enum):
+class Cdcfilexferstatus(Enum):
     """
-    CdcfilexferstatusEnum
+    Cdcfilexferstatus
 
     The status of a file transfer. The different values are given
 
@@ -445,33 +433,27 @@ class CdcfilexferstatusEnum(Enum):
 
     """
 
-    notStarted = 1
+    notStarted = Enum.YLeaf(1, "notStarted")
 
-    success = 2
+    success = Enum.YLeaf(2, "success")
 
-    aborted = 3
+    aborted = Enum.YLeaf(3, "aborted")
 
-    fileOpenFailRemote = 4
+    fileOpenFailRemote = Enum.YLeaf(4, "fileOpenFailRemote")
 
-    badDomainName = 5
+    badDomainName = Enum.YLeaf(5, "badDomainName")
 
-    unreachableIpAddress = 6
+    unreachableIpAddress = Enum.YLeaf(6, "unreachableIpAddress")
 
-    networkFailed = 7
+    networkFailed = Enum.YLeaf(7, "networkFailed")
 
-    fileWriteFailed = 8
+    fileWriteFailed = Enum.YLeaf(8, "fileWriteFailed")
 
-    authFailed = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-        return meta._meta_table['CdcfilexferstatusEnum']
+    authFailed = Enum.YLeaf(9, "authFailed")
 
 
 
-class CiscoDataCollectionMib(object):
+class CiscoDataCollectionMib(Entity):
     """
     
     
@@ -518,23 +500,49 @@ class CiscoDataCollectionMib(object):
     _revision = '2002-10-30'
 
     def __init__(self):
+        super(CiscoDataCollectionMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-DATA-COLLECTION-MIB"
+        self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+
         self.cdcdgbaseobjecttable = CiscoDataCollectionMib.Cdcdgbaseobjecttable()
         self.cdcdgbaseobjecttable.parent = self
+        self._children_name_map["cdcdgbaseobjecttable"] = "cdcDGBaseObjectTable"
+        self._children_yang_names.add("cdcDGBaseObjectTable")
+
         self.cdcdginstancetable = CiscoDataCollectionMib.Cdcdginstancetable()
         self.cdcdginstancetable.parent = self
+        self._children_name_map["cdcdginstancetable"] = "cdcDGInstanceTable"
+        self._children_yang_names.add("cdcDGInstanceTable")
+
         self.cdcdgtable = CiscoDataCollectionMib.Cdcdgtable()
         self.cdcdgtable.parent = self
+        self._children_name_map["cdcdgtable"] = "cdcDGTable"
+        self._children_yang_names.add("cdcDGTable")
+
         self.cdcfilexferconftable = CiscoDataCollectionMib.Cdcfilexferconftable()
         self.cdcfilexferconftable.parent = self
+        self._children_name_map["cdcfilexferconftable"] = "cdcFileXferConfTable"
+        self._children_yang_names.add("cdcFileXferConfTable")
+
         self.cdcvfile = CiscoDataCollectionMib.Cdcvfile()
         self.cdcvfile.parent = self
+        self._children_name_map["cdcvfile"] = "cdcVFile"
+        self._children_yang_names.add("cdcVFile")
+
         self.cdcvfilemgmttable = CiscoDataCollectionMib.Cdcvfilemgmttable()
         self.cdcvfilemgmttable.parent = self
+        self._children_name_map["cdcvfilemgmttable"] = "cdcVFileMgmtTable"
+        self._children_yang_names.add("cdcVFileMgmtTable")
+
         self.cdcvfiletable = CiscoDataCollectionMib.Cdcvfiletable()
         self.cdcvfiletable.parent = self
+        self._children_name_map["cdcvfiletable"] = "cdcVFileTable"
+        self._children_yang_names.add("cdcVFileTable")
 
 
-    class Cdcvfile(object):
+    class Cdcvfile(Entity):
         """
         
         
@@ -558,35 +566,97 @@ class CiscoDataCollectionMib(object):
         _revision = '2002-10-30'
 
         def __init__(self):
-            self.parent = None
-            self.cdcvfilemaxsizehitslimit = None
-            self.cdcvfilepersistentstorage = None
+            super(CiscoDataCollectionMib.Cdcvfile, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cdcVFile"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
 
-            return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcVFile'
+            self.cdcvfilemaxsizehitslimit = YLeaf(YType.uint32, "cdcVFileMaxSizeHitsLimit")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cdcvfilepersistentstorage = YLeaf(YType.boolean, "cdcVFilePersistentStorage")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cdcvfilemaxsizehitslimit",
+                            "cdcvfilepersistentstorage") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDataCollectionMib.Cdcvfile, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDataCollectionMib.Cdcvfile, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cdcvfilemaxsizehitslimit.is_set or
+                self.cdcvfilepersistentstorage.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cdcvfilemaxsizehitslimit.yfilter != YFilter.not_set or
+                self.cdcvfilepersistentstorage.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdcVFile" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cdcvfilemaxsizehitslimit.is_set or self.cdcvfilemaxsizehitslimit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdcvfilemaxsizehitslimit.get_name_leafdata())
+            if (self.cdcvfilepersistentstorage.is_set or self.cdcvfilepersistentstorage.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cdcvfilepersistentstorage.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdcVFileMaxSizeHitsLimit" or name == "cdcVFilePersistentStorage"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cdcvfilemaxsizehitslimit is not None:
-                return True
-
-            if self.cdcvfilepersistentstorage is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-            return meta._meta_table['CiscoDataCollectionMib.Cdcvfile']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cdcVFileMaxSizeHitsLimit"):
+                self.cdcvfilemaxsizehitslimit = value
+                self.cdcvfilemaxsizehitslimit.value_namespace = name_space
+                self.cdcvfilemaxsizehitslimit.value_namespace_prefix = name_space_prefix
+            if(value_path == "cdcVFilePersistentStorage"):
+                self.cdcvfilepersistentstorage = value
+                self.cdcvfilepersistentstorage.value_namespace = name_space
+                self.cdcvfilepersistentstorage.value_namespace_prefix = name_space_prefix
 
 
-    class Cdcvfiletable(object):
+    class Cdcvfiletable(Entity):
         """
         A table for setting up VFiles for collecting data.
         
@@ -603,13 +673,39 @@ class CiscoDataCollectionMib(object):
         _revision = '2002-10-30'
 
         def __init__(self):
-            self.parent = None
-            self.cdcvfileentry = YList()
-            self.cdcvfileentry.parent = self
-            self.cdcvfileentry.name = 'cdcvfileentry'
+            super(CiscoDataCollectionMib.Cdcvfiletable, self).__init__()
+
+            self.yang_name = "cdcVFileTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+
+            self.cdcvfileentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDataCollectionMib.Cdcvfiletable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDataCollectionMib.Cdcvfiletable, self).__setattr__(name, value)
 
 
-        class Cdcvfileentry(object):
+        class Cdcvfileentry(Entity):
             """
             An entry in the cdcVFileTable. Each entry contains
             application specified configuration that is used to create
@@ -636,7 +732,7 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcvfileadminstatus
             
             	A control object to indicate the administratively desired state of data collection for this entry. On setting the value to 'disabled' data collection operations for this  entry are stopped, the current VFile is frozen and it's  transfer is initiated.   Modifying the value of cdcVFileAdminStatus to 'disabled' does not remove or change the current configuration as represented by the active rows in this table
-            	**type**\:   :py:class:`CdcvfileadminstatusEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfileadminstatusEnum>`
+            	**type**\:   :py:class:`Cdcvfileadminstatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.Cdcvfileadminstatus>`
             
             .. attribute:: cdcvfilecollectionerrorenable
             
@@ -655,12 +751,12 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcvfilecollectmode
             
             	Determines the mode of data collection.  'auto'         Data is periodically fetched for all data                groups associated with this entry. This is                done at data group specific periodic intervals                (cdcDGPollPeriod).                The data thus collected, is formatted and                stored into the current VFile.                  In addition at regular intervals (see                cdcVFileCollectPeriod) a new VFile                 is created to store data, and the current                VFile is frozen and transferred.  'manual'       Data for all data groups is fetched and                collected into the current VFile only when                 cdcVFileCommand is set to 'collectNow'.   This object's value cannot be modified while the entry is in the 'activated' state
-            	**type**\:   :py:class:`CdcvfilecollectmodeEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfilecollectmodeEnum>`
+            	**type**\:   :py:class:`Cdcvfilecollectmode <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.Cdcvfilecollectmode>`
             
             .. attribute:: cdcvfilecommand
             
             	An object for controlling collection of data.  'idle'            Indicates that no command is in progress.  'swapToNewFile'   When written, the current VFile is frozen,                   and a new VFile is created for collecting                   data. 		   If the data collection mode is automatic                   (see cdcVFileCollectMode), then the current                    collection interval is stopped and a new                   collection interval is started  		   (see cdcVFileCollectPeriod).                      'collectNow'      When written, base object values for                   all associated data groups are fetched                    and stored into the current VFile. This                   value can only be written when the                   collection mode is 'manual' (see                    cdcVFileCollectMode)
-            	**type**\:   :py:class:`CdcvfilecommandEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfilecommandEnum>`
+            	**type**\:   :py:class:`Cdcvfilecommand <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.Cdcvfilecommand>`
             
             .. attribute:: cdcvfilecurrentsize
             
@@ -679,12 +775,12 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcvfileerrorcode
             
             	A value indicating the type of error that has occurred during data collection operations for this entry.  noError                The value is 'noError' when                        the corresponding value of                        cdcVFileOperStatus is not 'error'.  otherError             Any error other than one of the                         following listed errors.  noSpace                There is no space left to write into                        the current VFile.   openError              Could not open VFile for writing. One                        possible reason could be the existence                        of another file by the same name in                        the agent's filesystem.   tooSmallMaxSize        Indicates that cdcVFileMaxSize is                         too small for data collection. The                         cdcVFileMaxSize configured for this                        VFile is not sufficient even to hold                         the data collected in one poll.  tooManyMaxSizeHits     Indicates that data collection                        operations are stopped because                        the value of cdcVFileMaxSizeHitsLimit                        has been exceeded.   noResource             Some kind of resource was unavailable                        while collecting data. For                        e.g. unavailability of dynamic memory
-            	**type**\:   :py:class:`CdcvfileerrorcodeEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfileerrorcodeEnum>`
+            	**type**\:   :py:class:`Cdcvfileerrorcode <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.Cdcvfileerrorcode>`
             
             .. attribute:: cdcvfileformat
             
             	The format in which data is stored into the current VFile.  This object's value cannot be modified while the entry is in the 'activated' state
-            	**type**\:   :py:class:`CdcfileformatEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CdcfileformatEnum>`
+            	**type**\:   :py:class:`Cdcfileformat <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.Cdcfileformat>`
             
             .. attribute:: cdcvfilemaxsize
             
@@ -705,7 +801,7 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcvfileoperstatus
             
             	A status object to indicate the operational state of collection for this entry.  When the value of cdcVFileAdminStatus is modified to be 'enabled', the value of this object will change to 'enabled' providing it is possible to begin collecting data. If at any point of time data cannot be collected because of some error, then the value of this object is changed to 'error' and all collection operations stop, as if cdcVFileAdminStatus has been set to 'disabled'. More information about the nature of the error can be obtained by retrieving the value of cdcVFileErrorCode.   When the value of cdcVFileAdminStatus is modified to be 'disabled', the value of this object will change to 'disabled' and data collection operations are stopped for this entry
-            	**type**\:   :py:class:`CdcvfileoperstatusEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfileoperstatusEnum>`
+            	**type**\:   :py:class:`Cdcvfileoperstatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.Cdcvfileoperstatus>`
             
             .. attribute:: cdcvfileretentionperiod
             
@@ -719,7 +815,7 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcvfilerowstatus
             
             	The status of this conceptual row.  A valid cdcVFileName is only mandatory object for setting this object to 'active'. But collection of data in to active vfile starts only on setting cdcVFileAdminStatus  to 'enabled'. Setting this object to 'destroy' stops all data collection operations for this entry, deletes all VFiles and removes this entry from cdcVFileTable
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -729,26 +825,82 @@ class CiscoDataCollectionMib(object):
             _revision = '2002-10-30'
 
             def __init__(self):
-                self.parent = None
-                self.cdcvfileindex = None
-                self.cdcvfileadminstatus = None
-                self.cdcvfilecollectionerrorenable = None
-                self.cdcvfilecollectionperiod = None
-                self.cdcvfilecollectmode = None
-                self.cdcvfilecommand = None
-                self.cdcvfilecurrentsize = None
-                self.cdcvfiledescription = None
-                self.cdcvfileerrorcode = None
-                self.cdcvfileformat = None
-                self.cdcvfilemaxsize = None
-                self.cdcvfilename = None
-                self.cdcvfileoperstatus = None
-                self.cdcvfileretentionperiod = None
-                self.cdcvfilerowstatus = None
+                super(CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry, self).__init__()
 
-            class CdcvfileadminstatusEnum(Enum):
+                self.yang_name = "cdcVFileEntry"
+                self.yang_parent_name = "cdcVFileTable"
+
+                self.cdcvfileindex = YLeaf(YType.uint32, "cdcVFileIndex")
+
+                self.cdcvfileadminstatus = YLeaf(YType.enumeration, "cdcVFileAdminStatus")
+
+                self.cdcvfilecollectionerrorenable = YLeaf(YType.boolean, "cdcVFileCollectionErrorEnable")
+
+                self.cdcvfilecollectionperiod = YLeaf(YType.uint32, "cdcVFileCollectionPeriod")
+
+                self.cdcvfilecollectmode = YLeaf(YType.enumeration, "cdcVFileCollectMode")
+
+                self.cdcvfilecommand = YLeaf(YType.enumeration, "cdcVFileCommand")
+
+                self.cdcvfilecurrentsize = YLeaf(YType.uint32, "cdcVFileCurrentSize")
+
+                self.cdcvfiledescription = YLeaf(YType.str, "cdcVFileDescription")
+
+                self.cdcvfileerrorcode = YLeaf(YType.enumeration, "cdcVFileErrorCode")
+
+                self.cdcvfileformat = YLeaf(YType.enumeration, "cdcVFileFormat")
+
+                self.cdcvfilemaxsize = YLeaf(YType.uint32, "cdcVFileMaxSize")
+
+                self.cdcvfilename = YLeaf(YType.str, "cdcVFileName")
+
+                self.cdcvfileoperstatus = YLeaf(YType.enumeration, "cdcVFileOperStatus")
+
+                self.cdcvfileretentionperiod = YLeaf(YType.uint32, "cdcVFileRetentionPeriod")
+
+                self.cdcvfilerowstatus = YLeaf(YType.enumeration, "cdcVFileRowStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdcvfileindex",
+                                "cdcvfileadminstatus",
+                                "cdcvfilecollectionerrorenable",
+                                "cdcvfilecollectionperiod",
+                                "cdcvfilecollectmode",
+                                "cdcvfilecommand",
+                                "cdcvfilecurrentsize",
+                                "cdcvfiledescription",
+                                "cdcvfileerrorcode",
+                                "cdcvfileformat",
+                                "cdcvfilemaxsize",
+                                "cdcvfilename",
+                                "cdcvfileoperstatus",
+                                "cdcvfileretentionperiod",
+                                "cdcvfilerowstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry, self).__setattr__(name, value)
+
+            class Cdcvfileadminstatus(Enum):
                 """
-                CdcvfileadminstatusEnum
+                Cdcvfileadminstatus
 
                 A control object to indicate the administratively desired
 
@@ -772,20 +924,14 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfileadminstatusEnum']
+                disabled = Enum.YLeaf(2, "disabled")
 
 
-            class CdcvfilecollectmodeEnum(Enum):
+            class Cdcvfilecollectmode(Enum):
                 """
-                CdcvfilecollectmodeEnum
+                Cdcvfilecollectmode
 
                 Determines the mode of data collection.
 
@@ -825,20 +971,14 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                auto = 1
+                auto = Enum.YLeaf(1, "auto")
 
-                manual = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfilecollectmodeEnum']
+                manual = Enum.YLeaf(2, "manual")
 
 
-            class CdcvfilecommandEnum(Enum):
+            class Cdcvfilecommand(Enum):
                 """
-                CdcvfilecommandEnum
+                Cdcvfilecommand
 
                 An object for controlling collection of data.
 
@@ -880,22 +1020,16 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                idle = 1
+                idle = Enum.YLeaf(1, "idle")
 
-                swapToNewFile = 2
+                swapToNewFile = Enum.YLeaf(2, "swapToNewFile")
 
-                collectNow = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfilecommandEnum']
+                collectNow = Enum.YLeaf(3, "collectNow")
 
 
-            class CdcvfileerrorcodeEnum(Enum):
+            class Cdcvfileerrorcode(Enum):
                 """
-                CdcvfileerrorcodeEnum
+                Cdcvfileerrorcode
 
                 A value indicating the type of error that has occurred during
 
@@ -963,30 +1097,24 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                noError = 1
+                noError = Enum.YLeaf(1, "noError")
 
-                otherError = 2
+                otherError = Enum.YLeaf(2, "otherError")
 
-                noSpace = 3
+                noSpace = Enum.YLeaf(3, "noSpace")
 
-                openError = 4
+                openError = Enum.YLeaf(4, "openError")
 
-                tooSmallMaxSize = 5
+                tooSmallMaxSize = Enum.YLeaf(5, "tooSmallMaxSize")
 
-                tooManyMaxSizeHits = 6
+                tooManyMaxSizeHits = Enum.YLeaf(6, "tooManyMaxSizeHits")
 
-                noResource = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfileerrorcodeEnum']
+                noResource = Enum.YLeaf(7, "noResource")
 
 
-            class CdcvfileoperstatusEnum(Enum):
+            class Cdcvfileoperstatus(Enum):
                 """
-                CdcvfileoperstatusEnum
+                Cdcvfileoperstatus
 
                 A status object to indicate the operational state of
 
@@ -1026,107 +1154,231 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
+                disabled = Enum.YLeaf(2, "disabled")
 
-                error = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry.CdcvfileoperstatusEnum']
+                error = Enum.YLeaf(3, "error")
 
 
-            @property
-            def _common_path(self):
-                if self.cdcvfileindex is None:
-                    raise YPYModelError('Key property cdcvfileindex is None')
+            def has_data(self):
+                return (
+                    self.cdcvfileindex.is_set or
+                    self.cdcvfileadminstatus.is_set or
+                    self.cdcvfilecollectionerrorenable.is_set or
+                    self.cdcvfilecollectionperiod.is_set or
+                    self.cdcvfilecollectmode.is_set or
+                    self.cdcvfilecommand.is_set or
+                    self.cdcvfilecurrentsize.is_set or
+                    self.cdcvfiledescription.is_set or
+                    self.cdcvfileerrorcode.is_set or
+                    self.cdcvfileformat.is_set or
+                    self.cdcvfilemaxsize.is_set or
+                    self.cdcvfilename.is_set or
+                    self.cdcvfileoperstatus.is_set or
+                    self.cdcvfileretentionperiod.is_set or
+                    self.cdcvfilerowstatus.is_set)
 
-                return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcVFileTable/CISCO-DATA-COLLECTION-MIB:cdcVFileEntry[CISCO-DATA-COLLECTION-MIB:cdcVFileIndex = ' + str(self.cdcvfileindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdcvfileindex.yfilter != YFilter.not_set or
+                    self.cdcvfileadminstatus.yfilter != YFilter.not_set or
+                    self.cdcvfilecollectionerrorenable.yfilter != YFilter.not_set or
+                    self.cdcvfilecollectionperiod.yfilter != YFilter.not_set or
+                    self.cdcvfilecollectmode.yfilter != YFilter.not_set or
+                    self.cdcvfilecommand.yfilter != YFilter.not_set or
+                    self.cdcvfilecurrentsize.yfilter != YFilter.not_set or
+                    self.cdcvfiledescription.yfilter != YFilter.not_set or
+                    self.cdcvfileerrorcode.yfilter != YFilter.not_set or
+                    self.cdcvfileformat.yfilter != YFilter.not_set or
+                    self.cdcvfilemaxsize.yfilter != YFilter.not_set or
+                    self.cdcvfilename.yfilter != YFilter.not_set or
+                    self.cdcvfileoperstatus.yfilter != YFilter.not_set or
+                    self.cdcvfileretentionperiod.yfilter != YFilter.not_set or
+                    self.cdcvfilerowstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdcVFileEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdcvfileindex.is_set or self.cdcvfileindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileindex.get_name_leafdata())
+                if (self.cdcvfileadminstatus.is_set or self.cdcvfileadminstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileadminstatus.get_name_leafdata())
+                if (self.cdcvfilecollectionerrorenable.is_set or self.cdcvfilecollectionerrorenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilecollectionerrorenable.get_name_leafdata())
+                if (self.cdcvfilecollectionperiod.is_set or self.cdcvfilecollectionperiod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilecollectionperiod.get_name_leafdata())
+                if (self.cdcvfilecollectmode.is_set or self.cdcvfilecollectmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilecollectmode.get_name_leafdata())
+                if (self.cdcvfilecommand.is_set or self.cdcvfilecommand.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilecommand.get_name_leafdata())
+                if (self.cdcvfilecurrentsize.is_set or self.cdcvfilecurrentsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilecurrentsize.get_name_leafdata())
+                if (self.cdcvfiledescription.is_set or self.cdcvfiledescription.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfiledescription.get_name_leafdata())
+                if (self.cdcvfileerrorcode.is_set or self.cdcvfileerrorcode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileerrorcode.get_name_leafdata())
+                if (self.cdcvfileformat.is_set or self.cdcvfileformat.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileformat.get_name_leafdata())
+                if (self.cdcvfilemaxsize.is_set or self.cdcvfilemaxsize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemaxsize.get_name_leafdata())
+                if (self.cdcvfilename.is_set or self.cdcvfilename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilename.get_name_leafdata())
+                if (self.cdcvfileoperstatus.is_set or self.cdcvfileoperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileoperstatus.get_name_leafdata())
+                if (self.cdcvfileretentionperiod.is_set or self.cdcvfileretentionperiod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileretentionperiod.get_name_leafdata())
+                if (self.cdcvfilerowstatus.is_set or self.cdcvfilerowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilerowstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdcVFileIndex" or name == "cdcVFileAdminStatus" or name == "cdcVFileCollectionErrorEnable" or name == "cdcVFileCollectionPeriod" or name == "cdcVFileCollectMode" or name == "cdcVFileCommand" or name == "cdcVFileCurrentSize" or name == "cdcVFileDescription" or name == "cdcVFileErrorCode" or name == "cdcVFileFormat" or name == "cdcVFileMaxSize" or name == "cdcVFileName" or name == "cdcVFileOperStatus" or name == "cdcVFileRetentionPeriod" or name == "cdcVFileRowStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdcvfileindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdcVFileIndex"):
+                    self.cdcvfileindex = value
+                    self.cdcvfileindex.value_namespace = name_space
+                    self.cdcvfileindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileAdminStatus"):
+                    self.cdcvfileadminstatus = value
+                    self.cdcvfileadminstatus.value_namespace = name_space
+                    self.cdcvfileadminstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileCollectionErrorEnable"):
+                    self.cdcvfilecollectionerrorenable = value
+                    self.cdcvfilecollectionerrorenable.value_namespace = name_space
+                    self.cdcvfilecollectionerrorenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileCollectionPeriod"):
+                    self.cdcvfilecollectionperiod = value
+                    self.cdcvfilecollectionperiod.value_namespace = name_space
+                    self.cdcvfilecollectionperiod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileCollectMode"):
+                    self.cdcvfilecollectmode = value
+                    self.cdcvfilecollectmode.value_namespace = name_space
+                    self.cdcvfilecollectmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileCommand"):
+                    self.cdcvfilecommand = value
+                    self.cdcvfilecommand.value_namespace = name_space
+                    self.cdcvfilecommand.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileCurrentSize"):
+                    self.cdcvfilecurrentsize = value
+                    self.cdcvfilecurrentsize.value_namespace = name_space
+                    self.cdcvfilecurrentsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileDescription"):
+                    self.cdcvfiledescription = value
+                    self.cdcvfiledescription.value_namespace = name_space
+                    self.cdcvfiledescription.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileErrorCode"):
+                    self.cdcvfileerrorcode = value
+                    self.cdcvfileerrorcode.value_namespace = name_space
+                    self.cdcvfileerrorcode.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileFormat"):
+                    self.cdcvfileformat = value
+                    self.cdcvfileformat.value_namespace = name_space
+                    self.cdcvfileformat.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMaxSize"):
+                    self.cdcvfilemaxsize = value
+                    self.cdcvfilemaxsize.value_namespace = name_space
+                    self.cdcvfilemaxsize.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileName"):
+                    self.cdcvfilename = value
+                    self.cdcvfilename.value_namespace = name_space
+                    self.cdcvfilename.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileOperStatus"):
+                    self.cdcvfileoperstatus = value
+                    self.cdcvfileoperstatus.value_namespace = name_space
+                    self.cdcvfileoperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileRetentionPeriod"):
+                    self.cdcvfileretentionperiod = value
+                    self.cdcvfileretentionperiod.value_namespace = name_space
+                    self.cdcvfileretentionperiod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileRowStatus"):
+                    self.cdcvfilerowstatus = value
+                    self.cdcvfilerowstatus.value_namespace = name_space
+                    self.cdcvfilerowstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdcvfileentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdcvfileadminstatus is not None:
-                    return True
-
-                if self.cdcvfilecollectionerrorenable is not None:
-                    return True
-
-                if self.cdcvfilecollectionperiod is not None:
-                    return True
-
-                if self.cdcvfilecollectmode is not None:
-                    return True
-
-                if self.cdcvfilecommand is not None:
-                    return True
-
-                if self.cdcvfilecurrentsize is not None:
-                    return True
-
-                if self.cdcvfiledescription is not None:
-                    return True
-
-                if self.cdcvfileerrorcode is not None:
-                    return True
-
-                if self.cdcvfileformat is not None:
-                    return True
-
-                if self.cdcvfilemaxsize is not None:
-                    return True
-
-                if self.cdcvfilename is not None:
-                    return True
-
-                if self.cdcvfileoperstatus is not None:
-                    return True
-
-                if self.cdcvfileretentionperiod is not None:
-                    return True
-
-                if self.cdcvfilerowstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                return meta._meta_table['CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcVFileTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdcvfileentry is not None:
-                for child_ref in self.cdcvfileentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdcvfileentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdcVFileTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdcVFileEntry"):
+                for c in self.cdcvfileentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDataCollectionMib.Cdcvfiletable.Cdcvfileentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdcvfileentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdcVFileEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-            return meta._meta_table['CiscoDataCollectionMib.Cdcvfiletable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdcvfilemgmttable(object):
+    class Cdcvfilemgmttable(Entity):
         """
         A table to manage frozen VFiles.
         
@@ -1143,13 +1395,39 @@ class CiscoDataCollectionMib(object):
         _revision = '2002-10-30'
 
         def __init__(self):
-            self.parent = None
-            self.cdcvfilemgmtentry = YList()
-            self.cdcvfilemgmtentry.parent = self
-            self.cdcvfilemgmtentry.name = 'cdcvfilemgmtentry'
+            super(CiscoDataCollectionMib.Cdcvfilemgmttable, self).__init__()
+
+            self.yang_name = "cdcVFileMgmtTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+
+            self.cdcvfilemgmtentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDataCollectionMib.Cdcvfilemgmttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDataCollectionMib.Cdcvfilemgmttable, self).__setattr__(name, value)
 
 
-        class Cdcvfilemgmtentry(object):
+        class Cdcvfilemgmtentry(Entity):
             """
             An entry in cdcVFileMgmtTable. Each entry corresponds to a
             frozen VFile. An entry is created in this table, whenever a
@@ -1184,12 +1462,12 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcvfilemgmtcommand
             
             	A control to manage VFiles.   idle           This value can be only be read. It indicates                that no management action is currently being                performed on this VFile.  delete         This value is only written, and is used to                delete the frozen VFile. Writing this value                will cause this entry to be removed from this                table.   transfer       This value can be both read and written.                When read it means that the VFile is in the                process of being transferred. When written, it                initiates a transfer for the VFile.  abortTransfer  This value can only be written, and is used                to abort an ongoing transfer
-            	**type**\:   :py:class:`CdcvfilemgmtcommandEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry.CdcvfilemgmtcommandEnum>`
+            	**type**\:   :py:class:`Cdcvfilemgmtcommand <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry.Cdcvfilemgmtcommand>`
             
             .. attribute:: cdcvfilemgmtlastxferstatus
             
             	Indicates the status of the last completed transfer
-            	**type**\:   :py:class:`CdcfilexferstatusEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CdcfilexferstatusEnum>`
+            	**type**\:   :py:class:`Cdcfilexferstatus <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.Cdcfilexferstatus>`
             
             .. attribute:: cdcvfilemgmtlastxferurl
             
@@ -1232,20 +1510,64 @@ class CiscoDataCollectionMib(object):
             _revision = '2002-10-30'
 
             def __init__(self):
-                self.parent = None
-                self.cdcvfileindex = None
-                self.cdcvfilemgmtindex = None
-                self.cdcvfilemgmtcommand = None
-                self.cdcvfilemgmtlastxferstatus = None
-                self.cdcvfilemgmtlastxferurl = None
-                self.cdcvfilemgmtname = None
-                self.cdcvfilemgmttimestamp = None
-                self.cdcvfilemgmttimetolive = None
-                self.cdcvfilemgmtxferurl = None
+                super(CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry, self).__init__()
 
-            class CdcvfilemgmtcommandEnum(Enum):
+                self.yang_name = "cdcVFileMgmtEntry"
+                self.yang_parent_name = "cdcVFileMgmtTable"
+
+                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
+
+                self.cdcvfilemgmtindex = YLeaf(YType.uint32, "cdcVFileMgmtIndex")
+
+                self.cdcvfilemgmtcommand = YLeaf(YType.enumeration, "cdcVFileMgmtCommand")
+
+                self.cdcvfilemgmtlastxferstatus = YLeaf(YType.enumeration, "cdcVFileMgmtLastXferStatus")
+
+                self.cdcvfilemgmtlastxferurl = YLeaf(YType.str, "cdcVFileMgmtLastXferURL")
+
+                self.cdcvfilemgmtname = YLeaf(YType.str, "cdcVFileMgmtName")
+
+                self.cdcvfilemgmttimestamp = YLeaf(YType.str, "cdcVFileMgmtTimestamp")
+
+                self.cdcvfilemgmttimetolive = YLeaf(YType.uint32, "cdcVFileMgmtTimeToLive")
+
+                self.cdcvfilemgmtxferurl = YLeaf(YType.str, "cdcVFileMgmtXferURL")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdcvfileindex",
+                                "cdcvfilemgmtindex",
+                                "cdcvfilemgmtcommand",
+                                "cdcvfilemgmtlastxferstatus",
+                                "cdcvfilemgmtlastxferurl",
+                                "cdcvfilemgmtname",
+                                "cdcvfilemgmttimestamp",
+                                "cdcvfilemgmttimetolive",
+                                "cdcvfilemgmtxferurl") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry, self).__setattr__(name, value)
+
+            class Cdcvfilemgmtcommand(Enum):
                 """
-                CdcvfilemgmtcommandEnum
+                Cdcvfilemgmtcommand
 
                 A control to manage VFiles. 
 
@@ -1285,93 +1607,185 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                idle = 1
+                idle = Enum.YLeaf(1, "idle")
 
-                delete = 2
+                delete = Enum.YLeaf(2, "delete")
 
-                transfer = 3
+                transfer = Enum.YLeaf(3, "transfer")
 
-                abortTransfer = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry.CdcvfilemgmtcommandEnum']
+                abortTransfer = Enum.YLeaf(4, "abortTransfer")
 
 
-            @property
-            def _common_path(self):
-                if self.cdcvfileindex is None:
-                    raise YPYModelError('Key property cdcvfileindex is None')
-                if self.cdcvfilemgmtindex is None:
-                    raise YPYModelError('Key property cdcvfilemgmtindex is None')
+            def has_data(self):
+                return (
+                    self.cdcvfileindex.is_set or
+                    self.cdcvfilemgmtindex.is_set or
+                    self.cdcvfilemgmtcommand.is_set or
+                    self.cdcvfilemgmtlastxferstatus.is_set or
+                    self.cdcvfilemgmtlastxferurl.is_set or
+                    self.cdcvfilemgmtname.is_set or
+                    self.cdcvfilemgmttimestamp.is_set or
+                    self.cdcvfilemgmttimetolive.is_set or
+                    self.cdcvfilemgmtxferurl.is_set)
 
-                return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcVFileMgmtTable/CISCO-DATA-COLLECTION-MIB:cdcVFileMgmtEntry[CISCO-DATA-COLLECTION-MIB:cdcVFileIndex = ' + str(self.cdcvfileindex) + '][CISCO-DATA-COLLECTION-MIB:cdcVFileMgmtIndex = ' + str(self.cdcvfilemgmtindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdcvfileindex.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmtindex.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmtcommand.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmtlastxferstatus.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmtlastxferurl.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmtname.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmttimestamp.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmttimetolive.yfilter != YFilter.not_set or
+                    self.cdcvfilemgmtxferurl.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']" + "[cdcVFileMgmtIndex='" + self.cdcvfilemgmtindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileMgmtTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdcvfileindex.is_set or self.cdcvfileindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileindex.get_name_leafdata())
+                if (self.cdcvfilemgmtindex.is_set or self.cdcvfilemgmtindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmtindex.get_name_leafdata())
+                if (self.cdcvfilemgmtcommand.is_set or self.cdcvfilemgmtcommand.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmtcommand.get_name_leafdata())
+                if (self.cdcvfilemgmtlastxferstatus.is_set or self.cdcvfilemgmtlastxferstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmtlastxferstatus.get_name_leafdata())
+                if (self.cdcvfilemgmtlastxferurl.is_set or self.cdcvfilemgmtlastxferurl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmtlastxferurl.get_name_leafdata())
+                if (self.cdcvfilemgmtname.is_set or self.cdcvfilemgmtname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmtname.get_name_leafdata())
+                if (self.cdcvfilemgmttimestamp.is_set or self.cdcvfilemgmttimestamp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmttimestamp.get_name_leafdata())
+                if (self.cdcvfilemgmttimetolive.is_set or self.cdcvfilemgmttimetolive.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmttimetolive.get_name_leafdata())
+                if (self.cdcvfilemgmtxferurl.is_set or self.cdcvfilemgmtxferurl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfilemgmtxferurl.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdcVFileIndex" or name == "cdcVFileMgmtIndex" or name == "cdcVFileMgmtCommand" or name == "cdcVFileMgmtLastXferStatus" or name == "cdcVFileMgmtLastXferURL" or name == "cdcVFileMgmtName" or name == "cdcVFileMgmtTimestamp" or name == "cdcVFileMgmtTimeToLive" or name == "cdcVFileMgmtXferURL"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdcvfileindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdcVFileIndex"):
+                    self.cdcvfileindex = value
+                    self.cdcvfileindex.value_namespace = name_space
+                    self.cdcvfileindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtIndex"):
+                    self.cdcvfilemgmtindex = value
+                    self.cdcvfilemgmtindex.value_namespace = name_space
+                    self.cdcvfilemgmtindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtCommand"):
+                    self.cdcvfilemgmtcommand = value
+                    self.cdcvfilemgmtcommand.value_namespace = name_space
+                    self.cdcvfilemgmtcommand.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtLastXferStatus"):
+                    self.cdcvfilemgmtlastxferstatus = value
+                    self.cdcvfilemgmtlastxferstatus.value_namespace = name_space
+                    self.cdcvfilemgmtlastxferstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtLastXferURL"):
+                    self.cdcvfilemgmtlastxferurl = value
+                    self.cdcvfilemgmtlastxferurl.value_namespace = name_space
+                    self.cdcvfilemgmtlastxferurl.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtName"):
+                    self.cdcvfilemgmtname = value
+                    self.cdcvfilemgmtname.value_namespace = name_space
+                    self.cdcvfilemgmtname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtTimestamp"):
+                    self.cdcvfilemgmttimestamp = value
+                    self.cdcvfilemgmttimestamp.value_namespace = name_space
+                    self.cdcvfilemgmttimestamp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtTimeToLive"):
+                    self.cdcvfilemgmttimetolive = value
+                    self.cdcvfilemgmttimetolive.value_namespace = name_space
+                    self.cdcvfilemgmttimetolive.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcVFileMgmtXferURL"):
+                    self.cdcvfilemgmtxferurl = value
+                    self.cdcvfilemgmtxferurl.value_namespace = name_space
+                    self.cdcvfilemgmtxferurl.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdcvfilemgmtentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdcvfilemgmtindex is not None:
-                    return True
-
-                if self.cdcvfilemgmtcommand is not None:
-                    return True
-
-                if self.cdcvfilemgmtlastxferstatus is not None:
-                    return True
-
-                if self.cdcvfilemgmtlastxferurl is not None:
-                    return True
-
-                if self.cdcvfilemgmtname is not None:
-                    return True
-
-                if self.cdcvfilemgmttimestamp is not None:
-                    return True
-
-                if self.cdcvfilemgmttimetolive is not None:
-                    return True
-
-                if self.cdcvfilemgmtxferurl is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                return meta._meta_table['CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcVFileMgmtTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdcvfilemgmtentry is not None:
-                for child_ref in self.cdcvfilemgmtentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdcvfilemgmtentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdcVFileMgmtTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdcVFileMgmtEntry"):
+                for c in self.cdcvfilemgmtentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDataCollectionMib.Cdcvfilemgmttable.Cdcvfilemgmtentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdcvfilemgmtentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdcVFileMgmtEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-            return meta._meta_table['CiscoDataCollectionMib.Cdcvfilemgmttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdcdgtable(object):
+    class Cdcdgtable(Entity):
         """
         A table for specifying data groups.
         
@@ -1388,13 +1802,39 @@ class CiscoDataCollectionMib(object):
         _revision = '2002-10-30'
 
         def __init__(self):
-            self.parent = None
-            self.cdcdgentry = YList()
-            self.cdcdgentry.parent = self
-            self.cdcdgentry.name = 'cdcdgentry'
+            super(CiscoDataCollectionMib.Cdcdgtable, self).__init__()
+
+            self.yang_name = "cdcDGTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+
+            self.cdcdgentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDataCollectionMib.Cdcdgtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDataCollectionMib.Cdcdgtable, self).__setattr__(name, value)
 
 
-        class Cdcdgentry(object):
+        class Cdcdgentry(Entity):
             """
             An entry in this table. Each entry corresponds to a data
             group. A data group is used to select data that needs to be
@@ -1463,7 +1903,7 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcdgrowstatus
             
             	The status of this conceptual row.  This object cannot be set to 'active' until values have been assigned to  cdcDGVFileIndex & cdcDGColGrpIndex
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cdcdgtargettag
             
@@ -1473,7 +1913,7 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcdgtype
             
             	Identifies the type of this data group. object         Data is a single MIB object. The fully                instantiated OID is specified in                cdcDGBaseObject.  table          Data is a logical table. The columns of                this table correspond to the base objects                specified in cdcDGBaseObjectTable, and the                rows correspond to the values of the instances                specified in cdcDGInstanceTable.  This object's value cannot be modified while the value of cdcDGRowStatus is 'active'
-            	**type**\:   :py:class:`CdcdgtypeEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry.CdcdgtypeEnum>`
+            	**type**\:   :py:class:`Cdcdgtype <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry.Cdcdgtype>`
             
             .. attribute:: cdcdgvfileindex
             
@@ -1490,22 +1930,70 @@ class CiscoDataCollectionMib(object):
             _revision = '2002-10-30'
 
             def __init__(self):
-                self.parent = None
-                self.cdcdgindex = None
-                self.cdcdgcomment = None
-                self.cdcdgcontextname = None
-                self.cdcdginstgrpindex = None
-                self.cdcdgobject = None
-                self.cdcdgobjectgrpindex = None
-                self.cdcdgpollperiod = None
-                self.cdcdgrowstatus = None
-                self.cdcdgtargettag = None
-                self.cdcdgtype = None
-                self.cdcdgvfileindex = None
+                super(CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry, self).__init__()
 
-            class CdcdgtypeEnum(Enum):
+                self.yang_name = "cdcDGEntry"
+                self.yang_parent_name = "cdcDGTable"
+
+                self.cdcdgindex = YLeaf(YType.uint32, "cdcDGIndex")
+
+                self.cdcdgcomment = YLeaf(YType.str, "cdcDGComment")
+
+                self.cdcdgcontextname = YLeaf(YType.str, "cdcDGContextName")
+
+                self.cdcdginstgrpindex = YLeaf(YType.uint32, "cdcDGInstGrpIndex")
+
+                self.cdcdgobject = YLeaf(YType.str, "cdcDGObject")
+
+                self.cdcdgobjectgrpindex = YLeaf(YType.uint32, "cdcDGObjectGrpIndex")
+
+                self.cdcdgpollperiod = YLeaf(YType.uint32, "cdcDGPollPeriod")
+
+                self.cdcdgrowstatus = YLeaf(YType.enumeration, "cdcDGRowStatus")
+
+                self.cdcdgtargettag = YLeaf(YType.str, "cdcDGTargetTag")
+
+                self.cdcdgtype = YLeaf(YType.enumeration, "cdcDGType")
+
+                self.cdcdgvfileindex = YLeaf(YType.uint32, "cdcDGVFileIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdcdgindex",
+                                "cdcdgcomment",
+                                "cdcdgcontextname",
+                                "cdcdginstgrpindex",
+                                "cdcdgobject",
+                                "cdcdgobjectgrpindex",
+                                "cdcdgpollperiod",
+                                "cdcdgrowstatus",
+                                "cdcdgtargettag",
+                                "cdcdgtype",
+                                "cdcdgvfileindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry, self).__setattr__(name, value)
+
+            class Cdcdgtype(Enum):
                 """
-                CdcdgtypeEnum
+                Cdcdgtype
 
                 Identifies the type of this data group.
 
@@ -1535,93 +2023,197 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                object = 1
+                object = Enum.YLeaf(1, "object")
 
-                table = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry.CdcdgtypeEnum']
+                table = Enum.YLeaf(2, "table")
 
 
-            @property
-            def _common_path(self):
-                if self.cdcdgindex is None:
-                    raise YPYModelError('Key property cdcdgindex is None')
+            def has_data(self):
+                return (
+                    self.cdcdgindex.is_set or
+                    self.cdcdgcomment.is_set or
+                    self.cdcdgcontextname.is_set or
+                    self.cdcdginstgrpindex.is_set or
+                    self.cdcdgobject.is_set or
+                    self.cdcdgobjectgrpindex.is_set or
+                    self.cdcdgpollperiod.is_set or
+                    self.cdcdgrowstatus.is_set or
+                    self.cdcdgtargettag.is_set or
+                    self.cdcdgtype.is_set or
+                    self.cdcdgvfileindex.is_set)
 
-                return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcDGTable/CISCO-DATA-COLLECTION-MIB:cdcDGEntry[CISCO-DATA-COLLECTION-MIB:cdcDGIndex = ' + str(self.cdcdgindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdcdgindex.yfilter != YFilter.not_set or
+                    self.cdcdgcomment.yfilter != YFilter.not_set or
+                    self.cdcdgcontextname.yfilter != YFilter.not_set or
+                    self.cdcdginstgrpindex.yfilter != YFilter.not_set or
+                    self.cdcdgobject.yfilter != YFilter.not_set or
+                    self.cdcdgobjectgrpindex.yfilter != YFilter.not_set or
+                    self.cdcdgpollperiod.yfilter != YFilter.not_set or
+                    self.cdcdgrowstatus.yfilter != YFilter.not_set or
+                    self.cdcdgtargettag.yfilter != YFilter.not_set or
+                    self.cdcdgtype.yfilter != YFilter.not_set or
+                    self.cdcdgvfileindex.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdcDGEntry" + "[cdcDGIndex='" + self.cdcdgindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdcdgindex.is_set or self.cdcdgindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgindex.get_name_leafdata())
+                if (self.cdcdgcomment.is_set or self.cdcdgcomment.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgcomment.get_name_leafdata())
+                if (self.cdcdgcontextname.is_set or self.cdcdgcontextname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgcontextname.get_name_leafdata())
+                if (self.cdcdginstgrpindex.is_set or self.cdcdginstgrpindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstgrpindex.get_name_leafdata())
+                if (self.cdcdgobject.is_set or self.cdcdgobject.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgobject.get_name_leafdata())
+                if (self.cdcdgobjectgrpindex.is_set or self.cdcdgobjectgrpindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgobjectgrpindex.get_name_leafdata())
+                if (self.cdcdgpollperiod.is_set or self.cdcdgpollperiod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgpollperiod.get_name_leafdata())
+                if (self.cdcdgrowstatus.is_set or self.cdcdgrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgrowstatus.get_name_leafdata())
+                if (self.cdcdgtargettag.is_set or self.cdcdgtargettag.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgtargettag.get_name_leafdata())
+                if (self.cdcdgtype.is_set or self.cdcdgtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgtype.get_name_leafdata())
+                if (self.cdcdgvfileindex.is_set or self.cdcdgvfileindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgvfileindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdcDGIndex" or name == "cdcDGComment" or name == "cdcDGContextName" or name == "cdcDGInstGrpIndex" or name == "cdcDGObject" or name == "cdcDGObjectGrpIndex" or name == "cdcDGPollPeriod" or name == "cdcDGRowStatus" or name == "cdcDGTargetTag" or name == "cdcDGType" or name == "cdcDGVFileIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdcdgindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdcDGIndex"):
+                    self.cdcdgindex = value
+                    self.cdcdgindex.value_namespace = name_space
+                    self.cdcdgindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGComment"):
+                    self.cdcdgcomment = value
+                    self.cdcdgcomment.value_namespace = name_space
+                    self.cdcdgcomment.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGContextName"):
+                    self.cdcdgcontextname = value
+                    self.cdcdgcontextname.value_namespace = name_space
+                    self.cdcdgcontextname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstGrpIndex"):
+                    self.cdcdginstgrpindex = value
+                    self.cdcdginstgrpindex.value_namespace = name_space
+                    self.cdcdginstgrpindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGObject"):
+                    self.cdcdgobject = value
+                    self.cdcdgobject.value_namespace = name_space
+                    self.cdcdgobject.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGObjectGrpIndex"):
+                    self.cdcdgobjectgrpindex = value
+                    self.cdcdgobjectgrpindex.value_namespace = name_space
+                    self.cdcdgobjectgrpindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGPollPeriod"):
+                    self.cdcdgpollperiod = value
+                    self.cdcdgpollperiod.value_namespace = name_space
+                    self.cdcdgpollperiod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGRowStatus"):
+                    self.cdcdgrowstatus = value
+                    self.cdcdgrowstatus.value_namespace = name_space
+                    self.cdcdgrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGTargetTag"):
+                    self.cdcdgtargettag = value
+                    self.cdcdgtargettag.value_namespace = name_space
+                    self.cdcdgtargettag.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGType"):
+                    self.cdcdgtype = value
+                    self.cdcdgtype.value_namespace = name_space
+                    self.cdcdgtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGVFileIndex"):
+                    self.cdcdgvfileindex = value
+                    self.cdcdgvfileindex.value_namespace = name_space
+                    self.cdcdgvfileindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdcdgentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdcdgcomment is not None:
-                    return True
-
-                if self.cdcdgcontextname is not None:
-                    return True
-
-                if self.cdcdginstgrpindex is not None:
-                    return True
-
-                if self.cdcdgobject is not None:
-                    return True
-
-                if self.cdcdgobjectgrpindex is not None:
-                    return True
-
-                if self.cdcdgpollperiod is not None:
-                    return True
-
-                if self.cdcdgrowstatus is not None:
-                    return True
-
-                if self.cdcdgtargettag is not None:
-                    return True
-
-                if self.cdcdgtype is not None:
-                    return True
-
-                if self.cdcdgvfileindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                return meta._meta_table['CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcDGTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdcdgentry is not None:
-                for child_ref in self.cdcdgentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdcdgentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdcDGTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdcDGEntry"):
+                for c in self.cdcdgentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDataCollectionMib.Cdcdgtable.Cdcdgentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdcdgentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdcDGEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-            return meta._meta_table['CiscoDataCollectionMib.Cdcdgtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdcdgbaseobjecttable(object):
+    class Cdcdgbaseobjecttable(Entity):
         """
         A table specifying the base objects of a 'table' type
         data group.
@@ -1639,13 +2231,39 @@ class CiscoDataCollectionMib(object):
         _revision = '2002-10-30'
 
         def __init__(self):
-            self.parent = None
-            self.cdcdgbaseobjectentry = YList()
-            self.cdcdgbaseobjectentry.parent = self
-            self.cdcdgbaseobjectentry.name = 'cdcdgbaseobjectentry'
+            super(CiscoDataCollectionMib.Cdcdgbaseobjecttable, self).__init__()
+
+            self.yang_name = "cdcDGBaseObjectTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+
+            self.cdcdgbaseobjectentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDataCollectionMib.Cdcdgbaseobjecttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDataCollectionMib.Cdcdgbaseobjecttable, self).__setattr__(name, value)
 
 
-        class Cdcdgbaseobjectentry(object):
+        class Cdcdgbaseobjectentry(Entity):
             """
             An individual entry in this table. Each entry is a 
             {subtree, list} tuple. Each tuple identifies a set of 
@@ -1675,7 +2293,7 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcdgbaseobjectrowstatus
             
             	The status of this conceptual row.  This object cannot be set to 'active' until values have been assigned to cdcDGBaseObjectSubtree & cdcDGBaseObjectList
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cdcdgbaseobjectsubtree
             
@@ -1692,73 +2310,187 @@ class CiscoDataCollectionMib(object):
             _revision = '2002-10-30'
 
             def __init__(self):
-                self.parent = None
-                self.cdcdgbaseobjectgrpindex = None
-                self.cdcdgbaseobjectindex = None
-                self.cdcdgbaseobjectlist = None
-                self.cdcdgbaseobjectrowstatus = None
-                self.cdcdgbaseobjectsubtree = None
+                super(CiscoDataCollectionMib.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdcdgbaseobjectgrpindex is None:
-                    raise YPYModelError('Key property cdcdgbaseobjectgrpindex is None')
-                if self.cdcdgbaseobjectindex is None:
-                    raise YPYModelError('Key property cdcdgbaseobjectindex is None')
+                self.yang_name = "cdcDGBaseObjectEntry"
+                self.yang_parent_name = "cdcDGBaseObjectTable"
 
-                return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcDGBaseObjectTable/CISCO-DATA-COLLECTION-MIB:cdcDGBaseObjectEntry[CISCO-DATA-COLLECTION-MIB:cdcDGBaseObjectGrpIndex = ' + str(self.cdcdgbaseobjectgrpindex) + '][CISCO-DATA-COLLECTION-MIB:cdcDGBaseObjectIndex = ' + str(self.cdcdgbaseobjectindex) + ']'
+                self.cdcdgbaseobjectgrpindex = YLeaf(YType.uint32, "cdcDGBaseObjectGrpIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdcdgbaseobjectindex = YLeaf(YType.uint32, "cdcDGBaseObjectIndex")
+
+                self.cdcdgbaseobjectlist = YLeaf(YType.str, "cdcDGBaseObjectList")
+
+                self.cdcdgbaseobjectrowstatus = YLeaf(YType.enumeration, "cdcDGBaseObjectRowStatus")
+
+                self.cdcdgbaseobjectsubtree = YLeaf(YType.str, "cdcDGBaseObjectSubtree")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdcdgbaseobjectgrpindex",
+                                "cdcdgbaseobjectindex",
+                                "cdcdgbaseobjectlist",
+                                "cdcdgbaseobjectrowstatus",
+                                "cdcdgbaseobjectsubtree") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDataCollectionMib.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDataCollectionMib.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdcdgbaseobjectgrpindex.is_set or
+                    self.cdcdgbaseobjectindex.is_set or
+                    self.cdcdgbaseobjectlist.is_set or
+                    self.cdcdgbaseobjectrowstatus.is_set or
+                    self.cdcdgbaseobjectsubtree.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdcdgbaseobjectgrpindex.yfilter != YFilter.not_set or
+                    self.cdcdgbaseobjectindex.yfilter != YFilter.not_set or
+                    self.cdcdgbaseobjectlist.yfilter != YFilter.not_set or
+                    self.cdcdgbaseobjectrowstatus.yfilter != YFilter.not_set or
+                    self.cdcdgbaseobjectsubtree.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + self.cdcdgbaseobjectgrpindex.get() + "']" + "[cdcDGBaseObjectIndex='" + self.cdcdgbaseobjectindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGBaseObjectTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdcdgbaseobjectgrpindex.is_set or self.cdcdgbaseobjectgrpindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgbaseobjectgrpindex.get_name_leafdata())
+                if (self.cdcdgbaseobjectindex.is_set or self.cdcdgbaseobjectindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgbaseobjectindex.get_name_leafdata())
+                if (self.cdcdgbaseobjectlist.is_set or self.cdcdgbaseobjectlist.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgbaseobjectlist.get_name_leafdata())
+                if (self.cdcdgbaseobjectrowstatus.is_set or self.cdcdgbaseobjectrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgbaseobjectrowstatus.get_name_leafdata())
+                if (self.cdcdgbaseobjectsubtree.is_set or self.cdcdgbaseobjectsubtree.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdgbaseobjectsubtree.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdcDGBaseObjectGrpIndex" or name == "cdcDGBaseObjectIndex" or name == "cdcDGBaseObjectList" or name == "cdcDGBaseObjectRowStatus" or name == "cdcDGBaseObjectSubtree"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdcdgbaseobjectgrpindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdcDGBaseObjectGrpIndex"):
+                    self.cdcdgbaseobjectgrpindex = value
+                    self.cdcdgbaseobjectgrpindex.value_namespace = name_space
+                    self.cdcdgbaseobjectgrpindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGBaseObjectIndex"):
+                    self.cdcdgbaseobjectindex = value
+                    self.cdcdgbaseobjectindex.value_namespace = name_space
+                    self.cdcdgbaseobjectindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGBaseObjectList"):
+                    self.cdcdgbaseobjectlist = value
+                    self.cdcdgbaseobjectlist.value_namespace = name_space
+                    self.cdcdgbaseobjectlist.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGBaseObjectRowStatus"):
+                    self.cdcdgbaseobjectrowstatus = value
+                    self.cdcdgbaseobjectrowstatus.value_namespace = name_space
+                    self.cdcdgbaseobjectrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGBaseObjectSubtree"):
+                    self.cdcdgbaseobjectsubtree = value
+                    self.cdcdgbaseobjectsubtree.value_namespace = name_space
+                    self.cdcdgbaseobjectsubtree.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdcdgbaseobjectentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdcdgbaseobjectindex is not None:
-                    return True
-
-                if self.cdcdgbaseobjectlist is not None:
-                    return True
-
-                if self.cdcdgbaseobjectrowstatus is not None:
-                    return True
-
-                if self.cdcdgbaseobjectsubtree is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                return meta._meta_table['CiscoDataCollectionMib.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcDGBaseObjectTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdcdgbaseobjectentry is not None:
-                for child_ref in self.cdcdgbaseobjectentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdcdgbaseobjectentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdcDGBaseObjectTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdcDGBaseObjectEntry"):
+                for c in self.cdcdgbaseobjectentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDataCollectionMib.Cdcdgbaseobjecttable.Cdcdgbaseobjectentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdcdgbaseobjectentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdcDGBaseObjectEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-            return meta._meta_table['CiscoDataCollectionMib.Cdcdgbaseobjecttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdcdginstancetable(object):
+    class Cdcdginstancetable(Entity):
         """
         Identifies the instances of the base objects that need to
         be fetched for a 'table' type data group.
@@ -1779,13 +2511,39 @@ class CiscoDataCollectionMib(object):
         _revision = '2002-10-30'
 
         def __init__(self):
-            self.parent = None
-            self.cdcdginstanceentry = YList()
-            self.cdcdginstanceentry.parent = self
-            self.cdcdginstanceentry.name = 'cdcdginstanceentry'
+            super(CiscoDataCollectionMib.Cdcdginstancetable, self).__init__()
+
+            self.yang_name = "cdcDGInstanceTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+
+            self.cdcdginstanceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDataCollectionMib.Cdcdginstancetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDataCollectionMib.Cdcdginstancetable, self).__setattr__(name, value)
 
 
-        class Cdcdginstanceentry(object):
+        class Cdcdginstanceentry(Entity):
             """
             An entry in this table. Each entry identifies one or more
             instances of the base objects that need to be fetched.
@@ -1836,12 +2594,12 @@ class CiscoDataCollectionMib(object):
             .. attribute:: cdcdginstancerowstatus
             
             	The status of this conceptual row
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cdcdginstancetype
             
             	Specifies the way in which the instances are to be used while collecting data.   individual     The value of cdcDGInstanceOid is                appended to each base object of the                associated data group, thus giving the exact                instance of the objects to be collected.  range          The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus giving the                starting object instance of the range.                The value of cdcDGInstanceEndOid                is appended to to each base object in the                associated data group, thus giving the                last object instances of the range.   repititions      The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus giving the                first object instance of the next 'n'                instances that need to be collected.                The value of 'n' is set in                cdcDGInstanceNumRepititions.  subTree        The value of cdcDGInstanceOid is                appended to each base object in the                associated data group, thus identifying the                OBJECT IDENTFIFIER sub\-tree, whose leaf                instances need to be collected.  other          The value of cdcDGInstanceOtherPtr points to a                row (in another MIB table) that contains MIB                specific instance selection criteria. A MIB                defined for such purposes should describe                the selection criteria.  This object's value cannot be modified while the value of cdcDGInstanceStatus is 'active'
-            	**type**\:   :py:class:`CdcdginstancetypeEnum <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry.CdcdginstancetypeEnum>`
+            	**type**\:   :py:class:`Cdcdginstancetype <ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB.CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry.Cdcdginstancetype>`
             
             
 
@@ -1851,19 +2609,61 @@ class CiscoDataCollectionMib(object):
             _revision = '2002-10-30'
 
             def __init__(self):
-                self.parent = None
-                self.cdcdginstancegrpindex = None
-                self.cdcdginstanceindex = None
-                self.cdcdginstancenumrepititions = None
-                self.cdcdginstanceoid = None
-                self.cdcdginstanceoidend = None
-                self.cdcdginstanceotherptr = None
-                self.cdcdginstancerowstatus = None
-                self.cdcdginstancetype = None
+                super(CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry, self).__init__()
 
-            class CdcdginstancetypeEnum(Enum):
+                self.yang_name = "cdcDGInstanceEntry"
+                self.yang_parent_name = "cdcDGInstanceTable"
+
+                self.cdcdginstancegrpindex = YLeaf(YType.uint32, "cdcDGInstanceGrpIndex")
+
+                self.cdcdginstanceindex = YLeaf(YType.uint32, "cdcDGInstanceIndex")
+
+                self.cdcdginstancenumrepititions = YLeaf(YType.uint32, "cdcDGInstanceNumRepititions")
+
+                self.cdcdginstanceoid = YLeaf(YType.str, "cdcDGInstanceOid")
+
+                self.cdcdginstanceoidend = YLeaf(YType.str, "cdcDGInstanceOidEnd")
+
+                self.cdcdginstanceotherptr = YLeaf(YType.str, "cdcDGInstanceOtherPtr")
+
+                self.cdcdginstancerowstatus = YLeaf(YType.enumeration, "cdcDGInstanceRowStatus")
+
+                self.cdcdginstancetype = YLeaf(YType.enumeration, "cdcDGInstanceType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdcdginstancegrpindex",
+                                "cdcdginstanceindex",
+                                "cdcdginstancenumrepititions",
+                                "cdcdginstanceoid",
+                                "cdcdginstanceoidend",
+                                "cdcdginstanceotherptr",
+                                "cdcdginstancerowstatus",
+                                "cdcdginstancetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry, self).__setattr__(name, value)
+
+            class Cdcdginstancetype(Enum):
                 """
-                CdcdginstancetypeEnum
+                Cdcdginstancetype
 
                 Specifies the way in which the instances are to be used while
 
@@ -1943,92 +2743,179 @@ class CiscoDataCollectionMib(object):
 
                 """
 
-                individual = 1
+                individual = Enum.YLeaf(1, "individual")
 
-                range = 2
+                range = Enum.YLeaf(2, "range")
 
-                repititions = 3
+                repititions = Enum.YLeaf(3, "repititions")
 
-                subTree = 4
+                subTree = Enum.YLeaf(4, "subTree")
 
-                other = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                    return meta._meta_table['CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry.CdcdginstancetypeEnum']
+                other = Enum.YLeaf(5, "other")
 
 
-            @property
-            def _common_path(self):
-                if self.cdcdginstancegrpindex is None:
-                    raise YPYModelError('Key property cdcdginstancegrpindex is None')
-                if self.cdcdginstanceindex is None:
-                    raise YPYModelError('Key property cdcdginstanceindex is None')
+            def has_data(self):
+                return (
+                    self.cdcdginstancegrpindex.is_set or
+                    self.cdcdginstanceindex.is_set or
+                    self.cdcdginstancenumrepititions.is_set or
+                    self.cdcdginstanceoid.is_set or
+                    self.cdcdginstanceoidend.is_set or
+                    self.cdcdginstanceotherptr.is_set or
+                    self.cdcdginstancerowstatus.is_set or
+                    self.cdcdginstancetype.is_set)
 
-                return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcDGInstanceTable/CISCO-DATA-COLLECTION-MIB:cdcDGInstanceEntry[CISCO-DATA-COLLECTION-MIB:cdcDGInstanceGrpIndex = ' + str(self.cdcdginstancegrpindex) + '][CISCO-DATA-COLLECTION-MIB:cdcDGInstanceIndex = ' + str(self.cdcdginstanceindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdcdginstancegrpindex.yfilter != YFilter.not_set or
+                    self.cdcdginstanceindex.yfilter != YFilter.not_set or
+                    self.cdcdginstancenumrepititions.yfilter != YFilter.not_set or
+                    self.cdcdginstanceoid.yfilter != YFilter.not_set or
+                    self.cdcdginstanceoidend.yfilter != YFilter.not_set or
+                    self.cdcdginstanceotherptr.yfilter != YFilter.not_set or
+                    self.cdcdginstancerowstatus.yfilter != YFilter.not_set or
+                    self.cdcdginstancetype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + self.cdcdginstancegrpindex.get() + "']" + "[cdcDGInstanceIndex='" + self.cdcdginstanceindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGInstanceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdcdginstancegrpindex.is_set or self.cdcdginstancegrpindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstancegrpindex.get_name_leafdata())
+                if (self.cdcdginstanceindex.is_set or self.cdcdginstanceindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstanceindex.get_name_leafdata())
+                if (self.cdcdginstancenumrepititions.is_set or self.cdcdginstancenumrepititions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstancenumrepititions.get_name_leafdata())
+                if (self.cdcdginstanceoid.is_set or self.cdcdginstanceoid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstanceoid.get_name_leafdata())
+                if (self.cdcdginstanceoidend.is_set or self.cdcdginstanceoidend.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstanceoidend.get_name_leafdata())
+                if (self.cdcdginstanceotherptr.is_set or self.cdcdginstanceotherptr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstanceotherptr.get_name_leafdata())
+                if (self.cdcdginstancerowstatus.is_set or self.cdcdginstancerowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstancerowstatus.get_name_leafdata())
+                if (self.cdcdginstancetype.is_set or self.cdcdginstancetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcdginstancetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdcDGInstanceGrpIndex" or name == "cdcDGInstanceIndex" or name == "cdcDGInstanceNumRepititions" or name == "cdcDGInstanceOid" or name == "cdcDGInstanceOidEnd" or name == "cdcDGInstanceOtherPtr" or name == "cdcDGInstanceRowStatus" or name == "cdcDGInstanceType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdcdginstancegrpindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdcDGInstanceGrpIndex"):
+                    self.cdcdginstancegrpindex = value
+                    self.cdcdginstancegrpindex.value_namespace = name_space
+                    self.cdcdginstancegrpindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstanceIndex"):
+                    self.cdcdginstanceindex = value
+                    self.cdcdginstanceindex.value_namespace = name_space
+                    self.cdcdginstanceindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstanceNumRepititions"):
+                    self.cdcdginstancenumrepititions = value
+                    self.cdcdginstancenumrepititions.value_namespace = name_space
+                    self.cdcdginstancenumrepititions.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstanceOid"):
+                    self.cdcdginstanceoid = value
+                    self.cdcdginstanceoid.value_namespace = name_space
+                    self.cdcdginstanceoid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstanceOidEnd"):
+                    self.cdcdginstanceoidend = value
+                    self.cdcdginstanceoidend.value_namespace = name_space
+                    self.cdcdginstanceoidend.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstanceOtherPtr"):
+                    self.cdcdginstanceotherptr = value
+                    self.cdcdginstanceotherptr.value_namespace = name_space
+                    self.cdcdginstanceotherptr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstanceRowStatus"):
+                    self.cdcdginstancerowstatus = value
+                    self.cdcdginstancerowstatus.value_namespace = name_space
+                    self.cdcdginstancerowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcDGInstanceType"):
+                    self.cdcdginstancetype = value
+                    self.cdcdginstancetype.value_namespace = name_space
+                    self.cdcdginstancetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdcdginstanceentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdcdginstanceindex is not None:
-                    return True
-
-                if self.cdcdginstancenumrepititions is not None:
-                    return True
-
-                if self.cdcdginstanceoid is not None:
-                    return True
-
-                if self.cdcdginstanceoidend is not None:
-                    return True
-
-                if self.cdcdginstanceotherptr is not None:
-                    return True
-
-                if self.cdcdginstancerowstatus is not None:
-                    return True
-
-                if self.cdcdginstancetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                return meta._meta_table['CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcDGInstanceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdcdginstanceentry is not None:
-                for child_ref in self.cdcdginstanceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdcdginstanceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdcDGInstanceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdcDGInstanceEntry"):
+                for c in self.cdcdginstanceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDataCollectionMib.Cdcdginstancetable.Cdcdginstanceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdcdginstanceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdcDGInstanceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-            return meta._meta_table['CiscoDataCollectionMib.Cdcdginstancetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cdcfilexferconftable(object):
+    class Cdcfilexferconftable(Entity):
         """
         A table for configuring file transfer operations.
         
@@ -2045,13 +2932,39 @@ class CiscoDataCollectionMib(object):
         _revision = '2002-10-30'
 
         def __init__(self):
-            self.parent = None
-            self.cdcfilexferconfentry = YList()
-            self.cdcfilexferconfentry.parent = self
-            self.cdcfilexferconfentry.name = 'cdcfilexferconfentry'
+            super(CiscoDataCollectionMib.Cdcfilexferconftable, self).__init__()
+
+            self.yang_name = "cdcFileXferConfTable"
+            self.yang_parent_name = "CISCO-DATA-COLLECTION-MIB"
+
+            self.cdcfilexferconfentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoDataCollectionMib.Cdcfilexferconftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoDataCollectionMib.Cdcfilexferconftable, self).__setattr__(name, value)
 
 
-        class Cdcfilexferconfentry(object):
+        class Cdcfilexferconfentry(Entity):
             """
             An individual entry in the cdcFileXferConfTable. Each entry
             identifies a primary and an optional secondary destination.
@@ -2126,113 +3039,310 @@ class CiscoDataCollectionMib(object):
             _revision = '2002-10-30'
 
             def __init__(self):
-                self.parent = None
-                self.cdcvfileindex = None
-                self.cdcfilexferconffailureenable = None
-                self.cdcfilexferconfpriurl = None
-                self.cdcfilexferconfretrycount = None
-                self.cdcfilexferconfretryperiod = None
-                self.cdcfilexferconfsecurl = None
-                self.cdcfilexferconfsuccessenable = None
+                super(CiscoDataCollectionMib.Cdcfilexferconftable.Cdcfilexferconfentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cdcvfileindex is None:
-                    raise YPYModelError('Key property cdcvfileindex is None')
+                self.yang_name = "cdcFileXferConfEntry"
+                self.yang_parent_name = "cdcFileXferConfTable"
 
-                return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcFileXferConfTable/CISCO-DATA-COLLECTION-MIB:cdcFileXferConfEntry[CISCO-DATA-COLLECTION-MIB:cdcVFileIndex = ' + str(self.cdcvfileindex) + ']'
+                self.cdcvfileindex = YLeaf(YType.str, "cdcVFileIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cdcfilexferconffailureenable = YLeaf(YType.boolean, "cdcFileXferConfFailureEnable")
+
+                self.cdcfilexferconfpriurl = YLeaf(YType.str, "cdcFileXferConfPriUrl")
+
+                self.cdcfilexferconfretrycount = YLeaf(YType.uint32, "cdcFileXferConfRetryCount")
+
+                self.cdcfilexferconfretryperiod = YLeaf(YType.uint32, "cdcFileXferConfRetryPeriod")
+
+                self.cdcfilexferconfsecurl = YLeaf(YType.str, "cdcFileXferConfSecUrl")
+
+                self.cdcfilexferconfsuccessenable = YLeaf(YType.boolean, "cdcFileXferConfSuccessEnable")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cdcvfileindex",
+                                "cdcfilexferconffailureenable",
+                                "cdcfilexferconfpriurl",
+                                "cdcfilexferconfretrycount",
+                                "cdcfilexferconfretryperiod",
+                                "cdcfilexferconfsecurl",
+                                "cdcfilexferconfsuccessenable") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoDataCollectionMib.Cdcfilexferconftable.Cdcfilexferconfentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoDataCollectionMib.Cdcfilexferconftable.Cdcfilexferconfentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cdcvfileindex.is_set or
+                    self.cdcfilexferconffailureenable.is_set or
+                    self.cdcfilexferconfpriurl.is_set or
+                    self.cdcfilexferconfretrycount.is_set or
+                    self.cdcfilexferconfretryperiod.is_set or
+                    self.cdcfilexferconfsecurl.is_set or
+                    self.cdcfilexferconfsuccessenable.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cdcvfileindex.yfilter != YFilter.not_set or
+                    self.cdcfilexferconffailureenable.yfilter != YFilter.not_set or
+                    self.cdcfilexferconfpriurl.yfilter != YFilter.not_set or
+                    self.cdcfilexferconfretrycount.yfilter != YFilter.not_set or
+                    self.cdcfilexferconfretryperiod.yfilter != YFilter.not_set or
+                    self.cdcfilexferconfsecurl.yfilter != YFilter.not_set or
+                    self.cdcfilexferconfsuccessenable.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cdcFileXferConfEntry" + "[cdcVFileIndex='" + self.cdcvfileindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcFileXferConfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cdcvfileindex.is_set or self.cdcvfileindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcvfileindex.get_name_leafdata())
+                if (self.cdcfilexferconffailureenable.is_set or self.cdcfilexferconffailureenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcfilexferconffailureenable.get_name_leafdata())
+                if (self.cdcfilexferconfpriurl.is_set or self.cdcfilexferconfpriurl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcfilexferconfpriurl.get_name_leafdata())
+                if (self.cdcfilexferconfretrycount.is_set or self.cdcfilexferconfretrycount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcfilexferconfretrycount.get_name_leafdata())
+                if (self.cdcfilexferconfretryperiod.is_set or self.cdcfilexferconfretryperiod.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcfilexferconfretryperiod.get_name_leafdata())
+                if (self.cdcfilexferconfsecurl.is_set or self.cdcfilexferconfsecurl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcfilexferconfsecurl.get_name_leafdata())
+                if (self.cdcfilexferconfsuccessenable.is_set or self.cdcfilexferconfsuccessenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cdcfilexferconfsuccessenable.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cdcVFileIndex" or name == "cdcFileXferConfFailureEnable" or name == "cdcFileXferConfPriUrl" or name == "cdcFileXferConfRetryCount" or name == "cdcFileXferConfRetryPeriod" or name == "cdcFileXferConfSecUrl" or name == "cdcFileXferConfSuccessEnable"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cdcvfileindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cdcVFileIndex"):
+                    self.cdcvfileindex = value
+                    self.cdcvfileindex.value_namespace = name_space
+                    self.cdcvfileindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcFileXferConfFailureEnable"):
+                    self.cdcfilexferconffailureenable = value
+                    self.cdcfilexferconffailureenable.value_namespace = name_space
+                    self.cdcfilexferconffailureenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcFileXferConfPriUrl"):
+                    self.cdcfilexferconfpriurl = value
+                    self.cdcfilexferconfpriurl.value_namespace = name_space
+                    self.cdcfilexferconfpriurl.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcFileXferConfRetryCount"):
+                    self.cdcfilexferconfretrycount = value
+                    self.cdcfilexferconfretrycount.value_namespace = name_space
+                    self.cdcfilexferconfretrycount.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcFileXferConfRetryPeriod"):
+                    self.cdcfilexferconfretryperiod = value
+                    self.cdcfilexferconfretryperiod.value_namespace = name_space
+                    self.cdcfilexferconfretryperiod.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcFileXferConfSecUrl"):
+                    self.cdcfilexferconfsecurl = value
+                    self.cdcfilexferconfsecurl.value_namespace = name_space
+                    self.cdcfilexferconfsecurl.value_namespace_prefix = name_space_prefix
+                if(value_path == "cdcFileXferConfSuccessEnable"):
+                    self.cdcfilexferconfsuccessenable = value
+                    self.cdcfilexferconfsuccessenable.value_namespace = name_space
+                    self.cdcfilexferconfsuccessenable.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cdcfilexferconfentry:
+                if (c.has_data()):
                     return True
-
-                if self.cdcfilexferconffailureenable is not None:
-                    return True
-
-                if self.cdcfilexferconfpriurl is not None:
-                    return True
-
-                if self.cdcfilexferconfretrycount is not None:
-                    return True
-
-                if self.cdcfilexferconfretryperiod is not None:
-                    return True
-
-                if self.cdcfilexferconfsecurl is not None:
-                    return True
-
-                if self.cdcfilexferconfsuccessenable is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-                return meta._meta_table['CiscoDataCollectionMib.Cdcfilexferconftable.Cdcfilexferconfentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/CISCO-DATA-COLLECTION-MIB:cdcFileXferConfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cdcfilexferconfentry is not None:
-                for child_ref in self.cdcfilexferconfentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cdcfilexferconfentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cdcFileXferConfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cdcFileXferConfEntry"):
+                for c in self.cdcfilexferconfentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoDataCollectionMib.Cdcfilexferconftable.Cdcfilexferconfentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cdcfilexferconfentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cdcFileXferConfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-            return meta._meta_table['CiscoDataCollectionMib.Cdcfilexferconftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cdcdgbaseobjecttable is not None and self.cdcdgbaseobjecttable.has_data()) or
+            (self.cdcdginstancetable is not None and self.cdcdginstancetable.has_data()) or
+            (self.cdcdgtable is not None and self.cdcdgtable.has_data()) or
+            (self.cdcfilexferconftable is not None and self.cdcfilexferconftable.has_data()) or
+            (self.cdcvfile is not None and self.cdcvfile.has_data()) or
+            (self.cdcvfilemgmttable is not None and self.cdcvfilemgmttable.has_data()) or
+            (self.cdcvfiletable is not None and self.cdcvfiletable.has_data()))
 
-        return '/CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cdcdgbaseobjecttable is not None and self.cdcdgbaseobjecttable.has_operation()) or
+            (self.cdcdginstancetable is not None and self.cdcdginstancetable.has_operation()) or
+            (self.cdcdgtable is not None and self.cdcdgtable.has_operation()) or
+            (self.cdcfilexferconftable is not None and self.cdcfilexferconftable.has_operation()) or
+            (self.cdcvfile is not None and self.cdcvfile.has_operation()) or
+            (self.cdcvfilemgmttable is not None and self.cdcvfilemgmttable.has_operation()) or
+            (self.cdcvfiletable is not None and self.cdcvfiletable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cdcDGBaseObjectTable"):
+            if (self.cdcdgbaseobjecttable is None):
+                self.cdcdgbaseobjecttable = CiscoDataCollectionMib.Cdcdgbaseobjecttable()
+                self.cdcdgbaseobjecttable.parent = self
+                self._children_name_map["cdcdgbaseobjecttable"] = "cdcDGBaseObjectTable"
+            return self.cdcdgbaseobjecttable
+
+        if (child_yang_name == "cdcDGInstanceTable"):
+            if (self.cdcdginstancetable is None):
+                self.cdcdginstancetable = CiscoDataCollectionMib.Cdcdginstancetable()
+                self.cdcdginstancetable.parent = self
+                self._children_name_map["cdcdginstancetable"] = "cdcDGInstanceTable"
+            return self.cdcdginstancetable
+
+        if (child_yang_name == "cdcDGTable"):
+            if (self.cdcdgtable is None):
+                self.cdcdgtable = CiscoDataCollectionMib.Cdcdgtable()
+                self.cdcdgtable.parent = self
+                self._children_name_map["cdcdgtable"] = "cdcDGTable"
+            return self.cdcdgtable
+
+        if (child_yang_name == "cdcFileXferConfTable"):
+            if (self.cdcfilexferconftable is None):
+                self.cdcfilexferconftable = CiscoDataCollectionMib.Cdcfilexferconftable()
+                self.cdcfilexferconftable.parent = self
+                self._children_name_map["cdcfilexferconftable"] = "cdcFileXferConfTable"
+            return self.cdcfilexferconftable
+
+        if (child_yang_name == "cdcVFile"):
+            if (self.cdcvfile is None):
+                self.cdcvfile = CiscoDataCollectionMib.Cdcvfile()
+                self.cdcvfile.parent = self
+                self._children_name_map["cdcvfile"] = "cdcVFile"
+            return self.cdcvfile
+
+        if (child_yang_name == "cdcVFileMgmtTable"):
+            if (self.cdcvfilemgmttable is None):
+                self.cdcvfilemgmttable = CiscoDataCollectionMib.Cdcvfilemgmttable()
+                self.cdcvfilemgmttable.parent = self
+                self._children_name_map["cdcvfilemgmttable"] = "cdcVFileMgmtTable"
+            return self.cdcvfilemgmttable
+
+        if (child_yang_name == "cdcVFileTable"):
+            if (self.cdcvfiletable is None):
+                self.cdcvfiletable = CiscoDataCollectionMib.Cdcvfiletable()
+                self.cdcvfiletable.parent = self
+                self._children_name_map["cdcvfiletable"] = "cdcVFileTable"
+            return self.cdcvfiletable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cdcDGBaseObjectTable" or name == "cdcDGInstanceTable" or name == "cdcDGTable" or name == "cdcFileXferConfTable" or name == "cdcVFile" or name == "cdcVFileMgmtTable" or name == "cdcVFileTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cdcdgbaseobjecttable is not None and self.cdcdgbaseobjecttable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cdcdginstancetable is not None and self.cdcdginstancetable._has_data():
-            return True
-
-        if self.cdcdgtable is not None and self.cdcdgtable._has_data():
-            return True
-
-        if self.cdcfilexferconftable is not None and self.cdcfilexferconftable._has_data():
-            return True
-
-        if self.cdcvfile is not None and self.cdcvfile._has_data():
-            return True
-
-        if self.cdcvfilemgmttable is not None and self.cdcvfilemgmttable._has_data():
-            return True
-
-        if self.cdcvfiletable is not None and self.cdcvfiletable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_DATA_COLLECTION_MIB as meta
-        return meta._meta_table['CiscoDataCollectionMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoDataCollectionMib()
+        return self._top_entity
 

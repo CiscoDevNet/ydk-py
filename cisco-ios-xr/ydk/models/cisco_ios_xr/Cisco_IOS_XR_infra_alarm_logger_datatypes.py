@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AlarmLoggerSeverityLevelEnum(Enum):
+class AlarmLoggerSeverityLevel(Enum):
     """
-    AlarmLoggerSeverityLevelEnum
+    AlarmLoggerSeverityLevel
 
     Alarm logger severity level
 
@@ -56,25 +50,19 @@ class AlarmLoggerSeverityLevelEnum(Enum):
 
     """
 
-    emergency = 0
+    emergency = Enum.YLeaf(0, "emergency")
 
-    alert = 1
+    alert = Enum.YLeaf(1, "alert")
 
-    critical = 2
+    critical = Enum.YLeaf(2, "critical")
 
-    error = 3
+    error = Enum.YLeaf(3, "error")
 
-    warning = 4
+    warning = Enum.YLeaf(4, "warning")
 
-    notice = 5
+    notice = Enum.YLeaf(5, "notice")
 
-    informational = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_alarm_logger_datatypes as meta
-        return meta._meta_table['AlarmLoggerSeverityLevelEnum']
+    informational = Enum.YLeaf(6, "informational")
 
 
 

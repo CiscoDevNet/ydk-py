@@ -4,22 +4,16 @@ The MIB module for entities implementing the VTP
 protocol and Vlan management.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class VlantypeEnum(Enum):
+class Vlantype(Enum):
     """
-    VlantypeEnum
+    Vlantype
 
     The type of a VLAN.
 
@@ -59,26 +53,20 @@ class VlantypeEnum(Enum):
 
     """
 
-    ethernet = 1
+    ethernet = Enum.YLeaf(1, "ethernet")
 
-    fddi = 2
+    fddi = Enum.YLeaf(2, "fddi")
 
-    tokenRing = 3
+    tokenRing = Enum.YLeaf(3, "tokenRing")
 
-    fddiNet = 4
+    fddiNet = Enum.YLeaf(4, "fddiNet")
 
-    trNet = 5
+    trNet = Enum.YLeaf(5, "trNet")
 
-    deprecated = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-        return meta._meta_table['VlantypeEnum']
+    deprecated = Enum.YLeaf(6, "deprecated")
 
 
-class Vlantypeext(FixedBitsDict):
+class Vlantypeext(Bits):
     """
     Vlantypeext
 
@@ -106,28 +94,15 @@ class Vlantypeext(FixedBitsDict):
                         (GARP VLAN Registration Protocol)
                         propagation. The value of this bit 
                         cannot be changed.
-    Keys are:- reserved , internal , rspan , vtpmanageable , dynamicGvrp
+    Keys are:- vtpmanageable , rspan , internal , dynamicGvrp , reserved
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'reserved':False,
-            'internal':False,
-            'rspan':False,
-            'vtpmanageable':False,
-            'dynamicGvrp':False,
-        }
-        self._pos_map = { 
-            'reserved':2,
-            'internal':1,
-            'rspan':3,
-            'vtpmanageable':0,
-            'dynamicGvrp':4,
-        }
+        super(Vlantypeext, self).__init__()
 
 
-class CiscoVtpMib(object):
+class CiscoVtpMib(Entity):
     """
     
     
@@ -209,37 +184,84 @@ class CiscoVtpMib(object):
     _revision = '2013-10-14'
 
     def __init__(self):
+        super(CiscoVtpMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-VTP-MIB"
+        self.yang_parent_name = "CISCO-VTP-MIB"
+
         self.internalvlaninfo = CiscoVtpMib.Internalvlaninfo()
         self.internalvlaninfo.parent = self
+        self._children_name_map["internalvlaninfo"] = "internalVlanInfo"
+        self._children_yang_names.add("internalVlanInfo")
+
         self.managementdomaintable = CiscoVtpMib.Managementdomaintable()
         self.managementdomaintable.parent = self
+        self._children_name_map["managementdomaintable"] = "managementDomainTable"
+        self._children_yang_names.add("managementDomainTable")
+
         self.vlanstatistics = CiscoVtpMib.Vlanstatistics()
         self.vlanstatistics.parent = self
+        self._children_name_map["vlanstatistics"] = "vlanStatistics"
+        self._children_yang_names.add("vlanStatistics")
+
         self.vlantrunkports = CiscoVtpMib.Vlantrunkports()
         self.vlantrunkports.parent = self
+        self._children_name_map["vlantrunkports"] = "vlanTrunkPorts"
+        self._children_yang_names.add("vlanTrunkPorts")
+
         self.vlantrunkporttable = CiscoVtpMib.Vlantrunkporttable()
         self.vlantrunkporttable.parent = self
+        self._children_name_map["vlantrunkporttable"] = "vlanTrunkPortTable"
+        self._children_yang_names.add("vlanTrunkPortTable")
+
         self.vtpauthenticationtable = CiscoVtpMib.Vtpauthenticationtable()
         self.vtpauthenticationtable.parent = self
+        self._children_name_map["vtpauthenticationtable"] = "vtpAuthenticationTable"
+        self._children_yang_names.add("vtpAuthenticationTable")
+
         self.vtpdatabasetable = CiscoVtpMib.Vtpdatabasetable()
         self.vtpdatabasetable.parent = self
+        self._children_name_map["vtpdatabasetable"] = "vtpDatabaseTable"
+        self._children_yang_names.add("vtpDatabaseTable")
+
         self.vtpdiscoverresulttable = CiscoVtpMib.Vtpdiscoverresulttable()
         self.vtpdiscoverresulttable.parent = self
+        self._children_name_map["vtpdiscoverresulttable"] = "vtpDiscoverResultTable"
+        self._children_yang_names.add("vtpDiscoverResultTable")
+
         self.vtpdiscovertable = CiscoVtpMib.Vtpdiscovertable()
         self.vtpdiscovertable.parent = self
+        self._children_name_map["vtpdiscovertable"] = "vtpDiscoverTable"
+        self._children_yang_names.add("vtpDiscoverTable")
+
         self.vtpinternalvlantable = CiscoVtpMib.Vtpinternalvlantable()
         self.vtpinternalvlantable.parent = self
+        self._children_name_map["vtpinternalvlantable"] = "vtpInternalVlanTable"
+        self._children_yang_names.add("vtpInternalVlanTable")
+
         self.vtpstatus = CiscoVtpMib.Vtpstatus()
         self.vtpstatus.parent = self
+        self._children_name_map["vtpstatus"] = "vtpStatus"
+        self._children_yang_names.add("vtpStatus")
+
         self.vtpvlanedittable = CiscoVtpMib.Vtpvlanedittable()
         self.vtpvlanedittable.parent = self
+        self._children_name_map["vtpvlanedittable"] = "vtpVlanEditTable"
+        self._children_yang_names.add("vtpVlanEditTable")
+
         self.vtpvlanlocalshutdowntable = CiscoVtpMib.Vtpvlanlocalshutdowntable()
         self.vtpvlanlocalshutdowntable.parent = self
+        self._children_name_map["vtpvlanlocalshutdowntable"] = "vtpVlanLocalShutdownTable"
+        self._children_yang_names.add("vtpVlanLocalShutdownTable")
+
         self.vtpvlantable = CiscoVtpMib.Vtpvlantable()
         self.vtpvlantable.parent = self
+        self._children_name_map["vtpvlantable"] = "vtpVlanTable"
+        self._children_yang_names.add("vtpVlanTable")
 
 
-    class Vtpstatus(object):
+    class Vtpstatus(Entity):
         """
         
         
@@ -258,7 +280,7 @@ class CiscoVtpMib(object):
         .. attribute:: vtpversion
         
         	The version of VTP in use on the local system.  A device will report its version capability and not any particular version in use on the device. If the device does not support vtp, the version is none(3)
-        	**type**\:   :py:class:`VtpversionEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpstatus.VtpversionEnum>`
+        	**type**\:   :py:class:`Vtpversion <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpstatus.Vtpversion>`
         
         .. attribute:: vtpvlancreatednotifenabled
         
@@ -278,16 +300,52 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpmaxvlanstorage = None
-            self.vtpnotificationsenabled = None
-            self.vtpversion = None
-            self.vtpvlancreatednotifenabled = None
-            self.vtpvlandeletednotifenabled = None
+            super(CiscoVtpMib.Vtpstatus, self).__init__()
 
-        class VtpversionEnum(Enum):
+            self.yang_name = "vtpStatus"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpmaxvlanstorage = YLeaf(YType.int32, "vtpMaxVlanStorage")
+
+            self.vtpnotificationsenabled = YLeaf(YType.boolean, "vtpNotificationsEnabled")
+
+            self.vtpversion = YLeaf(YType.enumeration, "vtpVersion")
+
+            self.vtpvlancreatednotifenabled = YLeaf(YType.boolean, "vtpVlanCreatedNotifEnabled")
+
+            self.vtpvlandeletednotifenabled = YLeaf(YType.boolean, "vtpVlanDeletedNotifEnabled")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("vtpmaxvlanstorage",
+                            "vtpnotificationsenabled",
+                            "vtpversion",
+                            "vtpvlancreatednotifenabled",
+                            "vtpvlandeletednotifenabled") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpstatus, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpstatus, self).__setattr__(name, value)
+
+        class Vtpversion(Enum):
             """
-            VtpversionEnum
+            Vtpversion
 
             The version of VTP in use on the local system.  A device
 
@@ -307,62 +365,103 @@ class CiscoVtpMib(object):
 
             """
 
-            one = 1
+            one = Enum.YLeaf(1, "one")
 
-            two = 2
+            two = Enum.YLeaf(2, "two")
 
-            none = 3
+            none = Enum.YLeaf(3, "none")
 
-            three = 4
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpstatus.VtpversionEnum']
+            three = Enum.YLeaf(4, "three")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.vtpmaxvlanstorage.is_set or
+                self.vtpnotificationsenabled.is_set or
+                self.vtpversion.is_set or
+                self.vtpvlancreatednotifenabled.is_set or
+                self.vtpvlandeletednotifenabled.is_set)
 
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpStatus'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.vtpmaxvlanstorage.yfilter != YFilter.not_set or
+                self.vtpnotificationsenabled.yfilter != YFilter.not_set or
+                self.vtpversion.yfilter != YFilter.not_set or
+                self.vtpvlancreatednotifenabled.yfilter != YFilter.not_set or
+                self.vtpvlandeletednotifenabled.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpStatus" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.vtpmaxvlanstorage.is_set or self.vtpmaxvlanstorage.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vtpmaxvlanstorage.get_name_leafdata())
+            if (self.vtpnotificationsenabled.is_set or self.vtpnotificationsenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vtpnotificationsenabled.get_name_leafdata())
+            if (self.vtpversion.is_set or self.vtpversion.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vtpversion.get_name_leafdata())
+            if (self.vtpvlancreatednotifenabled.is_set or self.vtpvlancreatednotifenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vtpvlancreatednotifenabled.get_name_leafdata())
+            if (self.vtpvlandeletednotifenabled.is_set or self.vtpvlandeletednotifenabled.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vtpvlandeletednotifenabled.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpMaxVlanStorage" or name == "vtpNotificationsEnabled" or name == "vtpVersion" or name == "vtpVlanCreatedNotifEnabled" or name == "vtpVlanDeletedNotifEnabled"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.vtpmaxvlanstorage is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "vtpMaxVlanStorage"):
+                self.vtpmaxvlanstorage = value
+                self.vtpmaxvlanstorage.value_namespace = name_space
+                self.vtpmaxvlanstorage.value_namespace_prefix = name_space_prefix
+            if(value_path == "vtpNotificationsEnabled"):
+                self.vtpnotificationsenabled = value
+                self.vtpnotificationsenabled.value_namespace = name_space
+                self.vtpnotificationsenabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "vtpVersion"):
+                self.vtpversion = value
+                self.vtpversion.value_namespace = name_space
+                self.vtpversion.value_namespace_prefix = name_space_prefix
+            if(value_path == "vtpVlanCreatedNotifEnabled"):
+                self.vtpvlancreatednotifenabled = value
+                self.vtpvlancreatednotifenabled.value_namespace = name_space
+                self.vtpvlancreatednotifenabled.value_namespace_prefix = name_space_prefix
+            if(value_path == "vtpVlanDeletedNotifEnabled"):
+                self.vtpvlandeletednotifenabled = value
+                self.vtpvlandeletednotifenabled.value_namespace = name_space
+                self.vtpvlandeletednotifenabled.value_namespace_prefix = name_space_prefix
 
-            if self.vtpnotificationsenabled is not None:
-                return True
 
-            if self.vtpversion is not None:
-                return True
-
-            if self.vtpvlancreatednotifenabled is not None:
-                return True
-
-            if self.vtpvlandeletednotifenabled is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpstatus']['meta_info']
-
-
-    class Internalvlaninfo(object):
+    class Internalvlaninfo(Entity):
         """
         
         
         .. attribute:: vtpinternalvlanallocpolicy
         
         	The internal VLAN allocation policy.  'ascending'  \- internal VLANs are allocated                starting from a lowwer VLAN ID and                 upwards. 'descending' \- internal VLANs are allocated                starting from a higher VLAN ID and                downwards
-        	**type**\:   :py:class:`VtpinternalvlanallocpolicyEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Internalvlaninfo.VtpinternalvlanallocpolicyEnum>`
+        	**type**\:   :py:class:`Vtpinternalvlanallocpolicy <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Internalvlaninfo.Vtpinternalvlanallocpolicy>`
         
         
 
@@ -372,12 +471,40 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpinternalvlanallocpolicy = None
+            super(CiscoVtpMib.Internalvlaninfo, self).__init__()
 
-        class VtpinternalvlanallocpolicyEnum(Enum):
+            self.yang_name = "internalVlanInfo"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpinternalvlanallocpolicy = YLeaf(YType.enumeration, "vtpInternalVlanAllocPolicy")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("vtpinternalvlanallocpolicy") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Internalvlaninfo, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Internalvlaninfo, self).__setattr__(name, value)
+
+        class Vtpinternalvlanallocpolicy(Enum):
             """
-            VtpinternalvlanallocpolicyEnum
+            Vtpinternalvlanallocpolicy
 
             The internal VLAN allocation policy.
 
@@ -399,39 +526,59 @@ class CiscoVtpMib(object):
 
             """
 
-            ascending = 1
+            ascending = Enum.YLeaf(1, "ascending")
 
-            descending = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Internalvlaninfo.VtpinternalvlanallocpolicyEnum']
+            descending = Enum.YLeaf(2, "descending")
 
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return self.vtpinternalvlanallocpolicy.is_set
 
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:internalVlanInfo'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.vtpinternalvlanallocpolicy.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "internalVlanInfo" + path_buffer
 
-        def _has_data(self):
-            if self.vtpinternalvlanallocpolicy is not None:
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.vtpinternalvlanallocpolicy.is_set or self.vtpinternalvlanallocpolicy.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vtpinternalvlanallocpolicy.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpInternalVlanAllocPolicy"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Internalvlaninfo']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "vtpInternalVlanAllocPolicy"):
+                self.vtpinternalvlanallocpolicy = value
+                self.vtpinternalvlanallocpolicy.value_namespace = name_space
+                self.vtpinternalvlanallocpolicy.value_namespace_prefix = name_space_prefix
 
 
-    class Vlantrunkports(object):
+    class Vlantrunkports(Entity):
         """
         
         
@@ -457,35 +604,97 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vlantrunkportsdot1qtag = None
-            self.vlantrunkportsetserialno = None
+            super(CiscoVtpMib.Vlantrunkports, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "vlanTrunkPorts"
+            self.yang_parent_name = "CISCO-VTP-MIB"
 
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vlanTrunkPorts'
+            self.vlantrunkportsdot1qtag = YLeaf(YType.boolean, "vlanTrunkPortsDot1qTag")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.vlantrunkportsetserialno = YLeaf(YType.int32, "vlanTrunkPortSetSerialNo")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("vlantrunkportsdot1qtag",
+                            "vlantrunkportsetserialno") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vlantrunkports, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vlantrunkports, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.vlantrunkportsdot1qtag.is_set or
+                self.vlantrunkportsetserialno.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.vlantrunkportsdot1qtag.yfilter != YFilter.not_set or
+                self.vlantrunkportsetserialno.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vlanTrunkPorts" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.vlantrunkportsdot1qtag.is_set or self.vlantrunkportsdot1qtag.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vlantrunkportsdot1qtag.get_name_leafdata())
+            if (self.vlantrunkportsetserialno.is_set or self.vlantrunkportsetserialno.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vlantrunkportsetserialno.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vlanTrunkPortsDot1qTag" or name == "vlanTrunkPortSetSerialNo"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.vlantrunkportsdot1qtag is not None:
-                return True
-
-            if self.vlantrunkportsetserialno is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vlantrunkports']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "vlanTrunkPortsDot1qTag"):
+                self.vlantrunkportsdot1qtag = value
+                self.vlantrunkportsdot1qtag.value_namespace = name_space
+                self.vlantrunkportsdot1qtag.value_namespace_prefix = name_space_prefix
+            if(value_path == "vlanTrunkPortSetSerialNo"):
+                self.vlantrunkportsetserialno = value
+                self.vlantrunkportsetserialno.value_namespace = name_space
+                self.vlantrunkportsetserialno.value_namespace_prefix = name_space_prefix
 
 
-    class Vlanstatistics(object):
+    class Vlanstatistics(Entity):
         """
         
         
@@ -525,43 +734,119 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vlanstatsextendedvlans = None
-            self.vlanstatsfreevlans = None
-            self.vlanstatsinternalvlans = None
-            self.vlanstatsvlans = None
+            super(CiscoVtpMib.Vlanstatistics, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "vlanStatistics"
+            self.yang_parent_name = "CISCO-VTP-MIB"
 
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vlanStatistics'
+            self.vlanstatsextendedvlans = YLeaf(YType.uint32, "vlanStatsExtendedVlans")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.vlanstatsfreevlans = YLeaf(YType.uint32, "vlanStatsFreeVlans")
+
+            self.vlanstatsinternalvlans = YLeaf(YType.uint32, "vlanStatsInternalVlans")
+
+            self.vlanstatsvlans = YLeaf(YType.uint32, "vlanStatsVlans")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("vlanstatsextendedvlans",
+                            "vlanstatsfreevlans",
+                            "vlanstatsinternalvlans",
+                            "vlanstatsvlans") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vlanstatistics, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vlanstatistics, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.vlanstatsextendedvlans.is_set or
+                self.vlanstatsfreevlans.is_set or
+                self.vlanstatsinternalvlans.is_set or
+                self.vlanstatsvlans.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.vlanstatsextendedvlans.yfilter != YFilter.not_set or
+                self.vlanstatsfreevlans.yfilter != YFilter.not_set or
+                self.vlanstatsinternalvlans.yfilter != YFilter.not_set or
+                self.vlanstatsvlans.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vlanStatistics" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.vlanstatsextendedvlans.is_set or self.vlanstatsextendedvlans.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vlanstatsextendedvlans.get_name_leafdata())
+            if (self.vlanstatsfreevlans.is_set or self.vlanstatsfreevlans.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vlanstatsfreevlans.get_name_leafdata())
+            if (self.vlanstatsinternalvlans.is_set or self.vlanstatsinternalvlans.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vlanstatsinternalvlans.get_name_leafdata())
+            if (self.vlanstatsvlans.is_set or self.vlanstatsvlans.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.vlanstatsvlans.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vlanStatsExtendedVlans" or name == "vlanStatsFreeVlans" or name == "vlanStatsInternalVlans" or name == "vlanStatsVlans"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.vlanstatsextendedvlans is not None:
-                return True
-
-            if self.vlanstatsfreevlans is not None:
-                return True
-
-            if self.vlanstatsinternalvlans is not None:
-                return True
-
-            if self.vlanstatsvlans is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vlanstatistics']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "vlanStatsExtendedVlans"):
+                self.vlanstatsextendedvlans = value
+                self.vlanstatsextendedvlans.value_namespace = name_space
+                self.vlanstatsextendedvlans.value_namespace_prefix = name_space_prefix
+            if(value_path == "vlanStatsFreeVlans"):
+                self.vlanstatsfreevlans = value
+                self.vlanstatsfreevlans.value_namespace = name_space
+                self.vlanstatsfreevlans.value_namespace_prefix = name_space_prefix
+            if(value_path == "vlanStatsInternalVlans"):
+                self.vlanstatsinternalvlans = value
+                self.vlanstatsinternalvlans.value_namespace = name_space
+                self.vlanstatsinternalvlans.value_namespace_prefix = name_space_prefix
+            if(value_path == "vlanStatsVlans"):
+                self.vlanstatsvlans = value
+                self.vlanstatsvlans.value_namespace = name_space
+                self.vlanstatsvlans.value_namespace_prefix = name_space_prefix
 
 
-    class Managementdomaintable(object):
+    class Managementdomaintable(Entity):
         """
         The table containing information on the management domains
         in which the local system is participating.  Devices which
@@ -585,13 +870,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.managementdomainentry = YList()
-            self.managementdomainentry.parent = self
-            self.managementdomainentry.name = 'managementdomainentry'
+            super(CiscoVtpMib.Managementdomaintable, self).__init__()
+
+            self.yang_name = "managementDomainTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.managementdomainentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Managementdomaintable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Managementdomaintable, self).__setattr__(name, value)
 
 
-        class Managementdomainentry(object):
+        class Managementdomainentry(Entity):
             """
             Information about the status of one management domain.
             
@@ -639,7 +950,7 @@ class CiscoVtpMib(object):
             .. attribute:: managementdomainlocalmode
             
             	The local VTP mode in this management domain when managementDomainVersionInUse is version1(1) or version2(2).  If managementDomainVersionInUse is version3(4), this  object has the same value with vtpDatabaseLocalMode  of VLAN database type.  \- 'client' indicates that the local system is acting   as a VTP client.  \- 'server' indicates that the local system is acting   as a VTP server.  \- 'transparent' indicates that the local system does   not generate or listen to VTP messages, but forwards   messages. This mode can also be set by the device   itself when the amount of VLAN information is too   large for it to hold in DRAM.  \- 'off' indicates that the local system does not   generate, listen to or forward any VTP messages
-            	**type**\:   :py:class:`ManagementdomainlocalmodeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainlocalmodeEnum>`
+            	**type**\:   :py:class:`Managementdomainlocalmode <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.Managementdomainlocalmode>`
             
             .. attribute:: managementdomainlocalupdater
             
@@ -651,7 +962,7 @@ class CiscoVtpMib(object):
             .. attribute:: managementdomainlocalupdatertype
             
             	The object indicates the type of the Internet address of the preferred source interface for the VTP IP updater.  The value of this object is 'unknown' if managementDomainVersionInUse is 'version3' or managementDomainLocalMode is not 'server'
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: managementdomainname
             
@@ -668,17 +979,17 @@ class CiscoVtpMib(object):
             .. attribute:: managementdomainpruningstate
             
             	An indication of whether VTP pruning is enabled or disabled in this managament domain.   This object can only be modified, either when the  corresponding instance value of managementDomainVersionInUse  is 'version1' or 'version2' and the corresponding instance  value of managementDomainLocalMode is 'server', or when the  corresponding instance value of managementDomainVersionInUse  is 'version3' and the corresponding instance value of  managementDomainLocalMode is 'server' or 'client'
-            	**type**\:   :py:class:`ManagementdomainpruningstateEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainpruningstateEnum>`
+            	**type**\:   :py:class:`Managementdomainpruningstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.Managementdomainpruningstate>`
             
             .. attribute:: managementdomainpruningstateoper
             
             	Indicates whether VTP pruning is operationally enabled or disabled in this managament domain
-            	**type**\:   :py:class:`ManagementdomainpruningstateoperEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainpruningstateoperEnum>`
+            	**type**\:   :py:class:`Managementdomainpruningstateoper <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.Managementdomainpruningstateoper>`
             
             .. attribute:: managementdomainrowstatus
             
             	The status of this conceptual row
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: managementdomainsourceonlymode
             
@@ -700,7 +1011,7 @@ class CiscoVtpMib(object):
             .. attribute:: managementdomainversioninuse
             
             	The current version of the VTP that is in use by the designated management domain.   This object can be set to none(3) only when  vtpVersion is none(3)
-            	**type**\:   :py:class:`ManagementdomainversioninuseEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainversioninuseEnum>`
+            	**type**\:   :py:class:`Managementdomainversioninuse <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.Managementdomainversioninuse>`
             
             .. attribute:: vtpconfigdigesterrors
             
@@ -761,7 +1072,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlanapplystatus
             
             	The current status of an 'apply' operation to instanciate the Edit Buffer as the new global VLAN information (for this management domain).  If no apply is currently active, the status represented is that of the most recently completed apply.  The possible values are\:     inProgress \- 'apply' operation in progress;     succeeded \- the 'apply' was successful (this value is           also used when no apply has been invoked since the           last time the local system restarted);     configNumberError \- the apply failed because the value of           vtpVlanEditConfigRevNumber was less or equal to           the value of current value of            managementDomainConfigRevNumber;     inconsistentEdit \- the apply failed because the modified           information was not self\-consistent;     tooBig \- the apply failed because the modified           information was too large to fit in this VTP           Server's non\-volatile storage location;     localNVStoreFail \- the apply failed in trying to store           the new information in a local non\-volatile           storage location;     remoteNVStoreFail \- the apply failed in trying to store           the new information in a remote non\-volatile           storage location;     editBufferEmpty \- the apply failed because the Edit           Buffer was empty (for this management domain).     someOtherError \- the apply failed for some other reason           (e.g., insufficient memory).     notPrimaryServer \- the apply failed because the local            device is not a VTP primary server for VLAN            database type when managementDomainVersionInUse           is version3(4)
-            	**type**\:   :py:class:`VtpvlanapplystatusEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.VtpvlanapplystatusEnum>`
+            	**type**\:   :py:class:`Vtpvlanapplystatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.Vtpvlanapplystatus>`
             
             .. attribute:: vtpvlaneditbufferowner
             
@@ -787,7 +1098,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlaneditoperation
             
             	This object always has the value 'none' when read.  When written, each value causes the appropriate action\:   'copy' \- causes the creation of rows in the vtpVlanEditTable exactly corresponding to the current global VLAN information for this management domain.  If the Edit Buffer (for this management domain) is not currently empty, a copy operation fails.  A successful copy operation starts the deadman\-timer.   'apply' \- first performs a consistent check on the the modified information contained in the Edit Buffer, and if consistent, then tries to instanciate the modified information as the new global VLAN information.  Note that an empty Edit Buffer (for the management domain) would always result in an inconsistency since the default VLANs are required to be present.   'release' \- flushes the Edit Buffer (for this management domain), clears the Owner information, and aborts the deadman\-timer.  A release is generated automatically if the deadman\-timer ever expires.   'restartTimer' \- restarts the deadman\-timer.   'none' \- no operation is performed
-            	**type**\:   :py:class:`VtpvlaneditoperationEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.VtpvlaneditoperationEnum>`
+            	**type**\:   :py:class:`Vtpvlaneditoperation <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Managementdomaintable.Managementdomainentry.Vtpvlaneditoperation>`
             
             
 
@@ -797,43 +1108,133 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.managementdomainadminsrcif = None
-                self.managementdomainconfigfile = None
-                self.managementdomainconfigrevnumber = None
-                self.managementdomaindeviceid = None
-                self.managementdomainlastchange = None
-                self.managementdomainlastupdater = None
-                self.managementdomainlocalmode = None
-                self.managementdomainlocalupdater = None
-                self.managementdomainlocalupdatertype = None
-                self.managementdomainname = None
-                self.managementdomainopersrcif = None
-                self.managementdomainpruningstate = None
-                self.managementdomainpruningstateoper = None
-                self.managementdomainrowstatus = None
-                self.managementdomainsourceonlymode = None
-                self.managementdomaintftppathname = None
-                self.managementdomaintftpserver = None
-                self.managementdomainversioninuse = None
-                self.vtpconfigdigesterrors = None
-                self.vtpconfigrevnumbererrors = None
-                self.vtpinadvertrequests = None
-                self.vtpinsubsetadverts = None
-                self.vtpinsummaryadverts = None
-                self.vtpoutadvertrequests = None
-                self.vtpoutsubsetadverts = None
-                self.vtpoutsummaryadverts = None
-                self.vtpvlanapplystatus = None
-                self.vtpvlaneditbufferowner = None
-                self.vtpvlaneditconfigrevnumber = None
-                self.vtpvlaneditmodifiedvlan = None
-                self.vtpvlaneditoperation = None
+                super(CiscoVtpMib.Managementdomaintable.Managementdomainentry, self).__init__()
 
-            class ManagementdomainlocalmodeEnum(Enum):
+                self.yang_name = "managementDomainEntry"
+                self.yang_parent_name = "managementDomainTable"
+
+                self.managementdomainindex = YLeaf(YType.int32, "managementDomainIndex")
+
+                self.managementdomainadminsrcif = YLeaf(YType.str, "managementDomainAdminSrcIf")
+
+                self.managementdomainconfigfile = YLeaf(YType.str, "managementDomainConfigFile")
+
+                self.managementdomainconfigrevnumber = YLeaf(YType.uint32, "managementDomainConfigRevNumber")
+
+                self.managementdomaindeviceid = YLeaf(YType.str, "managementDomainDeviceID")
+
+                self.managementdomainlastchange = YLeaf(YType.str, "managementDomainLastChange")
+
+                self.managementdomainlastupdater = YLeaf(YType.str, "managementDomainLastUpdater")
+
+                self.managementdomainlocalmode = YLeaf(YType.enumeration, "managementDomainLocalMode")
+
+                self.managementdomainlocalupdater = YLeaf(YType.str, "managementDomainLocalUpdater")
+
+                self.managementdomainlocalupdatertype = YLeaf(YType.enumeration, "managementDomainLocalUpdaterType")
+
+                self.managementdomainname = YLeaf(YType.str, "managementDomainName")
+
+                self.managementdomainopersrcif = YLeaf(YType.str, "managementDomainOperSrcIf")
+
+                self.managementdomainpruningstate = YLeaf(YType.enumeration, "managementDomainPruningState")
+
+                self.managementdomainpruningstateoper = YLeaf(YType.enumeration, "managementDomainPruningStateOper")
+
+                self.managementdomainrowstatus = YLeaf(YType.enumeration, "managementDomainRowStatus")
+
+                self.managementdomainsourceonlymode = YLeaf(YType.boolean, "managementDomainSourceOnlyMode")
+
+                self.managementdomaintftppathname = YLeaf(YType.str, "managementDomainTftpPathname")
+
+                self.managementdomaintftpserver = YLeaf(YType.str, "managementDomainTftpServer")
+
+                self.managementdomainversioninuse = YLeaf(YType.enumeration, "managementDomainVersionInUse")
+
+                self.vtpconfigdigesterrors = YLeaf(YType.uint32, "vtpConfigDigestErrors")
+
+                self.vtpconfigrevnumbererrors = YLeaf(YType.uint32, "vtpConfigRevNumberErrors")
+
+                self.vtpinadvertrequests = YLeaf(YType.uint32, "vtpInAdvertRequests")
+
+                self.vtpinsubsetadverts = YLeaf(YType.uint32, "vtpInSubsetAdverts")
+
+                self.vtpinsummaryadverts = YLeaf(YType.uint32, "vtpInSummaryAdverts")
+
+                self.vtpoutadvertrequests = YLeaf(YType.uint32, "vtpOutAdvertRequests")
+
+                self.vtpoutsubsetadverts = YLeaf(YType.uint32, "vtpOutSubsetAdverts")
+
+                self.vtpoutsummaryadverts = YLeaf(YType.uint32, "vtpOutSummaryAdverts")
+
+                self.vtpvlanapplystatus = YLeaf(YType.enumeration, "vtpVlanApplyStatus")
+
+                self.vtpvlaneditbufferowner = YLeaf(YType.str, "vtpVlanEditBufferOwner")
+
+                self.vtpvlaneditconfigrevnumber = YLeaf(YType.uint32, "vtpVlanEditConfigRevNumber")
+
+                self.vtpvlaneditmodifiedvlan = YLeaf(YType.int32, "vtpVlanEditModifiedVlan")
+
+                self.vtpvlaneditoperation = YLeaf(YType.enumeration, "vtpVlanEditOperation")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "managementdomainadminsrcif",
+                                "managementdomainconfigfile",
+                                "managementdomainconfigrevnumber",
+                                "managementdomaindeviceid",
+                                "managementdomainlastchange",
+                                "managementdomainlastupdater",
+                                "managementdomainlocalmode",
+                                "managementdomainlocalupdater",
+                                "managementdomainlocalupdatertype",
+                                "managementdomainname",
+                                "managementdomainopersrcif",
+                                "managementdomainpruningstate",
+                                "managementdomainpruningstateoper",
+                                "managementdomainrowstatus",
+                                "managementdomainsourceonlymode",
+                                "managementdomaintftppathname",
+                                "managementdomaintftpserver",
+                                "managementdomainversioninuse",
+                                "vtpconfigdigesterrors",
+                                "vtpconfigrevnumbererrors",
+                                "vtpinadvertrequests",
+                                "vtpinsubsetadverts",
+                                "vtpinsummaryadverts",
+                                "vtpoutadvertrequests",
+                                "vtpoutsubsetadverts",
+                                "vtpoutsummaryadverts",
+                                "vtpvlanapplystatus",
+                                "vtpvlaneditbufferowner",
+                                "vtpvlaneditconfigrevnumber",
+                                "vtpvlaneditmodifiedvlan",
+                                "vtpvlaneditoperation") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Managementdomaintable.Managementdomainentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Managementdomaintable.Managementdomainentry, self).__setattr__(name, value)
+
+            class Managementdomainlocalmode(Enum):
                 """
-                ManagementdomainlocalmodeEnum
+                Managementdomainlocalmode
 
                 The local VTP mode in this management domain when
 
@@ -879,24 +1280,18 @@ class CiscoVtpMib(object):
 
                 """
 
-                client = 1
+                client = Enum.YLeaf(1, "client")
 
-                server = 2
+                server = Enum.YLeaf(2, "server")
 
-                transparent = 3
+                transparent = Enum.YLeaf(3, "transparent")
 
-                off = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainlocalmodeEnum']
+                off = Enum.YLeaf(4, "off")
 
 
-            class ManagementdomainpruningstateEnum(Enum):
+            class Managementdomainpruningstate(Enum):
                 """
-                ManagementdomainpruningstateEnum
+                Managementdomainpruningstate
 
                 An indication of whether VTP pruning is enabled or disabled
 
@@ -922,20 +1317,14 @@ class CiscoVtpMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainpruningstateEnum']
+                disabled = Enum.YLeaf(2, "disabled")
 
 
-            class ManagementdomainpruningstateoperEnum(Enum):
+            class Managementdomainpruningstateoper(Enum):
                 """
-                ManagementdomainpruningstateoperEnum
+                Managementdomainpruningstateoper
 
                 Indicates whether VTP pruning is operationally enabled or
 
@@ -947,20 +1336,14 @@ class CiscoVtpMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                disabled = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainpruningstateoperEnum']
+                disabled = Enum.YLeaf(2, "disabled")
 
 
-            class ManagementdomainversioninuseEnum(Enum):
+            class Managementdomainversioninuse(Enum):
                 """
-                ManagementdomainversioninuseEnum
+                Managementdomainversioninuse
 
                 The current version of the VTP that is in use by the
 
@@ -980,24 +1363,18 @@ class CiscoVtpMib(object):
 
                 """
 
-                version1 = 1
+                version1 = Enum.YLeaf(1, "version1")
 
-                version2 = 2
+                version2 = Enum.YLeaf(2, "version2")
 
-                none = 3
+                none = Enum.YLeaf(3, "none")
 
-                version3 = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Managementdomaintable.Managementdomainentry.ManagementdomainversioninuseEnum']
+                version3 = Enum.YLeaf(4, "version3")
 
 
-            class VtpvlanapplystatusEnum(Enum):
+            class Vtpvlanapplystatus(Enum):
                 """
-                VtpvlanapplystatusEnum
+                Vtpvlanapplystatus
 
                 The current status of an 'apply' operation to instanciate
 
@@ -1085,36 +1462,30 @@ class CiscoVtpMib(object):
 
                 """
 
-                inProgress = 1
+                inProgress = Enum.YLeaf(1, "inProgress")
 
-                succeeded = 2
+                succeeded = Enum.YLeaf(2, "succeeded")
 
-                configNumberError = 3
+                configNumberError = Enum.YLeaf(3, "configNumberError")
 
-                inconsistentEdit = 4
+                inconsistentEdit = Enum.YLeaf(4, "inconsistentEdit")
 
-                tooBig = 5
+                tooBig = Enum.YLeaf(5, "tooBig")
 
-                localNVStoreFail = 6
+                localNVStoreFail = Enum.YLeaf(6, "localNVStoreFail")
 
-                remoteNVStoreFail = 7
+                remoteNVStoreFail = Enum.YLeaf(7, "remoteNVStoreFail")
 
-                editBufferEmpty = 8
+                editBufferEmpty = Enum.YLeaf(8, "editBufferEmpty")
 
-                someOtherError = 9
+                someOtherError = Enum.YLeaf(9, "someOtherError")
 
-                notPrimaryServer = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Managementdomaintable.Managementdomainentry.VtpvlanapplystatusEnum']
+                notPrimaryServer = Enum.YLeaf(10, "notPrimaryServer")
 
 
-            class VtpvlaneditoperationEnum(Enum):
+            class Vtpvlaneditoperation(Enum):
                 """
-                VtpvlaneditoperationEnum
+                Vtpvlaneditoperation
 
                 This object always has the value 'none' when read.  When
 
@@ -1170,162 +1541,371 @@ class CiscoVtpMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                copy = 2
+                copy = Enum.YLeaf(2, "copy")
 
-                apply = 3
+                apply = Enum.YLeaf(3, "apply")
 
-                release = 4
+                release = Enum.YLeaf(4, "release")
 
-                restartTimer = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Managementdomaintable.Managementdomainentry.VtpvlaneditoperationEnum']
+                restartTimer = Enum.YLeaf(5, "restartTimer")
 
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.managementdomainadminsrcif.is_set or
+                    self.managementdomainconfigfile.is_set or
+                    self.managementdomainconfigrevnumber.is_set or
+                    self.managementdomaindeviceid.is_set or
+                    self.managementdomainlastchange.is_set or
+                    self.managementdomainlastupdater.is_set or
+                    self.managementdomainlocalmode.is_set or
+                    self.managementdomainlocalupdater.is_set or
+                    self.managementdomainlocalupdatertype.is_set or
+                    self.managementdomainname.is_set or
+                    self.managementdomainopersrcif.is_set or
+                    self.managementdomainpruningstate.is_set or
+                    self.managementdomainpruningstateoper.is_set or
+                    self.managementdomainrowstatus.is_set or
+                    self.managementdomainsourceonlymode.is_set or
+                    self.managementdomaintftppathname.is_set or
+                    self.managementdomaintftpserver.is_set or
+                    self.managementdomainversioninuse.is_set or
+                    self.vtpconfigdigesterrors.is_set or
+                    self.vtpconfigrevnumbererrors.is_set or
+                    self.vtpinadvertrequests.is_set or
+                    self.vtpinsubsetadverts.is_set or
+                    self.vtpinsummaryadverts.is_set or
+                    self.vtpoutadvertrequests.is_set or
+                    self.vtpoutsubsetadverts.is_set or
+                    self.vtpoutsummaryadverts.is_set or
+                    self.vtpvlanapplystatus.is_set or
+                    self.vtpvlaneditbufferowner.is_set or
+                    self.vtpvlaneditconfigrevnumber.is_set or
+                    self.vtpvlaneditmodifiedvlan.is_set or
+                    self.vtpvlaneditoperation.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:managementDomainTable/CISCO-VTP-MIB:managementDomainEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.managementdomainadminsrcif.yfilter != YFilter.not_set or
+                    self.managementdomainconfigfile.yfilter != YFilter.not_set or
+                    self.managementdomainconfigrevnumber.yfilter != YFilter.not_set or
+                    self.managementdomaindeviceid.yfilter != YFilter.not_set or
+                    self.managementdomainlastchange.yfilter != YFilter.not_set or
+                    self.managementdomainlastupdater.yfilter != YFilter.not_set or
+                    self.managementdomainlocalmode.yfilter != YFilter.not_set or
+                    self.managementdomainlocalupdater.yfilter != YFilter.not_set or
+                    self.managementdomainlocalupdatertype.yfilter != YFilter.not_set or
+                    self.managementdomainname.yfilter != YFilter.not_set or
+                    self.managementdomainopersrcif.yfilter != YFilter.not_set or
+                    self.managementdomainpruningstate.yfilter != YFilter.not_set or
+                    self.managementdomainpruningstateoper.yfilter != YFilter.not_set or
+                    self.managementdomainrowstatus.yfilter != YFilter.not_set or
+                    self.managementdomainsourceonlymode.yfilter != YFilter.not_set or
+                    self.managementdomaintftppathname.yfilter != YFilter.not_set or
+                    self.managementdomaintftpserver.yfilter != YFilter.not_set or
+                    self.managementdomainversioninuse.yfilter != YFilter.not_set or
+                    self.vtpconfigdigesterrors.yfilter != YFilter.not_set or
+                    self.vtpconfigrevnumbererrors.yfilter != YFilter.not_set or
+                    self.vtpinadvertrequests.yfilter != YFilter.not_set or
+                    self.vtpinsubsetadverts.yfilter != YFilter.not_set or
+                    self.vtpinsummaryadverts.yfilter != YFilter.not_set or
+                    self.vtpoutadvertrequests.yfilter != YFilter.not_set or
+                    self.vtpoutsubsetadverts.yfilter != YFilter.not_set or
+                    self.vtpoutsummaryadverts.yfilter != YFilter.not_set or
+                    self.vtpvlanapplystatus.yfilter != YFilter.not_set or
+                    self.vtpvlaneditbufferowner.yfilter != YFilter.not_set or
+                    self.vtpvlaneditconfigrevnumber.yfilter != YFilter.not_set or
+                    self.vtpvlaneditmodifiedvlan.yfilter != YFilter.not_set or
+                    self.vtpvlaneditoperation.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "managementDomainEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/managementDomainTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.managementdomainadminsrcif.is_set or self.managementdomainadminsrcif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainadminsrcif.get_name_leafdata())
+                if (self.managementdomainconfigfile.is_set or self.managementdomainconfigfile.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainconfigfile.get_name_leafdata())
+                if (self.managementdomainconfigrevnumber.is_set or self.managementdomainconfigrevnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainconfigrevnumber.get_name_leafdata())
+                if (self.managementdomaindeviceid.is_set or self.managementdomaindeviceid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomaindeviceid.get_name_leafdata())
+                if (self.managementdomainlastchange.is_set or self.managementdomainlastchange.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainlastchange.get_name_leafdata())
+                if (self.managementdomainlastupdater.is_set or self.managementdomainlastupdater.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainlastupdater.get_name_leafdata())
+                if (self.managementdomainlocalmode.is_set or self.managementdomainlocalmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainlocalmode.get_name_leafdata())
+                if (self.managementdomainlocalupdater.is_set or self.managementdomainlocalupdater.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainlocalupdater.get_name_leafdata())
+                if (self.managementdomainlocalupdatertype.is_set or self.managementdomainlocalupdatertype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainlocalupdatertype.get_name_leafdata())
+                if (self.managementdomainname.is_set or self.managementdomainname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainname.get_name_leafdata())
+                if (self.managementdomainopersrcif.is_set or self.managementdomainopersrcif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainopersrcif.get_name_leafdata())
+                if (self.managementdomainpruningstate.is_set or self.managementdomainpruningstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainpruningstate.get_name_leafdata())
+                if (self.managementdomainpruningstateoper.is_set or self.managementdomainpruningstateoper.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainpruningstateoper.get_name_leafdata())
+                if (self.managementdomainrowstatus.is_set or self.managementdomainrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainrowstatus.get_name_leafdata())
+                if (self.managementdomainsourceonlymode.is_set or self.managementdomainsourceonlymode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainsourceonlymode.get_name_leafdata())
+                if (self.managementdomaintftppathname.is_set or self.managementdomaintftppathname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomaintftppathname.get_name_leafdata())
+                if (self.managementdomaintftpserver.is_set or self.managementdomaintftpserver.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomaintftpserver.get_name_leafdata())
+                if (self.managementdomainversioninuse.is_set or self.managementdomainversioninuse.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainversioninuse.get_name_leafdata())
+                if (self.vtpconfigdigesterrors.is_set or self.vtpconfigdigesterrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpconfigdigesterrors.get_name_leafdata())
+                if (self.vtpconfigrevnumbererrors.is_set or self.vtpconfigrevnumbererrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpconfigrevnumbererrors.get_name_leafdata())
+                if (self.vtpinadvertrequests.is_set or self.vtpinadvertrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpinadvertrequests.get_name_leafdata())
+                if (self.vtpinsubsetadverts.is_set or self.vtpinsubsetadverts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpinsubsetadverts.get_name_leafdata())
+                if (self.vtpinsummaryadverts.is_set or self.vtpinsummaryadverts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpinsummaryadverts.get_name_leafdata())
+                if (self.vtpoutadvertrequests.is_set or self.vtpoutadvertrequests.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpoutadvertrequests.get_name_leafdata())
+                if (self.vtpoutsubsetadverts.is_set or self.vtpoutsubsetadverts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpoutsubsetadverts.get_name_leafdata())
+                if (self.vtpoutsummaryadverts.is_set or self.vtpoutsummaryadverts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpoutsummaryadverts.get_name_leafdata())
+                if (self.vtpvlanapplystatus.is_set or self.vtpvlanapplystatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanapplystatus.get_name_leafdata())
+                if (self.vtpvlaneditbufferowner.is_set or self.vtpvlaneditbufferowner.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditbufferowner.get_name_leafdata())
+                if (self.vtpvlaneditconfigrevnumber.is_set or self.vtpvlaneditconfigrevnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditconfigrevnumber.get_name_leafdata())
+                if (self.vtpvlaneditmodifiedvlan.is_set or self.vtpvlaneditmodifiedvlan.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditmodifiedvlan.get_name_leafdata())
+                if (self.vtpvlaneditoperation.is_set or self.vtpvlaneditoperation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditoperation.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "managementDomainAdminSrcIf" or name == "managementDomainConfigFile" or name == "managementDomainConfigRevNumber" or name == "managementDomainDeviceID" or name == "managementDomainLastChange" or name == "managementDomainLastUpdater" or name == "managementDomainLocalMode" or name == "managementDomainLocalUpdater" or name == "managementDomainLocalUpdaterType" or name == "managementDomainName" or name == "managementDomainOperSrcIf" or name == "managementDomainPruningState" or name == "managementDomainPruningStateOper" or name == "managementDomainRowStatus" or name == "managementDomainSourceOnlyMode" or name == "managementDomainTftpPathname" or name == "managementDomainTftpServer" or name == "managementDomainVersionInUse" or name == "vtpConfigDigestErrors" or name == "vtpConfigRevNumberErrors" or name == "vtpInAdvertRequests" or name == "vtpInSubsetAdverts" or name == "vtpInSummaryAdverts" or name == "vtpOutAdvertRequests" or name == "vtpOutSubsetAdverts" or name == "vtpOutSummaryAdverts" or name == "vtpVlanApplyStatus" or name == "vtpVlanEditBufferOwner" or name == "vtpVlanEditConfigRevNumber" or name == "vtpVlanEditModifiedVlan" or name == "vtpVlanEditOperation"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainAdminSrcIf"):
+                    self.managementdomainadminsrcif = value
+                    self.managementdomainadminsrcif.value_namespace = name_space
+                    self.managementdomainadminsrcif.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainConfigFile"):
+                    self.managementdomainconfigfile = value
+                    self.managementdomainconfigfile.value_namespace = name_space
+                    self.managementdomainconfigfile.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainConfigRevNumber"):
+                    self.managementdomainconfigrevnumber = value
+                    self.managementdomainconfigrevnumber.value_namespace = name_space
+                    self.managementdomainconfigrevnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainDeviceID"):
+                    self.managementdomaindeviceid = value
+                    self.managementdomaindeviceid.value_namespace = name_space
+                    self.managementdomaindeviceid.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainLastChange"):
+                    self.managementdomainlastchange = value
+                    self.managementdomainlastchange.value_namespace = name_space
+                    self.managementdomainlastchange.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainLastUpdater"):
+                    self.managementdomainlastupdater = value
+                    self.managementdomainlastupdater.value_namespace = name_space
+                    self.managementdomainlastupdater.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainLocalMode"):
+                    self.managementdomainlocalmode = value
+                    self.managementdomainlocalmode.value_namespace = name_space
+                    self.managementdomainlocalmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainLocalUpdater"):
+                    self.managementdomainlocalupdater = value
+                    self.managementdomainlocalupdater.value_namespace = name_space
+                    self.managementdomainlocalupdater.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainLocalUpdaterType"):
+                    self.managementdomainlocalupdatertype = value
+                    self.managementdomainlocalupdatertype.value_namespace = name_space
+                    self.managementdomainlocalupdatertype.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainName"):
+                    self.managementdomainname = value
+                    self.managementdomainname.value_namespace = name_space
+                    self.managementdomainname.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainOperSrcIf"):
+                    self.managementdomainopersrcif = value
+                    self.managementdomainopersrcif.value_namespace = name_space
+                    self.managementdomainopersrcif.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainPruningState"):
+                    self.managementdomainpruningstate = value
+                    self.managementdomainpruningstate.value_namespace = name_space
+                    self.managementdomainpruningstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainPruningStateOper"):
+                    self.managementdomainpruningstateoper = value
+                    self.managementdomainpruningstateoper.value_namespace = name_space
+                    self.managementdomainpruningstateoper.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainRowStatus"):
+                    self.managementdomainrowstatus = value
+                    self.managementdomainrowstatus.value_namespace = name_space
+                    self.managementdomainrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainSourceOnlyMode"):
+                    self.managementdomainsourceonlymode = value
+                    self.managementdomainsourceonlymode.value_namespace = name_space
+                    self.managementdomainsourceonlymode.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainTftpPathname"):
+                    self.managementdomaintftppathname = value
+                    self.managementdomaintftppathname.value_namespace = name_space
+                    self.managementdomaintftppathname.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainTftpServer"):
+                    self.managementdomaintftpserver = value
+                    self.managementdomaintftpserver.value_namespace = name_space
+                    self.managementdomaintftpserver.value_namespace_prefix = name_space_prefix
+                if(value_path == "managementDomainVersionInUse"):
+                    self.managementdomainversioninuse = value
+                    self.managementdomainversioninuse.value_namespace = name_space
+                    self.managementdomainversioninuse.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpConfigDigestErrors"):
+                    self.vtpconfigdigesterrors = value
+                    self.vtpconfigdigesterrors.value_namespace = name_space
+                    self.vtpconfigdigesterrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpConfigRevNumberErrors"):
+                    self.vtpconfigrevnumbererrors = value
+                    self.vtpconfigrevnumbererrors.value_namespace = name_space
+                    self.vtpconfigrevnumbererrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpInAdvertRequests"):
+                    self.vtpinadvertrequests = value
+                    self.vtpinadvertrequests.value_namespace = name_space
+                    self.vtpinadvertrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpInSubsetAdverts"):
+                    self.vtpinsubsetadverts = value
+                    self.vtpinsubsetadverts.value_namespace = name_space
+                    self.vtpinsubsetadverts.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpInSummaryAdverts"):
+                    self.vtpinsummaryadverts = value
+                    self.vtpinsummaryadverts.value_namespace = name_space
+                    self.vtpinsummaryadverts.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpOutAdvertRequests"):
+                    self.vtpoutadvertrequests = value
+                    self.vtpoutadvertrequests.value_namespace = name_space
+                    self.vtpoutadvertrequests.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpOutSubsetAdverts"):
+                    self.vtpoutsubsetadverts = value
+                    self.vtpoutsubsetadverts.value_namespace = name_space
+                    self.vtpoutsubsetadverts.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpOutSummaryAdverts"):
+                    self.vtpoutsummaryadverts = value
+                    self.vtpoutsummaryadverts.value_namespace = name_space
+                    self.vtpoutsummaryadverts.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanApplyStatus"):
+                    self.vtpvlanapplystatus = value
+                    self.vtpvlanapplystatus.value_namespace = name_space
+                    self.vtpvlanapplystatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditBufferOwner"):
+                    self.vtpvlaneditbufferowner = value
+                    self.vtpvlaneditbufferowner.value_namespace = name_space
+                    self.vtpvlaneditbufferowner.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditConfigRevNumber"):
+                    self.vtpvlaneditconfigrevnumber = value
+                    self.vtpvlaneditconfigrevnumber.value_namespace = name_space
+                    self.vtpvlaneditconfigrevnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditModifiedVlan"):
+                    self.vtpvlaneditmodifiedvlan = value
+                    self.vtpvlaneditmodifiedvlan.value_namespace = name_space
+                    self.vtpvlaneditmodifiedvlan.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditOperation"):
+                    self.vtpvlaneditoperation = value
+                    self.vtpvlaneditoperation.value_namespace = name_space
+                    self.vtpvlaneditoperation.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.managementdomainentry:
+                if (c.has_data()):
                     return True
-
-                if self.managementdomainadminsrcif is not None:
-                    return True
-
-                if self.managementdomainconfigfile is not None:
-                    return True
-
-                if self.managementdomainconfigrevnumber is not None:
-                    return True
-
-                if self.managementdomaindeviceid is not None:
-                    return True
-
-                if self.managementdomainlastchange is not None:
-                    return True
-
-                if self.managementdomainlastupdater is not None:
-                    return True
-
-                if self.managementdomainlocalmode is not None:
-                    return True
-
-                if self.managementdomainlocalupdater is not None:
-                    return True
-
-                if self.managementdomainlocalupdatertype is not None:
-                    return True
-
-                if self.managementdomainname is not None:
-                    return True
-
-                if self.managementdomainopersrcif is not None:
-                    return True
-
-                if self.managementdomainpruningstate is not None:
-                    return True
-
-                if self.managementdomainpruningstateoper is not None:
-                    return True
-
-                if self.managementdomainrowstatus is not None:
-                    return True
-
-                if self.managementdomainsourceonlymode is not None:
-                    return True
-
-                if self.managementdomaintftppathname is not None:
-                    return True
-
-                if self.managementdomaintftpserver is not None:
-                    return True
-
-                if self.managementdomainversioninuse is not None:
-                    return True
-
-                if self.vtpconfigdigesterrors is not None:
-                    return True
-
-                if self.vtpconfigrevnumbererrors is not None:
-                    return True
-
-                if self.vtpinadvertrequests is not None:
-                    return True
-
-                if self.vtpinsubsetadverts is not None:
-                    return True
-
-                if self.vtpinsummaryadverts is not None:
-                    return True
-
-                if self.vtpoutadvertrequests is not None:
-                    return True
-
-                if self.vtpoutsubsetadverts is not None:
-                    return True
-
-                if self.vtpoutsummaryadverts is not None:
-                    return True
-
-                if self.vtpvlanapplystatus is not None:
-                    return True
-
-                if self.vtpvlaneditbufferowner is not None:
-                    return True
-
-                if self.vtpvlaneditconfigrevnumber is not None:
-                    return True
-
-                if self.vtpvlaneditmodifiedvlan is not None:
-                    return True
-
-                if self.vtpvlaneditoperation is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Managementdomaintable.Managementdomainentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:managementDomainTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.managementdomainentry is not None:
-                for child_ref in self.managementdomainentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.managementdomainentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "managementDomainTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "managementDomainEntry"):
+                for c in self.managementdomainentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Managementdomaintable.Managementdomainentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.managementdomainentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "managementDomainEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Managementdomaintable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpvlantable(object):
+    class Vtpvlantable(Entity):
         """
         This table contains information on the VLANs which
         currently exist.
@@ -1343,13 +1923,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpvlanentry = YList()
-            self.vtpvlanentry.parent = self
-            self.vtpvlanentry.name = 'vtpvlanentry'
+            super(CiscoVtpMib.Vtpvlantable, self).__init__()
+
+            self.yang_name = "vtpVlanTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpvlanentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpvlantable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpvlantable, self).__setattr__(name, value)
 
 
-        class Vtpvlanentry(object):
+        class Vtpvlanentry(Entity):
             """
             Information about one current VLAN.  The
             managementDomainIndex value in the INDEX clause indicates
@@ -1395,7 +2001,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlanbridgetype
             
             	The type of the Source Route bridging mode in use on this VLAN.  This object is only instantiated when the value of  the corresponding instance of vtpVlanType has a value of  fddi(2) or tokenRing(3) and Source Routing is in use on this VLAN
-            	**type**\:   :py:class:`VtpvlanbridgetypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlantable.Vtpvlanentry.VtpvlanbridgetypeEnum>`
+            	**type**\:   :py:class:`Vtpvlanbridgetype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlantable.Vtpvlanentry.Vtpvlanbridgetype>`
             
             .. attribute:: vtpvlandot10said
             
@@ -1447,7 +2053,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlanstate
             
             	The state of this VLAN.  The state 'mtuTooBigForDevice' indicates that this device cannot participate in this VLAN because the VLAN's MTU is larger than the device can support.  The state 'mtuTooBigForTrunk' indicates that while this VLAN's MTU is supported by this device, it is too large for one or more of the device's trunk ports
-            	**type**\:   :py:class:`VtpvlanstateEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlantable.Vtpvlanentry.VtpvlanstateEnum>`
+            	**type**\:   :py:class:`Vtpvlanstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlantable.Vtpvlanentry.Vtpvlanstate>`
             
             .. attribute:: vtpvlanstehopcount
             
@@ -1459,7 +2065,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlanstptype
             
             	The type of the Spanning Tree Protocol (STP) running on this VLAN.  This object is only instanciated when the value of the corresponding instance of vtpVlanType has a value of 'fddiNet' or 'trNet'.  The value returned by this object depends upon the value of the corresponding instance of vtpVlanEditStpType.  \- 'ieee' indicates IEEE STP is running exclusively.  \- 'ibm' indicates IBM STP is running exclusively.  \- 'hybrid' indicates a STP that allows a combination of   IEEE and IBM is running.  The 'hybrid' STP type results from tokenRing/fddi VLANs that are children of this trNet/fddiNet parent VLAN being configured in a combination of SRT and SRB vtpVlanBridgeTypes while the instance of vtpVlanEditStpType that corresponds to this object is set to 'auto'
-            	**type**\:   :py:class:`VtpvlanstptypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlantable.Vtpvlanentry.VtpvlanstptypeEnum>`
+            	**type**\:   :py:class:`Vtpvlanstptype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlantable.Vtpvlanentry.Vtpvlanstptype>`
             
             .. attribute:: vtpvlantranslationalvlan1
             
@@ -1478,7 +2084,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlantype
             
             	The type of this VLAN
-            	**type**\:   :py:class:`VlantypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.VlantypeEnum>`
+            	**type**\:   :py:class:`Vlantype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.Vlantype>`
             
             .. attribute:: vtpvlantypeext
             
@@ -1493,31 +2099,97 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpvlanindex = None
-                self.stpxvlanmistpinstmapinstindex = None
-                self.vtpvlanarehopcount = None
-                self.vtpvlanbridgenumber = None
-                self.vtpvlanbridgetype = None
-                self.vtpvlandot10said = None
-                self.vtpvlanifindex = None
-                self.vtpvlaniscrfbackup = None
-                self.vtpvlanmtu = None
-                self.vtpvlanname = None
-                self.vtpvlanparentvlan = None
-                self.vtpvlanringnumber = None
-                self.vtpvlanstate = None
-                self.vtpvlanstehopcount = None
-                self.vtpvlanstptype = None
-                self.vtpvlantranslationalvlan1 = None
-                self.vtpvlantranslationalvlan2 = None
-                self.vtpvlantype = None
-                self.vtpvlantypeext = Vlantypeext()
+                super(CiscoVtpMib.Vtpvlantable.Vtpvlanentry, self).__init__()
 
-            class VtpvlanbridgetypeEnum(Enum):
+                self.yang_name = "vtpVlanEntry"
+                self.yang_parent_name = "vtpVlanTable"
+
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
+
+                self.vtpvlanindex = YLeaf(YType.int32, "vtpVlanIndex")
+
+                self.stpxvlanmistpinstmapinstindex = YLeaf(YType.int32, "CISCO-STP-EXTENSIONS-MIB:stpxVlanMISTPInstMapInstIndex")
+
+                self.vtpvlanarehopcount = YLeaf(YType.int32, "vtpVlanAreHopCount")
+
+                self.vtpvlanbridgenumber = YLeaf(YType.int32, "vtpVlanBridgeNumber")
+
+                self.vtpvlanbridgetype = YLeaf(YType.enumeration, "vtpVlanBridgeType")
+
+                self.vtpvlandot10said = YLeaf(YType.str, "vtpVlanDot10Said")
+
+                self.vtpvlanifindex = YLeaf(YType.int32, "vtpVlanIfIndex")
+
+                self.vtpvlaniscrfbackup = YLeaf(YType.boolean, "vtpVlanIsCRFBackup")
+
+                self.vtpvlanmtu = YLeaf(YType.int32, "vtpVlanMtu")
+
+                self.vtpvlanname = YLeaf(YType.str, "vtpVlanName")
+
+                self.vtpvlanparentvlan = YLeaf(YType.int32, "vtpVlanParentVlan")
+
+                self.vtpvlanringnumber = YLeaf(YType.int32, "vtpVlanRingNumber")
+
+                self.vtpvlanstate = YLeaf(YType.enumeration, "vtpVlanState")
+
+                self.vtpvlanstehopcount = YLeaf(YType.int32, "vtpVlanSteHopCount")
+
+                self.vtpvlanstptype = YLeaf(YType.enumeration, "vtpVlanStpType")
+
+                self.vtpvlantranslationalvlan1 = YLeaf(YType.int32, "vtpVlanTranslationalVlan1")
+
+                self.vtpvlantranslationalvlan2 = YLeaf(YType.int32, "vtpVlanTranslationalVlan2")
+
+                self.vtpvlantype = YLeaf(YType.enumeration, "vtpVlanType")
+
+                self.vtpvlantypeext = YLeaf(YType.bits, "vtpVlanTypeExt")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpvlanindex",
+                                "stpxvlanmistpinstmapinstindex",
+                                "vtpvlanarehopcount",
+                                "vtpvlanbridgenumber",
+                                "vtpvlanbridgetype",
+                                "vtpvlandot10said",
+                                "vtpvlanifindex",
+                                "vtpvlaniscrfbackup",
+                                "vtpvlanmtu",
+                                "vtpvlanname",
+                                "vtpvlanparentvlan",
+                                "vtpvlanringnumber",
+                                "vtpvlanstate",
+                                "vtpvlanstehopcount",
+                                "vtpvlanstptype",
+                                "vtpvlantranslationalvlan1",
+                                "vtpvlantranslationalvlan2",
+                                "vtpvlantype",
+                                "vtpvlantypeext") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpvlantable.Vtpvlanentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpvlantable.Vtpvlanentry, self).__setattr__(name, value)
+
+            class Vtpvlanbridgetype(Enum):
                 """
-                VtpvlanbridgetypeEnum
+                Vtpvlanbridgetype
 
                 The type of the Source Route bridging mode in use on this
 
@@ -1537,22 +2209,16 @@ class CiscoVtpMib(object):
 
                 """
 
-                none = 0
+                none = Enum.YLeaf(0, "none")
 
-                srt = 1
+                srt = Enum.YLeaf(1, "srt")
 
-                srb = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpvlantable.Vtpvlanentry.VtpvlanbridgetypeEnum']
+                srb = Enum.YLeaf(2, "srb")
 
 
-            class VtpvlanstateEnum(Enum):
+            class Vtpvlanstate(Enum):
                 """
-                VtpvlanstateEnum
+                Vtpvlanstate
 
                 The state of this VLAN.
 
@@ -1578,24 +2244,18 @@ class CiscoVtpMib(object):
 
                 """
 
-                operational = 1
+                operational = Enum.YLeaf(1, "operational")
 
-                suspended = 2
+                suspended = Enum.YLeaf(2, "suspended")
 
-                mtuTooBigForDevice = 3
+                mtuTooBigForDevice = Enum.YLeaf(3, "mtuTooBigForDevice")
 
-                mtuTooBigForTrunk = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpvlantable.Vtpvlanentry.VtpvlanstateEnum']
+                mtuTooBigForTrunk = Enum.YLeaf(4, "mtuTooBigForTrunk")
 
 
-            class VtpvlanstptypeEnum(Enum):
+            class Vtpvlanstptype(Enum):
                 """
-                VtpvlanstptypeEnum
+                Vtpvlanstptype
 
                 The type of the Spanning Tree Protocol (STP) running on
 
@@ -1637,125 +2297,269 @@ class CiscoVtpMib(object):
 
                 """
 
-                ieee = 1
+                ieee = Enum.YLeaf(1, "ieee")
 
-                ibm = 2
+                ibm = Enum.YLeaf(2, "ibm")
 
-                hybrid = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpvlantable.Vtpvlanentry.VtpvlanstptypeEnum']
+                hybrid = Enum.YLeaf(3, "hybrid")
 
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
-                if self.vtpvlanindex is None:
-                    raise YPYModelError('Key property vtpvlanindex is None')
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpvlanindex.is_set or
+                    self.stpxvlanmistpinstmapinstindex.is_set or
+                    self.vtpvlanarehopcount.is_set or
+                    self.vtpvlanbridgenumber.is_set or
+                    self.vtpvlanbridgetype.is_set or
+                    self.vtpvlandot10said.is_set or
+                    self.vtpvlanifindex.is_set or
+                    self.vtpvlaniscrfbackup.is_set or
+                    self.vtpvlanmtu.is_set or
+                    self.vtpvlanname.is_set or
+                    self.vtpvlanparentvlan.is_set or
+                    self.vtpvlanringnumber.is_set or
+                    self.vtpvlanstate.is_set or
+                    self.vtpvlanstehopcount.is_set or
+                    self.vtpvlanstptype.is_set or
+                    self.vtpvlantranslationalvlan1.is_set or
+                    self.vtpvlantranslationalvlan2.is_set or
+                    self.vtpvlantype.is_set or
+                    self.vtpvlantypeext.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpVlanTable/CISCO-VTP-MIB:vtpVlanEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + '][CISCO-VTP-MIB:vtpVlanIndex = ' + str(self.vtpvlanindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpvlanindex.yfilter != YFilter.not_set or
+                    self.stpxvlanmistpinstmapinstindex.yfilter != YFilter.not_set or
+                    self.vtpvlanarehopcount.yfilter != YFilter.not_set or
+                    self.vtpvlanbridgenumber.yfilter != YFilter.not_set or
+                    self.vtpvlanbridgetype.yfilter != YFilter.not_set or
+                    self.vtpvlandot10said.yfilter != YFilter.not_set or
+                    self.vtpvlanifindex.yfilter != YFilter.not_set or
+                    self.vtpvlaniscrfbackup.yfilter != YFilter.not_set or
+                    self.vtpvlanmtu.yfilter != YFilter.not_set or
+                    self.vtpvlanname.yfilter != YFilter.not_set or
+                    self.vtpvlanparentvlan.yfilter != YFilter.not_set or
+                    self.vtpvlanringnumber.yfilter != YFilter.not_set or
+                    self.vtpvlanstate.yfilter != YFilter.not_set or
+                    self.vtpvlanstehopcount.yfilter != YFilter.not_set or
+                    self.vtpvlanstptype.yfilter != YFilter.not_set or
+                    self.vtpvlantranslationalvlan1.yfilter != YFilter.not_set or
+                    self.vtpvlantranslationalvlan2.yfilter != YFilter.not_set or
+                    self.vtpvlantype.yfilter != YFilter.not_set or
+                    self.vtpvlantypeext.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpVlanEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + "[vtpVlanIndex='" + self.vtpvlanindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpvlanindex.is_set or self.vtpvlanindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanindex.get_name_leafdata())
+                if (self.stpxvlanmistpinstmapinstindex.is_set or self.stpxvlanmistpinstmapinstindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxvlanmistpinstmapinstindex.get_name_leafdata())
+                if (self.vtpvlanarehopcount.is_set or self.vtpvlanarehopcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanarehopcount.get_name_leafdata())
+                if (self.vtpvlanbridgenumber.is_set or self.vtpvlanbridgenumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanbridgenumber.get_name_leafdata())
+                if (self.vtpvlanbridgetype.is_set or self.vtpvlanbridgetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanbridgetype.get_name_leafdata())
+                if (self.vtpvlandot10said.is_set or self.vtpvlandot10said.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlandot10said.get_name_leafdata())
+                if (self.vtpvlanifindex.is_set or self.vtpvlanifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanifindex.get_name_leafdata())
+                if (self.vtpvlaniscrfbackup.is_set or self.vtpvlaniscrfbackup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaniscrfbackup.get_name_leafdata())
+                if (self.vtpvlanmtu.is_set or self.vtpvlanmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanmtu.get_name_leafdata())
+                if (self.vtpvlanname.is_set or self.vtpvlanname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanname.get_name_leafdata())
+                if (self.vtpvlanparentvlan.is_set or self.vtpvlanparentvlan.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanparentvlan.get_name_leafdata())
+                if (self.vtpvlanringnumber.is_set or self.vtpvlanringnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanringnumber.get_name_leafdata())
+                if (self.vtpvlanstate.is_set or self.vtpvlanstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanstate.get_name_leafdata())
+                if (self.vtpvlanstehopcount.is_set or self.vtpvlanstehopcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanstehopcount.get_name_leafdata())
+                if (self.vtpvlanstptype.is_set or self.vtpvlanstptype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanstptype.get_name_leafdata())
+                if (self.vtpvlantranslationalvlan1.is_set or self.vtpvlantranslationalvlan1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlantranslationalvlan1.get_name_leafdata())
+                if (self.vtpvlantranslationalvlan2.is_set or self.vtpvlantranslationalvlan2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlantranslationalvlan2.get_name_leafdata())
+                if (self.vtpvlantype.is_set or self.vtpvlantype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlantype.get_name_leafdata())
+                if (self.vtpvlantypeext.is_set or self.vtpvlantypeext.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlantypeext.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpVlanIndex" or name == "stpxVlanMISTPInstMapInstIndex" or name == "vtpVlanAreHopCount" or name == "vtpVlanBridgeNumber" or name == "vtpVlanBridgeType" or name == "vtpVlanDot10Said" or name == "vtpVlanIfIndex" or name == "vtpVlanIsCRFBackup" or name == "vtpVlanMtu" or name == "vtpVlanName" or name == "vtpVlanParentVlan" or name == "vtpVlanRingNumber" or name == "vtpVlanState" or name == "vtpVlanSteHopCount" or name == "vtpVlanStpType" or name == "vtpVlanTranslationalVlan1" or name == "vtpVlanTranslationalVlan2" or name == "vtpVlanType" or name == "vtpVlanTypeExt"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanIndex"):
+                    self.vtpvlanindex = value
+                    self.vtpvlanindex.value_namespace = name_space
+                    self.vtpvlanindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxVlanMISTPInstMapInstIndex"):
+                    self.stpxvlanmistpinstmapinstindex = value
+                    self.stpxvlanmistpinstmapinstindex.value_namespace = name_space
+                    self.stpxvlanmistpinstmapinstindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanAreHopCount"):
+                    self.vtpvlanarehopcount = value
+                    self.vtpvlanarehopcount.value_namespace = name_space
+                    self.vtpvlanarehopcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanBridgeNumber"):
+                    self.vtpvlanbridgenumber = value
+                    self.vtpvlanbridgenumber.value_namespace = name_space
+                    self.vtpvlanbridgenumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanBridgeType"):
+                    self.vtpvlanbridgetype = value
+                    self.vtpvlanbridgetype.value_namespace = name_space
+                    self.vtpvlanbridgetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanDot10Said"):
+                    self.vtpvlandot10said = value
+                    self.vtpvlandot10said.value_namespace = name_space
+                    self.vtpvlandot10said.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanIfIndex"):
+                    self.vtpvlanifindex = value
+                    self.vtpvlanifindex.value_namespace = name_space
+                    self.vtpvlanifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanIsCRFBackup"):
+                    self.vtpvlaniscrfbackup = value
+                    self.vtpvlaniscrfbackup.value_namespace = name_space
+                    self.vtpvlaniscrfbackup.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanMtu"):
+                    self.vtpvlanmtu = value
+                    self.vtpvlanmtu.value_namespace = name_space
+                    self.vtpvlanmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanName"):
+                    self.vtpvlanname = value
+                    self.vtpvlanname.value_namespace = name_space
+                    self.vtpvlanname.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanParentVlan"):
+                    self.vtpvlanparentvlan = value
+                    self.vtpvlanparentvlan.value_namespace = name_space
+                    self.vtpvlanparentvlan.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanRingNumber"):
+                    self.vtpvlanringnumber = value
+                    self.vtpvlanringnumber.value_namespace = name_space
+                    self.vtpvlanringnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanState"):
+                    self.vtpvlanstate = value
+                    self.vtpvlanstate.value_namespace = name_space
+                    self.vtpvlanstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanSteHopCount"):
+                    self.vtpvlanstehopcount = value
+                    self.vtpvlanstehopcount.value_namespace = name_space
+                    self.vtpvlanstehopcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanStpType"):
+                    self.vtpvlanstptype = value
+                    self.vtpvlanstptype.value_namespace = name_space
+                    self.vtpvlanstptype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanTranslationalVlan1"):
+                    self.vtpvlantranslationalvlan1 = value
+                    self.vtpvlantranslationalvlan1.value_namespace = name_space
+                    self.vtpvlantranslationalvlan1.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanTranslationalVlan2"):
+                    self.vtpvlantranslationalvlan2 = value
+                    self.vtpvlantranslationalvlan2.value_namespace = name_space
+                    self.vtpvlantranslationalvlan2.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanType"):
+                    self.vtpvlantype = value
+                    self.vtpvlantype.value_namespace = name_space
+                    self.vtpvlantype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanTypeExt"):
+                    self.vtpvlantypeext[value] = True
+
+        def has_data(self):
+            for c in self.vtpvlanentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpvlanindex is not None:
-                    return True
-
-                if self.stpxvlanmistpinstmapinstindex is not None:
-                    return True
-
-                if self.vtpvlanarehopcount is not None:
-                    return True
-
-                if self.vtpvlanbridgenumber is not None:
-                    return True
-
-                if self.vtpvlanbridgetype is not None:
-                    return True
-
-                if self.vtpvlandot10said is not None:
-                    return True
-
-                if self.vtpvlanifindex is not None:
-                    return True
-
-                if self.vtpvlaniscrfbackup is not None:
-                    return True
-
-                if self.vtpvlanmtu is not None:
-                    return True
-
-                if self.vtpvlanname is not None:
-                    return True
-
-                if self.vtpvlanparentvlan is not None:
-                    return True
-
-                if self.vtpvlanringnumber is not None:
-                    return True
-
-                if self.vtpvlanstate is not None:
-                    return True
-
-                if self.vtpvlanstehopcount is not None:
-                    return True
-
-                if self.vtpvlanstptype is not None:
-                    return True
-
-                if self.vtpvlantranslationalvlan1 is not None:
-                    return True
-
-                if self.vtpvlantranslationalvlan2 is not None:
-                    return True
-
-                if self.vtpvlantype is not None:
-                    return True
-
-                if self.vtpvlantypeext is not None:
-                    if self.vtpvlantypeext._has_data():
-                        return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpvlantable.Vtpvlanentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpVlanTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpvlanentry is not None:
-                for child_ref in self.vtpvlanentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpvlanentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpVlanTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpVlanEntry"):
+                for c in self.vtpvlanentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpvlantable.Vtpvlanentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpvlanentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpVlanEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpvlantable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpinternalvlantable(object):
+    class Vtpinternalvlantable(Entity):
         """
         A vtpInternalVlanTable entry contains
         information on an existing internal
@@ -1778,13 +2582,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpinternalvlanentry = YList()
-            self.vtpinternalvlanentry.parent = self
-            self.vtpinternalvlanentry.name = 'vtpinternalvlanentry'
+            super(CiscoVtpMib.Vtpinternalvlantable, self).__init__()
+
+            self.yang_name = "vtpInternalVlanTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpinternalvlanentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpinternalvlantable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpinternalvlantable, self).__setattr__(name, value)
 
 
-        class Vtpinternalvlanentry(object):
+        class Vtpinternalvlanentry(Entity):
             """
             Information about one current internal
             VLAN.
@@ -1820,65 +2650,165 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpvlanindex = None
-                self.vtpinternalvlanowner = None
+                super(CiscoVtpMib.Vtpinternalvlantable.Vtpinternalvlanentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
-                if self.vtpvlanindex is None:
-                    raise YPYModelError('Key property vtpvlanindex is None')
+                self.yang_name = "vtpInternalVlanEntry"
+                self.yang_parent_name = "vtpInternalVlanTable"
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpInternalVlanTable/CISCO-VTP-MIB:vtpInternalVlanEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + '][CISCO-VTP-MIB:vtpVlanIndex = ' + str(self.vtpvlanindex) + ']'
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.vtpvlanindex = YLeaf(YType.str, "vtpVlanIndex")
+
+                self.vtpinternalvlanowner = YLeaf(YType.str, "vtpInternalVlanOwner")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpvlanindex",
+                                "vtpinternalvlanowner") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpinternalvlantable.Vtpinternalvlanentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpinternalvlantable.Vtpinternalvlanentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpvlanindex.is_set or
+                    self.vtpinternalvlanowner.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpvlanindex.yfilter != YFilter.not_set or
+                    self.vtpinternalvlanowner.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpInternalVlanEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + "[vtpVlanIndex='" + self.vtpvlanindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpInternalVlanTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpvlanindex.is_set or self.vtpvlanindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanindex.get_name_leafdata())
+                if (self.vtpinternalvlanowner.is_set or self.vtpinternalvlanowner.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpinternalvlanowner.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpVlanIndex" or name == "vtpInternalVlanOwner"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanIndex"):
+                    self.vtpvlanindex = value
+                    self.vtpvlanindex.value_namespace = name_space
+                    self.vtpvlanindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpInternalVlanOwner"):
+                    self.vtpinternalvlanowner = value
+                    self.vtpinternalvlanowner.value_namespace = name_space
+                    self.vtpinternalvlanowner.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vtpinternalvlanentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpvlanindex is not None:
-                    return True
-
-                if self.vtpinternalvlanowner is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpinternalvlantable.Vtpinternalvlanentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpInternalVlanTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpinternalvlanentry is not None:
-                for child_ref in self.vtpinternalvlanentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpinternalvlanentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpInternalVlanTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpInternalVlanEntry"):
+                for c in self.vtpinternalvlanentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpinternalvlantable.Vtpinternalvlanentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpinternalvlanentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpInternalVlanEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpinternalvlantable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpvlanedittable(object):
+    class Vtpvlanedittable(Entity):
         """
         The table which contains the information in the Edit
         Buffers, one Edit Buffer per management domain.  The
@@ -1933,13 +2863,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpvlaneditentry = YList()
-            self.vtpvlaneditentry.parent = self
-            self.vtpvlaneditentry.name = 'vtpvlaneditentry'
+            super(CiscoVtpMib.Vtpvlanedittable, self).__init__()
+
+            self.yang_name = "vtpVlanEditTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpvlaneditentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpvlanedittable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpvlanedittable, self).__setattr__(name, value)
 
 
-        class Vtpvlaneditentry(object):
+        class Vtpvlaneditentry(Entity):
             """
             Information about one VLAN in the Edit Buffer for a
             particular management domain.
@@ -1984,7 +2940,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlaneditbridgetype
             
             	The type of Source Route bridging mode which would be in use on this VLAN.  This object is only instantiated when  the value of  the corresponding instance of vtpVlanEditType has a value of fddi(2) or tokenRing(3) and Source Routing  is in use on this VLAN
-            	**type**\:   :py:class:`VtpvlaneditbridgetypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.VtpvlaneditbridgetypeEnum>`
+            	**type**\:   :py:class:`Vtpvlaneditbridgetype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.Vtpvlaneditbridgetype>`
             
             .. attribute:: vtpvlaneditdot10said
             
@@ -2029,12 +2985,12 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlaneditrowstatus
             
             	The status of this row.  Any and all columnar objects in an existing row can be modified irrespective of the status of the row.  A row is not qualified for activation until instances of at least its vtpVlanEditType, vtpVlanEditName and vtpVlanEditDot10Said columns have appropriate values.  The management station should endeavor to make all rows consistent in the table before 'apply'ing the buffer.  An inconsistent entry in the table will cause the entire buffer to be rejected with the vtpVlanApplyStatus object set to the appropriate error value
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: vtpvlaneditstate
             
             	The state which this VLAN would have
-            	**type**\:   :py:class:`VtpvlaneditstateEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.VtpvlaneditstateEnum>`
+            	**type**\:   :py:class:`Vtpvlaneditstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.Vtpvlaneditstate>`
             
             .. attribute:: vtpvlaneditstehopcount
             
@@ -2046,7 +3002,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlaneditstptype
             
             	The type of the Spanning Tree Protocol which would be running on this VLAN.  This object is only instantiated when the value of the corresponding instance of vtpVlanEditType has a value of fddiNet(4) or trNet(5).  If 'ieee' is selected, the STP that runs will be IEEE.  If 'ibm' is selected, the STP that runs will be IBM.  If 'auto' is selected, the STP that runs will be dependant on the values of vtpVlanEditBridgeType for all children tokenRing/fddi type VLANs.  This will result in a 'hybrid' STP (see vtpVlanStpType)
-            	**type**\:   :py:class:`VtpvlaneditstptypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.VtpvlaneditstptypeEnum>`
+            	**type**\:   :py:class:`Vtpvlaneditstptype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.Vtpvlaneditstptype>`
             
             .. attribute:: vtpvlanedittranslationalvlan1
             
@@ -2065,7 +3021,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlanedittype
             
             	The type which this VLAN would have. An implementation may restrict access to this object
-            	**type**\:   :py:class:`VlantypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.VlantypeEnum>`
+            	**type**\:   :py:class:`Vlantype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.Vlantype>`
             
             .. attribute:: vtpvlanedittypeext
             
@@ -2087,32 +3043,100 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpvlaneditindex = None
-                self.stpxvlanmistpinstmapeditinstindex = None
-                self.vtpvlaneditarehopcount = None
-                self.vtpvlaneditbridgenumber = None
-                self.vtpvlaneditbridgetype = None
-                self.vtpvlaneditdot10said = None
-                self.vtpvlaneditiscrfbackup = None
-                self.vtpvlaneditmtu = None
-                self.vtpvlaneditname = None
-                self.vtpvlaneditparentvlan = None
-                self.vtpvlaneditringnumber = None
-                self.vtpvlaneditrowstatus = None
-                self.vtpvlaneditstate = None
-                self.vtpvlaneditstehopcount = None
-                self.vtpvlaneditstptype = None
-                self.vtpvlanedittranslationalvlan1 = None
-                self.vtpvlanedittranslationalvlan2 = None
-                self.vtpvlanedittype = None
-                self.vtpvlanedittypeext = Vlantypeext()
-                self.vtpvlanedittypeext2 = Vlantypeext()
+                super(CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry, self).__init__()
 
-            class VtpvlaneditbridgetypeEnum(Enum):
+                self.yang_name = "vtpVlanEditEntry"
+                self.yang_parent_name = "vtpVlanEditTable"
+
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
+
+                self.vtpvlaneditindex = YLeaf(YType.int32, "vtpVlanEditIndex")
+
+                self.stpxvlanmistpinstmapeditinstindex = YLeaf(YType.int32, "CISCO-STP-EXTENSIONS-MIB:stpxVlanMISTPInstMapEditInstIndex")
+
+                self.vtpvlaneditarehopcount = YLeaf(YType.int32, "vtpVlanEditAreHopCount")
+
+                self.vtpvlaneditbridgenumber = YLeaf(YType.int32, "vtpVlanEditBridgeNumber")
+
+                self.vtpvlaneditbridgetype = YLeaf(YType.enumeration, "vtpVlanEditBridgeType")
+
+                self.vtpvlaneditdot10said = YLeaf(YType.str, "vtpVlanEditDot10Said")
+
+                self.vtpvlaneditiscrfbackup = YLeaf(YType.boolean, "vtpVlanEditIsCRFBackup")
+
+                self.vtpvlaneditmtu = YLeaf(YType.int32, "vtpVlanEditMtu")
+
+                self.vtpvlaneditname = YLeaf(YType.str, "vtpVlanEditName")
+
+                self.vtpvlaneditparentvlan = YLeaf(YType.int32, "vtpVlanEditParentVlan")
+
+                self.vtpvlaneditringnumber = YLeaf(YType.int32, "vtpVlanEditRingNumber")
+
+                self.vtpvlaneditrowstatus = YLeaf(YType.enumeration, "vtpVlanEditRowStatus")
+
+                self.vtpvlaneditstate = YLeaf(YType.enumeration, "vtpVlanEditState")
+
+                self.vtpvlaneditstehopcount = YLeaf(YType.int32, "vtpVlanEditSteHopCount")
+
+                self.vtpvlaneditstptype = YLeaf(YType.enumeration, "vtpVlanEditStpType")
+
+                self.vtpvlanedittranslationalvlan1 = YLeaf(YType.int32, "vtpVlanEditTranslationalVlan1")
+
+                self.vtpvlanedittranslationalvlan2 = YLeaf(YType.int32, "vtpVlanEditTranslationalVlan2")
+
+                self.vtpvlanedittype = YLeaf(YType.enumeration, "vtpVlanEditType")
+
+                self.vtpvlanedittypeext = YLeaf(YType.bits, "vtpVlanEditTypeExt")
+
+                self.vtpvlanedittypeext2 = YLeaf(YType.bits, "vtpVlanEditTypeExt2")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpvlaneditindex",
+                                "stpxvlanmistpinstmapeditinstindex",
+                                "vtpvlaneditarehopcount",
+                                "vtpvlaneditbridgenumber",
+                                "vtpvlaneditbridgetype",
+                                "vtpvlaneditdot10said",
+                                "vtpvlaneditiscrfbackup",
+                                "vtpvlaneditmtu",
+                                "vtpvlaneditname",
+                                "vtpvlaneditparentvlan",
+                                "vtpvlaneditringnumber",
+                                "vtpvlaneditrowstatus",
+                                "vtpvlaneditstate",
+                                "vtpvlaneditstehopcount",
+                                "vtpvlaneditstptype",
+                                "vtpvlanedittranslationalvlan1",
+                                "vtpvlanedittranslationalvlan2",
+                                "vtpvlanedittype",
+                                "vtpvlanedittypeext",
+                                "vtpvlanedittypeext2") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry, self).__setattr__(name, value)
+
+            class Vtpvlaneditbridgetype(Enum):
                 """
-                VtpvlaneditbridgetypeEnum
+                Vtpvlaneditbridgetype
 
                 The type of Source Route bridging mode which would be in
 
@@ -2130,20 +3154,14 @@ class CiscoVtpMib(object):
 
                 """
 
-                srt = 1
+                srt = Enum.YLeaf(1, "srt")
 
-                srb = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.VtpvlaneditbridgetypeEnum']
+                srb = Enum.YLeaf(2, "srb")
 
 
-            class VtpvlaneditstateEnum(Enum):
+            class Vtpvlaneditstate(Enum):
                 """
-                VtpvlaneditstateEnum
+                Vtpvlaneditstate
 
                 The state which this VLAN would have.
 
@@ -2153,20 +3171,14 @@ class CiscoVtpMib(object):
 
                 """
 
-                operational = 1
+                operational = Enum.YLeaf(1, "operational")
 
-                suspended = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.VtpvlaneditstateEnum']
+                suspended = Enum.YLeaf(2, "suspended")
 
 
-            class VtpvlaneditstptypeEnum(Enum):
+            class Vtpvlaneditstptype(Enum):
                 """
-                VtpvlaneditstptypeEnum
+                Vtpvlaneditstptype
 
                 The type of the Spanning Tree Protocol which would be
 
@@ -2196,129 +3208,275 @@ class CiscoVtpMib(object):
 
                 """
 
-                ieee = 1
+                ieee = Enum.YLeaf(1, "ieee")
 
-                ibm = 2
+                ibm = Enum.YLeaf(2, "ibm")
 
-                auto = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry.VtpvlaneditstptypeEnum']
+                auto = Enum.YLeaf(3, "auto")
 
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
-                if self.vtpvlaneditindex is None:
-                    raise YPYModelError('Key property vtpvlaneditindex is None')
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpvlaneditindex.is_set or
+                    self.stpxvlanmistpinstmapeditinstindex.is_set or
+                    self.vtpvlaneditarehopcount.is_set or
+                    self.vtpvlaneditbridgenumber.is_set or
+                    self.vtpvlaneditbridgetype.is_set or
+                    self.vtpvlaneditdot10said.is_set or
+                    self.vtpvlaneditiscrfbackup.is_set or
+                    self.vtpvlaneditmtu.is_set or
+                    self.vtpvlaneditname.is_set or
+                    self.vtpvlaneditparentvlan.is_set or
+                    self.vtpvlaneditringnumber.is_set or
+                    self.vtpvlaneditrowstatus.is_set or
+                    self.vtpvlaneditstate.is_set or
+                    self.vtpvlaneditstehopcount.is_set or
+                    self.vtpvlaneditstptype.is_set or
+                    self.vtpvlanedittranslationalvlan1.is_set or
+                    self.vtpvlanedittranslationalvlan2.is_set or
+                    self.vtpvlanedittype.is_set or
+                    self.vtpvlanedittypeext.is_set or
+                    self.vtpvlanedittypeext2.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpVlanEditTable/CISCO-VTP-MIB:vtpVlanEditEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + '][CISCO-VTP-MIB:vtpVlanEditIndex = ' + str(self.vtpvlaneditindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpvlaneditindex.yfilter != YFilter.not_set or
+                    self.stpxvlanmistpinstmapeditinstindex.yfilter != YFilter.not_set or
+                    self.vtpvlaneditarehopcount.yfilter != YFilter.not_set or
+                    self.vtpvlaneditbridgenumber.yfilter != YFilter.not_set or
+                    self.vtpvlaneditbridgetype.yfilter != YFilter.not_set or
+                    self.vtpvlaneditdot10said.yfilter != YFilter.not_set or
+                    self.vtpvlaneditiscrfbackup.yfilter != YFilter.not_set or
+                    self.vtpvlaneditmtu.yfilter != YFilter.not_set or
+                    self.vtpvlaneditname.yfilter != YFilter.not_set or
+                    self.vtpvlaneditparentvlan.yfilter != YFilter.not_set or
+                    self.vtpvlaneditringnumber.yfilter != YFilter.not_set or
+                    self.vtpvlaneditrowstatus.yfilter != YFilter.not_set or
+                    self.vtpvlaneditstate.yfilter != YFilter.not_set or
+                    self.vtpvlaneditstehopcount.yfilter != YFilter.not_set or
+                    self.vtpvlaneditstptype.yfilter != YFilter.not_set or
+                    self.vtpvlanedittranslationalvlan1.yfilter != YFilter.not_set or
+                    self.vtpvlanedittranslationalvlan2.yfilter != YFilter.not_set or
+                    self.vtpvlanedittype.yfilter != YFilter.not_set or
+                    self.vtpvlanedittypeext.yfilter != YFilter.not_set or
+                    self.vtpvlanedittypeext2.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpVlanEditEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + "[vtpVlanEditIndex='" + self.vtpvlaneditindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanEditTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpvlaneditindex.is_set or self.vtpvlaneditindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditindex.get_name_leafdata())
+                if (self.stpxvlanmistpinstmapeditinstindex.is_set or self.stpxvlanmistpinstmapeditinstindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxvlanmistpinstmapeditinstindex.get_name_leafdata())
+                if (self.vtpvlaneditarehopcount.is_set or self.vtpvlaneditarehopcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditarehopcount.get_name_leafdata())
+                if (self.vtpvlaneditbridgenumber.is_set or self.vtpvlaneditbridgenumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditbridgenumber.get_name_leafdata())
+                if (self.vtpvlaneditbridgetype.is_set or self.vtpvlaneditbridgetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditbridgetype.get_name_leafdata())
+                if (self.vtpvlaneditdot10said.is_set or self.vtpvlaneditdot10said.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditdot10said.get_name_leafdata())
+                if (self.vtpvlaneditiscrfbackup.is_set or self.vtpvlaneditiscrfbackup.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditiscrfbackup.get_name_leafdata())
+                if (self.vtpvlaneditmtu.is_set or self.vtpvlaneditmtu.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditmtu.get_name_leafdata())
+                if (self.vtpvlaneditname.is_set or self.vtpvlaneditname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditname.get_name_leafdata())
+                if (self.vtpvlaneditparentvlan.is_set or self.vtpvlaneditparentvlan.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditparentvlan.get_name_leafdata())
+                if (self.vtpvlaneditringnumber.is_set or self.vtpvlaneditringnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditringnumber.get_name_leafdata())
+                if (self.vtpvlaneditrowstatus.is_set or self.vtpvlaneditrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditrowstatus.get_name_leafdata())
+                if (self.vtpvlaneditstate.is_set or self.vtpvlaneditstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditstate.get_name_leafdata())
+                if (self.vtpvlaneditstehopcount.is_set or self.vtpvlaneditstehopcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditstehopcount.get_name_leafdata())
+                if (self.vtpvlaneditstptype.is_set or self.vtpvlaneditstptype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlaneditstptype.get_name_leafdata())
+                if (self.vtpvlanedittranslationalvlan1.is_set or self.vtpvlanedittranslationalvlan1.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanedittranslationalvlan1.get_name_leafdata())
+                if (self.vtpvlanedittranslationalvlan2.is_set or self.vtpvlanedittranslationalvlan2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanedittranslationalvlan2.get_name_leafdata())
+                if (self.vtpvlanedittype.is_set or self.vtpvlanedittype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanedittype.get_name_leafdata())
+                if (self.vtpvlanedittypeext.is_set or self.vtpvlanedittypeext.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanedittypeext.get_name_leafdata())
+                if (self.vtpvlanedittypeext2.is_set or self.vtpvlanedittypeext2.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanedittypeext2.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpVlanEditIndex" or name == "stpxVlanMISTPInstMapEditInstIndex" or name == "vtpVlanEditAreHopCount" or name == "vtpVlanEditBridgeNumber" or name == "vtpVlanEditBridgeType" or name == "vtpVlanEditDot10Said" or name == "vtpVlanEditIsCRFBackup" or name == "vtpVlanEditMtu" or name == "vtpVlanEditName" or name == "vtpVlanEditParentVlan" or name == "vtpVlanEditRingNumber" or name == "vtpVlanEditRowStatus" or name == "vtpVlanEditState" or name == "vtpVlanEditSteHopCount" or name == "vtpVlanEditStpType" or name == "vtpVlanEditTranslationalVlan1" or name == "vtpVlanEditTranslationalVlan2" or name == "vtpVlanEditType" or name == "vtpVlanEditTypeExt" or name == "vtpVlanEditTypeExt2"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditIndex"):
+                    self.vtpvlaneditindex = value
+                    self.vtpvlaneditindex.value_namespace = name_space
+                    self.vtpvlaneditindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxVlanMISTPInstMapEditInstIndex"):
+                    self.stpxvlanmistpinstmapeditinstindex = value
+                    self.stpxvlanmistpinstmapeditinstindex.value_namespace = name_space
+                    self.stpxvlanmistpinstmapeditinstindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditAreHopCount"):
+                    self.vtpvlaneditarehopcount = value
+                    self.vtpvlaneditarehopcount.value_namespace = name_space
+                    self.vtpvlaneditarehopcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditBridgeNumber"):
+                    self.vtpvlaneditbridgenumber = value
+                    self.vtpvlaneditbridgenumber.value_namespace = name_space
+                    self.vtpvlaneditbridgenumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditBridgeType"):
+                    self.vtpvlaneditbridgetype = value
+                    self.vtpvlaneditbridgetype.value_namespace = name_space
+                    self.vtpvlaneditbridgetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditDot10Said"):
+                    self.vtpvlaneditdot10said = value
+                    self.vtpvlaneditdot10said.value_namespace = name_space
+                    self.vtpvlaneditdot10said.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditIsCRFBackup"):
+                    self.vtpvlaneditiscrfbackup = value
+                    self.vtpvlaneditiscrfbackup.value_namespace = name_space
+                    self.vtpvlaneditiscrfbackup.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditMtu"):
+                    self.vtpvlaneditmtu = value
+                    self.vtpvlaneditmtu.value_namespace = name_space
+                    self.vtpvlaneditmtu.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditName"):
+                    self.vtpvlaneditname = value
+                    self.vtpvlaneditname.value_namespace = name_space
+                    self.vtpvlaneditname.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditParentVlan"):
+                    self.vtpvlaneditparentvlan = value
+                    self.vtpvlaneditparentvlan.value_namespace = name_space
+                    self.vtpvlaneditparentvlan.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditRingNumber"):
+                    self.vtpvlaneditringnumber = value
+                    self.vtpvlaneditringnumber.value_namespace = name_space
+                    self.vtpvlaneditringnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditRowStatus"):
+                    self.vtpvlaneditrowstatus = value
+                    self.vtpvlaneditrowstatus.value_namespace = name_space
+                    self.vtpvlaneditrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditState"):
+                    self.vtpvlaneditstate = value
+                    self.vtpvlaneditstate.value_namespace = name_space
+                    self.vtpvlaneditstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditSteHopCount"):
+                    self.vtpvlaneditstehopcount = value
+                    self.vtpvlaneditstehopcount.value_namespace = name_space
+                    self.vtpvlaneditstehopcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditStpType"):
+                    self.vtpvlaneditstptype = value
+                    self.vtpvlaneditstptype.value_namespace = name_space
+                    self.vtpvlaneditstptype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditTranslationalVlan1"):
+                    self.vtpvlanedittranslationalvlan1 = value
+                    self.vtpvlanedittranslationalvlan1.value_namespace = name_space
+                    self.vtpvlanedittranslationalvlan1.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditTranslationalVlan2"):
+                    self.vtpvlanedittranslationalvlan2 = value
+                    self.vtpvlanedittranslationalvlan2.value_namespace = name_space
+                    self.vtpvlanedittranslationalvlan2.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditType"):
+                    self.vtpvlanedittype = value
+                    self.vtpvlanedittype.value_namespace = name_space
+                    self.vtpvlanedittype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanEditTypeExt"):
+                    self.vtpvlanedittypeext[value] = True
+                if(value_path == "vtpVlanEditTypeExt2"):
+                    self.vtpvlanedittypeext2[value] = True
+
+        def has_data(self):
+            for c in self.vtpvlaneditentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpvlaneditindex is not None:
-                    return True
-
-                if self.stpxvlanmistpinstmapeditinstindex is not None:
-                    return True
-
-                if self.vtpvlaneditarehopcount is not None:
-                    return True
-
-                if self.vtpvlaneditbridgenumber is not None:
-                    return True
-
-                if self.vtpvlaneditbridgetype is not None:
-                    return True
-
-                if self.vtpvlaneditdot10said is not None:
-                    return True
-
-                if self.vtpvlaneditiscrfbackup is not None:
-                    return True
-
-                if self.vtpvlaneditmtu is not None:
-                    return True
-
-                if self.vtpvlaneditname is not None:
-                    return True
-
-                if self.vtpvlaneditparentvlan is not None:
-                    return True
-
-                if self.vtpvlaneditringnumber is not None:
-                    return True
-
-                if self.vtpvlaneditrowstatus is not None:
-                    return True
-
-                if self.vtpvlaneditstate is not None:
-                    return True
-
-                if self.vtpvlaneditstehopcount is not None:
-                    return True
-
-                if self.vtpvlaneditstptype is not None:
-                    return True
-
-                if self.vtpvlanedittranslationalvlan1 is not None:
-                    return True
-
-                if self.vtpvlanedittranslationalvlan2 is not None:
-                    return True
-
-                if self.vtpvlanedittype is not None:
-                    return True
-
-                if self.vtpvlanedittypeext is not None:
-                    if self.vtpvlanedittypeext._has_data():
-                        return True
-
-                if self.vtpvlanedittypeext2 is not None:
-                    if self.vtpvlanedittypeext2._has_data():
-                        return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpVlanEditTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpvlaneditentry is not None:
-                for child_ref in self.vtpvlaneditentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpvlaneditentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpVlanEditTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpVlanEditEntry"):
+                for c in self.vtpvlaneditentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpvlanedittable.Vtpvlaneditentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpvlaneditentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpVlanEditEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpvlanedittable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpvlanlocalshutdowntable(object):
+    class Vtpvlanlocalshutdowntable(Entity):
         """
         Ths table contains the VLAN local shutdown
         information within management domain.
@@ -2336,13 +3494,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpvlanlocalshutdownentry = YList()
-            self.vtpvlanlocalshutdownentry.parent = self
-            self.vtpvlanlocalshutdownentry.name = 'vtpvlanlocalshutdownentry'
+            super(CiscoVtpMib.Vtpvlanlocalshutdowntable, self).__init__()
+
+            self.yang_name = "vtpVlanLocalShutdownTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpvlanlocalshutdownentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpvlanlocalshutdowntable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpvlanlocalshutdowntable, self).__setattr__(name, value)
 
 
-        class Vtpvlanlocalshutdownentry(object):
+        class Vtpvlanlocalshutdownentry(Entity):
             """
             An entry containing VLAN local shutdown information for a
             particular VLAN in the management domain.
@@ -2374,7 +3558,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpvlanlocalshutdown
             
             	The object specifies the VLAN local shutdown state
-            	**type**\:   :py:class:`VtpvlanlocalshutdownEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry.VtpvlanlocalshutdownEnum>`
+            	**type**\:   :py:class:`Vtpvlanlocalshutdown <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry.Vtpvlanlocalshutdown>`
             
             
 
@@ -2384,14 +3568,46 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpvlanindex = None
-                self.vtpvlanlocalshutdown = None
+                super(CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry, self).__init__()
 
-            class VtpvlanlocalshutdownEnum(Enum):
+                self.yang_name = "vtpVlanLocalShutdownEntry"
+                self.yang_parent_name = "vtpVlanLocalShutdownTable"
+
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
+
+                self.vtpvlanindex = YLeaf(YType.str, "vtpVlanIndex")
+
+                self.vtpvlanlocalshutdown = YLeaf(YType.enumeration, "vtpVlanLocalShutdown")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpvlanindex",
+                                "vtpvlanlocalshutdown") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry, self).__setattr__(name, value)
+
+            class Vtpvlanlocalshutdown(Enum):
                 """
-                VtpvlanlocalshutdownEnum
+                Vtpvlanlocalshutdown
 
                 The object specifies the VLAN local shutdown state.
 
@@ -2401,71 +3617,133 @@ class CiscoVtpMib(object):
 
                 """
 
-                up = 1
+                up = Enum.YLeaf(1, "up")
 
-                down = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry.VtpvlanlocalshutdownEnum']
+                down = Enum.YLeaf(2, "down")
 
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
-                if self.vtpvlanindex is None:
-                    raise YPYModelError('Key property vtpvlanindex is None')
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpvlanindex.is_set or
+                    self.vtpvlanlocalshutdown.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpVlanLocalShutdownTable/CISCO-VTP-MIB:vtpVlanLocalShutdownEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + '][CISCO-VTP-MIB:vtpVlanIndex = ' + str(self.vtpvlanindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpvlanindex.yfilter != YFilter.not_set or
+                    self.vtpvlanlocalshutdown.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpVlanLocalShutdownEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + "[vtpVlanIndex='" + self.vtpvlanindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanLocalShutdownTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpvlanindex.is_set or self.vtpvlanindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanindex.get_name_leafdata())
+                if (self.vtpvlanlocalshutdown.is_set or self.vtpvlanlocalshutdown.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanlocalshutdown.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpVlanIndex" or name == "vtpVlanLocalShutdown"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanIndex"):
+                    self.vtpvlanindex = value
+                    self.vtpvlanindex.value_namespace = name_space
+                    self.vtpvlanindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlanLocalShutdown"):
+                    self.vtpvlanlocalshutdown = value
+                    self.vtpvlanlocalshutdown.value_namespace = name_space
+                    self.vtpvlanlocalshutdown.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vtpvlanlocalshutdownentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpvlanindex is not None:
-                    return True
-
-                if self.vtpvlanlocalshutdown is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpVlanLocalShutdownTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpvlanlocalshutdownentry is not None:
-                for child_ref in self.vtpvlanlocalshutdownentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpvlanlocalshutdownentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpVlanLocalShutdownTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpVlanLocalShutdownEntry"):
+                for c in self.vtpvlanlocalshutdownentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpvlanlocalshutdowntable.Vtpvlanlocalshutdownentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpvlanlocalshutdownentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpVlanLocalShutdownEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpvlanlocalshutdowntable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vlantrunkporttable(object):
+    class Vlantrunkporttable(Entity):
         """
         The table containing information on the local system's VLAN
         trunk ports.
@@ -2483,13 +3761,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vlantrunkportentry = YList()
-            self.vlantrunkportentry.parent = self
-            self.vlantrunkportentry.name = 'vlantrunkportentry'
+            super(CiscoVtpMib.Vlantrunkporttable, self).__init__()
+
+            self.yang_name = "vlanTrunkPortTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vlantrunkportentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vlantrunkporttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vlantrunkporttable, self).__setattr__(name, value)
 
 
-        class Vlantrunkportentry(object):
+        class Vlantrunkportentry(Entity):
             """
             Information about one trunk port.
             
@@ -2547,29 +3851,29 @@ class CiscoVtpMib(object):
             .. attribute:: vlantrunkportdot1qtunnel
             
             	Indicates dot1qtunnel mode of the port.  If the portDot1qTunnel  is set to 'trunk' mode, the port's vlanTrunkPortDynamicState will be changed to 'onNoNegotiate' and the vlanTrunkPortEncapsulationType will be set to 'dot1Q'. These values cannot be changed unless dot1q tunnel is disabled on this port.  If the portDot1qTunnel mode is set to 'access' mode, the port's vlanTrunkPortDynamicState will be set to 'off'.And the value of vlanTrunkPortDynamicState cannot be changed unless dot1q tunnel is disabled on this port. 1Q packets received on this access port will remain.  Setting the port to dot1q tunnel 'disabled' mode causes the dot1q tunnel feature to be disabled on this port.  This object can't be set to 'trunk' or 'access' mode, when vlanTrunkPortsDot1qTag  object is set to 'false'.  This object has been deprecated and is replaced by the object 'cltcDot1qTunnelMode' in the CISCO\-L2\-TUNNEL\-CONFIG\-MIB
-            	**type**\:   :py:class:`Vlantrunkportdot1QtunnelEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdot1QtunnelEnum>`
+            	**type**\:   :py:class:`Vlantrunkportdot1Qtunnel <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdot1Qtunnel>`
             
             	**status**\: deprecated
             
             .. attribute:: vlantrunkportdynamicstate
             
             	For devices that allows dynamic determination of whether a link between two switches should be a trunk or not, this object allows the operator to mandate the behavior of that dynamic mechanism.  on(1) dictates that the interface will always be a trunk. This is the value for static entries (those that show no dynamic behavior). If the negotiation is supported on this port, negotiation will take place with the far end to attempt to bring the far end into trunking state.  off(2) allows an operator to specify that the specified interface is never to be trunk, regardless of any dynamic mechanisms to the contrary.  This value is useful for overriding the default behavior of some switches. If the negotiation is supported on this port, negotiation will take place with the far end to attempt on the link to bring the far end into non\-trunking state.  desirable(3) is used to indicate that it is desirable for the interface to become a trunk.  The device will initiate any negotiation necessary to become a trunk but will not become a trunk unless it receives confirmation from the far end on the link.  auto(4) is used to indicate that the interface is capable and willing to become a trunk but will not initiate trunking negotiations.  The far end on the link are required to either start negotiations or start sending encapsulated packets, on which event the specified interface will become a trunk.  onNoNegotiate(5) is used to indicate that the interface is permanently set to be a trunk, and no negotiation takes place with the far end on the link to ensure consistent operation. This is similar to on(1) except no negotiation takes place with the far end.  If the port does not support negotiation or its vlanTrunkPortEncapsulationType is set to negotiate(5), onNoNegotiate(5) is not allowed.  Devices that do no support dynamic determination (for just a particular interface, encapsulation or for the whole device) need only support the 'on', and 'off' values
-            	**type**\:   :py:class:`VlantrunkportdynamicstateEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportdynamicstateEnum>`
+            	**type**\:   :py:class:`Vlantrunkportdynamicstate <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdynamicstate>`
             
             .. attribute:: vlantrunkportdynamicstatus
             
             	Indicates whether the specified interface is either acting as a trunk or not. This is a result of the vlanTrunkPortDynamicState and the ifOperStatus of the trunk port itself
-            	**type**\:   :py:class:`VlantrunkportdynamicstatusEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportdynamicstatusEnum>`
+            	**type**\:   :py:class:`Vlantrunkportdynamicstatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdynamicstatus>`
             
             .. attribute:: vlantrunkportencapsulationopertype
             
             	The type of VLAN encapsulation in use on this trunk port. For intefaces with vlanTrunkPortDynamicStatus of notTrunking(2) the vlanTrunkPortEncapsulationOperType shall be notApplicable(6)
-            	**type**\:   :py:class:`VlantrunkportencapsulationopertypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportencapsulationopertypeEnum>`
+            	**type**\:   :py:class:`Vlantrunkportencapsulationopertype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportencapsulationopertype>`
             
             .. attribute:: vlantrunkportencapsulationtype
             
             	The type of VLAN encapsulation desired to be used on this trunk port. It is either a particular type, or 'negotiate' meaning whatever type results from the negotiation. negotiate(5) is not allowed if the port does not support negotiation or if its vlanTrunkPortDynamicState is set to on(1) or onNoNegotiate(5). Whether writing to this object in order to modify the encapsulation is supported is both device and interface specific
-            	**type**\:   :py:class:`VlantrunkportencapsulationtypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportencapsulationtypeEnum>`
+            	**type**\:   :py:class:`Vlantrunkportencapsulationtype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportencapsulationtype>`
             
             .. attribute:: vlantrunkportinjoins
             
@@ -2609,7 +3913,7 @@ class CiscoVtpMib(object):
             .. attribute:: vlantrunkportrowstatus
             
             	The status of this row.  In some circumstances, the creation of a row in this table is needed to enable the appropriate trunking/tagging protocol on the port, to enable the use of VTP on the port, and to assign the port to the appropriate management domain.  In other circumstances, rows in this table will be created as a by\-product of other operations
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: vlantrunkportvlansactivefirst2k
             
@@ -2750,48 +4054,148 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.vlantrunkportifindex = None
-                self.stpxpreferredmistpinstancesmap = None
-                self.stpxpreferredmstinstancesmap = None
-                self.stpxpreferredvlansmap = None
-                self.stpxpreferredvlansmap2k = None
-                self.stpxpreferredvlansmap3k = None
-                self.stpxpreferredvlansmap4k = None
-                self.vlantrunkportdot1qtunnel = None
-                self.vlantrunkportdynamicstate = None
-                self.vlantrunkportdynamicstatus = None
-                self.vlantrunkportencapsulationopertype = None
-                self.vlantrunkportencapsulationtype = None
-                self.vlantrunkportinjoins = None
-                self.vlantrunkportmanagementdomain = None
-                self.vlantrunkportnativevlan = None
-                self.vlantrunkportoldadverts = None
-                self.vlantrunkportoutjoins = None
-                self.vlantrunkportrowstatus = None
-                self.vlantrunkportvlansactivefirst2k = None
-                self.vlantrunkportvlansactivesecond2k = None
-                self.vlantrunkportvlansenabled = None
-                self.vlantrunkportvlansenabled2k = None
-                self.vlantrunkportvlansenabled3k = None
-                self.vlantrunkportvlansenabled4k = None
-                self.vlantrunkportvlanspruningeligible = None
-                self.vlantrunkportvlansrcvjoined = None
-                self.vlantrunkportvlansrcvjoined2k = None
-                self.vlantrunkportvlansrcvjoined3k = None
-                self.vlantrunkportvlansrcvjoined4k = None
-                self.vlantrunkportvlansxmitjoined = None
-                self.vlantrunkportvlansxmitjoined2k = None
-                self.vlantrunkportvlansxmitjoined3k = None
-                self.vlantrunkportvlansxmitjoined4k = None
-                self.vlantrunkportvtpenabled = None
-                self.vtpvlanspruningeligible2k = None
-                self.vtpvlanspruningeligible3k = None
-                self.vtpvlanspruningeligible4k = None
+                super(CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry, self).__init__()
 
-            class Vlantrunkportdot1QtunnelEnum(Enum):
+                self.yang_name = "vlanTrunkPortEntry"
+                self.yang_parent_name = "vlanTrunkPortTable"
+
+                self.vlantrunkportifindex = YLeaf(YType.int32, "vlanTrunkPortIfIndex")
+
+                self.stpxpreferredmistpinstancesmap = YLeaf(YType.str, "CISCO-STP-EXTENSIONS-MIB:stpxPreferredMISTPInstancesMap")
+
+                self.stpxpreferredmstinstancesmap = YLeaf(YType.str, "CISCO-STP-EXTENSIONS-MIB:stpxPreferredMSTInstancesMap")
+
+                self.stpxpreferredvlansmap = YLeaf(YType.str, "CISCO-STP-EXTENSIONS-MIB:stpxPreferredVlansMap")
+
+                self.stpxpreferredvlansmap2k = YLeaf(YType.str, "CISCO-STP-EXTENSIONS-MIB:stpxPreferredVlansMap2k")
+
+                self.stpxpreferredvlansmap3k = YLeaf(YType.str, "CISCO-STP-EXTENSIONS-MIB:stpxPreferredVlansMap3k")
+
+                self.stpxpreferredvlansmap4k = YLeaf(YType.str, "CISCO-STP-EXTENSIONS-MIB:stpxPreferredVlansMap4k")
+
+                self.vlantrunkportdot1qtunnel = YLeaf(YType.enumeration, "vlanTrunkPortDot1qTunnel")
+
+                self.vlantrunkportdynamicstate = YLeaf(YType.enumeration, "vlanTrunkPortDynamicState")
+
+                self.vlantrunkportdynamicstatus = YLeaf(YType.enumeration, "vlanTrunkPortDynamicStatus")
+
+                self.vlantrunkportencapsulationopertype = YLeaf(YType.enumeration, "vlanTrunkPortEncapsulationOperType")
+
+                self.vlantrunkportencapsulationtype = YLeaf(YType.enumeration, "vlanTrunkPortEncapsulationType")
+
+                self.vlantrunkportinjoins = YLeaf(YType.uint32, "vlanTrunkPortInJoins")
+
+                self.vlantrunkportmanagementdomain = YLeaf(YType.int32, "vlanTrunkPortManagementDomain")
+
+                self.vlantrunkportnativevlan = YLeaf(YType.int32, "vlanTrunkPortNativeVlan")
+
+                self.vlantrunkportoldadverts = YLeaf(YType.uint32, "vlanTrunkPortOldAdverts")
+
+                self.vlantrunkportoutjoins = YLeaf(YType.uint32, "vlanTrunkPortOutJoins")
+
+                self.vlantrunkportrowstatus = YLeaf(YType.enumeration, "vlanTrunkPortRowStatus")
+
+                self.vlantrunkportvlansactivefirst2k = YLeaf(YType.str, "vlanTrunkPortVlansActiveFirst2k")
+
+                self.vlantrunkportvlansactivesecond2k = YLeaf(YType.str, "vlanTrunkPortVlansActiveSecond2k")
+
+                self.vlantrunkportvlansenabled = YLeaf(YType.str, "vlanTrunkPortVlansEnabled")
+
+                self.vlantrunkportvlansenabled2k = YLeaf(YType.str, "vlanTrunkPortVlansEnabled2k")
+
+                self.vlantrunkportvlansenabled3k = YLeaf(YType.str, "vlanTrunkPortVlansEnabled3k")
+
+                self.vlantrunkportvlansenabled4k = YLeaf(YType.str, "vlanTrunkPortVlansEnabled4k")
+
+                self.vlantrunkportvlanspruningeligible = YLeaf(YType.str, "vlanTrunkPortVlansPruningEligible")
+
+                self.vlantrunkportvlansrcvjoined = YLeaf(YType.str, "vlanTrunkPortVlansRcvJoined")
+
+                self.vlantrunkportvlansrcvjoined2k = YLeaf(YType.str, "vlanTrunkPortVlansRcvJoined2k")
+
+                self.vlantrunkportvlansrcvjoined3k = YLeaf(YType.str, "vlanTrunkPortVlansRcvJoined3k")
+
+                self.vlantrunkportvlansrcvjoined4k = YLeaf(YType.str, "vlanTrunkPortVlansRcvJoined4k")
+
+                self.vlantrunkportvlansxmitjoined = YLeaf(YType.str, "vlanTrunkPortVlansXmitJoined")
+
+                self.vlantrunkportvlansxmitjoined2k = YLeaf(YType.str, "vlanTrunkPortVlansXmitJoined2k")
+
+                self.vlantrunkportvlansxmitjoined3k = YLeaf(YType.str, "vlanTrunkPortVlansXmitJoined3k")
+
+                self.vlantrunkportvlansxmitjoined4k = YLeaf(YType.str, "vlanTrunkPortVlansXmitJoined4k")
+
+                self.vlantrunkportvtpenabled = YLeaf(YType.boolean, "vlanTrunkPortVtpEnabled")
+
+                self.vtpvlanspruningeligible2k = YLeaf(YType.str, "vtpVlansPruningEligible2k")
+
+                self.vtpvlanspruningeligible3k = YLeaf(YType.str, "vtpVlansPruningEligible3k")
+
+                self.vtpvlanspruningeligible4k = YLeaf(YType.str, "vtpVlansPruningEligible4k")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vlantrunkportifindex",
+                                "stpxpreferredmistpinstancesmap",
+                                "stpxpreferredmstinstancesmap",
+                                "stpxpreferredvlansmap",
+                                "stpxpreferredvlansmap2k",
+                                "stpxpreferredvlansmap3k",
+                                "stpxpreferredvlansmap4k",
+                                "vlantrunkportdot1qtunnel",
+                                "vlantrunkportdynamicstate",
+                                "vlantrunkportdynamicstatus",
+                                "vlantrunkportencapsulationopertype",
+                                "vlantrunkportencapsulationtype",
+                                "vlantrunkportinjoins",
+                                "vlantrunkportmanagementdomain",
+                                "vlantrunkportnativevlan",
+                                "vlantrunkportoldadverts",
+                                "vlantrunkportoutjoins",
+                                "vlantrunkportrowstatus",
+                                "vlantrunkportvlansactivefirst2k",
+                                "vlantrunkportvlansactivesecond2k",
+                                "vlantrunkportvlansenabled",
+                                "vlantrunkportvlansenabled2k",
+                                "vlantrunkportvlansenabled3k",
+                                "vlantrunkportvlansenabled4k",
+                                "vlantrunkportvlanspruningeligible",
+                                "vlantrunkportvlansrcvjoined",
+                                "vlantrunkportvlansrcvjoined2k",
+                                "vlantrunkportvlansrcvjoined3k",
+                                "vlantrunkportvlansrcvjoined4k",
+                                "vlantrunkportvlansxmitjoined",
+                                "vlantrunkportvlansxmitjoined2k",
+                                "vlantrunkportvlansxmitjoined3k",
+                                "vlantrunkportvlansxmitjoined4k",
+                                "vlantrunkportvtpenabled",
+                                "vtpvlanspruningeligible2k",
+                                "vtpvlanspruningeligible3k",
+                                "vtpvlanspruningeligible4k") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry, self).__setattr__(name, value)
+
+            class Vlantrunkportdot1Qtunnel(Enum):
                 """
-                Vlantrunkportdot1QtunnelEnum
+                Vlantrunkportdot1Qtunnel
 
                 Indicates dot1qtunnel mode of the port.
 
@@ -2837,22 +4241,16 @@ class CiscoVtpMib(object):
 
                 """
 
-                trunk = 1
+                trunk = Enum.YLeaf(1, "trunk")
 
-                access = 2
+                access = Enum.YLeaf(2, "access")
 
-                disabled = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.Vlantrunkportdot1QtunnelEnum']
+                disabled = Enum.YLeaf(3, "disabled")
 
 
-            class VlantrunkportdynamicstateEnum(Enum):
+            class Vlantrunkportdynamicstate(Enum):
                 """
-                VlantrunkportdynamicstateEnum
+                Vlantrunkportdynamicstate
 
                 For devices that allows dynamic determination of whether
 
@@ -2942,26 +4340,20 @@ class CiscoVtpMib(object):
 
                 """
 
-                on = 1
+                on = Enum.YLeaf(1, "on")
 
-                off = 2
+                off = Enum.YLeaf(2, "off")
 
-                desirable = 3
+                desirable = Enum.YLeaf(3, "desirable")
 
-                auto = 4
+                auto = Enum.YLeaf(4, "auto")
 
-                onNoNegotiate = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportdynamicstateEnum']
+                onNoNegotiate = Enum.YLeaf(5, "onNoNegotiate")
 
 
-            class VlantrunkportdynamicstatusEnum(Enum):
+            class Vlantrunkportdynamicstatus(Enum):
                 """
-                VlantrunkportdynamicstatusEnum
+                Vlantrunkportdynamicstatus
 
                 Indicates whether the specified interface is either
 
@@ -2977,20 +4369,14 @@ class CiscoVtpMib(object):
 
                 """
 
-                trunking = 1
+                trunking = Enum.YLeaf(1, "trunking")
 
-                notTrunking = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportdynamicstatusEnum']
+                notTrunking = Enum.YLeaf(2, "notTrunking")
 
 
-            class VlantrunkportencapsulationopertypeEnum(Enum):
+            class Vlantrunkportencapsulationopertype(Enum):
                 """
-                VlantrunkportencapsulationopertypeEnum
+                Vlantrunkportencapsulationopertype
 
                 The type of VLAN encapsulation in use on this trunk port.
 
@@ -3014,28 +4400,22 @@ class CiscoVtpMib(object):
 
                 """
 
-                isl = 1
+                isl = Enum.YLeaf(1, "isl")
 
-                dot10 = 2
+                dot10 = Enum.YLeaf(2, "dot10")
 
-                lane = 3
+                lane = Enum.YLeaf(3, "lane")
 
-                dot1Q = 4
+                dot1Q = Enum.YLeaf(4, "dot1Q")
 
-                negotiating = 5
+                negotiating = Enum.YLeaf(5, "negotiating")
 
-                notApplicable = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportencapsulationopertypeEnum']
+                notApplicable = Enum.YLeaf(6, "notApplicable")
 
 
-            class VlantrunkportencapsulationtypeEnum(Enum):
+            class Vlantrunkportencapsulationtype(Enum):
                 """
-                VlantrunkportencapsulationtypeEnum
+                Vlantrunkportencapsulationtype
 
                 The type of VLAN encapsulation desired to be used on this
 
@@ -3065,177 +4445,411 @@ class CiscoVtpMib(object):
 
                 """
 
-                isl = 1
+                isl = Enum.YLeaf(1, "isl")
 
-                dot10 = 2
+                dot10 = Enum.YLeaf(2, "dot10")
 
-                lane = 3
+                lane = Enum.YLeaf(3, "lane")
 
-                dot1Q = 4
+                dot1Q = Enum.YLeaf(4, "dot1Q")
 
-                negotiate = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry.VlantrunkportencapsulationtypeEnum']
+                negotiate = Enum.YLeaf(5, "negotiate")
 
 
-            @property
-            def _common_path(self):
-                if self.vlantrunkportifindex is None:
-                    raise YPYModelError('Key property vlantrunkportifindex is None')
+            def has_data(self):
+                return (
+                    self.vlantrunkportifindex.is_set or
+                    self.stpxpreferredmistpinstancesmap.is_set or
+                    self.stpxpreferredmstinstancesmap.is_set or
+                    self.stpxpreferredvlansmap.is_set or
+                    self.stpxpreferredvlansmap2k.is_set or
+                    self.stpxpreferredvlansmap3k.is_set or
+                    self.stpxpreferredvlansmap4k.is_set or
+                    self.vlantrunkportdot1qtunnel.is_set or
+                    self.vlantrunkportdynamicstate.is_set or
+                    self.vlantrunkportdynamicstatus.is_set or
+                    self.vlantrunkportencapsulationopertype.is_set or
+                    self.vlantrunkportencapsulationtype.is_set or
+                    self.vlantrunkportinjoins.is_set or
+                    self.vlantrunkportmanagementdomain.is_set or
+                    self.vlantrunkportnativevlan.is_set or
+                    self.vlantrunkportoldadverts.is_set or
+                    self.vlantrunkportoutjoins.is_set or
+                    self.vlantrunkportrowstatus.is_set or
+                    self.vlantrunkportvlansactivefirst2k.is_set or
+                    self.vlantrunkportvlansactivesecond2k.is_set or
+                    self.vlantrunkportvlansenabled.is_set or
+                    self.vlantrunkportvlansenabled2k.is_set or
+                    self.vlantrunkportvlansenabled3k.is_set or
+                    self.vlantrunkportvlansenabled4k.is_set or
+                    self.vlantrunkportvlanspruningeligible.is_set or
+                    self.vlantrunkportvlansrcvjoined.is_set or
+                    self.vlantrunkportvlansrcvjoined2k.is_set or
+                    self.vlantrunkportvlansrcvjoined3k.is_set or
+                    self.vlantrunkportvlansrcvjoined4k.is_set or
+                    self.vlantrunkportvlansxmitjoined.is_set or
+                    self.vlantrunkportvlansxmitjoined2k.is_set or
+                    self.vlantrunkportvlansxmitjoined3k.is_set or
+                    self.vlantrunkportvlansxmitjoined4k.is_set or
+                    self.vlantrunkportvtpenabled.is_set or
+                    self.vtpvlanspruningeligible2k.is_set or
+                    self.vtpvlanspruningeligible3k.is_set or
+                    self.vtpvlanspruningeligible4k.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vlanTrunkPortTable/CISCO-VTP-MIB:vlanTrunkPortEntry[CISCO-VTP-MIB:vlanTrunkPortIfIndex = ' + str(self.vlantrunkportifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vlantrunkportifindex.yfilter != YFilter.not_set or
+                    self.stpxpreferredmistpinstancesmap.yfilter != YFilter.not_set or
+                    self.stpxpreferredmstinstancesmap.yfilter != YFilter.not_set or
+                    self.stpxpreferredvlansmap.yfilter != YFilter.not_set or
+                    self.stpxpreferredvlansmap2k.yfilter != YFilter.not_set or
+                    self.stpxpreferredvlansmap3k.yfilter != YFilter.not_set or
+                    self.stpxpreferredvlansmap4k.yfilter != YFilter.not_set or
+                    self.vlantrunkportdot1qtunnel.yfilter != YFilter.not_set or
+                    self.vlantrunkportdynamicstate.yfilter != YFilter.not_set or
+                    self.vlantrunkportdynamicstatus.yfilter != YFilter.not_set or
+                    self.vlantrunkportencapsulationopertype.yfilter != YFilter.not_set or
+                    self.vlantrunkportencapsulationtype.yfilter != YFilter.not_set or
+                    self.vlantrunkportinjoins.yfilter != YFilter.not_set or
+                    self.vlantrunkportmanagementdomain.yfilter != YFilter.not_set or
+                    self.vlantrunkportnativevlan.yfilter != YFilter.not_set or
+                    self.vlantrunkportoldadverts.yfilter != YFilter.not_set or
+                    self.vlantrunkportoutjoins.yfilter != YFilter.not_set or
+                    self.vlantrunkportrowstatus.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansactivefirst2k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansactivesecond2k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansenabled.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansenabled2k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansenabled3k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansenabled4k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlanspruningeligible.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansrcvjoined.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansrcvjoined2k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansrcvjoined3k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansrcvjoined4k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansxmitjoined.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansxmitjoined2k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansxmitjoined3k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvlansxmitjoined4k.yfilter != YFilter.not_set or
+                    self.vlantrunkportvtpenabled.yfilter != YFilter.not_set or
+                    self.vtpvlanspruningeligible2k.yfilter != YFilter.not_set or
+                    self.vtpvlanspruningeligible3k.yfilter != YFilter.not_set or
+                    self.vtpvlanspruningeligible4k.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vlanTrunkPortEntry" + "[vlanTrunkPortIfIndex='" + self.vlantrunkportifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vlanTrunkPortTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.vlantrunkportifindex.is_set or self.vlantrunkportifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportifindex.get_name_leafdata())
+                if (self.stpxpreferredmistpinstancesmap.is_set or self.stpxpreferredmistpinstancesmap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxpreferredmistpinstancesmap.get_name_leafdata())
+                if (self.stpxpreferredmstinstancesmap.is_set or self.stpxpreferredmstinstancesmap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxpreferredmstinstancesmap.get_name_leafdata())
+                if (self.stpxpreferredvlansmap.is_set or self.stpxpreferredvlansmap.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxpreferredvlansmap.get_name_leafdata())
+                if (self.stpxpreferredvlansmap2k.is_set or self.stpxpreferredvlansmap2k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxpreferredvlansmap2k.get_name_leafdata())
+                if (self.stpxpreferredvlansmap3k.is_set or self.stpxpreferredvlansmap3k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxpreferredvlansmap3k.get_name_leafdata())
+                if (self.stpxpreferredvlansmap4k.is_set or self.stpxpreferredvlansmap4k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stpxpreferredvlansmap4k.get_name_leafdata())
+                if (self.vlantrunkportdot1qtunnel.is_set or self.vlantrunkportdot1qtunnel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportdot1qtunnel.get_name_leafdata())
+                if (self.vlantrunkportdynamicstate.is_set or self.vlantrunkportdynamicstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportdynamicstate.get_name_leafdata())
+                if (self.vlantrunkportdynamicstatus.is_set or self.vlantrunkportdynamicstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportdynamicstatus.get_name_leafdata())
+                if (self.vlantrunkportencapsulationopertype.is_set or self.vlantrunkportencapsulationopertype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportencapsulationopertype.get_name_leafdata())
+                if (self.vlantrunkportencapsulationtype.is_set or self.vlantrunkportencapsulationtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportencapsulationtype.get_name_leafdata())
+                if (self.vlantrunkportinjoins.is_set or self.vlantrunkportinjoins.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportinjoins.get_name_leafdata())
+                if (self.vlantrunkportmanagementdomain.is_set or self.vlantrunkportmanagementdomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportmanagementdomain.get_name_leafdata())
+                if (self.vlantrunkportnativevlan.is_set or self.vlantrunkportnativevlan.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportnativevlan.get_name_leafdata())
+                if (self.vlantrunkportoldadverts.is_set or self.vlantrunkportoldadverts.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportoldadverts.get_name_leafdata())
+                if (self.vlantrunkportoutjoins.is_set or self.vlantrunkportoutjoins.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportoutjoins.get_name_leafdata())
+                if (self.vlantrunkportrowstatus.is_set or self.vlantrunkportrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportrowstatus.get_name_leafdata())
+                if (self.vlantrunkportvlansactivefirst2k.is_set or self.vlantrunkportvlansactivefirst2k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansactivefirst2k.get_name_leafdata())
+                if (self.vlantrunkportvlansactivesecond2k.is_set or self.vlantrunkportvlansactivesecond2k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansactivesecond2k.get_name_leafdata())
+                if (self.vlantrunkportvlansenabled.is_set or self.vlantrunkportvlansenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansenabled.get_name_leafdata())
+                if (self.vlantrunkportvlansenabled2k.is_set or self.vlantrunkportvlansenabled2k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansenabled2k.get_name_leafdata())
+                if (self.vlantrunkportvlansenabled3k.is_set or self.vlantrunkportvlansenabled3k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansenabled3k.get_name_leafdata())
+                if (self.vlantrunkportvlansenabled4k.is_set or self.vlantrunkportvlansenabled4k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansenabled4k.get_name_leafdata())
+                if (self.vlantrunkportvlanspruningeligible.is_set or self.vlantrunkportvlanspruningeligible.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlanspruningeligible.get_name_leafdata())
+                if (self.vlantrunkportvlansrcvjoined.is_set or self.vlantrunkportvlansrcvjoined.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansrcvjoined.get_name_leafdata())
+                if (self.vlantrunkportvlansrcvjoined2k.is_set or self.vlantrunkportvlansrcvjoined2k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansrcvjoined2k.get_name_leafdata())
+                if (self.vlantrunkportvlansrcvjoined3k.is_set or self.vlantrunkportvlansrcvjoined3k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansrcvjoined3k.get_name_leafdata())
+                if (self.vlantrunkportvlansrcvjoined4k.is_set or self.vlantrunkportvlansrcvjoined4k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansrcvjoined4k.get_name_leafdata())
+                if (self.vlantrunkportvlansxmitjoined.is_set or self.vlantrunkportvlansxmitjoined.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansxmitjoined.get_name_leafdata())
+                if (self.vlantrunkportvlansxmitjoined2k.is_set or self.vlantrunkportvlansxmitjoined2k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansxmitjoined2k.get_name_leafdata())
+                if (self.vlantrunkportvlansxmitjoined3k.is_set or self.vlantrunkportvlansxmitjoined3k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansxmitjoined3k.get_name_leafdata())
+                if (self.vlantrunkportvlansxmitjoined4k.is_set or self.vlantrunkportvlansxmitjoined4k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvlansxmitjoined4k.get_name_leafdata())
+                if (self.vlantrunkportvtpenabled.is_set or self.vlantrunkportvtpenabled.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vlantrunkportvtpenabled.get_name_leafdata())
+                if (self.vtpvlanspruningeligible2k.is_set or self.vtpvlanspruningeligible2k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanspruningeligible2k.get_name_leafdata())
+                if (self.vtpvlanspruningeligible3k.is_set or self.vtpvlanspruningeligible3k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanspruningeligible3k.get_name_leafdata())
+                if (self.vtpvlanspruningeligible4k.is_set or self.vtpvlanspruningeligible4k.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpvlanspruningeligible4k.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "vlanTrunkPortIfIndex" or name == "stpxPreferredMISTPInstancesMap" or name == "stpxPreferredMSTInstancesMap" or name == "stpxPreferredVlansMap" or name == "stpxPreferredVlansMap2k" or name == "stpxPreferredVlansMap3k" or name == "stpxPreferredVlansMap4k" or name == "vlanTrunkPortDot1qTunnel" or name == "vlanTrunkPortDynamicState" or name == "vlanTrunkPortDynamicStatus" or name == "vlanTrunkPortEncapsulationOperType" or name == "vlanTrunkPortEncapsulationType" or name == "vlanTrunkPortInJoins" or name == "vlanTrunkPortManagementDomain" or name == "vlanTrunkPortNativeVlan" or name == "vlanTrunkPortOldAdverts" or name == "vlanTrunkPortOutJoins" or name == "vlanTrunkPortRowStatus" or name == "vlanTrunkPortVlansActiveFirst2k" or name == "vlanTrunkPortVlansActiveSecond2k" or name == "vlanTrunkPortVlansEnabled" or name == "vlanTrunkPortVlansEnabled2k" or name == "vlanTrunkPortVlansEnabled3k" or name == "vlanTrunkPortVlansEnabled4k" or name == "vlanTrunkPortVlansPruningEligible" or name == "vlanTrunkPortVlansRcvJoined" or name == "vlanTrunkPortVlansRcvJoined2k" or name == "vlanTrunkPortVlansRcvJoined3k" or name == "vlanTrunkPortVlansRcvJoined4k" or name == "vlanTrunkPortVlansXmitJoined" or name == "vlanTrunkPortVlansXmitJoined2k" or name == "vlanTrunkPortVlansXmitJoined3k" or name == "vlanTrunkPortVlansXmitJoined4k" or name == "vlanTrunkPortVtpEnabled" or name == "vtpVlansPruningEligible2k" or name == "vtpVlansPruningEligible3k" or name == "vtpVlansPruningEligible4k"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.vlantrunkportifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vlanTrunkPortIfIndex"):
+                    self.vlantrunkportifindex = value
+                    self.vlantrunkportifindex.value_namespace = name_space
+                    self.vlantrunkportifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxPreferredMISTPInstancesMap"):
+                    self.stpxpreferredmistpinstancesmap = value
+                    self.stpxpreferredmistpinstancesmap.value_namespace = name_space
+                    self.stpxpreferredmistpinstancesmap.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxPreferredMSTInstancesMap"):
+                    self.stpxpreferredmstinstancesmap = value
+                    self.stpxpreferredmstinstancesmap.value_namespace = name_space
+                    self.stpxpreferredmstinstancesmap.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxPreferredVlansMap"):
+                    self.stpxpreferredvlansmap = value
+                    self.stpxpreferredvlansmap.value_namespace = name_space
+                    self.stpxpreferredvlansmap.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxPreferredVlansMap2k"):
+                    self.stpxpreferredvlansmap2k = value
+                    self.stpxpreferredvlansmap2k.value_namespace = name_space
+                    self.stpxpreferredvlansmap2k.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxPreferredVlansMap3k"):
+                    self.stpxpreferredvlansmap3k = value
+                    self.stpxpreferredvlansmap3k.value_namespace = name_space
+                    self.stpxpreferredvlansmap3k.value_namespace_prefix = name_space_prefix
+                if(value_path == "stpxPreferredVlansMap4k"):
+                    self.stpxpreferredvlansmap4k = value
+                    self.stpxpreferredvlansmap4k.value_namespace = name_space
+                    self.stpxpreferredvlansmap4k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortDot1qTunnel"):
+                    self.vlantrunkportdot1qtunnel = value
+                    self.vlantrunkportdot1qtunnel.value_namespace = name_space
+                    self.vlantrunkportdot1qtunnel.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortDynamicState"):
+                    self.vlantrunkportdynamicstate = value
+                    self.vlantrunkportdynamicstate.value_namespace = name_space
+                    self.vlantrunkportdynamicstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortDynamicStatus"):
+                    self.vlantrunkportdynamicstatus = value
+                    self.vlantrunkportdynamicstatus.value_namespace = name_space
+                    self.vlantrunkportdynamicstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortEncapsulationOperType"):
+                    self.vlantrunkportencapsulationopertype = value
+                    self.vlantrunkportencapsulationopertype.value_namespace = name_space
+                    self.vlantrunkportencapsulationopertype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortEncapsulationType"):
+                    self.vlantrunkportencapsulationtype = value
+                    self.vlantrunkportencapsulationtype.value_namespace = name_space
+                    self.vlantrunkportencapsulationtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortInJoins"):
+                    self.vlantrunkportinjoins = value
+                    self.vlantrunkportinjoins.value_namespace = name_space
+                    self.vlantrunkportinjoins.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortManagementDomain"):
+                    self.vlantrunkportmanagementdomain = value
+                    self.vlantrunkportmanagementdomain.value_namespace = name_space
+                    self.vlantrunkportmanagementdomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortNativeVlan"):
+                    self.vlantrunkportnativevlan = value
+                    self.vlantrunkportnativevlan.value_namespace = name_space
+                    self.vlantrunkportnativevlan.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortOldAdverts"):
+                    self.vlantrunkportoldadverts = value
+                    self.vlantrunkportoldadverts.value_namespace = name_space
+                    self.vlantrunkportoldadverts.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortOutJoins"):
+                    self.vlantrunkportoutjoins = value
+                    self.vlantrunkportoutjoins.value_namespace = name_space
+                    self.vlantrunkportoutjoins.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortRowStatus"):
+                    self.vlantrunkportrowstatus = value
+                    self.vlantrunkportrowstatus.value_namespace = name_space
+                    self.vlantrunkportrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansActiveFirst2k"):
+                    self.vlantrunkportvlansactivefirst2k = value
+                    self.vlantrunkportvlansactivefirst2k.value_namespace = name_space
+                    self.vlantrunkportvlansactivefirst2k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansActiveSecond2k"):
+                    self.vlantrunkportvlansactivesecond2k = value
+                    self.vlantrunkportvlansactivesecond2k.value_namespace = name_space
+                    self.vlantrunkportvlansactivesecond2k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansEnabled"):
+                    self.vlantrunkportvlansenabled = value
+                    self.vlantrunkportvlansenabled.value_namespace = name_space
+                    self.vlantrunkportvlansenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansEnabled2k"):
+                    self.vlantrunkportvlansenabled2k = value
+                    self.vlantrunkportvlansenabled2k.value_namespace = name_space
+                    self.vlantrunkportvlansenabled2k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansEnabled3k"):
+                    self.vlantrunkportvlansenabled3k = value
+                    self.vlantrunkportvlansenabled3k.value_namespace = name_space
+                    self.vlantrunkportvlansenabled3k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansEnabled4k"):
+                    self.vlantrunkportvlansenabled4k = value
+                    self.vlantrunkportvlansenabled4k.value_namespace = name_space
+                    self.vlantrunkportvlansenabled4k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansPruningEligible"):
+                    self.vlantrunkportvlanspruningeligible = value
+                    self.vlantrunkportvlanspruningeligible.value_namespace = name_space
+                    self.vlantrunkportvlanspruningeligible.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansRcvJoined"):
+                    self.vlantrunkportvlansrcvjoined = value
+                    self.vlantrunkportvlansrcvjoined.value_namespace = name_space
+                    self.vlantrunkportvlansrcvjoined.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansRcvJoined2k"):
+                    self.vlantrunkportvlansrcvjoined2k = value
+                    self.vlantrunkportvlansrcvjoined2k.value_namespace = name_space
+                    self.vlantrunkportvlansrcvjoined2k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansRcvJoined3k"):
+                    self.vlantrunkportvlansrcvjoined3k = value
+                    self.vlantrunkportvlansrcvjoined3k.value_namespace = name_space
+                    self.vlantrunkportvlansrcvjoined3k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansRcvJoined4k"):
+                    self.vlantrunkportvlansrcvjoined4k = value
+                    self.vlantrunkportvlansrcvjoined4k.value_namespace = name_space
+                    self.vlantrunkportvlansrcvjoined4k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansXmitJoined"):
+                    self.vlantrunkportvlansxmitjoined = value
+                    self.vlantrunkportvlansxmitjoined.value_namespace = name_space
+                    self.vlantrunkportvlansxmitjoined.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansXmitJoined2k"):
+                    self.vlantrunkportvlansxmitjoined2k = value
+                    self.vlantrunkportvlansxmitjoined2k.value_namespace = name_space
+                    self.vlantrunkportvlansxmitjoined2k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansXmitJoined3k"):
+                    self.vlantrunkportvlansxmitjoined3k = value
+                    self.vlantrunkportvlansxmitjoined3k.value_namespace = name_space
+                    self.vlantrunkportvlansxmitjoined3k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVlansXmitJoined4k"):
+                    self.vlantrunkportvlansxmitjoined4k = value
+                    self.vlantrunkportvlansxmitjoined4k.value_namespace = name_space
+                    self.vlantrunkportvlansxmitjoined4k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vlanTrunkPortVtpEnabled"):
+                    self.vlantrunkportvtpenabled = value
+                    self.vlantrunkportvtpenabled.value_namespace = name_space
+                    self.vlantrunkportvtpenabled.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlansPruningEligible2k"):
+                    self.vtpvlanspruningeligible2k = value
+                    self.vtpvlanspruningeligible2k.value_namespace = name_space
+                    self.vtpvlanspruningeligible2k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlansPruningEligible3k"):
+                    self.vtpvlanspruningeligible3k = value
+                    self.vtpvlanspruningeligible3k.value_namespace = name_space
+                    self.vtpvlanspruningeligible3k.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpVlansPruningEligible4k"):
+                    self.vtpvlanspruningeligible4k = value
+                    self.vtpvlanspruningeligible4k.value_namespace = name_space
+                    self.vtpvlanspruningeligible4k.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vlantrunkportentry:
+                if (c.has_data()):
                     return True
-
-                if self.stpxpreferredmistpinstancesmap is not None:
-                    return True
-
-                if self.stpxpreferredmstinstancesmap is not None:
-                    return True
-
-                if self.stpxpreferredvlansmap is not None:
-                    return True
-
-                if self.stpxpreferredvlansmap2k is not None:
-                    return True
-
-                if self.stpxpreferredvlansmap3k is not None:
-                    return True
-
-                if self.stpxpreferredvlansmap4k is not None:
-                    return True
-
-                if self.vlantrunkportdot1qtunnel is not None:
-                    return True
-
-                if self.vlantrunkportdynamicstate is not None:
-                    return True
-
-                if self.vlantrunkportdynamicstatus is not None:
-                    return True
-
-                if self.vlantrunkportencapsulationopertype is not None:
-                    return True
-
-                if self.vlantrunkportencapsulationtype is not None:
-                    return True
-
-                if self.vlantrunkportinjoins is not None:
-                    return True
-
-                if self.vlantrunkportmanagementdomain is not None:
-                    return True
-
-                if self.vlantrunkportnativevlan is not None:
-                    return True
-
-                if self.vlantrunkportoldadverts is not None:
-                    return True
-
-                if self.vlantrunkportoutjoins is not None:
-                    return True
-
-                if self.vlantrunkportrowstatus is not None:
-                    return True
-
-                if self.vlantrunkportvlansactivefirst2k is not None:
-                    return True
-
-                if self.vlantrunkportvlansactivesecond2k is not None:
-                    return True
-
-                if self.vlantrunkportvlansenabled is not None:
-                    return True
-
-                if self.vlantrunkportvlansenabled2k is not None:
-                    return True
-
-                if self.vlantrunkportvlansenabled3k is not None:
-                    return True
-
-                if self.vlantrunkportvlansenabled4k is not None:
-                    return True
-
-                if self.vlantrunkportvlanspruningeligible is not None:
-                    return True
-
-                if self.vlantrunkportvlansrcvjoined is not None:
-                    return True
-
-                if self.vlantrunkportvlansrcvjoined2k is not None:
-                    return True
-
-                if self.vlantrunkportvlansrcvjoined3k is not None:
-                    return True
-
-                if self.vlantrunkportvlansrcvjoined4k is not None:
-                    return True
-
-                if self.vlantrunkportvlansxmitjoined is not None:
-                    return True
-
-                if self.vlantrunkportvlansxmitjoined2k is not None:
-                    return True
-
-                if self.vlantrunkportvlansxmitjoined3k is not None:
-                    return True
-
-                if self.vlantrunkportvlansxmitjoined4k is not None:
-                    return True
-
-                if self.vlantrunkportvtpenabled is not None:
-                    return True
-
-                if self.vtpvlanspruningeligible2k is not None:
-                    return True
-
-                if self.vtpvlanspruningeligible3k is not None:
-                    return True
-
-                if self.vtpvlanspruningeligible4k is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vlanTrunkPortTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vlantrunkportentry is not None:
-                for child_ref in self.vlantrunkportentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vlantrunkportentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vlanTrunkPortTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vlanTrunkPortEntry"):
+                for c in self.vlantrunkportentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vlantrunkporttable.Vlantrunkportentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vlantrunkportentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vlanTrunkPortEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vlantrunkporttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpdiscovertable(object):
+    class Vtpdiscovertable(Entity):
         """
         This table contains information related to the discovery
         of the VTP members in the designated management
@@ -3256,13 +4870,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpdiscoverentry = YList()
-            self.vtpdiscoverentry.parent = self
-            self.vtpdiscoverentry.name = 'vtpdiscoverentry'
+            super(CiscoVtpMib.Vtpdiscovertable, self).__init__()
+
+            self.yang_name = "vtpDiscoverTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpdiscoverentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpdiscovertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpdiscovertable, self).__setattr__(name, value)
 
 
-        class Vtpdiscoverentry(object):
+        class Vtpdiscoverentry(Entity):
             """
             Information related to the discovery of the
             VTP members in one management domain.
@@ -3279,12 +4919,12 @@ class CiscoVtpMib(object):
             .. attribute:: vtpdiscoveraction
             
             	When this object is set to discover(1), all the entries in vtpDiscoverResultTable for the corresponding management domain will be removed  and the local device will begin to discover all VTP members in the management domain. Upon the successful completion of discovery, the discovered result will be stored in the vtpDiscoverResultTable.  If vtpDiscoverStatus is inProgress(1), setting  vtpDiscoverAction to discover(1) will fail.   When this object is set to purgeResult(3),  all the entries of vtpDiscoverResultTable for  the corresponding management domain will be removed from vtpDiscoverResultTable.  When this object is set to noOperation(2), no action will be taken. When read, this object always returns noOperation(2)
-            	**type**\:   :py:class:`VtpdiscoveractionEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry.VtpdiscoveractionEnum>`
+            	**type**\:   :py:class:`Vtpdiscoveraction <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry.Vtpdiscoveraction>`
             
             .. attribute:: vtpdiscoverstatus
             
             	The current status of VTP discovery.  inProgress \- a discovery is in progress;  succeeded \- the discovery was completed successfully             (this value is also used when              no discover has been invoked since the             last time the local system restarted);  resourceUnavailable \- the discovery failed because             the required allocation of a resource is             presently unavailable.  someOtherError \- 'the discovery failed due to a             reason no listed
-            	**type**\:   :py:class:`VtpdiscoverstatusEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry.VtpdiscoverstatusEnum>`
+            	**type**\:   :py:class:`Vtpdiscoverstatus <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry.Vtpdiscoverstatus>`
             
             .. attribute:: vtplastdiscovertime
             
@@ -3301,15 +4941,49 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpdiscoveraction = None
-                self.vtpdiscoverstatus = None
-                self.vtplastdiscovertime = None
+                super(CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry, self).__init__()
 
-            class VtpdiscoveractionEnum(Enum):
+                self.yang_name = "vtpDiscoverEntry"
+                self.yang_parent_name = "vtpDiscoverTable"
+
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
+
+                self.vtpdiscoveraction = YLeaf(YType.enumeration, "vtpDiscoverAction")
+
+                self.vtpdiscoverstatus = YLeaf(YType.enumeration, "vtpDiscoverStatus")
+
+                self.vtplastdiscovertime = YLeaf(YType.uint32, "vtpLastDiscoverTime")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpdiscoveraction",
+                                "vtpdiscoverstatus",
+                                "vtplastdiscovertime") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry, self).__setattr__(name, value)
+
+            class Vtpdiscoveraction(Enum):
                 """
-                VtpdiscoveractionEnum
+                Vtpdiscoveraction
 
                 When this object is set to discover(1), all the
 
@@ -3351,22 +5025,16 @@ class CiscoVtpMib(object):
 
                 """
 
-                discover = 1
+                discover = Enum.YLeaf(1, "discover")
 
-                noOperation = 2
+                noOperation = Enum.YLeaf(2, "noOperation")
 
-                purgeResult = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry.VtpdiscoveractionEnum']
+                purgeResult = Enum.YLeaf(3, "purgeResult")
 
 
-            class VtpdiscoverstatusEnum(Enum):
+            class Vtpdiscoverstatus(Enum):
                 """
-                VtpdiscoverstatusEnum
+                Vtpdiscoverstatus
 
                 The current status of VTP discovery.
 
@@ -3400,76 +5068,145 @@ class CiscoVtpMib(object):
 
                 """
 
-                inProgress = 1
+                inProgress = Enum.YLeaf(1, "inProgress")
 
-                succeeded = 2
+                succeeded = Enum.YLeaf(2, "succeeded")
 
-                resourceUnavailable = 3
+                resourceUnavailable = Enum.YLeaf(3, "resourceUnavailable")
 
-                someOtherError = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry.VtpdiscoverstatusEnum']
+                someOtherError = Enum.YLeaf(4, "someOtherError")
 
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpdiscoveraction.is_set or
+                    self.vtpdiscoverstatus.is_set or
+                    self.vtplastdiscovertime.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpDiscoverTable/CISCO-VTP-MIB:vtpDiscoverEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpdiscoveraction.yfilter != YFilter.not_set or
+                    self.vtpdiscoverstatus.yfilter != YFilter.not_set or
+                    self.vtplastdiscovertime.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpDiscoverEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDiscoverTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpdiscoveraction.is_set or self.vtpdiscoveraction.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoveraction.get_name_leafdata())
+                if (self.vtpdiscoverstatus.is_set or self.vtpdiscoverstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverstatus.get_name_leafdata())
+                if (self.vtplastdiscovertime.is_set or self.vtplastdiscovertime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtplastdiscovertime.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpDiscoverAction" or name == "vtpDiscoverStatus" or name == "vtpLastDiscoverTime"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverAction"):
+                    self.vtpdiscoveraction = value
+                    self.vtpdiscoveraction.value_namespace = name_space
+                    self.vtpdiscoveraction.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverStatus"):
+                    self.vtpdiscoverstatus = value
+                    self.vtpdiscoverstatus.value_namespace = name_space
+                    self.vtpdiscoverstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpLastDiscoverTime"):
+                    self.vtplastdiscovertime = value
+                    self.vtplastdiscovertime.value_namespace = name_space
+                    self.vtplastdiscovertime.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vtpdiscoverentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpdiscoveraction is not None:
-                    return True
-
-                if self.vtpdiscoverstatus is not None:
-                    return True
-
-                if self.vtplastdiscovertime is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpDiscoverTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpdiscoverentry is not None:
-                for child_ref in self.vtpdiscoverentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpdiscoverentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpDiscoverTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpDiscoverEntry"):
+                for c in self.vtpdiscoverentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpdiscovertable.Vtpdiscoverentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpdiscoverentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpDiscoverEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpdiscovertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpdiscoverresulttable(object):
+    class Vtpdiscoverresulttable(Entity):
         """
         The table containing information of discovered VTP members
         in the management domain in which the local system is
@@ -3490,13 +5227,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpdiscoverresultentry = YList()
-            self.vtpdiscoverresultentry.parent = self
-            self.vtpdiscoverresultentry.name = 'vtpdiscoverresultentry'
+            super(CiscoVtpMib.Vtpdiscoverresulttable, self).__init__()
+
+            self.yang_name = "vtpDiscoverResultTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpdiscoverresultentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpdiscoverresulttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpdiscoverresulttable, self).__setattr__(name, value)
 
 
-        class Vtpdiscoverresultentry(object):
+        class Vtpdiscoverresultentry(Entity):
             """
             A conceptual row is created for each VTP member which
             is found through successful discovery.
@@ -3565,85 +5328,220 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpdiscoverresultindex = None
-                self.vtpdiscoverresultconflicting = None
-                self.vtpdiscoverresultdatabasename = None
-                self.vtpdiscoverresultdeviceid = None
-                self.vtpdiscoverresultprimaryserver = None
-                self.vtpdiscoverresultrevnumber = None
-                self.vtpdiscoverresultsystemname = None
+                super(CiscoVtpMib.Vtpdiscoverresulttable.Vtpdiscoverresultentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
-                if self.vtpdiscoverresultindex is None:
-                    raise YPYModelError('Key property vtpdiscoverresultindex is None')
+                self.yang_name = "vtpDiscoverResultEntry"
+                self.yang_parent_name = "vtpDiscoverResultTable"
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpDiscoverResultTable/CISCO-VTP-MIB:vtpDiscoverResultEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + '][CISCO-VTP-MIB:vtpDiscoverResultIndex = ' + str(self.vtpdiscoverresultindex) + ']'
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.vtpdiscoverresultindex = YLeaf(YType.uint32, "vtpDiscoverResultIndex")
+
+                self.vtpdiscoverresultconflicting = YLeaf(YType.boolean, "vtpDiscoverResultConflicting")
+
+                self.vtpdiscoverresultdatabasename = YLeaf(YType.str, "vtpDiscoverResultDatabaseName")
+
+                self.vtpdiscoverresultdeviceid = YLeaf(YType.str, "vtpDiscoverResultDeviceId")
+
+                self.vtpdiscoverresultprimaryserver = YLeaf(YType.str, "vtpDiscoverResultPrimaryServer")
+
+                self.vtpdiscoverresultrevnumber = YLeaf(YType.uint32, "vtpDiscoverResultRevNumber")
+
+                self.vtpdiscoverresultsystemname = YLeaf(YType.str, "vtpDiscoverResultSystemName")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpdiscoverresultindex",
+                                "vtpdiscoverresultconflicting",
+                                "vtpdiscoverresultdatabasename",
+                                "vtpdiscoverresultdeviceid",
+                                "vtpdiscoverresultprimaryserver",
+                                "vtpdiscoverresultrevnumber",
+                                "vtpdiscoverresultsystemname") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpdiscoverresulttable.Vtpdiscoverresultentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpdiscoverresulttable.Vtpdiscoverresultentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpdiscoverresultindex.is_set or
+                    self.vtpdiscoverresultconflicting.is_set or
+                    self.vtpdiscoverresultdatabasename.is_set or
+                    self.vtpdiscoverresultdeviceid.is_set or
+                    self.vtpdiscoverresultprimaryserver.is_set or
+                    self.vtpdiscoverresultrevnumber.is_set or
+                    self.vtpdiscoverresultsystemname.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpdiscoverresultindex.yfilter != YFilter.not_set or
+                    self.vtpdiscoverresultconflicting.yfilter != YFilter.not_set or
+                    self.vtpdiscoverresultdatabasename.yfilter != YFilter.not_set or
+                    self.vtpdiscoverresultdeviceid.yfilter != YFilter.not_set or
+                    self.vtpdiscoverresultprimaryserver.yfilter != YFilter.not_set or
+                    self.vtpdiscoverresultrevnumber.yfilter != YFilter.not_set or
+                    self.vtpdiscoverresultsystemname.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpDiscoverResultEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + "[vtpDiscoverResultIndex='" + self.vtpdiscoverresultindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDiscoverResultTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpdiscoverresultindex.is_set or self.vtpdiscoverresultindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverresultindex.get_name_leafdata())
+                if (self.vtpdiscoverresultconflicting.is_set or self.vtpdiscoverresultconflicting.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverresultconflicting.get_name_leafdata())
+                if (self.vtpdiscoverresultdatabasename.is_set or self.vtpdiscoverresultdatabasename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverresultdatabasename.get_name_leafdata())
+                if (self.vtpdiscoverresultdeviceid.is_set or self.vtpdiscoverresultdeviceid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverresultdeviceid.get_name_leafdata())
+                if (self.vtpdiscoverresultprimaryserver.is_set or self.vtpdiscoverresultprimaryserver.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverresultprimaryserver.get_name_leafdata())
+                if (self.vtpdiscoverresultrevnumber.is_set or self.vtpdiscoverresultrevnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverresultrevnumber.get_name_leafdata())
+                if (self.vtpdiscoverresultsystemname.is_set or self.vtpdiscoverresultsystemname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdiscoverresultsystemname.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpDiscoverResultIndex" or name == "vtpDiscoverResultConflicting" or name == "vtpDiscoverResultDatabaseName" or name == "vtpDiscoverResultDeviceId" or name == "vtpDiscoverResultPrimaryServer" or name == "vtpDiscoverResultRevNumber" or name == "vtpDiscoverResultSystemName"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverResultIndex"):
+                    self.vtpdiscoverresultindex = value
+                    self.vtpdiscoverresultindex.value_namespace = name_space
+                    self.vtpdiscoverresultindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverResultConflicting"):
+                    self.vtpdiscoverresultconflicting = value
+                    self.vtpdiscoverresultconflicting.value_namespace = name_space
+                    self.vtpdiscoverresultconflicting.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverResultDatabaseName"):
+                    self.vtpdiscoverresultdatabasename = value
+                    self.vtpdiscoverresultdatabasename.value_namespace = name_space
+                    self.vtpdiscoverresultdatabasename.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverResultDeviceId"):
+                    self.vtpdiscoverresultdeviceid = value
+                    self.vtpdiscoverresultdeviceid.value_namespace = name_space
+                    self.vtpdiscoverresultdeviceid.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverResultPrimaryServer"):
+                    self.vtpdiscoverresultprimaryserver = value
+                    self.vtpdiscoverresultprimaryserver.value_namespace = name_space
+                    self.vtpdiscoverresultprimaryserver.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverResultRevNumber"):
+                    self.vtpdiscoverresultrevnumber = value
+                    self.vtpdiscoverresultrevnumber.value_namespace = name_space
+                    self.vtpdiscoverresultrevnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDiscoverResultSystemName"):
+                    self.vtpdiscoverresultsystemname = value
+                    self.vtpdiscoverresultsystemname.value_namespace = name_space
+                    self.vtpdiscoverresultsystemname.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vtpdiscoverresultentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpdiscoverresultindex is not None:
-                    return True
-
-                if self.vtpdiscoverresultconflicting is not None:
-                    return True
-
-                if self.vtpdiscoverresultdatabasename is not None:
-                    return True
-
-                if self.vtpdiscoverresultdeviceid is not None:
-                    return True
-
-                if self.vtpdiscoverresultprimaryserver is not None:
-                    return True
-
-                if self.vtpdiscoverresultrevnumber is not None:
-                    return True
-
-                if self.vtpdiscoverresultsystemname is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpdiscoverresulttable.Vtpdiscoverresultentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpDiscoverResultTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpdiscoverresultentry is not None:
-                for child_ref in self.vtpdiscoverresultentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpdiscoverresultentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpDiscoverResultTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpDiscoverResultEntry"):
+                for c in self.vtpdiscoverresultentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpdiscoverresulttable.Vtpdiscoverresultentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpdiscoverresultentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpDiscoverResultEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpdiscoverresulttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpdatabasetable(object):
+    class Vtpdatabasetable(Entity):
         """
         This table contains information of the VTP
         databases. It is not instantiated when
@@ -3663,13 +5561,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpdatabaseentry = YList()
-            self.vtpdatabaseentry.parent = self
-            self.vtpdatabaseentry.name = 'vtpdatabaseentry'
+            super(CiscoVtpMib.Vtpdatabasetable, self).__init__()
+
+            self.yang_name = "vtpDatabaseTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpdatabaseentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpdatabasetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpdatabasetable, self).__setattr__(name, value)
 
 
-        class Vtpdatabaseentry(object):
+        class Vtpdatabaseentry(Entity):
             """
             Information about the status of the VTP database
             in the domain.  Each VTP database type known to the
@@ -3697,7 +5621,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpdatabaselocalmode
             
             	The local VTP mode for a particular database type in this administrative domain.  \- 'client' indicates that the local system is acting   as a VTP client of the database type.  \- 'server' indicates that the local system is acting   as a VTP server of the database type.  \- 'transparent' indicates that the local system does   not generate or listen to VTP messages of this    database type, but forwards   messages. This mode can also be set by the device   itself when the size of database is too large for it   to hold in DRAM.  \- 'off' indicates that the local system does not   generate, listen to or forward any VTP messages   of this database type.  The default mode is 'client' for the database type  known to the local device and 'transparent' for the unknown database type
-            	**type**\:   :py:class:`VtpdatabaselocalmodeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry.VtpdatabaselocalmodeEnum>`
+            	**type**\:   :py:class:`Vtpdatabaselocalmode <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry.Vtpdatabaselocalmode>`
             
             .. attribute:: vtpdatabasename
             
@@ -3745,20 +5669,64 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpdatabaseindex = None
-                self.vtpdatabaselocalmode = None
-                self.vtpdatabasename = None
-                self.vtpdatabaseprimaryserver = None
-                self.vtpdatabaseprimaryserverid = None
-                self.vtpdatabaserevnumber = None
-                self.vtpdatabasetakeoverpassword = None
-                self.vtpdatabasetakeoverprimary = None
+                super(CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry, self).__init__()
 
-            class VtpdatabaselocalmodeEnum(Enum):
+                self.yang_name = "vtpDatabaseEntry"
+                self.yang_parent_name = "vtpDatabaseTable"
+
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
+
+                self.vtpdatabaseindex = YLeaf(YType.uint32, "vtpDatabaseIndex")
+
+                self.vtpdatabaselocalmode = YLeaf(YType.enumeration, "vtpDatabaseLocalMode")
+
+                self.vtpdatabasename = YLeaf(YType.str, "vtpDatabaseName")
+
+                self.vtpdatabaseprimaryserver = YLeaf(YType.boolean, "vtpDatabasePrimaryServer")
+
+                self.vtpdatabaseprimaryserverid = YLeaf(YType.str, "vtpDatabasePrimaryServerId")
+
+                self.vtpdatabaserevnumber = YLeaf(YType.uint32, "vtpDatabaseRevNumber")
+
+                self.vtpdatabasetakeoverpassword = YLeaf(YType.str, "vtpDatabaseTakeOverPassword")
+
+                self.vtpdatabasetakeoverprimary = YLeaf(YType.boolean, "vtpDatabaseTakeOverPrimary")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpdatabaseindex",
+                                "vtpdatabaselocalmode",
+                                "vtpdatabasename",
+                                "vtpdatabaseprimaryserver",
+                                "vtpdatabaseprimaryserverid",
+                                "vtpdatabaserevnumber",
+                                "vtpdatabasetakeoverpassword",
+                                "vtpdatabasetakeoverprimary") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry, self).__setattr__(name, value)
+
+            class Vtpdatabaselocalmode(Enum):
                 """
-                VtpdatabaselocalmodeEnum
+                Vtpdatabaselocalmode
 
                 The local VTP mode for a particular database type
 
@@ -3806,93 +5774,185 @@ class CiscoVtpMib(object):
 
                 """
 
-                client = 1
+                client = Enum.YLeaf(1, "client")
 
-                server = 2
+                server = Enum.YLeaf(2, "server")
 
-                transparent = 3
+                transparent = Enum.YLeaf(3, "transparent")
 
-                off = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry.VtpdatabaselocalmodeEnum']
+                off = Enum.YLeaf(4, "off")
 
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
-                if self.vtpdatabaseindex is None:
-                    raise YPYModelError('Key property vtpdatabaseindex is None')
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpdatabaseindex.is_set or
+                    self.vtpdatabaselocalmode.is_set or
+                    self.vtpdatabasename.is_set or
+                    self.vtpdatabaseprimaryserver.is_set or
+                    self.vtpdatabaseprimaryserverid.is_set or
+                    self.vtpdatabaserevnumber.is_set or
+                    self.vtpdatabasetakeoverpassword.is_set or
+                    self.vtpdatabasetakeoverprimary.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpDatabaseTable/CISCO-VTP-MIB:vtpDatabaseEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + '][CISCO-VTP-MIB:vtpDatabaseIndex = ' + str(self.vtpdatabaseindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpdatabaseindex.yfilter != YFilter.not_set or
+                    self.vtpdatabaselocalmode.yfilter != YFilter.not_set or
+                    self.vtpdatabasename.yfilter != YFilter.not_set or
+                    self.vtpdatabaseprimaryserver.yfilter != YFilter.not_set or
+                    self.vtpdatabaseprimaryserverid.yfilter != YFilter.not_set or
+                    self.vtpdatabaserevnumber.yfilter != YFilter.not_set or
+                    self.vtpdatabasetakeoverpassword.yfilter != YFilter.not_set or
+                    self.vtpdatabasetakeoverprimary.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpDatabaseEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + "[vtpDatabaseIndex='" + self.vtpdatabaseindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDatabaseTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpdatabaseindex.is_set or self.vtpdatabaseindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabaseindex.get_name_leafdata())
+                if (self.vtpdatabaselocalmode.is_set or self.vtpdatabaselocalmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabaselocalmode.get_name_leafdata())
+                if (self.vtpdatabasename.is_set or self.vtpdatabasename.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabasename.get_name_leafdata())
+                if (self.vtpdatabaseprimaryserver.is_set or self.vtpdatabaseprimaryserver.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabaseprimaryserver.get_name_leafdata())
+                if (self.vtpdatabaseprimaryserverid.is_set or self.vtpdatabaseprimaryserverid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabaseprimaryserverid.get_name_leafdata())
+                if (self.vtpdatabaserevnumber.is_set or self.vtpdatabaserevnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabaserevnumber.get_name_leafdata())
+                if (self.vtpdatabasetakeoverpassword.is_set or self.vtpdatabasetakeoverpassword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabasetakeoverpassword.get_name_leafdata())
+                if (self.vtpdatabasetakeoverprimary.is_set or self.vtpdatabasetakeoverprimary.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpdatabasetakeoverprimary.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpDatabaseIndex" or name == "vtpDatabaseLocalMode" or name == "vtpDatabaseName" or name == "vtpDatabasePrimaryServer" or name == "vtpDatabasePrimaryServerId" or name == "vtpDatabaseRevNumber" or name == "vtpDatabaseTakeOverPassword" or name == "vtpDatabaseTakeOverPrimary"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabaseIndex"):
+                    self.vtpdatabaseindex = value
+                    self.vtpdatabaseindex.value_namespace = name_space
+                    self.vtpdatabaseindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabaseLocalMode"):
+                    self.vtpdatabaselocalmode = value
+                    self.vtpdatabaselocalmode.value_namespace = name_space
+                    self.vtpdatabaselocalmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabaseName"):
+                    self.vtpdatabasename = value
+                    self.vtpdatabasename.value_namespace = name_space
+                    self.vtpdatabasename.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabasePrimaryServer"):
+                    self.vtpdatabaseprimaryserver = value
+                    self.vtpdatabaseprimaryserver.value_namespace = name_space
+                    self.vtpdatabaseprimaryserver.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabasePrimaryServerId"):
+                    self.vtpdatabaseprimaryserverid = value
+                    self.vtpdatabaseprimaryserverid.value_namespace = name_space
+                    self.vtpdatabaseprimaryserverid.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabaseRevNumber"):
+                    self.vtpdatabaserevnumber = value
+                    self.vtpdatabaserevnumber.value_namespace = name_space
+                    self.vtpdatabaserevnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabaseTakeOverPassword"):
+                    self.vtpdatabasetakeoverpassword = value
+                    self.vtpdatabasetakeoverpassword.value_namespace = name_space
+                    self.vtpdatabasetakeoverpassword.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpDatabaseTakeOverPrimary"):
+                    self.vtpdatabasetakeoverprimary = value
+                    self.vtpdatabasetakeoverprimary.value_namespace = name_space
+                    self.vtpdatabasetakeoverprimary.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vtpdatabaseentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpdatabaseindex is not None:
-                    return True
-
-                if self.vtpdatabaselocalmode is not None:
-                    return True
-
-                if self.vtpdatabasename is not None:
-                    return True
-
-                if self.vtpdatabaseprimaryserver is not None:
-                    return True
-
-                if self.vtpdatabaseprimaryserverid is not None:
-                    return True
-
-                if self.vtpdatabaserevnumber is not None:
-                    return True
-
-                if self.vtpdatabasetakeoverpassword is not None:
-                    return True
-
-                if self.vtpdatabasetakeoverprimary is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpDatabaseTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpdatabaseentry is not None:
-                for child_ref in self.vtpdatabaseentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpdatabaseentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpDatabaseTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpDatabaseEntry"):
+                for c in self.vtpdatabaseentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpdatabasetable.Vtpdatabaseentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpdatabaseentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpDatabaseEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpdatabasetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Vtpauthenticationtable(object):
+    class Vtpauthenticationtable(Entity):
         """
         The table contains the authentication information of VTP
         in which the local system participates.
@@ -3940,13 +6000,39 @@ class CiscoVtpMib(object):
         _revision = '2013-10-14'
 
         def __init__(self):
-            self.parent = None
-            self.vtpauthentry = YList()
-            self.vtpauthentry.parent = self
-            self.vtpauthentry.name = 'vtpauthentry'
+            super(CiscoVtpMib.Vtpauthenticationtable, self).__init__()
+
+            self.yang_name = "vtpAuthenticationTable"
+            self.yang_parent_name = "CISCO-VTP-MIB"
+
+            self.vtpauthentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVtpMib.Vtpauthenticationtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVtpMib.Vtpauthenticationtable, self).__setattr__(name, value)
 
 
-        class Vtpauthentry(object):
+        class Vtpauthentry(Entity):
             """
             Information about the status of the VTP
             authentication information in one domain.
@@ -3970,7 +6056,7 @@ class CiscoVtpMib(object):
             .. attribute:: vtpauthpasswordtype
             
             	By default this object has the value as plaintext(1) and the VTP password is stored in the configuration file in plain text.  Setting this object to hidden(2) will hide the password from the configuration.  Once this object is set to hidden(2), it cannot be set to plaintext(1) alone. However, it may be set to plaintext(1) at the same time the password is set
-            	**type**\:   :py:class:`VtpauthpasswordtypeEnum <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry.VtpauthpasswordtypeEnum>`
+            	**type**\:   :py:class:`Vtpauthpasswordtype <ydk.models.cisco_ios_xe.CISCO_VTP_MIB.CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry.Vtpauthpasswordtype>`
             
             .. attribute:: vtpauthsecretkey
             
@@ -3987,15 +6073,49 @@ class CiscoVtpMib(object):
             _revision = '2013-10-14'
 
             def __init__(self):
-                self.parent = None
-                self.managementdomainindex = None
-                self.vtpauthpassword = None
-                self.vtpauthpasswordtype = None
-                self.vtpauthsecretkey = None
+                super(CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry, self).__init__()
 
-            class VtpauthpasswordtypeEnum(Enum):
+                self.yang_name = "vtpAuthEntry"
+                self.yang_parent_name = "vtpAuthenticationTable"
+
+                self.managementdomainindex = YLeaf(YType.str, "managementDomainIndex")
+
+                self.vtpauthpassword = YLeaf(YType.str, "vtpAuthPassword")
+
+                self.vtpauthpasswordtype = YLeaf(YType.enumeration, "vtpAuthPasswordType")
+
+                self.vtpauthsecretkey = YLeaf(YType.str, "vtpAuthSecretKey")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("managementdomainindex",
+                                "vtpauthpassword",
+                                "vtpauthpasswordtype",
+                                "vtpauthsecretkey") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry, self).__setattr__(name, value)
+
+            class Vtpauthpasswordtype(Enum):
                 """
-                VtpauthpasswordtypeEnum
+                Vtpauthpasswordtype
 
                 By default this object has the value as plaintext(1)
 
@@ -4021,127 +6141,305 @@ class CiscoVtpMib(object):
 
                 """
 
-                plaintext = 1
+                plaintext = Enum.YLeaf(1, "plaintext")
 
-                hidden = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                    return meta._meta_table['CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry.VtpauthpasswordtypeEnum']
+                hidden = Enum.YLeaf(2, "hidden")
 
 
-            @property
-            def _common_path(self):
-                if self.managementdomainindex is None:
-                    raise YPYModelError('Key property managementdomainindex is None')
+            def has_data(self):
+                return (
+                    self.managementdomainindex.is_set or
+                    self.vtpauthpassword.is_set or
+                    self.vtpauthpasswordtype.is_set or
+                    self.vtpauthsecretkey.is_set)
 
-                return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpAuthenticationTable/CISCO-VTP-MIB:vtpAuthEntry[CISCO-VTP-MIB:managementDomainIndex = ' + str(self.managementdomainindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.managementdomainindex.yfilter != YFilter.not_set or
+                    self.vtpauthpassword.yfilter != YFilter.not_set or
+                    self.vtpauthpasswordtype.yfilter != YFilter.not_set or
+                    self.vtpauthsecretkey.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vtpAuthEntry" + "[managementDomainIndex='" + self.managementdomainindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpAuthenticationTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.managementdomainindex.is_set or self.managementdomainindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.managementdomainindex.get_name_leafdata())
+                if (self.vtpauthpassword.is_set or self.vtpauthpassword.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpauthpassword.get_name_leafdata())
+                if (self.vtpauthpasswordtype.is_set or self.vtpauthpasswordtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpauthpasswordtype.get_name_leafdata())
+                if (self.vtpauthsecretkey.is_set or self.vtpauthsecretkey.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vtpauthsecretkey.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "managementDomainIndex" or name == "vtpAuthPassword" or name == "vtpAuthPasswordType" or name == "vtpAuthSecretKey"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.managementdomainindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "managementDomainIndex"):
+                    self.managementdomainindex = value
+                    self.managementdomainindex.value_namespace = name_space
+                    self.managementdomainindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpAuthPassword"):
+                    self.vtpauthpassword = value
+                    self.vtpauthpassword.value_namespace = name_space
+                    self.vtpauthpassword.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpAuthPasswordType"):
+                    self.vtpauthpasswordtype = value
+                    self.vtpauthpasswordtype.value_namespace = name_space
+                    self.vtpauthpasswordtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "vtpAuthSecretKey"):
+                    self.vtpauthsecretkey = value
+                    self.vtpauthsecretkey.value_namespace = name_space
+                    self.vtpauthsecretkey.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vtpauthentry:
+                if (c.has_data()):
                     return True
-
-                if self.vtpauthpassword is not None:
-                    return True
-
-                if self.vtpauthpasswordtype is not None:
-                    return True
-
-                if self.vtpauthsecretkey is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-                return meta._meta_table['CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VTP-MIB:CISCO-VTP-MIB/CISCO-VTP-MIB:vtpAuthenticationTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vtpauthentry is not None:
-                for child_ref in self.vtpauthentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vtpauthentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vtpAuthenticationTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vtpAuthEntry"):
+                for c in self.vtpauthentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVtpMib.Vtpauthenticationtable.Vtpauthentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vtpauthentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vtpAuthEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-            return meta._meta_table['CiscoVtpMib.Vtpauthenticationtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.internalvlaninfo is not None and self.internalvlaninfo.has_data()) or
+            (self.managementdomaintable is not None and self.managementdomaintable.has_data()) or
+            (self.vlanstatistics is not None and self.vlanstatistics.has_data()) or
+            (self.vlantrunkports is not None and self.vlantrunkports.has_data()) or
+            (self.vlantrunkporttable is not None and self.vlantrunkporttable.has_data()) or
+            (self.vtpauthenticationtable is not None and self.vtpauthenticationtable.has_data()) or
+            (self.vtpdatabasetable is not None and self.vtpdatabasetable.has_data()) or
+            (self.vtpdiscoverresulttable is not None and self.vtpdiscoverresulttable.has_data()) or
+            (self.vtpdiscovertable is not None and self.vtpdiscovertable.has_data()) or
+            (self.vtpinternalvlantable is not None and self.vtpinternalvlantable.has_data()) or
+            (self.vtpstatus is not None and self.vtpstatus.has_data()) or
+            (self.vtpvlanedittable is not None and self.vtpvlanedittable.has_data()) or
+            (self.vtpvlanlocalshutdowntable is not None and self.vtpvlanlocalshutdowntable.has_data()) or
+            (self.vtpvlantable is not None and self.vtpvlantable.has_data()))
 
-        return '/CISCO-VTP-MIB:CISCO-VTP-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.internalvlaninfo is not None and self.internalvlaninfo.has_operation()) or
+            (self.managementdomaintable is not None and self.managementdomaintable.has_operation()) or
+            (self.vlanstatistics is not None and self.vlanstatistics.has_operation()) or
+            (self.vlantrunkports is not None and self.vlantrunkports.has_operation()) or
+            (self.vlantrunkporttable is not None and self.vlantrunkporttable.has_operation()) or
+            (self.vtpauthenticationtable is not None and self.vtpauthenticationtable.has_operation()) or
+            (self.vtpdatabasetable is not None and self.vtpdatabasetable.has_operation()) or
+            (self.vtpdiscoverresulttable is not None and self.vtpdiscoverresulttable.has_operation()) or
+            (self.vtpdiscovertable is not None and self.vtpdiscovertable.has_operation()) or
+            (self.vtpinternalvlantable is not None and self.vtpinternalvlantable.has_operation()) or
+            (self.vtpstatus is not None and self.vtpstatus.has_operation()) or
+            (self.vtpvlanedittable is not None and self.vtpvlanedittable.has_operation()) or
+            (self.vtpvlanlocalshutdowntable is not None and self.vtpvlanlocalshutdowntable.has_operation()) or
+            (self.vtpvlantable is not None and self.vtpvlantable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-VTP-MIB:CISCO-VTP-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "internalVlanInfo"):
+            if (self.internalvlaninfo is None):
+                self.internalvlaninfo = CiscoVtpMib.Internalvlaninfo()
+                self.internalvlaninfo.parent = self
+                self._children_name_map["internalvlaninfo"] = "internalVlanInfo"
+            return self.internalvlaninfo
+
+        if (child_yang_name == "managementDomainTable"):
+            if (self.managementdomaintable is None):
+                self.managementdomaintable = CiscoVtpMib.Managementdomaintable()
+                self.managementdomaintable.parent = self
+                self._children_name_map["managementdomaintable"] = "managementDomainTable"
+            return self.managementdomaintable
+
+        if (child_yang_name == "vlanStatistics"):
+            if (self.vlanstatistics is None):
+                self.vlanstatistics = CiscoVtpMib.Vlanstatistics()
+                self.vlanstatistics.parent = self
+                self._children_name_map["vlanstatistics"] = "vlanStatistics"
+            return self.vlanstatistics
+
+        if (child_yang_name == "vlanTrunkPorts"):
+            if (self.vlantrunkports is None):
+                self.vlantrunkports = CiscoVtpMib.Vlantrunkports()
+                self.vlantrunkports.parent = self
+                self._children_name_map["vlantrunkports"] = "vlanTrunkPorts"
+            return self.vlantrunkports
+
+        if (child_yang_name == "vlanTrunkPortTable"):
+            if (self.vlantrunkporttable is None):
+                self.vlantrunkporttable = CiscoVtpMib.Vlantrunkporttable()
+                self.vlantrunkporttable.parent = self
+                self._children_name_map["vlantrunkporttable"] = "vlanTrunkPortTable"
+            return self.vlantrunkporttable
+
+        if (child_yang_name == "vtpAuthenticationTable"):
+            if (self.vtpauthenticationtable is None):
+                self.vtpauthenticationtable = CiscoVtpMib.Vtpauthenticationtable()
+                self.vtpauthenticationtable.parent = self
+                self._children_name_map["vtpauthenticationtable"] = "vtpAuthenticationTable"
+            return self.vtpauthenticationtable
+
+        if (child_yang_name == "vtpDatabaseTable"):
+            if (self.vtpdatabasetable is None):
+                self.vtpdatabasetable = CiscoVtpMib.Vtpdatabasetable()
+                self.vtpdatabasetable.parent = self
+                self._children_name_map["vtpdatabasetable"] = "vtpDatabaseTable"
+            return self.vtpdatabasetable
+
+        if (child_yang_name == "vtpDiscoverResultTable"):
+            if (self.vtpdiscoverresulttable is None):
+                self.vtpdiscoverresulttable = CiscoVtpMib.Vtpdiscoverresulttable()
+                self.vtpdiscoverresulttable.parent = self
+                self._children_name_map["vtpdiscoverresulttable"] = "vtpDiscoverResultTable"
+            return self.vtpdiscoverresulttable
+
+        if (child_yang_name == "vtpDiscoverTable"):
+            if (self.vtpdiscovertable is None):
+                self.vtpdiscovertable = CiscoVtpMib.Vtpdiscovertable()
+                self.vtpdiscovertable.parent = self
+                self._children_name_map["vtpdiscovertable"] = "vtpDiscoverTable"
+            return self.vtpdiscovertable
+
+        if (child_yang_name == "vtpInternalVlanTable"):
+            if (self.vtpinternalvlantable is None):
+                self.vtpinternalvlantable = CiscoVtpMib.Vtpinternalvlantable()
+                self.vtpinternalvlantable.parent = self
+                self._children_name_map["vtpinternalvlantable"] = "vtpInternalVlanTable"
+            return self.vtpinternalvlantable
+
+        if (child_yang_name == "vtpStatus"):
+            if (self.vtpstatus is None):
+                self.vtpstatus = CiscoVtpMib.Vtpstatus()
+                self.vtpstatus.parent = self
+                self._children_name_map["vtpstatus"] = "vtpStatus"
+            return self.vtpstatus
+
+        if (child_yang_name == "vtpVlanEditTable"):
+            if (self.vtpvlanedittable is None):
+                self.vtpvlanedittable = CiscoVtpMib.Vtpvlanedittable()
+                self.vtpvlanedittable.parent = self
+                self._children_name_map["vtpvlanedittable"] = "vtpVlanEditTable"
+            return self.vtpvlanedittable
+
+        if (child_yang_name == "vtpVlanLocalShutdownTable"):
+            if (self.vtpvlanlocalshutdowntable is None):
+                self.vtpvlanlocalshutdowntable = CiscoVtpMib.Vtpvlanlocalshutdowntable()
+                self.vtpvlanlocalshutdowntable.parent = self
+                self._children_name_map["vtpvlanlocalshutdowntable"] = "vtpVlanLocalShutdownTable"
+            return self.vtpvlanlocalshutdowntable
+
+        if (child_yang_name == "vtpVlanTable"):
+            if (self.vtpvlantable is None):
+                self.vtpvlantable = CiscoVtpMib.Vtpvlantable()
+                self.vtpvlantable.parent = self
+                self._children_name_map["vtpvlantable"] = "vtpVlanTable"
+            return self.vtpvlantable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "internalVlanInfo" or name == "managementDomainTable" or name == "vlanStatistics" or name == "vlanTrunkPorts" or name == "vlanTrunkPortTable" or name == "vtpAuthenticationTable" or name == "vtpDatabaseTable" or name == "vtpDiscoverResultTable" or name == "vtpDiscoverTable" or name == "vtpInternalVlanTable" or name == "vtpStatus" or name == "vtpVlanEditTable" or name == "vtpVlanLocalShutdownTable" or name == "vtpVlanTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.internalvlaninfo is not None and self.internalvlaninfo._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.managementdomaintable is not None and self.managementdomaintable._has_data():
-            return True
-
-        if self.vlanstatistics is not None and self.vlanstatistics._has_data():
-            return True
-
-        if self.vlantrunkports is not None and self.vlantrunkports._has_data():
-            return True
-
-        if self.vlantrunkporttable is not None and self.vlantrunkporttable._has_data():
-            return True
-
-        if self.vtpauthenticationtable is not None and self.vtpauthenticationtable._has_data():
-            return True
-
-        if self.vtpdatabasetable is not None and self.vtpdatabasetable._has_data():
-            return True
-
-        if self.vtpdiscoverresulttable is not None and self.vtpdiscoverresulttable._has_data():
-            return True
-
-        if self.vtpdiscovertable is not None and self.vtpdiscovertable._has_data():
-            return True
-
-        if self.vtpinternalvlantable is not None and self.vtpinternalvlantable._has_data():
-            return True
-
-        if self.vtpstatus is not None and self.vtpstatus._has_data():
-            return True
-
-        if self.vtpvlanedittable is not None and self.vtpvlanedittable._has_data():
-            return True
-
-        if self.vtpvlanlocalshutdowntable is not None and self.vtpvlanlocalshutdowntable._has_data():
-            return True
-
-        if self.vtpvlantable is not None and self.vtpvlantable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VTP_MIB as meta
-        return meta._meta_table['CiscoVtpMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoVtpMib()
+        return self._top_entity
 

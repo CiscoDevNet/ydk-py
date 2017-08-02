@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class EsAclGrantEnumEnum(Enum):
+class EsAclGrantEnum(Enum):
     """
-    EsAclGrantEnumEnum
+    EsAclGrantEnum
 
     ES acl grant enum
 
@@ -40,19 +34,13 @@ class EsAclGrantEnumEnum(Enum):
 
     """
 
-    deny = 0
+    deny = Enum.YLeaf(0, "deny")
 
-    permit = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-        return meta._meta_table['EsAclGrantEnumEnum']
+    permit = Enum.YLeaf(1, "permit")
 
 
 
-class EsAcl(object):
+class EsAcl(Entity):
     """
     Layer 2 ACL configuration data
     
@@ -69,11 +57,19 @@ class EsAcl(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(EsAcl, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "es-acl"
+        self.yang_parent_name = "Cisco-IOS-XR-es-acl-cfg"
+
         self.accesses = EsAcl.Accesses()
         self.accesses.parent = self
+        self._children_name_map["accesses"] = "accesses"
+        self._children_yang_names.add("accesses")
 
 
-    class Accesses(object):
+    class Accesses(Entity):
         """
         Table of access lists
         
@@ -90,13 +86,39 @@ class EsAcl(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.access = YList()
-            self.access.parent = self
-            self.access.name = 'access'
+            super(EsAcl.Accesses, self).__init__()
+
+            self.yang_name = "accesses"
+            self.yang_parent_name = "es-acl"
+
+            self.access = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EsAcl.Accesses, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EsAcl.Accesses, self).__setattr__(name, value)
 
 
-        class Access(object):
+        class Access(Entity):
             """
             An ACL
             
@@ -120,13 +142,44 @@ class EsAcl(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.name = None
+                super(EsAcl.Accesses.Access, self).__init__()
+
+                self.yang_name = "access"
+                self.yang_parent_name = "accesses"
+
+                self.name = YLeaf(YType.str, "name")
+
                 self.access_list_entries = EsAcl.Accesses.Access.AccessListEntries()
                 self.access_list_entries.parent = self
+                self._children_name_map["access_list_entries"] = "access-list-entries"
+                self._children_yang_names.add("access-list-entries")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EsAcl.Accesses.Access, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EsAcl.Accesses.Access, self).__setattr__(name, value)
 
 
-            class AccessListEntries(object):
+            class AccessListEntries(Entity):
                 """
                 ACL entry table; contains list of access list
                 entries
@@ -144,13 +197,39 @@ class EsAcl(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.access_list_entry = YList()
-                    self.access_list_entry.parent = self
-                    self.access_list_entry.name = 'access_list_entry'
+                    super(EsAcl.Accesses.Access.AccessListEntries, self).__init__()
+
+                    self.yang_name = "access-list-entries"
+                    self.yang_parent_name = "access"
+
+                    self.access_list_entry = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(EsAcl.Accesses.Access.AccessListEntries, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(EsAcl.Accesses.Access.AccessListEntries, self).__setattr__(name, value)
 
 
-                class AccessListEntry(object):
+                class AccessListEntry(Entity):
                     """
                     An ACL entry; either a description (remark)
                     or anAccess List Entry to match against
@@ -196,7 +275,7 @@ class EsAcl(object):
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the ACE
-                    	**type**\:   :py:class:`EsAclGrantEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnumEnum>`
+                    	**type**\:   :py:class:`EsAclGrantEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnum>`
                     
                     .. attribute:: inner_cos
                     
@@ -272,29 +351,91 @@ class EsAcl(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.sequence_number = None
-                        self.capture = None
-                        self.cos = None
-                        self.dei = None
+                        super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
+
+                        self.yang_name = "access-list-entry"
+                        self.yang_parent_name = "access-list-entries"
+
+                        self.sequence_number = YLeaf(YType.uint32, "sequence-number")
+
+                        self.capture = YLeaf(YType.boolean, "capture")
+
+                        self.cos = YLeaf(YType.uint8, "cos")
+
+                        self.dei = YLeaf(YType.uint8, "dei")
+
+                        self.ether_type_number = YLeaf(YType.uint16, "ether-type-number")
+
+                        self.grant = YLeaf(YType.enumeration, "grant")
+
+                        self.inner_cos = YLeaf(YType.uint8, "inner-cos")
+
+                        self.inner_dei = YLeaf(YType.uint8, "inner-dei")
+
+                        self.inner_vlan1 = YLeaf(YType.uint16, "inner-vlan1")
+
+                        self.inner_vlan2 = YLeaf(YType.uint16, "inner-vlan2")
+
+                        self.log_option = YLeaf(YType.uint8, "log-option")
+
+                        self.remark = YLeaf(YType.str, "remark")
+
+                        self.sequence_str = YLeaf(YType.str, "sequence-str")
+
+                        self.vlan1 = YLeaf(YType.uint16, "vlan1")
+
+                        self.vlan2 = YLeaf(YType.uint16, "vlan2")
+
                         self.destination_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork()
                         self.destination_network.parent = self
-                        self.ether_type_number = None
-                        self.grant = None
-                        self.inner_cos = None
-                        self.inner_dei = None
-                        self.inner_vlan1 = None
-                        self.inner_vlan2 = None
-                        self.log_option = None
-                        self.remark = None
-                        self.sequence_str = None
+                        self._children_name_map["destination_network"] = "destination-network"
+                        self._children_yang_names.add("destination-network")
+
                         self.source_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
                         self.source_network.parent = self
-                        self.vlan1 = None
-                        self.vlan2 = None
+                        self._children_name_map["source_network"] = "source-network"
+                        self._children_yang_names.add("source-network")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("sequence_number",
+                                        "capture",
+                                        "cos",
+                                        "dei",
+                                        "ether_type_number",
+                                        "grant",
+                                        "inner_cos",
+                                        "inner_dei",
+                                        "inner_vlan1",
+                                        "inner_vlan2",
+                                        "log_option",
+                                        "remark",
+                                        "sequence_str",
+                                        "vlan1",
+                                        "vlan2") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, self).__setattr__(name, value)
 
 
-                    class SourceNetwork(object):
+                    class SourceNetwork(Entity):
                         """
                         Source network settings.
                         
@@ -320,37 +461,97 @@ class EsAcl(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.source_address = None
-                            self.source_wild_card_bits = None
+                            super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "source-network"
+                            self.yang_parent_name = "access-list-entry"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-es-acl-cfg:source-network'
+                            self.source_address = YLeaf(YType.str, "source-address")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.source_wild_card_bits = YLeaf(YType.str, "source-wild-card-bits")
 
-                        def _has_data(self):
-                            if self.source_address is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("source_address",
+                                            "source_wild_card_bits") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.source_address.is_set or
+                                self.source_wild_card_bits.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.source_address.yfilter != YFilter.not_set or
+                                self.source_wild_card_bits.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "source-network" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.source_address.is_set or self.source_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_address.get_name_leafdata())
+                            if (self.source_wild_card_bits.is_set or self.source_wild_card_bits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_wild_card_bits.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "source-address" or name == "source-wild-card-bits"):
                                 return True
-
-                            if self.source_wild_card_bits is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-                            return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "source-address"):
+                                self.source_address = value
+                                self.source_address.value_namespace = name_space
+                                self.source_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source-wild-card-bits"):
+                                self.source_wild_card_bits = value
+                                self.source_wild_card_bits.value_namespace = name_space
+                                self.source_wild_card_bits.value_namespace_prefix = name_space_prefix
 
 
-                    class DestinationNetwork(object):
+                    class DestinationNetwork(Entity):
                         """
                         Destination network settings.
                         
@@ -376,196 +577,490 @@ class EsAcl(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.destination_address = None
-                            self.destination_wild_card_bits = None
+                            super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "destination-network"
+                            self.yang_parent_name = "access-list-entry"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-es-acl-cfg:destination-network'
+                            self.destination_address = YLeaf(YType.str, "destination-address")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.destination_wild_card_bits = YLeaf(YType.str, "destination-wild-card-bits")
 
-                        def _has_data(self):
-                            if self.destination_address is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("destination_address",
+                                            "destination_wild_card_bits") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.destination_address.is_set or
+                                self.destination_wild_card_bits.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.destination_address.yfilter != YFilter.not_set or
+                                self.destination_wild_card_bits.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "destination-network" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_address.get_name_leafdata())
+                            if (self.destination_wild_card_bits.is_set or self.destination_wild_card_bits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_wild_card_bits.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "destination-address" or name == "destination-wild-card-bits"):
                                 return True
-
-                            if self.destination_wild_card_bits is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-                            return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "destination-address"):
+                                self.destination_address = value
+                                self.destination_address.value_namespace = name_space
+                                self.destination_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "destination-wild-card-bits"):
+                                self.destination_wild_card_bits = value
+                                self.destination_wild_card_bits.value_namespace = name_space
+                                self.destination_wild_card_bits.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.sequence_number is None:
-                            raise YPYModelError('Key property sequence_number is None')
+                    def has_data(self):
+                        return (
+                            self.sequence_number.is_set or
+                            self.capture.is_set or
+                            self.cos.is_set or
+                            self.dei.is_set or
+                            self.ether_type_number.is_set or
+                            self.grant.is_set or
+                            self.inner_cos.is_set or
+                            self.inner_dei.is_set or
+                            self.inner_vlan1.is_set or
+                            self.inner_vlan2.is_set or
+                            self.log_option.is_set or
+                            self.remark.is_set or
+                            self.sequence_str.is_set or
+                            self.vlan1.is_set or
+                            self.vlan2.is_set or
+                            (self.destination_network is not None and self.destination_network.has_data()) or
+                            (self.source_network is not None and self.source_network.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-es-acl-cfg:access-list-entry[Cisco-IOS-XR-es-acl-cfg:sequence-number = ' + str(self.sequence_number) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.sequence_number.yfilter != YFilter.not_set or
+                            self.capture.yfilter != YFilter.not_set or
+                            self.cos.yfilter != YFilter.not_set or
+                            self.dei.yfilter != YFilter.not_set or
+                            self.ether_type_number.yfilter != YFilter.not_set or
+                            self.grant.yfilter != YFilter.not_set or
+                            self.inner_cos.yfilter != YFilter.not_set or
+                            self.inner_dei.yfilter != YFilter.not_set or
+                            self.inner_vlan1.yfilter != YFilter.not_set or
+                            self.inner_vlan2.yfilter != YFilter.not_set or
+                            self.log_option.yfilter != YFilter.not_set or
+                            self.remark.yfilter != YFilter.not_set or
+                            self.sequence_str.yfilter != YFilter.not_set or
+                            self.vlan1.yfilter != YFilter.not_set or
+                            self.vlan2.yfilter != YFilter.not_set or
+                            (self.destination_network is not None and self.destination_network.has_operation()) or
+                            (self.source_network is not None and self.source_network.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "access-list-entry" + "[sequence-number='" + self.sequence_number.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.sequence_number is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.sequence_number.is_set or self.sequence_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sequence_number.get_name_leafdata())
+                        if (self.capture.is_set or self.capture.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.capture.get_name_leafdata())
+                        if (self.cos.is_set or self.cos.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.cos.get_name_leafdata())
+                        if (self.dei.is_set or self.dei.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dei.get_name_leafdata())
+                        if (self.ether_type_number.is_set or self.ether_type_number.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ether_type_number.get_name_leafdata())
+                        if (self.grant.is_set or self.grant.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.grant.get_name_leafdata())
+                        if (self.inner_cos.is_set or self.inner_cos.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inner_cos.get_name_leafdata())
+                        if (self.inner_dei.is_set or self.inner_dei.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inner_dei.get_name_leafdata())
+                        if (self.inner_vlan1.is_set or self.inner_vlan1.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inner_vlan1.get_name_leafdata())
+                        if (self.inner_vlan2.is_set or self.inner_vlan2.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.inner_vlan2.get_name_leafdata())
+                        if (self.log_option.is_set or self.log_option.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.log_option.get_name_leafdata())
+                        if (self.remark.is_set or self.remark.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remark.get_name_leafdata())
+                        if (self.sequence_str.is_set or self.sequence_str.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.sequence_str.get_name_leafdata())
+                        if (self.vlan1.is_set or self.vlan1.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vlan1.get_name_leafdata())
+                        if (self.vlan2.is_set or self.vlan2.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vlan2.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "destination-network"):
+                            if (self.destination_network is None):
+                                self.destination_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork()
+                                self.destination_network.parent = self
+                                self._children_name_map["destination_network"] = "destination-network"
+                            return self.destination_network
+
+                        if (child_yang_name == "source-network"):
+                            if (self.source_network is None):
+                                self.source_network = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
+                                self.source_network.parent = self
+                                self._children_name_map["source_network"] = "source-network"
+                            return self.source_network
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "destination-network" or name == "source-network" or name == "sequence-number" or name == "capture" or name == "cos" or name == "dei" or name == "ether-type-number" or name == "grant" or name == "inner-cos" or name == "inner-dei" or name == "inner-vlan1" or name == "inner-vlan2" or name == "log-option" or name == "remark" or name == "sequence-str" or name == "vlan1" or name == "vlan2"):
                             return True
-
-                        if self.capture is not None:
-                            return True
-
-                        if self.cos is not None:
-                            return True
-
-                        if self.dei is not None:
-                            return True
-
-                        if self.destination_network is not None and self.destination_network._has_data():
-                            return True
-
-                        if self.ether_type_number is not None:
-                            return True
-
-                        if self.grant is not None:
-                            return True
-
-                        if self.inner_cos is not None:
-                            return True
-
-                        if self.inner_dei is not None:
-                            return True
-
-                        if self.inner_vlan1 is not None:
-                            return True
-
-                        if self.inner_vlan2 is not None:
-                            return True
-
-                        if self.log_option is not None:
-                            return True
-
-                        if self.remark is not None:
-                            return True
-
-                        if self.sequence_str is not None:
-                            return True
-
-                        if self.source_network is not None and self.source_network._has_data():
-                            return True
-
-                        if self.vlan1 is not None:
-                            return True
-
-                        if self.vlan2 is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-                        return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries.AccessListEntry']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "sequence-number"):
+                            self.sequence_number = value
+                            self.sequence_number.value_namespace = name_space
+                            self.sequence_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "capture"):
+                            self.capture = value
+                            self.capture.value_namespace = name_space
+                            self.capture.value_namespace_prefix = name_space_prefix
+                        if(value_path == "cos"):
+                            self.cos = value
+                            self.cos.value_namespace = name_space
+                            self.cos.value_namespace_prefix = name_space_prefix
+                        if(value_path == "dei"):
+                            self.dei = value
+                            self.dei.value_namespace = name_space
+                            self.dei.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ether-type-number"):
+                            self.ether_type_number = value
+                            self.ether_type_number.value_namespace = name_space
+                            self.ether_type_number.value_namespace_prefix = name_space_prefix
+                        if(value_path == "grant"):
+                            self.grant = value
+                            self.grant.value_namespace = name_space
+                            self.grant.value_namespace_prefix = name_space_prefix
+                        if(value_path == "inner-cos"):
+                            self.inner_cos = value
+                            self.inner_cos.value_namespace = name_space
+                            self.inner_cos.value_namespace_prefix = name_space_prefix
+                        if(value_path == "inner-dei"):
+                            self.inner_dei = value
+                            self.inner_dei.value_namespace = name_space
+                            self.inner_dei.value_namespace_prefix = name_space_prefix
+                        if(value_path == "inner-vlan1"):
+                            self.inner_vlan1 = value
+                            self.inner_vlan1.value_namespace = name_space
+                            self.inner_vlan1.value_namespace_prefix = name_space_prefix
+                        if(value_path == "inner-vlan2"):
+                            self.inner_vlan2 = value
+                            self.inner_vlan2.value_namespace = name_space
+                            self.inner_vlan2.value_namespace_prefix = name_space_prefix
+                        if(value_path == "log-option"):
+                            self.log_option = value
+                            self.log_option.value_namespace = name_space
+                            self.log_option.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remark"):
+                            self.remark = value
+                            self.remark.value_namespace = name_space
+                            self.remark.value_namespace_prefix = name_space_prefix
+                        if(value_path == "sequence-str"):
+                            self.sequence_str = value
+                            self.sequence_str.value_namespace = name_space
+                            self.sequence_str.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vlan1"):
+                            self.vlan1 = value
+                            self.vlan1.value_namespace = name_space
+                            self.vlan1.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vlan2"):
+                            self.vlan2 = value
+                            self.vlan2.value_namespace = name_space
+                            self.vlan2.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-es-acl-cfg:access-list-entries'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.access_list_entry is not None:
-                        for child_ref in self.access_list_entry:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.access_list_entry:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-                    return meta._meta_table['EsAcl.Accesses.Access.AccessListEntries']['meta_info']
+                def has_operation(self):
+                    for c in self.access_list_entry:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.name is None:
-                    raise YPYModelError('Key property name is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "access-list-entries" + path_buffer
 
-                return '/Cisco-IOS-XR-es-acl-cfg:es-acl/Cisco-IOS-XR-es-acl-cfg:accesses/Cisco-IOS-XR-es-acl-cfg:access[Cisco-IOS-XR-es-acl-cfg:name = ' + str(self.name) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.name is not None:
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "access-list-entry"):
+                        for c in self.access_list_entry:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = EsAcl.Accesses.Access.AccessListEntries.AccessListEntry()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.access_list_entry.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "access-list-entry"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.name.is_set or
+                    (self.access_list_entries is not None and self.access_list_entries.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.name.yfilter != YFilter.not_set or
+                    (self.access_list_entries is not None and self.access_list_entries.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "access" + "[name='" + self.name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "access-list-entries"):
+                    if (self.access_list_entries is None):
+                        self.access_list_entries = EsAcl.Accesses.Access.AccessListEntries()
+                        self.access_list_entries.parent = self
+                        self._children_name_map["access_list_entries"] = "access-list-entries"
+                    return self.access_list_entries
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "access-list-entries" or name == "name"):
                     return True
-
-                if self.access_list_entries is not None and self.access_list_entries._has_data():
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-                return meta._meta_table['EsAcl.Accesses.Access']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "name"):
+                    self.name = value
+                    self.name.value_namespace = name_space
+                    self.name.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-es-acl-cfg:es-acl/Cisco-IOS-XR-es-acl-cfg:accesses'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.access is not None:
-                for child_ref in self.access:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.access:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-            return meta._meta_table['EsAcl.Accesses']['meta_info']
+        def has_operation(self):
+            for c in self.access:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "accesses" + path_buffer
 
-        return '/Cisco-IOS-XR-es-acl-cfg:es-acl'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-es-acl-cfg:es-acl/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.accesses is not None and self.accesses._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "access"):
+                for c in self.access:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EsAcl.Accesses.Access()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.access.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "access"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.accesses is not None and self.accesses.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.accesses is not None and self.accesses.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-es-acl-cfg:es-acl" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "accesses"):
+            if (self.accesses is None):
+                self.accesses = EsAcl.Accesses()
+                self.accesses.parent = self
+                self._children_name_map["accesses"] = "accesses"
+            return self.accesses
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "accesses"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_es_acl_cfg as meta
-        return meta._meta_table['EsAcl']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EsAcl()
+        return self._top_entity
 

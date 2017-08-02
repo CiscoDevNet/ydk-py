@@ -18,21 +18,15 @@ VXML \- Voice XML
 URL  \- Uniform Resource Locator  
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoVoiceDnisMib(object):
+class CiscoVoiceDnisMib(Entity):
     """
     
     
@@ -54,13 +48,24 @@ class CiscoVoiceDnisMib(object):
     _revision = '2002-05-01'
 
     def __init__(self):
+        super(CiscoVoiceDnisMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-VOICE-DNIS-MIB"
+        self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
+
         self.cvdnismappingtable = CiscoVoiceDnisMib.Cvdnismappingtable()
         self.cvdnismappingtable.parent = self
+        self._children_name_map["cvdnismappingtable"] = "cvDnisMappingTable"
+        self._children_yang_names.add("cvDnisMappingTable")
+
         self.cvdnisnodetable = CiscoVoiceDnisMib.Cvdnisnodetable()
         self.cvdnisnodetable.parent = self
+        self._children_name_map["cvdnisnodetable"] = "cvDnisNodeTable"
+        self._children_yang_names.add("cvDnisNodeTable")
 
 
-    class Cvdnismappingtable(object):
+    class Cvdnismappingtable(Entity):
         """
         The table contains the map name and a url specifying
         a file name. The file contains DNIS entries that belong
@@ -79,13 +84,39 @@ class CiscoVoiceDnisMib(object):
         _revision = '2002-05-01'
 
         def __init__(self):
-            self.parent = None
-            self.cvdnismappingentry = YList()
-            self.cvdnismappingentry.parent = self
-            self.cvdnismappingentry.name = 'cvdnismappingentry'
+            super(CiscoVoiceDnisMib.Cvdnismappingtable, self).__init__()
+
+            self.yang_name = "cvDnisMappingTable"
+            self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
+
+            self.cvdnismappingentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDnisMib.Cvdnismappingtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDnisMib.Cvdnismappingtable, self).__setattr__(name, value)
 
 
-        class Cvdnismappingentry(object):
+        class Cvdnismappingentry(Entity):
             """
             Information about a single DNIS mapping. There is a
             unique DNIS map name. New DNIS mapping can be created
@@ -125,12 +156,12 @@ class CiscoVoiceDnisMib(object):
             .. attribute:: cvdnismappingrefresh
             
             	Whenever there is a need to re\-read the contents of the file specified by cvDnisMappingUrl, this object can be set to refresh(2). This will cause the contents of the file to be re\-read and correspondingly update the cvDnisNodeTable. After the completion of this operation, the value of this object is reset to idle(1). The only operation allowed on this object is setting it to refresh(2). This can only be done when the current value is idle(1) and the rowstatus is active(1).  idle       \- The refreshing process is idle and the user              can modify this object to refresh. refresh    \- The refreshing process is currently busy and              the user have to wait till the object              becomes idle to issue new refresh
-            	**type**\:   :py:class:`CvdnismappingrefreshEnum <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry.CvdnismappingrefreshEnum>`
+            	**type**\:   :py:class:`Cvdnismappingrefresh <ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB.CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry.Cvdnismappingrefresh>`
             
             .. attribute:: cvdnismappingstatus
             
             	This object is used to create a new row or modify or delete an existing row in this table. When making the status active(1), if a valid cvDnisMappingUrl is present the contents of the url is downloaded and during that time cvDnisMappingRefresh is set to refresh(2). When cvDnisMappingRefresh is set to refresh(2), only the destroy(6) operation is allowed
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cvdnismappingurl
             
@@ -150,16 +181,52 @@ class CiscoVoiceDnisMib(object):
             _revision = '2002-05-01'
 
             def __init__(self):
-                self.parent = None
-                self.cvdnismappingname = None
-                self.cvdnismappingrefresh = None
-                self.cvdnismappingstatus = None
-                self.cvdnismappingurl = None
-                self.cvdnismappingurlaccesserror = None
+                super(CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry, self).__init__()
 
-            class CvdnismappingrefreshEnum(Enum):
+                self.yang_name = "cvDnisMappingEntry"
+                self.yang_parent_name = "cvDnisMappingTable"
+
+                self.cvdnismappingname = YLeaf(YType.str, "cvDnisMappingName")
+
+                self.cvdnismappingrefresh = YLeaf(YType.enumeration, "cvDnisMappingRefresh")
+
+                self.cvdnismappingstatus = YLeaf(YType.enumeration, "cvDnisMappingStatus")
+
+                self.cvdnismappingurl = YLeaf(YType.str, "cvDnisMappingUrl")
+
+                self.cvdnismappingurlaccesserror = YLeaf(YType.str, "cvDnisMappingUrlAccessError")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvdnismappingname",
+                                "cvdnismappingrefresh",
+                                "cvdnismappingstatus",
+                                "cvdnismappingurl",
+                                "cvdnismappingurlaccesserror") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry, self).__setattr__(name, value)
+
+            class Cvdnismappingrefresh(Enum):
                 """
-                CvdnismappingrefreshEnum
+                Cvdnismappingrefresh
 
                 Whenever there is a need to re\-read the contents of the
 
@@ -195,75 +262,149 @@ class CiscoVoiceDnisMib(object):
 
                 """
 
-                idle = 1
+                idle = Enum.YLeaf(1, "idle")
 
-                refresh = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DNIS_MIB as meta
-                    return meta._meta_table['CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry.CvdnismappingrefreshEnum']
+                refresh = Enum.YLeaf(2, "refresh")
 
 
-            @property
-            def _common_path(self):
-                if self.cvdnismappingname is None:
-                    raise YPYModelError('Key property cvdnismappingname is None')
+            def has_data(self):
+                return (
+                    self.cvdnismappingname.is_set or
+                    self.cvdnismappingrefresh.is_set or
+                    self.cvdnismappingstatus.is_set or
+                    self.cvdnismappingurl.is_set or
+                    self.cvdnismappingurlaccesserror.is_set)
 
-                return '/CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/CISCO-VOICE-DNIS-MIB:cvDnisMappingTable/CISCO-VOICE-DNIS-MIB:cvDnisMappingEntry[CISCO-VOICE-DNIS-MIB:cvDnisMappingName = ' + str(self.cvdnismappingname) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvdnismappingname.yfilter != YFilter.not_set or
+                    self.cvdnismappingrefresh.yfilter != YFilter.not_set or
+                    self.cvdnismappingstatus.yfilter != YFilter.not_set or
+                    self.cvdnismappingurl.yfilter != YFilter.not_set or
+                    self.cvdnismappingurlaccesserror.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvDnisMappingEntry" + "[cvDnisMappingName='" + self.cvdnismappingname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisMappingTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvdnismappingname.is_set or self.cvdnismappingname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnismappingname.get_name_leafdata())
+                if (self.cvdnismappingrefresh.is_set or self.cvdnismappingrefresh.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnismappingrefresh.get_name_leafdata())
+                if (self.cvdnismappingstatus.is_set or self.cvdnismappingstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnismappingstatus.get_name_leafdata())
+                if (self.cvdnismappingurl.is_set or self.cvdnismappingurl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnismappingurl.get_name_leafdata())
+                if (self.cvdnismappingurlaccesserror.is_set or self.cvdnismappingurlaccesserror.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnismappingurlaccesserror.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvDnisMappingName" or name == "cvDnisMappingRefresh" or name == "cvDnisMappingStatus" or name == "cvDnisMappingUrl" or name == "cvDnisMappingUrlAccessError"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvdnismappingname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvDnisMappingName"):
+                    self.cvdnismappingname = value
+                    self.cvdnismappingname.value_namespace = name_space
+                    self.cvdnismappingname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisMappingRefresh"):
+                    self.cvdnismappingrefresh = value
+                    self.cvdnismappingrefresh.value_namespace = name_space
+                    self.cvdnismappingrefresh.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisMappingStatus"):
+                    self.cvdnismappingstatus = value
+                    self.cvdnismappingstatus.value_namespace = name_space
+                    self.cvdnismappingstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisMappingUrl"):
+                    self.cvdnismappingurl = value
+                    self.cvdnismappingurl.value_namespace = name_space
+                    self.cvdnismappingurl.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisMappingUrlAccessError"):
+                    self.cvdnismappingurlaccesserror = value
+                    self.cvdnismappingurlaccesserror.value_namespace = name_space
+                    self.cvdnismappingurlaccesserror.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvdnismappingentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvdnismappingrefresh is not None:
-                    return True
-
-                if self.cvdnismappingstatus is not None:
-                    return True
-
-                if self.cvdnismappingurl is not None:
-                    return True
-
-                if self.cvdnismappingurlaccesserror is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DNIS_MIB as meta
-                return meta._meta_table['CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/CISCO-VOICE-DNIS-MIB:cvDnisMappingTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvdnismappingentry is not None:
-                for child_ref in self.cvdnismappingentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvdnismappingentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvDnisMappingTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvDnisMappingEntry"):
+                for c in self.cvdnismappingentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDnisMib.Cvdnismappingtable.Cvdnismappingentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvdnismappingentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvDnisMappingEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DNIS_MIB as meta
-            return meta._meta_table['CiscoVoiceDnisMib.Cvdnismappingtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cvdnisnodetable(object):
+    class Cvdnisnodetable(Entity):
         """
         The table contains a DNIS name and a url. The url is a
         pointer to a VXML page for the DNIS name. 
@@ -281,13 +422,39 @@ class CiscoVoiceDnisMib(object):
         _revision = '2002-05-01'
 
         def __init__(self):
-            self.parent = None
-            self.cvdnisnodeentry = YList()
-            self.cvdnisnodeentry.parent = self
-            self.cvdnisnodeentry.name = 'cvdnisnodeentry'
+            super(CiscoVoiceDnisMib.Cvdnisnodetable, self).__init__()
+
+            self.yang_name = "cvDnisNodeTable"
+            self.yang_parent_name = "CISCO-VOICE-DNIS-MIB"
+
+            self.cvdnisnodeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoVoiceDnisMib.Cvdnisnodetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoVoiceDnisMib.Cvdnisnodetable, self).__setattr__(name, value)
 
 
-        class Cvdnisnodeentry(object):
+        class Cvdnisnodeentry(Entity):
             """
             Each entry is a DNIS name and the location of the
             associated VXML page. New DNIS entries can be created or
@@ -322,7 +489,7 @@ class CiscoVoiceDnisMib(object):
             .. attribute:: cvdnisnodestatus
             
             	This object is used to create a new row or modify or delete an existing row in this table. The objects in a row can be modified or deleted while the row status is active(1) and cvDnisNodeModifiable is true(1). The row status cannot be set to notInService(2) or createAndWait(5). 
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: cvdnisnodeurl
             
@@ -337,92 +504,243 @@ class CiscoVoiceDnisMib(object):
             _revision = '2002-05-01'
 
             def __init__(self):
-                self.parent = None
-                self.cvdnismappingname = None
-                self.cvdnisnumber = None
-                self.cvdnisnodemodifiable = None
-                self.cvdnisnodestatus = None
-                self.cvdnisnodeurl = None
+                super(CiscoVoiceDnisMib.Cvdnisnodetable.Cvdnisnodeentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.cvdnismappingname is None:
-                    raise YPYModelError('Key property cvdnismappingname is None')
-                if self.cvdnisnumber is None:
-                    raise YPYModelError('Key property cvdnisnumber is None')
+                self.yang_name = "cvDnisNodeEntry"
+                self.yang_parent_name = "cvDnisNodeTable"
 
-                return '/CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/CISCO-VOICE-DNIS-MIB:cvDnisNodeTable/CISCO-VOICE-DNIS-MIB:cvDnisNodeEntry[CISCO-VOICE-DNIS-MIB:cvDnisMappingName = ' + str(self.cvdnismappingname) + '][CISCO-VOICE-DNIS-MIB:cvDnisNumber = ' + str(self.cvdnisnumber) + ']'
+                self.cvdnismappingname = YLeaf(YType.str, "cvDnisMappingName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.cvdnisnumber = YLeaf(YType.str, "cvDnisNumber")
+
+                self.cvdnisnodemodifiable = YLeaf(YType.boolean, "cvDnisNodeModifiable")
+
+                self.cvdnisnodestatus = YLeaf(YType.enumeration, "cvDnisNodeStatus")
+
+                self.cvdnisnodeurl = YLeaf(YType.str, "cvDnisNodeUrl")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cvdnismappingname",
+                                "cvdnisnumber",
+                                "cvdnisnodemodifiable",
+                                "cvdnisnodestatus",
+                                "cvdnisnodeurl") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoVoiceDnisMib.Cvdnisnodetable.Cvdnisnodeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoVoiceDnisMib.Cvdnisnodetable.Cvdnisnodeentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.cvdnismappingname.is_set or
+                    self.cvdnisnumber.is_set or
+                    self.cvdnisnodemodifiable.is_set or
+                    self.cvdnisnodestatus.is_set or
+                    self.cvdnisnodeurl.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cvdnismappingname.yfilter != YFilter.not_set or
+                    self.cvdnisnumber.yfilter != YFilter.not_set or
+                    self.cvdnisnodemodifiable.yfilter != YFilter.not_set or
+                    self.cvdnisnodestatus.yfilter != YFilter.not_set or
+                    self.cvdnisnodeurl.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cvDnisNodeEntry" + "[cvDnisMappingName='" + self.cvdnismappingname.get() + "']" + "[cvDnisNumber='" + self.cvdnisnumber.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisNodeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cvdnismappingname.is_set or self.cvdnismappingname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnismappingname.get_name_leafdata())
+                if (self.cvdnisnumber.is_set or self.cvdnisnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnisnumber.get_name_leafdata())
+                if (self.cvdnisnodemodifiable.is_set or self.cvdnisnodemodifiable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnisnodemodifiable.get_name_leafdata())
+                if (self.cvdnisnodestatus.is_set or self.cvdnisnodestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnisnodestatus.get_name_leafdata())
+                if (self.cvdnisnodeurl.is_set or self.cvdnisnodeurl.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cvdnisnodeurl.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cvDnisMappingName" or name == "cvDnisNumber" or name == "cvDnisNodeModifiable" or name == "cvDnisNodeStatus" or name == "cvDnisNodeUrl"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cvdnismappingname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cvDnisMappingName"):
+                    self.cvdnismappingname = value
+                    self.cvdnismappingname.value_namespace = name_space
+                    self.cvdnismappingname.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisNumber"):
+                    self.cvdnisnumber = value
+                    self.cvdnisnumber.value_namespace = name_space
+                    self.cvdnisnumber.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisNodeModifiable"):
+                    self.cvdnisnodemodifiable = value
+                    self.cvdnisnodemodifiable.value_namespace = name_space
+                    self.cvdnisnodemodifiable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisNodeStatus"):
+                    self.cvdnisnodestatus = value
+                    self.cvdnisnodestatus.value_namespace = name_space
+                    self.cvdnisnodestatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cvDnisNodeUrl"):
+                    self.cvdnisnodeurl = value
+                    self.cvdnisnodeurl.value_namespace = name_space
+                    self.cvdnisnodeurl.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cvdnisnodeentry:
+                if (c.has_data()):
                     return True
-
-                if self.cvdnisnumber is not None:
-                    return True
-
-                if self.cvdnisnodemodifiable is not None:
-                    return True
-
-                if self.cvdnisnodestatus is not None:
-                    return True
-
-                if self.cvdnisnodeurl is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DNIS_MIB as meta
-                return meta._meta_table['CiscoVoiceDnisMib.Cvdnisnodetable.Cvdnisnodeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/CISCO-VOICE-DNIS-MIB:cvDnisNodeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cvdnisnodeentry is not None:
-                for child_ref in self.cvdnisnodeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cvdnisnodeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cvDnisNodeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cvDnisNodeEntry"):
+                for c in self.cvdnisnodeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoVoiceDnisMib.Cvdnisnodetable.Cvdnisnodeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cvdnisnodeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cvDnisNodeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DNIS_MIB as meta
-            return meta._meta_table['CiscoVoiceDnisMib.Cvdnisnodetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cvdnismappingtable is not None and self.cvdnismappingtable.has_data()) or
+            (self.cvdnisnodetable is not None and self.cvdnisnodetable.has_data()))
 
-        return '/CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cvdnismappingtable is not None and self.cvdnismappingtable.has_operation()) or
+            (self.cvdnisnodetable is not None and self.cvdnisnodetable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cvDnisMappingTable"):
+            if (self.cvdnismappingtable is None):
+                self.cvdnismappingtable = CiscoVoiceDnisMib.Cvdnismappingtable()
+                self.cvdnismappingtable.parent = self
+                self._children_name_map["cvdnismappingtable"] = "cvDnisMappingTable"
+            return self.cvdnismappingtable
+
+        if (child_yang_name == "cvDnisNodeTable"):
+            if (self.cvdnisnodetable is None):
+                self.cvdnisnodetable = CiscoVoiceDnisMib.Cvdnisnodetable()
+                self.cvdnisnodetable.parent = self
+                self._children_name_map["cvdnisnodetable"] = "cvDnisNodeTable"
+            return self.cvdnisnodetable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cvDnisMappingTable" or name == "cvDnisNodeTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cvdnismappingtable is not None and self.cvdnismappingtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cvdnisnodetable is not None and self.cvdnisnodetable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_VOICE_DNIS_MIB as meta
-        return meta._meta_table['CiscoVoiceDnisMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoVoiceDnisMib()
+        return self._top_entity
 

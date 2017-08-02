@@ -4,22 +4,16 @@ This module contains a collection of YANG definitions for
 monitoring BFD neighbours.Copyright (c) 2016\-2017 by Cisco Systems, Inc.All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class BfdLspTypeEnum(Enum):
+class BfdLspType(Enum):
     """
-    BfdLspTypeEnum
+    BfdLspType
 
     BFD lsp type
 
@@ -31,22 +25,16 @@ class BfdLspTypeEnum(Enum):
 
     """
 
-    working = 0
+    working = Enum.YLeaf(0, "working")
 
-    protect = 1
+    protect = Enum.YLeaf(1, "protect")
 
-    unknown = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-        return meta._meta_table['BfdLspTypeEnum']
+    unknown = Enum.YLeaf(2, "unknown")
 
 
-class BfdOperSessionTypeEnum(Enum):
+class BfdOperSessionType(Enum):
     """
-    BfdOperSessionTypeEnum
+    BfdOperSessionType
 
     BFD session type
 
@@ -64,28 +52,22 @@ class BfdOperSessionTypeEnum(Enum):
 
     """
 
-    ipv4 = 0
+    ipv4 = Enum.YLeaf(0, "ipv4")
 
-    ipv6 = 1
+    ipv6 = Enum.YLeaf(1, "ipv6")
 
-    vccv = 2
+    vccv = Enum.YLeaf(2, "vccv")
 
-    mpls_tp = 3
+    mpls_tp = Enum.YLeaf(3, "mpls-tp")
 
-    ipv4_multihop = 4
+    ipv4_multihop = Enum.YLeaf(4, "ipv4-multihop")
 
-    ipv6_multihop = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-        return meta._meta_table['BfdOperSessionTypeEnum']
+    ipv6_multihop = Enum.YLeaf(5, "ipv6-multihop")
 
 
-class BfdRemoteStateTypeEnum(Enum):
+class BfdRemoteStateType(Enum):
     """
-    BfdRemoteStateTypeEnum
+    BfdRemoteStateType
 
     BFD remote state type
 
@@ -101,26 +83,20 @@ class BfdRemoteStateTypeEnum(Enum):
 
     """
 
-    up = 0
+    up = Enum.YLeaf(0, "up")
 
-    down = 1
+    down = Enum.YLeaf(1, "down")
 
-    init = 2
+    init = Enum.YLeaf(2, "init")
 
-    admindown = 3
+    admindown = Enum.YLeaf(3, "admindown")
 
-    invalid = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-        return meta._meta_table['BfdRemoteStateTypeEnum']
+    invalid = Enum.YLeaf(4, "invalid")
 
 
-class BfdStateTypeEnum(Enum):
+class BfdStateType(Enum):
     """
-    BfdStateTypeEnum
+    BfdStateType
 
     BFD state type
 
@@ -138,27 +114,21 @@ class BfdStateTypeEnum(Enum):
 
     """
 
-    admindown = 0
+    admindown = Enum.YLeaf(0, "admindown")
 
-    down = 1
+    down = Enum.YLeaf(1, "down")
 
-    fail = 2
+    fail = Enum.YLeaf(2, "fail")
 
-    init = 3
+    init = Enum.YLeaf(3, "init")
 
-    up = 4
+    up = Enum.YLeaf(4, "up")
 
-    invalid = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-        return meta._meta_table['BfdStateTypeEnum']
+    invalid = Enum.YLeaf(5, "invalid")
 
 
 
-class BfdState(object):
+class BfdState(Entity):
     """
     Data nodes for BFD neighbors.
     
@@ -175,11 +145,19 @@ class BfdState(object):
     _revision = '2017-02-07'
 
     def __init__(self):
+        super(BfdState, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "bfd-state"
+        self.yang_parent_name = "Cisco-IOS-XE-bfd-oper"
+
         self.sessions = BfdState.Sessions()
         self.sessions.parent = self
+        self._children_name_map["sessions"] = "sessions"
+        self._children_yang_names.add("sessions")
 
 
-    class Sessions(object):
+    class Sessions(Entity):
         """
         
         
@@ -196,20 +174,46 @@ class BfdState(object):
         _revision = '2017-02-07'
 
         def __init__(self):
-            self.parent = None
-            self.session = YList()
-            self.session.parent = self
-            self.session.name = 'session'
+            super(BfdState.Sessions, self).__init__()
+
+            self.yang_name = "sessions"
+            self.yang_parent_name = "bfd-state"
+
+            self.session = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(BfdState.Sessions, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(BfdState.Sessions, self).__setattr__(name, value)
 
 
-        class Session(object):
+        class Session(Entity):
             """
             
             
             .. attribute:: type  <key>
             
             	Session type
-            	**type**\:   :py:class:`BfdOperSessionTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdOperSessionTypeEnum>`
+            	**type**\:   :py:class:`BfdOperSessionType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdOperSessionType>`
             
             .. attribute:: bfd_circuits
             
@@ -244,21 +248,64 @@ class BfdState(object):
             _revision = '2017-02-07'
 
             def __init__(self):
-                self.parent = None
-                self.type = None
+                super(BfdState.Sessions.Session, self).__init__()
+
+                self.yang_name = "session"
+                self.yang_parent_name = "sessions"
+
+                self.type = YLeaf(YType.enumeration, "type")
+
                 self.bfd_circuits = BfdState.Sessions.Session.BfdCircuits()
                 self.bfd_circuits.parent = self
+                self._children_name_map["bfd_circuits"] = "bfd-circuits"
+                self._children_yang_names.add("bfd-circuits")
+
                 self.bfd_mhop_nbrs = BfdState.Sessions.Session.BfdMhopNbrs()
                 self.bfd_mhop_nbrs.parent = self
+                self._children_name_map["bfd_mhop_nbrs"] = "bfd-mhop-nbrs"
+                self._children_yang_names.add("bfd-mhop-nbrs")
+
                 self.bfd_mhop_vrf_nbrs = BfdState.Sessions.Session.BfdMhopVrfNbrs()
                 self.bfd_mhop_vrf_nbrs.parent = self
+                self._children_name_map["bfd_mhop_vrf_nbrs"] = "bfd-mhop-vrf-nbrs"
+                self._children_yang_names.add("bfd-mhop-vrf-nbrs")
+
                 self.bfd_nbrs = BfdState.Sessions.Session.BfdNbrs()
                 self.bfd_nbrs.parent = self
+                self._children_name_map["bfd_nbrs"] = "bfd-nbrs"
+                self._children_yang_names.add("bfd-nbrs")
+
                 self.bfd_tunnel_paths = BfdState.Sessions.Session.BfdTunnelPaths()
                 self.bfd_tunnel_paths.parent = self
+                self._children_name_map["bfd_tunnel_paths"] = "bfd-tunnel-paths"
+                self._children_yang_names.add("bfd-tunnel-paths")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("type") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(BfdState.Sessions.Session, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(BfdState.Sessions.Session, self).__setattr__(name, value)
 
 
-            class BfdTunnelPaths(object):
+            class BfdTunnelPaths(Entity):
                 """
                 
                 
@@ -275,13 +322,39 @@ class BfdState(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bfd_tunnel_path = YList()
-                    self.bfd_tunnel_path.parent = self
-                    self.bfd_tunnel_path.name = 'bfd_tunnel_path'
+                    super(BfdState.Sessions.Session.BfdTunnelPaths, self).__init__()
+
+                    self.yang_name = "bfd-tunnel-paths"
+                    self.yang_parent_name = "session"
+
+                    self.bfd_tunnel_path = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(BfdState.Sessions.Session.BfdTunnelPaths, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(BfdState.Sessions.Session.BfdTunnelPaths, self).__setattr__(name, value)
 
 
-                class BfdTunnelPath(object):
+                class BfdTunnelPath(Entity):
                     """
                     Tunnel Path
                     
@@ -293,7 +366,7 @@ class BfdState(object):
                     .. attribute:: lsp_type  <key>
                     
                     	
-                    	**type**\:   :py:class:`BfdLspTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdLspTypeEnum>`
+                    	**type**\:   :py:class:`BfdLspType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdLspType>`
                     
                     .. attribute:: ld
                     
@@ -312,12 +385,12 @@ class BfdState(object):
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -327,81 +400,198 @@ class BfdState(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.lsp_type = None
-                        self.ld = None
-                        self.rd = None
-                        self.remote_state = None
-                        self.state = None
+                        super(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
-                        if self.lsp_type is None:
-                            raise YPYModelError('Key property lsp_type is None')
+                        self.yang_name = "bfd-tunnel-path"
+                        self.yang_parent_name = "bfd-tunnel-paths"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-tunnel-path[Cisco-IOS-XE-bfd-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XE-bfd-oper:lsp-type = ' + str(self.lsp_type) + ']'
+                        self.interface = YLeaf(YType.str, "interface")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.lsp_type = YLeaf(YType.enumeration, "lsp-type")
+
+                        self.ld = YLeaf(YType.uint32, "ld")
+
+                        self.rd = YLeaf(YType.uint32, "rd")
+
+                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface",
+                                        "lsp_type",
+                                        "ld",
+                                        "rd",
+                                        "remote_state",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.interface.is_set or
+                            self.lsp_type.is_set or
+                            self.ld.is_set or
+                            self.rd.is_set or
+                            self.remote_state.is_set or
+                            self.state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.lsp_type.yfilter != YFilter.not_set or
+                            self.ld.yfilter != YFilter.not_set or
+                            self.rd.yfilter != YFilter.not_set or
+                            self.remote_state.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "bfd-tunnel-path" + "[interface='" + self.interface.get() + "']" + "[lsp-type='" + self.lsp_type.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.lsp_type.is_set or self.lsp_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lsp_type.get_name_leafdata())
+                        if (self.ld.is_set or self.ld.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ld.get_name_leafdata())
+                        if (self.rd.is_set or self.rd.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rd.get_name_leafdata())
+                        if (self.remote_state.is_set or self.remote_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_state.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface" or name == "lsp-type" or name == "ld" or name == "rd" or name == "remote-state" or name == "state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "lsp-type"):
+                            self.lsp_type = value
+                            self.lsp_type.value_namespace = name_space
+                            self.lsp_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ld"):
+                            self.ld = value
+                            self.ld.value_namespace = name_space
+                            self.ld.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rd"):
+                            self.rd = value
+                            self.rd.value_namespace = name_space
+                            self.rd.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-state"):
+                            self.remote_state = value
+                            self.remote_state.value_namespace = name_space
+                            self.remote_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.bfd_tunnel_path:
+                        if (c.has_data()):
                             return True
-
-                        if self.lsp_type is not None:
-                            return True
-
-                        if self.ld is not None:
-                            return True
-
-                        if self.rd is not None:
-                            return True
-
-                        if self.remote_state is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                        return meta._meta_table['BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-tunnel-paths'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.bfd_tunnel_path is not None:
-                        for child_ref in self.bfd_tunnel_path:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.bfd_tunnel_path:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bfd-tunnel-paths" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "bfd-tunnel-path"):
+                        for c in self.bfd_tunnel_path:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.bfd_tunnel_path.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bfd-tunnel-path"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                    return meta._meta_table['BfdState.Sessions.Session.BfdTunnelPaths']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class BfdCircuits(object):
+            class BfdCircuits(Entity):
                 """
                 
                 
@@ -418,13 +608,39 @@ class BfdState(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bfd_circuit = YList()
-                    self.bfd_circuit.parent = self
-                    self.bfd_circuit.name = 'bfd_circuit'
+                    super(BfdState.Sessions.Session.BfdCircuits, self).__init__()
+
+                    self.yang_name = "bfd-circuits"
+                    self.yang_parent_name = "session"
+
+                    self.bfd_circuit = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(BfdState.Sessions.Session.BfdCircuits, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(BfdState.Sessions.Session.BfdCircuits, self).__setattr__(name, value)
 
 
-                class BfdCircuit(object):
+                class BfdCircuit(Entity):
                     """
                     BFD circuit
                     
@@ -457,12 +673,12 @@ class BfdState(object):
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -472,81 +688,198 @@ class BfdState(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.vcid = None
-                        self.ld = None
-                        self.rd = None
-                        self.remote_state = None
-                        self.state = None
+                        super(BfdState.Sessions.Session.BfdCircuits.BfdCircuit, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
-                        if self.vcid is None:
-                            raise YPYModelError('Key property vcid is None')
+                        self.yang_name = "bfd-circuit"
+                        self.yang_parent_name = "bfd-circuits"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-circuit[Cisco-IOS-XE-bfd-oper:interface = ' + str(self.interface) + '][Cisco-IOS-XE-bfd-oper:vcid = ' + str(self.vcid) + ']'
+                        self.interface = YLeaf(YType.str, "interface")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.vcid = YLeaf(YType.uint32, "vcid")
+
+                        self.ld = YLeaf(YType.uint32, "ld")
+
+                        self.rd = YLeaf(YType.uint32, "rd")
+
+                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface",
+                                        "vcid",
+                                        "ld",
+                                        "rd",
+                                        "remote_state",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(BfdState.Sessions.Session.BfdCircuits.BfdCircuit, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(BfdState.Sessions.Session.BfdCircuits.BfdCircuit, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.interface.is_set or
+                            self.vcid.is_set or
+                            self.ld.is_set or
+                            self.rd.is_set or
+                            self.remote_state.is_set or
+                            self.state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.vcid.yfilter != YFilter.not_set or
+                            self.ld.yfilter != YFilter.not_set or
+                            self.rd.yfilter != YFilter.not_set or
+                            self.remote_state.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "bfd-circuit" + "[interface='" + self.interface.get() + "']" + "[vcid='" + self.vcid.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.vcid.is_set or self.vcid.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vcid.get_name_leafdata())
+                        if (self.ld.is_set or self.ld.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ld.get_name_leafdata())
+                        if (self.rd.is_set or self.rd.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rd.get_name_leafdata())
+                        if (self.remote_state.is_set or self.remote_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_state.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface" or name == "vcid" or name == "ld" or name == "rd" or name == "remote-state" or name == "state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vcid"):
+                            self.vcid = value
+                            self.vcid.value_namespace = name_space
+                            self.vcid.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ld"):
+                            self.ld = value
+                            self.ld.value_namespace = name_space
+                            self.ld.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rd"):
+                            self.rd = value
+                            self.rd.value_namespace = name_space
+                            self.rd.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-state"):
+                            self.remote_state = value
+                            self.remote_state.value_namespace = name_space
+                            self.remote_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.bfd_circuit:
+                        if (c.has_data()):
                             return True
-
-                        if self.vcid is not None:
-                            return True
-
-                        if self.ld is not None:
-                            return True
-
-                        if self.rd is not None:
-                            return True
-
-                        if self.remote_state is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                        return meta._meta_table['BfdState.Sessions.Session.BfdCircuits.BfdCircuit']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-circuits'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.bfd_circuit is not None:
-                        for child_ref in self.bfd_circuit:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.bfd_circuit:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bfd-circuits" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "bfd-circuit"):
+                        for c in self.bfd_circuit:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = BfdState.Sessions.Session.BfdCircuits.BfdCircuit()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.bfd_circuit.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bfd-circuit"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                    return meta._meta_table['BfdState.Sessions.Session.BfdCircuits']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class BfdNbrs(object):
+            class BfdNbrs(Entity):
                 """
                 
                 
@@ -563,13 +896,39 @@ class BfdState(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bfd_nbr = YList()
-                    self.bfd_nbr.parent = self
-                    self.bfd_nbr.name = 'bfd_nbr'
+                    super(BfdState.Sessions.Session.BfdNbrs, self).__init__()
+
+                    self.yang_name = "bfd-nbrs"
+                    self.yang_parent_name = "session"
+
+                    self.bfd_nbr = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(BfdState.Sessions.Session.BfdNbrs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(BfdState.Sessions.Session.BfdNbrs, self).__setattr__(name, value)
 
 
-                class BfdNbr(object):
+                class BfdNbr(Entity):
                     """
                     This is for directly connected neighbor case
                     
@@ -612,12 +971,12 @@ class BfdState(object):
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -627,81 +986,198 @@ class BfdState(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ip = None
-                        self.interface = None
-                        self.ld = None
-                        self.rd = None
-                        self.remote_state = None
-                        self.state = None
+                        super(BfdState.Sessions.Session.BfdNbrs.BfdNbr, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.ip is None:
-                            raise YPYModelError('Key property ip is None')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
+                        self.yang_name = "bfd-nbr"
+                        self.yang_parent_name = "bfd-nbrs"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-nbr[Cisco-IOS-XE-bfd-oper:ip = ' + str(self.ip) + '][Cisco-IOS-XE-bfd-oper:interface = ' + str(self.interface) + ']'
+                        self.ip = YLeaf(YType.str, "ip")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.ld = YLeaf(YType.uint32, "ld")
+
+                        self.rd = YLeaf(YType.uint32, "rd")
+
+                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ip",
+                                        "interface",
+                                        "ld",
+                                        "rd",
+                                        "remote_state",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(BfdState.Sessions.Session.BfdNbrs.BfdNbr, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(BfdState.Sessions.Session.BfdNbrs.BfdNbr, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.ip.is_set or
+                            self.interface.is_set or
+                            self.ld.is_set or
+                            self.rd.is_set or
+                            self.remote_state.is_set or
+                            self.state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ip.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.ld.yfilter != YFilter.not_set or
+                            self.rd.yfilter != YFilter.not_set or
+                            self.remote_state.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "bfd-nbr" + "[ip='" + self.ip.get() + "']" + "[interface='" + self.interface.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ip.get_name_leafdata())
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.ld.is_set or self.ld.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ld.get_name_leafdata())
+                        if (self.rd.is_set or self.rd.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rd.get_name_leafdata())
+                        if (self.remote_state.is_set or self.remote_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_state.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ip" or name == "interface" or name == "ld" or name == "rd" or name == "remote-state" or name == "state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.ip is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ip"):
+                            self.ip = value
+                            self.ip.value_namespace = name_space
+                            self.ip.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ld"):
+                            self.ld = value
+                            self.ld.value_namespace = name_space
+                            self.ld.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rd"):
+                            self.rd = value
+                            self.rd.value_namespace = name_space
+                            self.rd.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-state"):
+                            self.remote_state = value
+                            self.remote_state.value_namespace = name_space
+                            self.remote_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.bfd_nbr:
+                        if (c.has_data()):
                             return True
-
-                        if self.interface is not None:
-                            return True
-
-                        if self.ld is not None:
-                            return True
-
-                        if self.rd is not None:
-                            return True
-
-                        if self.remote_state is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                        return meta._meta_table['BfdState.Sessions.Session.BfdNbrs.BfdNbr']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-nbrs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.bfd_nbr is not None:
-                        for child_ref in self.bfd_nbr:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.bfd_nbr:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bfd-nbrs" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "bfd-nbr"):
+                        for c in self.bfd_nbr:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = BfdState.Sessions.Session.BfdNbrs.BfdNbr()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.bfd_nbr.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bfd-nbr"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                    return meta._meta_table['BfdState.Sessions.Session.BfdNbrs']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class BfdMhopNbrs(object):
+            class BfdMhopNbrs(Entity):
                 """
                 
                 
@@ -718,13 +1194,39 @@ class BfdState(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bfd_mhop_nbr = YList()
-                    self.bfd_mhop_nbr.parent = self
-                    self.bfd_mhop_nbr.name = 'bfd_mhop_nbr'
+                    super(BfdState.Sessions.Session.BfdMhopNbrs, self).__init__()
+
+                    self.yang_name = "bfd-mhop-nbrs"
+                    self.yang_parent_name = "session"
+
+                    self.bfd_mhop_nbr = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(BfdState.Sessions.Session.BfdMhopNbrs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(BfdState.Sessions.Session.BfdMhopNbrs, self).__setattr__(name, value)
 
 
-                class BfdMhopNbr(object):
+                class BfdMhopNbr(Entity):
                     """
                     This is for multi hop neighbor scenario 
                     for global VRF (no VRF).
@@ -763,12 +1265,12 @@ class BfdState(object):
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -778,75 +1280,187 @@ class BfdState(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ip = None
-                        self.ld = None
-                        self.rd = None
-                        self.remote_state = None
-                        self.state = None
+                        super(BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.ip is None:
-                            raise YPYModelError('Key property ip is None')
+                        self.yang_name = "bfd-mhop-nbr"
+                        self.yang_parent_name = "bfd-mhop-nbrs"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-mhop-nbr[Cisco-IOS-XE-bfd-oper:ip = ' + str(self.ip) + ']'
+                        self.ip = YLeaf(YType.str, "ip")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.ld = YLeaf(YType.uint32, "ld")
+
+                        self.rd = YLeaf(YType.uint32, "rd")
+
+                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ip",
+                                        "ld",
+                                        "rd",
+                                        "remote_state",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.ip.is_set or
+                            self.ld.is_set or
+                            self.rd.is_set or
+                            self.remote_state.is_set or
+                            self.state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ip.yfilter != YFilter.not_set or
+                            self.ld.yfilter != YFilter.not_set or
+                            self.rd.yfilter != YFilter.not_set or
+                            self.remote_state.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "bfd-mhop-nbr" + "[ip='" + self.ip.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ip.get_name_leafdata())
+                        if (self.ld.is_set or self.ld.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ld.get_name_leafdata())
+                        if (self.rd.is_set or self.rd.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rd.get_name_leafdata())
+                        if (self.remote_state.is_set or self.remote_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_state.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ip" or name == "ld" or name == "rd" or name == "remote-state" or name == "state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.ip is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ip"):
+                            self.ip = value
+                            self.ip.value_namespace = name_space
+                            self.ip.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ld"):
+                            self.ld = value
+                            self.ld.value_namespace = name_space
+                            self.ld.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rd"):
+                            self.rd = value
+                            self.rd.value_namespace = name_space
+                            self.rd.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-state"):
+                            self.remote_state = value
+                            self.remote_state.value_namespace = name_space
+                            self.remote_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.bfd_mhop_nbr:
+                        if (c.has_data()):
                             return True
-
-                        if self.ld is not None:
-                            return True
-
-                        if self.rd is not None:
-                            return True
-
-                        if self.remote_state is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                        return meta._meta_table['BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-mhop-nbrs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.bfd_mhop_nbr is not None:
-                        for child_ref in self.bfd_mhop_nbr:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.bfd_mhop_nbr:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bfd-mhop-nbrs" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "bfd-mhop-nbr"):
+                        for c in self.bfd_mhop_nbr:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.bfd_mhop_nbr.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bfd-mhop-nbr"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                    return meta._meta_table['BfdState.Sessions.Session.BfdMhopNbrs']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class BfdMhopVrfNbrs(object):
+            class BfdMhopVrfNbrs(Entity):
                 """
                 
                 
@@ -863,13 +1477,39 @@ class BfdState(object):
                 _revision = '2017-02-07'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bfd_mhop_vrf_nbr = YList()
-                    self.bfd_mhop_vrf_nbr.parent = self
-                    self.bfd_mhop_vrf_nbr.name = 'bfd_mhop_vrf_nbr'
+                    super(BfdState.Sessions.Session.BfdMhopVrfNbrs, self).__init__()
+
+                    self.yang_name = "bfd-mhop-vrf-nbrs"
+                    self.yang_parent_name = "session"
+
+                    self.bfd_mhop_vrf_nbr = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(BfdState.Sessions.Session.BfdMhopVrfNbrs, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(BfdState.Sessions.Session.BfdMhopVrfNbrs, self).__setattr__(name, value)
 
 
-                class BfdMhopVrfNbr(object):
+                class BfdMhopVrfNbr(Entity):
                     """
                     This is for multi hop neighbor scenario 
                     for non\-global VRF.
@@ -913,12 +1553,12 @@ class BfdState(object):
                     .. attribute:: remote_state
                     
                     	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
                     
                     .. attribute:: state
                     
                     	BFD state
-                    	**type**\:   :py:class:`BfdStateTypeEnum <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateTypeEnum>`
+                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
                     
                     
 
@@ -928,156 +1568,393 @@ class BfdState(object):
                     _revision = '2017-02-07'
 
                     def __init__(self):
-                        self.parent = None
-                        self.ip = None
-                        self.vrf = None
-                        self.ld = None
-                        self.rd = None
-                        self.remote_state = None
-                        self.state = None
+                        super(BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.ip is None:
-                            raise YPYModelError('Key property ip is None')
-                        if self.vrf is None:
-                            raise YPYModelError('Key property vrf is None')
+                        self.yang_name = "bfd-mhop-vrf-nbr"
+                        self.yang_parent_name = "bfd-mhop-vrf-nbrs"
 
-                        return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-mhop-vrf-nbr[Cisco-IOS-XE-bfd-oper:ip = ' + str(self.ip) + '][Cisco-IOS-XE-bfd-oper:vrf = ' + str(self.vrf) + ']'
+                        self.ip = YLeaf(YType.str, "ip")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.vrf = YLeaf(YType.str, "vrf")
+
+                        self.ld = YLeaf(YType.uint32, "ld")
+
+                        self.rd = YLeaf(YType.uint32, "rd")
+
+                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("ip",
+                                        "vrf",
+                                        "ld",
+                                        "rd",
+                                        "remote_state",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.ip.is_set or
+                            self.vrf.is_set or
+                            self.ld.is_set or
+                            self.rd.is_set or
+                            self.remote_state.is_set or
+                            self.state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.ip.yfilter != YFilter.not_set or
+                            self.vrf.yfilter != YFilter.not_set or
+                            self.ld.yfilter != YFilter.not_set or
+                            self.rd.yfilter != YFilter.not_set or
+                            self.remote_state.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "bfd-mhop-vrf-nbr" + "[ip='" + self.ip.get() + "']" + "[vrf='" + self.vrf.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.ip.is_set or self.ip.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ip.get_name_leafdata())
+                        if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf.get_name_leafdata())
+                        if (self.ld.is_set or self.ld.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ld.get_name_leafdata())
+                        if (self.rd.is_set or self.rd.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rd.get_name_leafdata())
+                        if (self.remote_state.is_set or self.remote_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.remote_state.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "ip" or name == "vrf" or name == "ld" or name == "rd" or name == "remote-state" or name == "state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.ip is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "ip"):
+                            self.ip = value
+                            self.ip.value_namespace = name_space
+                            self.ip.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf"):
+                            self.vrf = value
+                            self.vrf.value_namespace = name_space
+                            self.vrf.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ld"):
+                            self.ld = value
+                            self.ld.value_namespace = name_space
+                            self.ld.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rd"):
+                            self.rd = value
+                            self.rd.value_namespace = name_space
+                            self.rd.value_namespace_prefix = name_space_prefix
+                        if(value_path == "remote-state"):
+                            self.remote_state = value
+                            self.remote_state.value_namespace = name_space
+                            self.remote_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.bfd_mhop_vrf_nbr:
+                        if (c.has_data()):
                             return True
-
-                        if self.vrf is not None:
-                            return True
-
-                        if self.ld is not None:
-                            return True
-
-                        if self.rd is not None:
-                            return True
-
-                        if self.remote_state is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                        return meta._meta_table['BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XE-bfd-oper:bfd-mhop-vrf-nbrs'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.bfd_mhop_vrf_nbr is not None:
-                        for child_ref in self.bfd_mhop_vrf_nbr:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.bfd_mhop_vrf_nbr:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "bfd-mhop-vrf-nbrs" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                    return meta._meta_table['BfdState.Sessions.Session.BfdMhopVrfNbrs']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.type is None:
-                    raise YPYModelError('Key property type is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XE-bfd-oper:bfd-state/Cisco-IOS-XE-bfd-oper:sessions/Cisco-IOS-XE-bfd-oper:session[Cisco-IOS-XE-bfd-oper:type = ' + str(self.type) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.type is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.bfd_circuits is not None and self.bfd_circuits._has_data():
-                    return True
+                    if (child_yang_name == "bfd-mhop-vrf-nbr"):
+                        for c in self.bfd_mhop_vrf_nbr:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.bfd_mhop_vrf_nbr.append(c)
+                        return c
 
-                if self.bfd_mhop_nbrs is not None and self.bfd_mhop_nbrs._has_data():
-                    return True
+                    return None
 
-                if self.bfd_mhop_vrf_nbrs is not None and self.bfd_mhop_vrf_nbrs._has_data():
-                    return True
-
-                if self.bfd_nbrs is not None and self.bfd_nbrs._has_data():
-                    return True
-
-                if self.bfd_tunnel_paths is not None and self.bfd_tunnel_paths._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-                return meta._meta_table['BfdState.Sessions.Session']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XE-bfd-oper:bfd-state/Cisco-IOS-XE-bfd-oper:sessions'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.session is not None:
-                for child_ref in self.session:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bfd-mhop-vrf-nbr"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.type.is_set or
+                    (self.bfd_circuits is not None and self.bfd_circuits.has_data()) or
+                    (self.bfd_mhop_nbrs is not None and self.bfd_mhop_nbrs.has_data()) or
+                    (self.bfd_mhop_vrf_nbrs is not None and self.bfd_mhop_vrf_nbrs.has_data()) or
+                    (self.bfd_nbrs is not None and self.bfd_nbrs.has_data()) or
+                    (self.bfd_tunnel_paths is not None and self.bfd_tunnel_paths.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.type.yfilter != YFilter.not_set or
+                    (self.bfd_circuits is not None and self.bfd_circuits.has_operation()) or
+                    (self.bfd_mhop_nbrs is not None and self.bfd_mhop_nbrs.has_operation()) or
+                    (self.bfd_mhop_vrf_nbrs is not None and self.bfd_mhop_vrf_nbrs.has_operation()) or
+                    (self.bfd_nbrs is not None and self.bfd_nbrs.has_operation()) or
+                    (self.bfd_tunnel_paths is not None and self.bfd_tunnel_paths.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "session" + "[type='" + self.type.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.type.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "bfd-circuits"):
+                    if (self.bfd_circuits is None):
+                        self.bfd_circuits = BfdState.Sessions.Session.BfdCircuits()
+                        self.bfd_circuits.parent = self
+                        self._children_name_map["bfd_circuits"] = "bfd-circuits"
+                    return self.bfd_circuits
+
+                if (child_yang_name == "bfd-mhop-nbrs"):
+                    if (self.bfd_mhop_nbrs is None):
+                        self.bfd_mhop_nbrs = BfdState.Sessions.Session.BfdMhopNbrs()
+                        self.bfd_mhop_nbrs.parent = self
+                        self._children_name_map["bfd_mhop_nbrs"] = "bfd-mhop-nbrs"
+                    return self.bfd_mhop_nbrs
+
+                if (child_yang_name == "bfd-mhop-vrf-nbrs"):
+                    if (self.bfd_mhop_vrf_nbrs is None):
+                        self.bfd_mhop_vrf_nbrs = BfdState.Sessions.Session.BfdMhopVrfNbrs()
+                        self.bfd_mhop_vrf_nbrs.parent = self
+                        self._children_name_map["bfd_mhop_vrf_nbrs"] = "bfd-mhop-vrf-nbrs"
+                    return self.bfd_mhop_vrf_nbrs
+
+                if (child_yang_name == "bfd-nbrs"):
+                    if (self.bfd_nbrs is None):
+                        self.bfd_nbrs = BfdState.Sessions.Session.BfdNbrs()
+                        self.bfd_nbrs.parent = self
+                        self._children_name_map["bfd_nbrs"] = "bfd-nbrs"
+                    return self.bfd_nbrs
+
+                if (child_yang_name == "bfd-tunnel-paths"):
+                    if (self.bfd_tunnel_paths is None):
+                        self.bfd_tunnel_paths = BfdState.Sessions.Session.BfdTunnelPaths()
+                        self.bfd_tunnel_paths.parent = self
+                        self._children_name_map["bfd_tunnel_paths"] = "bfd-tunnel-paths"
+                    return self.bfd_tunnel_paths
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "bfd-circuits" or name == "bfd-mhop-nbrs" or name == "bfd-mhop-vrf-nbrs" or name == "bfd-nbrs" or name == "bfd-tunnel-paths" or name == "type"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "type"):
+                    self.type = value
+                    self.type.value_namespace = name_space
+                    self.type.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.session:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-            return meta._meta_table['BfdState.Sessions']['meta_info']
+        def has_operation(self):
+            for c in self.session:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "sessions" + path_buffer
 
-        return '/Cisco-IOS-XE-bfd-oper:bfd-state'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XE-bfd-oper:bfd-state/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.sessions is not None and self.sessions._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "session"):
+                for c in self.session:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = BfdState.Sessions.Session()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.session.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "session"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.sessions is not None and self.sessions.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.sessions is not None and self.sessions.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XE-bfd-oper:bfd-state" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "sessions"):
+            if (self.sessions is None):
+                self.sessions = BfdState.Sessions()
+                self.sessions.parent = self
+                self._children_name_map["sessions"] = "sessions"
+            return self.sessions
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "sessions"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _Cisco_IOS_XE_bfd_oper as meta
-        return meta._meta_table['BfdState']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = BfdState()
+        return self._top_entity
 

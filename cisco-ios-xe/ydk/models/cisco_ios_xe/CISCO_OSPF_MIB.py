@@ -8,21 +8,15 @@ the IETF draft
 Support for OSPF Sham link is also added
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoOspfMib(object):
+class CiscoOspfMib(Entity):
     """
     
     
@@ -71,23 +65,49 @@ class CiscoOspfMib(object):
     _revision = '2003-07-18'
 
     def __init__(self):
+        super(CiscoOspfMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-OSPF-MIB"
+        self.yang_parent_name = "CISCO-OSPF-MIB"
+
         self.cospfgeneralgroup = CiscoOspfMib.Cospfgeneralgroup()
         self.cospfgeneralgroup.parent = self
+        self._children_name_map["cospfgeneralgroup"] = "cospfGeneralGroup"
+        self._children_yang_names.add("cospfGeneralGroup")
+
         self.cospflocallsdbtable = CiscoOspfMib.Cospflocallsdbtable()
         self.cospflocallsdbtable.parent = self
+        self._children_name_map["cospflocallsdbtable"] = "cospfLocalLsdbTable"
+        self._children_yang_names.add("cospfLocalLsdbTable")
+
         self.cospflsdbtable = CiscoOspfMib.Cospflsdbtable()
         self.cospflsdbtable.parent = self
+        self._children_name_map["cospflsdbtable"] = "cospfLsdbTable"
+        self._children_yang_names.add("cospfLsdbTable")
+
         self.cospfshamlinknbrtable = CiscoOspfMib.Cospfshamlinknbrtable()
         self.cospfshamlinknbrtable.parent = self
+        self._children_name_map["cospfshamlinknbrtable"] = "cospfShamLinkNbrTable"
+        self._children_yang_names.add("cospfShamLinkNbrTable")
+
         self.cospfshamlinkstable = CiscoOspfMib.Cospfshamlinkstable()
         self.cospfshamlinkstable.parent = self
+        self._children_name_map["cospfshamlinkstable"] = "cospfShamLinksTable"
+        self._children_yang_names.add("cospfShamLinksTable")
+
         self.cospfshamlinktable = CiscoOspfMib.Cospfshamlinktable()
         self.cospfshamlinktable.parent = self
+        self._children_name_map["cospfshamlinktable"] = "cospfShamLinkTable"
+        self._children_yang_names.add("cospfShamLinkTable")
+
         self.cospfvirtlocallsdbtable = CiscoOspfMib.Cospfvirtlocallsdbtable()
         self.cospfvirtlocallsdbtable.parent = self
+        self._children_name_map["cospfvirtlocallsdbtable"] = "cospfVirtLocalLsdbTable"
+        self._children_yang_names.add("cospfVirtLocalLsdbTable")
 
 
-    class Cospfgeneralgroup(object):
+    class Cospfgeneralgroup(Entity):
         """
         
         
@@ -128,47 +148,130 @@ class CiscoOspfMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospfopaqueaslsacksumsum = None
-            self.cospfopaqueaslsacount = None
-            self.cospfopaquelsasupport = None
-            self.cospfrfc1583compatibility = None
-            self.cospftrafficengineeringsupport = None
+            super(CiscoOspfMib.Cospfgeneralgroup, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cospfGeneralGroup"
+            self.yang_parent_name = "CISCO-OSPF-MIB"
 
-            return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfGeneralGroup'
+            self.cospfopaqueaslsacksumsum = YLeaf(YType.uint32, "cospfOpaqueASLsaCksumSum")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.cospfopaqueaslsacount = YLeaf(YType.uint32, "cospfOpaqueASLsaCount")
+
+            self.cospfopaquelsasupport = YLeaf(YType.boolean, "cospfOpaqueLsaSupport")
+
+            self.cospfrfc1583compatibility = YLeaf(YType.boolean, "cospfRFC1583Compatibility")
+
+            self.cospftrafficengineeringsupport = YLeaf(YType.boolean, "cospfTrafficEngineeringSupport")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("cospfopaqueaslsacksumsum",
+                            "cospfopaqueaslsacount",
+                            "cospfopaquelsasupport",
+                            "cospfrfc1583compatibility",
+                            "cospftrafficengineeringsupport") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfMib.Cospfgeneralgroup, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfMib.Cospfgeneralgroup, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.cospfopaqueaslsacksumsum.is_set or
+                self.cospfopaqueaslsacount.is_set or
+                self.cospfopaquelsasupport.is_set or
+                self.cospfrfc1583compatibility.is_set or
+                self.cospftrafficengineeringsupport.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.cospfopaqueaslsacksumsum.yfilter != YFilter.not_set or
+                self.cospfopaqueaslsacount.yfilter != YFilter.not_set or
+                self.cospfopaquelsasupport.yfilter != YFilter.not_set or
+                self.cospfrfc1583compatibility.yfilter != YFilter.not_set or
+                self.cospftrafficengineeringsupport.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfGeneralGroup" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.cospfopaqueaslsacksumsum.is_set or self.cospfopaqueaslsacksumsum.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfopaqueaslsacksumsum.get_name_leafdata())
+            if (self.cospfopaqueaslsacount.is_set or self.cospfopaqueaslsacount.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfopaqueaslsacount.get_name_leafdata())
+            if (self.cospfopaquelsasupport.is_set or self.cospfopaquelsasupport.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfopaquelsasupport.get_name_leafdata())
+            if (self.cospfrfc1583compatibility.is_set or self.cospfrfc1583compatibility.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospfrfc1583compatibility.get_name_leafdata())
+            if (self.cospftrafficengineeringsupport.is_set or self.cospftrafficengineeringsupport.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.cospftrafficengineeringsupport.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfOpaqueASLsaCksumSum" or name == "cospfOpaqueASLsaCount" or name == "cospfOpaqueLsaSupport" or name == "cospfRFC1583Compatibility" or name == "cospfTrafficEngineeringSupport"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.cospfopaqueaslsacksumsum is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cospfOpaqueASLsaCksumSum"):
+                self.cospfopaqueaslsacksumsum = value
+                self.cospfopaqueaslsacksumsum.value_namespace = name_space
+                self.cospfopaqueaslsacksumsum.value_namespace_prefix = name_space_prefix
+            if(value_path == "cospfOpaqueASLsaCount"):
+                self.cospfopaqueaslsacount = value
+                self.cospfopaqueaslsacount.value_namespace = name_space
+                self.cospfopaqueaslsacount.value_namespace_prefix = name_space_prefix
+            if(value_path == "cospfOpaqueLsaSupport"):
+                self.cospfopaquelsasupport = value
+                self.cospfopaquelsasupport.value_namespace = name_space
+                self.cospfopaquelsasupport.value_namespace_prefix = name_space_prefix
+            if(value_path == "cospfRFC1583Compatibility"):
+                self.cospfrfc1583compatibility = value
+                self.cospfrfc1583compatibility.value_namespace = name_space
+                self.cospfrfc1583compatibility.value_namespace_prefix = name_space_prefix
+            if(value_path == "cospfTrafficEngineeringSupport"):
+                self.cospftrafficengineeringsupport = value
+                self.cospftrafficengineeringsupport.value_namespace = name_space
+                self.cospftrafficengineeringsupport.value_namespace_prefix = name_space_prefix
 
-            if self.cospfopaqueaslsacount is not None:
-                return True
 
-            if self.cospfopaquelsasupport is not None:
-                return True
-
-            if self.cospfrfc1583compatibility is not None:
-                return True
-
-            if self.cospftrafficengineeringsupport is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-            return meta._meta_table['CiscoOspfMib.Cospfgeneralgroup']['meta_info']
-
-
-    class Cospflsdbtable(object):
+    class Cospflsdbtable(Entity):
         """
         The OSPF Process's Link State Database. This 
         table is meant for Opaque LSA's
@@ -186,13 +289,39 @@ class CiscoOspfMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospflsdbentry = YList()
-            self.cospflsdbentry.parent = self
-            self.cospflsdbentry.name = 'cospflsdbentry'
+            super(CiscoOspfMib.Cospflsdbtable, self).__init__()
+
+            self.yang_name = "cospfLsdbTable"
+            self.yang_parent_name = "CISCO-OSPF-MIB"
+
+            self.cospflsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfMib.Cospflsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfMib.Cospflsdbtable, self).__setattr__(name, value)
 
 
-        class Cospflsdbentry(object):
+        class Cospflsdbentry(Entity):
             """
             A single Link State Advertisement.
             
@@ -208,7 +337,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospflsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`CospflsdbtypeEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospflsdbtable.Cospflsdbentry.CospflsdbtypeEnum>`
+            	**type**\:   :py:class:`Cospflsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospflsdbtable.Cospflsdbentry.Cospflsdbtype>`
             
             .. attribute:: ospflsdblsid  <key>
             
@@ -264,19 +393,61 @@ class CiscoOspfMib(object):
             _revision = '2003-07-18'
 
             def __init__(self):
-                self.parent = None
-                self.ospflsdbareaid = None
-                self.cospflsdbtype = None
-                self.ospflsdblsid = None
-                self.ospflsdbrouterid = None
-                self.cospflsdbadvertisement = None
-                self.cospflsdbage = None
-                self.cospflsdbchecksum = None
-                self.cospflsdbsequence = None
+                super(CiscoOspfMib.Cospflsdbtable.Cospflsdbentry, self).__init__()
 
-            class CospflsdbtypeEnum(Enum):
+                self.yang_name = "cospfLsdbEntry"
+                self.yang_parent_name = "cospfLsdbTable"
+
+                self.ospflsdbareaid = YLeaf(YType.str, "ospfLsdbAreaId")
+
+                self.cospflsdbtype = YLeaf(YType.enumeration, "cospfLsdbType")
+
+                self.ospflsdblsid = YLeaf(YType.str, "ospfLsdbLsid")
+
+                self.ospflsdbrouterid = YLeaf(YType.str, "ospfLsdbRouterId")
+
+                self.cospflsdbadvertisement = YLeaf(YType.str, "cospfLsdbAdvertisement")
+
+                self.cospflsdbage = YLeaf(YType.int32, "cospfLsdbAge")
+
+                self.cospflsdbchecksum = YLeaf(YType.int32, "cospfLsdbChecksum")
+
+                self.cospflsdbsequence = YLeaf(YType.int32, "cospfLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospflsdbareaid",
+                                "cospflsdbtype",
+                                "ospflsdblsid",
+                                "ospflsdbrouterid",
+                                "cospflsdbadvertisement",
+                                "cospflsdbage",
+                                "cospflsdbchecksum",
+                                "cospflsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoOspfMib.Cospflsdbtable.Cospflsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoOspfMib.Cospflsdbtable.Cospflsdbentry, self).__setattr__(name, value)
+
+            class Cospflsdbtype(Enum):
                 """
-                CospflsdbtypeEnum
+                Cospflsdbtype
 
                 The type of the link state advertisement.
 
@@ -288,90 +459,173 @@ class CiscoOspfMib(object):
 
                 """
 
-                areaOpaqueLink = 10
+                areaOpaqueLink = Enum.YLeaf(10, "areaOpaqueLink")
 
-                asOpaqueLink = 11
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                    return meta._meta_table['CiscoOspfMib.Cospflsdbtable.Cospflsdbentry.CospflsdbtypeEnum']
+                asOpaqueLink = Enum.YLeaf(11, "asOpaqueLink")
 
 
-            @property
-            def _common_path(self):
-                if self.ospflsdbareaid is None:
-                    raise YPYModelError('Key property ospflsdbareaid is None')
-                if self.cospflsdbtype is None:
-                    raise YPYModelError('Key property cospflsdbtype is None')
-                if self.ospflsdblsid is None:
-                    raise YPYModelError('Key property ospflsdblsid is None')
-                if self.ospflsdbrouterid is None:
-                    raise YPYModelError('Key property ospflsdbrouterid is None')
+            def has_data(self):
+                return (
+                    self.ospflsdbareaid.is_set or
+                    self.cospflsdbtype.is_set or
+                    self.ospflsdblsid.is_set or
+                    self.ospflsdbrouterid.is_set or
+                    self.cospflsdbadvertisement.is_set or
+                    self.cospflsdbage.is_set or
+                    self.cospflsdbchecksum.is_set or
+                    self.cospflsdbsequence.is_set)
 
-                return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfLsdbTable/CISCO-OSPF-MIB:cospfLsdbEntry[CISCO-OSPF-MIB:ospfLsdbAreaId = ' + str(self.ospflsdbareaid) + '][CISCO-OSPF-MIB:cospfLsdbType = ' + str(self.cospflsdbtype) + '][CISCO-OSPF-MIB:ospfLsdbLsid = ' + str(self.ospflsdblsid) + '][CISCO-OSPF-MIB:ospfLsdbRouterId = ' + str(self.ospflsdbrouterid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospflsdbareaid.yfilter != YFilter.not_set or
+                    self.cospflsdbtype.yfilter != YFilter.not_set or
+                    self.ospflsdblsid.yfilter != YFilter.not_set or
+                    self.ospflsdbrouterid.yfilter != YFilter.not_set or
+                    self.cospflsdbadvertisement.yfilter != YFilter.not_set or
+                    self.cospflsdbage.yfilter != YFilter.not_set or
+                    self.cospflsdbchecksum.yfilter != YFilter.not_set or
+                    self.cospflsdbsequence.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cospfLsdbEntry" + "[ospfLsdbAreaId='" + self.ospflsdbareaid.get() + "']" + "[cospfLsdbType='" + self.cospflsdbtype.get() + "']" + "[ospfLsdbLsid='" + self.ospflsdblsid.get() + "']" + "[ospfLsdbRouterId='" + self.ospflsdbrouterid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospflsdbareaid.is_set or self.ospflsdbareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbareaid.get_name_leafdata())
+                if (self.cospflsdbtype.is_set or self.cospflsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflsdbtype.get_name_leafdata())
+                if (self.ospflsdblsid.is_set or self.ospflsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdblsid.get_name_leafdata())
+                if (self.ospflsdbrouterid.is_set or self.ospflsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbrouterid.get_name_leafdata())
+                if (self.cospflsdbadvertisement.is_set or self.cospflsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflsdbadvertisement.get_name_leafdata())
+                if (self.cospflsdbage.is_set or self.cospflsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflsdbage.get_name_leafdata())
+                if (self.cospflsdbchecksum.is_set or self.cospflsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflsdbchecksum.get_name_leafdata())
+                if (self.cospflsdbsequence.is_set or self.cospflsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfLsdbAreaId" or name == "cospfLsdbType" or name == "ospfLsdbLsid" or name == "ospfLsdbRouterId" or name == "cospfLsdbAdvertisement" or name == "cospfLsdbAge" or name == "cospfLsdbChecksum" or name == "cospfLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospflsdbareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfLsdbAreaId"):
+                    self.ospflsdbareaid = value
+                    self.ospflsdbareaid.value_namespace = name_space
+                    self.ospflsdbareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLsdbType"):
+                    self.cospflsdbtype = value
+                    self.cospflsdbtype.value_namespace = name_space
+                    self.cospflsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbLsid"):
+                    self.ospflsdblsid = value
+                    self.ospflsdblsid.value_namespace = name_space
+                    self.ospflsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbRouterId"):
+                    self.ospflsdbrouterid = value
+                    self.ospflsdbrouterid.value_namespace = name_space
+                    self.ospflsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLsdbAdvertisement"):
+                    self.cospflsdbadvertisement = value
+                    self.cospflsdbadvertisement.value_namespace = name_space
+                    self.cospflsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLsdbAge"):
+                    self.cospflsdbage = value
+                    self.cospflsdbage.value_namespace = name_space
+                    self.cospflsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLsdbChecksum"):
+                    self.cospflsdbchecksum = value
+                    self.cospflsdbchecksum.value_namespace = name_space
+                    self.cospflsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLsdbSequence"):
+                    self.cospflsdbsequence = value
+                    self.cospflsdbsequence.value_namespace = name_space
+                    self.cospflsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cospflsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.cospflsdbtype is not None:
-                    return True
-
-                if self.ospflsdblsid is not None:
-                    return True
-
-                if self.ospflsdbrouterid is not None:
-                    return True
-
-                if self.cospflsdbadvertisement is not None:
-                    return True
-
-                if self.cospflsdbage is not None:
-                    return True
-
-                if self.cospflsdbchecksum is not None:
-                    return True
-
-                if self.cospflsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                return meta._meta_table['CiscoOspfMib.Cospflsdbtable.Cospflsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cospflsdbentry is not None:
-                for child_ref in self.cospflsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cospflsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cospfLsdbEntry"):
+                for c in self.cospflsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoOspfMib.Cospflsdbtable.Cospflsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cospflsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-            return meta._meta_table['CiscoOspfMib.Cospflsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cospfshamlinktable(object):
+    class Cospfshamlinktable(Entity):
         """
         Information about this router's sham links
         
@@ -390,13 +644,39 @@ class CiscoOspfMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospfshamlinkentry = YList()
-            self.cospfshamlinkentry.parent = self
-            self.cospfshamlinkentry.name = 'cospfshamlinkentry'
+            super(CiscoOspfMib.Cospfshamlinktable, self).__init__()
+
+            self.yang_name = "cospfShamLinkTable"
+            self.yang_parent_name = "CISCO-OSPF-MIB"
+
+            self.cospfshamlinkentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfMib.Cospfshamlinktable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfMib.Cospfshamlinktable, self).__setattr__(name, value)
 
 
-        class Cospfshamlinkentry(object):
+        class Cospfshamlinkentry(Entity):
             """
             Information about a single sham link
             
@@ -475,7 +755,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospfshamlinkstate
             
             	OSPF sham link states
-            	**type**\:   :py:class:`CospfshamlinkstateEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry.CospfshamlinkstateEnum>`
+            	**type**\:   :py:class:`Cospfshamlinkstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry.Cospfshamlinkstate>`
             
             	**status**\: deprecated
             
@@ -487,20 +767,64 @@ class CiscoOspfMib(object):
             _revision = '2003-07-18'
 
             def __init__(self):
-                self.parent = None
-                self.cospfshamlinkareaid = None
-                self.cospfshamlinklocalipaddress = None
-                self.cospfshamlinkneighborid = None
-                self.cospfshamlinkevents = None
-                self.cospfshamlinkhellointerval = None
-                self.cospfshamlinkmetric = None
-                self.cospfshamlinkretransinterval = None
-                self.cospfshamlinkrtrdeadinterval = None
-                self.cospfshamlinkstate = None
+                super(CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry, self).__init__()
 
-            class CospfshamlinkstateEnum(Enum):
+                self.yang_name = "cospfShamLinkEntry"
+                self.yang_parent_name = "cospfShamLinkTable"
+
+                self.cospfshamlinkareaid = YLeaf(YType.str, "cospfShamLinkAreaId")
+
+                self.cospfshamlinklocalipaddress = YLeaf(YType.str, "cospfShamLinkLocalIpAddress")
+
+                self.cospfshamlinkneighborid = YLeaf(YType.str, "cospfShamLinkNeighborId")
+
+                self.cospfshamlinkevents = YLeaf(YType.uint32, "cospfShamLinkEvents")
+
+                self.cospfshamlinkhellointerval = YLeaf(YType.int32, "cospfShamLinkHelloInterval")
+
+                self.cospfshamlinkmetric = YLeaf(YType.int32, "cospfShamLinkMetric")
+
+                self.cospfshamlinkretransinterval = YLeaf(YType.int32, "cospfShamLinkRetransInterval")
+
+                self.cospfshamlinkrtrdeadinterval = YLeaf(YType.int32, "cospfShamLinkRtrDeadInterval")
+
+                self.cospfshamlinkstate = YLeaf(YType.enumeration, "cospfShamLinkState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cospfshamlinkareaid",
+                                "cospfshamlinklocalipaddress",
+                                "cospfshamlinkneighborid",
+                                "cospfshamlinkevents",
+                                "cospfshamlinkhellointerval",
+                                "cospfshamlinkmetric",
+                                "cospfshamlinkretransinterval",
+                                "cospfshamlinkrtrdeadinterval",
+                                "cospfshamlinkstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry, self).__setattr__(name, value)
+
+            class Cospfshamlinkstate(Enum):
                 """
-                CospfshamlinkstateEnum
+                Cospfshamlinkstate
 
                 OSPF sham link states.
 
@@ -510,91 +834,181 @@ class CiscoOspfMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                pointToPoint = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                    return meta._meta_table['CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry.CospfshamlinkstateEnum']
+                pointToPoint = Enum.YLeaf(4, "pointToPoint")
 
 
-            @property
-            def _common_path(self):
-                if self.cospfshamlinkareaid is None:
-                    raise YPYModelError('Key property cospfshamlinkareaid is None')
-                if self.cospfshamlinklocalipaddress is None:
-                    raise YPYModelError('Key property cospfshamlinklocalipaddress is None')
-                if self.cospfshamlinkneighborid is None:
-                    raise YPYModelError('Key property cospfshamlinkneighborid is None')
+            def has_data(self):
+                return (
+                    self.cospfshamlinkareaid.is_set or
+                    self.cospfshamlinklocalipaddress.is_set or
+                    self.cospfshamlinkneighborid.is_set or
+                    self.cospfshamlinkevents.is_set or
+                    self.cospfshamlinkhellointerval.is_set or
+                    self.cospfshamlinkmetric.is_set or
+                    self.cospfshamlinkretransinterval.is_set or
+                    self.cospfshamlinkrtrdeadinterval.is_set or
+                    self.cospfshamlinkstate.is_set)
 
-                return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfShamLinkTable/CISCO-OSPF-MIB:cospfShamLinkEntry[CISCO-OSPF-MIB:cospfShamLinkAreaId = ' + str(self.cospfshamlinkareaid) + '][CISCO-OSPF-MIB:cospfShamLinkLocalIpAddress = ' + str(self.cospfshamlinklocalipaddress) + '][CISCO-OSPF-MIB:cospfShamLinkNeighborId = ' + str(self.cospfshamlinkneighborid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cospfshamlinkareaid.yfilter != YFilter.not_set or
+                    self.cospfshamlinklocalipaddress.yfilter != YFilter.not_set or
+                    self.cospfshamlinkneighborid.yfilter != YFilter.not_set or
+                    self.cospfshamlinkevents.yfilter != YFilter.not_set or
+                    self.cospfshamlinkhellointerval.yfilter != YFilter.not_set or
+                    self.cospfshamlinkmetric.yfilter != YFilter.not_set or
+                    self.cospfshamlinkretransinterval.yfilter != YFilter.not_set or
+                    self.cospfshamlinkrtrdeadinterval.yfilter != YFilter.not_set or
+                    self.cospfshamlinkstate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cospfShamLinkEntry" + "[cospfShamLinkAreaId='" + self.cospfshamlinkareaid.get() + "']" + "[cospfShamLinkLocalIpAddress='" + self.cospfshamlinklocalipaddress.get() + "']" + "[cospfShamLinkNeighborId='" + self.cospfshamlinkneighborid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinkTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cospfshamlinkareaid.is_set or self.cospfshamlinkareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkareaid.get_name_leafdata())
+                if (self.cospfshamlinklocalipaddress.is_set or self.cospfshamlinklocalipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinklocalipaddress.get_name_leafdata())
+                if (self.cospfshamlinkneighborid.is_set or self.cospfshamlinkneighborid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkneighborid.get_name_leafdata())
+                if (self.cospfshamlinkevents.is_set or self.cospfshamlinkevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkevents.get_name_leafdata())
+                if (self.cospfshamlinkhellointerval.is_set or self.cospfshamlinkhellointerval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkhellointerval.get_name_leafdata())
+                if (self.cospfshamlinkmetric.is_set or self.cospfshamlinkmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkmetric.get_name_leafdata())
+                if (self.cospfshamlinkretransinterval.is_set or self.cospfshamlinkretransinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkretransinterval.get_name_leafdata())
+                if (self.cospfshamlinkrtrdeadinterval.is_set or self.cospfshamlinkrtrdeadinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkrtrdeadinterval.get_name_leafdata())
+                if (self.cospfshamlinkstate.is_set or self.cospfshamlinkstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cospfShamLinkAreaId" or name == "cospfShamLinkLocalIpAddress" or name == "cospfShamLinkNeighborId" or name == "cospfShamLinkEvents" or name == "cospfShamLinkHelloInterval" or name == "cospfShamLinkMetric" or name == "cospfShamLinkRetransInterval" or name == "cospfShamLinkRtrDeadInterval" or name == "cospfShamLinkState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cospfshamlinkareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cospfShamLinkAreaId"):
+                    self.cospfshamlinkareaid = value
+                    self.cospfshamlinkareaid.value_namespace = name_space
+                    self.cospfshamlinkareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkLocalIpAddress"):
+                    self.cospfshamlinklocalipaddress = value
+                    self.cospfshamlinklocalipaddress.value_namespace = name_space
+                    self.cospfshamlinklocalipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNeighborId"):
+                    self.cospfshamlinkneighborid = value
+                    self.cospfshamlinkneighborid.value_namespace = name_space
+                    self.cospfshamlinkneighborid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkEvents"):
+                    self.cospfshamlinkevents = value
+                    self.cospfshamlinkevents.value_namespace = name_space
+                    self.cospfshamlinkevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkHelloInterval"):
+                    self.cospfshamlinkhellointerval = value
+                    self.cospfshamlinkhellointerval.value_namespace = name_space
+                    self.cospfshamlinkhellointerval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkMetric"):
+                    self.cospfshamlinkmetric = value
+                    self.cospfshamlinkmetric.value_namespace = name_space
+                    self.cospfshamlinkmetric.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkRetransInterval"):
+                    self.cospfshamlinkretransinterval = value
+                    self.cospfshamlinkretransinterval.value_namespace = name_space
+                    self.cospfshamlinkretransinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkRtrDeadInterval"):
+                    self.cospfshamlinkrtrdeadinterval = value
+                    self.cospfshamlinkrtrdeadinterval.value_namespace = name_space
+                    self.cospfshamlinkrtrdeadinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkState"):
+                    self.cospfshamlinkstate = value
+                    self.cospfshamlinkstate.value_namespace = name_space
+                    self.cospfshamlinkstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cospfshamlinkentry:
+                if (c.has_data()):
                     return True
-
-                if self.cospfshamlinklocalipaddress is not None:
-                    return True
-
-                if self.cospfshamlinkneighborid is not None:
-                    return True
-
-                if self.cospfshamlinkevents is not None:
-                    return True
-
-                if self.cospfshamlinkhellointerval is not None:
-                    return True
-
-                if self.cospfshamlinkmetric is not None:
-                    return True
-
-                if self.cospfshamlinkretransinterval is not None:
-                    return True
-
-                if self.cospfshamlinkrtrdeadinterval is not None:
-                    return True
-
-                if self.cospfshamlinkstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                return meta._meta_table['CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfShamLinkTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cospfshamlinkentry is not None:
-                for child_ref in self.cospfshamlinkentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cospfshamlinkentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfShamLinkTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cospfShamLinkEntry"):
+                for c in self.cospfshamlinkentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoOspfMib.Cospfshamlinktable.Cospfshamlinkentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cospfshamlinkentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfShamLinkEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-            return meta._meta_table['CiscoOspfMib.Cospfshamlinktable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cospflocallsdbtable(object):
+    class Cospflocallsdbtable(Entity):
         """
         The OSPF Process's Link\-Local Link State Database
         for non\-virtual links.
@@ -612,13 +1026,39 @@ class CiscoOspfMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospflocallsdbentry = YList()
-            self.cospflocallsdbentry.parent = self
-            self.cospflocallsdbentry.name = 'cospflocallsdbentry'
+            super(CiscoOspfMib.Cospflocallsdbtable, self).__init__()
+
+            self.yang_name = "cospfLocalLsdbTable"
+            self.yang_parent_name = "CISCO-OSPF-MIB"
+
+            self.cospflocallsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfMib.Cospflocallsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfMib.Cospflocallsdbtable, self).__setattr__(name, value)
 
 
-        class Cospflocallsdbentry(object):
+        class Cospflocallsdbentry(Entity):
             """
             A single Link State Advertisement.
             
@@ -639,7 +1079,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospflocallsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`CospflocallsdbtypeEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry.CospflocallsdbtypeEnum>`
+            	**type**\:   :py:class:`Cospflocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry.Cospflocallsdbtype>`
             
             .. attribute:: cospflocallsdblsid  <key>
             
@@ -691,20 +1131,64 @@ class CiscoOspfMib(object):
             _revision = '2003-07-18'
 
             def __init__(self):
-                self.parent = None
-                self.cospflocallsdbipaddress = None
-                self.cospflocallsdbaddresslessif = None
-                self.cospflocallsdbtype = None
-                self.cospflocallsdblsid = None
-                self.cospflocallsdbrouterid = None
-                self.cospflocallsdbadvertisement = None
-                self.cospflocallsdbage = None
-                self.cospflocallsdbchecksum = None
-                self.cospflocallsdbsequence = None
+                super(CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry, self).__init__()
 
-            class CospflocallsdbtypeEnum(Enum):
+                self.yang_name = "cospfLocalLsdbEntry"
+                self.yang_parent_name = "cospfLocalLsdbTable"
+
+                self.cospflocallsdbipaddress = YLeaf(YType.str, "cospfLocalLsdbIpAddress")
+
+                self.cospflocallsdbaddresslessif = YLeaf(YType.int32, "cospfLocalLsdbAddressLessIf")
+
+                self.cospflocallsdbtype = YLeaf(YType.enumeration, "cospfLocalLsdbType")
+
+                self.cospflocallsdblsid = YLeaf(YType.str, "cospfLocalLsdbLsid")
+
+                self.cospflocallsdbrouterid = YLeaf(YType.str, "cospfLocalLsdbRouterId")
+
+                self.cospflocallsdbadvertisement = YLeaf(YType.str, "cospfLocalLsdbAdvertisement")
+
+                self.cospflocallsdbage = YLeaf(YType.int32, "cospfLocalLsdbAge")
+
+                self.cospflocallsdbchecksum = YLeaf(YType.uint32, "cospfLocalLsdbChecksum")
+
+                self.cospflocallsdbsequence = YLeaf(YType.int32, "cospfLocalLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cospflocallsdbipaddress",
+                                "cospflocallsdbaddresslessif",
+                                "cospflocallsdbtype",
+                                "cospflocallsdblsid",
+                                "cospflocallsdbrouterid",
+                                "cospflocallsdbadvertisement",
+                                "cospflocallsdbage",
+                                "cospflocallsdbchecksum",
+                                "cospflocallsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry, self).__setattr__(name, value)
+
+            class Cospflocallsdbtype(Enum):
                 """
-                CospflocallsdbtypeEnum
+                Cospflocallsdbtype
 
                 The type of the link state advertisement.
 
@@ -714,93 +1198,179 @@ class CiscoOspfMib(object):
 
                 """
 
-                localOpaqueLink = 9
+                localOpaqueLink = Enum.YLeaf(9, "localOpaqueLink")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                    return meta._meta_table['CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry.CospflocallsdbtypeEnum']
+            def has_data(self):
+                return (
+                    self.cospflocallsdbipaddress.is_set or
+                    self.cospflocallsdbaddresslessif.is_set or
+                    self.cospflocallsdbtype.is_set or
+                    self.cospflocallsdblsid.is_set or
+                    self.cospflocallsdbrouterid.is_set or
+                    self.cospflocallsdbadvertisement.is_set or
+                    self.cospflocallsdbage.is_set or
+                    self.cospflocallsdbchecksum.is_set or
+                    self.cospflocallsdbsequence.is_set)
 
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cospflocallsdbipaddress.yfilter != YFilter.not_set or
+                    self.cospflocallsdbaddresslessif.yfilter != YFilter.not_set or
+                    self.cospflocallsdbtype.yfilter != YFilter.not_set or
+                    self.cospflocallsdblsid.yfilter != YFilter.not_set or
+                    self.cospflocallsdbrouterid.yfilter != YFilter.not_set or
+                    self.cospflocallsdbadvertisement.yfilter != YFilter.not_set or
+                    self.cospflocallsdbage.yfilter != YFilter.not_set or
+                    self.cospflocallsdbchecksum.yfilter != YFilter.not_set or
+                    self.cospflocallsdbsequence.yfilter != YFilter.not_set)
 
-            @property
-            def _common_path(self):
-                if self.cospflocallsdbipaddress is None:
-                    raise YPYModelError('Key property cospflocallsdbipaddress is None')
-                if self.cospflocallsdbaddresslessif is None:
-                    raise YPYModelError('Key property cospflocallsdbaddresslessif is None')
-                if self.cospflocallsdbtype is None:
-                    raise YPYModelError('Key property cospflocallsdbtype is None')
-                if self.cospflocallsdblsid is None:
-                    raise YPYModelError('Key property cospflocallsdblsid is None')
-                if self.cospflocallsdbrouterid is None:
-                    raise YPYModelError('Key property cospflocallsdbrouterid is None')
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cospfLocalLsdbEntry" + "[cospfLocalLsdbIpAddress='" + self.cospflocallsdbipaddress.get() + "']" + "[cospfLocalLsdbAddressLessIf='" + self.cospflocallsdbaddresslessif.get() + "']" + "[cospfLocalLsdbType='" + self.cospflocallsdbtype.get() + "']" + "[cospfLocalLsdbLsid='" + self.cospflocallsdblsid.get() + "']" + "[cospfLocalLsdbRouterId='" + self.cospflocallsdbrouterid.get() + "']" + path_buffer
 
-                return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfLocalLsdbTable/CISCO-OSPF-MIB:cospfLocalLsdbEntry[CISCO-OSPF-MIB:cospfLocalLsdbIpAddress = ' + str(self.cospflocallsdbipaddress) + '][CISCO-OSPF-MIB:cospfLocalLsdbAddressLessIf = ' + str(self.cospflocallsdbaddresslessif) + '][CISCO-OSPF-MIB:cospfLocalLsdbType = ' + str(self.cospflocallsdbtype) + '][CISCO-OSPF-MIB:cospfLocalLsdbLsid = ' + str(self.cospflocallsdblsid) + '][CISCO-OSPF-MIB:cospfLocalLsdbRouterId = ' + str(self.cospflocallsdbrouterid) + ']'
+                return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfLocalLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cospflocallsdbipaddress.is_set or self.cospflocallsdbipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbipaddress.get_name_leafdata())
+                if (self.cospflocallsdbaddresslessif.is_set or self.cospflocallsdbaddresslessif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbaddresslessif.get_name_leafdata())
+                if (self.cospflocallsdbtype.is_set or self.cospflocallsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbtype.get_name_leafdata())
+                if (self.cospflocallsdblsid.is_set or self.cospflocallsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdblsid.get_name_leafdata())
+                if (self.cospflocallsdbrouterid.is_set or self.cospflocallsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbrouterid.get_name_leafdata())
+                if (self.cospflocallsdbadvertisement.is_set or self.cospflocallsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbadvertisement.get_name_leafdata())
+                if (self.cospflocallsdbage.is_set or self.cospflocallsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbage.get_name_leafdata())
+                if (self.cospflocallsdbchecksum.is_set or self.cospflocallsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbchecksum.get_name_leafdata())
+                if (self.cospflocallsdbsequence.is_set or self.cospflocallsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospflocallsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cospfLocalLsdbIpAddress" or name == "cospfLocalLsdbAddressLessIf" or name == "cospfLocalLsdbType" or name == "cospfLocalLsdbLsid" or name == "cospfLocalLsdbRouterId" or name == "cospfLocalLsdbAdvertisement" or name == "cospfLocalLsdbAge" or name == "cospfLocalLsdbChecksum" or name == "cospfLocalLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cospflocallsdbipaddress is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cospfLocalLsdbIpAddress"):
+                    self.cospflocallsdbipaddress = value
+                    self.cospflocallsdbipaddress.value_namespace = name_space
+                    self.cospflocallsdbipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbAddressLessIf"):
+                    self.cospflocallsdbaddresslessif = value
+                    self.cospflocallsdbaddresslessif.value_namespace = name_space
+                    self.cospflocallsdbaddresslessif.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbType"):
+                    self.cospflocallsdbtype = value
+                    self.cospflocallsdbtype.value_namespace = name_space
+                    self.cospflocallsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbLsid"):
+                    self.cospflocallsdblsid = value
+                    self.cospflocallsdblsid.value_namespace = name_space
+                    self.cospflocallsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbRouterId"):
+                    self.cospflocallsdbrouterid = value
+                    self.cospflocallsdbrouterid.value_namespace = name_space
+                    self.cospflocallsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbAdvertisement"):
+                    self.cospflocallsdbadvertisement = value
+                    self.cospflocallsdbadvertisement.value_namespace = name_space
+                    self.cospflocallsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbAge"):
+                    self.cospflocallsdbage = value
+                    self.cospflocallsdbage.value_namespace = name_space
+                    self.cospflocallsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbChecksum"):
+                    self.cospflocallsdbchecksum = value
+                    self.cospflocallsdbchecksum.value_namespace = name_space
+                    self.cospflocallsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfLocalLsdbSequence"):
+                    self.cospflocallsdbsequence = value
+                    self.cospflocallsdbsequence.value_namespace = name_space
+                    self.cospflocallsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cospflocallsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.cospflocallsdbaddresslessif is not None:
-                    return True
-
-                if self.cospflocallsdbtype is not None:
-                    return True
-
-                if self.cospflocallsdblsid is not None:
-                    return True
-
-                if self.cospflocallsdbrouterid is not None:
-                    return True
-
-                if self.cospflocallsdbadvertisement is not None:
-                    return True
-
-                if self.cospflocallsdbage is not None:
-                    return True
-
-                if self.cospflocallsdbchecksum is not None:
-                    return True
-
-                if self.cospflocallsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                return meta._meta_table['CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfLocalLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cospflocallsdbentry is not None:
-                for child_ref in self.cospflocallsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cospflocallsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfLocalLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cospfLocalLsdbEntry"):
+                for c in self.cospflocallsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoOspfMib.Cospflocallsdbtable.Cospflocallsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cospflocallsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfLocalLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-            return meta._meta_table['CiscoOspfMib.Cospflocallsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cospfvirtlocallsdbtable(object):
+    class Cospfvirtlocallsdbtable(Entity):
         """
         The OSPF Process's Link\-Local Link State Database
         for virtual links.
@@ -818,13 +1388,39 @@ class CiscoOspfMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospfvirtlocallsdbentry = YList()
-            self.cospfvirtlocallsdbentry.parent = self
-            self.cospfvirtlocallsdbentry.name = 'cospfvirtlocallsdbentry'
+            super(CiscoOspfMib.Cospfvirtlocallsdbtable, self).__init__()
+
+            self.yang_name = "cospfVirtLocalLsdbTable"
+            self.yang_parent_name = "CISCO-OSPF-MIB"
+
+            self.cospfvirtlocallsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfMib.Cospfvirtlocallsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfMib.Cospfvirtlocallsdbtable, self).__setattr__(name, value)
 
 
-        class Cospfvirtlocallsdbentry(object):
+        class Cospfvirtlocallsdbentry(Entity):
             """
             A single Link State Advertisement.
             
@@ -845,7 +1441,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospfvirtlocallsdbtype  <key>
             
             	The type of the link state advertisement. Each  link state type has a separate advertisement format
-            	**type**\:   :py:class:`CospfvirtlocallsdbtypeEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry.CospfvirtlocallsdbtypeEnum>`
+            	**type**\:   :py:class:`Cospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry.Cospfvirtlocallsdbtype>`
             
             .. attribute:: cospfvirtlocallsdblsid  <key>
             
@@ -897,20 +1493,64 @@ class CiscoOspfMib(object):
             _revision = '2003-07-18'
 
             def __init__(self):
-                self.parent = None
-                self.cospfvirtlocallsdbtransitarea = None
-                self.cospfvirtlocallsdbneighbor = None
-                self.cospfvirtlocallsdbtype = None
-                self.cospfvirtlocallsdblsid = None
-                self.cospfvirtlocallsdbrouterid = None
-                self.cospfvirtlocallsdbadvertisement = None
-                self.cospfvirtlocallsdbage = None
-                self.cospfvirtlocallsdbchecksum = None
-                self.cospfvirtlocallsdbsequence = None
+                super(CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry, self).__init__()
 
-            class CospfvirtlocallsdbtypeEnum(Enum):
+                self.yang_name = "cospfVirtLocalLsdbEntry"
+                self.yang_parent_name = "cospfVirtLocalLsdbTable"
+
+                self.cospfvirtlocallsdbtransitarea = YLeaf(YType.str, "cospfVirtLocalLsdbTransitArea")
+
+                self.cospfvirtlocallsdbneighbor = YLeaf(YType.str, "cospfVirtLocalLsdbNeighbor")
+
+                self.cospfvirtlocallsdbtype = YLeaf(YType.enumeration, "cospfVirtLocalLsdbType")
+
+                self.cospfvirtlocallsdblsid = YLeaf(YType.str, "cospfVirtLocalLsdbLsid")
+
+                self.cospfvirtlocallsdbrouterid = YLeaf(YType.str, "cospfVirtLocalLsdbRouterId")
+
+                self.cospfvirtlocallsdbadvertisement = YLeaf(YType.str, "cospfVirtLocalLsdbAdvertisement")
+
+                self.cospfvirtlocallsdbage = YLeaf(YType.int32, "cospfVirtLocalLsdbAge")
+
+                self.cospfvirtlocallsdbchecksum = YLeaf(YType.uint32, "cospfVirtLocalLsdbChecksum")
+
+                self.cospfvirtlocallsdbsequence = YLeaf(YType.int32, "cospfVirtLocalLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cospfvirtlocallsdbtransitarea",
+                                "cospfvirtlocallsdbneighbor",
+                                "cospfvirtlocallsdbtype",
+                                "cospfvirtlocallsdblsid",
+                                "cospfvirtlocallsdbrouterid",
+                                "cospfvirtlocallsdbadvertisement",
+                                "cospfvirtlocallsdbage",
+                                "cospfvirtlocallsdbchecksum",
+                                "cospfvirtlocallsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry, self).__setattr__(name, value)
+
+            class Cospfvirtlocallsdbtype(Enum):
                 """
-                CospfvirtlocallsdbtypeEnum
+                Cospfvirtlocallsdbtype
 
                 The type of the link state advertisement.
 
@@ -920,93 +1560,179 @@ class CiscoOspfMib(object):
 
                 """
 
-                localOpaqueLink = 9
+                localOpaqueLink = Enum.YLeaf(9, "localOpaqueLink")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                    return meta._meta_table['CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry.CospfvirtlocallsdbtypeEnum']
+            def has_data(self):
+                return (
+                    self.cospfvirtlocallsdbtransitarea.is_set or
+                    self.cospfvirtlocallsdbneighbor.is_set or
+                    self.cospfvirtlocallsdbtype.is_set or
+                    self.cospfvirtlocallsdblsid.is_set or
+                    self.cospfvirtlocallsdbrouterid.is_set or
+                    self.cospfvirtlocallsdbadvertisement.is_set or
+                    self.cospfvirtlocallsdbage.is_set or
+                    self.cospfvirtlocallsdbchecksum.is_set or
+                    self.cospfvirtlocallsdbsequence.is_set)
 
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbtransitarea.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbneighbor.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbtype.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdblsid.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbrouterid.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbadvertisement.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbage.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbchecksum.yfilter != YFilter.not_set or
+                    self.cospfvirtlocallsdbsequence.yfilter != YFilter.not_set)
 
-            @property
-            def _common_path(self):
-                if self.cospfvirtlocallsdbtransitarea is None:
-                    raise YPYModelError('Key property cospfvirtlocallsdbtransitarea is None')
-                if self.cospfvirtlocallsdbneighbor is None:
-                    raise YPYModelError('Key property cospfvirtlocallsdbneighbor is None')
-                if self.cospfvirtlocallsdbtype is None:
-                    raise YPYModelError('Key property cospfvirtlocallsdbtype is None')
-                if self.cospfvirtlocallsdblsid is None:
-                    raise YPYModelError('Key property cospfvirtlocallsdblsid is None')
-                if self.cospfvirtlocallsdbrouterid is None:
-                    raise YPYModelError('Key property cospfvirtlocallsdbrouterid is None')
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cospfVirtLocalLsdbEntry" + "[cospfVirtLocalLsdbTransitArea='" + self.cospfvirtlocallsdbtransitarea.get() + "']" + "[cospfVirtLocalLsdbNeighbor='" + self.cospfvirtlocallsdbneighbor.get() + "']" + "[cospfVirtLocalLsdbType='" + self.cospfvirtlocallsdbtype.get() + "']" + "[cospfVirtLocalLsdbLsid='" + self.cospfvirtlocallsdblsid.get() + "']" + "[cospfVirtLocalLsdbRouterId='" + self.cospfvirtlocallsdbrouterid.get() + "']" + path_buffer
 
-                return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfVirtLocalLsdbTable/CISCO-OSPF-MIB:cospfVirtLocalLsdbEntry[CISCO-OSPF-MIB:cospfVirtLocalLsdbTransitArea = ' + str(self.cospfvirtlocallsdbtransitarea) + '][CISCO-OSPF-MIB:cospfVirtLocalLsdbNeighbor = ' + str(self.cospfvirtlocallsdbneighbor) + '][CISCO-OSPF-MIB:cospfVirtLocalLsdbType = ' + str(self.cospfvirtlocallsdbtype) + '][CISCO-OSPF-MIB:cospfVirtLocalLsdbLsid = ' + str(self.cospfvirtlocallsdblsid) + '][CISCO-OSPF-MIB:cospfVirtLocalLsdbRouterId = ' + str(self.cospfvirtlocallsdbrouterid) + ']'
+                return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfVirtLocalLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cospfvirtlocallsdbtransitarea.is_set or self.cospfvirtlocallsdbtransitarea.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbtransitarea.get_name_leafdata())
+                if (self.cospfvirtlocallsdbneighbor.is_set or self.cospfvirtlocallsdbneighbor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbneighbor.get_name_leafdata())
+                if (self.cospfvirtlocallsdbtype.is_set or self.cospfvirtlocallsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbtype.get_name_leafdata())
+                if (self.cospfvirtlocallsdblsid.is_set or self.cospfvirtlocallsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdblsid.get_name_leafdata())
+                if (self.cospfvirtlocallsdbrouterid.is_set or self.cospfvirtlocallsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbrouterid.get_name_leafdata())
+                if (self.cospfvirtlocallsdbadvertisement.is_set or self.cospfvirtlocallsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbadvertisement.get_name_leafdata())
+                if (self.cospfvirtlocallsdbage.is_set or self.cospfvirtlocallsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbage.get_name_leafdata())
+                if (self.cospfvirtlocallsdbchecksum.is_set or self.cospfvirtlocallsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbchecksum.get_name_leafdata())
+                if (self.cospfvirtlocallsdbsequence.is_set or self.cospfvirtlocallsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtlocallsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cospfVirtLocalLsdbTransitArea" or name == "cospfVirtLocalLsdbNeighbor" or name == "cospfVirtLocalLsdbType" or name == "cospfVirtLocalLsdbLsid" or name == "cospfVirtLocalLsdbRouterId" or name == "cospfVirtLocalLsdbAdvertisement" or name == "cospfVirtLocalLsdbAge" or name == "cospfVirtLocalLsdbChecksum" or name == "cospfVirtLocalLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cospfvirtlocallsdbtransitarea is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cospfVirtLocalLsdbTransitArea"):
+                    self.cospfvirtlocallsdbtransitarea = value
+                    self.cospfvirtlocallsdbtransitarea.value_namespace = name_space
+                    self.cospfvirtlocallsdbtransitarea.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbNeighbor"):
+                    self.cospfvirtlocallsdbneighbor = value
+                    self.cospfvirtlocallsdbneighbor.value_namespace = name_space
+                    self.cospfvirtlocallsdbneighbor.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbType"):
+                    self.cospfvirtlocallsdbtype = value
+                    self.cospfvirtlocallsdbtype.value_namespace = name_space
+                    self.cospfvirtlocallsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbLsid"):
+                    self.cospfvirtlocallsdblsid = value
+                    self.cospfvirtlocallsdblsid.value_namespace = name_space
+                    self.cospfvirtlocallsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbRouterId"):
+                    self.cospfvirtlocallsdbrouterid = value
+                    self.cospfvirtlocallsdbrouterid.value_namespace = name_space
+                    self.cospfvirtlocallsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbAdvertisement"):
+                    self.cospfvirtlocallsdbadvertisement = value
+                    self.cospfvirtlocallsdbadvertisement.value_namespace = name_space
+                    self.cospfvirtlocallsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbAge"):
+                    self.cospfvirtlocallsdbage = value
+                    self.cospfvirtlocallsdbage.value_namespace = name_space
+                    self.cospfvirtlocallsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbChecksum"):
+                    self.cospfvirtlocallsdbchecksum = value
+                    self.cospfvirtlocallsdbchecksum.value_namespace = name_space
+                    self.cospfvirtlocallsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtLocalLsdbSequence"):
+                    self.cospfvirtlocallsdbsequence = value
+                    self.cospfvirtlocallsdbsequence.value_namespace = name_space
+                    self.cospfvirtlocallsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cospfvirtlocallsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.cospfvirtlocallsdbneighbor is not None:
-                    return True
-
-                if self.cospfvirtlocallsdbtype is not None:
-                    return True
-
-                if self.cospfvirtlocallsdblsid is not None:
-                    return True
-
-                if self.cospfvirtlocallsdbrouterid is not None:
-                    return True
-
-                if self.cospfvirtlocallsdbadvertisement is not None:
-                    return True
-
-                if self.cospfvirtlocallsdbage is not None:
-                    return True
-
-                if self.cospfvirtlocallsdbchecksum is not None:
-                    return True
-
-                if self.cospfvirtlocallsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                return meta._meta_table['CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfVirtLocalLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cospfvirtlocallsdbentry is not None:
-                for child_ref in self.cospfvirtlocallsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cospfvirtlocallsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfVirtLocalLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cospfVirtLocalLsdbEntry"):
+                for c in self.cospfvirtlocallsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoOspfMib.Cospfvirtlocallsdbtable.Cospfvirtlocallsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cospfvirtlocallsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfVirtLocalLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-            return meta._meta_table['CiscoOspfMib.Cospfvirtlocallsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cospfshamlinknbrtable(object):
+    class Cospfshamlinknbrtable(Entity):
         """
         A table of sham link neighbor information.
         
@@ -1023,20 +1749,46 @@ class CiscoOspfMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospfshamlinknbrentry = YList()
-            self.cospfshamlinknbrentry.parent = self
-            self.cospfshamlinknbrentry.name = 'cospfshamlinknbrentry'
+            super(CiscoOspfMib.Cospfshamlinknbrtable, self).__init__()
+
+            self.yang_name = "cospfShamLinkNbrTable"
+            self.yang_parent_name = "CISCO-OSPF-MIB"
+
+            self.cospfshamlinknbrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfMib.Cospfshamlinknbrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfMib.Cospfshamlinknbrtable, self).__setattr__(name, value)
 
 
-        class Cospfshamlinknbrentry(object):
+        class Cospfshamlinknbrentry(Entity):
             """
             Sham link neighbor information.
             
             .. attribute:: cospfshamlinkslocalipaddrtype  <key>
             
             	
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cospfshamlinkslocalipaddr  <key>
             
@@ -1057,7 +1809,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospfshamlinknbripaddrtype  <key>
             
             	The type of internet address of this sham link neighbor's IP address
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cospfshamlinknbripaddr  <key>
             
@@ -1102,7 +1854,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospfshamlinknbrstate
             
             	The state of this sham link neighbor relation\- ship
-            	**type**\:   :py:class:`CospfshamlinknbrstateEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry.CospfshamlinknbrstateEnum>`
+            	**type**\:   :py:class:`Cospfshamlinknbrstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry.Cospfshamlinknbrstate>`
             
             
 
@@ -1112,22 +1864,70 @@ class CiscoOspfMib(object):
             _revision = '2003-07-18'
 
             def __init__(self):
-                self.parent = None
-                self.cospfshamlinkslocalipaddrtype = None
-                self.cospfshamlinkslocalipaddr = None
-                self.cospfshamlinknbrarea = None
-                self.cospfshamlinknbripaddrtype = None
-                self.cospfshamlinknbripaddr = None
-                self.cospfshamlinknbrevents = None
-                self.cospfshamlinknbrhellosuppressed = None
-                self.cospfshamlinknbrlsretransqlen = None
-                self.cospfshamlinknbroptions = None
-                self.cospfshamlinknbrrtrid = None
-                self.cospfshamlinknbrstate = None
+                super(CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry, self).__init__()
 
-            class CospfshamlinknbrstateEnum(Enum):
+                self.yang_name = "cospfShamLinkNbrEntry"
+                self.yang_parent_name = "cospfShamLinkNbrTable"
+
+                self.cospfshamlinkslocalipaddrtype = YLeaf(YType.enumeration, "cospfShamLinksLocalIpAddrType")
+
+                self.cospfshamlinkslocalipaddr = YLeaf(YType.str, "cospfShamLinksLocalIpAddr")
+
+                self.cospfshamlinknbrarea = YLeaf(YType.str, "cospfShamLinkNbrArea")
+
+                self.cospfshamlinknbripaddrtype = YLeaf(YType.enumeration, "cospfShamLinkNbrIpAddrType")
+
+                self.cospfshamlinknbripaddr = YLeaf(YType.str, "cospfShamLinkNbrIpAddr")
+
+                self.cospfshamlinknbrevents = YLeaf(YType.uint32, "cospfShamLinkNbrEvents")
+
+                self.cospfshamlinknbrhellosuppressed = YLeaf(YType.boolean, "cospfShamLinkNbrHelloSuppressed")
+
+                self.cospfshamlinknbrlsretransqlen = YLeaf(YType.uint32, "cospfShamLinkNbrLsRetransQLen")
+
+                self.cospfshamlinknbroptions = YLeaf(YType.int32, "cospfShamLinkNbrOptions")
+
+                self.cospfshamlinknbrrtrid = YLeaf(YType.str, "cospfShamLinkNbrRtrId")
+
+                self.cospfshamlinknbrstate = YLeaf(YType.enumeration, "cospfShamLinkNbrState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cospfshamlinkslocalipaddrtype",
+                                "cospfshamlinkslocalipaddr",
+                                "cospfshamlinknbrarea",
+                                "cospfshamlinknbripaddrtype",
+                                "cospfshamlinknbripaddr",
+                                "cospfshamlinknbrevents",
+                                "cospfshamlinknbrhellosuppressed",
+                                "cospfshamlinknbrlsretransqlen",
+                                "cospfshamlinknbroptions",
+                                "cospfshamlinknbrrtrid",
+                                "cospfshamlinknbrstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry, self).__setattr__(name, value)
+
+            class Cospfshamlinknbrstate(Enum):
                 """
-                CospfshamlinknbrstateEnum
+                Cospfshamlinknbrstate
 
                 The state of this sham link neighbor relation\-
 
@@ -1151,113 +1951,209 @@ class CiscoOspfMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                attempt = 2
+                attempt = Enum.YLeaf(2, "attempt")
 
-                init = 3
+                init = Enum.YLeaf(3, "init")
 
-                twoWay = 4
+                twoWay = Enum.YLeaf(4, "twoWay")
 
-                exchangeStart = 5
+                exchangeStart = Enum.YLeaf(5, "exchangeStart")
 
-                exchange = 6
+                exchange = Enum.YLeaf(6, "exchange")
 
-                loading = 7
+                loading = Enum.YLeaf(7, "loading")
 
-                full = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                    return meta._meta_table['CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry.CospfshamlinknbrstateEnum']
+                full = Enum.YLeaf(8, "full")
 
 
-            @property
-            def _common_path(self):
-                if self.cospfshamlinkslocalipaddrtype is None:
-                    raise YPYModelError('Key property cospfshamlinkslocalipaddrtype is None')
-                if self.cospfshamlinkslocalipaddr is None:
-                    raise YPYModelError('Key property cospfshamlinkslocalipaddr is None')
-                if self.cospfshamlinknbrarea is None:
-                    raise YPYModelError('Key property cospfshamlinknbrarea is None')
-                if self.cospfshamlinknbripaddrtype is None:
-                    raise YPYModelError('Key property cospfshamlinknbripaddrtype is None')
-                if self.cospfshamlinknbripaddr is None:
-                    raise YPYModelError('Key property cospfshamlinknbripaddr is None')
+            def has_data(self):
+                return (
+                    self.cospfshamlinkslocalipaddrtype.is_set or
+                    self.cospfshamlinkslocalipaddr.is_set or
+                    self.cospfshamlinknbrarea.is_set or
+                    self.cospfshamlinknbripaddrtype.is_set or
+                    self.cospfshamlinknbripaddr.is_set or
+                    self.cospfshamlinknbrevents.is_set or
+                    self.cospfshamlinknbrhellosuppressed.is_set or
+                    self.cospfshamlinknbrlsretransqlen.is_set or
+                    self.cospfshamlinknbroptions.is_set or
+                    self.cospfshamlinknbrrtrid.is_set or
+                    self.cospfshamlinknbrstate.is_set)
 
-                return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfShamLinkNbrTable/CISCO-OSPF-MIB:cospfShamLinkNbrEntry[CISCO-OSPF-MIB:cospfShamLinksLocalIpAddrType = ' + str(self.cospfshamlinkslocalipaddrtype) + '][CISCO-OSPF-MIB:cospfShamLinksLocalIpAddr = ' + str(self.cospfshamlinkslocalipaddr) + '][CISCO-OSPF-MIB:cospfShamLinkNbrArea = ' + str(self.cospfshamlinknbrarea) + '][CISCO-OSPF-MIB:cospfShamLinkNbrIpAddrType = ' + str(self.cospfshamlinknbripaddrtype) + '][CISCO-OSPF-MIB:cospfShamLinkNbrIpAddr = ' + str(self.cospfshamlinknbripaddr) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cospfshamlinkslocalipaddrtype.yfilter != YFilter.not_set or
+                    self.cospfshamlinkslocalipaddr.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbrarea.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbripaddrtype.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbripaddr.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbrevents.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbrhellosuppressed.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbrlsretransqlen.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbroptions.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbrrtrid.yfilter != YFilter.not_set or
+                    self.cospfshamlinknbrstate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cospfShamLinkNbrEntry" + "[cospfShamLinksLocalIpAddrType='" + self.cospfshamlinkslocalipaddrtype.get() + "']" + "[cospfShamLinksLocalIpAddr='" + self.cospfshamlinkslocalipaddr.get() + "']" + "[cospfShamLinkNbrArea='" + self.cospfshamlinknbrarea.get() + "']" + "[cospfShamLinkNbrIpAddrType='" + self.cospfshamlinknbripaddrtype.get() + "']" + "[cospfShamLinkNbrIpAddr='" + self.cospfshamlinknbripaddr.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinkNbrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cospfshamlinkslocalipaddrtype.is_set or self.cospfshamlinkslocalipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkslocalipaddrtype.get_name_leafdata())
+                if (self.cospfshamlinkslocalipaddr.is_set or self.cospfshamlinkslocalipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkslocalipaddr.get_name_leafdata())
+                if (self.cospfshamlinknbrarea.is_set or self.cospfshamlinknbrarea.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbrarea.get_name_leafdata())
+                if (self.cospfshamlinknbripaddrtype.is_set or self.cospfshamlinknbripaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbripaddrtype.get_name_leafdata())
+                if (self.cospfshamlinknbripaddr.is_set or self.cospfshamlinknbripaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbripaddr.get_name_leafdata())
+                if (self.cospfshamlinknbrevents.is_set or self.cospfshamlinknbrevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbrevents.get_name_leafdata())
+                if (self.cospfshamlinknbrhellosuppressed.is_set or self.cospfshamlinknbrhellosuppressed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbrhellosuppressed.get_name_leafdata())
+                if (self.cospfshamlinknbrlsretransqlen.is_set or self.cospfshamlinknbrlsretransqlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbrlsretransqlen.get_name_leafdata())
+                if (self.cospfshamlinknbroptions.is_set or self.cospfshamlinknbroptions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbroptions.get_name_leafdata())
+                if (self.cospfshamlinknbrrtrid.is_set or self.cospfshamlinknbrrtrid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbrrtrid.get_name_leafdata())
+                if (self.cospfshamlinknbrstate.is_set or self.cospfshamlinknbrstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinknbrstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cospfShamLinksLocalIpAddrType" or name == "cospfShamLinksLocalIpAddr" or name == "cospfShamLinkNbrArea" or name == "cospfShamLinkNbrIpAddrType" or name == "cospfShamLinkNbrIpAddr" or name == "cospfShamLinkNbrEvents" or name == "cospfShamLinkNbrHelloSuppressed" or name == "cospfShamLinkNbrLsRetransQLen" or name == "cospfShamLinkNbrOptions" or name == "cospfShamLinkNbrRtrId" or name == "cospfShamLinkNbrState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cospfshamlinkslocalipaddrtype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cospfShamLinksLocalIpAddrType"):
+                    self.cospfshamlinkslocalipaddrtype = value
+                    self.cospfshamlinkslocalipaddrtype.value_namespace = name_space
+                    self.cospfshamlinkslocalipaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksLocalIpAddr"):
+                    self.cospfshamlinkslocalipaddr = value
+                    self.cospfshamlinkslocalipaddr.value_namespace = name_space
+                    self.cospfshamlinkslocalipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrArea"):
+                    self.cospfshamlinknbrarea = value
+                    self.cospfshamlinknbrarea.value_namespace = name_space
+                    self.cospfshamlinknbrarea.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrIpAddrType"):
+                    self.cospfshamlinknbripaddrtype = value
+                    self.cospfshamlinknbripaddrtype.value_namespace = name_space
+                    self.cospfshamlinknbripaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrIpAddr"):
+                    self.cospfshamlinknbripaddr = value
+                    self.cospfshamlinknbripaddr.value_namespace = name_space
+                    self.cospfshamlinknbripaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrEvents"):
+                    self.cospfshamlinknbrevents = value
+                    self.cospfshamlinknbrevents.value_namespace = name_space
+                    self.cospfshamlinknbrevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrHelloSuppressed"):
+                    self.cospfshamlinknbrhellosuppressed = value
+                    self.cospfshamlinknbrhellosuppressed.value_namespace = name_space
+                    self.cospfshamlinknbrhellosuppressed.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrLsRetransQLen"):
+                    self.cospfshamlinknbrlsretransqlen = value
+                    self.cospfshamlinknbrlsretransqlen.value_namespace = name_space
+                    self.cospfshamlinknbrlsretransqlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrOptions"):
+                    self.cospfshamlinknbroptions = value
+                    self.cospfshamlinknbroptions.value_namespace = name_space
+                    self.cospfshamlinknbroptions.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrRtrId"):
+                    self.cospfshamlinknbrrtrid = value
+                    self.cospfshamlinknbrrtrid.value_namespace = name_space
+                    self.cospfshamlinknbrrtrid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinkNbrState"):
+                    self.cospfshamlinknbrstate = value
+                    self.cospfshamlinknbrstate.value_namespace = name_space
+                    self.cospfshamlinknbrstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cospfshamlinknbrentry:
+                if (c.has_data()):
                     return True
-
-                if self.cospfshamlinkslocalipaddr is not None:
-                    return True
-
-                if self.cospfshamlinknbrarea is not None:
-                    return True
-
-                if self.cospfshamlinknbripaddrtype is not None:
-                    return True
-
-                if self.cospfshamlinknbripaddr is not None:
-                    return True
-
-                if self.cospfshamlinknbrevents is not None:
-                    return True
-
-                if self.cospfshamlinknbrhellosuppressed is not None:
-                    return True
-
-                if self.cospfshamlinknbrlsretransqlen is not None:
-                    return True
-
-                if self.cospfshamlinknbroptions is not None:
-                    return True
-
-                if self.cospfshamlinknbrrtrid is not None:
-                    return True
-
-                if self.cospfshamlinknbrstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                return meta._meta_table['CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfShamLinkNbrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cospfshamlinknbrentry is not None:
-                for child_ref in self.cospfshamlinknbrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cospfshamlinknbrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfShamLinkNbrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cospfShamLinkNbrEntry"):
+                for c in self.cospfshamlinknbrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoOspfMib.Cospfshamlinknbrtable.Cospfshamlinknbrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cospfshamlinknbrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfShamLinkNbrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-            return meta._meta_table['CiscoOspfMib.Cospfshamlinknbrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Cospfshamlinkstable(object):
+    class Cospfshamlinkstable(Entity):
         """
         Information about this router's sham links.
         
@@ -1274,13 +2170,39 @@ class CiscoOspfMib(object):
         _revision = '2003-07-18'
 
         def __init__(self):
-            self.parent = None
-            self.cospfshamlinksentry = YList()
-            self.cospfshamlinksentry.parent = self
-            self.cospfshamlinksentry.name = 'cospfshamlinksentry'
+            super(CiscoOspfMib.Cospfshamlinkstable, self).__init__()
+
+            self.yang_name = "cospfShamLinksTable"
+            self.yang_parent_name = "CISCO-OSPF-MIB"
+
+            self.cospfshamlinksentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoOspfMib.Cospfshamlinkstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoOspfMib.Cospfshamlinkstable, self).__setattr__(name, value)
 
 
-        class Cospfshamlinksentry(object):
+        class Cospfshamlinksentry(Entity):
             """
             Information about a single sham link.
             
@@ -1294,7 +2216,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospfshamlinkslocalipaddrtype  <key>
             
             	The type of internet address of this sham link's local IP address
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cospfshamlinkslocalipaddr  <key>
             
@@ -1306,7 +2228,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospfshamlinksremoteipaddrtype  <key>
             
             	The type of internet address of this sham link's remote IP address
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: cospfshamlinksremoteipaddr  <key>
             
@@ -1353,7 +2275,7 @@ class CiscoOspfMib(object):
             .. attribute:: cospfshamlinksstate
             
             	OSPF sham link states
-            	**type**\:   :py:class:`CospfshamlinksstateEnum <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry.CospfshamlinksstateEnum>`
+            	**type**\:   :py:class:`Cospfshamlinksstate <ydk.models.cisco_ios_xe.CISCO_OSPF_MIB.CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry.Cospfshamlinksstate>`
             
             
 
@@ -1363,22 +2285,70 @@ class CiscoOspfMib(object):
             _revision = '2003-07-18'
 
             def __init__(self):
-                self.parent = None
-                self.cospfshamlinksareaid = None
-                self.cospfshamlinkslocalipaddrtype = None
-                self.cospfshamlinkslocalipaddr = None
-                self.cospfshamlinksremoteipaddrtype = None
-                self.cospfshamlinksremoteipaddr = None
-                self.cospfshamlinksevents = None
-                self.cospfshamlinkshellointerval = None
-                self.cospfshamlinksmetric = None
-                self.cospfshamlinksretransinterval = None
-                self.cospfshamlinksrtrdeadinterval = None
-                self.cospfshamlinksstate = None
+                super(CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry, self).__init__()
 
-            class CospfshamlinksstateEnum(Enum):
+                self.yang_name = "cospfShamLinksEntry"
+                self.yang_parent_name = "cospfShamLinksTable"
+
+                self.cospfshamlinksareaid = YLeaf(YType.str, "cospfShamLinksAreaId")
+
+                self.cospfshamlinkslocalipaddrtype = YLeaf(YType.enumeration, "cospfShamLinksLocalIpAddrType")
+
+                self.cospfshamlinkslocalipaddr = YLeaf(YType.str, "cospfShamLinksLocalIpAddr")
+
+                self.cospfshamlinksremoteipaddrtype = YLeaf(YType.enumeration, "cospfShamLinksRemoteIpAddrType")
+
+                self.cospfshamlinksremoteipaddr = YLeaf(YType.str, "cospfShamLinksRemoteIpAddr")
+
+                self.cospfshamlinksevents = YLeaf(YType.uint32, "cospfShamLinksEvents")
+
+                self.cospfshamlinkshellointerval = YLeaf(YType.int32, "cospfShamLinksHelloInterval")
+
+                self.cospfshamlinksmetric = YLeaf(YType.int32, "cospfShamLinksMetric")
+
+                self.cospfshamlinksretransinterval = YLeaf(YType.int32, "cospfShamLinksRetransInterval")
+
+                self.cospfshamlinksrtrdeadinterval = YLeaf(YType.int32, "cospfShamLinksRtrDeadInterval")
+
+                self.cospfshamlinksstate = YLeaf(YType.enumeration, "cospfShamLinksState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("cospfshamlinksareaid",
+                                "cospfshamlinkslocalipaddrtype",
+                                "cospfshamlinkslocalipaddr",
+                                "cospfshamlinksremoteipaddrtype",
+                                "cospfshamlinksremoteipaddr",
+                                "cospfshamlinksevents",
+                                "cospfshamlinkshellointerval",
+                                "cospfshamlinksmetric",
+                                "cospfshamlinksretransinterval",
+                                "cospfshamlinksrtrdeadinterval",
+                                "cospfshamlinksstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry, self).__setattr__(name, value)
+
+            class Cospfshamlinksstate(Enum):
                 """
-                CospfshamlinksstateEnum
+                Cospfshamlinksstate
 
                 OSPF sham link states.
 
@@ -1388,135 +2358,298 @@ class CiscoOspfMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                pointToPoint = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                    return meta._meta_table['CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry.CospfshamlinksstateEnum']
+                pointToPoint = Enum.YLeaf(4, "pointToPoint")
 
 
-            @property
-            def _common_path(self):
-                if self.cospfshamlinksareaid is None:
-                    raise YPYModelError('Key property cospfshamlinksareaid is None')
-                if self.cospfshamlinkslocalipaddrtype is None:
-                    raise YPYModelError('Key property cospfshamlinkslocalipaddrtype is None')
-                if self.cospfshamlinkslocalipaddr is None:
-                    raise YPYModelError('Key property cospfshamlinkslocalipaddr is None')
-                if self.cospfshamlinksremoteipaddrtype is None:
-                    raise YPYModelError('Key property cospfshamlinksremoteipaddrtype is None')
-                if self.cospfshamlinksremoteipaddr is None:
-                    raise YPYModelError('Key property cospfshamlinksremoteipaddr is None')
+            def has_data(self):
+                return (
+                    self.cospfshamlinksareaid.is_set or
+                    self.cospfshamlinkslocalipaddrtype.is_set or
+                    self.cospfshamlinkslocalipaddr.is_set or
+                    self.cospfshamlinksremoteipaddrtype.is_set or
+                    self.cospfshamlinksremoteipaddr.is_set or
+                    self.cospfshamlinksevents.is_set or
+                    self.cospfshamlinkshellointerval.is_set or
+                    self.cospfshamlinksmetric.is_set or
+                    self.cospfshamlinksretransinterval.is_set or
+                    self.cospfshamlinksrtrdeadinterval.is_set or
+                    self.cospfshamlinksstate.is_set)
 
-                return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfShamLinksTable/CISCO-OSPF-MIB:cospfShamLinksEntry[CISCO-OSPF-MIB:cospfShamLinksAreaId = ' + str(self.cospfshamlinksareaid) + '][CISCO-OSPF-MIB:cospfShamLinksLocalIpAddrType = ' + str(self.cospfshamlinkslocalipaddrtype) + '][CISCO-OSPF-MIB:cospfShamLinksLocalIpAddr = ' + str(self.cospfshamlinkslocalipaddr) + '][CISCO-OSPF-MIB:cospfShamLinksRemoteIpAddrType = ' + str(self.cospfshamlinksremoteipaddrtype) + '][CISCO-OSPF-MIB:cospfShamLinksRemoteIpAddr = ' + str(self.cospfshamlinksremoteipaddr) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.cospfshamlinksareaid.yfilter != YFilter.not_set or
+                    self.cospfshamlinkslocalipaddrtype.yfilter != YFilter.not_set or
+                    self.cospfshamlinkslocalipaddr.yfilter != YFilter.not_set or
+                    self.cospfshamlinksremoteipaddrtype.yfilter != YFilter.not_set or
+                    self.cospfshamlinksremoteipaddr.yfilter != YFilter.not_set or
+                    self.cospfshamlinksevents.yfilter != YFilter.not_set or
+                    self.cospfshamlinkshellointerval.yfilter != YFilter.not_set or
+                    self.cospfshamlinksmetric.yfilter != YFilter.not_set or
+                    self.cospfshamlinksretransinterval.yfilter != YFilter.not_set or
+                    self.cospfshamlinksrtrdeadinterval.yfilter != YFilter.not_set or
+                    self.cospfshamlinksstate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cospfShamLinksEntry" + "[cospfShamLinksAreaId='" + self.cospfshamlinksareaid.get() + "']" + "[cospfShamLinksLocalIpAddrType='" + self.cospfshamlinkslocalipaddrtype.get() + "']" + "[cospfShamLinksLocalIpAddr='" + self.cospfshamlinkslocalipaddr.get() + "']" + "[cospfShamLinksRemoteIpAddrType='" + self.cospfshamlinksremoteipaddrtype.get() + "']" + "[cospfShamLinksRemoteIpAddr='" + self.cospfshamlinksremoteipaddr.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinksTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.cospfshamlinksareaid.is_set or self.cospfshamlinksareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksareaid.get_name_leafdata())
+                if (self.cospfshamlinkslocalipaddrtype.is_set or self.cospfshamlinkslocalipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkslocalipaddrtype.get_name_leafdata())
+                if (self.cospfshamlinkslocalipaddr.is_set or self.cospfshamlinkslocalipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkslocalipaddr.get_name_leafdata())
+                if (self.cospfshamlinksremoteipaddrtype.is_set or self.cospfshamlinksremoteipaddrtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksremoteipaddrtype.get_name_leafdata())
+                if (self.cospfshamlinksremoteipaddr.is_set or self.cospfshamlinksremoteipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksremoteipaddr.get_name_leafdata())
+                if (self.cospfshamlinksevents.is_set or self.cospfshamlinksevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksevents.get_name_leafdata())
+                if (self.cospfshamlinkshellointerval.is_set or self.cospfshamlinkshellointerval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinkshellointerval.get_name_leafdata())
+                if (self.cospfshamlinksmetric.is_set or self.cospfshamlinksmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksmetric.get_name_leafdata())
+                if (self.cospfshamlinksretransinterval.is_set or self.cospfshamlinksretransinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksretransinterval.get_name_leafdata())
+                if (self.cospfshamlinksrtrdeadinterval.is_set or self.cospfshamlinksrtrdeadinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksrtrdeadinterval.get_name_leafdata())
+                if (self.cospfshamlinksstate.is_set or self.cospfshamlinksstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfshamlinksstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cospfShamLinksAreaId" or name == "cospfShamLinksLocalIpAddrType" or name == "cospfShamLinksLocalIpAddr" or name == "cospfShamLinksRemoteIpAddrType" or name == "cospfShamLinksRemoteIpAddr" or name == "cospfShamLinksEvents" or name == "cospfShamLinksHelloInterval" or name == "cospfShamLinksMetric" or name == "cospfShamLinksRetransInterval" or name == "cospfShamLinksRtrDeadInterval" or name == "cospfShamLinksState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.cospfshamlinksareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cospfShamLinksAreaId"):
+                    self.cospfshamlinksareaid = value
+                    self.cospfshamlinksareaid.value_namespace = name_space
+                    self.cospfshamlinksareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksLocalIpAddrType"):
+                    self.cospfshamlinkslocalipaddrtype = value
+                    self.cospfshamlinkslocalipaddrtype.value_namespace = name_space
+                    self.cospfshamlinkslocalipaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksLocalIpAddr"):
+                    self.cospfshamlinkslocalipaddr = value
+                    self.cospfshamlinkslocalipaddr.value_namespace = name_space
+                    self.cospfshamlinkslocalipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksRemoteIpAddrType"):
+                    self.cospfshamlinksremoteipaddrtype = value
+                    self.cospfshamlinksremoteipaddrtype.value_namespace = name_space
+                    self.cospfshamlinksremoteipaddrtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksRemoteIpAddr"):
+                    self.cospfshamlinksremoteipaddr = value
+                    self.cospfshamlinksremoteipaddr.value_namespace = name_space
+                    self.cospfshamlinksremoteipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksEvents"):
+                    self.cospfshamlinksevents = value
+                    self.cospfshamlinksevents.value_namespace = name_space
+                    self.cospfshamlinksevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksHelloInterval"):
+                    self.cospfshamlinkshellointerval = value
+                    self.cospfshamlinkshellointerval.value_namespace = name_space
+                    self.cospfshamlinkshellointerval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksMetric"):
+                    self.cospfshamlinksmetric = value
+                    self.cospfshamlinksmetric.value_namespace = name_space
+                    self.cospfshamlinksmetric.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksRetransInterval"):
+                    self.cospfshamlinksretransinterval = value
+                    self.cospfshamlinksretransinterval.value_namespace = name_space
+                    self.cospfshamlinksretransinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksRtrDeadInterval"):
+                    self.cospfshamlinksrtrdeadinterval = value
+                    self.cospfshamlinksrtrdeadinterval.value_namespace = name_space
+                    self.cospfshamlinksrtrdeadinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfShamLinksState"):
+                    self.cospfshamlinksstate = value
+                    self.cospfshamlinksstate.value_namespace = name_space
+                    self.cospfshamlinksstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.cospfshamlinksentry:
+                if (c.has_data()):
                     return True
-
-                if self.cospfshamlinkslocalipaddrtype is not None:
-                    return True
-
-                if self.cospfshamlinkslocalipaddr is not None:
-                    return True
-
-                if self.cospfshamlinksremoteipaddrtype is not None:
-                    return True
-
-                if self.cospfshamlinksremoteipaddr is not None:
-                    return True
-
-                if self.cospfshamlinksevents is not None:
-                    return True
-
-                if self.cospfshamlinkshellointerval is not None:
-                    return True
-
-                if self.cospfshamlinksmetric is not None:
-                    return True
-
-                if self.cospfshamlinksretransinterval is not None:
-                    return True
-
-                if self.cospfshamlinksrtrdeadinterval is not None:
-                    return True
-
-                if self.cospfshamlinksstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-                return meta._meta_table['CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB/CISCO-OSPF-MIB:cospfShamLinksTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.cospfshamlinksentry is not None:
-                for child_ref in self.cospfshamlinksentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.cospfshamlinksentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cospfShamLinksTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cospfShamLinksEntry"):
+                for c in self.cospfshamlinksentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoOspfMib.Cospfshamlinkstable.Cospfshamlinksentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.cospfshamlinksentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cospfShamLinksEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-            return meta._meta_table['CiscoOspfMib.Cospfshamlinkstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.cospfgeneralgroup is not None and self.cospfgeneralgroup.has_data()) or
+            (self.cospflocallsdbtable is not None and self.cospflocallsdbtable.has_data()) or
+            (self.cospflsdbtable is not None and self.cospflsdbtable.has_data()) or
+            (self.cospfshamlinknbrtable is not None and self.cospfshamlinknbrtable.has_data()) or
+            (self.cospfshamlinkstable is not None and self.cospfshamlinkstable.has_data()) or
+            (self.cospfshamlinktable is not None and self.cospfshamlinktable.has_data()) or
+            (self.cospfvirtlocallsdbtable is not None and self.cospfvirtlocallsdbtable.has_data()))
 
-        return '/CISCO-OSPF-MIB:CISCO-OSPF-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.cospfgeneralgroup is not None and self.cospfgeneralgroup.has_operation()) or
+            (self.cospflocallsdbtable is not None and self.cospflocallsdbtable.has_operation()) or
+            (self.cospflsdbtable is not None and self.cospflsdbtable.has_operation()) or
+            (self.cospfshamlinknbrtable is not None and self.cospfshamlinknbrtable.has_operation()) or
+            (self.cospfshamlinkstable is not None and self.cospfshamlinkstable.has_operation()) or
+            (self.cospfshamlinktable is not None and self.cospfshamlinktable.has_operation()) or
+            (self.cospfvirtlocallsdbtable is not None and self.cospfvirtlocallsdbtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-OSPF-MIB:CISCO-OSPF-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cospfGeneralGroup"):
+            if (self.cospfgeneralgroup is None):
+                self.cospfgeneralgroup = CiscoOspfMib.Cospfgeneralgroup()
+                self.cospfgeneralgroup.parent = self
+                self._children_name_map["cospfgeneralgroup"] = "cospfGeneralGroup"
+            return self.cospfgeneralgroup
+
+        if (child_yang_name == "cospfLocalLsdbTable"):
+            if (self.cospflocallsdbtable is None):
+                self.cospflocallsdbtable = CiscoOspfMib.Cospflocallsdbtable()
+                self.cospflocallsdbtable.parent = self
+                self._children_name_map["cospflocallsdbtable"] = "cospfLocalLsdbTable"
+            return self.cospflocallsdbtable
+
+        if (child_yang_name == "cospfLsdbTable"):
+            if (self.cospflsdbtable is None):
+                self.cospflsdbtable = CiscoOspfMib.Cospflsdbtable()
+                self.cospflsdbtable.parent = self
+                self._children_name_map["cospflsdbtable"] = "cospfLsdbTable"
+            return self.cospflsdbtable
+
+        if (child_yang_name == "cospfShamLinkNbrTable"):
+            if (self.cospfshamlinknbrtable is None):
+                self.cospfshamlinknbrtable = CiscoOspfMib.Cospfshamlinknbrtable()
+                self.cospfshamlinknbrtable.parent = self
+                self._children_name_map["cospfshamlinknbrtable"] = "cospfShamLinkNbrTable"
+            return self.cospfshamlinknbrtable
+
+        if (child_yang_name == "cospfShamLinksTable"):
+            if (self.cospfshamlinkstable is None):
+                self.cospfshamlinkstable = CiscoOspfMib.Cospfshamlinkstable()
+                self.cospfshamlinkstable.parent = self
+                self._children_name_map["cospfshamlinkstable"] = "cospfShamLinksTable"
+            return self.cospfshamlinkstable
+
+        if (child_yang_name == "cospfShamLinkTable"):
+            if (self.cospfshamlinktable is None):
+                self.cospfshamlinktable = CiscoOspfMib.Cospfshamlinktable()
+                self.cospfshamlinktable.parent = self
+                self._children_name_map["cospfshamlinktable"] = "cospfShamLinkTable"
+            return self.cospfshamlinktable
+
+        if (child_yang_name == "cospfVirtLocalLsdbTable"):
+            if (self.cospfvirtlocallsdbtable is None):
+                self.cospfvirtlocallsdbtable = CiscoOspfMib.Cospfvirtlocallsdbtable()
+                self.cospfvirtlocallsdbtable.parent = self
+                self._children_name_map["cospfvirtlocallsdbtable"] = "cospfVirtLocalLsdbTable"
+            return self.cospfvirtlocallsdbtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cospfGeneralGroup" or name == "cospfLocalLsdbTable" or name == "cospfLsdbTable" or name == "cospfShamLinkNbrTable" or name == "cospfShamLinksTable" or name == "cospfShamLinkTable" or name == "cospfVirtLocalLsdbTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.cospfgeneralgroup is not None and self.cospfgeneralgroup._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.cospflocallsdbtable is not None and self.cospflocallsdbtable._has_data():
-            return True
-
-        if self.cospflsdbtable is not None and self.cospflsdbtable._has_data():
-            return True
-
-        if self.cospfshamlinknbrtable is not None and self.cospfshamlinknbrtable._has_data():
-            return True
-
-        if self.cospfshamlinkstable is not None and self.cospfshamlinkstable._has_data():
-            return True
-
-        if self.cospfshamlinktable is not None and self.cospfshamlinktable._has_data():
-            return True
-
-        if self.cospfvirtlocallsdbtable is not None and self.cospfvirtlocallsdbtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_OSPF_MIB as meta
-        return meta._meta_table['CiscoOspfMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoOspfMib()
+        return self._top_entity
 

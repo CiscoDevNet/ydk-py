@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class HostReachProtocolEnum(Enum):
+class HostReachProtocol(Enum):
     """
-    HostReachProtocolEnum
+    HostReachProtocol
 
     Host reach protocol
 
@@ -38,18 +32,12 @@ class HostReachProtocolEnum(Enum):
 
     """
 
-    bgp = 1
+    bgp = Enum.YLeaf(1, "bgp")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
-        return meta._meta_table['HostReachProtocolEnum']
-
-
-class LoadBalanceEnumEnum(Enum):
+class LoadBalanceEnum(Enum):
     """
-    LoadBalanceEnumEnum
+    LoadBalanceEnum
 
     Load balance enum
 
@@ -59,18 +47,12 @@ class LoadBalanceEnumEnum(Enum):
 
     """
 
-    per_evi = 1
+    per_evi = Enum.YLeaf(1, "per-evi")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
-        return meta._meta_table['LoadBalanceEnumEnum']
-
-
-class OverlayEncapEnumEnum(Enum):
+class OverlayEncapEnum(Enum):
     """
-    OverlayEncapEnumEnum
+    OverlayEncapEnum
 
     Overlay encap enum
 
@@ -84,20 +66,14 @@ class OverlayEncapEnumEnum(Enum):
 
     """
 
-    vx_lan_encapsulation = 0
+    vx_lan_encapsulation = Enum.YLeaf(0, "vx-lan-encapsulation")
 
-    soft_gre_encapsulation = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
-        return meta._meta_table['OverlayEncapEnumEnum']
+    soft_gre_encapsulation = Enum.YLeaf(1, "soft-gre-encapsulation")
 
 
-class UnknownUnicastFloodingEnumEnum(Enum):
+class UnknownUnicastFloodingEnum(Enum):
     """
-    UnknownUnicastFloodingEnumEnum
+    UnknownUnicastFloodingEnum
 
     Unknown unicast flooding enum
 
@@ -107,18 +83,12 @@ class UnknownUnicastFloodingEnumEnum(Enum):
 
     """
 
-    suppress_uuf = 1
+    suppress_uuf = Enum.YLeaf(1, "suppress-uuf")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
-        return meta._meta_table['UnknownUnicastFloodingEnumEnum']
-
-
-class VxlanUdpPortEnumEnum(Enum):
+class VxlanUdpPortEnum(Enum):
     """
-    VxlanUdpPortEnumEnum
+    VxlanUdpPortEnum
 
     Vxlan udp port enum
 
@@ -132,15 +102,9 @@ class VxlanUdpPortEnumEnum(Enum):
 
     """
 
-    ietf_udp_port = 4789
+    ietf_udp_port = Enum.YLeaf(4789, "ietf-udp-port")
 
-    ivx_lan_udp_port = 48879
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tunnel_nve_cfg as meta
-        return meta._meta_table['VxlanUdpPortEnumEnum']
+    ivx_lan_udp_port = Enum.YLeaf(48879, "ivx-lan-udp-port")
 
 
 

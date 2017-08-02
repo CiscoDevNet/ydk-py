@@ -26,22 +26,15 @@ The initial version of this YANG module is part of RFC 7224;
 see the RFC itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-from ydk.models.ietf.ietf_interfaces import InterfaceTypeIdentity
 
-
-class IanaInterfaceTypeIdentity(InterfaceTypeIdentity):
+class IanaInterfaceType(Identity):
     """
     This identity is used as a base for all interface types
     defined in the 'ifType definitions' registry.
@@ -54,15 +47,40 @@ class IanaInterfaceTypeIdentity(InterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        InterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IanaInterfaceTypeIdentity']['meta_info']
+        super(IanaInterfaceType, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iana-interface-type")
 
 
-class H323ProxyIdentity(IanaInterfaceTypeIdentity):
+class Digitalwrapperoverheadchannel(Identity):
+    """
+    Digital Wrapper.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Digitalwrapperoverheadchannel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:digitalWrapperOverheadChannel")
+
+
+class Aflane8023(Identity):
+    """
+    ATM Emulated LAN for 802.3.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Aflane8023, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aflane8023")
+
+
+class H323Proxy(Identity):
     """
     H323 Voice and Video Proxy.
     
@@ -74,17 +92,12 @@ class H323ProxyIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['H323ProxyIdentity']['meta_info']
+        super(H323Proxy, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:h323Proxy")
 
 
-class SipsigIdentity(IanaInterfaceTypeIdentity):
+class Docscableupstream(Identity):
     """
-    SIP Signaling.
+    CATV Upstream interface.
     
     
 
@@ -94,17 +107,12 @@ class SipsigIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SipsigIdentity']['meta_info']
+        super(Docscableupstream, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:docsCableUpstream")
 
 
-class PropdocswirelessmaclayerIdentity(IanaInterfaceTypeIdentity):
+class Vmwarevirtualnic(Identity):
     """
-    Cisco proprietary Maclayer.
+    VMware Virtual Network Interface.
     
     
 
@@ -114,17 +122,12 @@ class PropdocswirelessmaclayerIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PropdocswirelessmaclayerIdentity']['meta_info']
+        super(Vmwarevirtualnic, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:vmwareVirtualNic")
 
 
-class VirtualtgIdentity(IanaInterfaceTypeIdentity):
+class Dvbrccmaclayer(Identity):
     """
-    Virtual Trunk Group.
+    DVB\-RCC MAC Layer.
     
     
 
@@ -134,17 +137,12 @@ class VirtualtgIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VirtualtgIdentity']['meta_info']
+        super(Dvbrccmaclayer, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbRccMacLayer")
 
 
-class MplsIdentity(IanaInterfaceTypeIdentity):
+class Sonet(Identity):
     """
-    MPLS.
+    SONET or SDH.
     
     
 
@@ -154,15 +152,40 @@ class MplsIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MplsIdentity']['meta_info']
+        super(Sonet, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sonet")
 
 
-class StarlanIdentity(IanaInterfaceTypeIdentity):
+class Isup(Identity):
+    """
+    ISUP.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Isup, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:isup")
+
+
+class Propdocswirelessupstream(Identity):
+    """
+    Cisco proprietary Upstream.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propdocswirelessupstream, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propDocsWirelessUpstream")
+
+
+class Starlan(Identity):
     """
     Deprecated via RFC 3635.
     Use ethernetCsmacd(6) instead.
@@ -175,17 +198,12 @@ class StarlanIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['StarlanIdentity']['meta_info']
+        super(Starlan, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:starLan")
 
 
-class DigitalwrapperoverheadchannelIdentity(IanaInterfaceTypeIdentity):
+class Voiceovercable(Identity):
     """
-    Digital Wrapper.
+    Voice Over Cable Interface.
     
     
 
@@ -195,15 +213,10 @@ class DigitalwrapperoverheadchannelIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DigitalwrapperoverheadchannelIdentity']['meta_info']
+        super(Voiceovercable, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceOverCable")
 
 
-class Rs232Identity(IanaInterfaceTypeIdentity):
+class Sonetvt(Identity):
     """
     
     
@@ -215,17 +228,12 @@ class Rs232Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Rs232Identity']['meta_info']
+        super(Sonetvt, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sonetVT")
 
 
-class Capwapdot11ProfileIdentity(IanaInterfaceTypeIdentity):
+class L3Ipvlan(Identity):
     """
-    WLAN Profile Interface.
+    Layer 3 Virtual LAN using IP.
     
     
 
@@ -235,17 +243,12 @@ class Capwapdot11ProfileIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Capwapdot11ProfileIdentity']['meta_info']
+        super(L3Ipvlan, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:l3ipvlan")
 
 
-class SmdsicipIdentity(IanaInterfaceTypeIdentity):
+class Sixtofour(Identity):
     """
-    SMDS InterCarrier Interface.
+    6to4 interface (DEPRECATED).
     
     
 
@@ -255,17 +258,13 @@ class SmdsicipIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SmdsicipIdentity']['meta_info']
+        super(Sixtofour, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sixToFour")
 
 
-class Ddnx25Identity(IanaInterfaceTypeIdentity):
+class Framerelayinterconnect(Identity):
     """
-    
+    Obsolete; use either
+    frameRelay(32) or frameRelayService(44).
     
     
 
@@ -275,1055 +274,10 @@ class Ddnx25Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
+        super(Framerelayinterconnect, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:frameRelayInterconnect")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ddnx25Identity']['meta_info']
 
-
-class Proteon80MbitIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Proteon80MbitIdentity']['meta_info']
-
-
-class AtmlogicalIdentity(IanaInterfaceTypeIdentity):
-    """
-    ATM Logical Port.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmlogicalIdentity']['meta_info']
-
-
-class PropcnlsIdentity(IanaInterfaceTypeIdentity):
-    """
-    Proprietary Connectionless Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PropcnlsIdentity']['meta_info']
-
-
-class DvbrccdownstreamIdentity(IanaInterfaceTypeIdentity):
-    """
-    DVB\-RCC Downstream Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbrccdownstreamIdentity']['meta_info']
-
-
-class Ds0BundleIdentity(IanaInterfaceTypeIdentity):
-    """
-    Group of ds0s on the same ds1.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ds0BundleIdentity']['meta_info']
-
-
-class AtmbondIdentity(IanaInterfaceTypeIdentity):
-    """
-    atmbond.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmbondIdentity']['meta_info']
-
-
-class DvbrccmaclayerIdentity(IanaInterfaceTypeIdentity):
-    """
-    DVB\-RCC MAC Layer.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbrccmaclayerIdentity']['meta_info']
-
-
-class Pon155Identity(IanaInterfaceTypeIdentity):
-    """
-    FSAN 155Mb Symetrical PON interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Pon155Identity']['meta_info']
-
-
-class DlswIdentity(IanaInterfaceTypeIdentity):
-    """
-    Data Link Switching.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DlswIdentity']['meta_info']
-
-
-class Regular1822Identity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Regular1822Identity']['meta_info']
-
-
-class TransphdlcIdentity(IanaInterfaceTypeIdentity):
-    """
-    Transp HDLC.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['TransphdlcIdentity']['meta_info']
-
-
-class HostpadIdentity(IanaInterfaceTypeIdentity):
-    """
-    CCITT\-ITU X.29 PAD Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['HostpadIdentity']['meta_info']
-
-
-class DvbrcsmaclayerIdentity(IanaInterfaceTypeIdentity):
-    """
-    DVB\-RCS MAC Layer.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbrcsmaclayerIdentity']['meta_info']
-
-
-class DcnIdentity(IanaInterfaceTypeIdentity):
-    """
-    Data Communications Network.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DcnIdentity']['meta_info']
-
-
-class Ieee80212Identity(IanaInterfaceTypeIdentity):
-    """
-    100BaseVG.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee80212Identity']['meta_info']
-
-
-class SipIdentity(IanaInterfaceTypeIdentity):
-    """
-    SMDS, coffee.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SipIdentity']['meta_info']
-
-
-class DvbrcstdmaIdentity(IanaInterfaceTypeIdentity):
-    """
-    DVB\-RCS TDMA.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbrcstdmaIdentity']['meta_info']
-
-
-class QllcIdentity(IanaInterfaceTypeIdentity):
-    """
-    SNA QLLC.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['QllcIdentity']['meta_info']
-
-
-class X25PleIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['X25PleIdentity']['meta_info']
-
-
-class PipIdentity(IanaInterfaceTypeIdentity):
-    """
-    Provider Instance Port on a bridge per IEEE 802.1ah PBB.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PipIdentity']['meta_info']
-
-
-class Rfc877X25Identity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Rfc877X25Identity']['meta_info']
-
-
-class Iso88026ManIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88026ManIdentity']['meta_info']
-
-
-class TdlcIdentity(IanaInterfaceTypeIdentity):
-    """
-    IBM twinaxial data link control.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['TdlcIdentity']['meta_info']
-
-
-class OpticalchannelgroupIdentity(IanaInterfaceTypeIdentity):
-    """
-    Optical Channel Group.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['OpticalchannelgroupIdentity']['meta_info']
-
-
-class FrforwardIdentity(IanaInterfaceTypeIdentity):
-    """
-    Frame Forward Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FrforwardIdentity']['meta_info']
-
-
-class IsupIdentity(IanaInterfaceTypeIdentity):
-    """
-    ISUP.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IsupIdentity']['meta_info']
-
-
-class SonetpathIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SonetpathIdentity']['meta_info']
-
-
-class ModemIdentity(IanaInterfaceTypeIdentity):
-    """
-    Generic modem.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ModemIdentity']['meta_info']
-
-
-class PrimaryisdnIdentity(IanaInterfaceTypeIdentity):
-    """
-    No longer used.  See also RFC 2127.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PrimaryisdnIdentity']['meta_info']
-
-
-class PropatmIdentity(IanaInterfaceTypeIdentity):
-    """
-    Proprietary ATM.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PropatmIdentity']['meta_info']
-
-
-class DocscablemaclayerIdentity(IanaInterfaceTypeIdentity):
-    """
-    CATV Mac Layer.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DocscablemaclayerIdentity']['meta_info']
-
-
-class X25MlpIdentity(IanaInterfaceTypeIdentity):
-    """
-    Multi\-Link Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['X25MlpIdentity']['meta_info']
-
-
-class IsdnIdentity(IanaInterfaceTypeIdentity):
-    """
-    ISDN and X.25.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IsdnIdentity']['meta_info']
-
-
-class TermpadIdentity(IanaInterfaceTypeIdentity):
-    """
-    CCITT\-ITU X.3 PAD Facility.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['TermpadIdentity']['meta_info']
-
-
-class AviciopticaletherIdentity(IanaInterfaceTypeIdentity):
-    """
-    Avici Optical Ethernet Aggregate.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AviciopticaletherIdentity']['meta_info']
-
-
-class LapdIdentity(IanaInterfaceTypeIdentity):
-    """
-    Link Access Protocol D.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['LapdIdentity']['meta_info']
-
-
-class CnrIdentity(IanaInterfaceTypeIdentity):
-    """
-    Combat Net Radio.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CnrIdentity']['meta_info']
-
-
-class ChannelIdentity(IanaInterfaceTypeIdentity):
-    """
-    Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ChannelIdentity']['meta_info']
-
-
-class IpoveratmIdentity(IanaInterfaceTypeIdentity):
-    """
-    IBM ipOverAtm.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IpoveratmIdentity']['meta_info']
-
-
-class NsipIdentity(IanaInterfaceTypeIdentity):
-    """
-    XNS over IP.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['NsipIdentity']['meta_info']
-
-
-class Miox25Identity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Miox25Identity']['meta_info']
-
-
-class LapfIdentity(IanaInterfaceTypeIdentity):
-    """
-    LAP F.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['LapfIdentity']['meta_info']
-
-
-class Aflane8023Identity(IanaInterfaceTypeIdentity):
-    """
-    ATM Emulated LAN for 802.3.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Aflane8023Identity']['meta_info']
-
-
-class MediamailoveripIdentity(IanaInterfaceTypeIdentity):
-    """
-    Multimedia Mail over IP.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MediamailoveripIdentity']['meta_info']
-
-
-class X213Identity(IanaInterfaceTypeIdentity):
-    """
-    CCITT\-ITU X213.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['X213Identity']['meta_info']
-
-
-class EplrsIdentity(IanaInterfaceTypeIdentity):
-    """
-    Ext Pos Loc Report Sys.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['EplrsIdentity']['meta_info']
-
-
-class Gr303RdtIdentity(IanaInterfaceTypeIdentity):
-    """
-    Remote Digital Terminal.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Gr303RdtIdentity']['meta_info']
-
-
-class HdlcIdentity(IanaInterfaceTypeIdentity):
-    """
-    HDLC.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['HdlcIdentity']['meta_info']
-
-
-class VoicefgdeanaIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice FGD Exchange Access North American.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoicefgdeanaIdentity']['meta_info']
-
-
-class CiscoislvlanIdentity(IanaInterfaceTypeIdentity):
-    """
-    Layer 2 Virtual LAN using Cisco ISL.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CiscoislvlanIdentity']['meta_info']
-
-
-class PppIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PppIdentity']['meta_info']
-
-
-class VoiceoveratmIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice over ATM.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceoveratmIdentity']['meta_info']
-
-
-class Gr303IdtIdentity(IanaInterfaceTypeIdentity):
+class Gr303Idt(Identity):
     """
     Integrated Digital Terminal.
     
@@ -1335,15 +289,40 @@ class Gr303IdtIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Gr303IdtIdentity']['meta_info']
+        super(Gr303Idt, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:gr303IDT")
 
 
-class SoftwareloopbackIdentity(IanaInterfaceTypeIdentity):
+class Ces(Identity):
+    """
+    Circuit Emulation Service.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ces, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ces")
+
+
+class Slip(Identity):
+    """
+    Generic SLIP.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Slip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:slip")
+
+
+class Iso88022Llc(Identity):
     """
     
     
@@ -1355,17 +334,12 @@ class SoftwareloopbackIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SoftwareloopbackIdentity']['meta_info']
+        super(Iso88022Llc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88022llc")
 
 
-class Ds1Identity(IanaInterfaceTypeIdentity):
+class Ieee80216Wman(Identity):
     """
-    DS1\-MIB.
+    IEEE 802.16 WMAN interface.
     
     
 
@@ -1375,17 +349,12 @@ class Ds1Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ds1Identity']['meta_info']
+        super(Ieee80216Wman, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ieee80216WMAN")
 
 
-class Pon622Identity(IanaInterfaceTypeIdentity):
+class Mfsiglink(Identity):
     """
-    FSAN 622Mb Symetrical PON interface.
+    Multi\-frequency signaling link.
     
     
 
@@ -1395,17 +364,12 @@ class Pon622Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Pon622Identity']['meta_info']
+        super(Mfsiglink, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mfSigLink")
 
 
-class PropmultiplexorIdentity(IanaInterfaceTypeIdentity):
+class Smdsicip(Identity):
     """
-    Proprietary multiplexing.
+    SMDS InterCarrier Interface.
     
     
 
@@ -1415,17 +379,12 @@ class PropmultiplexorIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PropmultiplexorIdentity']['meta_info']
+        super(Smdsicip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:smdsIcip")
 
 
-class IpoverclawIdentity(IanaInterfaceTypeIdentity):
+class E1(Identity):
     """
-    IBM Common Link Access to Workstn.
+    Obsolete; see DS1\-MIB.
     
     
 
@@ -1435,17 +394,12 @@ class IpoverclawIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IpoverclawIdentity']['meta_info']
+        super(E1, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:e1")
 
 
-class Ss7SiglinkIdentity(IanaInterfaceTypeIdentity):
+class Alugpononu(Identity):
     """
-    SS7 Signaling Link.
+    GPON Optical Network Unit.
     
     
 
@@ -1455,17 +409,12 @@ class Ss7SiglinkIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ss7SiglinkIdentity']['meta_info']
+        super(Alugpononu, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aluGponOnu")
 
 
-class CctemulIdentity(IanaInterfaceTypeIdentity):
+class Usb(Identity):
     """
-    ATM Emulated circuit.
+    USB Interface.
     
     
 
@@ -1475,17 +424,12 @@ class CctemulIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CctemulIdentity']['meta_info']
+        super(Usb, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:usb")
 
 
-class FastIdentity(IanaInterfaceTypeIdentity):
+class Sip(Identity):
     """
-    Fast channel.
+    SMDS, coffee.
     
     
 
@@ -1495,15 +439,432 @@ class FastIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FastIdentity']['meta_info']
+        super(Sip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sip")
 
 
-class DvbtdmIdentity(IanaInterfaceTypeIdentity):
+class Q2931(Identity):
+    """
+    Q.2931.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Q2931, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:q2931")
+
+
+class Pip(Identity):
+    """
+    Provider Instance Port on a bridge per IEEE 802.1ah PBB.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Pip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:pip")
+
+
+class Radsl(Identity):
+    """
+    Rate\-Adapt. Digital Subscriber Loop.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Radsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:radsl")
+
+
+class Modem(Identity):
+    """
+    Generic modem.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Modem, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:modem")
+
+
+class Sonetoverheadchannel(Identity):
+    """
+    SONET Overhead Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Sonetoverheadchannel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sonetOverheadChannel")
+
+
+class Mocaversion1(Identity):
+    """
+    MultiMedia over Coax Alliance (MoCA) Interface
+    as documented in information provided privately to IANA.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Mocaversion1, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mocaVersion1")
+
+
+class Propvirtual(Identity):
+    """
+    Proprietary virtual/internal.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propvirtual, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propVirtual")
+
+
+class Alueponlogicallink(Identity):
+    """
+    The emulation of a point\-to\-point link over the EPON
+    layer.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Alueponlogicallink, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aluEponLogicalLink")
+
+
+class Plc(Identity):
+    """
+    Power Line Communications.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Plc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:plc")
+
+
+class Ilan(Identity):
+    """
+    Internal LAN on a bridge per IEEE 802.1ap.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ilan, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ilan")
+
+
+class Dcn(Identity):
+    """
+    Data Communications Network.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dcn, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dcn")
+
+
+class Alugponphysicaluni(Identity):
+    """
+    GPON physical User to Network interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Alugponphysicaluni, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aluGponPhysicalUni")
+
+
+class Pdnetherloop1(Identity):
+    """
+    Paradyne EtherLoop 1.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Pdnetherloop1, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:pdnEtherLoop1")
+
+
+class L3Ipxvlan(Identity):
+    """
+    Layer 3 Virtual LAN using IPX.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(L3Ipxvlan, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:l3ipxvlan")
+
+
+class Sdsl(Identity):
+    """
+    Symmetric Digital Subscriber Loop.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Sdsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sdsl")
+
+
+class Macsecuncontrolledif(Identity):
+    """
+    MACSecUncontrolled.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Macsecuncontrolledif, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:macSecUncontrolledIF")
+
+
+class Aluepon(Identity):
+    """
+    Ethernet Passive Optical Networks (E\-PON).
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Aluepon, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aluEpon")
+
+
+class Bgppolicyaccounting(Identity):
+    """
+    BGP Policy Accounting.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Bgppolicyaccounting, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:bgppolicyaccounting")
+
+
+class Ieee80212(Identity):
+    """
+    100BaseVG.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ieee80212, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ieee80212")
+
+
+class Nfas(Identity):
+    """
+    Non\-Facility Associated Signaling.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Nfas, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:nfas")
+
+
+class Mvl(Identity):
+    """
+    Multiple Virtual Lines DSL.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Mvl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mvl")
+
+
+class Transphdlc(Identity):
+    """
+    Transp HDLC.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Transphdlc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:transpHdlc")
+
+
+class Ppp(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ppp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ppp")
+
+
+class V37(Identity):
+    """
+    V.37.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(V37, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:v37")
+
+
+class Aal2(Identity):
+    """
+    ATM adaptation layer 2.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Aal2, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aal2")
+
+
+class Ipswitch(Identity):
+    """
+    IP Switching Objects.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ipswitch, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ipSwitch")
+
+
+class Hippiinterface(Identity):
+    """
+    HIPPI interfaces.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hippiinterface, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hippiInterface")
+
+
+class Pon155(Identity):
+    """
+    FSAN 155Mb Symetrical PON interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Pon155, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:pon155")
+
+
+class Dvbtdm(Identity):
     """
     DVB Satellite TDM.
     
@@ -1515,17 +876,12 @@ class DvbtdmIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbtdmIdentity']['meta_info']
+        super(Dvbtdm, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbTdm")
 
 
-class V36Identity(IanaInterfaceTypeIdentity):
+class Arcnet(Identity):
     """
-    CCITT V.36.
+    ARCnet.
     
     
 
@@ -1535,215 +891,10 @@ class V36Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['V36Identity']['meta_info']
+        super(Arcnet, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:arcnet")
 
 
-class G9983Identity(IanaInterfaceTypeIdentity):
-    """
-    G.998.3 bonded interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['G9983Identity']['meta_info']
-
-
-class MpcIdentity(IanaInterfaceTypeIdentity):
-    """
-    IBM multi\-protocol channel support.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MpcIdentity']['meta_info']
-
-
-class QamIdentity(IanaInterfaceTypeIdentity):
-    """
-    RF Qam Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['QamIdentity']['meta_info']
-
-
-class Ethernet3MbitIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ethernet3MbitIdentity']['meta_info']
-
-
-class G703At64KIdentity(IanaInterfaceTypeIdentity):
-    """
-    CCITT G703 at 64Kbps.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['G703At64KIdentity']['meta_info']
-
-
-class ImtIdentity(IanaInterfaceTypeIdentity):
-    """
-    Inter\-Machine Trunks.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ImtIdentity']['meta_info']
-
-
-class OtnoduIdentity(IanaInterfaceTypeIdentity):
-    """
-    OTN Optical Data Unit.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['OtnoduIdentity']['meta_info']
-
-
-class AtmIdentity(IanaInterfaceTypeIdentity):
-    """
-    ATM cells.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmIdentity']['meta_info']
-
-
-class ArapIdentity(IanaInterfaceTypeIdentity):
-    """
-    Appletalk Remote Access Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ArapIdentity']['meta_info']
-
-
-class FciplinkIdentity(IanaInterfaceTypeIdentity):
-    """
-    FCIP Link.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FciplinkIdentity']['meta_info']
-
-
-class Ieee8023AdlagIdentity(IanaInterfaceTypeIdentity):
+class Ieee8023Adlag(Identity):
     """
     IEEE 802.3ad Link Aggregate.
     
@@ -1755,17 +906,12 @@ class Ieee8023AdlagIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee8023AdlagIdentity']['meta_info']
+        super(Ieee8023Adlag, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ieee8023adLag")
 
 
-class InfinibandIdentity(IanaInterfaceTypeIdentity):
+class Atmfuni(Identity):
     """
-    Infiniband.
+    ATM FUNI.
     
     
 
@@ -1775,17 +921,12 @@ class InfinibandIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['InfinibandIdentity']['meta_info']
+        super(Atmfuni, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmFuni")
 
 
-class AtmvciendptIdentity(IanaInterfaceTypeIdentity):
+class Framerelay(Identity):
     """
-    ATM VCI End Point.
+    DTE only.
     
     
 
@@ -1795,15 +936,145 @@ class AtmvciendptIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmvciendptIdentity']['meta_info']
+        super(Framerelay, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:frameRelay")
 
 
-class X25HuntgroupIdentity(IanaInterfaceTypeIdentity):
+class Bits(Identity):
+    """
+    bitsport.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Bits, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:bits")
+
+
+class Hdh1822(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hdh1822, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hdh1822")
+
+
+class Ultra(Identity):
+    """
+    Ultra Technologies.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ultra, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ultra")
+
+
+class G703At2Mb(Identity):
+    """
+    Obsolete; see DS1\-MIB.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(G703At2Mb, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:g703at2mb")
+
+
+class Otnodu(Identity):
+    """
+    OTN Optical Data Unit.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Otnodu, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:otnOdu")
+
+
+class Arap(Identity):
+    """
+    Appletalk Remote Access Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Arap, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:arap")
+
+
+class Interleave(Identity):
+    """
+    Interleave channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Interleave, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:interleave")
+
+
+class Capwapdot11Bss(Identity):
+    """
+    WLAN BSS Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Capwapdot11Bss, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:capwapDot11Bss")
+
+
+class Regular1822(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Regular1822, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:regular1822")
+
+
+class X25Huntgroup(Identity):
     """
     X25 Hunt Group.
     
@@ -1815,17 +1086,12 @@ class X25HuntgroupIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['X25HuntgroupIdentity']['meta_info']
+        super(X25Huntgroup, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:x25huntGroup")
 
 
-class ArcnetplusIdentity(IanaInterfaceTypeIdentity):
+class Gtp(Identity):
     """
-    ARCnet Plus.
+    GTP (GPRS Tunneling Protocol).
     
     
 
@@ -1835,17 +1101,12 @@ class ArcnetplusIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ArcnetplusIdentity']['meta_info']
+        super(Gtp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:gtp")
 
 
-class Ieee1394Identity(IanaInterfaceTypeIdentity):
+class Docscabledownstream(Identity):
     """
-    IEEE1394 High Performance Serial Bus.
+    CATV Downstream interface.
     
     
 
@@ -1855,17 +1116,12 @@ class Ieee1394Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee1394Identity']['meta_info']
+        super(Docscabledownstream, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:docsCableDownstream")
 
 
-class AtmvirtualIdentity(IanaInterfaceTypeIdentity):
+class Softwareloopback(Identity):
     """
-    ATM Virtual Interface.
+    
     
     
 
@@ -1875,15 +1131,1560 @@ class AtmvirtualIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmvirtualIdentity']['meta_info']
+        super(Softwareloopback, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:softwareLoopback")
 
 
-class Vdsl2Identity(IanaInterfaceTypeIdentity):
+class Hdsl2(Identity):
+    """
+    High Bit\-Rate DSL \- 2nd generation.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hdsl2, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hdsl2")
+
+
+class Sonetpath(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Sonetpath, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sonetPath")
+
+
+class Mpc(Identity):
+    """
+    IBM multi\-protocol channel support.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Mpc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mpc")
+
+
+class Ds0(Identity):
+    """
+    Digital Signal Level 0.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ds0, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ds0")
+
+
+class Ds3(Identity):
+    """
+    DS3\-MIB.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ds3, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ds3")
+
+
+class Voiceoverframerelay(Identity):
+    """
+    Voice Over Frame Relay.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voiceoverframerelay, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceOverFrameRelay")
+
+
+class Fddi(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Fddi, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:fddi")
+
+
+class Mpegtransport(Identity):
+    """
+    MPEG transport interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Mpegtransport, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mpegTransport")
+
+
+class Dvbrccdownstream(Identity):
+    """
+    DVB\-RCC Downstream Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dvbrccdownstream, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbRccDownstream")
+
+
+class Capwapwtpvirtualradio(Identity):
+    """
+    WTP Virtual Radio Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Capwapwtpvirtualradio, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:capwapWtpVirtualRadio")
+
+
+class Gigabitethernet(Identity):
+    """
+    Obsoleted via RFC 3635.
+    ethernetCsmacd(6) should be used instead.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Gigabitethernet, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:gigabitEthernet")
+
+
+class Proteon80Mbit(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Proteon80Mbit, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:proteon80Mbit")
+
+
+class Pdnetherloop2(Identity):
+    """
+    Paradyne EtherLoop 2.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Pdnetherloop2, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:pdnEtherLoop2")
+
+
+class Dvbrccupstream(Identity):
+    """
+    DVB\-RCC Upstream Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dvbrccupstream, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbRccUpstream")
+
+
+class Shdsl(Identity):
+    """
+    Multirate HDSL2.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Shdsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:shdsl")
+
+
+class Ddnx25(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ddnx25, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ddnX25")
+
+
+class Rs232(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Rs232, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:rs232")
+
+
+class Wwanpp(Identity):
+    """
+    3GPP WWAN.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Wwanpp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:wwanPP")
+
+
+class Fast(Identity):
+    """
+    Fast channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Fast, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:fast")
+
+
+class Hssi(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hssi, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hssi")
+
+
+class L2Vlan(Identity):
+    """
+    Layer 2 Virtual LAN using 802.1Q.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(L2Vlan, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:l2vlan")
+
+
+class Voicefxs(Identity):
+    """
+    Voice Foreign Exchange Station.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voicefxs, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceFXS")
+
+
+class Lmp(Identity):
+    """
+    Link Management Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Lmp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:lmp")
+
+
+class Frf16Mfrbundle(Identity):
+    """
+    FRF.16 Multilink Frame Relay.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Frf16Mfrbundle, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:frf16MfrBundle")
+
+
+class Reachdsl(Identity):
+    """
+    Long Reach DSL.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Reachdsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:reachDSL")
+
+
+class G703At64K(Identity):
+    """
+    CCITT G703 at 64Kbps.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(G703At64K, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:g703at64k")
+
+
+class Qllc(Identity):
+    """
+    SNA QLLC.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Qllc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:qllc")
+
+
+class Rsrb(Identity):
+    """
+    Remote Source Route Bridging.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Rsrb, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:rsrb")
+
+
+class Fciplink(Identity):
+    """
+    FCIP Link.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Fciplink, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:fcipLink")
+
+
+class V35(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(V35, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:v35")
+
+
+class Siptg(Identity):
+    """
+    SIP Trunk Group.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Siptg, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sipTg")
+
+
+class Atmbond(Identity):
+    """
+    atmbond.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Atmbond, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmbond")
+
+
+class Propwirelessp2P(Identity):
+    """
+    Prop. P2P wireless interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propwirelessp2P, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propWirelessP2P")
+
+
+class Termpad(Identity):
+    """
+    CCITT\-ITU X.3 PAD Facility.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Termpad, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:termPad")
+
+
+class Dtm(Identity):
+    """
+    Dynamic synchronous Transfer Mode.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dtm, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dtm")
+
+
+class Iso88023Csmacd(Identity):
+    """
+    Deprecated via RFC 3635.
+    Use ethernetCsmacd(6) instead.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Iso88023Csmacd, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88023Csmacd")
+
+
+class Mediamailoverip(Identity):
+    """
+    Multimedia Mail over IP.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Mediamailoverip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mediaMailOverIp")
+
+
+class Actelismetaloop(Identity):
+    """
+    Acteleis proprietary MetaLOOP High Speed Link.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Actelismetaloop, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:actelisMetaLOOP")
+
+
+class Voiceoveratm(Identity):
+    """
+    Voice over ATM.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voiceoveratm, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceOverAtm")
+
+
+class Aluepononu(Identity):
+    """
+    EPON Optical Network Unit.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Aluepononu, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aluEponOnu")
+
+
+class Vmwarenicteam(Identity):
+    """
+    VMware NIC Team.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Vmwarenicteam, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:vmwareNicTeam")
+
+
+class Digitalpowerline(Identity):
+    """
+    IP over Power Lines.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Digitalpowerline, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:digitalPowerline")
+
+
+class Pppmultilinkbundle(Identity):
+    """
+    PPP Multilink Bundle.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Pppmultilinkbundle, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:pppMultilinkBundle")
+
+
+class Proteon10Mbit(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Proteon10Mbit, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:proteon10Mbit")
+
+
+class Dvbrcstdma(Identity):
+    """
+    DVB\-RCS TDMA.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dvbrcstdma, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbRcsTdma")
+
+
+class X86Laps(Identity):
+    """
+    LAPS based on ITU\-T X.86/Y.1323.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(X86Laps, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:x86Laps")
+
+
+class Infiniband(Identity):
+    """
+    Infiniband.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Infiniband, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:infiniband")
+
+
+class Dvbrcsmaclayer(Identity):
+    """
+    DVB\-RCS MAC Layer.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dvbrcsmaclayer, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbRcsMacLayer")
+
+
+class Rfc1483(Identity):
+    """
+    Multiprotocol over ATM AAL5.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Rfc1483, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:rfc1483")
+
+
+class Propatm(Identity):
+    """
+    Proprietary ATM.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propatm, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propAtm")
+
+
+class Voicefgdos(Identity):
+    """
+    Voice FGD Operator Services.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voicefgdos, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceFGDOS")
+
+
+class G9983(Identity):
+    """
+    G.998.3 bonded interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(G9983, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:g9983")
+
+
+class Async(Identity):
+    """
+    Asynchronous Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Async, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:async")
+
+
+class Ss7Siglink(Identity):
+    """
+    SS7 Signaling Link.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ss7Siglink, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ss7SigLink")
+
+
+class Fastether(Identity):
+    """
+    Obsoleted via RFC 3635.
+    ethernetCsmacd(6) should be used instead.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Fastether, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:fastEther")
+
+
+class Ds0Bundle(Identity):
+    """
+    Group of ds0s on the same ds1.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ds0Bundle, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ds0Bundle")
+
+
+class Gpon(Identity):
+    """
+    Gigabit\-capable passive optical networks (G\-PON) as per
+    ITU\-T G.948.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Gpon, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:gpon")
+
+
+class Eplrs(Identity):
+    """
+    Ext Pos Loc Report Sys.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Eplrs, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:eplrs")
+
+
+class Pos(Identity):
+    """
+    Packet over SONET/SDH Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Pos, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:pos")
+
+
+class Localtalk(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Localtalk, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:localTalk")
+
+
+class Voiceem(Identity):
+    """
+    Voice recEive and transMit.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voiceem, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceEM")
+
+
+class Imt(Identity):
+    """
+    Inter\-Machine Trunks.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Imt, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:imt")
+
+
+class Ifvfitype(Identity):
+    """
+    VPLS Forwarding Instance Interface Type.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ifvfitype, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ifVfiType")
+
+
+class Hostpad(Identity):
+    """
+    CCITT\-ITU X.29 PAD Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hostpad, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hostPad")
+
+
+class Iso88024Tokenbus(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Iso88024Tokenbus, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88024TokenBus")
+
+
+class Hippi(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hippi, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hippi")
+
+
+class Para(Identity):
+    """
+    Parallel\-port.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Para, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:para")
+
+
+class Channel(Identity):
+    """
+    Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Channel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:channel")
+
+
+class Adsl(Identity):
+    """
+    Asymmetric Digital Subscriber Loop.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Adsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:adsl")
+
+
+class Ciscoislvlan(Identity):
+    """
+    Layer 2 Virtual LAN using Cisco ISL.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ciscoislvlan, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ciscoISLvlan")
+
+
+class Basicisdn(Identity):
+    """
+    No longer used.  See also RFC 2127.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Basicisdn, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:basicISDN")
+
+
+class Smdsdxi(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Smdsdxi, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:smdsDxi")
+
+
+class Framerelaympi(Identity):
+    """
+    Multiproto Interconnect over FR.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Framerelaympi, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:frameRelayMPI")
+
+
+class Aviciopticalether(Identity):
+    """
+    Avici Optical Ethernet Aggregate.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Aviciopticalether, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aviciOpticalEther")
+
+
+class Opticaltransport(Identity):
+    """
+    Optical Transport.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Opticaltransport, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:opticalTransport")
+
+
+class Rpr(Identity):
+    """
+    Resilient Packet Ring Interface Type.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Rpr, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:rpr")
+
+
+class Qam(Identity):
+    """
+    RF Qam Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Qam, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:qam")
+
+
+class Homepna(Identity):
+    """
+    HomePNA ITU\-T G.989.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Homepna, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:homepna")
+
+
+class Srp(Identity):
+    """
+    Spatial Reuse Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Srp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:srp")
+
+
+class Iso88026Man(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Iso88026Man, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88026Man")
+
+
+class Atmsubinterface(Identity):
+    """
+    ATM Sub Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Atmsubinterface, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmSubInterface")
+
+
+class Ethernetcsmacd(Identity):
+    """
+    For all Ethernet\-like interfaces, regardless of speed,
+    as per RFC 3635.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ethernetcsmacd, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ethernetCsmacd")
+
+
+class Idsl(Identity):
+    """
+    Digital Subscriber Loop over ISDN.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Idsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:idsl")
+
+
+class Atmlogical(Identity):
+    """
+    ATM Logical Port.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Atmlogical, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmLogical")
+
+
+class Myrinet(Identity):
+    """
+    Myricom Myrinet.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Myrinet, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:myrinet")
+
+
+class Cctemul(Identity):
+    """
+    ATM Emulated circuit.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Cctemul, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:cctEmul")
+
+
+class H323Gatekeeper(Identity):
+    """
+    H323 Gatekeeper.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(H323Gatekeeper, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:h323Gatekeeper")
+
+
+class Mpls(Identity):
+    """
+    MPLS.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Mpls, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mpls")
+
+
+class Ieee802154(Identity):
+    """
+    IEEE 802.15.4 WPAN interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ieee802154, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ieee802154")
+
+
+class Linegroup(Identity):
+    """
+    Interface common to multiple lines.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Linegroup, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:linegroup")
+
+
+class Rfc877X25(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Rfc877X25, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:rfc877x25")
+
+
+class Ethernet3Mbit(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ethernet3Mbit, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ethernet3Mbit")
+
+
+class Ds1Fdl(Identity):
+    """
+    Facility Data Link (4Kbps) on a DS1.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ds1Fdl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ds1FDL")
+
+
+class Ibm370Parchan(Identity):
+    """
+    IBM System 360/370 OEMI Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ibm370Parchan, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ibm370parChan")
+
+
+class Propdocswirelessdownstream(Identity):
+    """
+    Cisco proprietary Downstream.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propdocswirelessdownstream, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propDocsWirelessDownstream")
+
+
+class Voicefgdeana(Identity):
+    """
+    Voice FGD Exchange Access North American.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voicefgdeana, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceFGDEANA")
+
+
+class Stacktostack(Identity):
+    """
+    IBM stackToStack.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Stacktostack, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:stackToStack")
+
+
+class Gr303Rdt(Identity):
+    """
+    Remote Digital Terminal.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Gr303Rdt, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:gr303RDT")
+
+
+class Bsc(Identity):
+    """
+    Bisynchronous Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Bsc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:bsc")
+
+
+class Propcnls(Identity):
+    """
+    Proprietary Connectionless Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propcnls, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propCnls")
+
+
+class X213(Identity):
+    """
+    CCITT\-ITU X213.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(X213, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:x213")
+
+
+class Hyperchannel(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hyperchannel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hyperchannel")
+
+
+class Coffee(Identity):
+    """
+    Coffee pot.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Coffee, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:coffee")
+
+
+class Vdsl2(Identity):
     """
     Very high speed digital subscriber line Version 2
     (as per ITU\-T Recommendation G.993.2).
@@ -1896,17 +2697,12 @@ class Vdsl2Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Vdsl2Identity']['meta_info']
+        super(Vdsl2, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:vdsl2")
 
 
-class RsrbIdentity(IanaInterfaceTypeIdentity):
+class Lapd(Identity):
     """
-    Remote Source Route Bridging.
+    Link Access Protocol D.
     
     
 
@@ -1916,15 +2712,222 @@ class RsrbIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['RsrbIdentity']['meta_info']
+        super(Lapd, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:lapd")
 
 
-class Propbwap2MpIdentity(IanaInterfaceTypeIdentity):
+class Cnr(Identity):
+    """
+    Combat Net Radio.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Cnr, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:cnr")
+
+
+class Propdocswirelessmaclayer(Identity):
+    """
+    Cisco proprietary Maclayer.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propdocswirelessmaclayer, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propDocsWirelessMaclayer")
+
+
+class Voiceebs(Identity):
+    """
+    Voice P\-phone EBS physical interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voiceebs, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceEBS")
+
+
+class Msdsl(Identity):
+    """
+    Multi\-rate Symmetric DSL.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Msdsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:msdsl")
+
+
+class Virtualipaddress(Identity):
+    """
+    IBM VIPA.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Virtualipaddress, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:virtualIpAddress")
+
+
+class Cblvectastar(Identity):
+    """
+    Cambridge Broadband Networks Limited VectaStar.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Cblvectastar, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:cblVectaStar")
+
+
+class Eon(Identity):
+    """
+    CLNP over IP.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Eon, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:eon")
+
+
+class Primaryisdn(Identity):
+    """
+    No longer used.  See also RFC 2127.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Primaryisdn, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:primaryISDN")
+
+
+class Gfp(Identity):
+    """
+    Generic Framing Procedure (GFP).
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Gfp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:gfp")
+
+
+class Adsl2(Identity):
+    """
+    Asymmetric Digital Subscriber Loop Version 2
+    (DEPRECATED/OBSOLETED \- please use adsl2plus(238)
+    instead).
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Adsl2, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:adsl2")
+
+
+class Tdlc(Identity):
+    """
+    IBM twinaxial data link control.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Tdlc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:tdlc")
+
+
+class Propmultiplexor(Identity):
+    """
+    Proprietary multiplexing.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Propmultiplexor, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propMultiplexor")
+
+
+class Lapf(Identity):
+    """
+    LAP F.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Lapf, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:lapf")
+
+
+class Ipoverclaw(Identity):
+    """
+    IBM Common Link Access to Workstn.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ipoverclaw, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ipOverClaw")
+
+
+class Propbwap2Mp(Identity):
     """
     PropBroadbandWirelessAccesspt2Multipt (use of this value
     for IEEE 802.16 WMAN interfaces as per IEEE Std 802.16f
@@ -1939,1341 +2942,10 @@ class Propbwap2MpIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
+        super(Propbwap2Mp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propBWAp2Mp")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Propbwap2MpIdentity']['meta_info']
 
-
-class Tr008Identity(IanaInterfaceTypeIdentity):
-    """
-    TR008.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Tr008Identity']['meta_info']
-
-
-class SonetvtIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SonetvtIdentity']['meta_info']
-
-
-class L2VlanIdentity(IanaInterfaceTypeIdentity):
-    """
-    Layer 2 Virtual LAN using 802.1Q.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['L2VlanIdentity']['meta_info']
-
-
-class MpegtransportIdentity(IanaInterfaceTypeIdentity):
-    """
-    MPEG transport interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MpegtransportIdentity']['meta_info']
-
-
-class Pdnetherloop1Identity(IanaInterfaceTypeIdentity):
-    """
-    Paradyne EtherLoop 1.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Pdnetherloop1Identity']['meta_info']
-
-
-class IlanIdentity(IanaInterfaceTypeIdentity):
-    """
-    Internal LAN on a bridge per IEEE 802.1ap.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IlanIdentity']['meta_info']
-
-
-class Ds0Identity(IanaInterfaceTypeIdentity):
-    """
-    Digital Signal Level 0.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ds0Identity']['meta_info']
-
-
-class ParaIdentity(IanaInterfaceTypeIdentity):
-    """
-    Parallel\-port.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ParaIdentity']['meta_info']
-
-
-class Hiperlan2Identity(IanaInterfaceTypeIdentity):
-    """
-    HIPERLAN Type 2 Radio Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Hiperlan2Identity']['meta_info']
-
-
-class BscIdentity(IanaInterfaceTypeIdentity):
-    """
-    Bisynchronous Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['BscIdentity']['meta_info']
-
-
-class Iso88025CrfpintIdentity(IanaInterfaceTypeIdentity):
-    """
-    ISO 802.5 CRFP.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88025CrfpintIdentity']['meta_info']
-
-
-class Adsl2Identity(IanaInterfaceTypeIdentity):
-    """
-    Asymmetric Digital Subscriber Loop Version 2
-    (DEPRECATED/OBSOLETED \- please use adsl2plus(238)
-    instead).
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Adsl2Identity']['meta_info']
-
-
-class VoiceoveripIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice over IP encapsulation.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceoveripIdentity']['meta_info']
-
-
-class SonetIdentity(IanaInterfaceTypeIdentity):
-    """
-    SONET or SDH.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SonetIdentity']['meta_info']
-
-
-class FibrechannelIdentity(IanaInterfaceTypeIdentity):
-    """
-    Fibre Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FibrechannelIdentity']['meta_info']
-
-
-class G703At2MbIdentity(IanaInterfaceTypeIdentity):
-    """
-    Obsolete; see DS1\-MIB.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['G703At2MbIdentity']['meta_info']
-
-
-class Propwirelessp2PIdentity(IanaInterfaceTypeIdentity):
-    """
-    Prop. P2P wireless interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Propwirelessp2PIdentity']['meta_info']
-
-
-class VoiceebsIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice P\-phone EBS physical interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceebsIdentity']['meta_info']
-
-
-class Ieee802154Identity(IanaInterfaceTypeIdentity):
-    """
-    IEEE 802.15.4 WPAN interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee802154Identity']['meta_info']
-
-
-class BitsIdentity(IanaInterfaceTypeIdentity):
-    """
-    bitsport.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['BitsIdentity']['meta_info']
-
-
-class CabledownstreamrfportIdentity(IanaInterfaceTypeIdentity):
-    """
-    CATV downstream RF Port.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CabledownstreamrfportIdentity']['meta_info']
-
-
-class AlugponphysicaluniIdentity(IanaInterfaceTypeIdentity):
-    """
-    GPON physical User to Network interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AlugponphysicaluniIdentity']['meta_info']
-
-
-class VdslIdentity(IanaInterfaceTypeIdentity):
-    """
-    Very H\-Speed Digital Subscrib. Loop.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VdslIdentity']['meta_info']
-
-
-class IfGsnIdentity(IanaInterfaceTypeIdentity):
-    """
-    HIPPI\-6400.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IfGsnIdentity']['meta_info']
-
-
-class L3IpvlanIdentity(IanaInterfaceTypeIdentity):
-    """
-    Layer 3 Virtual LAN using IP.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['L3IpvlanIdentity']['meta_info']
-
-
-class FramerelayIdentity(IanaInterfaceTypeIdentity):
-    """
-    DTE only.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FramerelayIdentity']['meta_info']
-
-
-class HssiIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['HssiIdentity']['meta_info']
-
-
-class ProppointtopointserialIdentity(IanaInterfaceTypeIdentity):
-    """
-    Proprietary serial.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ProppointtopointserialIdentity']['meta_info']
-
-
-class HomepnaIdentity(IanaInterfaceTypeIdentity):
-    """
-    HomePNA ITU\-T G.989.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['HomepnaIdentity']['meta_info']
-
-
-class DocscablemcmtsdownstreamIdentity(IanaInterfaceTypeIdentity):
-    """
-    CATV Modular CMTS Downstream Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DocscablemcmtsdownstreamIdentity']['meta_info']
-
-
-class FramerelaympiIdentity(IanaInterfaceTypeIdentity):
-    """
-    Multiproto Interconnect over FR.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FramerelaympiIdentity']['meta_info']
-
-
-class HippiIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['HippiIdentity']['meta_info']
-
-
-class NfasIdentity(IanaInterfaceTypeIdentity):
-    """
-    Non\-Facility Associated Signaling.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['NfasIdentity']['meta_info']
-
-
-class OpticalchannelIdentity(IanaInterfaceTypeIdentity):
-    """
-    Optical Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['OpticalchannelIdentity']['meta_info']
-
-
-class RadiomacIdentity(IanaInterfaceTypeIdentity):
-    """
-    MAC layer over radio links.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['RadiomacIdentity']['meta_info']
-
-
-class AlueponphysicaluniIdentity(IanaInterfaceTypeIdentity):
-    """
-    EPON physical User to Network interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AlueponphysicaluniIdentity']['meta_info']
-
-
-class E1Identity(IanaInterfaceTypeIdentity):
-    """
-    Obsolete; see DS1\-MIB.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['E1Identity']['meta_info']
-
-
-class Proteon10MbitIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Proteon10MbitIdentity']['meta_info']
-
-
-class PropdocswirelessdownstreamIdentity(IanaInterfaceTypeIdentity):
-    """
-    Cisco proprietary Downstream.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PropdocswirelessdownstreamIdentity']['meta_info']
-
-
-class RprIdentity(IanaInterfaceTypeIdentity):
-    """
-    Resilient Packet Ring Interface Type.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['RprIdentity']['meta_info']
-
-
-class LmpIdentity(IanaInterfaceTypeIdentity):
-    """
-    Link Management Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['LmpIdentity']['meta_info']
-
-
-class TelinkIdentity(IanaInterfaceTypeIdentity):
-    """
-    TE Link.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['TelinkIdentity']['meta_info']
-
-
-class DigitalpowerlineIdentity(IanaInterfaceTypeIdentity):
-    """
-    IP over Power Lines.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DigitalpowerlineIdentity']['meta_info']
-
-
-class AlueponlogicallinkIdentity(IanaInterfaceTypeIdentity):
-    """
-    The emulation of a point\-to\-point link over the EPON
-    layer.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AlueponlogicallinkIdentity']['meta_info']
-
-
-class GponIdentity(IanaInterfaceTypeIdentity):
-    """
-    Gigabit\-capable passive optical networks (G\-PON) as per
-    ITU\-T G.948.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['GponIdentity']['meta_info']
-
-
-class MplstunnelIdentity(IanaInterfaceTypeIdentity):
-    """
-    MPLS Tunnel Virtual Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MplstunnelIdentity']['meta_info']
-
-
-class VoicedidIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice Direct Inward Dialing.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoicedidIdentity']['meta_info']
-
-
-class OtnotuIdentity(IanaInterfaceTypeIdentity):
-    """
-    OTN Optical channel Transport Unit.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['OtnotuIdentity']['meta_info']
-
-
-class VoicefxoIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice Foreign Exchange Office.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoicefxoIdentity']['meta_info']
-
-
-class StacktostackIdentity(IanaInterfaceTypeIdentity):
-    """
-    IBM stackToStack.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['StacktostackIdentity']['meta_info']
-
-
-class Iso88025DtrIdentity(IanaInterfaceTypeIdentity):
-    """
-    ISO 802.5r DTR.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88025DtrIdentity']['meta_info']
-
-
-class Ds3Identity(IanaInterfaceTypeIdentity):
-    """
-    DS3\-MIB.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ds3Identity']['meta_info']
-
-
-class FramerelayserviceIdentity(IanaInterfaceTypeIdentity):
-    """
-    FRNETSERV\-MIB.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FramerelayserviceIdentity']['meta_info']
-
-
-class PropdocswirelessupstreamIdentity(IanaInterfaceTypeIdentity):
-    """
-    Cisco proprietary Upstream.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PropdocswirelessupstreamIdentity']['meta_info']
-
-
-class IpswitchIdentity(IanaInterfaceTypeIdentity):
-    """
-    IP Switching Objects.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IpswitchIdentity']['meta_info']
-
-
-class BridgeIdentity(IanaInterfaceTypeIdentity):
-    """
-    Transparent bridge interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['BridgeIdentity']['meta_info']
-
-
-class FramerelayinterconnectIdentity(IanaInterfaceTypeIdentity):
-    """
-    Obsolete; use either
-    frameRelay(32) or frameRelayService(44).
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FramerelayinterconnectIdentity']['meta_info']
-
-
-class EthernetcsmacdIdentity(IanaInterfaceTypeIdentity):
-    """
-    For all Ethernet\-like interfaces, regardless of speed,
-    as per RFC 3635.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['EthernetcsmacdIdentity']['meta_info']
-
-
-class MfsiglinkIdentity(IanaInterfaceTypeIdentity):
-    """
-    Multi\-frequency signaling link.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MfsiglinkIdentity']['meta_info']
-
-
-class Iso88024TokenbusIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88024TokenbusIdentity']['meta_info']
-
-
-class MsdslIdentity(IanaInterfaceTypeIdentity):
-    """
-    Multi\-rate Symmetric DSL.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MsdslIdentity']['meta_info']
-
-
-class PppmultilinkbundleIdentity(IanaInterfaceTypeIdentity):
-    """
-    PPP Multilink Bundle.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PppmultilinkbundleIdentity']['meta_info']
-
-
-class X86LapsIdentity(IanaInterfaceTypeIdentity):
-    """
-    LAPS based on ITU\-T X.86/Y.1323.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['X86LapsIdentity']['meta_info']
-
-
-class GfpIdentity(IanaInterfaceTypeIdentity):
-    """
-    Generic Framing Procedure (GFP).
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['GfpIdentity']['meta_info']
-
-
-class BasicisdnIdentity(IanaInterfaceTypeIdentity):
-    """
-    No longer used.  See also RFC 2127.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['BasicisdnIdentity']['meta_info']
-
-
-class TunnelIdentity(IanaInterfaceTypeIdentity):
-    """
-    Encapsulation interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['TunnelIdentity']['meta_info']
-
-
-class V11Identity(IanaInterfaceTypeIdentity):
+class V11(Identity):
     """
     CCITT V.11/X.21.
     
@@ -3285,15 +2957,640 @@ class V11Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['V11Identity']['meta_info']
+        super(V11, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:v11")
 
 
-class FastetherIdentity(IanaInterfaceTypeIdentity):
+class X25Mlp(Identity):
+    """
+    Multi\-Link Protocol.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(X25Mlp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:x25mlp")
+
+
+class Docscableupstreamrfport(Identity):
+    """
+    DOCSIS CATV Upstream RF Port.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Docscableupstreamrfport, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:docsCableUpstreamRfPort")
+
+
+class Wwanpp2(Identity):
+    """
+    3GPP2 WWAN.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Wwanpp2, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:wwanPP2")
+
+
+class Miox25(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Miox25, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:miox25")
+
+
+class Aal5(Identity):
+    """
+    AAL5 over ATM.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Aal5, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aal5")
+
+
+class G9981(Identity):
+    """
+    G.998.1 bonded interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(G9981, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:g9981")
+
+
+class Telink(Identity):
+    """
+    TE Link.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Telink, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:teLink")
+
+
+class Atmvirtual(Identity):
+    """
+    ATM Virtual Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Atmvirtual, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmVirtual")
+
+
+class Capwapdot11Profile(Identity):
+    """
+    WLAN Profile Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Capwapdot11Profile, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:capwapDot11Profile")
+
+
+class Voiceemfgd(Identity):
+    """
+    Voice E&M Feature Group D.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voiceemfgd, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceEMFGD")
+
+
+class Ieee80211(Identity):
+    """
+    Radio spread spectrum.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ieee80211, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ieee80211")
+
+
+class Ipoveratm(Identity):
+    """
+    IBM ipOverAtm.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ipoveratm, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ipOverAtm")
+
+
+class Escon(Identity):
+    """
+    IBM Enterprise Systems Connection.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Escon, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:escon")
+
+
+class Ifpwtype(Identity):
+    """
+    Pseudowire interface type.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ifpwtype, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ifPwType")
+
+
+class Opticalchannel(Identity):
+    """
+    Optical Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Opticalchannel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:opticalChannel")
+
+
+class Sdlc(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Sdlc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sdlc")
+
+
+class Atmradio(Identity):
+    """
+    ATM over radio links.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Atmradio, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmRadio")
+
+
+class Pon622(Identity):
+    """
+    FSAN 622Mb Symetrical PON interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Pon622, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:pon622")
+
+
+class Fibrechannel(Identity):
+    """
+    Fibre Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Fibrechannel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:fibreChannel")
+
+
+class Isdns(Identity):
+    """
+    ISDN S/T interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Isdns, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:isdns")
+
+
+class Frforward(Identity):
+    """
+    Frame Forward Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Frforward, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:frForward")
+
+
+class A12Mppswitch(Identity):
+    """
+    Avalon Parallel Processor.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(A12Mppswitch, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:a12MppSwitch")
+
+
+class Other(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Other, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:other")
+
+
+class Ds1(Identity):
+    """
+    DS1\-MIB.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ds1, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ds1")
+
+
+class Opticalchannelgroup(Identity):
+    """
+    Optical Channel Group.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Opticalchannelgroup, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:opticalChannelGroup")
+
+
+class Dvbasiout(Identity):
+    """
+    DVB\-ASI Output.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dvbasiout, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbAsiOut")
+
+
+class Dvbasiin(Identity):
+    """
+    DVB\-ASI Input.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dvbasiin, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dvbAsiIn")
+
+
+class Tr008(Identity):
+    """
+    TR008.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Tr008, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:tr008")
+
+
+class Compositelink(Identity):
+    """
+    Avici Composite Link Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Compositelink, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:compositeLink")
+
+
+class Macseccontrolledif(Identity):
+    """
+    MACSecControlled.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Macseccontrolledif, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:macSecControlledIF")
+
+
+class Econet(Identity):
+    """
+    Acorn Econet.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Econet, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:econet")
+
+
+class Hdlc(Identity):
+    """
+    HDLC.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hdlc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hdlc")
+
+
+class Atmdxi(Identity):
+    """
+    ATM DXI.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Atmdxi, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmDxi")
+
+
+class X25Ple(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(X25Ple, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:x25ple")
+
+
+class Iso88025Dtr(Identity):
+    """
+    ISO 802.5r DTR.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Iso88025Dtr, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88025Dtr")
+
+
+class Dlsw(Identity):
+    """
+    Data Link Switching.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Dlsw, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:dlsw")
+
+
+class Lapb(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Lapb, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:lapb")
+
+
+class Atm(Identity):
+    """
+    ATM cells.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Atm, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atm")
+
+
+class Docscablemcmtsdownstream(Identity):
+    """
+    CATV Modular CMTS Downstream Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Docscablemcmtsdownstream, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:docsCableMCmtsDownstream")
+
+
+class Virtualtg(Identity):
+    """
+    Virtual Trunk Group.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Virtualtg, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:virtualTg")
+
+
+class Iso88025Tokenring(Identity):
+    """
+    
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Iso88025Tokenring, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88025TokenRing")
+
+
+class IfGsn(Identity):
+    """
+    HIPPI\-6400.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(IfGsn, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:if-gsn")
+
+
+class Fastetherfx(Identity):
     """
     Obsoleted via RFC 3635.
     ethernetCsmacd(6) should be used instead.
@@ -3306,17 +3603,12 @@ class FastetherIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FastetherIdentity']['meta_info']
+        super(Fastetherfx, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:fastEtherFX")
 
 
-class PropvirtualIdentity(IanaInterfaceTypeIdentity):
+class Mplstunnel(Identity):
     """
-    Proprietary virtual/internal.
+    MPLS Tunnel Virtual Interface.
     
     
 
@@ -3326,17 +3618,12 @@ class PropvirtualIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PropvirtualIdentity']['meta_info']
+        super(Mplstunnel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:mplsTunnel")
 
 
-class SlipIdentity(IanaInterfaceTypeIdentity):
+class Arcnetplus(Identity):
     """
-    Generic SLIP.
+    ARCnet Plus.
     
     
 
@@ -3346,17 +3633,12 @@ class SlipIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SlipIdentity']['meta_info']
+        super(Arcnetplus, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:arcnetPlus")
 
 
-class L3IpxvlanIdentity(IanaInterfaceTypeIdentity):
+class V36(Identity):
     """
-    Layer 3 Virtual LAN using IPX.
+    CCITT V.36.
     
     
 
@@ -3366,17 +3648,12 @@ class L3IpxvlanIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['L3IpxvlanIdentity']['meta_info']
+        super(V36, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:v36")
 
 
-class CompositelinkIdentity(IanaInterfaceTypeIdentity):
+class Cabledownstreamrfport(Identity):
     """
-    Avici Composite Link Interface.
+    CATV downstream RF Port.
     
     
 
@@ -3386,1115 +3663,10 @@ class CompositelinkIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
+        super(Cabledownstreamrfport, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:cableDownstreamRfPort")
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CompositelinkIdentity']['meta_info']
 
-
-class ShdslIdentity(IanaInterfaceTypeIdentity):
-    """
-    Multirate HDSL2.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ShdslIdentity']['meta_info']
-
-
-class SrpIdentity(IanaInterfaceTypeIdentity):
-    """
-    Spatial Reuse Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SrpIdentity']['meta_info']
-
-
-class Aal5Identity(IanaInterfaceTypeIdentity):
-    """
-    AAL5 over ATM.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Aal5Identity']['meta_info']
-
-
-class SonetoverheadchannelIdentity(IanaInterfaceTypeIdentity):
-    """
-    SONET Overhead Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SonetoverheadchannelIdentity']['meta_info']
-
-
-class UsbIdentity(IanaInterfaceTypeIdentity):
-    """
-    USB Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['UsbIdentity']['meta_info']
-
-
-class LapbIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['LapbIdentity']['meta_info']
-
-
-class DtmIdentity(IanaInterfaceTypeIdentity):
-    """
-    Dynamic synchronous Transfer Mode.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DtmIdentity']['meta_info']
-
-
-class Pdnetherloop2Identity(IanaInterfaceTypeIdentity):
-    """
-    Paradyne EtherLoop 2.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Pdnetherloop2Identity']['meta_info']
-
-
-class Ds1FdlIdentity(IanaInterfaceTypeIdentity):
-    """
-    Facility Data Link (4Kbps) on a DS1.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ds1FdlIdentity']['meta_info']
-
-
-class LinegroupIdentity(IanaInterfaceTypeIdentity):
-    """
-    Interface common to multiple lines.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['LinegroupIdentity']['meta_info']
-
-
-class V35Identity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['V35Identity']['meta_info']
-
-
-class DocscableupstreamIdentity(IanaInterfaceTypeIdentity):
-    """
-    CATV Upstream interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DocscableupstreamIdentity']['meta_info']
-
-
-class Capwapdot11BssIdentity(IanaInterfaceTypeIdentity):
-    """
-    WLAN BSS Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Capwapdot11BssIdentity']['meta_info']
-
-
-class UltraIdentity(IanaInterfaceTypeIdentity):
-    """
-    Ultra Technologies.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['UltraIdentity']['meta_info']
-
-
-class AdslIdentity(IanaInterfaceTypeIdentity):
-    """
-    Asymmetric Digital Subscriber Loop.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AdslIdentity']['meta_info']
-
-
-class ReachdslIdentity(IanaInterfaceTypeIdentity):
-    """
-    Long Reach DSL.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ReachdslIdentity']['meta_info']
-
-
-class AtmfuniIdentity(IanaInterfaceTypeIdentity):
-    """
-    ATM FUNI.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmfuniIdentity']['meta_info']
-
-
-class G9981Identity(IanaInterfaceTypeIdentity):
-    """
-    G.998.1 bonded interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['G9981Identity']['meta_info']
-
-
-class FddiIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FddiIdentity']['meta_info']
-
-
-class IfvfitypeIdentity(IanaInterfaceTypeIdentity):
-    """
-    VPLS Forwarding Instance Interface Type.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IfvfitypeIdentity']['meta_info']
-
-
-class A12MppswitchIdentity(IanaInterfaceTypeIdentity):
-    """
-    Avalon Parallel Processor.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['A12MppswitchIdentity']['meta_info']
-
-
-class IpovercdlcIdentity(IanaInterfaceTypeIdentity):
-    """
-    IBM ipOverCdlc.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IpovercdlcIdentity']['meta_info']
-
-
-class Hdsl2Identity(IanaInterfaceTypeIdentity):
-    """
-    High Bit\-Rate DSL \- 2nd generation.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Hdsl2Identity']['meta_info']
-
-
-class AsyncIdentity(IanaInterfaceTypeIdentity):
-    """
-    Asynchronous Protocol.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AsyncIdentity']['meta_info']
-
-
-class SixtofourIdentity(IanaInterfaceTypeIdentity):
-    """
-    6to4 interface (DEPRECATED).
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SixtofourIdentity']['meta_info']
-
-
-class BgppolicyaccountingIdentity(IanaInterfaceTypeIdentity):
-    """
-    BGP Policy Accounting.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['BgppolicyaccountingIdentity']['meta_info']
-
-
-class VoiceemIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice recEive and transMit.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceemIdentity']['meta_info']
-
-
-class IfpwtypeIdentity(IanaInterfaceTypeIdentity):
-    """
-    Pseudowire interface type.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IfpwtypeIdentity']['meta_info']
-
-
-class DocscableupstreamrfportIdentity(IanaInterfaceTypeIdentity):
-    """
-    DOCSIS CATV Upstream RF Port.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DocscableupstreamrfportIdentity']['meta_info']
-
-
-class VirtualipaddressIdentity(IanaInterfaceTypeIdentity):
-    """
-    IBM VIPA.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VirtualipaddressIdentity']['meta_info']
-
-
-class VmwarevirtualnicIdentity(IanaInterfaceTypeIdentity):
-    """
-    VMware Virtual Network Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VmwarevirtualnicIdentity']['meta_info']
-
-
-class Iso88025FiberIdentity(IanaInterfaceTypeIdentity):
-    """
-    ISO 802.5j Fiber Token Ring.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88025FiberIdentity']['meta_info']
-
-
-class RadslIdentity(IanaInterfaceTypeIdentity):
-    """
-    Rate\-Adapt. Digital Subscriber Loop.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['RadslIdentity']['meta_info']
-
-
-class AtmsubinterfaceIdentity(IanaInterfaceTypeIdentity):
-    """
-    ATM Sub Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmsubinterfaceIdentity']['meta_info']
-
-
-class DocscableupstreamchannelIdentity(IanaInterfaceTypeIdentity):
-    """
-    CATV Upstream Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DocscableupstreamchannelIdentity']['meta_info']
-
-
-class SmdsdxiIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SmdsdxiIdentity']['meta_info']
-
-
-class VmwarenicteamIdentity(IanaInterfaceTypeIdentity):
-    """
-    VMware NIC Team.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VmwarenicteamIdentity']['meta_info']
-
-
-class VoicefgdosIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice FGD Operator Services.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoicefgdosIdentity']['meta_info']
-
-
-class GtpIdentity(IanaInterfaceTypeIdentity):
-    """
-    GTP (GPRS Tunneling Protocol).
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['GtpIdentity']['meta_info']
-
-
-class MacseccontrolledifIdentity(IanaInterfaceTypeIdentity):
-    """
-    MACSecControlled.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MacseccontrolledifIdentity']['meta_info']
-
-
-class FrdlciendptIdentity(IanaInterfaceTypeIdentity):
-    """
-    Frame Relay DLCI End Point.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FrdlciendptIdentity']['meta_info']
-
-
-class AtmimaIdentity(IanaInterfaceTypeIdentity):
-    """
-    ATM IMA.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmimaIdentity']['meta_info']
-
-
-class DocscabledownstreamIdentity(IanaInterfaceTypeIdentity):
-    """
-    CATV Downstream interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DocscabledownstreamIdentity']['meta_info']
-
-
-class ArcnetIdentity(IanaInterfaceTypeIdentity):
-    """
-    ARCnet.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ArcnetIdentity']['meta_info']
-
-
-class Frf16MfrbundleIdentity(IanaInterfaceTypeIdentity):
-    """
-    FRF.16 Multilink Frame Relay.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Frf16MfrbundleIdentity']['meta_info']
-
-
-class CoffeeIdentity(IanaInterfaceTypeIdentity):
-    """
-    Coffee pot.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CoffeeIdentity']['meta_info']
-
-
-class HippiinterfaceIdentity(IanaInterfaceTypeIdentity):
-    """
-    HIPPI interfaces.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['HippiinterfaceIdentity']['meta_info']
-
-
-class Iso88025TokenringIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88025TokenringIdentity']['meta_info']
-
-
-class Ieee80216WmanIdentity(IanaInterfaceTypeIdentity):
-    """
-    IEEE 802.16 WMAN interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee80216WmanIdentity']['meta_info']
-
-
-class G9982Identity(IanaInterfaceTypeIdentity):
-    """
-    G.998.2 bonded interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['G9982Identity']['meta_info']
-
-
-class OpticaltransportIdentity(IanaInterfaceTypeIdentity):
-    """
-    Optical Transport.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['OpticaltransportIdentity']['meta_info']
-
-
-class CesIdentity(IanaInterfaceTypeIdentity):
-    """
-    Circuit Emulation Service.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CesIdentity']['meta_info']
-
-
-class IpforwardIdentity(IanaInterfaceTypeIdentity):
-    """
-    IP Forwarding Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IpforwardIdentity']['meta_info']
-
-
-class AtmdxiIdentity(IanaInterfaceTypeIdentity):
-    """
-    ATM DXI.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmdxiIdentity']['meta_info']
-
-
-class IsdnuIdentity(IanaInterfaceTypeIdentity):
-    """
-    ISDN U interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IsdnuIdentity']['meta_info']
-
-
-class Aflane8025Identity(IanaInterfaceTypeIdentity):
+class Aflane8025(Identity):
     """
     ATM Emulated LAN for 802.5.
     
@@ -4506,17 +3678,12 @@ class Aflane8025Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Aflane8025Identity']['meta_info']
+        super(Aflane8025, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aflane8025")
 
 
-class AlueponIdentity(IanaInterfaceTypeIdentity):
+class Isdn(Identity):
     """
-    Ethernet Passive Optical Networks (E\-PON).
+    ISDN and X.25.
     
     
 
@@ -4526,17 +3693,12 @@ class AlueponIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AlueponIdentity']['meta_info']
+        super(Isdn, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:isdn")
 
 
-class MacsecuncontrolledifIdentity(IanaInterfaceTypeIdentity):
+class Voiceencap(Identity):
     """
-    MACSecUncontrolled.
+    Voice encapsulation.
     
     
 
@@ -4546,17 +3708,12 @@ class MacsecuncontrolledifIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MacsecuncontrolledifIdentity']['meta_info']
+        super(Voiceencap, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceEncap")
 
 
-class Hdh1822Identity(IanaInterfaceTypeIdentity):
+class Iso88025Fiber(Identity):
     """
-    
+    ISO 802.5j Fiber Token Ring.
     
     
 
@@ -4566,17 +3723,12 @@ class Hdh1822Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Hdh1822Identity']['meta_info']
+        super(Iso88025Fiber, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88025Fiber")
 
 
-class WwanppIdentity(IanaInterfaceTypeIdentity):
+class Vdsl(Identity):
     """
-    3GPP WWAN.
+    Very H\-Speed Digital Subscrib. Loop.
     
     
 
@@ -4586,17 +3738,12 @@ class WwanppIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['WwanppIdentity']['meta_info']
+        super(Vdsl, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:vdsl")
 
 
-class VoicefxsIdentity(IanaInterfaceTypeIdentity):
+class Voicedid(Identity):
     """
-    Voice Foreign Exchange Station.
+    Voice Direct Inward Dialing.
     
     
 
@@ -4606,17 +3753,12 @@ class VoicefxsIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoicefxsIdentity']['meta_info']
+        super(Voicedid, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceDID")
 
 
-class SdlcIdentity(IanaInterfaceTypeIdentity):
+class Atmvciendpt(Identity):
     """
-    
+    ATM VCI End Point.
     
     
 
@@ -4626,17 +3768,12 @@ class SdlcIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SdlcIdentity']['meta_info']
+        super(Atmvciendpt, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmVciEndPt")
 
 
-class SdslIdentity(IanaInterfaceTypeIdentity):
+class Isdnu(Identity):
     """
-    Symmetric Digital Subscriber Loop.
+    ISDN U interface.
     
     
 
@@ -4646,17 +3783,12 @@ class SdslIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SdslIdentity']['meta_info']
+        super(Isdnu, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:isdnu")
 
 
-class Ibm370ParchanIdentity(IanaInterfaceTypeIdentity):
+class Iso88025Crfpint(Identity):
     """
-    IBM System 360/370 OEMI Channel.
+    ISO 802.5 CRFP.
     
     
 
@@ -4666,17 +3798,12 @@ class Ibm370ParchanIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ibm370ParchanIdentity']['meta_info']
+        super(Iso88025Crfpint, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:iso88025CRFPInt")
 
 
-class AluelpIdentity(IanaInterfaceTypeIdentity):
+class Tunnel(Identity):
     """
-    Alcatel\-Lucent Ethernet Link Protection.
+    Encapsulation interface.
     
     
 
@@ -4686,17 +3813,12 @@ class AluelpIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AluelpIdentity']['meta_info']
+        super(Tunnel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:tunnel")
 
 
-class CapwapwtpvirtualradioIdentity(IanaInterfaceTypeIdentity):
+class Bridge(Identity):
     """
-    WTP Virtual Radio Interface.
+    Transparent bridge interface.
     
     
 
@@ -4706,18 +3828,12 @@ class CapwapwtpvirtualradioIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CapwapwtpvirtualradioIdentity']['meta_info']
+        super(Bridge, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:bridge")
 
 
-class Iso88023CsmacdIdentity(IanaInterfaceTypeIdentity):
+class Atmima(Identity):
     """
-    Deprecated via RFC 3635.
-    Use ethernetCsmacd(6) instead.
+    ATM IMA.
     
     
 
@@ -4727,17 +3843,12 @@ class Iso88023CsmacdIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88023CsmacdIdentity']['meta_info']
+        super(Atmima, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:atmIma")
 
 
-class EsconIdentity(IanaInterfaceTypeIdentity):
+class Docscablemaclayer(Identity):
     """
-    IBM Enterprise Systems Connection.
+    CATV Mac Layer.
     
     
 
@@ -4747,17 +3858,12 @@ class EsconIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['EsconIdentity']['meta_info']
+        super(Docscablemaclayer, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:docsCableMaclayer")
 
 
-class Aal2Identity(IanaInterfaceTypeIdentity):
+class Sipsig(Identity):
     """
-    ATM adaptation layer 2.
+    SIP Signaling.
     
     
 
@@ -4767,15 +3873,130 @@ class Aal2Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Aal2Identity']['meta_info']
+        super(Sipsig, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:sipSig")
 
 
-class Adsl2PlusIdentity(IanaInterfaceTypeIdentity):
+class Framerelayservice(Identity):
+    """
+    FRNETSERV\-MIB.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Framerelayservice, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:frameRelayService")
+
+
+class Hiperlan2(Identity):
+    """
+    HIPERLAN Type 2 Radio Interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Hiperlan2, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:hiperlan2")
+
+
+class Nsip(Identity):
+    """
+    XNS over IP.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Nsip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:nsip")
+
+
+class Docscableupstreamchannel(Identity):
+    """
+    CATV Upstream Channel.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Docscableupstreamchannel, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:docsCableUpstreamChannel")
+
+
+class Ip(Identity):
+    """
+    IP (for APPN HPR in IP networks).
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Ip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ip")
+
+
+class G9982(Identity):
+    """
+    G.998.2 bonded interface.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(G9982, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:g9982")
+
+
+class Radiomac(Identity):
+    """
+    MAC layer over radio links.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Radiomac, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:radioMAC")
+
+
+class Voiceoverip(Identity):
+    """
+    Voice over IP encapsulation.
+    
+    
+
+    """
+
+    _prefix = 'ianaift'
+    _revision = '2014-05-08'
+
+    def __init__(self):
+        super(Voiceoverip, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceOverIp")
+
+
+class Adsl2Plus(Identity):
     """
     Asymmetric Digital Subscriber Loop Version 2 \-
     Version 2 Plus and all variants.
@@ -4788,17 +4009,12 @@ class Adsl2PlusIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Adsl2PlusIdentity']['meta_info']
+        super(Adsl2Plus, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:adsl2plus")
 
 
-class HyperchannelIdentity(IanaInterfaceTypeIdentity):
+class Aluelp(Identity):
     """
-    
+    Alcatel\-Lucent Ethernet Link Protection.
     
     
 
@@ -4808,17 +4024,12 @@ class HyperchannelIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['HyperchannelIdentity']['meta_info']
+        super(Aluelp, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aluELP")
 
 
-class VoiceencapIdentity(IanaInterfaceTypeIdentity):
+class Frdlciendpt(Identity):
     """
-    Voice encapsulation.
+    Frame Relay DLCI End Point.
     
     
 
@@ -4828,17 +4039,12 @@ class VoiceencapIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceencapIdentity']['meta_info']
+        super(Frdlciendpt, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:frDlciEndPt")
 
 
-class DvbasiinIdentity(IanaInterfaceTypeIdentity):
+class Ipovercdlc(Identity):
     """
-    DVB\-ASI Input.
+    IBM ipOverCdlc.
     
     
 
@@ -4848,17 +4054,12 @@ class DvbasiinIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbasiinIdentity']['meta_info']
+        super(Ipovercdlc, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ipOverCdlc")
 
 
-class LocaltalkIdentity(IanaInterfaceTypeIdentity):
+class Otnotu(Identity):
     """
-    
+    OTN Optical channel Transport Unit.
     
     
 
@@ -4868,17 +4069,12 @@ class LocaltalkIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['LocaltalkIdentity']['meta_info']
+        super(Otnotu, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:otnOtu")
 
 
-class Rfc1483Identity(IanaInterfaceTypeIdentity):
+class Proppointtopointserial(Identity):
     """
-    Multiprotocol over ATM AAL5.
+    Proprietary serial.
     
     
 
@@ -4888,17 +4084,12 @@ class Rfc1483Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Rfc1483Identity']['meta_info']
+        super(Proppointtopointserial, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:propPointToPointSerial")
 
 
-class VoiceovercableIdentity(IanaInterfaceTypeIdentity):
+class Alueponphysicaluni(Identity):
     """
-    Voice Over Cable Interface.
+    EPON physical User to Network interface.
     
     
 
@@ -4908,17 +4099,12 @@ class VoiceovercableIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceovercableIdentity']['meta_info']
+        super(Alueponphysicaluni, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:aluEponPhysicalUni")
 
 
-class Ieee80211Identity(IanaInterfaceTypeIdentity):
+class Voicefxo(Identity):
     """
-    Radio spread spectrum.
+    Voice Foreign Exchange Office.
     
     
 
@@ -4928,17 +4114,12 @@ class Ieee80211Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Ieee80211Identity']['meta_info']
+        super(Voicefxo, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:voiceFXO")
 
 
-class VoiceemfgdIdentity(IanaInterfaceTypeIdentity):
+class Ipforward(Identity):
     """
-    Voice E&M Feature Group D.
+    IP Forwarding Interface.
     
     
 
@@ -4948,18 +4129,12 @@ class VoiceemfgdIdentity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceemfgdIdentity']['meta_info']
+        super(Ipforward, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ipForward")
 
 
-class Mocaversion1Identity(IanaInterfaceTypeIdentity):
+class Ieee1394(Identity):
     """
-    MultiMedia over Coax Alliance (MoCA) Interface
-    as documented in information provided privately to IANA.
+    IEEE1394 High Performance Serial Bus.
     
     
 
@@ -4969,553 +4144,6 @@ class Mocaversion1Identity(IanaInterfaceTypeIdentity):
     _revision = '2014-05-08'
 
     def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Mocaversion1Identity']['meta_info']
-
-
-class PlcIdentity(IanaInterfaceTypeIdentity):
-    """
-    Power Line Communications.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PlcIdentity']['meta_info']
-
-
-class H323GatekeeperIdentity(IanaInterfaceTypeIdentity):
-    """
-    H323 Gatekeeper.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['H323GatekeeperIdentity']['meta_info']
-
-
-class IsdnsIdentity(IanaInterfaceTypeIdentity):
-    """
-    ISDN S/T interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IsdnsIdentity']['meta_info']
-
-
-class Q2931Identity(IanaInterfaceTypeIdentity):
-    """
-    Q.2931.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Q2931Identity']['meta_info']
-
-
-class AluepononuIdentity(IanaInterfaceTypeIdentity):
-    """
-    EPON Optical Network Unit.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AluepononuIdentity']['meta_info']
-
-
-class GigabitethernetIdentity(IanaInterfaceTypeIdentity):
-    """
-    Obsoleted via RFC 3635.
-    ethernetCsmacd(6) should be used instead.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['GigabitethernetIdentity']['meta_info']
-
-
-class FastetherfxIdentity(IanaInterfaceTypeIdentity):
-    """
-    Obsoleted via RFC 3635.
-    ethernetCsmacd(6) should be used instead.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['FastetherfxIdentity']['meta_info']
-
-
-class EconetIdentity(IanaInterfaceTypeIdentity):
-    """
-    Acorn Econet.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['EconetIdentity']['meta_info']
-
-
-class DvbrccupstreamIdentity(IanaInterfaceTypeIdentity):
-    """
-    DVB\-RCC Upstream Channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbrccupstreamIdentity']['meta_info']
-
-
-class OtherIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['OtherIdentity']['meta_info']
-
-
-class CblvectastarIdentity(IanaInterfaceTypeIdentity):
-    """
-    Cambridge Broadband Networks Limited VectaStar.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['CblvectastarIdentity']['meta_info']
-
-
-class AtmradioIdentity(IanaInterfaceTypeIdentity):
-    """
-    ATM over radio links.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AtmradioIdentity']['meta_info']
-
-
-class ActelismetaloopIdentity(IanaInterfaceTypeIdentity):
-    """
-    Acteleis proprietary MetaLOOP High Speed Link.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['ActelismetaloopIdentity']['meta_info']
-
-
-class V37Identity(IanaInterfaceTypeIdentity):
-    """
-    V.37.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['V37Identity']['meta_info']
-
-
-class InterleaveIdentity(IanaInterfaceTypeIdentity):
-    """
-    Interleave channel.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['InterleaveIdentity']['meta_info']
-
-
-class Wwanpp2Identity(IanaInterfaceTypeIdentity):
-    """
-    3GPP2 WWAN.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Wwanpp2Identity']['meta_info']
-
-
-class PosIdentity(IanaInterfaceTypeIdentity):
-    """
-    Packet over SONET/SDH Interface.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['PosIdentity']['meta_info']
-
-
-class IdslIdentity(IanaInterfaceTypeIdentity):
-    """
-    Digital Subscriber Loop over ISDN.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IdslIdentity']['meta_info']
-
-
-class Iso88022LlcIdentity(IanaInterfaceTypeIdentity):
-    """
-    
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['Iso88022LlcIdentity']['meta_info']
-
-
-class VoiceoverframerelayIdentity(IanaInterfaceTypeIdentity):
-    """
-    Voice Over Frame Relay.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['VoiceoverframerelayIdentity']['meta_info']
-
-
-class IpIdentity(IanaInterfaceTypeIdentity):
-    """
-    IP (for APPN HPR in IP networks).
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['IpIdentity']['meta_info']
-
-
-class MvlIdentity(IanaInterfaceTypeIdentity):
-    """
-    Multiple Virtual Lines DSL.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MvlIdentity']['meta_info']
-
-
-class DvbasioutIdentity(IanaInterfaceTypeIdentity):
-    """
-    DVB\-ASI Output.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['DvbasioutIdentity']['meta_info']
-
-
-class SiptgIdentity(IanaInterfaceTypeIdentity):
-    """
-    SIP Trunk Group.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['SiptgIdentity']['meta_info']
-
-
-class MyrinetIdentity(IanaInterfaceTypeIdentity):
-    """
-    Myricom Myrinet.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['MyrinetIdentity']['meta_info']
-
-
-class EonIdentity(IanaInterfaceTypeIdentity):
-    """
-    CLNP over IP.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['EonIdentity']['meta_info']
-
-
-class AlugpononuIdentity(IanaInterfaceTypeIdentity):
-    """
-    GPON Optical Network Unit.
-    
-    
-
-    """
-
-    _prefix = 'ianaift'
-    _revision = '2014-05-08'
-
-    def __init__(self):
-        IanaInterfaceTypeIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.ietf._meta import _iana_if_type as meta
-        return meta._meta_table['AlugpononuIdentity']['meta_info']
+        super(Ieee1394, self).__init__("urn:ietf:params:xml:ns:yang:iana-if-type", "iana-if-type", "iana-if-type:ieee1394")
 
 

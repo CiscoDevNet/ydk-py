@@ -9,21 +9,15 @@ when the number of packets reaches configured threshold
 levels.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class StormControlActionIdentity(object):
+class StormControlAction(Identity):
     """
     Actions to be taken once storm control limit threshold is
     exceeded for a traffic class.
@@ -36,35 +30,10 @@ class StormControlActionIdentity(object):
     _revision = '2016-12-14'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_storm_control as meta
-        return meta._meta_table['StormControlActionIdentity']['meta_info']
+        super(StormControlAction, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:storm-control-action")
 
 
-class ActionShutdownIdentity(StormControlActionIdentity):
-    """
-    Shutdown service.
-    
-    
-
-    """
-
-    _prefix = 'cisco-stormctrl'
-    _revision = '2016-12-14'
-
-    def __init__(self):
-        StormControlActionIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_storm_control as meta
-        return meta._meta_table['ActionShutdownIdentity']['meta_info']
-
-
-class ActionDropIdentity(StormControlActionIdentity):
+class ActionDrop(Identity):
     """
     Drop packets.
     
@@ -76,15 +45,25 @@ class ActionDropIdentity(StormControlActionIdentity):
     _revision = '2016-12-14'
 
     def __init__(self):
-        StormControlActionIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_storm_control as meta
-        return meta._meta_table['ActionDropIdentity']['meta_info']
+        super(ActionDrop, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-drop")
 
 
-class ActionSnmpTrapIdentity(StormControlActionIdentity):
+class ActionShutdown(Identity):
+    """
+    Shutdown service.
+    
+    
+
+    """
+
+    _prefix = 'cisco-stormctrl'
+    _revision = '2016-12-14'
+
+    def __init__(self):
+        super(ActionShutdown, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-shutdown")
+
+
+class ActionSnmpTrap(Identity):
     """
     Generate SNMP traps.
     
@@ -96,11 +75,6 @@ class ActionSnmpTrapIdentity(StormControlActionIdentity):
     _revision = '2016-12-14'
 
     def __init__(self):
-        StormControlActionIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _cisco_storm_control as meta
-        return meta._meta_table['ActionSnmpTrapIdentity']['meta_info']
+        super(ActionSnmpTrap, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-snmp-trap")
 
 

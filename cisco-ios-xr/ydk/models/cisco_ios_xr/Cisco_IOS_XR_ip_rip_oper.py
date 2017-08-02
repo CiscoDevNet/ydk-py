@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class InterfaceStateEnum(Enum):
+class InterfaceState(Enum):
     """
-    InterfaceStateEnum
+    InterfaceState
 
     Interface state
 
@@ -48,24 +42,18 @@ class InterfaceStateEnum(Enum):
 
     """
 
-    interface_none = 0
+    interface_none = Enum.YLeaf(0, "interface-none")
 
-    interface_down = 1
+    interface_down = Enum.YLeaf(1, "interface-down")
 
-    interface_up = 2
+    interface_up = Enum.YLeaf(2, "interface-up")
 
-    interface_unknown = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-        return meta._meta_table['InterfaceStateEnum']
+    interface_unknown = Enum.YLeaf(3, "interface-unknown")
 
 
-class RipRouteOriginEnum(Enum):
+class RipRouteOrigin(Enum):
     """
-    RipRouteOriginEnum
+    RipRouteOrigin
 
     Rip route origin
 
@@ -95,27 +83,21 @@ class RipRouteOriginEnum(Enum):
 
     """
 
-    rip_rt_org_runover = 0
+    rip_rt_org_runover = Enum.YLeaf(0, "rip-rt-org-runover")
 
-    rip_rt_org_redist = 1
+    rip_rt_org_redist = Enum.YLeaf(1, "rip-rt-org-redist")
 
-    rip_rt_org_auto_summary = 2
+    rip_rt_org_auto_summary = Enum.YLeaf(2, "rip-rt-org-auto-summary")
 
-    rip_rt_org_rip = 3
+    rip_rt_org_rip = Enum.YLeaf(3, "rip-rt-org-rip")
 
-    rip_rt_org_intsummary = 4
+    rip_rt_org_intsummary = Enum.YLeaf(4, "rip-rt-org-intsummary")
 
-    rip_rt_org_unused = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-        return meta._meta_table['RipRouteOriginEnum']
+    rip_rt_org_unused = Enum.YLeaf(5, "rip-rt-org-unused")
 
 
 
-class Rip(object):
+class Rip(Entity):
     """
     RIP operational data
     
@@ -142,15 +124,29 @@ class Rip(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Rip, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "rip"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-rip-oper"
+
         self.default_vrf = Rip.DefaultVrf()
         self.default_vrf.parent = self
+        self._children_name_map["default_vrf"] = "default-vrf"
+        self._children_yang_names.add("default-vrf")
+
         self.protocol = Rip.Protocol()
         self.protocol.parent = self
+        self._children_name_map["protocol"] = "protocol"
+        self._children_yang_names.add("protocol")
+
         self.vrfs = Rip.Vrfs()
         self.vrfs.parent = self
+        self._children_name_map["vrfs"] = "vrfs"
+        self._children_yang_names.add("vrfs")
 
 
-    class Vrfs(object):
+    class Vrfs(Entity):
         """
         VRF related operational data
         
@@ -167,13 +163,39 @@ class Rip(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.vrf = YList()
-            self.vrf.parent = self
-            self.vrf.name = 'vrf'
+            super(Rip.Vrfs, self).__init__()
+
+            self.yang_name = "vrfs"
+            self.yang_parent_name = "rip"
+
+            self.vrf = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Rip.Vrfs, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Rip.Vrfs, self).__setattr__(name, value)
 
 
-        class Vrf(object):
+        class Vrf(Entity):
             """
             Operational data for a particular VRF
             
@@ -217,21 +239,64 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.vrf_name = None
+                super(Rip.Vrfs.Vrf, self).__init__()
+
+                self.yang_name = "vrf"
+                self.yang_parent_name = "vrfs"
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                 self.configuration = Rip.Vrfs.Vrf.Configuration()
                 self.configuration.parent = self
+                self._children_name_map["configuration"] = "configuration"
+                self._children_yang_names.add("configuration")
+
                 self.global_ = Rip.Vrfs.Vrf.Global_()
                 self.global_.parent = self
+                self._children_name_map["global_"] = "global"
+                self._children_yang_names.add("global")
+
                 self.interfaces = Rip.Vrfs.Vrf.Interfaces()
                 self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
                 self.routes = Rip.Vrfs.Vrf.Routes()
                 self.routes.parent = self
+                self._children_name_map["routes"] = "routes"
+                self._children_yang_names.add("routes")
+
                 self.statistics = Rip.Vrfs.Vrf.Statistics()
                 self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+                self._children_yang_names.add("statistics")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rip.Vrfs.Vrf, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rip.Vrfs.Vrf, self).__setattr__(name, value)
 
 
-            class Routes(object):
+            class Routes(Entity):
                 """
                 RIP route database
                 
@@ -248,13 +313,39 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.route = YList()
-                    self.route.parent = self
-                    self.route.name = 'route'
+                    super(Rip.Vrfs.Vrf.Routes, self).__init__()
+
+                    self.yang_name = "routes"
+                    self.yang_parent_name = "vrf"
+
+                    self.route = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Vrfs.Vrf.Routes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Vrfs.Vrf.Routes, self).__setattr__(name, value)
 
 
-                class Route(object):
+                class Route(Entity):
                     """
                     A route in the RIP database
                     
@@ -299,7 +390,7 @@ class Rip(object):
                     .. attribute:: path_origin
                     
                     	Where this route was learnt
-                    	**type**\:   :py:class:`RipRouteOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOriginEnum>`
+                    	**type**\:   :py:class:`RipRouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOrigin>`
                     
                     .. attribute:: paths
                     
@@ -361,27 +452,80 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active = None
-                        self.attributes = None
-                        self.bgp_count = None
-                        self.destination_address = None
-                        self.distance = None
-                        self.hold_down = None
-                        self.path_origin = None
-                        self.paths = YList()
-                        self.paths.parent = self
-                        self.paths.name = 'paths'
-                        self.prefix = None
-                        self.prefix_length = None
-                        self.prefix_length_xr = None
-                        self.route_summary = None
-                        self.route_tag = None
-                        self.route_type = None
-                        self.version = None
+                        super(Rip.Vrfs.Vrf.Routes.Route, self).__init__()
+
+                        self.yang_name = "route"
+                        self.yang_parent_name = "routes"
+
+                        self.active = YLeaf(YType.boolean, "active")
+
+                        self.attributes = YLeaf(YType.uint32, "attributes")
+
+                        self.bgp_count = YLeaf(YType.uint16, "bgp-count")
+
+                        self.destination_address = YLeaf(YType.str, "destination-address")
+
+                        self.distance = YLeaf(YType.uint16, "distance")
+
+                        self.hold_down = YLeaf(YType.boolean, "hold-down")
+
+                        self.path_origin = YLeaf(YType.enumeration, "path-origin")
+
+                        self.prefix = YLeaf(YType.str, "prefix")
+
+                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
+
+                        self.route_summary = YLeaf(YType.boolean, "route-summary")
+
+                        self.route_tag = YLeaf(YType.uint16, "route-tag")
+
+                        self.route_type = YLeaf(YType.uint16, "route-type")
+
+                        self.version = YLeaf(YType.uint8, "version")
+
+                        self.paths = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("active",
+                                        "attributes",
+                                        "bgp_count",
+                                        "destination_address",
+                                        "distance",
+                                        "hold_down",
+                                        "path_origin",
+                                        "prefix",
+                                        "prefix_length",
+                                        "prefix_length_xr",
+                                        "route_summary",
+                                        "route_tag",
+                                        "route_type",
+                                        "version") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Vrfs.Vrf.Routes.Route, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Vrfs.Vrf.Routes.Route, self).__setattr__(name, value)
 
 
-                    class Paths(object):
+                    class Paths(Entity):
                         """
                         The paths for this route
                         
@@ -440,147 +584,378 @@ class Rip(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface = None
-                            self.is_permanent = None
-                            self.metric = None
-                            self.next_hop_address = None
-                            self.source_address = None
-                            self.tag = None
-                            self.uptime = None
+                            super(Rip.Vrfs.Vrf.Routes.Route.Paths, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "paths"
+                            self.yang_parent_name = "route"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:paths'
+                            self.interface = YLeaf(YType.str, "interface")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_permanent = YLeaf(YType.boolean, "is-permanent")
+
+                            self.metric = YLeaf(YType.uint16, "metric")
+
+                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                            self.source_address = YLeaf(YType.str, "source-address")
+
+                            self.tag = YLeaf(YType.uint16, "tag")
+
+                            self.uptime = YLeaf(YType.uint32, "uptime")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface",
+                                            "is_permanent",
+                                            "metric",
+                                            "next_hop_address",
+                                            "source_address",
+                                            "tag",
+                                            "uptime") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Rip.Vrfs.Vrf.Routes.Route.Paths, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Rip.Vrfs.Vrf.Routes.Route.Paths, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interface.is_set or
+                                self.is_permanent.is_set or
+                                self.metric.is_set or
+                                self.next_hop_address.is_set or
+                                self.source_address.is_set or
+                                self.tag.is_set or
+                                self.uptime.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface.yfilter != YFilter.not_set or
+                                self.is_permanent.yfilter != YFilter.not_set or
+                                self.metric.yfilter != YFilter.not_set or
+                                self.next_hop_address.yfilter != YFilter.not_set or
+                                self.source_address.yfilter != YFilter.not_set or
+                                self.tag.yfilter != YFilter.not_set or
+                                self.uptime.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "paths" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface.get_name_leafdata())
+                            if (self.is_permanent.is_set or self.is_permanent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_permanent.get_name_leafdata())
+                            if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.metric.get_name_leafdata())
+                            if (self.next_hop_address.is_set or self.next_hop_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.next_hop_address.get_name_leafdata())
+                            if (self.source_address.is_set or self.source_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_address.get_name_leafdata())
+                            if (self.tag.is_set or self.tag.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.tag.get_name_leafdata())
+                            if (self.uptime.is_set or self.uptime.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.uptime.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface" or name == "is-permanent" or name == "metric" or name == "next-hop-address" or name == "source-address" or name == "tag" or name == "uptime"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.interface is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface"):
+                                self.interface = value
+                                self.interface.value_namespace = name_space
+                                self.interface.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-permanent"):
+                                self.is_permanent = value
+                                self.is_permanent.value_namespace = name_space
+                                self.is_permanent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "metric"):
+                                self.metric = value
+                                self.metric.value_namespace = name_space
+                                self.metric.value_namespace_prefix = name_space_prefix
+                            if(value_path == "next-hop-address"):
+                                self.next_hop_address = value
+                                self.next_hop_address.value_namespace = name_space
+                                self.next_hop_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source-address"):
+                                self.source_address = value
+                                self.source_address.value_namespace = name_space
+                                self.source_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "tag"):
+                                self.tag = value
+                                self.tag.value_namespace = name_space
+                                self.tag.value_namespace_prefix = name_space_prefix
+                            if(value_path == "uptime"):
+                                self.uptime = value
+                                self.uptime.value_namespace = name_space
+                                self.uptime.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.paths:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.active.is_set or
+                            self.attributes.is_set or
+                            self.bgp_count.is_set or
+                            self.destination_address.is_set or
+                            self.distance.is_set or
+                            self.hold_down.is_set or
+                            self.path_origin.is_set or
+                            self.prefix.is_set or
+                            self.prefix_length.is_set or
+                            self.prefix_length_xr.is_set or
+                            self.route_summary.is_set or
+                            self.route_tag.is_set or
+                            self.route_type.is_set or
+                            self.version.is_set)
 
-                            if self.is_permanent is not None:
+                    def has_operation(self):
+                        for c in self.paths:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.active.yfilter != YFilter.not_set or
+                            self.attributes.yfilter != YFilter.not_set or
+                            self.bgp_count.yfilter != YFilter.not_set or
+                            self.destination_address.yfilter != YFilter.not_set or
+                            self.distance.yfilter != YFilter.not_set or
+                            self.hold_down.yfilter != YFilter.not_set or
+                            self.path_origin.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set or
+                            self.prefix_length_xr.yfilter != YFilter.not_set or
+                            self.route_summary.yfilter != YFilter.not_set or
+                            self.route_tag.yfilter != YFilter.not_set or
+                            self.route_type.yfilter != YFilter.not_set or
+                            self.version.yfilter != YFilter.not_set)
 
-                            if self.metric is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "route" + path_buffer
 
-                            if self.next_hop_address is not None:
-                                return True
+                        return path_buffer
 
-                            if self.source_address is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            if self.tag is not None:
-                                return True
+                        leaf_name_data = LeafDataList()
+                        if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active.get_name_leafdata())
+                        if (self.attributes.is_set or self.attributes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.attributes.get_name_leafdata())
+                        if (self.bgp_count.is_set or self.bgp_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bgp_count.get_name_leafdata())
+                        if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_address.get_name_leafdata())
+                        if (self.distance.is_set or self.distance.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.distance.get_name_leafdata())
+                        if (self.hold_down.is_set or self.hold_down.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_down.get_name_leafdata())
+                        if (self.path_origin.is_set or self.path_origin.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.path_origin.get_name_leafdata())
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                        if (self.prefix_length_xr.is_set or self.prefix_length_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length_xr.get_name_leafdata())
+                        if (self.route_summary.is_set or self.route_summary.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_summary.get_name_leafdata())
+                        if (self.route_tag.is_set or self.route_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_tag.get_name_leafdata())
+                        if (self.route_type.is_set or self.route_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_type.get_name_leafdata())
+                        if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version.get_name_leafdata())
 
-                            if self.uptime is not None:
-                                return True
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                            return False
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                            return meta._meta_table['Rip.Vrfs.Vrf.Routes.Route.Paths']['meta_info']
+                        if (child_yang_name == "paths"):
+                            for c in self.paths:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Rip.Vrfs.Vrf.Routes.Route.Paths()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.paths.append(c)
+                            return c
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        return None
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:route'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "paths" or name == "active" or name == "attributes" or name == "bgp-count" or name == "destination-address" or name == "distance" or name == "hold-down" or name == "path-origin" or name == "prefix" or name == "prefix-length" or name == "prefix-length-xr" or name == "route-summary" or name == "route-tag" or name == "route-type" or name == "version"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "active"):
+                            self.active = value
+                            self.active.value_namespace = name_space
+                            self.active.value_namespace_prefix = name_space_prefix
+                        if(value_path == "attributes"):
+                            self.attributes = value
+                            self.attributes.value_namespace = name_space
+                            self.attributes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bgp-count"):
+                            self.bgp_count = value
+                            self.bgp_count.value_namespace = name_space
+                            self.bgp_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-address"):
+                            self.destination_address = value
+                            self.destination_address.value_namespace = name_space
+                            self.destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "distance"):
+                            self.distance = value
+                            self.distance.value_namespace = name_space
+                            self.distance.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-down"):
+                            self.hold_down = value
+                            self.hold_down.value_namespace = name_space
+                            self.hold_down.value_namespace_prefix = name_space_prefix
+                        if(value_path == "path-origin"):
+                            self.path_origin = value
+                            self.path_origin.value_namespace = name_space
+                            self.path_origin.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length-xr"):
+                            self.prefix_length_xr = value
+                            self.prefix_length_xr.value_namespace = name_space
+                            self.prefix_length_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-summary"):
+                            self.route_summary = value
+                            self.route_summary.value_namespace = name_space
+                            self.route_summary.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-tag"):
+                            self.route_tag = value
+                            self.route_tag.value_namespace = name_space
+                            self.route_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-type"):
+                            self.route_type = value
+                            self.route_type.value_namespace = name_space
+                            self.route_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "version"):
+                            self.version = value
+                            self.version.value_namespace = name_space
+                            self.version.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.route:
+                        if (c.has_data()):
                             return True
-
-                        if self.attributes is not None:
-                            return True
-
-                        if self.bgp_count is not None:
-                            return True
-
-                        if self.destination_address is not None:
-                            return True
-
-                        if self.distance is not None:
-                            return True
-
-                        if self.hold_down is not None:
-                            return True
-
-                        if self.path_origin is not None:
-                            return True
-
-                        if self.paths is not None:
-                            for child_ref in self.paths:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
-                        if self.prefix_length_xr is not None:
-                            return True
-
-                        if self.route_summary is not None:
-                            return True
-
-                        if self.route_tag is not None:
-                            return True
-
-                        if self.route_type is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Vrfs.Vrf.Routes.Route']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:routes'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.route is not None:
-                        for child_ref in self.route:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.route:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "routes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "route"):
+                        for c in self.route:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.Vrfs.Vrf.Routes.Route()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.route.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "route"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Vrfs.Vrf.Routes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Configuration(object):
+            class Configuration(Entity):
                 """
                 RIP global configuration
                 
@@ -711,105 +1086,284 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.active = None
-                    self.auto_summarize = None
-                    self.default_metric = None
-                    self.flash_threshold = None
-                    self.flush_timer = None
-                    self.hold_down_timer = None
-                    self.input_q_length = None
-                    self.invalid_timer = None
-                    self.maximum_paths = None
-                    self.multicast_address = None
-                    self.next_update_time = None
-                    self.nsf_life_time = None
-                    self.nsf_status = None
-                    self.oom_flags = None
-                    self.rip_version = None
-                    self.triggered_rip = None
-                    self.update_timer = None
-                    self.validation_indicator = None
-                    self.vr_fised_socket = None
+                    super(Rip.Vrfs.Vrf.Configuration, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "configuration"
+                    self.yang_parent_name = "vrf"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:configuration'
+                    self.active = YLeaf(YType.boolean, "active")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.auto_summarize = YLeaf(YType.boolean, "auto-summarize")
+
+                    self.default_metric = YLeaf(YType.uint8, "default-metric")
+
+                    self.flash_threshold = YLeaf(YType.uint8, "flash-threshold")
+
+                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
+
+                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
+
+                    self.input_q_length = YLeaf(YType.uint16, "input-q-length")
+
+                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
+
+                    self.maximum_paths = YLeaf(YType.uint8, "maximum-paths")
+
+                    self.multicast_address = YLeaf(YType.boolean, "multicast-address")
+
+                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
+
+                    self.nsf_life_time = YLeaf(YType.uint32, "nsf-life-time")
+
+                    self.nsf_status = YLeaf(YType.boolean, "nsf-status")
+
+                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                    self.rip_version = YLeaf(YType.int32, "rip-version")
+
+                    self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
+
+                    self.update_timer = YLeaf(YType.uint32, "update-timer")
+
+                    self.validation_indicator = YLeaf(YType.boolean, "validation-indicator")
+
+                    self.vr_fised_socket = YLeaf(YType.boolean, "vr-fised-socket")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("active",
+                                    "auto_summarize",
+                                    "default_metric",
+                                    "flash_threshold",
+                                    "flush_timer",
+                                    "hold_down_timer",
+                                    "input_q_length",
+                                    "invalid_timer",
+                                    "maximum_paths",
+                                    "multicast_address",
+                                    "next_update_time",
+                                    "nsf_life_time",
+                                    "nsf_status",
+                                    "oom_flags",
+                                    "rip_version",
+                                    "triggered_rip",
+                                    "update_timer",
+                                    "validation_indicator",
+                                    "vr_fised_socket") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Vrfs.Vrf.Configuration, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Vrfs.Vrf.Configuration, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.active.is_set or
+                        self.auto_summarize.is_set or
+                        self.default_metric.is_set or
+                        self.flash_threshold.is_set or
+                        self.flush_timer.is_set or
+                        self.hold_down_timer.is_set or
+                        self.input_q_length.is_set or
+                        self.invalid_timer.is_set or
+                        self.maximum_paths.is_set or
+                        self.multicast_address.is_set or
+                        self.next_update_time.is_set or
+                        self.nsf_life_time.is_set or
+                        self.nsf_status.is_set or
+                        self.oom_flags.is_set or
+                        self.rip_version.is_set or
+                        self.triggered_rip.is_set or
+                        self.update_timer.is_set or
+                        self.validation_indicator.is_set or
+                        self.vr_fised_socket.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.active.yfilter != YFilter.not_set or
+                        self.auto_summarize.yfilter != YFilter.not_set or
+                        self.default_metric.yfilter != YFilter.not_set or
+                        self.flash_threshold.yfilter != YFilter.not_set or
+                        self.flush_timer.yfilter != YFilter.not_set or
+                        self.hold_down_timer.yfilter != YFilter.not_set or
+                        self.input_q_length.yfilter != YFilter.not_set or
+                        self.invalid_timer.yfilter != YFilter.not_set or
+                        self.maximum_paths.yfilter != YFilter.not_set or
+                        self.multicast_address.yfilter != YFilter.not_set or
+                        self.next_update_time.yfilter != YFilter.not_set or
+                        self.nsf_life_time.yfilter != YFilter.not_set or
+                        self.nsf_status.yfilter != YFilter.not_set or
+                        self.oom_flags.yfilter != YFilter.not_set or
+                        self.rip_version.yfilter != YFilter.not_set or
+                        self.triggered_rip.yfilter != YFilter.not_set or
+                        self.update_timer.yfilter != YFilter.not_set or
+                        self.validation_indicator.yfilter != YFilter.not_set or
+                        self.vr_fised_socket.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "configuration" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active.get_name_leafdata())
+                    if (self.auto_summarize.is_set or self.auto_summarize.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.auto_summarize.get_name_leafdata())
+                    if (self.default_metric.is_set or self.default_metric.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.default_metric.get_name_leafdata())
+                    if (self.flash_threshold.is_set or self.flash_threshold.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flash_threshold.get_name_leafdata())
+                    if (self.flush_timer.is_set or self.flush_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flush_timer.get_name_leafdata())
+                    if (self.hold_down_timer.is_set or self.hold_down_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hold_down_timer.get_name_leafdata())
+                    if (self.input_q_length.is_set or self.input_q_length.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_q_length.get_name_leafdata())
+                    if (self.invalid_timer.is_set or self.invalid_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.invalid_timer.get_name_leafdata())
+                    if (self.maximum_paths.is_set or self.maximum_paths.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.maximum_paths.get_name_leafdata())
+                    if (self.multicast_address.is_set or self.multicast_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.multicast_address.get_name_leafdata())
+                    if (self.next_update_time.is_set or self.next_update_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.next_update_time.get_name_leafdata())
+                    if (self.nsf_life_time.is_set or self.nsf_life_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nsf_life_time.get_name_leafdata())
+                    if (self.nsf_status.is_set or self.nsf_status.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nsf_status.get_name_leafdata())
+                    if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                    if (self.rip_version.is_set or self.rip_version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rip_version.get_name_leafdata())
+                    if (self.triggered_rip.is_set or self.triggered_rip.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.triggered_rip.get_name_leafdata())
+                    if (self.update_timer.is_set or self.update_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.update_timer.get_name_leafdata())
+                    if (self.validation_indicator.is_set or self.validation_indicator.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.validation_indicator.get_name_leafdata())
+                    if (self.vr_fised_socket.is_set or self.vr_fised_socket.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vr_fised_socket.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "active" or name == "auto-summarize" or name == "default-metric" or name == "flash-threshold" or name == "flush-timer" or name == "hold-down-timer" or name == "input-q-length" or name == "invalid-timer" or name == "maximum-paths" or name == "multicast-address" or name == "next-update-time" or name == "nsf-life-time" or name == "nsf-status" or name == "oom-flags" or name == "rip-version" or name == "triggered-rip" or name == "update-timer" or name == "validation-indicator" or name == "vr-fised-socket"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.active is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "active"):
+                        self.active = value
+                        self.active.value_namespace = name_space
+                        self.active.value_namespace_prefix = name_space_prefix
+                    if(value_path == "auto-summarize"):
+                        self.auto_summarize = value
+                        self.auto_summarize.value_namespace = name_space
+                        self.auto_summarize.value_namespace_prefix = name_space_prefix
+                    if(value_path == "default-metric"):
+                        self.default_metric = value
+                        self.default_metric.value_namespace = name_space
+                        self.default_metric.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flash-threshold"):
+                        self.flash_threshold = value
+                        self.flash_threshold.value_namespace = name_space
+                        self.flash_threshold.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flush-timer"):
+                        self.flush_timer = value
+                        self.flush_timer.value_namespace = name_space
+                        self.flush_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hold-down-timer"):
+                        self.hold_down_timer = value
+                        self.hold_down_timer.value_namespace = name_space
+                        self.hold_down_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-q-length"):
+                        self.input_q_length = value
+                        self.input_q_length.value_namespace = name_space
+                        self.input_q_length.value_namespace_prefix = name_space_prefix
+                    if(value_path == "invalid-timer"):
+                        self.invalid_timer = value
+                        self.invalid_timer.value_namespace = name_space
+                        self.invalid_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "maximum-paths"):
+                        self.maximum_paths = value
+                        self.maximum_paths.value_namespace = name_space
+                        self.maximum_paths.value_namespace_prefix = name_space_prefix
+                    if(value_path == "multicast-address"):
+                        self.multicast_address = value
+                        self.multicast_address.value_namespace = name_space
+                        self.multicast_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "next-update-time"):
+                        self.next_update_time = value
+                        self.next_update_time.value_namespace = name_space
+                        self.next_update_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nsf-life-time"):
+                        self.nsf_life_time = value
+                        self.nsf_life_time.value_namespace = name_space
+                        self.nsf_life_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nsf-status"):
+                        self.nsf_status = value
+                        self.nsf_status.value_namespace = name_space
+                        self.nsf_status.value_namespace_prefix = name_space_prefix
+                    if(value_path == "oom-flags"):
+                        self.oom_flags = value
+                        self.oom_flags.value_namespace = name_space
+                        self.oom_flags.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rip-version"):
+                        self.rip_version = value
+                        self.rip_version.value_namespace = name_space
+                        self.rip_version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "triggered-rip"):
+                        self.triggered_rip = value
+                        self.triggered_rip.value_namespace = name_space
+                        self.triggered_rip.value_namespace_prefix = name_space_prefix
+                    if(value_path == "update-timer"):
+                        self.update_timer = value
+                        self.update_timer.value_namespace = name_space
+                        self.update_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "validation-indicator"):
+                        self.validation_indicator = value
+                        self.validation_indicator.value_namespace = name_space
+                        self.validation_indicator.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vr-fised-socket"):
+                        self.vr_fised_socket = value
+                        self.vr_fised_socket.value_namespace = name_space
+                        self.vr_fised_socket.value_namespace_prefix = name_space_prefix
 
-                    if self.auto_summarize is not None:
-                        return True
 
-                    if self.default_metric is not None:
-                        return True
-
-                    if self.flash_threshold is not None:
-                        return True
-
-                    if self.flush_timer is not None:
-                        return True
-
-                    if self.hold_down_timer is not None:
-                        return True
-
-                    if self.input_q_length is not None:
-                        return True
-
-                    if self.invalid_timer is not None:
-                        return True
-
-                    if self.maximum_paths is not None:
-                        return True
-
-                    if self.multicast_address is not None:
-                        return True
-
-                    if self.next_update_time is not None:
-                        return True
-
-                    if self.nsf_life_time is not None:
-                        return True
-
-                    if self.nsf_status is not None:
-                        return True
-
-                    if self.oom_flags is not None:
-                        return True
-
-                    if self.rip_version is not None:
-                        return True
-
-                    if self.triggered_rip is not None:
-                        return True
-
-                    if self.update_timer is not None:
-                        return True
-
-                    if self.validation_indicator is not None:
-                        return True
-
-                    if self.vr_fised_socket is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Vrfs.Vrf.Configuration']['meta_info']
-
-
-            class Statistics(object):
+            class Statistics(Entity):
                 """
                 RIP statistics information
                 
@@ -912,81 +1466,218 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.discarded_packets = None
-                    self.discarded_routes = None
-                    self.path_count = None
-                    self.path_malloc_failures = None
-                    self.periodic_updates = None
-                    self.query_responses = None
-                    self.received_packets = None
-                    self.rib_updates = None
-                    self.route_count = None
-                    self.route_malloc_failures = None
-                    self.sent_message_failures = None
-                    self.sent_messages = None
-                    self.standby_packets_received = None
+                    super(Rip.Vrfs.Vrf.Statistics, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "statistics"
+                    self.yang_parent_name = "vrf"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:statistics'
+                    self.discarded_packets = YLeaf(YType.uint32, "discarded-packets")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.discarded_routes = YLeaf(YType.uint32, "discarded-routes")
+
+                    self.path_count = YLeaf(YType.uint32, "path-count")
+
+                    self.path_malloc_failures = YLeaf(YType.uint32, "path-malloc-failures")
+
+                    self.periodic_updates = YLeaf(YType.uint32, "periodic-updates")
+
+                    self.query_responses = YLeaf(YType.uint32, "query-responses")
+
+                    self.received_packets = YLeaf(YType.uint32, "received-packets")
+
+                    self.rib_updates = YLeaf(YType.uint32, "rib-updates")
+
+                    self.route_count = YLeaf(YType.uint32, "route-count")
+
+                    self.route_malloc_failures = YLeaf(YType.uint32, "route-malloc-failures")
+
+                    self.sent_message_failures = YLeaf(YType.uint32, "sent-message-failures")
+
+                    self.sent_messages = YLeaf(YType.uint32, "sent-messages")
+
+                    self.standby_packets_received = YLeaf(YType.uint32, "standby-packets-received")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("discarded_packets",
+                                    "discarded_routes",
+                                    "path_count",
+                                    "path_malloc_failures",
+                                    "periodic_updates",
+                                    "query_responses",
+                                    "received_packets",
+                                    "rib_updates",
+                                    "route_count",
+                                    "route_malloc_failures",
+                                    "sent_message_failures",
+                                    "sent_messages",
+                                    "standby_packets_received") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Vrfs.Vrf.Statistics, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Vrfs.Vrf.Statistics, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.discarded_packets.is_set or
+                        self.discarded_routes.is_set or
+                        self.path_count.is_set or
+                        self.path_malloc_failures.is_set or
+                        self.periodic_updates.is_set or
+                        self.query_responses.is_set or
+                        self.received_packets.is_set or
+                        self.rib_updates.is_set or
+                        self.route_count.is_set or
+                        self.route_malloc_failures.is_set or
+                        self.sent_message_failures.is_set or
+                        self.sent_messages.is_set or
+                        self.standby_packets_received.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.discarded_packets.yfilter != YFilter.not_set or
+                        self.discarded_routes.yfilter != YFilter.not_set or
+                        self.path_count.yfilter != YFilter.not_set or
+                        self.path_malloc_failures.yfilter != YFilter.not_set or
+                        self.periodic_updates.yfilter != YFilter.not_set or
+                        self.query_responses.yfilter != YFilter.not_set or
+                        self.received_packets.yfilter != YFilter.not_set or
+                        self.rib_updates.yfilter != YFilter.not_set or
+                        self.route_count.yfilter != YFilter.not_set or
+                        self.route_malloc_failures.yfilter != YFilter.not_set or
+                        self.sent_message_failures.yfilter != YFilter.not_set or
+                        self.sent_messages.yfilter != YFilter.not_set or
+                        self.standby_packets_received.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "statistics" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.discarded_packets.is_set or self.discarded_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discarded_packets.get_name_leafdata())
+                    if (self.discarded_routes.is_set or self.discarded_routes.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discarded_routes.get_name_leafdata())
+                    if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_count.get_name_leafdata())
+                    if (self.path_malloc_failures.is_set or self.path_malloc_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_malloc_failures.get_name_leafdata())
+                    if (self.periodic_updates.is_set or self.periodic_updates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.periodic_updates.get_name_leafdata())
+                    if (self.query_responses.is_set or self.query_responses.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.query_responses.get_name_leafdata())
+                    if (self.received_packets.is_set or self.received_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.received_packets.get_name_leafdata())
+                    if (self.rib_updates.is_set or self.rib_updates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rib_updates.get_name_leafdata())
+                    if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_count.get_name_leafdata())
+                    if (self.route_malloc_failures.is_set or self.route_malloc_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_malloc_failures.get_name_leafdata())
+                    if (self.sent_message_failures.is_set or self.sent_message_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sent_message_failures.get_name_leafdata())
+                    if (self.sent_messages.is_set or self.sent_messages.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sent_messages.get_name_leafdata())
+                    if (self.standby_packets_received.is_set or self.standby_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_packets_received.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "discarded-packets" or name == "discarded-routes" or name == "path-count" or name == "path-malloc-failures" or name == "periodic-updates" or name == "query-responses" or name == "received-packets" or name == "rib-updates" or name == "route-count" or name == "route-malloc-failures" or name == "sent-message-failures" or name == "sent-messages" or name == "standby-packets-received"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.discarded_packets is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "discarded-packets"):
+                        self.discarded_packets = value
+                        self.discarded_packets.value_namespace = name_space
+                        self.discarded_packets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "discarded-routes"):
+                        self.discarded_routes = value
+                        self.discarded_routes.value_namespace = name_space
+                        self.discarded_routes.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path-count"):
+                        self.path_count = value
+                        self.path_count.value_namespace = name_space
+                        self.path_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path-malloc-failures"):
+                        self.path_malloc_failures = value
+                        self.path_malloc_failures.value_namespace = name_space
+                        self.path_malloc_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "periodic-updates"):
+                        self.periodic_updates = value
+                        self.periodic_updates.value_namespace = name_space
+                        self.periodic_updates.value_namespace_prefix = name_space_prefix
+                    if(value_path == "query-responses"):
+                        self.query_responses = value
+                        self.query_responses.value_namespace = name_space
+                        self.query_responses.value_namespace_prefix = name_space_prefix
+                    if(value_path == "received-packets"):
+                        self.received_packets = value
+                        self.received_packets.value_namespace = name_space
+                        self.received_packets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rib-updates"):
+                        self.rib_updates = value
+                        self.rib_updates.value_namespace = name_space
+                        self.rib_updates.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-count"):
+                        self.route_count = value
+                        self.route_count.value_namespace = name_space
+                        self.route_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-malloc-failures"):
+                        self.route_malloc_failures = value
+                        self.route_malloc_failures.value_namespace = name_space
+                        self.route_malloc_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "sent-message-failures"):
+                        self.sent_message_failures = value
+                        self.sent_message_failures.value_namespace = name_space
+                        self.sent_message_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "sent-messages"):
+                        self.sent_messages = value
+                        self.sent_messages.value_namespace = name_space
+                        self.sent_messages.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-packets-received"):
+                        self.standby_packets_received = value
+                        self.standby_packets_received.value_namespace = name_space
+                        self.standby_packets_received.value_namespace_prefix = name_space_prefix
 
-                    if self.discarded_routes is not None:
-                        return True
 
-                    if self.path_count is not None:
-                        return True
-
-                    if self.path_malloc_failures is not None:
-                        return True
-
-                    if self.periodic_updates is not None:
-                        return True
-
-                    if self.query_responses is not None:
-                        return True
-
-                    if self.received_packets is not None:
-                        return True
-
-                    if self.rib_updates is not None:
-                        return True
-
-                    if self.route_count is not None:
-                        return True
-
-                    if self.route_malloc_failures is not None:
-                        return True
-
-                    if self.sent_message_failures is not None:
-                        return True
-
-                    if self.sent_messages is not None:
-                        return True
-
-                    if self.standby_packets_received is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Vrfs.Vrf.Statistics']['meta_info']
-
-
-            class Interfaces(object):
+            class Interfaces(Entity):
                 """
                 RIP interfaces
                 
@@ -1003,13 +1694,39 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
+                    super(Rip.Vrfs.Vrf.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "vrf"
+
+                    self.interface = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Vrfs.Vrf.Interfaces, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Vrfs.Vrf.Interfaces, self).__setattr__(name, value)
 
 
-                class Interface(object):
+                class Interface(Entity):
                     """
                     Information about a particular RIP interface
                     
@@ -1191,7 +1908,7 @@ class Rip(object):
                     .. attribute:: state
                     
                     	Current state of the interface
-                    	**type**\:   :py:class:`InterfaceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceStateEnum>`
+                    	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
                     
                     .. attribute:: total_pkt_recvd
                     
@@ -1213,46 +1930,129 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.accept_metric = None
-                        self.auth_key_md5 = None
-                        self.auth_key_send_id = None
-                        self.auth_keychain = None
-                        self.auth_mode = None
-                        self.destination_address = None
-                        self.if_handle = None
-                        self.interface = None
-                        self.is_passive_interface = None
-                        self.join_status = None
-                        self.lpts_state = None
-                        self.metric_cost = None
-                        self.multicast_address = None
-                        self.neighbor_address = None
-                        self.oom_flags = None
-                        self.pkt_accepted_valid_auth = None
-                        self.pkt_drop_invalid_auth = None
-                        self.pkt_drop_no_auth = None
-                        self.pkt_drop_wrong_kc = None
-                        self.poison_horizon = None
-                        self.prefix_length = None
-                        self.receive_version = None
-                        self.rip_enabled = None
-                        self.rip_peer = YList()
-                        self.rip_peer.parent = self
-                        self.rip_peer.name = 'rip_peer'
-                        self.rip_summary = YList()
-                        self.rip_summary.parent = self
-                        self.rip_summary.name = 'rip_summary'
-                        self.send_auth_key_exists = None
-                        self.send_version = None
-                        self.split_horizon = None
-                        self.state = None
-                        self.total_pkt_recvd = None
-                        self.triggered_rip = None
+                        super(Rip.Vrfs.Vrf.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.accept_metric = YLeaf(YType.boolean, "accept-metric")
+
+                        self.auth_key_md5 = YLeaf(YType.boolean, "auth-key-md5")
+
+                        self.auth_key_send_id = YLeaf(YType.uint64, "auth-key-send-id")
+
+                        self.auth_keychain = YLeaf(YType.str, "auth-keychain")
+
+                        self.auth_mode = YLeaf(YType.uint32, "auth-mode")
+
+                        self.destination_address = YLeaf(YType.str, "destination-address")
+
+                        self.if_handle = YLeaf(YType.str, "if-handle")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.is_passive_interface = YLeaf(YType.boolean, "is-passive-interface")
+
+                        self.join_status = YLeaf(YType.boolean, "join-status")
+
+                        self.lpts_state = YLeaf(YType.boolean, "lpts-state")
+
+                        self.metric_cost = YLeaf(YType.uint32, "metric-cost")
+
+                        self.multicast_address = YLeaf(YType.boolean, "multicast-address")
+
+                        self.neighbor_address = YLeaf(YType.str, "neighbor-address")
+
+                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                        self.pkt_accepted_valid_auth = YLeaf(YType.uint32, "pkt-accepted-valid-auth")
+
+                        self.pkt_drop_invalid_auth = YLeaf(YType.uint32, "pkt-drop-invalid-auth")
+
+                        self.pkt_drop_no_auth = YLeaf(YType.uint32, "pkt-drop-no-auth")
+
+                        self.pkt_drop_wrong_kc = YLeaf(YType.uint32, "pkt-drop-wrong-kc")
+
+                        self.poison_horizon = YLeaf(YType.boolean, "poison-horizon")
+
+                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        self.receive_version = YLeaf(YType.uint32, "receive-version")
+
+                        self.rip_enabled = YLeaf(YType.boolean, "rip-enabled")
+
+                        self.send_auth_key_exists = YLeaf(YType.boolean, "send-auth-key-exists")
+
+                        self.send_version = YLeaf(YType.uint32, "send-version")
+
+                        self.split_horizon = YLeaf(YType.boolean, "split-horizon")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.total_pkt_recvd = YLeaf(YType.uint32, "total-pkt-recvd")
+
+                        self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
+
+                        self.rip_peer = YList(self)
+                        self.rip_summary = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface_name",
+                                        "accept_metric",
+                                        "auth_key_md5",
+                                        "auth_key_send_id",
+                                        "auth_keychain",
+                                        "auth_mode",
+                                        "destination_address",
+                                        "if_handle",
+                                        "interface",
+                                        "is_passive_interface",
+                                        "join_status",
+                                        "lpts_state",
+                                        "metric_cost",
+                                        "multicast_address",
+                                        "neighbor_address",
+                                        "oom_flags",
+                                        "pkt_accepted_valid_auth",
+                                        "pkt_drop_invalid_auth",
+                                        "pkt_drop_no_auth",
+                                        "pkt_drop_wrong_kc",
+                                        "poison_horizon",
+                                        "prefix_length",
+                                        "receive_version",
+                                        "rip_enabled",
+                                        "send_auth_key_exists",
+                                        "send_version",
+                                        "split_horizon",
+                                        "state",
+                                        "total_pkt_recvd",
+                                        "triggered_rip") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Vrfs.Vrf.Interfaces.Interface, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Vrfs.Vrf.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                    class RipSummary(object):
+                    class RipSummary(Entity):
                         """
                         User defined summary addresses
                         
@@ -1292,45 +2092,119 @@ class Rip(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.metric = None
-                            self.next_hop_address = None
-                            self.prefix = None
-                            self.prefix_length = None
+                            super(Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "rip-summary"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:rip-summary'
+                            self.metric = YLeaf(YType.int32, "metric")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                            self.prefix = YLeaf(YType.str, "prefix")
+
+                            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("metric",
+                                            "next_hop_address",
+                                            "prefix",
+                                            "prefix_length") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.metric.is_set or
+                                self.next_hop_address.is_set or
+                                self.prefix.is_set or
+                                self.prefix_length.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.metric.yfilter != YFilter.not_set or
+                                self.next_hop_address.yfilter != YFilter.not_set or
+                                self.prefix.yfilter != YFilter.not_set or
+                                self.prefix_length.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "rip-summary" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.metric.get_name_leafdata())
+                            if (self.next_hop_address.is_set or self.next_hop_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.next_hop_address.get_name_leafdata())
+                            if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.prefix.get_name_leafdata())
+                            if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "metric" or name == "next-hop-address" or name == "prefix" or name == "prefix-length"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.metric is not None:
-                                return True
-
-                            if self.next_hop_address is not None:
-                                return True
-
-                            if self.prefix is not None:
-                                return True
-
-                            if self.prefix_length is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "metric"):
+                                self.metric = value
+                                self.metric.value_namespace = name_space
+                                self.metric.value_namespace_prefix = name_space_prefix
+                            if(value_path == "next-hop-address"):
+                                self.next_hop_address = value
+                                self.next_hop_address.value_namespace = name_space
+                                self.next_hop_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "prefix"):
+                                self.prefix = value
+                                self.prefix.value_namespace = name_space
+                                self.prefix.value_namespace_prefix = name_space_prefix
+                            if(value_path == "prefix-length"):
+                                self.prefix_length = value
+                                self.prefix_length.value_namespace = name_space
+                                self.prefix_length.value_namespace_prefix = name_space_prefix
 
 
-                    class RipPeer(object):
+                    class RipPeer(Entity):
                         """
                         Neighbors on this interface
                         
@@ -1377,194 +2251,502 @@ class Rip(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.discarded_peer_packets = None
-                            self.discarded_peer_routes = None
-                            self.peer_address = None
-                            self.peer_uptime = None
-                            self.peer_version = None
+                            super(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "rip-peer"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:rip-peer'
+                            self.discarded_peer_packets = YLeaf(YType.uint32, "discarded-peer-packets")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.discarded_peer_routes = YLeaf(YType.uint32, "discarded-peer-routes")
+
+                            self.peer_address = YLeaf(YType.str, "peer-address")
+
+                            self.peer_uptime = YLeaf(YType.uint32, "peer-uptime")
+
+                            self.peer_version = YLeaf(YType.uint8, "peer-version")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("discarded_peer_packets",
+                                            "discarded_peer_routes",
+                                            "peer_address",
+                                            "peer_uptime",
+                                            "peer_version") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.discarded_peer_packets.is_set or
+                                self.discarded_peer_routes.is_set or
+                                self.peer_address.is_set or
+                                self.peer_uptime.is_set or
+                                self.peer_version.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.discarded_peer_packets.yfilter != YFilter.not_set or
+                                self.discarded_peer_routes.yfilter != YFilter.not_set or
+                                self.peer_address.yfilter != YFilter.not_set or
+                                self.peer_uptime.yfilter != YFilter.not_set or
+                                self.peer_version.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "rip-peer" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.discarded_peer_packets.is_set or self.discarded_peer_packets.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.discarded_peer_packets.get_name_leafdata())
+                            if (self.discarded_peer_routes.is_set or self.discarded_peer_routes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.discarded_peer_routes.get_name_leafdata())
+                            if (self.peer_address.is_set or self.peer_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.peer_address.get_name_leafdata())
+                            if (self.peer_uptime.is_set or self.peer_uptime.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.peer_uptime.get_name_leafdata())
+                            if (self.peer_version.is_set or self.peer_version.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.peer_version.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "discarded-peer-packets" or name == "discarded-peer-routes" or name == "peer-address" or name == "peer-uptime" or name == "peer-version"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.discarded_peer_packets is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "discarded-peer-packets"):
+                                self.discarded_peer_packets = value
+                                self.discarded_peer_packets.value_namespace = name_space
+                                self.discarded_peer_packets.value_namespace_prefix = name_space_prefix
+                            if(value_path == "discarded-peer-routes"):
+                                self.discarded_peer_routes = value
+                                self.discarded_peer_routes.value_namespace = name_space
+                                self.discarded_peer_routes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "peer-address"):
+                                self.peer_address = value
+                                self.peer_address.value_namespace = name_space
+                                self.peer_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "peer-uptime"):
+                                self.peer_uptime = value
+                                self.peer_uptime.value_namespace = name_space
+                                self.peer_uptime.value_namespace_prefix = name_space_prefix
+                            if(value_path == "peer-version"):
+                                self.peer_version = value
+                                self.peer_version.value_namespace = name_space
+                                self.peer_version.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.rip_peer:
+                            if (c.has_data()):
                                 return True
-
-                            if self.discarded_peer_routes is not None:
+                        for c in self.rip_summary:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.interface_name.is_set or
+                            self.accept_metric.is_set or
+                            self.auth_key_md5.is_set or
+                            self.auth_key_send_id.is_set or
+                            self.auth_keychain.is_set or
+                            self.auth_mode.is_set or
+                            self.destination_address.is_set or
+                            self.if_handle.is_set or
+                            self.interface.is_set or
+                            self.is_passive_interface.is_set or
+                            self.join_status.is_set or
+                            self.lpts_state.is_set or
+                            self.metric_cost.is_set or
+                            self.multicast_address.is_set or
+                            self.neighbor_address.is_set or
+                            self.oom_flags.is_set or
+                            self.pkt_accepted_valid_auth.is_set or
+                            self.pkt_drop_invalid_auth.is_set or
+                            self.pkt_drop_no_auth.is_set or
+                            self.pkt_drop_wrong_kc.is_set or
+                            self.poison_horizon.is_set or
+                            self.prefix_length.is_set or
+                            self.receive_version.is_set or
+                            self.rip_enabled.is_set or
+                            self.send_auth_key_exists.is_set or
+                            self.send_version.is_set or
+                            self.split_horizon.is_set or
+                            self.state.is_set or
+                            self.total_pkt_recvd.is_set or
+                            self.triggered_rip.is_set)
 
-                            if self.peer_address is not None:
+                    def has_operation(self):
+                        for c in self.rip_peer:
+                            if (c.has_operation()):
                                 return True
-
-                            if self.peer_uptime is not None:
+                        for c in self.rip_summary:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.accept_metric.yfilter != YFilter.not_set or
+                            self.auth_key_md5.yfilter != YFilter.not_set or
+                            self.auth_key_send_id.yfilter != YFilter.not_set or
+                            self.auth_keychain.yfilter != YFilter.not_set or
+                            self.auth_mode.yfilter != YFilter.not_set or
+                            self.destination_address.yfilter != YFilter.not_set or
+                            self.if_handle.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.is_passive_interface.yfilter != YFilter.not_set or
+                            self.join_status.yfilter != YFilter.not_set or
+                            self.lpts_state.yfilter != YFilter.not_set or
+                            self.metric_cost.yfilter != YFilter.not_set or
+                            self.multicast_address.yfilter != YFilter.not_set or
+                            self.neighbor_address.yfilter != YFilter.not_set or
+                            self.oom_flags.yfilter != YFilter.not_set or
+                            self.pkt_accepted_valid_auth.yfilter != YFilter.not_set or
+                            self.pkt_drop_invalid_auth.yfilter != YFilter.not_set or
+                            self.pkt_drop_no_auth.yfilter != YFilter.not_set or
+                            self.pkt_drop_wrong_kc.yfilter != YFilter.not_set or
+                            self.poison_horizon.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set or
+                            self.receive_version.yfilter != YFilter.not_set or
+                            self.rip_enabled.yfilter != YFilter.not_set or
+                            self.send_auth_key_exists.yfilter != YFilter.not_set or
+                            self.send_version.yfilter != YFilter.not_set or
+                            self.split_horizon.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set or
+                            self.total_pkt_recvd.yfilter != YFilter.not_set or
+                            self.triggered_rip.yfilter != YFilter.not_set)
 
-                            if self.peer_version is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                            return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYModelError('Key property interface_name is None')
+                        leaf_name_data = LeafDataList()
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.accept_metric.is_set or self.accept_metric.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.accept_metric.get_name_leafdata())
+                        if (self.auth_key_md5.is_set or self.auth_key_md5.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_key_md5.get_name_leafdata())
+                        if (self.auth_key_send_id.is_set or self.auth_key_send_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_key_send_id.get_name_leafdata())
+                        if (self.auth_keychain.is_set or self.auth_keychain.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_keychain.get_name_leafdata())
+                        if (self.auth_mode.is_set or self.auth_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_mode.get_name_leafdata())
+                        if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_address.get_name_leafdata())
+                        if (self.if_handle.is_set or self.if_handle.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.if_handle.get_name_leafdata())
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.is_passive_interface.is_set or self.is_passive_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_passive_interface.get_name_leafdata())
+                        if (self.join_status.is_set or self.join_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.join_status.get_name_leafdata())
+                        if (self.lpts_state.is_set or self.lpts_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lpts_state.get_name_leafdata())
+                        if (self.metric_cost.is_set or self.metric_cost.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.metric_cost.get_name_leafdata())
+                        if (self.multicast_address.is_set or self.multicast_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_address.get_name_leafdata())
+                        if (self.neighbor_address.is_set or self.neighbor_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.neighbor_address.get_name_leafdata())
+                        if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                        if (self.pkt_accepted_valid_auth.is_set or self.pkt_accepted_valid_auth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_accepted_valid_auth.get_name_leafdata())
+                        if (self.pkt_drop_invalid_auth.is_set or self.pkt_drop_invalid_auth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_drop_invalid_auth.get_name_leafdata())
+                        if (self.pkt_drop_no_auth.is_set or self.pkt_drop_no_auth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_drop_no_auth.get_name_leafdata())
+                        if (self.pkt_drop_wrong_kc.is_set or self.pkt_drop_wrong_kc.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_drop_wrong_kc.get_name_leafdata())
+                        if (self.poison_horizon.is_set or self.poison_horizon.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.poison_horizon.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                        if (self.receive_version.is_set or self.receive_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.receive_version.get_name_leafdata())
+                        if (self.rip_enabled.is_set or self.rip_enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rip_enabled.get_name_leafdata())
+                        if (self.send_auth_key_exists.is_set or self.send_auth_key_exists.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_auth_key_exists.get_name_leafdata())
+                        if (self.send_version.is_set or self.send_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_version.get_name_leafdata())
+                        if (self.split_horizon.is_set or self.split_horizon.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.split_horizon.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+                        if (self.total_pkt_recvd.is_set or self.total_pkt_recvd.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.total_pkt_recvd.get_name_leafdata())
+                        if (self.triggered_rip.is_set or self.triggered_rip.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.triggered_rip.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:interface[Cisco-IOS-XR-ip-rip-oper:interface-name = ' + str(self.interface_name) + ']'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "rip-peer"):
+                            for c in self.rip_peer:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Rip.Vrfs.Vrf.Interfaces.Interface.RipPeer()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.rip_peer.append(c)
+                            return c
+
+                        if (child_yang_name == "rip-summary"):
+                            for c in self.rip_summary:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Rip.Vrfs.Vrf.Interfaces.Interface.RipSummary()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.rip_summary.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "rip-peer" or name == "rip-summary" or name == "interface-name" or name == "accept-metric" or name == "auth-key-md5" or name == "auth-key-send-id" or name == "auth-keychain" or name == "auth-mode" or name == "destination-address" or name == "if-handle" or name == "interface" or name == "is-passive-interface" or name == "join-status" or name == "lpts-state" or name == "metric-cost" or name == "multicast-address" or name == "neighbor-address" or name == "oom-flags" or name == "pkt-accepted-valid-auth" or name == "pkt-drop-invalid-auth" or name == "pkt-drop-no-auth" or name == "pkt-drop-wrong-kc" or name == "poison-horizon" or name == "prefix-length" or name == "receive-version" or name == "rip-enabled" or name == "send-auth-key-exists" or name == "send-version" or name == "split-horizon" or name == "state" or name == "total-pkt-recvd" or name == "triggered-rip"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "accept-metric"):
+                            self.accept_metric = value
+                            self.accept_metric.value_namespace = name_space
+                            self.accept_metric.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-key-md5"):
+                            self.auth_key_md5 = value
+                            self.auth_key_md5.value_namespace = name_space
+                            self.auth_key_md5.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-key-send-id"):
+                            self.auth_key_send_id = value
+                            self.auth_key_send_id.value_namespace = name_space
+                            self.auth_key_send_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-keychain"):
+                            self.auth_keychain = value
+                            self.auth_keychain.value_namespace = name_space
+                            self.auth_keychain.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-mode"):
+                            self.auth_mode = value
+                            self.auth_mode.value_namespace = name_space
+                            self.auth_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-address"):
+                            self.destination_address = value
+                            self.destination_address.value_namespace = name_space
+                            self.destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "if-handle"):
+                            self.if_handle = value
+                            self.if_handle.value_namespace = name_space
+                            self.if_handle.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-passive-interface"):
+                            self.is_passive_interface = value
+                            self.is_passive_interface.value_namespace = name_space
+                            self.is_passive_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "join-status"):
+                            self.join_status = value
+                            self.join_status.value_namespace = name_space
+                            self.join_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "lpts-state"):
+                            self.lpts_state = value
+                            self.lpts_state.value_namespace = name_space
+                            self.lpts_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "metric-cost"):
+                            self.metric_cost = value
+                            self.metric_cost.value_namespace = name_space
+                            self.metric_cost.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-address"):
+                            self.multicast_address = value
+                            self.multicast_address.value_namespace = name_space
+                            self.multicast_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "neighbor-address"):
+                            self.neighbor_address = value
+                            self.neighbor_address.value_namespace = name_space
+                            self.neighbor_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "oom-flags"):
+                            self.oom_flags = value
+                            self.oom_flags.value_namespace = name_space
+                            self.oom_flags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-accepted-valid-auth"):
+                            self.pkt_accepted_valid_auth = value
+                            self.pkt_accepted_valid_auth.value_namespace = name_space
+                            self.pkt_accepted_valid_auth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-drop-invalid-auth"):
+                            self.pkt_drop_invalid_auth = value
+                            self.pkt_drop_invalid_auth.value_namespace = name_space
+                            self.pkt_drop_invalid_auth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-drop-no-auth"):
+                            self.pkt_drop_no_auth = value
+                            self.pkt_drop_no_auth.value_namespace = name_space
+                            self.pkt_drop_no_auth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-drop-wrong-kc"):
+                            self.pkt_drop_wrong_kc = value
+                            self.pkt_drop_wrong_kc.value_namespace = name_space
+                            self.pkt_drop_wrong_kc.value_namespace_prefix = name_space_prefix
+                        if(value_path == "poison-horizon"):
+                            self.poison_horizon = value
+                            self.poison_horizon.value_namespace = name_space
+                            self.poison_horizon.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "receive-version"):
+                            self.receive_version = value
+                            self.receive_version.value_namespace = name_space
+                            self.receive_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rip-enabled"):
+                            self.rip_enabled = value
+                            self.rip_enabled.value_namespace = name_space
+                            self.rip_enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-auth-key-exists"):
+                            self.send_auth_key_exists = value
+                            self.send_auth_key_exists.value_namespace = name_space
+                            self.send_auth_key_exists.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-version"):
+                            self.send_version = value
+                            self.send_version.value_namespace = name_space
+                            self.send_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "split-horizon"):
+                            self.split_horizon = value
+                            self.split_horizon.value_namespace = name_space
+                            self.split_horizon.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "total-pkt-recvd"):
+                            self.total_pkt_recvd = value
+                            self.total_pkt_recvd.value_namespace = name_space
+                            self.total_pkt_recvd.value_namespace_prefix = name_space_prefix
+                        if(value_path == "triggered-rip"):
+                            self.triggered_rip = value
+                            self.triggered_rip.value_namespace = name_space
+                            self.triggered_rip.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface:
+                        if (c.has_data()):
                             return True
-
-                        if self.accept_metric is not None:
-                            return True
-
-                        if self.auth_key_md5 is not None:
-                            return True
-
-                        if self.auth_key_send_id is not None:
-                            return True
-
-                        if self.auth_keychain is not None:
-                            return True
-
-                        if self.auth_mode is not None:
-                            return True
-
-                        if self.destination_address is not None:
-                            return True
-
-                        if self.if_handle is not None:
-                            return True
-
-                        if self.interface is not None:
-                            return True
-
-                        if self.is_passive_interface is not None:
-                            return True
-
-                        if self.join_status is not None:
-                            return True
-
-                        if self.lpts_state is not None:
-                            return True
-
-                        if self.metric_cost is not None:
-                            return True
-
-                        if self.multicast_address is not None:
-                            return True
-
-                        if self.neighbor_address is not None:
-                            return True
-
-                        if self.oom_flags is not None:
-                            return True
-
-                        if self.pkt_accepted_valid_auth is not None:
-                            return True
-
-                        if self.pkt_drop_invalid_auth is not None:
-                            return True
-
-                        if self.pkt_drop_no_auth is not None:
-                            return True
-
-                        if self.pkt_drop_wrong_kc is not None:
-                            return True
-
-                        if self.poison_horizon is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
-                        if self.receive_version is not None:
-                            return True
-
-                        if self.rip_enabled is not None:
-                            return True
-
-                        if self.rip_peer is not None:
-                            for child_ref in self.rip_peer:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.rip_summary is not None:
-                            for child_ref in self.rip_summary:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.send_auth_key_exists is not None:
-                            return True
-
-                        if self.send_version is not None:
-                            return True
-
-                        if self.split_horizon is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        if self.total_pkt_recvd is not None:
-                            return True
-
-                        if self.triggered_rip is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Vrfs.Vrf.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.interface:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interface"):
+                        for c in self.interface:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.Vrfs.Vrf.Interfaces.Interface()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Vrfs.Vrf.Interfaces']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Global_(object):
+            class Global_(Entity):
                 """
                 Global Information 
                 
@@ -1586,15 +2768,44 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_summary = YList()
-                    self.interface_summary.parent = self
-                    self.interface_summary.name = 'interface_summary'
+                    super(Rip.Vrfs.Vrf.Global_, self).__init__()
+
+                    self.yang_name = "global"
+                    self.yang_parent_name = "vrf"
+
                     self.vrf_summary = Rip.Vrfs.Vrf.Global_.VrfSummary()
                     self.vrf_summary.parent = self
+                    self._children_name_map["vrf_summary"] = "vrf-summary"
+                    self._children_yang_names.add("vrf-summary")
+
+                    self.interface_summary = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Vrfs.Vrf.Global_, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Vrfs.Vrf.Global_, self).__setattr__(name, value)
 
 
-                class VrfSummary(object):
+                class VrfSummary(Entity):
                     """
                     VRF summary data
                     
@@ -1686,77 +2897,207 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active = None
-                        self.active_interface_count = None
-                        self.flush_timer = None
-                        self.hold_down_timer = None
-                        self.interface_configured_count = None
-                        self.invalid_timer = None
-                        self.next_update_time = None
-                        self.oom_flags = None
-                        self.path_count = None
-                        self.route_count = None
-                        self.update_timer = None
-                        self.vrf_name = None
+                        super(Rip.Vrfs.Vrf.Global_.VrfSummary, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "vrf-summary"
+                        self.yang_parent_name = "global"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:vrf-summary'
+                        self.active = YLeaf(YType.boolean, "active")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+
+                        self.flush_timer = YLeaf(YType.uint32, "flush-timer")
+
+                        self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
+
+                        self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
+
+                        self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
+
+                        self.next_update_time = YLeaf(YType.uint32, "next-update-time")
+
+                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                        self.path_count = YLeaf(YType.uint32, "path-count")
+
+                        self.route_count = YLeaf(YType.uint32, "route-count")
+
+                        self.update_timer = YLeaf(YType.uint32, "update-timer")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("active",
+                                        "active_interface_count",
+                                        "flush_timer",
+                                        "hold_down_timer",
+                                        "interface_configured_count",
+                                        "invalid_timer",
+                                        "next_update_time",
+                                        "oom_flags",
+                                        "path_count",
+                                        "route_count",
+                                        "update_timer",
+                                        "vrf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Vrfs.Vrf.Global_.VrfSummary, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Vrfs.Vrf.Global_.VrfSummary, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.active.is_set or
+                            self.active_interface_count.is_set or
+                            self.flush_timer.is_set or
+                            self.hold_down_timer.is_set or
+                            self.interface_configured_count.is_set or
+                            self.invalid_timer.is_set or
+                            self.next_update_time.is_set or
+                            self.oom_flags.is_set or
+                            self.path_count.is_set or
+                            self.route_count.is_set or
+                            self.update_timer.is_set or
+                            self.vrf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.active.yfilter != YFilter.not_set or
+                            self.active_interface_count.yfilter != YFilter.not_set or
+                            self.flush_timer.yfilter != YFilter.not_set or
+                            self.hold_down_timer.yfilter != YFilter.not_set or
+                            self.interface_configured_count.yfilter != YFilter.not_set or
+                            self.invalid_timer.yfilter != YFilter.not_set or
+                            self.next_update_time.yfilter != YFilter.not_set or
+                            self.oom_flags.yfilter != YFilter.not_set or
+                            self.path_count.yfilter != YFilter.not_set or
+                            self.route_count.yfilter != YFilter.not_set or
+                            self.update_timer.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "vrf-summary" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active.get_name_leafdata())
+                        if (self.active_interface_count.is_set or self.active_interface_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active_interface_count.get_name_leafdata())
+                        if (self.flush_timer.is_set or self.flush_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.flush_timer.get_name_leafdata())
+                        if (self.hold_down_timer.is_set or self.hold_down_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_down_timer.get_name_leafdata())
+                        if (self.interface_configured_count.is_set or self.interface_configured_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_configured_count.get_name_leafdata())
+                        if (self.invalid_timer.is_set or self.invalid_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_timer.get_name_leafdata())
+                        if (self.next_update_time.is_set or self.next_update_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.next_update_time.get_name_leafdata())
+                        if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                        if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.path_count.get_name_leafdata())
+                        if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_count.get_name_leafdata())
+                        if (self.update_timer.is_set or self.update_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.update_timer.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "active" or name == "active-interface-count" or name == "flush-timer" or name == "hold-down-timer" or name == "interface-configured-count" or name == "invalid-timer" or name == "next-update-time" or name == "oom-flags" or name == "path-count" or name == "route-count" or name == "update-timer" or name == "vrf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "active"):
+                            self.active = value
+                            self.active.value_namespace = name_space
+                            self.active.value_namespace_prefix = name_space_prefix
+                        if(value_path == "active-interface-count"):
+                            self.active_interface_count = value
+                            self.active_interface_count.value_namespace = name_space
+                            self.active_interface_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "flush-timer"):
+                            self.flush_timer = value
+                            self.flush_timer.value_namespace = name_space
+                            self.flush_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-down-timer"):
+                            self.hold_down_timer = value
+                            self.hold_down_timer.value_namespace = name_space
+                            self.hold_down_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-configured-count"):
+                            self.interface_configured_count = value
+                            self.interface_configured_count.value_namespace = name_space
+                            self.interface_configured_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-timer"):
+                            self.invalid_timer = value
+                            self.invalid_timer.value_namespace = name_space
+                            self.invalid_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "next-update-time"):
+                            self.next_update_time = value
+                            self.next_update_time.value_namespace = name_space
+                            self.next_update_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "oom-flags"):
+                            self.oom_flags = value
+                            self.oom_flags.value_namespace = name_space
+                            self.oom_flags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "path-count"):
+                            self.path_count = value
+                            self.path_count.value_namespace = name_space
+                            self.path_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-count"):
+                            self.route_count = value
+                            self.route_count.value_namespace = name_space
+                            self.route_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "update-timer"):
+                            self.update_timer = value
+                            self.update_timer.value_namespace = name_space
+                            self.update_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                        if self.active_interface_count is not None:
-                            return True
 
-                        if self.flush_timer is not None:
-                            return True
-
-                        if self.hold_down_timer is not None:
-                            return True
-
-                        if self.interface_configured_count is not None:
-                            return True
-
-                        if self.invalid_timer is not None:
-                            return True
-
-                        if self.next_update_time is not None:
-                            return True
-
-                        if self.oom_flags is not None:
-                            return True
-
-                        if self.path_count is not None:
-                            return True
-
-                        if self.route_count is not None:
-                            return True
-
-                        if self.update_timer is not None:
-                            return True
-
-                        if self.vrf_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Vrfs.Vrf.Global_.VrfSummary']['meta_info']
-
-
-                class InterfaceSummary(object):
+                class InterfaceSummary(Entity):
                     """
                     List of Interfaces configured
                     
@@ -1815,7 +3156,7 @@ class Rip(object):
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\:   :py:class:`InterfaceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceStateEnum>`
+                    	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
                     
                     
 
@@ -1825,151 +3166,389 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.destination_address = None
-                        self.enabled = None
-                        self.interface_name = None
-                        self.neighbor_count = None
-                        self.oom_flags = None
-                        self.prefix_length = None
-                        self.receive_version = None
-                        self.send_version = None
-                        self.state = None
+                        super(Rip.Vrfs.Vrf.Global_.InterfaceSummary, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "interface-summary"
+                        self.yang_parent_name = "global"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:interface-summary'
+                        self.destination_address = YLeaf(YType.str, "destination-address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.enabled = YLeaf(YType.boolean, "enabled")
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.neighbor_count = YLeaf(YType.uint32, "neighbor-count")
+
+                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        self.receive_version = YLeaf(YType.uint32, "receive-version")
+
+                        self.send_version = YLeaf(YType.uint32, "send-version")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("destination_address",
+                                        "enabled",
+                                        "interface_name",
+                                        "neighbor_count",
+                                        "oom_flags",
+                                        "prefix_length",
+                                        "receive_version",
+                                        "send_version",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Vrfs.Vrf.Global_.InterfaceSummary, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Vrfs.Vrf.Global_.InterfaceSummary, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.destination_address.is_set or
+                            self.enabled.is_set or
+                            self.interface_name.is_set or
+                            self.neighbor_count.is_set or
+                            self.oom_flags.is_set or
+                            self.prefix_length.is_set or
+                            self.receive_version.is_set or
+                            self.send_version.is_set or
+                            self.state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.destination_address.yfilter != YFilter.not_set or
+                            self.enabled.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.neighbor_count.yfilter != YFilter.not_set or
+                            self.oom_flags.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set or
+                            self.receive_version.yfilter != YFilter.not_set or
+                            self.send_version.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface-summary" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_address.get_name_leafdata())
+                        if (self.enabled.is_set or self.enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.enabled.get_name_leafdata())
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.neighbor_count.is_set or self.neighbor_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.neighbor_count.get_name_leafdata())
+                        if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                        if (self.receive_version.is_set or self.receive_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.receive_version.get_name_leafdata())
+                        if (self.send_version.is_set or self.send_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_version.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "destination-address" or name == "enabled" or name == "interface-name" or name == "neighbor-count" or name == "oom-flags" or name == "prefix-length" or name == "receive-version" or name == "send-version" or name == "state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.destination_address is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "destination-address"):
+                            self.destination_address = value
+                            self.destination_address.value_namespace = name_space
+                            self.destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "enabled"):
+                            self.enabled = value
+                            self.enabled.value_namespace = name_space
+                            self.enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "neighbor-count"):
+                            self.neighbor_count = value
+                            self.neighbor_count.value_namespace = name_space
+                            self.neighbor_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "oom-flags"):
+                            self.oom_flags = value
+                            self.oom_flags.value_namespace = name_space
+                            self.oom_flags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "receive-version"):
+                            self.receive_version = value
+                            self.receive_version.value_namespace = name_space
+                            self.receive_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-version"):
+                            self.send_version = value
+                            self.send_version.value_namespace = name_space
+                            self.send_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface_summary:
+                        if (c.has_data()):
                             return True
+                    return (self.vrf_summary is not None and self.vrf_summary.has_data())
 
-                        if self.enabled is not None:
+                def has_operation(self):
+                    for c in self.interface_summary:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.vrf_summary is not None and self.vrf_summary.has_operation()))
 
-                        if self.interface_name is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "global" + path_buffer
 
-                        if self.neighbor_count is not None:
-                            return True
+                    return path_buffer
 
-                        if self.oom_flags is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.prefix_length is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
 
-                        if self.receive_version is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.send_version is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.state is not None:
-                            return True
+                    if (child_yang_name == "interface-summary"):
+                        for c in self.interface_summary:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.Vrfs.Vrf.Global_.InterfaceSummary()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface_summary.append(c)
+                        return c
 
-                        return False
+                    if (child_yang_name == "vrf-summary"):
+                        if (self.vrf_summary is None):
+                            self.vrf_summary = Rip.Vrfs.Vrf.Global_.VrfSummary()
+                            self.vrf_summary.parent = self
+                            self._children_name_map["vrf_summary"] = "vrf-summary"
+                        return self.vrf_summary
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Vrfs.Vrf.Global_.InterfaceSummary']['meta_info']
+                    return None
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:global'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-summary" or name == "vrf-summary"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_summary is not None:
-                        for child_ref in self.interface_summary:
-                            if child_ref._has_data():
-                                return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-                    if self.vrf_summary is not None and self.vrf_summary._has_data():
-                        return True
+            def has_data(self):
+                return (
+                    self.vrf_name.is_set or
+                    (self.configuration is not None and self.configuration.has_data()) or
+                    (self.global_ is not None and self.global_.has_data()) or
+                    (self.interfaces is not None and self.interfaces.has_data()) or
+                    (self.routes is not None and self.routes.has_data()) or
+                    (self.statistics is not None and self.statistics.has_data()))
 
-                    return False
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    (self.configuration is not None and self.configuration.has_operation()) or
+                    (self.global_ is not None and self.global_.has_operation()) or
+                    (self.interfaces is not None and self.interfaces.has_operation()) or
+                    (self.routes is not None and self.routes.has_operation()) or
+                    (self.statistics is not None and self.statistics.has_operation()))
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Vrfs.Vrf.Global_']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.vrf_name is None:
-                    raise YPYModelError('Key property vrf_name is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:vrfs/Cisco-IOS-XR-ip-rip-oper:vrf[Cisco-IOS-XR-ip-rip-oper:vrf-name = ' + str(self.vrf_name) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/vrfs/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "configuration"):
+                    if (self.configuration is None):
+                        self.configuration = Rip.Vrfs.Vrf.Configuration()
+                        self.configuration.parent = self
+                        self._children_name_map["configuration"] = "configuration"
+                    return self.configuration
+
+                if (child_yang_name == "global"):
+                    if (self.global_ is None):
+                        self.global_ = Rip.Vrfs.Vrf.Global_()
+                        self.global_.parent = self
+                        self._children_name_map["global_"] = "global"
+                    return self.global_
+
+                if (child_yang_name == "interfaces"):
+                    if (self.interfaces is None):
+                        self.interfaces = Rip.Vrfs.Vrf.Interfaces()
+                        self.interfaces.parent = self
+                        self._children_name_map["interfaces"] = "interfaces"
+                    return self.interfaces
+
+                if (child_yang_name == "routes"):
+                    if (self.routes is None):
+                        self.routes = Rip.Vrfs.Vrf.Routes()
+                        self.routes.parent = self
+                        self._children_name_map["routes"] = "routes"
+                    return self.routes
+
+                if (child_yang_name == "statistics"):
+                    if (self.statistics is None):
+                        self.statistics = Rip.Vrfs.Vrf.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                    return self.statistics
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "configuration" or name == "global" or name == "interfaces" or name == "routes" or name == "statistics" or name == "vrf-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.vrf_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vrf:
+                if (c.has_data()):
                     return True
-
-                if self.configuration is not None and self.configuration._has_data():
-                    return True
-
-                if self.global_ is not None and self.global_._has_data():
-                    return True
-
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
-
-                if self.routes is not None and self.routes._has_data():
-                    return True
-
-                if self.statistics is not None and self.statistics._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.Vrfs.Vrf']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:vrfs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.vrf is not None:
-                for child_ref in self.vrf:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.vrf:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vrfs" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vrf"):
+                for c in self.vrf:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Rip.Vrfs.Vrf()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vrf.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vrf"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-            return meta._meta_table['Rip.Vrfs']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Protocol(object):
+    class Protocol(Entity):
         """
         Protocol operational data
         
@@ -1991,14 +3570,23 @@ class Rip(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Rip.Protocol, self).__init__()
+
+            self.yang_name = "protocol"
+            self.yang_parent_name = "rip"
+
             self.default_vrf = Rip.Protocol.DefaultVrf()
             self.default_vrf.parent = self
+            self._children_name_map["default_vrf"] = "default-vrf"
+            self._children_yang_names.add("default-vrf")
+
             self.process = Rip.Protocol.Process()
             self.process.parent = self
+            self._children_name_map["process"] = "process"
+            self._children_yang_names.add("process")
 
 
-        class Process(object):
+        class Process(Entity):
             """
             RIP global process 
             
@@ -2057,19 +3645,56 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.current_oom_state = None
-                self.path_count = None
-                self.route_count = None
-                self.socket_descriptor = None
-                self.vrf_active_count = None
-                self.vrf_config_count = None
-                self.vrf_summary = YList()
-                self.vrf_summary.parent = self
-                self.vrf_summary.name = 'vrf_summary'
+                super(Rip.Protocol.Process, self).__init__()
+
+                self.yang_name = "process"
+                self.yang_parent_name = "protocol"
+
+                self.current_oom_state = YLeaf(YType.int32, "current-oom-state")
+
+                self.path_count = YLeaf(YType.uint32, "path-count")
+
+                self.route_count = YLeaf(YType.uint32, "route-count")
+
+                self.socket_descriptor = YLeaf(YType.int32, "socket-descriptor")
+
+                self.vrf_active_count = YLeaf(YType.uint32, "vrf-active-count")
+
+                self.vrf_config_count = YLeaf(YType.uint32, "vrf-config-count")
+
+                self.vrf_summary = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("current_oom_state",
+                                "path_count",
+                                "route_count",
+                                "socket_descriptor",
+                                "vrf_active_count",
+                                "vrf_config_count") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rip.Protocol.Process, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rip.Protocol.Process, self).__setattr__(name, value)
 
 
-            class VrfSummary(object):
+            class VrfSummary(Entity):
                 """
                 List of VRFs configured
                 
@@ -2161,115 +3786,312 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.active = None
-                    self.active_interface_count = None
-                    self.flush_timer = None
-                    self.hold_down_timer = None
-                    self.interface_configured_count = None
-                    self.invalid_timer = None
-                    self.next_update_time = None
-                    self.oom_flags = None
-                    self.path_count = None
-                    self.route_count = None
-                    self.update_timer = None
-                    self.vrf_name = None
+                    super(Rip.Protocol.Process.VrfSummary, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "vrf-summary"
+                    self.yang_parent_name = "process"
 
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:process/Cisco-IOS-XR-ip-rip-oper:vrf-summary'
+                    self.active = YLeaf(YType.boolean, "active")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+
+                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
+
+                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
+
+                    self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
+
+                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
+
+                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
+
+                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                    self.path_count = YLeaf(YType.uint32, "path-count")
+
+                    self.route_count = YLeaf(YType.uint32, "route-count")
+
+                    self.update_timer = YLeaf(YType.uint32, "update-timer")
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("active",
+                                    "active_interface_count",
+                                    "flush_timer",
+                                    "hold_down_timer",
+                                    "interface_configured_count",
+                                    "invalid_timer",
+                                    "next_update_time",
+                                    "oom_flags",
+                                    "path_count",
+                                    "route_count",
+                                    "update_timer",
+                                    "vrf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Protocol.Process.VrfSummary, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Protocol.Process.VrfSummary, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.active.is_set or
+                        self.active_interface_count.is_set or
+                        self.flush_timer.is_set or
+                        self.hold_down_timer.is_set or
+                        self.interface_configured_count.is_set or
+                        self.invalid_timer.is_set or
+                        self.next_update_time.is_set or
+                        self.oom_flags.is_set or
+                        self.path_count.is_set or
+                        self.route_count.is_set or
+                        self.update_timer.is_set or
+                        self.vrf_name.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.active.yfilter != YFilter.not_set or
+                        self.active_interface_count.yfilter != YFilter.not_set or
+                        self.flush_timer.yfilter != YFilter.not_set or
+                        self.hold_down_timer.yfilter != YFilter.not_set or
+                        self.interface_configured_count.yfilter != YFilter.not_set or
+                        self.invalid_timer.yfilter != YFilter.not_set or
+                        self.next_update_time.yfilter != YFilter.not_set or
+                        self.oom_flags.yfilter != YFilter.not_set or
+                        self.path_count.yfilter != YFilter.not_set or
+                        self.route_count.yfilter != YFilter.not_set or
+                        self.update_timer.yfilter != YFilter.not_set or
+                        self.vrf_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vrf-summary" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/process/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active.get_name_leafdata())
+                    if (self.active_interface_count.is_set or self.active_interface_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_interface_count.get_name_leafdata())
+                    if (self.flush_timer.is_set or self.flush_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flush_timer.get_name_leafdata())
+                    if (self.hold_down_timer.is_set or self.hold_down_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hold_down_timer.get_name_leafdata())
+                    if (self.interface_configured_count.is_set or self.interface_configured_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_configured_count.get_name_leafdata())
+                    if (self.invalid_timer.is_set or self.invalid_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.invalid_timer.get_name_leafdata())
+                    if (self.next_update_time.is_set or self.next_update_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.next_update_time.get_name_leafdata())
+                    if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                    if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_count.get_name_leafdata())
+                    if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_count.get_name_leafdata())
+                    if (self.update_timer.is_set or self.update_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.update_timer.get_name_leafdata())
+                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "active" or name == "active-interface-count" or name == "flush-timer" or name == "hold-down-timer" or name == "interface-configured-count" or name == "invalid-timer" or name == "next-update-time" or name == "oom-flags" or name == "path-count" or name == "route-count" or name == "update-timer" or name == "vrf-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.active is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "active"):
+                        self.active = value
+                        self.active.value_namespace = name_space
+                        self.active.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-interface-count"):
+                        self.active_interface_count = value
+                        self.active_interface_count.value_namespace = name_space
+                        self.active_interface_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flush-timer"):
+                        self.flush_timer = value
+                        self.flush_timer.value_namespace = name_space
+                        self.flush_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hold-down-timer"):
+                        self.hold_down_timer = value
+                        self.hold_down_timer.value_namespace = name_space
+                        self.hold_down_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-configured-count"):
+                        self.interface_configured_count = value
+                        self.interface_configured_count.value_namespace = name_space
+                        self.interface_configured_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "invalid-timer"):
+                        self.invalid_timer = value
+                        self.invalid_timer.value_namespace = name_space
+                        self.invalid_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "next-update-time"):
+                        self.next_update_time = value
+                        self.next_update_time.value_namespace = name_space
+                        self.next_update_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "oom-flags"):
+                        self.oom_flags = value
+                        self.oom_flags.value_namespace = name_space
+                        self.oom_flags.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path-count"):
+                        self.path_count = value
+                        self.path_count.value_namespace = name_space
+                        self.path_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-count"):
+                        self.route_count = value
+                        self.route_count.value_namespace = name_space
+                        self.route_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "update-timer"):
+                        self.update_timer = value
+                        self.update_timer.value_namespace = name_space
+                        self.update_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vrf-name"):
+                        self.vrf_name = value
+                        self.vrf_name.value_namespace = name_space
+                        self.vrf_name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.vrf_summary:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.current_oom_state.is_set or
+                    self.path_count.is_set or
+                    self.route_count.is_set or
+                    self.socket_descriptor.is_set or
+                    self.vrf_active_count.is_set or
+                    self.vrf_config_count.is_set)
 
-                    if self.active_interface_count is not None:
+            def has_operation(self):
+                for c in self.vrf_summary:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.current_oom_state.yfilter != YFilter.not_set or
+                    self.path_count.yfilter != YFilter.not_set or
+                    self.route_count.yfilter != YFilter.not_set or
+                    self.socket_descriptor.yfilter != YFilter.not_set or
+                    self.vrf_active_count.yfilter != YFilter.not_set or
+                    self.vrf_config_count.yfilter != YFilter.not_set)
 
-                    if self.flush_timer is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "process" + path_buffer
 
-                    if self.hold_down_timer is not None:
-                        return True
+                return path_buffer
 
-                    if self.interface_configured_count is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.invalid_timer is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.current_oom_state.is_set or self.current_oom_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.current_oom_state.get_name_leafdata())
+                if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.path_count.get_name_leafdata())
+                if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.route_count.get_name_leafdata())
+                if (self.socket_descriptor.is_set or self.socket_descriptor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.socket_descriptor.get_name_leafdata())
+                if (self.vrf_active_count.is_set or self.vrf_active_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_active_count.get_name_leafdata())
+                if (self.vrf_config_count.is_set or self.vrf_config_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_config_count.get_name_leafdata())
 
-                    if self.next_update_time is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.oom_flags is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.path_count is not None:
-                        return True
+                if (child_yang_name == "vrf-summary"):
+                    for c in self.vrf_summary:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Rip.Protocol.Process.VrfSummary()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.vrf_summary.append(c)
+                    return c
 
-                    if self.route_count is not None:
-                        return True
+                return None
 
-                    if self.update_timer is not None:
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Protocol.Process.VrfSummary']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:process'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "vrf-summary" or name == "current-oom-state" or name == "path-count" or name == "route-count" or name == "socket-descriptor" or name == "vrf-active-count" or name == "vrf-config-count"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.current_oom_state is not None:
-                    return True
-
-                if self.path_count is not None:
-                    return True
-
-                if self.route_count is not None:
-                    return True
-
-                if self.socket_descriptor is not None:
-                    return True
-
-                if self.vrf_active_count is not None:
-                    return True
-
-                if self.vrf_config_count is not None:
-                    return True
-
-                if self.vrf_summary is not None:
-                    for child_ref in self.vrf_summary:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.Protocol.Process']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "current-oom-state"):
+                    self.current_oom_state = value
+                    self.current_oom_state.value_namespace = name_space
+                    self.current_oom_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "path-count"):
+                    self.path_count = value
+                    self.path_count.value_namespace = name_space
+                    self.path_count.value_namespace_prefix = name_space_prefix
+                if(value_path == "route-count"):
+                    self.route_count = value
+                    self.route_count.value_namespace = name_space
+                    self.route_count.value_namespace_prefix = name_space_prefix
+                if(value_path == "socket-descriptor"):
+                    self.socket_descriptor = value
+                    self.socket_descriptor.value_namespace = name_space
+                    self.socket_descriptor.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-active-count"):
+                    self.vrf_active_count = value
+                    self.vrf_active_count.value_namespace = name_space
+                    self.vrf_active_count.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf-config-count"):
+                    self.vrf_config_count = value
+                    self.vrf_config_count.value_namespace = name_space
+                    self.vrf_config_count.value_namespace_prefix = name_space_prefix
 
 
-        class DefaultVrf(object):
+        class DefaultVrf(Entity):
             """
             RIP operational data for Default VRF
             
@@ -2306,20 +4128,38 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(Rip.Protocol.DefaultVrf, self).__init__()
+
+                self.yang_name = "default-vrf"
+                self.yang_parent_name = "protocol"
+
                 self.configuration = Rip.Protocol.DefaultVrf.Configuration()
                 self.configuration.parent = self
+                self._children_name_map["configuration"] = "configuration"
+                self._children_yang_names.add("configuration")
+
                 self.global_ = Rip.Protocol.DefaultVrf.Global_()
                 self.global_.parent = self
+                self._children_name_map["global_"] = "global"
+                self._children_yang_names.add("global")
+
                 self.interfaces = Rip.Protocol.DefaultVrf.Interfaces()
                 self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
                 self.routes = Rip.Protocol.DefaultVrf.Routes()
                 self.routes.parent = self
+                self._children_name_map["routes"] = "routes"
+                self._children_yang_names.add("routes")
+
                 self.statistics = Rip.Protocol.DefaultVrf.Statistics()
                 self.statistics.parent = self
+                self._children_name_map["statistics"] = "statistics"
+                self._children_yang_names.add("statistics")
 
 
-            class Routes(object):
+            class Routes(Entity):
                 """
                 RIP route database
                 
@@ -2336,13 +4176,39 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.route = YList()
-                    self.route.parent = self
-                    self.route.name = 'route'
+                    super(Rip.Protocol.DefaultVrf.Routes, self).__init__()
+
+                    self.yang_name = "routes"
+                    self.yang_parent_name = "default-vrf"
+
+                    self.route = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Protocol.DefaultVrf.Routes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Protocol.DefaultVrf.Routes, self).__setattr__(name, value)
 
 
-                class Route(object):
+                class Route(Entity):
                     """
                     A route in the RIP database
                     
@@ -2387,7 +4253,7 @@ class Rip(object):
                     .. attribute:: path_origin
                     
                     	Where this route was learnt
-                    	**type**\:   :py:class:`RipRouteOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOriginEnum>`
+                    	**type**\:   :py:class:`RipRouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOrigin>`
                     
                     .. attribute:: paths
                     
@@ -2449,27 +4315,80 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active = None
-                        self.attributes = None
-                        self.bgp_count = None
-                        self.destination_address = None
-                        self.distance = None
-                        self.hold_down = None
-                        self.path_origin = None
-                        self.paths = YList()
-                        self.paths.parent = self
-                        self.paths.name = 'paths'
-                        self.prefix = None
-                        self.prefix_length = None
-                        self.prefix_length_xr = None
-                        self.route_summary = None
-                        self.route_tag = None
-                        self.route_type = None
-                        self.version = None
+                        super(Rip.Protocol.DefaultVrf.Routes.Route, self).__init__()
+
+                        self.yang_name = "route"
+                        self.yang_parent_name = "routes"
+
+                        self.active = YLeaf(YType.boolean, "active")
+
+                        self.attributes = YLeaf(YType.uint32, "attributes")
+
+                        self.bgp_count = YLeaf(YType.uint16, "bgp-count")
+
+                        self.destination_address = YLeaf(YType.str, "destination-address")
+
+                        self.distance = YLeaf(YType.uint16, "distance")
+
+                        self.hold_down = YLeaf(YType.boolean, "hold-down")
+
+                        self.path_origin = YLeaf(YType.enumeration, "path-origin")
+
+                        self.prefix = YLeaf(YType.str, "prefix")
+
+                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
+
+                        self.route_summary = YLeaf(YType.boolean, "route-summary")
+
+                        self.route_tag = YLeaf(YType.uint16, "route-tag")
+
+                        self.route_type = YLeaf(YType.uint16, "route-type")
+
+                        self.version = YLeaf(YType.uint8, "version")
+
+                        self.paths = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("active",
+                                        "attributes",
+                                        "bgp_count",
+                                        "destination_address",
+                                        "distance",
+                                        "hold_down",
+                                        "path_origin",
+                                        "prefix",
+                                        "prefix_length",
+                                        "prefix_length_xr",
+                                        "route_summary",
+                                        "route_tag",
+                                        "route_type",
+                                        "version") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Protocol.DefaultVrf.Routes.Route, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Protocol.DefaultVrf.Routes.Route, self).__setattr__(name, value)
 
 
-                    class Paths(object):
+                    class Paths(Entity):
                         """
                         The paths for this route
                         
@@ -2528,141 +4447,378 @@ class Rip(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interface = None
-                            self.is_permanent = None
-                            self.metric = None
-                            self.next_hop_address = None
-                            self.source_address = None
-                            self.tag = None
-                            self.uptime = None
+                            super(Rip.Protocol.DefaultVrf.Routes.Route.Paths, self).__init__()
 
-                        @property
-                        def _common_path(self):
+                            self.yang_name = "paths"
+                            self.yang_parent_name = "route"
 
-                            return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:routes/Cisco-IOS-XR-ip-rip-oper:route/Cisco-IOS-XR-ip-rip-oper:paths'
+                            self.interface = YLeaf(YType.str, "interface")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.is_permanent = YLeaf(YType.boolean, "is-permanent")
+
+                            self.metric = YLeaf(YType.uint16, "metric")
+
+                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                            self.source_address = YLeaf(YType.str, "source-address")
+
+                            self.tag = YLeaf(YType.uint16, "tag")
+
+                            self.uptime = YLeaf(YType.uint32, "uptime")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interface",
+                                            "is_permanent",
+                                            "metric",
+                                            "next_hop_address",
+                                            "source_address",
+                                            "tag",
+                                            "uptime") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Rip.Protocol.DefaultVrf.Routes.Route.Paths, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Rip.Protocol.DefaultVrf.Routes.Route.Paths, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interface.is_set or
+                                self.is_permanent.is_set or
+                                self.metric.is_set or
+                                self.next_hop_address.is_set or
+                                self.source_address.is_set or
+                                self.tag.is_set or
+                                self.uptime.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interface.yfilter != YFilter.not_set or
+                                self.is_permanent.yfilter != YFilter.not_set or
+                                self.metric.yfilter != YFilter.not_set or
+                                self.next_hop_address.yfilter != YFilter.not_set or
+                                self.source_address.yfilter != YFilter.not_set or
+                                self.tag.yfilter != YFilter.not_set or
+                                self.uptime.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "paths" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/routes/route/%s" % self.get_segment_path()
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface.get_name_leafdata())
+                            if (self.is_permanent.is_set or self.is_permanent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_permanent.get_name_leafdata())
+                            if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.metric.get_name_leafdata())
+                            if (self.next_hop_address.is_set or self.next_hop_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.next_hop_address.get_name_leafdata())
+                            if (self.source_address.is_set or self.source_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_address.get_name_leafdata())
+                            if (self.tag.is_set or self.tag.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.tag.get_name_leafdata())
+                            if (self.uptime.is_set or self.uptime.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.uptime.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interface" or name == "is-permanent" or name == "metric" or name == "next-hop-address" or name == "source-address" or name == "tag" or name == "uptime"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.interface is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interface"):
+                                self.interface = value
+                                self.interface.value_namespace = name_space
+                                self.interface.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-permanent"):
+                                self.is_permanent = value
+                                self.is_permanent.value_namespace = name_space
+                                self.is_permanent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "metric"):
+                                self.metric = value
+                                self.metric.value_namespace = name_space
+                                self.metric.value_namespace_prefix = name_space_prefix
+                            if(value_path == "next-hop-address"):
+                                self.next_hop_address = value
+                                self.next_hop_address.value_namespace = name_space
+                                self.next_hop_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source-address"):
+                                self.source_address = value
+                                self.source_address.value_namespace = name_space
+                                self.source_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "tag"):
+                                self.tag = value
+                                self.tag.value_namespace = name_space
+                                self.tag.value_namespace_prefix = name_space_prefix
+                            if(value_path == "uptime"):
+                                self.uptime = value
+                                self.uptime.value_namespace = name_space
+                                self.uptime.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.paths:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.active.is_set or
+                            self.attributes.is_set or
+                            self.bgp_count.is_set or
+                            self.destination_address.is_set or
+                            self.distance.is_set or
+                            self.hold_down.is_set or
+                            self.path_origin.is_set or
+                            self.prefix.is_set or
+                            self.prefix_length.is_set or
+                            self.prefix_length_xr.is_set or
+                            self.route_summary.is_set or
+                            self.route_tag.is_set or
+                            self.route_type.is_set or
+                            self.version.is_set)
 
-                            if self.is_permanent is not None:
+                    def has_operation(self):
+                        for c in self.paths:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.active.yfilter != YFilter.not_set or
+                            self.attributes.yfilter != YFilter.not_set or
+                            self.bgp_count.yfilter != YFilter.not_set or
+                            self.destination_address.yfilter != YFilter.not_set or
+                            self.distance.yfilter != YFilter.not_set or
+                            self.hold_down.yfilter != YFilter.not_set or
+                            self.path_origin.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set or
+                            self.prefix_length_xr.yfilter != YFilter.not_set or
+                            self.route_summary.yfilter != YFilter.not_set or
+                            self.route_tag.yfilter != YFilter.not_set or
+                            self.route_type.yfilter != YFilter.not_set or
+                            self.version.yfilter != YFilter.not_set)
 
-                            if self.metric is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "route" + path_buffer
 
-                            if self.next_hop_address is not None:
-                                return True
+                        return path_buffer
 
-                            if self.source_address is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/routes/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            if self.tag is not None:
-                                return True
+                        leaf_name_data = LeafDataList()
+                        if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active.get_name_leafdata())
+                        if (self.attributes.is_set or self.attributes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.attributes.get_name_leafdata())
+                        if (self.bgp_count.is_set or self.bgp_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bgp_count.get_name_leafdata())
+                        if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_address.get_name_leafdata())
+                        if (self.distance.is_set or self.distance.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.distance.get_name_leafdata())
+                        if (self.hold_down.is_set or self.hold_down.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_down.get_name_leafdata())
+                        if (self.path_origin.is_set or self.path_origin.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.path_origin.get_name_leafdata())
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                        if (self.prefix_length_xr.is_set or self.prefix_length_xr.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length_xr.get_name_leafdata())
+                        if (self.route_summary.is_set or self.route_summary.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_summary.get_name_leafdata())
+                        if (self.route_tag.is_set or self.route_tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_tag.get_name_leafdata())
+                        if (self.route_type.is_set or self.route_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_type.get_name_leafdata())
+                        if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version.get_name_leafdata())
 
-                            if self.uptime is not None:
-                                return True
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                            return False
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                            return meta._meta_table['Rip.Protocol.DefaultVrf.Routes.Route.Paths']['meta_info']
+                        if (child_yang_name == "paths"):
+                            for c in self.paths:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Rip.Protocol.DefaultVrf.Routes.Route.Paths()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.paths.append(c)
+                            return c
 
-                    @property
-                    def _common_path(self):
+                        return None
 
-                        return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:routes/Cisco-IOS-XR-ip-rip-oper:route'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "paths" or name == "active" or name == "attributes" or name == "bgp-count" or name == "destination-address" or name == "distance" or name == "hold-down" or name == "path-origin" or name == "prefix" or name == "prefix-length" or name == "prefix-length-xr" or name == "route-summary" or name == "route-tag" or name == "route-type" or name == "version"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "active"):
+                            self.active = value
+                            self.active.value_namespace = name_space
+                            self.active.value_namespace_prefix = name_space_prefix
+                        if(value_path == "attributes"):
+                            self.attributes = value
+                            self.attributes.value_namespace = name_space
+                            self.attributes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bgp-count"):
+                            self.bgp_count = value
+                            self.bgp_count.value_namespace = name_space
+                            self.bgp_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-address"):
+                            self.destination_address = value
+                            self.destination_address.value_namespace = name_space
+                            self.destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "distance"):
+                            self.distance = value
+                            self.distance.value_namespace = name_space
+                            self.distance.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-down"):
+                            self.hold_down = value
+                            self.hold_down.value_namespace = name_space
+                            self.hold_down.value_namespace_prefix = name_space_prefix
+                        if(value_path == "path-origin"):
+                            self.path_origin = value
+                            self.path_origin.value_namespace = name_space
+                            self.path_origin.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length-xr"):
+                            self.prefix_length_xr = value
+                            self.prefix_length_xr.value_namespace = name_space
+                            self.prefix_length_xr.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-summary"):
+                            self.route_summary = value
+                            self.route_summary.value_namespace = name_space
+                            self.route_summary.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-tag"):
+                            self.route_tag = value
+                            self.route_tag.value_namespace = name_space
+                            self.route_tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-type"):
+                            self.route_type = value
+                            self.route_type.value_namespace = name_space
+                            self.route_type.value_namespace_prefix = name_space_prefix
+                        if(value_path == "version"):
+                            self.version = value
+                            self.version.value_namespace = name_space
+                            self.version.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.route:
+                        if (c.has_data()):
                             return True
-
-                        if self.attributes is not None:
-                            return True
-
-                        if self.bgp_count is not None:
-                            return True
-
-                        if self.destination_address is not None:
-                            return True
-
-                        if self.distance is not None:
-                            return True
-
-                        if self.hold_down is not None:
-                            return True
-
-                        if self.path_origin is not None:
-                            return True
-
-                        if self.paths is not None:
-                            for child_ref in self.paths:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
-                        if self.prefix_length_xr is not None:
-                            return True
-
-                        if self.route_summary is not None:
-                            return True
-
-                        if self.route_tag is not None:
-                            return True
-
-                        if self.route_type is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Protocol.DefaultVrf.Routes.Route']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:routes'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.route is not None:
-                        for child_ref in self.route:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.route:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "routes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "route"):
+                        for c in self.route:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.Protocol.DefaultVrf.Routes.Route()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.route.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "route"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Protocol.DefaultVrf.Routes']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Configuration(object):
+            class Configuration(Entity):
                 """
                 RIP global configuration
                 
@@ -2793,103 +4949,284 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.active = None
-                    self.auto_summarize = None
-                    self.default_metric = None
-                    self.flash_threshold = None
-                    self.flush_timer = None
-                    self.hold_down_timer = None
-                    self.input_q_length = None
-                    self.invalid_timer = None
-                    self.maximum_paths = None
-                    self.multicast_address = None
-                    self.next_update_time = None
-                    self.nsf_life_time = None
-                    self.nsf_status = None
-                    self.oom_flags = None
-                    self.rip_version = None
-                    self.triggered_rip = None
-                    self.update_timer = None
-                    self.validation_indicator = None
-                    self.vr_fised_socket = None
+                    super(Rip.Protocol.DefaultVrf.Configuration, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "configuration"
+                    self.yang_parent_name = "default-vrf"
 
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:configuration'
+                    self.active = YLeaf(YType.boolean, "active")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.auto_summarize = YLeaf(YType.boolean, "auto-summarize")
+
+                    self.default_metric = YLeaf(YType.uint8, "default-metric")
+
+                    self.flash_threshold = YLeaf(YType.uint8, "flash-threshold")
+
+                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
+
+                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
+
+                    self.input_q_length = YLeaf(YType.uint16, "input-q-length")
+
+                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
+
+                    self.maximum_paths = YLeaf(YType.uint8, "maximum-paths")
+
+                    self.multicast_address = YLeaf(YType.boolean, "multicast-address")
+
+                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
+
+                    self.nsf_life_time = YLeaf(YType.uint32, "nsf-life-time")
+
+                    self.nsf_status = YLeaf(YType.boolean, "nsf-status")
+
+                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                    self.rip_version = YLeaf(YType.int32, "rip-version")
+
+                    self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
+
+                    self.update_timer = YLeaf(YType.uint32, "update-timer")
+
+                    self.validation_indicator = YLeaf(YType.boolean, "validation-indicator")
+
+                    self.vr_fised_socket = YLeaf(YType.boolean, "vr-fised-socket")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("active",
+                                    "auto_summarize",
+                                    "default_metric",
+                                    "flash_threshold",
+                                    "flush_timer",
+                                    "hold_down_timer",
+                                    "input_q_length",
+                                    "invalid_timer",
+                                    "maximum_paths",
+                                    "multicast_address",
+                                    "next_update_time",
+                                    "nsf_life_time",
+                                    "nsf_status",
+                                    "oom_flags",
+                                    "rip_version",
+                                    "triggered_rip",
+                                    "update_timer",
+                                    "validation_indicator",
+                                    "vr_fised_socket") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Protocol.DefaultVrf.Configuration, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Protocol.DefaultVrf.Configuration, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.active.is_set or
+                        self.auto_summarize.is_set or
+                        self.default_metric.is_set or
+                        self.flash_threshold.is_set or
+                        self.flush_timer.is_set or
+                        self.hold_down_timer.is_set or
+                        self.input_q_length.is_set or
+                        self.invalid_timer.is_set or
+                        self.maximum_paths.is_set or
+                        self.multicast_address.is_set or
+                        self.next_update_time.is_set or
+                        self.nsf_life_time.is_set or
+                        self.nsf_status.is_set or
+                        self.oom_flags.is_set or
+                        self.rip_version.is_set or
+                        self.triggered_rip.is_set or
+                        self.update_timer.is_set or
+                        self.validation_indicator.is_set or
+                        self.vr_fised_socket.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.active.yfilter != YFilter.not_set or
+                        self.auto_summarize.yfilter != YFilter.not_set or
+                        self.default_metric.yfilter != YFilter.not_set or
+                        self.flash_threshold.yfilter != YFilter.not_set or
+                        self.flush_timer.yfilter != YFilter.not_set or
+                        self.hold_down_timer.yfilter != YFilter.not_set or
+                        self.input_q_length.yfilter != YFilter.not_set or
+                        self.invalid_timer.yfilter != YFilter.not_set or
+                        self.maximum_paths.yfilter != YFilter.not_set or
+                        self.multicast_address.yfilter != YFilter.not_set or
+                        self.next_update_time.yfilter != YFilter.not_set or
+                        self.nsf_life_time.yfilter != YFilter.not_set or
+                        self.nsf_status.yfilter != YFilter.not_set or
+                        self.oom_flags.yfilter != YFilter.not_set or
+                        self.rip_version.yfilter != YFilter.not_set or
+                        self.triggered_rip.yfilter != YFilter.not_set or
+                        self.update_timer.yfilter != YFilter.not_set or
+                        self.validation_indicator.yfilter != YFilter.not_set or
+                        self.vr_fised_socket.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "configuration" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active.get_name_leafdata())
+                    if (self.auto_summarize.is_set or self.auto_summarize.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.auto_summarize.get_name_leafdata())
+                    if (self.default_metric.is_set or self.default_metric.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.default_metric.get_name_leafdata())
+                    if (self.flash_threshold.is_set or self.flash_threshold.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flash_threshold.get_name_leafdata())
+                    if (self.flush_timer.is_set or self.flush_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flush_timer.get_name_leafdata())
+                    if (self.hold_down_timer.is_set or self.hold_down_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hold_down_timer.get_name_leafdata())
+                    if (self.input_q_length.is_set or self.input_q_length.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_q_length.get_name_leafdata())
+                    if (self.invalid_timer.is_set or self.invalid_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.invalid_timer.get_name_leafdata())
+                    if (self.maximum_paths.is_set or self.maximum_paths.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.maximum_paths.get_name_leafdata())
+                    if (self.multicast_address.is_set or self.multicast_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.multicast_address.get_name_leafdata())
+                    if (self.next_update_time.is_set or self.next_update_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.next_update_time.get_name_leafdata())
+                    if (self.nsf_life_time.is_set or self.nsf_life_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nsf_life_time.get_name_leafdata())
+                    if (self.nsf_status.is_set or self.nsf_status.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nsf_status.get_name_leafdata())
+                    if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                    if (self.rip_version.is_set or self.rip_version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rip_version.get_name_leafdata())
+                    if (self.triggered_rip.is_set or self.triggered_rip.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.triggered_rip.get_name_leafdata())
+                    if (self.update_timer.is_set or self.update_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.update_timer.get_name_leafdata())
+                    if (self.validation_indicator.is_set or self.validation_indicator.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.validation_indicator.get_name_leafdata())
+                    if (self.vr_fised_socket.is_set or self.vr_fised_socket.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vr_fised_socket.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "active" or name == "auto-summarize" or name == "default-metric" or name == "flash-threshold" or name == "flush-timer" or name == "hold-down-timer" or name == "input-q-length" or name == "invalid-timer" or name == "maximum-paths" or name == "multicast-address" or name == "next-update-time" or name == "nsf-life-time" or name == "nsf-status" or name == "oom-flags" or name == "rip-version" or name == "triggered-rip" or name == "update-timer" or name == "validation-indicator" or name == "vr-fised-socket"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.active is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "active"):
+                        self.active = value
+                        self.active.value_namespace = name_space
+                        self.active.value_namespace_prefix = name_space_prefix
+                    if(value_path == "auto-summarize"):
+                        self.auto_summarize = value
+                        self.auto_summarize.value_namespace = name_space
+                        self.auto_summarize.value_namespace_prefix = name_space_prefix
+                    if(value_path == "default-metric"):
+                        self.default_metric = value
+                        self.default_metric.value_namespace = name_space
+                        self.default_metric.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flash-threshold"):
+                        self.flash_threshold = value
+                        self.flash_threshold.value_namespace = name_space
+                        self.flash_threshold.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flush-timer"):
+                        self.flush_timer = value
+                        self.flush_timer.value_namespace = name_space
+                        self.flush_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hold-down-timer"):
+                        self.hold_down_timer = value
+                        self.hold_down_timer.value_namespace = name_space
+                        self.hold_down_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-q-length"):
+                        self.input_q_length = value
+                        self.input_q_length.value_namespace = name_space
+                        self.input_q_length.value_namespace_prefix = name_space_prefix
+                    if(value_path == "invalid-timer"):
+                        self.invalid_timer = value
+                        self.invalid_timer.value_namespace = name_space
+                        self.invalid_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "maximum-paths"):
+                        self.maximum_paths = value
+                        self.maximum_paths.value_namespace = name_space
+                        self.maximum_paths.value_namespace_prefix = name_space_prefix
+                    if(value_path == "multicast-address"):
+                        self.multicast_address = value
+                        self.multicast_address.value_namespace = name_space
+                        self.multicast_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "next-update-time"):
+                        self.next_update_time = value
+                        self.next_update_time.value_namespace = name_space
+                        self.next_update_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nsf-life-time"):
+                        self.nsf_life_time = value
+                        self.nsf_life_time.value_namespace = name_space
+                        self.nsf_life_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nsf-status"):
+                        self.nsf_status = value
+                        self.nsf_status.value_namespace = name_space
+                        self.nsf_status.value_namespace_prefix = name_space_prefix
+                    if(value_path == "oom-flags"):
+                        self.oom_flags = value
+                        self.oom_flags.value_namespace = name_space
+                        self.oom_flags.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rip-version"):
+                        self.rip_version = value
+                        self.rip_version.value_namespace = name_space
+                        self.rip_version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "triggered-rip"):
+                        self.triggered_rip = value
+                        self.triggered_rip.value_namespace = name_space
+                        self.triggered_rip.value_namespace_prefix = name_space_prefix
+                    if(value_path == "update-timer"):
+                        self.update_timer = value
+                        self.update_timer.value_namespace = name_space
+                        self.update_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "validation-indicator"):
+                        self.validation_indicator = value
+                        self.validation_indicator.value_namespace = name_space
+                        self.validation_indicator.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vr-fised-socket"):
+                        self.vr_fised_socket = value
+                        self.vr_fised_socket.value_namespace = name_space
+                        self.vr_fised_socket.value_namespace_prefix = name_space_prefix
 
-                    if self.auto_summarize is not None:
-                        return True
 
-                    if self.default_metric is not None:
-                        return True
-
-                    if self.flash_threshold is not None:
-                        return True
-
-                    if self.flush_timer is not None:
-                        return True
-
-                    if self.hold_down_timer is not None:
-                        return True
-
-                    if self.input_q_length is not None:
-                        return True
-
-                    if self.invalid_timer is not None:
-                        return True
-
-                    if self.maximum_paths is not None:
-                        return True
-
-                    if self.multicast_address is not None:
-                        return True
-
-                    if self.next_update_time is not None:
-                        return True
-
-                    if self.nsf_life_time is not None:
-                        return True
-
-                    if self.nsf_status is not None:
-                        return True
-
-                    if self.oom_flags is not None:
-                        return True
-
-                    if self.rip_version is not None:
-                        return True
-
-                    if self.triggered_rip is not None:
-                        return True
-
-                    if self.update_timer is not None:
-                        return True
-
-                    if self.validation_indicator is not None:
-                        return True
-
-                    if self.vr_fised_socket is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Protocol.DefaultVrf.Configuration']['meta_info']
-
-
-            class Statistics(object):
+            class Statistics(Entity):
                 """
                 RIP statistics information
                 
@@ -2992,79 +5329,218 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.discarded_packets = None
-                    self.discarded_routes = None
-                    self.path_count = None
-                    self.path_malloc_failures = None
-                    self.periodic_updates = None
-                    self.query_responses = None
-                    self.received_packets = None
-                    self.rib_updates = None
-                    self.route_count = None
-                    self.route_malloc_failures = None
-                    self.sent_message_failures = None
-                    self.sent_messages = None
-                    self.standby_packets_received = None
+                    super(Rip.Protocol.DefaultVrf.Statistics, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "statistics"
+                    self.yang_parent_name = "default-vrf"
 
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:statistics'
+                    self.discarded_packets = YLeaf(YType.uint32, "discarded-packets")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.discarded_routes = YLeaf(YType.uint32, "discarded-routes")
+
+                    self.path_count = YLeaf(YType.uint32, "path-count")
+
+                    self.path_malloc_failures = YLeaf(YType.uint32, "path-malloc-failures")
+
+                    self.periodic_updates = YLeaf(YType.uint32, "periodic-updates")
+
+                    self.query_responses = YLeaf(YType.uint32, "query-responses")
+
+                    self.received_packets = YLeaf(YType.uint32, "received-packets")
+
+                    self.rib_updates = YLeaf(YType.uint32, "rib-updates")
+
+                    self.route_count = YLeaf(YType.uint32, "route-count")
+
+                    self.route_malloc_failures = YLeaf(YType.uint32, "route-malloc-failures")
+
+                    self.sent_message_failures = YLeaf(YType.uint32, "sent-message-failures")
+
+                    self.sent_messages = YLeaf(YType.uint32, "sent-messages")
+
+                    self.standby_packets_received = YLeaf(YType.uint32, "standby-packets-received")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("discarded_packets",
+                                    "discarded_routes",
+                                    "path_count",
+                                    "path_malloc_failures",
+                                    "periodic_updates",
+                                    "query_responses",
+                                    "received_packets",
+                                    "rib_updates",
+                                    "route_count",
+                                    "route_malloc_failures",
+                                    "sent_message_failures",
+                                    "sent_messages",
+                                    "standby_packets_received") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Protocol.DefaultVrf.Statistics, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Protocol.DefaultVrf.Statistics, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.discarded_packets.is_set or
+                        self.discarded_routes.is_set or
+                        self.path_count.is_set or
+                        self.path_malloc_failures.is_set or
+                        self.periodic_updates.is_set or
+                        self.query_responses.is_set or
+                        self.received_packets.is_set or
+                        self.rib_updates.is_set or
+                        self.route_count.is_set or
+                        self.route_malloc_failures.is_set or
+                        self.sent_message_failures.is_set or
+                        self.sent_messages.is_set or
+                        self.standby_packets_received.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.discarded_packets.yfilter != YFilter.not_set or
+                        self.discarded_routes.yfilter != YFilter.not_set or
+                        self.path_count.yfilter != YFilter.not_set or
+                        self.path_malloc_failures.yfilter != YFilter.not_set or
+                        self.periodic_updates.yfilter != YFilter.not_set or
+                        self.query_responses.yfilter != YFilter.not_set or
+                        self.received_packets.yfilter != YFilter.not_set or
+                        self.rib_updates.yfilter != YFilter.not_set or
+                        self.route_count.yfilter != YFilter.not_set or
+                        self.route_malloc_failures.yfilter != YFilter.not_set or
+                        self.sent_message_failures.yfilter != YFilter.not_set or
+                        self.sent_messages.yfilter != YFilter.not_set or
+                        self.standby_packets_received.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "statistics" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.discarded_packets.is_set or self.discarded_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discarded_packets.get_name_leafdata())
+                    if (self.discarded_routes.is_set or self.discarded_routes.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.discarded_routes.get_name_leafdata())
+                    if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_count.get_name_leafdata())
+                    if (self.path_malloc_failures.is_set or self.path_malloc_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_malloc_failures.get_name_leafdata())
+                    if (self.periodic_updates.is_set or self.periodic_updates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.periodic_updates.get_name_leafdata())
+                    if (self.query_responses.is_set or self.query_responses.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.query_responses.get_name_leafdata())
+                    if (self.received_packets.is_set or self.received_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.received_packets.get_name_leafdata())
+                    if (self.rib_updates.is_set or self.rib_updates.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rib_updates.get_name_leafdata())
+                    if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_count.get_name_leafdata())
+                    if (self.route_malloc_failures.is_set or self.route_malloc_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_malloc_failures.get_name_leafdata())
+                    if (self.sent_message_failures.is_set or self.sent_message_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sent_message_failures.get_name_leafdata())
+                    if (self.sent_messages.is_set or self.sent_messages.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.sent_messages.get_name_leafdata())
+                    if (self.standby_packets_received.is_set or self.standby_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.standby_packets_received.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "discarded-packets" or name == "discarded-routes" or name == "path-count" or name == "path-malloc-failures" or name == "periodic-updates" or name == "query-responses" or name == "received-packets" or name == "rib-updates" or name == "route-count" or name == "route-malloc-failures" or name == "sent-message-failures" or name == "sent-messages" or name == "standby-packets-received"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.discarded_packets is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "discarded-packets"):
+                        self.discarded_packets = value
+                        self.discarded_packets.value_namespace = name_space
+                        self.discarded_packets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "discarded-routes"):
+                        self.discarded_routes = value
+                        self.discarded_routes.value_namespace = name_space
+                        self.discarded_routes.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path-count"):
+                        self.path_count = value
+                        self.path_count.value_namespace = name_space
+                        self.path_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path-malloc-failures"):
+                        self.path_malloc_failures = value
+                        self.path_malloc_failures.value_namespace = name_space
+                        self.path_malloc_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "periodic-updates"):
+                        self.periodic_updates = value
+                        self.periodic_updates.value_namespace = name_space
+                        self.periodic_updates.value_namespace_prefix = name_space_prefix
+                    if(value_path == "query-responses"):
+                        self.query_responses = value
+                        self.query_responses.value_namespace = name_space
+                        self.query_responses.value_namespace_prefix = name_space_prefix
+                    if(value_path == "received-packets"):
+                        self.received_packets = value
+                        self.received_packets.value_namespace = name_space
+                        self.received_packets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rib-updates"):
+                        self.rib_updates = value
+                        self.rib_updates.value_namespace = name_space
+                        self.rib_updates.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-count"):
+                        self.route_count = value
+                        self.route_count.value_namespace = name_space
+                        self.route_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-malloc-failures"):
+                        self.route_malloc_failures = value
+                        self.route_malloc_failures.value_namespace = name_space
+                        self.route_malloc_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "sent-message-failures"):
+                        self.sent_message_failures = value
+                        self.sent_message_failures.value_namespace = name_space
+                        self.sent_message_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "sent-messages"):
+                        self.sent_messages = value
+                        self.sent_messages.value_namespace = name_space
+                        self.sent_messages.value_namespace_prefix = name_space_prefix
+                    if(value_path == "standby-packets-received"):
+                        self.standby_packets_received = value
+                        self.standby_packets_received.value_namespace = name_space
+                        self.standby_packets_received.value_namespace_prefix = name_space_prefix
 
-                    if self.discarded_routes is not None:
-                        return True
 
-                    if self.path_count is not None:
-                        return True
-
-                    if self.path_malloc_failures is not None:
-                        return True
-
-                    if self.periodic_updates is not None:
-                        return True
-
-                    if self.query_responses is not None:
-                        return True
-
-                    if self.received_packets is not None:
-                        return True
-
-                    if self.rib_updates is not None:
-                        return True
-
-                    if self.route_count is not None:
-                        return True
-
-                    if self.route_malloc_failures is not None:
-                        return True
-
-                    if self.sent_message_failures is not None:
-                        return True
-
-                    if self.sent_messages is not None:
-                        return True
-
-                    if self.standby_packets_received is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Protocol.DefaultVrf.Statistics']['meta_info']
-
-
-            class Interfaces(object):
+            class Interfaces(Entity):
                 """
                 RIP interfaces
                 
@@ -3081,13 +5557,39 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface = YList()
-                    self.interface.parent = self
-                    self.interface.name = 'interface'
+                    super(Rip.Protocol.DefaultVrf.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "default-vrf"
+
+                    self.interface = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Protocol.DefaultVrf.Interfaces, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Protocol.DefaultVrf.Interfaces, self).__setattr__(name, value)
 
 
-                class Interface(object):
+                class Interface(Entity):
                     """
                     Information about a particular RIP interface
                     
@@ -3269,7 +5771,7 @@ class Rip(object):
                     .. attribute:: state
                     
                     	Current state of the interface
-                    	**type**\:   :py:class:`InterfaceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceStateEnum>`
+                    	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
                     
                     .. attribute:: total_pkt_recvd
                     
@@ -3291,46 +5793,129 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.accept_metric = None
-                        self.auth_key_md5 = None
-                        self.auth_key_send_id = None
-                        self.auth_keychain = None
-                        self.auth_mode = None
-                        self.destination_address = None
-                        self.if_handle = None
-                        self.interface = None
-                        self.is_passive_interface = None
-                        self.join_status = None
-                        self.lpts_state = None
-                        self.metric_cost = None
-                        self.multicast_address = None
-                        self.neighbor_address = None
-                        self.oom_flags = None
-                        self.pkt_accepted_valid_auth = None
-                        self.pkt_drop_invalid_auth = None
-                        self.pkt_drop_no_auth = None
-                        self.pkt_drop_wrong_kc = None
-                        self.poison_horizon = None
-                        self.prefix_length = None
-                        self.receive_version = None
-                        self.rip_enabled = None
-                        self.rip_peer = YList()
-                        self.rip_peer.parent = self
-                        self.rip_peer.name = 'rip_peer'
-                        self.rip_summary = YList()
-                        self.rip_summary.parent = self
-                        self.rip_summary.name = 'rip_summary'
-                        self.send_auth_key_exists = None
-                        self.send_version = None
-                        self.split_horizon = None
-                        self.state = None
-                        self.total_pkt_recvd = None
-                        self.triggered_rip = None
+                        super(Rip.Protocol.DefaultVrf.Interfaces.Interface, self).__init__()
+
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.accept_metric = YLeaf(YType.boolean, "accept-metric")
+
+                        self.auth_key_md5 = YLeaf(YType.boolean, "auth-key-md5")
+
+                        self.auth_key_send_id = YLeaf(YType.uint64, "auth-key-send-id")
+
+                        self.auth_keychain = YLeaf(YType.str, "auth-keychain")
+
+                        self.auth_mode = YLeaf(YType.uint32, "auth-mode")
+
+                        self.destination_address = YLeaf(YType.str, "destination-address")
+
+                        self.if_handle = YLeaf(YType.str, "if-handle")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.is_passive_interface = YLeaf(YType.boolean, "is-passive-interface")
+
+                        self.join_status = YLeaf(YType.boolean, "join-status")
+
+                        self.lpts_state = YLeaf(YType.boolean, "lpts-state")
+
+                        self.metric_cost = YLeaf(YType.uint32, "metric-cost")
+
+                        self.multicast_address = YLeaf(YType.boolean, "multicast-address")
+
+                        self.neighbor_address = YLeaf(YType.str, "neighbor-address")
+
+                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                        self.pkt_accepted_valid_auth = YLeaf(YType.uint32, "pkt-accepted-valid-auth")
+
+                        self.pkt_drop_invalid_auth = YLeaf(YType.uint32, "pkt-drop-invalid-auth")
+
+                        self.pkt_drop_no_auth = YLeaf(YType.uint32, "pkt-drop-no-auth")
+
+                        self.pkt_drop_wrong_kc = YLeaf(YType.uint32, "pkt-drop-wrong-kc")
+
+                        self.poison_horizon = YLeaf(YType.boolean, "poison-horizon")
+
+                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        self.receive_version = YLeaf(YType.uint32, "receive-version")
+
+                        self.rip_enabled = YLeaf(YType.boolean, "rip-enabled")
+
+                        self.send_auth_key_exists = YLeaf(YType.boolean, "send-auth-key-exists")
+
+                        self.send_version = YLeaf(YType.uint32, "send-version")
+
+                        self.split_horizon = YLeaf(YType.boolean, "split-horizon")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                        self.total_pkt_recvd = YLeaf(YType.uint32, "total-pkt-recvd")
+
+                        self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
+
+                        self.rip_peer = YList(self)
+                        self.rip_summary = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface_name",
+                                        "accept_metric",
+                                        "auth_key_md5",
+                                        "auth_key_send_id",
+                                        "auth_keychain",
+                                        "auth_mode",
+                                        "destination_address",
+                                        "if_handle",
+                                        "interface",
+                                        "is_passive_interface",
+                                        "join_status",
+                                        "lpts_state",
+                                        "metric_cost",
+                                        "multicast_address",
+                                        "neighbor_address",
+                                        "oom_flags",
+                                        "pkt_accepted_valid_auth",
+                                        "pkt_drop_invalid_auth",
+                                        "pkt_drop_no_auth",
+                                        "pkt_drop_wrong_kc",
+                                        "poison_horizon",
+                                        "prefix_length",
+                                        "receive_version",
+                                        "rip_enabled",
+                                        "send_auth_key_exists",
+                                        "send_version",
+                                        "split_horizon",
+                                        "state",
+                                        "total_pkt_recvd",
+                                        "triggered_rip") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Protocol.DefaultVrf.Interfaces.Interface, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Protocol.DefaultVrf.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                    class RipSummary(object):
+                    class RipSummary(Entity):
                         """
                         User defined summary addresses
                         
@@ -3370,45 +5955,119 @@ class Rip(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.metric = None
-                            self.next_hop_address = None
-                            self.prefix = None
-                            self.prefix_length = None
+                            super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "rip-summary"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:rip-summary'
+                            self.metric = YLeaf(YType.int32, "metric")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                            self.prefix = YLeaf(YType.str, "prefix")
+
+                            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("metric",
+                                            "next_hop_address",
+                                            "prefix",
+                                            "prefix_length") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.metric.is_set or
+                                self.next_hop_address.is_set or
+                                self.prefix.is_set or
+                                self.prefix_length.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.metric.yfilter != YFilter.not_set or
+                                self.next_hop_address.yfilter != YFilter.not_set or
+                                self.prefix.yfilter != YFilter.not_set or
+                                self.prefix_length.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "rip-summary" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.metric.get_name_leafdata())
+                            if (self.next_hop_address.is_set or self.next_hop_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.next_hop_address.get_name_leafdata())
+                            if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.prefix.get_name_leafdata())
+                            if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "metric" or name == "next-hop-address" or name == "prefix" or name == "prefix-length"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.metric is not None:
-                                return True
-
-                            if self.next_hop_address is not None:
-                                return True
-
-                            if self.prefix is not None:
-                                return True
-
-                            if self.prefix_length is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                            return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "metric"):
+                                self.metric = value
+                                self.metric.value_namespace = name_space
+                                self.metric.value_namespace_prefix = name_space_prefix
+                            if(value_path == "next-hop-address"):
+                                self.next_hop_address = value
+                                self.next_hop_address.value_namespace = name_space
+                                self.next_hop_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "prefix"):
+                                self.prefix = value
+                                self.prefix.value_namespace = name_space
+                                self.prefix.value_namespace_prefix = name_space_prefix
+                            if(value_path == "prefix-length"):
+                                self.prefix_length = value
+                                self.prefix_length.value_namespace = name_space
+                                self.prefix_length.value_namespace_prefix = name_space_prefix
 
 
-                    class RipPeer(object):
+                    class RipPeer(Entity):
                         """
                         Neighbors on this interface
                         
@@ -3455,190 +6114,502 @@ class Rip(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.discarded_peer_packets = None
-                            self.discarded_peer_routes = None
-                            self.peer_address = None
-                            self.peer_uptime = None
-                            self.peer_version = None
+                            super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "rip-peer"
+                            self.yang_parent_name = "interface"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:rip-peer'
+                            self.discarded_peer_packets = YLeaf(YType.uint32, "discarded-peer-packets")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.discarded_peer_routes = YLeaf(YType.uint32, "discarded-peer-routes")
+
+                            self.peer_address = YLeaf(YType.str, "peer-address")
+
+                            self.peer_uptime = YLeaf(YType.uint32, "peer-uptime")
+
+                            self.peer_version = YLeaf(YType.uint8, "peer-version")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("discarded_peer_packets",
+                                            "discarded_peer_routes",
+                                            "peer_address",
+                                            "peer_uptime",
+                                            "peer_version") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.discarded_peer_packets.is_set or
+                                self.discarded_peer_routes.is_set or
+                                self.peer_address.is_set or
+                                self.peer_uptime.is_set or
+                                self.peer_version.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.discarded_peer_packets.yfilter != YFilter.not_set or
+                                self.discarded_peer_routes.yfilter != YFilter.not_set or
+                                self.peer_address.yfilter != YFilter.not_set or
+                                self.peer_uptime.yfilter != YFilter.not_set or
+                                self.peer_version.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "rip-peer" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.discarded_peer_packets.is_set or self.discarded_peer_packets.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.discarded_peer_packets.get_name_leafdata())
+                            if (self.discarded_peer_routes.is_set or self.discarded_peer_routes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.discarded_peer_routes.get_name_leafdata())
+                            if (self.peer_address.is_set or self.peer_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.peer_address.get_name_leafdata())
+                            if (self.peer_uptime.is_set or self.peer_uptime.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.peer_uptime.get_name_leafdata())
+                            if (self.peer_version.is_set or self.peer_version.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.peer_version.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "discarded-peer-packets" or name == "discarded-peer-routes" or name == "peer-address" or name == "peer-uptime" or name == "peer-version"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.discarded_peer_packets is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "discarded-peer-packets"):
+                                self.discarded_peer_packets = value
+                                self.discarded_peer_packets.value_namespace = name_space
+                                self.discarded_peer_packets.value_namespace_prefix = name_space_prefix
+                            if(value_path == "discarded-peer-routes"):
+                                self.discarded_peer_routes = value
+                                self.discarded_peer_routes.value_namespace = name_space
+                                self.discarded_peer_routes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "peer-address"):
+                                self.peer_address = value
+                                self.peer_address.value_namespace = name_space
+                                self.peer_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "peer-uptime"):
+                                self.peer_uptime = value
+                                self.peer_uptime.value_namespace = name_space
+                                self.peer_uptime.value_namespace_prefix = name_space_prefix
+                            if(value_path == "peer-version"):
+                                self.peer_version = value
+                                self.peer_version.value_namespace = name_space
+                                self.peer_version.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.rip_peer:
+                            if (c.has_data()):
                                 return True
-
-                            if self.discarded_peer_routes is not None:
+                        for c in self.rip_summary:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.interface_name.is_set or
+                            self.accept_metric.is_set or
+                            self.auth_key_md5.is_set or
+                            self.auth_key_send_id.is_set or
+                            self.auth_keychain.is_set or
+                            self.auth_mode.is_set or
+                            self.destination_address.is_set or
+                            self.if_handle.is_set or
+                            self.interface.is_set or
+                            self.is_passive_interface.is_set or
+                            self.join_status.is_set or
+                            self.lpts_state.is_set or
+                            self.metric_cost.is_set or
+                            self.multicast_address.is_set or
+                            self.neighbor_address.is_set or
+                            self.oom_flags.is_set or
+                            self.pkt_accepted_valid_auth.is_set or
+                            self.pkt_drop_invalid_auth.is_set or
+                            self.pkt_drop_no_auth.is_set or
+                            self.pkt_drop_wrong_kc.is_set or
+                            self.poison_horizon.is_set or
+                            self.prefix_length.is_set or
+                            self.receive_version.is_set or
+                            self.rip_enabled.is_set or
+                            self.send_auth_key_exists.is_set or
+                            self.send_version.is_set or
+                            self.split_horizon.is_set or
+                            self.state.is_set or
+                            self.total_pkt_recvd.is_set or
+                            self.triggered_rip.is_set)
 
-                            if self.peer_address is not None:
+                    def has_operation(self):
+                        for c in self.rip_peer:
+                            if (c.has_operation()):
                                 return True
-
-                            if self.peer_uptime is not None:
+                        for c in self.rip_summary:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.accept_metric.yfilter != YFilter.not_set or
+                            self.auth_key_md5.yfilter != YFilter.not_set or
+                            self.auth_key_send_id.yfilter != YFilter.not_set or
+                            self.auth_keychain.yfilter != YFilter.not_set or
+                            self.auth_mode.yfilter != YFilter.not_set or
+                            self.destination_address.yfilter != YFilter.not_set or
+                            self.if_handle.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.is_passive_interface.yfilter != YFilter.not_set or
+                            self.join_status.yfilter != YFilter.not_set or
+                            self.lpts_state.yfilter != YFilter.not_set or
+                            self.metric_cost.yfilter != YFilter.not_set or
+                            self.multicast_address.yfilter != YFilter.not_set or
+                            self.neighbor_address.yfilter != YFilter.not_set or
+                            self.oom_flags.yfilter != YFilter.not_set or
+                            self.pkt_accepted_valid_auth.yfilter != YFilter.not_set or
+                            self.pkt_drop_invalid_auth.yfilter != YFilter.not_set or
+                            self.pkt_drop_no_auth.yfilter != YFilter.not_set or
+                            self.pkt_drop_wrong_kc.yfilter != YFilter.not_set or
+                            self.poison_horizon.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set or
+                            self.receive_version.yfilter != YFilter.not_set or
+                            self.rip_enabled.yfilter != YFilter.not_set or
+                            self.send_auth_key_exists.yfilter != YFilter.not_set or
+                            self.send_version.yfilter != YFilter.not_set or
+                            self.split_horizon.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set or
+                            self.total_pkt_recvd.yfilter != YFilter.not_set or
+                            self.triggered_rip.yfilter != YFilter.not_set)
 
-                            if self.peer_version is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                            return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/interfaces/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.interface_name is None:
-                            raise YPYModelError('Key property interface_name is None')
+                        leaf_name_data = LeafDataList()
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.accept_metric.is_set or self.accept_metric.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.accept_metric.get_name_leafdata())
+                        if (self.auth_key_md5.is_set or self.auth_key_md5.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_key_md5.get_name_leafdata())
+                        if (self.auth_key_send_id.is_set or self.auth_key_send_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_key_send_id.get_name_leafdata())
+                        if (self.auth_keychain.is_set or self.auth_keychain.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_keychain.get_name_leafdata())
+                        if (self.auth_mode.is_set or self.auth_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.auth_mode.get_name_leafdata())
+                        if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_address.get_name_leafdata())
+                        if (self.if_handle.is_set or self.if_handle.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.if_handle.get_name_leafdata())
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.is_passive_interface.is_set or self.is_passive_interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_passive_interface.get_name_leafdata())
+                        if (self.join_status.is_set or self.join_status.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.join_status.get_name_leafdata())
+                        if (self.lpts_state.is_set or self.lpts_state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.lpts_state.get_name_leafdata())
+                        if (self.metric_cost.is_set or self.metric_cost.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.metric_cost.get_name_leafdata())
+                        if (self.multicast_address.is_set or self.multicast_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_address.get_name_leafdata())
+                        if (self.neighbor_address.is_set or self.neighbor_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.neighbor_address.get_name_leafdata())
+                        if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                        if (self.pkt_accepted_valid_auth.is_set or self.pkt_accepted_valid_auth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_accepted_valid_auth.get_name_leafdata())
+                        if (self.pkt_drop_invalid_auth.is_set or self.pkt_drop_invalid_auth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_drop_invalid_auth.get_name_leafdata())
+                        if (self.pkt_drop_no_auth.is_set or self.pkt_drop_no_auth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_drop_no_auth.get_name_leafdata())
+                        if (self.pkt_drop_wrong_kc.is_set or self.pkt_drop_wrong_kc.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.pkt_drop_wrong_kc.get_name_leafdata())
+                        if (self.poison_horizon.is_set or self.poison_horizon.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.poison_horizon.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                        if (self.receive_version.is_set or self.receive_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.receive_version.get_name_leafdata())
+                        if (self.rip_enabled.is_set or self.rip_enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.rip_enabled.get_name_leafdata())
+                        if (self.send_auth_key_exists.is_set or self.send_auth_key_exists.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_auth_key_exists.get_name_leafdata())
+                        if (self.send_version.is_set or self.send_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_version.get_name_leafdata())
+                        if (self.split_horizon.is_set or self.split_horizon.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.split_horizon.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+                        if (self.total_pkt_recvd.is_set or self.total_pkt_recvd.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.total_pkt_recvd.get_name_leafdata())
+                        if (self.triggered_rip.is_set or self.triggered_rip.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.triggered_rip.get_name_leafdata())
 
-                        return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:interfaces/Cisco-IOS-XR-ip-rip-oper:interface[Cisco-IOS-XR-ip-rip-oper:interface-name = ' + str(self.interface_name) + ']'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "rip-peer"):
+                            for c in self.rip_peer:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Rip.Protocol.DefaultVrf.Interfaces.Interface.RipPeer()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.rip_peer.append(c)
+                            return c
+
+                        if (child_yang_name == "rip-summary"):
+                            for c in self.rip_summary:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Rip.Protocol.DefaultVrf.Interfaces.Interface.RipSummary()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.rip_summary.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "rip-peer" or name == "rip-summary" or name == "interface-name" or name == "accept-metric" or name == "auth-key-md5" or name == "auth-key-send-id" or name == "auth-keychain" or name == "auth-mode" or name == "destination-address" or name == "if-handle" or name == "interface" or name == "is-passive-interface" or name == "join-status" or name == "lpts-state" or name == "metric-cost" or name == "multicast-address" or name == "neighbor-address" or name == "oom-flags" or name == "pkt-accepted-valid-auth" or name == "pkt-drop-invalid-auth" or name == "pkt-drop-no-auth" or name == "pkt-drop-wrong-kc" or name == "poison-horizon" or name == "prefix-length" or name == "receive-version" or name == "rip-enabled" or name == "send-auth-key-exists" or name == "send-version" or name == "split-horizon" or name == "state" or name == "total-pkt-recvd" or name == "triggered-rip"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "accept-metric"):
+                            self.accept_metric = value
+                            self.accept_metric.value_namespace = name_space
+                            self.accept_metric.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-key-md5"):
+                            self.auth_key_md5 = value
+                            self.auth_key_md5.value_namespace = name_space
+                            self.auth_key_md5.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-key-send-id"):
+                            self.auth_key_send_id = value
+                            self.auth_key_send_id.value_namespace = name_space
+                            self.auth_key_send_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-keychain"):
+                            self.auth_keychain = value
+                            self.auth_keychain.value_namespace = name_space
+                            self.auth_keychain.value_namespace_prefix = name_space_prefix
+                        if(value_path == "auth-mode"):
+                            self.auth_mode = value
+                            self.auth_mode.value_namespace = name_space
+                            self.auth_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "destination-address"):
+                            self.destination_address = value
+                            self.destination_address.value_namespace = name_space
+                            self.destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "if-handle"):
+                            self.if_handle = value
+                            self.if_handle.value_namespace = name_space
+                            self.if_handle.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-passive-interface"):
+                            self.is_passive_interface = value
+                            self.is_passive_interface.value_namespace = name_space
+                            self.is_passive_interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "join-status"):
+                            self.join_status = value
+                            self.join_status.value_namespace = name_space
+                            self.join_status.value_namespace_prefix = name_space_prefix
+                        if(value_path == "lpts-state"):
+                            self.lpts_state = value
+                            self.lpts_state.value_namespace = name_space
+                            self.lpts_state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "metric-cost"):
+                            self.metric_cost = value
+                            self.metric_cost.value_namespace = name_space
+                            self.metric_cost.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-address"):
+                            self.multicast_address = value
+                            self.multicast_address.value_namespace = name_space
+                            self.multicast_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "neighbor-address"):
+                            self.neighbor_address = value
+                            self.neighbor_address.value_namespace = name_space
+                            self.neighbor_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "oom-flags"):
+                            self.oom_flags = value
+                            self.oom_flags.value_namespace = name_space
+                            self.oom_flags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-accepted-valid-auth"):
+                            self.pkt_accepted_valid_auth = value
+                            self.pkt_accepted_valid_auth.value_namespace = name_space
+                            self.pkt_accepted_valid_auth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-drop-invalid-auth"):
+                            self.pkt_drop_invalid_auth = value
+                            self.pkt_drop_invalid_auth.value_namespace = name_space
+                            self.pkt_drop_invalid_auth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-drop-no-auth"):
+                            self.pkt_drop_no_auth = value
+                            self.pkt_drop_no_auth.value_namespace = name_space
+                            self.pkt_drop_no_auth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "pkt-drop-wrong-kc"):
+                            self.pkt_drop_wrong_kc = value
+                            self.pkt_drop_wrong_kc.value_namespace = name_space
+                            self.pkt_drop_wrong_kc.value_namespace_prefix = name_space_prefix
+                        if(value_path == "poison-horizon"):
+                            self.poison_horizon = value
+                            self.poison_horizon.value_namespace = name_space
+                            self.poison_horizon.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "receive-version"):
+                            self.receive_version = value
+                            self.receive_version.value_namespace = name_space
+                            self.receive_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "rip-enabled"):
+                            self.rip_enabled = value
+                            self.rip_enabled.value_namespace = name_space
+                            self.rip_enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-auth-key-exists"):
+                            self.send_auth_key_exists = value
+                            self.send_auth_key_exists.value_namespace = name_space
+                            self.send_auth_key_exists.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-version"):
+                            self.send_version = value
+                            self.send_version.value_namespace = name_space
+                            self.send_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "split-horizon"):
+                            self.split_horizon = value
+                            self.split_horizon.value_namespace = name_space
+                            self.split_horizon.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+                        if(value_path == "total-pkt-recvd"):
+                            self.total_pkt_recvd = value
+                            self.total_pkt_recvd.value_namespace = name_space
+                            self.total_pkt_recvd.value_namespace_prefix = name_space_prefix
+                        if(value_path == "triggered-rip"):
+                            self.triggered_rip = value
+                            self.triggered_rip.value_namespace = name_space
+                            self.triggered_rip.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface:
+                        if (c.has_data()):
                             return True
-
-                        if self.accept_metric is not None:
-                            return True
-
-                        if self.auth_key_md5 is not None:
-                            return True
-
-                        if self.auth_key_send_id is not None:
-                            return True
-
-                        if self.auth_keychain is not None:
-                            return True
-
-                        if self.auth_mode is not None:
-                            return True
-
-                        if self.destination_address is not None:
-                            return True
-
-                        if self.if_handle is not None:
-                            return True
-
-                        if self.interface is not None:
-                            return True
-
-                        if self.is_passive_interface is not None:
-                            return True
-
-                        if self.join_status is not None:
-                            return True
-
-                        if self.lpts_state is not None:
-                            return True
-
-                        if self.metric_cost is not None:
-                            return True
-
-                        if self.multicast_address is not None:
-                            return True
-
-                        if self.neighbor_address is not None:
-                            return True
-
-                        if self.oom_flags is not None:
-                            return True
-
-                        if self.pkt_accepted_valid_auth is not None:
-                            return True
-
-                        if self.pkt_drop_invalid_auth is not None:
-                            return True
-
-                        if self.pkt_drop_no_auth is not None:
-                            return True
-
-                        if self.pkt_drop_wrong_kc is not None:
-                            return True
-
-                        if self.poison_horizon is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
-                        if self.receive_version is not None:
-                            return True
-
-                        if self.rip_enabled is not None:
-                            return True
-
-                        if self.rip_peer is not None:
-                            for child_ref in self.rip_peer:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.rip_summary is not None:
-                            for child_ref in self.rip_summary:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.send_auth_key_exists is not None:
-                            return True
-
-                        if self.send_version is not None:
-                            return True
-
-                        if self.split_horizon is not None:
-                            return True
-
-                        if self.state is not None:
-                            return True
-
-                        if self.total_pkt_recvd is not None:
-                            return True
-
-                        if self.triggered_rip is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces.Interface']['meta_info']
-
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:interfaces'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.interface is not None:
-                        for child_ref in self.interface:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.interface:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "interface"):
+                        for c in self.interface:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.Protocol.DefaultVrf.Interfaces.Interface()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Protocol.DefaultVrf.Interfaces']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Global_(object):
+            class Global_(Entity):
                 """
                 Global Information 
                 
@@ -3660,15 +6631,44 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_summary = YList()
-                    self.interface_summary.parent = self
-                    self.interface_summary.name = 'interface_summary'
+                    super(Rip.Protocol.DefaultVrf.Global_, self).__init__()
+
+                    self.yang_name = "global"
+                    self.yang_parent_name = "default-vrf"
+
                     self.vrf_summary = Rip.Protocol.DefaultVrf.Global_.VrfSummary()
                     self.vrf_summary.parent = self
+                    self._children_name_map["vrf_summary"] = "vrf-summary"
+                    self._children_yang_names.add("vrf-summary")
+
+                    self.interface_summary = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.Protocol.DefaultVrf.Global_, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.Protocol.DefaultVrf.Global_, self).__setattr__(name, value)
 
 
-                class VrfSummary(object):
+                class VrfSummary(Entity):
                     """
                     VRF summary data
                     
@@ -3760,75 +6760,207 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.active = None
-                        self.active_interface_count = None
-                        self.flush_timer = None
-                        self.hold_down_timer = None
-                        self.interface_configured_count = None
-                        self.invalid_timer = None
-                        self.next_update_time = None
-                        self.oom_flags = None
-                        self.path_count = None
-                        self.route_count = None
-                        self.update_timer = None
-                        self.vrf_name = None
+                        super(Rip.Protocol.DefaultVrf.Global_.VrfSummary, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "vrf-summary"
+                        self.yang_parent_name = "global"
 
-                        return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:global/Cisco-IOS-XR-ip-rip-oper:vrf-summary'
+                        self.active = YLeaf(YType.boolean, "active")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+
+                        self.flush_timer = YLeaf(YType.uint32, "flush-timer")
+
+                        self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
+
+                        self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
+
+                        self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
+
+                        self.next_update_time = YLeaf(YType.uint32, "next-update-time")
+
+                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                        self.path_count = YLeaf(YType.uint32, "path-count")
+
+                        self.route_count = YLeaf(YType.uint32, "route-count")
+
+                        self.update_timer = YLeaf(YType.uint32, "update-timer")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("active",
+                                        "active_interface_count",
+                                        "flush_timer",
+                                        "hold_down_timer",
+                                        "interface_configured_count",
+                                        "invalid_timer",
+                                        "next_update_time",
+                                        "oom_flags",
+                                        "path_count",
+                                        "route_count",
+                                        "update_timer",
+                                        "vrf_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Protocol.DefaultVrf.Global_.VrfSummary, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Protocol.DefaultVrf.Global_.VrfSummary, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.active.is_set or
+                            self.active_interface_count.is_set or
+                            self.flush_timer.is_set or
+                            self.hold_down_timer.is_set or
+                            self.interface_configured_count.is_set or
+                            self.invalid_timer.is_set or
+                            self.next_update_time.is_set or
+                            self.oom_flags.is_set or
+                            self.path_count.is_set or
+                            self.route_count.is_set or
+                            self.update_timer.is_set or
+                            self.vrf_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.active.yfilter != YFilter.not_set or
+                            self.active_interface_count.yfilter != YFilter.not_set or
+                            self.flush_timer.yfilter != YFilter.not_set or
+                            self.hold_down_timer.yfilter != YFilter.not_set or
+                            self.interface_configured_count.yfilter != YFilter.not_set or
+                            self.invalid_timer.yfilter != YFilter.not_set or
+                            self.next_update_time.yfilter != YFilter.not_set or
+                            self.oom_flags.yfilter != YFilter.not_set or
+                            self.path_count.yfilter != YFilter.not_set or
+                            self.route_count.yfilter != YFilter.not_set or
+                            self.update_timer.yfilter != YFilter.not_set or
+                            self.vrf_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "vrf-summary" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/global/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active.get_name_leafdata())
+                        if (self.active_interface_count.is_set or self.active_interface_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.active_interface_count.get_name_leafdata())
+                        if (self.flush_timer.is_set or self.flush_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.flush_timer.get_name_leafdata())
+                        if (self.hold_down_timer.is_set or self.hold_down_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_down_timer.get_name_leafdata())
+                        if (self.interface_configured_count.is_set or self.interface_configured_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_configured_count.get_name_leafdata())
+                        if (self.invalid_timer.is_set or self.invalid_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.invalid_timer.get_name_leafdata())
+                        if (self.next_update_time.is_set or self.next_update_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.next_update_time.get_name_leafdata())
+                        if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                        if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.path_count.get_name_leafdata())
+                        if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.route_count.get_name_leafdata())
+                        if (self.update_timer.is_set or self.update_timer.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.update_timer.get_name_leafdata())
+                        if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "active" or name == "active-interface-count" or name == "flush-timer" or name == "hold-down-timer" or name == "interface-configured-count" or name == "invalid-timer" or name == "next-update-time" or name == "oom-flags" or name == "path-count" or name == "route-count" or name == "update-timer" or name == "vrf-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.active is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "active"):
+                            self.active = value
+                            self.active.value_namespace = name_space
+                            self.active.value_namespace_prefix = name_space_prefix
+                        if(value_path == "active-interface-count"):
+                            self.active_interface_count = value
+                            self.active_interface_count.value_namespace = name_space
+                            self.active_interface_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "flush-timer"):
+                            self.flush_timer = value
+                            self.flush_timer.value_namespace = name_space
+                            self.flush_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-down-timer"):
+                            self.hold_down_timer = value
+                            self.hold_down_timer.value_namespace = name_space
+                            self.hold_down_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-configured-count"):
+                            self.interface_configured_count = value
+                            self.interface_configured_count.value_namespace = name_space
+                            self.interface_configured_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "invalid-timer"):
+                            self.invalid_timer = value
+                            self.invalid_timer.value_namespace = name_space
+                            self.invalid_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "next-update-time"):
+                            self.next_update_time = value
+                            self.next_update_time.value_namespace = name_space
+                            self.next_update_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "oom-flags"):
+                            self.oom_flags = value
+                            self.oom_flags.value_namespace = name_space
+                            self.oom_flags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "path-count"):
+                            self.path_count = value
+                            self.path_count.value_namespace = name_space
+                            self.path_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "route-count"):
+                            self.route_count = value
+                            self.route_count.value_namespace = name_space
+                            self.route_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "update-timer"):
+                            self.update_timer = value
+                            self.update_timer.value_namespace = name_space
+                            self.update_timer.value_namespace_prefix = name_space_prefix
+                        if(value_path == "vrf-name"):
+                            self.vrf_name = value
+                            self.vrf_name.value_namespace = name_space
+                            self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                        if self.active_interface_count is not None:
-                            return True
 
-                        if self.flush_timer is not None:
-                            return True
-
-                        if self.hold_down_timer is not None:
-                            return True
-
-                        if self.interface_configured_count is not None:
-                            return True
-
-                        if self.invalid_timer is not None:
-                            return True
-
-                        if self.next_update_time is not None:
-                            return True
-
-                        if self.oom_flags is not None:
-                            return True
-
-                        if self.path_count is not None:
-                            return True
-
-                        if self.route_count is not None:
-                            return True
-
-                        if self.update_timer is not None:
-                            return True
-
-                        if self.vrf_name is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Protocol.DefaultVrf.Global_.VrfSummary']['meta_info']
-
-
-                class InterfaceSummary(object):
+                class InterfaceSummary(Entity):
                     """
                     List of Interfaces configured
                     
@@ -3887,7 +7019,7 @@ class Rip(object):
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\:   :py:class:`InterfaceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceStateEnum>`
+                    	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
                     
                     
 
@@ -3897,143 +7029,383 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.destination_address = None
-                        self.enabled = None
-                        self.interface_name = None
-                        self.neighbor_count = None
-                        self.oom_flags = None
-                        self.prefix_length = None
-                        self.receive_version = None
-                        self.send_version = None
-                        self.state = None
+                        super(Rip.Protocol.DefaultVrf.Global_.InterfaceSummary, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "interface-summary"
+                        self.yang_parent_name = "global"
 
-                        return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:global/Cisco-IOS-XR-ip-rip-oper:interface-summary'
+                        self.destination_address = YLeaf(YType.str, "destination-address")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.enabled = YLeaf(YType.boolean, "enabled")
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.neighbor_count = YLeaf(YType.uint32, "neighbor-count")
+
+                        self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                        self.receive_version = YLeaf(YType.uint32, "receive-version")
+
+                        self.send_version = YLeaf(YType.uint32, "send-version")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("destination_address",
+                                        "enabled",
+                                        "interface_name",
+                                        "neighbor_count",
+                                        "oom_flags",
+                                        "prefix_length",
+                                        "receive_version",
+                                        "send_version",
+                                        "state") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.Protocol.DefaultVrf.Global_.InterfaceSummary, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.Protocol.DefaultVrf.Global_.InterfaceSummary, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.destination_address.is_set or
+                            self.enabled.is_set or
+                            self.interface_name.is_set or
+                            self.neighbor_count.is_set or
+                            self.oom_flags.is_set or
+                            self.prefix_length.is_set or
+                            self.receive_version.is_set or
+                            self.send_version.is_set or
+                            self.state.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.destination_address.yfilter != YFilter.not_set or
+                            self.enabled.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set or
+                            self.neighbor_count.yfilter != YFilter.not_set or
+                            self.oom_flags.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set or
+                            self.receive_version.yfilter != YFilter.not_set or
+                            self.send_version.yfilter != YFilter.not_set or
+                            self.state.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface-summary" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/global/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.destination_address.get_name_leafdata())
+                        if (self.enabled.is_set or self.enabled.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.enabled.get_name_leafdata())
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
+                        if (self.neighbor_count.is_set or self.neighbor_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.neighbor_count.get_name_leafdata())
+                        if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                        if (self.receive_version.is_set or self.receive_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.receive_version.get_name_leafdata())
+                        if (self.send_version.is_set or self.send_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_version.get_name_leafdata())
+                        if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.state.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "destination-address" or name == "enabled" or name == "interface-name" or name == "neighbor-count" or name == "oom-flags" or name == "prefix-length" or name == "receive-version" or name == "send-version" or name == "state"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.destination_address is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "destination-address"):
+                            self.destination_address = value
+                            self.destination_address.value_namespace = name_space
+                            self.destination_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "enabled"):
+                            self.enabled = value
+                            self.enabled.value_namespace = name_space
+                            self.enabled.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "neighbor-count"):
+                            self.neighbor_count = value
+                            self.neighbor_count.value_namespace = name_space
+                            self.neighbor_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "oom-flags"):
+                            self.oom_flags = value
+                            self.oom_flags.value_namespace = name_space
+                            self.oom_flags.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
+                        if(value_path == "receive-version"):
+                            self.receive_version = value
+                            self.receive_version.value_namespace = name_space
+                            self.receive_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-version"):
+                            self.send_version = value
+                            self.send_version.value_namespace = name_space
+                            self.send_version.value_namespace_prefix = name_space_prefix
+                        if(value_path == "state"):
+                            self.state = value
+                            self.state.value_namespace = name_space
+                            self.state.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface_summary:
+                        if (c.has_data()):
                             return True
+                    return (self.vrf_summary is not None and self.vrf_summary.has_data())
 
-                        if self.enabled is not None:
+                def has_operation(self):
+                    for c in self.interface_summary:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.vrf_summary is not None and self.vrf_summary.has_operation()))
 
-                        if self.interface_name is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "global" + path_buffer
 
-                        if self.neighbor_count is not None:
-                            return True
+                    return path_buffer
 
-                        if self.oom_flags is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/default-vrf/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.prefix_length is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
 
-                        if self.receive_version is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.send_version is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.state is not None:
-                            return True
+                    if (child_yang_name == "interface-summary"):
+                        for c in self.interface_summary:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.Protocol.DefaultVrf.Global_.InterfaceSummary()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface_summary.append(c)
+                        return c
 
-                        return False
+                    if (child_yang_name == "vrf-summary"):
+                        if (self.vrf_summary is None):
+                            self.vrf_summary = Rip.Protocol.DefaultVrf.Global_.VrfSummary()
+                            self.vrf_summary.parent = self
+                            self._children_name_map["vrf_summary"] = "vrf-summary"
+                        return self.vrf_summary
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.Protocol.DefaultVrf.Global_.InterfaceSummary']['meta_info']
+                    return None
 
-                @property
-                def _common_path(self):
-
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:global'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface_summary is not None:
-                        for child_ref in self.interface_summary:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.vrf_summary is not None and self.vrf_summary._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-summary" or name == "vrf-summary"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.Protocol.DefaultVrf.Global_']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (
+                    (self.configuration is not None and self.configuration.has_data()) or
+                    (self.global_ is not None and self.global_.has_data()) or
+                    (self.interfaces is not None and self.interfaces.has_data()) or
+                    (self.routes is not None and self.routes.has_data()) or
+                    (self.statistics is not None and self.statistics.has_data()))
 
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol/Cisco-IOS-XR-ip-rip-oper:default-vrf'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.configuration is not None and self.configuration.has_operation()) or
+                    (self.global_ is not None and self.global_.has_operation()) or
+                    (self.interfaces is not None and self.interfaces.has_operation()) or
+                    (self.routes is not None and self.routes.has_operation()) or
+                    (self.statistics is not None and self.statistics.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "default-vrf" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/protocol/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "configuration"):
+                    if (self.configuration is None):
+                        self.configuration = Rip.Protocol.DefaultVrf.Configuration()
+                        self.configuration.parent = self
+                        self._children_name_map["configuration"] = "configuration"
+                    return self.configuration
+
+                if (child_yang_name == "global"):
+                    if (self.global_ is None):
+                        self.global_ = Rip.Protocol.DefaultVrf.Global_()
+                        self.global_.parent = self
+                        self._children_name_map["global_"] = "global"
+                    return self.global_
+
+                if (child_yang_name == "interfaces"):
+                    if (self.interfaces is None):
+                        self.interfaces = Rip.Protocol.DefaultVrf.Interfaces()
+                        self.interfaces.parent = self
+                        self._children_name_map["interfaces"] = "interfaces"
+                    return self.interfaces
+
+                if (child_yang_name == "routes"):
+                    if (self.routes is None):
+                        self.routes = Rip.Protocol.DefaultVrf.Routes()
+                        self.routes.parent = self
+                        self._children_name_map["routes"] = "routes"
+                    return self.routes
+
+                if (child_yang_name == "statistics"):
+                    if (self.statistics is None):
+                        self.statistics = Rip.Protocol.DefaultVrf.Statistics()
+                        self.statistics.parent = self
+                        self._children_name_map["statistics"] = "statistics"
+                    return self.statistics
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "configuration" or name == "global" or name == "interfaces" or name == "routes" or name == "statistics"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.configuration is not None and self.configuration._has_data():
-                    return True
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-                if self.global_ is not None and self.global_._has_data():
-                    return True
+        def has_data(self):
+            return (
+                (self.default_vrf is not None and self.default_vrf.has_data()) or
+                (self.process is not None and self.process.has_data()))
 
-                if self.interfaces is not None and self.interfaces._has_data():
-                    return True
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.default_vrf is not None and self.default_vrf.has_operation()) or
+                (self.process is not None and self.process.has_operation()))
 
-                if self.routes is not None and self.routes._has_data():
-                    return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "protocol" + path_buffer
 
-                if self.statistics is not None and self.statistics._has_data():
-                    return True
+            return path_buffer
 
-                return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.Protocol.DefaultVrf']['meta_info']
+            leaf_name_data = LeafDataList()
 
-        @property
-        def _common_path(self):
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
 
-            return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:protocol'
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            if (child_yang_name == "default-vrf"):
+                if (self.default_vrf is None):
+                    self.default_vrf = Rip.Protocol.DefaultVrf()
+                    self.default_vrf.parent = self
+                    self._children_name_map["default_vrf"] = "default-vrf"
+                return self.default_vrf
+
+            if (child_yang_name == "process"):
+                if (self.process is None):
+                    self.process = Rip.Protocol.Process()
+                    self.process.parent = self
+                    self._children_name_map["process"] = "process"
+                return self.process
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "default-vrf" or name == "process"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.default_vrf is not None and self.default_vrf._has_data():
-                return True
-
-            if self.process is not None and self.process._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-            return meta._meta_table['Rip.Protocol']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class DefaultVrf(object):
+    class DefaultVrf(Entity):
         """
         RIP operational data for Default VRF
         
@@ -4070,20 +7442,38 @@ class Rip(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Rip.DefaultVrf, self).__init__()
+
+            self.yang_name = "default-vrf"
+            self.yang_parent_name = "rip"
+
             self.configuration = Rip.DefaultVrf.Configuration()
             self.configuration.parent = self
+            self._children_name_map["configuration"] = "configuration"
+            self._children_yang_names.add("configuration")
+
             self.global_ = Rip.DefaultVrf.Global_()
             self.global_.parent = self
+            self._children_name_map["global_"] = "global"
+            self._children_yang_names.add("global")
+
             self.interfaces = Rip.DefaultVrf.Interfaces()
             self.interfaces.parent = self
+            self._children_name_map["interfaces"] = "interfaces"
+            self._children_yang_names.add("interfaces")
+
             self.routes = Rip.DefaultVrf.Routes()
             self.routes.parent = self
+            self._children_name_map["routes"] = "routes"
+            self._children_yang_names.add("routes")
+
             self.statistics = Rip.DefaultVrf.Statistics()
             self.statistics.parent = self
+            self._children_name_map["statistics"] = "statistics"
+            self._children_yang_names.add("statistics")
 
 
-        class Routes(object):
+        class Routes(Entity):
             """
             RIP route database
             
@@ -4100,13 +7490,39 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.route = YList()
-                self.route.parent = self
-                self.route.name = 'route'
+                super(Rip.DefaultVrf.Routes, self).__init__()
+
+                self.yang_name = "routes"
+                self.yang_parent_name = "default-vrf"
+
+                self.route = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rip.DefaultVrf.Routes, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rip.DefaultVrf.Routes, self).__setattr__(name, value)
 
 
-            class Route(object):
+            class Route(Entity):
                 """
                 A route in the RIP database
                 
@@ -4151,7 +7567,7 @@ class Rip(object):
                 .. attribute:: path_origin
                 
                 	Where this route was learnt
-                	**type**\:   :py:class:`RipRouteOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOriginEnum>`
+                	**type**\:   :py:class:`RipRouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.RipRouteOrigin>`
                 
                 .. attribute:: paths
                 
@@ -4213,27 +7629,80 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.active = None
-                    self.attributes = None
-                    self.bgp_count = None
-                    self.destination_address = None
-                    self.distance = None
-                    self.hold_down = None
-                    self.path_origin = None
-                    self.paths = YList()
-                    self.paths.parent = self
-                    self.paths.name = 'paths'
-                    self.prefix = None
-                    self.prefix_length = None
-                    self.prefix_length_xr = None
-                    self.route_summary = None
-                    self.route_tag = None
-                    self.route_type = None
-                    self.version = None
+                    super(Rip.DefaultVrf.Routes.Route, self).__init__()
+
+                    self.yang_name = "route"
+                    self.yang_parent_name = "routes"
+
+                    self.active = YLeaf(YType.boolean, "active")
+
+                    self.attributes = YLeaf(YType.uint32, "attributes")
+
+                    self.bgp_count = YLeaf(YType.uint16, "bgp-count")
+
+                    self.destination_address = YLeaf(YType.str, "destination-address")
+
+                    self.distance = YLeaf(YType.uint16, "distance")
+
+                    self.hold_down = YLeaf(YType.boolean, "hold-down")
+
+                    self.path_origin = YLeaf(YType.enumeration, "path-origin")
+
+                    self.prefix = YLeaf(YType.str, "prefix")
+
+                    self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                    self.prefix_length_xr = YLeaf(YType.uint32, "prefix-length-xr")
+
+                    self.route_summary = YLeaf(YType.boolean, "route-summary")
+
+                    self.route_tag = YLeaf(YType.uint16, "route-tag")
+
+                    self.route_type = YLeaf(YType.uint16, "route-type")
+
+                    self.version = YLeaf(YType.uint8, "version")
+
+                    self.paths = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("active",
+                                    "attributes",
+                                    "bgp_count",
+                                    "destination_address",
+                                    "distance",
+                                    "hold_down",
+                                    "path_origin",
+                                    "prefix",
+                                    "prefix_length",
+                                    "prefix_length_xr",
+                                    "route_summary",
+                                    "route_tag",
+                                    "route_type",
+                                    "version") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.DefaultVrf.Routes.Route, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.DefaultVrf.Routes.Route, self).__setattr__(name, value)
 
 
-                class Paths(object):
+                class Paths(Entity):
                     """
                     The paths for this route
                     
@@ -4292,141 +7761,378 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.is_permanent = None
-                        self.metric = None
-                        self.next_hop_address = None
-                        self.source_address = None
-                        self.tag = None
-                        self.uptime = None
+                        super(Rip.DefaultVrf.Routes.Route.Paths, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "paths"
+                        self.yang_parent_name = "route"
 
-                        return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:routes/Cisco-IOS-XR-ip-rip-oper:route/Cisco-IOS-XR-ip-rip-oper:paths'
+                        self.interface = YLeaf(YType.str, "interface")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.is_permanent = YLeaf(YType.boolean, "is-permanent")
+
+                        self.metric = YLeaf(YType.uint16, "metric")
+
+                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                        self.source_address = YLeaf(YType.str, "source-address")
+
+                        self.tag = YLeaf(YType.uint16, "tag")
+
+                        self.uptime = YLeaf(YType.uint32, "uptime")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface",
+                                        "is_permanent",
+                                        "metric",
+                                        "next_hop_address",
+                                        "source_address",
+                                        "tag",
+                                        "uptime") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.DefaultVrf.Routes.Route.Paths, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.DefaultVrf.Routes.Route.Paths, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.interface.is_set or
+                            self.is_permanent.is_set or
+                            self.metric.is_set or
+                            self.next_hop_address.is_set or
+                            self.source_address.is_set or
+                            self.tag.is_set or
+                            self.uptime.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface.yfilter != YFilter.not_set or
+                            self.is_permanent.yfilter != YFilter.not_set or
+                            self.metric.yfilter != YFilter.not_set or
+                            self.next_hop_address.yfilter != YFilter.not_set or
+                            self.source_address.yfilter != YFilter.not_set or
+                            self.tag.yfilter != YFilter.not_set or
+                            self.uptime.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "paths" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/routes/route/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface.get_name_leafdata())
+                        if (self.is_permanent.is_set or self.is_permanent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.is_permanent.get_name_leafdata())
+                        if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.metric.get_name_leafdata())
+                        if (self.next_hop_address.is_set or self.next_hop_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.next_hop_address.get_name_leafdata())
+                        if (self.source_address.is_set or self.source_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.source_address.get_name_leafdata())
+                        if (self.tag.is_set or self.tag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.tag.get_name_leafdata())
+                        if (self.uptime.is_set or self.uptime.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.uptime.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface" or name == "is-permanent" or name == "metric" or name == "next-hop-address" or name == "source-address" or name == "tag" or name == "uptime"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface"):
+                            self.interface = value
+                            self.interface.value_namespace = name_space
+                            self.interface.value_namespace_prefix = name_space_prefix
+                        if(value_path == "is-permanent"):
+                            self.is_permanent = value
+                            self.is_permanent.value_namespace = name_space
+                            self.is_permanent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "metric"):
+                            self.metric = value
+                            self.metric.value_namespace = name_space
+                            self.metric.value_namespace_prefix = name_space_prefix
+                        if(value_path == "next-hop-address"):
+                            self.next_hop_address = value
+                            self.next_hop_address.value_namespace = name_space
+                            self.next_hop_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "source-address"):
+                            self.source_address = value
+                            self.source_address.value_namespace = name_space
+                            self.source_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "tag"):
+                            self.tag = value
+                            self.tag.value_namespace = name_space
+                            self.tag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "uptime"):
+                            self.uptime = value
+                            self.uptime.value_namespace = name_space
+                            self.uptime.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.paths:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.active.is_set or
+                        self.attributes.is_set or
+                        self.bgp_count.is_set or
+                        self.destination_address.is_set or
+                        self.distance.is_set or
+                        self.hold_down.is_set or
+                        self.path_origin.is_set or
+                        self.prefix.is_set or
+                        self.prefix_length.is_set or
+                        self.prefix_length_xr.is_set or
+                        self.route_summary.is_set or
+                        self.route_tag.is_set or
+                        self.route_type.is_set or
+                        self.version.is_set)
 
-                        if self.is_permanent is not None:
+                def has_operation(self):
+                    for c in self.paths:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.active.yfilter != YFilter.not_set or
+                        self.attributes.yfilter != YFilter.not_set or
+                        self.bgp_count.yfilter != YFilter.not_set or
+                        self.destination_address.yfilter != YFilter.not_set or
+                        self.distance.yfilter != YFilter.not_set or
+                        self.hold_down.yfilter != YFilter.not_set or
+                        self.path_origin.yfilter != YFilter.not_set or
+                        self.prefix.yfilter != YFilter.not_set or
+                        self.prefix_length.yfilter != YFilter.not_set or
+                        self.prefix_length_xr.yfilter != YFilter.not_set or
+                        self.route_summary.yfilter != YFilter.not_set or
+                        self.route_tag.yfilter != YFilter.not_set or
+                        self.route_type.yfilter != YFilter.not_set or
+                        self.version.yfilter != YFilter.not_set)
 
-                        if self.metric is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "route" + path_buffer
 
-                        if self.next_hop_address is not None:
-                            return True
+                    return path_buffer
 
-                        if self.source_address is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/routes/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.tag is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
+                    if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active.get_name_leafdata())
+                    if (self.attributes.is_set or self.attributes.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.attributes.get_name_leafdata())
+                    if (self.bgp_count.is_set or self.bgp_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bgp_count.get_name_leafdata())
+                    if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_address.get_name_leafdata())
+                    if (self.distance.is_set or self.distance.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.distance.get_name_leafdata())
+                    if (self.hold_down.is_set or self.hold_down.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hold_down.get_name_leafdata())
+                    if (self.path_origin.is_set or self.path_origin.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_origin.get_name_leafdata())
+                    if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix.get_name_leafdata())
+                    if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                    if (self.prefix_length_xr.is_set or self.prefix_length_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix_length_xr.get_name_leafdata())
+                    if (self.route_summary.is_set or self.route_summary.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_summary.get_name_leafdata())
+                    if (self.route_tag.is_set or self.route_tag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_tag.get_name_leafdata())
+                    if (self.route_type.is_set or self.route_type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_type.get_name_leafdata())
+                    if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.version.get_name_leafdata())
 
-                        if self.uptime is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.DefaultVrf.Routes.Route.Paths']['meta_info']
+                    if (child_yang_name == "paths"):
+                        for c in self.paths:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.DefaultVrf.Routes.Route.Paths()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.paths.append(c)
+                        return c
 
-                @property
-                def _common_path(self):
+                    return None
 
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:routes/Cisco-IOS-XR-ip-rip-oper:route'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "paths" or name == "active" or name == "attributes" or name == "bgp-count" or name == "destination-address" or name == "distance" or name == "hold-down" or name == "path-origin" or name == "prefix" or name == "prefix-length" or name == "prefix-length-xr" or name == "route-summary" or name == "route-tag" or name == "route-type" or name == "version"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.active is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "active"):
+                        self.active = value
+                        self.active.value_namespace = name_space
+                        self.active.value_namespace_prefix = name_space_prefix
+                    if(value_path == "attributes"):
+                        self.attributes = value
+                        self.attributes.value_namespace = name_space
+                        self.attributes.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bgp-count"):
+                        self.bgp_count = value
+                        self.bgp_count.value_namespace = name_space
+                        self.bgp_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "destination-address"):
+                        self.destination_address = value
+                        self.destination_address.value_namespace = name_space
+                        self.destination_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "distance"):
+                        self.distance = value
+                        self.distance.value_namespace = name_space
+                        self.distance.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hold-down"):
+                        self.hold_down = value
+                        self.hold_down.value_namespace = name_space
+                        self.hold_down.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path-origin"):
+                        self.path_origin = value
+                        self.path_origin.value_namespace = name_space
+                        self.path_origin.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix"):
+                        self.prefix = value
+                        self.prefix.value_namespace = name_space
+                        self.prefix.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix-length"):
+                        self.prefix_length = value
+                        self.prefix_length.value_namespace = name_space
+                        self.prefix_length.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix-length-xr"):
+                        self.prefix_length_xr = value
+                        self.prefix_length_xr.value_namespace = name_space
+                        self.prefix_length_xr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-summary"):
+                        self.route_summary = value
+                        self.route_summary.value_namespace = name_space
+                        self.route_summary.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-tag"):
+                        self.route_tag = value
+                        self.route_tag.value_namespace = name_space
+                        self.route_tag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-type"):
+                        self.route_type = value
+                        self.route_type.value_namespace = name_space
+                        self.route_type.value_namespace_prefix = name_space_prefix
+                    if(value_path == "version"):
+                        self.version = value
+                        self.version.value_namespace = name_space
+                        self.version.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.route:
+                    if (c.has_data()):
                         return True
-
-                    if self.attributes is not None:
-                        return True
-
-                    if self.bgp_count is not None:
-                        return True
-
-                    if self.destination_address is not None:
-                        return True
-
-                    if self.distance is not None:
-                        return True
-
-                    if self.hold_down is not None:
-                        return True
-
-                    if self.path_origin is not None:
-                        return True
-
-                    if self.paths is not None:
-                        for child_ref in self.paths:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.prefix is not None:
-                        return True
-
-                    if self.prefix_length is not None:
-                        return True
-
-                    if self.prefix_length_xr is not None:
-                        return True
-
-                    if self.route_summary is not None:
-                        return True
-
-                    if self.route_tag is not None:
-                        return True
-
-                    if self.route_type is not None:
-                        return True
-
-                    if self.version is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.DefaultVrf.Routes.Route']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:routes'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.route is not None:
-                    for child_ref in self.route:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.route:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "routes" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "route"):
+                    for c in self.route:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Rip.DefaultVrf.Routes.Route()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.route.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "route"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.DefaultVrf.Routes']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Configuration(object):
+        class Configuration(Entity):
             """
             RIP global configuration
             
@@ -4557,103 +8263,284 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.active = None
-                self.auto_summarize = None
-                self.default_metric = None
-                self.flash_threshold = None
-                self.flush_timer = None
-                self.hold_down_timer = None
-                self.input_q_length = None
-                self.invalid_timer = None
-                self.maximum_paths = None
-                self.multicast_address = None
-                self.next_update_time = None
-                self.nsf_life_time = None
-                self.nsf_status = None
-                self.oom_flags = None
-                self.rip_version = None
-                self.triggered_rip = None
-                self.update_timer = None
-                self.validation_indicator = None
-                self.vr_fised_socket = None
+                super(Rip.DefaultVrf.Configuration, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "configuration"
+                self.yang_parent_name = "default-vrf"
 
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:configuration'
+                self.active = YLeaf(YType.boolean, "active")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.auto_summarize = YLeaf(YType.boolean, "auto-summarize")
+
+                self.default_metric = YLeaf(YType.uint8, "default-metric")
+
+                self.flash_threshold = YLeaf(YType.uint8, "flash-threshold")
+
+                self.flush_timer = YLeaf(YType.uint32, "flush-timer")
+
+                self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
+
+                self.input_q_length = YLeaf(YType.uint16, "input-q-length")
+
+                self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
+
+                self.maximum_paths = YLeaf(YType.uint8, "maximum-paths")
+
+                self.multicast_address = YLeaf(YType.boolean, "multicast-address")
+
+                self.next_update_time = YLeaf(YType.uint32, "next-update-time")
+
+                self.nsf_life_time = YLeaf(YType.uint32, "nsf-life-time")
+
+                self.nsf_status = YLeaf(YType.boolean, "nsf-status")
+
+                self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                self.rip_version = YLeaf(YType.int32, "rip-version")
+
+                self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
+
+                self.update_timer = YLeaf(YType.uint32, "update-timer")
+
+                self.validation_indicator = YLeaf(YType.boolean, "validation-indicator")
+
+                self.vr_fised_socket = YLeaf(YType.boolean, "vr-fised-socket")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("active",
+                                "auto_summarize",
+                                "default_metric",
+                                "flash_threshold",
+                                "flush_timer",
+                                "hold_down_timer",
+                                "input_q_length",
+                                "invalid_timer",
+                                "maximum_paths",
+                                "multicast_address",
+                                "next_update_time",
+                                "nsf_life_time",
+                                "nsf_status",
+                                "oom_flags",
+                                "rip_version",
+                                "triggered_rip",
+                                "update_timer",
+                                "validation_indicator",
+                                "vr_fised_socket") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rip.DefaultVrf.Configuration, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rip.DefaultVrf.Configuration, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.active.is_set or
+                    self.auto_summarize.is_set or
+                    self.default_metric.is_set or
+                    self.flash_threshold.is_set or
+                    self.flush_timer.is_set or
+                    self.hold_down_timer.is_set or
+                    self.input_q_length.is_set or
+                    self.invalid_timer.is_set or
+                    self.maximum_paths.is_set or
+                    self.multicast_address.is_set or
+                    self.next_update_time.is_set or
+                    self.nsf_life_time.is_set or
+                    self.nsf_status.is_set or
+                    self.oom_flags.is_set or
+                    self.rip_version.is_set or
+                    self.triggered_rip.is_set or
+                    self.update_timer.is_set or
+                    self.validation_indicator.is_set or
+                    self.vr_fised_socket.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.active.yfilter != YFilter.not_set or
+                    self.auto_summarize.yfilter != YFilter.not_set or
+                    self.default_metric.yfilter != YFilter.not_set or
+                    self.flash_threshold.yfilter != YFilter.not_set or
+                    self.flush_timer.yfilter != YFilter.not_set or
+                    self.hold_down_timer.yfilter != YFilter.not_set or
+                    self.input_q_length.yfilter != YFilter.not_set or
+                    self.invalid_timer.yfilter != YFilter.not_set or
+                    self.maximum_paths.yfilter != YFilter.not_set or
+                    self.multicast_address.yfilter != YFilter.not_set or
+                    self.next_update_time.yfilter != YFilter.not_set or
+                    self.nsf_life_time.yfilter != YFilter.not_set or
+                    self.nsf_status.yfilter != YFilter.not_set or
+                    self.oom_flags.yfilter != YFilter.not_set or
+                    self.rip_version.yfilter != YFilter.not_set or
+                    self.triggered_rip.yfilter != YFilter.not_set or
+                    self.update_timer.yfilter != YFilter.not_set or
+                    self.validation_indicator.yfilter != YFilter.not_set or
+                    self.vr_fised_socket.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "configuration" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.active.get_name_leafdata())
+                if (self.auto_summarize.is_set or self.auto_summarize.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.auto_summarize.get_name_leafdata())
+                if (self.default_metric.is_set or self.default_metric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.default_metric.get_name_leafdata())
+                if (self.flash_threshold.is_set or self.flash_threshold.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.flash_threshold.get_name_leafdata())
+                if (self.flush_timer.is_set or self.flush_timer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.flush_timer.get_name_leafdata())
+                if (self.hold_down_timer.is_set or self.hold_down_timer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.hold_down_timer.get_name_leafdata())
+                if (self.input_q_length.is_set or self.input_q_length.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.input_q_length.get_name_leafdata())
+                if (self.invalid_timer.is_set or self.invalid_timer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.invalid_timer.get_name_leafdata())
+                if (self.maximum_paths.is_set or self.maximum_paths.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.maximum_paths.get_name_leafdata())
+                if (self.multicast_address.is_set or self.multicast_address.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.multicast_address.get_name_leafdata())
+                if (self.next_update_time.is_set or self.next_update_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.next_update_time.get_name_leafdata())
+                if (self.nsf_life_time.is_set or self.nsf_life_time.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nsf_life_time.get_name_leafdata())
+                if (self.nsf_status.is_set or self.nsf_status.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.nsf_status.get_name_leafdata())
+                if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                if (self.rip_version.is_set or self.rip_version.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rip_version.get_name_leafdata())
+                if (self.triggered_rip.is_set or self.triggered_rip.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.triggered_rip.get_name_leafdata())
+                if (self.update_timer.is_set or self.update_timer.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.update_timer.get_name_leafdata())
+                if (self.validation_indicator.is_set or self.validation_indicator.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.validation_indicator.get_name_leafdata())
+                if (self.vr_fised_socket.is_set or self.vr_fised_socket.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vr_fised_socket.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "active" or name == "auto-summarize" or name == "default-metric" or name == "flash-threshold" or name == "flush-timer" or name == "hold-down-timer" or name == "input-q-length" or name == "invalid-timer" or name == "maximum-paths" or name == "multicast-address" or name == "next-update-time" or name == "nsf-life-time" or name == "nsf-status" or name == "oom-flags" or name == "rip-version" or name == "triggered-rip" or name == "update-timer" or name == "validation-indicator" or name == "vr-fised-socket"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.active is not None:
-                    return True
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "active"):
+                    self.active = value
+                    self.active.value_namespace = name_space
+                    self.active.value_namespace_prefix = name_space_prefix
+                if(value_path == "auto-summarize"):
+                    self.auto_summarize = value
+                    self.auto_summarize.value_namespace = name_space
+                    self.auto_summarize.value_namespace_prefix = name_space_prefix
+                if(value_path == "default-metric"):
+                    self.default_metric = value
+                    self.default_metric.value_namespace = name_space
+                    self.default_metric.value_namespace_prefix = name_space_prefix
+                if(value_path == "flash-threshold"):
+                    self.flash_threshold = value
+                    self.flash_threshold.value_namespace = name_space
+                    self.flash_threshold.value_namespace_prefix = name_space_prefix
+                if(value_path == "flush-timer"):
+                    self.flush_timer = value
+                    self.flush_timer.value_namespace = name_space
+                    self.flush_timer.value_namespace_prefix = name_space_prefix
+                if(value_path == "hold-down-timer"):
+                    self.hold_down_timer = value
+                    self.hold_down_timer.value_namespace = name_space
+                    self.hold_down_timer.value_namespace_prefix = name_space_prefix
+                if(value_path == "input-q-length"):
+                    self.input_q_length = value
+                    self.input_q_length.value_namespace = name_space
+                    self.input_q_length.value_namespace_prefix = name_space_prefix
+                if(value_path == "invalid-timer"):
+                    self.invalid_timer = value
+                    self.invalid_timer.value_namespace = name_space
+                    self.invalid_timer.value_namespace_prefix = name_space_prefix
+                if(value_path == "maximum-paths"):
+                    self.maximum_paths = value
+                    self.maximum_paths.value_namespace = name_space
+                    self.maximum_paths.value_namespace_prefix = name_space_prefix
+                if(value_path == "multicast-address"):
+                    self.multicast_address = value
+                    self.multicast_address.value_namespace = name_space
+                    self.multicast_address.value_namespace_prefix = name_space_prefix
+                if(value_path == "next-update-time"):
+                    self.next_update_time = value
+                    self.next_update_time.value_namespace = name_space
+                    self.next_update_time.value_namespace_prefix = name_space_prefix
+                if(value_path == "nsf-life-time"):
+                    self.nsf_life_time = value
+                    self.nsf_life_time.value_namespace = name_space
+                    self.nsf_life_time.value_namespace_prefix = name_space_prefix
+                if(value_path == "nsf-status"):
+                    self.nsf_status = value
+                    self.nsf_status.value_namespace = name_space
+                    self.nsf_status.value_namespace_prefix = name_space_prefix
+                if(value_path == "oom-flags"):
+                    self.oom_flags = value
+                    self.oom_flags.value_namespace = name_space
+                    self.oom_flags.value_namespace_prefix = name_space_prefix
+                if(value_path == "rip-version"):
+                    self.rip_version = value
+                    self.rip_version.value_namespace = name_space
+                    self.rip_version.value_namespace_prefix = name_space_prefix
+                if(value_path == "triggered-rip"):
+                    self.triggered_rip = value
+                    self.triggered_rip.value_namespace = name_space
+                    self.triggered_rip.value_namespace_prefix = name_space_prefix
+                if(value_path == "update-timer"):
+                    self.update_timer = value
+                    self.update_timer.value_namespace = name_space
+                    self.update_timer.value_namespace_prefix = name_space_prefix
+                if(value_path == "validation-indicator"):
+                    self.validation_indicator = value
+                    self.validation_indicator.value_namespace = name_space
+                    self.validation_indicator.value_namespace_prefix = name_space_prefix
+                if(value_path == "vr-fised-socket"):
+                    self.vr_fised_socket = value
+                    self.vr_fised_socket.value_namespace = name_space
+                    self.vr_fised_socket.value_namespace_prefix = name_space_prefix
 
-                if self.auto_summarize is not None:
-                    return True
 
-                if self.default_metric is not None:
-                    return True
-
-                if self.flash_threshold is not None:
-                    return True
-
-                if self.flush_timer is not None:
-                    return True
-
-                if self.hold_down_timer is not None:
-                    return True
-
-                if self.input_q_length is not None:
-                    return True
-
-                if self.invalid_timer is not None:
-                    return True
-
-                if self.maximum_paths is not None:
-                    return True
-
-                if self.multicast_address is not None:
-                    return True
-
-                if self.next_update_time is not None:
-                    return True
-
-                if self.nsf_life_time is not None:
-                    return True
-
-                if self.nsf_status is not None:
-                    return True
-
-                if self.oom_flags is not None:
-                    return True
-
-                if self.rip_version is not None:
-                    return True
-
-                if self.triggered_rip is not None:
-                    return True
-
-                if self.update_timer is not None:
-                    return True
-
-                if self.validation_indicator is not None:
-                    return True
-
-                if self.vr_fised_socket is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.DefaultVrf.Configuration']['meta_info']
-
-
-        class Statistics(object):
+        class Statistics(Entity):
             """
             RIP statistics information
             
@@ -4756,79 +8643,218 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.discarded_packets = None
-                self.discarded_routes = None
-                self.path_count = None
-                self.path_malloc_failures = None
-                self.periodic_updates = None
-                self.query_responses = None
-                self.received_packets = None
-                self.rib_updates = None
-                self.route_count = None
-                self.route_malloc_failures = None
-                self.sent_message_failures = None
-                self.sent_messages = None
-                self.standby_packets_received = None
+                super(Rip.DefaultVrf.Statistics, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "statistics"
+                self.yang_parent_name = "default-vrf"
 
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:statistics'
+                self.discarded_packets = YLeaf(YType.uint32, "discarded-packets")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.discarded_routes = YLeaf(YType.uint32, "discarded-routes")
+
+                self.path_count = YLeaf(YType.uint32, "path-count")
+
+                self.path_malloc_failures = YLeaf(YType.uint32, "path-malloc-failures")
+
+                self.periodic_updates = YLeaf(YType.uint32, "periodic-updates")
+
+                self.query_responses = YLeaf(YType.uint32, "query-responses")
+
+                self.received_packets = YLeaf(YType.uint32, "received-packets")
+
+                self.rib_updates = YLeaf(YType.uint32, "rib-updates")
+
+                self.route_count = YLeaf(YType.uint32, "route-count")
+
+                self.route_malloc_failures = YLeaf(YType.uint32, "route-malloc-failures")
+
+                self.sent_message_failures = YLeaf(YType.uint32, "sent-message-failures")
+
+                self.sent_messages = YLeaf(YType.uint32, "sent-messages")
+
+                self.standby_packets_received = YLeaf(YType.uint32, "standby-packets-received")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("discarded_packets",
+                                "discarded_routes",
+                                "path_count",
+                                "path_malloc_failures",
+                                "periodic_updates",
+                                "query_responses",
+                                "received_packets",
+                                "rib_updates",
+                                "route_count",
+                                "route_malloc_failures",
+                                "sent_message_failures",
+                                "sent_messages",
+                                "standby_packets_received") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rip.DefaultVrf.Statistics, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rip.DefaultVrf.Statistics, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.discarded_packets.is_set or
+                    self.discarded_routes.is_set or
+                    self.path_count.is_set or
+                    self.path_malloc_failures.is_set or
+                    self.periodic_updates.is_set or
+                    self.query_responses.is_set or
+                    self.received_packets.is_set or
+                    self.rib_updates.is_set or
+                    self.route_count.is_set or
+                    self.route_malloc_failures.is_set or
+                    self.sent_message_failures.is_set or
+                    self.sent_messages.is_set or
+                    self.standby_packets_received.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.discarded_packets.yfilter != YFilter.not_set or
+                    self.discarded_routes.yfilter != YFilter.not_set or
+                    self.path_count.yfilter != YFilter.not_set or
+                    self.path_malloc_failures.yfilter != YFilter.not_set or
+                    self.periodic_updates.yfilter != YFilter.not_set or
+                    self.query_responses.yfilter != YFilter.not_set or
+                    self.received_packets.yfilter != YFilter.not_set or
+                    self.rib_updates.yfilter != YFilter.not_set or
+                    self.route_count.yfilter != YFilter.not_set or
+                    self.route_malloc_failures.yfilter != YFilter.not_set or
+                    self.sent_message_failures.yfilter != YFilter.not_set or
+                    self.sent_messages.yfilter != YFilter.not_set or
+                    self.standby_packets_received.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "statistics" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.discarded_packets.is_set or self.discarded_packets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.discarded_packets.get_name_leafdata())
+                if (self.discarded_routes.is_set or self.discarded_routes.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.discarded_routes.get_name_leafdata())
+                if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.path_count.get_name_leafdata())
+                if (self.path_malloc_failures.is_set or self.path_malloc_failures.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.path_malloc_failures.get_name_leafdata())
+                if (self.periodic_updates.is_set or self.periodic_updates.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.periodic_updates.get_name_leafdata())
+                if (self.query_responses.is_set or self.query_responses.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.query_responses.get_name_leafdata())
+                if (self.received_packets.is_set or self.received_packets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.received_packets.get_name_leafdata())
+                if (self.rib_updates.is_set or self.rib_updates.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rib_updates.get_name_leafdata())
+                if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.route_count.get_name_leafdata())
+                if (self.route_malloc_failures.is_set or self.route_malloc_failures.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.route_malloc_failures.get_name_leafdata())
+                if (self.sent_message_failures.is_set or self.sent_message_failures.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sent_message_failures.get_name_leafdata())
+                if (self.sent_messages.is_set or self.sent_messages.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.sent_messages.get_name_leafdata())
+                if (self.standby_packets_received.is_set or self.standby_packets_received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.standby_packets_received.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "discarded-packets" or name == "discarded-routes" or name == "path-count" or name == "path-malloc-failures" or name == "periodic-updates" or name == "query-responses" or name == "received-packets" or name == "rib-updates" or name == "route-count" or name == "route-malloc-failures" or name == "sent-message-failures" or name == "sent-messages" or name == "standby-packets-received"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.discarded_packets is not None:
-                    return True
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "discarded-packets"):
+                    self.discarded_packets = value
+                    self.discarded_packets.value_namespace = name_space
+                    self.discarded_packets.value_namespace_prefix = name_space_prefix
+                if(value_path == "discarded-routes"):
+                    self.discarded_routes = value
+                    self.discarded_routes.value_namespace = name_space
+                    self.discarded_routes.value_namespace_prefix = name_space_prefix
+                if(value_path == "path-count"):
+                    self.path_count = value
+                    self.path_count.value_namespace = name_space
+                    self.path_count.value_namespace_prefix = name_space_prefix
+                if(value_path == "path-malloc-failures"):
+                    self.path_malloc_failures = value
+                    self.path_malloc_failures.value_namespace = name_space
+                    self.path_malloc_failures.value_namespace_prefix = name_space_prefix
+                if(value_path == "periodic-updates"):
+                    self.periodic_updates = value
+                    self.periodic_updates.value_namespace = name_space
+                    self.periodic_updates.value_namespace_prefix = name_space_prefix
+                if(value_path == "query-responses"):
+                    self.query_responses = value
+                    self.query_responses.value_namespace = name_space
+                    self.query_responses.value_namespace_prefix = name_space_prefix
+                if(value_path == "received-packets"):
+                    self.received_packets = value
+                    self.received_packets.value_namespace = name_space
+                    self.received_packets.value_namespace_prefix = name_space_prefix
+                if(value_path == "rib-updates"):
+                    self.rib_updates = value
+                    self.rib_updates.value_namespace = name_space
+                    self.rib_updates.value_namespace_prefix = name_space_prefix
+                if(value_path == "route-count"):
+                    self.route_count = value
+                    self.route_count.value_namespace = name_space
+                    self.route_count.value_namespace_prefix = name_space_prefix
+                if(value_path == "route-malloc-failures"):
+                    self.route_malloc_failures = value
+                    self.route_malloc_failures.value_namespace = name_space
+                    self.route_malloc_failures.value_namespace_prefix = name_space_prefix
+                if(value_path == "sent-message-failures"):
+                    self.sent_message_failures = value
+                    self.sent_message_failures.value_namespace = name_space
+                    self.sent_message_failures.value_namespace_prefix = name_space_prefix
+                if(value_path == "sent-messages"):
+                    self.sent_messages = value
+                    self.sent_messages.value_namespace = name_space
+                    self.sent_messages.value_namespace_prefix = name_space_prefix
+                if(value_path == "standby-packets-received"):
+                    self.standby_packets_received = value
+                    self.standby_packets_received.value_namespace = name_space
+                    self.standby_packets_received.value_namespace_prefix = name_space_prefix
 
-                if self.discarded_routes is not None:
-                    return True
 
-                if self.path_count is not None:
-                    return True
-
-                if self.path_malloc_failures is not None:
-                    return True
-
-                if self.periodic_updates is not None:
-                    return True
-
-                if self.query_responses is not None:
-                    return True
-
-                if self.received_packets is not None:
-                    return True
-
-                if self.rib_updates is not None:
-                    return True
-
-                if self.route_count is not None:
-                    return True
-
-                if self.route_malloc_failures is not None:
-                    return True
-
-                if self.sent_message_failures is not None:
-                    return True
-
-                if self.sent_messages is not None:
-                    return True
-
-                if self.standby_packets_received is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.DefaultVrf.Statistics']['meta_info']
-
-
-        class Interfaces(object):
+        class Interfaces(Entity):
             """
             RIP interfaces
             
@@ -4845,13 +8871,39 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface = YList()
-                self.interface.parent = self
-                self.interface.name = 'interface'
+                super(Rip.DefaultVrf.Interfaces, self).__init__()
+
+                self.yang_name = "interfaces"
+                self.yang_parent_name = "default-vrf"
+
+                self.interface = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rip.DefaultVrf.Interfaces, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rip.DefaultVrf.Interfaces, self).__setattr__(name, value)
 
 
-            class Interface(object):
+            class Interface(Entity):
                 """
                 Information about a particular RIP interface
                 
@@ -5033,7 +9085,7 @@ class Rip(object):
                 .. attribute:: state
                 
                 	Current state of the interface
-                	**type**\:   :py:class:`InterfaceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceStateEnum>`
+                	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
                 
                 .. attribute:: total_pkt_recvd
                 
@@ -5055,46 +9107,129 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_name = None
-                    self.accept_metric = None
-                    self.auth_key_md5 = None
-                    self.auth_key_send_id = None
-                    self.auth_keychain = None
-                    self.auth_mode = None
-                    self.destination_address = None
-                    self.if_handle = None
-                    self.interface = None
-                    self.is_passive_interface = None
-                    self.join_status = None
-                    self.lpts_state = None
-                    self.metric_cost = None
-                    self.multicast_address = None
-                    self.neighbor_address = None
-                    self.oom_flags = None
-                    self.pkt_accepted_valid_auth = None
-                    self.pkt_drop_invalid_auth = None
-                    self.pkt_drop_no_auth = None
-                    self.pkt_drop_wrong_kc = None
-                    self.poison_horizon = None
-                    self.prefix_length = None
-                    self.receive_version = None
-                    self.rip_enabled = None
-                    self.rip_peer = YList()
-                    self.rip_peer.parent = self
-                    self.rip_peer.name = 'rip_peer'
-                    self.rip_summary = YList()
-                    self.rip_summary.parent = self
-                    self.rip_summary.name = 'rip_summary'
-                    self.send_auth_key_exists = None
-                    self.send_version = None
-                    self.split_horizon = None
-                    self.state = None
-                    self.total_pkt_recvd = None
-                    self.triggered_rip = None
+                    super(Rip.DefaultVrf.Interfaces.Interface, self).__init__()
+
+                    self.yang_name = "interface"
+                    self.yang_parent_name = "interfaces"
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.accept_metric = YLeaf(YType.boolean, "accept-metric")
+
+                    self.auth_key_md5 = YLeaf(YType.boolean, "auth-key-md5")
+
+                    self.auth_key_send_id = YLeaf(YType.uint64, "auth-key-send-id")
+
+                    self.auth_keychain = YLeaf(YType.str, "auth-keychain")
+
+                    self.auth_mode = YLeaf(YType.uint32, "auth-mode")
+
+                    self.destination_address = YLeaf(YType.str, "destination-address")
+
+                    self.if_handle = YLeaf(YType.str, "if-handle")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.is_passive_interface = YLeaf(YType.boolean, "is-passive-interface")
+
+                    self.join_status = YLeaf(YType.boolean, "join-status")
+
+                    self.lpts_state = YLeaf(YType.boolean, "lpts-state")
+
+                    self.metric_cost = YLeaf(YType.uint32, "metric-cost")
+
+                    self.multicast_address = YLeaf(YType.boolean, "multicast-address")
+
+                    self.neighbor_address = YLeaf(YType.str, "neighbor-address")
+
+                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                    self.pkt_accepted_valid_auth = YLeaf(YType.uint32, "pkt-accepted-valid-auth")
+
+                    self.pkt_drop_invalid_auth = YLeaf(YType.uint32, "pkt-drop-invalid-auth")
+
+                    self.pkt_drop_no_auth = YLeaf(YType.uint32, "pkt-drop-no-auth")
+
+                    self.pkt_drop_wrong_kc = YLeaf(YType.uint32, "pkt-drop-wrong-kc")
+
+                    self.poison_horizon = YLeaf(YType.boolean, "poison-horizon")
+
+                    self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                    self.receive_version = YLeaf(YType.uint32, "receive-version")
+
+                    self.rip_enabled = YLeaf(YType.boolean, "rip-enabled")
+
+                    self.send_auth_key_exists = YLeaf(YType.boolean, "send-auth-key-exists")
+
+                    self.send_version = YLeaf(YType.uint32, "send-version")
+
+                    self.split_horizon = YLeaf(YType.boolean, "split-horizon")
+
+                    self.state = YLeaf(YType.enumeration, "state")
+
+                    self.total_pkt_recvd = YLeaf(YType.uint32, "total-pkt-recvd")
+
+                    self.triggered_rip = YLeaf(YType.boolean, "triggered-rip")
+
+                    self.rip_peer = YList(self)
+                    self.rip_summary = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("interface_name",
+                                    "accept_metric",
+                                    "auth_key_md5",
+                                    "auth_key_send_id",
+                                    "auth_keychain",
+                                    "auth_mode",
+                                    "destination_address",
+                                    "if_handle",
+                                    "interface",
+                                    "is_passive_interface",
+                                    "join_status",
+                                    "lpts_state",
+                                    "metric_cost",
+                                    "multicast_address",
+                                    "neighbor_address",
+                                    "oom_flags",
+                                    "pkt_accepted_valid_auth",
+                                    "pkt_drop_invalid_auth",
+                                    "pkt_drop_no_auth",
+                                    "pkt_drop_wrong_kc",
+                                    "poison_horizon",
+                                    "prefix_length",
+                                    "receive_version",
+                                    "rip_enabled",
+                                    "send_auth_key_exists",
+                                    "send_version",
+                                    "split_horizon",
+                                    "state",
+                                    "total_pkt_recvd",
+                                    "triggered_rip") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.DefaultVrf.Interfaces.Interface, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.DefaultVrf.Interfaces.Interface, self).__setattr__(name, value)
 
 
-                class RipSummary(object):
+                class RipSummary(Entity):
                     """
                     User defined summary addresses
                     
@@ -5134,45 +9269,119 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.metric = None
-                        self.next_hop_address = None
-                        self.prefix = None
-                        self.prefix_length = None
+                        super(Rip.DefaultVrf.Interfaces.Interface.RipSummary, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "rip-summary"
+                        self.yang_parent_name = "interface"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:rip-summary'
+                        self.metric = YLeaf(YType.int32, "metric")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                        self.prefix = YLeaf(YType.str, "prefix")
+
+                        self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("metric",
+                                        "next_hop_address",
+                                        "prefix",
+                                        "prefix_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.DefaultVrf.Interfaces.Interface.RipSummary, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.DefaultVrf.Interfaces.Interface.RipSummary, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.metric.is_set or
+                            self.next_hop_address.is_set or
+                            self.prefix.is_set or
+                            self.prefix_length.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.metric.yfilter != YFilter.not_set or
+                            self.next_hop_address.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "rip-summary" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.metric.is_set or self.metric.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.metric.get_name_leafdata())
+                        if (self.next_hop_address.is_set or self.next_hop_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.next_hop_address.get_name_leafdata())
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "metric" or name == "next-hop-address" or name == "prefix" or name == "prefix-length"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.metric is not None:
-                            return True
-
-                        if self.next_hop_address is not None:
-                            return True
-
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.RipSummary']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "metric"):
+                            self.metric = value
+                            self.metric.value_namespace = name_space
+                            self.metric.value_namespace_prefix = name_space_prefix
+                        if(value_path == "next-hop-address"):
+                            self.next_hop_address = value
+                            self.next_hop_address.value_namespace = name_space
+                            self.next_hop_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
 
 
-                class RipPeer(object):
+                class RipPeer(Entity):
                     """
                     Neighbors on this interface
                     
@@ -5219,190 +9428,502 @@ class Rip(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.discarded_peer_packets = None
-                        self.discarded_peer_routes = None
-                        self.peer_address = None
-                        self.peer_uptime = None
-                        self.peer_version = None
+                        super(Rip.DefaultVrf.Interfaces.Interface.RipPeer, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "rip-peer"
+                        self.yang_parent_name = "interface"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-rip-oper:rip-peer'
+                        self.discarded_peer_packets = YLeaf(YType.uint32, "discarded-peer-packets")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.discarded_peer_routes = YLeaf(YType.uint32, "discarded-peer-routes")
+
+                        self.peer_address = YLeaf(YType.str, "peer-address")
+
+                        self.peer_uptime = YLeaf(YType.uint32, "peer-uptime")
+
+                        self.peer_version = YLeaf(YType.uint8, "peer-version")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("discarded_peer_packets",
+                                        "discarded_peer_routes",
+                                        "peer_address",
+                                        "peer_uptime",
+                                        "peer_version") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Rip.DefaultVrf.Interfaces.Interface.RipPeer, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Rip.DefaultVrf.Interfaces.Interface.RipPeer, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.discarded_peer_packets.is_set or
+                            self.discarded_peer_routes.is_set or
+                            self.peer_address.is_set or
+                            self.peer_uptime.is_set or
+                            self.peer_version.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.discarded_peer_packets.yfilter != YFilter.not_set or
+                            self.discarded_peer_routes.yfilter != YFilter.not_set or
+                            self.peer_address.yfilter != YFilter.not_set or
+                            self.peer_uptime.yfilter != YFilter.not_set or
+                            self.peer_version.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "rip-peer" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.discarded_peer_packets.is_set or self.discarded_peer_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.discarded_peer_packets.get_name_leafdata())
+                        if (self.discarded_peer_routes.is_set or self.discarded_peer_routes.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.discarded_peer_routes.get_name_leafdata())
+                        if (self.peer_address.is_set or self.peer_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_address.get_name_leafdata())
+                        if (self.peer_uptime.is_set or self.peer_uptime.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_uptime.get_name_leafdata())
+                        if (self.peer_version.is_set or self.peer_version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_version.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "discarded-peer-packets" or name == "discarded-peer-routes" or name == "peer-address" or name == "peer-uptime" or name == "peer-version"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.discarded_peer_packets is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "discarded-peer-packets"):
+                            self.discarded_peer_packets = value
+                            self.discarded_peer_packets.value_namespace = name_space
+                            self.discarded_peer_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "discarded-peer-routes"):
+                            self.discarded_peer_routes = value
+                            self.discarded_peer_routes.value_namespace = name_space
+                            self.discarded_peer_routes.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-address"):
+                            self.peer_address = value
+                            self.peer_address.value_namespace = name_space
+                            self.peer_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-uptime"):
+                            self.peer_uptime = value
+                            self.peer_uptime.value_namespace = name_space
+                            self.peer_uptime.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-version"):
+                            self.peer_version = value
+                            self.peer_version.value_namespace = name_space
+                            self.peer_version.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.rip_peer:
+                        if (c.has_data()):
                             return True
-
-                        if self.discarded_peer_routes is not None:
+                    for c in self.rip_summary:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.interface_name.is_set or
+                        self.accept_metric.is_set or
+                        self.auth_key_md5.is_set or
+                        self.auth_key_send_id.is_set or
+                        self.auth_keychain.is_set or
+                        self.auth_mode.is_set or
+                        self.destination_address.is_set or
+                        self.if_handle.is_set or
+                        self.interface.is_set or
+                        self.is_passive_interface.is_set or
+                        self.join_status.is_set or
+                        self.lpts_state.is_set or
+                        self.metric_cost.is_set or
+                        self.multicast_address.is_set or
+                        self.neighbor_address.is_set or
+                        self.oom_flags.is_set or
+                        self.pkt_accepted_valid_auth.is_set or
+                        self.pkt_drop_invalid_auth.is_set or
+                        self.pkt_drop_no_auth.is_set or
+                        self.pkt_drop_wrong_kc.is_set or
+                        self.poison_horizon.is_set or
+                        self.prefix_length.is_set or
+                        self.receive_version.is_set or
+                        self.rip_enabled.is_set or
+                        self.send_auth_key_exists.is_set or
+                        self.send_version.is_set or
+                        self.split_horizon.is_set or
+                        self.state.is_set or
+                        self.total_pkt_recvd.is_set or
+                        self.triggered_rip.is_set)
 
-                        if self.peer_address is not None:
+                def has_operation(self):
+                    for c in self.rip_peer:
+                        if (c.has_operation()):
                             return True
-
-                        if self.peer_uptime is not None:
+                    for c in self.rip_summary:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.accept_metric.yfilter != YFilter.not_set or
+                        self.auth_key_md5.yfilter != YFilter.not_set or
+                        self.auth_key_send_id.yfilter != YFilter.not_set or
+                        self.auth_keychain.yfilter != YFilter.not_set or
+                        self.auth_mode.yfilter != YFilter.not_set or
+                        self.destination_address.yfilter != YFilter.not_set or
+                        self.if_handle.yfilter != YFilter.not_set or
+                        self.interface.yfilter != YFilter.not_set or
+                        self.is_passive_interface.yfilter != YFilter.not_set or
+                        self.join_status.yfilter != YFilter.not_set or
+                        self.lpts_state.yfilter != YFilter.not_set or
+                        self.metric_cost.yfilter != YFilter.not_set or
+                        self.multicast_address.yfilter != YFilter.not_set or
+                        self.neighbor_address.yfilter != YFilter.not_set or
+                        self.oom_flags.yfilter != YFilter.not_set or
+                        self.pkt_accepted_valid_auth.yfilter != YFilter.not_set or
+                        self.pkt_drop_invalid_auth.yfilter != YFilter.not_set or
+                        self.pkt_drop_no_auth.yfilter != YFilter.not_set or
+                        self.pkt_drop_wrong_kc.yfilter != YFilter.not_set or
+                        self.poison_horizon.yfilter != YFilter.not_set or
+                        self.prefix_length.yfilter != YFilter.not_set or
+                        self.receive_version.yfilter != YFilter.not_set or
+                        self.rip_enabled.yfilter != YFilter.not_set or
+                        self.send_auth_key_exists.yfilter != YFilter.not_set or
+                        self.send_version.yfilter != YFilter.not_set or
+                        self.split_horizon.yfilter != YFilter.not_set or
+                        self.state.yfilter != YFilter.not_set or
+                        self.total_pkt_recvd.yfilter != YFilter.not_set or
+                        self.triggered_rip.yfilter != YFilter.not_set)
 
-                        if self.peer_version is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                        return False
+                    return path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                        return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface.RipPeer']['meta_info']
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/interfaces/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @property
-                def _common_path(self):
-                    if self.interface_name is None:
-                        raise YPYModelError('Key property interface_name is None')
+                    leaf_name_data = LeafDataList()
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.accept_metric.is_set or self.accept_metric.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.accept_metric.get_name_leafdata())
+                    if (self.auth_key_md5.is_set or self.auth_key_md5.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.auth_key_md5.get_name_leafdata())
+                    if (self.auth_key_send_id.is_set or self.auth_key_send_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.auth_key_send_id.get_name_leafdata())
+                    if (self.auth_keychain.is_set or self.auth_keychain.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.auth_keychain.get_name_leafdata())
+                    if (self.auth_mode.is_set or self.auth_mode.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.auth_mode.get_name_leafdata())
+                    if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_address.get_name_leafdata())
+                    if (self.if_handle.is_set or self.if_handle.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.if_handle.get_name_leafdata())
+                    if (self.interface.is_set or self.interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface.get_name_leafdata())
+                    if (self.is_passive_interface.is_set or self.is_passive_interface.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_passive_interface.get_name_leafdata())
+                    if (self.join_status.is_set or self.join_status.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.join_status.get_name_leafdata())
+                    if (self.lpts_state.is_set or self.lpts_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.lpts_state.get_name_leafdata())
+                    if (self.metric_cost.is_set or self.metric_cost.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.metric_cost.get_name_leafdata())
+                    if (self.multicast_address.is_set or self.multicast_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.multicast_address.get_name_leafdata())
+                    if (self.neighbor_address.is_set or self.neighbor_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.neighbor_address.get_name_leafdata())
+                    if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                    if (self.pkt_accepted_valid_auth.is_set or self.pkt_accepted_valid_auth.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pkt_accepted_valid_auth.get_name_leafdata())
+                    if (self.pkt_drop_invalid_auth.is_set or self.pkt_drop_invalid_auth.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pkt_drop_invalid_auth.get_name_leafdata())
+                    if (self.pkt_drop_no_auth.is_set or self.pkt_drop_no_auth.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pkt_drop_no_auth.get_name_leafdata())
+                    if (self.pkt_drop_wrong_kc.is_set or self.pkt_drop_wrong_kc.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.pkt_drop_wrong_kc.get_name_leafdata())
+                    if (self.poison_horizon.is_set or self.poison_horizon.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.poison_horizon.get_name_leafdata())
+                    if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                    if (self.receive_version.is_set or self.receive_version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.receive_version.get_name_leafdata())
+                    if (self.rip_enabled.is_set or self.rip_enabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rip_enabled.get_name_leafdata())
+                    if (self.send_auth_key_exists.is_set or self.send_auth_key_exists.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.send_auth_key_exists.get_name_leafdata())
+                    if (self.send_version.is_set or self.send_version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.send_version.get_name_leafdata())
+                    if (self.split_horizon.is_set or self.split_horizon.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.split_horizon.get_name_leafdata())
+                    if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state.get_name_leafdata())
+                    if (self.total_pkt_recvd.is_set or self.total_pkt_recvd.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.total_pkt_recvd.get_name_leafdata())
+                    if (self.triggered_rip.is_set or self.triggered_rip.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.triggered_rip.get_name_leafdata())
 
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:interfaces/Cisco-IOS-XR-ip-rip-oper:interface[Cisco-IOS-XR-ip-rip-oper:interface-name = ' + str(self.interface_name) + ']'
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "rip-peer"):
+                        for c in self.rip_peer:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.DefaultVrf.Interfaces.Interface.RipPeer()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.rip_peer.append(c)
+                        return c
+
+                    if (child_yang_name == "rip-summary"):
+                        for c in self.rip_summary:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Rip.DefaultVrf.Interfaces.Interface.RipSummary()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.rip_summary.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "rip-peer" or name == "rip-summary" or name == "interface-name" or name == "accept-metric" or name == "auth-key-md5" or name == "auth-key-send-id" or name == "auth-keychain" or name == "auth-mode" or name == "destination-address" or name == "if-handle" or name == "interface" or name == "is-passive-interface" or name == "join-status" or name == "lpts-state" or name == "metric-cost" or name == "multicast-address" or name == "neighbor-address" or name == "oom-flags" or name == "pkt-accepted-valid-auth" or name == "pkt-drop-invalid-auth" or name == "pkt-drop-no-auth" or name == "pkt-drop-wrong-kc" or name == "poison-horizon" or name == "prefix-length" or name == "receive-version" or name == "rip-enabled" or name == "send-auth-key-exists" or name == "send-version" or name == "split-horizon" or name == "state" or name == "total-pkt-recvd" or name == "triggered-rip"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.interface_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "accept-metric"):
+                        self.accept_metric = value
+                        self.accept_metric.value_namespace = name_space
+                        self.accept_metric.value_namespace_prefix = name_space_prefix
+                    if(value_path == "auth-key-md5"):
+                        self.auth_key_md5 = value
+                        self.auth_key_md5.value_namespace = name_space
+                        self.auth_key_md5.value_namespace_prefix = name_space_prefix
+                    if(value_path == "auth-key-send-id"):
+                        self.auth_key_send_id = value
+                        self.auth_key_send_id.value_namespace = name_space
+                        self.auth_key_send_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "auth-keychain"):
+                        self.auth_keychain = value
+                        self.auth_keychain.value_namespace = name_space
+                        self.auth_keychain.value_namespace_prefix = name_space_prefix
+                    if(value_path == "auth-mode"):
+                        self.auth_mode = value
+                        self.auth_mode.value_namespace = name_space
+                        self.auth_mode.value_namespace_prefix = name_space_prefix
+                    if(value_path == "destination-address"):
+                        self.destination_address = value
+                        self.destination_address.value_namespace = name_space
+                        self.destination_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "if-handle"):
+                        self.if_handle = value
+                        self.if_handle.value_namespace = name_space
+                        self.if_handle.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface"):
+                        self.interface = value
+                        self.interface.value_namespace = name_space
+                        self.interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-passive-interface"):
+                        self.is_passive_interface = value
+                        self.is_passive_interface.value_namespace = name_space
+                        self.is_passive_interface.value_namespace_prefix = name_space_prefix
+                    if(value_path == "join-status"):
+                        self.join_status = value
+                        self.join_status.value_namespace = name_space
+                        self.join_status.value_namespace_prefix = name_space_prefix
+                    if(value_path == "lpts-state"):
+                        self.lpts_state = value
+                        self.lpts_state.value_namespace = name_space
+                        self.lpts_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "metric-cost"):
+                        self.metric_cost = value
+                        self.metric_cost.value_namespace = name_space
+                        self.metric_cost.value_namespace_prefix = name_space_prefix
+                    if(value_path == "multicast-address"):
+                        self.multicast_address = value
+                        self.multicast_address.value_namespace = name_space
+                        self.multicast_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "neighbor-address"):
+                        self.neighbor_address = value
+                        self.neighbor_address.value_namespace = name_space
+                        self.neighbor_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "oom-flags"):
+                        self.oom_flags = value
+                        self.oom_flags.value_namespace = name_space
+                        self.oom_flags.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pkt-accepted-valid-auth"):
+                        self.pkt_accepted_valid_auth = value
+                        self.pkt_accepted_valid_auth.value_namespace = name_space
+                        self.pkt_accepted_valid_auth.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pkt-drop-invalid-auth"):
+                        self.pkt_drop_invalid_auth = value
+                        self.pkt_drop_invalid_auth.value_namespace = name_space
+                        self.pkt_drop_invalid_auth.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pkt-drop-no-auth"):
+                        self.pkt_drop_no_auth = value
+                        self.pkt_drop_no_auth.value_namespace = name_space
+                        self.pkt_drop_no_auth.value_namespace_prefix = name_space_prefix
+                    if(value_path == "pkt-drop-wrong-kc"):
+                        self.pkt_drop_wrong_kc = value
+                        self.pkt_drop_wrong_kc.value_namespace = name_space
+                        self.pkt_drop_wrong_kc.value_namespace_prefix = name_space_prefix
+                    if(value_path == "poison-horizon"):
+                        self.poison_horizon = value
+                        self.poison_horizon.value_namespace = name_space
+                        self.poison_horizon.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix-length"):
+                        self.prefix_length = value
+                        self.prefix_length.value_namespace = name_space
+                        self.prefix_length.value_namespace_prefix = name_space_prefix
+                    if(value_path == "receive-version"):
+                        self.receive_version = value
+                        self.receive_version.value_namespace = name_space
+                        self.receive_version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rip-enabled"):
+                        self.rip_enabled = value
+                        self.rip_enabled.value_namespace = name_space
+                        self.rip_enabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "send-auth-key-exists"):
+                        self.send_auth_key_exists = value
+                        self.send_auth_key_exists.value_namespace = name_space
+                        self.send_auth_key_exists.value_namespace_prefix = name_space_prefix
+                    if(value_path == "send-version"):
+                        self.send_version = value
+                        self.send_version.value_namespace = name_space
+                        self.send_version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "split-horizon"):
+                        self.split_horizon = value
+                        self.split_horizon.value_namespace = name_space
+                        self.split_horizon.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state"):
+                        self.state = value
+                        self.state.value_namespace = name_space
+                        self.state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "total-pkt-recvd"):
+                        self.total_pkt_recvd = value
+                        self.total_pkt_recvd.value_namespace = name_space
+                        self.total_pkt_recvd.value_namespace_prefix = name_space_prefix
+                    if(value_path == "triggered-rip"):
+                        self.triggered_rip = value
+                        self.triggered_rip.value_namespace = name_space
+                        self.triggered_rip.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.interface:
+                    if (c.has_data()):
                         return True
-
-                    if self.accept_metric is not None:
-                        return True
-
-                    if self.auth_key_md5 is not None:
-                        return True
-
-                    if self.auth_key_send_id is not None:
-                        return True
-
-                    if self.auth_keychain is not None:
-                        return True
-
-                    if self.auth_mode is not None:
-                        return True
-
-                    if self.destination_address is not None:
-                        return True
-
-                    if self.if_handle is not None:
-                        return True
-
-                    if self.interface is not None:
-                        return True
-
-                    if self.is_passive_interface is not None:
-                        return True
-
-                    if self.join_status is not None:
-                        return True
-
-                    if self.lpts_state is not None:
-                        return True
-
-                    if self.metric_cost is not None:
-                        return True
-
-                    if self.multicast_address is not None:
-                        return True
-
-                    if self.neighbor_address is not None:
-                        return True
-
-                    if self.oom_flags is not None:
-                        return True
-
-                    if self.pkt_accepted_valid_auth is not None:
-                        return True
-
-                    if self.pkt_drop_invalid_auth is not None:
-                        return True
-
-                    if self.pkt_drop_no_auth is not None:
-                        return True
-
-                    if self.pkt_drop_wrong_kc is not None:
-                        return True
-
-                    if self.poison_horizon is not None:
-                        return True
-
-                    if self.prefix_length is not None:
-                        return True
-
-                    if self.receive_version is not None:
-                        return True
-
-                    if self.rip_enabled is not None:
-                        return True
-
-                    if self.rip_peer is not None:
-                        for child_ref in self.rip_peer:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.rip_summary is not None:
-                        for child_ref in self.rip_summary:
-                            if child_ref._has_data():
-                                return True
-
-                    if self.send_auth_key_exists is not None:
-                        return True
-
-                    if self.send_version is not None:
-                        return True
-
-                    if self.split_horizon is not None:
-                        return True
-
-                    if self.state is not None:
-                        return True
-
-                    if self.total_pkt_recvd is not None:
-                        return True
-
-                    if self.triggered_rip is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.DefaultVrf.Interfaces.Interface']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:interfaces'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.interface is not None:
-                    for child_ref in self.interface:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.interface:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interfaces" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface"):
+                    for c in self.interface:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Rip.DefaultVrf.Interfaces.Interface()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.DefaultVrf.Interfaces']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Global_(object):
+        class Global_(Entity):
             """
             Global Information 
             
@@ -5424,15 +9945,44 @@ class Rip(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_summary = YList()
-                self.interface_summary.parent = self
-                self.interface_summary.name = 'interface_summary'
+                super(Rip.DefaultVrf.Global_, self).__init__()
+
+                self.yang_name = "global"
+                self.yang_parent_name = "default-vrf"
+
                 self.vrf_summary = Rip.DefaultVrf.Global_.VrfSummary()
                 self.vrf_summary.parent = self
+                self._children_name_map["vrf_summary"] = "vrf-summary"
+                self._children_yang_names.add("vrf-summary")
+
+                self.interface_summary = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Rip.DefaultVrf.Global_, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Rip.DefaultVrf.Global_, self).__setattr__(name, value)
 
 
-            class VrfSummary(object):
+            class VrfSummary(Entity):
                 """
                 VRF summary data
                 
@@ -5524,75 +10074,207 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.active = None
-                    self.active_interface_count = None
-                    self.flush_timer = None
-                    self.hold_down_timer = None
-                    self.interface_configured_count = None
-                    self.invalid_timer = None
-                    self.next_update_time = None
-                    self.oom_flags = None
-                    self.path_count = None
-                    self.route_count = None
-                    self.update_timer = None
-                    self.vrf_name = None
+                    super(Rip.DefaultVrf.Global_.VrfSummary, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "vrf-summary"
+                    self.yang_parent_name = "global"
 
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:global/Cisco-IOS-XR-ip-rip-oper:vrf-summary'
+                    self.active = YLeaf(YType.boolean, "active")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.active_interface_count = YLeaf(YType.uint32, "active-interface-count")
+
+                    self.flush_timer = YLeaf(YType.uint32, "flush-timer")
+
+                    self.hold_down_timer = YLeaf(YType.uint32, "hold-down-timer")
+
+                    self.interface_configured_count = YLeaf(YType.uint32, "interface-configured-count")
+
+                    self.invalid_timer = YLeaf(YType.uint32, "invalid-timer")
+
+                    self.next_update_time = YLeaf(YType.uint32, "next-update-time")
+
+                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                    self.path_count = YLeaf(YType.uint32, "path-count")
+
+                    self.route_count = YLeaf(YType.uint32, "route-count")
+
+                    self.update_timer = YLeaf(YType.uint32, "update-timer")
+
+                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("active",
+                                    "active_interface_count",
+                                    "flush_timer",
+                                    "hold_down_timer",
+                                    "interface_configured_count",
+                                    "invalid_timer",
+                                    "next_update_time",
+                                    "oom_flags",
+                                    "path_count",
+                                    "route_count",
+                                    "update_timer",
+                                    "vrf_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.DefaultVrf.Global_.VrfSummary, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.DefaultVrf.Global_.VrfSummary, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.active.is_set or
+                        self.active_interface_count.is_set or
+                        self.flush_timer.is_set or
+                        self.hold_down_timer.is_set or
+                        self.interface_configured_count.is_set or
+                        self.invalid_timer.is_set or
+                        self.next_update_time.is_set or
+                        self.oom_flags.is_set or
+                        self.path_count.is_set or
+                        self.route_count.is_set or
+                        self.update_timer.is_set or
+                        self.vrf_name.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.active.yfilter != YFilter.not_set or
+                        self.active_interface_count.yfilter != YFilter.not_set or
+                        self.flush_timer.yfilter != YFilter.not_set or
+                        self.hold_down_timer.yfilter != YFilter.not_set or
+                        self.interface_configured_count.yfilter != YFilter.not_set or
+                        self.invalid_timer.yfilter != YFilter.not_set or
+                        self.next_update_time.yfilter != YFilter.not_set or
+                        self.oom_flags.yfilter != YFilter.not_set or
+                        self.path_count.yfilter != YFilter.not_set or
+                        self.route_count.yfilter != YFilter.not_set or
+                        self.update_timer.yfilter != YFilter.not_set or
+                        self.vrf_name.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "vrf-summary" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/global/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.active.is_set or self.active.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active.get_name_leafdata())
+                    if (self.active_interface_count.is_set or self.active_interface_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.active_interface_count.get_name_leafdata())
+                    if (self.flush_timer.is_set or self.flush_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.flush_timer.get_name_leafdata())
+                    if (self.hold_down_timer.is_set or self.hold_down_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hold_down_timer.get_name_leafdata())
+                    if (self.interface_configured_count.is_set or self.interface_configured_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_configured_count.get_name_leafdata())
+                    if (self.invalid_timer.is_set or self.invalid_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.invalid_timer.get_name_leafdata())
+                    if (self.next_update_time.is_set or self.next_update_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.next_update_time.get_name_leafdata())
+                    if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                    if (self.path_count.is_set or self.path_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.path_count.get_name_leafdata())
+                    if (self.route_count.is_set or self.route_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.route_count.get_name_leafdata())
+                    if (self.update_timer.is_set or self.update_timer.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.update_timer.get_name_leafdata())
+                    if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "active" or name == "active-interface-count" or name == "flush-timer" or name == "hold-down-timer" or name == "interface-configured-count" or name == "invalid-timer" or name == "next-update-time" or name == "oom-flags" or name == "path-count" or name == "route-count" or name == "update-timer" or name == "vrf-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.active is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "active"):
+                        self.active = value
+                        self.active.value_namespace = name_space
+                        self.active.value_namespace_prefix = name_space_prefix
+                    if(value_path == "active-interface-count"):
+                        self.active_interface_count = value
+                        self.active_interface_count.value_namespace = name_space
+                        self.active_interface_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "flush-timer"):
+                        self.flush_timer = value
+                        self.flush_timer.value_namespace = name_space
+                        self.flush_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hold-down-timer"):
+                        self.hold_down_timer = value
+                        self.hold_down_timer.value_namespace = name_space
+                        self.hold_down_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-configured-count"):
+                        self.interface_configured_count = value
+                        self.interface_configured_count.value_namespace = name_space
+                        self.interface_configured_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "invalid-timer"):
+                        self.invalid_timer = value
+                        self.invalid_timer.value_namespace = name_space
+                        self.invalid_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "next-update-time"):
+                        self.next_update_time = value
+                        self.next_update_time.value_namespace = name_space
+                        self.next_update_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "oom-flags"):
+                        self.oom_flags = value
+                        self.oom_flags.value_namespace = name_space
+                        self.oom_flags.value_namespace_prefix = name_space_prefix
+                    if(value_path == "path-count"):
+                        self.path_count = value
+                        self.path_count.value_namespace = name_space
+                        self.path_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "route-count"):
+                        self.route_count = value
+                        self.route_count.value_namespace = name_space
+                        self.route_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "update-timer"):
+                        self.update_timer = value
+                        self.update_timer.value_namespace = name_space
+                        self.update_timer.value_namespace_prefix = name_space_prefix
+                    if(value_path == "vrf-name"):
+                        self.vrf_name = value
+                        self.vrf_name.value_namespace = name_space
+                        self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                    if self.active_interface_count is not None:
-                        return True
 
-                    if self.flush_timer is not None:
-                        return True
-
-                    if self.hold_down_timer is not None:
-                        return True
-
-                    if self.interface_configured_count is not None:
-                        return True
-
-                    if self.invalid_timer is not None:
-                        return True
-
-                    if self.next_update_time is not None:
-                        return True
-
-                    if self.oom_flags is not None:
-                        return True
-
-                    if self.path_count is not None:
-                        return True
-
-                    if self.route_count is not None:
-                        return True
-
-                    if self.update_timer is not None:
-                        return True
-
-                    if self.vrf_name is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.DefaultVrf.Global_.VrfSummary']['meta_info']
-
-
-            class InterfaceSummary(object):
+            class InterfaceSummary(Entity):
                 """
                 List of Interfaces configured
                 
@@ -5651,7 +10333,7 @@ class Rip(object):
                 .. attribute:: state
                 
                 	Interface state
-                	**type**\:   :py:class:`InterfaceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceStateEnum>`
+                	**type**\:   :py:class:`InterfaceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_oper.InterfaceState>`
                 
                 
 
@@ -5661,142 +10343,390 @@ class Rip(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.destination_address = None
-                    self.enabled = None
-                    self.interface_name = None
-                    self.neighbor_count = None
-                    self.oom_flags = None
-                    self.prefix_length = None
-                    self.receive_version = None
-                    self.send_version = None
-                    self.state = None
+                    super(Rip.DefaultVrf.Global_.InterfaceSummary, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "interface-summary"
+                    self.yang_parent_name = "global"
 
-                    return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:global/Cisco-IOS-XR-ip-rip-oper:interface-summary'
+                    self.destination_address = YLeaf(YType.str, "destination-address")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.enabled = YLeaf(YType.boolean, "enabled")
+
+                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                    self.neighbor_count = YLeaf(YType.uint32, "neighbor-count")
+
+                    self.oom_flags = YLeaf(YType.uint32, "oom-flags")
+
+                    self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                    self.receive_version = YLeaf(YType.uint32, "receive-version")
+
+                    self.send_version = YLeaf(YType.uint32, "send-version")
+
+                    self.state = YLeaf(YType.enumeration, "state")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("destination_address",
+                                    "enabled",
+                                    "interface_name",
+                                    "neighbor_count",
+                                    "oom_flags",
+                                    "prefix_length",
+                                    "receive_version",
+                                    "send_version",
+                                    "state") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Rip.DefaultVrf.Global_.InterfaceSummary, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Rip.DefaultVrf.Global_.InterfaceSummary, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.destination_address.is_set or
+                        self.enabled.is_set or
+                        self.interface_name.is_set or
+                        self.neighbor_count.is_set or
+                        self.oom_flags.is_set or
+                        self.prefix_length.is_set or
+                        self.receive_version.is_set or
+                        self.send_version.is_set or
+                        self.state.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.destination_address.yfilter != YFilter.not_set or
+                        self.enabled.yfilter != YFilter.not_set or
+                        self.interface_name.yfilter != YFilter.not_set or
+                        self.neighbor_count.yfilter != YFilter.not_set or
+                        self.oom_flags.yfilter != YFilter.not_set or
+                        self.prefix_length.yfilter != YFilter.not_set or
+                        self.receive_version.yfilter != YFilter.not_set or
+                        self.send_version.yfilter != YFilter.not_set or
+                        self.state.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface-summary" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/global/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.destination_address.is_set or self.destination_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.destination_address.get_name_leafdata())
+                    if (self.enabled.is_set or self.enabled.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.enabled.get_name_leafdata())
+                    if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.interface_name.get_name_leafdata())
+                    if (self.neighbor_count.is_set or self.neighbor_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.neighbor_count.get_name_leafdata())
+                    if (self.oom_flags.is_set or self.oom_flags.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.oom_flags.get_name_leafdata())
+                    if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix_length.get_name_leafdata())
+                    if (self.receive_version.is_set or self.receive_version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.receive_version.get_name_leafdata())
+                    if (self.send_version.is_set or self.send_version.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.send_version.get_name_leafdata())
+                    if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "destination-address" or name == "enabled" or name == "interface-name" or name == "neighbor-count" or name == "oom-flags" or name == "prefix-length" or name == "receive-version" or name == "send-version" or name == "state"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.destination_address is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "destination-address"):
+                        self.destination_address = value
+                        self.destination_address.value_namespace = name_space
+                        self.destination_address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "enabled"):
+                        self.enabled = value
+                        self.enabled.value_namespace = name_space
+                        self.enabled.value_namespace_prefix = name_space_prefix
+                    if(value_path == "interface-name"):
+                        self.interface_name = value
+                        self.interface_name.value_namespace = name_space
+                        self.interface_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "neighbor-count"):
+                        self.neighbor_count = value
+                        self.neighbor_count.value_namespace = name_space
+                        self.neighbor_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "oom-flags"):
+                        self.oom_flags = value
+                        self.oom_flags.value_namespace = name_space
+                        self.oom_flags.value_namespace_prefix = name_space_prefix
+                    if(value_path == "prefix-length"):
+                        self.prefix_length = value
+                        self.prefix_length.value_namespace = name_space
+                        self.prefix_length.value_namespace_prefix = name_space_prefix
+                    if(value_path == "receive-version"):
+                        self.receive_version = value
+                        self.receive_version.value_namespace = name_space
+                        self.receive_version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "send-version"):
+                        self.send_version = value
+                        self.send_version.value_namespace = name_space
+                        self.send_version.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state"):
+                        self.state = value
+                        self.state.value_namespace = name_space
+                        self.state.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.interface_summary:
+                    if (c.has_data()):
                         return True
+                return (self.vrf_summary is not None and self.vrf_summary.has_data())
 
-                    if self.enabled is not None:
+            def has_operation(self):
+                for c in self.interface_summary:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.vrf_summary is not None and self.vrf_summary.has_operation()))
 
-                    if self.interface_name is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "global" + path_buffer
 
-                    if self.neighbor_count is not None:
-                        return True
+                return path_buffer
 
-                    if self.oom_flags is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/default-vrf/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.prefix_length is not None:
-                        return True
+                leaf_name_data = LeafDataList()
 
-                    if self.receive_version is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.send_version is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.state is not None:
-                        return True
+                if (child_yang_name == "interface-summary"):
+                    for c in self.interface_summary:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Rip.DefaultVrf.Global_.InterfaceSummary()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.interface_summary.append(c)
+                    return c
 
-                    return False
+                if (child_yang_name == "vrf-summary"):
+                    if (self.vrf_summary is None):
+                        self.vrf_summary = Rip.DefaultVrf.Global_.VrfSummary()
+                        self.vrf_summary.parent = self
+                        self._children_name_map["vrf_summary"] = "vrf-summary"
+                    return self.vrf_summary
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                    return meta._meta_table['Rip.DefaultVrf.Global_.InterfaceSummary']['meta_info']
+                return None
 
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf/Cisco-IOS-XR-ip-rip-oper:global'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.interface_summary is not None:
-                    for child_ref in self.interface_summary:
-                        if child_ref._has_data():
-                            return True
-
-                if self.vrf_summary is not None and self.vrf_summary._has_data():
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-summary" or name == "vrf-summary"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-                return meta._meta_table['Rip.DefaultVrf.Global_']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.configuration is not None and self.configuration.has_data()) or
+                (self.global_ is not None and self.global_.has_data()) or
+                (self.interfaces is not None and self.interfaces.has_data()) or
+                (self.routes is not None and self.routes.has_data()) or
+                (self.statistics is not None and self.statistics.has_data()))
 
-            return '/Cisco-IOS-XR-ip-rip-oper:rip/Cisco-IOS-XR-ip-rip-oper:default-vrf'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.configuration is not None and self.configuration.has_operation()) or
+                (self.global_ is not None and self.global_.has_operation()) or
+                (self.interfaces is not None and self.interfaces.has_operation()) or
+                (self.routes is not None and self.routes.has_operation()) or
+                (self.statistics is not None and self.statistics.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "default-vrf" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "configuration"):
+                if (self.configuration is None):
+                    self.configuration = Rip.DefaultVrf.Configuration()
+                    self.configuration.parent = self
+                    self._children_name_map["configuration"] = "configuration"
+                return self.configuration
+
+            if (child_yang_name == "global"):
+                if (self.global_ is None):
+                    self.global_ = Rip.DefaultVrf.Global_()
+                    self.global_.parent = self
+                    self._children_name_map["global_"] = "global"
+                return self.global_
+
+            if (child_yang_name == "interfaces"):
+                if (self.interfaces is None):
+                    self.interfaces = Rip.DefaultVrf.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                return self.interfaces
+
+            if (child_yang_name == "routes"):
+                if (self.routes is None):
+                    self.routes = Rip.DefaultVrf.Routes()
+                    self.routes.parent = self
+                    self._children_name_map["routes"] = "routes"
+                return self.routes
+
+            if (child_yang_name == "statistics"):
+                if (self.statistics is None):
+                    self.statistics = Rip.DefaultVrf.Statistics()
+                    self.statistics.parent = self
+                    self._children_name_map["statistics"] = "statistics"
+                return self.statistics
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "configuration" or name == "global" or name == "interfaces" or name == "routes" or name == "statistics"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.configuration is not None and self.configuration._has_data():
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-            if self.global_ is not None and self.global_._has_data():
-                return True
+    def has_data(self):
+        return (
+            (self.default_vrf is not None and self.default_vrf.has_data()) or
+            (self.protocol is not None and self.protocol.has_data()) or
+            (self.vrfs is not None and self.vrfs.has_data()))
 
-            if self.interfaces is not None and self.interfaces._has_data():
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.default_vrf is not None and self.default_vrf.has_operation()) or
+            (self.protocol is not None and self.protocol.has_operation()) or
+            (self.vrfs is not None and self.vrfs.has_operation()))
 
-            if self.routes is not None and self.routes._has_data():
-                return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-rip-oper:rip" + path_buffer
 
-            if self.statistics is not None and self.statistics._has_data():
-                return True
+        return path_buffer
 
-            return False
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-            return meta._meta_table['Rip.DefaultVrf']['meta_info']
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-    @property
-    def _common_path(self):
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-        return '/Cisco-IOS-XR-ip-rip-oper:rip'
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+        if (child_yang_name == "default-vrf"):
+            if (self.default_vrf is None):
+                self.default_vrf = Rip.DefaultVrf()
+                self.default_vrf.parent = self
+                self._children_name_map["default_vrf"] = "default-vrf"
+            return self.default_vrf
+
+        if (child_yang_name == "protocol"):
+            if (self.protocol is None):
+                self.protocol = Rip.Protocol()
+                self.protocol.parent = self
+                self._children_name_map["protocol"] = "protocol"
+            return self.protocol
+
+        if (child_yang_name == "vrfs"):
+            if (self.vrfs is None):
+                self.vrfs = Rip.Vrfs()
+                self.vrfs.parent = self
+                self._children_name_map["vrfs"] = "vrfs"
+            return self.vrfs
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "default-vrf" or name == "protocol" or name == "vrfs"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.default_vrf is not None and self.default_vrf._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.protocol is not None and self.protocol._has_data():
-            return True
-
-        if self.vrfs is not None and self.vrfs._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rip_oper as meta
-        return meta._meta_table['Rip']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Rip()
+        return self._top_entity
 

@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class LocaleCountryEnum(Enum):
+class LocaleCountry(Enum):
     """
-    LocaleCountryEnum
+    LocaleCountry
 
     Locale country
 
@@ -984,492 +978,486 @@ class LocaleCountryEnum(Enum):
 
     """
 
-    ad = 1
+    ad = Enum.YLeaf(1, "ad")
 
-    ae = 2
+    ae = Enum.YLeaf(2, "ae")
 
-    af = 3
+    af = Enum.YLeaf(3, "af")
 
-    ag = 4
+    ag = Enum.YLeaf(4, "ag")
 
-    ai = 5
+    ai = Enum.YLeaf(5, "ai")
 
-    al = 6
+    al = Enum.YLeaf(6, "al")
 
-    am = 7
+    am = Enum.YLeaf(7, "am")
 
-    an = 8
+    an = Enum.YLeaf(8, "an")
 
-    ao = 9
+    ao = Enum.YLeaf(9, "ao")
 
-    aq = 10
+    aq = Enum.YLeaf(10, "aq")
 
-    ar = 11
+    ar = Enum.YLeaf(11, "ar")
 
-    as_ = 12
+    as_ = Enum.YLeaf(12, "as")
 
-    at = 13
+    at = Enum.YLeaf(13, "at")
 
-    au = 14
+    au = Enum.YLeaf(14, "au")
 
-    aw = 15
+    aw = Enum.YLeaf(15, "aw")
 
-    az = 16
+    az = Enum.YLeaf(16, "az")
 
-    ba = 17
+    ba = Enum.YLeaf(17, "ba")
 
-    bb = 18
+    bb = Enum.YLeaf(18, "bb")
 
-    bd = 19
+    bd = Enum.YLeaf(19, "bd")
 
-    be = 20
+    be = Enum.YLeaf(20, "be")
 
-    bf = 21
+    bf = Enum.YLeaf(21, "bf")
 
-    bg = 22
+    bg = Enum.YLeaf(22, "bg")
 
-    bh = 23
+    bh = Enum.YLeaf(23, "bh")
 
-    bi = 24
+    bi = Enum.YLeaf(24, "bi")
 
-    bj = 25
+    bj = Enum.YLeaf(25, "bj")
 
-    bm = 26
+    bm = Enum.YLeaf(26, "bm")
 
-    bn = 27
+    bn = Enum.YLeaf(27, "bn")
 
-    bo = 28
+    bo = Enum.YLeaf(28, "bo")
 
-    br = 29
+    br = Enum.YLeaf(29, "br")
 
-    bs = 30
+    bs = Enum.YLeaf(30, "bs")
 
-    bt = 31
+    bt = Enum.YLeaf(31, "bt")
 
-    bv = 32
+    bv = Enum.YLeaf(32, "bv")
 
-    bw = 33
+    bw = Enum.YLeaf(33, "bw")
 
-    by = 34
+    by = Enum.YLeaf(34, "by")
 
-    bz = 35
+    bz = Enum.YLeaf(35, "bz")
 
-    ca = 36
+    ca = Enum.YLeaf(36, "ca")
 
-    cc = 37
+    cc = Enum.YLeaf(37, "cc")
 
-    cd = 38
+    cd = Enum.YLeaf(38, "cd")
 
-    cf = 39
+    cf = Enum.YLeaf(39, "cf")
 
-    cg = 40
+    cg = Enum.YLeaf(40, "cg")
 
-    ch = 41
+    ch = Enum.YLeaf(41, "ch")
 
-    ci = 42
+    ci = Enum.YLeaf(42, "ci")
 
-    ck = 43
+    ck = Enum.YLeaf(43, "ck")
 
-    cl = 44
+    cl = Enum.YLeaf(44, "cl")
 
-    cm = 45
+    cm = Enum.YLeaf(45, "cm")
 
-    cn = 46
+    cn = Enum.YLeaf(46, "cn")
 
-    co = 47
+    co = Enum.YLeaf(47, "co")
 
-    cr = 48
+    cr = Enum.YLeaf(48, "cr")
 
-    cu = 49
+    cu = Enum.YLeaf(49, "cu")
 
-    cv = 50
+    cv = Enum.YLeaf(50, "cv")
 
-    cx = 51
+    cx = Enum.YLeaf(51, "cx")
 
-    cy = 52
+    cy = Enum.YLeaf(52, "cy")
 
-    cz = 53
+    cz = Enum.YLeaf(53, "cz")
 
-    de = 54
+    de = Enum.YLeaf(54, "de")
 
-    dj = 55
+    dj = Enum.YLeaf(55, "dj")
 
-    dk = 56
+    dk = Enum.YLeaf(56, "dk")
 
-    dm = 57
+    dm = Enum.YLeaf(57, "dm")
 
-    do = 58
+    do = Enum.YLeaf(58, "do")
 
-    dz = 59
+    dz = Enum.YLeaf(59, "dz")
 
-    ec = 60
+    ec = Enum.YLeaf(60, "ec")
 
-    ee = 61
+    ee = Enum.YLeaf(61, "ee")
 
-    eg = 62
+    eg = Enum.YLeaf(62, "eg")
 
-    eh = 63
+    eh = Enum.YLeaf(63, "eh")
 
-    er = 64
+    er = Enum.YLeaf(64, "er")
 
-    es = 65
+    es = Enum.YLeaf(65, "es")
 
-    et = 66
+    et = Enum.YLeaf(66, "et")
 
-    fi = 67
+    fi = Enum.YLeaf(67, "fi")
 
-    fj = 68
+    fj = Enum.YLeaf(68, "fj")
 
-    fk = 69
+    fk = Enum.YLeaf(69, "fk")
 
-    fm = 70
+    fm = Enum.YLeaf(70, "fm")
 
-    fo = 71
+    fo = Enum.YLeaf(71, "fo")
 
-    fr = 72
+    fr = Enum.YLeaf(72, "fr")
 
-    ga = 73
+    ga = Enum.YLeaf(73, "ga")
 
-    gb = 74
+    gb = Enum.YLeaf(74, "gb")
 
-    gd = 75
+    gd = Enum.YLeaf(75, "gd")
 
-    ge = 76
+    ge = Enum.YLeaf(76, "ge")
 
-    gf = 77
+    gf = Enum.YLeaf(77, "gf")
 
-    gh = 78
+    gh = Enum.YLeaf(78, "gh")
 
-    gi = 79
+    gi = Enum.YLeaf(79, "gi")
 
-    gl = 80
+    gl = Enum.YLeaf(80, "gl")
 
-    gm = 81
+    gm = Enum.YLeaf(81, "gm")
 
-    gn = 82
+    gn = Enum.YLeaf(82, "gn")
 
-    gp = 83
+    gp = Enum.YLeaf(83, "gp")
 
-    gq = 84
+    gq = Enum.YLeaf(84, "gq")
 
-    gr = 85
+    gr = Enum.YLeaf(85, "gr")
 
-    gs = 86
+    gs = Enum.YLeaf(86, "gs")
 
-    gt = 87
+    gt = Enum.YLeaf(87, "gt")
 
-    gu = 88
+    gu = Enum.YLeaf(88, "gu")
 
-    gw = 89
+    gw = Enum.YLeaf(89, "gw")
 
-    gy = 90
+    gy = Enum.YLeaf(90, "gy")
 
-    hk = 91
+    hk = Enum.YLeaf(91, "hk")
 
-    hm = 92
+    hm = Enum.YLeaf(92, "hm")
 
-    hn = 93
+    hn = Enum.YLeaf(93, "hn")
 
-    hr = 94
+    hr = Enum.YLeaf(94, "hr")
 
-    ht = 95
+    ht = Enum.YLeaf(95, "ht")
 
-    hu = 96
+    hu = Enum.YLeaf(96, "hu")
 
-    id = 97
+    id = Enum.YLeaf(97, "id")
 
-    ie = 98
+    ie = Enum.YLeaf(98, "ie")
 
-    il = 99
+    il = Enum.YLeaf(99, "il")
 
-    in_ = 100
+    in_ = Enum.YLeaf(100, "in")
 
-    io = 101
+    io = Enum.YLeaf(101, "io")
 
-    iq = 102
+    iq = Enum.YLeaf(102, "iq")
 
-    ir = 103
+    ir = Enum.YLeaf(103, "ir")
 
-    is_ = 104
+    is_ = Enum.YLeaf(104, "is")
 
-    it = 105
+    it = Enum.YLeaf(105, "it")
 
-    jm = 106
+    jm = Enum.YLeaf(106, "jm")
 
-    jo = 107
+    jo = Enum.YLeaf(107, "jo")
 
-    jp = 108
+    jp = Enum.YLeaf(108, "jp")
 
-    ke = 109
+    ke = Enum.YLeaf(109, "ke")
 
-    kg = 110
+    kg = Enum.YLeaf(110, "kg")
 
-    kh = 111
+    kh = Enum.YLeaf(111, "kh")
 
-    ki = 112
+    ki = Enum.YLeaf(112, "ki")
 
-    km = 113
+    km = Enum.YLeaf(113, "km")
 
-    kn = 114
+    kn = Enum.YLeaf(114, "kn")
 
-    kp = 115
+    kp = Enum.YLeaf(115, "kp")
 
-    kr = 116
+    kr = Enum.YLeaf(116, "kr")
 
-    kw = 117
+    kw = Enum.YLeaf(117, "kw")
 
-    ky = 118
+    ky = Enum.YLeaf(118, "ky")
 
-    kz = 119
+    kz = Enum.YLeaf(119, "kz")
 
-    la = 120
+    la = Enum.YLeaf(120, "la")
 
-    lb = 121
+    lb = Enum.YLeaf(121, "lb")
 
-    lc = 122
+    lc = Enum.YLeaf(122, "lc")
 
-    li = 123
+    li = Enum.YLeaf(123, "li")
 
-    lk = 124
+    lk = Enum.YLeaf(124, "lk")
 
-    lr = 125
+    lr = Enum.YLeaf(125, "lr")
 
-    ls = 126
+    ls = Enum.YLeaf(126, "ls")
 
-    lt = 127
+    lt = Enum.YLeaf(127, "lt")
 
-    lu = 128
+    lu = Enum.YLeaf(128, "lu")
 
-    lv = 129
+    lv = Enum.YLeaf(129, "lv")
 
-    ly = 130
+    ly = Enum.YLeaf(130, "ly")
 
-    ma = 131
+    ma = Enum.YLeaf(131, "ma")
 
-    mc = 132
+    mc = Enum.YLeaf(132, "mc")
 
-    md = 133
+    md = Enum.YLeaf(133, "md")
 
-    mg = 134
+    mg = Enum.YLeaf(134, "mg")
 
-    mh = 135
+    mh = Enum.YLeaf(135, "mh")
 
-    mk = 136
+    mk = Enum.YLeaf(136, "mk")
 
-    ml = 137
+    ml = Enum.YLeaf(137, "ml")
 
-    mm = 138
+    mm = Enum.YLeaf(138, "mm")
 
-    mn = 139
+    mn = Enum.YLeaf(139, "mn")
 
-    mo = 140
+    mo = Enum.YLeaf(140, "mo")
 
-    mp = 141
+    mp = Enum.YLeaf(141, "mp")
 
-    mq = 142
+    mq = Enum.YLeaf(142, "mq")
 
-    mr = 143
+    mr = Enum.YLeaf(143, "mr")
 
-    ms = 144
+    ms = Enum.YLeaf(144, "ms")
 
-    mt = 145
+    mt = Enum.YLeaf(145, "mt")
 
-    mu = 146
+    mu = Enum.YLeaf(146, "mu")
 
-    mv = 147
+    mv = Enum.YLeaf(147, "mv")
 
-    mw = 148
+    mw = Enum.YLeaf(148, "mw")
 
-    mx = 149
+    mx = Enum.YLeaf(149, "mx")
 
-    my = 150
+    my = Enum.YLeaf(150, "my")
 
-    mz = 151
+    mz = Enum.YLeaf(151, "mz")
 
-    na = 152
+    na = Enum.YLeaf(152, "na")
 
-    nc = 153
+    nc = Enum.YLeaf(153, "nc")
 
-    ne = 154
+    ne = Enum.YLeaf(154, "ne")
 
-    nf = 155
+    nf = Enum.YLeaf(155, "nf")
 
-    ng = 156
+    ng = Enum.YLeaf(156, "ng")
 
-    ni = 157
+    ni = Enum.YLeaf(157, "ni")
 
-    nl = 158
+    nl = Enum.YLeaf(158, "nl")
 
-    no = 159
+    no = Enum.YLeaf(159, "no")
 
-    np = 160
+    np = Enum.YLeaf(160, "np")
 
-    nr = 161
+    nr = Enum.YLeaf(161, "nr")
 
-    nu = 162
+    nu = Enum.YLeaf(162, "nu")
 
-    nz = 163
+    nz = Enum.YLeaf(163, "nz")
 
-    om = 164
+    om = Enum.YLeaf(164, "om")
 
-    pa = 165
+    pa = Enum.YLeaf(165, "pa")
 
-    pe = 166
+    pe = Enum.YLeaf(166, "pe")
 
-    pf = 167
+    pf = Enum.YLeaf(167, "pf")
 
-    pg = 168
+    pg = Enum.YLeaf(168, "pg")
 
-    ph = 169
+    ph = Enum.YLeaf(169, "ph")
 
-    pk = 170
+    pk = Enum.YLeaf(170, "pk")
 
-    pl = 171
+    pl = Enum.YLeaf(171, "pl")
 
-    pm = 172
+    pm = Enum.YLeaf(172, "pm")
 
-    pn = 173
+    pn = Enum.YLeaf(173, "pn")
 
-    pr = 174
+    pr = Enum.YLeaf(174, "pr")
 
-    pt = 175
+    pt = Enum.YLeaf(175, "pt")
 
-    pw = 176
+    pw = Enum.YLeaf(176, "pw")
 
-    py = 177
+    py = Enum.YLeaf(177, "py")
 
-    qa = 178
+    qa = Enum.YLeaf(178, "qa")
 
-    re = 179
+    re = Enum.YLeaf(179, "re")
 
-    ro = 180
+    ro = Enum.YLeaf(180, "ro")
 
-    ru = 181
+    ru = Enum.YLeaf(181, "ru")
 
-    rw = 182
+    rw = Enum.YLeaf(182, "rw")
 
-    sa = 183
+    sa = Enum.YLeaf(183, "sa")
 
-    sb = 184
+    sb = Enum.YLeaf(184, "sb")
 
-    sc = 185
+    sc = Enum.YLeaf(185, "sc")
 
-    sd = 186
+    sd = Enum.YLeaf(186, "sd")
 
-    se = 187
+    se = Enum.YLeaf(187, "se")
 
-    sg = 188
+    sg = Enum.YLeaf(188, "sg")
 
-    sh = 189
+    sh = Enum.YLeaf(189, "sh")
 
-    si = 190
+    si = Enum.YLeaf(190, "si")
 
-    sj = 191
+    sj = Enum.YLeaf(191, "sj")
 
-    sk = 192
+    sk = Enum.YLeaf(192, "sk")
 
-    sl = 193
+    sl = Enum.YLeaf(193, "sl")
 
-    sm = 194
+    sm = Enum.YLeaf(194, "sm")
 
-    sn = 195
+    sn = Enum.YLeaf(195, "sn")
 
-    so = 196
+    so = Enum.YLeaf(196, "so")
 
-    sr = 197
+    sr = Enum.YLeaf(197, "sr")
 
-    st = 198
+    st = Enum.YLeaf(198, "st")
 
-    sv = 199
+    sv = Enum.YLeaf(199, "sv")
 
-    sy = 200
+    sy = Enum.YLeaf(200, "sy")
 
-    sz = 201
+    sz = Enum.YLeaf(201, "sz")
 
-    tc = 202
+    tc = Enum.YLeaf(202, "tc")
 
-    td = 203
+    td = Enum.YLeaf(203, "td")
 
-    tf = 204
+    tf = Enum.YLeaf(204, "tf")
 
-    tg = 205
+    tg = Enum.YLeaf(205, "tg")
 
-    th = 206
+    th = Enum.YLeaf(206, "th")
 
-    tj = 207
+    tj = Enum.YLeaf(207, "tj")
 
-    tk = 208
+    tk = Enum.YLeaf(208, "tk")
 
-    tm = 209
+    tm = Enum.YLeaf(209, "tm")
 
-    tn = 210
+    tn = Enum.YLeaf(210, "tn")
 
-    to = 211
+    to = Enum.YLeaf(211, "to")
 
-    tp = 212
+    tp = Enum.YLeaf(212, "tp")
 
-    tr = 213
+    tr = Enum.YLeaf(213, "tr")
 
-    tt = 214
+    tt = Enum.YLeaf(214, "tt")
 
-    tv = 215
+    tv = Enum.YLeaf(215, "tv")
 
-    tw = 216
+    tw = Enum.YLeaf(216, "tw")
 
-    tz = 217
+    tz = Enum.YLeaf(217, "tz")
 
-    ua = 218
+    ua = Enum.YLeaf(218, "ua")
 
-    ug = 219
+    ug = Enum.YLeaf(219, "ug")
 
-    um = 220
+    um = Enum.YLeaf(220, "um")
 
-    us = 221
+    us = Enum.YLeaf(221, "us")
 
-    uy = 222
+    uy = Enum.YLeaf(222, "uy")
 
-    uz = 223
+    uz = Enum.YLeaf(223, "uz")
 
-    va = 224
+    va = Enum.YLeaf(224, "va")
 
-    vc = 225
+    vc = Enum.YLeaf(225, "vc")
 
-    ve = 226
+    ve = Enum.YLeaf(226, "ve")
 
-    vg = 227
+    vg = Enum.YLeaf(227, "vg")
 
-    vi = 228
+    vi = Enum.YLeaf(228, "vi")
 
-    vn = 229
+    vn = Enum.YLeaf(229, "vn")
 
-    vu = 230
+    vu = Enum.YLeaf(230, "vu")
 
-    wf = 231
+    wf = Enum.YLeaf(231, "wf")
 
-    ws = 232
+    ws = Enum.YLeaf(232, "ws")
 
-    ye = 233
+    ye = Enum.YLeaf(233, "ye")
 
-    yt = 234
+    yt = Enum.YLeaf(234, "yt")
 
-    yu = 235
+    yu = Enum.YLeaf(235, "yu")
 
-    za = 236
+    za = Enum.YLeaf(236, "za")
 
-    zm = 237
+    zm = Enum.YLeaf(237, "zm")
 
-    zw = 238
+    zw = Enum.YLeaf(238, "zw")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_locale_cfg as meta
-        return meta._meta_table['LocaleCountryEnum']
-
-
-class LocaleLanguageEnum(Enum):
+class LocaleLanguage(Enum):
     """
-    LocaleLanguageEnum
+    LocaleLanguage
 
     Locale language
 
@@ -2031,305 +2019,299 @@ class LocaleLanguageEnum(Enum):
 
     """
 
-    aa = 1
+    aa = Enum.YLeaf(1, "aa")
 
-    ab = 2
+    ab = Enum.YLeaf(2, "ab")
 
-    af = 3
+    af = Enum.YLeaf(3, "af")
 
-    am = 4
+    am = Enum.YLeaf(4, "am")
 
-    ar = 5
+    ar = Enum.YLeaf(5, "ar")
 
-    as_ = 6
+    as_ = Enum.YLeaf(6, "as")
 
-    ay = 7
+    ay = Enum.YLeaf(7, "ay")
 
-    az = 8
+    az = Enum.YLeaf(8, "az")
 
-    ba = 9
+    ba = Enum.YLeaf(9, "ba")
 
-    be = 10
+    be = Enum.YLeaf(10, "be")
 
-    bg = 11
+    bg = Enum.YLeaf(11, "bg")
 
-    bh = 12
+    bh = Enum.YLeaf(12, "bh")
 
-    bi = 13
+    bi = Enum.YLeaf(13, "bi")
 
-    bn = 14
+    bn = Enum.YLeaf(14, "bn")
 
-    bo = 15
+    bo = Enum.YLeaf(15, "bo")
 
-    br = 16
+    br = Enum.YLeaf(16, "br")
 
-    ca = 17
+    ca = Enum.YLeaf(17, "ca")
 
-    co = 18
+    co = Enum.YLeaf(18, "co")
 
-    cs = 19
+    cs = Enum.YLeaf(19, "cs")
 
-    cy = 20
+    cy = Enum.YLeaf(20, "cy")
 
-    da = 21
+    da = Enum.YLeaf(21, "da")
 
-    de = 22
+    de = Enum.YLeaf(22, "de")
 
-    dz = 23
+    dz = Enum.YLeaf(23, "dz")
 
-    el = 24
+    el = Enum.YLeaf(24, "el")
 
-    en = 25
+    en = Enum.YLeaf(25, "en")
 
-    eo = 26
+    eo = Enum.YLeaf(26, "eo")
 
-    es = 27
+    es = Enum.YLeaf(27, "es")
 
-    et = 28
+    et = Enum.YLeaf(28, "et")
 
-    eu = 29
+    eu = Enum.YLeaf(29, "eu")
 
-    fa = 30
+    fa = Enum.YLeaf(30, "fa")
 
-    fi = 31
+    fi = Enum.YLeaf(31, "fi")
 
-    fj = 32
+    fj = Enum.YLeaf(32, "fj")
 
-    fo = 33
+    fo = Enum.YLeaf(33, "fo")
 
-    fr = 34
+    fr = Enum.YLeaf(34, "fr")
 
-    fy = 35
+    fy = Enum.YLeaf(35, "fy")
 
-    ga = 36
+    ga = Enum.YLeaf(36, "ga")
 
-    gd = 37
+    gd = Enum.YLeaf(37, "gd")
 
-    gl = 38
+    gl = Enum.YLeaf(38, "gl")
 
-    gn = 39
+    gn = Enum.YLeaf(39, "gn")
 
-    gu = 40
+    gu = Enum.YLeaf(40, "gu")
 
-    ha = 41
+    ha = Enum.YLeaf(41, "ha")
 
-    he = 42
+    he = Enum.YLeaf(42, "he")
 
-    hi = 43
+    hi = Enum.YLeaf(43, "hi")
 
-    hr = 44
+    hr = Enum.YLeaf(44, "hr")
 
-    hu = 45
+    hu = Enum.YLeaf(45, "hu")
 
-    hy = 46
+    hy = Enum.YLeaf(46, "hy")
 
-    ia = 47
+    ia = Enum.YLeaf(47, "ia")
 
-    id = 48
+    id = Enum.YLeaf(48, "id")
 
-    ie = 49
+    ie = Enum.YLeaf(49, "ie")
 
-    ik = 50
+    ik = Enum.YLeaf(50, "ik")
 
-    is_ = 51
+    is_ = Enum.YLeaf(51, "is")
 
-    it = 52
+    it = Enum.YLeaf(52, "it")
 
-    iu = 53
+    iu = Enum.YLeaf(53, "iu")
 
-    ja = 54
+    ja = Enum.YLeaf(54, "ja")
 
-    jw = 55
+    jw = Enum.YLeaf(55, "jw")
 
-    ka = 56
+    ka = Enum.YLeaf(56, "ka")
 
-    kk = 57
+    kk = Enum.YLeaf(57, "kk")
 
-    kl = 58
+    kl = Enum.YLeaf(58, "kl")
 
-    km = 59
+    km = Enum.YLeaf(59, "km")
 
-    kn = 60
+    kn = Enum.YLeaf(60, "kn")
 
-    ko = 61
+    ko = Enum.YLeaf(61, "ko")
 
-    ks = 62
+    ks = Enum.YLeaf(62, "ks")
 
-    ku = 63
+    ku = Enum.YLeaf(63, "ku")
 
-    ky = 64
+    ky = Enum.YLeaf(64, "ky")
 
-    la = 65
+    la = Enum.YLeaf(65, "la")
 
-    ln = 66
+    ln = Enum.YLeaf(66, "ln")
 
-    lo = 67
+    lo = Enum.YLeaf(67, "lo")
 
-    lt = 68
+    lt = Enum.YLeaf(68, "lt")
 
-    lv = 69
+    lv = Enum.YLeaf(69, "lv")
 
-    mg = 70
+    mg = Enum.YLeaf(70, "mg")
 
-    mi = 71
+    mi = Enum.YLeaf(71, "mi")
 
-    mk = 72
+    mk = Enum.YLeaf(72, "mk")
 
-    ml = 73
+    ml = Enum.YLeaf(73, "ml")
 
-    mn = 74
+    mn = Enum.YLeaf(74, "mn")
 
-    mo = 75
+    mo = Enum.YLeaf(75, "mo")
 
-    mr = 76
+    mr = Enum.YLeaf(76, "mr")
 
-    ms = 77
+    ms = Enum.YLeaf(77, "ms")
 
-    mt = 78
+    mt = Enum.YLeaf(78, "mt")
 
-    my = 79
+    my = Enum.YLeaf(79, "my")
 
-    na = 80
+    na = Enum.YLeaf(80, "na")
 
-    ne = 81
+    ne = Enum.YLeaf(81, "ne")
 
-    nl = 82
+    nl = Enum.YLeaf(82, "nl")
 
-    no = 83
+    no = Enum.YLeaf(83, "no")
 
-    oc = 84
+    oc = Enum.YLeaf(84, "oc")
 
-    om = 85
+    om = Enum.YLeaf(85, "om")
 
-    or_ = 86
+    or_ = Enum.YLeaf(86, "or")
 
-    pa = 87
+    pa = Enum.YLeaf(87, "pa")
 
-    pl = 88
+    pl = Enum.YLeaf(88, "pl")
 
-    ps = 89
+    ps = Enum.YLeaf(89, "ps")
 
-    pt = 90
+    pt = Enum.YLeaf(90, "pt")
 
-    qu = 91
+    qu = Enum.YLeaf(91, "qu")
 
-    rm = 92
+    rm = Enum.YLeaf(92, "rm")
 
-    rn = 93
+    rn = Enum.YLeaf(93, "rn")
 
-    ro = 94
+    ro = Enum.YLeaf(94, "ro")
 
-    ru = 95
+    ru = Enum.YLeaf(95, "ru")
 
-    rw = 96
+    rw = Enum.YLeaf(96, "rw")
 
-    sa = 97
+    sa = Enum.YLeaf(97, "sa")
 
-    sd = 98
+    sd = Enum.YLeaf(98, "sd")
 
-    sg = 99
+    sg = Enum.YLeaf(99, "sg")
 
-    sh = 100
+    sh = Enum.YLeaf(100, "sh")
 
-    si = 101
+    si = Enum.YLeaf(101, "si")
 
-    sk = 102
+    sk = Enum.YLeaf(102, "sk")
 
-    sl = 103
+    sl = Enum.YLeaf(103, "sl")
 
-    sm = 104
+    sm = Enum.YLeaf(104, "sm")
 
-    sn = 105
+    sn = Enum.YLeaf(105, "sn")
 
-    so = 106
+    so = Enum.YLeaf(106, "so")
 
-    sq = 107
+    sq = Enum.YLeaf(107, "sq")
 
-    sr = 108
+    sr = Enum.YLeaf(108, "sr")
 
-    ss = 109
+    ss = Enum.YLeaf(109, "ss")
 
-    st = 110
+    st = Enum.YLeaf(110, "st")
 
-    su = 111
+    su = Enum.YLeaf(111, "su")
 
-    sv = 112
+    sv = Enum.YLeaf(112, "sv")
 
-    sw = 113
+    sw = Enum.YLeaf(113, "sw")
 
-    ta = 114
+    ta = Enum.YLeaf(114, "ta")
 
-    te = 115
+    te = Enum.YLeaf(115, "te")
 
-    tg = 116
+    tg = Enum.YLeaf(116, "tg")
 
-    th = 117
+    th = Enum.YLeaf(117, "th")
 
-    ti = 118
+    ti = Enum.YLeaf(118, "ti")
 
-    tk = 119
+    tk = Enum.YLeaf(119, "tk")
 
-    tl = 120
+    tl = Enum.YLeaf(120, "tl")
 
-    tn = 121
+    tn = Enum.YLeaf(121, "tn")
 
-    to = 122
+    to = Enum.YLeaf(122, "to")
 
-    tr = 123
+    tr = Enum.YLeaf(123, "tr")
 
-    ts = 124
+    ts = Enum.YLeaf(124, "ts")
 
-    tt = 125
+    tt = Enum.YLeaf(125, "tt")
 
-    tw = 126
+    tw = Enum.YLeaf(126, "tw")
 
-    ug = 127
+    ug = Enum.YLeaf(127, "ug")
 
-    uk = 128
+    uk = Enum.YLeaf(128, "uk")
 
-    ur = 129
+    ur = Enum.YLeaf(129, "ur")
 
-    uz = 130
+    uz = Enum.YLeaf(130, "uz")
 
-    vi = 131
+    vi = Enum.YLeaf(131, "vi")
 
-    vo = 132
+    vo = Enum.YLeaf(132, "vo")
 
-    wo = 133
+    wo = Enum.YLeaf(133, "wo")
 
-    xh = 134
+    xh = Enum.YLeaf(134, "xh")
 
-    yi = 135
+    yi = Enum.YLeaf(135, "yi")
 
-    yo = 136
+    yo = Enum.YLeaf(136, "yo")
 
-    za = 137
+    za = Enum.YLeaf(137, "za")
 
-    zh = 138
+    zh = Enum.YLeaf(138, "zh")
 
-    zu = 139
+    zu = Enum.YLeaf(139, "zu")
 
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_locale_cfg as meta
-        return meta._meta_table['LocaleLanguageEnum']
 
-
-
-class Locale(object):
+class Locale(Entity):
     """
     Define the geographical locale
     
     .. attribute:: country
     
     	Name of country locale
-    	**type**\:   :py:class:`LocaleCountryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleCountryEnum>`
+    	**type**\:   :py:class:`LocaleCountry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleCountry>`
     
     .. attribute:: language
     
     	Name of language locale
-    	**type**\:   :py:class:`LocaleLanguageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleLanguageEnum>`
+    	**type**\:   :py:class:`LocaleLanguage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleLanguage>`
     
     
 
@@ -2339,30 +2321,96 @@ class Locale(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.country = None
-        self.language = None
+        super(Locale, self).__init__()
+        self._top_entity = None
 
-    @property
-    def _common_path(self):
+        self.yang_name = "locale"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-infra-locale-cfg"
 
-        return '/Cisco-IOS-XR-infra-infra-locale-cfg:locale'
+        self.country = YLeaf(YType.enumeration, "country")
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        self.language = YLeaf(YType.enumeration, "language")
 
-    def _has_data(self):
-        if self.country is not None:
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in ("country",
+                        "language") and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(Locale, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(Locale, self).__setattr__(name, value)
+
+    def has_data(self):
+        return (
+            self.country.is_set or
+            self.language.is_set)
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            self.country.yfilter != YFilter.not_set or
+            self.language.yfilter != YFilter.not_set)
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-infra-locale-cfg:locale" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+        if (self.country.is_set or self.country.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.country.get_name_leafdata())
+        if (self.language.is_set or self.language.yfilter != YFilter.not_set):
+            leaf_name_data.append(self.language.get_name_leafdata())
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "country" or name == "language"):
             return True
-
-        if self.language is not None:
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_infra_locale_cfg as meta
-        return meta._meta_table['Locale']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        if(value_path == "country"):
+            self.country = value
+            self.country.value_namespace = name_space
+            self.country.value_namespace_prefix = name_space_prefix
+        if(value_path == "language"):
+            self.language = value
+            self.language.value_namespace = name_space
+            self.language.value_namespace_prefix = name_space_prefix
 
+    def clone_ptr(self):
+        self._top_entity = Locale()
+        return self._top_entity
 

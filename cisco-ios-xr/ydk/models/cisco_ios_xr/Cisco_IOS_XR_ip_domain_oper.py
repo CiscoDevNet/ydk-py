@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class ServerDomainLkupEnum(Enum):
+class ServerDomainLkup(Enum):
     """
-    ServerDomainLkupEnum
+    ServerDomainLkup
 
     Domain look up
 
@@ -40,19 +34,13 @@ class ServerDomainLkupEnum(Enum):
 
     """
 
-    static_mapping = 0
+    static_mapping = Enum.YLeaf(0, "static-mapping")
 
-    domain_service = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['ServerDomainLkupEnum']
+    domain_service = Enum.YLeaf(1, "domain-service")
 
 
 
-class HostAddressBaseIdentity(object):
+class HostAddressBase(Identity):
     """
     Base identity for Host\-address
     
@@ -64,15 +52,10 @@ class HostAddressBaseIdentity(object):
     _revision = '2015-09-29'
 
     def __init__(self):
-        pass
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['HostAddressBaseIdentity']['meta_info']
+        super(HostAddressBase, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper:Host-address-base")
 
 
-class IpDomain(object):
+class IpDomain(Entity):
     """
     Domain server and host data
     
@@ -89,11 +72,19 @@ class IpDomain(object):
     _revision = '2015-09-29'
 
     def __init__(self):
+        super(IpDomain, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ip-domain"
+        self.yang_parent_name = "Cisco-IOS-XR-ip-domain-oper"
+
         self.vrfs = IpDomain.Vrfs()
         self.vrfs.parent = self
+        self._children_name_map["vrfs"] = "vrfs"
+        self._children_yang_names.add("vrfs")
 
 
-    class Vrfs(object):
+    class Vrfs(Entity):
         """
         List of VRFs
         
@@ -110,13 +101,39 @@ class IpDomain(object):
         _revision = '2015-09-29'
 
         def __init__(self):
-            self.parent = None
-            self.vrf = YList()
-            self.vrf.parent = self
-            self.vrf.name = 'vrf'
+            super(IpDomain.Vrfs, self).__init__()
+
+            self.yang_name = "vrfs"
+            self.yang_parent_name = "ip-domain"
+
+            self.vrf = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IpDomain.Vrfs, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IpDomain.Vrfs, self).__setattr__(name, value)
 
 
-        class Vrf(object):
+        class Vrf(Entity):
             """
             VRF instance
             
@@ -145,15 +162,49 @@ class IpDomain(object):
             _revision = '2015-09-29'
 
             def __init__(self):
-                self.parent = None
-                self.vrf_name = None
+                super(IpDomain.Vrfs.Vrf, self).__init__()
+
+                self.yang_name = "vrf"
+                self.yang_parent_name = "vrfs"
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
                 self.hosts = IpDomain.Vrfs.Vrf.Hosts()
                 self.hosts.parent = self
+                self._children_name_map["hosts"] = "hosts"
+                self._children_yang_names.add("hosts")
+
                 self.server = IpDomain.Vrfs.Vrf.Server()
                 self.server.parent = self
+                self._children_name_map["server"] = "server"
+                self._children_yang_names.add("server")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("vrf_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(IpDomain.Vrfs.Vrf, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(IpDomain.Vrfs.Vrf, self).__setattr__(name, value)
 
 
-            class Server(object):
+            class Server(Entity):
                 """
                 Domain server data
                 
@@ -167,7 +218,7 @@ class IpDomain(object):
                 .. attribute:: domain_lookup
                 
                 	Domain lookup
-                	**type**\:   :py:class:`ServerDomainLkupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkupEnum>`
+                	**type**\:   :py:class:`ServerDomainLkup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkup>`
                 
                 .. attribute:: domain_name
                 
@@ -189,25 +240,54 @@ class IpDomain(object):
                 _revision = '2015-09-29'
 
                 def __init__(self):
-                    self.parent = None
-                    self.domain = YLeafList()
-                    self.domain.parent = self
-                    self.domain.name = 'domain'
-                    self.domain_lookup = None
-                    self.domain_name = None
-                    self.server_address = YList()
-                    self.server_address.parent = self
-                    self.server_address.name = 'server_address'
+                    super(IpDomain.Vrfs.Vrf.Server, self).__init__()
+
+                    self.yang_name = "server"
+                    self.yang_parent_name = "vrf"
+
+                    self.domain = YLeafList(YType.str, "domain")
+
+                    self.domain_lookup = YLeaf(YType.enumeration, "domain-lookup")
+
+                    self.domain_name = YLeaf(YType.str, "domain-name")
+
+                    self.server_address = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("domain",
+                                    "domain_lookup",
+                                    "domain_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(IpDomain.Vrfs.Vrf.Server, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(IpDomain.Vrfs.Vrf.Server, self).__setattr__(name, value)
 
 
-                class ServerAddress(object):
+                class ServerAddress(Entity):
                     """
                     Server address list
                     
                     .. attribute:: af_name
                     
                     	AFName
-                    	**type**\:   :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
+                    	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                     
                     .. attribute:: ipv4_address
                     
@@ -231,76 +311,192 @@ class IpDomain(object):
                     _revision = '2015-09-29'
 
                     def __init__(self):
-                        self.parent = None
-                        self.af_name = None
-                        self.ipv4_address = None
-                        self.ipv6_address = None
+                        super(IpDomain.Vrfs.Vrf.Server.ServerAddress, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "server-address"
+                        self.yang_parent_name = "server"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:server-address'
+                        self.af_name = YLeaf(YType.identityref, "af-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("af_name",
+                                        "ipv4_address",
+                                        "ipv6_address") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(IpDomain.Vrfs.Vrf.Server.ServerAddress, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(IpDomain.Vrfs.Vrf.Server.ServerAddress, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.af_name.is_set or
+                            self.ipv4_address.is_set or
+                            self.ipv6_address.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.af_name.yfilter != YFilter.not_set or
+                            self.ipv4_address.yfilter != YFilter.not_set or
+                            self.ipv6_address.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "server-address" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                        if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                        if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.af_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "af-name"):
+                            self.af_name = value
+                            self.af_name.value_namespace = name_space
+                            self.af_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv4-address"):
+                            self.ipv4_address = value
+                            self.ipv4_address.value_namespace = name_space
+                            self.ipv4_address.value_namespace_prefix = name_space_prefix
+                        if(value_path == "ipv6-address"):
+                            self.ipv6_address = value
+                            self.ipv6_address.value_namespace = name_space
+                            self.ipv6_address.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.server_address:
+                        if (c.has_data()):
                             return True
-
-                        if self.ipv4_address is not None:
+                    for leaf in self.domain.getYLeafs():
+                        if (leaf.yfilter != YFilter.not_set):
                             return True
+                    return (
+                        self.domain_lookup.is_set or
+                        self.domain_name.is_set)
 
-                        if self.ipv6_address is not None:
+                def has_operation(self):
+                    for c in self.server_address:
+                        if (c.has_operation()):
                             return True
+                    for leaf in self.domain.getYLeafs():
+                        if (leaf.is_set):
+                            return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.domain.yfilter != YFilter.not_set or
+                        self.domain_lookup.yfilter != YFilter.not_set or
+                        self.domain_name.yfilter != YFilter.not_set)
 
-                        return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "server" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-                        return meta._meta_table['IpDomain.Vrfs.Vrf.Server.ServerAddress']['meta_info']
+                    return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:server'
+                    leaf_name_data = LeafDataList()
+                    if (self.domain_lookup.is_set or self.domain_lookup.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.domain_lookup.get_name_leafdata())
+                    if (self.domain_name.is_set or self.domain_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.domain_name.get_name_leafdata())
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    leaf_name_data.extend(self.domain.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "server-address"):
+                        for c in self.server_address:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = IpDomain.Vrfs.Vrf.Server.ServerAddress()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.server_address.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "server-address" or name == "domain" or name == "domain-lookup" or name == "domain-name"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.domain is not None:
-                        for child in self.domain:
-                            if child is not None:
-                                return True
-
-                    if self.domain_lookup is not None:
-                        return True
-
-                    if self.domain_name is not None:
-                        return True
-
-                    if self.server_address is not None:
-                        for child_ref in self.server_address:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-                    return meta._meta_table['IpDomain.Vrfs.Vrf.Server']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "domain"):
+                        self.domain.append(value)
+                    if(value_path == "domain-lookup"):
+                        self.domain_lookup = value
+                        self.domain_lookup.value_namespace = name_space
+                        self.domain_lookup.value_namespace_prefix = name_space_prefix
+                    if(value_path == "domain-name"):
+                        self.domain_name = value
+                        self.domain_name.value_namespace = name_space
+                        self.domain_name.value_namespace_prefix = name_space_prefix
 
 
-            class Hosts(object):
+            class Hosts(Entity):
                 """
                 List of domain hosts
                 
@@ -317,13 +513,39 @@ class IpDomain(object):
                 _revision = '2015-09-29'
 
                 def __init__(self):
-                    self.parent = None
-                    self.host = YList()
-                    self.host.parent = self
-                    self.host.name = 'host'
+                    super(IpDomain.Vrfs.Vrf.Hosts, self).__init__()
+
+                    self.yang_name = "hosts"
+                    self.yang_parent_name = "vrf"
+
+                    self.host = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(IpDomain.Vrfs.Vrf.Hosts, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(IpDomain.Vrfs.Vrf.Hosts, self).__setattr__(name, value)
 
 
-                class Host(object):
+                class Host(Entity):
                     """
                     IP domain\-name, lookup style, nameservers for
                     specific host
@@ -336,7 +558,7 @@ class IpDomain(object):
                     .. attribute:: af_name
                     
                     	Address type
-                    	**type**\:   :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
+                    	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                     
                     .. attribute:: age
                     
@@ -365,18 +587,52 @@ class IpDomain(object):
                     _revision = '2015-09-29'
 
                     def __init__(self):
-                        self.parent = None
-                        self.host_name = None
-                        self.af_name = None
-                        self.age = None
-                        self.host_address = YList()
-                        self.host_address.parent = self
-                        self.host_address.name = 'host_address'
+                        super(IpDomain.Vrfs.Vrf.Hosts.Host, self).__init__()
+
+                        self.yang_name = "host"
+                        self.yang_parent_name = "hosts"
+
+                        self.host_name = YLeaf(YType.str, "host-name")
+
+                        self.af_name = YLeaf(YType.identityref, "af-name")
+
+                        self.age = YLeaf(YType.uint16, "age")
+
                         self.host_alias_list = IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList()
                         self.host_alias_list.parent = self
+                        self._children_name_map["host_alias_list"] = "host-alias-list"
+                        self._children_yang_names.add("host-alias-list")
+
+                        self.host_address = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("host_name",
+                                        "af_name",
+                                        "age") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(IpDomain.Vrfs.Vrf.Hosts.Host, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(IpDomain.Vrfs.Vrf.Hosts.Host, self).__setattr__(name, value)
 
 
-                    class HostAliasList(object):
+                    class HostAliasList(Entity):
                         """
                         Host alias
                         
@@ -395,44 +651,96 @@ class IpDomain(object):
                         _revision = '2015-09-29'
 
                         def __init__(self):
-                            self.parent = None
-                            self.host_alias = YLeafList()
-                            self.host_alias.parent = self
-                            self.host_alias.name = 'host_alias'
+                            super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "host-alias-list"
+                            self.yang_parent_name = "host"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:host-alias-list'
+                            self.host_alias = YLeafList(YType.str, "host-alias")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("host_alias") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            for leaf in self.host_alias.getYLeafs():
+                                if (leaf.yfilter != YFilter.not_set):
+                                    return True
                             return False
 
-                        def _has_data(self):
-                            if self.host_alias is not None:
-                                for child in self.host_alias:
-                                    if child is not None:
-                                        return True
+                        def has_operation(self):
+                            for leaf in self.host_alias.getYLeafs():
+                                if (leaf.is_set):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.host_alias.yfilter != YFilter.not_set)
 
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "host-alias-list" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            leaf_name_data.extend(self.host_alias.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "host-alias"):
+                                return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-                            return meta._meta_table['IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "host-alias"):
+                                self.host_alias.append(value)
 
 
-                    class HostAddress(object):
+                    class HostAddress(Entity):
                         """
                         Host address list
                         
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:   :py:class:`HostAddressBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBaseIdentity>`
+                        	**type**\:   :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                         
                         .. attribute:: ipv4_address
                         
@@ -456,173 +764,427 @@ class IpDomain(object):
                         _revision = '2015-09-29'
 
                         def __init__(self):
-                            self.parent = None
-                            self.af_name = None
-                            self.ipv4_address = None
-                            self.ipv6_address = None
+                            super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "host-address"
+                            self.yang_parent_name = "host"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:host-address'
+                            self.af_name = YLeaf(YType.identityref, "af-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("af_name",
+                                            "ipv4_address",
+                                            "ipv6_address") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.af_name.is_set or
+                                self.ipv4_address.is_set or
+                                self.ipv6_address.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.af_name.yfilter != YFilter.not_set or
+                                self.ipv4_address.yfilter != YFilter.not_set or
+                                self.ipv6_address.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "host-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.af_name.get_name_leafdata())
+                            if (self.ipv4_address.is_set or self.ipv4_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv4_address.get_name_leafdata())
+                            if (self.ipv6_address.is_set or self.ipv6_address.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.ipv6_address.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "af-name" or name == "ipv4-address" or name == "ipv6-address"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.af_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "af-name"):
+                                self.af_name = value
+                                self.af_name.value_namespace = name_space
+                                self.af_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv4-address"):
+                                self.ipv4_address = value
+                                self.ipv4_address.value_namespace = name_space
+                                self.ipv4_address.value_namespace_prefix = name_space_prefix
+                            if(value_path == "ipv6-address"):
+                                self.ipv6_address = value
+                                self.ipv6_address.value_namespace = name_space
+                                self.ipv6_address.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.host_address:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.host_name.is_set or
+                            self.af_name.is_set or
+                            self.age.is_set or
+                            (self.host_alias_list is not None and self.host_alias_list.has_data()))
 
-                            if self.ipv4_address is not None:
+                    def has_operation(self):
+                        for c in self.host_address:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.host_name.yfilter != YFilter.not_set or
+                            self.af_name.yfilter != YFilter.not_set or
+                            self.age.yfilter != YFilter.not_set or
+                            (self.host_alias_list is not None and self.host_alias_list.has_operation()))
 
-                            if self.ipv6_address is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "host" + "[host-name='" + self.host_name.get() + "']" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-                            return meta._meta_table['IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.host_name is None:
-                            raise YPYModelError('Key property host_name is None')
+                        leaf_name_data = LeafDataList()
+                        if (self.host_name.is_set or self.host_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.host_name.get_name_leafdata())
+                        if (self.af_name.is_set or self.af_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.af_name.get_name_leafdata())
+                        if (self.age.is_set or self.age.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.age.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:host[Cisco-IOS-XR-ip-domain-oper:host-name = ' + str(self.host_name) + ']'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "host-address"):
+                            for c in self.host_address:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.host_address.append(c)
+                            return c
+
+                        if (child_yang_name == "host-alias-list"):
+                            if (self.host_alias_list is None):
+                                self.host_alias_list = IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList()
+                                self.host_alias_list.parent = self
+                                self._children_name_map["host_alias_list"] = "host-alias-list"
+                            return self.host_alias_list
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "host-address" or name == "host-alias-list" or name == "host-name" or name == "af-name" or name == "age"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.host_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "host-name"):
+                            self.host_name = value
+                            self.host_name.value_namespace = name_space
+                            self.host_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "af-name"):
+                            self.af_name = value
+                            self.af_name.value_namespace = name_space
+                            self.af_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "age"):
+                            self.age = value
+                            self.age.value_namespace = name_space
+                            self.age.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.host:
+                        if (c.has_data()):
                             return True
-
-                        if self.af_name is not None:
-                            return True
-
-                        if self.age is not None:
-                            return True
-
-                        if self.host_address is not None:
-                            for child_ref in self.host_address:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.host_alias_list is not None and self.host_alias_list._has_data():
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-                        return meta._meta_table['IpDomain.Vrfs.Vrf.Hosts.Host']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-domain-oper:hosts'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.host is not None:
-                        for child_ref in self.host:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.host:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-                    return False
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "hosts" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-                    return meta._meta_table['IpDomain.Vrfs.Vrf.Hosts']['meta_info']
+                    return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.vrf_name is None:
-                    raise YPYModelError('Key property vrf_name is None')
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-ip-domain-oper:ip-domain/Cisco-IOS-XR-ip-domain-oper:vrfs/Cisco-IOS-XR-ip-domain-oper:vrf[Cisco-IOS-XR-ip-domain-oper:vrf-name = ' + str(self.vrf_name) + ']'
+                    leaf_name_data = LeafDataList()
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-            def _has_data(self):
-                if self.vrf_name is not None:
-                    return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                if self.hosts is not None and self.hosts._has_data():
-                    return True
+                    if (child_yang_name == "host"):
+                        for c in self.host:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = IpDomain.Vrfs.Vrf.Hosts.Host()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.host.append(c)
+                        return c
 
-                if self.server is not None and self.server._has_data():
-                    return True
+                    return None
 
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-                return meta._meta_table['IpDomain.Vrfs.Vrf']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-domain-oper:ip-domain/Cisco-IOS-XR-ip-domain-oper:vrfs'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.vrf is not None:
-                for child_ref in self.vrf:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "host"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.vrf_name.is_set or
+                    (self.hosts is not None and self.hosts.has_data()) or
+                    (self.server is not None and self.server.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.vrf_name.yfilter != YFilter.not_set or
+                    (self.hosts is not None and self.hosts.has_operation()) or
+                    (self.server is not None and self.server.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "vrf" + "[vrf-name='" + self.vrf_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ip-domain-oper:ip-domain/vrfs/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "hosts"):
+                    if (self.hosts is None):
+                        self.hosts = IpDomain.Vrfs.Vrf.Hosts()
+                        self.hosts.parent = self
+                        self._children_name_map["hosts"] = "hosts"
+                    return self.hosts
+
+                if (child_yang_name == "server"):
+                    if (self.server is None):
+                        self.server = IpDomain.Vrfs.Vrf.Server()
+                        self.server.parent = self
+                        self._children_name_map["server"] = "server"
+                    return self.server
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "hosts" or name == "server" or name == "vrf-name"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "vrf-name"):
+                    self.vrf_name = value
+                    self.vrf_name.value_namespace = name_space
+                    self.vrf_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.vrf:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-            return meta._meta_table['IpDomain.Vrfs']['meta_info']
+        def has_operation(self):
+            for c in self.vrf:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "vrfs" + path_buffer
 
-        return '/Cisco-IOS-XR-ip-domain-oper:ip-domain'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ip-domain-oper:ip-domain/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.vrfs is not None and self.vrfs._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "vrf"):
+                for c in self.vrf:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = IpDomain.Vrfs.Vrf()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.vrf.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "vrf"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.vrfs is not None and self.vrfs.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.vrfs is not None and self.vrfs.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ip-domain-oper:ip-domain" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "vrfs"):
+            if (self.vrfs is None):
+                self.vrfs = IpDomain.Vrfs()
+                self.vrfs.parent = self
+                self._children_name_map["vrfs"] = "vrfs"
+            return self.vrfs
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "vrfs"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['IpDomain']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = IpDomain()
+        return self._top_entity
 
-class Ipv4Identity(HostAddressBaseIdentity):
+class Ipv4(Identity):
     """
     IPv4 family address
     
@@ -634,15 +1196,10 @@ class Ipv4Identity(HostAddressBaseIdentity):
     _revision = '2015-09-29'
 
     def __init__(self):
-        HostAddressBaseIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['Ipv4Identity']['meta_info']
+        super(Ipv4, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper:ipv4")
 
 
-class Ipv6Identity(HostAddressBaseIdentity):
+class Ipv6(Identity):
     """
     IPv6 family address
     
@@ -654,11 +1211,6 @@ class Ipv6Identity(HostAddressBaseIdentity):
     _revision = '2015-09-29'
 
     def __init__(self):
-        HostAddressBaseIdentity.__init__(self)
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_oper as meta
-        return meta._meta_table['Ipv6Identity']['meta_info']
+        super(Ipv6, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper:ipv6")
 
 

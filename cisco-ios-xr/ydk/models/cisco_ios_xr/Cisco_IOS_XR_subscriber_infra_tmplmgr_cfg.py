@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class DynamicTemplate(object):
+class DynamicTemplate(Entity):
     """
     All dynamic template configurations
     
@@ -52,15 +46,29 @@ class DynamicTemplate(object):
     _revision = '2015-01-07'
 
     def __init__(self):
+        super(DynamicTemplate, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "dynamic-template"
+        self.yang_parent_name = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg"
+
         self.ip_subscribers = DynamicTemplate.IpSubscribers()
         self.ip_subscribers.parent = self
+        self._children_name_map["ip_subscribers"] = "ip-subscribers"
+        self._children_yang_names.add("ip-subscribers")
+
         self.ppps = DynamicTemplate.Ppps()
         self.ppps.parent = self
+        self._children_name_map["ppps"] = "ppps"
+        self._children_yang_names.add("ppps")
+
         self.subscriber_services = DynamicTemplate.SubscriberServices()
         self.subscriber_services.parent = self
+        self._children_name_map["subscriber_services"] = "subscriber-services"
+        self._children_yang_names.add("subscriber-services")
 
 
-    class Ppps(object):
+    class Ppps(Entity):
         """
         Templates of the PPP Type
         
@@ -77,13 +85,39 @@ class DynamicTemplate(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.ppp = YList()
-            self.ppp.parent = self
-            self.ppp.name = 'ppp'
+            super(DynamicTemplate.Ppps, self).__init__()
+
+            self.yang_name = "ppps"
+            self.yang_parent_name = "dynamic-template"
+
+            self.ppp = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DynamicTemplate.Ppps, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DynamicTemplate.Ppps, self).__setattr__(name, value)
 
 
-        class Ppp(object):
+        class Ppp(Entity):
             """
             A Template of the PPP Type
             
@@ -174,38 +208,107 @@ class DynamicTemplate(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.template_name = None
+                super(DynamicTemplate.Ppps.Ppp, self).__init__()
+
+                self.yang_name = "ppp"
+                self.yang_parent_name = "ppps"
+
+                self.template_name = YLeaf(YType.str, "template-name")
+
+                self.vrf = YLeaf(YType.str, "Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf")
+
                 self.accounting = DynamicTemplate.Ppps.Ppp.Accounting()
                 self.accounting.parent = self
+                self._children_name_map["accounting"] = "accounting"
+                self._children_yang_names.add("accounting")
+
                 self.dhcpv6 = DynamicTemplate.Ppps.Ppp.Dhcpv6()
                 self.dhcpv6.parent = self
+                self._children_name_map["dhcpv6"] = "dhcpv6"
+                self._children_yang_names.add("dhcpv6")
+
                 self.igmp = DynamicTemplate.Ppps.Ppp.Igmp()
                 self.igmp.parent = self
+                self._children_name_map["igmp"] = "igmp"
+                self._children_yang_names.add("igmp")
+
                 self.ipv4_network = DynamicTemplate.Ppps.Ppp.Ipv4Network()
                 self.ipv4_network.parent = self
+                self._children_name_map["ipv4_network"] = "ipv4-network"
+                self._children_yang_names.add("ipv4-network")
+
                 self.ipv4_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter()
                 self.ipv4_packet_filter.parent = self
+                self._children_name_map["ipv4_packet_filter"] = "ipv4-packet-filter"
+                self._children_yang_names.add("ipv4-packet-filter")
+
                 self.ipv6_neighbor = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor()
                 self.ipv6_neighbor.parent = self
+                self._children_name_map["ipv6_neighbor"] = "ipv6-neighbor"
+                self._children_yang_names.add("ipv6-neighbor")
+
                 self.ipv6_network = DynamicTemplate.Ppps.Ppp.Ipv6Network()
                 self.ipv6_network.parent = self
+                self._children_name_map["ipv6_network"] = "ipv6-network"
+                self._children_yang_names.add("ipv6-network")
+
                 self.ipv6_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter()
                 self.ipv6_packet_filter.parent = self
+                self._children_name_map["ipv6_packet_filter"] = "ipv6-packet-filter"
+                self._children_yang_names.add("ipv6-packet-filter")
+
                 self.pbr = DynamicTemplate.Ppps.Ppp.Pbr()
                 self.pbr.parent = self
+                self._children_name_map["pbr"] = "pbr"
+                self._children_yang_names.add("pbr")
+
                 self.ppp_template = DynamicTemplate.Ppps.Ppp.PppTemplate()
                 self.ppp_template.parent = self
+                self._children_name_map["ppp_template"] = "ppp-template"
+                self._children_yang_names.add("ppp-template")
+
                 self.pppoe_template = DynamicTemplate.Ppps.Ppp.PppoeTemplate()
                 self.pppoe_template.parent = self
+                self._children_name_map["pppoe_template"] = "pppoe-template"
+                self._children_yang_names.add("pppoe-template")
+
                 self.qos = DynamicTemplate.Ppps.Ppp.Qos()
                 self.qos.parent = self
+                self._children_name_map["qos"] = "qos"
+                self._children_yang_names.add("qos")
+
                 self.span_monitor_sessions = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
-                self.vrf = None
+                self._children_name_map["span_monitor_sessions"] = "span-monitor-sessions"
+                self._children_yang_names.add("span-monitor-sessions")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("template_name",
+                                "vrf") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DynamicTemplate.Ppps.Ppp, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DynamicTemplate.Ppps.Ppp, self).__setattr__(name, value)
 
 
-            class SpanMonitorSessions(object):
+            class SpanMonitorSessions(Entity):
                 """
                 Monitor Session container for this template
                 
@@ -222,13 +325,39 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.span_monitor_session = YList()
-                    self.span_monitor_session.parent = self
-                    self.span_monitor_session.name = 'span_monitor_session'
+                    super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "ppp"
+
+                    self.span_monitor_session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions, self).__setattr__(name, value)
 
 
-                class SpanMonitorSession(object):
+                class SpanMonitorSession(Entity):
                     """
                     Configuration for a particular class of Monitor
                     Session
@@ -236,7 +365,7 @@ class DynamicTemplate(object):
                     .. attribute:: session_class  <key>
                     
                     	Session Class
-                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: acl
                     
@@ -262,7 +391,7 @@ class DynamicTemplate(object):
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    	**type**\:   :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
                     
                     
 
@@ -272,22 +401,59 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_class = None
-                        self.acl = None
+                        super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+
+                        self.session_class = YLeaf(YType.enumeration, "session-class")
+
+                        self.acl = YLeaf(YType.empty, "acl")
+
+                        self.mirror_first = YLeaf(YType.uint32, "mirror-first")
+
+                        self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
                         self.attachment = None
-                        self.mirror_first = None
-                        self.mirror_interval = None
+                        self._children_name_map["attachment"] = "attachment"
+                        self._children_yang_names.add("attachment")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_class",
+                                        "acl",
+                                        "mirror_first",
+                                        "mirror_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession, self).__setattr__(name, value)
 
 
-                    class Attachment(object):
+                    class Attachment(Entity):
                         """
                         Attach the interface to a Monitor Session
                         
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        	**type**\:   :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
                         
                         .. attribute:: port_level_enable
                         
@@ -303,11 +469,6 @@ class DynamicTemplate(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -318,104 +479,246 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.direction = None
-                            self.port_level_enable = None
-                            self.session_name = None
+                            super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
+                            self.direction = YLeaf(YType.enumeration, "direction")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.port_level_enable = YLeaf(YType.empty, "port-level-enable")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.session_name = YLeaf(YType.str, "session-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("direction",
+                                            "port_level_enable",
+                                            "session_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.direction.is_set or
+                                self.port_level_enable.is_set or
+                                self.session_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.direction.yfilter != YFilter.not_set or
+                                self.port_level_enable.yfilter != YFilter.not_set or
+                                self.session_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "attachment" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.direction.get_name_leafdata())
+                            if (self.port_level_enable.is_set or self.port_level_enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.port_level_enable.get_name_leafdata())
+                            if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "direction" or name == "port-level-enable" or name == "session-name"):
                                 return True
-                            if self.direction is not None:
-                                return True
-
-                            if self.port_level_enable is not None:
-                                return True
-
-                            if self.session_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "direction"):
+                                self.direction = value
+                                self.direction.value_namespace = name_space
+                                self.direction.value_namespace_prefix = name_space_prefix
+                            if(value_path == "port-level-enable"):
+                                self.port_level_enable = value
+                                self.port_level_enable.value_namespace = name_space
+                                self.port_level_enable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-name"):
+                                self.session_name = value
+                                self.session_name.value_namespace = name_space
+                                self.session_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.session_class is None:
-                            raise YPYModelError('Key property session_class is None')
+                    def has_data(self):
+                        return (
+                            self.session_class.is_set or
+                            self.acl.is_set or
+                            self.mirror_first.is_set or
+                            self.mirror_interval.is_set or
+                            (self.attachment is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_class.yfilter != YFilter.not_set or
+                            self.acl.yfilter != YFilter.not_set or
+                            self.mirror_first.yfilter != YFilter.not_set or
+                            self.mirror_interval.yfilter != YFilter.not_set or
+                            (self.attachment is not None and self.attachment.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "span-monitor-session" + "[session-class='" + self.session_class.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.session_class is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_class.is_set or self.session_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_class.get_name_leafdata())
+                        if (self.acl.is_set or self.acl.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.acl.get_name_leafdata())
+                        if (self.mirror_first.is_set or self.mirror_first.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mirror_first.get_name_leafdata())
+                        if (self.mirror_interval.is_set or self.mirror_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mirror_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "attachment"):
+                            if (self.attachment is None):
+                                self.attachment = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession.Attachment()
+                                self.attachment.parent = self
+                                self._children_name_map["attachment"] = "attachment"
+                            return self.attachment
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "attachment" or name == "session-class" or name == "acl" or name == "mirror-first" or name == "mirror-interval"):
                             return True
-
-                        if self.acl is not None:
-                            return True
-
-                        if self.attachment is not None and self.attachment._has_data():
-                            return True
-
-                        if self.mirror_first is not None:
-                            return True
-
-                        if self.mirror_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-class"):
+                            self.session_class = value
+                            self.session_class.value_namespace = name_space
+                            self.session_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "acl"):
+                            self.acl = value
+                            self.acl.value_namespace = name_space
+                            self.acl.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mirror-first"):
+                            self.mirror_first = value
+                            self.mirror_first.value_namespace = name_space
+                            self.mirror_first.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mirror-interval"):
+                            self.mirror_interval = value
+                            self.mirror_interval.value_namespace = name_space
+                            self.mirror_interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.span_monitor_session is not None:
-                        for child_ref in self.span_monitor_session:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.span_monitor_session:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions']['meta_info']
+                def has_operation(self):
+                    for c in self.span_monitor_session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "span-monitor-session"):
+                        for c in self.span_monitor_session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions.SpanMonitorSession()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.span_monitor_session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "span-monitor-session"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv4PacketFilter(object):
+            class Ipv4PacketFilter(Entity):
                 """
                 IPv4 Packet Filtering configuration for the
                 template
@@ -440,13 +743,22 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv4-packet-filter"
+                    self.yang_parent_name = "ppp"
+
                     self.inbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+                    self._children_yang_names.add("inbound")
+
                     self.outbound = None
+                    self._children_name_map["outbound"] = "outbound"
+                    self._children_yang_names.add("outbound")
 
 
-                class Outbound(object):
+                class Outbound(Entity):
                     """
                     IPv4 Packet filter to be applied to outbound
                     packets
@@ -475,11 +787,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -490,48 +797,120 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hardware_count = YLeaf(YType.empty, "hardware-count")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "hardware_count",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.hardware_count.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.hardware_count.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.hardware_count.is_set or self.hardware_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hardware_count.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "hardware-count" or name == "interface-statistics" or name == "name"):
                             return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hardware-count"):
+                            self.hardware_count = value
+                            self.hardware_count.value_namespace = name_space
+                            self.hardware_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class Inbound(object):
+                class Inbound(Entity):
                     """
                     IPv4 Packet filter to be applied to inbound
                     packets
@@ -566,70 +945,177 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hardware_count = YLeaf(YType.empty, "hardware-count")
 
-                    def _has_data(self):
-                        if self.common_acl_name is not None:
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "hardware_count",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.hardware_count.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.hardware_count.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "inbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.hardware_count.is_set or self.hardware_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hardware_count.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "hardware-count" or name == "interface-statistics" or name == "name"):
                             return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hardware-count"):
+                            self.hardware_count = value
+                            self.hardware_count.value_namespace = name_space
+                            self.hardware_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.inbound is not None and self.inbound.has_data()) or
+                        (self.outbound is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.inbound is not None and self.inbound.has_operation()) or
+                        (self.outbound is not None and self.outbound.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" + path_buffer
 
-                def _has_data(self):
-                    if self.inbound is not None and self.inbound._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "inbound"):
+                        if (self.inbound is None):
+                            self.inbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Inbound()
+                            self.inbound.parent = self
+                            self._children_name_map["inbound"] = "inbound"
+                        return self.inbound
+
+                    if (child_yang_name == "outbound"):
+                        if (self.outbound is None):
+                            self.outbound = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter.Outbound()
+                            self.outbound.parent = self
+                            self._children_name_map["outbound"] = "outbound"
+                        return self.outbound
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "inbound" or name == "outbound"):
                         return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv6PacketFilter(object):
+            class Ipv6PacketFilter(Entity):
                 """
                 IPv6 Packet Filtering configuration for the
                 interface
@@ -654,13 +1140,22 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv6-packet-filter"
+                    self.yang_parent_name = "ppp"
+
                     self.inbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+                    self._children_yang_names.add("inbound")
+
                     self.outbound = None
+                    self._children_name_map["outbound"] = "outbound"
+                    self._children_yang_names.add("outbound")
 
 
-                class Inbound(object):
+                class Inbound(Entity):
                     """
                     IPv6 Packet filter to be applied to inbound
                     packets
@@ -690,41 +1185,108 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
 
-                    def _has_data(self):
-                        if self.common_acl_name is not None:
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "inbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "interface-statistics" or name == "name"):
                             return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class Outbound(object):
+                class Outbound(Entity):
                     """
                     IPv6 Packet filter to be applied to outbound
                     packets
@@ -748,11 +1310,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -763,69 +1320,167 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "interface-statistics" or name == "name"):
                             return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.inbound is not None and self.inbound.has_data()) or
+                        (self.outbound is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.inbound is not None and self.inbound.has_operation()) or
+                        (self.outbound is not None and self.outbound.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" + path_buffer
 
-                def _has_data(self):
-                    if self.inbound is not None and self.inbound._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "inbound"):
+                        if (self.inbound is None):
+                            self.inbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Inbound()
+                            self.inbound.parent = self
+                            self._children_name_map["inbound"] = "inbound"
+                        return self.inbound
+
+                    if (child_yang_name == "outbound"):
+                        if (self.outbound is None):
+                            self.outbound = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter.Outbound()
+                            self.outbound.parent = self
+                            self._children_name_map["outbound"] = "outbound"
+                        return self.outbound
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "inbound" or name == "outbound"):
                         return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Igmp(object):
+            class Igmp(Entity):
                 """
                 IGMPconfiguration
                 
@@ -842,12 +1497,18 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Igmp, self).__init__()
+
+                    self.yang_name = "igmp"
+                    self.yang_parent_name = "ppp"
+
                     self.default_vrf = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf()
                     self.default_vrf.parent = self
+                    self._children_name_map["default_vrf"] = "default-vrf"
+                    self._children_yang_names.add("default-vrf")
 
 
-                class DefaultVrf(object):
+                class DefaultVrf(Entity):
                     """
                     Default VRF
                     
@@ -877,7 +1538,7 @@ class DynamicTemplate(object):
                     .. attribute:: multicast_mode
                     
                     	Configure Multicast mode variable
-                    	**type**\:   :py:class:`DynTmplMulticastModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastModeEnum>`
+                    	**type**\:   :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
                     
                     .. attribute:: query_interval
                     
@@ -918,17 +1579,58 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.access_group = None
+                        super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf, self).__init__()
+
+                        self.yang_name = "default-vrf"
+                        self.yang_parent_name = "igmp"
+
+                        self.access_group = YLeaf(YType.str, "access-group")
+
+                        self.max_groups = YLeaf(YType.uint32, "max-groups")
+
+                        self.multicast_mode = YLeaf(YType.enumeration, "multicast-mode")
+
+                        self.query_interval = YLeaf(YType.uint32, "query-interval")
+
+                        self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
+
+                        self.version = YLeaf(YType.uint32, "version")
+
                         self.explicit_tracking = None
-                        self.max_groups = None
-                        self.multicast_mode = None
-                        self.query_interval = None
-                        self.query_max_response_time = None
-                        self.version = None
+                        self._children_name_map["explicit_tracking"] = "explicit-tracking"
+                        self._children_yang_names.add("explicit-tracking")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("access_group",
+                                        "max_groups",
+                                        "multicast_mode",
+                                        "query_interval",
+                                        "query_max_response_time",
+                                        "version") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf, self).__setattr__(name, value)
 
 
-                    class ExplicitTracking(object):
+                    class ExplicitTracking(Entity):
                         """
                         IGMPv3 explicit host tracking
                         
@@ -946,11 +1648,6 @@ class DynamicTemplate(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -961,102 +1658,242 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.access_list_name = None
-                            self.enable = None
+                            super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "explicit-tracking"
+                            self.yang_parent_name = "default-vrf"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:explicit-tracking'
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.enable = YLeaf(YType.boolean, "enable")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("access_list_name",
+                                            "enable") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.access_list_name.is_set or
+                                self.enable.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.access_list_name.yfilter != YFilter.not_set or
+                                self.enable.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "explicit-tracking" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.enable.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "access-list-name" or name == "enable"):
                                 return True
-                            if self.access_list_name is not None:
-                                return True
-
-                            if self.enable is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "access-list-name"):
+                                self.access_list_name = value
+                                self.access_list_name.value_namespace = name_space
+                                self.access_list_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "enable"):
+                                self.enable = value
+                                self.enable.value_namespace = name_space
+                                self.enable.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            self.access_group.is_set or
+                            self.max_groups.is_set or
+                            self.multicast_mode.is_set or
+                            self.query_interval.is_set or
+                            self.query_max_response_time.is_set or
+                            self.version.is_set or
+                            (self.explicit_tracking is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:default-vrf'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.access_group.yfilter != YFilter.not_set or
+                            self.max_groups.yfilter != YFilter.not_set or
+                            self.multicast_mode.yfilter != YFilter.not_set or
+                            self.query_interval.yfilter != YFilter.not_set or
+                            self.query_max_response_time.yfilter != YFilter.not_set or
+                            self.version.yfilter != YFilter.not_set or
+                            (self.explicit_tracking is not None and self.explicit_tracking.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "default-vrf" + path_buffer
 
-                    def _has_data(self):
-                        if self.access_group is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.access_group.is_set or self.access_group.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.access_group.get_name_leafdata())
+                        if (self.max_groups.is_set or self.max_groups.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_groups.get_name_leafdata())
+                        if (self.multicast_mode.is_set or self.multicast_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_mode.get_name_leafdata())
+                        if (self.query_interval.is_set or self.query_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.query_interval.get_name_leafdata())
+                        if (self.query_max_response_time.is_set or self.query_max_response_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.query_max_response_time.get_name_leafdata())
+                        if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "explicit-tracking"):
+                            if (self.explicit_tracking is None):
+                                self.explicit_tracking = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf.ExplicitTracking()
+                                self.explicit_tracking.parent = self
+                                self._children_name_map["explicit_tracking"] = "explicit-tracking"
+                            return self.explicit_tracking
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "explicit-tracking" or name == "access-group" or name == "max-groups" or name == "multicast-mode" or name == "query-interval" or name == "query-max-response-time" or name == "version"):
                             return True
-
-                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
-                            return True
-
-                        if self.max_groups is not None:
-                            return True
-
-                        if self.multicast_mode is not None:
-                            return True
-
-                        if self.query_interval is not None:
-                            return True
-
-                        if self.query_max_response_time is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "access-group"):
+                            self.access_group = value
+                            self.access_group.value_namespace = name_space
+                            self.access_group.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-groups"):
+                            self.max_groups = value
+                            self.max_groups.value_namespace = name_space
+                            self.max_groups.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-mode"):
+                            self.multicast_mode = value
+                            self.multicast_mode.value_namespace = name_space
+                            self.multicast_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "query-interval"):
+                            self.query_interval = value
+                            self.query_interval.value_namespace = name_space
+                            self.query_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "query-max-response-time"):
+                            self.query_max_response_time = value
+                            self.query_max_response_time.value_namespace = name_space
+                            self.query_max_response_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "version"):
+                            self.version = value
+                            self.version.value_namespace = name_space
+                            self.version.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (self.default_vrf is not None and self.default_vrf.has_data())
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.default_vrf is not None and self.default_vrf.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" + path_buffer
 
-                def _has_data(self):
-                    if self.default_vrf is not None and self.default_vrf._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "default-vrf"):
+                        if (self.default_vrf is None):
+                            self.default_vrf = DynamicTemplate.Ppps.Ppp.Igmp.DefaultVrf()
+                            self.default_vrf.parent = self
+                            self._children_name_map["default_vrf"] = "default-vrf"
+                        return self.default_vrf
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "default-vrf"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Igmp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv4Network(object):
+            class Ipv4Network(Entity):
                 """
                 Interface IPv4 Network configuration data
                 
@@ -1096,45 +1933,119 @@ class DynamicTemplate(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.mtu = None
-                    self.rpf = None
-                    self.unnumbered = None
-                    self.unreachables = None
+                    super(DynamicTemplate.Ppps.Ppp.Ipv4Network, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "ipv4-network"
+                    self.yang_parent_name = "ppp"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
+                    self.mtu = YLeaf(YType.uint32, "mtu")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpf = YLeaf(YType.boolean, "rpf")
 
-                def _has_data(self):
-                    if self.mtu is not None:
+                    self.unnumbered = YLeaf(YType.str, "unnumbered")
+
+                    self.unreachables = YLeaf(YType.boolean, "unreachables")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("mtu",
+                                    "rpf",
+                                    "unnumbered",
+                                    "unreachables") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.Ipv4Network, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.Ipv4Network, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.mtu.is_set or
+                        self.rpf.is_set or
+                        self.unnumbered.is_set or
+                        self.unreachables.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.mtu.yfilter != YFilter.not_set or
+                        self.rpf.yfilter != YFilter.not_set or
+                        self.unnumbered.yfilter != YFilter.not_set or
+                        self.unreachables.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mtu.get_name_leafdata())
+                    if (self.rpf.is_set or self.rpf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpf.get_name_leafdata())
+                    if (self.unnumbered.is_set or self.unnumbered.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unnumbered.get_name_leafdata())
+                    if (self.unreachables.is_set or self.unreachables.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unreachables.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mtu" or name == "rpf" or name == "unnumbered" or name == "unreachables"):
                         return True
-
-                    if self.rpf is not None:
-                        return True
-
-                    if self.unnumbered is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv4Network']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "mtu"):
+                        self.mtu = value
+                        self.mtu.value_namespace = name_space
+                        self.mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpf"):
+                        self.rpf = value
+                        self.rpf.value_namespace = name_space
+                        self.rpf.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unnumbered"):
+                        self.unnumbered = value
+                        self.unnumbered.value_namespace = name_space
+                        self.unnumbered.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unreachables"):
+                        self.unreachables = value
+                        self.unreachables.value_namespace = name_space
+                        self.unreachables.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv6Network(object):
+            class Ipv6Network(Entity):
                 """
                 Interface IPv6 Network configuration data
                 
@@ -1152,33 +2063,68 @@ class DynamicTemplate(object):
                 
                 	**units**\: byte
                 
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
                 .. attribute:: unreachables
                 
                 	Override Sending of ICMP Unreachable Messages
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: verify
-                
-                	IPv6 Verify Unicast Souce Reachable
-                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
                 
                 
 
                 """
 
                 _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2015-07-30'
+                _revision = '2017-01-11'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Ipv6Network, self).__init__()
+
+                    self.yang_name = "ipv6-network"
+                    self.yang_parent_name = "ppp"
+
+                    self.mtu = YLeaf(YType.uint32, "mtu")
+
+                    self.rpf = YLeaf(YType.boolean, "rpf")
+
+                    self.unreachables = YLeaf(YType.empty, "unreachables")
+
                     self.addresses = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses()
                     self.addresses.parent = self
-                    self.mtu = None
-                    self.unreachables = None
-                    self.verify = None
+                    self._children_name_map["addresses"] = "addresses"
+                    self._children_yang_names.add("addresses")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("mtu",
+                                    "rpf",
+                                    "unreachables") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6Network, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.Ipv6Network, self).__setattr__(name, value)
 
 
-                class Addresses(object):
+                class Addresses(Entity):
                     """
                     Set the IPv6 address of an interface
                     
@@ -1192,15 +2138,21 @@ class DynamicTemplate(object):
                     """
 
                     _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2017-01-11'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses, self).__init__()
+
+                        self.yang_name = "addresses"
+                        self.yang_parent_name = "ipv6-network"
+
                         self.auto_configuration = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration()
                         self.auto_configuration.parent = self
+                        self._children_name_map["auto_configuration"] = "auto-configuration"
+                        self._children_yang_names.add("auto-configuration")
 
 
-                    class AutoConfiguration(object):
+                    class AutoConfiguration(Entity):
                         """
                         Auto IPv6 Interface Configuration
                         
@@ -1214,89 +2166,208 @@ class DynamicTemplate(object):
                         """
 
                         _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2015-07-30'
+                        _revision = '2017-01-11'
 
                         def __init__(self):
-                            self.parent = None
-                            self.enable = None
+                            super(DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "auto-configuration"
+                            self.yang_parent_name = "addresses"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
+                            self.enable = YLeaf(YType.empty, "enable")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("enable") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.enable is not None:
+                        def has_data(self):
+                            return self.enable.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.enable.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "auto-configuration" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.enable.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "enable"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "enable"):
+                                self.enable = value
+                                self.enable.value_namespace = name_space
+                                self.enable.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (self.auto_configuration is not None and self.auto_configuration.has_data())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.auto_configuration is not None and self.auto_configuration.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "addresses" + path_buffer
 
-                    def _has_data(self):
-                        if self.auto_configuration is not None and self.auto_configuration._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "auto-configuration"):
+                            if (self.auto_configuration is None):
+                                self.auto_configuration = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses.AutoConfiguration()
+                                self.auto_configuration.parent = self
+                                self._children_name_map["auto_configuration"] = "auto-configuration"
+                            return self.auto_configuration
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "auto-configuration"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.mtu.is_set or
+                        self.rpf.is_set or
+                        self.unreachables.is_set or
+                        (self.addresses is not None and self.addresses.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.mtu.yfilter != YFilter.not_set or
+                        self.rpf.yfilter != YFilter.not_set or
+                        self.unreachables.yfilter != YFilter.not_set or
+                        (self.addresses is not None and self.addresses.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" + path_buffer
 
-                def _has_data(self):
-                    if self.addresses is not None and self.addresses._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mtu.get_name_leafdata())
+                    if (self.rpf.is_set or self.rpf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpf.get_name_leafdata())
+                    if (self.unreachables.is_set or self.unreachables.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unreachables.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "addresses"):
+                        if (self.addresses is None):
+                            self.addresses = DynamicTemplate.Ppps.Ppp.Ipv6Network.Addresses()
+                            self.addresses.parent = self
+                            self._children_name_map["addresses"] = "addresses"
+                        return self.addresses
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "addresses" or name == "mtu" or name == "rpf" or name == "unreachables"):
                         return True
-
-                    if self.mtu is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    if self.verify is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "mtu"):
+                        self.mtu = value
+                        self.mtu.value_namespace = name_space
+                        self.mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpf"):
+                        self.rpf = value
+                        self.rpf.value_namespace = name_space
+                        self.rpf.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unreachables"):
+                        self.unreachables = value
+                        self.unreachables.value_namespace = name_space
+                        self.unreachables.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv6Neighbor(object):
+            class Ipv6Neighbor(Entity):
                 """
                 Interface IPv6 Network configuration data
                 
@@ -1396,7 +2467,7 @@ class DynamicTemplate(object):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
+                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
@@ -1416,29 +2487,95 @@ class DynamicTemplate(object):
                 _revision = '2016-12-19'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor, self).__init__()
+
+                    self.yang_name = "ipv6-neighbor"
+                    self.yang_parent_name = "ppp"
+
+                    self.framed_prefix_pool = YLeaf(YType.str, "framed-prefix-pool")
+
+                    self.managed_config = YLeaf(YType.empty, "managed-config")
+
+                    self.ns_interval = YLeaf(YType.uint32, "ns-interval")
+
+                    self.nud_enable = YLeaf(YType.empty, "nud-enable")
+
+                    self.other_config = YLeaf(YType.empty, "other-config")
+
+                    self.ra_lifetime = YLeaf(YType.uint32, "ra-lifetime")
+
+                    self.ra_suppress = YLeaf(YType.empty, "ra-suppress")
+
+                    self.ra_suppress_mtu = YLeaf(YType.empty, "ra-suppress-mtu")
+
+                    self.ra_unicast = YLeaf(YType.empty, "ra-unicast")
+
+                    self.ra_unspecify_hoplimit = YLeaf(YType.empty, "ra-unspecify-hoplimit")
+
+                    self.reachable_time = YLeaf(YType.uint32, "reachable-time")
+
+                    self.router_preference = YLeaf(YType.enumeration, "router-preference")
+
+                    self.start_ra_on_ipv6_enable = YLeaf(YType.empty, "start-ra-on-ipv6-enable")
+
+                    self.suppress_cache_learning = YLeaf(YType.empty, "suppress-cache-learning")
+
                     self.duplicate_address_detection = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection()
                     self.duplicate_address_detection.parent = self
+                    self._children_name_map["duplicate_address_detection"] = "duplicate-address-detection"
+                    self._children_yang_names.add("duplicate-address-detection")
+
                     self.framed_prefix = None
-                    self.framed_prefix_pool = None
-                    self.managed_config = None
-                    self.ns_interval = None
-                    self.nud_enable = None
-                    self.other_config = None
+                    self._children_name_map["framed_prefix"] = "framed-prefix"
+                    self._children_yang_names.add("framed-prefix")
+
                     self.ra_initial = None
+                    self._children_name_map["ra_initial"] = "ra-initial"
+                    self._children_yang_names.add("ra-initial")
+
                     self.ra_interval = None
-                    self.ra_lifetime = None
-                    self.ra_suppress = None
-                    self.ra_suppress_mtu = None
-                    self.ra_unicast = None
-                    self.ra_unspecify_hoplimit = None
-                    self.reachable_time = None
-                    self.router_preference = None
-                    self.start_ra_on_ipv6_enable = None
-                    self.suppress_cache_learning = None
+                    self._children_name_map["ra_interval"] = "ra-interval"
+                    self._children_yang_names.add("ra-interval")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("framed_prefix_pool",
+                                    "managed_config",
+                                    "ns_interval",
+                                    "nud_enable",
+                                    "other_config",
+                                    "ra_lifetime",
+                                    "ra_suppress",
+                                    "ra_suppress_mtu",
+                                    "ra_unicast",
+                                    "ra_unspecify_hoplimit",
+                                    "reachable_time",
+                                    "router_preference",
+                                    "start_ra_on_ipv6_enable",
+                                    "suppress_cache_learning") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor, self).__setattr__(name, value)
 
 
-                class RaInterval(object):
+                class RaInterval(Entity):
                     """
                     Set IPv6 Router Advertisement (RA) interval in
                     seconds
@@ -1463,11 +2600,6 @@ class DynamicTemplate(object):
                     
                     	**units**\: second
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -1478,40 +2610,98 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.maximum = None
-                        self.minimum = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInterval, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ra-interval"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-interval'
+                        self.maximum = YLeaf(YType.uint32, "maximum")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.minimum = YLeaf(YType.uint32, "minimum")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("maximum",
+                                        "minimum") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInterval, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInterval, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.maximum.is_set or
+                            self.minimum.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.maximum.yfilter != YFilter.not_set or
+                            self.minimum.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ra-interval" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.maximum.is_set or self.maximum.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.maximum.get_name_leafdata())
+                        if (self.minimum.is_set or self.minimum.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.minimum.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "maximum" or name == "minimum"):
                             return True
-                        if self.maximum is not None:
-                            return True
-
-                        if self.minimum is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInterval']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "maximum"):
+                            self.maximum = value
+                            self.maximum.value_namespace = name_space
+                            self.maximum.value_namespace_prefix = name_space_prefix
+                        if(value_path == "minimum"):
+                            self.minimum = value
+                            self.minimum.value_namespace = name_space
+                            self.minimum.value_namespace_prefix = name_space_prefix
 
 
-                class FramedPrefix(object):
+                class FramedPrefix(Entity):
                     """
                     Set the IPv6 framed ipv6 prefix for a
                     subscriber interface 
@@ -1532,11 +2722,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -1547,40 +2732,98 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.prefix = None
-                        self.prefix_length = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "framed-prefix"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:framed-prefix'
+                        self.prefix = YLeaf(YType.str, "prefix")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix",
+                                        "prefix_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.prefix.is_set or
+                            self.prefix_length.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "framed-prefix" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "prefix" or name == "prefix-length"):
                             return True
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
 
 
-                class DuplicateAddressDetection(object):
+                class DuplicateAddressDetection(Entity):
                     """
                     Duplicate Address Detection (DAD)
                     
@@ -1599,33 +2842,85 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self.attempts = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "duplicate-address-detection"
+                        self.yang_parent_name = "ipv6-neighbor"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:duplicate-address-detection'
+                        self.attempts = YLeaf(YType.uint32, "attempts")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("attempts") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.attempts is not None:
+                    def has_data(self):
+                        return self.attempts.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.attempts.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "duplicate-address-detection" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.attempts.is_set or self.attempts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.attempts.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "attempts"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "attempts"):
+                            self.attempts = value
+                            self.attempts.value_namespace = name_space
+                            self.attempts.value_namespace_prefix = name_space_prefix
 
 
-                class RaInitial(object):
+                class RaInitial(Entity):
                     """
                     IPv6 ND RA Initial
                     
@@ -1649,11 +2944,6 @@ class DynamicTemplate(object):
                     
                     	**units**\: second
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -1664,113 +2954,285 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.count = None
-                        self.interval = None
+                        super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ra-initial"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-initial'
+                        self.count = YLeaf(YType.uint32, "count")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interval = YLeaf(YType.uint32, "interval")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("count",
+                                        "interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.count.is_set or
+                            self.interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.count.yfilter != YFilter.not_set or
+                            self.interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ra-initial" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.count.is_set or self.count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.count.get_name_leafdata())
+                        if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "count" or name == "interval"):
                             return True
-                        if self.count is not None:
-                            return True
-
-                        if self.interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "count"):
+                            self.count = value
+                            self.count.value_namespace = name_space
+                            self.count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interval"):
+                            self.interval = value
+                            self.interval.value_namespace = name_space
+                            self.interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.framed_prefix_pool.is_set or
+                        self.managed_config.is_set or
+                        self.ns_interval.is_set or
+                        self.nud_enable.is_set or
+                        self.other_config.is_set or
+                        self.ra_lifetime.is_set or
+                        self.ra_suppress.is_set or
+                        self.ra_suppress_mtu.is_set or
+                        self.ra_unicast.is_set or
+                        self.ra_unspecify_hoplimit.is_set or
+                        self.reachable_time.is_set or
+                        self.router_preference.is_set or
+                        self.start_ra_on_ipv6_enable.is_set or
+                        self.suppress_cache_learning.is_set or
+                        (self.duplicate_address_detection is not None and self.duplicate_address_detection.has_data()) or
+                        (self.framed_prefix is not None) or
+                        (self.ra_initial is not None) or
+                        (self.ra_interval is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.framed_prefix_pool.yfilter != YFilter.not_set or
+                        self.managed_config.yfilter != YFilter.not_set or
+                        self.ns_interval.yfilter != YFilter.not_set or
+                        self.nud_enable.yfilter != YFilter.not_set or
+                        self.other_config.yfilter != YFilter.not_set or
+                        self.ra_lifetime.yfilter != YFilter.not_set or
+                        self.ra_suppress.yfilter != YFilter.not_set or
+                        self.ra_suppress_mtu.yfilter != YFilter.not_set or
+                        self.ra_unicast.yfilter != YFilter.not_set or
+                        self.ra_unspecify_hoplimit.yfilter != YFilter.not_set or
+                        self.reachable_time.yfilter != YFilter.not_set or
+                        self.router_preference.yfilter != YFilter.not_set or
+                        self.start_ra_on_ipv6_enable.yfilter != YFilter.not_set or
+                        self.suppress_cache_learning.yfilter != YFilter.not_set or
+                        (self.duplicate_address_detection is not None and self.duplicate_address_detection.has_operation()) or
+                        (self.framed_prefix is not None and self.framed_prefix.has_operation()) or
+                        (self.ra_initial is not None and self.ra_initial.has_operation()) or
+                        (self.ra_interval is not None and self.ra_interval.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" + path_buffer
 
-                def _has_data(self):
-                    if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.framed_prefix_pool.is_set or self.framed_prefix_pool.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.framed_prefix_pool.get_name_leafdata())
+                    if (self.managed_config.is_set or self.managed_config.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.managed_config.get_name_leafdata())
+                    if (self.ns_interval.is_set or self.ns_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ns_interval.get_name_leafdata())
+                    if (self.nud_enable.is_set or self.nud_enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nud_enable.get_name_leafdata())
+                    if (self.other_config.is_set or self.other_config.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.other_config.get_name_leafdata())
+                    if (self.ra_lifetime.is_set or self.ra_lifetime.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_lifetime.get_name_leafdata())
+                    if (self.ra_suppress.is_set or self.ra_suppress.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_suppress.get_name_leafdata())
+                    if (self.ra_suppress_mtu.is_set or self.ra_suppress_mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_suppress_mtu.get_name_leafdata())
+                    if (self.ra_unicast.is_set or self.ra_unicast.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_unicast.get_name_leafdata())
+                    if (self.ra_unspecify_hoplimit.is_set or self.ra_unspecify_hoplimit.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_unspecify_hoplimit.get_name_leafdata())
+                    if (self.reachable_time.is_set or self.reachable_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reachable_time.get_name_leafdata())
+                    if (self.router_preference.is_set or self.router_preference.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.router_preference.get_name_leafdata())
+                    if (self.start_ra_on_ipv6_enable.is_set or self.start_ra_on_ipv6_enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.start_ra_on_ipv6_enable.get_name_leafdata())
+                    if (self.suppress_cache_learning.is_set or self.suppress_cache_learning.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.suppress_cache_learning.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "duplicate-address-detection"):
+                        if (self.duplicate_address_detection is None):
+                            self.duplicate_address_detection = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection()
+                            self.duplicate_address_detection.parent = self
+                            self._children_name_map["duplicate_address_detection"] = "duplicate-address-detection"
+                        return self.duplicate_address_detection
+
+                    if (child_yang_name == "framed-prefix"):
+                        if (self.framed_prefix is None):
+                            self.framed_prefix = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.FramedPrefix()
+                            self.framed_prefix.parent = self
+                            self._children_name_map["framed_prefix"] = "framed-prefix"
+                        return self.framed_prefix
+
+                    if (child_yang_name == "ra-initial"):
+                        if (self.ra_initial is None):
+                            self.ra_initial = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial()
+                            self.ra_initial.parent = self
+                            self._children_name_map["ra_initial"] = "ra-initial"
+                        return self.ra_initial
+
+                    if (child_yang_name == "ra-interval"):
+                        if (self.ra_interval is None):
+                            self.ra_interval = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInterval()
+                            self.ra_interval.parent = self
+                            self._children_name_map["ra_interval"] = "ra-interval"
+                        return self.ra_interval
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "duplicate-address-detection" or name == "framed-prefix" or name == "ra-initial" or name == "ra-interval" or name == "framed-prefix-pool" or name == "managed-config" or name == "ns-interval" or name == "nud-enable" or name == "other-config" or name == "ra-lifetime" or name == "ra-suppress" or name == "ra-suppress-mtu" or name == "ra-unicast" or name == "ra-unspecify-hoplimit" or name == "reachable-time" or name == "router-preference" or name == "start-ra-on-ipv6-enable" or name == "suppress-cache-learning"):
                         return True
-
-                    if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
-                    if self.framed_prefix_pool is not None:
-                        return True
-
-                    if self.managed_config is not None:
-                        return True
-
-                    if self.ns_interval is not None:
-                        return True
-
-                    if self.nud_enable is not None:
-                        return True
-
-                    if self.other_config is not None:
-                        return True
-
-                    if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_interval is not None and self.ra_interval._has_data():
-                        return True
-
-                    if self.ra_lifetime is not None:
-                        return True
-
-                    if self.ra_suppress is not None:
-                        return True
-
-                    if self.ra_suppress_mtu is not None:
-                        return True
-
-                    if self.ra_unicast is not None:
-                        return True
-
-                    if self.ra_unspecify_hoplimit is not None:
-                        return True
-
-                    if self.reachable_time is not None:
-                        return True
-
-                    if self.router_preference is not None:
-                        return True
-
-                    if self.start_ra_on_ipv6_enable is not None:
-                        return True
-
-                    if self.suppress_cache_learning is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "framed-prefix-pool"):
+                        self.framed_prefix_pool = value
+                        self.framed_prefix_pool.value_namespace = name_space
+                        self.framed_prefix_pool.value_namespace_prefix = name_space_prefix
+                    if(value_path == "managed-config"):
+                        self.managed_config = value
+                        self.managed_config.value_namespace = name_space
+                        self.managed_config.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ns-interval"):
+                        self.ns_interval = value
+                        self.ns_interval.value_namespace = name_space
+                        self.ns_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nud-enable"):
+                        self.nud_enable = value
+                        self.nud_enable.value_namespace = name_space
+                        self.nud_enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "other-config"):
+                        self.other_config = value
+                        self.other_config.value_namespace = name_space
+                        self.other_config.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-lifetime"):
+                        self.ra_lifetime = value
+                        self.ra_lifetime.value_namespace = name_space
+                        self.ra_lifetime.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-suppress"):
+                        self.ra_suppress = value
+                        self.ra_suppress.value_namespace = name_space
+                        self.ra_suppress.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-suppress-mtu"):
+                        self.ra_suppress_mtu = value
+                        self.ra_suppress_mtu.value_namespace = name_space
+                        self.ra_suppress_mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-unicast"):
+                        self.ra_unicast = value
+                        self.ra_unicast.value_namespace = name_space
+                        self.ra_unicast.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-unspecify-hoplimit"):
+                        self.ra_unspecify_hoplimit = value
+                        self.ra_unspecify_hoplimit.value_namespace = name_space
+                        self.ra_unspecify_hoplimit.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reachable-time"):
+                        self.reachable_time = value
+                        self.reachable_time.value_namespace = name_space
+                        self.reachable_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "router-preference"):
+                        self.router_preference = value
+                        self.router_preference.value_namespace = name_space
+                        self.router_preference.value_namespace_prefix = name_space_prefix
+                    if(value_path == "start-ra-on-ipv6-enable"):
+                        self.start_ra_on_ipv6_enable = value
+                        self.start_ra_on_ipv6_enable.value_namespace = name_space
+                        self.start_ra_on_ipv6_enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "suppress-cache-learning"):
+                        self.suppress_cache_learning = value
+                        self.suppress_cache_learning.value_namespace = name_space
+                        self.suppress_cache_learning.value_namespace_prefix = name_space_prefix
 
 
-            class Dhcpv6(object):
+            class Dhcpv6(Entity):
                 """
                 Interface dhcpv6 configuration data
                 
@@ -1823,17 +3285,58 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.address_pool = None
-                    self.class_ = None
+                    super(DynamicTemplate.Ppps.Ppp.Dhcpv6, self).__init__()
+
+                    self.yang_name = "dhcpv6"
+                    self.yang_parent_name = "ppp"
+
+                    self.address_pool = YLeaf(YType.str, "address-pool")
+
+                    self.class_ = YLeaf(YType.str, "class")
+
+                    self.delegated_prefix_pool = YLeaf(YType.str, "delegated-prefix-pool")
+
+                    self.dns_ipv6address = YLeaf(YType.str, "dns-ipv6address")
+
+                    self.mode_class = YLeaf(YType.str, "mode-class")
+
+                    self.stateful_address = YLeaf(YType.str, "stateful-address")
+
                     self.delegated_prefix = None
-                    self.delegated_prefix_pool = None
-                    self.dns_ipv6address = None
-                    self.mode_class = None
-                    self.stateful_address = None
+                    self._children_name_map["delegated_prefix"] = "delegated-prefix"
+                    self._children_yang_names.add("delegated-prefix")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("address_pool",
+                                    "class_",
+                                    "delegated_prefix_pool",
+                                    "dns_ipv6address",
+                                    "mode_class",
+                                    "stateful_address") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.Dhcpv6, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.Dhcpv6, self).__setattr__(name, value)
 
 
-                class DelegatedPrefix(object):
+                class DelegatedPrefix(Entity):
                     """
                     The prefix to be used for Prefix Delegation
                     
@@ -1855,11 +3358,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -1870,80 +3368,194 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.prefix = None
-                        self.prefix_length = None
+                        super(DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "delegated-prefix"
+                        self.yang_parent_name = "dhcpv6"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:delegated-prefix'
+                        self.prefix = YLeaf(YType.str, "prefix")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix",
+                                        "prefix_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.prefix.is_set or
+                            self.prefix_length.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "delegated-prefix" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "prefix" or name == "prefix-length"):
                             return True
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.address_pool.is_set or
+                        self.class_.is_set or
+                        self.delegated_prefix_pool.is_set or
+                        self.dns_ipv6address.is_set or
+                        self.mode_class.is_set or
+                        self.stateful_address.is_set or
+                        (self.delegated_prefix is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.address_pool.yfilter != YFilter.not_set or
+                        self.class_.yfilter != YFilter.not_set or
+                        self.delegated_prefix_pool.yfilter != YFilter.not_set or
+                        self.dns_ipv6address.yfilter != YFilter.not_set or
+                        self.mode_class.yfilter != YFilter.not_set or
+                        self.stateful_address.yfilter != YFilter.not_set or
+                        (self.delegated_prefix is not None and self.delegated_prefix.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" + path_buffer
 
-                def _has_data(self):
-                    if self.address_pool is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.address_pool.is_set or self.address_pool.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.address_pool.get_name_leafdata())
+                    if (self.class_.is_set or self.class_.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.class_.get_name_leafdata())
+                    if (self.delegated_prefix_pool.is_set or self.delegated_prefix_pool.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delegated_prefix_pool.get_name_leafdata())
+                    if (self.dns_ipv6address.is_set or self.dns_ipv6address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dns_ipv6address.get_name_leafdata())
+                    if (self.mode_class.is_set or self.mode_class.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mode_class.get_name_leafdata())
+                    if (self.stateful_address.is_set or self.stateful_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.stateful_address.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "delegated-prefix"):
+                        if (self.delegated_prefix is None):
+                            self.delegated_prefix = DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix()
+                            self.delegated_prefix.parent = self
+                            self._children_name_map["delegated_prefix"] = "delegated-prefix"
+                        return self.delegated_prefix
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "delegated-prefix" or name == "address-pool" or name == "class" or name == "delegated-prefix-pool" or name == "dns-ipv6address" or name == "mode-class" or name == "stateful-address"):
                         return True
-
-                    if self.class_ is not None:
-                        return True
-
-                    if self.delegated_prefix is not None and self.delegated_prefix._has_data():
-                        return True
-
-                    if self.delegated_prefix_pool is not None:
-                        return True
-
-                    if self.dns_ipv6address is not None:
-                        return True
-
-                    if self.mode_class is not None:
-                        return True
-
-                    if self.stateful_address is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Dhcpv6']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "address-pool"):
+                        self.address_pool = value
+                        self.address_pool.value_namespace = name_space
+                        self.address_pool.value_namespace_prefix = name_space_prefix
+                    if(value_path == "class"):
+                        self.class_ = value
+                        self.class_.value_namespace = name_space
+                        self.class_.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delegated-prefix-pool"):
+                        self.delegated_prefix_pool = value
+                        self.delegated_prefix_pool.value_namespace = name_space
+                        self.delegated_prefix_pool.value_namespace_prefix = name_space_prefix
+                    if(value_path == "dns-ipv6address"):
+                        self.dns_ipv6address = value
+                        self.dns_ipv6address.value_namespace = name_space
+                        self.dns_ipv6address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mode-class"):
+                        self.mode_class = value
+                        self.mode_class.value_namespace = name_space
+                        self.mode_class.value_namespace_prefix = name_space_prefix
+                    if(value_path == "stateful-address"):
+                        self.stateful_address = value
+                        self.stateful_address.value_namespace = name_space
+                        self.stateful_address.value_namespace_prefix = name_space_prefix
 
 
-            class Pbr(object):
+            class Pbr(Entity):
                 """
                 Dynamic Template PBR configuration
                 
@@ -1965,13 +3577,44 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Pbr, self).__init__()
+
+                    self.yang_name = "pbr"
+                    self.yang_parent_name = "ppp"
+
+                    self.service_policy_in = YLeaf(YType.str, "service-policy-in")
+
                     self.service_policy = DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy()
                     self.service_policy.parent = self
-                    self.service_policy_in = None
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._children_yang_names.add("service-policy")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("service_policy_in") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.Pbr, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.Pbr, self).__setattr__(name, value)
 
 
-                class ServicePolicy(object):
+                class ServicePolicy(Entity):
                     """
                     PBR service policy configuration
                     
@@ -1988,58 +3631,141 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.input = None
+                        super(DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "pbr"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
+                        self.input = YLeaf(YType.str, "input")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("input") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.input is not None:
+                    def has_data(self):
+                        return self.input.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.input.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-policy" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.input.is_set or self.input.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "input"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "input"):
+                            self.input = value
+                            self.input.value_namespace = name_space
+                            self.input.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.service_policy_in.is_set or
+                        (self.service_policy is not None and self.service_policy.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.service_policy_in.yfilter != YFilter.not_set or
+                        (self.service_policy is not None and self.service_policy.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" + path_buffer
 
-                def _has_data(self):
-                    if self.service_policy is not None and self.service_policy._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.service_policy_in.is_set or self.service_policy_in.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.service_policy_in.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "service-policy"):
+                        if (self.service_policy is None):
+                            self.service_policy = DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy()
+                            self.service_policy.parent = self
+                            self._children_name_map["service_policy"] = "service-policy"
+                        return self.service_policy
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "service-policy" or name == "service-policy-in"):
                         return True
-
-                    if self.service_policy_in is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Pbr']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "service-policy-in"):
+                        self.service_policy_in = value
+                        self.service_policy_in.value_namespace = name_space
+                        self.service_policy_in.value_namespace_prefix = name_space_prefix
 
 
-            class PppTemplate(object):
+            class PppTemplate(Entity):
                 """
                 PPP template configuration data
                 
@@ -2071,18 +3797,33 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.PppTemplate, self).__init__()
+
+                    self.yang_name = "ppp-template"
+                    self.yang_parent_name = "ppp"
+
                     self.fsm = DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm()
                     self.fsm.parent = self
+                    self._children_name_map["fsm"] = "fsm"
+                    self._children_yang_names.add("fsm")
+
                     self.ipcp = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp()
                     self.ipcp.parent = self
+                    self._children_name_map["ipcp"] = "ipcp"
+                    self._children_yang_names.add("ipcp")
+
                     self.ipv6cp = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp()
                     self.ipv6cp.parent = self
+                    self._children_name_map["ipv6cp"] = "ipv6cp"
+                    self._children_yang_names.add("ipv6cp")
+
                     self.lcp = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp()
                     self.lcp.parent = self
+                    self._children_name_map["lcp"] = "lcp"
+                    self._children_yang_names.add("lcp")
 
 
-                class Fsm(object):
+                class Fsm(Entity):
                     """
                     PPP FSM global template configuration data
                     
@@ -2130,45 +3871,119 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.max_consecutive_conf_naks = None
-                        self.max_unacknowledged_conf_requests = None
-                        self.protocol_reject_timeout = None
-                        self.retry_timeout = None
+                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "fsm"
+                        self.yang_parent_name = "ppp-template"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:fsm'
+                        self.max_consecutive_conf_naks = YLeaf(YType.uint32, "max-consecutive-conf-naks")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.max_unacknowledged_conf_requests = YLeaf(YType.uint32, "max-unacknowledged-conf-requests")
 
-                    def _has_data(self):
-                        if self.max_consecutive_conf_naks is not None:
+                        self.protocol_reject_timeout = YLeaf(YType.uint32, "protocol-reject-timeout")
+
+                        self.retry_timeout = YLeaf(YType.uint32, "retry-timeout")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("max_consecutive_conf_naks",
+                                        "max_unacknowledged_conf_requests",
+                                        "protocol_reject_timeout",
+                                        "retry_timeout") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.max_consecutive_conf_naks.is_set or
+                            self.max_unacknowledged_conf_requests.is_set or
+                            self.protocol_reject_timeout.is_set or
+                            self.retry_timeout.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.max_consecutive_conf_naks.yfilter != YFilter.not_set or
+                            self.max_unacknowledged_conf_requests.yfilter != YFilter.not_set or
+                            self.protocol_reject_timeout.yfilter != YFilter.not_set or
+                            self.retry_timeout.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "fsm" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.max_consecutive_conf_naks.is_set or self.max_consecutive_conf_naks.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_consecutive_conf_naks.get_name_leafdata())
+                        if (self.max_unacknowledged_conf_requests.is_set or self.max_unacknowledged_conf_requests.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_unacknowledged_conf_requests.get_name_leafdata())
+                        if (self.protocol_reject_timeout.is_set or self.protocol_reject_timeout.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.protocol_reject_timeout.get_name_leafdata())
+                        if (self.retry_timeout.is_set or self.retry_timeout.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.retry_timeout.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "max-consecutive-conf-naks" or name == "max-unacknowledged-conf-requests" or name == "protocol-reject-timeout" or name == "retry-timeout"):
                             return True
-
-                        if self.max_unacknowledged_conf_requests is not None:
-                            return True
-
-                        if self.protocol_reject_timeout is not None:
-                            return True
-
-                        if self.retry_timeout is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "max-consecutive-conf-naks"):
+                            self.max_consecutive_conf_naks = value
+                            self.max_consecutive_conf_naks.value_namespace = name_space
+                            self.max_consecutive_conf_naks.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-unacknowledged-conf-requests"):
+                            self.max_unacknowledged_conf_requests = value
+                            self.max_unacknowledged_conf_requests.value_namespace = name_space
+                            self.max_unacknowledged_conf_requests.value_namespace_prefix = name_space_prefix
+                        if(value_path == "protocol-reject-timeout"):
+                            self.protocol_reject_timeout = value
+                            self.protocol_reject_timeout.value_namespace = name_space
+                            self.protocol_reject_timeout.value_namespace_prefix = name_space_prefix
+                        if(value_path == "retry-timeout"):
+                            self.retry_timeout = value
+                            self.retry_timeout.value_namespace = name_space
+                            self.retry_timeout.value_namespace_prefix = name_space_prefix
 
 
-                class Lcp(object):
+                class Lcp(Entity):
                     """
                     PPP LCP global template configuration data
                     
@@ -2224,22 +4039,68 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp, self).__init__()
+
+                        self.yang_name = "lcp"
+                        self.yang_parent_name = "ppp-template"
+
+                        self.mru_ignore = YLeaf(YType.empty, "mru-ignore")
+
+                        self.renegotiation = YLeaf(YType.empty, "renegotiation")
+
+                        self.send_term_request_on_shut_down = YLeaf(YType.empty, "send-term-request-on-shut-down")
+
+                        self.service_type = YLeaf(YType.uint32, "service-type")
+
                         self.absolute_timeout = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout()
                         self.absolute_timeout.parent = self
+                        self._children_name_map["absolute_timeout"] = "absolute-timeout"
+                        self._children_yang_names.add("absolute-timeout")
+
                         self.authentication = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication()
                         self.authentication.parent = self
+                        self._children_name_map["authentication"] = "authentication"
+                        self._children_yang_names.add("authentication")
+
                         self.delay = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay()
                         self.delay.parent = self
+                        self._children_name_map["delay"] = "delay"
+                        self._children_yang_names.add("delay")
+
                         self.keepalive = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive()
                         self.keepalive.parent = self
-                        self.mru_ignore = None
-                        self.renegotiation = None
-                        self.send_term_request_on_shut_down = None
-                        self.service_type = None
+                        self._children_name_map["keepalive"] = "keepalive"
+                        self._children_yang_names.add("keepalive")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("mru_ignore",
+                                        "renegotiation",
+                                        "send_term_request_on_shut_down",
+                                        "service_type") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp, self).__setattr__(name, value)
 
 
-                    class AbsoluteTimeout(object):
+                    class AbsoluteTimeout(Entity):
                         """
                         This specifies the session absolute timeout
                         value
@@ -2266,37 +4127,97 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.minutes = None
-                            self.seconds = None
+                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "absolute-timeout"
+                            self.yang_parent_name = "lcp"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:absolute-timeout'
+                            self.minutes = YLeaf(YType.uint32, "minutes")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.seconds = YLeaf(YType.uint32, "seconds")
 
-                        def _has_data(self):
-                            if self.minutes is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("minutes",
+                                            "seconds") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.minutes.is_set or
+                                self.seconds.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.minutes.yfilter != YFilter.not_set or
+                                self.seconds.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "absolute-timeout" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.minutes.is_set or self.minutes.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.minutes.get_name_leafdata())
+                            if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "minutes" or name == "seconds"):
                                 return True
-
-                            if self.seconds is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "minutes"):
+                                self.minutes = value
+                                self.minutes.value_namespace = name_space
+                                self.minutes.value_namespace_prefix = name_space_prefix
+                            if(value_path == "seconds"):
+                                self.seconds = value
+                                self.seconds.value_namespace = name_space
+                                self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                    class Delay(object):
+                    class Delay(Entity):
                         """
                         This specifies the time to delay before
                         starting active LCPnegotiations
@@ -2323,37 +4244,97 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.milliseconds = None
-                            self.seconds = None
+                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "delay"
+                            self.yang_parent_name = "lcp"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:delay'
+                            self.milliseconds = YLeaf(YType.uint32, "milliseconds")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.seconds = YLeaf(YType.uint32, "seconds")
 
-                        def _has_data(self):
-                            if self.milliseconds is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("milliseconds",
+                                            "seconds") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.milliseconds.is_set or
+                                self.seconds.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.milliseconds.yfilter != YFilter.not_set or
+                                self.seconds.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "delay" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.milliseconds.is_set or self.milliseconds.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.milliseconds.get_name_leafdata())
+                            if (self.seconds.is_set or self.seconds.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.seconds.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "milliseconds" or name == "seconds"):
                                 return True
-
-                            if self.seconds is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "milliseconds"):
+                                self.milliseconds = value
+                                self.milliseconds.value_namespace = name_space
+                                self.milliseconds.value_namespace_prefix = name_space_prefix
+                            if(value_path == "seconds"):
+                                self.seconds = value
+                                self.seconds.value_namespace = name_space
+                                self.seconds.value_namespace_prefix = name_space_prefix
 
 
-                    class Authentication(object):
+                    class Authentication(Entity):
                         """
                         PPP authentication parameters
                         
@@ -2403,17 +4384,56 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.chap_host_name = None
-                            self.max_authentication_failures = None
+                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication, self).__init__()
+
+                            self.yang_name = "authentication"
+                            self.yang_parent_name = "lcp"
+
+                            self.chap_host_name = YLeaf(YType.str, "chap-host-name")
+
+                            self.max_authentication_failures = YLeaf(YType.uint32, "max-authentication-failures")
+
+                            self.mschap_host_name = YLeaf(YType.str, "mschap-host-name")
+
+                            self.pap = YLeaf(YType.int32, "pap")
+
+                            self.timeout = YLeaf(YType.uint32, "timeout")
+
                             self.methods = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods()
                             self.methods.parent = self
-                            self.mschap_host_name = None
-                            self.pap = None
-                            self.timeout = None
+                            self._children_name_map["methods"] = "methods"
+                            self._children_yang_names.add("methods")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("chap_host_name",
+                                            "max_authentication_failures",
+                                            "mschap_host_name",
+                                            "pap",
+                                            "timeout") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication, self).__setattr__(name, value)
 
 
-                        class Methods(object):
+                        class Methods(Entity):
                             """
                             This specifies the PPP link authentication
                             method
@@ -2421,7 +4441,7 @@ class DynamicTemplate(object):
                             .. attribute:: method
                             
                             	Select between one and three authentication methods in order of preference
-                            	**type**\:  list of   :py:class:`PppAuthenticationMethodGblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_gbl_cfg.PppAuthenticationMethodGblEnum>`
+                            	**type**\:  list of   :py:class:`PppAuthenticationMethodGbl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_gbl_cfg.PppAuthenticationMethodGbl>`
                             
                             
 
@@ -2431,74 +4451,177 @@ class DynamicTemplate(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.method = YLeafList()
-                                self.method.parent = self
-                                self.method.name = 'method'
+                                super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "methods"
+                                self.yang_parent_name = "authentication"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:methods'
+                                self.method = YLeafList(YType.enumeration, "method")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("method") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods, self).__setattr__(name, value)
 
-                            def _has_data(self):
-                                if self.method is not None:
-                                    for child in self.method:
-                                        if child is not None:
-                                            return True
-
+                            def has_data(self):
+                                for leaf in self.method.getYLeafs():
+                                    if (leaf.yfilter != YFilter.not_set):
+                                        return True
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                                return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods']['meta_info']
+                            def has_operation(self):
+                                for leaf in self.method.getYLeafs():
+                                    if (leaf.is_set):
+                                        return True
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.method.yfilter != YFilter.not_set)
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "methods" + path_buffer
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:authentication'
+                                return path_buffer
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        def _has_data(self):
-                            if self.chap_host_name is not None:
+                                leaf_name_data = LeafDataList()
+
+                                leaf_name_data.extend(self.method.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "method"):
+                                    return True
+                                return False
+
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "method"):
+                                    self.method.append(value)
+
+                        def has_data(self):
+                            return (
+                                self.chap_host_name.is_set or
+                                self.max_authentication_failures.is_set or
+                                self.mschap_host_name.is_set or
+                                self.pap.is_set or
+                                self.timeout.is_set or
+                                (self.methods is not None and self.methods.has_data()))
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.chap_host_name.yfilter != YFilter.not_set or
+                                self.max_authentication_failures.yfilter != YFilter.not_set or
+                                self.mschap_host_name.yfilter != YFilter.not_set or
+                                self.pap.yfilter != YFilter.not_set or
+                                self.timeout.yfilter != YFilter.not_set or
+                                (self.methods is not None and self.methods.has_operation()))
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "authentication" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.chap_host_name.is_set or self.chap_host_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.chap_host_name.get_name_leafdata())
+                            if (self.max_authentication_failures.is_set or self.max_authentication_failures.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.max_authentication_failures.get_name_leafdata())
+                            if (self.mschap_host_name.is_set or self.mschap_host_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.mschap_host_name.get_name_leafdata())
+                            if (self.pap.is_set or self.pap.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pap.get_name_leafdata())
+                            if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "methods"):
+                                if (self.methods is None):
+                                    self.methods = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication.Methods()
+                                    self.methods.parent = self
+                                    self._children_name_map["methods"] = "methods"
+                                return self.methods
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "methods" or name == "chap-host-name" or name == "max-authentication-failures" or name == "mschap-host-name" or name == "pap" or name == "timeout"):
                                 return True
-
-                            if self.max_authentication_failures is not None:
-                                return True
-
-                            if self.methods is not None and self.methods._has_data():
-                                return True
-
-                            if self.mschap_host_name is not None:
-                                return True
-
-                            if self.pap is not None:
-                                return True
-
-                            if self.timeout is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "chap-host-name"):
+                                self.chap_host_name = value
+                                self.chap_host_name.value_namespace = name_space
+                                self.chap_host_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "max-authentication-failures"):
+                                self.max_authentication_failures = value
+                                self.max_authentication_failures.value_namespace = name_space
+                                self.max_authentication_failures.value_namespace_prefix = name_space_prefix
+                            if(value_path == "mschap-host-name"):
+                                self.mschap_host_name = value
+                                self.mschap_host_name.value_namespace = name_space
+                                self.mschap_host_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "pap"):
+                                self.pap = value
+                                self.pap.value_namespace = name_space
+                                self.pap.value_namespace_prefix = name_space_prefix
+                            if(value_path == "timeout"):
+                                self.timeout = value
+                                self.timeout.value_namespace = name_space
+                                self.timeout.value_namespace_prefix = name_space_prefix
 
 
-                    class Keepalive(object):
+                    class Keepalive(Entity):
                         """
                         This specifies the rate at which EchoReq
                         packets are sent
@@ -2530,84 +4653,215 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.interval = None
-                            self.keepalive_disable = None
-                            self.retry_count = None
+                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "keepalive"
+                            self.yang_parent_name = "lcp"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:keepalive'
+                            self.interval = YLeaf(YType.uint32, "interval")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.keepalive_disable = YLeaf(YType.boolean, "keepalive-disable")
 
-                        def _has_data(self):
-                            if self.interval is not None:
+                            self.retry_count = YLeaf(YType.uint32, "retry-count")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("interval",
+                                            "keepalive_disable",
+                                            "retry_count") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.interval.is_set or
+                                self.keepalive_disable.is_set or
+                                self.retry_count.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.interval.yfilter != YFilter.not_set or
+                                self.keepalive_disable.yfilter != YFilter.not_set or
+                                self.retry_count.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "keepalive" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interval.get_name_leafdata())
+                            if (self.keepalive_disable.is_set or self.keepalive_disable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.keepalive_disable.get_name_leafdata())
+                            if (self.retry_count.is_set or self.retry_count.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.retry_count.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "interval" or name == "keepalive-disable" or name == "retry-count"):
                                 return True
-
-                            if self.keepalive_disable is not None:
-                                return True
-
-                            if self.retry_count is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "interval"):
+                                self.interval = value
+                                self.interval.value_namespace = name_space
+                                self.interval.value_namespace_prefix = name_space_prefix
+                            if(value_path == "keepalive-disable"):
+                                self.keepalive_disable = value
+                                self.keepalive_disable.value_namespace = name_space
+                                self.keepalive_disable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "retry-count"):
+                                self.retry_count = value
+                                self.retry_count.value_namespace = name_space
+                                self.retry_count.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            self.mru_ignore.is_set or
+                            self.renegotiation.is_set or
+                            self.send_term_request_on_shut_down.is_set or
+                            self.service_type.is_set or
+                            (self.absolute_timeout is not None and self.absolute_timeout.has_data()) or
+                            (self.authentication is not None and self.authentication.has_data()) or
+                            (self.delay is not None and self.delay.has_data()) or
+                            (self.keepalive is not None and self.keepalive.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:lcp'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.mru_ignore.yfilter != YFilter.not_set or
+                            self.renegotiation.yfilter != YFilter.not_set or
+                            self.send_term_request_on_shut_down.yfilter != YFilter.not_set or
+                            self.service_type.yfilter != YFilter.not_set or
+                            (self.absolute_timeout is not None and self.absolute_timeout.has_operation()) or
+                            (self.authentication is not None and self.authentication.has_operation()) or
+                            (self.delay is not None and self.delay.has_operation()) or
+                            (self.keepalive is not None and self.keepalive.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "lcp" + path_buffer
 
-                    def _has_data(self):
-                        if self.absolute_timeout is not None and self.absolute_timeout._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.mru_ignore.is_set or self.mru_ignore.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mru_ignore.get_name_leafdata())
+                        if (self.renegotiation.is_set or self.renegotiation.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.renegotiation.get_name_leafdata())
+                        if (self.send_term_request_on_shut_down.is_set or self.send_term_request_on_shut_down.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.send_term_request_on_shut_down.get_name_leafdata())
+                        if (self.service_type.is_set or self.service_type.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.service_type.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "absolute-timeout"):
+                            if (self.absolute_timeout is None):
+                                self.absolute_timeout = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.AbsoluteTimeout()
+                                self.absolute_timeout.parent = self
+                                self._children_name_map["absolute_timeout"] = "absolute-timeout"
+                            return self.absolute_timeout
+
+                        if (child_yang_name == "authentication"):
+                            if (self.authentication is None):
+                                self.authentication = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Authentication()
+                                self.authentication.parent = self
+                                self._children_name_map["authentication"] = "authentication"
+                            return self.authentication
+
+                        if (child_yang_name == "delay"):
+                            if (self.delay is None):
+                                self.delay = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Delay()
+                                self.delay.parent = self
+                                self._children_name_map["delay"] = "delay"
+                            return self.delay
+
+                        if (child_yang_name == "keepalive"):
+                            if (self.keepalive is None):
+                                self.keepalive = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp.Keepalive()
+                                self.keepalive.parent = self
+                                self._children_name_map["keepalive"] = "keepalive"
+                            return self.keepalive
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "absolute-timeout" or name == "authentication" or name == "delay" or name == "keepalive" or name == "mru-ignore" or name == "renegotiation" or name == "send-term-request-on-shut-down" or name == "service-type"):
                             return True
-
-                        if self.authentication is not None and self.authentication._has_data():
-                            return True
-
-                        if self.delay is not None and self.delay._has_data():
-                            return True
-
-                        if self.keepalive is not None and self.keepalive._has_data():
-                            return True
-
-                        if self.mru_ignore is not None:
-                            return True
-
-                        if self.renegotiation is not None:
-                            return True
-
-                        if self.send_term_request_on_shut_down is not None:
-                            return True
-
-                        if self.service_type is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "mru-ignore"):
+                            self.mru_ignore = value
+                            self.mru_ignore.value_namespace = name_space
+                            self.mru_ignore.value_namespace_prefix = name_space_prefix
+                        if(value_path == "renegotiation"):
+                            self.renegotiation = value
+                            self.renegotiation.value_namespace = name_space
+                            self.renegotiation.value_namespace_prefix = name_space_prefix
+                        if(value_path == "send-term-request-on-shut-down"):
+                            self.send_term_request_on_shut_down = value
+                            self.send_term_request_on_shut_down.value_namespace = name_space
+                            self.send_term_request_on_shut_down.value_namespace_prefix = name_space_prefix
+                        if(value_path == "service-type"):
+                            self.service_type = value
+                            self.service_type.value_namespace = name_space
+                            self.service_type.value_namespace_prefix = name_space_prefix
 
 
-                class Ipv6Cp(object):
+                class Ipv6Cp(Entity):
                     """
                     PPP IPv6CP global template configuration data
                     
@@ -2639,45 +4893,119 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.passive = None
-                        self.peer_interface_id = None
-                        self.protocol_reject = None
-                        self.renegotiation = None
+                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ipv6cp"
+                        self.yang_parent_name = "ppp-template"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:ipv6cp'
+                        self.passive = YLeaf(YType.empty, "passive")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.peer_interface_id = YLeaf(YType.str, "peer-interface-id")
 
-                    def _has_data(self):
-                        if self.passive is not None:
+                        self.protocol_reject = YLeaf(YType.empty, "protocol-reject")
+
+                        self.renegotiation = YLeaf(YType.empty, "renegotiation")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("passive",
+                                        "peer_interface_id",
+                                        "protocol_reject",
+                                        "renegotiation") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.passive.is_set or
+                            self.peer_interface_id.is_set or
+                            self.protocol_reject.is_set or
+                            self.renegotiation.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.passive.yfilter != YFilter.not_set or
+                            self.peer_interface_id.yfilter != YFilter.not_set or
+                            self.protocol_reject.yfilter != YFilter.not_set or
+                            self.renegotiation.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipv6cp" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.passive.is_set or self.passive.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.passive.get_name_leafdata())
+                        if (self.peer_interface_id.is_set or self.peer_interface_id.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_interface_id.get_name_leafdata())
+                        if (self.protocol_reject.is_set or self.protocol_reject.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.protocol_reject.get_name_leafdata())
+                        if (self.renegotiation.is_set or self.renegotiation.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.renegotiation.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "passive" or name == "peer-interface-id" or name == "protocol-reject" or name == "renegotiation"):
                             return True
-
-                        if self.peer_interface_id is not None:
-                            return True
-
-                        if self.protocol_reject is not None:
-                            return True
-
-                        if self.renegotiation is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "passive"):
+                            self.passive = value
+                            self.passive.value_namespace = name_space
+                            self.passive.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-interface-id"):
+                            self.peer_interface_id = value
+                            self.peer_interface_id.value_namespace = name_space
+                            self.peer_interface_id.value_namespace_prefix = name_space_prefix
+                        if(value_path == "protocol-reject"):
+                            self.protocol_reject = value
+                            self.protocol_reject.value_namespace = name_space
+                            self.protocol_reject.value_namespace_prefix = name_space_prefix
+                        if(value_path == "renegotiation"):
+                            self.renegotiation = value
+                            self.renegotiation.value_namespace = name_space
+                            self.renegotiation.value_namespace_prefix = name_space_prefix
 
 
-                class Ipcp(object):
+                class Ipcp(Entity):
                     """
                     PPP IPCP global template configuration data
                     
@@ -2726,20 +5054,63 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp, self).__init__()
+
+                        self.yang_name = "ipcp"
+                        self.yang_parent_name = "ppp-template"
+
+                        self.passive = YLeaf(YType.empty, "passive")
+
+                        self.peer_netmask = YLeaf(YType.str, "peer-netmask")
+
+                        self.protocol_reject = YLeaf(YType.empty, "protocol-reject")
+
+                        self.renegotiation = YLeaf(YType.empty, "renegotiation")
+
                         self.dns = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns()
                         self.dns.parent = self
-                        self.passive = None
+                        self._children_name_map["dns"] = "dns"
+                        self._children_yang_names.add("dns")
+
                         self.peer_address = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress()
                         self.peer_address.parent = self
-                        self.peer_netmask = None
-                        self.protocol_reject = None
-                        self.renegotiation = None
+                        self._children_name_map["peer_address"] = "peer-address"
+                        self._children_yang_names.add("peer-address")
+
                         self.wins = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins()
                         self.wins.parent = self
+                        self._children_name_map["wins"] = "wins"
+                        self._children_yang_names.add("wins")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("passive",
+                                        "peer_netmask",
+                                        "protocol_reject",
+                                        "renegotiation") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp, self).__setattr__(name, value)
 
 
-                    class Wins(object):
+                    class Wins(Entity):
                         """
                         IPCP WINS parameters
                         
@@ -2756,12 +5127,18 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins, self).__init__()
+
+                            self.yang_name = "wins"
+                            self.yang_parent_name = "ipcp"
+
                             self.wins_addresses = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses()
                             self.wins_addresses.parent = self
+                            self._children_name_map["wins_addresses"] = "wins-addresses"
+                            self._children_yang_names.add("wins-addresses")
 
 
-                        class WinsAddresses(object):
+                        class WinsAddresses(Entity):
                             """
                             Specify WINS address(es) to provide
                             
@@ -2787,59 +5164,145 @@ class DynamicTemplate(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.primary = None
-                                self.secondary = None
+                                super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "wins-addresses"
+                                self.yang_parent_name = "wins"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:wins-addresses'
+                                self.primary = YLeaf(YType.str, "primary")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.secondary = YLeaf(YType.str, "secondary")
 
-                            def _has_data(self):
-                                if self.primary is not None:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("primary",
+                                                "secondary") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.primary.is_set or
+                                    self.secondary.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.primary.yfilter != YFilter.not_set or
+                                    self.secondary.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "wins-addresses" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.primary.is_set or self.primary.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.primary.get_name_leafdata())
+                                if (self.secondary.is_set or self.secondary.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.secondary.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "primary" or name == "secondary"):
                                     return True
-
-                                if self.secondary is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                                return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "primary"):
+                                    self.primary = value
+                                    self.primary.value_namespace = name_space
+                                    self.primary.value_namespace_prefix = name_space_prefix
+                                if(value_path == "secondary"):
+                                    self.secondary = value
+                                    self.secondary.value_namespace = name_space
+                                    self.secondary.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (self.wins_addresses is not None and self.wins_addresses.has_data())
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:wins'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.wins_addresses is not None and self.wins_addresses.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "wins" + path_buffer
 
-                        def _has_data(self):
-                            if self.wins_addresses is not None and self.wins_addresses._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "wins-addresses"):
+                                if (self.wins_addresses is None):
+                                    self.wins_addresses = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins.WinsAddresses()
+                                    self.wins_addresses.parent = self
+                                    self._children_name_map["wins_addresses"] = "wins-addresses"
+                                return self.wins_addresses
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "wins-addresses"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class Dns(object):
+                    class Dns(Entity):
                         """
                         IPCP DNS parameters
                         
@@ -2856,12 +5319,18 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
+                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns, self).__init__()
+
+                            self.yang_name = "dns"
+                            self.yang_parent_name = "ipcp"
+
                             self.dns_addresses = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses()
                             self.dns_addresses.parent = self
+                            self._children_name_map["dns_addresses"] = "dns-addresses"
+                            self._children_yang_names.add("dns-addresses")
 
 
-                        class DnsAddresses(object):
+                        class DnsAddresses(Entity):
                             """
                             Specify DNS address(es) to provide
                             
@@ -2887,59 +5356,145 @@ class DynamicTemplate(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.primary = None
-                                self.secondary = None
+                                super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "dns-addresses"
+                                self.yang_parent_name = "dns"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:dns-addresses'
+                                self.primary = YLeaf(YType.str, "primary")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
+                                self.secondary = YLeaf(YType.str, "secondary")
 
-                            def _has_data(self):
-                                if self.primary is not None:
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("primary",
+                                                "secondary") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.primary.is_set or
+                                    self.secondary.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.primary.yfilter != YFilter.not_set or
+                                    self.secondary.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "dns-addresses" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.primary.is_set or self.primary.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.primary.get_name_leafdata())
+                                if (self.secondary.is_set or self.secondary.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.secondary.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "primary" or name == "secondary"):
                                     return True
-
-                                if self.secondary is not None:
-                                    return True
-
                                 return False
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                                return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "primary"):
+                                    self.primary = value
+                                    self.primary.value_namespace = name_space
+                                    self.primary.value_namespace_prefix = name_space_prefix
+                                if(value_path == "secondary"):
+                                    self.secondary = value
+                                    self.secondary.value_namespace = name_space
+                                    self.secondary.value_namespace_prefix = name_space_prefix
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                        def has_data(self):
+                            return (self.dns_addresses is not None and self.dns_addresses.has_data())
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:dns'
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                (self.dns_addresses is not None and self.dns_addresses.has_operation()))
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "dns" + path_buffer
 
-                        def _has_data(self):
-                            if self.dns_addresses is not None and self.dns_addresses._has_data():
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "dns-addresses"):
+                                if (self.dns_addresses is None):
+                                    self.dns_addresses = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns.DnsAddresses()
+                                    self.dns_addresses.parent = self
+                                    self._children_name_map["dns_addresses"] = "dns-addresses"
+                                return self.dns_addresses
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "dns-addresses"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
 
 
-                    class PeerAddress(object):
+                    class PeerAddress(Entity):
                         """
                         IPCP address parameters
                         
@@ -2963,108 +5518,271 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.default = None
-                            self.pool = None
+                            super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "peer-address"
+                            self.yang_parent_name = "ipcp"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:peer-address'
+                            self.default = YLeaf(YType.str, "default")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.pool = YLeaf(YType.str, "pool")
 
-                        def _has_data(self):
-                            if self.default is not None:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("default",
+                                            "pool") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.default.is_set or
+                                self.pool.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.default.yfilter != YFilter.not_set or
+                                self.pool.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "peer-address" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.default.is_set or self.default.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.default.get_name_leafdata())
+                            if (self.pool.is_set or self.pool.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.pool.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "default" or name == "pool"):
                                 return True
-
-                            if self.pool is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "default"):
+                                self.default = value
+                                self.default.value_namespace = name_space
+                                self.default.value_namespace_prefix = name_space_prefix
+                            if(value_path == "pool"):
+                                self.pool = value
+                                self.pool.value_namespace = name_space
+                                self.pool.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            self.passive.is_set or
+                            self.peer_netmask.is_set or
+                            self.protocol_reject.is_set or
+                            self.renegotiation.is_set or
+                            (self.dns is not None and self.dns.has_data()) or
+                            (self.peer_address is not None and self.peer_address.has_data()) or
+                            (self.wins is not None and self.wins.has_data()))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:ipcp'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.passive.yfilter != YFilter.not_set or
+                            self.peer_netmask.yfilter != YFilter.not_set or
+                            self.protocol_reject.yfilter != YFilter.not_set or
+                            self.renegotiation.yfilter != YFilter.not_set or
+                            (self.dns is not None and self.dns.has_operation()) or
+                            (self.peer_address is not None and self.peer_address.has_operation()) or
+                            (self.wins is not None and self.wins.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ipcp" + path_buffer
 
-                    def _has_data(self):
-                        if self.dns is not None and self.dns._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.passive.is_set or self.passive.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.passive.get_name_leafdata())
+                        if (self.peer_netmask.is_set or self.peer_netmask.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peer_netmask.get_name_leafdata())
+                        if (self.protocol_reject.is_set or self.protocol_reject.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.protocol_reject.get_name_leafdata())
+                        if (self.renegotiation.is_set or self.renegotiation.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.renegotiation.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "dns"):
+                            if (self.dns is None):
+                                self.dns = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Dns()
+                                self.dns.parent = self
+                                self._children_name_map["dns"] = "dns"
+                            return self.dns
+
+                        if (child_yang_name == "peer-address"):
+                            if (self.peer_address is None):
+                                self.peer_address = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.PeerAddress()
+                                self.peer_address.parent = self
+                                self._children_name_map["peer_address"] = "peer-address"
+                            return self.peer_address
+
+                        if (child_yang_name == "wins"):
+                            if (self.wins is None):
+                                self.wins = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp.Wins()
+                                self.wins.parent = self
+                                self._children_name_map["wins"] = "wins"
+                            return self.wins
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dns" or name == "peer-address" or name == "wins" or name == "passive" or name == "peer-netmask" or name == "protocol-reject" or name == "renegotiation"):
                             return True
-
-                        if self.passive is not None:
-                            return True
-
-                        if self.peer_address is not None and self.peer_address._has_data():
-                            return True
-
-                        if self.peer_netmask is not None:
-                            return True
-
-                        if self.protocol_reject is not None:
-                            return True
-
-                        if self.renegotiation is not None:
-                            return True
-
-                        if self.wins is not None and self.wins._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "passive"):
+                            self.passive = value
+                            self.passive.value_namespace = name_space
+                            self.passive.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peer-netmask"):
+                            self.peer_netmask = value
+                            self.peer_netmask.value_namespace = name_space
+                            self.peer_netmask.value_namespace_prefix = name_space_prefix
+                        if(value_path == "protocol-reject"):
+                            self.protocol_reject = value
+                            self.protocol_reject.value_namespace = name_space
+                            self.protocol_reject.value_namespace_prefix = name_space_prefix
+                        if(value_path == "renegotiation"):
+                            self.renegotiation = value
+                            self.renegotiation.value_namespace = name_space
+                            self.renegotiation.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.fsm is not None and self.fsm.has_data()) or
+                        (self.ipcp is not None and self.ipcp.has_data()) or
+                        (self.ipv6cp is not None and self.ipv6cp.has_data()) or
+                        (self.lcp is not None and self.lcp.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.fsm is not None and self.fsm.has_operation()) or
+                        (self.ipcp is not None and self.ipcp.has_operation()) or
+                        (self.ipv6cp is not None and self.ipv6cp.has_operation()) or
+                        (self.lcp is not None and self.lcp.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template" + path_buffer
 
-                def _has_data(self):
-                    if self.fsm is not None and self.fsm._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "fsm"):
+                        if (self.fsm is None):
+                            self.fsm = DynamicTemplate.Ppps.Ppp.PppTemplate.Fsm()
+                            self.fsm.parent = self
+                            self._children_name_map["fsm"] = "fsm"
+                        return self.fsm
+
+                    if (child_yang_name == "ipcp"):
+                        if (self.ipcp is None):
+                            self.ipcp = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipcp()
+                            self.ipcp.parent = self
+                            self._children_name_map["ipcp"] = "ipcp"
+                        return self.ipcp
+
+                    if (child_yang_name == "ipv6cp"):
+                        if (self.ipv6cp is None):
+                            self.ipv6cp = DynamicTemplate.Ppps.Ppp.PppTemplate.Ipv6Cp()
+                            self.ipv6cp.parent = self
+                            self._children_name_map["ipv6cp"] = "ipv6cp"
+                        return self.ipv6cp
+
+                    if (child_yang_name == "lcp"):
+                        if (self.lcp is None):
+                            self.lcp = DynamicTemplate.Ppps.Ppp.PppTemplate.Lcp()
+                            self.lcp.parent = self
+                            self._children_name_map["lcp"] = "lcp"
+                        return self.lcp
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "fsm" or name == "ipcp" or name == "ipv6cp" or name == "lcp"):
                         return True
-
-                    if self.ipcp is not None and self.ipcp._has_data():
-                        return True
-
-                    if self.ipv6cp is not None and self.ipv6cp._has_data():
-                        return True
-
-                    if self.lcp is not None and self.lcp._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppTemplate']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Qos(object):
+            class Qos(Entity):
                 """
                 QoS dynamically applied configuration template
                 
@@ -3091,16 +5809,28 @@ class DynamicTemplate(object):
                 _revision = '2016-04-01'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "ppp"
+
                     self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
                     self.account.parent = self
+                    self._children_name_map["account"] = "account"
+                    self._children_yang_names.add("account")
+
                     self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
                     self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._children_yang_names.add("output")
+
                     self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
                     self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._children_yang_names.add("service-policy")
 
 
-                class ServicePolicy(object):
+                class ServicePolicy(Entity):
                     """
                     Service policy to be applied in ingress/egress
                     direction
@@ -3127,12 +5857,21 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+
                         self.input = None
+                        self._children_name_map["input"] = "input"
+                        self._children_yang_names.add("input")
+
                         self.output = None
+                        self._children_name_map["output"] = "output"
+                        self._children_yang_names.add("output")
 
 
-                    class Input(object):
+                    class Input(Entity):
                         """
                         Subscriber ingress policy
                         
@@ -3165,11 +5904,6 @@ class DynamicTemplate(object):
                         	Name of the SPI
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -3180,52 +5914,131 @@ class DynamicTemplate(object):
                         _revision = '2016-04-01'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
+                            super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:input'
+                            self.account_stats = YLeaf(YType.boolean, "account-stats")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.merge = YLeaf(YType.boolean, "merge")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.merge_id = YLeaf(YType.uint32, "merge-id")
+
+                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                            self.spi_name = YLeaf(YType.str, "spi-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("account_stats",
+                                            "merge",
+                                            "merge_id",
+                                            "policy_name",
+                                            "spi_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.account_stats.is_set or
+                                self.merge.is_set or
+                                self.merge_id.is_set or
+                                self.policy_name.is_set or
+                                self.spi_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.account_stats.yfilter != YFilter.not_set or
+                                self.merge.yfilter != YFilter.not_set or
+                                self.merge_id.yfilter != YFilter.not_set or
+                                self.policy_name.yfilter != YFilter.not_set or
+                                self.spi_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "input" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.account_stats.is_set or self.account_stats.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.account_stats.get_name_leafdata())
+                            if (self.merge.is_set or self.merge.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge.get_name_leafdata())
+                            if (self.merge_id.is_set or self.merge_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge_id.get_name_leafdata())
+                            if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.policy_name.get_name_leafdata())
+                            if (self.spi_name.is_set or self.spi_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spi_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "account-stats" or name == "merge" or name == "merge-id" or name == "policy-name" or name == "spi-name"):
                                 return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "account-stats"):
+                                self.account_stats = value
+                                self.account_stats.value_namespace = name_space
+                                self.account_stats.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge"):
+                                self.merge = value
+                                self.merge.value_namespace = name_space
+                                self.merge.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge-id"):
+                                self.merge_id = value
+                                self.merge_id.value_namespace = name_space
+                                self.merge_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "policy-name"):
+                                self.policy_name = value
+                                self.policy_name.value_namespace = name_space
+                                self.policy_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spi-name"):
+                                self.spi_name = value
+                                self.spi_name.value_namespace = name_space
+                                self.spi_name.value_namespace_prefix = name_space_prefix
 
 
-                    class Output(object):
+                    class Output(Entity):
                         """
                         Subscriber egress policy
                         
@@ -3258,11 +6071,6 @@ class DynamicTemplate(object):
                         	Name of the SPI
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -3273,84 +6081,196 @@ class DynamicTemplate(object):
                         _revision = '2016-04-01'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
+                            super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+                            self.account_stats = YLeaf(YType.boolean, "account-stats")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.merge = YLeaf(YType.boolean, "merge")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.merge_id = YLeaf(YType.uint32, "merge-id")
+
+                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                            self.spi_name = YLeaf(YType.str, "spi-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("account_stats",
+                                            "merge",
+                                            "merge_id",
+                                            "policy_name",
+                                            "spi_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.account_stats.is_set or
+                                self.merge.is_set or
+                                self.merge_id.is_set or
+                                self.policy_name.is_set or
+                                self.spi_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.account_stats.yfilter != YFilter.not_set or
+                                self.merge.yfilter != YFilter.not_set or
+                                self.merge_id.yfilter != YFilter.not_set or
+                                self.policy_name.yfilter != YFilter.not_set or
+                                self.spi_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "output" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.account_stats.is_set or self.account_stats.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.account_stats.get_name_leafdata())
+                            if (self.merge.is_set or self.merge.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge.get_name_leafdata())
+                            if (self.merge_id.is_set or self.merge_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge_id.get_name_leafdata())
+                            if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.policy_name.get_name_leafdata())
+                            if (self.spi_name.is_set or self.spi_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spi_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "account-stats" or name == "merge" or name == "merge-id" or name == "policy-name" or name == "spi-name"):
                                 return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "account-stats"):
+                                self.account_stats = value
+                                self.account_stats.value_namespace = name_space
+                                self.account_stats.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge"):
+                                self.merge = value
+                                self.merge.value_namespace = name_space
+                                self.merge.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge-id"):
+                                self.merge_id = value
+                                self.merge_id.value_namespace = name_space
+                                self.merge_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "policy-name"):
+                                self.policy_name = value
+                                self.policy_name.value_namespace = name_space
+                                self.policy_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spi-name"):
+                                self.spi_name = value
+                                self.spi_name.value_namespace = name_space
+                                self.spi_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            (self.input is not None) or
+                            (self.output is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:service-policy'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.input is not None and self.input.has_operation()) or
+                            (self.output is not None and self.output.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-policy" + path_buffer
 
-                    def _has_data(self):
-                        if self.input is not None and self.input._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "input"):
+                            if (self.input is None):
+                                self.input = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input()
+                                self.input.parent = self
+                                self._children_name_map["input"] = "input"
+                            return self.input
+
+                        if (child_yang_name == "output"):
+                            if (self.output is None):
+                                self.output = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output()
+                                self.output.parent = self
+                                self._children_name_map["output"] = "output"
+                            return self.output
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "input" or name == "output"):
                             return True
-
-                        if self.output is not None and self.output._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Account(object):
+                class Account(Entity):
                     """
                     QoS L2 overhead accounting
                     
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\:   :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLinkEnum>`
+                    	**type**\:   :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
                     
                     .. attribute:: atm_cell_tax
                     
@@ -3360,7 +6280,7 @@ class DynamicTemplate(object):
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\:   :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2EncapEnum>`
+                    	**type**\:   :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
                     
                     .. attribute:: user_defined
                     
@@ -3377,45 +6297,119 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
-                        self.aal = None
-                        self.atm_cell_tax = None
-                        self.encapsulation = None
-                        self.user_defined = None
+                        super(DynamicTemplate.Ppps.Ppp.Qos.Account, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:account'
+                        self.aal = YLeaf(YType.enumeration, "aal")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.atm_cell_tax = YLeaf(YType.empty, "atm-cell-tax")
 
-                    def _has_data(self):
-                        if self.aal is not None:
+                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+
+                        self.user_defined = YLeaf(YType.int32, "user-defined")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("aal",
+                                        "atm_cell_tax",
+                                        "encapsulation",
+                                        "user_defined") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Qos.Account, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Qos.Account, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.aal.is_set or
+                            self.atm_cell_tax.is_set or
+                            self.encapsulation.is_set or
+                            self.user_defined.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.aal.yfilter != YFilter.not_set or
+                            self.atm_cell_tax.yfilter != YFilter.not_set or
+                            self.encapsulation.yfilter != YFilter.not_set or
+                            self.user_defined.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "account" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.aal.is_set or self.aal.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.aal.get_name_leafdata())
+                        if (self.atm_cell_tax.is_set or self.atm_cell_tax.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.atm_cell_tax.get_name_leafdata())
+                        if (self.encapsulation.is_set or self.encapsulation.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.encapsulation.get_name_leafdata())
+                        if (self.user_defined.is_set or self.user_defined.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.user_defined.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "aal" or name == "atm-cell-tax" or name == "encapsulation" or name == "user-defined"):
                             return True
-
-                        if self.atm_cell_tax is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.user_defined is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Account']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "aal"):
+                            self.aal = value
+                            self.aal.value_namespace = name_space
+                            self.aal.value_namespace_prefix = name_space_prefix
+                        if(value_path == "atm-cell-tax"):
+                            self.atm_cell_tax = value
+                            self.atm_cell_tax.value_namespace = name_space
+                            self.atm_cell_tax.value_namespace_prefix = name_space_prefix
+                        if(value_path == "encapsulation"):
+                            self.encapsulation = value
+                            self.encapsulation.value_namespace = name_space
+                            self.encapsulation.value_namespace_prefix = name_space_prefix
+                        if(value_path == "user-defined"):
+                            self.user_defined = value
+                            self.user_defined.value_namespace = name_space
+                            self.user_defined.value_namespace_prefix = name_space_prefix
 
 
-                class Output(object):
+                class Output(Entity):
                     """
                     QoS to be applied in egress direction
                     
@@ -3436,61 +6430,152 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
-                        self.minimum_bandwidth = None
+                        super(DynamicTemplate.Ppps.Ppp.Qos.Output, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+                        self.minimum_bandwidth = YLeaf(YType.uint32, "minimum-bandwidth")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("minimum_bandwidth") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Qos.Output, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Qos.Output, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.minimum_bandwidth is not None:
+                    def has_data(self):
+                        return self.minimum_bandwidth.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.minimum_bandwidth.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "output" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.minimum_bandwidth.is_set or self.minimum_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.minimum_bandwidth.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "minimum-bandwidth"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos.Output']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "minimum-bandwidth"):
+                            self.minimum_bandwidth = value
+                            self.minimum_bandwidth.value_namespace = name_space
+                            self.minimum_bandwidth.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.account is not None and self.account.has_data()) or
+                        (self.output is not None and self.output.has_data()) or
+                        (self.service_policy is not None and self.service_policy.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:qos'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.account is not None and self.account.has_operation()) or
+                        (self.output is not None and self.output.has_operation()) or
+                        (self.service_policy is not None and self.service_policy.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-qos-ma-bng-cfg:qos" + path_buffer
 
-                def _has_data(self):
-                    if self.account is not None and self.account._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "account"):
+                        if (self.account is None):
+                            self.account = DynamicTemplate.Ppps.Ppp.Qos.Account()
+                            self.account.parent = self
+                            self._children_name_map["account"] = "account"
+                        return self.account
+
+                    if (child_yang_name == "output"):
+                        if (self.output is None):
+                            self.output = DynamicTemplate.Ppps.Ppp.Qos.Output()
+                            self.output.parent = self
+                            self._children_name_map["output"] = "output"
+                        return self.output
+
+                    if (child_yang_name == "service-policy"):
+                        if (self.service_policy is None):
+                            self.service_policy = DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy()
+                            self.service_policy.parent = self
+                            self._children_name_map["service_policy"] = "service-policy"
+                        return self.service_policy
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "account" or name == "output" or name == "service-policy"):
                         return True
-
-                    if self.output is not None and self.output._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Accounting(object):
+            class Accounting(Entity):
                 """
                 Subscriber accounting dynamic\-template commands
                 
@@ -3522,17 +6607,54 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.Ppps.Ppp.Accounting, self).__init__()
+
+                    self.yang_name = "accounting"
+                    self.yang_parent_name = "ppp"
+
+                    self.prepaid_feature = YLeaf(YType.str, "prepaid-feature")
+
                     self.idle_timeout = DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout()
                     self.idle_timeout.parent = self
-                    self.prepaid_feature = None
+                    self._children_name_map["idle_timeout"] = "idle-timeout"
+                    self._children_yang_names.add("idle-timeout")
+
                     self.service_accounting = DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting()
                     self.service_accounting.parent = self
+                    self._children_name_map["service_accounting"] = "service-accounting"
+                    self._children_yang_names.add("service-accounting")
+
                     self.session = DynamicTemplate.Ppps.Ppp.Accounting.Session()
                     self.session.parent = self
+                    self._children_name_map["session"] = "session"
+                    self._children_yang_names.add("session")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("prepaid_feature") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.Accounting, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.Accounting, self).__setattr__(name, value)
 
 
-                class IdleTimeout(object):
+                class IdleTimeout(Entity):
                     """
                     Subscriber accounting idle timeout
                     
@@ -3563,41 +6685,108 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.direction = None
-                        self.threshold = None
-                        self.timeout_value = None
+                        super(DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "idle-timeout"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
+                        self.direction = YLeaf(YType.str, "direction")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.threshold = YLeaf(YType.int32, "threshold")
 
-                    def _has_data(self):
-                        if self.direction is not None:
+                        self.timeout_value = YLeaf(YType.int32, "timeout-value")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("direction",
+                                        "threshold",
+                                        "timeout_value") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.direction.is_set or
+                            self.threshold.is_set or
+                            self.timeout_value.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.direction.yfilter != YFilter.not_set or
+                            self.threshold.yfilter != YFilter.not_set or
+                            self.timeout_value.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "idle-timeout" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.direction.get_name_leafdata())
+                        if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.threshold.get_name_leafdata())
+                        if (self.timeout_value.is_set or self.timeout_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.timeout_value.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "direction" or name == "threshold" or name == "timeout-value"):
                             return True
-
-                        if self.threshold is not None:
-                            return True
-
-                        if self.timeout_value is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "direction"):
+                            self.direction = value
+                            self.direction.value_namespace = name_space
+                            self.direction.value_namespace_prefix = name_space_prefix
+                        if(value_path == "threshold"):
+                            self.threshold = value
+                            self.threshold.value_namespace = name_space
+                            self.threshold.value_namespace_prefix = name_space_prefix
+                        if(value_path == "timeout-value"):
+                            self.timeout_value = value
+                            self.timeout_value.value_namespace = name_space
+                            self.timeout_value.value_namespace_prefix = name_space_prefix
 
 
-                class Session(object):
+                class Session(Entity):
                     """
                     Subscriber accounting session accounting
                     
@@ -3635,45 +6824,119 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self.method_list_name = None
-                        self.periodic_interval = None
+                        super(DynamicTemplate.Ppps.Ppp.Accounting.Session, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "session"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
+                        self.dual_stack_delay = YLeaf(YType.int32, "dual-stack-delay")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hold_acct_start = YLeaf(YType.int32, "hold-acct-start")
 
-                    def _has_data(self):
-                        if self.dual_stack_delay is not None:
+                        self.method_list_name = YLeaf(YType.str, "method-list-name")
+
+                        self.periodic_interval = YLeaf(YType.int32, "periodic-interval")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dual_stack_delay",
+                                        "hold_acct_start",
+                                        "method_list_name",
+                                        "periodic_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Accounting.Session, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Accounting.Session, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dual_stack_delay.is_set or
+                            self.hold_acct_start.is_set or
+                            self.method_list_name.is_set or
+                            self.periodic_interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dual_stack_delay.yfilter != YFilter.not_set or
+                            self.hold_acct_start.yfilter != YFilter.not_set or
+                            self.method_list_name.yfilter != YFilter.not_set or
+                            self.periodic_interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dual_stack_delay.is_set or self.dual_stack_delay.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dual_stack_delay.get_name_leafdata())
+                        if (self.hold_acct_start.is_set or self.hold_acct_start.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_acct_start.get_name_leafdata())
+                        if (self.method_list_name.is_set or self.method_list_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.method_list_name.get_name_leafdata())
+                        if (self.periodic_interval.is_set or self.periodic_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.periodic_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dual-stack-delay" or name == "hold-acct-start" or name == "method-list-name" or name == "periodic-interval"):
                             return True
-
-                        if self.hold_acct_start is not None:
-                            return True
-
-                        if self.method_list_name is not None:
-                            return True
-
-                        if self.periodic_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.Session']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dual-stack-delay"):
+                            self.dual_stack_delay = value
+                            self.dual_stack_delay.value_namespace = name_space
+                            self.dual_stack_delay.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-acct-start"):
+                            self.hold_acct_start = value
+                            self.hold_acct_start.value_namespace = name_space
+                            self.hold_acct_start.value_namespace_prefix = name_space_prefix
+                        if(value_path == "method-list-name"):
+                            self.method_list_name = value
+                            self.method_list_name.value_namespace = name_space
+                            self.method_list_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "periodic-interval"):
+                            self.periodic_interval = value
+                            self.periodic_interval.value_namespace = name_space
+                            self.periodic_interval.value_namespace_prefix = name_space_prefix
 
 
-                class ServiceAccounting(object):
+                class ServiceAccounting(Entity):
                     """
                     Subscriber accounting service accounting
                     
@@ -3697,68 +6960,171 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.accounting_interim_interval = None
-                        self.method_list_name = None
+                        super(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "service-accounting"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
+                        self.accounting_interim_interval = YLeaf(YType.int32, "accounting-interim-interval")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.method_list_name = YLeaf(YType.str, "method-list-name")
 
-                    def _has_data(self):
-                        if self.accounting_interim_interval is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("accounting_interim_interval",
+                                        "method_list_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.accounting_interim_interval.is_set or
+                            self.method_list_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.accounting_interim_interval.yfilter != YFilter.not_set or
+                            self.method_list_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-accounting" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.accounting_interim_interval.is_set or self.accounting_interim_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.accounting_interim_interval.get_name_leafdata())
+                        if (self.method_list_name.is_set or self.method_list_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.method_list_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "accounting-interim-interval" or name == "method-list-name"):
                             return True
-
-                        if self.method_list_name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "accounting-interim-interval"):
+                            self.accounting_interim_interval = value
+                            self.accounting_interim_interval.value_namespace = name_space
+                            self.accounting_interim_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "method-list-name"):
+                            self.method_list_name = value
+                            self.method_list_name.value_namespace = name_space
+                            self.method_list_name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.prepaid_feature.is_set or
+                        (self.idle_timeout is not None and self.idle_timeout.has_data()) or
+                        (self.service_accounting is not None and self.service_accounting.has_data()) or
+                        (self.session is not None and self.session.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.prepaid_feature.yfilter != YFilter.not_set or
+                        (self.idle_timeout is not None and self.idle_timeout.has_operation()) or
+                        (self.service_accounting is not None and self.service_accounting.has_operation()) or
+                        (self.session is not None and self.session.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" + path_buffer
 
-                def _has_data(self):
-                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.prepaid_feature.is_set or self.prepaid_feature.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prepaid_feature.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "idle-timeout"):
+                        if (self.idle_timeout is None):
+                            self.idle_timeout = DynamicTemplate.Ppps.Ppp.Accounting.IdleTimeout()
+                            self.idle_timeout.parent = self
+                            self._children_name_map["idle_timeout"] = "idle-timeout"
+                        return self.idle_timeout
+
+                    if (child_yang_name == "service-accounting"):
+                        if (self.service_accounting is None):
+                            self.service_accounting = DynamicTemplate.Ppps.Ppp.Accounting.ServiceAccounting()
+                            self.service_accounting.parent = self
+                            self._children_name_map["service_accounting"] = "service-accounting"
+                        return self.service_accounting
+
+                    if (child_yang_name == "session"):
+                        if (self.session is None):
+                            self.session = DynamicTemplate.Ppps.Ppp.Accounting.Session()
+                            self.session.parent = self
+                            self._children_name_map["session"] = "session"
+                        return self.session
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "idle-timeout" or name == "service-accounting" or name == "session" or name == "prepaid-feature"):
                         return True
-
-                    if self.prepaid_feature is not None:
-                        return True
-
-                    if self.service_accounting is not None and self.service_accounting._has_data():
-                        return True
-
-                    if self.session is not None and self.session._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.Accounting']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "prepaid-feature"):
+                        self.prepaid_feature = value
+                        self.prepaid_feature.value_namespace = name_space
+                        self.prepaid_feature.value_namespace_prefix = name_space_prefix
 
 
-            class PppoeTemplate(object):
+            class PppoeTemplate(Entity):
                 """
                 PPPoE template configuration data
                 
@@ -3777,119 +7143,314 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.port_limit = None
+                    super(DynamicTemplate.Ppps.Ppp.PppoeTemplate, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "pppoe-template"
+                    self.yang_parent_name = "ppp"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template'
+                    self.port_limit = YLeaf(YType.uint16, "port-limit")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("port_limit") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.Ppps.Ppp.PppoeTemplate, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.Ppps.Ppp.PppoeTemplate, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.port_limit is not None:
+                def has_data(self):
+                    return self.port_limit.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.port_limit.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.port_limit.is_set or self.port_limit.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.port_limit.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "port-limit"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.Ppps.Ppp.PppoeTemplate']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "port-limit"):
+                        self.port_limit = value
+                        self.port_limit.value_namespace = name_space
+                        self.port_limit.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.template_name is None:
-                    raise YPYModelError('Key property template_name is None')
+            def has_data(self):
+                return (
+                    self.template_name.is_set or
+                    self.vrf.is_set or
+                    (self.accounting is not None and self.accounting.has_data()) or
+                    (self.dhcpv6 is not None and self.dhcpv6.has_data()) or
+                    (self.igmp is not None and self.igmp.has_data()) or
+                    (self.ipv4_network is not None and self.ipv4_network.has_data()) or
+                    (self.ipv4_packet_filter is not None and self.ipv4_packet_filter.has_data()) or
+                    (self.ipv6_neighbor is not None and self.ipv6_neighbor.has_data()) or
+                    (self.ipv6_network is not None and self.ipv6_network.has_data()) or
+                    (self.ipv6_packet_filter is not None and self.ipv6_packet_filter.has_data()) or
+                    (self.pbr is not None and self.pbr.has_data()) or
+                    (self.ppp_template is not None and self.ppp_template.has_data()) or
+                    (self.pppoe_template is not None and self.pppoe_template.has_data()) or
+                    (self.qos is not None and self.qos.has_data()) or
+                    (self.span_monitor_sessions is not None and self.span_monitor_sessions.has_data()))
 
-                return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ppps/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ppp[Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:template-name = ' + str(self.template_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.template_name.yfilter != YFilter.not_set or
+                    self.vrf.yfilter != YFilter.not_set or
+                    (self.accounting is not None and self.accounting.has_operation()) or
+                    (self.dhcpv6 is not None and self.dhcpv6.has_operation()) or
+                    (self.igmp is not None and self.igmp.has_operation()) or
+                    (self.ipv4_network is not None and self.ipv4_network.has_operation()) or
+                    (self.ipv4_packet_filter is not None and self.ipv4_packet_filter.has_operation()) or
+                    (self.ipv6_neighbor is not None and self.ipv6_neighbor.has_operation()) or
+                    (self.ipv6_network is not None and self.ipv6_network.has_operation()) or
+                    (self.ipv6_packet_filter is not None and self.ipv6_packet_filter.has_operation()) or
+                    (self.pbr is not None and self.pbr.has_operation()) or
+                    (self.ppp_template is not None and self.ppp_template.has_operation()) or
+                    (self.pppoe_template is not None and self.pppoe_template.has_operation()) or
+                    (self.qos is not None and self.qos.has_operation()) or
+                    (self.span_monitor_sessions is not None and self.span_monitor_sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ppp" + "[template-name='" + self.template_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.template_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ppps/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.template_name.is_set or self.template_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.template_name.get_name_leafdata())
+                if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "accounting"):
+                    if (self.accounting is None):
+                        self.accounting = DynamicTemplate.Ppps.Ppp.Accounting()
+                        self.accounting.parent = self
+                        self._children_name_map["accounting"] = "accounting"
+                    return self.accounting
+
+                if (child_yang_name == "dhcpv6"):
+                    if (self.dhcpv6 is None):
+                        self.dhcpv6 = DynamicTemplate.Ppps.Ppp.Dhcpv6()
+                        self.dhcpv6.parent = self
+                        self._children_name_map["dhcpv6"] = "dhcpv6"
+                    return self.dhcpv6
+
+                if (child_yang_name == "igmp"):
+                    if (self.igmp is None):
+                        self.igmp = DynamicTemplate.Ppps.Ppp.Igmp()
+                        self.igmp.parent = self
+                        self._children_name_map["igmp"] = "igmp"
+                    return self.igmp
+
+                if (child_yang_name == "ipv4-network"):
+                    if (self.ipv4_network is None):
+                        self.ipv4_network = DynamicTemplate.Ppps.Ppp.Ipv4Network()
+                        self.ipv4_network.parent = self
+                        self._children_name_map["ipv4_network"] = "ipv4-network"
+                    return self.ipv4_network
+
+                if (child_yang_name == "ipv4-packet-filter"):
+                    if (self.ipv4_packet_filter is None):
+                        self.ipv4_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter()
+                        self.ipv4_packet_filter.parent = self
+                        self._children_name_map["ipv4_packet_filter"] = "ipv4-packet-filter"
+                    return self.ipv4_packet_filter
+
+                if (child_yang_name == "ipv6-neighbor"):
+                    if (self.ipv6_neighbor is None):
+                        self.ipv6_neighbor = DynamicTemplate.Ppps.Ppp.Ipv6Neighbor()
+                        self.ipv6_neighbor.parent = self
+                        self._children_name_map["ipv6_neighbor"] = "ipv6-neighbor"
+                    return self.ipv6_neighbor
+
+                if (child_yang_name == "ipv6-network"):
+                    if (self.ipv6_network is None):
+                        self.ipv6_network = DynamicTemplate.Ppps.Ppp.Ipv6Network()
+                        self.ipv6_network.parent = self
+                        self._children_name_map["ipv6_network"] = "ipv6-network"
+                    return self.ipv6_network
+
+                if (child_yang_name == "ipv6-packet-filter"):
+                    if (self.ipv6_packet_filter is None):
+                        self.ipv6_packet_filter = DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter()
+                        self.ipv6_packet_filter.parent = self
+                        self._children_name_map["ipv6_packet_filter"] = "ipv6-packet-filter"
+                    return self.ipv6_packet_filter
+
+                if (child_yang_name == "pbr"):
+                    if (self.pbr is None):
+                        self.pbr = DynamicTemplate.Ppps.Ppp.Pbr()
+                        self.pbr.parent = self
+                        self._children_name_map["pbr"] = "pbr"
+                    return self.pbr
+
+                if (child_yang_name == "ppp-template"):
+                    if (self.ppp_template is None):
+                        self.ppp_template = DynamicTemplate.Ppps.Ppp.PppTemplate()
+                        self.ppp_template.parent = self
+                        self._children_name_map["ppp_template"] = "ppp-template"
+                    return self.ppp_template
+
+                if (child_yang_name == "pppoe-template"):
+                    if (self.pppoe_template is None):
+                        self.pppoe_template = DynamicTemplate.Ppps.Ppp.PppoeTemplate()
+                        self.pppoe_template.parent = self
+                        self._children_name_map["pppoe_template"] = "pppoe-template"
+                    return self.pppoe_template
+
+                if (child_yang_name == "qos"):
+                    if (self.qos is None):
+                        self.qos = DynamicTemplate.Ppps.Ppp.Qos()
+                        self.qos.parent = self
+                        self._children_name_map["qos"] = "qos"
+                    return self.qos
+
+                if (child_yang_name == "span-monitor-sessions"):
+                    if (self.span_monitor_sessions is None):
+                        self.span_monitor_sessions = DynamicTemplate.Ppps.Ppp.SpanMonitorSessions()
+                        self.span_monitor_sessions.parent = self
+                        self._children_name_map["span_monitor_sessions"] = "span-monitor-sessions"
+                    return self.span_monitor_sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "accounting" or name == "dhcpv6" or name == "igmp" or name == "ipv4-network" or name == "ipv4-packet-filter" or name == "ipv6-neighbor" or name == "ipv6-network" or name == "ipv6-packet-filter" or name == "pbr" or name == "ppp-template" or name == "pppoe-template" or name == "qos" or name == "span-monitor-sessions" or name == "template-name" or name == "vrf"):
                     return True
-
-                if self.accounting is not None and self.accounting._has_data():
-                    return True
-
-                if self.dhcpv6 is not None and self.dhcpv6._has_data():
-                    return True
-
-                if self.igmp is not None and self.igmp._has_data():
-                    return True
-
-                if self.ipv4_network is not None and self.ipv4_network._has_data():
-                    return True
-
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
-                    return True
-
-                if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
-                    return True
-
-                if self.ipv6_network is not None and self.ipv6_network._has_data():
-                    return True
-
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
-                    return True
-
-                if self.pbr is not None and self.pbr._has_data():
-                    return True
-
-                if self.ppp_template is not None and self.ppp_template._has_data():
-                    return True
-
-                if self.pppoe_template is not None and self.pppoe_template._has_data():
-                    return True
-
-                if self.qos is not None and self.qos._has_data():
-                    return True
-
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                    return True
-
-                if self.vrf is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                return meta._meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "template-name"):
+                    self.template_name = value
+                    self.template_name.value_namespace = name_space
+                    self.template_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf"):
+                    self.vrf = value
+                    self.vrf.value_namespace = name_space
+                    self.vrf.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ppps'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.ppp is not None:
-                for child_ref in self.ppp:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.ppp:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-            return meta._meta_table['DynamicTemplate.Ppps']['meta_info']
+        def has_operation(self):
+            for c in self.ppp:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ppps" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ppp"):
+                for c in self.ppp:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DynamicTemplate.Ppps.Ppp()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ppp.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ppp"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class IpSubscribers(object):
+    class IpSubscribers(Entity):
         """
         The IP Subscriber Template Table
         
@@ -3906,13 +7467,39 @@ class DynamicTemplate(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.ip_subscriber = YList()
-            self.ip_subscriber.parent = self
-            self.ip_subscriber.name = 'ip_subscriber'
+            super(DynamicTemplate.IpSubscribers, self).__init__()
+
+            self.yang_name = "ip-subscribers"
+            self.yang_parent_name = "dynamic-template"
+
+            self.ip_subscriber = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DynamicTemplate.IpSubscribers, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DynamicTemplate.IpSubscribers, self).__setattr__(name, value)
 
 
-        class IpSubscriber(object):
+        class IpSubscriber(Entity):
             """
             A IP Subscriber Type Template 
             
@@ -3998,36 +7585,102 @@ class DynamicTemplate(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.template_name = None
+                super(DynamicTemplate.IpSubscribers.IpSubscriber, self).__init__()
+
+                self.yang_name = "ip-subscriber"
+                self.yang_parent_name = "ip-subscribers"
+
+                self.template_name = YLeaf(YType.str, "template-name")
+
+                self.vrf = YLeaf(YType.str, "Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf")
+
                 self.accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting()
                 self.accounting.parent = self
+                self._children_name_map["accounting"] = "accounting"
+                self._children_yang_names.add("accounting")
+
                 self.dhcpd = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd()
                 self.dhcpd.parent = self
+                self._children_name_map["dhcpd"] = "dhcpd"
+                self._children_yang_names.add("dhcpd")
+
                 self.dhcpv6 = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6()
                 self.dhcpv6.parent = self
+                self._children_name_map["dhcpv6"] = "dhcpv6"
+                self._children_yang_names.add("dhcpv6")
+
                 self.igmp = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp()
                 self.igmp.parent = self
+                self._children_name_map["igmp"] = "igmp"
+                self._children_yang_names.add("igmp")
+
                 self.ipv4_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network()
                 self.ipv4_network.parent = self
+                self._children_name_map["ipv4_network"] = "ipv4-network"
+                self._children_yang_names.add("ipv4-network")
+
                 self.ipv4_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter()
                 self.ipv4_packet_filter.parent = self
+                self._children_name_map["ipv4_packet_filter"] = "ipv4-packet-filter"
+                self._children_yang_names.add("ipv4-packet-filter")
+
                 self.ipv6_neighbor = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor()
                 self.ipv6_neighbor.parent = self
+                self._children_name_map["ipv6_neighbor"] = "ipv6-neighbor"
+                self._children_yang_names.add("ipv6-neighbor")
+
                 self.ipv6_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network()
                 self.ipv6_network.parent = self
+                self._children_name_map["ipv6_network"] = "ipv6-network"
+                self._children_yang_names.add("ipv6-network")
+
                 self.ipv6_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter()
                 self.ipv6_packet_filter.parent = self
+                self._children_name_map["ipv6_packet_filter"] = "ipv6-packet-filter"
+                self._children_yang_names.add("ipv6-packet-filter")
+
                 self.pbr = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr()
                 self.pbr.parent = self
+                self._children_name_map["pbr"] = "pbr"
+                self._children_yang_names.add("pbr")
+
                 self.qos = DynamicTemplate.IpSubscribers.IpSubscriber.Qos()
                 self.qos.parent = self
+                self._children_name_map["qos"] = "qos"
+                self._children_yang_names.add("qos")
+
                 self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
-                self.vrf = None
+                self._children_name_map["span_monitor_sessions"] = "span-monitor-sessions"
+                self._children_yang_names.add("span-monitor-sessions")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("template_name",
+                                "vrf") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber, self).__setattr__(name, value)
 
 
-            class SpanMonitorSessions(object):
+            class SpanMonitorSessions(Entity):
                 """
                 Monitor Session container for this template
                 
@@ -4044,13 +7697,39 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.span_monitor_session = YList()
-                    self.span_monitor_session.parent = self
-                    self.span_monitor_session.name = 'span_monitor_session'
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "ip-subscriber"
+
+                    self.span_monitor_session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions, self).__setattr__(name, value)
 
 
-                class SpanMonitorSession(object):
+                class SpanMonitorSession(Entity):
                     """
                     Configuration for a particular class of Monitor
                     Session
@@ -4058,7 +7737,7 @@ class DynamicTemplate(object):
                     .. attribute:: session_class  <key>
                     
                     	Session Class
-                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: acl
                     
@@ -4084,7 +7763,7 @@ class DynamicTemplate(object):
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    	**type**\:   :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
                     
                     
 
@@ -4094,22 +7773,59 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_class = None
-                        self.acl = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+
+                        self.session_class = YLeaf(YType.enumeration, "session-class")
+
+                        self.acl = YLeaf(YType.empty, "acl")
+
+                        self.mirror_first = YLeaf(YType.uint32, "mirror-first")
+
+                        self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
                         self.attachment = None
-                        self.mirror_first = None
-                        self.mirror_interval = None
+                        self._children_name_map["attachment"] = "attachment"
+                        self._children_yang_names.add("attachment")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_class",
+                                        "acl",
+                                        "mirror_first",
+                                        "mirror_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession, self).__setattr__(name, value)
 
 
-                    class Attachment(object):
+                    class Attachment(Entity):
                         """
                         Attach the interface to a Monitor Session
                         
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        	**type**\:   :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
                         
                         .. attribute:: port_level_enable
                         
@@ -4125,11 +7841,6 @@ class DynamicTemplate(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -4140,104 +7851,246 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.direction = None
-                            self.port_level_enable = None
-                            self.session_name = None
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
+                            self.direction = YLeaf(YType.enumeration, "direction")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.port_level_enable = YLeaf(YType.empty, "port-level-enable")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.session_name = YLeaf(YType.str, "session-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("direction",
+                                            "port_level_enable",
+                                            "session_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.direction.is_set or
+                                self.port_level_enable.is_set or
+                                self.session_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.direction.yfilter != YFilter.not_set or
+                                self.port_level_enable.yfilter != YFilter.not_set or
+                                self.session_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "attachment" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.direction.get_name_leafdata())
+                            if (self.port_level_enable.is_set or self.port_level_enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.port_level_enable.get_name_leafdata())
+                            if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "direction" or name == "port-level-enable" or name == "session-name"):
                                 return True
-                            if self.direction is not None:
-                                return True
-
-                            if self.port_level_enable is not None:
-                                return True
-
-                            if self.session_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "direction"):
+                                self.direction = value
+                                self.direction.value_namespace = name_space
+                                self.direction.value_namespace_prefix = name_space_prefix
+                            if(value_path == "port-level-enable"):
+                                self.port_level_enable = value
+                                self.port_level_enable.value_namespace = name_space
+                                self.port_level_enable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-name"):
+                                self.session_name = value
+                                self.session_name.value_namespace = name_space
+                                self.session_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.session_class is None:
-                            raise YPYModelError('Key property session_class is None')
+                    def has_data(self):
+                        return (
+                            self.session_class.is_set or
+                            self.acl.is_set or
+                            self.mirror_first.is_set or
+                            self.mirror_interval.is_set or
+                            (self.attachment is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_class.yfilter != YFilter.not_set or
+                            self.acl.yfilter != YFilter.not_set or
+                            self.mirror_first.yfilter != YFilter.not_set or
+                            self.mirror_interval.yfilter != YFilter.not_set or
+                            (self.attachment is not None and self.attachment.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "span-monitor-session" + "[session-class='" + self.session_class.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.session_class is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_class.is_set or self.session_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_class.get_name_leafdata())
+                        if (self.acl.is_set or self.acl.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.acl.get_name_leafdata())
+                        if (self.mirror_first.is_set or self.mirror_first.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mirror_first.get_name_leafdata())
+                        if (self.mirror_interval.is_set or self.mirror_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mirror_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "attachment"):
+                            if (self.attachment is None):
+                                self.attachment = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment()
+                                self.attachment.parent = self
+                                self._children_name_map["attachment"] = "attachment"
+                            return self.attachment
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "attachment" or name == "session-class" or name == "acl" or name == "mirror-first" or name == "mirror-interval"):
                             return True
-
-                        if self.acl is not None:
-                            return True
-
-                        if self.attachment is not None and self.attachment._has_data():
-                            return True
-
-                        if self.mirror_first is not None:
-                            return True
-
-                        if self.mirror_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-class"):
+                            self.session_class = value
+                            self.session_class.value_namespace = name_space
+                            self.session_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "acl"):
+                            self.acl = value
+                            self.acl.value_namespace = name_space
+                            self.acl.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mirror-first"):
+                            self.mirror_first = value
+                            self.mirror_first.value_namespace = name_space
+                            self.mirror_first.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mirror-interval"):
+                            self.mirror_interval = value
+                            self.mirror_interval.value_namespace = name_space
+                            self.mirror_interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.span_monitor_session is not None:
-                        for child_ref in self.span_monitor_session:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.span_monitor_session:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions']['meta_info']
+                def has_operation(self):
+                    for c in self.span_monitor_session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "span-monitor-session"):
+                        for c in self.span_monitor_session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.span_monitor_session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "span-monitor-session"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv4PacketFilter(object):
+            class Ipv4PacketFilter(Entity):
                 """
                 IPv4 Packet Filtering configuration for the
                 template
@@ -4262,13 +8115,22 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv4-packet-filter"
+                    self.yang_parent_name = "ip-subscriber"
+
                     self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+                    self._children_yang_names.add("inbound")
+
                     self.outbound = None
+                    self._children_name_map["outbound"] = "outbound"
+                    self._children_yang_names.add("outbound")
 
 
-                class Outbound(object):
+                class Outbound(Entity):
                     """
                     IPv4 Packet filter to be applied to outbound
                     packets
@@ -4297,11 +8159,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -4312,48 +8169,120 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hardware_count = YLeaf(YType.empty, "hardware-count")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "hardware_count",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.hardware_count.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.hardware_count.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.hardware_count.is_set or self.hardware_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hardware_count.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "hardware-count" or name == "interface-statistics" or name == "name"):
                             return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hardware-count"):
+                            self.hardware_count = value
+                            self.hardware_count.value_namespace = name_space
+                            self.hardware_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class Inbound(object):
+                class Inbound(Entity):
                     """
                     IPv4 Packet filter to be applied to inbound
                     packets
@@ -4388,70 +8317,177 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hardware_count = YLeaf(YType.empty, "hardware-count")
 
-                    def _has_data(self):
-                        if self.common_acl_name is not None:
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "hardware_count",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.hardware_count.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.hardware_count.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "inbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.hardware_count.is_set or self.hardware_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hardware_count.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "hardware-count" or name == "interface-statistics" or name == "name"):
                             return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hardware-count"):
+                            self.hardware_count = value
+                            self.hardware_count.value_namespace = name_space
+                            self.hardware_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.inbound is not None and self.inbound.has_data()) or
+                        (self.outbound is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.inbound is not None and self.inbound.has_operation()) or
+                        (self.outbound is not None and self.outbound.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" + path_buffer
 
-                def _has_data(self):
-                    if self.inbound is not None and self.inbound._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "inbound"):
+                        if (self.inbound is None):
+                            self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Inbound()
+                            self.inbound.parent = self
+                            self._children_name_map["inbound"] = "inbound"
+                        return self.inbound
+
+                    if (child_yang_name == "outbound"):
+                        if (self.outbound is None):
+                            self.outbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter.Outbound()
+                            self.outbound.parent = self
+                            self._children_name_map["outbound"] = "outbound"
+                        return self.outbound
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "inbound" or name == "outbound"):
                         return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv6PacketFilter(object):
+            class Ipv6PacketFilter(Entity):
                 """
                 IPv6 Packet Filtering configuration for the
                 interface
@@ -4476,13 +8512,22 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv6-packet-filter"
+                    self.yang_parent_name = "ip-subscriber"
+
                     self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+                    self._children_yang_names.add("inbound")
+
                     self.outbound = None
+                    self._children_name_map["outbound"] = "outbound"
+                    self._children_yang_names.add("outbound")
 
 
-                class Inbound(object):
+                class Inbound(Entity):
                     """
                     IPv6 Packet filter to be applied to inbound
                     packets
@@ -4512,41 +8557,108 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
 
-                    def _has_data(self):
-                        if self.common_acl_name is not None:
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "inbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "interface-statistics" or name == "name"):
                             return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class Outbound(object):
+                class Outbound(Entity):
                     """
                     IPv6 Packet filter to be applied to outbound
                     packets
@@ -4570,11 +8682,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -4585,69 +8692,167 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "interface-statistics" or name == "name"):
                             return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.inbound is not None and self.inbound.has_data()) or
+                        (self.outbound is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.inbound is not None and self.inbound.has_operation()) or
+                        (self.outbound is not None and self.outbound.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" + path_buffer
 
-                def _has_data(self):
-                    if self.inbound is not None and self.inbound._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "inbound"):
+                        if (self.inbound is None):
+                            self.inbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Inbound()
+                            self.inbound.parent = self
+                            self._children_name_map["inbound"] = "inbound"
+                        return self.inbound
+
+                    if (child_yang_name == "outbound"):
+                        if (self.outbound is None):
+                            self.outbound = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter.Outbound()
+                            self.outbound.parent = self
+                            self._children_name_map["outbound"] = "outbound"
+                        return self.outbound
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "inbound" or name == "outbound"):
                         return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Dhcpd(object):
+            class Dhcpd(Entity):
                 """
                 Interface dhcpv4 configuration data
                 
@@ -4683,45 +8888,119 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.class_ = None
-                    self.default_gateway = None
-                    self.dhcpv4_option = None
-                    self.session_limit = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "dhcpd"
+                    self.yang_parent_name = "ip-subscriber"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd'
+                    self.class_ = YLeaf(YType.str, "class")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.default_gateway = YLeaf(YType.str, "default-gateway")
 
-                def _has_data(self):
-                    if self.class_ is not None:
+                    self.dhcpv4_option = YLeaf(YType.str, "dhcpv4-option")
+
+                    self.session_limit = YLeaf(YType.int32, "session-limit")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("class_",
+                                    "default_gateway",
+                                    "dhcpv4_option",
+                                    "session_limit") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.class_.is_set or
+                        self.default_gateway.is_set or
+                        self.dhcpv4_option.is_set or
+                        self.session_limit.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.class_.yfilter != YFilter.not_set or
+                        self.default_gateway.yfilter != YFilter.not_set or
+                        self.dhcpv4_option.yfilter != YFilter.not_set or
+                        self.session_limit.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.class_.is_set or self.class_.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.class_.get_name_leafdata())
+                    if (self.default_gateway.is_set or self.default_gateway.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.default_gateway.get_name_leafdata())
+                    if (self.dhcpv4_option.is_set or self.dhcpv4_option.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dhcpv4_option.get_name_leafdata())
+                    if (self.session_limit.is_set or self.session_limit.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.session_limit.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "class" or name == "default-gateway" or name == "dhcpv4-option" or name == "session-limit"):
                         return True
-
-                    if self.default_gateway is not None:
-                        return True
-
-                    if self.dhcpv4_option is not None:
-                        return True
-
-                    if self.session_limit is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "class"):
+                        self.class_ = value
+                        self.class_.value_namespace = name_space
+                        self.class_.value_namespace_prefix = name_space_prefix
+                    if(value_path == "default-gateway"):
+                        self.default_gateway = value
+                        self.default_gateway.value_namespace = name_space
+                        self.default_gateway.value_namespace_prefix = name_space_prefix
+                    if(value_path == "dhcpv4-option"):
+                        self.dhcpv4_option = value
+                        self.dhcpv4_option.value_namespace = name_space
+                        self.dhcpv4_option.value_namespace_prefix = name_space_prefix
+                    if(value_path == "session-limit"):
+                        self.session_limit = value
+                        self.session_limit.value_namespace = name_space
+                        self.session_limit.value_namespace_prefix = name_space_prefix
 
 
-            class Igmp(object):
+            class Igmp(Entity):
                 """
                 IGMPconfiguration
                 
@@ -4738,12 +9017,18 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Igmp, self).__init__()
+
+                    self.yang_name = "igmp"
+                    self.yang_parent_name = "ip-subscriber"
+
                     self.default_vrf = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf()
                     self.default_vrf.parent = self
+                    self._children_name_map["default_vrf"] = "default-vrf"
+                    self._children_yang_names.add("default-vrf")
 
 
-                class DefaultVrf(object):
+                class DefaultVrf(Entity):
                     """
                     Default VRF
                     
@@ -4773,7 +9058,7 @@ class DynamicTemplate(object):
                     .. attribute:: multicast_mode
                     
                     	Configure Multicast mode variable
-                    	**type**\:   :py:class:`DynTmplMulticastModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastModeEnum>`
+                    	**type**\:   :py:class:`DynTmplMulticastMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_dyn_tmpl_cfg.DynTmplMulticastMode>`
                     
                     .. attribute:: query_interval
                     
@@ -4814,17 +9099,58 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.access_group = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf, self).__init__()
+
+                        self.yang_name = "default-vrf"
+                        self.yang_parent_name = "igmp"
+
+                        self.access_group = YLeaf(YType.str, "access-group")
+
+                        self.max_groups = YLeaf(YType.uint32, "max-groups")
+
+                        self.multicast_mode = YLeaf(YType.enumeration, "multicast-mode")
+
+                        self.query_interval = YLeaf(YType.uint32, "query-interval")
+
+                        self.query_max_response_time = YLeaf(YType.uint32, "query-max-response-time")
+
+                        self.version = YLeaf(YType.uint32, "version")
+
                         self.explicit_tracking = None
-                        self.max_groups = None
-                        self.multicast_mode = None
-                        self.query_interval = None
-                        self.query_max_response_time = None
-                        self.version = None
+                        self._children_name_map["explicit_tracking"] = "explicit-tracking"
+                        self._children_yang_names.add("explicit-tracking")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("access_group",
+                                        "max_groups",
+                                        "multicast_mode",
+                                        "query_interval",
+                                        "query_max_response_time",
+                                        "version") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf, self).__setattr__(name, value)
 
 
-                    class ExplicitTracking(object):
+                    class ExplicitTracking(Entity):
                         """
                         IGMPv3 explicit host tracking
                         
@@ -4842,11 +9168,6 @@ class DynamicTemplate(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -4857,102 +9178,242 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.access_list_name = None
-                            self.enable = None
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "explicit-tracking"
+                            self.yang_parent_name = "default-vrf"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:explicit-tracking'
+                            self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.enable = YLeaf(YType.boolean, "enable")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("access_list_name",
+                                            "enable") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.access_list_name.is_set or
+                                self.enable.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.access_list_name.yfilter != YFilter.not_set or
+                                self.enable.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "explicit-tracking" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.enable.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "access-list-name" or name == "enable"):
                                 return True
-                            if self.access_list_name is not None:
-                                return True
-
-                            if self.enable is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "access-list-name"):
+                                self.access_list_name = value
+                                self.access_list_name.value_namespace = name_space
+                                self.access_list_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "enable"):
+                                self.enable = value
+                                self.enable.value_namespace = name_space
+                                self.enable.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            self.access_group.is_set or
+                            self.max_groups.is_set or
+                            self.multicast_mode.is_set or
+                            self.query_interval.is_set or
+                            self.query_max_response_time.is_set or
+                            self.version.is_set or
+                            (self.explicit_tracking is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:default-vrf'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.access_group.yfilter != YFilter.not_set or
+                            self.max_groups.yfilter != YFilter.not_set or
+                            self.multicast_mode.yfilter != YFilter.not_set or
+                            self.query_interval.yfilter != YFilter.not_set or
+                            self.query_max_response_time.yfilter != YFilter.not_set or
+                            self.version.yfilter != YFilter.not_set or
+                            (self.explicit_tracking is not None and self.explicit_tracking.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "default-vrf" + path_buffer
 
-                    def _has_data(self):
-                        if self.access_group is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.access_group.is_set or self.access_group.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.access_group.get_name_leafdata())
+                        if (self.max_groups.is_set or self.max_groups.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.max_groups.get_name_leafdata())
+                        if (self.multicast_mode.is_set or self.multicast_mode.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_mode.get_name_leafdata())
+                        if (self.query_interval.is_set or self.query_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.query_interval.get_name_leafdata())
+                        if (self.query_max_response_time.is_set or self.query_max_response_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.query_max_response_time.get_name_leafdata())
+                        if (self.version.is_set or self.version.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.version.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "explicit-tracking"):
+                            if (self.explicit_tracking is None):
+                                self.explicit_tracking = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf.ExplicitTracking()
+                                self.explicit_tracking.parent = self
+                                self._children_name_map["explicit_tracking"] = "explicit-tracking"
+                            return self.explicit_tracking
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "explicit-tracking" or name == "access-group" or name == "max-groups" or name == "multicast-mode" or name == "query-interval" or name == "query-max-response-time" or name == "version"):
                             return True
-
-                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
-                            return True
-
-                        if self.max_groups is not None:
-                            return True
-
-                        if self.multicast_mode is not None:
-                            return True
-
-                        if self.query_interval is not None:
-                            return True
-
-                        if self.query_max_response_time is not None:
-                            return True
-
-                        if self.version is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "access-group"):
+                            self.access_group = value
+                            self.access_group.value_namespace = name_space
+                            self.access_group.value_namespace_prefix = name_space_prefix
+                        if(value_path == "max-groups"):
+                            self.max_groups = value
+                            self.max_groups.value_namespace = name_space
+                            self.max_groups.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-mode"):
+                            self.multicast_mode = value
+                            self.multicast_mode.value_namespace = name_space
+                            self.multicast_mode.value_namespace_prefix = name_space_prefix
+                        if(value_path == "query-interval"):
+                            self.query_interval = value
+                            self.query_interval.value_namespace = name_space
+                            self.query_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "query-max-response-time"):
+                            self.query_max_response_time = value
+                            self.query_max_response_time.value_namespace = name_space
+                            self.query_max_response_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "version"):
+                            self.version = value
+                            self.version.value_namespace = name_space
+                            self.version.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (self.default_vrf is not None and self.default_vrf.has_data())
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.default_vrf is not None and self.default_vrf.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" + path_buffer
 
-                def _has_data(self):
-                    if self.default_vrf is not None and self.default_vrf._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "default-vrf"):
+                        if (self.default_vrf is None):
+                            self.default_vrf = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp.DefaultVrf()
+                            self.default_vrf.parent = self
+                            self._children_name_map["default_vrf"] = "default-vrf"
+                        return self.default_vrf
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "default-vrf"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Igmp']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv4Network(object):
+            class Ipv4Network(Entity):
                 """
                 Interface IPv4 Network configuration data
                 
@@ -4992,45 +9453,119 @@ class DynamicTemplate(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.mtu = None
-                    self.rpf = None
-                    self.unnumbered = None
-                    self.unreachables = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "ipv4-network"
+                    self.yang_parent_name = "ip-subscriber"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
+                    self.mtu = YLeaf(YType.uint32, "mtu")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpf = YLeaf(YType.boolean, "rpf")
 
-                def _has_data(self):
-                    if self.mtu is not None:
+                    self.unnumbered = YLeaf(YType.str, "unnumbered")
+
+                    self.unreachables = YLeaf(YType.boolean, "unreachables")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("mtu",
+                                    "rpf",
+                                    "unnumbered",
+                                    "unreachables") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.mtu.is_set or
+                        self.rpf.is_set or
+                        self.unnumbered.is_set or
+                        self.unreachables.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.mtu.yfilter != YFilter.not_set or
+                        self.rpf.yfilter != YFilter.not_set or
+                        self.unnumbered.yfilter != YFilter.not_set or
+                        self.unreachables.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mtu.get_name_leafdata())
+                    if (self.rpf.is_set or self.rpf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpf.get_name_leafdata())
+                    if (self.unnumbered.is_set or self.unnumbered.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unnumbered.get_name_leafdata())
+                    if (self.unreachables.is_set or self.unreachables.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unreachables.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mtu" or name == "rpf" or name == "unnumbered" or name == "unreachables"):
                         return True
-
-                    if self.rpf is not None:
-                        return True
-
-                    if self.unnumbered is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "mtu"):
+                        self.mtu = value
+                        self.mtu.value_namespace = name_space
+                        self.mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpf"):
+                        self.rpf = value
+                        self.rpf.value_namespace = name_space
+                        self.rpf.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unnumbered"):
+                        self.unnumbered = value
+                        self.unnumbered.value_namespace = name_space
+                        self.unnumbered.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unreachables"):
+                        self.unreachables = value
+                        self.unreachables.value_namespace = name_space
+                        self.unreachables.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv6Network(object):
+            class Ipv6Network(Entity):
                 """
                 Interface IPv6 Network configuration data
                 
@@ -5048,33 +9583,68 @@ class DynamicTemplate(object):
                 
                 	**units**\: byte
                 
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
                 .. attribute:: unreachables
                 
                 	Override Sending of ICMP Unreachable Messages
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: verify
-                
-                	IPv6 Verify Unicast Souce Reachable
-                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
                 
                 
 
                 """
 
                 _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2015-07-30'
+                _revision = '2017-01-11'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network, self).__init__()
+
+                    self.yang_name = "ipv6-network"
+                    self.yang_parent_name = "ip-subscriber"
+
+                    self.mtu = YLeaf(YType.uint32, "mtu")
+
+                    self.rpf = YLeaf(YType.boolean, "rpf")
+
+                    self.unreachables = YLeaf(YType.empty, "unreachables")
+
                     self.addresses = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses()
                     self.addresses.parent = self
-                    self.mtu = None
-                    self.unreachables = None
-                    self.verify = None
+                    self._children_name_map["addresses"] = "addresses"
+                    self._children_yang_names.add("addresses")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("mtu",
+                                    "rpf",
+                                    "unreachables") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network, self).__setattr__(name, value)
 
 
-                class Addresses(object):
+                class Addresses(Entity):
                     """
                     Set the IPv6 address of an interface
                     
@@ -5088,15 +9658,21 @@ class DynamicTemplate(object):
                     """
 
                     _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2017-01-11'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses, self).__init__()
+
+                        self.yang_name = "addresses"
+                        self.yang_parent_name = "ipv6-network"
+
                         self.auto_configuration = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration()
                         self.auto_configuration.parent = self
+                        self._children_name_map["auto_configuration"] = "auto-configuration"
+                        self._children_yang_names.add("auto-configuration")
 
 
-                    class AutoConfiguration(object):
+                    class AutoConfiguration(Entity):
                         """
                         Auto IPv6 Interface Configuration
                         
@@ -5110,89 +9686,208 @@ class DynamicTemplate(object):
                         """
 
                         _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2015-07-30'
+                        _revision = '2017-01-11'
 
                         def __init__(self):
-                            self.parent = None
-                            self.enable = None
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "auto-configuration"
+                            self.yang_parent_name = "addresses"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
+                            self.enable = YLeaf(YType.empty, "enable")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("enable") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.enable is not None:
+                        def has_data(self):
+                            return self.enable.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.enable.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "auto-configuration" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.enable.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "enable"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "enable"):
+                                self.enable = value
+                                self.enable.value_namespace = name_space
+                                self.enable.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (self.auto_configuration is not None and self.auto_configuration.has_data())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.auto_configuration is not None and self.auto_configuration.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "addresses" + path_buffer
 
-                    def _has_data(self):
-                        if self.auto_configuration is not None and self.auto_configuration._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "auto-configuration"):
+                            if (self.auto_configuration is None):
+                                self.auto_configuration = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses.AutoConfiguration()
+                                self.auto_configuration.parent = self
+                                self._children_name_map["auto_configuration"] = "auto-configuration"
+                            return self.auto_configuration
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "auto-configuration"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.mtu.is_set or
+                        self.rpf.is_set or
+                        self.unreachables.is_set or
+                        (self.addresses is not None and self.addresses.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.mtu.yfilter != YFilter.not_set or
+                        self.rpf.yfilter != YFilter.not_set or
+                        self.unreachables.yfilter != YFilter.not_set or
+                        (self.addresses is not None and self.addresses.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" + path_buffer
 
-                def _has_data(self):
-                    if self.addresses is not None and self.addresses._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mtu.get_name_leafdata())
+                    if (self.rpf.is_set or self.rpf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpf.get_name_leafdata())
+                    if (self.unreachables.is_set or self.unreachables.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unreachables.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "addresses"):
+                        if (self.addresses is None):
+                            self.addresses = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network.Addresses()
+                            self.addresses.parent = self
+                            self._children_name_map["addresses"] = "addresses"
+                        return self.addresses
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "addresses" or name == "mtu" or name == "rpf" or name == "unreachables"):
                         return True
-
-                    if self.mtu is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    if self.verify is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "mtu"):
+                        self.mtu = value
+                        self.mtu.value_namespace = name_space
+                        self.mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpf"):
+                        self.rpf = value
+                        self.rpf.value_namespace = name_space
+                        self.rpf.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unreachables"):
+                        self.unreachables = value
+                        self.unreachables.value_namespace = name_space
+                        self.unreachables.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv6Neighbor(object):
+            class Ipv6Neighbor(Entity):
                 """
                 Interface IPv6 Network configuration data
                 
@@ -5292,7 +9987,7 @@ class DynamicTemplate(object):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
+                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
@@ -5312,29 +10007,95 @@ class DynamicTemplate(object):
                 _revision = '2016-12-19'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor, self).__init__()
+
+                    self.yang_name = "ipv6-neighbor"
+                    self.yang_parent_name = "ip-subscriber"
+
+                    self.framed_prefix_pool = YLeaf(YType.str, "framed-prefix-pool")
+
+                    self.managed_config = YLeaf(YType.empty, "managed-config")
+
+                    self.ns_interval = YLeaf(YType.uint32, "ns-interval")
+
+                    self.nud_enable = YLeaf(YType.empty, "nud-enable")
+
+                    self.other_config = YLeaf(YType.empty, "other-config")
+
+                    self.ra_lifetime = YLeaf(YType.uint32, "ra-lifetime")
+
+                    self.ra_suppress = YLeaf(YType.empty, "ra-suppress")
+
+                    self.ra_suppress_mtu = YLeaf(YType.empty, "ra-suppress-mtu")
+
+                    self.ra_unicast = YLeaf(YType.empty, "ra-unicast")
+
+                    self.ra_unspecify_hoplimit = YLeaf(YType.empty, "ra-unspecify-hoplimit")
+
+                    self.reachable_time = YLeaf(YType.uint32, "reachable-time")
+
+                    self.router_preference = YLeaf(YType.enumeration, "router-preference")
+
+                    self.start_ra_on_ipv6_enable = YLeaf(YType.empty, "start-ra-on-ipv6-enable")
+
+                    self.suppress_cache_learning = YLeaf(YType.empty, "suppress-cache-learning")
+
                     self.duplicate_address_detection = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection()
                     self.duplicate_address_detection.parent = self
+                    self._children_name_map["duplicate_address_detection"] = "duplicate-address-detection"
+                    self._children_yang_names.add("duplicate-address-detection")
+
                     self.framed_prefix = None
-                    self.framed_prefix_pool = None
-                    self.managed_config = None
-                    self.ns_interval = None
-                    self.nud_enable = None
-                    self.other_config = None
+                    self._children_name_map["framed_prefix"] = "framed-prefix"
+                    self._children_yang_names.add("framed-prefix")
+
                     self.ra_initial = None
+                    self._children_name_map["ra_initial"] = "ra-initial"
+                    self._children_yang_names.add("ra-initial")
+
                     self.ra_interval = None
-                    self.ra_lifetime = None
-                    self.ra_suppress = None
-                    self.ra_suppress_mtu = None
-                    self.ra_unicast = None
-                    self.ra_unspecify_hoplimit = None
-                    self.reachable_time = None
-                    self.router_preference = None
-                    self.start_ra_on_ipv6_enable = None
-                    self.suppress_cache_learning = None
+                    self._children_name_map["ra_interval"] = "ra-interval"
+                    self._children_yang_names.add("ra-interval")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("framed_prefix_pool",
+                                    "managed_config",
+                                    "ns_interval",
+                                    "nud_enable",
+                                    "other_config",
+                                    "ra_lifetime",
+                                    "ra_suppress",
+                                    "ra_suppress_mtu",
+                                    "ra_unicast",
+                                    "ra_unspecify_hoplimit",
+                                    "reachable_time",
+                                    "router_preference",
+                                    "start_ra_on_ipv6_enable",
+                                    "suppress_cache_learning") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor, self).__setattr__(name, value)
 
 
-                class RaInterval(object):
+                class RaInterval(Entity):
                     """
                     Set IPv6 Router Advertisement (RA) interval in
                     seconds
@@ -5359,11 +10120,6 @@ class DynamicTemplate(object):
                     
                     	**units**\: second
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -5374,40 +10130,98 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.maximum = None
-                        self.minimum = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInterval, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ra-interval"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-interval'
+                        self.maximum = YLeaf(YType.uint32, "maximum")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.minimum = YLeaf(YType.uint32, "minimum")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("maximum",
+                                        "minimum") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInterval, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInterval, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.maximum.is_set or
+                            self.minimum.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.maximum.yfilter != YFilter.not_set or
+                            self.minimum.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ra-interval" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.maximum.is_set or self.maximum.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.maximum.get_name_leafdata())
+                        if (self.minimum.is_set or self.minimum.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.minimum.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "maximum" or name == "minimum"):
                             return True
-                        if self.maximum is not None:
-                            return True
-
-                        if self.minimum is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInterval']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "maximum"):
+                            self.maximum = value
+                            self.maximum.value_namespace = name_space
+                            self.maximum.value_namespace_prefix = name_space_prefix
+                        if(value_path == "minimum"):
+                            self.minimum = value
+                            self.minimum.value_namespace = name_space
+                            self.minimum.value_namespace_prefix = name_space_prefix
 
 
-                class FramedPrefix(object):
+                class FramedPrefix(Entity):
                     """
                     Set the IPv6 framed ipv6 prefix for a
                     subscriber interface 
@@ -5428,11 +10242,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -5443,40 +10252,98 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.prefix = None
-                        self.prefix_length = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "framed-prefix"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:framed-prefix'
+                        self.prefix = YLeaf(YType.str, "prefix")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix",
+                                        "prefix_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.prefix.is_set or
+                            self.prefix_length.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "framed-prefix" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "prefix" or name == "prefix-length"):
                             return True
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
 
 
-                class DuplicateAddressDetection(object):
+                class DuplicateAddressDetection(Entity):
                     """
                     Duplicate Address Detection (DAD)
                     
@@ -5495,33 +10362,85 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self.attempts = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "duplicate-address-detection"
+                        self.yang_parent_name = "ipv6-neighbor"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:duplicate-address-detection'
+                        self.attempts = YLeaf(YType.uint32, "attempts")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("attempts") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.attempts is not None:
+                    def has_data(self):
+                        return self.attempts.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.attempts.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "duplicate-address-detection" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.attempts.is_set or self.attempts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.attempts.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "attempts"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "attempts"):
+                            self.attempts = value
+                            self.attempts.value_namespace = name_space
+                            self.attempts.value_namespace_prefix = name_space_prefix
 
 
-                class RaInitial(object):
+                class RaInitial(Entity):
                     """
                     IPv6 ND RA Initial
                     
@@ -5545,11 +10464,6 @@ class DynamicTemplate(object):
                     
                     	**units**\: second
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -5560,113 +10474,285 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.count = None
-                        self.interval = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ra-initial"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-initial'
+                        self.count = YLeaf(YType.uint32, "count")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interval = YLeaf(YType.uint32, "interval")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("count",
+                                        "interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.count.is_set or
+                            self.interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.count.yfilter != YFilter.not_set or
+                            self.interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ra-initial" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.count.is_set or self.count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.count.get_name_leafdata())
+                        if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "count" or name == "interval"):
                             return True
-                        if self.count is not None:
-                            return True
-
-                        if self.interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "count"):
+                            self.count = value
+                            self.count.value_namespace = name_space
+                            self.count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interval"):
+                            self.interval = value
+                            self.interval.value_namespace = name_space
+                            self.interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.framed_prefix_pool.is_set or
+                        self.managed_config.is_set or
+                        self.ns_interval.is_set or
+                        self.nud_enable.is_set or
+                        self.other_config.is_set or
+                        self.ra_lifetime.is_set or
+                        self.ra_suppress.is_set or
+                        self.ra_suppress_mtu.is_set or
+                        self.ra_unicast.is_set or
+                        self.ra_unspecify_hoplimit.is_set or
+                        self.reachable_time.is_set or
+                        self.router_preference.is_set or
+                        self.start_ra_on_ipv6_enable.is_set or
+                        self.suppress_cache_learning.is_set or
+                        (self.duplicate_address_detection is not None and self.duplicate_address_detection.has_data()) or
+                        (self.framed_prefix is not None) or
+                        (self.ra_initial is not None) or
+                        (self.ra_interval is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.framed_prefix_pool.yfilter != YFilter.not_set or
+                        self.managed_config.yfilter != YFilter.not_set or
+                        self.ns_interval.yfilter != YFilter.not_set or
+                        self.nud_enable.yfilter != YFilter.not_set or
+                        self.other_config.yfilter != YFilter.not_set or
+                        self.ra_lifetime.yfilter != YFilter.not_set or
+                        self.ra_suppress.yfilter != YFilter.not_set or
+                        self.ra_suppress_mtu.yfilter != YFilter.not_set or
+                        self.ra_unicast.yfilter != YFilter.not_set or
+                        self.ra_unspecify_hoplimit.yfilter != YFilter.not_set or
+                        self.reachable_time.yfilter != YFilter.not_set or
+                        self.router_preference.yfilter != YFilter.not_set or
+                        self.start_ra_on_ipv6_enable.yfilter != YFilter.not_set or
+                        self.suppress_cache_learning.yfilter != YFilter.not_set or
+                        (self.duplicate_address_detection is not None and self.duplicate_address_detection.has_operation()) or
+                        (self.framed_prefix is not None and self.framed_prefix.has_operation()) or
+                        (self.ra_initial is not None and self.ra_initial.has_operation()) or
+                        (self.ra_interval is not None and self.ra_interval.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" + path_buffer
 
-                def _has_data(self):
-                    if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.framed_prefix_pool.is_set or self.framed_prefix_pool.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.framed_prefix_pool.get_name_leafdata())
+                    if (self.managed_config.is_set or self.managed_config.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.managed_config.get_name_leafdata())
+                    if (self.ns_interval.is_set or self.ns_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ns_interval.get_name_leafdata())
+                    if (self.nud_enable.is_set or self.nud_enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nud_enable.get_name_leafdata())
+                    if (self.other_config.is_set or self.other_config.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.other_config.get_name_leafdata())
+                    if (self.ra_lifetime.is_set or self.ra_lifetime.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_lifetime.get_name_leafdata())
+                    if (self.ra_suppress.is_set or self.ra_suppress.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_suppress.get_name_leafdata())
+                    if (self.ra_suppress_mtu.is_set or self.ra_suppress_mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_suppress_mtu.get_name_leafdata())
+                    if (self.ra_unicast.is_set or self.ra_unicast.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_unicast.get_name_leafdata())
+                    if (self.ra_unspecify_hoplimit.is_set or self.ra_unspecify_hoplimit.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_unspecify_hoplimit.get_name_leafdata())
+                    if (self.reachable_time.is_set or self.reachable_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reachable_time.get_name_leafdata())
+                    if (self.router_preference.is_set or self.router_preference.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.router_preference.get_name_leafdata())
+                    if (self.start_ra_on_ipv6_enable.is_set or self.start_ra_on_ipv6_enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.start_ra_on_ipv6_enable.get_name_leafdata())
+                    if (self.suppress_cache_learning.is_set or self.suppress_cache_learning.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.suppress_cache_learning.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "duplicate-address-detection"):
+                        if (self.duplicate_address_detection is None):
+                            self.duplicate_address_detection = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAddressDetection()
+                            self.duplicate_address_detection.parent = self
+                            self._children_name_map["duplicate_address_detection"] = "duplicate-address-detection"
+                        return self.duplicate_address_detection
+
+                    if (child_yang_name == "framed-prefix"):
+                        if (self.framed_prefix is None):
+                            self.framed_prefix = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.FramedPrefix()
+                            self.framed_prefix.parent = self
+                            self._children_name_map["framed_prefix"] = "framed-prefix"
+                        return self.framed_prefix
+
+                    if (child_yang_name == "ra-initial"):
+                        if (self.ra_initial is None):
+                            self.ra_initial = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial()
+                            self.ra_initial.parent = self
+                            self._children_name_map["ra_initial"] = "ra-initial"
+                        return self.ra_initial
+
+                    if (child_yang_name == "ra-interval"):
+                        if (self.ra_interval is None):
+                            self.ra_interval = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInterval()
+                            self.ra_interval.parent = self
+                            self._children_name_map["ra_interval"] = "ra-interval"
+                        return self.ra_interval
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "duplicate-address-detection" or name == "framed-prefix" or name == "ra-initial" or name == "ra-interval" or name == "framed-prefix-pool" or name == "managed-config" or name == "ns-interval" or name == "nud-enable" or name == "other-config" or name == "ra-lifetime" or name == "ra-suppress" or name == "ra-suppress-mtu" or name == "ra-unicast" or name == "ra-unspecify-hoplimit" or name == "reachable-time" or name == "router-preference" or name == "start-ra-on-ipv6-enable" or name == "suppress-cache-learning"):
                         return True
-
-                    if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
-                    if self.framed_prefix_pool is not None:
-                        return True
-
-                    if self.managed_config is not None:
-                        return True
-
-                    if self.ns_interval is not None:
-                        return True
-
-                    if self.nud_enable is not None:
-                        return True
-
-                    if self.other_config is not None:
-                        return True
-
-                    if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_interval is not None and self.ra_interval._has_data():
-                        return True
-
-                    if self.ra_lifetime is not None:
-                        return True
-
-                    if self.ra_suppress is not None:
-                        return True
-
-                    if self.ra_suppress_mtu is not None:
-                        return True
-
-                    if self.ra_unicast is not None:
-                        return True
-
-                    if self.ra_unspecify_hoplimit is not None:
-                        return True
-
-                    if self.reachable_time is not None:
-                        return True
-
-                    if self.router_preference is not None:
-                        return True
-
-                    if self.start_ra_on_ipv6_enable is not None:
-                        return True
-
-                    if self.suppress_cache_learning is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "framed-prefix-pool"):
+                        self.framed_prefix_pool = value
+                        self.framed_prefix_pool.value_namespace = name_space
+                        self.framed_prefix_pool.value_namespace_prefix = name_space_prefix
+                    if(value_path == "managed-config"):
+                        self.managed_config = value
+                        self.managed_config.value_namespace = name_space
+                        self.managed_config.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ns-interval"):
+                        self.ns_interval = value
+                        self.ns_interval.value_namespace = name_space
+                        self.ns_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nud-enable"):
+                        self.nud_enable = value
+                        self.nud_enable.value_namespace = name_space
+                        self.nud_enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "other-config"):
+                        self.other_config = value
+                        self.other_config.value_namespace = name_space
+                        self.other_config.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-lifetime"):
+                        self.ra_lifetime = value
+                        self.ra_lifetime.value_namespace = name_space
+                        self.ra_lifetime.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-suppress"):
+                        self.ra_suppress = value
+                        self.ra_suppress.value_namespace = name_space
+                        self.ra_suppress.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-suppress-mtu"):
+                        self.ra_suppress_mtu = value
+                        self.ra_suppress_mtu.value_namespace = name_space
+                        self.ra_suppress_mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-unicast"):
+                        self.ra_unicast = value
+                        self.ra_unicast.value_namespace = name_space
+                        self.ra_unicast.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-unspecify-hoplimit"):
+                        self.ra_unspecify_hoplimit = value
+                        self.ra_unspecify_hoplimit.value_namespace = name_space
+                        self.ra_unspecify_hoplimit.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reachable-time"):
+                        self.reachable_time = value
+                        self.reachable_time.value_namespace = name_space
+                        self.reachable_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "router-preference"):
+                        self.router_preference = value
+                        self.router_preference.value_namespace = name_space
+                        self.router_preference.value_namespace_prefix = name_space_prefix
+                    if(value_path == "start-ra-on-ipv6-enable"):
+                        self.start_ra_on_ipv6_enable = value
+                        self.start_ra_on_ipv6_enable.value_namespace = name_space
+                        self.start_ra_on_ipv6_enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "suppress-cache-learning"):
+                        self.suppress_cache_learning = value
+                        self.suppress_cache_learning.value_namespace = name_space
+                        self.suppress_cache_learning.value_namespace_prefix = name_space_prefix
 
 
-            class Dhcpv6(object):
+            class Dhcpv6(Entity):
                 """
                 Interface dhcpv6 configuration data
                 
@@ -5719,17 +10805,58 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.address_pool = None
-                    self.class_ = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6, self).__init__()
+
+                    self.yang_name = "dhcpv6"
+                    self.yang_parent_name = "ip-subscriber"
+
+                    self.address_pool = YLeaf(YType.str, "address-pool")
+
+                    self.class_ = YLeaf(YType.str, "class")
+
+                    self.delegated_prefix_pool = YLeaf(YType.str, "delegated-prefix-pool")
+
+                    self.dns_ipv6address = YLeaf(YType.str, "dns-ipv6address")
+
+                    self.mode_class = YLeaf(YType.str, "mode-class")
+
+                    self.stateful_address = YLeaf(YType.str, "stateful-address")
+
                     self.delegated_prefix = None
-                    self.delegated_prefix_pool = None
-                    self.dns_ipv6address = None
-                    self.mode_class = None
-                    self.stateful_address = None
+                    self._children_name_map["delegated_prefix"] = "delegated-prefix"
+                    self._children_yang_names.add("delegated-prefix")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("address_pool",
+                                    "class_",
+                                    "delegated_prefix_pool",
+                                    "dns_ipv6address",
+                                    "mode_class",
+                                    "stateful_address") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6, self).__setattr__(name, value)
 
 
-                class DelegatedPrefix(object):
+                class DelegatedPrefix(Entity):
                     """
                     The prefix to be used for Prefix Delegation
                     
@@ -5751,11 +10878,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -5766,80 +10888,194 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.prefix = None
-                        self.prefix_length = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "delegated-prefix"
+                        self.yang_parent_name = "dhcpv6"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:delegated-prefix'
+                        self.prefix = YLeaf(YType.str, "prefix")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix",
+                                        "prefix_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.prefix.is_set or
+                            self.prefix_length.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "delegated-prefix" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "prefix" or name == "prefix-length"):
                             return True
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.address_pool.is_set or
+                        self.class_.is_set or
+                        self.delegated_prefix_pool.is_set or
+                        self.dns_ipv6address.is_set or
+                        self.mode_class.is_set or
+                        self.stateful_address.is_set or
+                        (self.delegated_prefix is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.address_pool.yfilter != YFilter.not_set or
+                        self.class_.yfilter != YFilter.not_set or
+                        self.delegated_prefix_pool.yfilter != YFilter.not_set or
+                        self.dns_ipv6address.yfilter != YFilter.not_set or
+                        self.mode_class.yfilter != YFilter.not_set or
+                        self.stateful_address.yfilter != YFilter.not_set or
+                        (self.delegated_prefix is not None and self.delegated_prefix.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" + path_buffer
 
-                def _has_data(self):
-                    if self.address_pool is not None:
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.address_pool.is_set or self.address_pool.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.address_pool.get_name_leafdata())
+                    if (self.class_.is_set or self.class_.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.class_.get_name_leafdata())
+                    if (self.delegated_prefix_pool.is_set or self.delegated_prefix_pool.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.delegated_prefix_pool.get_name_leafdata())
+                    if (self.dns_ipv6address.is_set or self.dns_ipv6address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dns_ipv6address.get_name_leafdata())
+                    if (self.mode_class.is_set or self.mode_class.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mode_class.get_name_leafdata())
+                    if (self.stateful_address.is_set or self.stateful_address.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.stateful_address.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "delegated-prefix"):
+                        if (self.delegated_prefix is None):
+                            self.delegated_prefix = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix()
+                            self.delegated_prefix.parent = self
+                            self._children_name_map["delegated_prefix"] = "delegated-prefix"
+                        return self.delegated_prefix
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "delegated-prefix" or name == "address-pool" or name == "class" or name == "delegated-prefix-pool" or name == "dns-ipv6address" or name == "mode-class" or name == "stateful-address"):
                         return True
-
-                    if self.class_ is not None:
-                        return True
-
-                    if self.delegated_prefix is not None and self.delegated_prefix._has_data():
-                        return True
-
-                    if self.delegated_prefix_pool is not None:
-                        return True
-
-                    if self.dns_ipv6address is not None:
-                        return True
-
-                    if self.mode_class is not None:
-                        return True
-
-                    if self.stateful_address is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "address-pool"):
+                        self.address_pool = value
+                        self.address_pool.value_namespace = name_space
+                        self.address_pool.value_namespace_prefix = name_space_prefix
+                    if(value_path == "class"):
+                        self.class_ = value
+                        self.class_.value_namespace = name_space
+                        self.class_.value_namespace_prefix = name_space_prefix
+                    if(value_path == "delegated-prefix-pool"):
+                        self.delegated_prefix_pool = value
+                        self.delegated_prefix_pool.value_namespace = name_space
+                        self.delegated_prefix_pool.value_namespace_prefix = name_space_prefix
+                    if(value_path == "dns-ipv6address"):
+                        self.dns_ipv6address = value
+                        self.dns_ipv6address.value_namespace = name_space
+                        self.dns_ipv6address.value_namespace_prefix = name_space_prefix
+                    if(value_path == "mode-class"):
+                        self.mode_class = value
+                        self.mode_class.value_namespace = name_space
+                        self.mode_class.value_namespace_prefix = name_space_prefix
+                    if(value_path == "stateful-address"):
+                        self.stateful_address = value
+                        self.stateful_address.value_namespace = name_space
+                        self.stateful_address.value_namespace_prefix = name_space_prefix
 
 
-            class Pbr(object):
+            class Pbr(Entity):
                 """
                 Dynamic Template PBR configuration
                 
@@ -5861,13 +11097,44 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr, self).__init__()
+
+                    self.yang_name = "pbr"
+                    self.yang_parent_name = "ip-subscriber"
+
+                    self.service_policy_in = YLeaf(YType.str, "service-policy-in")
+
                     self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy()
                     self.service_policy.parent = self
-                    self.service_policy_in = None
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._children_yang_names.add("service-policy")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("service_policy_in") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr, self).__setattr__(name, value)
 
 
-                class ServicePolicy(object):
+                class ServicePolicy(Entity):
                     """
                     PBR service policy configuration
                     
@@ -5884,58 +11151,141 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.input = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "pbr"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
+                        self.input = YLeaf(YType.str, "input")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("input") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.input is not None:
+                    def has_data(self):
+                        return self.input.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.input.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-policy" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.input.is_set or self.input.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "input"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "input"):
+                            self.input = value
+                            self.input.value_namespace = name_space
+                            self.input.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.service_policy_in.is_set or
+                        (self.service_policy is not None and self.service_policy.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.service_policy_in.yfilter != YFilter.not_set or
+                        (self.service_policy is not None and self.service_policy.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" + path_buffer
 
-                def _has_data(self):
-                    if self.service_policy is not None and self.service_policy._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.service_policy_in.is_set or self.service_policy_in.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.service_policy_in.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "service-policy"):
+                        if (self.service_policy is None):
+                            self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy()
+                            self.service_policy.parent = self
+                            self._children_name_map["service_policy"] = "service-policy"
+                        return self.service_policy
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "service-policy" or name == "service-policy-in"):
                         return True
-
-                    if self.service_policy_in is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "service-policy-in"):
+                        self.service_policy_in = value
+                        self.service_policy_in.value_namespace = name_space
+                        self.service_policy_in.value_namespace_prefix = name_space_prefix
 
 
-            class Qos(object):
+            class Qos(Entity):
                 """
                 QoS dynamically applied configuration template
                 
@@ -5962,16 +11312,28 @@ class DynamicTemplate(object):
                 _revision = '2016-04-01'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "ip-subscriber"
+
                     self.account = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account()
                     self.account.parent = self
+                    self._children_name_map["account"] = "account"
+                    self._children_yang_names.add("account")
+
                     self.output = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output()
                     self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._children_yang_names.add("output")
+
                     self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy()
                     self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._children_yang_names.add("service-policy")
 
 
-                class ServicePolicy(object):
+                class ServicePolicy(Entity):
                     """
                     Service policy to be applied in ingress/egress
                     direction
@@ -5998,12 +11360,21 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+
                         self.input = None
+                        self._children_name_map["input"] = "input"
+                        self._children_yang_names.add("input")
+
                         self.output = None
+                        self._children_name_map["output"] = "output"
+                        self._children_yang_names.add("output")
 
 
-                    class Input(object):
+                    class Input(Entity):
                         """
                         Subscriber ingress policy
                         
@@ -6036,11 +11407,6 @@ class DynamicTemplate(object):
                         	Name of the SPI
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -6051,52 +11417,131 @@ class DynamicTemplate(object):
                         _revision = '2016-04-01'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:input'
+                            self.account_stats = YLeaf(YType.boolean, "account-stats")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.merge = YLeaf(YType.boolean, "merge")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.merge_id = YLeaf(YType.uint32, "merge-id")
+
+                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                            self.spi_name = YLeaf(YType.str, "spi-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("account_stats",
+                                            "merge",
+                                            "merge_id",
+                                            "policy_name",
+                                            "spi_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.account_stats.is_set or
+                                self.merge.is_set or
+                                self.merge_id.is_set or
+                                self.policy_name.is_set or
+                                self.spi_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.account_stats.yfilter != YFilter.not_set or
+                                self.merge.yfilter != YFilter.not_set or
+                                self.merge_id.yfilter != YFilter.not_set or
+                                self.policy_name.yfilter != YFilter.not_set or
+                                self.spi_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "input" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.account_stats.is_set or self.account_stats.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.account_stats.get_name_leafdata())
+                            if (self.merge.is_set or self.merge.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge.get_name_leafdata())
+                            if (self.merge_id.is_set or self.merge_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge_id.get_name_leafdata())
+                            if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.policy_name.get_name_leafdata())
+                            if (self.spi_name.is_set or self.spi_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spi_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "account-stats" or name == "merge" or name == "merge-id" or name == "policy-name" or name == "spi-name"):
                                 return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "account-stats"):
+                                self.account_stats = value
+                                self.account_stats.value_namespace = name_space
+                                self.account_stats.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge"):
+                                self.merge = value
+                                self.merge.value_namespace = name_space
+                                self.merge.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge-id"):
+                                self.merge_id = value
+                                self.merge_id.value_namespace = name_space
+                                self.merge_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "policy-name"):
+                                self.policy_name = value
+                                self.policy_name.value_namespace = name_space
+                                self.policy_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spi-name"):
+                                self.spi_name = value
+                                self.spi_name.value_namespace = name_space
+                                self.spi_name.value_namespace_prefix = name_space_prefix
 
 
-                    class Output(object):
+                    class Output(Entity):
                         """
                         Subscriber egress policy
                         
@@ -6129,11 +11574,6 @@ class DynamicTemplate(object):
                         	Name of the SPI
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -6144,84 +11584,196 @@ class DynamicTemplate(object):
                         _revision = '2016-04-01'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+                            self.account_stats = YLeaf(YType.boolean, "account-stats")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.merge = YLeaf(YType.boolean, "merge")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.merge_id = YLeaf(YType.uint32, "merge-id")
+
+                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                            self.spi_name = YLeaf(YType.str, "spi-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("account_stats",
+                                            "merge",
+                                            "merge_id",
+                                            "policy_name",
+                                            "spi_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.account_stats.is_set or
+                                self.merge.is_set or
+                                self.merge_id.is_set or
+                                self.policy_name.is_set or
+                                self.spi_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.account_stats.yfilter != YFilter.not_set or
+                                self.merge.yfilter != YFilter.not_set or
+                                self.merge_id.yfilter != YFilter.not_set or
+                                self.policy_name.yfilter != YFilter.not_set or
+                                self.spi_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "output" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.account_stats.is_set or self.account_stats.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.account_stats.get_name_leafdata())
+                            if (self.merge.is_set or self.merge.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge.get_name_leafdata())
+                            if (self.merge_id.is_set or self.merge_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge_id.get_name_leafdata())
+                            if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.policy_name.get_name_leafdata())
+                            if (self.spi_name.is_set or self.spi_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spi_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "account-stats" or name == "merge" or name == "merge-id" or name == "policy-name" or name == "spi-name"):
                                 return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "account-stats"):
+                                self.account_stats = value
+                                self.account_stats.value_namespace = name_space
+                                self.account_stats.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge"):
+                                self.merge = value
+                                self.merge.value_namespace = name_space
+                                self.merge.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge-id"):
+                                self.merge_id = value
+                                self.merge_id.value_namespace = name_space
+                                self.merge_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "policy-name"):
+                                self.policy_name = value
+                                self.policy_name.value_namespace = name_space
+                                self.policy_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spi-name"):
+                                self.spi_name = value
+                                self.spi_name.value_namespace = name_space
+                                self.spi_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            (self.input is not None) or
+                            (self.output is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:service-policy'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.input is not None and self.input.has_operation()) or
+                            (self.output is not None and self.output.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-policy" + path_buffer
 
-                    def _has_data(self):
-                        if self.input is not None and self.input._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "input"):
+                            if (self.input is None):
+                                self.input = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input()
+                                self.input.parent = self
+                                self._children_name_map["input"] = "input"
+                            return self.input
+
+                        if (child_yang_name == "output"):
+                            if (self.output is None):
+                                self.output = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output()
+                                self.output.parent = self
+                                self._children_name_map["output"] = "output"
+                            return self.output
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "input" or name == "output"):
                             return True
-
-                        if self.output is not None and self.output._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Account(object):
+                class Account(Entity):
                     """
                     QoS L2 overhead accounting
                     
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\:   :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLinkEnum>`
+                    	**type**\:   :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
                     
                     .. attribute:: atm_cell_tax
                     
@@ -6231,7 +11783,7 @@ class DynamicTemplate(object):
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\:   :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2EncapEnum>`
+                    	**type**\:   :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
                     
                     .. attribute:: user_defined
                     
@@ -6248,45 +11800,119 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
-                        self.aal = None
-                        self.atm_cell_tax = None
-                        self.encapsulation = None
-                        self.user_defined = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:account'
+                        self.aal = YLeaf(YType.enumeration, "aal")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.atm_cell_tax = YLeaf(YType.empty, "atm-cell-tax")
 
-                    def _has_data(self):
-                        if self.aal is not None:
+                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+
+                        self.user_defined = YLeaf(YType.int32, "user-defined")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("aal",
+                                        "atm_cell_tax",
+                                        "encapsulation",
+                                        "user_defined") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.aal.is_set or
+                            self.atm_cell_tax.is_set or
+                            self.encapsulation.is_set or
+                            self.user_defined.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.aal.yfilter != YFilter.not_set or
+                            self.atm_cell_tax.yfilter != YFilter.not_set or
+                            self.encapsulation.yfilter != YFilter.not_set or
+                            self.user_defined.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "account" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.aal.is_set or self.aal.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.aal.get_name_leafdata())
+                        if (self.atm_cell_tax.is_set or self.atm_cell_tax.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.atm_cell_tax.get_name_leafdata())
+                        if (self.encapsulation.is_set or self.encapsulation.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.encapsulation.get_name_leafdata())
+                        if (self.user_defined.is_set or self.user_defined.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.user_defined.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "aal" or name == "atm-cell-tax" or name == "encapsulation" or name == "user-defined"):
                             return True
-
-                        if self.atm_cell_tax is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.user_defined is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "aal"):
+                            self.aal = value
+                            self.aal.value_namespace = name_space
+                            self.aal.value_namespace_prefix = name_space_prefix
+                        if(value_path == "atm-cell-tax"):
+                            self.atm_cell_tax = value
+                            self.atm_cell_tax.value_namespace = name_space
+                            self.atm_cell_tax.value_namespace_prefix = name_space_prefix
+                        if(value_path == "encapsulation"):
+                            self.encapsulation = value
+                            self.encapsulation.value_namespace = name_space
+                            self.encapsulation.value_namespace_prefix = name_space_prefix
+                        if(value_path == "user-defined"):
+                            self.user_defined = value
+                            self.user_defined.value_namespace = name_space
+                            self.user_defined.value_namespace_prefix = name_space_prefix
 
 
-                class Output(object):
+                class Output(Entity):
                     """
                     QoS to be applied in egress direction
                     
@@ -6307,61 +11933,152 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
-                        self.minimum_bandwidth = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+                        self.minimum_bandwidth = YLeaf(YType.uint32, "minimum-bandwidth")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("minimum_bandwidth") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.minimum_bandwidth is not None:
+                    def has_data(self):
+                        return self.minimum_bandwidth.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.minimum_bandwidth.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "output" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.minimum_bandwidth.is_set or self.minimum_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.minimum_bandwidth.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "minimum-bandwidth"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "minimum-bandwidth"):
+                            self.minimum_bandwidth = value
+                            self.minimum_bandwidth.value_namespace = name_space
+                            self.minimum_bandwidth.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.account is not None and self.account.has_data()) or
+                        (self.output is not None and self.output.has_data()) or
+                        (self.service_policy is not None and self.service_policy.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:qos'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.account is not None and self.account.has_operation()) or
+                        (self.output is not None and self.output.has_operation()) or
+                        (self.service_policy is not None and self.service_policy.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-qos-ma-bng-cfg:qos" + path_buffer
 
-                def _has_data(self):
-                    if self.account is not None and self.account._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "account"):
+                        if (self.account is None):
+                            self.account = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account()
+                            self.account.parent = self
+                            self._children_name_map["account"] = "account"
+                        return self.account
+
+                    if (child_yang_name == "output"):
+                        if (self.output is None):
+                            self.output = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output()
+                            self.output.parent = self
+                            self._children_name_map["output"] = "output"
+                        return self.output
+
+                    if (child_yang_name == "service-policy"):
+                        if (self.service_policy is None):
+                            self.service_policy = DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy()
+                            self.service_policy.parent = self
+                            self._children_name_map["service_policy"] = "service-policy"
+                        return self.service_policy
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "account" or name == "output" or name == "service-policy"):
                         return True
-
-                    if self.output is not None and self.output._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Accounting(object):
+            class Accounting(Entity):
                 """
                 Subscriber accounting dynamic\-template commands
                 
@@ -6393,17 +12110,54 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting, self).__init__()
+
+                    self.yang_name = "accounting"
+                    self.yang_parent_name = "ip-subscriber"
+
+                    self.prepaid_feature = YLeaf(YType.str, "prepaid-feature")
+
                     self.idle_timeout = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout()
                     self.idle_timeout.parent = self
-                    self.prepaid_feature = None
+                    self._children_name_map["idle_timeout"] = "idle-timeout"
+                    self._children_yang_names.add("idle-timeout")
+
                     self.service_accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting()
                     self.service_accounting.parent = self
+                    self._children_name_map["service_accounting"] = "service-accounting"
+                    self._children_yang_names.add("service-accounting")
+
                     self.session = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session()
                     self.session.parent = self
+                    self._children_name_map["session"] = "session"
+                    self._children_yang_names.add("session")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("prepaid_feature") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting, self).__setattr__(name, value)
 
 
-                class ServiceAccounting(object):
+                class ServiceAccounting(Entity):
                     """
                     Subscriber accounting service accounting
                     
@@ -6429,37 +12183,97 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.accounting_interim_interval = None
-                        self.method_list_name = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "service-accounting"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
+                        self.accounting_interim_interval = YLeaf(YType.int32, "accounting-interim-interval")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.method_list_name = YLeaf(YType.str, "method-list-name")
 
-                    def _has_data(self):
-                        if self.accounting_interim_interval is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("accounting_interim_interval",
+                                        "method_list_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.accounting_interim_interval.is_set or
+                            self.method_list_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.accounting_interim_interval.yfilter != YFilter.not_set or
+                            self.method_list_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-accounting" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.accounting_interim_interval.is_set or self.accounting_interim_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.accounting_interim_interval.get_name_leafdata())
+                        if (self.method_list_name.is_set or self.method_list_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.method_list_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "accounting-interim-interval" or name == "method-list-name"):
                             return True
-
-                        if self.method_list_name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "accounting-interim-interval"):
+                            self.accounting_interim_interval = value
+                            self.accounting_interim_interval.value_namespace = name_space
+                            self.accounting_interim_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "method-list-name"):
+                            self.method_list_name = value
+                            self.method_list_name.value_namespace = name_space
+                            self.method_list_name.value_namespace_prefix = name_space_prefix
 
 
-                class Session(object):
+                class Session(Entity):
                     """
                     Subscriber accounting session accounting
                     
@@ -6501,45 +12315,119 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self.method_list_name = None
-                        self.periodic_interval = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "session"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
+                        self.dual_stack_delay = YLeaf(YType.int32, "dual-stack-delay")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hold_acct_start = YLeaf(YType.int32, "hold-acct-start")
 
-                    def _has_data(self):
-                        if self.dual_stack_delay is not None:
+                        self.method_list_name = YLeaf(YType.str, "method-list-name")
+
+                        self.periodic_interval = YLeaf(YType.int32, "periodic-interval")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dual_stack_delay",
+                                        "hold_acct_start",
+                                        "method_list_name",
+                                        "periodic_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dual_stack_delay.is_set or
+                            self.hold_acct_start.is_set or
+                            self.method_list_name.is_set or
+                            self.periodic_interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dual_stack_delay.yfilter != YFilter.not_set or
+                            self.hold_acct_start.yfilter != YFilter.not_set or
+                            self.method_list_name.yfilter != YFilter.not_set or
+                            self.periodic_interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dual_stack_delay.is_set or self.dual_stack_delay.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dual_stack_delay.get_name_leafdata())
+                        if (self.hold_acct_start.is_set or self.hold_acct_start.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_acct_start.get_name_leafdata())
+                        if (self.method_list_name.is_set or self.method_list_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.method_list_name.get_name_leafdata())
+                        if (self.periodic_interval.is_set or self.periodic_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.periodic_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dual-stack-delay" or name == "hold-acct-start" or name == "method-list-name" or name == "periodic-interval"):
                             return True
-
-                        if self.hold_acct_start is not None:
-                            return True
-
-                        if self.method_list_name is not None:
-                            return True
-
-                        if self.periodic_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dual-stack-delay"):
+                            self.dual_stack_delay = value
+                            self.dual_stack_delay.value_namespace = name_space
+                            self.dual_stack_delay.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-acct-start"):
+                            self.hold_acct_start = value
+                            self.hold_acct_start.value_namespace = name_space
+                            self.hold_acct_start.value_namespace_prefix = name_space_prefix
+                        if(value_path == "method-list-name"):
+                            self.method_list_name = value
+                            self.method_list_name.value_namespace = name_space
+                            self.method_list_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "periodic-interval"):
+                            self.periodic_interval = value
+                            self.periodic_interval.value_namespace = name_space
+                            self.periodic_interval.value_namespace_prefix = name_space_prefix
 
 
-                class IdleTimeout(object):
+                class IdleTimeout(Entity):
                     """
                     Subscriber accounting idle timeout
                     
@@ -6572,155 +12460,402 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.direction = None
-                        self.threshold = None
-                        self.timeout_value = None
+                        super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "idle-timeout"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
+                        self.direction = YLeaf(YType.str, "direction")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.threshold = YLeaf(YType.int32, "threshold")
 
-                    def _has_data(self):
-                        if self.direction is not None:
+                        self.timeout_value = YLeaf(YType.int32, "timeout-value")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("direction",
+                                        "threshold",
+                                        "timeout_value") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.direction.is_set or
+                            self.threshold.is_set or
+                            self.timeout_value.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.direction.yfilter != YFilter.not_set or
+                            self.threshold.yfilter != YFilter.not_set or
+                            self.timeout_value.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "idle-timeout" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.direction.get_name_leafdata())
+                        if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.threshold.get_name_leafdata())
+                        if (self.timeout_value.is_set or self.timeout_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.timeout_value.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "direction" or name == "threshold" or name == "timeout-value"):
                             return True
-
-                        if self.threshold is not None:
-                            return True
-
-                        if self.timeout_value is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "direction"):
+                            self.direction = value
+                            self.direction.value_namespace = name_space
+                            self.direction.value_namespace_prefix = name_space_prefix
+                        if(value_path == "threshold"):
+                            self.threshold = value
+                            self.threshold.value_namespace = name_space
+                            self.threshold.value_namespace_prefix = name_space_prefix
+                        if(value_path == "timeout-value"):
+                            self.timeout_value = value
+                            self.timeout_value.value_namespace = name_space
+                            self.timeout_value.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.prepaid_feature.is_set or
+                        (self.idle_timeout is not None and self.idle_timeout.has_data()) or
+                        (self.service_accounting is not None and self.service_accounting.has_data()) or
+                        (self.session is not None and self.session.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.prepaid_feature.yfilter != YFilter.not_set or
+                        (self.idle_timeout is not None and self.idle_timeout.has_operation()) or
+                        (self.service_accounting is not None and self.service_accounting.has_operation()) or
+                        (self.session is not None and self.session.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" + path_buffer
 
-                def _has_data(self):
-                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.prepaid_feature.is_set or self.prepaid_feature.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prepaid_feature.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "idle-timeout"):
+                        if (self.idle_timeout is None):
+                            self.idle_timeout = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.IdleTimeout()
+                            self.idle_timeout.parent = self
+                            self._children_name_map["idle_timeout"] = "idle-timeout"
+                        return self.idle_timeout
+
+                    if (child_yang_name == "service-accounting"):
+                        if (self.service_accounting is None):
+                            self.service_accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.ServiceAccounting()
+                            self.service_accounting.parent = self
+                            self._children_name_map["service_accounting"] = "service-accounting"
+                        return self.service_accounting
+
+                    if (child_yang_name == "session"):
+                        if (self.session is None):
+                            self.session = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting.Session()
+                            self.session.parent = self
+                            self._children_name_map["session"] = "session"
+                        return self.session
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "idle-timeout" or name == "service-accounting" or name == "session" or name == "prepaid-feature"):
                         return True
-
-                    if self.prepaid_feature is not None:
-                        return True
-
-                    if self.service_accounting is not None and self.service_accounting._has_data():
-                        return True
-
-                    if self.session is not None and self.session._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Accounting']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "prepaid-feature"):
+                        self.prepaid_feature = value
+                        self.prepaid_feature.value_namespace = name_space
+                        self.prepaid_feature.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.template_name is None:
-                    raise YPYModelError('Key property template_name is None')
+            def has_data(self):
+                return (
+                    self.template_name.is_set or
+                    self.vrf.is_set or
+                    (self.accounting is not None and self.accounting.has_data()) or
+                    (self.dhcpd is not None and self.dhcpd.has_data()) or
+                    (self.dhcpv6 is not None and self.dhcpv6.has_data()) or
+                    (self.igmp is not None and self.igmp.has_data()) or
+                    (self.ipv4_network is not None and self.ipv4_network.has_data()) or
+                    (self.ipv4_packet_filter is not None and self.ipv4_packet_filter.has_data()) or
+                    (self.ipv6_neighbor is not None and self.ipv6_neighbor.has_data()) or
+                    (self.ipv6_network is not None and self.ipv6_network.has_data()) or
+                    (self.ipv6_packet_filter is not None and self.ipv6_packet_filter.has_data()) or
+                    (self.pbr is not None and self.pbr.has_data()) or
+                    (self.qos is not None and self.qos.has_data()) or
+                    (self.span_monitor_sessions is not None and self.span_monitor_sessions.has_data()))
 
-                return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ip-subscribers/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ip-subscriber[Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:template-name = ' + str(self.template_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.template_name.yfilter != YFilter.not_set or
+                    self.vrf.yfilter != YFilter.not_set or
+                    (self.accounting is not None and self.accounting.has_operation()) or
+                    (self.dhcpd is not None and self.dhcpd.has_operation()) or
+                    (self.dhcpv6 is not None and self.dhcpv6.has_operation()) or
+                    (self.igmp is not None and self.igmp.has_operation()) or
+                    (self.ipv4_network is not None and self.ipv4_network.has_operation()) or
+                    (self.ipv4_packet_filter is not None and self.ipv4_packet_filter.has_operation()) or
+                    (self.ipv6_neighbor is not None and self.ipv6_neighbor.has_operation()) or
+                    (self.ipv6_network is not None and self.ipv6_network.has_operation()) or
+                    (self.ipv6_packet_filter is not None and self.ipv6_packet_filter.has_operation()) or
+                    (self.pbr is not None and self.pbr.has_operation()) or
+                    (self.qos is not None and self.qos.has_operation()) or
+                    (self.span_monitor_sessions is not None and self.span_monitor_sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ip-subscriber" + "[template-name='" + self.template_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.template_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/ip-subscribers/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.template_name.is_set or self.template_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.template_name.get_name_leafdata())
+                if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "accounting"):
+                    if (self.accounting is None):
+                        self.accounting = DynamicTemplate.IpSubscribers.IpSubscriber.Accounting()
+                        self.accounting.parent = self
+                        self._children_name_map["accounting"] = "accounting"
+                    return self.accounting
+
+                if (child_yang_name == "dhcpd"):
+                    if (self.dhcpd is None):
+                        self.dhcpd = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpd()
+                        self.dhcpd.parent = self
+                        self._children_name_map["dhcpd"] = "dhcpd"
+                    return self.dhcpd
+
+                if (child_yang_name == "dhcpv6"):
+                    if (self.dhcpv6 is None):
+                        self.dhcpv6 = DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6()
+                        self.dhcpv6.parent = self
+                        self._children_name_map["dhcpv6"] = "dhcpv6"
+                    return self.dhcpv6
+
+                if (child_yang_name == "igmp"):
+                    if (self.igmp is None):
+                        self.igmp = DynamicTemplate.IpSubscribers.IpSubscriber.Igmp()
+                        self.igmp.parent = self
+                        self._children_name_map["igmp"] = "igmp"
+                    return self.igmp
+
+                if (child_yang_name == "ipv4-network"):
+                    if (self.ipv4_network is None):
+                        self.ipv4_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4Network()
+                        self.ipv4_network.parent = self
+                        self._children_name_map["ipv4_network"] = "ipv4-network"
+                    return self.ipv4_network
+
+                if (child_yang_name == "ipv4-packet-filter"):
+                    if (self.ipv4_packet_filter is None):
+                        self.ipv4_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter()
+                        self.ipv4_packet_filter.parent = self
+                        self._children_name_map["ipv4_packet_filter"] = "ipv4-packet-filter"
+                    return self.ipv4_packet_filter
+
+                if (child_yang_name == "ipv6-neighbor"):
+                    if (self.ipv6_neighbor is None):
+                        self.ipv6_neighbor = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor()
+                        self.ipv6_neighbor.parent = self
+                        self._children_name_map["ipv6_neighbor"] = "ipv6-neighbor"
+                    return self.ipv6_neighbor
+
+                if (child_yang_name == "ipv6-network"):
+                    if (self.ipv6_network is None):
+                        self.ipv6_network = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network()
+                        self.ipv6_network.parent = self
+                        self._children_name_map["ipv6_network"] = "ipv6-network"
+                    return self.ipv6_network
+
+                if (child_yang_name == "ipv6-packet-filter"):
+                    if (self.ipv6_packet_filter is None):
+                        self.ipv6_packet_filter = DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter()
+                        self.ipv6_packet_filter.parent = self
+                        self._children_name_map["ipv6_packet_filter"] = "ipv6-packet-filter"
+                    return self.ipv6_packet_filter
+
+                if (child_yang_name == "pbr"):
+                    if (self.pbr is None):
+                        self.pbr = DynamicTemplate.IpSubscribers.IpSubscriber.Pbr()
+                        self.pbr.parent = self
+                        self._children_name_map["pbr"] = "pbr"
+                    return self.pbr
+
+                if (child_yang_name == "qos"):
+                    if (self.qos is None):
+                        self.qos = DynamicTemplate.IpSubscribers.IpSubscriber.Qos()
+                        self.qos.parent = self
+                        self._children_name_map["qos"] = "qos"
+                    return self.qos
+
+                if (child_yang_name == "span-monitor-sessions"):
+                    if (self.span_monitor_sessions is None):
+                        self.span_monitor_sessions = DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions()
+                        self.span_monitor_sessions.parent = self
+                        self._children_name_map["span_monitor_sessions"] = "span-monitor-sessions"
+                    return self.span_monitor_sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "accounting" or name == "dhcpd" or name == "dhcpv6" or name == "igmp" or name == "ipv4-network" or name == "ipv4-packet-filter" or name == "ipv6-neighbor" or name == "ipv6-network" or name == "ipv6-packet-filter" or name == "pbr" or name == "qos" or name == "span-monitor-sessions" or name == "template-name" or name == "vrf"):
                     return True
-
-                if self.accounting is not None and self.accounting._has_data():
-                    return True
-
-                if self.dhcpd is not None and self.dhcpd._has_data():
-                    return True
-
-                if self.dhcpv6 is not None and self.dhcpv6._has_data():
-                    return True
-
-                if self.igmp is not None and self.igmp._has_data():
-                    return True
-
-                if self.ipv4_network is not None and self.ipv4_network._has_data():
-                    return True
-
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
-                    return True
-
-                if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
-                    return True
-
-                if self.ipv6_network is not None and self.ipv6_network._has_data():
-                    return True
-
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
-                    return True
-
-                if self.pbr is not None and self.pbr._has_data():
-                    return True
-
-                if self.qos is not None and self.qos._has_data():
-                    return True
-
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                    return True
-
-                if self.vrf is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                return meta._meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "template-name"):
+                    self.template_name = value
+                    self.template_name.value_namespace = name_space
+                    self.template_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf"):
+                    self.vrf = value
+                    self.vrf.value_namespace = name_space
+                    self.vrf.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:ip-subscribers'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.ip_subscriber is not None:
-                for child_ref in self.ip_subscriber:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.ip_subscriber:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-            return meta._meta_table['DynamicTemplate.IpSubscribers']['meta_info']
+        def has_operation(self):
+            for c in self.ip_subscriber:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ip-subscribers" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ip-subscriber"):
+                for c in self.ip_subscriber:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DynamicTemplate.IpSubscribers.IpSubscriber()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ip_subscriber.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ip-subscriber"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SubscriberServices(object):
+    class SubscriberServices(Entity):
         """
         The Service Type Template Table
         
@@ -6737,13 +12872,39 @@ class DynamicTemplate(object):
         _revision = '2015-01-07'
 
         def __init__(self):
-            self.parent = None
-            self.subscriber_service = YList()
-            self.subscriber_service.parent = self
-            self.subscriber_service.name = 'subscriber_service'
+            super(DynamicTemplate.SubscriberServices, self).__init__()
+
+            self.yang_name = "subscriber-services"
+            self.yang_parent_name = "dynamic-template"
+
+            self.subscriber_service = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(DynamicTemplate.SubscriberServices, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(DynamicTemplate.SubscriberServices, self).__setattr__(name, value)
 
 
-        class SubscriberService(object):
+        class SubscriberService(Entity):
             """
             A Service Type Template 
             
@@ -6814,30 +12975,87 @@ class DynamicTemplate(object):
             _revision = '2015-01-07'
 
             def __init__(self):
-                self.parent = None
-                self.template_name = None
+                super(DynamicTemplate.SubscriberServices.SubscriberService, self).__init__()
+
+                self.yang_name = "subscriber-service"
+                self.yang_parent_name = "subscriber-services"
+
+                self.template_name = YLeaf(YType.str, "template-name")
+
+                self.vrf = YLeaf(YType.str, "Cisco-IOS-XR-infra-rsi-subscriber-cfg:vrf")
+
                 self.accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting()
                 self.accounting.parent = self
+                self._children_name_map["accounting"] = "accounting"
+                self._children_yang_names.add("accounting")
+
                 self.ipv4_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network()
                 self.ipv4_network.parent = self
+                self._children_name_map["ipv4_network"] = "ipv4-network"
+                self._children_yang_names.add("ipv4-network")
+
                 self.ipv4_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter()
                 self.ipv4_packet_filter.parent = self
+                self._children_name_map["ipv4_packet_filter"] = "ipv4-packet-filter"
+                self._children_yang_names.add("ipv4-packet-filter")
+
                 self.ipv6_neighbor = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor()
                 self.ipv6_neighbor.parent = self
+                self._children_name_map["ipv6_neighbor"] = "ipv6-neighbor"
+                self._children_yang_names.add("ipv6-neighbor")
+
                 self.ipv6_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network()
                 self.ipv6_network.parent = self
+                self._children_name_map["ipv6_network"] = "ipv6-network"
+                self._children_yang_names.add("ipv6-network")
+
                 self.ipv6_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter()
                 self.ipv6_packet_filter.parent = self
+                self._children_name_map["ipv6_packet_filter"] = "ipv6-packet-filter"
+                self._children_yang_names.add("ipv6-packet-filter")
+
                 self.pbr = DynamicTemplate.SubscriberServices.SubscriberService.Pbr()
                 self.pbr.parent = self
+                self._children_name_map["pbr"] = "pbr"
+                self._children_yang_names.add("pbr")
+
                 self.qos = DynamicTemplate.SubscriberServices.SubscriberService.Qos()
                 self.qos.parent = self
+                self._children_name_map["qos"] = "qos"
+                self._children_yang_names.add("qos")
+
                 self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
                 self.span_monitor_sessions.parent = self
-                self.vrf = None
+                self._children_name_map["span_monitor_sessions"] = "span-monitor-sessions"
+                self._children_yang_names.add("span-monitor-sessions")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("template_name",
+                                "vrf") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(DynamicTemplate.SubscriberServices.SubscriberService, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(DynamicTemplate.SubscriberServices.SubscriberService, self).__setattr__(name, value)
 
 
-            class SpanMonitorSessions(object):
+            class SpanMonitorSessions(Entity):
                 """
                 Monitor Session container for this template
                 
@@ -6854,13 +13072,39 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.span_monitor_session = YList()
-                    self.span_monitor_session.parent = self
-                    self.span_monitor_session.name = 'span_monitor_session'
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions, self).__init__()
+
+                    self.yang_name = "span-monitor-sessions"
+                    self.yang_parent_name = "subscriber-service"
+
+                    self.span_monitor_session = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions, self).__setattr__(name, value)
 
 
-                class SpanMonitorSession(object):
+                class SpanMonitorSession(Entity):
                     """
                     Configuration for a particular class of Monitor
                     Session
@@ -6868,7 +13112,7 @@ class DynamicTemplate(object):
                     .. attribute:: session_class  <key>
                     
                     	Session Class
-                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
                     
                     .. attribute:: acl
                     
@@ -6894,7 +13138,7 @@ class DynamicTemplate(object):
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorIntervalEnum>`
+                    	**type**\:   :py:class:`SpanMirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanMirrorInterval>`
                     
                     
 
@@ -6904,22 +13148,59 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.session_class = None
-                        self.acl = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession, self).__init__()
+
+                        self.yang_name = "span-monitor-session"
+                        self.yang_parent_name = "span-monitor-sessions"
+
+                        self.session_class = YLeaf(YType.enumeration, "session-class")
+
+                        self.acl = YLeaf(YType.empty, "acl")
+
+                        self.mirror_first = YLeaf(YType.uint32, "mirror-first")
+
+                        self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
                         self.attachment = None
-                        self.mirror_first = None
-                        self.mirror_interval = None
+                        self._children_name_map["attachment"] = "attachment"
+                        self._children_yang_names.add("attachment")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("session_class",
+                                        "acl",
+                                        "mirror_first",
+                                        "mirror_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession, self).__setattr__(name, value)
 
 
-                    class Attachment(object):
+                    class Attachment(Entity):
                         """
                         Attach the interface to a Monitor Session
                         
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirectionEnum>`
+                        	**type**\:   :py:class:`SpanTrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg.SpanTrafficDirection>`
                         
                         .. attribute:: port_level_enable
                         
@@ -6935,11 +13216,6 @@ class DynamicTemplate(object):
                         
                         	**mandatory**\: True
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -6950,104 +13226,246 @@ class DynamicTemplate(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.direction = None
-                            self.port_level_enable = None
-                            self.session_name = None
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "span-monitor-session"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:attachment'
+                            self.direction = YLeaf(YType.enumeration, "direction")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.port_level_enable = YLeaf(YType.empty, "port-level-enable")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.session_name = YLeaf(YType.str, "session-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("direction",
+                                            "port_level_enable",
+                                            "session_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.direction.is_set or
+                                self.port_level_enable.is_set or
+                                self.session_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.direction.yfilter != YFilter.not_set or
+                                self.port_level_enable.yfilter != YFilter.not_set or
+                                self.session_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "attachment" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.direction.get_name_leafdata())
+                            if (self.port_level_enable.is_set or self.port_level_enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.port_level_enable.get_name_leafdata())
+                            if (self.session_name.is_set or self.session_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.session_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "direction" or name == "port-level-enable" or name == "session-name"):
                                 return True
-                            if self.direction is not None:
-                                return True
-
-                            if self.port_level_enable is not None:
-                                return True
-
-                            if self.session_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "direction"):
+                                self.direction = value
+                                self.direction.value_namespace = name_space
+                                self.direction.value_namespace_prefix = name_space_prefix
+                            if(value_path == "port-level-enable"):
+                                self.port_level_enable = value
+                                self.port_level_enable.value_namespace = name_space
+                                self.port_level_enable.value_namespace_prefix = name_space_prefix
+                            if(value_path == "session-name"):
+                                self.session_name = value
+                                self.session_name.value_namespace = name_space
+                                self.session_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.session_class is None:
-                            raise YPYModelError('Key property session_class is None')
+                    def has_data(self):
+                        return (
+                            self.session_class.is_set or
+                            self.acl.is_set or
+                            self.mirror_first.is_set or
+                            self.mirror_interval.is_set or
+                            (self.attachment is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-session[Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:session-class = ' + str(self.session_class) + ']'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.session_class.yfilter != YFilter.not_set or
+                            self.acl.yfilter != YFilter.not_set or
+                            self.mirror_first.yfilter != YFilter.not_set or
+                            self.mirror_interval.yfilter != YFilter.not_set or
+                            (self.attachment is not None and self.attachment.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "span-monitor-session" + "[session-class='" + self.session_class.get() + "']" + path_buffer
 
-                    def _has_data(self):
-                        if self.session_class is not None:
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.session_class.is_set or self.session_class.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.session_class.get_name_leafdata())
+                        if (self.acl.is_set or self.acl.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.acl.get_name_leafdata())
+                        if (self.mirror_first.is_set or self.mirror_first.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mirror_first.get_name_leafdata())
+                        if (self.mirror_interval.is_set or self.mirror_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.mirror_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "attachment"):
+                            if (self.attachment is None):
+                                self.attachment = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment()
+                                self.attachment.parent = self
+                                self._children_name_map["attachment"] = "attachment"
+                            return self.attachment
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "attachment" or name == "session-class" or name == "acl" or name == "mirror-first" or name == "mirror-interval"):
                             return True
-
-                        if self.acl is not None:
-                            return True
-
-                        if self.attachment is not None and self.attachment._has_data():
-                            return True
-
-                        if self.mirror_first is not None:
-                            return True
-
-                        if self.mirror_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "session-class"):
+                            self.session_class = value
+                            self.session_class.value_namespace = name_space
+                            self.session_class.value_namespace_prefix = name_space_prefix
+                        if(value_path == "acl"):
+                            self.acl = value
+                            self.acl.value_namespace = name_space
+                            self.acl.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mirror-first"):
+                            self.mirror_first = value
+                            self.mirror_first.value_namespace = name_space
+                            self.mirror_first.value_namespace_prefix = name_space_prefix
+                        if(value_path == "mirror-interval"):
+                            self.mirror_interval = value
+                            self.mirror_interval.value_namespace = name_space
+                            self.mirror_interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if self.span_monitor_session is not None:
-                        for child_ref in self.span_monitor_session:
-                            if child_ref._has_data():
-                                return True
-
+                def has_data(self):
+                    for c in self.span_monitor_session:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions']['meta_info']
+                def has_operation(self):
+                    for c in self.span_monitor_session:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "span-monitor-session"):
+                        for c in self.span_monitor_session:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.span_monitor_session.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "span-monitor-session"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv4PacketFilter(object):
+            class Ipv4PacketFilter(Entity):
                 """
                 IPv4 Packet Filtering configuration for the
                 template
@@ -7072,13 +13490,22 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv4-packet-filter"
+                    self.yang_parent_name = "subscriber-service"
+
                     self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+                    self._children_yang_names.add("inbound")
+
                     self.outbound = None
+                    self._children_name_map["outbound"] = "outbound"
+                    self._children_yang_names.add("outbound")
 
 
-                class Outbound(object):
+                class Outbound(Entity):
                     """
                     IPv4 Packet filter to be applied to outbound
                     packets
@@ -7107,11 +13534,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -7122,48 +13544,120 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hardware_count = YLeaf(YType.empty, "hardware-count")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "hardware_count",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.hardware_count.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.hardware_count.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.hardware_count.is_set or self.hardware_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hardware_count.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "hardware-count" or name == "interface-statistics" or name == "name"):
                             return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hardware-count"):
+                            self.hardware_count = value
+                            self.hardware_count.value_namespace = name_space
+                            self.hardware_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class Inbound(object):
+                class Inbound(Entity):
                     """
                     IPv4 Packet filter to be applied to inbound
                     packets
@@ -7198,70 +13692,177 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.hardware_count = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv4-packet-filter"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hardware_count = YLeaf(YType.empty, "hardware-count")
 
-                    def _has_data(self):
-                        if self.common_acl_name is not None:
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
+
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "hardware_count",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.hardware_count.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.hardware_count.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "inbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.hardware_count.is_set or self.hardware_count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hardware_count.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "hardware-count" or name == "interface-statistics" or name == "name"):
                             return True
-
-                        if self.hardware_count is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hardware-count"):
+                            self.hardware_count = value
+                            self.hardware_count.value_namespace = name_space
+                            self.hardware_count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.inbound is not None and self.inbound.has_data()) or
+                        (self.outbound is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.inbound is not None and self.inbound.has_operation()) or
+                        (self.outbound is not None and self.outbound.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" + path_buffer
 
-                def _has_data(self):
-                    if self.inbound is not None and self.inbound._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "inbound"):
+                        if (self.inbound is None):
+                            self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Inbound()
+                            self.inbound.parent = self
+                            self._children_name_map["inbound"] = "inbound"
+                        return self.inbound
+
+                    if (child_yang_name == "outbound"):
+                        if (self.outbound is None):
+                            self.outbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter.Outbound()
+                            self.outbound.parent = self
+                            self._children_name_map["outbound"] = "outbound"
+                        return self.outbound
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "inbound" or name == "outbound"):
                         return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv6PacketFilter(object):
+            class Ipv6PacketFilter(Entity):
                 """
                 IPv6 Packet Filtering configuration for the
                 interface
@@ -7286,13 +13887,22 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter, self).__init__()
+
+                    self.yang_name = "ipv6-packet-filter"
+                    self.yang_parent_name = "subscriber-service"
+
                     self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound()
                     self.inbound.parent = self
+                    self._children_name_map["inbound"] = "inbound"
+                    self._children_yang_names.add("inbound")
+
                     self.outbound = None
+                    self._children_name_map["outbound"] = "outbound"
+                    self._children_yang_names.add("outbound")
 
 
-                class Inbound(object):
+                class Inbound(Entity):
                     """
                     IPv6 Packet filter to be applied to inbound
                     packets
@@ -7322,41 +13932,108 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "inbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:inbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
 
-                    def _has_data(self):
-                        if self.common_acl_name is not None:
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "inbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "interface-statistics" or name == "name"):
                             return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
 
-                class Outbound(object):
+                class Outbound(Entity):
                     """
                     IPv6 Packet filter to be applied to outbound
                     packets
@@ -7380,11 +14057,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -7395,69 +14067,167 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.common_acl_name = None
-                        self.interface_statistics = None
-                        self.name = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "outbound"
+                        self.yang_parent_name = "ipv6-packet-filter"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:outbound'
+                        self.common_acl_name = YLeaf(YType.str, "common-acl-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interface_statistics = YLeaf(YType.empty, "interface-statistics")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                        self.name = YLeaf(YType.str, "name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("common_acl_name",
+                                        "interface_statistics",
+                                        "name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.common_acl_name.is_set or
+                            self.interface_statistics.is_set or
+                            self.name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.common_acl_name.yfilter != YFilter.not_set or
+                            self.interface_statistics.yfilter != YFilter.not_set or
+                            self.name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "outbound" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.common_acl_name.is_set or self.common_acl_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.common_acl_name.get_name_leafdata())
+                        if (self.interface_statistics.is_set or self.interface_statistics.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_statistics.get_name_leafdata())
+                        if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "common-acl-name" or name == "interface-statistics" or name == "name"):
                             return True
-                        if self.common_acl_name is not None:
-                            return True
-
-                        if self.interface_statistics is not None:
-                            return True
-
-                        if self.name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "common-acl-name"):
+                            self.common_acl_name = value
+                            self.common_acl_name.value_namespace = name_space
+                            self.common_acl_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interface-statistics"):
+                            self.interface_statistics = value
+                            self.interface_statistics.value_namespace = name_space
+                            self.interface_statistics.value_namespace_prefix = name_space_prefix
+                        if(value_path == "name"):
+                            self.name = value
+                            self.name.value_namespace = name_space
+                            self.name.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.inbound is not None and self.inbound.has_data()) or
+                        (self.outbound is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.inbound is not None and self.inbound.has_operation()) or
+                        (self.outbound is not None and self.outbound.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" + path_buffer
 
-                def _has_data(self):
-                    if self.inbound is not None and self.inbound._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "inbound"):
+                        if (self.inbound is None):
+                            self.inbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Inbound()
+                            self.inbound.parent = self
+                            self._children_name_map["inbound"] = "inbound"
+                        return self.inbound
+
+                    if (child_yang_name == "outbound"):
+                        if (self.outbound is None):
+                            self.outbound = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter.Outbound()
+                            self.outbound.parent = self
+                            self._children_name_map["outbound"] = "outbound"
+                        return self.outbound
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "inbound" or name == "outbound"):
                         return True
-
-                    if self.outbound is not None and self.outbound._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Ipv4Network(object):
+            class Ipv4Network(Entity):
                 """
                 Interface IPv4 Network configuration data
                 
@@ -7497,45 +14267,119 @@ class DynamicTemplate(object):
                 _revision = '2015-07-30'
 
                 def __init__(self):
-                    self.parent = None
-                    self.mtu = None
-                    self.rpf = None
-                    self.unnumbered = None
-                    self.unreachables = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "ipv4-network"
+                    self.yang_parent_name = "subscriber-service"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network'
+                    self.mtu = YLeaf(YType.uint32, "mtu")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                    self.rpf = YLeaf(YType.boolean, "rpf")
 
-                def _has_data(self):
-                    if self.mtu is not None:
+                    self.unnumbered = YLeaf(YType.str, "unnumbered")
+
+                    self.unreachables = YLeaf(YType.boolean, "unreachables")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("mtu",
+                                    "rpf",
+                                    "unnumbered",
+                                    "unreachables") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.mtu.is_set or
+                        self.rpf.is_set or
+                        self.unnumbered.is_set or
+                        self.unreachables.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.mtu.yfilter != YFilter.not_set or
+                        self.rpf.yfilter != YFilter.not_set or
+                        self.unnumbered.yfilter != YFilter.not_set or
+                        self.unreachables.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mtu.get_name_leafdata())
+                    if (self.rpf.is_set or self.rpf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpf.get_name_leafdata())
+                    if (self.unnumbered.is_set or self.unnumbered.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unnumbered.get_name_leafdata())
+                    if (self.unreachables.is_set or self.unreachables.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unreachables.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "mtu" or name == "rpf" or name == "unnumbered" or name == "unreachables"):
                         return True
-
-                    if self.rpf is not None:
-                        return True
-
-                    if self.unnumbered is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "mtu"):
+                        self.mtu = value
+                        self.mtu.value_namespace = name_space
+                        self.mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpf"):
+                        self.rpf = value
+                        self.rpf.value_namespace = name_space
+                        self.rpf.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unnumbered"):
+                        self.unnumbered = value
+                        self.unnumbered.value_namespace = name_space
+                        self.unnumbered.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unreachables"):
+                        self.unreachables = value
+                        self.unreachables.value_namespace = name_space
+                        self.unreachables.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv6Network(object):
+            class Ipv6Network(Entity):
                 """
                 Interface IPv6 Network configuration data
                 
@@ -7553,33 +14397,68 @@ class DynamicTemplate(object):
                 
                 	**units**\: byte
                 
+                .. attribute:: rpf
+                
+                	TRUE if enabled, FALSE if disabled
+                	**type**\:  bool
+                
                 .. attribute:: unreachables
                 
                 	Override Sending of ICMP Unreachable Messages
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: verify
-                
-                	IPv6 Verify Unicast Souce Reachable
-                	**type**\:   :py:class:`Ipv6ReachableViaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg.Ipv6ReachableViaEnum>`
                 
                 
 
                 """
 
                 _prefix = 'ipv6-ma-subscriber-cfg'
-                _revision = '2015-07-30'
+                _revision = '2017-01-11'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network, self).__init__()
+
+                    self.yang_name = "ipv6-network"
+                    self.yang_parent_name = "subscriber-service"
+
+                    self.mtu = YLeaf(YType.uint32, "mtu")
+
+                    self.rpf = YLeaf(YType.boolean, "rpf")
+
+                    self.unreachables = YLeaf(YType.empty, "unreachables")
+
                     self.addresses = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses()
                     self.addresses.parent = self
-                    self.mtu = None
-                    self.unreachables = None
-                    self.verify = None
+                    self._children_name_map["addresses"] = "addresses"
+                    self._children_yang_names.add("addresses")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("mtu",
+                                    "rpf",
+                                    "unreachables") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network, self).__setattr__(name, value)
 
 
-                class Addresses(object):
+                class Addresses(Entity):
                     """
                     Set the IPv6 address of an interface
                     
@@ -7593,15 +14472,21 @@ class DynamicTemplate(object):
                     """
 
                     _prefix = 'ipv6-ma-subscriber-cfg'
-                    _revision = '2015-07-30'
+                    _revision = '2017-01-11'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses, self).__init__()
+
+                        self.yang_name = "addresses"
+                        self.yang_parent_name = "ipv6-network"
+
                         self.auto_configuration = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration()
                         self.auto_configuration.parent = self
+                        self._children_name_map["auto_configuration"] = "auto-configuration"
+                        self._children_yang_names.add("auto-configuration")
 
 
-                    class AutoConfiguration(object):
+                    class AutoConfiguration(Entity):
                         """
                         Auto IPv6 Interface Configuration
                         
@@ -7615,89 +14500,208 @@ class DynamicTemplate(object):
                         """
 
                         _prefix = 'ipv6-ma-subscriber-cfg'
-                        _revision = '2015-07-30'
+                        _revision = '2017-01-11'
 
                         def __init__(self):
-                            self.parent = None
-                            self.enable = None
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "auto-configuration"
+                            self.yang_parent_name = "addresses"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:auto-configuration'
+                            self.enable = YLeaf(YType.empty, "enable")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("enable") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration, self).__setattr__(name, value)
 
-                        def _has_data(self):
-                            if self.enable is not None:
+                        def has_data(self):
+                            return self.enable.is_set
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.enable.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "auto-configuration" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.enable.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "enable"):
                                 return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "enable"):
+                                self.enable = value
+                                self.enable.value_namespace = name_space
+                                self.enable.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (self.auto_configuration is not None and self.auto_configuration.has_data())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:addresses'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.auto_configuration is not None and self.auto_configuration.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "addresses" + path_buffer
 
-                    def _has_data(self):
-                        if self.auto_configuration is not None and self.auto_configuration._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "auto-configuration"):
+                            if (self.auto_configuration is None):
+                                self.auto_configuration = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses.AutoConfiguration()
+                                self.auto_configuration.parent = self
+                                self._children_name_map["auto_configuration"] = "auto-configuration"
+                            return self.auto_configuration
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "auto-configuration"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.mtu.is_set or
+                        self.rpf.is_set or
+                        self.unreachables.is_set or
+                        (self.addresses is not None and self.addresses.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.mtu.yfilter != YFilter.not_set or
+                        self.rpf.yfilter != YFilter.not_set or
+                        self.unreachables.yfilter != YFilter.not_set or
+                        (self.addresses is not None and self.addresses.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" + path_buffer
 
-                def _has_data(self):
-                    if self.addresses is not None and self.addresses._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.mtu.is_set or self.mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.mtu.get_name_leafdata())
+                    if (self.rpf.is_set or self.rpf.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rpf.get_name_leafdata())
+                    if (self.unreachables.is_set or self.unreachables.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unreachables.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "addresses"):
+                        if (self.addresses is None):
+                            self.addresses = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network.Addresses()
+                            self.addresses.parent = self
+                            self._children_name_map["addresses"] = "addresses"
+                        return self.addresses
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "addresses" or name == "mtu" or name == "rpf" or name == "unreachables"):
                         return True
-
-                    if self.mtu is not None:
-                        return True
-
-                    if self.unreachables is not None:
-                        return True
-
-                    if self.verify is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "mtu"):
+                        self.mtu = value
+                        self.mtu.value_namespace = name_space
+                        self.mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rpf"):
+                        self.rpf = value
+                        self.rpf.value_namespace = name_space
+                        self.rpf.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unreachables"):
+                        self.unreachables = value
+                        self.unreachables.value_namespace = name_space
+                        self.unreachables.value_namespace_prefix = name_space_prefix
 
 
-            class Ipv6Neighbor(object):
+            class Ipv6Neighbor(Entity):
                 """
                 Interface IPv6 Network configuration data
                 
@@ -7797,7 +14801,7 @@ class DynamicTemplate(object):
                 .. attribute:: router_preference
                 
                 	RA Router Preference
-                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplateEnum>`
+                	**type**\:   :py:class:`Ipv6NdRouterPrefTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_subscriber_cfg.Ipv6NdRouterPrefTemplate>`
                 
                 .. attribute:: start_ra_on_ipv6_enable
                 
@@ -7817,29 +14821,95 @@ class DynamicTemplate(object):
                 _revision = '2016-12-19'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor, self).__init__()
+
+                    self.yang_name = "ipv6-neighbor"
+                    self.yang_parent_name = "subscriber-service"
+
+                    self.framed_prefix_pool = YLeaf(YType.str, "framed-prefix-pool")
+
+                    self.managed_config = YLeaf(YType.empty, "managed-config")
+
+                    self.ns_interval = YLeaf(YType.uint32, "ns-interval")
+
+                    self.nud_enable = YLeaf(YType.empty, "nud-enable")
+
+                    self.other_config = YLeaf(YType.empty, "other-config")
+
+                    self.ra_lifetime = YLeaf(YType.uint32, "ra-lifetime")
+
+                    self.ra_suppress = YLeaf(YType.empty, "ra-suppress")
+
+                    self.ra_suppress_mtu = YLeaf(YType.empty, "ra-suppress-mtu")
+
+                    self.ra_unicast = YLeaf(YType.empty, "ra-unicast")
+
+                    self.ra_unspecify_hoplimit = YLeaf(YType.empty, "ra-unspecify-hoplimit")
+
+                    self.reachable_time = YLeaf(YType.uint32, "reachable-time")
+
+                    self.router_preference = YLeaf(YType.enumeration, "router-preference")
+
+                    self.start_ra_on_ipv6_enable = YLeaf(YType.empty, "start-ra-on-ipv6-enable")
+
+                    self.suppress_cache_learning = YLeaf(YType.empty, "suppress-cache-learning")
+
                     self.duplicate_address_detection = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection()
                     self.duplicate_address_detection.parent = self
+                    self._children_name_map["duplicate_address_detection"] = "duplicate-address-detection"
+                    self._children_yang_names.add("duplicate-address-detection")
+
                     self.framed_prefix = None
-                    self.framed_prefix_pool = None
-                    self.managed_config = None
-                    self.ns_interval = None
-                    self.nud_enable = None
-                    self.other_config = None
+                    self._children_name_map["framed_prefix"] = "framed-prefix"
+                    self._children_yang_names.add("framed-prefix")
+
                     self.ra_initial = None
+                    self._children_name_map["ra_initial"] = "ra-initial"
+                    self._children_yang_names.add("ra-initial")
+
                     self.ra_interval = None
-                    self.ra_lifetime = None
-                    self.ra_suppress = None
-                    self.ra_suppress_mtu = None
-                    self.ra_unicast = None
-                    self.ra_unspecify_hoplimit = None
-                    self.reachable_time = None
-                    self.router_preference = None
-                    self.start_ra_on_ipv6_enable = None
-                    self.suppress_cache_learning = None
+                    self._children_name_map["ra_interval"] = "ra-interval"
+                    self._children_yang_names.add("ra-interval")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("framed_prefix_pool",
+                                    "managed_config",
+                                    "ns_interval",
+                                    "nud_enable",
+                                    "other_config",
+                                    "ra_lifetime",
+                                    "ra_suppress",
+                                    "ra_suppress_mtu",
+                                    "ra_unicast",
+                                    "ra_unspecify_hoplimit",
+                                    "reachable_time",
+                                    "router_preference",
+                                    "start_ra_on_ipv6_enable",
+                                    "suppress_cache_learning") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor, self).__setattr__(name, value)
 
 
-                class RaInterval(object):
+                class RaInterval(Entity):
                     """
                     Set IPv6 Router Advertisement (RA) interval in
                     seconds
@@ -7864,11 +14934,6 @@ class DynamicTemplate(object):
                     
                     	**units**\: second
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -7879,40 +14944,98 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.maximum = None
-                        self.minimum = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInterval, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ra-interval"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-interval'
+                        self.maximum = YLeaf(YType.uint32, "maximum")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.minimum = YLeaf(YType.uint32, "minimum")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("maximum",
+                                        "minimum") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInterval, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInterval, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.maximum.is_set or
+                            self.minimum.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.maximum.yfilter != YFilter.not_set or
+                            self.minimum.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ra-interval" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.maximum.is_set or self.maximum.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.maximum.get_name_leafdata())
+                        if (self.minimum.is_set or self.minimum.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.minimum.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "maximum" or name == "minimum"):
                             return True
-                        if self.maximum is not None:
-                            return True
-
-                        if self.minimum is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInterval']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "maximum"):
+                            self.maximum = value
+                            self.maximum.value_namespace = name_space
+                            self.maximum.value_namespace_prefix = name_space_prefix
+                        if(value_path == "minimum"):
+                            self.minimum = value
+                            self.minimum.value_namespace = name_space
+                            self.minimum.value_namespace_prefix = name_space_prefix
 
 
-                class FramedPrefix(object):
+                class FramedPrefix(Entity):
                     """
                     Set the IPv6 framed ipv6 prefix for a
                     subscriber interface 
@@ -7933,11 +15056,6 @@ class DynamicTemplate(object):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -7948,40 +15066,98 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.prefix = None
-                        self.prefix_length = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "framed-prefix"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:framed-prefix'
+                        self.prefix = YLeaf(YType.str, "prefix")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.prefix_length = YLeaf(YType.uint8, "prefix-length")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("prefix",
+                                        "prefix_length") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.prefix.is_set or
+                            self.prefix_length.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.prefix.yfilter != YFilter.not_set or
+                            self.prefix_length.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "framed-prefix" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.prefix.is_set or self.prefix.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix.get_name_leafdata())
+                        if (self.prefix_length.is_set or self.prefix_length.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.prefix_length.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "prefix" or name == "prefix-length"):
                             return True
-                        if self.prefix is not None:
-                            return True
-
-                        if self.prefix_length is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "prefix"):
+                            self.prefix = value
+                            self.prefix.value_namespace = name_space
+                            self.prefix.value_namespace_prefix = name_space_prefix
+                        if(value_path == "prefix-length"):
+                            self.prefix_length = value
+                            self.prefix_length.value_namespace = name_space
+                            self.prefix_length.value_namespace_prefix = name_space_prefix
 
 
-                class DuplicateAddressDetection(object):
+                class DuplicateAddressDetection(Entity):
                     """
                     Duplicate Address Detection (DAD)
                     
@@ -8000,33 +15176,85 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self.attempts = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "duplicate-address-detection"
+                        self.yang_parent_name = "ipv6-neighbor"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:duplicate-address-detection'
+                        self.attempts = YLeaf(YType.uint32, "attempts")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("attempts") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.attempts is not None:
+                    def has_data(self):
+                        return self.attempts.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.attempts.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "duplicate-address-detection" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.attempts.is_set or self.attempts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.attempts.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "attempts"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "attempts"):
+                            self.attempts = value
+                            self.attempts.value_namespace = name_space
+                            self.attempts.value_namespace_prefix = name_space_prefix
 
 
-                class RaInitial(object):
+                class RaInitial(Entity):
                     """
                     IPv6 ND RA Initial
                     
@@ -8050,11 +15278,6 @@ class DynamicTemplate(object):
                     
                     	**units**\: second
                     
-                    .. attribute:: _is_presence
-                    
-                    	Is present if this instance represents presence container else not
-                    	**type**\: bool
-                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -8065,113 +15288,285 @@ class DynamicTemplate(object):
                     _revision = '2016-12-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self._is_presence = True
-                        self.count = None
-                        self.interval = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "ra-initial"
+                        self.yang_parent_name = "ipv6-neighbor"
+                        self.is_presence_container = True
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ra-initial'
+                        self.count = YLeaf(YType.uint32, "count")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.interval = YLeaf(YType.uint32, "interval")
 
-                    def _has_data(self):
-                        if self._is_presence:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("count",
+                                        "interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.count.is_set or
+                            self.interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.count.yfilter != YFilter.not_set or
+                            self.interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "ra-initial" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.count.is_set or self.count.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.count.get_name_leafdata())
+                        if (self.interval.is_set or self.interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "count" or name == "interval"):
                             return True
-                        if self.count is not None:
-                            return True
-
-                        if self.interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "count"):
+                            self.count = value
+                            self.count.value_namespace = name_space
+                            self.count.value_namespace_prefix = name_space_prefix
+                        if(value_path == "interval"):
+                            self.interval = value
+                            self.interval.value_namespace = name_space
+                            self.interval.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.framed_prefix_pool.is_set or
+                        self.managed_config.is_set or
+                        self.ns_interval.is_set or
+                        self.nud_enable.is_set or
+                        self.other_config.is_set or
+                        self.ra_lifetime.is_set or
+                        self.ra_suppress.is_set or
+                        self.ra_suppress_mtu.is_set or
+                        self.ra_unicast.is_set or
+                        self.ra_unspecify_hoplimit.is_set or
+                        self.reachable_time.is_set or
+                        self.router_preference.is_set or
+                        self.start_ra_on_ipv6_enable.is_set or
+                        self.suppress_cache_learning.is_set or
+                        (self.duplicate_address_detection is not None and self.duplicate_address_detection.has_data()) or
+                        (self.framed_prefix is not None) or
+                        (self.ra_initial is not None) or
+                        (self.ra_interval is not None))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.framed_prefix_pool.yfilter != YFilter.not_set or
+                        self.managed_config.yfilter != YFilter.not_set or
+                        self.ns_interval.yfilter != YFilter.not_set or
+                        self.nud_enable.yfilter != YFilter.not_set or
+                        self.other_config.yfilter != YFilter.not_set or
+                        self.ra_lifetime.yfilter != YFilter.not_set or
+                        self.ra_suppress.yfilter != YFilter.not_set or
+                        self.ra_suppress_mtu.yfilter != YFilter.not_set or
+                        self.ra_unicast.yfilter != YFilter.not_set or
+                        self.ra_unspecify_hoplimit.yfilter != YFilter.not_set or
+                        self.reachable_time.yfilter != YFilter.not_set or
+                        self.router_preference.yfilter != YFilter.not_set or
+                        self.start_ra_on_ipv6_enable.yfilter != YFilter.not_set or
+                        self.suppress_cache_learning.yfilter != YFilter.not_set or
+                        (self.duplicate_address_detection is not None and self.duplicate_address_detection.has_operation()) or
+                        (self.framed_prefix is not None and self.framed_prefix.has_operation()) or
+                        (self.ra_initial is not None and self.ra_initial.has_operation()) or
+                        (self.ra_interval is not None and self.ra_interval.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" + path_buffer
 
-                def _has_data(self):
-                    if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.framed_prefix_pool.is_set or self.framed_prefix_pool.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.framed_prefix_pool.get_name_leafdata())
+                    if (self.managed_config.is_set or self.managed_config.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.managed_config.get_name_leafdata())
+                    if (self.ns_interval.is_set or self.ns_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ns_interval.get_name_leafdata())
+                    if (self.nud_enable.is_set or self.nud_enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.nud_enable.get_name_leafdata())
+                    if (self.other_config.is_set or self.other_config.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.other_config.get_name_leafdata())
+                    if (self.ra_lifetime.is_set or self.ra_lifetime.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_lifetime.get_name_leafdata())
+                    if (self.ra_suppress.is_set or self.ra_suppress.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_suppress.get_name_leafdata())
+                    if (self.ra_suppress_mtu.is_set or self.ra_suppress_mtu.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_suppress_mtu.get_name_leafdata())
+                    if (self.ra_unicast.is_set or self.ra_unicast.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_unicast.get_name_leafdata())
+                    if (self.ra_unspecify_hoplimit.is_set or self.ra_unspecify_hoplimit.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.ra_unspecify_hoplimit.get_name_leafdata())
+                    if (self.reachable_time.is_set or self.reachable_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reachable_time.get_name_leafdata())
+                    if (self.router_preference.is_set or self.router_preference.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.router_preference.get_name_leafdata())
+                    if (self.start_ra_on_ipv6_enable.is_set or self.start_ra_on_ipv6_enable.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.start_ra_on_ipv6_enable.get_name_leafdata())
+                    if (self.suppress_cache_learning.is_set or self.suppress_cache_learning.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.suppress_cache_learning.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "duplicate-address-detection"):
+                        if (self.duplicate_address_detection is None):
+                            self.duplicate_address_detection = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection()
+                            self.duplicate_address_detection.parent = self
+                            self._children_name_map["duplicate_address_detection"] = "duplicate-address-detection"
+                        return self.duplicate_address_detection
+
+                    if (child_yang_name == "framed-prefix"):
+                        if (self.framed_prefix is None):
+                            self.framed_prefix = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.FramedPrefix()
+                            self.framed_prefix.parent = self
+                            self._children_name_map["framed_prefix"] = "framed-prefix"
+                        return self.framed_prefix
+
+                    if (child_yang_name == "ra-initial"):
+                        if (self.ra_initial is None):
+                            self.ra_initial = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial()
+                            self.ra_initial.parent = self
+                            self._children_name_map["ra_initial"] = "ra-initial"
+                        return self.ra_initial
+
+                    if (child_yang_name == "ra-interval"):
+                        if (self.ra_interval is None):
+                            self.ra_interval = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInterval()
+                            self.ra_interval.parent = self
+                            self._children_name_map["ra_interval"] = "ra-interval"
+                        return self.ra_interval
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "duplicate-address-detection" or name == "framed-prefix" or name == "ra-initial" or name == "ra-interval" or name == "framed-prefix-pool" or name == "managed-config" or name == "ns-interval" or name == "nud-enable" or name == "other-config" or name == "ra-lifetime" or name == "ra-suppress" or name == "ra-suppress-mtu" or name == "ra-unicast" or name == "ra-unspecify-hoplimit" or name == "reachable-time" or name == "router-preference" or name == "start-ra-on-ipv6-enable" or name == "suppress-cache-learning"):
                         return True
-
-                    if self.framed_prefix is not None and self.framed_prefix._has_data():
-                        return True
-
-                    if self.framed_prefix_pool is not None:
-                        return True
-
-                    if self.managed_config is not None:
-                        return True
-
-                    if self.ns_interval is not None:
-                        return True
-
-                    if self.nud_enable is not None:
-                        return True
-
-                    if self.other_config is not None:
-                        return True
-
-                    if self.ra_initial is not None and self.ra_initial._has_data():
-                        return True
-
-                    if self.ra_interval is not None and self.ra_interval._has_data():
-                        return True
-
-                    if self.ra_lifetime is not None:
-                        return True
-
-                    if self.ra_suppress is not None:
-                        return True
-
-                    if self.ra_suppress_mtu is not None:
-                        return True
-
-                    if self.ra_unicast is not None:
-                        return True
-
-                    if self.ra_unspecify_hoplimit is not None:
-                        return True
-
-                    if self.reachable_time is not None:
-                        return True
-
-                    if self.router_preference is not None:
-                        return True
-
-                    if self.start_ra_on_ipv6_enable is not None:
-                        return True
-
-                    if self.suppress_cache_learning is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "framed-prefix-pool"):
+                        self.framed_prefix_pool = value
+                        self.framed_prefix_pool.value_namespace = name_space
+                        self.framed_prefix_pool.value_namespace_prefix = name_space_prefix
+                    if(value_path == "managed-config"):
+                        self.managed_config = value
+                        self.managed_config.value_namespace = name_space
+                        self.managed_config.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ns-interval"):
+                        self.ns_interval = value
+                        self.ns_interval.value_namespace = name_space
+                        self.ns_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "nud-enable"):
+                        self.nud_enable = value
+                        self.nud_enable.value_namespace = name_space
+                        self.nud_enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "other-config"):
+                        self.other_config = value
+                        self.other_config.value_namespace = name_space
+                        self.other_config.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-lifetime"):
+                        self.ra_lifetime = value
+                        self.ra_lifetime.value_namespace = name_space
+                        self.ra_lifetime.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-suppress"):
+                        self.ra_suppress = value
+                        self.ra_suppress.value_namespace = name_space
+                        self.ra_suppress.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-suppress-mtu"):
+                        self.ra_suppress_mtu = value
+                        self.ra_suppress_mtu.value_namespace = name_space
+                        self.ra_suppress_mtu.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-unicast"):
+                        self.ra_unicast = value
+                        self.ra_unicast.value_namespace = name_space
+                        self.ra_unicast.value_namespace_prefix = name_space_prefix
+                    if(value_path == "ra-unspecify-hoplimit"):
+                        self.ra_unspecify_hoplimit = value
+                        self.ra_unspecify_hoplimit.value_namespace = name_space
+                        self.ra_unspecify_hoplimit.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reachable-time"):
+                        self.reachable_time = value
+                        self.reachable_time.value_namespace = name_space
+                        self.reachable_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "router-preference"):
+                        self.router_preference = value
+                        self.router_preference.value_namespace = name_space
+                        self.router_preference.value_namespace_prefix = name_space_prefix
+                    if(value_path == "start-ra-on-ipv6-enable"):
+                        self.start_ra_on_ipv6_enable = value
+                        self.start_ra_on_ipv6_enable.value_namespace = name_space
+                        self.start_ra_on_ipv6_enable.value_namespace_prefix = name_space_prefix
+                    if(value_path == "suppress-cache-learning"):
+                        self.suppress_cache_learning = value
+                        self.suppress_cache_learning.value_namespace = name_space
+                        self.suppress_cache_learning.value_namespace_prefix = name_space_prefix
 
 
-            class Pbr(object):
+            class Pbr(Entity):
                 """
                 Dynamic Template PBR configuration
                 
@@ -8193,13 +15588,44 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr, self).__init__()
+
+                    self.yang_name = "pbr"
+                    self.yang_parent_name = "subscriber-service"
+
+                    self.service_policy_in = YLeaf(YType.str, "service-policy-in")
+
                     self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy()
                     self.service_policy.parent = self
-                    self.service_policy_in = None
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._children_yang_names.add("service-policy")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("service_policy_in") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr, self).__setattr__(name, value)
 
 
-                class ServicePolicy(object):
+                class ServicePolicy(Entity):
                     """
                     PBR service policy configuration
                     
@@ -8216,58 +15642,141 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.input = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "pbr"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:service-policy'
+                        self.input = YLeaf(YType.str, "input")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("input") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.input is not None:
+                    def has_data(self):
+                        return self.input.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.input.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-policy" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.input.is_set or self.input.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "input"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "input"):
+                            self.input = value
+                            self.input.value_namespace = name_space
+                            self.input.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.service_policy_in.is_set or
+                        (self.service_policy is not None and self.service_policy.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-pbr-subscriber-cfg:pbr'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.service_policy_in.yfilter != YFilter.not_set or
+                        (self.service_policy is not None and self.service_policy.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" + path_buffer
 
-                def _has_data(self):
-                    if self.service_policy is not None and self.service_policy._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.service_policy_in.is_set or self.service_policy_in.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.service_policy_in.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "service-policy"):
+                        if (self.service_policy is None):
+                            self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy()
+                            self.service_policy.parent = self
+                            self._children_name_map["service_policy"] = "service-policy"
+                        return self.service_policy
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "service-policy" or name == "service-policy-in"):
                         return True
-
-                    if self.service_policy_in is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "service-policy-in"):
+                        self.service_policy_in = value
+                        self.service_policy_in.value_namespace = name_space
+                        self.service_policy_in.value_namespace_prefix = name_space_prefix
 
 
-            class Qos(object):
+            class Qos(Entity):
                 """
                 QoS dynamically applied configuration template
                 
@@ -8294,16 +15803,28 @@ class DynamicTemplate(object):
                 _revision = '2016-04-01'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Qos, self).__init__()
+
+                    self.yang_name = "qos"
+                    self.yang_parent_name = "subscriber-service"
+
                     self.account = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account()
                     self.account.parent = self
+                    self._children_name_map["account"] = "account"
+                    self._children_yang_names.add("account")
+
                     self.output = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output()
                     self.output.parent = self
+                    self._children_name_map["output"] = "output"
+                    self._children_yang_names.add("output")
+
                     self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy()
                     self.service_policy.parent = self
+                    self._children_name_map["service_policy"] = "service-policy"
+                    self._children_yang_names.add("service-policy")
 
 
-                class ServicePolicy(object):
+                class ServicePolicy(Entity):
                     """
                     Service policy to be applied in ingress/egress
                     direction
@@ -8330,12 +15851,21 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy, self).__init__()
+
+                        self.yang_name = "service-policy"
+                        self.yang_parent_name = "qos"
+
                         self.input = None
+                        self._children_name_map["input"] = "input"
+                        self._children_yang_names.add("input")
+
                         self.output = None
+                        self._children_name_map["output"] = "output"
+                        self._children_yang_names.add("output")
 
 
-                    class Input(object):
+                    class Input(Entity):
                         """
                         Subscriber ingress policy
                         
@@ -8368,11 +15898,6 @@ class DynamicTemplate(object):
                         	Name of the SPI
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -8383,52 +15908,131 @@ class DynamicTemplate(object):
                         _revision = '2016-04-01'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "input"
+                            self.yang_parent_name = "service-policy"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:input'
+                            self.account_stats = YLeaf(YType.boolean, "account-stats")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.merge = YLeaf(YType.boolean, "merge")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.merge_id = YLeaf(YType.uint32, "merge-id")
+
+                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                            self.spi_name = YLeaf(YType.str, "spi-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("account_stats",
+                                            "merge",
+                                            "merge_id",
+                                            "policy_name",
+                                            "spi_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.account_stats.is_set or
+                                self.merge.is_set or
+                                self.merge_id.is_set or
+                                self.policy_name.is_set or
+                                self.spi_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.account_stats.yfilter != YFilter.not_set or
+                                self.merge.yfilter != YFilter.not_set or
+                                self.merge_id.yfilter != YFilter.not_set or
+                                self.policy_name.yfilter != YFilter.not_set or
+                                self.spi_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "input" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.account_stats.is_set or self.account_stats.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.account_stats.get_name_leafdata())
+                            if (self.merge.is_set or self.merge.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge.get_name_leafdata())
+                            if (self.merge_id.is_set or self.merge_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge_id.get_name_leafdata())
+                            if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.policy_name.get_name_leafdata())
+                            if (self.spi_name.is_set or self.spi_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spi_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "account-stats" or name == "merge" or name == "merge-id" or name == "policy-name" or name == "spi-name"):
                                 return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "account-stats"):
+                                self.account_stats = value
+                                self.account_stats.value_namespace = name_space
+                                self.account_stats.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge"):
+                                self.merge = value
+                                self.merge.value_namespace = name_space
+                                self.merge.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge-id"):
+                                self.merge_id = value
+                                self.merge_id.value_namespace = name_space
+                                self.merge_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "policy-name"):
+                                self.policy_name = value
+                                self.policy_name.value_namespace = name_space
+                                self.policy_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spi-name"):
+                                self.spi_name = value
+                                self.spi_name.value_namespace = name_space
+                                self.spi_name.value_namespace_prefix = name_space_prefix
 
 
-                    class Output(object):
+                    class Output(Entity):
                         """
                         Subscriber egress policy
                         
@@ -8461,11 +16065,6 @@ class DynamicTemplate(object):
                         	Name of the SPI
                         	**type**\:  str
                         
-                        .. attribute:: _is_presence
-                        
-                        	Is present if this instance represents presence container else not
-                        	**type**\: bool
-                        
                         
 
                         This class is a :ref:`presence class<presence-class>`
@@ -8476,84 +16075,196 @@ class DynamicTemplate(object):
                         _revision = '2016-04-01'
 
                         def __init__(self):
-                            self.parent = None
-                            self._is_presence = True
-                            self.account_stats = None
-                            self.merge = None
-                            self.merge_id = None
-                            self.policy_name = None
-                            self.spi_name = None
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "output"
+                            self.yang_parent_name = "service-policy"
+                            self.is_presence_container = True
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+                            self.account_stats = YLeaf(YType.boolean, "account-stats")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
+                            self.merge = YLeaf(YType.boolean, "merge")
 
-                        def _has_data(self):
-                            if self._is_presence:
+                            self.merge_id = YLeaf(YType.uint32, "merge-id")
+
+                            self.policy_name = YLeaf(YType.str, "policy-name")
+
+                            self.spi_name = YLeaf(YType.str, "spi-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("account_stats",
+                                            "merge",
+                                            "merge_id",
+                                            "policy_name",
+                                            "spi_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.account_stats.is_set or
+                                self.merge.is_set or
+                                self.merge_id.is_set or
+                                self.policy_name.is_set or
+                                self.spi_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.account_stats.yfilter != YFilter.not_set or
+                                self.merge.yfilter != YFilter.not_set or
+                                self.merge_id.yfilter != YFilter.not_set or
+                                self.policy_name.yfilter != YFilter.not_set or
+                                self.spi_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "output" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.account_stats.is_set or self.account_stats.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.account_stats.get_name_leafdata())
+                            if (self.merge.is_set or self.merge.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge.get_name_leafdata())
+                            if (self.merge_id.is_set or self.merge_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.merge_id.get_name_leafdata())
+                            if (self.policy_name.is_set or self.policy_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.policy_name.get_name_leafdata())
+                            if (self.spi_name.is_set or self.spi_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.spi_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "account-stats" or name == "merge" or name == "merge-id" or name == "policy-name" or name == "spi-name"):
                                 return True
-                            if self.account_stats is not None:
-                                return True
-
-                            if self.merge is not None:
-                                return True
-
-                            if self.merge_id is not None:
-                                return True
-
-                            if self.policy_name is not None:
-                                return True
-
-                            if self.spi_name is not None:
-                                return True
-
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                            return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output']['meta_info']
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "account-stats"):
+                                self.account_stats = value
+                                self.account_stats.value_namespace = name_space
+                                self.account_stats.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge"):
+                                self.merge = value
+                                self.merge.value_namespace = name_space
+                                self.merge.value_namespace_prefix = name_space_prefix
+                            if(value_path == "merge-id"):
+                                self.merge_id = value
+                                self.merge_id.value_namespace = name_space
+                                self.merge_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "policy-name"):
+                                self.policy_name = value
+                                self.policy_name.value_namespace = name_space
+                                self.policy_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "spi-name"):
+                                self.spi_name = value
+                                self.spi_name.value_namespace = name_space
+                                self.spi_name.value_namespace_prefix = name_space_prefix
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                    def has_data(self):
+                        return (
+                            (self.input is not None) or
+                            (self.output is not None))
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:service-policy'
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            (self.input is not None and self.input.has_operation()) or
+                            (self.output is not None and self.output.has_operation()))
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-policy" + path_buffer
 
-                    def _has_data(self):
-                        if self.input is not None and self.input._has_data():
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "input"):
+                            if (self.input is None):
+                                self.input = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input()
+                                self.input.parent = self
+                                self._children_name_map["input"] = "input"
+                            return self.input
+
+                        if (child_yang_name == "output"):
+                            if (self.output is None):
+                                self.output = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output()
+                                self.output.parent = self
+                                self._children_name_map["output"] = "output"
+                            return self.output
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "input" or name == "output"):
                             return True
-
-                        if self.output is not None and self.output._has_data():
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class Account(object):
+                class Account(Entity):
                     """
                     QoS L2 overhead accounting
                     
                     .. attribute:: aal
                     
                     	ATM adaptation layer AAL
-                    	**type**\:   :py:class:`Qosl2DataLinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLinkEnum>`
+                    	**type**\:   :py:class:`Qosl2DataLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2DataLink>`
                     
                     .. attribute:: atm_cell_tax
                     
@@ -8563,7 +16274,7 @@ class DynamicTemplate(object):
                     .. attribute:: encapsulation
                     
                     	Specify encapsulation type
-                    	**type**\:   :py:class:`Qosl2EncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2EncapEnum>`
+                    	**type**\:   :py:class:`Qosl2Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg.Qosl2Encap>`
                     
                     .. attribute:: user_defined
                     
@@ -8580,45 +16291,119 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
-                        self.aal = None
-                        self.atm_cell_tax = None
-                        self.encapsulation = None
-                        self.user_defined = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "account"
+                        self.yang_parent_name = "qos"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:account'
+                        self.aal = YLeaf(YType.enumeration, "aal")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.atm_cell_tax = YLeaf(YType.empty, "atm-cell-tax")
 
-                    def _has_data(self):
-                        if self.aal is not None:
+                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+
+                        self.user_defined = YLeaf(YType.int32, "user-defined")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("aal",
+                                        "atm_cell_tax",
+                                        "encapsulation",
+                                        "user_defined") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.aal.is_set or
+                            self.atm_cell_tax.is_set or
+                            self.encapsulation.is_set or
+                            self.user_defined.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.aal.yfilter != YFilter.not_set or
+                            self.atm_cell_tax.yfilter != YFilter.not_set or
+                            self.encapsulation.yfilter != YFilter.not_set or
+                            self.user_defined.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "account" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.aal.is_set or self.aal.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.aal.get_name_leafdata())
+                        if (self.atm_cell_tax.is_set or self.atm_cell_tax.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.atm_cell_tax.get_name_leafdata())
+                        if (self.encapsulation.is_set or self.encapsulation.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.encapsulation.get_name_leafdata())
+                        if (self.user_defined.is_set or self.user_defined.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.user_defined.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "aal" or name == "atm-cell-tax" or name == "encapsulation" or name == "user-defined"):
                             return True
-
-                        if self.atm_cell_tax is not None:
-                            return True
-
-                        if self.encapsulation is not None:
-                            return True
-
-                        if self.user_defined is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "aal"):
+                            self.aal = value
+                            self.aal.value_namespace = name_space
+                            self.aal.value_namespace_prefix = name_space_prefix
+                        if(value_path == "atm-cell-tax"):
+                            self.atm_cell_tax = value
+                            self.atm_cell_tax.value_namespace = name_space
+                            self.atm_cell_tax.value_namespace_prefix = name_space_prefix
+                        if(value_path == "encapsulation"):
+                            self.encapsulation = value
+                            self.encapsulation.value_namespace = name_space
+                            self.encapsulation.value_namespace_prefix = name_space_prefix
+                        if(value_path == "user-defined"):
+                            self.user_defined = value
+                            self.user_defined.value_namespace = name_space
+                            self.user_defined.value_namespace_prefix = name_space_prefix
 
 
-                class Output(object):
+                class Output(Entity):
                     """
                     QoS to be applied in egress direction
                     
@@ -8639,61 +16424,152 @@ class DynamicTemplate(object):
                     _revision = '2016-04-01'
 
                     def __init__(self):
-                        self.parent = None
-                        self.minimum_bandwidth = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "output"
+                        self.yang_parent_name = "qos"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:output'
+                        self.minimum_bandwidth = YLeaf(YType.uint32, "minimum-bandwidth")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("minimum_bandwidth") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output, self).__setattr__(name, value)
 
-                    def _has_data(self):
-                        if self.minimum_bandwidth is not None:
+                    def has_data(self):
+                        return self.minimum_bandwidth.is_set
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.minimum_bandwidth.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "output" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.minimum_bandwidth.is_set or self.minimum_bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.minimum_bandwidth.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "minimum-bandwidth"):
                             return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "minimum-bandwidth"):
+                            self.minimum_bandwidth = value
+                            self.minimum_bandwidth.value_namespace = name_space
+                            self.minimum_bandwidth.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        (self.account is not None and self.account.has_data()) or
+                        (self.output is not None and self.output.has_data()) or
+                        (self.service_policy is not None and self.service_policy.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-qos-ma-bng-cfg:qos'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.account is not None and self.account.has_operation()) or
+                        (self.output is not None and self.output.has_operation()) or
+                        (self.service_policy is not None and self.service_policy.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-qos-ma-bng-cfg:qos" + path_buffer
 
-                def _has_data(self):
-                    if self.account is not None and self.account._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "account"):
+                        if (self.account is None):
+                            self.account = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account()
+                            self.account.parent = self
+                            self._children_name_map["account"] = "account"
+                        return self.account
+
+                    if (child_yang_name == "output"):
+                        if (self.output is None):
+                            self.output = DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output()
+                            self.output.parent = self
+                            self._children_name_map["output"] = "output"
+                        return self.output
+
+                    if (child_yang_name == "service-policy"):
+                        if (self.service_policy is None):
+                            self.service_policy = DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy()
+                            self.service_policy.parent = self
+                            self._children_name_map["service_policy"] = "service-policy"
+                        return self.service_policy
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "account" or name == "output" or name == "service-policy"):
                         return True
-
-                    if self.output is not None and self.output._has_data():
-                        return True
-
-                    if self.service_policy is not None and self.service_policy._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Accounting(object):
+            class Accounting(Entity):
                 """
                 Subscriber accounting dynamic\-template commands
                 
@@ -8725,17 +16601,54 @@ class DynamicTemplate(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting, self).__init__()
+
+                    self.yang_name = "accounting"
+                    self.yang_parent_name = "subscriber-service"
+
+                    self.prepaid_feature = YLeaf(YType.str, "prepaid-feature")
+
                     self.idle_timeout = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout()
                     self.idle_timeout.parent = self
-                    self.prepaid_feature = None
+                    self._children_name_map["idle_timeout"] = "idle-timeout"
+                    self._children_yang_names.add("idle-timeout")
+
                     self.service_accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting()
                     self.service_accounting.parent = self
+                    self._children_name_map["service_accounting"] = "service-accounting"
+                    self._children_yang_names.add("service-accounting")
+
                     self.session = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session()
                     self.session.parent = self
+                    self._children_name_map["session"] = "session"
+                    self._children_yang_names.add("session")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("prepaid_feature") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting, self).__setattr__(name, value)
 
 
-                class ServiceAccounting(object):
+                class ServiceAccounting(Entity):
                     """
                     Subscriber accounting service accounting
                     
@@ -8761,37 +16674,97 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.accounting_interim_interval = None
-                        self.method_list_name = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "service-accounting"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:service-accounting'
+                        self.accounting_interim_interval = YLeaf(YType.int32, "accounting-interim-interval")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.method_list_name = YLeaf(YType.str, "method-list-name")
 
-                    def _has_data(self):
-                        if self.accounting_interim_interval is not None:
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("accounting_interim_interval",
+                                        "method_list_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.accounting_interim_interval.is_set or
+                            self.method_list_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.accounting_interim_interval.yfilter != YFilter.not_set or
+                            self.method_list_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "service-accounting" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.accounting_interim_interval.is_set or self.accounting_interim_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.accounting_interim_interval.get_name_leafdata())
+                        if (self.method_list_name.is_set or self.method_list_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.method_list_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "accounting-interim-interval" or name == "method-list-name"):
                             return True
-
-                        if self.method_list_name is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "accounting-interim-interval"):
+                            self.accounting_interim_interval = value
+                            self.accounting_interim_interval.value_namespace = name_space
+                            self.accounting_interim_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "method-list-name"):
+                            self.method_list_name = value
+                            self.method_list_name.value_namespace = name_space
+                            self.method_list_name.value_namespace_prefix = name_space_prefix
 
 
-                class Session(object):
+                class Session(Entity):
                     """
                     Subscriber accounting session accounting
                     
@@ -8833,45 +16806,119 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.dual_stack_delay = None
-                        self.hold_acct_start = None
-                        self.method_list_name = None
-                        self.periodic_interval = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "session"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:session'
+                        self.dual_stack_delay = YLeaf(YType.int32, "dual-stack-delay")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.hold_acct_start = YLeaf(YType.int32, "hold-acct-start")
 
-                    def _has_data(self):
-                        if self.dual_stack_delay is not None:
+                        self.method_list_name = YLeaf(YType.str, "method-list-name")
+
+                        self.periodic_interval = YLeaf(YType.int32, "periodic-interval")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("dual_stack_delay",
+                                        "hold_acct_start",
+                                        "method_list_name",
+                                        "periodic_interval") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.dual_stack_delay.is_set or
+                            self.hold_acct_start.is_set or
+                            self.method_list_name.is_set or
+                            self.periodic_interval.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.dual_stack_delay.yfilter != YFilter.not_set or
+                            self.hold_acct_start.yfilter != YFilter.not_set or
+                            self.method_list_name.yfilter != YFilter.not_set or
+                            self.periodic_interval.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "session" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.dual_stack_delay.is_set or self.dual_stack_delay.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.dual_stack_delay.get_name_leafdata())
+                        if (self.hold_acct_start.is_set or self.hold_acct_start.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.hold_acct_start.get_name_leafdata())
+                        if (self.method_list_name.is_set or self.method_list_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.method_list_name.get_name_leafdata())
+                        if (self.periodic_interval.is_set or self.periodic_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.periodic_interval.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "dual-stack-delay" or name == "hold-acct-start" or name == "method-list-name" or name == "periodic-interval"):
                             return True
-
-                        if self.hold_acct_start is not None:
-                            return True
-
-                        if self.method_list_name is not None:
-                            return True
-
-                        if self.periodic_interval is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "dual-stack-delay"):
+                            self.dual_stack_delay = value
+                            self.dual_stack_delay.value_namespace = name_space
+                            self.dual_stack_delay.value_namespace_prefix = name_space_prefix
+                        if(value_path == "hold-acct-start"):
+                            self.hold_acct_start = value
+                            self.hold_acct_start.value_namespace = name_space
+                            self.hold_acct_start.value_namespace_prefix = name_space_prefix
+                        if(value_path == "method-list-name"):
+                            self.method_list_name = value
+                            self.method_list_name.value_namespace = name_space
+                            self.method_list_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "periodic-interval"):
+                            self.periodic_interval = value
+                            self.periodic_interval.value_namespace = name_space
+                            self.periodic_interval.value_namespace_prefix = name_space_prefix
 
 
-                class IdleTimeout(object):
+                class IdleTimeout(Entity):
                     """
                     Subscriber accounting idle timeout
                     
@@ -8904,168 +16951,440 @@ class DynamicTemplate(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.direction = None
-                        self.threshold = None
-                        self.timeout_value = None
+                        super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "idle-timeout"
+                        self.yang_parent_name = "accounting"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:idle-timeout'
+                        self.direction = YLeaf(YType.str, "direction")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
+                        self.threshold = YLeaf(YType.int32, "threshold")
 
-                    def _has_data(self):
-                        if self.direction is not None:
+                        self.timeout_value = YLeaf(YType.int32, "timeout-value")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("direction",
+                                        "threshold",
+                                        "timeout_value") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.direction.is_set or
+                            self.threshold.is_set or
+                            self.timeout_value.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.direction.yfilter != YFilter.not_set or
+                            self.threshold.yfilter != YFilter.not_set or
+                            self.timeout_value.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "idle-timeout" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.direction.is_set or self.direction.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.direction.get_name_leafdata())
+                        if (self.threshold.is_set or self.threshold.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.threshold.get_name_leafdata())
+                        if (self.timeout_value.is_set or self.timeout_value.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.timeout_value.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "direction" or name == "threshold" or name == "timeout-value"):
                             return True
-
-                        if self.threshold is not None:
-                            return True
-
-                        if self.timeout_value is not None:
-                            return True
-
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                        return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "direction"):
+                            self.direction = value
+                            self.direction.value_namespace = name_space
+                            self.direction.value_namespace_prefix = name_space_prefix
+                        if(value_path == "threshold"):
+                            self.threshold = value
+                            self.threshold.value_namespace = name_space
+                            self.threshold.value_namespace_prefix = name_space_prefix
+                        if(value_path == "timeout-value"):
+                            self.timeout_value = value
+                            self.timeout_value.value_namespace = name_space
+                            self.timeout_value.value_namespace_prefix = name_space_prefix
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                def has_data(self):
+                    return (
+                        self.prepaid_feature.is_set or
+                        (self.idle_timeout is not None and self.idle_timeout.has_data()) or
+                        (self.service_accounting is not None and self.service_accounting.has_data()) or
+                        (self.session is not None and self.session.has_data()))
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-subscriber-accounting-cfg:accounting'
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.prepaid_feature.yfilter != YFilter.not_set or
+                        (self.idle_timeout is not None and self.idle_timeout.has_operation()) or
+                        (self.service_accounting is not None and self.service_accounting.has_operation()) or
+                        (self.session is not None and self.session.has_operation()))
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" + path_buffer
 
-                def _has_data(self):
-                    if self.idle_timeout is not None and self.idle_timeout._has_data():
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.prepaid_feature.is_set or self.prepaid_feature.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prepaid_feature.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "idle-timeout"):
+                        if (self.idle_timeout is None):
+                            self.idle_timeout = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.IdleTimeout()
+                            self.idle_timeout.parent = self
+                            self._children_name_map["idle_timeout"] = "idle-timeout"
+                        return self.idle_timeout
+
+                    if (child_yang_name == "service-accounting"):
+                        if (self.service_accounting is None):
+                            self.service_accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.ServiceAccounting()
+                            self.service_accounting.parent = self
+                            self._children_name_map["service_accounting"] = "service-accounting"
+                        return self.service_accounting
+
+                    if (child_yang_name == "session"):
+                        if (self.session is None):
+                            self.session = DynamicTemplate.SubscriberServices.SubscriberService.Accounting.Session()
+                            self.session.parent = self
+                            self._children_name_map["session"] = "session"
+                        return self.session
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "idle-timeout" or name == "service-accounting" or name == "session" or name == "prepaid-feature"):
                         return True
-
-                    if self.prepaid_feature is not None:
-                        return True
-
-                    if self.service_accounting is not None and self.service_accounting._has_data():
-                        return True
-
-                    if self.session is not None and self.session._has_data():
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                    return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Accounting']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "prepaid-feature"):
+                        self.prepaid_feature = value
+                        self.prepaid_feature.value_namespace = name_space
+                        self.prepaid_feature.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
-                if self.template_name is None:
-                    raise YPYModelError('Key property template_name is None')
+            def has_data(self):
+                return (
+                    self.template_name.is_set or
+                    self.vrf.is_set or
+                    (self.accounting is not None and self.accounting.has_data()) or
+                    (self.ipv4_network is not None and self.ipv4_network.has_data()) or
+                    (self.ipv4_packet_filter is not None and self.ipv4_packet_filter.has_data()) or
+                    (self.ipv6_neighbor is not None and self.ipv6_neighbor.has_data()) or
+                    (self.ipv6_network is not None and self.ipv6_network.has_data()) or
+                    (self.ipv6_packet_filter is not None and self.ipv6_packet_filter.has_data()) or
+                    (self.pbr is not None and self.pbr.has_data()) or
+                    (self.qos is not None and self.qos.has_data()) or
+                    (self.span_monitor_sessions is not None and self.span_monitor_sessions.has_data()))
 
-                return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:subscriber-services/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:subscriber-service[Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:template-name = ' + str(self.template_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.template_name.yfilter != YFilter.not_set or
+                    self.vrf.yfilter != YFilter.not_set or
+                    (self.accounting is not None and self.accounting.has_operation()) or
+                    (self.ipv4_network is not None and self.ipv4_network.has_operation()) or
+                    (self.ipv4_packet_filter is not None and self.ipv4_packet_filter.has_operation()) or
+                    (self.ipv6_neighbor is not None and self.ipv6_neighbor.has_operation()) or
+                    (self.ipv6_network is not None and self.ipv6_network.has_operation()) or
+                    (self.ipv6_packet_filter is not None and self.ipv6_packet_filter.has_operation()) or
+                    (self.pbr is not None and self.pbr.has_operation()) or
+                    (self.qos is not None and self.qos.has_operation()) or
+                    (self.span_monitor_sessions is not None and self.span_monitor_sessions.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "subscriber-service" + "[template-name='" + self.template_name.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.template_name is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/subscriber-services/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.template_name.is_set or self.template_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.template_name.get_name_leafdata())
+                if (self.vrf.is_set or self.vrf.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.vrf.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "accounting"):
+                    if (self.accounting is None):
+                        self.accounting = DynamicTemplate.SubscriberServices.SubscriberService.Accounting()
+                        self.accounting.parent = self
+                        self._children_name_map["accounting"] = "accounting"
+                    return self.accounting
+
+                if (child_yang_name == "ipv4-network"):
+                    if (self.ipv4_network is None):
+                        self.ipv4_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network()
+                        self.ipv4_network.parent = self
+                        self._children_name_map["ipv4_network"] = "ipv4-network"
+                    return self.ipv4_network
+
+                if (child_yang_name == "ipv4-packet-filter"):
+                    if (self.ipv4_packet_filter is None):
+                        self.ipv4_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter()
+                        self.ipv4_packet_filter.parent = self
+                        self._children_name_map["ipv4_packet_filter"] = "ipv4-packet-filter"
+                    return self.ipv4_packet_filter
+
+                if (child_yang_name == "ipv6-neighbor"):
+                    if (self.ipv6_neighbor is None):
+                        self.ipv6_neighbor = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor()
+                        self.ipv6_neighbor.parent = self
+                        self._children_name_map["ipv6_neighbor"] = "ipv6-neighbor"
+                    return self.ipv6_neighbor
+
+                if (child_yang_name == "ipv6-network"):
+                    if (self.ipv6_network is None):
+                        self.ipv6_network = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network()
+                        self.ipv6_network.parent = self
+                        self._children_name_map["ipv6_network"] = "ipv6-network"
+                    return self.ipv6_network
+
+                if (child_yang_name == "ipv6-packet-filter"):
+                    if (self.ipv6_packet_filter is None):
+                        self.ipv6_packet_filter = DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter()
+                        self.ipv6_packet_filter.parent = self
+                        self._children_name_map["ipv6_packet_filter"] = "ipv6-packet-filter"
+                    return self.ipv6_packet_filter
+
+                if (child_yang_name == "pbr"):
+                    if (self.pbr is None):
+                        self.pbr = DynamicTemplate.SubscriberServices.SubscriberService.Pbr()
+                        self.pbr.parent = self
+                        self._children_name_map["pbr"] = "pbr"
+                    return self.pbr
+
+                if (child_yang_name == "qos"):
+                    if (self.qos is None):
+                        self.qos = DynamicTemplate.SubscriberServices.SubscriberService.Qos()
+                        self.qos.parent = self
+                        self._children_name_map["qos"] = "qos"
+                    return self.qos
+
+                if (child_yang_name == "span-monitor-sessions"):
+                    if (self.span_monitor_sessions is None):
+                        self.span_monitor_sessions = DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions()
+                        self.span_monitor_sessions.parent = self
+                        self._children_name_map["span_monitor_sessions"] = "span-monitor-sessions"
+                    return self.span_monitor_sessions
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "accounting" or name == "ipv4-network" or name == "ipv4-packet-filter" or name == "ipv6-neighbor" or name == "ipv6-network" or name == "ipv6-packet-filter" or name == "pbr" or name == "qos" or name == "span-monitor-sessions" or name == "template-name" or name == "vrf"):
                     return True
-
-                if self.accounting is not None and self.accounting._has_data():
-                    return True
-
-                if self.ipv4_network is not None and self.ipv4_network._has_data():
-                    return True
-
-                if self.ipv4_packet_filter is not None and self.ipv4_packet_filter._has_data():
-                    return True
-
-                if self.ipv6_neighbor is not None and self.ipv6_neighbor._has_data():
-                    return True
-
-                if self.ipv6_network is not None and self.ipv6_network._has_data():
-                    return True
-
-                if self.ipv6_packet_filter is not None and self.ipv6_packet_filter._has_data():
-                    return True
-
-                if self.pbr is not None and self.pbr._has_data():
-                    return True
-
-                if self.qos is not None and self.qos._has_data():
-                    return True
-
-                if self.span_monitor_sessions is not None and self.span_monitor_sessions._has_data():
-                    return True
-
-                if self.vrf is not None:
-                    return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-                return meta._meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "template-name"):
+                    self.template_name = value
+                    self.template_name.value_namespace = name_space
+                    self.template_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "vrf"):
+                    self.vrf = value
+                    self.vrf.value_namespace = name_space
+                    self.vrf.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:subscriber-services'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if self.subscriber_service is not None:
-                for child_ref in self.subscriber_service:
-                    if child_ref._has_data():
-                        return True
-
+        def has_data(self):
+            for c in self.subscriber_service:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-            return meta._meta_table['DynamicTemplate.SubscriberServices']['meta_info']
+        def has_operation(self):
+            for c in self.subscriber_service:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "subscriber-services" + path_buffer
 
-        return '/Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.ip_subscribers is not None and self.ip_subscribers._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "subscriber-service"):
+                for c in self.subscriber_service:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = DynamicTemplate.SubscriberServices.SubscriberService()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.subscriber_service.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "subscriber-service"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (
+            (self.ip_subscribers is not None and self.ip_subscribers.has_data()) or
+            (self.ppps is not None and self.ppps.has_data()) or
+            (self.subscriber_services is not None and self.subscriber_services.has_data()))
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ip_subscribers is not None and self.ip_subscribers.has_operation()) or
+            (self.ppps is not None and self.ppps.has_operation()) or
+            (self.subscriber_services is not None and self.subscriber_services.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ip-subscribers"):
+            if (self.ip_subscribers is None):
+                self.ip_subscribers = DynamicTemplate.IpSubscribers()
+                self.ip_subscribers.parent = self
+                self._children_name_map["ip_subscribers"] = "ip-subscribers"
+            return self.ip_subscribers
+
+        if (child_yang_name == "ppps"):
+            if (self.ppps is None):
+                self.ppps = DynamicTemplate.Ppps()
+                self.ppps.parent = self
+                self._children_name_map["ppps"] = "ppps"
+            return self.ppps
+
+        if (child_yang_name == "subscriber-services"):
+            if (self.subscriber_services is None):
+                self.subscriber_services = DynamicTemplate.SubscriberServices()
+                self.subscriber_services.parent = self
+                self._children_name_map["subscriber_services"] = "subscriber-services"
+            return self.subscriber_services
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ip-subscribers" or name == "ppps" or name == "subscriber-services"):
             return True
-
-        if self.ppps is not None and self.ppps._has_data():
-            return True
-
-        if self.subscriber_services is not None and self.subscriber_services._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg as meta
-        return meta._meta_table['DynamicTemplate']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = DynamicTemplate()
+        return self._top_entity
 

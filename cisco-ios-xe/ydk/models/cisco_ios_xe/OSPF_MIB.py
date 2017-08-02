@@ -12,22 +12,16 @@ RFC 4750;  see the RFC itself for full legal
 notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class OspfauthenticationtypeEnum(Enum):
+class Ospfauthenticationtype(Enum):
     """
-    OspfauthenticationtypeEnum
+    Ospfauthenticationtype
 
     The authentication type.
 
@@ -39,22 +33,16 @@ class OspfauthenticationtypeEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    simplePassword = 1
+    simplePassword = Enum.YLeaf(1, "simplePassword")
 
-    md5 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-        return meta._meta_table['OspfauthenticationtypeEnum']
+    md5 = Enum.YLeaf(2, "md5")
 
 
-class StatusEnum(Enum):
+class Status(Enum):
     """
-    StatusEnum
+    Status
 
     An indication of the operability of an OSPF
 
@@ -72,19 +60,13 @@ class StatusEnum(Enum):
 
     """
 
-    enabled = 1
+    enabled = Enum.YLeaf(1, "enabled")
 
-    disabled = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-        return meta._meta_table['StatusEnum']
+    disabled = Enum.YLeaf(2, "disabled")
 
 
 
-class OspfMib(object):
+class OspfMib(Entity):
     """
     
     
@@ -185,50 +167,106 @@ class OspfMib(object):
     _revision = '2006-11-10'
 
     def __init__(self):
+        super(OspfMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "OSPF-MIB"
+        self.yang_parent_name = "OSPF-MIB"
+
         self.ospfareaaggregatetable = OspfMib.Ospfareaaggregatetable()
         self.ospfareaaggregatetable.parent = self
+        self._children_name_map["ospfareaaggregatetable"] = "ospfAreaAggregateTable"
+        self._children_yang_names.add("ospfAreaAggregateTable")
+
         self.ospfarealsacounttable = OspfMib.Ospfarealsacounttable()
         self.ospfarealsacounttable.parent = self
+        self._children_name_map["ospfarealsacounttable"] = "ospfAreaLsaCountTable"
+        self._children_yang_names.add("ospfAreaLsaCountTable")
+
         self.ospfarearangetable = OspfMib.Ospfarearangetable()
         self.ospfarearangetable.parent = self
+        self._children_name_map["ospfarearangetable"] = "ospfAreaRangeTable"
+        self._children_yang_names.add("ospfAreaRangeTable")
+
         self.ospfareatable = OspfMib.Ospfareatable()
         self.ospfareatable.parent = self
+        self._children_name_map["ospfareatable"] = "ospfAreaTable"
+        self._children_yang_names.add("ospfAreaTable")
+
         self.ospfaslsdbtable = OspfMib.Ospfaslsdbtable()
         self.ospfaslsdbtable.parent = self
+        self._children_name_map["ospfaslsdbtable"] = "ospfAsLsdbTable"
+        self._children_yang_names.add("ospfAsLsdbTable")
+
         self.ospfextlsdbtable = OspfMib.Ospfextlsdbtable()
         self.ospfextlsdbtable.parent = self
+        self._children_name_map["ospfextlsdbtable"] = "ospfExtLsdbTable"
+        self._children_yang_names.add("ospfExtLsdbTable")
+
         self.ospfgeneralgroup = OspfMib.Ospfgeneralgroup()
         self.ospfgeneralgroup.parent = self
+        self._children_name_map["ospfgeneralgroup"] = "ospfGeneralGroup"
+        self._children_yang_names.add("ospfGeneralGroup")
+
         self.ospfhosttable = OspfMib.Ospfhosttable()
         self.ospfhosttable.parent = self
+        self._children_name_map["ospfhosttable"] = "ospfHostTable"
+        self._children_yang_names.add("ospfHostTable")
+
         self.ospfifmetrictable = OspfMib.Ospfifmetrictable()
         self.ospfifmetrictable.parent = self
+        self._children_name_map["ospfifmetrictable"] = "ospfIfMetricTable"
+        self._children_yang_names.add("ospfIfMetricTable")
+
         self.ospfiftable = OspfMib.Ospfiftable()
         self.ospfiftable.parent = self
+        self._children_name_map["ospfiftable"] = "ospfIfTable"
+        self._children_yang_names.add("ospfIfTable")
+
         self.ospflocallsdbtable = OspfMib.Ospflocallsdbtable()
         self.ospflocallsdbtable.parent = self
+        self._children_name_map["ospflocallsdbtable"] = "ospfLocalLsdbTable"
+        self._children_yang_names.add("ospfLocalLsdbTable")
+
         self.ospflsdbtable = OspfMib.Ospflsdbtable()
         self.ospflsdbtable.parent = self
+        self._children_name_map["ospflsdbtable"] = "ospfLsdbTable"
+        self._children_yang_names.add("ospfLsdbTable")
+
         self.ospfnbrtable = OspfMib.Ospfnbrtable()
         self.ospfnbrtable.parent = self
+        self._children_name_map["ospfnbrtable"] = "ospfNbrTable"
+        self._children_yang_names.add("ospfNbrTable")
+
         self.ospfstubareatable = OspfMib.Ospfstubareatable()
         self.ospfstubareatable.parent = self
+        self._children_name_map["ospfstubareatable"] = "ospfStubAreaTable"
+        self._children_yang_names.add("ospfStubAreaTable")
+
         self.ospfvirtiftable = OspfMib.Ospfvirtiftable()
         self.ospfvirtiftable.parent = self
+        self._children_name_map["ospfvirtiftable"] = "ospfVirtIfTable"
+        self._children_yang_names.add("ospfVirtIfTable")
+
         self.ospfvirtlocallsdbtable = OspfMib.Ospfvirtlocallsdbtable()
         self.ospfvirtlocallsdbtable.parent = self
+        self._children_name_map["ospfvirtlocallsdbtable"] = "ospfVirtLocalLsdbTable"
+        self._children_yang_names.add("ospfVirtLocalLsdbTable")
+
         self.ospfvirtnbrtable = OspfMib.Ospfvirtnbrtable()
         self.ospfvirtnbrtable.parent = self
+        self._children_name_map["ospfvirtnbrtable"] = "ospfVirtNbrTable"
+        self._children_yang_names.add("ospfVirtNbrTable")
 
 
-    class Ospfgeneralgroup(object):
+    class Ospfgeneralgroup(Entity):
         """
         
         
         .. attribute:: ospfadminstat
         
         	The administrative status of OSPF in the router.  The value 'enabled' denotes that the OSPF Process is active on at least one interface; 'disabled' disables it on all interfaces.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:   :py:class:`StatusEnum <ydk.models.cisco_ios_xe.OSPF_MIB.StatusEnum>`
+        	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
         
         .. attribute:: ospfareabdrrtrstatus
         
@@ -334,7 +372,7 @@ class OspfMib(object):
         .. attribute:: ospfrestartexitreason
         
         	Describes the outcome of the last attempt at a graceful restart.  If the value is 'none', no restart has yet been attempted.  If the value is 'inProgress', a restart attempt is currently underway
-        	**type**\:   :py:class:`OspfrestartexitreasonEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.OspfrestartexitreasonEnum>`
+        	**type**\:   :py:class:`Ospfrestartexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.Ospfrestartexitreason>`
         
         .. attribute:: ospfrestartinterval
         
@@ -348,7 +386,7 @@ class OspfMib(object):
         .. attribute:: ospfrestartstatus
         
         	Current status of OSPF graceful restart
-        	**type**\:   :py:class:`OspfrestartstatusEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.OspfrestartstatusEnum>`
+        	**type**\:   :py:class:`Ospfrestartstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.Ospfrestartstatus>`
         
         .. attribute:: ospfrestartstrictlsachecking
         
@@ -358,7 +396,7 @@ class OspfMib(object):
         .. attribute:: ospfrestartsupport
         
         	The router's support for OSPF graceful restart. Options include\: no restart support, only planned restarts, or both planned and unplanned restarts.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:   :py:class:`OspfrestartsupportEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.OspfrestartsupportEnum>`
+        	**type**\:   :py:class:`Ospfrestartsupport <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.Ospfrestartsupport>`
         
         .. attribute:: ospfrfc1583compatibility
         
@@ -382,7 +420,7 @@ class OspfMib(object):
         .. attribute:: ospfstubrouteradvertisement
         
         	This object controls the advertisement of stub router LSAs by the router.  The value doNotAdvertise will result in the advertisement of a standard router LSA and is the default value.  This object is persistent and when written the entity SHOULD save the change to non\-volatile storage
-        	**type**\:   :py:class:`OspfstubrouteradvertisementEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.OspfstubrouteradvertisementEnum>`
+        	**type**\:   :py:class:`Ospfstubrouteradvertisement <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.Ospfstubrouteradvertisement>`
         
         .. attribute:: ospfstubroutersupport
         
@@ -397,7 +435,7 @@ class OspfMib(object):
         .. attribute:: ospfversionnumber
         
         	The current version number of the OSPF protocol is 2
-        	**type**\:   :py:class:`OspfversionnumberEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.OspfversionnumberEnum>`
+        	**type**\:   :py:class:`Ospfversionnumber <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfgeneralgroup.Ospfversionnumber>`
         
         
 
@@ -407,39 +445,121 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfadminstat = None
-            self.ospfareabdrrtrstatus = None
-            self.ospfasbdrrtrstatus = None
-            self.ospfaslsacksumsum = None
-            self.ospfaslsacount = None
-            self.ospfdemandextensions = None
-            self.ospfdiscontinuitytime = None
-            self.ospfexitoverflowinterval = None
-            self.ospfexternlsacksumsum = None
-            self.ospfexternlsacount = None
-            self.ospfextlsdblimit = None
-            self.ospfmulticastextensions = None
-            self.ospfopaquelsasupport = None
-            self.ospforiginatenewlsas = None
-            self.ospfreferencebandwidth = None
-            self.ospfrestartage = None
-            self.ospfrestartexitreason = None
-            self.ospfrestartinterval = None
-            self.ospfrestartstatus = None
-            self.ospfrestartstrictlsachecking = None
-            self.ospfrestartsupport = None
-            self.ospfrfc1583compatibility = None
-            self.ospfrouterid = None
-            self.ospfrxnewlsas = None
-            self.ospfstubrouteradvertisement = None
-            self.ospfstubroutersupport = None
-            self.ospftossupport = None
-            self.ospfversionnumber = None
+            super(OspfMib.Ospfgeneralgroup, self).__init__()
 
-        class OspfrestartexitreasonEnum(Enum):
+            self.yang_name = "ospfGeneralGroup"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfadminstat = YLeaf(YType.enumeration, "ospfAdminStat")
+
+            self.ospfareabdrrtrstatus = YLeaf(YType.boolean, "ospfAreaBdrRtrStatus")
+
+            self.ospfasbdrrtrstatus = YLeaf(YType.boolean, "ospfASBdrRtrStatus")
+
+            self.ospfaslsacksumsum = YLeaf(YType.uint32, "ospfAsLsaCksumSum")
+
+            self.ospfaslsacount = YLeaf(YType.uint32, "ospfAsLsaCount")
+
+            self.ospfdemandextensions = YLeaf(YType.boolean, "ospfDemandExtensions")
+
+            self.ospfdiscontinuitytime = YLeaf(YType.uint32, "ospfDiscontinuityTime")
+
+            self.ospfexitoverflowinterval = YLeaf(YType.int32, "ospfExitOverflowInterval")
+
+            self.ospfexternlsacksumsum = YLeaf(YType.int32, "ospfExternLsaCksumSum")
+
+            self.ospfexternlsacount = YLeaf(YType.uint32, "ospfExternLsaCount")
+
+            self.ospfextlsdblimit = YLeaf(YType.int32, "ospfExtLsdbLimit")
+
+            self.ospfmulticastextensions = YLeaf(YType.int32, "ospfMulticastExtensions")
+
+            self.ospfopaquelsasupport = YLeaf(YType.boolean, "ospfOpaqueLsaSupport")
+
+            self.ospforiginatenewlsas = YLeaf(YType.uint32, "ospfOriginateNewLsas")
+
+            self.ospfreferencebandwidth = YLeaf(YType.uint32, "ospfReferenceBandwidth")
+
+            self.ospfrestartage = YLeaf(YType.uint32, "ospfRestartAge")
+
+            self.ospfrestartexitreason = YLeaf(YType.enumeration, "ospfRestartExitReason")
+
+            self.ospfrestartinterval = YLeaf(YType.int32, "ospfRestartInterval")
+
+            self.ospfrestartstatus = YLeaf(YType.enumeration, "ospfRestartStatus")
+
+            self.ospfrestartstrictlsachecking = YLeaf(YType.boolean, "ospfRestartStrictLsaChecking")
+
+            self.ospfrestartsupport = YLeaf(YType.enumeration, "ospfRestartSupport")
+
+            self.ospfrfc1583compatibility = YLeaf(YType.boolean, "ospfRFC1583Compatibility")
+
+            self.ospfrouterid = YLeaf(YType.str, "ospfRouterId")
+
+            self.ospfrxnewlsas = YLeaf(YType.uint32, "ospfRxNewLsas")
+
+            self.ospfstubrouteradvertisement = YLeaf(YType.enumeration, "ospfStubRouterAdvertisement")
+
+            self.ospfstubroutersupport = YLeaf(YType.boolean, "ospfStubRouterSupport")
+
+            self.ospftossupport = YLeaf(YType.boolean, "ospfTOSSupport")
+
+            self.ospfversionnumber = YLeaf(YType.enumeration, "ospfVersionNumber")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ospfadminstat",
+                            "ospfareabdrrtrstatus",
+                            "ospfasbdrrtrstatus",
+                            "ospfaslsacksumsum",
+                            "ospfaslsacount",
+                            "ospfdemandextensions",
+                            "ospfdiscontinuitytime",
+                            "ospfexitoverflowinterval",
+                            "ospfexternlsacksumsum",
+                            "ospfexternlsacount",
+                            "ospfextlsdblimit",
+                            "ospfmulticastextensions",
+                            "ospfopaquelsasupport",
+                            "ospforiginatenewlsas",
+                            "ospfreferencebandwidth",
+                            "ospfrestartage",
+                            "ospfrestartexitreason",
+                            "ospfrestartinterval",
+                            "ospfrestartstatus",
+                            "ospfrestartstrictlsachecking",
+                            "ospfrestartsupport",
+                            "ospfrfc1583compatibility",
+                            "ospfrouterid",
+                            "ospfrxnewlsas",
+                            "ospfstubrouteradvertisement",
+                            "ospfstubroutersupport",
+                            "ospftossupport",
+                            "ospfversionnumber") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfgeneralgroup, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfgeneralgroup, self).__setattr__(name, value)
+
+        class Ospfrestartexitreason(Enum):
             """
-            OspfrestartexitreasonEnum
+            Ospfrestartexitreason
 
             Describes the outcome of the last attempt at a
 
@@ -461,26 +581,20 @@ class OspfMib(object):
 
             """
 
-            none = 1
+            none = Enum.YLeaf(1, "none")
 
-            inProgress = 2
+            inProgress = Enum.YLeaf(2, "inProgress")
 
-            completed = 3
+            completed = Enum.YLeaf(3, "completed")
 
-            timedOut = 4
+            timedOut = Enum.YLeaf(4, "timedOut")
 
-            topologyChanged = 5
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfgeneralgroup.OspfrestartexitreasonEnum']
+            topologyChanged = Enum.YLeaf(5, "topologyChanged")
 
 
-        class OspfrestartstatusEnum(Enum):
+        class Ospfrestartstatus(Enum):
             """
-            OspfrestartstatusEnum
+            Ospfrestartstatus
 
             Current status of OSPF graceful restart.
 
@@ -492,22 +606,16 @@ class OspfMib(object):
 
             """
 
-            notRestarting = 1
+            notRestarting = Enum.YLeaf(1, "notRestarting")
 
-            plannedRestart = 2
+            plannedRestart = Enum.YLeaf(2, "plannedRestart")
 
-            unplannedRestart = 3
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfgeneralgroup.OspfrestartstatusEnum']
+            unplannedRestart = Enum.YLeaf(3, "unplannedRestart")
 
 
-        class OspfrestartsupportEnum(Enum):
+        class Ospfrestartsupport(Enum):
             """
-            OspfrestartsupportEnum
+            Ospfrestartsupport
 
             The router's support for OSPF graceful restart.
 
@@ -529,22 +637,16 @@ class OspfMib(object):
 
             """
 
-            none = 1
+            none = Enum.YLeaf(1, "none")
 
-            plannedOnly = 2
+            plannedOnly = Enum.YLeaf(2, "plannedOnly")
 
-            plannedAndUnplanned = 3
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfgeneralgroup.OspfrestartsupportEnum']
+            plannedAndUnplanned = Enum.YLeaf(3, "plannedAndUnplanned")
 
 
-        class OspfstubrouteradvertisementEnum(Enum):
+        class Ospfstubrouteradvertisement(Enum):
             """
-            OspfstubrouteradvertisementEnum
+            Ospfstubrouteradvertisement
 
             This object controls the advertisement of
 
@@ -566,20 +668,14 @@ class OspfMib(object):
 
             """
 
-            doNotAdvertise = 1
+            doNotAdvertise = Enum.YLeaf(1, "doNotAdvertise")
 
-            advertise = 2
-
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfgeneralgroup.OspfstubrouteradvertisementEnum']
+            advertise = Enum.YLeaf(2, "advertise")
 
 
-        class OspfversionnumberEnum(Enum):
+        class Ospfversionnumber(Enum):
             """
-            OspfversionnumberEnum
+            Ospfversionnumber
 
             The current version number of the OSPF protocol is 2.
 
@@ -587,118 +683,274 @@ class OspfMib(object):
 
             """
 
-            version2 = 2
+            version2 = Enum.YLeaf(2, "version2")
 
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfgeneralgroup.OspfversionnumberEnum']
+        def has_data(self):
+            return (
+                self.ospfadminstat.is_set or
+                self.ospfareabdrrtrstatus.is_set or
+                self.ospfasbdrrtrstatus.is_set or
+                self.ospfaslsacksumsum.is_set or
+                self.ospfaslsacount.is_set or
+                self.ospfdemandextensions.is_set or
+                self.ospfdiscontinuitytime.is_set or
+                self.ospfexitoverflowinterval.is_set or
+                self.ospfexternlsacksumsum.is_set or
+                self.ospfexternlsacount.is_set or
+                self.ospfextlsdblimit.is_set or
+                self.ospfmulticastextensions.is_set or
+                self.ospfopaquelsasupport.is_set or
+                self.ospforiginatenewlsas.is_set or
+                self.ospfreferencebandwidth.is_set or
+                self.ospfrestartage.is_set or
+                self.ospfrestartexitreason.is_set or
+                self.ospfrestartinterval.is_set or
+                self.ospfrestartstatus.is_set or
+                self.ospfrestartstrictlsachecking.is_set or
+                self.ospfrestartsupport.is_set or
+                self.ospfrfc1583compatibility.is_set or
+                self.ospfrouterid.is_set or
+                self.ospfrxnewlsas.is_set or
+                self.ospfstubrouteradvertisement.is_set or
+                self.ospfstubroutersupport.is_set or
+                self.ospftossupport.is_set or
+                self.ospfversionnumber.is_set)
 
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ospfadminstat.yfilter != YFilter.not_set or
+                self.ospfareabdrrtrstatus.yfilter != YFilter.not_set or
+                self.ospfasbdrrtrstatus.yfilter != YFilter.not_set or
+                self.ospfaslsacksumsum.yfilter != YFilter.not_set or
+                self.ospfaslsacount.yfilter != YFilter.not_set or
+                self.ospfdemandextensions.yfilter != YFilter.not_set or
+                self.ospfdiscontinuitytime.yfilter != YFilter.not_set or
+                self.ospfexitoverflowinterval.yfilter != YFilter.not_set or
+                self.ospfexternlsacksumsum.yfilter != YFilter.not_set or
+                self.ospfexternlsacount.yfilter != YFilter.not_set or
+                self.ospfextlsdblimit.yfilter != YFilter.not_set or
+                self.ospfmulticastextensions.yfilter != YFilter.not_set or
+                self.ospfopaquelsasupport.yfilter != YFilter.not_set or
+                self.ospforiginatenewlsas.yfilter != YFilter.not_set or
+                self.ospfreferencebandwidth.yfilter != YFilter.not_set or
+                self.ospfrestartage.yfilter != YFilter.not_set or
+                self.ospfrestartexitreason.yfilter != YFilter.not_set or
+                self.ospfrestartinterval.yfilter != YFilter.not_set or
+                self.ospfrestartstatus.yfilter != YFilter.not_set or
+                self.ospfrestartstrictlsachecking.yfilter != YFilter.not_set or
+                self.ospfrestartsupport.yfilter != YFilter.not_set or
+                self.ospfrfc1583compatibility.yfilter != YFilter.not_set or
+                self.ospfrouterid.yfilter != YFilter.not_set or
+                self.ospfrxnewlsas.yfilter != YFilter.not_set or
+                self.ospfstubrouteradvertisement.yfilter != YFilter.not_set or
+                self.ospfstubroutersupport.yfilter != YFilter.not_set or
+                self.ospftossupport.yfilter != YFilter.not_set or
+                self.ospfversionnumber.yfilter != YFilter.not_set)
 
-        @property
-        def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfGeneralGroup" + path_buffer
 
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfGeneralGroup'
+            return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ospfadminstat.is_set or self.ospfadminstat.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfadminstat.get_name_leafdata())
+            if (self.ospfareabdrrtrstatus.is_set or self.ospfareabdrrtrstatus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfareabdrrtrstatus.get_name_leafdata())
+            if (self.ospfasbdrrtrstatus.is_set or self.ospfasbdrrtrstatus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfasbdrrtrstatus.get_name_leafdata())
+            if (self.ospfaslsacksumsum.is_set or self.ospfaslsacksumsum.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfaslsacksumsum.get_name_leafdata())
+            if (self.ospfaslsacount.is_set or self.ospfaslsacount.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfaslsacount.get_name_leafdata())
+            if (self.ospfdemandextensions.is_set or self.ospfdemandextensions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfdemandextensions.get_name_leafdata())
+            if (self.ospfdiscontinuitytime.is_set or self.ospfdiscontinuitytime.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfdiscontinuitytime.get_name_leafdata())
+            if (self.ospfexitoverflowinterval.is_set or self.ospfexitoverflowinterval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfexitoverflowinterval.get_name_leafdata())
+            if (self.ospfexternlsacksumsum.is_set or self.ospfexternlsacksumsum.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfexternlsacksumsum.get_name_leafdata())
+            if (self.ospfexternlsacount.is_set or self.ospfexternlsacount.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfexternlsacount.get_name_leafdata())
+            if (self.ospfextlsdblimit.is_set or self.ospfextlsdblimit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfextlsdblimit.get_name_leafdata())
+            if (self.ospfmulticastextensions.is_set or self.ospfmulticastextensions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfmulticastextensions.get_name_leafdata())
+            if (self.ospfopaquelsasupport.is_set or self.ospfopaquelsasupport.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfopaquelsasupport.get_name_leafdata())
+            if (self.ospforiginatenewlsas.is_set or self.ospforiginatenewlsas.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospforiginatenewlsas.get_name_leafdata())
+            if (self.ospfreferencebandwidth.is_set or self.ospfreferencebandwidth.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfreferencebandwidth.get_name_leafdata())
+            if (self.ospfrestartage.is_set or self.ospfrestartage.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrestartage.get_name_leafdata())
+            if (self.ospfrestartexitreason.is_set or self.ospfrestartexitreason.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrestartexitreason.get_name_leafdata())
+            if (self.ospfrestartinterval.is_set or self.ospfrestartinterval.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrestartinterval.get_name_leafdata())
+            if (self.ospfrestartstatus.is_set or self.ospfrestartstatus.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrestartstatus.get_name_leafdata())
+            if (self.ospfrestartstrictlsachecking.is_set or self.ospfrestartstrictlsachecking.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrestartstrictlsachecking.get_name_leafdata())
+            if (self.ospfrestartsupport.is_set or self.ospfrestartsupport.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrestartsupport.get_name_leafdata())
+            if (self.ospfrfc1583compatibility.is_set or self.ospfrfc1583compatibility.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrfc1583compatibility.get_name_leafdata())
+            if (self.ospfrouterid.is_set or self.ospfrouterid.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrouterid.get_name_leafdata())
+            if (self.ospfrxnewlsas.is_set or self.ospfrxnewlsas.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfrxnewlsas.get_name_leafdata())
+            if (self.ospfstubrouteradvertisement.is_set or self.ospfstubrouteradvertisement.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfstubrouteradvertisement.get_name_leafdata())
+            if (self.ospfstubroutersupport.is_set or self.ospfstubroutersupport.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfstubroutersupport.get_name_leafdata())
+            if (self.ospftossupport.is_set or self.ospftossupport.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospftossupport.get_name_leafdata())
+            if (self.ospfversionnumber.is_set or self.ospfversionnumber.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ospfversionnumber.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfAdminStat" or name == "ospfAreaBdrRtrStatus" or name == "ospfASBdrRtrStatus" or name == "ospfAsLsaCksumSum" or name == "ospfAsLsaCount" or name == "ospfDemandExtensions" or name == "ospfDiscontinuityTime" or name == "ospfExitOverflowInterval" or name == "ospfExternLsaCksumSum" or name == "ospfExternLsaCount" or name == "ospfExtLsdbLimit" or name == "ospfMulticastExtensions" or name == "ospfOpaqueLsaSupport" or name == "ospfOriginateNewLsas" or name == "ospfReferenceBandwidth" or name == "ospfRestartAge" or name == "ospfRestartExitReason" or name == "ospfRestartInterval" or name == "ospfRestartStatus" or name == "ospfRestartStrictLsaChecking" or name == "ospfRestartSupport" or name == "ospfRFC1583Compatibility" or name == "ospfRouterId" or name == "ospfRxNewLsas" or name == "ospfStubRouterAdvertisement" or name == "ospfStubRouterSupport" or name == "ospfTOSSupport" or name == "ospfVersionNumber"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ospfadminstat is not None:
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "ospfAdminStat"):
+                self.ospfadminstat = value
+                self.ospfadminstat.value_namespace = name_space
+                self.ospfadminstat.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfAreaBdrRtrStatus"):
+                self.ospfareabdrrtrstatus = value
+                self.ospfareabdrrtrstatus.value_namespace = name_space
+                self.ospfareabdrrtrstatus.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfASBdrRtrStatus"):
+                self.ospfasbdrrtrstatus = value
+                self.ospfasbdrrtrstatus.value_namespace = name_space
+                self.ospfasbdrrtrstatus.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfAsLsaCksumSum"):
+                self.ospfaslsacksumsum = value
+                self.ospfaslsacksumsum.value_namespace = name_space
+                self.ospfaslsacksumsum.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfAsLsaCount"):
+                self.ospfaslsacount = value
+                self.ospfaslsacount.value_namespace = name_space
+                self.ospfaslsacount.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfDemandExtensions"):
+                self.ospfdemandextensions = value
+                self.ospfdemandextensions.value_namespace = name_space
+                self.ospfdemandextensions.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfDiscontinuityTime"):
+                self.ospfdiscontinuitytime = value
+                self.ospfdiscontinuitytime.value_namespace = name_space
+                self.ospfdiscontinuitytime.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfExitOverflowInterval"):
+                self.ospfexitoverflowinterval = value
+                self.ospfexitoverflowinterval.value_namespace = name_space
+                self.ospfexitoverflowinterval.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfExternLsaCksumSum"):
+                self.ospfexternlsacksumsum = value
+                self.ospfexternlsacksumsum.value_namespace = name_space
+                self.ospfexternlsacksumsum.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfExternLsaCount"):
+                self.ospfexternlsacount = value
+                self.ospfexternlsacount.value_namespace = name_space
+                self.ospfexternlsacount.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfExtLsdbLimit"):
+                self.ospfextlsdblimit = value
+                self.ospfextlsdblimit.value_namespace = name_space
+                self.ospfextlsdblimit.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfMulticastExtensions"):
+                self.ospfmulticastextensions = value
+                self.ospfmulticastextensions.value_namespace = name_space
+                self.ospfmulticastextensions.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfOpaqueLsaSupport"):
+                self.ospfopaquelsasupport = value
+                self.ospfopaquelsasupport.value_namespace = name_space
+                self.ospfopaquelsasupport.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfOriginateNewLsas"):
+                self.ospforiginatenewlsas = value
+                self.ospforiginatenewlsas.value_namespace = name_space
+                self.ospforiginatenewlsas.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfReferenceBandwidth"):
+                self.ospfreferencebandwidth = value
+                self.ospfreferencebandwidth.value_namespace = name_space
+                self.ospfreferencebandwidth.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRestartAge"):
+                self.ospfrestartage = value
+                self.ospfrestartage.value_namespace = name_space
+                self.ospfrestartage.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRestartExitReason"):
+                self.ospfrestartexitreason = value
+                self.ospfrestartexitreason.value_namespace = name_space
+                self.ospfrestartexitreason.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRestartInterval"):
+                self.ospfrestartinterval = value
+                self.ospfrestartinterval.value_namespace = name_space
+                self.ospfrestartinterval.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRestartStatus"):
+                self.ospfrestartstatus = value
+                self.ospfrestartstatus.value_namespace = name_space
+                self.ospfrestartstatus.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRestartStrictLsaChecking"):
+                self.ospfrestartstrictlsachecking = value
+                self.ospfrestartstrictlsachecking.value_namespace = name_space
+                self.ospfrestartstrictlsachecking.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRestartSupport"):
+                self.ospfrestartsupport = value
+                self.ospfrestartsupport.value_namespace = name_space
+                self.ospfrestartsupport.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRFC1583Compatibility"):
+                self.ospfrfc1583compatibility = value
+                self.ospfrfc1583compatibility.value_namespace = name_space
+                self.ospfrfc1583compatibility.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRouterId"):
+                self.ospfrouterid = value
+                self.ospfrouterid.value_namespace = name_space
+                self.ospfrouterid.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfRxNewLsas"):
+                self.ospfrxnewlsas = value
+                self.ospfrxnewlsas.value_namespace = name_space
+                self.ospfrxnewlsas.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfStubRouterAdvertisement"):
+                self.ospfstubrouteradvertisement = value
+                self.ospfstubrouteradvertisement.value_namespace = name_space
+                self.ospfstubrouteradvertisement.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfStubRouterSupport"):
+                self.ospfstubroutersupport = value
+                self.ospfstubroutersupport.value_namespace = name_space
+                self.ospfstubroutersupport.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfTOSSupport"):
+                self.ospftossupport = value
+                self.ospftossupport.value_namespace = name_space
+                self.ospftossupport.value_namespace_prefix = name_space_prefix
+            if(value_path == "ospfVersionNumber"):
+                self.ospfversionnumber = value
+                self.ospfversionnumber.value_namespace = name_space
+                self.ospfversionnumber.value_namespace_prefix = name_space_prefix
 
-            if self.ospfareabdrrtrstatus is not None:
-                return True
 
-            if self.ospfasbdrrtrstatus is not None:
-                return True
-
-            if self.ospfaslsacksumsum is not None:
-                return True
-
-            if self.ospfaslsacount is not None:
-                return True
-
-            if self.ospfdemandextensions is not None:
-                return True
-
-            if self.ospfdiscontinuitytime is not None:
-                return True
-
-            if self.ospfexitoverflowinterval is not None:
-                return True
-
-            if self.ospfexternlsacksumsum is not None:
-                return True
-
-            if self.ospfexternlsacount is not None:
-                return True
-
-            if self.ospfextlsdblimit is not None:
-                return True
-
-            if self.ospfmulticastextensions is not None:
-                return True
-
-            if self.ospfopaquelsasupport is not None:
-                return True
-
-            if self.ospforiginatenewlsas is not None:
-                return True
-
-            if self.ospfreferencebandwidth is not None:
-                return True
-
-            if self.ospfrestartage is not None:
-                return True
-
-            if self.ospfrestartexitreason is not None:
-                return True
-
-            if self.ospfrestartinterval is not None:
-                return True
-
-            if self.ospfrestartstatus is not None:
-                return True
-
-            if self.ospfrestartstrictlsachecking is not None:
-                return True
-
-            if self.ospfrestartsupport is not None:
-                return True
-
-            if self.ospfrfc1583compatibility is not None:
-                return True
-
-            if self.ospfrouterid is not None:
-                return True
-
-            if self.ospfrxnewlsas is not None:
-                return True
-
-            if self.ospfstubrouteradvertisement is not None:
-                return True
-
-            if self.ospfstubroutersupport is not None:
-                return True
-
-            if self.ospftossupport is not None:
-                return True
-
-            if self.ospfversionnumber is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfgeneralgroup']['meta_info']
-
-
-    class Ospfareatable(object):
+    class Ospfareatable(Entity):
         """
         Information describing the configured parameters and
         cumulative statistics of the router's attached areas.
@@ -719,13 +971,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfareaentry = YList()
-            self.ospfareaentry.parent = self
-            self.ospfareaentry.name = 'ospfareaentry'
+            super(OspfMib.Ospfareatable, self).__init__()
+
+            self.yang_name = "ospfAreaTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfareaentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfareatable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfareatable, self).__setattr__(name, value)
 
 
-        class Ospfareaentry(object):
+        class Ospfareaentry(Entity):
             """
             Information describing the configured parameters and
             cumulative statistics of one of the router's attached areas.
@@ -754,12 +1032,12 @@ class OspfMib(object):
             .. attribute:: cospfareanssatranslatorrole
             
             	Indicates an NSSA Border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
-            	**type**\:   :py:class:`CospfareanssatranslatorroleEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.CospfareanssatranslatorroleEnum>`
+            	**type**\:   :py:class:`Cospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorrole>`
             
             .. attribute:: cospfareanssatranslatorstate
             
             	Indicates if and how an NSSA Border router is performing NSSA translation of type\-7 LSAs into type\-5 LSAs. When this object set to enabled, the NSSA Border router's cospfAreaNssaExtTranslatorRole has been set to always. When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA Border router is NOT translating type\-7 LSAs into type\-5
-            	**type**\:   :py:class:`CospfareanssatranslatorstateEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.CospfareanssatranslatorstateEnum>`
+            	**type**\:   :py:class:`Cospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.Cospfareanssatranslatorstate>`
             
             .. attribute:: cospfopaquearealsacksumsum
             
@@ -806,7 +1084,7 @@ class OspfMib(object):
             .. attribute:: ospfareanssatranslatorrole
             
             	Indicates an NSSA border router's ability to perform NSSA translation of type\-7 LSAs into type\-5 LSAs
-            	**type**\:   :py:class:`OspfareanssatranslatorroleEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.OspfareanssatranslatorroleEnum>`
+            	**type**\:   :py:class:`Ospfareanssatranslatorrole <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorrole>`
             
             .. attribute:: ospfareanssatranslatorstabilityinterval
             
@@ -820,17 +1098,17 @@ class OspfMib(object):
             .. attribute:: ospfareanssatranslatorstate
             
             	Indicates if and how an NSSA border router is performing NSSA translation of type\-7 LSAs into type\-5  LSAs.  When this object is set to enabled, the NSSA Border router's OspfAreaNssaExtTranslatorRole has been set to always.  When this object is set to elected, a candidate NSSA Border router is Translating type\-7 LSAs into type\-5. When this object is set to disabled, a candidate NSSA border router is NOT translating type\-7 LSAs into type\-5
-            	**type**\:   :py:class:`OspfareanssatranslatorstateEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.OspfareanssatranslatorstateEnum>`
+            	**type**\:   :py:class:`Ospfareanssatranslatorstate <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.Ospfareanssatranslatorstate>`
             
             .. attribute:: ospfareastatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ospfareasummary
             
             	The variable ospfAreaSummary controls the import of summary LSAs into stub and NSSA areas. It has no effect on other areas.  If it is noAreaSummary, the router will not originate summary LSAs into the stub or NSSA area. It will rely entirely on its default route.  If it is sendAreaSummary, the router will both summarize and propagate summary LSAs
-            	**type**\:   :py:class:`OspfareasummaryEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.OspfareasummaryEnum>`
+            	**type**\:   :py:class:`Ospfareasummary <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.Ospfareasummary>`
             
             .. attribute:: ospfasbdrrtrcount
             
@@ -842,14 +1120,14 @@ class OspfMib(object):
             .. attribute:: ospfauthtype
             
             	The authentication type specified for an area
-            	**type**\:   :py:class:`OspfauthenticationtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfauthenticationtypeEnum>`
+            	**type**\:   :py:class:`Ospfauthenticationtype <ydk.models.cisco_ios_xe.OSPF_MIB.Ospfauthenticationtype>`
             
             	**status**\: obsolete
             
             .. attribute:: ospfimportasextern
             
             	Indicates if an area is a stub area, NSSA, or standard area.  Type\-5 AS\-external LSAs and type\-11 Opaque LSAs are not imported into stub areas or NSSAs.  NSSAs import AS\-external data as type\-7 LSAs
-            	**type**\:   :py:class:`OspfimportasexternEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.OspfimportasexternEnum>`
+            	**type**\:   :py:class:`Ospfimportasextern <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareatable.Ospfareaentry.Ospfimportasextern>`
             
             .. attribute:: ospfspfruns
             
@@ -866,30 +1144,94 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfareaid = None
-                self.cospfareanssatranslatorevents = None
-                self.cospfareanssatranslatorrole = None
-                self.cospfareanssatranslatorstate = None
-                self.cospfopaquearealsacksumsum = None
-                self.cospfopaquearealsacount = None
-                self.ospfareabdrrtrcount = None
-                self.ospfarealsacksumsum = None
-                self.ospfarealsacount = None
-                self.ospfareanssatranslatorevents = None
-                self.ospfareanssatranslatorrole = None
-                self.ospfareanssatranslatorstabilityinterval = None
-                self.ospfareanssatranslatorstate = None
-                self.ospfareastatus = None
-                self.ospfareasummary = None
-                self.ospfasbdrrtrcount = None
-                self.ospfauthtype = None
-                self.ospfimportasextern = None
-                self.ospfspfruns = None
+                super(OspfMib.Ospfareatable.Ospfareaentry, self).__init__()
 
-            class CospfareanssatranslatorroleEnum(Enum):
+                self.yang_name = "ospfAreaEntry"
+                self.yang_parent_name = "ospfAreaTable"
+
+                self.ospfareaid = YLeaf(YType.str, "ospfAreaId")
+
+                self.cospfareanssatranslatorevents = YLeaf(YType.uint32, "CISCO-OSPF-MIB:cospfAreaNssaTranslatorEvents")
+
+                self.cospfareanssatranslatorrole = YLeaf(YType.enumeration, "CISCO-OSPF-MIB:cospfAreaNssaTranslatorRole")
+
+                self.cospfareanssatranslatorstate = YLeaf(YType.enumeration, "CISCO-OSPF-MIB:cospfAreaNssaTranslatorState")
+
+                self.cospfopaquearealsacksumsum = YLeaf(YType.uint32, "CISCO-OSPF-MIB:cospfOpaqueAreaLsaCksumSum")
+
+                self.cospfopaquearealsacount = YLeaf(YType.uint32, "CISCO-OSPF-MIB:cospfOpaqueAreaLsaCount")
+
+                self.ospfareabdrrtrcount = YLeaf(YType.uint32, "ospfAreaBdrRtrCount")
+
+                self.ospfarealsacksumsum = YLeaf(YType.int32, "ospfAreaLsaCksumSum")
+
+                self.ospfarealsacount = YLeaf(YType.uint32, "ospfAreaLsaCount")
+
+                self.ospfareanssatranslatorevents = YLeaf(YType.uint32, "ospfAreaNssaTranslatorEvents")
+
+                self.ospfareanssatranslatorrole = YLeaf(YType.enumeration, "ospfAreaNssaTranslatorRole")
+
+                self.ospfareanssatranslatorstabilityinterval = YLeaf(YType.int32, "ospfAreaNssaTranslatorStabilityInterval")
+
+                self.ospfareanssatranslatorstate = YLeaf(YType.enumeration, "ospfAreaNssaTranslatorState")
+
+                self.ospfareastatus = YLeaf(YType.enumeration, "ospfAreaStatus")
+
+                self.ospfareasummary = YLeaf(YType.enumeration, "ospfAreaSummary")
+
+                self.ospfasbdrrtrcount = YLeaf(YType.uint32, "ospfAsBdrRtrCount")
+
+                self.ospfauthtype = YLeaf(YType.enumeration, "ospfAuthType")
+
+                self.ospfimportasextern = YLeaf(YType.enumeration, "ospfImportAsExtern")
+
+                self.ospfspfruns = YLeaf(YType.uint32, "ospfSpfRuns")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfareaid",
+                                "cospfareanssatranslatorevents",
+                                "cospfareanssatranslatorrole",
+                                "cospfareanssatranslatorstate",
+                                "cospfopaquearealsacksumsum",
+                                "cospfopaquearealsacount",
+                                "ospfareabdrrtrcount",
+                                "ospfarealsacksumsum",
+                                "ospfarealsacount",
+                                "ospfareanssatranslatorevents",
+                                "ospfareanssatranslatorrole",
+                                "ospfareanssatranslatorstabilityinterval",
+                                "ospfareanssatranslatorstate",
+                                "ospfareastatus",
+                                "ospfareasummary",
+                                "ospfasbdrrtrcount",
+                                "ospfauthtype",
+                                "ospfimportasextern",
+                                "ospfspfruns") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfareatable.Ospfareaentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfareatable.Ospfareaentry, self).__setattr__(name, value)
+
+            class Cospfareanssatranslatorrole(Enum):
                 """
-                CospfareanssatranslatorroleEnum
+                Cospfareanssatranslatorrole
 
                 Indicates an NSSA Border router's ability to
 
@@ -903,20 +1245,14 @@ class OspfMib(object):
 
                 """
 
-                always = 1
+                always = Enum.YLeaf(1, "always")
 
-                candidate = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareatable.Ospfareaentry.CospfareanssatranslatorroleEnum']
+                candidate = Enum.YLeaf(2, "candidate")
 
 
-            class CospfareanssatranslatorstateEnum(Enum):
+            class Cospfareanssatranslatorstate(Enum):
                 """
-                CospfareanssatranslatorstateEnum
+                Cospfareanssatranslatorstate
 
                 Indicates if and how an NSSA Border router is
 
@@ -942,22 +1278,16 @@ class OspfMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                elected = 2
+                elected = Enum.YLeaf(2, "elected")
 
-                disabled = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareatable.Ospfareaentry.CospfareanssatranslatorstateEnum']
+                disabled = Enum.YLeaf(3, "disabled")
 
 
-            class OspfareanssatranslatorroleEnum(Enum):
+            class Ospfareanssatranslatorrole(Enum):
                 """
-                OspfareanssatranslatorroleEnum
+                Ospfareanssatranslatorrole
 
                 Indicates an NSSA border router's ability to
 
@@ -971,20 +1301,14 @@ class OspfMib(object):
 
                 """
 
-                always = 1
+                always = Enum.YLeaf(1, "always")
 
-                candidate = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareatable.Ospfareaentry.OspfareanssatranslatorroleEnum']
+                candidate = Enum.YLeaf(2, "candidate")
 
 
-            class OspfareanssatranslatorstateEnum(Enum):
+            class Ospfareanssatranslatorstate(Enum):
                 """
-                OspfareanssatranslatorstateEnum
+                Ospfareanssatranslatorstate
 
                 Indicates if and how an NSSA border router is
 
@@ -1010,22 +1334,16 @@ class OspfMib(object):
 
                 """
 
-                enabled = 1
+                enabled = Enum.YLeaf(1, "enabled")
 
-                elected = 2
+                elected = Enum.YLeaf(2, "elected")
 
-                disabled = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareatable.Ospfareaentry.OspfareanssatranslatorstateEnum']
+                disabled = Enum.YLeaf(3, "disabled")
 
 
-            class OspfareasummaryEnum(Enum):
+            class Ospfareasummary(Enum):
                 """
-                OspfareasummaryEnum
+                Ospfareasummary
 
                 The variable ospfAreaSummary controls the
 
@@ -1049,20 +1367,14 @@ class OspfMib(object):
 
                 """
 
-                noAreaSummary = 1
+                noAreaSummary = Enum.YLeaf(1, "noAreaSummary")
 
-                sendAreaSummary = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareatable.Ospfareaentry.OspfareasummaryEnum']
+                sendAreaSummary = Enum.YLeaf(2, "sendAreaSummary")
 
 
-            class OspfimportasexternEnum(Enum):
+            class Ospfimportasextern(Enum):
                 """
-                OspfimportasexternEnum
+                Ospfimportasextern
 
                 Indicates if an area is a stub area, NSSA, or standard
 
@@ -1080,119 +1392,263 @@ class OspfMib(object):
 
                 """
 
-                importExternal = 1
+                importExternal = Enum.YLeaf(1, "importExternal")
 
-                importNoExternal = 2
+                importNoExternal = Enum.YLeaf(2, "importNoExternal")
 
-                importNssa = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareatable.Ospfareaentry.OspfimportasexternEnum']
+                importNssa = Enum.YLeaf(3, "importNssa")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfareaid is None:
-                    raise YPYModelError('Key property ospfareaid is None')
+            def has_data(self):
+                return (
+                    self.ospfareaid.is_set or
+                    self.cospfareanssatranslatorevents.is_set or
+                    self.cospfareanssatranslatorrole.is_set or
+                    self.cospfareanssatranslatorstate.is_set or
+                    self.cospfopaquearealsacksumsum.is_set or
+                    self.cospfopaquearealsacount.is_set or
+                    self.ospfareabdrrtrcount.is_set or
+                    self.ospfarealsacksumsum.is_set or
+                    self.ospfarealsacount.is_set or
+                    self.ospfareanssatranslatorevents.is_set or
+                    self.ospfareanssatranslatorrole.is_set or
+                    self.ospfareanssatranslatorstabilityinterval.is_set or
+                    self.ospfareanssatranslatorstate.is_set or
+                    self.ospfareastatus.is_set or
+                    self.ospfareasummary.is_set or
+                    self.ospfasbdrrtrcount.is_set or
+                    self.ospfauthtype.is_set or
+                    self.ospfimportasextern.is_set or
+                    self.ospfspfruns.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaTable/OSPF-MIB:ospfAreaEntry[OSPF-MIB:ospfAreaId = ' + str(self.ospfareaid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfareaid.yfilter != YFilter.not_set or
+                    self.cospfareanssatranslatorevents.yfilter != YFilter.not_set or
+                    self.cospfareanssatranslatorrole.yfilter != YFilter.not_set or
+                    self.cospfareanssatranslatorstate.yfilter != YFilter.not_set or
+                    self.cospfopaquearealsacksumsum.yfilter != YFilter.not_set or
+                    self.cospfopaquearealsacount.yfilter != YFilter.not_set or
+                    self.ospfareabdrrtrcount.yfilter != YFilter.not_set or
+                    self.ospfarealsacksumsum.yfilter != YFilter.not_set or
+                    self.ospfarealsacount.yfilter != YFilter.not_set or
+                    self.ospfareanssatranslatorevents.yfilter != YFilter.not_set or
+                    self.ospfareanssatranslatorrole.yfilter != YFilter.not_set or
+                    self.ospfareanssatranslatorstabilityinterval.yfilter != YFilter.not_set or
+                    self.ospfareanssatranslatorstate.yfilter != YFilter.not_set or
+                    self.ospfareastatus.yfilter != YFilter.not_set or
+                    self.ospfareasummary.yfilter != YFilter.not_set or
+                    self.ospfasbdrrtrcount.yfilter != YFilter.not_set or
+                    self.ospfauthtype.yfilter != YFilter.not_set or
+                    self.ospfimportasextern.yfilter != YFilter.not_set or
+                    self.ospfspfruns.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfAreaEntry" + "[ospfAreaId='" + self.ospfareaid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfAreaTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfareaid.is_set or self.ospfareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaid.get_name_leafdata())
+                if (self.cospfareanssatranslatorevents.is_set or self.cospfareanssatranslatorevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfareanssatranslatorevents.get_name_leafdata())
+                if (self.cospfareanssatranslatorrole.is_set or self.cospfareanssatranslatorrole.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfareanssatranslatorrole.get_name_leafdata())
+                if (self.cospfareanssatranslatorstate.is_set or self.cospfareanssatranslatorstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfareanssatranslatorstate.get_name_leafdata())
+                if (self.cospfopaquearealsacksumsum.is_set or self.cospfopaquearealsacksumsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfopaquearealsacksumsum.get_name_leafdata())
+                if (self.cospfopaquearealsacount.is_set or self.cospfopaquearealsacount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfopaquearealsacount.get_name_leafdata())
+                if (self.ospfareabdrrtrcount.is_set or self.ospfareabdrrtrcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareabdrrtrcount.get_name_leafdata())
+                if (self.ospfarealsacksumsum.is_set or self.ospfarealsacksumsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarealsacksumsum.get_name_leafdata())
+                if (self.ospfarealsacount.is_set or self.ospfarealsacount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarealsacount.get_name_leafdata())
+                if (self.ospfareanssatranslatorevents.is_set or self.ospfareanssatranslatorevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareanssatranslatorevents.get_name_leafdata())
+                if (self.ospfareanssatranslatorrole.is_set or self.ospfareanssatranslatorrole.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareanssatranslatorrole.get_name_leafdata())
+                if (self.ospfareanssatranslatorstabilityinterval.is_set or self.ospfareanssatranslatorstabilityinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareanssatranslatorstabilityinterval.get_name_leafdata())
+                if (self.ospfareanssatranslatorstate.is_set or self.ospfareanssatranslatorstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareanssatranslatorstate.get_name_leafdata())
+                if (self.ospfareastatus.is_set or self.ospfareastatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareastatus.get_name_leafdata())
+                if (self.ospfareasummary.is_set or self.ospfareasummary.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareasummary.get_name_leafdata())
+                if (self.ospfasbdrrtrcount.is_set or self.ospfasbdrrtrcount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfasbdrrtrcount.get_name_leafdata())
+                if (self.ospfauthtype.is_set or self.ospfauthtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfauthtype.get_name_leafdata())
+                if (self.ospfimportasextern.is_set or self.ospfimportasextern.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfimportasextern.get_name_leafdata())
+                if (self.ospfspfruns.is_set or self.ospfspfruns.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfspfruns.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfAreaId" or name == "cospfAreaNssaTranslatorEvents" or name == "cospfAreaNssaTranslatorRole" or name == "cospfAreaNssaTranslatorState" or name == "cospfOpaqueAreaLsaCksumSum" or name == "cospfOpaqueAreaLsaCount" or name == "ospfAreaBdrRtrCount" or name == "ospfAreaLsaCksumSum" or name == "ospfAreaLsaCount" or name == "ospfAreaNssaTranslatorEvents" or name == "ospfAreaNssaTranslatorRole" or name == "ospfAreaNssaTranslatorStabilityInterval" or name == "ospfAreaNssaTranslatorState" or name == "ospfAreaStatus" or name == "ospfAreaSummary" or name == "ospfAsBdrRtrCount" or name == "ospfAuthType" or name == "ospfImportAsExtern" or name == "ospfSpfRuns"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfAreaId"):
+                    self.ospfareaid = value
+                    self.ospfareaid.value_namespace = name_space
+                    self.ospfareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfAreaNssaTranslatorEvents"):
+                    self.cospfareanssatranslatorevents = value
+                    self.cospfareanssatranslatorevents.value_namespace = name_space
+                    self.cospfareanssatranslatorevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfAreaNssaTranslatorRole"):
+                    self.cospfareanssatranslatorrole = value
+                    self.cospfareanssatranslatorrole.value_namespace = name_space
+                    self.cospfareanssatranslatorrole.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfAreaNssaTranslatorState"):
+                    self.cospfareanssatranslatorstate = value
+                    self.cospfareanssatranslatorstate.value_namespace = name_space
+                    self.cospfareanssatranslatorstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfOpaqueAreaLsaCksumSum"):
+                    self.cospfopaquearealsacksumsum = value
+                    self.cospfopaquearealsacksumsum.value_namespace = name_space
+                    self.cospfopaquearealsacksumsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfOpaqueAreaLsaCount"):
+                    self.cospfopaquearealsacount = value
+                    self.cospfopaquearealsacount.value_namespace = name_space
+                    self.cospfopaquearealsacount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaBdrRtrCount"):
+                    self.ospfareabdrrtrcount = value
+                    self.ospfareabdrrtrcount.value_namespace = name_space
+                    self.ospfareabdrrtrcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaLsaCksumSum"):
+                    self.ospfarealsacksumsum = value
+                    self.ospfarealsacksumsum.value_namespace = name_space
+                    self.ospfarealsacksumsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaLsaCount"):
+                    self.ospfarealsacount = value
+                    self.ospfarealsacount.value_namespace = name_space
+                    self.ospfarealsacount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaNssaTranslatorEvents"):
+                    self.ospfareanssatranslatorevents = value
+                    self.ospfareanssatranslatorevents.value_namespace = name_space
+                    self.ospfareanssatranslatorevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaNssaTranslatorRole"):
+                    self.ospfareanssatranslatorrole = value
+                    self.ospfareanssatranslatorrole.value_namespace = name_space
+                    self.ospfareanssatranslatorrole.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaNssaTranslatorStabilityInterval"):
+                    self.ospfareanssatranslatorstabilityinterval = value
+                    self.ospfareanssatranslatorstabilityinterval.value_namespace = name_space
+                    self.ospfareanssatranslatorstabilityinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaNssaTranslatorState"):
+                    self.ospfareanssatranslatorstate = value
+                    self.ospfareanssatranslatorstate.value_namespace = name_space
+                    self.ospfareanssatranslatorstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaStatus"):
+                    self.ospfareastatus = value
+                    self.ospfareastatus.value_namespace = name_space
+                    self.ospfareastatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaSummary"):
+                    self.ospfareasummary = value
+                    self.ospfareasummary.value_namespace = name_space
+                    self.ospfareasummary.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAsBdrRtrCount"):
+                    self.ospfasbdrrtrcount = value
+                    self.ospfasbdrrtrcount.value_namespace = name_space
+                    self.ospfasbdrrtrcount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAuthType"):
+                    self.ospfauthtype = value
+                    self.ospfauthtype.value_namespace = name_space
+                    self.ospfauthtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfImportAsExtern"):
+                    self.ospfimportasextern = value
+                    self.ospfimportasextern.value_namespace = name_space
+                    self.ospfimportasextern.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfSpfRuns"):
+                    self.ospfspfruns = value
+                    self.ospfspfruns.value_namespace = name_space
+                    self.ospfspfruns.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfareaentry:
+                if (c.has_data()):
                     return True
-
-                if self.cospfareanssatranslatorevents is not None:
-                    return True
-
-                if self.cospfareanssatranslatorrole is not None:
-                    return True
-
-                if self.cospfareanssatranslatorstate is not None:
-                    return True
-
-                if self.cospfopaquearealsacksumsum is not None:
-                    return True
-
-                if self.cospfopaquearealsacount is not None:
-                    return True
-
-                if self.ospfareabdrrtrcount is not None:
-                    return True
-
-                if self.ospfarealsacksumsum is not None:
-                    return True
-
-                if self.ospfarealsacount is not None:
-                    return True
-
-                if self.ospfareanssatranslatorevents is not None:
-                    return True
-
-                if self.ospfareanssatranslatorrole is not None:
-                    return True
-
-                if self.ospfareanssatranslatorstabilityinterval is not None:
-                    return True
-
-                if self.ospfareanssatranslatorstate is not None:
-                    return True
-
-                if self.ospfareastatus is not None:
-                    return True
-
-                if self.ospfareasummary is not None:
-                    return True
-
-                if self.ospfasbdrrtrcount is not None:
-                    return True
-
-                if self.ospfauthtype is not None:
-                    return True
-
-                if self.ospfimportasextern is not None:
-                    return True
-
-                if self.ospfspfruns is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfareatable.Ospfareaentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfareaentry is not None:
-                for child_ref in self.ospfareaentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfareaentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfAreaTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfAreaEntry"):
+                for c in self.ospfareaentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfareatable.Ospfareaentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfareaentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfAreaEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfareatable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfstubareatable(object):
+    class Ospfstubareatable(Entity):
         """
         The set of metrics that will be advertised
         by a default Area Border Router into a stub area.
@@ -1210,13 +1666,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfstubareaentry = YList()
-            self.ospfstubareaentry.parent = self
-            self.ospfstubareaentry.name = 'ospfstubareaentry'
+            super(OspfMib.Ospfstubareatable, self).__init__()
+
+            self.yang_name = "ospfStubAreaTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfstubareaentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfstubareatable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfstubareatable, self).__setattr__(name, value)
 
 
-        class Ospfstubareaentry(object):
+        class Ospfstubareaentry(Entity):
             """
             The metric for a given Type of Service that
             will be advertised by a default Area Border
@@ -1250,12 +1732,12 @@ class OspfMib(object):
             .. attribute:: ospfstubmetrictype
             
             	This variable displays the type of metric advertised as a default route
-            	**type**\:   :py:class:`OspfstubmetrictypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfstubareatable.Ospfstubareaentry.OspfstubmetrictypeEnum>`
+            	**type**\:   :py:class:`Ospfstubmetrictype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfstubareatable.Ospfstubareaentry.Ospfstubmetrictype>`
             
             .. attribute:: ospfstubstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -1265,16 +1747,52 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfstubareaid = None
-                self.ospfstubtos = None
-                self.ospfstubmetric = None
-                self.ospfstubmetrictype = None
-                self.ospfstubstatus = None
+                super(OspfMib.Ospfstubareatable.Ospfstubareaentry, self).__init__()
 
-            class OspfstubmetrictypeEnum(Enum):
+                self.yang_name = "ospfStubAreaEntry"
+                self.yang_parent_name = "ospfStubAreaTable"
+
+                self.ospfstubareaid = YLeaf(YType.str, "ospfStubAreaId")
+
+                self.ospfstubtos = YLeaf(YType.int32, "ospfStubTOS")
+
+                self.ospfstubmetric = YLeaf(YType.int32, "ospfStubMetric")
+
+                self.ospfstubmetrictype = YLeaf(YType.enumeration, "ospfStubMetricType")
+
+                self.ospfstubstatus = YLeaf(YType.enumeration, "ospfStubStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfstubareaid",
+                                "ospfstubtos",
+                                "ospfstubmetric",
+                                "ospfstubmetrictype",
+                                "ospfstubstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfstubareatable.Ospfstubareaentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfstubareatable.Ospfstubareaentry, self).__setattr__(name, value)
+
+            class Ospfstubmetrictype(Enum):
                 """
-                OspfstubmetrictypeEnum
+                Ospfstubmetrictype
 
                 This variable displays the type of metric
 
@@ -1288,79 +1806,151 @@ class OspfMib(object):
 
                 """
 
-                ospfMetric = 1
+                ospfMetric = Enum.YLeaf(1, "ospfMetric")
 
-                comparableCost = 2
+                comparableCost = Enum.YLeaf(2, "comparableCost")
 
-                nonComparable = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfstubareatable.Ospfstubareaentry.OspfstubmetrictypeEnum']
+                nonComparable = Enum.YLeaf(3, "nonComparable")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfstubareaid is None:
-                    raise YPYModelError('Key property ospfstubareaid is None')
-                if self.ospfstubtos is None:
-                    raise YPYModelError('Key property ospfstubtos is None')
+            def has_data(self):
+                return (
+                    self.ospfstubareaid.is_set or
+                    self.ospfstubtos.is_set or
+                    self.ospfstubmetric.is_set or
+                    self.ospfstubmetrictype.is_set or
+                    self.ospfstubstatus.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfStubAreaTable/OSPF-MIB:ospfStubAreaEntry[OSPF-MIB:ospfStubAreaId = ' + str(self.ospfstubareaid) + '][OSPF-MIB:ospfStubTOS = ' + str(self.ospfstubtos) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfstubareaid.yfilter != YFilter.not_set or
+                    self.ospfstubtos.yfilter != YFilter.not_set or
+                    self.ospfstubmetric.yfilter != YFilter.not_set or
+                    self.ospfstubmetrictype.yfilter != YFilter.not_set or
+                    self.ospfstubstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfStubAreaEntry" + "[ospfStubAreaId='" + self.ospfstubareaid.get() + "']" + "[ospfStubTOS='" + self.ospfstubtos.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfStubAreaTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfstubareaid.is_set or self.ospfstubareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfstubareaid.get_name_leafdata())
+                if (self.ospfstubtos.is_set or self.ospfstubtos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfstubtos.get_name_leafdata())
+                if (self.ospfstubmetric.is_set or self.ospfstubmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfstubmetric.get_name_leafdata())
+                if (self.ospfstubmetrictype.is_set or self.ospfstubmetrictype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfstubmetrictype.get_name_leafdata())
+                if (self.ospfstubstatus.is_set or self.ospfstubstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfstubstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfStubAreaId" or name == "ospfStubTOS" or name == "ospfStubMetric" or name == "ospfStubMetricType" or name == "ospfStubStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfstubareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfStubAreaId"):
+                    self.ospfstubareaid = value
+                    self.ospfstubareaid.value_namespace = name_space
+                    self.ospfstubareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfStubTOS"):
+                    self.ospfstubtos = value
+                    self.ospfstubtos.value_namespace = name_space
+                    self.ospfstubtos.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfStubMetric"):
+                    self.ospfstubmetric = value
+                    self.ospfstubmetric.value_namespace = name_space
+                    self.ospfstubmetric.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfStubMetricType"):
+                    self.ospfstubmetrictype = value
+                    self.ospfstubmetrictype.value_namespace = name_space
+                    self.ospfstubmetrictype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfStubStatus"):
+                    self.ospfstubstatus = value
+                    self.ospfstubstatus.value_namespace = name_space
+                    self.ospfstubstatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfstubareaentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfstubtos is not None:
-                    return True
-
-                if self.ospfstubmetric is not None:
-                    return True
-
-                if self.ospfstubmetrictype is not None:
-                    return True
-
-                if self.ospfstubstatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfstubareatable.Ospfstubareaentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfStubAreaTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfstubareaentry is not None:
-                for child_ref in self.ospfstubareaentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfstubareaentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfStubAreaTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfStubAreaEntry"):
+                for c in self.ospfstubareaentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfstubareatable.Ospfstubareaentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfstubareaentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfStubAreaEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfstubareatable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospflsdbtable(object):
+    class Ospflsdbtable(Entity):
         """
         The OSPF Process's link state database (LSDB).
         The LSDB contains the link state advertisements
@@ -1379,13 +1969,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospflsdbentry = YList()
-            self.ospflsdbentry.parent = self
-            self.ospflsdbentry.name = 'ospflsdbentry'
+            super(OspfMib.Ospflsdbtable, self).__init__()
+
+            self.yang_name = "ospfLsdbTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospflsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospflsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospflsdbtable, self).__setattr__(name, value)
 
 
-        class Ospflsdbentry(object):
+        class Ospflsdbentry(Entity):
             """
             A single link state advertisement.
             
@@ -1399,7 +2015,7 @@ class OspfMib(object):
             .. attribute:: ospflsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format.  Note\: External link state advertisements are permitted for backward compatibility, but should be displayed in the ospfAsLsdbTable rather than here
-            	**type**\:   :py:class:`OspflsdbtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospflsdbtable.Ospflsdbentry.OspflsdbtypeEnum>`
+            	**type**\:   :py:class:`Ospflsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospflsdbtable.Ospflsdbentry.Ospflsdbtype>`
             
             .. attribute:: ospflsdblsid  <key>
             
@@ -1453,19 +2069,61 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospflsdbareaid = None
-                self.ospflsdbtype = None
-                self.ospflsdblsid = None
-                self.ospflsdbrouterid = None
-                self.ospflsdbadvertisement = None
-                self.ospflsdbage = None
-                self.ospflsdbchecksum = None
-                self.ospflsdbsequence = None
+                super(OspfMib.Ospflsdbtable.Ospflsdbentry, self).__init__()
 
-            class OspflsdbtypeEnum(Enum):
+                self.yang_name = "ospfLsdbEntry"
+                self.yang_parent_name = "ospfLsdbTable"
+
+                self.ospflsdbareaid = YLeaf(YType.str, "ospfLsdbAreaId")
+
+                self.ospflsdbtype = YLeaf(YType.enumeration, "ospfLsdbType")
+
+                self.ospflsdblsid = YLeaf(YType.str, "ospfLsdbLsid")
+
+                self.ospflsdbrouterid = YLeaf(YType.str, "ospfLsdbRouterId")
+
+                self.ospflsdbadvertisement = YLeaf(YType.str, "ospfLsdbAdvertisement")
+
+                self.ospflsdbage = YLeaf(YType.int32, "ospfLsdbAge")
+
+                self.ospflsdbchecksum = YLeaf(YType.int32, "ospfLsdbChecksum")
+
+                self.ospflsdbsequence = YLeaf(YType.int32, "ospfLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospflsdbareaid",
+                                "ospflsdbtype",
+                                "ospflsdblsid",
+                                "ospflsdbrouterid",
+                                "ospflsdbadvertisement",
+                                "ospflsdbage",
+                                "ospflsdbchecksum",
+                                "ospflsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospflsdbtable.Ospflsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospflsdbtable.Ospflsdbentry, self).__setattr__(name, value)
+
+            class Ospflsdbtype(Enum):
                 """
-                OspflsdbtypeEnum
+                Ospflsdbtype
 
                 The type of the link state advertisement.
 
@@ -1497,102 +2155,185 @@ class OspfMib(object):
 
                 """
 
-                routerLink = 1
+                routerLink = Enum.YLeaf(1, "routerLink")
 
-                networkLink = 2
+                networkLink = Enum.YLeaf(2, "networkLink")
 
-                summaryLink = 3
+                summaryLink = Enum.YLeaf(3, "summaryLink")
 
-                asSummaryLink = 4
+                asSummaryLink = Enum.YLeaf(4, "asSummaryLink")
 
-                asExternalLink = 5
+                asExternalLink = Enum.YLeaf(5, "asExternalLink")
 
-                multicastLink = 6
+                multicastLink = Enum.YLeaf(6, "multicastLink")
 
-                nssaExternalLink = 7
+                nssaExternalLink = Enum.YLeaf(7, "nssaExternalLink")
 
-                areaOpaqueLink = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospflsdbtable.Ospflsdbentry.OspflsdbtypeEnum']
+                areaOpaqueLink = Enum.YLeaf(10, "areaOpaqueLink")
 
 
-            @property
-            def _common_path(self):
-                if self.ospflsdbareaid is None:
-                    raise YPYModelError('Key property ospflsdbareaid is None')
-                if self.ospflsdbtype is None:
-                    raise YPYModelError('Key property ospflsdbtype is None')
-                if self.ospflsdblsid is None:
-                    raise YPYModelError('Key property ospflsdblsid is None')
-                if self.ospflsdbrouterid is None:
-                    raise YPYModelError('Key property ospflsdbrouterid is None')
+            def has_data(self):
+                return (
+                    self.ospflsdbareaid.is_set or
+                    self.ospflsdbtype.is_set or
+                    self.ospflsdblsid.is_set or
+                    self.ospflsdbrouterid.is_set or
+                    self.ospflsdbadvertisement.is_set or
+                    self.ospflsdbage.is_set or
+                    self.ospflsdbchecksum.is_set or
+                    self.ospflsdbsequence.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfLsdbTable/OSPF-MIB:ospfLsdbEntry[OSPF-MIB:ospfLsdbAreaId = ' + str(self.ospflsdbareaid) + '][OSPF-MIB:ospfLsdbType = ' + str(self.ospflsdbtype) + '][OSPF-MIB:ospfLsdbLsid = ' + str(self.ospflsdblsid) + '][OSPF-MIB:ospfLsdbRouterId = ' + str(self.ospflsdbrouterid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospflsdbareaid.yfilter != YFilter.not_set or
+                    self.ospflsdbtype.yfilter != YFilter.not_set or
+                    self.ospflsdblsid.yfilter != YFilter.not_set or
+                    self.ospflsdbrouterid.yfilter != YFilter.not_set or
+                    self.ospflsdbadvertisement.yfilter != YFilter.not_set or
+                    self.ospflsdbage.yfilter != YFilter.not_set or
+                    self.ospflsdbchecksum.yfilter != YFilter.not_set or
+                    self.ospflsdbsequence.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfLsdbEntry" + "[ospfLsdbAreaId='" + self.ospflsdbareaid.get() + "']" + "[ospfLsdbType='" + self.ospflsdbtype.get() + "']" + "[ospfLsdbLsid='" + self.ospflsdblsid.get() + "']" + "[ospfLsdbRouterId='" + self.ospflsdbrouterid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospflsdbareaid.is_set or self.ospflsdbareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbareaid.get_name_leafdata())
+                if (self.ospflsdbtype.is_set or self.ospflsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbtype.get_name_leafdata())
+                if (self.ospflsdblsid.is_set or self.ospflsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdblsid.get_name_leafdata())
+                if (self.ospflsdbrouterid.is_set or self.ospflsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbrouterid.get_name_leafdata())
+                if (self.ospflsdbadvertisement.is_set or self.ospflsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbadvertisement.get_name_leafdata())
+                if (self.ospflsdbage.is_set or self.ospflsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbage.get_name_leafdata())
+                if (self.ospflsdbchecksum.is_set or self.ospflsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbchecksum.get_name_leafdata())
+                if (self.ospflsdbsequence.is_set or self.ospflsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfLsdbAreaId" or name == "ospfLsdbType" or name == "ospfLsdbLsid" or name == "ospfLsdbRouterId" or name == "ospfLsdbAdvertisement" or name == "ospfLsdbAge" or name == "ospfLsdbChecksum" or name == "ospfLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospflsdbareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfLsdbAreaId"):
+                    self.ospflsdbareaid = value
+                    self.ospflsdbareaid.value_namespace = name_space
+                    self.ospflsdbareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbType"):
+                    self.ospflsdbtype = value
+                    self.ospflsdbtype.value_namespace = name_space
+                    self.ospflsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbLsid"):
+                    self.ospflsdblsid = value
+                    self.ospflsdblsid.value_namespace = name_space
+                    self.ospflsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbRouterId"):
+                    self.ospflsdbrouterid = value
+                    self.ospflsdbrouterid.value_namespace = name_space
+                    self.ospflsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbAdvertisement"):
+                    self.ospflsdbadvertisement = value
+                    self.ospflsdbadvertisement.value_namespace = name_space
+                    self.ospflsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbAge"):
+                    self.ospflsdbage = value
+                    self.ospflsdbage.value_namespace = name_space
+                    self.ospflsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbChecksum"):
+                    self.ospflsdbchecksum = value
+                    self.ospflsdbchecksum.value_namespace = name_space
+                    self.ospflsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLsdbSequence"):
+                    self.ospflsdbsequence = value
+                    self.ospflsdbsequence.value_namespace = name_space
+                    self.ospflsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospflsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospflsdbtype is not None:
-                    return True
-
-                if self.ospflsdblsid is not None:
-                    return True
-
-                if self.ospflsdbrouterid is not None:
-                    return True
-
-                if self.ospflsdbadvertisement is not None:
-                    return True
-
-                if self.ospflsdbage is not None:
-                    return True
-
-                if self.ospflsdbchecksum is not None:
-                    return True
-
-                if self.ospflsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospflsdbtable.Ospflsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospflsdbentry is not None:
-                for child_ref in self.ospflsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospflsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfLsdbEntry"):
+                for c in self.ospflsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospflsdbtable.Ospflsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospflsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospflsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfarearangetable(object):
+    class Ospfarearangetable(Entity):
         """
         The Address Range Table acts as an adjunct to the Area
         Table.  It describes those Address Range Summaries that
@@ -1622,13 +2363,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfarearangeentry = YList()
-            self.ospfarearangeentry.parent = self
-            self.ospfarearangeentry.name = 'ospfarearangeentry'
+            super(OspfMib.Ospfarearangetable, self).__init__()
+
+            self.yang_name = "ospfAreaRangeTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfarearangeentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfarearangetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfarearangetable, self).__setattr__(name, value)
 
 
-        class Ospfarearangeentry(object):
+        class Ospfarearangeentry(Entity):
             """
             A single area address range.
             
@@ -1657,7 +2424,7 @@ class OspfMib(object):
             .. attribute:: ospfarearangeeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated summary (advertiseMatching) or result in the subnet's not being advertised at all outside the area
-            	**type**\:   :py:class:`OspfarearangeeffectEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfarearangetable.Ospfarearangeentry.OspfarearangeeffectEnum>`
+            	**type**\:   :py:class:`Ospfarearangeeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfarearangetable.Ospfarearangeentry.Ospfarearangeeffect>`
             
             	**status**\: obsolete
             
@@ -1673,7 +2440,7 @@ class OspfMib(object):
             .. attribute:: ospfarearangestatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             	**status**\: obsolete
             
@@ -1685,16 +2452,52 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfarearangeareaid = None
-                self.ospfarearangenet = None
-                self.ospfarearangeeffect = None
-                self.ospfarearangemask = None
-                self.ospfarearangestatus = None
+                super(OspfMib.Ospfarearangetable.Ospfarearangeentry, self).__init__()
 
-            class OspfarearangeeffectEnum(Enum):
+                self.yang_name = "ospfAreaRangeEntry"
+                self.yang_parent_name = "ospfAreaRangeTable"
+
+                self.ospfarearangeareaid = YLeaf(YType.str, "ospfAreaRangeAreaId")
+
+                self.ospfarearangenet = YLeaf(YType.str, "ospfAreaRangeNet")
+
+                self.ospfarearangeeffect = YLeaf(YType.enumeration, "ospfAreaRangeEffect")
+
+                self.ospfarearangemask = YLeaf(YType.str, "ospfAreaRangeMask")
+
+                self.ospfarearangestatus = YLeaf(YType.enumeration, "ospfAreaRangeStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfarearangeareaid",
+                                "ospfarearangenet",
+                                "ospfarearangeeffect",
+                                "ospfarearangemask",
+                                "ospfarearangestatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfarearangetable.Ospfarearangeentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfarearangetable.Ospfarearangeentry, self).__setattr__(name, value)
+
+            class Ospfarearangeeffect(Enum):
                 """
-                OspfarearangeeffectEnum
+                Ospfarearangeeffect
 
                 Subnets subsumed by ranges either trigger the
 
@@ -1710,77 +2513,149 @@ class OspfMib(object):
 
                 """
 
-                advertiseMatching = 1
+                advertiseMatching = Enum.YLeaf(1, "advertiseMatching")
 
-                doNotAdvertiseMatching = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfarearangetable.Ospfarearangeentry.OspfarearangeeffectEnum']
+                doNotAdvertiseMatching = Enum.YLeaf(2, "doNotAdvertiseMatching")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfarearangeareaid is None:
-                    raise YPYModelError('Key property ospfarearangeareaid is None')
-                if self.ospfarearangenet is None:
-                    raise YPYModelError('Key property ospfarearangenet is None')
+            def has_data(self):
+                return (
+                    self.ospfarearangeareaid.is_set or
+                    self.ospfarearangenet.is_set or
+                    self.ospfarearangeeffect.is_set or
+                    self.ospfarearangemask.is_set or
+                    self.ospfarearangestatus.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaRangeTable/OSPF-MIB:ospfAreaRangeEntry[OSPF-MIB:ospfAreaRangeAreaId = ' + str(self.ospfarearangeareaid) + '][OSPF-MIB:ospfAreaRangeNet = ' + str(self.ospfarearangenet) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfarearangeareaid.yfilter != YFilter.not_set or
+                    self.ospfarearangenet.yfilter != YFilter.not_set or
+                    self.ospfarearangeeffect.yfilter != YFilter.not_set or
+                    self.ospfarearangemask.yfilter != YFilter.not_set or
+                    self.ospfarearangestatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfAreaRangeEntry" + "[ospfAreaRangeAreaId='" + self.ospfarearangeareaid.get() + "']" + "[ospfAreaRangeNet='" + self.ospfarearangenet.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfAreaRangeTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfarearangeareaid.is_set or self.ospfarearangeareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarearangeareaid.get_name_leafdata())
+                if (self.ospfarearangenet.is_set or self.ospfarearangenet.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarearangenet.get_name_leafdata())
+                if (self.ospfarearangeeffect.is_set or self.ospfarearangeeffect.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarearangeeffect.get_name_leafdata())
+                if (self.ospfarearangemask.is_set or self.ospfarearangemask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarearangemask.get_name_leafdata())
+                if (self.ospfarearangestatus.is_set or self.ospfarearangestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarearangestatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfAreaRangeAreaId" or name == "ospfAreaRangeNet" or name == "ospfAreaRangeEffect" or name == "ospfAreaRangeMask" or name == "ospfAreaRangeStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfarearangeareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfAreaRangeAreaId"):
+                    self.ospfarearangeareaid = value
+                    self.ospfarearangeareaid.value_namespace = name_space
+                    self.ospfarearangeareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaRangeNet"):
+                    self.ospfarearangenet = value
+                    self.ospfarearangenet.value_namespace = name_space
+                    self.ospfarearangenet.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaRangeEffect"):
+                    self.ospfarearangeeffect = value
+                    self.ospfarearangeeffect.value_namespace = name_space
+                    self.ospfarearangeeffect.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaRangeMask"):
+                    self.ospfarearangemask = value
+                    self.ospfarearangemask.value_namespace = name_space
+                    self.ospfarearangemask.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaRangeStatus"):
+                    self.ospfarearangestatus = value
+                    self.ospfarearangestatus.value_namespace = name_space
+                    self.ospfarearangestatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfarearangeentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfarearangenet is not None:
-                    return True
-
-                if self.ospfarearangeeffect is not None:
-                    return True
-
-                if self.ospfarearangemask is not None:
-                    return True
-
-                if self.ospfarearangestatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfarearangetable.Ospfarearangeentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaRangeTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfarearangeentry is not None:
-                for child_ref in self.ospfarearangeentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfarearangeentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfAreaRangeTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfAreaRangeEntry"):
+                for c in self.ospfarearangeentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfarearangetable.Ospfarearangeentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfarearangeentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfAreaRangeEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfarearangetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfhosttable(object):
+    class Ospfhosttable(Entity):
         """
         The Host/Metric Table indicates what hosts are directly
         
@@ -1801,13 +2676,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfhostentry = YList()
-            self.ospfhostentry.parent = self
-            self.ospfhostentry.name = 'ospfhostentry'
+            super(OspfMib.Ospfhosttable, self).__init__()
+
+            self.yang_name = "ospfHostTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfhostentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfhosttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfhosttable, self).__setattr__(name, value)
 
 
-        class Ospfhostentry(object):
+        class Ospfhostentry(Entity):
             """
             A metric to be advertised, for a given type of
             service, when a given host is reachable.
@@ -1856,7 +2757,7 @@ class OspfMib(object):
             .. attribute:: ospfhoststatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -1866,77 +2767,198 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfhostipaddress = None
-                self.ospfhosttos = None
-                self.ospfhostareaid = None
-                self.ospfhostcfgareaid = None
-                self.ospfhostmetric = None
-                self.ospfhoststatus = None
+                super(OspfMib.Ospfhosttable.Ospfhostentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ospfhostipaddress is None:
-                    raise YPYModelError('Key property ospfhostipaddress is None')
-                if self.ospfhosttos is None:
-                    raise YPYModelError('Key property ospfhosttos is None')
+                self.yang_name = "ospfHostEntry"
+                self.yang_parent_name = "ospfHostTable"
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfHostTable/OSPF-MIB:ospfHostEntry[OSPF-MIB:ospfHostIpAddress = ' + str(self.ospfhostipaddress) + '][OSPF-MIB:ospfHostTOS = ' + str(self.ospfhosttos) + ']'
+                self.ospfhostipaddress = YLeaf(YType.str, "ospfHostIpAddress")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ospfhosttos = YLeaf(YType.int32, "ospfHostTOS")
+
+                self.ospfhostareaid = YLeaf(YType.str, "ospfHostAreaID")
+
+                self.ospfhostcfgareaid = YLeaf(YType.str, "ospfHostCfgAreaID")
+
+                self.ospfhostmetric = YLeaf(YType.int32, "ospfHostMetric")
+
+                self.ospfhoststatus = YLeaf(YType.enumeration, "ospfHostStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfhostipaddress",
+                                "ospfhosttos",
+                                "ospfhostareaid",
+                                "ospfhostcfgareaid",
+                                "ospfhostmetric",
+                                "ospfhoststatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfhosttable.Ospfhostentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfhosttable.Ospfhostentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ospfhostipaddress.is_set or
+                    self.ospfhosttos.is_set or
+                    self.ospfhostareaid.is_set or
+                    self.ospfhostcfgareaid.is_set or
+                    self.ospfhostmetric.is_set or
+                    self.ospfhoststatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfhostipaddress.yfilter != YFilter.not_set or
+                    self.ospfhosttos.yfilter != YFilter.not_set or
+                    self.ospfhostareaid.yfilter != YFilter.not_set or
+                    self.ospfhostcfgareaid.yfilter != YFilter.not_set or
+                    self.ospfhostmetric.yfilter != YFilter.not_set or
+                    self.ospfhoststatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfHostEntry" + "[ospfHostIpAddress='" + self.ospfhostipaddress.get() + "']" + "[ospfHostTOS='" + self.ospfhosttos.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfHostTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfhostipaddress.is_set or self.ospfhostipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfhostipaddress.get_name_leafdata())
+                if (self.ospfhosttos.is_set or self.ospfhosttos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfhosttos.get_name_leafdata())
+                if (self.ospfhostareaid.is_set or self.ospfhostareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfhostareaid.get_name_leafdata())
+                if (self.ospfhostcfgareaid.is_set or self.ospfhostcfgareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfhostcfgareaid.get_name_leafdata())
+                if (self.ospfhostmetric.is_set or self.ospfhostmetric.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfhostmetric.get_name_leafdata())
+                if (self.ospfhoststatus.is_set or self.ospfhoststatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfhoststatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfHostIpAddress" or name == "ospfHostTOS" or name == "ospfHostAreaID" or name == "ospfHostCfgAreaID" or name == "ospfHostMetric" or name == "ospfHostStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfhostipaddress is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfHostIpAddress"):
+                    self.ospfhostipaddress = value
+                    self.ospfhostipaddress.value_namespace = name_space
+                    self.ospfhostipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfHostTOS"):
+                    self.ospfhosttos = value
+                    self.ospfhosttos.value_namespace = name_space
+                    self.ospfhosttos.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfHostAreaID"):
+                    self.ospfhostareaid = value
+                    self.ospfhostareaid.value_namespace = name_space
+                    self.ospfhostareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfHostCfgAreaID"):
+                    self.ospfhostcfgareaid = value
+                    self.ospfhostcfgareaid.value_namespace = name_space
+                    self.ospfhostcfgareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfHostMetric"):
+                    self.ospfhostmetric = value
+                    self.ospfhostmetric.value_namespace = name_space
+                    self.ospfhostmetric.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfHostStatus"):
+                    self.ospfhoststatus = value
+                    self.ospfhoststatus.value_namespace = name_space
+                    self.ospfhoststatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfhostentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfhosttos is not None:
-                    return True
-
-                if self.ospfhostareaid is not None:
-                    return True
-
-                if self.ospfhostcfgareaid is not None:
-                    return True
-
-                if self.ospfhostmetric is not None:
-                    return True
-
-                if self.ospfhoststatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfhosttable.Ospfhostentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfHostTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfhostentry is not None:
-                for child_ref in self.ospfhostentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfhostentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfHostTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfHostEntry"):
+                for c in self.ospfhostentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfhosttable.Ospfhostentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfhostentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfHostEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfhosttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfiftable(object):
+    class Ospfiftable(Entity):
         """
         The OSPF Interface Table describes the interfaces
         from the viewpoint of OSPF.
@@ -1955,13 +2977,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfifentry = YList()
-            self.ospfifentry.parent = self
-            self.ospfifentry.name = 'ospfifentry'
+            super(OspfMib.Ospfiftable, self).__init__()
+
+            self.yang_name = "ospfIfTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfifentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfiftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfiftable, self).__setattr__(name, value)
 
 
-        class Ospfifentry(object):
+        class Ospfifentry(Entity):
             """
             The OSPF interface entry describes one interface
             from the viewpoint of OSPF.
@@ -2001,7 +3049,7 @@ class OspfMib(object):
             .. attribute:: ospfifadminstat
             
             	The OSPF interface's administrative status. The value formed on the interface, and the interface will be advertised as an internal route to some area. The value 'disabled' denotes that the interface is external to OSPF
-            	**type**\:   :py:class:`StatusEnum <ydk.models.cisco_ios_xe.OSPF_MIB.StatusEnum>`
+            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.OSPF_MIB.Status>`
             
             .. attribute:: ospfifareaid
             
@@ -2020,7 +3068,7 @@ class OspfMib(object):
             .. attribute:: ospfifauthtype
             
             	The authentication type specified for an interface.  Note that this object can be used to engage in significant attacks against an OSPF router
-            	**type**\:   :py:class:`OspfauthenticationtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfauthenticationtypeEnum>`
+            	**type**\:   :py:class:`Ospfauthenticationtype <ydk.models.cisco_ios_xe.OSPF_MIB.Ospfauthenticationtype>`
             
             .. attribute:: ospfifbackupdesignatedrouter
             
@@ -2088,7 +3136,7 @@ class OspfMib(object):
             .. attribute:: ospfifmulticastforwarding
             
             	The way multicasts should be forwarded on this interface\: not forwarded, forwarded as data link multicasts, or forwarded as data link unicasts.  Data link multicasting is not meaningful on point\-to\-point and NBMA interfaces, and setting ospfMulticastForwarding to 0 effectively disables all multicast forwarding
-            	**type**\:   :py:class:`OspfifmulticastforwardingEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfiftable.Ospfifentry.OspfifmulticastforwardingEnum>`
+            	**type**\:   :py:class:`Ospfifmulticastforwarding <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfiftable.Ospfifentry.Ospfifmulticastforwarding>`
             
             .. attribute:: ospfifpollinterval
             
@@ -2127,12 +3175,12 @@ class OspfMib(object):
             .. attribute:: ospfifstate
             
             	The OSPF Interface State
-            	**type**\:   :py:class:`OspfifstateEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfiftable.Ospfifentry.OspfifstateEnum>`
+            	**type**\:   :py:class:`Ospfifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfiftable.Ospfifentry.Ospfifstate>`
             
             .. attribute:: ospfifstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ospfiftransitdelay
             
@@ -2146,7 +3194,7 @@ class OspfMib(object):
             .. attribute:: ospfiftype
             
             	The OSPF interface type. By way of a default, this field may be intuited from the corresponding value of ifType. Broadcast LANs, such as Ethernet and IEEE 802.5, take the value 'broadcast', X.25 and similar technologies take the value 'nbma', and links that are definitively point to point take the value 'pointToPoint'
-            	**type**\:   :py:class:`OspfiftypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfiftable.Ospfifentry.OspfiftypeEnum>`
+            	**type**\:   :py:class:`Ospfiftype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfiftable.Ospfifentry.Ospfiftype>`
             
             
 
@@ -2156,37 +3204,115 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfifipaddress = None
-                self.ospfaddresslessif = None
-                self.cospfiflsacksumsum = None
-                self.cospfiflsacount = None
-                self.ospfifadminstat = None
-                self.ospfifareaid = None
-                self.ospfifauthkey = None
-                self.ospfifauthtype = None
-                self.ospfifbackupdesignatedrouter = None
-                self.ospfifbackupdesignatedrouterid = None
-                self.ospfifdemand = None
-                self.ospfifdesignatedrouter = None
-                self.ospfifdesignatedrouterid = None
-                self.ospfifevents = None
-                self.ospfifhellointerval = None
-                self.ospfiflsacksumsum = None
-                self.ospfiflsacount = None
-                self.ospfifmulticastforwarding = None
-                self.ospfifpollinterval = None
-                self.ospfifretransinterval = None
-                self.ospfifrtrdeadinterval = None
-                self.ospfifrtrpriority = None
-                self.ospfifstate = None
-                self.ospfifstatus = None
-                self.ospfiftransitdelay = None
-                self.ospfiftype = None
+                super(OspfMib.Ospfiftable.Ospfifentry, self).__init__()
 
-            class OspfifmulticastforwardingEnum(Enum):
+                self.yang_name = "ospfIfEntry"
+                self.yang_parent_name = "ospfIfTable"
+
+                self.ospfifipaddress = YLeaf(YType.str, "ospfIfIpAddress")
+
+                self.ospfaddresslessif = YLeaf(YType.int32, "ospfAddressLessIf")
+
+                self.cospfiflsacksumsum = YLeaf(YType.uint32, "CISCO-OSPF-MIB:cospfIfLsaCksumSum")
+
+                self.cospfiflsacount = YLeaf(YType.uint32, "CISCO-OSPF-MIB:cospfIfLsaCount")
+
+                self.ospfifadminstat = YLeaf(YType.enumeration, "ospfIfAdminStat")
+
+                self.ospfifareaid = YLeaf(YType.str, "ospfIfAreaId")
+
+                self.ospfifauthkey = YLeaf(YType.str, "ospfIfAuthKey")
+
+                self.ospfifauthtype = YLeaf(YType.enumeration, "ospfIfAuthType")
+
+                self.ospfifbackupdesignatedrouter = YLeaf(YType.str, "ospfIfBackupDesignatedRouter")
+
+                self.ospfifbackupdesignatedrouterid = YLeaf(YType.str, "ospfIfBackupDesignatedRouterId")
+
+                self.ospfifdemand = YLeaf(YType.boolean, "ospfIfDemand")
+
+                self.ospfifdesignatedrouter = YLeaf(YType.str, "ospfIfDesignatedRouter")
+
+                self.ospfifdesignatedrouterid = YLeaf(YType.str, "ospfIfDesignatedRouterId")
+
+                self.ospfifevents = YLeaf(YType.uint32, "ospfIfEvents")
+
+                self.ospfifhellointerval = YLeaf(YType.int32, "ospfIfHelloInterval")
+
+                self.ospfiflsacksumsum = YLeaf(YType.uint32, "ospfIfLsaCksumSum")
+
+                self.ospfiflsacount = YLeaf(YType.uint32, "ospfIfLsaCount")
+
+                self.ospfifmulticastforwarding = YLeaf(YType.enumeration, "ospfIfMulticastForwarding")
+
+                self.ospfifpollinterval = YLeaf(YType.int32, "ospfIfPollInterval")
+
+                self.ospfifretransinterval = YLeaf(YType.int32, "ospfIfRetransInterval")
+
+                self.ospfifrtrdeadinterval = YLeaf(YType.int32, "ospfIfRtrDeadInterval")
+
+                self.ospfifrtrpriority = YLeaf(YType.int32, "ospfIfRtrPriority")
+
+                self.ospfifstate = YLeaf(YType.enumeration, "ospfIfState")
+
+                self.ospfifstatus = YLeaf(YType.enumeration, "ospfIfStatus")
+
+                self.ospfiftransitdelay = YLeaf(YType.int32, "ospfIfTransitDelay")
+
+                self.ospfiftype = YLeaf(YType.enumeration, "ospfIfType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfifipaddress",
+                                "ospfaddresslessif",
+                                "cospfiflsacksumsum",
+                                "cospfiflsacount",
+                                "ospfifadminstat",
+                                "ospfifareaid",
+                                "ospfifauthkey",
+                                "ospfifauthtype",
+                                "ospfifbackupdesignatedrouter",
+                                "ospfifbackupdesignatedrouterid",
+                                "ospfifdemand",
+                                "ospfifdesignatedrouter",
+                                "ospfifdesignatedrouterid",
+                                "ospfifevents",
+                                "ospfifhellointerval",
+                                "ospfiflsacksumsum",
+                                "ospfiflsacount",
+                                "ospfifmulticastforwarding",
+                                "ospfifpollinterval",
+                                "ospfifretransinterval",
+                                "ospfifrtrdeadinterval",
+                                "ospfifrtrpriority",
+                                "ospfifstate",
+                                "ospfifstatus",
+                                "ospfiftransitdelay",
+                                "ospfiftype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfiftable.Ospfifentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfiftable.Ospfifentry, self).__setattr__(name, value)
+
+            class Ospfifmulticastforwarding(Enum):
                 """
-                OspfifmulticastforwardingEnum
+                Ospfifmulticastforwarding
 
                 The way multicasts should be forwarded on this
 
@@ -2210,22 +3336,16 @@ class OspfMib(object):
 
                 """
 
-                blocked = 1
+                blocked = Enum.YLeaf(1, "blocked")
 
-                multicast = 2
+                multicast = Enum.YLeaf(2, "multicast")
 
-                unicast = 3
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfiftable.Ospfifentry.OspfifmulticastforwardingEnum']
+                unicast = Enum.YLeaf(3, "unicast")
 
 
-            class OspfifstateEnum(Enum):
+            class Ospfifstate(Enum):
                 """
-                OspfifstateEnum
+                Ospfifstate
 
                 The OSPF Interface State.
 
@@ -2245,30 +3365,24 @@ class OspfMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                loopback = 2
+                loopback = Enum.YLeaf(2, "loopback")
 
-                waiting = 3
+                waiting = Enum.YLeaf(3, "waiting")
 
-                pointToPoint = 4
+                pointToPoint = Enum.YLeaf(4, "pointToPoint")
 
-                designatedRouter = 5
+                designatedRouter = Enum.YLeaf(5, "designatedRouter")
 
-                backupDesignatedRouter = 6
+                backupDesignatedRouter = Enum.YLeaf(6, "backupDesignatedRouter")
 
-                otherDesignatedRouter = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfiftable.Ospfifentry.OspfifstateEnum']
+                otherDesignatedRouter = Enum.YLeaf(7, "otherDesignatedRouter")
 
 
-            class OspfiftypeEnum(Enum):
+            class Ospfiftype(Enum):
                 """
-                OspfiftypeEnum
+                Ospfiftype
 
                 The OSPF interface type.
 
@@ -2296,144 +3410,321 @@ class OspfMib(object):
 
                 """
 
-                broadcast = 1
+                broadcast = Enum.YLeaf(1, "broadcast")
 
-                nbma = 2
+                nbma = Enum.YLeaf(2, "nbma")
 
-                pointToPoint = 3
+                pointToPoint = Enum.YLeaf(3, "pointToPoint")
 
-                pointToMultipoint = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfiftable.Ospfifentry.OspfiftypeEnum']
+                pointToMultipoint = Enum.YLeaf(5, "pointToMultipoint")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfifipaddress is None:
-                    raise YPYModelError('Key property ospfifipaddress is None')
-                if self.ospfaddresslessif is None:
-                    raise YPYModelError('Key property ospfaddresslessif is None')
+            def has_data(self):
+                return (
+                    self.ospfifipaddress.is_set or
+                    self.ospfaddresslessif.is_set or
+                    self.cospfiflsacksumsum.is_set or
+                    self.cospfiflsacount.is_set or
+                    self.ospfifadminstat.is_set or
+                    self.ospfifareaid.is_set or
+                    self.ospfifauthkey.is_set or
+                    self.ospfifauthtype.is_set or
+                    self.ospfifbackupdesignatedrouter.is_set or
+                    self.ospfifbackupdesignatedrouterid.is_set or
+                    self.ospfifdemand.is_set or
+                    self.ospfifdesignatedrouter.is_set or
+                    self.ospfifdesignatedrouterid.is_set or
+                    self.ospfifevents.is_set or
+                    self.ospfifhellointerval.is_set or
+                    self.ospfiflsacksumsum.is_set or
+                    self.ospfiflsacount.is_set or
+                    self.ospfifmulticastforwarding.is_set or
+                    self.ospfifpollinterval.is_set or
+                    self.ospfifretransinterval.is_set or
+                    self.ospfifrtrdeadinterval.is_set or
+                    self.ospfifrtrpriority.is_set or
+                    self.ospfifstate.is_set or
+                    self.ospfifstatus.is_set or
+                    self.ospfiftransitdelay.is_set or
+                    self.ospfiftype.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfIfTable/OSPF-MIB:ospfIfEntry[OSPF-MIB:ospfIfIpAddress = ' + str(self.ospfifipaddress) + '][OSPF-MIB:ospfAddressLessIf = ' + str(self.ospfaddresslessif) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfifipaddress.yfilter != YFilter.not_set or
+                    self.ospfaddresslessif.yfilter != YFilter.not_set or
+                    self.cospfiflsacksumsum.yfilter != YFilter.not_set or
+                    self.cospfiflsacount.yfilter != YFilter.not_set or
+                    self.ospfifadminstat.yfilter != YFilter.not_set or
+                    self.ospfifareaid.yfilter != YFilter.not_set or
+                    self.ospfifauthkey.yfilter != YFilter.not_set or
+                    self.ospfifauthtype.yfilter != YFilter.not_set or
+                    self.ospfifbackupdesignatedrouter.yfilter != YFilter.not_set or
+                    self.ospfifbackupdesignatedrouterid.yfilter != YFilter.not_set or
+                    self.ospfifdemand.yfilter != YFilter.not_set or
+                    self.ospfifdesignatedrouter.yfilter != YFilter.not_set or
+                    self.ospfifdesignatedrouterid.yfilter != YFilter.not_set or
+                    self.ospfifevents.yfilter != YFilter.not_set or
+                    self.ospfifhellointerval.yfilter != YFilter.not_set or
+                    self.ospfiflsacksumsum.yfilter != YFilter.not_set or
+                    self.ospfiflsacount.yfilter != YFilter.not_set or
+                    self.ospfifmulticastforwarding.yfilter != YFilter.not_set or
+                    self.ospfifpollinterval.yfilter != YFilter.not_set or
+                    self.ospfifretransinterval.yfilter != YFilter.not_set or
+                    self.ospfifrtrdeadinterval.yfilter != YFilter.not_set or
+                    self.ospfifrtrpriority.yfilter != YFilter.not_set or
+                    self.ospfifstate.yfilter != YFilter.not_set or
+                    self.ospfifstatus.yfilter != YFilter.not_set or
+                    self.ospfiftransitdelay.yfilter != YFilter.not_set or
+                    self.ospfiftype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfIfEntry" + "[ospfIfIpAddress='" + self.ospfifipaddress.get() + "']" + "[ospfAddressLessIf='" + self.ospfaddresslessif.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfIfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfifipaddress.is_set or self.ospfifipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifipaddress.get_name_leafdata())
+                if (self.ospfaddresslessif.is_set or self.ospfaddresslessif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaddresslessif.get_name_leafdata())
+                if (self.cospfiflsacksumsum.is_set or self.cospfiflsacksumsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfiflsacksumsum.get_name_leafdata())
+                if (self.cospfiflsacount.is_set or self.cospfiflsacount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfiflsacount.get_name_leafdata())
+                if (self.ospfifadminstat.is_set or self.ospfifadminstat.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifadminstat.get_name_leafdata())
+                if (self.ospfifareaid.is_set or self.ospfifareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifareaid.get_name_leafdata())
+                if (self.ospfifauthkey.is_set or self.ospfifauthkey.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifauthkey.get_name_leafdata())
+                if (self.ospfifauthtype.is_set or self.ospfifauthtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifauthtype.get_name_leafdata())
+                if (self.ospfifbackupdesignatedrouter.is_set or self.ospfifbackupdesignatedrouter.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifbackupdesignatedrouter.get_name_leafdata())
+                if (self.ospfifbackupdesignatedrouterid.is_set or self.ospfifbackupdesignatedrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifbackupdesignatedrouterid.get_name_leafdata())
+                if (self.ospfifdemand.is_set or self.ospfifdemand.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifdemand.get_name_leafdata())
+                if (self.ospfifdesignatedrouter.is_set or self.ospfifdesignatedrouter.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifdesignatedrouter.get_name_leafdata())
+                if (self.ospfifdesignatedrouterid.is_set or self.ospfifdesignatedrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifdesignatedrouterid.get_name_leafdata())
+                if (self.ospfifevents.is_set or self.ospfifevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifevents.get_name_leafdata())
+                if (self.ospfifhellointerval.is_set or self.ospfifhellointerval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifhellointerval.get_name_leafdata())
+                if (self.ospfiflsacksumsum.is_set or self.ospfiflsacksumsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfiflsacksumsum.get_name_leafdata())
+                if (self.ospfiflsacount.is_set or self.ospfiflsacount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfiflsacount.get_name_leafdata())
+                if (self.ospfifmulticastforwarding.is_set or self.ospfifmulticastforwarding.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifmulticastforwarding.get_name_leafdata())
+                if (self.ospfifpollinterval.is_set or self.ospfifpollinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifpollinterval.get_name_leafdata())
+                if (self.ospfifretransinterval.is_set or self.ospfifretransinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifretransinterval.get_name_leafdata())
+                if (self.ospfifrtrdeadinterval.is_set or self.ospfifrtrdeadinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifrtrdeadinterval.get_name_leafdata())
+                if (self.ospfifrtrpriority.is_set or self.ospfifrtrpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifrtrpriority.get_name_leafdata())
+                if (self.ospfifstate.is_set or self.ospfifstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifstate.get_name_leafdata())
+                if (self.ospfifstatus.is_set or self.ospfifstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifstatus.get_name_leafdata())
+                if (self.ospfiftransitdelay.is_set or self.ospfiftransitdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfiftransitdelay.get_name_leafdata())
+                if (self.ospfiftype.is_set or self.ospfiftype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfiftype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfIfIpAddress" or name == "ospfAddressLessIf" or name == "cospfIfLsaCksumSum" or name == "cospfIfLsaCount" or name == "ospfIfAdminStat" or name == "ospfIfAreaId" or name == "ospfIfAuthKey" or name == "ospfIfAuthType" or name == "ospfIfBackupDesignatedRouter" or name == "ospfIfBackupDesignatedRouterId" or name == "ospfIfDemand" or name == "ospfIfDesignatedRouter" or name == "ospfIfDesignatedRouterId" or name == "ospfIfEvents" or name == "ospfIfHelloInterval" or name == "ospfIfLsaCksumSum" or name == "ospfIfLsaCount" or name == "ospfIfMulticastForwarding" or name == "ospfIfPollInterval" or name == "ospfIfRetransInterval" or name == "ospfIfRtrDeadInterval" or name == "ospfIfRtrPriority" or name == "ospfIfState" or name == "ospfIfStatus" or name == "ospfIfTransitDelay" or name == "ospfIfType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfifipaddress is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfIfIpAddress"):
+                    self.ospfifipaddress = value
+                    self.ospfifipaddress.value_namespace = name_space
+                    self.ospfifipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAddressLessIf"):
+                    self.ospfaddresslessif = value
+                    self.ospfaddresslessif.value_namespace = name_space
+                    self.ospfaddresslessif.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfIfLsaCksumSum"):
+                    self.cospfiflsacksumsum = value
+                    self.cospfiflsacksumsum.value_namespace = name_space
+                    self.cospfiflsacksumsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfIfLsaCount"):
+                    self.cospfiflsacount = value
+                    self.cospfiflsacount.value_namespace = name_space
+                    self.cospfiflsacount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfAdminStat"):
+                    self.ospfifadminstat = value
+                    self.ospfifadminstat.value_namespace = name_space
+                    self.ospfifadminstat.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfAreaId"):
+                    self.ospfifareaid = value
+                    self.ospfifareaid.value_namespace = name_space
+                    self.ospfifareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfAuthKey"):
+                    self.ospfifauthkey = value
+                    self.ospfifauthkey.value_namespace = name_space
+                    self.ospfifauthkey.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfAuthType"):
+                    self.ospfifauthtype = value
+                    self.ospfifauthtype.value_namespace = name_space
+                    self.ospfifauthtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfBackupDesignatedRouter"):
+                    self.ospfifbackupdesignatedrouter = value
+                    self.ospfifbackupdesignatedrouter.value_namespace = name_space
+                    self.ospfifbackupdesignatedrouter.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfBackupDesignatedRouterId"):
+                    self.ospfifbackupdesignatedrouterid = value
+                    self.ospfifbackupdesignatedrouterid.value_namespace = name_space
+                    self.ospfifbackupdesignatedrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfDemand"):
+                    self.ospfifdemand = value
+                    self.ospfifdemand.value_namespace = name_space
+                    self.ospfifdemand.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfDesignatedRouter"):
+                    self.ospfifdesignatedrouter = value
+                    self.ospfifdesignatedrouter.value_namespace = name_space
+                    self.ospfifdesignatedrouter.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfDesignatedRouterId"):
+                    self.ospfifdesignatedrouterid = value
+                    self.ospfifdesignatedrouterid.value_namespace = name_space
+                    self.ospfifdesignatedrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfEvents"):
+                    self.ospfifevents = value
+                    self.ospfifevents.value_namespace = name_space
+                    self.ospfifevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfHelloInterval"):
+                    self.ospfifhellointerval = value
+                    self.ospfifhellointerval.value_namespace = name_space
+                    self.ospfifhellointerval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfLsaCksumSum"):
+                    self.ospfiflsacksumsum = value
+                    self.ospfiflsacksumsum.value_namespace = name_space
+                    self.ospfiflsacksumsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfLsaCount"):
+                    self.ospfiflsacount = value
+                    self.ospfiflsacount.value_namespace = name_space
+                    self.ospfiflsacount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfMulticastForwarding"):
+                    self.ospfifmulticastforwarding = value
+                    self.ospfifmulticastforwarding.value_namespace = name_space
+                    self.ospfifmulticastforwarding.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfPollInterval"):
+                    self.ospfifpollinterval = value
+                    self.ospfifpollinterval.value_namespace = name_space
+                    self.ospfifpollinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfRetransInterval"):
+                    self.ospfifretransinterval = value
+                    self.ospfifretransinterval.value_namespace = name_space
+                    self.ospfifretransinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfRtrDeadInterval"):
+                    self.ospfifrtrdeadinterval = value
+                    self.ospfifrtrdeadinterval.value_namespace = name_space
+                    self.ospfifrtrdeadinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfRtrPriority"):
+                    self.ospfifrtrpriority = value
+                    self.ospfifrtrpriority.value_namespace = name_space
+                    self.ospfifrtrpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfState"):
+                    self.ospfifstate = value
+                    self.ospfifstate.value_namespace = name_space
+                    self.ospfifstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfStatus"):
+                    self.ospfifstatus = value
+                    self.ospfifstatus.value_namespace = name_space
+                    self.ospfifstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfTransitDelay"):
+                    self.ospfiftransitdelay = value
+                    self.ospfiftransitdelay.value_namespace = name_space
+                    self.ospfiftransitdelay.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfType"):
+                    self.ospfiftype = value
+                    self.ospfiftype.value_namespace = name_space
+                    self.ospfiftype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfifentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfaddresslessif is not None:
-                    return True
-
-                if self.cospfiflsacksumsum is not None:
-                    return True
-
-                if self.cospfiflsacount is not None:
-                    return True
-
-                if self.ospfifadminstat is not None:
-                    return True
-
-                if self.ospfifareaid is not None:
-                    return True
-
-                if self.ospfifauthkey is not None:
-                    return True
-
-                if self.ospfifauthtype is not None:
-                    return True
-
-                if self.ospfifbackupdesignatedrouter is not None:
-                    return True
-
-                if self.ospfifbackupdesignatedrouterid is not None:
-                    return True
-
-                if self.ospfifdemand is not None:
-                    return True
-
-                if self.ospfifdesignatedrouter is not None:
-                    return True
-
-                if self.ospfifdesignatedrouterid is not None:
-                    return True
-
-                if self.ospfifevents is not None:
-                    return True
-
-                if self.ospfifhellointerval is not None:
-                    return True
-
-                if self.ospfiflsacksumsum is not None:
-                    return True
-
-                if self.ospfiflsacount is not None:
-                    return True
-
-                if self.ospfifmulticastforwarding is not None:
-                    return True
-
-                if self.ospfifpollinterval is not None:
-                    return True
-
-                if self.ospfifretransinterval is not None:
-                    return True
-
-                if self.ospfifrtrdeadinterval is not None:
-                    return True
-
-                if self.ospfifrtrpriority is not None:
-                    return True
-
-                if self.ospfifstate is not None:
-                    return True
-
-                if self.ospfifstatus is not None:
-                    return True
-
-                if self.ospfiftransitdelay is not None:
-                    return True
-
-                if self.ospfiftype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfiftable.Ospfifentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfIfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfifentry is not None:
-                for child_ref in self.ospfifentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfifentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfIfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfIfEntry"):
+                for c in self.ospfifentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfiftable.Ospfifentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfifentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfIfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfiftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfifmetrictable(object):
+    class Ospfifmetrictable(Entity):
         """
         The Metric Table describes the metrics to be advertised
         for a specified interface at the various types of service.
@@ -2484,13 +3775,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfifmetricentry = YList()
-            self.ospfifmetricentry.parent = self
-            self.ospfifmetricentry.name = 'ospfifmetricentry'
+            super(OspfMib.Ospfifmetrictable, self).__init__()
+
+            self.yang_name = "ospfIfMetricTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfifmetricentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfifmetrictable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfifmetrictable, self).__setattr__(name, value)
 
 
-        class Ospfifmetricentry(object):
+        class Ospfifmetricentry(Entity):
             """
             A particular TOS metric for a non\-virtual interface
             identified by the interface index.
@@ -2523,7 +3840,7 @@ class OspfMib(object):
             .. attribute:: ospfifmetricstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ospfifmetricvalue
             
@@ -2540,75 +3857,187 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfifmetricipaddress = None
-                self.ospfifmetricaddresslessif = None
-                self.ospfifmetrictos = None
-                self.ospfifmetricstatus = None
-                self.ospfifmetricvalue = None
+                super(OspfMib.Ospfifmetrictable.Ospfifmetricentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ospfifmetricipaddress is None:
-                    raise YPYModelError('Key property ospfifmetricipaddress is None')
-                if self.ospfifmetricaddresslessif is None:
-                    raise YPYModelError('Key property ospfifmetricaddresslessif is None')
-                if self.ospfifmetrictos is None:
-                    raise YPYModelError('Key property ospfifmetrictos is None')
+                self.yang_name = "ospfIfMetricEntry"
+                self.yang_parent_name = "ospfIfMetricTable"
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfIfMetricTable/OSPF-MIB:ospfIfMetricEntry[OSPF-MIB:ospfIfMetricIpAddress = ' + str(self.ospfifmetricipaddress) + '][OSPF-MIB:ospfIfMetricAddressLessIf = ' + str(self.ospfifmetricaddresslessif) + '][OSPF-MIB:ospfIfMetricTOS = ' + str(self.ospfifmetrictos) + ']'
+                self.ospfifmetricipaddress = YLeaf(YType.str, "ospfIfMetricIpAddress")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ospfifmetricaddresslessif = YLeaf(YType.int32, "ospfIfMetricAddressLessIf")
+
+                self.ospfifmetrictos = YLeaf(YType.int32, "ospfIfMetricTOS")
+
+                self.ospfifmetricstatus = YLeaf(YType.enumeration, "ospfIfMetricStatus")
+
+                self.ospfifmetricvalue = YLeaf(YType.int32, "ospfIfMetricValue")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfifmetricipaddress",
+                                "ospfifmetricaddresslessif",
+                                "ospfifmetrictos",
+                                "ospfifmetricstatus",
+                                "ospfifmetricvalue") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfifmetrictable.Ospfifmetricentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfifmetrictable.Ospfifmetricentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ospfifmetricipaddress.is_set or
+                    self.ospfifmetricaddresslessif.is_set or
+                    self.ospfifmetrictos.is_set or
+                    self.ospfifmetricstatus.is_set or
+                    self.ospfifmetricvalue.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfifmetricipaddress.yfilter != YFilter.not_set or
+                    self.ospfifmetricaddresslessif.yfilter != YFilter.not_set or
+                    self.ospfifmetrictos.yfilter != YFilter.not_set or
+                    self.ospfifmetricstatus.yfilter != YFilter.not_set or
+                    self.ospfifmetricvalue.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfIfMetricEntry" + "[ospfIfMetricIpAddress='" + self.ospfifmetricipaddress.get() + "']" + "[ospfIfMetricAddressLessIf='" + self.ospfifmetricaddresslessif.get() + "']" + "[ospfIfMetricTOS='" + self.ospfifmetrictos.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfIfMetricTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfifmetricipaddress.is_set or self.ospfifmetricipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifmetricipaddress.get_name_leafdata())
+                if (self.ospfifmetricaddresslessif.is_set or self.ospfifmetricaddresslessif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifmetricaddresslessif.get_name_leafdata())
+                if (self.ospfifmetrictos.is_set or self.ospfifmetrictos.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifmetrictos.get_name_leafdata())
+                if (self.ospfifmetricstatus.is_set or self.ospfifmetricstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifmetricstatus.get_name_leafdata())
+                if (self.ospfifmetricvalue.is_set or self.ospfifmetricvalue.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfifmetricvalue.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfIfMetricIpAddress" or name == "ospfIfMetricAddressLessIf" or name == "ospfIfMetricTOS" or name == "ospfIfMetricStatus" or name == "ospfIfMetricValue"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfifmetricipaddress is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfIfMetricIpAddress"):
+                    self.ospfifmetricipaddress = value
+                    self.ospfifmetricipaddress.value_namespace = name_space
+                    self.ospfifmetricipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfMetricAddressLessIf"):
+                    self.ospfifmetricaddresslessif = value
+                    self.ospfifmetricaddresslessif.value_namespace = name_space
+                    self.ospfifmetricaddresslessif.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfMetricTOS"):
+                    self.ospfifmetrictos = value
+                    self.ospfifmetrictos.value_namespace = name_space
+                    self.ospfifmetrictos.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfMetricStatus"):
+                    self.ospfifmetricstatus = value
+                    self.ospfifmetricstatus.value_namespace = name_space
+                    self.ospfifmetricstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfIfMetricValue"):
+                    self.ospfifmetricvalue = value
+                    self.ospfifmetricvalue.value_namespace = name_space
+                    self.ospfifmetricvalue.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfifmetricentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfifmetricaddresslessif is not None:
-                    return True
-
-                if self.ospfifmetrictos is not None:
-                    return True
-
-                if self.ospfifmetricstatus is not None:
-                    return True
-
-                if self.ospfifmetricvalue is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfifmetrictable.Ospfifmetricentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfIfMetricTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfifmetricentry is not None:
-                for child_ref in self.ospfifmetricentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfifmetricentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfIfMetricTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfIfMetricEntry"):
+                for c in self.ospfifmetricentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfifmetrictable.Ospfifmetricentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfifmetricentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfIfMetricEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfifmetrictable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfvirtiftable(object):
+    class Ospfvirtiftable(Entity):
         """
         Information about this router's virtual interfaces
         that the OSPF Process is configured to carry on.
@@ -2626,13 +4055,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfvirtifentry = YList()
-            self.ospfvirtifentry.parent = self
-            self.ospfvirtifentry.name = 'ospfvirtifentry'
+            super(OspfMib.Ospfvirtiftable, self).__init__()
+
+            self.yang_name = "ospfVirtIfTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfvirtifentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfvirtiftable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfvirtiftable, self).__setattr__(name, value)
 
 
-        class Ospfvirtifentry(object):
+        class Ospfvirtifentry(Entity):
             """
             Information about a single virtual interface.
             
@@ -2678,7 +4133,7 @@ class OspfMib(object):
             .. attribute:: ospfvirtifauthtype
             
             	The authentication type specified for a virtual interface.  Note that this object can be used to engage in significant attacks against an OSPF router
-            	**type**\:   :py:class:`OspfauthenticationtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfauthenticationtypeEnum>`
+            	**type**\:   :py:class:`Ospfauthenticationtype <ydk.models.cisco_ios_xe.OSPF_MIB.Ospfauthenticationtype>`
             
             .. attribute:: ospfvirtifevents
             
@@ -2731,12 +4186,12 @@ class OspfMib(object):
             .. attribute:: ospfvirtifstate
             
             	OSPF virtual interface states
-            	**type**\:   :py:class:`OspfvirtifstateEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtiftable.Ospfvirtifentry.OspfvirtifstateEnum>`
+            	**type**\:   :py:class:`Ospfvirtifstate <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtiftable.Ospfvirtifentry.Ospfvirtifstate>`
             
             .. attribute:: ospfvirtifstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ospfvirtiftransitdelay
             
@@ -2755,26 +4210,82 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfvirtifareaid = None
-                self.ospfvirtifneighbor = None
-                self.cospfvirtiflsacksumsum = None
-                self.cospfvirtiflsacount = None
-                self.ospfvirtifauthkey = None
-                self.ospfvirtifauthtype = None
-                self.ospfvirtifevents = None
-                self.ospfvirtifhellointerval = None
-                self.ospfvirtiflsacksumsum = None
-                self.ospfvirtiflsacount = None
-                self.ospfvirtifretransinterval = None
-                self.ospfvirtifrtrdeadinterval = None
-                self.ospfvirtifstate = None
-                self.ospfvirtifstatus = None
-                self.ospfvirtiftransitdelay = None
+                super(OspfMib.Ospfvirtiftable.Ospfvirtifentry, self).__init__()
 
-            class OspfvirtifstateEnum(Enum):
+                self.yang_name = "ospfVirtIfEntry"
+                self.yang_parent_name = "ospfVirtIfTable"
+
+                self.ospfvirtifareaid = YLeaf(YType.str, "ospfVirtIfAreaId")
+
+                self.ospfvirtifneighbor = YLeaf(YType.str, "ospfVirtIfNeighbor")
+
+                self.cospfvirtiflsacksumsum = YLeaf(YType.uint32, "CISCO-OSPF-MIB:cospfVirtIfLsaCksumSum")
+
+                self.cospfvirtiflsacount = YLeaf(YType.uint32, "CISCO-OSPF-MIB:cospfVirtIfLsaCount")
+
+                self.ospfvirtifauthkey = YLeaf(YType.str, "ospfVirtIfAuthKey")
+
+                self.ospfvirtifauthtype = YLeaf(YType.enumeration, "ospfVirtIfAuthType")
+
+                self.ospfvirtifevents = YLeaf(YType.uint32, "ospfVirtIfEvents")
+
+                self.ospfvirtifhellointerval = YLeaf(YType.int32, "ospfVirtIfHelloInterval")
+
+                self.ospfvirtiflsacksumsum = YLeaf(YType.uint32, "ospfVirtIfLsaCksumSum")
+
+                self.ospfvirtiflsacount = YLeaf(YType.uint32, "ospfVirtIfLsaCount")
+
+                self.ospfvirtifretransinterval = YLeaf(YType.int32, "ospfVirtIfRetransInterval")
+
+                self.ospfvirtifrtrdeadinterval = YLeaf(YType.int32, "ospfVirtIfRtrDeadInterval")
+
+                self.ospfvirtifstate = YLeaf(YType.enumeration, "ospfVirtIfState")
+
+                self.ospfvirtifstatus = YLeaf(YType.enumeration, "ospfVirtIfStatus")
+
+                self.ospfvirtiftransitdelay = YLeaf(YType.int32, "ospfVirtIfTransitDelay")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfvirtifareaid",
+                                "ospfvirtifneighbor",
+                                "cospfvirtiflsacksumsum",
+                                "cospfvirtiflsacount",
+                                "ospfvirtifauthkey",
+                                "ospfvirtifauthtype",
+                                "ospfvirtifevents",
+                                "ospfvirtifhellointerval",
+                                "ospfvirtiflsacksumsum",
+                                "ospfvirtiflsacount",
+                                "ospfvirtifretransinterval",
+                                "ospfvirtifrtrdeadinterval",
+                                "ospfvirtifstate",
+                                "ospfvirtifstatus",
+                                "ospfvirtiftransitdelay") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfvirtiftable.Ospfvirtifentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfvirtiftable.Ospfvirtifentry, self).__setattr__(name, value)
+
+            class Ospfvirtifstate(Enum):
                 """
-                OspfvirtifstateEnum
+                Ospfvirtifstate
 
                 OSPF virtual interface states.
 
@@ -2784,107 +4295,229 @@ class OspfMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                pointToPoint = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfvirtiftable.Ospfvirtifentry.OspfvirtifstateEnum']
+                pointToPoint = Enum.YLeaf(4, "pointToPoint")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfvirtifareaid is None:
-                    raise YPYModelError('Key property ospfvirtifareaid is None')
-                if self.ospfvirtifneighbor is None:
-                    raise YPYModelError('Key property ospfvirtifneighbor is None')
+            def has_data(self):
+                return (
+                    self.ospfvirtifareaid.is_set or
+                    self.ospfvirtifneighbor.is_set or
+                    self.cospfvirtiflsacksumsum.is_set or
+                    self.cospfvirtiflsacount.is_set or
+                    self.ospfvirtifauthkey.is_set or
+                    self.ospfvirtifauthtype.is_set or
+                    self.ospfvirtifevents.is_set or
+                    self.ospfvirtifhellointerval.is_set or
+                    self.ospfvirtiflsacksumsum.is_set or
+                    self.ospfvirtiflsacount.is_set or
+                    self.ospfvirtifretransinterval.is_set or
+                    self.ospfvirtifrtrdeadinterval.is_set or
+                    self.ospfvirtifstate.is_set or
+                    self.ospfvirtifstatus.is_set or
+                    self.ospfvirtiftransitdelay.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfVirtIfTable/OSPF-MIB:ospfVirtIfEntry[OSPF-MIB:ospfVirtIfAreaId = ' + str(self.ospfvirtifareaid) + '][OSPF-MIB:ospfVirtIfNeighbor = ' + str(self.ospfvirtifneighbor) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfvirtifareaid.yfilter != YFilter.not_set or
+                    self.ospfvirtifneighbor.yfilter != YFilter.not_set or
+                    self.cospfvirtiflsacksumsum.yfilter != YFilter.not_set or
+                    self.cospfvirtiflsacount.yfilter != YFilter.not_set or
+                    self.ospfvirtifauthkey.yfilter != YFilter.not_set or
+                    self.ospfvirtifauthtype.yfilter != YFilter.not_set or
+                    self.ospfvirtifevents.yfilter != YFilter.not_set or
+                    self.ospfvirtifhellointerval.yfilter != YFilter.not_set or
+                    self.ospfvirtiflsacksumsum.yfilter != YFilter.not_set or
+                    self.ospfvirtiflsacount.yfilter != YFilter.not_set or
+                    self.ospfvirtifretransinterval.yfilter != YFilter.not_set or
+                    self.ospfvirtifrtrdeadinterval.yfilter != YFilter.not_set or
+                    self.ospfvirtifstate.yfilter != YFilter.not_set or
+                    self.ospfvirtifstatus.yfilter != YFilter.not_set or
+                    self.ospfvirtiftransitdelay.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfVirtIfEntry" + "[ospfVirtIfAreaId='" + self.ospfvirtifareaid.get() + "']" + "[ospfVirtIfNeighbor='" + self.ospfvirtifneighbor.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfVirtIfTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfvirtifareaid.is_set or self.ospfvirtifareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifareaid.get_name_leafdata())
+                if (self.ospfvirtifneighbor.is_set or self.ospfvirtifneighbor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifneighbor.get_name_leafdata())
+                if (self.cospfvirtiflsacksumsum.is_set or self.cospfvirtiflsacksumsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtiflsacksumsum.get_name_leafdata())
+                if (self.cospfvirtiflsacount.is_set or self.cospfvirtiflsacount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.cospfvirtiflsacount.get_name_leafdata())
+                if (self.ospfvirtifauthkey.is_set or self.ospfvirtifauthkey.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifauthkey.get_name_leafdata())
+                if (self.ospfvirtifauthtype.is_set or self.ospfvirtifauthtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifauthtype.get_name_leafdata())
+                if (self.ospfvirtifevents.is_set or self.ospfvirtifevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifevents.get_name_leafdata())
+                if (self.ospfvirtifhellointerval.is_set or self.ospfvirtifhellointerval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifhellointerval.get_name_leafdata())
+                if (self.ospfvirtiflsacksumsum.is_set or self.ospfvirtiflsacksumsum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtiflsacksumsum.get_name_leafdata())
+                if (self.ospfvirtiflsacount.is_set or self.ospfvirtiflsacount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtiflsacount.get_name_leafdata())
+                if (self.ospfvirtifretransinterval.is_set or self.ospfvirtifretransinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifretransinterval.get_name_leafdata())
+                if (self.ospfvirtifrtrdeadinterval.is_set or self.ospfvirtifrtrdeadinterval.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifrtrdeadinterval.get_name_leafdata())
+                if (self.ospfvirtifstate.is_set or self.ospfvirtifstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifstate.get_name_leafdata())
+                if (self.ospfvirtifstatus.is_set or self.ospfvirtifstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtifstatus.get_name_leafdata())
+                if (self.ospfvirtiftransitdelay.is_set or self.ospfvirtiftransitdelay.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtiftransitdelay.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfVirtIfAreaId" or name == "ospfVirtIfNeighbor" or name == "cospfVirtIfLsaCksumSum" or name == "cospfVirtIfLsaCount" or name == "ospfVirtIfAuthKey" or name == "ospfVirtIfAuthType" or name == "ospfVirtIfEvents" or name == "ospfVirtIfHelloInterval" or name == "ospfVirtIfLsaCksumSum" or name == "ospfVirtIfLsaCount" or name == "ospfVirtIfRetransInterval" or name == "ospfVirtIfRtrDeadInterval" or name == "ospfVirtIfState" or name == "ospfVirtIfStatus" or name == "ospfVirtIfTransitDelay"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfvirtifareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfVirtIfAreaId"):
+                    self.ospfvirtifareaid = value
+                    self.ospfvirtifareaid.value_namespace = name_space
+                    self.ospfvirtifareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfNeighbor"):
+                    self.ospfvirtifneighbor = value
+                    self.ospfvirtifneighbor.value_namespace = name_space
+                    self.ospfvirtifneighbor.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtIfLsaCksumSum"):
+                    self.cospfvirtiflsacksumsum = value
+                    self.cospfvirtiflsacksumsum.value_namespace = name_space
+                    self.cospfvirtiflsacksumsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "cospfVirtIfLsaCount"):
+                    self.cospfvirtiflsacount = value
+                    self.cospfvirtiflsacount.value_namespace = name_space
+                    self.cospfvirtiflsacount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfAuthKey"):
+                    self.ospfvirtifauthkey = value
+                    self.ospfvirtifauthkey.value_namespace = name_space
+                    self.ospfvirtifauthkey.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfAuthType"):
+                    self.ospfvirtifauthtype = value
+                    self.ospfvirtifauthtype.value_namespace = name_space
+                    self.ospfvirtifauthtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfEvents"):
+                    self.ospfvirtifevents = value
+                    self.ospfvirtifevents.value_namespace = name_space
+                    self.ospfvirtifevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfHelloInterval"):
+                    self.ospfvirtifhellointerval = value
+                    self.ospfvirtifhellointerval.value_namespace = name_space
+                    self.ospfvirtifhellointerval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfLsaCksumSum"):
+                    self.ospfvirtiflsacksumsum = value
+                    self.ospfvirtiflsacksumsum.value_namespace = name_space
+                    self.ospfvirtiflsacksumsum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfLsaCount"):
+                    self.ospfvirtiflsacount = value
+                    self.ospfvirtiflsacount.value_namespace = name_space
+                    self.ospfvirtiflsacount.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfRetransInterval"):
+                    self.ospfvirtifretransinterval = value
+                    self.ospfvirtifretransinterval.value_namespace = name_space
+                    self.ospfvirtifretransinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfRtrDeadInterval"):
+                    self.ospfvirtifrtrdeadinterval = value
+                    self.ospfvirtifrtrdeadinterval.value_namespace = name_space
+                    self.ospfvirtifrtrdeadinterval.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfState"):
+                    self.ospfvirtifstate = value
+                    self.ospfvirtifstate.value_namespace = name_space
+                    self.ospfvirtifstate.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfStatus"):
+                    self.ospfvirtifstatus = value
+                    self.ospfvirtifstatus.value_namespace = name_space
+                    self.ospfvirtifstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtIfTransitDelay"):
+                    self.ospfvirtiftransitdelay = value
+                    self.ospfvirtiftransitdelay.value_namespace = name_space
+                    self.ospfvirtiftransitdelay.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfvirtifentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfvirtifneighbor is not None:
-                    return True
-
-                if self.cospfvirtiflsacksumsum is not None:
-                    return True
-
-                if self.cospfvirtiflsacount is not None:
-                    return True
-
-                if self.ospfvirtifauthkey is not None:
-                    return True
-
-                if self.ospfvirtifauthtype is not None:
-                    return True
-
-                if self.ospfvirtifevents is not None:
-                    return True
-
-                if self.ospfvirtifhellointerval is not None:
-                    return True
-
-                if self.ospfvirtiflsacksumsum is not None:
-                    return True
-
-                if self.ospfvirtiflsacount is not None:
-                    return True
-
-                if self.ospfvirtifretransinterval is not None:
-                    return True
-
-                if self.ospfvirtifrtrdeadinterval is not None:
-                    return True
-
-                if self.ospfvirtifstate is not None:
-                    return True
-
-                if self.ospfvirtifstatus is not None:
-                    return True
-
-                if self.ospfvirtiftransitdelay is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfvirtiftable.Ospfvirtifentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfVirtIfTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfvirtifentry is not None:
-                for child_ref in self.ospfvirtifentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfvirtifentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfVirtIfTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfVirtIfEntry"):
+                for c in self.ospfvirtifentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfvirtiftable.Ospfvirtifentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfvirtifentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfVirtIfEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfvirtiftable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfnbrtable(object):
+    class Ospfnbrtable(Entity):
         """
         A table describing all non\-virtual neighbors
         in the locality of the OSPF router.
@@ -2902,13 +4535,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfnbrentry = YList()
-            self.ospfnbrentry.parent = self
-            self.ospfnbrentry.name = 'ospfnbrentry'
+            super(OspfMib.Ospfnbrtable, self).__init__()
+
+            self.yang_name = "ospfNbrTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfnbrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfnbrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfnbrtable, self).__setattr__(name, value)
 
 
-        class Ospfnbrentry(object):
+        class Ospfnbrentry(Entity):
             """
             The information regarding a single neighbor.
             
@@ -2934,12 +4593,12 @@ class OspfMib(object):
             .. attribute:: ospfnbmanbrpermanence
             
             	This variable displays the status of the entry; 'dynamic' and 'permanent' refer to how the neighbor became known
-            	**type**\:   :py:class:`OspfnbmanbrpermanenceEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbmanbrpermanenceEnum>`
+            	**type**\:   :py:class:`Ospfnbmanbrpermanence <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.Ospfnbmanbrpermanence>`
             
             .. attribute:: ospfnbmanbrstatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ospfnbrevents
             
@@ -2986,12 +4645,12 @@ class OspfMib(object):
             .. attribute:: ospfnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`OspfnbrrestarthelperexitreasonEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbrrestarthelperexitreasonEnum>`
+            	**type**\:   :py:class:`Ospfnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperexitreason>`
             
             .. attribute:: ospfnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`OspfnbrrestarthelperstatusEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbrrestarthelperstatusEnum>`
+            	**type**\:   :py:class:`Ospfnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.Ospfnbrrestarthelperstatus>`
             
             .. attribute:: ospfnbrrtrid
             
@@ -3003,7 +4662,7 @@ class OspfMib(object):
             .. attribute:: ospfnbrstate
             
             	The state of the relationship with this neighbor
-            	**type**\:   :py:class:`OspfnbrstateEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbrstateEnum>`
+            	**type**\:   :py:class:`Ospfnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfnbrtable.Ospfnbrentry.Ospfnbrstate>`
             
             
 
@@ -3013,25 +4672,79 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfnbripaddr = None
-                self.ospfnbraddresslessindex = None
-                self.ospfnbmanbrpermanence = None
-                self.ospfnbmanbrstatus = None
-                self.ospfnbrevents = None
-                self.ospfnbrhellosuppressed = None
-                self.ospfnbrlsretransqlen = None
-                self.ospfnbroptions = None
-                self.ospfnbrpriority = None
-                self.ospfnbrrestarthelperage = None
-                self.ospfnbrrestarthelperexitreason = None
-                self.ospfnbrrestarthelperstatus = None
-                self.ospfnbrrtrid = None
-                self.ospfnbrstate = None
+                super(OspfMib.Ospfnbrtable.Ospfnbrentry, self).__init__()
 
-            class OspfnbmanbrpermanenceEnum(Enum):
+                self.yang_name = "ospfNbrEntry"
+                self.yang_parent_name = "ospfNbrTable"
+
+                self.ospfnbripaddr = YLeaf(YType.str, "ospfNbrIpAddr")
+
+                self.ospfnbraddresslessindex = YLeaf(YType.int32, "ospfNbrAddressLessIndex")
+
+                self.ospfnbmanbrpermanence = YLeaf(YType.enumeration, "ospfNbmaNbrPermanence")
+
+                self.ospfnbmanbrstatus = YLeaf(YType.enumeration, "ospfNbmaNbrStatus")
+
+                self.ospfnbrevents = YLeaf(YType.uint32, "ospfNbrEvents")
+
+                self.ospfnbrhellosuppressed = YLeaf(YType.boolean, "ospfNbrHelloSuppressed")
+
+                self.ospfnbrlsretransqlen = YLeaf(YType.uint32, "ospfNbrLsRetransQLen")
+
+                self.ospfnbroptions = YLeaf(YType.int32, "ospfNbrOptions")
+
+                self.ospfnbrpriority = YLeaf(YType.int32, "ospfNbrPriority")
+
+                self.ospfnbrrestarthelperage = YLeaf(YType.uint32, "ospfNbrRestartHelperAge")
+
+                self.ospfnbrrestarthelperexitreason = YLeaf(YType.enumeration, "ospfNbrRestartHelperExitReason")
+
+                self.ospfnbrrestarthelperstatus = YLeaf(YType.enumeration, "ospfNbrRestartHelperStatus")
+
+                self.ospfnbrrtrid = YLeaf(YType.str, "ospfNbrRtrId")
+
+                self.ospfnbrstate = YLeaf(YType.enumeration, "ospfNbrState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfnbripaddr",
+                                "ospfnbraddresslessindex",
+                                "ospfnbmanbrpermanence",
+                                "ospfnbmanbrstatus",
+                                "ospfnbrevents",
+                                "ospfnbrhellosuppressed",
+                                "ospfnbrlsretransqlen",
+                                "ospfnbroptions",
+                                "ospfnbrpriority",
+                                "ospfnbrrestarthelperage",
+                                "ospfnbrrestarthelperexitreason",
+                                "ospfnbrrestarthelperstatus",
+                                "ospfnbrrtrid",
+                                "ospfnbrstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfnbrtable.Ospfnbrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfnbrtable.Ospfnbrentry, self).__setattr__(name, value)
+
+            class Ospfnbmanbrpermanence(Enum):
                 """
-                OspfnbmanbrpermanenceEnum
+                Ospfnbmanbrpermanence
 
                 This variable displays the status of the entry;
 
@@ -3045,20 +4758,14 @@ class OspfMib(object):
 
                 """
 
-                dynamic = 1
+                dynamic = Enum.YLeaf(1, "dynamic")
 
-                permanent = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbmanbrpermanenceEnum']
+                permanent = Enum.YLeaf(2, "permanent")
 
 
-            class OspfnbrrestarthelperexitreasonEnum(Enum):
+            class Ospfnbrrestarthelperexitreason(Enum):
                 """
-                OspfnbrrestarthelperexitreasonEnum
+                Ospfnbrrestarthelperexitreason
 
                 Describes the outcome of the last attempt at acting
 
@@ -3076,26 +4783,20 @@ class OspfMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                inProgress = 2
+                inProgress = Enum.YLeaf(2, "inProgress")
 
-                completed = 3
+                completed = Enum.YLeaf(3, "completed")
 
-                timedOut = 4
+                timedOut = Enum.YLeaf(4, "timedOut")
 
-                topologyChanged = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbrrestarthelperexitreasonEnum']
+                topologyChanged = Enum.YLeaf(5, "topologyChanged")
 
 
-            class OspfnbrrestarthelperstatusEnum(Enum):
+            class Ospfnbrrestarthelperstatus(Enum):
                 """
-                OspfnbrrestarthelperstatusEnum
+                Ospfnbrrestarthelperstatus
 
                 Indicates whether the router is acting
 
@@ -3107,20 +4808,14 @@ class OspfMib(object):
 
                 """
 
-                notHelping = 1
+                notHelping = Enum.YLeaf(1, "notHelping")
 
-                helping = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbrrestarthelperstatusEnum']
+                helping = Enum.YLeaf(2, "helping")
 
 
-            class OspfnbrstateEnum(Enum):
+            class Ospfnbrstate(Enum):
                 """
-                OspfnbrstateEnum
+                Ospfnbrstate
 
                 The state of the relationship with this neighbor.
 
@@ -3142,116 +4837,233 @@ class OspfMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                attempt = 2
+                attempt = Enum.YLeaf(2, "attempt")
 
-                init = 3
+                init = Enum.YLeaf(3, "init")
 
-                twoWay = 4
+                twoWay = Enum.YLeaf(4, "twoWay")
 
-                exchangeStart = 5
+                exchangeStart = Enum.YLeaf(5, "exchangeStart")
 
-                exchange = 6
+                exchange = Enum.YLeaf(6, "exchange")
 
-                loading = 7
+                loading = Enum.YLeaf(7, "loading")
 
-                full = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfnbrtable.Ospfnbrentry.OspfnbrstateEnum']
+                full = Enum.YLeaf(8, "full")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfnbripaddr is None:
-                    raise YPYModelError('Key property ospfnbripaddr is None')
-                if self.ospfnbraddresslessindex is None:
-                    raise YPYModelError('Key property ospfnbraddresslessindex is None')
+            def has_data(self):
+                return (
+                    self.ospfnbripaddr.is_set or
+                    self.ospfnbraddresslessindex.is_set or
+                    self.ospfnbmanbrpermanence.is_set or
+                    self.ospfnbmanbrstatus.is_set or
+                    self.ospfnbrevents.is_set or
+                    self.ospfnbrhellosuppressed.is_set or
+                    self.ospfnbrlsretransqlen.is_set or
+                    self.ospfnbroptions.is_set or
+                    self.ospfnbrpriority.is_set or
+                    self.ospfnbrrestarthelperage.is_set or
+                    self.ospfnbrrestarthelperexitreason.is_set or
+                    self.ospfnbrrestarthelperstatus.is_set or
+                    self.ospfnbrrtrid.is_set or
+                    self.ospfnbrstate.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfNbrTable/OSPF-MIB:ospfNbrEntry[OSPF-MIB:ospfNbrIpAddr = ' + str(self.ospfnbripaddr) + '][OSPF-MIB:ospfNbrAddressLessIndex = ' + str(self.ospfnbraddresslessindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfnbripaddr.yfilter != YFilter.not_set or
+                    self.ospfnbraddresslessindex.yfilter != YFilter.not_set or
+                    self.ospfnbmanbrpermanence.yfilter != YFilter.not_set or
+                    self.ospfnbmanbrstatus.yfilter != YFilter.not_set or
+                    self.ospfnbrevents.yfilter != YFilter.not_set or
+                    self.ospfnbrhellosuppressed.yfilter != YFilter.not_set or
+                    self.ospfnbrlsretransqlen.yfilter != YFilter.not_set or
+                    self.ospfnbroptions.yfilter != YFilter.not_set or
+                    self.ospfnbrpriority.yfilter != YFilter.not_set or
+                    self.ospfnbrrestarthelperage.yfilter != YFilter.not_set or
+                    self.ospfnbrrestarthelperexitreason.yfilter != YFilter.not_set or
+                    self.ospfnbrrestarthelperstatus.yfilter != YFilter.not_set or
+                    self.ospfnbrrtrid.yfilter != YFilter.not_set or
+                    self.ospfnbrstate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfNbrEntry" + "[ospfNbrIpAddr='" + self.ospfnbripaddr.get() + "']" + "[ospfNbrAddressLessIndex='" + self.ospfnbraddresslessindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfNbrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfnbripaddr.is_set or self.ospfnbripaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbripaddr.get_name_leafdata())
+                if (self.ospfnbraddresslessindex.is_set or self.ospfnbraddresslessindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbraddresslessindex.get_name_leafdata())
+                if (self.ospfnbmanbrpermanence.is_set or self.ospfnbmanbrpermanence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbmanbrpermanence.get_name_leafdata())
+                if (self.ospfnbmanbrstatus.is_set or self.ospfnbmanbrstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbmanbrstatus.get_name_leafdata())
+                if (self.ospfnbrevents.is_set or self.ospfnbrevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrevents.get_name_leafdata())
+                if (self.ospfnbrhellosuppressed.is_set or self.ospfnbrhellosuppressed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrhellosuppressed.get_name_leafdata())
+                if (self.ospfnbrlsretransqlen.is_set or self.ospfnbrlsretransqlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrlsretransqlen.get_name_leafdata())
+                if (self.ospfnbroptions.is_set or self.ospfnbroptions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbroptions.get_name_leafdata())
+                if (self.ospfnbrpriority.is_set or self.ospfnbrpriority.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrpriority.get_name_leafdata())
+                if (self.ospfnbrrestarthelperage.is_set or self.ospfnbrrestarthelperage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrrestarthelperage.get_name_leafdata())
+                if (self.ospfnbrrestarthelperexitreason.is_set or self.ospfnbrrestarthelperexitreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrrestarthelperexitreason.get_name_leafdata())
+                if (self.ospfnbrrestarthelperstatus.is_set or self.ospfnbrrestarthelperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrrestarthelperstatus.get_name_leafdata())
+                if (self.ospfnbrrtrid.is_set or self.ospfnbrrtrid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrrtrid.get_name_leafdata())
+                if (self.ospfnbrstate.is_set or self.ospfnbrstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfnbrstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfNbrIpAddr" or name == "ospfNbrAddressLessIndex" or name == "ospfNbmaNbrPermanence" or name == "ospfNbmaNbrStatus" or name == "ospfNbrEvents" or name == "ospfNbrHelloSuppressed" or name == "ospfNbrLsRetransQLen" or name == "ospfNbrOptions" or name == "ospfNbrPriority" or name == "ospfNbrRestartHelperAge" or name == "ospfNbrRestartHelperExitReason" or name == "ospfNbrRestartHelperStatus" or name == "ospfNbrRtrId" or name == "ospfNbrState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfnbripaddr is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfNbrIpAddr"):
+                    self.ospfnbripaddr = value
+                    self.ospfnbripaddr.value_namespace = name_space
+                    self.ospfnbripaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrAddressLessIndex"):
+                    self.ospfnbraddresslessindex = value
+                    self.ospfnbraddresslessindex.value_namespace = name_space
+                    self.ospfnbraddresslessindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbmaNbrPermanence"):
+                    self.ospfnbmanbrpermanence = value
+                    self.ospfnbmanbrpermanence.value_namespace = name_space
+                    self.ospfnbmanbrpermanence.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbmaNbrStatus"):
+                    self.ospfnbmanbrstatus = value
+                    self.ospfnbmanbrstatus.value_namespace = name_space
+                    self.ospfnbmanbrstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrEvents"):
+                    self.ospfnbrevents = value
+                    self.ospfnbrevents.value_namespace = name_space
+                    self.ospfnbrevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrHelloSuppressed"):
+                    self.ospfnbrhellosuppressed = value
+                    self.ospfnbrhellosuppressed.value_namespace = name_space
+                    self.ospfnbrhellosuppressed.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrLsRetransQLen"):
+                    self.ospfnbrlsretransqlen = value
+                    self.ospfnbrlsretransqlen.value_namespace = name_space
+                    self.ospfnbrlsretransqlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrOptions"):
+                    self.ospfnbroptions = value
+                    self.ospfnbroptions.value_namespace = name_space
+                    self.ospfnbroptions.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrPriority"):
+                    self.ospfnbrpriority = value
+                    self.ospfnbrpriority.value_namespace = name_space
+                    self.ospfnbrpriority.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrRestartHelperAge"):
+                    self.ospfnbrrestarthelperage = value
+                    self.ospfnbrrestarthelperage.value_namespace = name_space
+                    self.ospfnbrrestarthelperage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrRestartHelperExitReason"):
+                    self.ospfnbrrestarthelperexitreason = value
+                    self.ospfnbrrestarthelperexitreason.value_namespace = name_space
+                    self.ospfnbrrestarthelperexitreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrRestartHelperStatus"):
+                    self.ospfnbrrestarthelperstatus = value
+                    self.ospfnbrrestarthelperstatus.value_namespace = name_space
+                    self.ospfnbrrestarthelperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrRtrId"):
+                    self.ospfnbrrtrid = value
+                    self.ospfnbrrtrid.value_namespace = name_space
+                    self.ospfnbrrtrid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfNbrState"):
+                    self.ospfnbrstate = value
+                    self.ospfnbrstate.value_namespace = name_space
+                    self.ospfnbrstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfnbrentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfnbraddresslessindex is not None:
-                    return True
-
-                if self.ospfnbmanbrpermanence is not None:
-                    return True
-
-                if self.ospfnbmanbrstatus is not None:
-                    return True
-
-                if self.ospfnbrevents is not None:
-                    return True
-
-                if self.ospfnbrhellosuppressed is not None:
-                    return True
-
-                if self.ospfnbrlsretransqlen is not None:
-                    return True
-
-                if self.ospfnbroptions is not None:
-                    return True
-
-                if self.ospfnbrpriority is not None:
-                    return True
-
-                if self.ospfnbrrestarthelperage is not None:
-                    return True
-
-                if self.ospfnbrrestarthelperexitreason is not None:
-                    return True
-
-                if self.ospfnbrrestarthelperstatus is not None:
-                    return True
-
-                if self.ospfnbrrtrid is not None:
-                    return True
-
-                if self.ospfnbrstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfnbrtable.Ospfnbrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfNbrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfnbrentry is not None:
-                for child_ref in self.ospfnbrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfnbrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfNbrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfNbrEntry"):
+                for c in self.ospfnbrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfnbrtable.Ospfnbrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfnbrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfNbrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfnbrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfvirtnbrtable(object):
+    class Ospfvirtnbrtable(Entity):
         """
         This table describes all virtual neighbors.
         Since virtual links are configured
@@ -3270,13 +5082,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfvirtnbrentry = YList()
-            self.ospfvirtnbrentry.parent = self
-            self.ospfvirtnbrentry.name = 'ospfvirtnbrentry'
+            super(OspfMib.Ospfvirtnbrtable, self).__init__()
+
+            self.yang_name = "ospfVirtNbrTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfvirtnbrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfvirtnbrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfvirtnbrtable, self).__setattr__(name, value)
 
 
-        class Ospfvirtnbrentry(object):
+        class Ospfvirtnbrentry(Entity):
             """
             Virtual neighbor information.
             
@@ -3339,17 +5177,17 @@ class OspfMib(object):
             .. attribute:: ospfvirtnbrrestarthelperexitreason
             
             	Describes the outcome of the last attempt at acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`OspfvirtnbrrestarthelperexitreasonEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.OspfvirtnbrrestarthelperexitreasonEnum>`
+            	**type**\:   :py:class:`Ospfvirtnbrrestarthelperexitreason <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperexitreason>`
             
             .. attribute:: ospfvirtnbrrestarthelperstatus
             
             	Indicates whether the router is acting as a graceful restart helper for the neighbor
-            	**type**\:   :py:class:`OspfvirtnbrrestarthelperstatusEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.OspfvirtnbrrestarthelperstatusEnum>`
+            	**type**\:   :py:class:`Ospfvirtnbrrestarthelperstatus <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrrestarthelperstatus>`
             
             .. attribute:: ospfvirtnbrstate
             
             	The state of the virtual neighbor relationship
-            	**type**\:   :py:class:`OspfvirtnbrstateEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.OspfvirtnbrstateEnum>`
+            	**type**\:   :py:class:`Ospfvirtnbrstate <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.Ospfvirtnbrstate>`
             
             
 
@@ -3359,22 +5197,70 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfvirtnbrarea = None
-                self.ospfvirtnbrrtrid = None
-                self.ospfvirtnbrevents = None
-                self.ospfvirtnbrhellosuppressed = None
-                self.ospfvirtnbripaddr = None
-                self.ospfvirtnbrlsretransqlen = None
-                self.ospfvirtnbroptions = None
-                self.ospfvirtnbrrestarthelperage = None
-                self.ospfvirtnbrrestarthelperexitreason = None
-                self.ospfvirtnbrrestarthelperstatus = None
-                self.ospfvirtnbrstate = None
+                super(OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry, self).__init__()
 
-            class OspfvirtnbrrestarthelperexitreasonEnum(Enum):
+                self.yang_name = "ospfVirtNbrEntry"
+                self.yang_parent_name = "ospfVirtNbrTable"
+
+                self.ospfvirtnbrarea = YLeaf(YType.str, "ospfVirtNbrArea")
+
+                self.ospfvirtnbrrtrid = YLeaf(YType.str, "ospfVirtNbrRtrId")
+
+                self.ospfvirtnbrevents = YLeaf(YType.uint32, "ospfVirtNbrEvents")
+
+                self.ospfvirtnbrhellosuppressed = YLeaf(YType.boolean, "ospfVirtNbrHelloSuppressed")
+
+                self.ospfvirtnbripaddr = YLeaf(YType.str, "ospfVirtNbrIpAddr")
+
+                self.ospfvirtnbrlsretransqlen = YLeaf(YType.uint32, "ospfVirtNbrLsRetransQLen")
+
+                self.ospfvirtnbroptions = YLeaf(YType.int32, "ospfVirtNbrOptions")
+
+                self.ospfvirtnbrrestarthelperage = YLeaf(YType.uint32, "ospfVirtNbrRestartHelperAge")
+
+                self.ospfvirtnbrrestarthelperexitreason = YLeaf(YType.enumeration, "ospfVirtNbrRestartHelperExitReason")
+
+                self.ospfvirtnbrrestarthelperstatus = YLeaf(YType.enumeration, "ospfVirtNbrRestartHelperStatus")
+
+                self.ospfvirtnbrstate = YLeaf(YType.enumeration, "ospfVirtNbrState")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfvirtnbrarea",
+                                "ospfvirtnbrrtrid",
+                                "ospfvirtnbrevents",
+                                "ospfvirtnbrhellosuppressed",
+                                "ospfvirtnbripaddr",
+                                "ospfvirtnbrlsretransqlen",
+                                "ospfvirtnbroptions",
+                                "ospfvirtnbrrestarthelperage",
+                                "ospfvirtnbrrestarthelperexitreason",
+                                "ospfvirtnbrrestarthelperstatus",
+                                "ospfvirtnbrstate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry, self).__setattr__(name, value)
+
+            class Ospfvirtnbrrestarthelperexitreason(Enum):
                 """
-                OspfvirtnbrrestarthelperexitreasonEnum
+                Ospfvirtnbrrestarthelperexitreason
 
                 Describes the outcome of the last attempt at acting
 
@@ -3392,26 +5278,20 @@ class OspfMib(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                inProgress = 2
+                inProgress = Enum.YLeaf(2, "inProgress")
 
-                completed = 3
+                completed = Enum.YLeaf(3, "completed")
 
-                timedOut = 4
+                timedOut = Enum.YLeaf(4, "timedOut")
 
-                topologyChanged = 5
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.OspfvirtnbrrestarthelperexitreasonEnum']
+                topologyChanged = Enum.YLeaf(5, "topologyChanged")
 
 
-            class OspfvirtnbrrestarthelperstatusEnum(Enum):
+            class Ospfvirtnbrrestarthelperstatus(Enum):
                 """
-                OspfvirtnbrrestarthelperstatusEnum
+                Ospfvirtnbrrestarthelperstatus
 
                 Indicates whether the router is acting
 
@@ -3423,20 +5303,14 @@ class OspfMib(object):
 
                 """
 
-                notHelping = 1
+                notHelping = Enum.YLeaf(1, "notHelping")
 
-                helping = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.OspfvirtnbrrestarthelperstatusEnum']
+                helping = Enum.YLeaf(2, "helping")
 
 
-            class OspfvirtnbrstateEnum(Enum):
+            class Ospfvirtnbrstate(Enum):
                 """
-                OspfvirtnbrstateEnum
+                Ospfvirtnbrstate
 
                 The state of the virtual neighbor relationship.
 
@@ -3458,107 +5332,209 @@ class OspfMib(object):
 
                 """
 
-                down = 1
+                down = Enum.YLeaf(1, "down")
 
-                attempt = 2
+                attempt = Enum.YLeaf(2, "attempt")
 
-                init = 3
+                init = Enum.YLeaf(3, "init")
 
-                twoWay = 4
+                twoWay = Enum.YLeaf(4, "twoWay")
 
-                exchangeStart = 5
+                exchangeStart = Enum.YLeaf(5, "exchangeStart")
 
-                exchange = 6
+                exchange = Enum.YLeaf(6, "exchange")
 
-                loading = 7
+                loading = Enum.YLeaf(7, "loading")
 
-                full = 8
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry.OspfvirtnbrstateEnum']
+                full = Enum.YLeaf(8, "full")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfvirtnbrarea is None:
-                    raise YPYModelError('Key property ospfvirtnbrarea is None')
-                if self.ospfvirtnbrrtrid is None:
-                    raise YPYModelError('Key property ospfvirtnbrrtrid is None')
+            def has_data(self):
+                return (
+                    self.ospfvirtnbrarea.is_set or
+                    self.ospfvirtnbrrtrid.is_set or
+                    self.ospfvirtnbrevents.is_set or
+                    self.ospfvirtnbrhellosuppressed.is_set or
+                    self.ospfvirtnbripaddr.is_set or
+                    self.ospfvirtnbrlsretransqlen.is_set or
+                    self.ospfvirtnbroptions.is_set or
+                    self.ospfvirtnbrrestarthelperage.is_set or
+                    self.ospfvirtnbrrestarthelperexitreason.is_set or
+                    self.ospfvirtnbrrestarthelperstatus.is_set or
+                    self.ospfvirtnbrstate.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfVirtNbrTable/OSPF-MIB:ospfVirtNbrEntry[OSPF-MIB:ospfVirtNbrArea = ' + str(self.ospfvirtnbrarea) + '][OSPF-MIB:ospfVirtNbrRtrId = ' + str(self.ospfvirtnbrrtrid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrarea.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrrtrid.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrevents.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrhellosuppressed.yfilter != YFilter.not_set or
+                    self.ospfvirtnbripaddr.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrlsretransqlen.yfilter != YFilter.not_set or
+                    self.ospfvirtnbroptions.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrrestarthelperage.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrrestarthelperexitreason.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrrestarthelperstatus.yfilter != YFilter.not_set or
+                    self.ospfvirtnbrstate.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfVirtNbrEntry" + "[ospfVirtNbrArea='" + self.ospfvirtnbrarea.get() + "']" + "[ospfVirtNbrRtrId='" + self.ospfvirtnbrrtrid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfVirtNbrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfvirtnbrarea.is_set or self.ospfvirtnbrarea.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrarea.get_name_leafdata())
+                if (self.ospfvirtnbrrtrid.is_set or self.ospfvirtnbrrtrid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrrtrid.get_name_leafdata())
+                if (self.ospfvirtnbrevents.is_set or self.ospfvirtnbrevents.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrevents.get_name_leafdata())
+                if (self.ospfvirtnbrhellosuppressed.is_set or self.ospfvirtnbrhellosuppressed.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrhellosuppressed.get_name_leafdata())
+                if (self.ospfvirtnbripaddr.is_set or self.ospfvirtnbripaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbripaddr.get_name_leafdata())
+                if (self.ospfvirtnbrlsretransqlen.is_set or self.ospfvirtnbrlsretransqlen.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrlsretransqlen.get_name_leafdata())
+                if (self.ospfvirtnbroptions.is_set or self.ospfvirtnbroptions.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbroptions.get_name_leafdata())
+                if (self.ospfvirtnbrrestarthelperage.is_set or self.ospfvirtnbrrestarthelperage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrrestarthelperage.get_name_leafdata())
+                if (self.ospfvirtnbrrestarthelperexitreason.is_set or self.ospfvirtnbrrestarthelperexitreason.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrrestarthelperexitreason.get_name_leafdata())
+                if (self.ospfvirtnbrrestarthelperstatus.is_set or self.ospfvirtnbrrestarthelperstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrrestarthelperstatus.get_name_leafdata())
+                if (self.ospfvirtnbrstate.is_set or self.ospfvirtnbrstate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtnbrstate.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfVirtNbrArea" or name == "ospfVirtNbrRtrId" or name == "ospfVirtNbrEvents" or name == "ospfVirtNbrHelloSuppressed" or name == "ospfVirtNbrIpAddr" or name == "ospfVirtNbrLsRetransQLen" or name == "ospfVirtNbrOptions" or name == "ospfVirtNbrRestartHelperAge" or name == "ospfVirtNbrRestartHelperExitReason" or name == "ospfVirtNbrRestartHelperStatus" or name == "ospfVirtNbrState"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfvirtnbrarea is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfVirtNbrArea"):
+                    self.ospfvirtnbrarea = value
+                    self.ospfvirtnbrarea.value_namespace = name_space
+                    self.ospfvirtnbrarea.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrRtrId"):
+                    self.ospfvirtnbrrtrid = value
+                    self.ospfvirtnbrrtrid.value_namespace = name_space
+                    self.ospfvirtnbrrtrid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrEvents"):
+                    self.ospfvirtnbrevents = value
+                    self.ospfvirtnbrevents.value_namespace = name_space
+                    self.ospfvirtnbrevents.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrHelloSuppressed"):
+                    self.ospfvirtnbrhellosuppressed = value
+                    self.ospfvirtnbrhellosuppressed.value_namespace = name_space
+                    self.ospfvirtnbrhellosuppressed.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrIpAddr"):
+                    self.ospfvirtnbripaddr = value
+                    self.ospfvirtnbripaddr.value_namespace = name_space
+                    self.ospfvirtnbripaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrLsRetransQLen"):
+                    self.ospfvirtnbrlsretransqlen = value
+                    self.ospfvirtnbrlsretransqlen.value_namespace = name_space
+                    self.ospfvirtnbrlsretransqlen.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrOptions"):
+                    self.ospfvirtnbroptions = value
+                    self.ospfvirtnbroptions.value_namespace = name_space
+                    self.ospfvirtnbroptions.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrRestartHelperAge"):
+                    self.ospfvirtnbrrestarthelperage = value
+                    self.ospfvirtnbrrestarthelperage.value_namespace = name_space
+                    self.ospfvirtnbrrestarthelperage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrRestartHelperExitReason"):
+                    self.ospfvirtnbrrestarthelperexitreason = value
+                    self.ospfvirtnbrrestarthelperexitreason.value_namespace = name_space
+                    self.ospfvirtnbrrestarthelperexitreason.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrRestartHelperStatus"):
+                    self.ospfvirtnbrrestarthelperstatus = value
+                    self.ospfvirtnbrrestarthelperstatus.value_namespace = name_space
+                    self.ospfvirtnbrrestarthelperstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtNbrState"):
+                    self.ospfvirtnbrstate = value
+                    self.ospfvirtnbrstate.value_namespace = name_space
+                    self.ospfvirtnbrstate.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfvirtnbrentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfvirtnbrrtrid is not None:
-                    return True
-
-                if self.ospfvirtnbrevents is not None:
-                    return True
-
-                if self.ospfvirtnbrhellosuppressed is not None:
-                    return True
-
-                if self.ospfvirtnbripaddr is not None:
-                    return True
-
-                if self.ospfvirtnbrlsretransqlen is not None:
-                    return True
-
-                if self.ospfvirtnbroptions is not None:
-                    return True
-
-                if self.ospfvirtnbrrestarthelperage is not None:
-                    return True
-
-                if self.ospfvirtnbrrestarthelperexitreason is not None:
-                    return True
-
-                if self.ospfvirtnbrrestarthelperstatus is not None:
-                    return True
-
-                if self.ospfvirtnbrstate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfVirtNbrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfvirtnbrentry is not None:
-                for child_ref in self.ospfvirtnbrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfvirtnbrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfVirtNbrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfVirtNbrEntry"):
+                for c in self.ospfvirtnbrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfvirtnbrtable.Ospfvirtnbrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfvirtnbrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfVirtNbrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfvirtnbrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfextlsdbtable(object):
+    class Ospfextlsdbtable(Entity):
         """
         The OSPF Process's external LSA link state database.
         
@@ -3587,20 +5563,46 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfextlsdbentry = YList()
-            self.ospfextlsdbentry.parent = self
-            self.ospfextlsdbentry.name = 'ospfextlsdbentry'
+            super(OspfMib.Ospfextlsdbtable, self).__init__()
+
+            self.yang_name = "ospfExtLsdbTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfextlsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfextlsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfextlsdbtable, self).__setattr__(name, value)
 
 
-        class Ospfextlsdbentry(object):
+        class Ospfextlsdbentry(Entity):
             """
             A single link state advertisement.
             
             .. attribute:: ospfextlsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`OspfextlsdbtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfextlsdbtable.Ospfextlsdbentry.OspfextlsdbtypeEnum>`
+            	**type**\:   :py:class:`Ospfextlsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfextlsdbtable.Ospfextlsdbentry.Ospfextlsdbtype>`
             
             	**status**\: deprecated
             
@@ -3668,18 +5670,58 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfextlsdbtype = None
-                self.ospfextlsdblsid = None
-                self.ospfextlsdbrouterid = None
-                self.ospfextlsdbadvertisement = None
-                self.ospfextlsdbage = None
-                self.ospfextlsdbchecksum = None
-                self.ospfextlsdbsequence = None
+                super(OspfMib.Ospfextlsdbtable.Ospfextlsdbentry, self).__init__()
 
-            class OspfextlsdbtypeEnum(Enum):
+                self.yang_name = "ospfExtLsdbEntry"
+                self.yang_parent_name = "ospfExtLsdbTable"
+
+                self.ospfextlsdbtype = YLeaf(YType.enumeration, "ospfExtLsdbType")
+
+                self.ospfextlsdblsid = YLeaf(YType.str, "ospfExtLsdbLsid")
+
+                self.ospfextlsdbrouterid = YLeaf(YType.str, "ospfExtLsdbRouterId")
+
+                self.ospfextlsdbadvertisement = YLeaf(YType.str, "ospfExtLsdbAdvertisement")
+
+                self.ospfextlsdbage = YLeaf(YType.int32, "ospfExtLsdbAge")
+
+                self.ospfextlsdbchecksum = YLeaf(YType.int32, "ospfExtLsdbChecksum")
+
+                self.ospfextlsdbsequence = YLeaf(YType.int32, "ospfExtLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfextlsdbtype",
+                                "ospfextlsdblsid",
+                                "ospfextlsdbrouterid",
+                                "ospfextlsdbadvertisement",
+                                "ospfextlsdbage",
+                                "ospfextlsdbchecksum",
+                                "ospfextlsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfextlsdbtable.Ospfextlsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfextlsdbtable.Ospfextlsdbentry, self).__setattr__(name, value)
+
+            class Ospfextlsdbtype(Enum):
                 """
-                OspfextlsdbtypeEnum
+                Ospfextlsdbtype
 
                 The type of the link state advertisement.
 
@@ -3691,83 +5733,163 @@ class OspfMib(object):
 
                 """
 
-                asExternalLink = 5
+                asExternalLink = Enum.YLeaf(5, "asExternalLink")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfextlsdbtable.Ospfextlsdbentry.OspfextlsdbtypeEnum']
+            def has_data(self):
+                return (
+                    self.ospfextlsdbtype.is_set or
+                    self.ospfextlsdblsid.is_set or
+                    self.ospfextlsdbrouterid.is_set or
+                    self.ospfextlsdbadvertisement.is_set or
+                    self.ospfextlsdbage.is_set or
+                    self.ospfextlsdbchecksum.is_set or
+                    self.ospfextlsdbsequence.is_set)
 
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfextlsdbtype.yfilter != YFilter.not_set or
+                    self.ospfextlsdblsid.yfilter != YFilter.not_set or
+                    self.ospfextlsdbrouterid.yfilter != YFilter.not_set or
+                    self.ospfextlsdbadvertisement.yfilter != YFilter.not_set or
+                    self.ospfextlsdbage.yfilter != YFilter.not_set or
+                    self.ospfextlsdbchecksum.yfilter != YFilter.not_set or
+                    self.ospfextlsdbsequence.yfilter != YFilter.not_set)
 
-            @property
-            def _common_path(self):
-                if self.ospfextlsdbtype is None:
-                    raise YPYModelError('Key property ospfextlsdbtype is None')
-                if self.ospfextlsdblsid is None:
-                    raise YPYModelError('Key property ospfextlsdblsid is None')
-                if self.ospfextlsdbrouterid is None:
-                    raise YPYModelError('Key property ospfextlsdbrouterid is None')
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfExtLsdbEntry" + "[ospfExtLsdbType='" + self.ospfextlsdbtype.get() + "']" + "[ospfExtLsdbLsid='" + self.ospfextlsdblsid.get() + "']" + "[ospfExtLsdbRouterId='" + self.ospfextlsdbrouterid.get() + "']" + path_buffer
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfExtLsdbTable/OSPF-MIB:ospfExtLsdbEntry[OSPF-MIB:ospfExtLsdbType = ' + str(self.ospfextlsdbtype) + '][OSPF-MIB:ospfExtLsdbLsid = ' + str(self.ospfextlsdblsid) + '][OSPF-MIB:ospfExtLsdbRouterId = ' + str(self.ospfextlsdbrouterid) + ']'
+                return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfExtLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfextlsdbtype.is_set or self.ospfextlsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfextlsdbtype.get_name_leafdata())
+                if (self.ospfextlsdblsid.is_set or self.ospfextlsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfextlsdblsid.get_name_leafdata())
+                if (self.ospfextlsdbrouterid.is_set or self.ospfextlsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfextlsdbrouterid.get_name_leafdata())
+                if (self.ospfextlsdbadvertisement.is_set or self.ospfextlsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfextlsdbadvertisement.get_name_leafdata())
+                if (self.ospfextlsdbage.is_set or self.ospfextlsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfextlsdbage.get_name_leafdata())
+                if (self.ospfextlsdbchecksum.is_set or self.ospfextlsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfextlsdbchecksum.get_name_leafdata())
+                if (self.ospfextlsdbsequence.is_set or self.ospfextlsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfextlsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfExtLsdbType" or name == "ospfExtLsdbLsid" or name == "ospfExtLsdbRouterId" or name == "ospfExtLsdbAdvertisement" or name == "ospfExtLsdbAge" or name == "ospfExtLsdbChecksum" or name == "ospfExtLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfextlsdbtype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfExtLsdbType"):
+                    self.ospfextlsdbtype = value
+                    self.ospfextlsdbtype.value_namespace = name_space
+                    self.ospfextlsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfExtLsdbLsid"):
+                    self.ospfextlsdblsid = value
+                    self.ospfextlsdblsid.value_namespace = name_space
+                    self.ospfextlsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfExtLsdbRouterId"):
+                    self.ospfextlsdbrouterid = value
+                    self.ospfextlsdbrouterid.value_namespace = name_space
+                    self.ospfextlsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfExtLsdbAdvertisement"):
+                    self.ospfextlsdbadvertisement = value
+                    self.ospfextlsdbadvertisement.value_namespace = name_space
+                    self.ospfextlsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfExtLsdbAge"):
+                    self.ospfextlsdbage = value
+                    self.ospfextlsdbage.value_namespace = name_space
+                    self.ospfextlsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfExtLsdbChecksum"):
+                    self.ospfextlsdbchecksum = value
+                    self.ospfextlsdbchecksum.value_namespace = name_space
+                    self.ospfextlsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfExtLsdbSequence"):
+                    self.ospfextlsdbsequence = value
+                    self.ospfextlsdbsequence.value_namespace = name_space
+                    self.ospfextlsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfextlsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfextlsdblsid is not None:
-                    return True
-
-                if self.ospfextlsdbrouterid is not None:
-                    return True
-
-                if self.ospfextlsdbadvertisement is not None:
-                    return True
-
-                if self.ospfextlsdbage is not None:
-                    return True
-
-                if self.ospfextlsdbchecksum is not None:
-                    return True
-
-                if self.ospfextlsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfextlsdbtable.Ospfextlsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfExtLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfextlsdbentry is not None:
-                for child_ref in self.ospfextlsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfextlsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfExtLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfExtLsdbEntry"):
+                for c in self.ospfextlsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfextlsdbtable.Ospfextlsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfextlsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfExtLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfextlsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfareaaggregatetable(object):
+    class Ospfareaaggregatetable(Entity):
         """
         The Area Aggregate Table acts as an adjunct
         to the Area Table.  It describes those address aggregates
@@ -3799,13 +5921,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfareaaggregateentry = YList()
-            self.ospfareaaggregateentry.parent = self
-            self.ospfareaaggregateentry.name = 'ospfareaaggregateentry'
+            super(OspfMib.Ospfareaaggregatetable, self).__init__()
+
+            self.yang_name = "ospfAreaAggregateTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfareaaggregateentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfareaaggregatetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfareaaggregatetable, self).__setattr__(name, value)
 
 
-        class Ospfareaaggregateentry(object):
+        class Ospfareaaggregateentry(Entity):
             """
             A single area aggregate entry.
             
@@ -3823,7 +5971,7 @@ class OspfMib(object):
             .. attribute:: ospfareaaggregatelsdbtype  <key>
             
             	The type of the address aggregate.  This field specifies the Lsdb type that this address aggregate applies to
-            	**type**\:   :py:class:`OspfareaaggregatelsdbtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry.OspfareaaggregatelsdbtypeEnum>`
+            	**type**\:   :py:class:`Ospfareaaggregatelsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregatelsdbtype>`
             
             .. attribute:: ospfareaaggregatenet  <key>
             
@@ -3842,7 +5990,7 @@ class OspfMib(object):
             .. attribute:: ospfareaaggregateeffect
             
             	Subnets subsumed by ranges either trigger the advertisement of the indicated aggregate (advertiseMatching) or result in the subnet's not being advertised at all outside the area
-            	**type**\:   :py:class:`OspfareaaggregateeffectEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry.OspfareaaggregateeffectEnum>`
+            	**type**\:   :py:class:`Ospfareaaggregateeffect <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry.Ospfareaaggregateeffect>`
             
             .. attribute:: ospfareaaggregateextroutetag
             
@@ -3854,7 +6002,7 @@ class OspfMib(object):
             .. attribute:: ospfareaaggregatestatus
             
             	This object permits management of the table by facilitating actions such as row creation, construction, and destruction.  The value of this object has no effect on whether other objects in this conceptual row can be modified
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             
 
@@ -3864,18 +6012,58 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfareaaggregateareaid = None
-                self.ospfareaaggregatelsdbtype = None
-                self.ospfareaaggregatenet = None
-                self.ospfareaaggregatemask = None
-                self.ospfareaaggregateeffect = None
-                self.ospfareaaggregateextroutetag = None
-                self.ospfareaaggregatestatus = None
+                super(OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry, self).__init__()
 
-            class OspfareaaggregateeffectEnum(Enum):
+                self.yang_name = "ospfAreaAggregateEntry"
+                self.yang_parent_name = "ospfAreaAggregateTable"
+
+                self.ospfareaaggregateareaid = YLeaf(YType.str, "ospfAreaAggregateAreaID")
+
+                self.ospfareaaggregatelsdbtype = YLeaf(YType.enumeration, "ospfAreaAggregateLsdbType")
+
+                self.ospfareaaggregatenet = YLeaf(YType.str, "ospfAreaAggregateNet")
+
+                self.ospfareaaggregatemask = YLeaf(YType.str, "ospfAreaAggregateMask")
+
+                self.ospfareaaggregateeffect = YLeaf(YType.enumeration, "ospfAreaAggregateEffect")
+
+                self.ospfareaaggregateextroutetag = YLeaf(YType.uint32, "ospfAreaAggregateExtRouteTag")
+
+                self.ospfareaaggregatestatus = YLeaf(YType.enumeration, "ospfAreaAggregateStatus")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfareaaggregateareaid",
+                                "ospfareaaggregatelsdbtype",
+                                "ospfareaaggregatenet",
+                                "ospfareaaggregatemask",
+                                "ospfareaaggregateeffect",
+                                "ospfareaaggregateextroutetag",
+                                "ospfareaaggregatestatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry, self).__setattr__(name, value)
+
+            class Ospfareaaggregateeffect(Enum):
                 """
-                OspfareaaggregateeffectEnum
+                Ospfareaaggregateeffect
 
                 Subnets subsumed by ranges either trigger the
 
@@ -3891,20 +6079,14 @@ class OspfMib(object):
 
                 """
 
-                advertiseMatching = 1
+                advertiseMatching = Enum.YLeaf(1, "advertiseMatching")
 
-                doNotAdvertiseMatching = 2
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry.OspfareaaggregateeffectEnum']
+                doNotAdvertiseMatching = Enum.YLeaf(2, "doNotAdvertiseMatching")
 
 
-            class OspfareaaggregatelsdbtypeEnum(Enum):
+            class Ospfareaaggregatelsdbtype(Enum):
                 """
-                OspfareaaggregatelsdbtypeEnum
+                Ospfareaaggregatelsdbtype
 
                 The type of the address aggregate.  This field
 
@@ -3918,87 +6100,165 @@ class OspfMib(object):
 
                 """
 
-                summaryLink = 3
+                summaryLink = Enum.YLeaf(3, "summaryLink")
 
-                nssaExternalLink = 7
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry.OspfareaaggregatelsdbtypeEnum']
+                nssaExternalLink = Enum.YLeaf(7, "nssaExternalLink")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfareaaggregateareaid is None:
-                    raise YPYModelError('Key property ospfareaaggregateareaid is None')
-                if self.ospfareaaggregatelsdbtype is None:
-                    raise YPYModelError('Key property ospfareaaggregatelsdbtype is None')
-                if self.ospfareaaggregatenet is None:
-                    raise YPYModelError('Key property ospfareaaggregatenet is None')
-                if self.ospfareaaggregatemask is None:
-                    raise YPYModelError('Key property ospfareaaggregatemask is None')
+            def has_data(self):
+                return (
+                    self.ospfareaaggregateareaid.is_set or
+                    self.ospfareaaggregatelsdbtype.is_set or
+                    self.ospfareaaggregatenet.is_set or
+                    self.ospfareaaggregatemask.is_set or
+                    self.ospfareaaggregateeffect.is_set or
+                    self.ospfareaaggregateextroutetag.is_set or
+                    self.ospfareaaggregatestatus.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaAggregateTable/OSPF-MIB:ospfAreaAggregateEntry[OSPF-MIB:ospfAreaAggregateAreaID = ' + str(self.ospfareaaggregateareaid) + '][OSPF-MIB:ospfAreaAggregateLsdbType = ' + str(self.ospfareaaggregatelsdbtype) + '][OSPF-MIB:ospfAreaAggregateNet = ' + str(self.ospfareaaggregatenet) + '][OSPF-MIB:ospfAreaAggregateMask = ' + str(self.ospfareaaggregatemask) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfareaaggregateareaid.yfilter != YFilter.not_set or
+                    self.ospfareaaggregatelsdbtype.yfilter != YFilter.not_set or
+                    self.ospfareaaggregatenet.yfilter != YFilter.not_set or
+                    self.ospfareaaggregatemask.yfilter != YFilter.not_set or
+                    self.ospfareaaggregateeffect.yfilter != YFilter.not_set or
+                    self.ospfareaaggregateextroutetag.yfilter != YFilter.not_set or
+                    self.ospfareaaggregatestatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfAreaAggregateEntry" + "[ospfAreaAggregateAreaID='" + self.ospfareaaggregateareaid.get() + "']" + "[ospfAreaAggregateLsdbType='" + self.ospfareaaggregatelsdbtype.get() + "']" + "[ospfAreaAggregateNet='" + self.ospfareaaggregatenet.get() + "']" + "[ospfAreaAggregateMask='" + self.ospfareaaggregatemask.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfAreaAggregateTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfareaaggregateareaid.is_set or self.ospfareaaggregateareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaaggregateareaid.get_name_leafdata())
+                if (self.ospfareaaggregatelsdbtype.is_set or self.ospfareaaggregatelsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaaggregatelsdbtype.get_name_leafdata())
+                if (self.ospfareaaggregatenet.is_set or self.ospfareaaggregatenet.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaaggregatenet.get_name_leafdata())
+                if (self.ospfareaaggregatemask.is_set or self.ospfareaaggregatemask.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaaggregatemask.get_name_leafdata())
+                if (self.ospfareaaggregateeffect.is_set or self.ospfareaaggregateeffect.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaaggregateeffect.get_name_leafdata())
+                if (self.ospfareaaggregateextroutetag.is_set or self.ospfareaaggregateextroutetag.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaaggregateextroutetag.get_name_leafdata())
+                if (self.ospfareaaggregatestatus.is_set or self.ospfareaaggregatestatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfareaaggregatestatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfAreaAggregateAreaID" or name == "ospfAreaAggregateLsdbType" or name == "ospfAreaAggregateNet" or name == "ospfAreaAggregateMask" or name == "ospfAreaAggregateEffect" or name == "ospfAreaAggregateExtRouteTag" or name == "ospfAreaAggregateStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfareaaggregateareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfAreaAggregateAreaID"):
+                    self.ospfareaaggregateareaid = value
+                    self.ospfareaaggregateareaid.value_namespace = name_space
+                    self.ospfareaaggregateareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaAggregateLsdbType"):
+                    self.ospfareaaggregatelsdbtype = value
+                    self.ospfareaaggregatelsdbtype.value_namespace = name_space
+                    self.ospfareaaggregatelsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaAggregateNet"):
+                    self.ospfareaaggregatenet = value
+                    self.ospfareaaggregatenet.value_namespace = name_space
+                    self.ospfareaaggregatenet.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaAggregateMask"):
+                    self.ospfareaaggregatemask = value
+                    self.ospfareaaggregatemask.value_namespace = name_space
+                    self.ospfareaaggregatemask.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaAggregateEffect"):
+                    self.ospfareaaggregateeffect = value
+                    self.ospfareaaggregateeffect.value_namespace = name_space
+                    self.ospfareaaggregateeffect.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaAggregateExtRouteTag"):
+                    self.ospfareaaggregateextroutetag = value
+                    self.ospfareaaggregateextroutetag.value_namespace = name_space
+                    self.ospfareaaggregateextroutetag.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaAggregateStatus"):
+                    self.ospfareaaggregatestatus = value
+                    self.ospfareaaggregatestatus.value_namespace = name_space
+                    self.ospfareaaggregatestatus.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfareaaggregateentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfareaaggregatelsdbtype is not None:
-                    return True
-
-                if self.ospfareaaggregatenet is not None:
-                    return True
-
-                if self.ospfareaaggregatemask is not None:
-                    return True
-
-                if self.ospfareaaggregateeffect is not None:
-                    return True
-
-                if self.ospfareaaggregateextroutetag is not None:
-                    return True
-
-                if self.ospfareaaggregatestatus is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaAggregateTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfareaaggregateentry is not None:
-                for child_ref in self.ospfareaaggregateentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfareaaggregateentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfAreaAggregateTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfAreaAggregateEntry"):
+                for c in self.ospfareaaggregateentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfareaaggregatetable.Ospfareaaggregateentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfareaaggregateentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfAreaAggregateEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfareaaggregatetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospflocallsdbtable(object):
+    class Ospflocallsdbtable(Entity):
         """
         The OSPF Process's link\-local link state database
         for non\-virtual links.
@@ -4023,13 +6283,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospflocallsdbentry = YList()
-            self.ospflocallsdbentry.parent = self
-            self.ospflocallsdbentry.name = 'ospflocallsdbentry'
+            super(OspfMib.Ospflocallsdbtable, self).__init__()
+
+            self.yang_name = "ospfLocalLsdbTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospflocallsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospflocallsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospflocallsdbtable, self).__setattr__(name, value)
 
 
-        class Ospflocallsdbentry(object):
+        class Ospflocallsdbentry(Entity):
             """
             A single link state advertisement.
             
@@ -4050,7 +6336,7 @@ class OspfMib(object):
             .. attribute:: ospflocallsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`OspflocallsdbtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospflocallsdbtable.Ospflocallsdbentry.OspflocallsdbtypeEnum>`
+            	**type**\:   :py:class:`Ospflocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospflocallsdbtable.Ospflocallsdbentry.Ospflocallsdbtype>`
             
             .. attribute:: ospflocallsdblsid  <key>
             
@@ -4104,20 +6390,64 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospflocallsdbipaddress = None
-                self.ospflocallsdbaddresslessif = None
-                self.ospflocallsdbtype = None
-                self.ospflocallsdblsid = None
-                self.ospflocallsdbrouterid = None
-                self.ospflocallsdbadvertisement = None
-                self.ospflocallsdbage = None
-                self.ospflocallsdbchecksum = None
-                self.ospflocallsdbsequence = None
+                super(OspfMib.Ospflocallsdbtable.Ospflocallsdbentry, self).__init__()
 
-            class OspflocallsdbtypeEnum(Enum):
+                self.yang_name = "ospfLocalLsdbEntry"
+                self.yang_parent_name = "ospfLocalLsdbTable"
+
+                self.ospflocallsdbipaddress = YLeaf(YType.str, "ospfLocalLsdbIpAddress")
+
+                self.ospflocallsdbaddresslessif = YLeaf(YType.int32, "ospfLocalLsdbAddressLessIf")
+
+                self.ospflocallsdbtype = YLeaf(YType.enumeration, "ospfLocalLsdbType")
+
+                self.ospflocallsdblsid = YLeaf(YType.str, "ospfLocalLsdbLsid")
+
+                self.ospflocallsdbrouterid = YLeaf(YType.str, "ospfLocalLsdbRouterId")
+
+                self.ospflocallsdbadvertisement = YLeaf(YType.str, "ospfLocalLsdbAdvertisement")
+
+                self.ospflocallsdbage = YLeaf(YType.int32, "ospfLocalLsdbAge")
+
+                self.ospflocallsdbchecksum = YLeaf(YType.int32, "ospfLocalLsdbChecksum")
+
+                self.ospflocallsdbsequence = YLeaf(YType.int32, "ospfLocalLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospflocallsdbipaddress",
+                                "ospflocallsdbaddresslessif",
+                                "ospflocallsdbtype",
+                                "ospflocallsdblsid",
+                                "ospflocallsdbrouterid",
+                                "ospflocallsdbadvertisement",
+                                "ospflocallsdbage",
+                                "ospflocallsdbchecksum",
+                                "ospflocallsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospflocallsdbtable.Ospflocallsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospflocallsdbtable.Ospflocallsdbentry, self).__setattr__(name, value)
+
+            class Ospflocallsdbtype(Enum):
                 """
-                OspflocallsdbtypeEnum
+                Ospflocallsdbtype
 
                 The type of the link state advertisement.
 
@@ -4129,93 +6459,179 @@ class OspfMib(object):
 
                 """
 
-                localOpaqueLink = 9
+                localOpaqueLink = Enum.YLeaf(9, "localOpaqueLink")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospflocallsdbtable.Ospflocallsdbentry.OspflocallsdbtypeEnum']
+            def has_data(self):
+                return (
+                    self.ospflocallsdbipaddress.is_set or
+                    self.ospflocallsdbaddresslessif.is_set or
+                    self.ospflocallsdbtype.is_set or
+                    self.ospflocallsdblsid.is_set or
+                    self.ospflocallsdbrouterid.is_set or
+                    self.ospflocallsdbadvertisement.is_set or
+                    self.ospflocallsdbage.is_set or
+                    self.ospflocallsdbchecksum.is_set or
+                    self.ospflocallsdbsequence.is_set)
 
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospflocallsdbipaddress.yfilter != YFilter.not_set or
+                    self.ospflocallsdbaddresslessif.yfilter != YFilter.not_set or
+                    self.ospflocallsdbtype.yfilter != YFilter.not_set or
+                    self.ospflocallsdblsid.yfilter != YFilter.not_set or
+                    self.ospflocallsdbrouterid.yfilter != YFilter.not_set or
+                    self.ospflocallsdbadvertisement.yfilter != YFilter.not_set or
+                    self.ospflocallsdbage.yfilter != YFilter.not_set or
+                    self.ospflocallsdbchecksum.yfilter != YFilter.not_set or
+                    self.ospflocallsdbsequence.yfilter != YFilter.not_set)
 
-            @property
-            def _common_path(self):
-                if self.ospflocallsdbipaddress is None:
-                    raise YPYModelError('Key property ospflocallsdbipaddress is None')
-                if self.ospflocallsdbaddresslessif is None:
-                    raise YPYModelError('Key property ospflocallsdbaddresslessif is None')
-                if self.ospflocallsdbtype is None:
-                    raise YPYModelError('Key property ospflocallsdbtype is None')
-                if self.ospflocallsdblsid is None:
-                    raise YPYModelError('Key property ospflocallsdblsid is None')
-                if self.ospflocallsdbrouterid is None:
-                    raise YPYModelError('Key property ospflocallsdbrouterid is None')
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfLocalLsdbEntry" + "[ospfLocalLsdbIpAddress='" + self.ospflocallsdbipaddress.get() + "']" + "[ospfLocalLsdbAddressLessIf='" + self.ospflocallsdbaddresslessif.get() + "']" + "[ospfLocalLsdbType='" + self.ospflocallsdbtype.get() + "']" + "[ospfLocalLsdbLsid='" + self.ospflocallsdblsid.get() + "']" + "[ospfLocalLsdbRouterId='" + self.ospflocallsdbrouterid.get() + "']" + path_buffer
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfLocalLsdbTable/OSPF-MIB:ospfLocalLsdbEntry[OSPF-MIB:ospfLocalLsdbIpAddress = ' + str(self.ospflocallsdbipaddress) + '][OSPF-MIB:ospfLocalLsdbAddressLessIf = ' + str(self.ospflocallsdbaddresslessif) + '][OSPF-MIB:ospfLocalLsdbType = ' + str(self.ospflocallsdbtype) + '][OSPF-MIB:ospfLocalLsdbLsid = ' + str(self.ospflocallsdblsid) + '][OSPF-MIB:ospfLocalLsdbRouterId = ' + str(self.ospflocallsdbrouterid) + ']'
+                return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfLocalLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospflocallsdbipaddress.is_set or self.ospflocallsdbipaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbipaddress.get_name_leafdata())
+                if (self.ospflocallsdbaddresslessif.is_set or self.ospflocallsdbaddresslessif.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbaddresslessif.get_name_leafdata())
+                if (self.ospflocallsdbtype.is_set or self.ospflocallsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbtype.get_name_leafdata())
+                if (self.ospflocallsdblsid.is_set or self.ospflocallsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdblsid.get_name_leafdata())
+                if (self.ospflocallsdbrouterid.is_set or self.ospflocallsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbrouterid.get_name_leafdata())
+                if (self.ospflocallsdbadvertisement.is_set or self.ospflocallsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbadvertisement.get_name_leafdata())
+                if (self.ospflocallsdbage.is_set or self.ospflocallsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbage.get_name_leafdata())
+                if (self.ospflocallsdbchecksum.is_set or self.ospflocallsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbchecksum.get_name_leafdata())
+                if (self.ospflocallsdbsequence.is_set or self.ospflocallsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospflocallsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfLocalLsdbIpAddress" or name == "ospfLocalLsdbAddressLessIf" or name == "ospfLocalLsdbType" or name == "ospfLocalLsdbLsid" or name == "ospfLocalLsdbRouterId" or name == "ospfLocalLsdbAdvertisement" or name == "ospfLocalLsdbAge" or name == "ospfLocalLsdbChecksum" or name == "ospfLocalLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospflocallsdbipaddress is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfLocalLsdbIpAddress"):
+                    self.ospflocallsdbipaddress = value
+                    self.ospflocallsdbipaddress.value_namespace = name_space
+                    self.ospflocallsdbipaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbAddressLessIf"):
+                    self.ospflocallsdbaddresslessif = value
+                    self.ospflocallsdbaddresslessif.value_namespace = name_space
+                    self.ospflocallsdbaddresslessif.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbType"):
+                    self.ospflocallsdbtype = value
+                    self.ospflocallsdbtype.value_namespace = name_space
+                    self.ospflocallsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbLsid"):
+                    self.ospflocallsdblsid = value
+                    self.ospflocallsdblsid.value_namespace = name_space
+                    self.ospflocallsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbRouterId"):
+                    self.ospflocallsdbrouterid = value
+                    self.ospflocallsdbrouterid.value_namespace = name_space
+                    self.ospflocallsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbAdvertisement"):
+                    self.ospflocallsdbadvertisement = value
+                    self.ospflocallsdbadvertisement.value_namespace = name_space
+                    self.ospflocallsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbAge"):
+                    self.ospflocallsdbage = value
+                    self.ospflocallsdbage.value_namespace = name_space
+                    self.ospflocallsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbChecksum"):
+                    self.ospflocallsdbchecksum = value
+                    self.ospflocallsdbchecksum.value_namespace = name_space
+                    self.ospflocallsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfLocalLsdbSequence"):
+                    self.ospflocallsdbsequence = value
+                    self.ospflocallsdbsequence.value_namespace = name_space
+                    self.ospflocallsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospflocallsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospflocallsdbaddresslessif is not None:
-                    return True
-
-                if self.ospflocallsdbtype is not None:
-                    return True
-
-                if self.ospflocallsdblsid is not None:
-                    return True
-
-                if self.ospflocallsdbrouterid is not None:
-                    return True
-
-                if self.ospflocallsdbadvertisement is not None:
-                    return True
-
-                if self.ospflocallsdbage is not None:
-                    return True
-
-                if self.ospflocallsdbchecksum is not None:
-                    return True
-
-                if self.ospflocallsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospflocallsdbtable.Ospflocallsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfLocalLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospflocallsdbentry is not None:
-                for child_ref in self.ospflocallsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospflocallsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfLocalLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfLocalLsdbEntry"):
+                for c in self.ospflocallsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospflocallsdbtable.Ospflocallsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospflocallsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfLocalLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospflocallsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfvirtlocallsdbtable(object):
+    class Ospfvirtlocallsdbtable(Entity):
         """
         The OSPF Process's link\-local link state database
         for virtual links.
@@ -4240,13 +6656,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfvirtlocallsdbentry = YList()
-            self.ospfvirtlocallsdbentry.parent = self
-            self.ospfvirtlocallsdbentry.name = 'ospfvirtlocallsdbentry'
+            super(OspfMib.Ospfvirtlocallsdbtable, self).__init__()
+
+            self.yang_name = "ospfVirtLocalLsdbTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfvirtlocallsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfvirtlocallsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfvirtlocallsdbtable, self).__setattr__(name, value)
 
 
-        class Ospfvirtlocallsdbentry(object):
+        class Ospfvirtlocallsdbentry(Entity):
             """
             A single link state advertisement.
             
@@ -4267,7 +6709,7 @@ class OspfMib(object):
             .. attribute:: ospfvirtlocallsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`OspfvirtlocallsdbtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry.OspfvirtlocallsdbtypeEnum>`
+            	**type**\:   :py:class:`Ospfvirtlocallsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype>`
             
             .. attribute:: ospfvirtlocallsdblsid  <key>
             
@@ -4321,20 +6763,64 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfvirtlocallsdbtransitarea = None
-                self.ospfvirtlocallsdbneighbor = None
-                self.ospfvirtlocallsdbtype = None
-                self.ospfvirtlocallsdblsid = None
-                self.ospfvirtlocallsdbrouterid = None
-                self.ospfvirtlocallsdbadvertisement = None
-                self.ospfvirtlocallsdbage = None
-                self.ospfvirtlocallsdbchecksum = None
-                self.ospfvirtlocallsdbsequence = None
+                super(OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry, self).__init__()
 
-            class OspfvirtlocallsdbtypeEnum(Enum):
+                self.yang_name = "ospfVirtLocalLsdbEntry"
+                self.yang_parent_name = "ospfVirtLocalLsdbTable"
+
+                self.ospfvirtlocallsdbtransitarea = YLeaf(YType.str, "ospfVirtLocalLsdbTransitArea")
+
+                self.ospfvirtlocallsdbneighbor = YLeaf(YType.str, "ospfVirtLocalLsdbNeighbor")
+
+                self.ospfvirtlocallsdbtype = YLeaf(YType.enumeration, "ospfVirtLocalLsdbType")
+
+                self.ospfvirtlocallsdblsid = YLeaf(YType.str, "ospfVirtLocalLsdbLsid")
+
+                self.ospfvirtlocallsdbrouterid = YLeaf(YType.str, "ospfVirtLocalLsdbRouterId")
+
+                self.ospfvirtlocallsdbadvertisement = YLeaf(YType.str, "ospfVirtLocalLsdbAdvertisement")
+
+                self.ospfvirtlocallsdbage = YLeaf(YType.int32, "ospfVirtLocalLsdbAge")
+
+                self.ospfvirtlocallsdbchecksum = YLeaf(YType.int32, "ospfVirtLocalLsdbChecksum")
+
+                self.ospfvirtlocallsdbsequence = YLeaf(YType.int32, "ospfVirtLocalLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfvirtlocallsdbtransitarea",
+                                "ospfvirtlocallsdbneighbor",
+                                "ospfvirtlocallsdbtype",
+                                "ospfvirtlocallsdblsid",
+                                "ospfvirtlocallsdbrouterid",
+                                "ospfvirtlocallsdbadvertisement",
+                                "ospfvirtlocallsdbage",
+                                "ospfvirtlocallsdbchecksum",
+                                "ospfvirtlocallsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry, self).__setattr__(name, value)
+
+            class Ospfvirtlocallsdbtype(Enum):
                 """
-                OspfvirtlocallsdbtypeEnum
+                Ospfvirtlocallsdbtype
 
                 The type of the link state advertisement.
 
@@ -4346,93 +6832,179 @@ class OspfMib(object):
 
                 """
 
-                localOpaqueLink = 9
+                localOpaqueLink = Enum.YLeaf(9, "localOpaqueLink")
 
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry.OspfvirtlocallsdbtypeEnum']
+            def has_data(self):
+                return (
+                    self.ospfvirtlocallsdbtransitarea.is_set or
+                    self.ospfvirtlocallsdbneighbor.is_set or
+                    self.ospfvirtlocallsdbtype.is_set or
+                    self.ospfvirtlocallsdblsid.is_set or
+                    self.ospfvirtlocallsdbrouterid.is_set or
+                    self.ospfvirtlocallsdbadvertisement.is_set or
+                    self.ospfvirtlocallsdbage.is_set or
+                    self.ospfvirtlocallsdbchecksum.is_set or
+                    self.ospfvirtlocallsdbsequence.is_set)
 
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbtransitarea.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbneighbor.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbtype.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdblsid.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbrouterid.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbadvertisement.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbage.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbchecksum.yfilter != YFilter.not_set or
+                    self.ospfvirtlocallsdbsequence.yfilter != YFilter.not_set)
 
-            @property
-            def _common_path(self):
-                if self.ospfvirtlocallsdbtransitarea is None:
-                    raise YPYModelError('Key property ospfvirtlocallsdbtransitarea is None')
-                if self.ospfvirtlocallsdbneighbor is None:
-                    raise YPYModelError('Key property ospfvirtlocallsdbneighbor is None')
-                if self.ospfvirtlocallsdbtype is None:
-                    raise YPYModelError('Key property ospfvirtlocallsdbtype is None')
-                if self.ospfvirtlocallsdblsid is None:
-                    raise YPYModelError('Key property ospfvirtlocallsdblsid is None')
-                if self.ospfvirtlocallsdbrouterid is None:
-                    raise YPYModelError('Key property ospfvirtlocallsdbrouterid is None')
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfVirtLocalLsdbEntry" + "[ospfVirtLocalLsdbTransitArea='" + self.ospfvirtlocallsdbtransitarea.get() + "']" + "[ospfVirtLocalLsdbNeighbor='" + self.ospfvirtlocallsdbneighbor.get() + "']" + "[ospfVirtLocalLsdbType='" + self.ospfvirtlocallsdbtype.get() + "']" + "[ospfVirtLocalLsdbLsid='" + self.ospfvirtlocallsdblsid.get() + "']" + "[ospfVirtLocalLsdbRouterId='" + self.ospfvirtlocallsdbrouterid.get() + "']" + path_buffer
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfVirtLocalLsdbTable/OSPF-MIB:ospfVirtLocalLsdbEntry[OSPF-MIB:ospfVirtLocalLsdbTransitArea = ' + str(self.ospfvirtlocallsdbtransitarea) + '][OSPF-MIB:ospfVirtLocalLsdbNeighbor = ' + str(self.ospfvirtlocallsdbneighbor) + '][OSPF-MIB:ospfVirtLocalLsdbType = ' + str(self.ospfvirtlocallsdbtype) + '][OSPF-MIB:ospfVirtLocalLsdbLsid = ' + str(self.ospfvirtlocallsdblsid) + '][OSPF-MIB:ospfVirtLocalLsdbRouterId = ' + str(self.ospfvirtlocallsdbrouterid) + ']'
+                return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfVirtLocalLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfvirtlocallsdbtransitarea.is_set or self.ospfvirtlocallsdbtransitarea.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbtransitarea.get_name_leafdata())
+                if (self.ospfvirtlocallsdbneighbor.is_set or self.ospfvirtlocallsdbneighbor.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbneighbor.get_name_leafdata())
+                if (self.ospfvirtlocallsdbtype.is_set or self.ospfvirtlocallsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbtype.get_name_leafdata())
+                if (self.ospfvirtlocallsdblsid.is_set or self.ospfvirtlocallsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdblsid.get_name_leafdata())
+                if (self.ospfvirtlocallsdbrouterid.is_set or self.ospfvirtlocallsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbrouterid.get_name_leafdata())
+                if (self.ospfvirtlocallsdbadvertisement.is_set or self.ospfvirtlocallsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbadvertisement.get_name_leafdata())
+                if (self.ospfvirtlocallsdbage.is_set or self.ospfvirtlocallsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbage.get_name_leafdata())
+                if (self.ospfvirtlocallsdbchecksum.is_set or self.ospfvirtlocallsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbchecksum.get_name_leafdata())
+                if (self.ospfvirtlocallsdbsequence.is_set or self.ospfvirtlocallsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfvirtlocallsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfVirtLocalLsdbTransitArea" or name == "ospfVirtLocalLsdbNeighbor" or name == "ospfVirtLocalLsdbType" or name == "ospfVirtLocalLsdbLsid" or name == "ospfVirtLocalLsdbRouterId" or name == "ospfVirtLocalLsdbAdvertisement" or name == "ospfVirtLocalLsdbAge" or name == "ospfVirtLocalLsdbChecksum" or name == "ospfVirtLocalLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfvirtlocallsdbtransitarea is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfVirtLocalLsdbTransitArea"):
+                    self.ospfvirtlocallsdbtransitarea = value
+                    self.ospfvirtlocallsdbtransitarea.value_namespace = name_space
+                    self.ospfvirtlocallsdbtransitarea.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbNeighbor"):
+                    self.ospfvirtlocallsdbneighbor = value
+                    self.ospfvirtlocallsdbneighbor.value_namespace = name_space
+                    self.ospfvirtlocallsdbneighbor.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbType"):
+                    self.ospfvirtlocallsdbtype = value
+                    self.ospfvirtlocallsdbtype.value_namespace = name_space
+                    self.ospfvirtlocallsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbLsid"):
+                    self.ospfvirtlocallsdblsid = value
+                    self.ospfvirtlocallsdblsid.value_namespace = name_space
+                    self.ospfvirtlocallsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbRouterId"):
+                    self.ospfvirtlocallsdbrouterid = value
+                    self.ospfvirtlocallsdbrouterid.value_namespace = name_space
+                    self.ospfvirtlocallsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbAdvertisement"):
+                    self.ospfvirtlocallsdbadvertisement = value
+                    self.ospfvirtlocallsdbadvertisement.value_namespace = name_space
+                    self.ospfvirtlocallsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbAge"):
+                    self.ospfvirtlocallsdbage = value
+                    self.ospfvirtlocallsdbage.value_namespace = name_space
+                    self.ospfvirtlocallsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbChecksum"):
+                    self.ospfvirtlocallsdbchecksum = value
+                    self.ospfvirtlocallsdbchecksum.value_namespace = name_space
+                    self.ospfvirtlocallsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfVirtLocalLsdbSequence"):
+                    self.ospfvirtlocallsdbsequence = value
+                    self.ospfvirtlocallsdbsequence.value_namespace = name_space
+                    self.ospfvirtlocallsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfvirtlocallsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfvirtlocallsdbneighbor is not None:
-                    return True
-
-                if self.ospfvirtlocallsdbtype is not None:
-                    return True
-
-                if self.ospfvirtlocallsdblsid is not None:
-                    return True
-
-                if self.ospfvirtlocallsdbrouterid is not None:
-                    return True
-
-                if self.ospfvirtlocallsdbadvertisement is not None:
-                    return True
-
-                if self.ospfvirtlocallsdbage is not None:
-                    return True
-
-                if self.ospfvirtlocallsdbchecksum is not None:
-                    return True
-
-                if self.ospfvirtlocallsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfVirtLocalLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfvirtlocallsdbentry is not None:
-                for child_ref in self.ospfvirtlocallsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfvirtlocallsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfVirtLocalLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfVirtLocalLsdbEntry"):
+                for c in self.ospfvirtlocallsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfvirtlocallsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfVirtLocalLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfvirtlocallsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfaslsdbtable(object):
+    class Ospfaslsdbtable(Entity):
         """
         The OSPF Process's AS\-scope LSA link state database.
         The database contains the AS\-scope Link State
@@ -4458,20 +7030,46 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfaslsdbentry = YList()
-            self.ospfaslsdbentry.parent = self
-            self.ospfaslsdbentry.name = 'ospfaslsdbentry'
+            super(OspfMib.Ospfaslsdbtable, self).__init__()
+
+            self.yang_name = "ospfAsLsdbTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfaslsdbentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfaslsdbtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfaslsdbtable, self).__setattr__(name, value)
 
 
-        class Ospfaslsdbentry(object):
+        class Ospfaslsdbentry(Entity):
             """
             A single link state advertisement.
             
             .. attribute:: ospfaslsdbtype  <key>
             
             	The type of the link state advertisement. Each link state type has a separate advertisement format
-            	**type**\:   :py:class:`OspfaslsdbtypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfaslsdbtable.Ospfaslsdbentry.OspfaslsdbtypeEnum>`
+            	**type**\:   :py:class:`Ospfaslsdbtype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfaslsdbtable.Ospfaslsdbentry.Ospfaslsdbtype>`
             
             .. attribute:: ospfaslsdblsid  <key>
             
@@ -4525,18 +7123,58 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfaslsdbtype = None
-                self.ospfaslsdblsid = None
-                self.ospfaslsdbrouterid = None
-                self.ospfaslsdbadvertisement = None
-                self.ospfaslsdbage = None
-                self.ospfaslsdbchecksum = None
-                self.ospfaslsdbsequence = None
+                super(OspfMib.Ospfaslsdbtable.Ospfaslsdbentry, self).__init__()
 
-            class OspfaslsdbtypeEnum(Enum):
+                self.yang_name = "ospfAsLsdbEntry"
+                self.yang_parent_name = "ospfAsLsdbTable"
+
+                self.ospfaslsdbtype = YLeaf(YType.enumeration, "ospfAsLsdbType")
+
+                self.ospfaslsdblsid = YLeaf(YType.str, "ospfAsLsdbLsid")
+
+                self.ospfaslsdbrouterid = YLeaf(YType.str, "ospfAsLsdbRouterId")
+
+                self.ospfaslsdbadvertisement = YLeaf(YType.str, "ospfAsLsdbAdvertisement")
+
+                self.ospfaslsdbage = YLeaf(YType.int32, "ospfAsLsdbAge")
+
+                self.ospfaslsdbchecksum = YLeaf(YType.int32, "ospfAsLsdbChecksum")
+
+                self.ospfaslsdbsequence = YLeaf(YType.int32, "ospfAsLsdbSequence")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfaslsdbtype",
+                                "ospfaslsdblsid",
+                                "ospfaslsdbrouterid",
+                                "ospfaslsdbadvertisement",
+                                "ospfaslsdbage",
+                                "ospfaslsdbchecksum",
+                                "ospfaslsdbsequence") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfaslsdbtable.Ospfaslsdbentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfaslsdbtable.Ospfaslsdbentry, self).__setattr__(name, value)
+
+            class Ospfaslsdbtype(Enum):
                 """
-                OspfaslsdbtypeEnum
+                Ospfaslsdbtype
 
                 The type of the link state advertisement.
 
@@ -4550,85 +7188,165 @@ class OspfMib(object):
 
                 """
 
-                asExternalLink = 5
+                asExternalLink = Enum.YLeaf(5, "asExternalLink")
 
-                asOpaqueLink = 11
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfaslsdbtable.Ospfaslsdbentry.OspfaslsdbtypeEnum']
+                asOpaqueLink = Enum.YLeaf(11, "asOpaqueLink")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfaslsdbtype is None:
-                    raise YPYModelError('Key property ospfaslsdbtype is None')
-                if self.ospfaslsdblsid is None:
-                    raise YPYModelError('Key property ospfaslsdblsid is None')
-                if self.ospfaslsdbrouterid is None:
-                    raise YPYModelError('Key property ospfaslsdbrouterid is None')
+            def has_data(self):
+                return (
+                    self.ospfaslsdbtype.is_set or
+                    self.ospfaslsdblsid.is_set or
+                    self.ospfaslsdbrouterid.is_set or
+                    self.ospfaslsdbadvertisement.is_set or
+                    self.ospfaslsdbage.is_set or
+                    self.ospfaslsdbchecksum.is_set or
+                    self.ospfaslsdbsequence.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAsLsdbTable/OSPF-MIB:ospfAsLsdbEntry[OSPF-MIB:ospfAsLsdbType = ' + str(self.ospfaslsdbtype) + '][OSPF-MIB:ospfAsLsdbLsid = ' + str(self.ospfaslsdblsid) + '][OSPF-MIB:ospfAsLsdbRouterId = ' + str(self.ospfaslsdbrouterid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfaslsdbtype.yfilter != YFilter.not_set or
+                    self.ospfaslsdblsid.yfilter != YFilter.not_set or
+                    self.ospfaslsdbrouterid.yfilter != YFilter.not_set or
+                    self.ospfaslsdbadvertisement.yfilter != YFilter.not_set or
+                    self.ospfaslsdbage.yfilter != YFilter.not_set or
+                    self.ospfaslsdbchecksum.yfilter != YFilter.not_set or
+                    self.ospfaslsdbsequence.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfAsLsdbEntry" + "[ospfAsLsdbType='" + self.ospfaslsdbtype.get() + "']" + "[ospfAsLsdbLsid='" + self.ospfaslsdblsid.get() + "']" + "[ospfAsLsdbRouterId='" + self.ospfaslsdbrouterid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfAsLsdbTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfaslsdbtype.is_set or self.ospfaslsdbtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaslsdbtype.get_name_leafdata())
+                if (self.ospfaslsdblsid.is_set or self.ospfaslsdblsid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaslsdblsid.get_name_leafdata())
+                if (self.ospfaslsdbrouterid.is_set or self.ospfaslsdbrouterid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaslsdbrouterid.get_name_leafdata())
+                if (self.ospfaslsdbadvertisement.is_set or self.ospfaslsdbadvertisement.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaslsdbadvertisement.get_name_leafdata())
+                if (self.ospfaslsdbage.is_set or self.ospfaslsdbage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaslsdbage.get_name_leafdata())
+                if (self.ospfaslsdbchecksum.is_set or self.ospfaslsdbchecksum.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaslsdbchecksum.get_name_leafdata())
+                if (self.ospfaslsdbsequence.is_set or self.ospfaslsdbsequence.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfaslsdbsequence.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfAsLsdbType" or name == "ospfAsLsdbLsid" or name == "ospfAsLsdbRouterId" or name == "ospfAsLsdbAdvertisement" or name == "ospfAsLsdbAge" or name == "ospfAsLsdbChecksum" or name == "ospfAsLsdbSequence"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfaslsdbtype is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfAsLsdbType"):
+                    self.ospfaslsdbtype = value
+                    self.ospfaslsdbtype.value_namespace = name_space
+                    self.ospfaslsdbtype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAsLsdbLsid"):
+                    self.ospfaslsdblsid = value
+                    self.ospfaslsdblsid.value_namespace = name_space
+                    self.ospfaslsdblsid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAsLsdbRouterId"):
+                    self.ospfaslsdbrouterid = value
+                    self.ospfaslsdbrouterid.value_namespace = name_space
+                    self.ospfaslsdbrouterid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAsLsdbAdvertisement"):
+                    self.ospfaslsdbadvertisement = value
+                    self.ospfaslsdbadvertisement.value_namespace = name_space
+                    self.ospfaslsdbadvertisement.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAsLsdbAge"):
+                    self.ospfaslsdbage = value
+                    self.ospfaslsdbage.value_namespace = name_space
+                    self.ospfaslsdbage.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAsLsdbChecksum"):
+                    self.ospfaslsdbchecksum = value
+                    self.ospfaslsdbchecksum.value_namespace = name_space
+                    self.ospfaslsdbchecksum.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAsLsdbSequence"):
+                    self.ospfaslsdbsequence = value
+                    self.ospfaslsdbsequence.value_namespace = name_space
+                    self.ospfaslsdbsequence.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfaslsdbentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfaslsdblsid is not None:
-                    return True
-
-                if self.ospfaslsdbrouterid is not None:
-                    return True
-
-                if self.ospfaslsdbadvertisement is not None:
-                    return True
-
-                if self.ospfaslsdbage is not None:
-                    return True
-
-                if self.ospfaslsdbchecksum is not None:
-                    return True
-
-                if self.ospfaslsdbsequence is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfaslsdbtable.Ospfaslsdbentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAsLsdbTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfaslsdbentry is not None:
-                for child_ref in self.ospfaslsdbentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfaslsdbentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfAsLsdbTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfAsLsdbEntry"):
+                for c in self.ospfaslsdbentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfaslsdbtable.Ospfaslsdbentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfaslsdbentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfAsLsdbEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfaslsdbtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ospfarealsacounttable(object):
+    class Ospfarealsacounttable(Entity):
         """
         This table maintains per\-area, per\-LSA\-type counters
         
@@ -4645,13 +7363,39 @@ class OspfMib(object):
         _revision = '2006-11-10'
 
         def __init__(self):
-            self.parent = None
-            self.ospfarealsacountentry = YList()
-            self.ospfarealsacountentry.parent = self
-            self.ospfarealsacountentry.name = 'ospfarealsacountentry'
+            super(OspfMib.Ospfarealsacounttable, self).__init__()
+
+            self.yang_name = "ospfAreaLsaCountTable"
+            self.yang_parent_name = "OSPF-MIB"
+
+            self.ospfarealsacountentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(OspfMib.Ospfarealsacounttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(OspfMib.Ospfarealsacounttable, self).__setattr__(name, value)
 
 
-        class Ospfarealsacountentry(object):
+        class Ospfarealsacountentry(Entity):
             """
             An entry with a number of link advertisements
             
@@ -4667,7 +7411,7 @@ class OspfMib(object):
             .. attribute:: ospfarealsacountlsatype  <key>
             
             	This entry LSA type
-            	**type**\:   :py:class:`OspfarealsacountlsatypeEnum <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfarealsacounttable.Ospfarealsacountentry.OspfarealsacountlsatypeEnum>`
+            	**type**\:   :py:class:`Ospfarealsacountlsatype <ydk.models.cisco_ios_xe.OSPF_MIB.OspfMib.Ospfarealsacounttable.Ospfarealsacountentry.Ospfarealsacountlsatype>`
             
             .. attribute:: ospfarealsacountnumber
             
@@ -4684,14 +7428,46 @@ class OspfMib(object):
             _revision = '2006-11-10'
 
             def __init__(self):
-                self.parent = None
-                self.ospfarealsacountareaid = None
-                self.ospfarealsacountlsatype = None
-                self.ospfarealsacountnumber = None
+                super(OspfMib.Ospfarealsacounttable.Ospfarealsacountentry, self).__init__()
 
-            class OspfarealsacountlsatypeEnum(Enum):
+                self.yang_name = "ospfAreaLsaCountEntry"
+                self.yang_parent_name = "ospfAreaLsaCountTable"
+
+                self.ospfarealsacountareaid = YLeaf(YType.str, "ospfAreaLsaCountAreaId")
+
+                self.ospfarealsacountlsatype = YLeaf(YType.enumeration, "ospfAreaLsaCountLsaType")
+
+                self.ospfarealsacountnumber = YLeaf(YType.uint32, "ospfAreaLsaCountNumber")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ospfarealsacountareaid",
+                                "ospfarealsacountlsatype",
+                                "ospfarealsacountnumber") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(OspfMib.Ospfarealsacounttable.Ospfarealsacountentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(OspfMib.Ospfarealsacounttable.Ospfarealsacountentry, self).__setattr__(name, value)
+
+            class Ospfarealsacountlsatype(Enum):
                 """
-                OspfarealsacountlsatypeEnum
+                Ospfarealsacountlsatype
 
                 This entry LSA type.
 
@@ -4711,145 +7487,334 @@ class OspfMib(object):
 
                 """
 
-                routerLink = 1
+                routerLink = Enum.YLeaf(1, "routerLink")
 
-                networkLink = 2
+                networkLink = Enum.YLeaf(2, "networkLink")
 
-                summaryLink = 3
+                summaryLink = Enum.YLeaf(3, "summaryLink")
 
-                asSummaryLink = 4
+                asSummaryLink = Enum.YLeaf(4, "asSummaryLink")
 
-                multicastLink = 6
+                multicastLink = Enum.YLeaf(6, "multicastLink")
 
-                nssaExternalLink = 7
+                nssaExternalLink = Enum.YLeaf(7, "nssaExternalLink")
 
-                areaOpaqueLink = 10
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                    return meta._meta_table['OspfMib.Ospfarealsacounttable.Ospfarealsacountentry.OspfarealsacountlsatypeEnum']
+                areaOpaqueLink = Enum.YLeaf(10, "areaOpaqueLink")
 
 
-            @property
-            def _common_path(self):
-                if self.ospfarealsacountareaid is None:
-                    raise YPYModelError('Key property ospfarealsacountareaid is None')
-                if self.ospfarealsacountlsatype is None:
-                    raise YPYModelError('Key property ospfarealsacountlsatype is None')
+            def has_data(self):
+                return (
+                    self.ospfarealsacountareaid.is_set or
+                    self.ospfarealsacountlsatype.is_set or
+                    self.ospfarealsacountnumber.is_set)
 
-                return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaLsaCountTable/OSPF-MIB:ospfAreaLsaCountEntry[OSPF-MIB:ospfAreaLsaCountAreaId = ' + str(self.ospfarealsacountareaid) + '][OSPF-MIB:ospfAreaLsaCountLsaType = ' + str(self.ospfarealsacountlsatype) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ospfarealsacountareaid.yfilter != YFilter.not_set or
+                    self.ospfarealsacountlsatype.yfilter != YFilter.not_set or
+                    self.ospfarealsacountnumber.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "ospfAreaLsaCountEntry" + "[ospfAreaLsaCountAreaId='" + self.ospfarealsacountareaid.get() + "']" + "[ospfAreaLsaCountLsaType='" + self.ospfarealsacountlsatype.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "OSPF-MIB:OSPF-MIB/ospfAreaLsaCountTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ospfarealsacountareaid.is_set or self.ospfarealsacountareaid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarealsacountareaid.get_name_leafdata())
+                if (self.ospfarealsacountlsatype.is_set or self.ospfarealsacountlsatype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarealsacountlsatype.get_name_leafdata())
+                if (self.ospfarealsacountnumber.is_set or self.ospfarealsacountnumber.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ospfarealsacountnumber.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ospfAreaLsaCountAreaId" or name == "ospfAreaLsaCountLsaType" or name == "ospfAreaLsaCountNumber"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ospfarealsacountareaid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ospfAreaLsaCountAreaId"):
+                    self.ospfarealsacountareaid = value
+                    self.ospfarealsacountareaid.value_namespace = name_space
+                    self.ospfarealsacountareaid.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaLsaCountLsaType"):
+                    self.ospfarealsacountlsatype = value
+                    self.ospfarealsacountlsatype.value_namespace = name_space
+                    self.ospfarealsacountlsatype.value_namespace_prefix = name_space_prefix
+                if(value_path == "ospfAreaLsaCountNumber"):
+                    self.ospfarealsacountnumber = value
+                    self.ospfarealsacountnumber.value_namespace = name_space
+                    self.ospfarealsacountnumber.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ospfarealsacountentry:
+                if (c.has_data()):
                     return True
-
-                if self.ospfarealsacountlsatype is not None:
-                    return True
-
-                if self.ospfarealsacountnumber is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-                return meta._meta_table['OspfMib.Ospfarealsacounttable.Ospfarealsacountentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/OSPF-MIB:OSPF-MIB/OSPF-MIB:ospfAreaLsaCountTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ospfarealsacountentry is not None:
-                for child_ref in self.ospfarealsacountentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ospfarealsacountentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "ospfAreaLsaCountTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "OSPF-MIB:OSPF-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "ospfAreaLsaCountEntry"):
+                for c in self.ospfarealsacountentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = OspfMib.Ospfarealsacounttable.Ospfarealsacountentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ospfarealsacountentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "ospfAreaLsaCountEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-            return meta._meta_table['OspfMib.Ospfarealsacounttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ospfareaaggregatetable is not None and self.ospfareaaggregatetable.has_data()) or
+            (self.ospfarealsacounttable is not None and self.ospfarealsacounttable.has_data()) or
+            (self.ospfarearangetable is not None and self.ospfarearangetable.has_data()) or
+            (self.ospfareatable is not None and self.ospfareatable.has_data()) or
+            (self.ospfaslsdbtable is not None and self.ospfaslsdbtable.has_data()) or
+            (self.ospfextlsdbtable is not None and self.ospfextlsdbtable.has_data()) or
+            (self.ospfgeneralgroup is not None and self.ospfgeneralgroup.has_data()) or
+            (self.ospfhosttable is not None and self.ospfhosttable.has_data()) or
+            (self.ospfifmetrictable is not None and self.ospfifmetrictable.has_data()) or
+            (self.ospfiftable is not None and self.ospfiftable.has_data()) or
+            (self.ospflocallsdbtable is not None and self.ospflocallsdbtable.has_data()) or
+            (self.ospflsdbtable is not None and self.ospflsdbtable.has_data()) or
+            (self.ospfnbrtable is not None and self.ospfnbrtable.has_data()) or
+            (self.ospfstubareatable is not None and self.ospfstubareatable.has_data()) or
+            (self.ospfvirtiftable is not None and self.ospfvirtiftable.has_data()) or
+            (self.ospfvirtlocallsdbtable is not None and self.ospfvirtlocallsdbtable.has_data()) or
+            (self.ospfvirtnbrtable is not None and self.ospfvirtnbrtable.has_data()))
 
-        return '/OSPF-MIB:OSPF-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ospfareaaggregatetable is not None and self.ospfareaaggregatetable.has_operation()) or
+            (self.ospfarealsacounttable is not None and self.ospfarealsacounttable.has_operation()) or
+            (self.ospfarearangetable is not None and self.ospfarearangetable.has_operation()) or
+            (self.ospfareatable is not None and self.ospfareatable.has_operation()) or
+            (self.ospfaslsdbtable is not None and self.ospfaslsdbtable.has_operation()) or
+            (self.ospfextlsdbtable is not None and self.ospfextlsdbtable.has_operation()) or
+            (self.ospfgeneralgroup is not None and self.ospfgeneralgroup.has_operation()) or
+            (self.ospfhosttable is not None and self.ospfhosttable.has_operation()) or
+            (self.ospfifmetrictable is not None and self.ospfifmetrictable.has_operation()) or
+            (self.ospfiftable is not None and self.ospfiftable.has_operation()) or
+            (self.ospflocallsdbtable is not None and self.ospflocallsdbtable.has_operation()) or
+            (self.ospflsdbtable is not None and self.ospflsdbtable.has_operation()) or
+            (self.ospfnbrtable is not None and self.ospfnbrtable.has_operation()) or
+            (self.ospfstubareatable is not None and self.ospfstubareatable.has_operation()) or
+            (self.ospfvirtiftable is not None and self.ospfvirtiftable.has_operation()) or
+            (self.ospfvirtlocallsdbtable is not None and self.ospfvirtlocallsdbtable.has_operation()) or
+            (self.ospfvirtnbrtable is not None and self.ospfvirtnbrtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "OSPF-MIB:OSPF-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "ospfAreaAggregateTable"):
+            if (self.ospfareaaggregatetable is None):
+                self.ospfareaaggregatetable = OspfMib.Ospfareaaggregatetable()
+                self.ospfareaaggregatetable.parent = self
+                self._children_name_map["ospfareaaggregatetable"] = "ospfAreaAggregateTable"
+            return self.ospfareaaggregatetable
+
+        if (child_yang_name == "ospfAreaLsaCountTable"):
+            if (self.ospfarealsacounttable is None):
+                self.ospfarealsacounttable = OspfMib.Ospfarealsacounttable()
+                self.ospfarealsacounttable.parent = self
+                self._children_name_map["ospfarealsacounttable"] = "ospfAreaLsaCountTable"
+            return self.ospfarealsacounttable
+
+        if (child_yang_name == "ospfAreaRangeTable"):
+            if (self.ospfarearangetable is None):
+                self.ospfarearangetable = OspfMib.Ospfarearangetable()
+                self.ospfarearangetable.parent = self
+                self._children_name_map["ospfarearangetable"] = "ospfAreaRangeTable"
+            return self.ospfarearangetable
+
+        if (child_yang_name == "ospfAreaTable"):
+            if (self.ospfareatable is None):
+                self.ospfareatable = OspfMib.Ospfareatable()
+                self.ospfareatable.parent = self
+                self._children_name_map["ospfareatable"] = "ospfAreaTable"
+            return self.ospfareatable
+
+        if (child_yang_name == "ospfAsLsdbTable"):
+            if (self.ospfaslsdbtable is None):
+                self.ospfaslsdbtable = OspfMib.Ospfaslsdbtable()
+                self.ospfaslsdbtable.parent = self
+                self._children_name_map["ospfaslsdbtable"] = "ospfAsLsdbTable"
+            return self.ospfaslsdbtable
+
+        if (child_yang_name == "ospfExtLsdbTable"):
+            if (self.ospfextlsdbtable is None):
+                self.ospfextlsdbtable = OspfMib.Ospfextlsdbtable()
+                self.ospfextlsdbtable.parent = self
+                self._children_name_map["ospfextlsdbtable"] = "ospfExtLsdbTable"
+            return self.ospfextlsdbtable
+
+        if (child_yang_name == "ospfGeneralGroup"):
+            if (self.ospfgeneralgroup is None):
+                self.ospfgeneralgroup = OspfMib.Ospfgeneralgroup()
+                self.ospfgeneralgroup.parent = self
+                self._children_name_map["ospfgeneralgroup"] = "ospfGeneralGroup"
+            return self.ospfgeneralgroup
+
+        if (child_yang_name == "ospfHostTable"):
+            if (self.ospfhosttable is None):
+                self.ospfhosttable = OspfMib.Ospfhosttable()
+                self.ospfhosttable.parent = self
+                self._children_name_map["ospfhosttable"] = "ospfHostTable"
+            return self.ospfhosttable
+
+        if (child_yang_name == "ospfIfMetricTable"):
+            if (self.ospfifmetrictable is None):
+                self.ospfifmetrictable = OspfMib.Ospfifmetrictable()
+                self.ospfifmetrictable.parent = self
+                self._children_name_map["ospfifmetrictable"] = "ospfIfMetricTable"
+            return self.ospfifmetrictable
+
+        if (child_yang_name == "ospfIfTable"):
+            if (self.ospfiftable is None):
+                self.ospfiftable = OspfMib.Ospfiftable()
+                self.ospfiftable.parent = self
+                self._children_name_map["ospfiftable"] = "ospfIfTable"
+            return self.ospfiftable
+
+        if (child_yang_name == "ospfLocalLsdbTable"):
+            if (self.ospflocallsdbtable is None):
+                self.ospflocallsdbtable = OspfMib.Ospflocallsdbtable()
+                self.ospflocallsdbtable.parent = self
+                self._children_name_map["ospflocallsdbtable"] = "ospfLocalLsdbTable"
+            return self.ospflocallsdbtable
+
+        if (child_yang_name == "ospfLsdbTable"):
+            if (self.ospflsdbtable is None):
+                self.ospflsdbtable = OspfMib.Ospflsdbtable()
+                self.ospflsdbtable.parent = self
+                self._children_name_map["ospflsdbtable"] = "ospfLsdbTable"
+            return self.ospflsdbtable
+
+        if (child_yang_name == "ospfNbrTable"):
+            if (self.ospfnbrtable is None):
+                self.ospfnbrtable = OspfMib.Ospfnbrtable()
+                self.ospfnbrtable.parent = self
+                self._children_name_map["ospfnbrtable"] = "ospfNbrTable"
+            return self.ospfnbrtable
+
+        if (child_yang_name == "ospfStubAreaTable"):
+            if (self.ospfstubareatable is None):
+                self.ospfstubareatable = OspfMib.Ospfstubareatable()
+                self.ospfstubareatable.parent = self
+                self._children_name_map["ospfstubareatable"] = "ospfStubAreaTable"
+            return self.ospfstubareatable
+
+        if (child_yang_name == "ospfVirtIfTable"):
+            if (self.ospfvirtiftable is None):
+                self.ospfvirtiftable = OspfMib.Ospfvirtiftable()
+                self.ospfvirtiftable.parent = self
+                self._children_name_map["ospfvirtiftable"] = "ospfVirtIfTable"
+            return self.ospfvirtiftable
+
+        if (child_yang_name == "ospfVirtLocalLsdbTable"):
+            if (self.ospfvirtlocallsdbtable is None):
+                self.ospfvirtlocallsdbtable = OspfMib.Ospfvirtlocallsdbtable()
+                self.ospfvirtlocallsdbtable.parent = self
+                self._children_name_map["ospfvirtlocallsdbtable"] = "ospfVirtLocalLsdbTable"
+            return self.ospfvirtlocallsdbtable
+
+        if (child_yang_name == "ospfVirtNbrTable"):
+            if (self.ospfvirtnbrtable is None):
+                self.ospfvirtnbrtable = OspfMib.Ospfvirtnbrtable()
+                self.ospfvirtnbrtable.parent = self
+                self._children_name_map["ospfvirtnbrtable"] = "ospfVirtNbrTable"
+            return self.ospfvirtnbrtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "ospfAreaAggregateTable" or name == "ospfAreaLsaCountTable" or name == "ospfAreaRangeTable" or name == "ospfAreaTable" or name == "ospfAsLsdbTable" or name == "ospfExtLsdbTable" or name == "ospfGeneralGroup" or name == "ospfHostTable" or name == "ospfIfMetricTable" or name == "ospfIfTable" or name == "ospfLocalLsdbTable" or name == "ospfLsdbTable" or name == "ospfNbrTable" or name == "ospfStubAreaTable" or name == "ospfVirtIfTable" or name == "ospfVirtLocalLsdbTable" or name == "ospfVirtNbrTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ospfareaaggregatetable is not None and self.ospfareaaggregatetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ospfarealsacounttable is not None and self.ospfarealsacounttable._has_data():
-            return True
-
-        if self.ospfarearangetable is not None and self.ospfarearangetable._has_data():
-            return True
-
-        if self.ospfareatable is not None and self.ospfareatable._has_data():
-            return True
-
-        if self.ospfaslsdbtable is not None and self.ospfaslsdbtable._has_data():
-            return True
-
-        if self.ospfextlsdbtable is not None and self.ospfextlsdbtable._has_data():
-            return True
-
-        if self.ospfgeneralgroup is not None and self.ospfgeneralgroup._has_data():
-            return True
-
-        if self.ospfhosttable is not None and self.ospfhosttable._has_data():
-            return True
-
-        if self.ospfifmetrictable is not None and self.ospfifmetrictable._has_data():
-            return True
-
-        if self.ospfiftable is not None and self.ospfiftable._has_data():
-            return True
-
-        if self.ospflocallsdbtable is not None and self.ospflocallsdbtable._has_data():
-            return True
-
-        if self.ospflsdbtable is not None and self.ospflsdbtable._has_data():
-            return True
-
-        if self.ospfnbrtable is not None and self.ospfnbrtable._has_data():
-            return True
-
-        if self.ospfstubareatable is not None and self.ospfstubareatable._has_data():
-            return True
-
-        if self.ospfvirtiftable is not None and self.ospfvirtiftable._has_data():
-            return True
-
-        if self.ospfvirtlocallsdbtable is not None and self.ospfvirtlocallsdbtable._has_data():
-            return True
-
-        if self.ospfvirtnbrtable is not None and self.ospfvirtnbrtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _OSPF_MIB as meta
-        return meta._meta_table['OspfMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = OspfMib()
+        return self._top_entity
 

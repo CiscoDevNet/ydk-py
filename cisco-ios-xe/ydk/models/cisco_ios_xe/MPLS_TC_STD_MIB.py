@@ -11,22 +11,16 @@ for concepts used in Multiprotocol Label
 Switching (MPLS) networks.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class MplslabeldistributionmethodEnum(Enum):
+class Mplslabeldistributionmethod(Enum):
     """
-    MplslabeldistributionmethodEnum
+    Mplslabeldistributionmethod
 
     The label distribution method which is also called
 
@@ -44,20 +38,14 @@ class MplslabeldistributionmethodEnum(Enum):
 
     """
 
-    downstreamOnDemand = 1
+    downstreamOnDemand = Enum.YLeaf(1, "downstreamOnDemand")
 
-    downstreamUnsolicited = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_STD_MIB as meta
-        return meta._meta_table['MplslabeldistributionmethodEnum']
+    downstreamUnsolicited = Enum.YLeaf(2, "downstreamUnsolicited")
 
 
-class MplsldplabeltypeEnum(Enum):
+class Mplsldplabeltype(Enum):
     """
-    MplsldplabeltypeEnum
+    Mplsldplabeltype
 
     The Layer 2 label types which are defined for MPLS
 
@@ -73,22 +61,16 @@ class MplsldplabeltypeEnum(Enum):
 
     """
 
-    generic = 1
+    generic = Enum.YLeaf(1, "generic")
 
-    atm = 2
+    atm = Enum.YLeaf(2, "atm")
 
-    frameRelay = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_STD_MIB as meta
-        return meta._meta_table['MplsldplabeltypeEnum']
+    frameRelay = Enum.YLeaf(3, "frameRelay")
 
 
-class MplslsptypeEnum(Enum):
+class Mplslsptype(Enum):
     """
-    MplslsptypeEnum
+    Mplslsptype
 
     Types of Label Switch Paths (LSPs)
 
@@ -138,24 +120,18 @@ class MplslsptypeEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    terminatingLsp = 2
+    terminatingLsp = Enum.YLeaf(2, "terminatingLsp")
 
-    originatingLsp = 3
+    originatingLsp = Enum.YLeaf(3, "originatingLsp")
 
-    crossConnectingLsp = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_STD_MIB as meta
-        return meta._meta_table['MplslsptypeEnum']
+    crossConnectingLsp = Enum.YLeaf(4, "crossConnectingLsp")
 
 
-class MplsownerEnum(Enum):
+class Mplsowner(Enum):
     """
-    MplsownerEnum
+    Mplsowner
 
     This object indicates the local network
 
@@ -227,30 +203,24 @@ class MplsownerEnum(Enum):
 
     """
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    other = 2
+    other = Enum.YLeaf(2, "other")
 
-    snmp = 3
+    snmp = Enum.YLeaf(3, "snmp")
 
-    ldp = 4
+    ldp = Enum.YLeaf(4, "ldp")
 
-    crldp = 5
+    crldp = Enum.YLeaf(5, "crldp")
 
-    rsvpTe = 6
+    rsvpTe = Enum.YLeaf(6, "rsvpTe")
 
-    policyAgent = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_STD_MIB as meta
-        return meta._meta_table['MplsownerEnum']
+    policyAgent = Enum.YLeaf(7, "policyAgent")
 
 
-class MplsretentionmodeEnum(Enum):
+class Mplsretentionmode(Enum):
     """
-    MplsretentionmodeEnum
+    Mplsretentionmode
 
     The label retention mode which specifies whether
 
@@ -280,20 +250,14 @@ class MplsretentionmodeEnum(Enum):
 
     """
 
-    conservative = 1
+    conservative = Enum.YLeaf(1, "conservative")
 
-    liberal = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_STD_MIB as meta
-        return meta._meta_table['MplsretentionmodeEnum']
+    liberal = Enum.YLeaf(2, "liberal")
 
 
-class TehopaddresstypeEnum(Enum):
+class Tehopaddresstype(Enum):
     """
-    TehopaddresstypeEnum
+    Tehopaddresstype
 
     A value that represents a type of address for a
 
@@ -399,23 +363,17 @@ class TehopaddresstypeEnum(Enum):
 
     """
 
-    unknown = 0
+    unknown = Enum.YLeaf(0, "unknown")
 
-    ipv4 = 1
+    ipv4 = Enum.YLeaf(1, "ipv4")
 
-    ipv6 = 2
+    ipv6 = Enum.YLeaf(2, "ipv6")
 
-    asnumber = 3
+    asnumber = Enum.YLeaf(3, "asnumber")
 
-    unnum = 4
+    unnum = Enum.YLeaf(4, "unnum")
 
-    lspid = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _MPLS_TC_STD_MIB as meta
-        return meta._meta_table['TehopaddresstypeEnum']
+    lspid = Enum.YLeaf(5, "lspid")
 
 
 

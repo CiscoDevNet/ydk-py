@@ -5,29 +5,23 @@ for Cisco IOS\-XR dnx\-port\-mapper package operational data.
 
 This module contains definitions
 for the following management objects\:
-  oor\: DPA operational data
+  oor\: Out of Resource Data
 
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class Oor(object):
+class Oor(Entity):
     """
-    DPA operational data
+    Out of Resource Data
     
     .. attribute:: nodes
     
@@ -42,11 +36,19 @@ class Oor(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Oor, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "oor"
+        self.yang_parent_name = "Cisco-IOS-XR-dnx-port-mapper-oper"
+
         self.nodes = Oor.Nodes()
         self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
 
-    class Nodes(object):
+    class Nodes(Entity):
         """
         OOR data for available nodes
         
@@ -63,13 +65,39 @@ class Oor(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node = YList()
-            self.node.parent = self
-            self.node.name = 'node'
+            super(Oor.Nodes, self).__init__()
+
+            self.yang_name = "nodes"
+            self.yang_parent_name = "oor"
+
+            self.node = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Oor.Nodes, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Oor.Nodes, self).__setattr__(name, value)
 
 
-        class Node(object):
+        class Node(Entity):
             """
             DPA operational data for a particular node
             
@@ -80,30 +108,15 @@ class Oor(object):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
-            .. attribute:: bundle_interface_details
+            .. attribute:: interface_names
             
-            	OOR Bundle Interface Detail
-            	**type**\:   :py:class:`BundleInterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails>`
+            	OOR Interface Information
+            	**type**\:   :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames>`
             
-            .. attribute:: interface_details
+            .. attribute:: summary
             
-            	OOR Interface Detail
-            	**type**\:   :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceDetails>`
-            
-            .. attribute:: interface_npu_resources
-            
-            	OOR information with NPU resources
-            	**type**\:   :py:class:`InterfaceNpuResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNpuResources>`
-            
-            .. attribute:: interface_summary_datas
-            
-            	OOR Per Interface Summary
-            	**type**\:   :py:class:`InterfaceSummaryDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceSummaryDatas>`
-            
-            .. attribute:: oor_summary
-            
-            	OOR Summary
-            	**type**\:   :py:class:`OorSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.OorSummary>`
+            	Summary
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.Summary>`
             
             
 
@@ -113,28 +126,72 @@ class Oor(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.node_name = None
-                self.bundle_interface_details = Oor.Nodes.Node.BundleInterfaceDetails()
-                self.bundle_interface_details.parent = self
-                self.interface_details = Oor.Nodes.Node.InterfaceDetails()
-                self.interface_details.parent = self
-                self.interface_npu_resources = Oor.Nodes.Node.InterfaceNpuResources()
-                self.interface_npu_resources.parent = self
-                self.interface_summary_datas = Oor.Nodes.Node.InterfaceSummaryDatas()
-                self.interface_summary_datas.parent = self
-                self.oor_summary = Oor.Nodes.Node.OorSummary()
-                self.oor_summary.parent = self
+                super(Oor.Nodes.Node, self).__init__()
+
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
+                self.interface_names = Oor.Nodes.Node.InterfaceNames()
+                self.interface_names.parent = self
+                self._children_name_map["interface_names"] = "interface-names"
+                self._children_yang_names.add("interface-names")
+
+                self.summary = Oor.Nodes.Node.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+                self._children_yang_names.add("summary")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("node_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Oor.Nodes.Node, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Oor.Nodes.Node, self).__setattr__(name, value)
 
 
-            class InterfaceNpuResources(object):
+            class Summary(Entity):
                 """
-                OOR information with NPU resources
+                Summary
                 
-                .. attribute:: interface_npu_resource
+                .. attribute:: green
                 
-                	OOR information with NPU resources for an interface
-                	**type**\: list of    :py:class:`InterfaceNpuResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNpuResources.InterfaceNpuResource>`
+                	interfaces in green state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: red
+                
+                	interfaces in red state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: yel_low
+                
+                	interfaces in yellow state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 
 
@@ -144,89 +201,171 @@ class Oor(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.interface_npu_resource = YList()
-                    self.interface_npu_resource.parent = self
-                    self.interface_npu_resource.name = 'interface_npu_resource'
+                    super(Oor.Nodes.Node.Summary, self).__init__()
+
+                    self.yang_name = "summary"
+                    self.yang_parent_name = "node"
+
+                    self.green = YLeaf(YType.uint32, "green")
+
+                    self.red = YLeaf(YType.uint32, "red")
+
+                    self.yel_low = YLeaf(YType.uint32, "yel-low")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("green",
+                                    "red",
+                                    "yel_low") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Oor.Nodes.Node.Summary, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Oor.Nodes.Node.Summary, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.green.is_set or
+                        self.red.is_set or
+                        self.yel_low.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.green.yfilter != YFilter.not_set or
+                        self.red.yfilter != YFilter.not_set or
+                        self.yel_low.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "summary" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.green.is_set or self.green.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.green.get_name_leafdata())
+                    if (self.red.is_set or self.red.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.red.get_name_leafdata())
+                    if (self.yel_low.is_set or self.yel_low.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.yel_low.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "green" or name == "red" or name == "yel-low"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "green"):
+                        self.green = value
+                        self.green.value_namespace = name_space
+                        self.green.value_namespace_prefix = name_space_prefix
+                    if(value_path == "red"):
+                        self.red = value
+                        self.red.value_namespace = name_space
+                        self.red.value_namespace_prefix = name_space_prefix
+                    if(value_path == "yel-low"):
+                        self.yel_low = value
+                        self.yel_low.value_namespace = name_space
+                        self.yel_low.value_namespace_prefix = name_space_prefix
 
 
-                class InterfaceNpuResource(object):
+            class InterfaceNames(Entity):
+                """
+                OOR Interface Information
+                
+                .. attribute:: interface_name
+                
+                	OOR Data for particular interface
+                	**type**\: list of    :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName>`
+                
+                
+
+                """
+
+                _prefix = 'dnx-port-mapper-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Oor.Nodes.Node.InterfaceNames, self).__init__()
+
+                    self.yang_name = "interface-names"
+                    self.yang_parent_name = "node"
+
+                    self.interface_name = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Oor.Nodes.Node.InterfaceNames, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Oor.Nodes.Node.InterfaceNames, self).__setattr__(name, value)
+
+
+                class InterfaceName(Entity):
                     """
-                    OOR information with NPU resources for an
-                    interface
+                    OOR Data for particular interface
                     
                     .. attribute:: interface_name  <key>
                     
                     	The name of the interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: interface_state
+                    .. attribute:: interface
                     
-                    	Current OOR state of the interface/bundle
-                    	**type**\:  str
-                    
-                    .. attribute:: max_entries
-                    
-                    	Max entries in NPU for this HW resource
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: member
-                    
-                    	Interface/Bundle member HW/NPU resources
-                    	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNpuResources.InterfaceNpuResource.Member>`
-                    
-                    .. attribute:: name
-                    
-                    	HW/NPU resource name
-                    	**type**\:  str
-                    
-                    .. attribute:: number_of_members
-                    
-                    	Number of bundle members. for non\-bundles this will be 1
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: red_threshold
-                    
-                    	Red threshold
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: red_threshold_percent
-                    
-                    	Red threshold percentage
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: percentage
-                    
-                    .. attribute:: time_stamp
-                    
-                    	Timestamp of last OOR change
-                    	**type**\:  str
-                    
-                    .. attribute:: yellow_threshold
-                    
-                    	Yellow threshold
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: yellow_threshold_percent
-                    
-                    	Yellow threshold percentage
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: percentage
+                    	Interface details
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface>`
                     
                     
 
@@ -236,347 +375,43 @@ class Oor(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.interface_name = None
-                        self.interface_state = None
-                        self.max_entries = None
-                        self.member = YList()
-                        self.member.parent = self
-                        self.member.name = 'member'
-                        self.name = None
-                        self.number_of_members = None
-                        self.red_threshold = None
-                        self.red_threshold_percent = None
-                        self.time_stamp = None
-                        self.yellow_threshold = None
-                        self.yellow_threshold_percent = None
+                        super(Oor.Nodes.Node.InterfaceNames.InterfaceName, self).__init__()
+
+                        self.yang_name = "interface-name"
+                        self.yang_parent_name = "interface-names"
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.interface = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("interface_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Oor.Nodes.Node.InterfaceNames.InterfaceName, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Oor.Nodes.Node.InterfaceNames.InterfaceName, self).__setattr__(name, value)
 
 
-                    class Member(object):
+                    class Interface(Entity):
                         """
-                        Interface/Bundle member HW/NPU resources
-                        
-                        .. attribute:: dpa_table
-                        
-                        	Logical (DPA) tables information
-                        	**type**\: list of    :py:class:`DpaTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNpuResources.InterfaceNpuResource.Member.DpaTable>`
-                        
-                        .. attribute:: interface_name
-                        
-                        	Name of the member interface
-                        	**type**\:  str
-                        
-                        .. attribute:: location
-                        
-                        	Rack/Slot/Instance of the interface
-                        	**type**\:  str
-                        
-                        .. attribute:: npu_id
-                        
-                        	Npu Id of the interface
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: number_of_dpa_tables
-                        
-                        	Number of logical tables using this NPU resource
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: total_in_use
-                        
-                        	Total In\-use entries of NPU resource DB
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: total_in_use_percent
-                        
-                        	Total In\-use percentage of NPU resource DB
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: percentage
-                        
-                        
-
-                        """
-
-                        _prefix = 'dnx-port-mapper-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.dpa_table = YList()
-                            self.dpa_table.parent = self
-                            self.dpa_table.name = 'dpa_table'
-                            self.interface_name = None
-                            self.location = None
-                            self.npu_id = None
-                            self.number_of_dpa_tables = None
-                            self.total_in_use = None
-                            self.total_in_use_percent = None
-
-
-                        class DpaTable(object):
-                            """
-                            Logical (DPA) tables information
-                            
-                            .. attribute:: in_use
-                            
-                            	In\-use entries of NPU resource DB for this logical table
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: in_use_percent
-                            
-                            	In\-use entries of NPU resource DB for this logical table
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: name
-                            
-                            	Logical (DPA) table name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'dnx-port-mapper-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self.in_use = None
-                                self.in_use_percent = None
-                                self.name = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:dpa-table'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
-
-                            def _has_data(self):
-                                if self.in_use is not None:
-                                    return True
-
-                                if self.in_use_percent is not None:
-                                    return True
-
-                                if self.name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                                return meta._meta_table['Oor.Nodes.Node.InterfaceNpuResources.InterfaceNpuResource.Member.DpaTable']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:member'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if self.dpa_table is not None:
-                                for child_ref in self.dpa_table:
-                                    if child_ref._has_data():
-                                        return True
-
-                            if self.interface_name is not None:
-                                return True
-
-                            if self.location is not None:
-                                return True
-
-                            if self.npu_id is not None:
-                                return True
-
-                            if self.number_of_dpa_tables is not None:
-                                return True
-
-                            if self.total_in_use is not None:
-                                return True
-
-                            if self.total_in_use_percent is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                            return meta._meta_table['Oor.Nodes.Node.InterfaceNpuResources.InterfaceNpuResource.Member']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface_name is None:
-                            raise YPYModelError('Key property interface_name is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:interface-npu-resource[Cisco-IOS-XR-dnx-port-mapper-oper:interface-name = ' + str(self.interface_name) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.interface_name is not None:
-                            return True
-
-                        if self.interface_state is not None:
-                            return True
-
-                        if self.max_entries is not None:
-                            return True
-
-                        if self.member is not None:
-                            for child_ref in self.member:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.name is not None:
-                            return True
-
-                        if self.number_of_members is not None:
-                            return True
-
-                        if self.red_threshold is not None:
-                            return True
-
-                        if self.red_threshold_percent is not None:
-                            return True
-
-                        if self.time_stamp is not None:
-                            return True
-
-                        if self.yellow_threshold is not None:
-                            return True
-
-                        if self.yellow_threshold_percent is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                        return meta._meta_table['Oor.Nodes.Node.InterfaceNpuResources.InterfaceNpuResource']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:interface-npu-resources'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface_npu_resource is not None:
-                        for child_ref in self.interface_npu_resource:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                    return meta._meta_table['Oor.Nodes.Node.InterfaceNpuResources']['meta_info']
-
-
-            class BundleInterfaceDetails(object):
-                """
-                OOR Bundle Interface Detail
-                
-                .. attribute:: bundle_interface_detail
-                
-                	OOR Data for particular Bundle interface
-                	**type**\: list of    :py:class:`BundleInterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail>`
-                
-                
-
-                """
-
-                _prefix = 'dnx-port-mapper-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.bundle_interface_detail = YList()
-                    self.bundle_interface_detail.parent = self
-                    self.bundle_interface_detail.name = 'bundle_interface_detail'
-
-
-                class BundleInterfaceDetail(object):
-                    """
-                    OOR Data for particular Bundle interface
-                    
-                    .. attribute:: interface  <key>
-                    
-                    	Interface Name
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: interface_state
-                    
-                    	Current state of the interface
-                    	**type**\:  str
-                    
-                    .. attribute:: member
-                    
-                    	Member details
-                    	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail.Member>`
-                    
-                    .. attribute:: time_stamp
-                    
-                    	Timestamp
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-port-mapper-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.interface_state = None
-                        self.member = YList()
-                        self.member.parent = self
-                        self.member.name = 'member'
-                        self.time_stamp = None
-
-
-                    class Member(object):
-                        """
-                        Member details
+                        Interface details
                         
                         .. attribute:: hardware_resource
                         
@@ -611,510 +446,419 @@ class Oor(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.hardware_resource = None
-                            self.interface_name = None
-                            self.interface_status = None
-                            self.npu_id = None
-                            self.time_stamp = None
+                            super(Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "interface-name"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:member'
+                            self.hardware_resource = YLeaf(YType.str, "hardware-resource")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.interface_status = YLeaf(YType.str, "interface-status")
+
+                            self.npu_id = YLeaf(YType.str, "npu-id")
+
+                            self.time_stamp = YLeaf(YType.str, "time-stamp")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("hardware_resource",
+                                            "interface_name",
+                                            "interface_status",
+                                            "npu_id",
+                                            "time_stamp") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.hardware_resource.is_set or
+                                self.interface_name.is_set or
+                                self.interface_status.is_set or
+                                self.npu_id.is_set or
+                                self.time_stamp.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.hardware_resource.yfilter != YFilter.not_set or
+                                self.interface_name.yfilter != YFilter.not_set or
+                                self.interface_status.yfilter != YFilter.not_set or
+                                self.npu_id.yfilter != YFilter.not_set or
+                                self.time_stamp.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "interface" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.hardware_resource.is_set or self.hardware_resource.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.hardware_resource.get_name_leafdata())
+                            if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_name.get_name_leafdata())
+                            if (self.interface_status.is_set or self.interface_status.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.interface_status.get_name_leafdata())
+                            if (self.npu_id.is_set or self.npu_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.npu_id.get_name_leafdata())
+                            if (self.time_stamp.is_set or self.time_stamp.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.time_stamp.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "hardware-resource" or name == "interface-name" or name == "interface-status" or name == "npu-id" or name == "time-stamp"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.hardware_resource is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "hardware-resource"):
+                                self.hardware_resource = value
+                                self.hardware_resource.value_namespace = name_space
+                                self.hardware_resource.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-name"):
+                                self.interface_name = value
+                                self.interface_name.value_namespace = name_space
+                                self.interface_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "interface-status"):
+                                self.interface_status = value
+                                self.interface_status.value_namespace = name_space
+                                self.interface_status.value_namespace_prefix = name_space_prefix
+                            if(value_path == "npu-id"):
+                                self.npu_id = value
+                                self.npu_id.value_namespace = name_space
+                                self.npu_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "time-stamp"):
+                                self.time_stamp = value
+                                self.time_stamp.value_namespace = name_space
+                                self.time_stamp.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.interface:
+                            if (c.has_data()):
                                 return True
+                        return self.interface_name.is_set
 
-                            if self.interface_name is not None:
+                    def has_operation(self):
+                        for c in self.interface:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.interface_name.yfilter != YFilter.not_set)
 
-                            if self.interface_status is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interface-name" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                            if self.npu_id is not None:
-                                return True
+                        return path_buffer
 
-                            if self.time_stamp is not None:
-                                return True
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return False
+                        leaf_name_data = LeafDataList()
+                        if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.interface_name.get_name_leafdata())
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                            return meta._meta_table['Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail.Member']['meta_info']
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:bundle-interface-detail[Cisco-IOS-XR-dnx-port-mapper-oper:interface = ' + str(self.interface) + ']'
+                        if (child_yang_name == "interface"):
+                            for c in self.interface:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.interface.append(c)
+                            return c
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "interface" or name == "interface-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.interface is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "interface-name"):
+                            self.interface_name = value
+                            self.interface_name.value_namespace = name_space
+                            self.interface_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.interface_name:
+                        if (c.has_data()):
                             return True
-
-                        if self.interface_state is not None:
-                            return True
-
-                        if self.member is not None:
-                            for child_ref in self.member:
-                                if child_ref._has_data():
-                                    return True
-
-                        if self.time_stamp is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                        return meta._meta_table['Oor.Nodes.Node.BundleInterfaceDetails.BundleInterfaceDetail']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:bundle-interface-details'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.bundle_interface_detail is not None:
-                        for child_ref in self.bundle_interface_detail:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                    return meta._meta_table['Oor.Nodes.Node.BundleInterfaceDetails']['meta_info']
-
-
-            class InterfaceDetails(object):
-                """
-                OOR Interface Detail
-                
-                .. attribute:: interface_detail
-                
-                	OOR Data for particular interface
-                	**type**\: list of    :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceDetails.InterfaceDetail>`
-                
-                
-
-                """
-
-                _prefix = 'dnx-port-mapper-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.interface_detail = YList()
-                    self.interface_detail.parent = self
-                    self.interface_detail.name = 'interface_detail'
-
-
-                class InterfaceDetail(object):
-                    """
-                    OOR Data for particular interface
-                    
-                    .. attribute:: interface  <key>
-                    
-                    	Interface Name
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: hardware_resource
-                    
-                    	Type of harware resoruce
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_name
-                    
-                    	Name of the interface
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_status
-                    
-                    	The current state of the interface
-                    	**type**\:  str
-                    
-                    .. attribute:: npu_id
-                    
-                    	Npuid of the interface
-                    	**type**\:  str
-                    
-                    .. attribute:: time_stamp
-                    
-                    	Timestamp
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-port-mapper-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.hardware_resource = None
-                        self.interface_name = None
-                        self.interface_status = None
-                        self.npu_id = None
-                        self.time_stamp = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:interface-detail[Cisco-IOS-XR-dnx-port-mapper-oper:interface = ' + str(self.interface) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.interface is not None:
+                def has_operation(self):
+                    for c in self.interface_name:
+                        if (c.has_operation()):
                             return True
+                    return self.yfilter != YFilter.not_set
 
-                        if self.hardware_resource is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interface-names" + path_buffer
 
-                        if self.interface_name is not None:
-                            return True
+                    return path_buffer
 
-                        if self.interface_status is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.npu_id is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
 
-                        if self.time_stamp is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                        return meta._meta_table['Oor.Nodes.Node.InterfaceDetails.InterfaceDetail']['meta_info']
+                    if (child_yang_name == "interface-name"):
+                        for c in self.interface_name:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = Oor.Nodes.Node.InterfaceNames.InterfaceName()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.interface_name.append(c)
+                        return c
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    return None
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:interface-details'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface_detail is not None:
-                        for child_ref in self.interface_detail:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                    return meta._meta_table['Oor.Nodes.Node.InterfaceDetails']['meta_info']
-
-
-            class InterfaceSummaryDatas(object):
-                """
-                OOR Per Interface Summary
-                
-                .. attribute:: interface_summary_data
-                
-                	OOR Data for particular interface
-                	**type**\: list of    :py:class:`InterfaceSummaryData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceSummaryDatas.InterfaceSummaryData>`
-                
-                
-
-                """
-
-                _prefix = 'dnx-port-mapper-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.interface_summary_data = YList()
-                    self.interface_summary_data.parent = self
-                    self.interface_summary_data.name = 'interface_summary_data'
-
-
-                class InterfaceSummaryData(object):
-                    """
-                    OOR Data for particular interface
-                    
-                    .. attribute:: interface  <key>
-                    
-                    	Interface Number
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: hardware_resource
-                    
-                    	Type of harware resoruce
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_name
-                    
-                    	Name of the interface
-                    	**type**\:  str
-                    
-                    .. attribute:: interface_status
-                    
-                    	The current state of the interface
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'dnx-port-mapper-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.interface = None
-                        self.hardware_resource = None
-                        self.interface_name = None
-                        self.interface_status = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.interface is None:
-                            raise YPYModelError('Key property interface is None')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:interface-summary-data[Cisco-IOS-XR-dnx-port-mapper-oper:interface = ' + str(self.interface) + ']'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
-
-                    def _has_data(self):
-                        if self.interface is not None:
-                            return True
-
-                        if self.hardware_resource is not None:
-                            return True
-
-                        if self.interface_name is not None:
-                            return True
-
-                        if self.interface_status is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                        return meta._meta_table['Oor.Nodes.Node.InterfaceSummaryDatas.InterfaceSummaryData']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:interface-summary-datas'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.interface_summary_data is not None:
-                        for child_ref in self.interface_summary_data:
-                            if child_ref._has_data():
-                                return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                    return meta._meta_table['Oor.Nodes.Node.InterfaceSummaryDatas']['meta_info']
-
-
-            class OorSummary(object):
-                """
-                OOR Summary
-                
-                .. attribute:: green
-                
-                	interfaces in green state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: red
-                
-                	interfaces in red state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: yel_low
-                
-                	interfaces in yellow state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'dnx-port-mapper-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.green = None
-                    self.red = None
-                    self.yel_low = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-dnx-port-mapper-oper:oor-summary'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.green is not None:
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "interface-name"):
                         return True
-
-                    if self.red is not None:
-                        return True
-
-                    if self.yel_low is not None:
-                        return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                    return meta._meta_table['Oor.Nodes.Node.OorSummary']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
-            @property
-            def _common_path(self):
-                if self.node_name is None:
-                    raise YPYModelError('Key property node_name is None')
+            def has_data(self):
+                return (
+                    self.node_name.is_set or
+                    (self.interface_names is not None and self.interface_names.has_data()) or
+                    (self.summary is not None and self.summary.has_data()))
 
-                return '/Cisco-IOS-XR-dnx-port-mapper-oper:oor/Cisco-IOS-XR-dnx-port-mapper-oper:nodes/Cisco-IOS-XR-dnx-port-mapper-oper:node[Cisco-IOS-XR-dnx-port-mapper-oper:node-name = ' + str(self.node_name) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.node_name.yfilter != YFilter.not_set or
+                    (self.interface_names is not None and self.interface_names.has_operation()) or
+                    (self.summary is not None and self.summary.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.node_name.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "interface-names"):
+                    if (self.interface_names is None):
+                        self.interface_names = Oor.Nodes.Node.InterfaceNames()
+                        self.interface_names.parent = self
+                        self._children_name_map["interface_names"] = "interface-names"
+                    return self.interface_names
+
+                if (child_yang_name == "summary"):
+                    if (self.summary is None):
+                        self.summary = Oor.Nodes.Node.Summary()
+                        self.summary.parent = self
+                        self._children_name_map["summary"] = "summary"
+                    return self.summary
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "interface-names" or name == "summary" or name == "node-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.node_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "node-name"):
+                    self.node_name = value
+                    self.node_name.value_namespace = name_space
+                    self.node_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.node:
+                if (c.has_data()):
                     return True
-
-                if self.bundle_interface_details is not None and self.bundle_interface_details._has_data():
-                    return True
-
-                if self.interface_details is not None and self.interface_details._has_data():
-                    return True
-
-                if self.interface_npu_resources is not None and self.interface_npu_resources._has_data():
-                    return True
-
-                if self.interface_summary_datas is not None and self.interface_summary_datas._has_data():
-                    return True
-
-                if self.oor_summary is not None and self.oor_summary._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-                return meta._meta_table['Oor.Nodes.Node']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-dnx-port-mapper-oper:oor/Cisco-IOS-XR-dnx-port-mapper-oper:nodes'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.node is not None:
-                for child_ref in self.node:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.node:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "nodes" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-dnx-port-mapper-oper:oor/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "node"):
+                for c in self.node:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Oor.Nodes.Node()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.node.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-            return meta._meta_table['Oor.Nodes']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.nodes is not None and self.nodes.has_data())
 
-        return '/Cisco-IOS-XR-dnx-port-mapper-oper:oor'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.nodes is not None and self.nodes.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-dnx-port-mapper-oper:oor" + path_buffer
 
-    def _has_data(self):
-        if self.nodes is not None and self.nodes._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "nodes"):
+            if (self.nodes is None):
+                self.nodes = Oor.Nodes()
+                self.nodes.parent = self
+                self._children_name_map["nodes"] = "nodes"
+            return self.nodes
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "nodes"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_port_mapper_oper as meta
-        return meta._meta_table['Oor']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = Oor()
+        return self._top_entity
 

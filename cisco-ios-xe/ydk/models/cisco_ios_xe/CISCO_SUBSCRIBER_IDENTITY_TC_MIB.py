@@ -7,22 +7,16 @@ credentials used to determine authority, status, rights, or
 entitlement to privileges.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class SubscribermediatypeEnum(Enum):
+class Subscribermediatype(Enum):
     """
-    SubscribermediatypeEnum
+    Subscribermediatype
 
     An enumerated integer\-value describing the type of media
 
@@ -94,32 +88,26 @@ class SubscribermediatypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    async = 2
+    async = Enum.YLeaf(2, "async")
 
-    atm = 3
+    atm = Enum.YLeaf(3, "atm")
 
-    ethernet = 4
+    ethernet = Enum.YLeaf(4, "ethernet")
 
-    ip = 5
+    ip = Enum.YLeaf(5, "ip")
 
-    isdn = 6
+    isdn = Enum.YLeaf(6, "isdn")
 
-    mpls = 7
+    mpls = Enum.YLeaf(7, "mpls")
 
-    sync = 8
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_IDENTITY_TC_MIB as meta
-        return meta._meta_table['SubscribermediatypeEnum']
+    sync = Enum.YLeaf(8, "sync")
 
 
-class SubscriberprotocoltypeEnum(Enum):
+class Subscriberprotocoltype(Enum):
     """
-    SubscriberprotocoltypeEnum
+    Subscriberprotocoltype
 
     An enumerated integer\-value describing the type of protocol
 
@@ -183,28 +171,22 @@ class SubscriberprotocoltypeEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    atom = 2
+    atom = Enum.YLeaf(2, "atom")
 
-    ip = 3
+    ip = Enum.YLeaf(3, "ip")
 
-    psdn = 4
+    psdn = Enum.YLeaf(4, "psdn")
 
-    ppp = 5
+    ppp = Enum.YLeaf(5, "ppp")
 
-    vpdn = 6
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_IDENTITY_TC_MIB as meta
-        return meta._meta_table['SubscriberprotocoltypeEnum']
+    vpdn = Enum.YLeaf(6, "vpdn")
 
 
-class SubsessionidentityEnum(Enum):
+class Subsessionidentity(Enum):
     """
-    SubsessionidentityEnum
+    Subsessionidentity
 
     An enumerated integer\-value describing a subscriber session
 
@@ -400,58 +382,52 @@ class SubsessionidentityEnum(Enum):
 
     """
 
-    other = 1
+    other = Enum.YLeaf(1, "other")
 
-    ifIndex = 2
+    ifIndex = Enum.YLeaf(2, "ifIndex")
 
-    subscriberLabel = 3
+    subscriberLabel = Enum.YLeaf(3, "subscriberLabel")
 
-    macAddress = 4
+    macAddress = Enum.YLeaf(4, "macAddress")
 
-    nativeVrf = 5
+    nativeVrf = Enum.YLeaf(5, "nativeVrf")
 
-    nativeIpAddress = 6
+    nativeIpAddress = Enum.YLeaf(6, "nativeIpAddress")
 
-    domainVrf = 7
+    domainVrf = Enum.YLeaf(7, "domainVrf")
 
-    domainIpAddress = 8
+    domainIpAddress = Enum.YLeaf(8, "domainIpAddress")
 
-    pbhk = 9
+    pbhk = Enum.YLeaf(9, "pbhk")
 
-    remoteId = 10
+    remoteId = Enum.YLeaf(10, "remoteId")
 
-    circuitId = 11
+    circuitId = Enum.YLeaf(11, "circuitId")
 
-    nasPort = 12
+    nasPort = Enum.YLeaf(12, "nasPort")
 
-    domain = 13
+    domain = Enum.YLeaf(13, "domain")
 
-    username = 14
+    username = Enum.YLeaf(14, "username")
 
-    acctSessionId = 15
+    acctSessionId = Enum.YLeaf(15, "acctSessionId")
 
-    dnis = 16
+    dnis = Enum.YLeaf(16, "dnis")
 
-    media = 17
+    media = Enum.YLeaf(17, "media")
 
-    mlpNegotiated = 18
+    mlpNegotiated = Enum.YLeaf(18, "mlpNegotiated")
 
-    protocol = 19
+    protocol = Enum.YLeaf(19, "protocol")
 
-    serviceName = 20
+    serviceName = Enum.YLeaf(20, "serviceName")
 
-    dhcpClass = 21
+    dhcpClass = Enum.YLeaf(21, "dhcpClass")
 
-    tunnelName = 22
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_SUBSCRIBER_IDENTITY_TC_MIB as meta
-        return meta._meta_table['SubsessionidentityEnum']
+    tunnelName = Enum.YLeaf(22, "tunnelName")
 
 
-class Subsessionidentities(FixedBitsDict):
+class Subsessionidentities(Bits):
     """
     Subsessionidentities
 
@@ -538,56 +514,11 @@ class Subsessionidentities(FixedBitsDict):
     'tunnelName'
         The name of the VPDN used to carry the subscriber
         session.
-    Keys are:- protocol , circuitId , remoteId , serviceName , media , nativeIpAddress , acctSessionId , nativeVrf , subscriberLabel , mlpNegotiated , tunnelName , domain , domainIpAddress , macAddress , pbhk , ifIndex , username , domainVrf , nasPort , dhcpClass , dnis
+    Keys are:- nasPort , serviceName , pbhk , protocol , macAddress , username , media , mlpNegotiated , domainIpAddress , acctSessionId , subscriberLabel , remoteId , dhcpClass , ifIndex , nativeVrf , nativeIpAddress , domainVrf , tunnelName , circuitId , dnis , domain
 
     """
 
     def __init__(self):
-        self._dictionary = { 
-            'protocol':False,
-            'circuitId':False,
-            'remoteId':False,
-            'serviceName':False,
-            'media':False,
-            'nativeIpAddress':False,
-            'acctSessionId':False,
-            'nativeVrf':False,
-            'subscriberLabel':False,
-            'mlpNegotiated':False,
-            'tunnelName':False,
-            'domain':False,
-            'domainIpAddress':False,
-            'macAddress':False,
-            'pbhk':False,
-            'ifIndex':False,
-            'username':False,
-            'domainVrf':False,
-            'nasPort':False,
-            'dhcpClass':False,
-            'dnis':False,
-        }
-        self._pos_map = { 
-            'protocol':17,
-            'circuitId':9,
-            'remoteId':8,
-            'serviceName':18,
-            'media':15,
-            'nativeIpAddress':4,
-            'acctSessionId':13,
-            'nativeVrf':3,
-            'subscriberLabel':1,
-            'mlpNegotiated':16,
-            'tunnelName':20,
-            'domain':11,
-            'domainIpAddress':6,
-            'macAddress':2,
-            'pbhk':7,
-            'ifIndex':0,
-            'username':12,
-            'domainVrf':5,
-            'nasPort':10,
-            'dhcpClass':19,
-            'dnis':14,
-        }
+        super(Subsessionidentities, self).__init__()
 
 

@@ -11,21 +11,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class InfraStatistics(object):
+class InfraStatistics(Entity):
     """
     Statistics Infrastructure
     
@@ -42,11 +36,19 @@ class InfraStatistics(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(InfraStatistics, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "infra-statistics"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-statsd-oper"
+
         self.interfaces = InfraStatistics.Interfaces()
         self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
 
 
-    class Interfaces(object):
+    class Interfaces(Entity):
         """
         List of interfaces
         
@@ -63,13 +65,39 @@ class InfraStatistics(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.interface = YList()
-            self.interface.parent = self
-            self.interface.name = 'interface'
+            super(InfraStatistics.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "infra-statistics"
+
+            self.interface = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(InfraStatistics.Interfaces, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(InfraStatistics.Interfaces, self).__setattr__(name, value)
 
 
-        class Interface(object):
+        class Interface(Entity):
             """
             Statistics of an interface
             
@@ -123,25 +151,74 @@ class InfraStatistics(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.interface_name = None
+                super(InfraStatistics.Interfaces.Interface, self).__init__()
+
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
                 self.cache = InfraStatistics.Interfaces.Interface.Cache()
                 self.cache.parent = self
+                self._children_name_map["cache"] = "cache"
+                self._children_yang_names.add("cache")
+
                 self.data_rate = InfraStatistics.Interfaces.Interface.DataRate()
                 self.data_rate.parent = self
+                self._children_name_map["data_rate"] = "data-rate"
+                self._children_yang_names.add("data-rate")
+
                 self.generic_counters = InfraStatistics.Interfaces.Interface.GenericCounters()
                 self.generic_counters.parent = self
+                self._children_name_map["generic_counters"] = "generic-counters"
+                self._children_yang_names.add("generic-counters")
+
                 self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.InterfacesMibCounters()
                 self.interfaces_mib_counters.parent = self
+                self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                self._children_yang_names.add("interfaces-mib-counters")
+
                 self.latest = InfraStatistics.Interfaces.Interface.Latest()
                 self.latest.parent = self
+                self._children_name_map["latest"] = "latest"
+                self._children_yang_names.add("latest")
+
                 self.protocols = InfraStatistics.Interfaces.Interface.Protocols()
                 self.protocols.parent = self
+                self._children_name_map["protocols"] = "protocols"
+                self._children_yang_names.add("protocols")
+
                 self.total = InfraStatistics.Interfaces.Interface.Total()
                 self.total.parent = self
+                self._children_name_map["total"] = "total"
+                self._children_yang_names.add("total")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("interface_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(InfraStatistics.Interfaces.Interface, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(InfraStatistics.Interfaces.Interface, self).__setattr__(name, value)
 
 
-            class Cache(object):
+            class Cache(Entity):
                 """
                 Cached stats data of interfaces
                 
@@ -173,18 +250,33 @@ class InfraStatistics(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(InfraStatistics.Interfaces.Interface.Cache, self).__init__()
+
+                    self.yang_name = "cache"
+                    self.yang_parent_name = "interface"
+
                     self.data_rate = InfraStatistics.Interfaces.Interface.Cache.DataRate()
                     self.data_rate.parent = self
+                    self._children_name_map["data_rate"] = "data-rate"
+                    self._children_yang_names.add("data-rate")
+
                     self.generic_counters = InfraStatistics.Interfaces.Interface.Cache.GenericCounters()
                     self.generic_counters.parent = self
+                    self._children_name_map["generic_counters"] = "generic-counters"
+                    self._children_yang_names.add("generic-counters")
+
                     self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters()
                     self.interfaces_mib_counters.parent = self
+                    self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                    self._children_yang_names.add("interfaces-mib-counters")
+
                     self.protocols = InfraStatistics.Interfaces.Interface.Cache.Protocols()
                     self.protocols.parent = self
+                    self._children_name_map["protocols"] = "protocols"
+                    self._children_yang_names.add("protocols")
 
 
-                class Protocols(object):
+                class Protocols(Entity):
                     """
                     List of protocols
                     
@@ -201,13 +293,39 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.protocol = YList()
-                        self.protocol.parent = self
-                        self.protocol.name = 'protocol'
+                        super(InfraStatistics.Interfaces.Interface.Cache.Protocols, self).__init__()
+
+                        self.yang_name = "protocols"
+                        self.yang_parent_name = "cache"
+
+                        self.protocol = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Cache.Protocols, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Cache.Protocols, self).__setattr__(name, value)
 
 
-                    class Protocol(object):
+                    class Protocol(Entity):
                         """
                         Interface counters per protocol
                         
@@ -310,99 +428,253 @@ class InfraStatistics(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.protocol_name = None
-                            self.bytes_received = None
-                            self.bytes_sent = None
-                            self.input_data_rate = None
-                            self.input_packet_rate = None
-                            self.last_data_time = None
-                            self.output_data_rate = None
-                            self.output_packet_rate = None
-                            self.packets_received = None
-                            self.packets_sent = None
-                            self.protocol = None
+                            super(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.protocol_name is None:
-                                raise YPYModelError('Key property protocol_name is None')
+                            self.yang_name = "protocol"
+                            self.yang_parent_name = "protocols"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocol[Cisco-IOS-XR-infra-statsd-oper:protocol-name = ' + str(self.protocol_name) + ']'
+                            self.protocol_name = YLeaf(YType.str, "protocol-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                            self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                            self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                            self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                            self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                            self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                            self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                            self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                            self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                            self.protocol = YLeaf(YType.uint32, "protocol")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("protocol_name",
+                                            "bytes_received",
+                                            "bytes_sent",
+                                            "input_data_rate",
+                                            "input_packet_rate",
+                                            "last_data_time",
+                                            "output_data_rate",
+                                            "output_packet_rate",
+                                            "packets_received",
+                                            "packets_sent",
+                                            "protocol") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.protocol_name.is_set or
+                                self.bytes_received.is_set or
+                                self.bytes_sent.is_set or
+                                self.input_data_rate.is_set or
+                                self.input_packet_rate.is_set or
+                                self.last_data_time.is_set or
+                                self.output_data_rate.is_set or
+                                self.output_packet_rate.is_set or
+                                self.packets_received.is_set or
+                                self.packets_sent.is_set or
+                                self.protocol.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.protocol_name.yfilter != YFilter.not_set or
+                                self.bytes_received.yfilter != YFilter.not_set or
+                                self.bytes_sent.yfilter != YFilter.not_set or
+                                self.input_data_rate.yfilter != YFilter.not_set or
+                                self.input_packet_rate.yfilter != YFilter.not_set or
+                                self.last_data_time.yfilter != YFilter.not_set or
+                                self.output_data_rate.yfilter != YFilter.not_set or
+                                self.output_packet_rate.yfilter != YFilter.not_set or
+                                self.packets_received.yfilter != YFilter.not_set or
+                                self.packets_sent.yfilter != YFilter.not_set or
+                                self.protocol.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "protocol" + "[protocol-name='" + self.protocol_name.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.protocol_name.is_set or self.protocol_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol_name.get_name_leafdata())
+                            if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                            if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                            if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                            if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                            if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                            if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                            if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                            if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packets_received.get_name_leafdata())
+                            if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                            if (self.protocol.is_set or self.protocol.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "protocol-name" or name == "bytes-received" or name == "bytes-sent" or name == "input-data-rate" or name == "input-packet-rate" or name == "last-data-time" or name == "output-data-rate" or name == "output-packet-rate" or name == "packets-received" or name == "packets-sent" or name == "protocol"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.protocol_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "protocol-name"):
+                                self.protocol_name = value
+                                self.protocol_name.value_namespace = name_space
+                                self.protocol_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "bytes-received"):
+                                self.bytes_received = value
+                                self.bytes_received.value_namespace = name_space
+                                self.bytes_received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "bytes-sent"):
+                                self.bytes_sent = value
+                                self.bytes_sent.value_namespace = name_space
+                                self.bytes_sent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "input-data-rate"):
+                                self.input_data_rate = value
+                                self.input_data_rate.value_namespace = name_space
+                                self.input_data_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "input-packet-rate"):
+                                self.input_packet_rate = value
+                                self.input_packet_rate.value_namespace = name_space
+                                self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "last-data-time"):
+                                self.last_data_time = value
+                                self.last_data_time.value_namespace = name_space
+                                self.last_data_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "output-data-rate"):
+                                self.output_data_rate = value
+                                self.output_data_rate.value_namespace = name_space
+                                self.output_data_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "output-packet-rate"):
+                                self.output_packet_rate = value
+                                self.output_packet_rate.value_namespace = name_space
+                                self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packets-received"):
+                                self.packets_received = value
+                                self.packets_received.value_namespace = name_space
+                                self.packets_received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packets-sent"):
+                                self.packets_sent = value
+                                self.packets_sent.value_namespace = name_space
+                                self.packets_sent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "protocol"):
+                                self.protocol = value
+                                self.protocol.value_namespace = name_space
+                                self.protocol.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.protocol:
+                            if (c.has_data()):
                                 return True
-
-                            if self.bytes_received is not None:
-                                return True
-
-                            if self.bytes_sent is not None:
-                                return True
-
-                            if self.input_data_rate is not None:
-                                return True
-
-                            if self.input_packet_rate is not None:
-                                return True
-
-                            if self.last_data_time is not None:
-                                return True
-
-                            if self.output_data_rate is not None:
-                                return True
-
-                            if self.output_packet_rate is not None:
-                                return True
-
-                            if self.packets_received is not None:
-                                return True
-
-                            if self.packets_sent is not None:
-                                return True
-
-                            if self.protocol is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocols'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.protocol is not None:
-                            for child_ref in self.protocol:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.protocol:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "protocols" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "protocol"):
+                            for c in self.protocol:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.protocol.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "protocol"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.Protocols']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class InterfacesMibCounters(object):
+                class InterfacesMibCounters(Entity):
                     """
                     Set of interface counters as displayed by the
                     InterfacesMIB
@@ -681,173 +953,471 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
+                        super(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "interfaces-mib-counters"
+                        self.yang_parent_name = "cache"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
+                        self.applique = YLeaf(YType.uint32, "applique")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                        self.resets = YLeaf(YType.uint32, "resets")
+
+                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("applique",
+                                        "availability_flag",
+                                        "broadcast_packets_received",
+                                        "broadcast_packets_sent",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "carrier_transitions",
+                                        "crc_errors",
+                                        "framing_errors_received",
+                                        "giant_packets_received",
+                                        "input_aborts",
+                                        "input_drops",
+                                        "input_errors",
+                                        "input_ignored_packets",
+                                        "input_overruns",
+                                        "input_queue_drops",
+                                        "last_data_time",
+                                        "last_discontinuity_time",
+                                        "multicast_packets_received",
+                                        "multicast_packets_sent",
+                                        "output_buffer_failures",
+                                        "output_buffers_swapped_out",
+                                        "output_drops",
+                                        "output_errors",
+                                        "output_queue_drops",
+                                        "output_underruns",
+                                        "packets_received",
+                                        "packets_sent",
+                                        "parity_packets_received",
+                                        "resets",
+                                        "runt_packets_received",
+                                        "seconds_since_last_clear_counters",
+                                        "seconds_since_packet_received",
+                                        "seconds_since_packet_sent",
+                                        "throttled_packets_received",
+                                        "unknown_protocol_packets_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.applique.is_set or
+                            self.availability_flag.is_set or
+                            self.broadcast_packets_received.is_set or
+                            self.broadcast_packets_sent.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.carrier_transitions.is_set or
+                            self.crc_errors.is_set or
+                            self.framing_errors_received.is_set or
+                            self.giant_packets_received.is_set or
+                            self.input_aborts.is_set or
+                            self.input_drops.is_set or
+                            self.input_errors.is_set or
+                            self.input_ignored_packets.is_set or
+                            self.input_overruns.is_set or
+                            self.input_queue_drops.is_set or
+                            self.last_data_time.is_set or
+                            self.last_discontinuity_time.is_set or
+                            self.multicast_packets_received.is_set or
+                            self.multicast_packets_sent.is_set or
+                            self.output_buffer_failures.is_set or
+                            self.output_buffers_swapped_out.is_set or
+                            self.output_drops.is_set or
+                            self.output_errors.is_set or
+                            self.output_queue_drops.is_set or
+                            self.output_underruns.is_set or
+                            self.packets_received.is_set or
+                            self.packets_sent.is_set or
+                            self.parity_packets_received.is_set or
+                            self.resets.is_set or
+                            self.runt_packets_received.is_set or
+                            self.seconds_since_last_clear_counters.is_set or
+                            self.seconds_since_packet_received.is_set or
+                            self.seconds_since_packet_sent.is_set or
+                            self.throttled_packets_received.is_set or
+                            self.unknown_protocol_packets_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.applique.yfilter != YFilter.not_set or
+                            self.availability_flag.yfilter != YFilter.not_set or
+                            self.broadcast_packets_received.yfilter != YFilter.not_set or
+                            self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.carrier_transitions.yfilter != YFilter.not_set or
+                            self.crc_errors.yfilter != YFilter.not_set or
+                            self.framing_errors_received.yfilter != YFilter.not_set or
+                            self.giant_packets_received.yfilter != YFilter.not_set or
+                            self.input_aborts.yfilter != YFilter.not_set or
+                            self.input_drops.yfilter != YFilter.not_set or
+                            self.input_errors.yfilter != YFilter.not_set or
+                            self.input_ignored_packets.yfilter != YFilter.not_set or
+                            self.input_overruns.yfilter != YFilter.not_set or
+                            self.input_queue_drops.yfilter != YFilter.not_set or
+                            self.last_data_time.yfilter != YFilter.not_set or
+                            self.last_discontinuity_time.yfilter != YFilter.not_set or
+                            self.multicast_packets_received.yfilter != YFilter.not_set or
+                            self.multicast_packets_sent.yfilter != YFilter.not_set or
+                            self.output_buffer_failures.yfilter != YFilter.not_set or
+                            self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                            self.output_drops.yfilter != YFilter.not_set or
+                            self.output_errors.yfilter != YFilter.not_set or
+                            self.output_queue_drops.yfilter != YFilter.not_set or
+                            self.output_underruns.yfilter != YFilter.not_set or
+                            self.packets_received.yfilter != YFilter.not_set or
+                            self.packets_sent.yfilter != YFilter.not_set or
+                            self.parity_packets_received.yfilter != YFilter.not_set or
+                            self.resets.yfilter != YFilter.not_set or
+                            self.runt_packets_received.yfilter != YFilter.not_set or
+                            self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                            self.throttled_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interfaces-mib-counters" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.applique.get_name_leafdata())
+                        if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                        if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                        if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                        if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                        if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                        if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                        if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                        if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_drops.get_name_leafdata())
+                        if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_errors.get_name_leafdata())
+                        if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                        if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                        if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                        if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                        if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                        if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                        if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                        if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                        if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                        if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_drops.get_name_leafdata())
+                        if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_errors.get_name_leafdata())
+                        if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                        if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                        if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_received.get_name_leafdata())
+                        if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                        if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                        if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resets.get_name_leafdata())
+                        if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                        if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                        if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                        if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                        if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                        if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.applique is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "applique"):
+                            self.applique = value
+                            self.applique.value_namespace = name_space
+                            self.applique.value_namespace_prefix = name_space_prefix
+                        if(value_path == "availability-flag"):
+                            self.availability_flag = value
+                            self.availability_flag.value_namespace = name_space
+                            self.availability_flag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-received"):
+                            self.broadcast_packets_received = value
+                            self.broadcast_packets_received.value_namespace = name_space
+                            self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-sent"):
+                            self.broadcast_packets_sent = value
+                            self.broadcast_packets_sent.value_namespace = name_space
+                            self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "carrier-transitions"):
+                            self.carrier_transitions = value
+                            self.carrier_transitions.value_namespace = name_space
+                            self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "crc-errors"):
+                            self.crc_errors = value
+                            self.crc_errors.value_namespace = name_space
+                            self.crc_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "framing-errors-received"):
+                            self.framing_errors_received = value
+                            self.framing_errors_received.value_namespace = name_space
+                            self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "giant-packets-received"):
+                            self.giant_packets_received = value
+                            self.giant_packets_received.value_namespace = name_space
+                            self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-aborts"):
+                            self.input_aborts = value
+                            self.input_aborts.value_namespace = name_space
+                            self.input_aborts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-drops"):
+                            self.input_drops = value
+                            self.input_drops.value_namespace = name_space
+                            self.input_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-errors"):
+                            self.input_errors = value
+                            self.input_errors.value_namespace = name_space
+                            self.input_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-ignored-packets"):
+                            self.input_ignored_packets = value
+                            self.input_ignored_packets.value_namespace = name_space
+                            self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-overruns"):
+                            self.input_overruns = value
+                            self.input_overruns.value_namespace = name_space
+                            self.input_overruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-queue-drops"):
+                            self.input_queue_drops = value
+                            self.input_queue_drops.value_namespace = name_space
+                            self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-data-time"):
+                            self.last_data_time = value
+                            self.last_data_time.value_namespace = name_space
+                            self.last_data_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-discontinuity-time"):
+                            self.last_discontinuity_time = value
+                            self.last_discontinuity_time.value_namespace = name_space
+                            self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-received"):
+                            self.multicast_packets_received = value
+                            self.multicast_packets_received.value_namespace = name_space
+                            self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-sent"):
+                            self.multicast_packets_sent = value
+                            self.multicast_packets_sent.value_namespace = name_space
+                            self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffer-failures"):
+                            self.output_buffer_failures = value
+                            self.output_buffer_failures.value_namespace = name_space
+                            self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffers-swapped-out"):
+                            self.output_buffers_swapped_out = value
+                            self.output_buffers_swapped_out.value_namespace = name_space
+                            self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-drops"):
+                            self.output_drops = value
+                            self.output_drops.value_namespace = name_space
+                            self.output_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-errors"):
+                            self.output_errors = value
+                            self.output_errors.value_namespace = name_space
+                            self.output_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-queue-drops"):
+                            self.output_queue_drops = value
+                            self.output_queue_drops.value_namespace = name_space
+                            self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-underruns"):
+                            self.output_underruns = value
+                            self.output_underruns.value_namespace = name_space
+                            self.output_underruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-received"):
+                            self.packets_received = value
+                            self.packets_received.value_namespace = name_space
+                            self.packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-sent"):
+                            self.packets_sent = value
+                            self.packets_sent.value_namespace = name_space
+                            self.packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "parity-packets-received"):
+                            self.parity_packets_received = value
+                            self.parity_packets_received.value_namespace = name_space
+                            self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resets"):
+                            self.resets = value
+                            self.resets.value_namespace = name_space
+                            self.resets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "runt-packets-received"):
+                            self.runt_packets_received = value
+                            self.runt_packets_received.value_namespace = name_space
+                            self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-last-clear-counters"):
+                            self.seconds_since_last_clear_counters = value
+                            self.seconds_since_last_clear_counters.value_namespace = name_space
+                            self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-received"):
+                            self.seconds_since_packet_received = value
+                            self.seconds_since_packet_received.value_namespace = name_space
+                            self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-sent"):
+                            self.seconds_since_packet_sent = value
+                            self.seconds_since_packet_sent.value_namespace = name_space
+                            self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "throttled-packets-received"):
+                            self.throttled_packets_received = value
+                            self.throttled_packets_received.value_namespace = name_space
+                            self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-protocol-packets-received"):
+                            self.unknown_protocol_packets_received = value
+                            self.unknown_protocol_packets_received.value_namespace = name_space
+                            self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                        if self.availability_flag is not None:
-                            return True
 
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters']['meta_info']
-
-
-                class DataRate(object):
+                class DataRate(Entity):
                     """
                     Datarate information
                     
@@ -960,81 +1530,218 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bandwidth = None
-                        self.input_data_rate = None
-                        self.input_load = None
-                        self.input_packet_rate = None
-                        self.load_interval = None
-                        self.output_data_rate = None
-                        self.output_load = None
-                        self.output_packet_rate = None
-                        self.peak_input_data_rate = None
-                        self.peak_input_packet_rate = None
-                        self.peak_output_data_rate = None
-                        self.peak_output_packet_rate = None
-                        self.reliability = None
+                        super(InfraStatistics.Interfaces.Interface.Cache.DataRate, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "data-rate"
+                        self.yang_parent_name = "cache"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+                        self.bandwidth = YLeaf(YType.uint32, "bandwidth")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                        self.input_load = YLeaf(YType.uint8, "input-load")
+
+                        self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                        self.load_interval = YLeaf(YType.uint32, "load-interval")
+
+                        self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                        self.output_load = YLeaf(YType.uint8, "output-load")
+
+                        self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                        self.peak_input_data_rate = YLeaf(YType.uint64, "peak-input-data-rate")
+
+                        self.peak_input_packet_rate = YLeaf(YType.uint64, "peak-input-packet-rate")
+
+                        self.peak_output_data_rate = YLeaf(YType.uint64, "peak-output-data-rate")
+
+                        self.peak_output_packet_rate = YLeaf(YType.uint64, "peak-output-packet-rate")
+
+                        self.reliability = YLeaf(YType.uint8, "reliability")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bandwidth",
+                                        "input_data_rate",
+                                        "input_load",
+                                        "input_packet_rate",
+                                        "load_interval",
+                                        "output_data_rate",
+                                        "output_load",
+                                        "output_packet_rate",
+                                        "peak_input_data_rate",
+                                        "peak_input_packet_rate",
+                                        "peak_output_data_rate",
+                                        "peak_output_packet_rate",
+                                        "reliability") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Cache.DataRate, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Cache.DataRate, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.bandwidth.is_set or
+                            self.input_data_rate.is_set or
+                            self.input_load.is_set or
+                            self.input_packet_rate.is_set or
+                            self.load_interval.is_set or
+                            self.output_data_rate.is_set or
+                            self.output_load.is_set or
+                            self.output_packet_rate.is_set or
+                            self.peak_input_data_rate.is_set or
+                            self.peak_input_packet_rate.is_set or
+                            self.peak_output_data_rate.is_set or
+                            self.peak_output_packet_rate.is_set or
+                            self.reliability.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bandwidth.yfilter != YFilter.not_set or
+                            self.input_data_rate.yfilter != YFilter.not_set or
+                            self.input_load.yfilter != YFilter.not_set or
+                            self.input_packet_rate.yfilter != YFilter.not_set or
+                            self.load_interval.yfilter != YFilter.not_set or
+                            self.output_data_rate.yfilter != YFilter.not_set or
+                            self.output_load.yfilter != YFilter.not_set or
+                            self.output_packet_rate.yfilter != YFilter.not_set or
+                            self.peak_input_data_rate.yfilter != YFilter.not_set or
+                            self.peak_input_packet_rate.yfilter != YFilter.not_set or
+                            self.peak_output_data_rate.yfilter != YFilter.not_set or
+                            self.peak_output_packet_rate.yfilter != YFilter.not_set or
+                            self.reliability.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "data-rate" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.bandwidth.is_set or self.bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bandwidth.get_name_leafdata())
+                        if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                        if (self.input_load.is_set or self.input_load.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_load.get_name_leafdata())
+                        if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                        if (self.load_interval.is_set or self.load_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.load_interval.get_name_leafdata())
+                        if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                        if (self.output_load.is_set or self.output_load.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_load.get_name_leafdata())
+                        if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                        if (self.peak_input_data_rate.is_set or self.peak_input_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_input_data_rate.get_name_leafdata())
+                        if (self.peak_input_packet_rate.is_set or self.peak_input_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_input_packet_rate.get_name_leafdata())
+                        if (self.peak_output_data_rate.is_set or self.peak_output_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_output_data_rate.get_name_leafdata())
+                        if (self.peak_output_packet_rate.is_set or self.peak_output_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_output_packet_rate.get_name_leafdata())
+                        if (self.reliability.is_set or self.reliability.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reliability.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "bandwidth" or name == "input-data-rate" or name == "input-load" or name == "input-packet-rate" or name == "load-interval" or name == "output-data-rate" or name == "output-load" or name == "output-packet-rate" or name == "peak-input-data-rate" or name == "peak-input-packet-rate" or name == "peak-output-data-rate" or name == "peak-output-packet-rate" or name == "reliability"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.bandwidth is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bandwidth"):
+                            self.bandwidth = value
+                            self.bandwidth.value_namespace = name_space
+                            self.bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-data-rate"):
+                            self.input_data_rate = value
+                            self.input_data_rate.value_namespace = name_space
+                            self.input_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-load"):
+                            self.input_load = value
+                            self.input_load.value_namespace = name_space
+                            self.input_load.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-packet-rate"):
+                            self.input_packet_rate = value
+                            self.input_packet_rate.value_namespace = name_space
+                            self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "load-interval"):
+                            self.load_interval = value
+                            self.load_interval.value_namespace = name_space
+                            self.load_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-data-rate"):
+                            self.output_data_rate = value
+                            self.output_data_rate.value_namespace = name_space
+                            self.output_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-load"):
+                            self.output_load = value
+                            self.output_load.value_namespace = name_space
+                            self.output_load.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-packet-rate"):
+                            self.output_packet_rate = value
+                            self.output_packet_rate.value_namespace = name_space
+                            self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-input-data-rate"):
+                            self.peak_input_data_rate = value
+                            self.peak_input_data_rate.value_namespace = name_space
+                            self.peak_input_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-input-packet-rate"):
+                            self.peak_input_packet_rate = value
+                            self.peak_input_packet_rate.value_namespace = name_space
+                            self.peak_input_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-output-data-rate"):
+                            self.peak_output_data_rate = value
+                            self.peak_output_data_rate.value_namespace = name_space
+                            self.peak_output_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-output-packet-rate"):
+                            self.peak_output_packet_rate = value
+                            self.peak_output_packet_rate.value_namespace = name_space
+                            self.peak_output_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reliability"):
+                            self.reliability = value
+                            self.reliability.value_namespace = name_space
+                            self.reliability.value_namespace_prefix = name_space_prefix
 
-                        if self.input_data_rate is not None:
-                            return True
 
-                        if self.input_load is not None:
-                            return True
-
-                        if self.input_packet_rate is not None:
-                            return True
-
-                        if self.load_interval is not None:
-                            return True
-
-                        if self.output_data_rate is not None:
-                            return True
-
-                        if self.output_load is not None:
-                            return True
-
-                        if self.output_packet_rate is not None:
-                            return True
-
-                        if self.peak_input_data_rate is not None:
-                            return True
-
-                        if self.peak_input_packet_rate is not None:
-                            return True
-
-                        if self.peak_output_data_rate is not None:
-                            return True
-
-                        if self.peak_output_packet_rate is not None:
-                            return True
-
-                        if self.reliability is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.DataRate']['meta_info']
-
-
-                class GenericCounters(object):
+                class GenericCounters(Entity):
                     """
                     Generic set of interface counters
                     
@@ -1312,204 +2019,547 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
+                        super(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "generic-counters"
+                        self.yang_parent_name = "cache"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
+                        self.applique = YLeaf(YType.uint32, "applique")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                        self.resets = YLeaf(YType.uint32, "resets")
+
+                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("applique",
+                                        "availability_flag",
+                                        "broadcast_packets_received",
+                                        "broadcast_packets_sent",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "carrier_transitions",
+                                        "crc_errors",
+                                        "framing_errors_received",
+                                        "giant_packets_received",
+                                        "input_aborts",
+                                        "input_drops",
+                                        "input_errors",
+                                        "input_ignored_packets",
+                                        "input_overruns",
+                                        "input_queue_drops",
+                                        "last_data_time",
+                                        "last_discontinuity_time",
+                                        "multicast_packets_received",
+                                        "multicast_packets_sent",
+                                        "output_buffer_failures",
+                                        "output_buffers_swapped_out",
+                                        "output_drops",
+                                        "output_errors",
+                                        "output_queue_drops",
+                                        "output_underruns",
+                                        "packets_received",
+                                        "packets_sent",
+                                        "parity_packets_received",
+                                        "resets",
+                                        "runt_packets_received",
+                                        "seconds_since_last_clear_counters",
+                                        "seconds_since_packet_received",
+                                        "seconds_since_packet_sent",
+                                        "throttled_packets_received",
+                                        "unknown_protocol_packets_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.applique.is_set or
+                            self.availability_flag.is_set or
+                            self.broadcast_packets_received.is_set or
+                            self.broadcast_packets_sent.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.carrier_transitions.is_set or
+                            self.crc_errors.is_set or
+                            self.framing_errors_received.is_set or
+                            self.giant_packets_received.is_set or
+                            self.input_aborts.is_set or
+                            self.input_drops.is_set or
+                            self.input_errors.is_set or
+                            self.input_ignored_packets.is_set or
+                            self.input_overruns.is_set or
+                            self.input_queue_drops.is_set or
+                            self.last_data_time.is_set or
+                            self.last_discontinuity_time.is_set or
+                            self.multicast_packets_received.is_set or
+                            self.multicast_packets_sent.is_set or
+                            self.output_buffer_failures.is_set or
+                            self.output_buffers_swapped_out.is_set or
+                            self.output_drops.is_set or
+                            self.output_errors.is_set or
+                            self.output_queue_drops.is_set or
+                            self.output_underruns.is_set or
+                            self.packets_received.is_set or
+                            self.packets_sent.is_set or
+                            self.parity_packets_received.is_set or
+                            self.resets.is_set or
+                            self.runt_packets_received.is_set or
+                            self.seconds_since_last_clear_counters.is_set or
+                            self.seconds_since_packet_received.is_set or
+                            self.seconds_since_packet_sent.is_set or
+                            self.throttled_packets_received.is_set or
+                            self.unknown_protocol_packets_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.applique.yfilter != YFilter.not_set or
+                            self.availability_flag.yfilter != YFilter.not_set or
+                            self.broadcast_packets_received.yfilter != YFilter.not_set or
+                            self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.carrier_transitions.yfilter != YFilter.not_set or
+                            self.crc_errors.yfilter != YFilter.not_set or
+                            self.framing_errors_received.yfilter != YFilter.not_set or
+                            self.giant_packets_received.yfilter != YFilter.not_set or
+                            self.input_aborts.yfilter != YFilter.not_set or
+                            self.input_drops.yfilter != YFilter.not_set or
+                            self.input_errors.yfilter != YFilter.not_set or
+                            self.input_ignored_packets.yfilter != YFilter.not_set or
+                            self.input_overruns.yfilter != YFilter.not_set or
+                            self.input_queue_drops.yfilter != YFilter.not_set or
+                            self.last_data_time.yfilter != YFilter.not_set or
+                            self.last_discontinuity_time.yfilter != YFilter.not_set or
+                            self.multicast_packets_received.yfilter != YFilter.not_set or
+                            self.multicast_packets_sent.yfilter != YFilter.not_set or
+                            self.output_buffer_failures.yfilter != YFilter.not_set or
+                            self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                            self.output_drops.yfilter != YFilter.not_set or
+                            self.output_errors.yfilter != YFilter.not_set or
+                            self.output_queue_drops.yfilter != YFilter.not_set or
+                            self.output_underruns.yfilter != YFilter.not_set or
+                            self.packets_received.yfilter != YFilter.not_set or
+                            self.packets_sent.yfilter != YFilter.not_set or
+                            self.parity_packets_received.yfilter != YFilter.not_set or
+                            self.resets.yfilter != YFilter.not_set or
+                            self.runt_packets_received.yfilter != YFilter.not_set or
+                            self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                            self.throttled_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "generic-counters" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.applique.get_name_leafdata())
+                        if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                        if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                        if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                        if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                        if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                        if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                        if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                        if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_drops.get_name_leafdata())
+                        if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_errors.get_name_leafdata())
+                        if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                        if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                        if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                        if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                        if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                        if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                        if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                        if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                        if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                        if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_drops.get_name_leafdata())
+                        if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_errors.get_name_leafdata())
+                        if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                        if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                        if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_received.get_name_leafdata())
+                        if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                        if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                        if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resets.get_name_leafdata())
+                        if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                        if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                        if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                        if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                        if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                        if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.applique is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "applique"):
+                            self.applique = value
+                            self.applique.value_namespace = name_space
+                            self.applique.value_namespace_prefix = name_space_prefix
+                        if(value_path == "availability-flag"):
+                            self.availability_flag = value
+                            self.availability_flag.value_namespace = name_space
+                            self.availability_flag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-received"):
+                            self.broadcast_packets_received = value
+                            self.broadcast_packets_received.value_namespace = name_space
+                            self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-sent"):
+                            self.broadcast_packets_sent = value
+                            self.broadcast_packets_sent.value_namespace = name_space
+                            self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "carrier-transitions"):
+                            self.carrier_transitions = value
+                            self.carrier_transitions.value_namespace = name_space
+                            self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "crc-errors"):
+                            self.crc_errors = value
+                            self.crc_errors.value_namespace = name_space
+                            self.crc_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "framing-errors-received"):
+                            self.framing_errors_received = value
+                            self.framing_errors_received.value_namespace = name_space
+                            self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "giant-packets-received"):
+                            self.giant_packets_received = value
+                            self.giant_packets_received.value_namespace = name_space
+                            self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-aborts"):
+                            self.input_aborts = value
+                            self.input_aborts.value_namespace = name_space
+                            self.input_aborts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-drops"):
+                            self.input_drops = value
+                            self.input_drops.value_namespace = name_space
+                            self.input_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-errors"):
+                            self.input_errors = value
+                            self.input_errors.value_namespace = name_space
+                            self.input_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-ignored-packets"):
+                            self.input_ignored_packets = value
+                            self.input_ignored_packets.value_namespace = name_space
+                            self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-overruns"):
+                            self.input_overruns = value
+                            self.input_overruns.value_namespace = name_space
+                            self.input_overruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-queue-drops"):
+                            self.input_queue_drops = value
+                            self.input_queue_drops.value_namespace = name_space
+                            self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-data-time"):
+                            self.last_data_time = value
+                            self.last_data_time.value_namespace = name_space
+                            self.last_data_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-discontinuity-time"):
+                            self.last_discontinuity_time = value
+                            self.last_discontinuity_time.value_namespace = name_space
+                            self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-received"):
+                            self.multicast_packets_received = value
+                            self.multicast_packets_received.value_namespace = name_space
+                            self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-sent"):
+                            self.multicast_packets_sent = value
+                            self.multicast_packets_sent.value_namespace = name_space
+                            self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffer-failures"):
+                            self.output_buffer_failures = value
+                            self.output_buffer_failures.value_namespace = name_space
+                            self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffers-swapped-out"):
+                            self.output_buffers_swapped_out = value
+                            self.output_buffers_swapped_out.value_namespace = name_space
+                            self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-drops"):
+                            self.output_drops = value
+                            self.output_drops.value_namespace = name_space
+                            self.output_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-errors"):
+                            self.output_errors = value
+                            self.output_errors.value_namespace = name_space
+                            self.output_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-queue-drops"):
+                            self.output_queue_drops = value
+                            self.output_queue_drops.value_namespace = name_space
+                            self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-underruns"):
+                            self.output_underruns = value
+                            self.output_underruns.value_namespace = name_space
+                            self.output_underruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-received"):
+                            self.packets_received = value
+                            self.packets_received.value_namespace = name_space
+                            self.packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-sent"):
+                            self.packets_sent = value
+                            self.packets_sent.value_namespace = name_space
+                            self.packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "parity-packets-received"):
+                            self.parity_packets_received = value
+                            self.parity_packets_received.value_namespace = name_space
+                            self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resets"):
+                            self.resets = value
+                            self.resets.value_namespace = name_space
+                            self.resets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "runt-packets-received"):
+                            self.runt_packets_received = value
+                            self.runt_packets_received.value_namespace = name_space
+                            self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-last-clear-counters"):
+                            self.seconds_since_last_clear_counters = value
+                            self.seconds_since_last_clear_counters.value_namespace = name_space
+                            self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-received"):
+                            self.seconds_since_packet_received = value
+                            self.seconds_since_packet_received.value_namespace = name_space
+                            self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-sent"):
+                            self.seconds_since_packet_sent = value
+                            self.seconds_since_packet_sent.value_namespace = name_space
+                            self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "throttled-packets-received"):
+                            self.throttled_packets_received = value
+                            self.throttled_packets_received.value_namespace = name_space
+                            self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-protocol-packets-received"):
+                            self.unknown_protocol_packets_received = value
+                            self.unknown_protocol_packets_received.value_namespace = name_space
+                            self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                        if self.availability_flag is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        (self.data_rate is not None and self.data_rate.has_data()) or
+                        (self.generic_counters is not None and self.generic_counters.has_data()) or
+                        (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_data()) or
+                        (self.protocols is not None and self.protocols.has_data()))
 
-                        if self.broadcast_packets_received is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.data_rate is not None and self.data_rate.has_operation()) or
+                        (self.generic_counters is not None and self.generic_counters.has_operation()) or
+                        (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_operation()) or
+                        (self.protocols is not None and self.protocols.has_operation()))
 
-                        if self.broadcast_packets_sent is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "cache" + path_buffer
 
-                        if self.bytes_received is not None:
-                            return True
+                    return path_buffer
 
-                        if self.bytes_sent is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.carrier_transitions is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
 
-                        if self.crc_errors is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.framing_errors_received is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.giant_packets_received is not None:
-                            return True
+                    if (child_yang_name == "data-rate"):
+                        if (self.data_rate is None):
+                            self.data_rate = InfraStatistics.Interfaces.Interface.Cache.DataRate()
+                            self.data_rate.parent = self
+                            self._children_name_map["data_rate"] = "data-rate"
+                        return self.data_rate
 
-                        if self.input_aborts is not None:
-                            return True
+                    if (child_yang_name == "generic-counters"):
+                        if (self.generic_counters is None):
+                            self.generic_counters = InfraStatistics.Interfaces.Interface.Cache.GenericCounters()
+                            self.generic_counters.parent = self
+                            self._children_name_map["generic_counters"] = "generic-counters"
+                        return self.generic_counters
 
-                        if self.input_drops is not None:
-                            return True
+                    if (child_yang_name == "interfaces-mib-counters"):
+                        if (self.interfaces_mib_counters is None):
+                            self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters()
+                            self.interfaces_mib_counters.parent = self
+                            self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                        return self.interfaces_mib_counters
 
-                        if self.input_errors is not None:
-                            return True
+                    if (child_yang_name == "protocols"):
+                        if (self.protocols is None):
+                            self.protocols = InfraStatistics.Interfaces.Interface.Cache.Protocols()
+                            self.protocols.parent = self
+                            self._children_name_map["protocols"] = "protocols"
+                        return self.protocols
 
-                        if self.input_ignored_packets is not None:
-                            return True
+                    return None
 
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache.GenericCounters']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:cache'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "data-rate" or name == "generic-counters" or name == "interfaces-mib-counters" or name == "protocols"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.data_rate is not None and self.data_rate._has_data():
-                        return True
-
-                    if self.generic_counters is not None and self.generic_counters._has_data():
-                        return True
-
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                        return True
-
-                    if self.protocols is not None and self.protocols._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Cache']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Latest(object):
+            class Latest(Entity):
                 """
                 Latest stats data of interfaces
                 
@@ -1541,18 +2591,33 @@ class InfraStatistics(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(InfraStatistics.Interfaces.Interface.Latest, self).__init__()
+
+                    self.yang_name = "latest"
+                    self.yang_parent_name = "interface"
+
                     self.data_rate = InfraStatistics.Interfaces.Interface.Latest.DataRate()
                     self.data_rate.parent = self
+                    self._children_name_map["data_rate"] = "data-rate"
+                    self._children_yang_names.add("data-rate")
+
                     self.generic_counters = InfraStatistics.Interfaces.Interface.Latest.GenericCounters()
                     self.generic_counters.parent = self
+                    self._children_name_map["generic_counters"] = "generic-counters"
+                    self._children_yang_names.add("generic-counters")
+
                     self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters()
                     self.interfaces_mib_counters.parent = self
+                    self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                    self._children_yang_names.add("interfaces-mib-counters")
+
                     self.protocols = InfraStatistics.Interfaces.Interface.Latest.Protocols()
                     self.protocols.parent = self
+                    self._children_name_map["protocols"] = "protocols"
+                    self._children_yang_names.add("protocols")
 
 
-                class Protocols(object):
+                class Protocols(Entity):
                     """
                     List of protocols
                     
@@ -1569,13 +2634,39 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.protocol = YList()
-                        self.protocol.parent = self
-                        self.protocol.name = 'protocol'
+                        super(InfraStatistics.Interfaces.Interface.Latest.Protocols, self).__init__()
+
+                        self.yang_name = "protocols"
+                        self.yang_parent_name = "latest"
+
+                        self.protocol = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Latest.Protocols, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Latest.Protocols, self).__setattr__(name, value)
 
 
-                    class Protocol(object):
+                    class Protocol(Entity):
                         """
                         Interface counters per protocol
                         
@@ -1678,99 +2769,253 @@ class InfraStatistics(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.protocol_name = None
-                            self.bytes_received = None
-                            self.bytes_sent = None
-                            self.input_data_rate = None
-                            self.input_packet_rate = None
-                            self.last_data_time = None
-                            self.output_data_rate = None
-                            self.output_packet_rate = None
-                            self.packets_received = None
-                            self.packets_sent = None
-                            self.protocol = None
+                            super(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.protocol_name is None:
-                                raise YPYModelError('Key property protocol_name is None')
+                            self.yang_name = "protocol"
+                            self.yang_parent_name = "protocols"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocol[Cisco-IOS-XR-infra-statsd-oper:protocol-name = ' + str(self.protocol_name) + ']'
+                            self.protocol_name = YLeaf(YType.str, "protocol-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                            self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                            self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                            self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                            self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                            self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                            self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                            self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                            self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                            self.protocol = YLeaf(YType.uint32, "protocol")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("protocol_name",
+                                            "bytes_received",
+                                            "bytes_sent",
+                                            "input_data_rate",
+                                            "input_packet_rate",
+                                            "last_data_time",
+                                            "output_data_rate",
+                                            "output_packet_rate",
+                                            "packets_received",
+                                            "packets_sent",
+                                            "protocol") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.protocol_name.is_set or
+                                self.bytes_received.is_set or
+                                self.bytes_sent.is_set or
+                                self.input_data_rate.is_set or
+                                self.input_packet_rate.is_set or
+                                self.last_data_time.is_set or
+                                self.output_data_rate.is_set or
+                                self.output_packet_rate.is_set or
+                                self.packets_received.is_set or
+                                self.packets_sent.is_set or
+                                self.protocol.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.protocol_name.yfilter != YFilter.not_set or
+                                self.bytes_received.yfilter != YFilter.not_set or
+                                self.bytes_sent.yfilter != YFilter.not_set or
+                                self.input_data_rate.yfilter != YFilter.not_set or
+                                self.input_packet_rate.yfilter != YFilter.not_set or
+                                self.last_data_time.yfilter != YFilter.not_set or
+                                self.output_data_rate.yfilter != YFilter.not_set or
+                                self.output_packet_rate.yfilter != YFilter.not_set or
+                                self.packets_received.yfilter != YFilter.not_set or
+                                self.packets_sent.yfilter != YFilter.not_set or
+                                self.protocol.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "protocol" + "[protocol-name='" + self.protocol_name.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.protocol_name.is_set or self.protocol_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol_name.get_name_leafdata())
+                            if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                            if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                            if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                            if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                            if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                            if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                            if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                            if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packets_received.get_name_leafdata())
+                            if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                            if (self.protocol.is_set or self.protocol.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "protocol-name" or name == "bytes-received" or name == "bytes-sent" or name == "input-data-rate" or name == "input-packet-rate" or name == "last-data-time" or name == "output-data-rate" or name == "output-packet-rate" or name == "packets-received" or name == "packets-sent" or name == "protocol"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.protocol_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "protocol-name"):
+                                self.protocol_name = value
+                                self.protocol_name.value_namespace = name_space
+                                self.protocol_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "bytes-received"):
+                                self.bytes_received = value
+                                self.bytes_received.value_namespace = name_space
+                                self.bytes_received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "bytes-sent"):
+                                self.bytes_sent = value
+                                self.bytes_sent.value_namespace = name_space
+                                self.bytes_sent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "input-data-rate"):
+                                self.input_data_rate = value
+                                self.input_data_rate.value_namespace = name_space
+                                self.input_data_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "input-packet-rate"):
+                                self.input_packet_rate = value
+                                self.input_packet_rate.value_namespace = name_space
+                                self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "last-data-time"):
+                                self.last_data_time = value
+                                self.last_data_time.value_namespace = name_space
+                                self.last_data_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "output-data-rate"):
+                                self.output_data_rate = value
+                                self.output_data_rate.value_namespace = name_space
+                                self.output_data_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "output-packet-rate"):
+                                self.output_packet_rate = value
+                                self.output_packet_rate.value_namespace = name_space
+                                self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packets-received"):
+                                self.packets_received = value
+                                self.packets_received.value_namespace = name_space
+                                self.packets_received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packets-sent"):
+                                self.packets_sent = value
+                                self.packets_sent.value_namespace = name_space
+                                self.packets_sent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "protocol"):
+                                self.protocol = value
+                                self.protocol.value_namespace = name_space
+                                self.protocol.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.protocol:
+                            if (c.has_data()):
                                 return True
-
-                            if self.bytes_received is not None:
-                                return True
-
-                            if self.bytes_sent is not None:
-                                return True
-
-                            if self.input_data_rate is not None:
-                                return True
-
-                            if self.input_packet_rate is not None:
-                                return True
-
-                            if self.last_data_time is not None:
-                                return True
-
-                            if self.output_data_rate is not None:
-                                return True
-
-                            if self.output_packet_rate is not None:
-                                return True
-
-                            if self.packets_received is not None:
-                                return True
-
-                            if self.packets_sent is not None:
-                                return True
-
-                            if self.protocol is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocols'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.protocol is not None:
-                            for child_ref in self.protocol:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.protocol:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "protocols" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "protocol"):
+                            for c in self.protocol:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.protocol.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "protocol"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.Protocols']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class InterfacesMibCounters(object):
+                class InterfacesMibCounters(Entity):
                     """
                     Set of interface counters as displayed by the
                     InterfacesMIB
@@ -2049,173 +3294,471 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
+                        super(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "interfaces-mib-counters"
+                        self.yang_parent_name = "latest"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
+                        self.applique = YLeaf(YType.uint32, "applique")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                        self.resets = YLeaf(YType.uint32, "resets")
+
+                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("applique",
+                                        "availability_flag",
+                                        "broadcast_packets_received",
+                                        "broadcast_packets_sent",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "carrier_transitions",
+                                        "crc_errors",
+                                        "framing_errors_received",
+                                        "giant_packets_received",
+                                        "input_aborts",
+                                        "input_drops",
+                                        "input_errors",
+                                        "input_ignored_packets",
+                                        "input_overruns",
+                                        "input_queue_drops",
+                                        "last_data_time",
+                                        "last_discontinuity_time",
+                                        "multicast_packets_received",
+                                        "multicast_packets_sent",
+                                        "output_buffer_failures",
+                                        "output_buffers_swapped_out",
+                                        "output_drops",
+                                        "output_errors",
+                                        "output_queue_drops",
+                                        "output_underruns",
+                                        "packets_received",
+                                        "packets_sent",
+                                        "parity_packets_received",
+                                        "resets",
+                                        "runt_packets_received",
+                                        "seconds_since_last_clear_counters",
+                                        "seconds_since_packet_received",
+                                        "seconds_since_packet_sent",
+                                        "throttled_packets_received",
+                                        "unknown_protocol_packets_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.applique.is_set or
+                            self.availability_flag.is_set or
+                            self.broadcast_packets_received.is_set or
+                            self.broadcast_packets_sent.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.carrier_transitions.is_set or
+                            self.crc_errors.is_set or
+                            self.framing_errors_received.is_set or
+                            self.giant_packets_received.is_set or
+                            self.input_aborts.is_set or
+                            self.input_drops.is_set or
+                            self.input_errors.is_set or
+                            self.input_ignored_packets.is_set or
+                            self.input_overruns.is_set or
+                            self.input_queue_drops.is_set or
+                            self.last_data_time.is_set or
+                            self.last_discontinuity_time.is_set or
+                            self.multicast_packets_received.is_set or
+                            self.multicast_packets_sent.is_set or
+                            self.output_buffer_failures.is_set or
+                            self.output_buffers_swapped_out.is_set or
+                            self.output_drops.is_set or
+                            self.output_errors.is_set or
+                            self.output_queue_drops.is_set or
+                            self.output_underruns.is_set or
+                            self.packets_received.is_set or
+                            self.packets_sent.is_set or
+                            self.parity_packets_received.is_set or
+                            self.resets.is_set or
+                            self.runt_packets_received.is_set or
+                            self.seconds_since_last_clear_counters.is_set or
+                            self.seconds_since_packet_received.is_set or
+                            self.seconds_since_packet_sent.is_set or
+                            self.throttled_packets_received.is_set or
+                            self.unknown_protocol_packets_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.applique.yfilter != YFilter.not_set or
+                            self.availability_flag.yfilter != YFilter.not_set or
+                            self.broadcast_packets_received.yfilter != YFilter.not_set or
+                            self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.carrier_transitions.yfilter != YFilter.not_set or
+                            self.crc_errors.yfilter != YFilter.not_set or
+                            self.framing_errors_received.yfilter != YFilter.not_set or
+                            self.giant_packets_received.yfilter != YFilter.not_set or
+                            self.input_aborts.yfilter != YFilter.not_set or
+                            self.input_drops.yfilter != YFilter.not_set or
+                            self.input_errors.yfilter != YFilter.not_set or
+                            self.input_ignored_packets.yfilter != YFilter.not_set or
+                            self.input_overruns.yfilter != YFilter.not_set or
+                            self.input_queue_drops.yfilter != YFilter.not_set or
+                            self.last_data_time.yfilter != YFilter.not_set or
+                            self.last_discontinuity_time.yfilter != YFilter.not_set or
+                            self.multicast_packets_received.yfilter != YFilter.not_set or
+                            self.multicast_packets_sent.yfilter != YFilter.not_set or
+                            self.output_buffer_failures.yfilter != YFilter.not_set or
+                            self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                            self.output_drops.yfilter != YFilter.not_set or
+                            self.output_errors.yfilter != YFilter.not_set or
+                            self.output_queue_drops.yfilter != YFilter.not_set or
+                            self.output_underruns.yfilter != YFilter.not_set or
+                            self.packets_received.yfilter != YFilter.not_set or
+                            self.packets_sent.yfilter != YFilter.not_set or
+                            self.parity_packets_received.yfilter != YFilter.not_set or
+                            self.resets.yfilter != YFilter.not_set or
+                            self.runt_packets_received.yfilter != YFilter.not_set or
+                            self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                            self.throttled_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interfaces-mib-counters" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.applique.get_name_leafdata())
+                        if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                        if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                        if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                        if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                        if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                        if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                        if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                        if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_drops.get_name_leafdata())
+                        if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_errors.get_name_leafdata())
+                        if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                        if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                        if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                        if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                        if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                        if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                        if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                        if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                        if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                        if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_drops.get_name_leafdata())
+                        if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_errors.get_name_leafdata())
+                        if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                        if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                        if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_received.get_name_leafdata())
+                        if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                        if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                        if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resets.get_name_leafdata())
+                        if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                        if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                        if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                        if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                        if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                        if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.applique is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "applique"):
+                            self.applique = value
+                            self.applique.value_namespace = name_space
+                            self.applique.value_namespace_prefix = name_space_prefix
+                        if(value_path == "availability-flag"):
+                            self.availability_flag = value
+                            self.availability_flag.value_namespace = name_space
+                            self.availability_flag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-received"):
+                            self.broadcast_packets_received = value
+                            self.broadcast_packets_received.value_namespace = name_space
+                            self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-sent"):
+                            self.broadcast_packets_sent = value
+                            self.broadcast_packets_sent.value_namespace = name_space
+                            self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "carrier-transitions"):
+                            self.carrier_transitions = value
+                            self.carrier_transitions.value_namespace = name_space
+                            self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "crc-errors"):
+                            self.crc_errors = value
+                            self.crc_errors.value_namespace = name_space
+                            self.crc_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "framing-errors-received"):
+                            self.framing_errors_received = value
+                            self.framing_errors_received.value_namespace = name_space
+                            self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "giant-packets-received"):
+                            self.giant_packets_received = value
+                            self.giant_packets_received.value_namespace = name_space
+                            self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-aborts"):
+                            self.input_aborts = value
+                            self.input_aborts.value_namespace = name_space
+                            self.input_aborts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-drops"):
+                            self.input_drops = value
+                            self.input_drops.value_namespace = name_space
+                            self.input_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-errors"):
+                            self.input_errors = value
+                            self.input_errors.value_namespace = name_space
+                            self.input_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-ignored-packets"):
+                            self.input_ignored_packets = value
+                            self.input_ignored_packets.value_namespace = name_space
+                            self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-overruns"):
+                            self.input_overruns = value
+                            self.input_overruns.value_namespace = name_space
+                            self.input_overruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-queue-drops"):
+                            self.input_queue_drops = value
+                            self.input_queue_drops.value_namespace = name_space
+                            self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-data-time"):
+                            self.last_data_time = value
+                            self.last_data_time.value_namespace = name_space
+                            self.last_data_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-discontinuity-time"):
+                            self.last_discontinuity_time = value
+                            self.last_discontinuity_time.value_namespace = name_space
+                            self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-received"):
+                            self.multicast_packets_received = value
+                            self.multicast_packets_received.value_namespace = name_space
+                            self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-sent"):
+                            self.multicast_packets_sent = value
+                            self.multicast_packets_sent.value_namespace = name_space
+                            self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffer-failures"):
+                            self.output_buffer_failures = value
+                            self.output_buffer_failures.value_namespace = name_space
+                            self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffers-swapped-out"):
+                            self.output_buffers_swapped_out = value
+                            self.output_buffers_swapped_out.value_namespace = name_space
+                            self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-drops"):
+                            self.output_drops = value
+                            self.output_drops.value_namespace = name_space
+                            self.output_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-errors"):
+                            self.output_errors = value
+                            self.output_errors.value_namespace = name_space
+                            self.output_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-queue-drops"):
+                            self.output_queue_drops = value
+                            self.output_queue_drops.value_namespace = name_space
+                            self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-underruns"):
+                            self.output_underruns = value
+                            self.output_underruns.value_namespace = name_space
+                            self.output_underruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-received"):
+                            self.packets_received = value
+                            self.packets_received.value_namespace = name_space
+                            self.packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-sent"):
+                            self.packets_sent = value
+                            self.packets_sent.value_namespace = name_space
+                            self.packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "parity-packets-received"):
+                            self.parity_packets_received = value
+                            self.parity_packets_received.value_namespace = name_space
+                            self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resets"):
+                            self.resets = value
+                            self.resets.value_namespace = name_space
+                            self.resets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "runt-packets-received"):
+                            self.runt_packets_received = value
+                            self.runt_packets_received.value_namespace = name_space
+                            self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-last-clear-counters"):
+                            self.seconds_since_last_clear_counters = value
+                            self.seconds_since_last_clear_counters.value_namespace = name_space
+                            self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-received"):
+                            self.seconds_since_packet_received = value
+                            self.seconds_since_packet_received.value_namespace = name_space
+                            self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-sent"):
+                            self.seconds_since_packet_sent = value
+                            self.seconds_since_packet_sent.value_namespace = name_space
+                            self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "throttled-packets-received"):
+                            self.throttled_packets_received = value
+                            self.throttled_packets_received.value_namespace = name_space
+                            self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-protocol-packets-received"):
+                            self.unknown_protocol_packets_received = value
+                            self.unknown_protocol_packets_received.value_namespace = name_space
+                            self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                        if self.availability_flag is not None:
-                            return True
 
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters']['meta_info']
-
-
-                class DataRate(object):
+                class DataRate(Entity):
                     """
                     Datarate information
                     
@@ -2328,81 +3871,218 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bandwidth = None
-                        self.input_data_rate = None
-                        self.input_load = None
-                        self.input_packet_rate = None
-                        self.load_interval = None
-                        self.output_data_rate = None
-                        self.output_load = None
-                        self.output_packet_rate = None
-                        self.peak_input_data_rate = None
-                        self.peak_input_packet_rate = None
-                        self.peak_output_data_rate = None
-                        self.peak_output_packet_rate = None
-                        self.reliability = None
+                        super(InfraStatistics.Interfaces.Interface.Latest.DataRate, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "data-rate"
+                        self.yang_parent_name = "latest"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+                        self.bandwidth = YLeaf(YType.uint32, "bandwidth")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                        self.input_load = YLeaf(YType.uint8, "input-load")
+
+                        self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                        self.load_interval = YLeaf(YType.uint32, "load-interval")
+
+                        self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                        self.output_load = YLeaf(YType.uint8, "output-load")
+
+                        self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                        self.peak_input_data_rate = YLeaf(YType.uint64, "peak-input-data-rate")
+
+                        self.peak_input_packet_rate = YLeaf(YType.uint64, "peak-input-packet-rate")
+
+                        self.peak_output_data_rate = YLeaf(YType.uint64, "peak-output-data-rate")
+
+                        self.peak_output_packet_rate = YLeaf(YType.uint64, "peak-output-packet-rate")
+
+                        self.reliability = YLeaf(YType.uint8, "reliability")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bandwidth",
+                                        "input_data_rate",
+                                        "input_load",
+                                        "input_packet_rate",
+                                        "load_interval",
+                                        "output_data_rate",
+                                        "output_load",
+                                        "output_packet_rate",
+                                        "peak_input_data_rate",
+                                        "peak_input_packet_rate",
+                                        "peak_output_data_rate",
+                                        "peak_output_packet_rate",
+                                        "reliability") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Latest.DataRate, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Latest.DataRate, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.bandwidth.is_set or
+                            self.input_data_rate.is_set or
+                            self.input_load.is_set or
+                            self.input_packet_rate.is_set or
+                            self.load_interval.is_set or
+                            self.output_data_rate.is_set or
+                            self.output_load.is_set or
+                            self.output_packet_rate.is_set or
+                            self.peak_input_data_rate.is_set or
+                            self.peak_input_packet_rate.is_set or
+                            self.peak_output_data_rate.is_set or
+                            self.peak_output_packet_rate.is_set or
+                            self.reliability.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bandwidth.yfilter != YFilter.not_set or
+                            self.input_data_rate.yfilter != YFilter.not_set or
+                            self.input_load.yfilter != YFilter.not_set or
+                            self.input_packet_rate.yfilter != YFilter.not_set or
+                            self.load_interval.yfilter != YFilter.not_set or
+                            self.output_data_rate.yfilter != YFilter.not_set or
+                            self.output_load.yfilter != YFilter.not_set or
+                            self.output_packet_rate.yfilter != YFilter.not_set or
+                            self.peak_input_data_rate.yfilter != YFilter.not_set or
+                            self.peak_input_packet_rate.yfilter != YFilter.not_set or
+                            self.peak_output_data_rate.yfilter != YFilter.not_set or
+                            self.peak_output_packet_rate.yfilter != YFilter.not_set or
+                            self.reliability.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "data-rate" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.bandwidth.is_set or self.bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bandwidth.get_name_leafdata())
+                        if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                        if (self.input_load.is_set or self.input_load.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_load.get_name_leafdata())
+                        if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                        if (self.load_interval.is_set or self.load_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.load_interval.get_name_leafdata())
+                        if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                        if (self.output_load.is_set or self.output_load.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_load.get_name_leafdata())
+                        if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                        if (self.peak_input_data_rate.is_set or self.peak_input_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_input_data_rate.get_name_leafdata())
+                        if (self.peak_input_packet_rate.is_set or self.peak_input_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_input_packet_rate.get_name_leafdata())
+                        if (self.peak_output_data_rate.is_set or self.peak_output_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_output_data_rate.get_name_leafdata())
+                        if (self.peak_output_packet_rate.is_set or self.peak_output_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_output_packet_rate.get_name_leafdata())
+                        if (self.reliability.is_set or self.reliability.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reliability.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "bandwidth" or name == "input-data-rate" or name == "input-load" or name == "input-packet-rate" or name == "load-interval" or name == "output-data-rate" or name == "output-load" or name == "output-packet-rate" or name == "peak-input-data-rate" or name == "peak-input-packet-rate" or name == "peak-output-data-rate" or name == "peak-output-packet-rate" or name == "reliability"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.bandwidth is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bandwidth"):
+                            self.bandwidth = value
+                            self.bandwidth.value_namespace = name_space
+                            self.bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-data-rate"):
+                            self.input_data_rate = value
+                            self.input_data_rate.value_namespace = name_space
+                            self.input_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-load"):
+                            self.input_load = value
+                            self.input_load.value_namespace = name_space
+                            self.input_load.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-packet-rate"):
+                            self.input_packet_rate = value
+                            self.input_packet_rate.value_namespace = name_space
+                            self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "load-interval"):
+                            self.load_interval = value
+                            self.load_interval.value_namespace = name_space
+                            self.load_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-data-rate"):
+                            self.output_data_rate = value
+                            self.output_data_rate.value_namespace = name_space
+                            self.output_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-load"):
+                            self.output_load = value
+                            self.output_load.value_namespace = name_space
+                            self.output_load.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-packet-rate"):
+                            self.output_packet_rate = value
+                            self.output_packet_rate.value_namespace = name_space
+                            self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-input-data-rate"):
+                            self.peak_input_data_rate = value
+                            self.peak_input_data_rate.value_namespace = name_space
+                            self.peak_input_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-input-packet-rate"):
+                            self.peak_input_packet_rate = value
+                            self.peak_input_packet_rate.value_namespace = name_space
+                            self.peak_input_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-output-data-rate"):
+                            self.peak_output_data_rate = value
+                            self.peak_output_data_rate.value_namespace = name_space
+                            self.peak_output_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-output-packet-rate"):
+                            self.peak_output_packet_rate = value
+                            self.peak_output_packet_rate.value_namespace = name_space
+                            self.peak_output_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reliability"):
+                            self.reliability = value
+                            self.reliability.value_namespace = name_space
+                            self.reliability.value_namespace_prefix = name_space_prefix
 
-                        if self.input_data_rate is not None:
-                            return True
 
-                        if self.input_load is not None:
-                            return True
-
-                        if self.input_packet_rate is not None:
-                            return True
-
-                        if self.load_interval is not None:
-                            return True
-
-                        if self.output_data_rate is not None:
-                            return True
-
-                        if self.output_load is not None:
-                            return True
-
-                        if self.output_packet_rate is not None:
-                            return True
-
-                        if self.peak_input_data_rate is not None:
-                            return True
-
-                        if self.peak_input_packet_rate is not None:
-                            return True
-
-                        if self.peak_output_data_rate is not None:
-                            return True
-
-                        if self.peak_output_packet_rate is not None:
-                            return True
-
-                        if self.reliability is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.DataRate']['meta_info']
-
-
-                class GenericCounters(object):
+                class GenericCounters(Entity):
                     """
                     Generic set of interface counters
                     
@@ -2680,204 +4360,547 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
+                        super(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "generic-counters"
+                        self.yang_parent_name = "latest"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
+                        self.applique = YLeaf(YType.uint32, "applique")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                        self.resets = YLeaf(YType.uint32, "resets")
+
+                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("applique",
+                                        "availability_flag",
+                                        "broadcast_packets_received",
+                                        "broadcast_packets_sent",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "carrier_transitions",
+                                        "crc_errors",
+                                        "framing_errors_received",
+                                        "giant_packets_received",
+                                        "input_aborts",
+                                        "input_drops",
+                                        "input_errors",
+                                        "input_ignored_packets",
+                                        "input_overruns",
+                                        "input_queue_drops",
+                                        "last_data_time",
+                                        "last_discontinuity_time",
+                                        "multicast_packets_received",
+                                        "multicast_packets_sent",
+                                        "output_buffer_failures",
+                                        "output_buffers_swapped_out",
+                                        "output_drops",
+                                        "output_errors",
+                                        "output_queue_drops",
+                                        "output_underruns",
+                                        "packets_received",
+                                        "packets_sent",
+                                        "parity_packets_received",
+                                        "resets",
+                                        "runt_packets_received",
+                                        "seconds_since_last_clear_counters",
+                                        "seconds_since_packet_received",
+                                        "seconds_since_packet_sent",
+                                        "throttled_packets_received",
+                                        "unknown_protocol_packets_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.applique.is_set or
+                            self.availability_flag.is_set or
+                            self.broadcast_packets_received.is_set or
+                            self.broadcast_packets_sent.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.carrier_transitions.is_set or
+                            self.crc_errors.is_set or
+                            self.framing_errors_received.is_set or
+                            self.giant_packets_received.is_set or
+                            self.input_aborts.is_set or
+                            self.input_drops.is_set or
+                            self.input_errors.is_set or
+                            self.input_ignored_packets.is_set or
+                            self.input_overruns.is_set or
+                            self.input_queue_drops.is_set or
+                            self.last_data_time.is_set or
+                            self.last_discontinuity_time.is_set or
+                            self.multicast_packets_received.is_set or
+                            self.multicast_packets_sent.is_set or
+                            self.output_buffer_failures.is_set or
+                            self.output_buffers_swapped_out.is_set or
+                            self.output_drops.is_set or
+                            self.output_errors.is_set or
+                            self.output_queue_drops.is_set or
+                            self.output_underruns.is_set or
+                            self.packets_received.is_set or
+                            self.packets_sent.is_set or
+                            self.parity_packets_received.is_set or
+                            self.resets.is_set or
+                            self.runt_packets_received.is_set or
+                            self.seconds_since_last_clear_counters.is_set or
+                            self.seconds_since_packet_received.is_set or
+                            self.seconds_since_packet_sent.is_set or
+                            self.throttled_packets_received.is_set or
+                            self.unknown_protocol_packets_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.applique.yfilter != YFilter.not_set or
+                            self.availability_flag.yfilter != YFilter.not_set or
+                            self.broadcast_packets_received.yfilter != YFilter.not_set or
+                            self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.carrier_transitions.yfilter != YFilter.not_set or
+                            self.crc_errors.yfilter != YFilter.not_set or
+                            self.framing_errors_received.yfilter != YFilter.not_set or
+                            self.giant_packets_received.yfilter != YFilter.not_set or
+                            self.input_aborts.yfilter != YFilter.not_set or
+                            self.input_drops.yfilter != YFilter.not_set or
+                            self.input_errors.yfilter != YFilter.not_set or
+                            self.input_ignored_packets.yfilter != YFilter.not_set or
+                            self.input_overruns.yfilter != YFilter.not_set or
+                            self.input_queue_drops.yfilter != YFilter.not_set or
+                            self.last_data_time.yfilter != YFilter.not_set or
+                            self.last_discontinuity_time.yfilter != YFilter.not_set or
+                            self.multicast_packets_received.yfilter != YFilter.not_set or
+                            self.multicast_packets_sent.yfilter != YFilter.not_set or
+                            self.output_buffer_failures.yfilter != YFilter.not_set or
+                            self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                            self.output_drops.yfilter != YFilter.not_set or
+                            self.output_errors.yfilter != YFilter.not_set or
+                            self.output_queue_drops.yfilter != YFilter.not_set or
+                            self.output_underruns.yfilter != YFilter.not_set or
+                            self.packets_received.yfilter != YFilter.not_set or
+                            self.packets_sent.yfilter != YFilter.not_set or
+                            self.parity_packets_received.yfilter != YFilter.not_set or
+                            self.resets.yfilter != YFilter.not_set or
+                            self.runt_packets_received.yfilter != YFilter.not_set or
+                            self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                            self.throttled_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "generic-counters" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.applique.get_name_leafdata())
+                        if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                        if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                        if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                        if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                        if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                        if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                        if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                        if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_drops.get_name_leafdata())
+                        if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_errors.get_name_leafdata())
+                        if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                        if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                        if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                        if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                        if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                        if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                        if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                        if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                        if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                        if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_drops.get_name_leafdata())
+                        if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_errors.get_name_leafdata())
+                        if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                        if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                        if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_received.get_name_leafdata())
+                        if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                        if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                        if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resets.get_name_leafdata())
+                        if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                        if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                        if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                        if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                        if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                        if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.applique is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "applique"):
+                            self.applique = value
+                            self.applique.value_namespace = name_space
+                            self.applique.value_namespace_prefix = name_space_prefix
+                        if(value_path == "availability-flag"):
+                            self.availability_flag = value
+                            self.availability_flag.value_namespace = name_space
+                            self.availability_flag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-received"):
+                            self.broadcast_packets_received = value
+                            self.broadcast_packets_received.value_namespace = name_space
+                            self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-sent"):
+                            self.broadcast_packets_sent = value
+                            self.broadcast_packets_sent.value_namespace = name_space
+                            self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "carrier-transitions"):
+                            self.carrier_transitions = value
+                            self.carrier_transitions.value_namespace = name_space
+                            self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "crc-errors"):
+                            self.crc_errors = value
+                            self.crc_errors.value_namespace = name_space
+                            self.crc_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "framing-errors-received"):
+                            self.framing_errors_received = value
+                            self.framing_errors_received.value_namespace = name_space
+                            self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "giant-packets-received"):
+                            self.giant_packets_received = value
+                            self.giant_packets_received.value_namespace = name_space
+                            self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-aborts"):
+                            self.input_aborts = value
+                            self.input_aborts.value_namespace = name_space
+                            self.input_aborts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-drops"):
+                            self.input_drops = value
+                            self.input_drops.value_namespace = name_space
+                            self.input_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-errors"):
+                            self.input_errors = value
+                            self.input_errors.value_namespace = name_space
+                            self.input_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-ignored-packets"):
+                            self.input_ignored_packets = value
+                            self.input_ignored_packets.value_namespace = name_space
+                            self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-overruns"):
+                            self.input_overruns = value
+                            self.input_overruns.value_namespace = name_space
+                            self.input_overruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-queue-drops"):
+                            self.input_queue_drops = value
+                            self.input_queue_drops.value_namespace = name_space
+                            self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-data-time"):
+                            self.last_data_time = value
+                            self.last_data_time.value_namespace = name_space
+                            self.last_data_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-discontinuity-time"):
+                            self.last_discontinuity_time = value
+                            self.last_discontinuity_time.value_namespace = name_space
+                            self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-received"):
+                            self.multicast_packets_received = value
+                            self.multicast_packets_received.value_namespace = name_space
+                            self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-sent"):
+                            self.multicast_packets_sent = value
+                            self.multicast_packets_sent.value_namespace = name_space
+                            self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffer-failures"):
+                            self.output_buffer_failures = value
+                            self.output_buffer_failures.value_namespace = name_space
+                            self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffers-swapped-out"):
+                            self.output_buffers_swapped_out = value
+                            self.output_buffers_swapped_out.value_namespace = name_space
+                            self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-drops"):
+                            self.output_drops = value
+                            self.output_drops.value_namespace = name_space
+                            self.output_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-errors"):
+                            self.output_errors = value
+                            self.output_errors.value_namespace = name_space
+                            self.output_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-queue-drops"):
+                            self.output_queue_drops = value
+                            self.output_queue_drops.value_namespace = name_space
+                            self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-underruns"):
+                            self.output_underruns = value
+                            self.output_underruns.value_namespace = name_space
+                            self.output_underruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-received"):
+                            self.packets_received = value
+                            self.packets_received.value_namespace = name_space
+                            self.packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-sent"):
+                            self.packets_sent = value
+                            self.packets_sent.value_namespace = name_space
+                            self.packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "parity-packets-received"):
+                            self.parity_packets_received = value
+                            self.parity_packets_received.value_namespace = name_space
+                            self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resets"):
+                            self.resets = value
+                            self.resets.value_namespace = name_space
+                            self.resets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "runt-packets-received"):
+                            self.runt_packets_received = value
+                            self.runt_packets_received.value_namespace = name_space
+                            self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-last-clear-counters"):
+                            self.seconds_since_last_clear_counters = value
+                            self.seconds_since_last_clear_counters.value_namespace = name_space
+                            self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-received"):
+                            self.seconds_since_packet_received = value
+                            self.seconds_since_packet_received.value_namespace = name_space
+                            self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-sent"):
+                            self.seconds_since_packet_sent = value
+                            self.seconds_since_packet_sent.value_namespace = name_space
+                            self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "throttled-packets-received"):
+                            self.throttled_packets_received = value
+                            self.throttled_packets_received.value_namespace = name_space
+                            self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-protocol-packets-received"):
+                            self.unknown_protocol_packets_received = value
+                            self.unknown_protocol_packets_received.value_namespace = name_space
+                            self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                        if self.availability_flag is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        (self.data_rate is not None and self.data_rate.has_data()) or
+                        (self.generic_counters is not None and self.generic_counters.has_data()) or
+                        (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_data()) or
+                        (self.protocols is not None and self.protocols.has_data()))
 
-                        if self.broadcast_packets_received is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.data_rate is not None and self.data_rate.has_operation()) or
+                        (self.generic_counters is not None and self.generic_counters.has_operation()) or
+                        (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_operation()) or
+                        (self.protocols is not None and self.protocols.has_operation()))
 
-                        if self.broadcast_packets_sent is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "latest" + path_buffer
 
-                        if self.bytes_received is not None:
-                            return True
+                    return path_buffer
 
-                        if self.bytes_sent is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.carrier_transitions is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
 
-                        if self.crc_errors is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.framing_errors_received is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.giant_packets_received is not None:
-                            return True
+                    if (child_yang_name == "data-rate"):
+                        if (self.data_rate is None):
+                            self.data_rate = InfraStatistics.Interfaces.Interface.Latest.DataRate()
+                            self.data_rate.parent = self
+                            self._children_name_map["data_rate"] = "data-rate"
+                        return self.data_rate
 
-                        if self.input_aborts is not None:
-                            return True
+                    if (child_yang_name == "generic-counters"):
+                        if (self.generic_counters is None):
+                            self.generic_counters = InfraStatistics.Interfaces.Interface.Latest.GenericCounters()
+                            self.generic_counters.parent = self
+                            self._children_name_map["generic_counters"] = "generic-counters"
+                        return self.generic_counters
 
-                        if self.input_drops is not None:
-                            return True
+                    if (child_yang_name == "interfaces-mib-counters"):
+                        if (self.interfaces_mib_counters is None):
+                            self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters()
+                            self.interfaces_mib_counters.parent = self
+                            self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                        return self.interfaces_mib_counters
 
-                        if self.input_errors is not None:
-                            return True
+                    if (child_yang_name == "protocols"):
+                        if (self.protocols is None):
+                            self.protocols = InfraStatistics.Interfaces.Interface.Latest.Protocols()
+                            self.protocols.parent = self
+                            self._children_name_map["protocols"] = "protocols"
+                        return self.protocols
 
-                        if self.input_ignored_packets is not None:
-                            return True
+                    return None
 
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest.GenericCounters']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:latest'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "data-rate" or name == "generic-counters" or name == "interfaces-mib-counters" or name == "protocols"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.data_rate is not None and self.data_rate._has_data():
-                        return True
-
-                    if self.generic_counters is not None and self.generic_counters._has_data():
-                        return True
-
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                        return True
-
-                    if self.protocols is not None and self.protocols._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Latest']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Total(object):
+            class Total(Entity):
                 """
                 Total stats data of interfaces
                 
@@ -2909,18 +4932,33 @@ class InfraStatistics(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
+                    super(InfraStatistics.Interfaces.Interface.Total, self).__init__()
+
+                    self.yang_name = "total"
+                    self.yang_parent_name = "interface"
+
                     self.data_rate = InfraStatistics.Interfaces.Interface.Total.DataRate()
                     self.data_rate.parent = self
+                    self._children_name_map["data_rate"] = "data-rate"
+                    self._children_yang_names.add("data-rate")
+
                     self.generic_counters = InfraStatistics.Interfaces.Interface.Total.GenericCounters()
                     self.generic_counters.parent = self
+                    self._children_name_map["generic_counters"] = "generic-counters"
+                    self._children_yang_names.add("generic-counters")
+
                     self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters()
                     self.interfaces_mib_counters.parent = self
+                    self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                    self._children_yang_names.add("interfaces-mib-counters")
+
                     self.protocols = InfraStatistics.Interfaces.Interface.Total.Protocols()
                     self.protocols.parent = self
+                    self._children_name_map["protocols"] = "protocols"
+                    self._children_yang_names.add("protocols")
 
 
-                class Protocols(object):
+                class Protocols(Entity):
                     """
                     List of protocols
                     
@@ -2937,13 +4975,39 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.protocol = YList()
-                        self.protocol.parent = self
-                        self.protocol.name = 'protocol'
+                        super(InfraStatistics.Interfaces.Interface.Total.Protocols, self).__init__()
+
+                        self.yang_name = "protocols"
+                        self.yang_parent_name = "total"
+
+                        self.protocol = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Total.Protocols, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Total.Protocols, self).__setattr__(name, value)
 
 
-                    class Protocol(object):
+                    class Protocol(Entity):
                         """
                         Interface counters per protocol
                         
@@ -3046,99 +5110,253 @@ class InfraStatistics(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.protocol_name = None
-                            self.bytes_received = None
-                            self.bytes_sent = None
-                            self.input_data_rate = None
-                            self.input_packet_rate = None
-                            self.last_data_time = None
-                            self.output_data_rate = None
-                            self.output_packet_rate = None
-                            self.packets_received = None
-                            self.packets_sent = None
-                            self.protocol = None
+                            super(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.protocol_name is None:
-                                raise YPYModelError('Key property protocol_name is None')
+                            self.yang_name = "protocol"
+                            self.yang_parent_name = "protocols"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocol[Cisco-IOS-XR-infra-statsd-oper:protocol-name = ' + str(self.protocol_name) + ']'
+                            self.protocol_name = YLeaf(YType.str, "protocol-name")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                            self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                            self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                            self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                            self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                            self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                            self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                            self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                            self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                            self.protocol = YLeaf(YType.uint32, "protocol")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("protocol_name",
+                                            "bytes_received",
+                                            "bytes_sent",
+                                            "input_data_rate",
+                                            "input_packet_rate",
+                                            "last_data_time",
+                                            "output_data_rate",
+                                            "output_packet_rate",
+                                            "packets_received",
+                                            "packets_sent",
+                                            "protocol") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.protocol_name.is_set or
+                                self.bytes_received.is_set or
+                                self.bytes_sent.is_set or
+                                self.input_data_rate.is_set or
+                                self.input_packet_rate.is_set or
+                                self.last_data_time.is_set or
+                                self.output_data_rate.is_set or
+                                self.output_packet_rate.is_set or
+                                self.packets_received.is_set or
+                                self.packets_sent.is_set or
+                                self.protocol.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.protocol_name.yfilter != YFilter.not_set or
+                                self.bytes_received.yfilter != YFilter.not_set or
+                                self.bytes_sent.yfilter != YFilter.not_set or
+                                self.input_data_rate.yfilter != YFilter.not_set or
+                                self.input_packet_rate.yfilter != YFilter.not_set or
+                                self.last_data_time.yfilter != YFilter.not_set or
+                                self.output_data_rate.yfilter != YFilter.not_set or
+                                self.output_packet_rate.yfilter != YFilter.not_set or
+                                self.packets_received.yfilter != YFilter.not_set or
+                                self.packets_sent.yfilter != YFilter.not_set or
+                                self.protocol.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "protocol" + "[protocol-name='" + self.protocol_name.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.protocol_name.is_set or self.protocol_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol_name.get_name_leafdata())
+                            if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                            if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                            if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                            if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                            if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                            if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                            if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                            if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packets_received.get_name_leafdata())
+                            if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                            if (self.protocol.is_set or self.protocol.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.protocol.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "protocol-name" or name == "bytes-received" or name == "bytes-sent" or name == "input-data-rate" or name == "input-packet-rate" or name == "last-data-time" or name == "output-data-rate" or name == "output-packet-rate" or name == "packets-received" or name == "packets-sent" or name == "protocol"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.protocol_name is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "protocol-name"):
+                                self.protocol_name = value
+                                self.protocol_name.value_namespace = name_space
+                                self.protocol_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "bytes-received"):
+                                self.bytes_received = value
+                                self.bytes_received.value_namespace = name_space
+                                self.bytes_received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "bytes-sent"):
+                                self.bytes_sent = value
+                                self.bytes_sent.value_namespace = name_space
+                                self.bytes_sent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "input-data-rate"):
+                                self.input_data_rate = value
+                                self.input_data_rate.value_namespace = name_space
+                                self.input_data_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "input-packet-rate"):
+                                self.input_packet_rate = value
+                                self.input_packet_rate.value_namespace = name_space
+                                self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "last-data-time"):
+                                self.last_data_time = value
+                                self.last_data_time.value_namespace = name_space
+                                self.last_data_time.value_namespace_prefix = name_space_prefix
+                            if(value_path == "output-data-rate"):
+                                self.output_data_rate = value
+                                self.output_data_rate.value_namespace = name_space
+                                self.output_data_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "output-packet-rate"):
+                                self.output_packet_rate = value
+                                self.output_packet_rate.value_namespace = name_space
+                                self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packets-received"):
+                                self.packets_received = value
+                                self.packets_received.value_namespace = name_space
+                                self.packets_received.value_namespace_prefix = name_space_prefix
+                            if(value_path == "packets-sent"):
+                                self.packets_sent = value
+                                self.packets_sent.value_namespace = name_space
+                                self.packets_sent.value_namespace_prefix = name_space_prefix
+                            if(value_path == "protocol"):
+                                self.protocol = value
+                                self.protocol.value_namespace = name_space
+                                self.protocol.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.protocol:
+                            if (c.has_data()):
                                 return True
-
-                            if self.bytes_received is not None:
-                                return True
-
-                            if self.bytes_sent is not None:
-                                return True
-
-                            if self.input_data_rate is not None:
-                                return True
-
-                            if self.input_packet_rate is not None:
-                                return True
-
-                            if self.last_data_time is not None:
-                                return True
-
-                            if self.output_data_rate is not None:
-                                return True
-
-                            if self.output_packet_rate is not None:
-                                return True
-
-                            if self.packets_received is not None:
-                                return True
-
-                            if self.packets_sent is not None:
-                                return True
-
-                            if self.protocol is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                            return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocols'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.protocol is not None:
-                            for child_ref in self.protocol:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.protocol:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "protocols" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "protocol"):
+                            for c in self.protocol:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.protocol.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "protocol"):
+                            return True
                         return False
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.Protocols']['meta_info']
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
 
 
-                class InterfacesMibCounters(object):
+                class InterfacesMibCounters(Entity):
                     """
                     Set of interface counters as displayed by the
                     InterfacesMIB
@@ -3417,173 +5635,471 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
+                        super(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "interfaces-mib-counters"
+                        self.yang_parent_name = "total"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
+                        self.applique = YLeaf(YType.uint32, "applique")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                        self.resets = YLeaf(YType.uint32, "resets")
+
+                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("applique",
+                                        "availability_flag",
+                                        "broadcast_packets_received",
+                                        "broadcast_packets_sent",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "carrier_transitions",
+                                        "crc_errors",
+                                        "framing_errors_received",
+                                        "giant_packets_received",
+                                        "input_aborts",
+                                        "input_drops",
+                                        "input_errors",
+                                        "input_ignored_packets",
+                                        "input_overruns",
+                                        "input_queue_drops",
+                                        "last_data_time",
+                                        "last_discontinuity_time",
+                                        "multicast_packets_received",
+                                        "multicast_packets_sent",
+                                        "output_buffer_failures",
+                                        "output_buffers_swapped_out",
+                                        "output_drops",
+                                        "output_errors",
+                                        "output_queue_drops",
+                                        "output_underruns",
+                                        "packets_received",
+                                        "packets_sent",
+                                        "parity_packets_received",
+                                        "resets",
+                                        "runt_packets_received",
+                                        "seconds_since_last_clear_counters",
+                                        "seconds_since_packet_received",
+                                        "seconds_since_packet_sent",
+                                        "throttled_packets_received",
+                                        "unknown_protocol_packets_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.applique.is_set or
+                            self.availability_flag.is_set or
+                            self.broadcast_packets_received.is_set or
+                            self.broadcast_packets_sent.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.carrier_transitions.is_set or
+                            self.crc_errors.is_set or
+                            self.framing_errors_received.is_set or
+                            self.giant_packets_received.is_set or
+                            self.input_aborts.is_set or
+                            self.input_drops.is_set or
+                            self.input_errors.is_set or
+                            self.input_ignored_packets.is_set or
+                            self.input_overruns.is_set or
+                            self.input_queue_drops.is_set or
+                            self.last_data_time.is_set or
+                            self.last_discontinuity_time.is_set or
+                            self.multicast_packets_received.is_set or
+                            self.multicast_packets_sent.is_set or
+                            self.output_buffer_failures.is_set or
+                            self.output_buffers_swapped_out.is_set or
+                            self.output_drops.is_set or
+                            self.output_errors.is_set or
+                            self.output_queue_drops.is_set or
+                            self.output_underruns.is_set or
+                            self.packets_received.is_set or
+                            self.packets_sent.is_set or
+                            self.parity_packets_received.is_set or
+                            self.resets.is_set or
+                            self.runt_packets_received.is_set or
+                            self.seconds_since_last_clear_counters.is_set or
+                            self.seconds_since_packet_received.is_set or
+                            self.seconds_since_packet_sent.is_set or
+                            self.throttled_packets_received.is_set or
+                            self.unknown_protocol_packets_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.applique.yfilter != YFilter.not_set or
+                            self.availability_flag.yfilter != YFilter.not_set or
+                            self.broadcast_packets_received.yfilter != YFilter.not_set or
+                            self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.carrier_transitions.yfilter != YFilter.not_set or
+                            self.crc_errors.yfilter != YFilter.not_set or
+                            self.framing_errors_received.yfilter != YFilter.not_set or
+                            self.giant_packets_received.yfilter != YFilter.not_set or
+                            self.input_aborts.yfilter != YFilter.not_set or
+                            self.input_drops.yfilter != YFilter.not_set or
+                            self.input_errors.yfilter != YFilter.not_set or
+                            self.input_ignored_packets.yfilter != YFilter.not_set or
+                            self.input_overruns.yfilter != YFilter.not_set or
+                            self.input_queue_drops.yfilter != YFilter.not_set or
+                            self.last_data_time.yfilter != YFilter.not_set or
+                            self.last_discontinuity_time.yfilter != YFilter.not_set or
+                            self.multicast_packets_received.yfilter != YFilter.not_set or
+                            self.multicast_packets_sent.yfilter != YFilter.not_set or
+                            self.output_buffer_failures.yfilter != YFilter.not_set or
+                            self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                            self.output_drops.yfilter != YFilter.not_set or
+                            self.output_errors.yfilter != YFilter.not_set or
+                            self.output_queue_drops.yfilter != YFilter.not_set or
+                            self.output_underruns.yfilter != YFilter.not_set or
+                            self.packets_received.yfilter != YFilter.not_set or
+                            self.packets_sent.yfilter != YFilter.not_set or
+                            self.parity_packets_received.yfilter != YFilter.not_set or
+                            self.resets.yfilter != YFilter.not_set or
+                            self.runt_packets_received.yfilter != YFilter.not_set or
+                            self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                            self.throttled_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "interfaces-mib-counters" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.applique.get_name_leafdata())
+                        if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                        if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                        if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                        if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                        if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                        if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                        if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                        if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_drops.get_name_leafdata())
+                        if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_errors.get_name_leafdata())
+                        if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                        if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                        if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                        if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                        if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                        if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                        if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                        if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                        if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                        if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_drops.get_name_leafdata())
+                        if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_errors.get_name_leafdata())
+                        if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                        if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                        if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_received.get_name_leafdata())
+                        if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                        if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                        if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resets.get_name_leafdata())
+                        if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                        if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                        if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                        if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                        if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                        if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.applique is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "applique"):
+                            self.applique = value
+                            self.applique.value_namespace = name_space
+                            self.applique.value_namespace_prefix = name_space_prefix
+                        if(value_path == "availability-flag"):
+                            self.availability_flag = value
+                            self.availability_flag.value_namespace = name_space
+                            self.availability_flag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-received"):
+                            self.broadcast_packets_received = value
+                            self.broadcast_packets_received.value_namespace = name_space
+                            self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-sent"):
+                            self.broadcast_packets_sent = value
+                            self.broadcast_packets_sent.value_namespace = name_space
+                            self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "carrier-transitions"):
+                            self.carrier_transitions = value
+                            self.carrier_transitions.value_namespace = name_space
+                            self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "crc-errors"):
+                            self.crc_errors = value
+                            self.crc_errors.value_namespace = name_space
+                            self.crc_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "framing-errors-received"):
+                            self.framing_errors_received = value
+                            self.framing_errors_received.value_namespace = name_space
+                            self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "giant-packets-received"):
+                            self.giant_packets_received = value
+                            self.giant_packets_received.value_namespace = name_space
+                            self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-aborts"):
+                            self.input_aborts = value
+                            self.input_aborts.value_namespace = name_space
+                            self.input_aborts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-drops"):
+                            self.input_drops = value
+                            self.input_drops.value_namespace = name_space
+                            self.input_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-errors"):
+                            self.input_errors = value
+                            self.input_errors.value_namespace = name_space
+                            self.input_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-ignored-packets"):
+                            self.input_ignored_packets = value
+                            self.input_ignored_packets.value_namespace = name_space
+                            self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-overruns"):
+                            self.input_overruns = value
+                            self.input_overruns.value_namespace = name_space
+                            self.input_overruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-queue-drops"):
+                            self.input_queue_drops = value
+                            self.input_queue_drops.value_namespace = name_space
+                            self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-data-time"):
+                            self.last_data_time = value
+                            self.last_data_time.value_namespace = name_space
+                            self.last_data_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-discontinuity-time"):
+                            self.last_discontinuity_time = value
+                            self.last_discontinuity_time.value_namespace = name_space
+                            self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-received"):
+                            self.multicast_packets_received = value
+                            self.multicast_packets_received.value_namespace = name_space
+                            self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-sent"):
+                            self.multicast_packets_sent = value
+                            self.multicast_packets_sent.value_namespace = name_space
+                            self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffer-failures"):
+                            self.output_buffer_failures = value
+                            self.output_buffer_failures.value_namespace = name_space
+                            self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffers-swapped-out"):
+                            self.output_buffers_swapped_out = value
+                            self.output_buffers_swapped_out.value_namespace = name_space
+                            self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-drops"):
+                            self.output_drops = value
+                            self.output_drops.value_namespace = name_space
+                            self.output_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-errors"):
+                            self.output_errors = value
+                            self.output_errors.value_namespace = name_space
+                            self.output_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-queue-drops"):
+                            self.output_queue_drops = value
+                            self.output_queue_drops.value_namespace = name_space
+                            self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-underruns"):
+                            self.output_underruns = value
+                            self.output_underruns.value_namespace = name_space
+                            self.output_underruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-received"):
+                            self.packets_received = value
+                            self.packets_received.value_namespace = name_space
+                            self.packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-sent"):
+                            self.packets_sent = value
+                            self.packets_sent.value_namespace = name_space
+                            self.packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "parity-packets-received"):
+                            self.parity_packets_received = value
+                            self.parity_packets_received.value_namespace = name_space
+                            self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resets"):
+                            self.resets = value
+                            self.resets.value_namespace = name_space
+                            self.resets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "runt-packets-received"):
+                            self.runt_packets_received = value
+                            self.runt_packets_received.value_namespace = name_space
+                            self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-last-clear-counters"):
+                            self.seconds_since_last_clear_counters = value
+                            self.seconds_since_last_clear_counters.value_namespace = name_space
+                            self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-received"):
+                            self.seconds_since_packet_received = value
+                            self.seconds_since_packet_received.value_namespace = name_space
+                            self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-sent"):
+                            self.seconds_since_packet_sent = value
+                            self.seconds_since_packet_sent.value_namespace = name_space
+                            self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "throttled-packets-received"):
+                            self.throttled_packets_received = value
+                            self.throttled_packets_received.value_namespace = name_space
+                            self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-protocol-packets-received"):
+                            self.unknown_protocol_packets_received = value
+                            self.unknown_protocol_packets_received.value_namespace = name_space
+                            self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                        if self.availability_flag is not None:
-                            return True
 
-                        if self.broadcast_packets_received is not None:
-                            return True
-
-                        if self.broadcast_packets_sent is not None:
-                            return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.carrier_transitions is not None:
-                            return True
-
-                        if self.crc_errors is not None:
-                            return True
-
-                        if self.framing_errors_received is not None:
-                            return True
-
-                        if self.giant_packets_received is not None:
-                            return True
-
-                        if self.input_aborts is not None:
-                            return True
-
-                        if self.input_drops is not None:
-                            return True
-
-                        if self.input_errors is not None:
-                            return True
-
-                        if self.input_ignored_packets is not None:
-                            return True
-
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters']['meta_info']
-
-
-                class DataRate(object):
+                class DataRate(Entity):
                     """
                     Datarate information
                     
@@ -3696,81 +6212,218 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.bandwidth = None
-                        self.input_data_rate = None
-                        self.input_load = None
-                        self.input_packet_rate = None
-                        self.load_interval = None
-                        self.output_data_rate = None
-                        self.output_load = None
-                        self.output_packet_rate = None
-                        self.peak_input_data_rate = None
-                        self.peak_input_packet_rate = None
-                        self.peak_output_data_rate = None
-                        self.peak_output_packet_rate = None
-                        self.reliability = None
+                        super(InfraStatistics.Interfaces.Interface.Total.DataRate, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "data-rate"
+                        self.yang_parent_name = "total"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+                        self.bandwidth = YLeaf(YType.uint32, "bandwidth")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                        self.input_load = YLeaf(YType.uint8, "input-load")
+
+                        self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                        self.load_interval = YLeaf(YType.uint32, "load-interval")
+
+                        self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                        self.output_load = YLeaf(YType.uint8, "output-load")
+
+                        self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                        self.peak_input_data_rate = YLeaf(YType.uint64, "peak-input-data-rate")
+
+                        self.peak_input_packet_rate = YLeaf(YType.uint64, "peak-input-packet-rate")
+
+                        self.peak_output_data_rate = YLeaf(YType.uint64, "peak-output-data-rate")
+
+                        self.peak_output_packet_rate = YLeaf(YType.uint64, "peak-output-packet-rate")
+
+                        self.reliability = YLeaf(YType.uint8, "reliability")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("bandwidth",
+                                        "input_data_rate",
+                                        "input_load",
+                                        "input_packet_rate",
+                                        "load_interval",
+                                        "output_data_rate",
+                                        "output_load",
+                                        "output_packet_rate",
+                                        "peak_input_data_rate",
+                                        "peak_input_packet_rate",
+                                        "peak_output_data_rate",
+                                        "peak_output_packet_rate",
+                                        "reliability") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Total.DataRate, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Total.DataRate, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.bandwidth.is_set or
+                            self.input_data_rate.is_set or
+                            self.input_load.is_set or
+                            self.input_packet_rate.is_set or
+                            self.load_interval.is_set or
+                            self.output_data_rate.is_set or
+                            self.output_load.is_set or
+                            self.output_packet_rate.is_set or
+                            self.peak_input_data_rate.is_set or
+                            self.peak_input_packet_rate.is_set or
+                            self.peak_output_data_rate.is_set or
+                            self.peak_output_packet_rate.is_set or
+                            self.reliability.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.bandwidth.yfilter != YFilter.not_set or
+                            self.input_data_rate.yfilter != YFilter.not_set or
+                            self.input_load.yfilter != YFilter.not_set or
+                            self.input_packet_rate.yfilter != YFilter.not_set or
+                            self.load_interval.yfilter != YFilter.not_set or
+                            self.output_data_rate.yfilter != YFilter.not_set or
+                            self.output_load.yfilter != YFilter.not_set or
+                            self.output_packet_rate.yfilter != YFilter.not_set or
+                            self.peak_input_data_rate.yfilter != YFilter.not_set or
+                            self.peak_input_packet_rate.yfilter != YFilter.not_set or
+                            self.peak_output_data_rate.yfilter != YFilter.not_set or
+                            self.peak_output_packet_rate.yfilter != YFilter.not_set or
+                            self.reliability.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "data-rate" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.bandwidth.is_set or self.bandwidth.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bandwidth.get_name_leafdata())
+                        if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                        if (self.input_load.is_set or self.input_load.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_load.get_name_leafdata())
+                        if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                        if (self.load_interval.is_set or self.load_interval.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.load_interval.get_name_leafdata())
+                        if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                        if (self.output_load.is_set or self.output_load.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_load.get_name_leafdata())
+                        if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                        if (self.peak_input_data_rate.is_set or self.peak_input_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_input_data_rate.get_name_leafdata())
+                        if (self.peak_input_packet_rate.is_set or self.peak_input_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_input_packet_rate.get_name_leafdata())
+                        if (self.peak_output_data_rate.is_set or self.peak_output_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_output_data_rate.get_name_leafdata())
+                        if (self.peak_output_packet_rate.is_set or self.peak_output_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.peak_output_packet_rate.get_name_leafdata())
+                        if (self.reliability.is_set or self.reliability.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.reliability.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "bandwidth" or name == "input-data-rate" or name == "input-load" or name == "input-packet-rate" or name == "load-interval" or name == "output-data-rate" or name == "output-load" or name == "output-packet-rate" or name == "peak-input-data-rate" or name == "peak-input-packet-rate" or name == "peak-output-data-rate" or name == "peak-output-packet-rate" or name == "reliability"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.bandwidth is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "bandwidth"):
+                            self.bandwidth = value
+                            self.bandwidth.value_namespace = name_space
+                            self.bandwidth.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-data-rate"):
+                            self.input_data_rate = value
+                            self.input_data_rate.value_namespace = name_space
+                            self.input_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-load"):
+                            self.input_load = value
+                            self.input_load.value_namespace = name_space
+                            self.input_load.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-packet-rate"):
+                            self.input_packet_rate = value
+                            self.input_packet_rate.value_namespace = name_space
+                            self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "load-interval"):
+                            self.load_interval = value
+                            self.load_interval.value_namespace = name_space
+                            self.load_interval.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-data-rate"):
+                            self.output_data_rate = value
+                            self.output_data_rate.value_namespace = name_space
+                            self.output_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-load"):
+                            self.output_load = value
+                            self.output_load.value_namespace = name_space
+                            self.output_load.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-packet-rate"):
+                            self.output_packet_rate = value
+                            self.output_packet_rate.value_namespace = name_space
+                            self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-input-data-rate"):
+                            self.peak_input_data_rate = value
+                            self.peak_input_data_rate.value_namespace = name_space
+                            self.peak_input_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-input-packet-rate"):
+                            self.peak_input_packet_rate = value
+                            self.peak_input_packet_rate.value_namespace = name_space
+                            self.peak_input_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-output-data-rate"):
+                            self.peak_output_data_rate = value
+                            self.peak_output_data_rate.value_namespace = name_space
+                            self.peak_output_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "peak-output-packet-rate"):
+                            self.peak_output_packet_rate = value
+                            self.peak_output_packet_rate.value_namespace = name_space
+                            self.peak_output_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "reliability"):
+                            self.reliability = value
+                            self.reliability.value_namespace = name_space
+                            self.reliability.value_namespace_prefix = name_space_prefix
 
-                        if self.input_data_rate is not None:
-                            return True
 
-                        if self.input_load is not None:
-                            return True
-
-                        if self.input_packet_rate is not None:
-                            return True
-
-                        if self.load_interval is not None:
-                            return True
-
-                        if self.output_data_rate is not None:
-                            return True
-
-                        if self.output_load is not None:
-                            return True
-
-                        if self.output_packet_rate is not None:
-                            return True
-
-                        if self.peak_input_data_rate is not None:
-                            return True
-
-                        if self.peak_input_packet_rate is not None:
-                            return True
-
-                        if self.peak_output_data_rate is not None:
-                            return True
-
-                        if self.peak_output_packet_rate is not None:
-                            return True
-
-                        if self.reliability is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.DataRate']['meta_info']
-
-
-                class GenericCounters(object):
+                class GenericCounters(Entity):
                     """
                     Generic set of interface counters
                     
@@ -4048,204 +6701,547 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.applique = None
-                        self.availability_flag = None
-                        self.broadcast_packets_received = None
-                        self.broadcast_packets_sent = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.carrier_transitions = None
-                        self.crc_errors = None
-                        self.framing_errors_received = None
-                        self.giant_packets_received = None
-                        self.input_aborts = None
-                        self.input_drops = None
-                        self.input_errors = None
-                        self.input_ignored_packets = None
-                        self.input_overruns = None
-                        self.input_queue_drops = None
-                        self.last_data_time = None
-                        self.last_discontinuity_time = None
-                        self.multicast_packets_received = None
-                        self.multicast_packets_sent = None
-                        self.output_buffer_failures = None
-                        self.output_buffers_swapped_out = None
-                        self.output_drops = None
-                        self.output_errors = None
-                        self.output_queue_drops = None
-                        self.output_underruns = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.parity_packets_received = None
-                        self.resets = None
-                        self.runt_packets_received = None
-                        self.seconds_since_last_clear_counters = None
-                        self.seconds_since_packet_received = None
-                        self.seconds_since_packet_sent = None
-                        self.throttled_packets_received = None
-                        self.unknown_protocol_packets_received = None
+                        super(InfraStatistics.Interfaces.Interface.Total.GenericCounters, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        self.yang_name = "generic-counters"
+                        self.yang_parent_name = "total"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
+                        self.applique = YLeaf(YType.uint32, "applique")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                        self.resets = YLeaf(YType.uint32, "resets")
+
+                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("applique",
+                                        "availability_flag",
+                                        "broadcast_packets_received",
+                                        "broadcast_packets_sent",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "carrier_transitions",
+                                        "crc_errors",
+                                        "framing_errors_received",
+                                        "giant_packets_received",
+                                        "input_aborts",
+                                        "input_drops",
+                                        "input_errors",
+                                        "input_ignored_packets",
+                                        "input_overruns",
+                                        "input_queue_drops",
+                                        "last_data_time",
+                                        "last_discontinuity_time",
+                                        "multicast_packets_received",
+                                        "multicast_packets_sent",
+                                        "output_buffer_failures",
+                                        "output_buffers_swapped_out",
+                                        "output_drops",
+                                        "output_errors",
+                                        "output_queue_drops",
+                                        "output_underruns",
+                                        "packets_received",
+                                        "packets_sent",
+                                        "parity_packets_received",
+                                        "resets",
+                                        "runt_packets_received",
+                                        "seconds_since_last_clear_counters",
+                                        "seconds_since_packet_received",
+                                        "seconds_since_packet_sent",
+                                        "throttled_packets_received",
+                                        "unknown_protocol_packets_received") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Total.GenericCounters, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Total.GenericCounters, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.applique.is_set or
+                            self.availability_flag.is_set or
+                            self.broadcast_packets_received.is_set or
+                            self.broadcast_packets_sent.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.carrier_transitions.is_set or
+                            self.crc_errors.is_set or
+                            self.framing_errors_received.is_set or
+                            self.giant_packets_received.is_set or
+                            self.input_aborts.is_set or
+                            self.input_drops.is_set or
+                            self.input_errors.is_set or
+                            self.input_ignored_packets.is_set or
+                            self.input_overruns.is_set or
+                            self.input_queue_drops.is_set or
+                            self.last_data_time.is_set or
+                            self.last_discontinuity_time.is_set or
+                            self.multicast_packets_received.is_set or
+                            self.multicast_packets_sent.is_set or
+                            self.output_buffer_failures.is_set or
+                            self.output_buffers_swapped_out.is_set or
+                            self.output_drops.is_set or
+                            self.output_errors.is_set or
+                            self.output_queue_drops.is_set or
+                            self.output_underruns.is_set or
+                            self.packets_received.is_set or
+                            self.packets_sent.is_set or
+                            self.parity_packets_received.is_set or
+                            self.resets.is_set or
+                            self.runt_packets_received.is_set or
+                            self.seconds_since_last_clear_counters.is_set or
+                            self.seconds_since_packet_received.is_set or
+                            self.seconds_since_packet_sent.is_set or
+                            self.throttled_packets_received.is_set or
+                            self.unknown_protocol_packets_received.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.applique.yfilter != YFilter.not_set or
+                            self.availability_flag.yfilter != YFilter.not_set or
+                            self.broadcast_packets_received.yfilter != YFilter.not_set or
+                            self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.carrier_transitions.yfilter != YFilter.not_set or
+                            self.crc_errors.yfilter != YFilter.not_set or
+                            self.framing_errors_received.yfilter != YFilter.not_set or
+                            self.giant_packets_received.yfilter != YFilter.not_set or
+                            self.input_aborts.yfilter != YFilter.not_set or
+                            self.input_drops.yfilter != YFilter.not_set or
+                            self.input_errors.yfilter != YFilter.not_set or
+                            self.input_ignored_packets.yfilter != YFilter.not_set or
+                            self.input_overruns.yfilter != YFilter.not_set or
+                            self.input_queue_drops.yfilter != YFilter.not_set or
+                            self.last_data_time.yfilter != YFilter.not_set or
+                            self.last_discontinuity_time.yfilter != YFilter.not_set or
+                            self.multicast_packets_received.yfilter != YFilter.not_set or
+                            self.multicast_packets_sent.yfilter != YFilter.not_set or
+                            self.output_buffer_failures.yfilter != YFilter.not_set or
+                            self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                            self.output_drops.yfilter != YFilter.not_set or
+                            self.output_errors.yfilter != YFilter.not_set or
+                            self.output_queue_drops.yfilter != YFilter.not_set or
+                            self.output_underruns.yfilter != YFilter.not_set or
+                            self.packets_received.yfilter != YFilter.not_set or
+                            self.packets_sent.yfilter != YFilter.not_set or
+                            self.parity_packets_received.yfilter != YFilter.not_set or
+                            self.resets.yfilter != YFilter.not_set or
+                            self.runt_packets_received.yfilter != YFilter.not_set or
+                            self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                            self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                            self.throttled_packets_received.yfilter != YFilter.not_set or
+                            self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "generic-counters" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.applique.get_name_leafdata())
+                        if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                        if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                        if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                        if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                        if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                        if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                        if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                        if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_drops.get_name_leafdata())
+                        if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_errors.get_name_leafdata())
+                        if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                        if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                        if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                        if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                        if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                        if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                        if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                        if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                        if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                        if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_drops.get_name_leafdata())
+                        if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_errors.get_name_leafdata())
+                        if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                        if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                        if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_received.get_name_leafdata())
+                        if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                        if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                        if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.resets.get_name_leafdata())
+                        if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                        if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                        if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                        if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                        if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                        if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.applique is not None:
-                            return True
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "applique"):
+                            self.applique = value
+                            self.applique.value_namespace = name_space
+                            self.applique.value_namespace_prefix = name_space_prefix
+                        if(value_path == "availability-flag"):
+                            self.availability_flag = value
+                            self.availability_flag.value_namespace = name_space
+                            self.availability_flag.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-received"):
+                            self.broadcast_packets_received = value
+                            self.broadcast_packets_received.value_namespace = name_space
+                            self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "broadcast-packets-sent"):
+                            self.broadcast_packets_sent = value
+                            self.broadcast_packets_sent.value_namespace = name_space
+                            self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "carrier-transitions"):
+                            self.carrier_transitions = value
+                            self.carrier_transitions.value_namespace = name_space
+                            self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                        if(value_path == "crc-errors"):
+                            self.crc_errors = value
+                            self.crc_errors.value_namespace = name_space
+                            self.crc_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "framing-errors-received"):
+                            self.framing_errors_received = value
+                            self.framing_errors_received.value_namespace = name_space
+                            self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "giant-packets-received"):
+                            self.giant_packets_received = value
+                            self.giant_packets_received.value_namespace = name_space
+                            self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-aborts"):
+                            self.input_aborts = value
+                            self.input_aborts.value_namespace = name_space
+                            self.input_aborts.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-drops"):
+                            self.input_drops = value
+                            self.input_drops.value_namespace = name_space
+                            self.input_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-errors"):
+                            self.input_errors = value
+                            self.input_errors.value_namespace = name_space
+                            self.input_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-ignored-packets"):
+                            self.input_ignored_packets = value
+                            self.input_ignored_packets.value_namespace = name_space
+                            self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-overruns"):
+                            self.input_overruns = value
+                            self.input_overruns.value_namespace = name_space
+                            self.input_overruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-queue-drops"):
+                            self.input_queue_drops = value
+                            self.input_queue_drops.value_namespace = name_space
+                            self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-data-time"):
+                            self.last_data_time = value
+                            self.last_data_time.value_namespace = name_space
+                            self.last_data_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-discontinuity-time"):
+                            self.last_discontinuity_time = value
+                            self.last_discontinuity_time.value_namespace = name_space
+                            self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-received"):
+                            self.multicast_packets_received = value
+                            self.multicast_packets_received.value_namespace = name_space
+                            self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "multicast-packets-sent"):
+                            self.multicast_packets_sent = value
+                            self.multicast_packets_sent.value_namespace = name_space
+                            self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffer-failures"):
+                            self.output_buffer_failures = value
+                            self.output_buffer_failures.value_namespace = name_space
+                            self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-buffers-swapped-out"):
+                            self.output_buffers_swapped_out = value
+                            self.output_buffers_swapped_out.value_namespace = name_space
+                            self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-drops"):
+                            self.output_drops = value
+                            self.output_drops.value_namespace = name_space
+                            self.output_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-errors"):
+                            self.output_errors = value
+                            self.output_errors.value_namespace = name_space
+                            self.output_errors.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-queue-drops"):
+                            self.output_queue_drops = value
+                            self.output_queue_drops.value_namespace = name_space
+                            self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-underruns"):
+                            self.output_underruns = value
+                            self.output_underruns.value_namespace = name_space
+                            self.output_underruns.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-received"):
+                            self.packets_received = value
+                            self.packets_received.value_namespace = name_space
+                            self.packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-sent"):
+                            self.packets_sent = value
+                            self.packets_sent.value_namespace = name_space
+                            self.packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "parity-packets-received"):
+                            self.parity_packets_received = value
+                            self.parity_packets_received.value_namespace = name_space
+                            self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "resets"):
+                            self.resets = value
+                            self.resets.value_namespace = name_space
+                            self.resets.value_namespace_prefix = name_space_prefix
+                        if(value_path == "runt-packets-received"):
+                            self.runt_packets_received = value
+                            self.runt_packets_received.value_namespace = name_space
+                            self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-last-clear-counters"):
+                            self.seconds_since_last_clear_counters = value
+                            self.seconds_since_last_clear_counters.value_namespace = name_space
+                            self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-received"):
+                            self.seconds_since_packet_received = value
+                            self.seconds_since_packet_received.value_namespace = name_space
+                            self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "seconds-since-packet-sent"):
+                            self.seconds_since_packet_sent = value
+                            self.seconds_since_packet_sent.value_namespace = name_space
+                            self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "throttled-packets-received"):
+                            self.throttled_packets_received = value
+                            self.throttled_packets_received.value_namespace = name_space
+                            self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "unknown-protocol-packets-received"):
+                            self.unknown_protocol_packets_received = value
+                            self.unknown_protocol_packets_received.value_namespace = name_space
+                            self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                        if self.availability_flag is not None:
-                            return True
+                def has_data(self):
+                    return (
+                        (self.data_rate is not None and self.data_rate.has_data()) or
+                        (self.generic_counters is not None and self.generic_counters.has_data()) or
+                        (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_data()) or
+                        (self.protocols is not None and self.protocols.has_data()))
 
-                        if self.broadcast_packets_received is not None:
-                            return True
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        (self.data_rate is not None and self.data_rate.has_operation()) or
+                        (self.generic_counters is not None and self.generic_counters.has_operation()) or
+                        (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_operation()) or
+                        (self.protocols is not None and self.protocols.has_operation()))
 
-                        if self.broadcast_packets_sent is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "total" + path_buffer
 
-                        if self.bytes_received is not None:
-                            return True
+                    return path_buffer
 
-                        if self.bytes_sent is not None:
-                            return True
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                        if self.carrier_transitions is not None:
-                            return True
+                    leaf_name_data = LeafDataList()
 
-                        if self.crc_errors is not None:
-                            return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                        if self.framing_errors_received is not None:
-                            return True
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-                        if self.giant_packets_received is not None:
-                            return True
+                    if (child_yang_name == "data-rate"):
+                        if (self.data_rate is None):
+                            self.data_rate = InfraStatistics.Interfaces.Interface.Total.DataRate()
+                            self.data_rate.parent = self
+                            self._children_name_map["data_rate"] = "data-rate"
+                        return self.data_rate
 
-                        if self.input_aborts is not None:
-                            return True
+                    if (child_yang_name == "generic-counters"):
+                        if (self.generic_counters is None):
+                            self.generic_counters = InfraStatistics.Interfaces.Interface.Total.GenericCounters()
+                            self.generic_counters.parent = self
+                            self._children_name_map["generic_counters"] = "generic-counters"
+                        return self.generic_counters
 
-                        if self.input_drops is not None:
-                            return True
+                    if (child_yang_name == "interfaces-mib-counters"):
+                        if (self.interfaces_mib_counters is None):
+                            self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters()
+                            self.interfaces_mib_counters.parent = self
+                            self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                        return self.interfaces_mib_counters
 
-                        if self.input_errors is not None:
-                            return True
+                    if (child_yang_name == "protocols"):
+                        if (self.protocols is None):
+                            self.protocols = InfraStatistics.Interfaces.Interface.Total.Protocols()
+                            self.protocols.parent = self
+                            self._children_name_map["protocols"] = "protocols"
+                        return self.protocols
 
-                        if self.input_ignored_packets is not None:
-                            return True
+                    return None
 
-                        if self.input_overruns is not None:
-                            return True
-
-                        if self.input_queue_drops is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.last_discontinuity_time is not None:
-                            return True
-
-                        if self.multicast_packets_received is not None:
-                            return True
-
-                        if self.multicast_packets_sent is not None:
-                            return True
-
-                        if self.output_buffer_failures is not None:
-                            return True
-
-                        if self.output_buffers_swapped_out is not None:
-                            return True
-
-                        if self.output_drops is not None:
-                            return True
-
-                        if self.output_errors is not None:
-                            return True
-
-                        if self.output_queue_drops is not None:
-                            return True
-
-                        if self.output_underruns is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.parity_packets_received is not None:
-                            return True
-
-                        if self.resets is not None:
-                            return True
-
-                        if self.runt_packets_received is not None:
-                            return True
-
-                        if self.seconds_since_last_clear_counters is not None:
-                            return True
-
-                        if self.seconds_since_packet_received is not None:
-                            return True
-
-                        if self.seconds_since_packet_sent is not None:
-                            return True
-
-                        if self.throttled_packets_received is not None:
-                            return True
-
-                        if self.unknown_protocol_packets_received is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Total.GenericCounters']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:total'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "data-rate" or name == "generic-counters" or name == "interfaces-mib-counters" or name == "protocols"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.data_rate is not None and self.data_rate._has_data():
-                        return True
-
-                    if self.generic_counters is not None and self.generic_counters._has_data():
-                        return True
-
-                    if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                        return True
-
-                    if self.protocols is not None and self.protocols._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Total']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class Protocols(object):
+            class Protocols(Entity):
                 """
                 List of protocols
                 
@@ -4262,13 +7258,39 @@ class InfraStatistics(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.protocol = YList()
-                    self.protocol.parent = self
-                    self.protocol.name = 'protocol'
+                    super(InfraStatistics.Interfaces.Interface.Protocols, self).__init__()
+
+                    self.yang_name = "protocols"
+                    self.yang_parent_name = "interface"
+
+                    self.protocol = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(InfraStatistics.Interfaces.Interface.Protocols, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(InfraStatistics.Interfaces.Interface.Protocols, self).__setattr__(name, value)
 
 
-                class Protocol(object):
+                class Protocol(Entity):
                     """
                     Interface counters per protocol
                     
@@ -4371,99 +7393,253 @@ class InfraStatistics(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.protocol_name = None
-                        self.bytes_received = None
-                        self.bytes_sent = None
-                        self.input_data_rate = None
-                        self.input_packet_rate = None
-                        self.last_data_time = None
-                        self.output_data_rate = None
-                        self.output_packet_rate = None
-                        self.packets_received = None
-                        self.packets_sent = None
-                        self.protocol = None
+                        super(InfraStatistics.Interfaces.Interface.Protocols.Protocol, self).__init__()
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.protocol_name is None:
-                            raise YPYModelError('Key property protocol_name is None')
+                        self.yang_name = "protocol"
+                        self.yang_parent_name = "protocols"
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocol[Cisco-IOS-XR-infra-statsd-oper:protocol-name = ' + str(self.protocol_name) + ']'
+                        self.protocol_name = YLeaf(YType.str, "protocol-name")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                        self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                        self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.protocol = YLeaf(YType.uint32, "protocol")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("protocol_name",
+                                        "bytes_received",
+                                        "bytes_sent",
+                                        "input_data_rate",
+                                        "input_packet_rate",
+                                        "last_data_time",
+                                        "output_data_rate",
+                                        "output_packet_rate",
+                                        "packets_received",
+                                        "packets_sent",
+                                        "protocol") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(InfraStatistics.Interfaces.Interface.Protocols.Protocol, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(InfraStatistics.Interfaces.Interface.Protocols.Protocol, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.protocol_name.is_set or
+                            self.bytes_received.is_set or
+                            self.bytes_sent.is_set or
+                            self.input_data_rate.is_set or
+                            self.input_packet_rate.is_set or
+                            self.last_data_time.is_set or
+                            self.output_data_rate.is_set or
+                            self.output_packet_rate.is_set or
+                            self.packets_received.is_set or
+                            self.packets_sent.is_set or
+                            self.protocol.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.protocol_name.yfilter != YFilter.not_set or
+                            self.bytes_received.yfilter != YFilter.not_set or
+                            self.bytes_sent.yfilter != YFilter.not_set or
+                            self.input_data_rate.yfilter != YFilter.not_set or
+                            self.input_packet_rate.yfilter != YFilter.not_set or
+                            self.last_data_time.yfilter != YFilter.not_set or
+                            self.output_data_rate.yfilter != YFilter.not_set or
+                            self.output_packet_rate.yfilter != YFilter.not_set or
+                            self.packets_received.yfilter != YFilter.not_set or
+                            self.packets_sent.yfilter != YFilter.not_set or
+                            self.protocol.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "protocol" + "[protocol-name='" + self.protocol_name.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.protocol_name.is_set or self.protocol_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.protocol_name.get_name_leafdata())
+                        if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                        if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                        if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                        if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                        if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                        if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                        if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                        if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_received.get_name_leafdata())
+                        if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                        if (self.protocol.is_set or self.protocol.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.protocol.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "protocol-name" or name == "bytes-received" or name == "bytes-sent" or name == "input-data-rate" or name == "input-packet-rate" or name == "last-data-time" or name == "output-data-rate" or name == "output-packet-rate" or name == "packets-received" or name == "packets-sent" or name == "protocol"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.protocol_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "protocol-name"):
+                            self.protocol_name = value
+                            self.protocol_name.value_namespace = name_space
+                            self.protocol_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-received"):
+                            self.bytes_received = value
+                            self.bytes_received.value_namespace = name_space
+                            self.bytes_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "bytes-sent"):
+                            self.bytes_sent = value
+                            self.bytes_sent.value_namespace = name_space
+                            self.bytes_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-data-rate"):
+                            self.input_data_rate = value
+                            self.input_data_rate.value_namespace = name_space
+                            self.input_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "input-packet-rate"):
+                            self.input_packet_rate = value
+                            self.input_packet_rate.value_namespace = name_space
+                            self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "last-data-time"):
+                            self.last_data_time = value
+                            self.last_data_time.value_namespace = name_space
+                            self.last_data_time.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-data-rate"):
+                            self.output_data_rate = value
+                            self.output_data_rate.value_namespace = name_space
+                            self.output_data_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "output-packet-rate"):
+                            self.output_packet_rate = value
+                            self.output_packet_rate.value_namespace = name_space
+                            self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-received"):
+                            self.packets_received = value
+                            self.packets_received.value_namespace = name_space
+                            self.packets_received.value_namespace_prefix = name_space_prefix
+                        if(value_path == "packets-sent"):
+                            self.packets_sent = value
+                            self.packets_sent.value_namespace = name_space
+                            self.packets_sent.value_namespace_prefix = name_space_prefix
+                        if(value_path == "protocol"):
+                            self.protocol = value
+                            self.protocol.value_namespace = name_space
+                            self.protocol.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.protocol:
+                        if (c.has_data()):
                             return True
-
-                        if self.bytes_received is not None:
-                            return True
-
-                        if self.bytes_sent is not None:
-                            return True
-
-                        if self.input_data_rate is not None:
-                            return True
-
-                        if self.input_packet_rate is not None:
-                            return True
-
-                        if self.last_data_time is not None:
-                            return True
-
-                        if self.output_data_rate is not None:
-                            return True
-
-                        if self.output_packet_rate is not None:
-                            return True
-
-                        if self.packets_received is not None:
-                            return True
-
-                        if self.packets_sent is not None:
-                            return True
-
-                        if self.protocol is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                        return meta._meta_table['InfraStatistics.Interfaces.Interface.Protocols.Protocol']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:protocols'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
                     return False
 
-                def _has_data(self):
-                    if self.protocol is not None:
-                        for child_ref in self.protocol:
-                            if child_ref._has_data():
-                                return True
+                def has_operation(self):
+                    for c in self.protocol:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "protocols" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "protocol"):
+                        for c in self.protocol:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = InfraStatistics.Interfaces.Interface.Protocols.Protocol()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.protocol.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "protocol"):
+                        return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.Protocols']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
 
 
-            class InterfacesMibCounters(object):
+            class InterfacesMibCounters(Entity):
                 """
                 Set of interface counters as displayed by the
                 InterfacesMIB
@@ -4742,173 +7918,471 @@ class InfraStatistics(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.applique = None
-                    self.availability_flag = None
-                    self.broadcast_packets_received = None
-                    self.broadcast_packets_sent = None
-                    self.bytes_received = None
-                    self.bytes_sent = None
-                    self.carrier_transitions = None
-                    self.crc_errors = None
-                    self.framing_errors_received = None
-                    self.giant_packets_received = None
-                    self.input_aborts = None
-                    self.input_drops = None
-                    self.input_errors = None
-                    self.input_ignored_packets = None
-                    self.input_overruns = None
-                    self.input_queue_drops = None
-                    self.last_data_time = None
-                    self.last_discontinuity_time = None
-                    self.multicast_packets_received = None
-                    self.multicast_packets_sent = None
-                    self.output_buffer_failures = None
-                    self.output_buffers_swapped_out = None
-                    self.output_drops = None
-                    self.output_errors = None
-                    self.output_queue_drops = None
-                    self.output_underruns = None
-                    self.packets_received = None
-                    self.packets_sent = None
-                    self.parity_packets_received = None
-                    self.resets = None
-                    self.runt_packets_received = None
-                    self.seconds_since_last_clear_counters = None
-                    self.seconds_since_packet_received = None
-                    self.seconds_since_packet_sent = None
-                    self.throttled_packets_received = None
-                    self.unknown_protocol_packets_received = None
+                    super(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "interfaces-mib-counters"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:interfaces-mib-counters'
+                    self.applique = YLeaf(YType.uint32, "applique")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                    self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                    self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                    self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                    self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                    self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                    self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                    self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                    self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                    self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                    self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                    self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                    self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                    self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                    self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                    self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                    self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                    self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                    self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                    self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                    self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                    self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                    self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                    self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                    self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                    self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                    self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                    self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                    self.resets = YLeaf(YType.uint32, "resets")
+
+                    self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                    self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                    self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                    self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                    self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                    self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("applique",
+                                    "availability_flag",
+                                    "broadcast_packets_received",
+                                    "broadcast_packets_sent",
+                                    "bytes_received",
+                                    "bytes_sent",
+                                    "carrier_transitions",
+                                    "crc_errors",
+                                    "framing_errors_received",
+                                    "giant_packets_received",
+                                    "input_aborts",
+                                    "input_drops",
+                                    "input_errors",
+                                    "input_ignored_packets",
+                                    "input_overruns",
+                                    "input_queue_drops",
+                                    "last_data_time",
+                                    "last_discontinuity_time",
+                                    "multicast_packets_received",
+                                    "multicast_packets_sent",
+                                    "output_buffer_failures",
+                                    "output_buffers_swapped_out",
+                                    "output_drops",
+                                    "output_errors",
+                                    "output_queue_drops",
+                                    "output_underruns",
+                                    "packets_received",
+                                    "packets_sent",
+                                    "parity_packets_received",
+                                    "resets",
+                                    "runt_packets_received",
+                                    "seconds_since_last_clear_counters",
+                                    "seconds_since_packet_received",
+                                    "seconds_since_packet_sent",
+                                    "throttled_packets_received",
+                                    "unknown_protocol_packets_received") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.applique.is_set or
+                        self.availability_flag.is_set or
+                        self.broadcast_packets_received.is_set or
+                        self.broadcast_packets_sent.is_set or
+                        self.bytes_received.is_set or
+                        self.bytes_sent.is_set or
+                        self.carrier_transitions.is_set or
+                        self.crc_errors.is_set or
+                        self.framing_errors_received.is_set or
+                        self.giant_packets_received.is_set or
+                        self.input_aborts.is_set or
+                        self.input_drops.is_set or
+                        self.input_errors.is_set or
+                        self.input_ignored_packets.is_set or
+                        self.input_overruns.is_set or
+                        self.input_queue_drops.is_set or
+                        self.last_data_time.is_set or
+                        self.last_discontinuity_time.is_set or
+                        self.multicast_packets_received.is_set or
+                        self.multicast_packets_sent.is_set or
+                        self.output_buffer_failures.is_set or
+                        self.output_buffers_swapped_out.is_set or
+                        self.output_drops.is_set or
+                        self.output_errors.is_set or
+                        self.output_queue_drops.is_set or
+                        self.output_underruns.is_set or
+                        self.packets_received.is_set or
+                        self.packets_sent.is_set or
+                        self.parity_packets_received.is_set or
+                        self.resets.is_set or
+                        self.runt_packets_received.is_set or
+                        self.seconds_since_last_clear_counters.is_set or
+                        self.seconds_since_packet_received.is_set or
+                        self.seconds_since_packet_sent.is_set or
+                        self.throttled_packets_received.is_set or
+                        self.unknown_protocol_packets_received.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.applique.yfilter != YFilter.not_set or
+                        self.availability_flag.yfilter != YFilter.not_set or
+                        self.broadcast_packets_received.yfilter != YFilter.not_set or
+                        self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                        self.bytes_received.yfilter != YFilter.not_set or
+                        self.bytes_sent.yfilter != YFilter.not_set or
+                        self.carrier_transitions.yfilter != YFilter.not_set or
+                        self.crc_errors.yfilter != YFilter.not_set or
+                        self.framing_errors_received.yfilter != YFilter.not_set or
+                        self.giant_packets_received.yfilter != YFilter.not_set or
+                        self.input_aborts.yfilter != YFilter.not_set or
+                        self.input_drops.yfilter != YFilter.not_set or
+                        self.input_errors.yfilter != YFilter.not_set or
+                        self.input_ignored_packets.yfilter != YFilter.not_set or
+                        self.input_overruns.yfilter != YFilter.not_set or
+                        self.input_queue_drops.yfilter != YFilter.not_set or
+                        self.last_data_time.yfilter != YFilter.not_set or
+                        self.last_discontinuity_time.yfilter != YFilter.not_set or
+                        self.multicast_packets_received.yfilter != YFilter.not_set or
+                        self.multicast_packets_sent.yfilter != YFilter.not_set or
+                        self.output_buffer_failures.yfilter != YFilter.not_set or
+                        self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                        self.output_drops.yfilter != YFilter.not_set or
+                        self.output_errors.yfilter != YFilter.not_set or
+                        self.output_queue_drops.yfilter != YFilter.not_set or
+                        self.output_underruns.yfilter != YFilter.not_set or
+                        self.packets_received.yfilter != YFilter.not_set or
+                        self.packets_sent.yfilter != YFilter.not_set or
+                        self.parity_packets_received.yfilter != YFilter.not_set or
+                        self.resets.yfilter != YFilter.not_set or
+                        self.runt_packets_received.yfilter != YFilter.not_set or
+                        self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                        self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                        self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                        self.throttled_packets_received.yfilter != YFilter.not_set or
+                        self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "interfaces-mib-counters" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.applique.get_name_leafdata())
+                    if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                    if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                    if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                    if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                    if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                    if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                    if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                    if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                    if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                    if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                    if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_drops.get_name_leafdata())
+                    if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_errors.get_name_leafdata())
+                    if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                    if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                    if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                    if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                    if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                    if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                    if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                    if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                    if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                    if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_drops.get_name_leafdata())
+                    if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_errors.get_name_leafdata())
+                    if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                    if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                    if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.packets_received.get_name_leafdata())
+                    if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                    if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                    if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.resets.get_name_leafdata())
+                    if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                    if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                    if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                    if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                    if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                    if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.applique is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "applique"):
+                        self.applique = value
+                        self.applique.value_namespace = name_space
+                        self.applique.value_namespace_prefix = name_space_prefix
+                    if(value_path == "availability-flag"):
+                        self.availability_flag = value
+                        self.availability_flag.value_namespace = name_space
+                        self.availability_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "broadcast-packets-received"):
+                        self.broadcast_packets_received = value
+                        self.broadcast_packets_received.value_namespace = name_space
+                        self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "broadcast-packets-sent"):
+                        self.broadcast_packets_sent = value
+                        self.broadcast_packets_sent.value_namespace = name_space
+                        self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bytes-received"):
+                        self.bytes_received = value
+                        self.bytes_received.value_namespace = name_space
+                        self.bytes_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bytes-sent"):
+                        self.bytes_sent = value
+                        self.bytes_sent.value_namespace = name_space
+                        self.bytes_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "carrier-transitions"):
+                        self.carrier_transitions = value
+                        self.carrier_transitions.value_namespace = name_space
+                        self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "crc-errors"):
+                        self.crc_errors = value
+                        self.crc_errors.value_namespace = name_space
+                        self.crc_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "framing-errors-received"):
+                        self.framing_errors_received = value
+                        self.framing_errors_received.value_namespace = name_space
+                        self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "giant-packets-received"):
+                        self.giant_packets_received = value
+                        self.giant_packets_received.value_namespace = name_space
+                        self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-aborts"):
+                        self.input_aborts = value
+                        self.input_aborts.value_namespace = name_space
+                        self.input_aborts.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-drops"):
+                        self.input_drops = value
+                        self.input_drops.value_namespace = name_space
+                        self.input_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-errors"):
+                        self.input_errors = value
+                        self.input_errors.value_namespace = name_space
+                        self.input_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-ignored-packets"):
+                        self.input_ignored_packets = value
+                        self.input_ignored_packets.value_namespace = name_space
+                        self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-overruns"):
+                        self.input_overruns = value
+                        self.input_overruns.value_namespace = name_space
+                        self.input_overruns.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-queue-drops"):
+                        self.input_queue_drops = value
+                        self.input_queue_drops.value_namespace = name_space
+                        self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "last-data-time"):
+                        self.last_data_time = value
+                        self.last_data_time.value_namespace = name_space
+                        self.last_data_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "last-discontinuity-time"):
+                        self.last_discontinuity_time = value
+                        self.last_discontinuity_time.value_namespace = name_space
+                        self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "multicast-packets-received"):
+                        self.multicast_packets_received = value
+                        self.multicast_packets_received.value_namespace = name_space
+                        self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "multicast-packets-sent"):
+                        self.multicast_packets_sent = value
+                        self.multicast_packets_sent.value_namespace = name_space
+                        self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-buffer-failures"):
+                        self.output_buffer_failures = value
+                        self.output_buffer_failures.value_namespace = name_space
+                        self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-buffers-swapped-out"):
+                        self.output_buffers_swapped_out = value
+                        self.output_buffers_swapped_out.value_namespace = name_space
+                        self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-drops"):
+                        self.output_drops = value
+                        self.output_drops.value_namespace = name_space
+                        self.output_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-errors"):
+                        self.output_errors = value
+                        self.output_errors.value_namespace = name_space
+                        self.output_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-queue-drops"):
+                        self.output_queue_drops = value
+                        self.output_queue_drops.value_namespace = name_space
+                        self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-underruns"):
+                        self.output_underruns = value
+                        self.output_underruns.value_namespace = name_space
+                        self.output_underruns.value_namespace_prefix = name_space_prefix
+                    if(value_path == "packets-received"):
+                        self.packets_received = value
+                        self.packets_received.value_namespace = name_space
+                        self.packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "packets-sent"):
+                        self.packets_sent = value
+                        self.packets_sent.value_namespace = name_space
+                        self.packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "parity-packets-received"):
+                        self.parity_packets_received = value
+                        self.parity_packets_received.value_namespace = name_space
+                        self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "resets"):
+                        self.resets = value
+                        self.resets.value_namespace = name_space
+                        self.resets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "runt-packets-received"):
+                        self.runt_packets_received = value
+                        self.runt_packets_received.value_namespace = name_space
+                        self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds-since-last-clear-counters"):
+                        self.seconds_since_last_clear_counters = value
+                        self.seconds_since_last_clear_counters.value_namespace = name_space
+                        self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds-since-packet-received"):
+                        self.seconds_since_packet_received = value
+                        self.seconds_since_packet_received.value_namespace = name_space
+                        self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds-since-packet-sent"):
+                        self.seconds_since_packet_sent = value
+                        self.seconds_since_packet_sent.value_namespace = name_space
+                        self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "throttled-packets-received"):
+                        self.throttled_packets_received = value
+                        self.throttled_packets_received.value_namespace = name_space
+                        self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unknown-protocol-packets-received"):
+                        self.unknown_protocol_packets_received = value
+                        self.unknown_protocol_packets_received.value_namespace = name_space
+                        self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                    if self.availability_flag is not None:
-                        return True
 
-                    if self.broadcast_packets_received is not None:
-                        return True
-
-                    if self.broadcast_packets_sent is not None:
-                        return True
-
-                    if self.bytes_received is not None:
-                        return True
-
-                    if self.bytes_sent is not None:
-                        return True
-
-                    if self.carrier_transitions is not None:
-                        return True
-
-                    if self.crc_errors is not None:
-                        return True
-
-                    if self.framing_errors_received is not None:
-                        return True
-
-                    if self.giant_packets_received is not None:
-                        return True
-
-                    if self.input_aborts is not None:
-                        return True
-
-                    if self.input_drops is not None:
-                        return True
-
-                    if self.input_errors is not None:
-                        return True
-
-                    if self.input_ignored_packets is not None:
-                        return True
-
-                    if self.input_overruns is not None:
-                        return True
-
-                    if self.input_queue_drops is not None:
-                        return True
-
-                    if self.last_data_time is not None:
-                        return True
-
-                    if self.last_discontinuity_time is not None:
-                        return True
-
-                    if self.multicast_packets_received is not None:
-                        return True
-
-                    if self.multicast_packets_sent is not None:
-                        return True
-
-                    if self.output_buffer_failures is not None:
-                        return True
-
-                    if self.output_buffers_swapped_out is not None:
-                        return True
-
-                    if self.output_drops is not None:
-                        return True
-
-                    if self.output_errors is not None:
-                        return True
-
-                    if self.output_queue_drops is not None:
-                        return True
-
-                    if self.output_underruns is not None:
-                        return True
-
-                    if self.packets_received is not None:
-                        return True
-
-                    if self.packets_sent is not None:
-                        return True
-
-                    if self.parity_packets_received is not None:
-                        return True
-
-                    if self.resets is not None:
-                        return True
-
-                    if self.runt_packets_received is not None:
-                        return True
-
-                    if self.seconds_since_last_clear_counters is not None:
-                        return True
-
-                    if self.seconds_since_packet_received is not None:
-                        return True
-
-                    if self.seconds_since_packet_sent is not None:
-                        return True
-
-                    if self.throttled_packets_received is not None:
-                        return True
-
-                    if self.unknown_protocol_packets_received is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.InterfacesMibCounters']['meta_info']
-
-
-            class DataRate(object):
+            class DataRate(Entity):
                 """
                 Datarate information
                 
@@ -5021,81 +8495,218 @@ class InfraStatistics(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.bandwidth = None
-                    self.input_data_rate = None
-                    self.input_load = None
-                    self.input_packet_rate = None
-                    self.load_interval = None
-                    self.output_data_rate = None
-                    self.output_load = None
-                    self.output_packet_rate = None
-                    self.peak_input_data_rate = None
-                    self.peak_input_packet_rate = None
-                    self.peak_output_data_rate = None
-                    self.peak_output_packet_rate = None
-                    self.reliability = None
+                    super(InfraStatistics.Interfaces.Interface.DataRate, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "data-rate"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:data-rate'
+                    self.bandwidth = YLeaf(YType.uint32, "bandwidth")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
+
+                    self.input_load = YLeaf(YType.uint8, "input-load")
+
+                    self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                    self.load_interval = YLeaf(YType.uint32, "load-interval")
+
+                    self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                    self.output_load = YLeaf(YType.uint8, "output-load")
+
+                    self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                    self.peak_input_data_rate = YLeaf(YType.uint64, "peak-input-data-rate")
+
+                    self.peak_input_packet_rate = YLeaf(YType.uint64, "peak-input-packet-rate")
+
+                    self.peak_output_data_rate = YLeaf(YType.uint64, "peak-output-data-rate")
+
+                    self.peak_output_packet_rate = YLeaf(YType.uint64, "peak-output-packet-rate")
+
+                    self.reliability = YLeaf(YType.uint8, "reliability")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("bandwidth",
+                                    "input_data_rate",
+                                    "input_load",
+                                    "input_packet_rate",
+                                    "load_interval",
+                                    "output_data_rate",
+                                    "output_load",
+                                    "output_packet_rate",
+                                    "peak_input_data_rate",
+                                    "peak_input_packet_rate",
+                                    "peak_output_data_rate",
+                                    "peak_output_packet_rate",
+                                    "reliability") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(InfraStatistics.Interfaces.Interface.DataRate, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(InfraStatistics.Interfaces.Interface.DataRate, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.bandwidth.is_set or
+                        self.input_data_rate.is_set or
+                        self.input_load.is_set or
+                        self.input_packet_rate.is_set or
+                        self.load_interval.is_set or
+                        self.output_data_rate.is_set or
+                        self.output_load.is_set or
+                        self.output_packet_rate.is_set or
+                        self.peak_input_data_rate.is_set or
+                        self.peak_input_packet_rate.is_set or
+                        self.peak_output_data_rate.is_set or
+                        self.peak_output_packet_rate.is_set or
+                        self.reliability.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.bandwidth.yfilter != YFilter.not_set or
+                        self.input_data_rate.yfilter != YFilter.not_set or
+                        self.input_load.yfilter != YFilter.not_set or
+                        self.input_packet_rate.yfilter != YFilter.not_set or
+                        self.load_interval.yfilter != YFilter.not_set or
+                        self.output_data_rate.yfilter != YFilter.not_set or
+                        self.output_load.yfilter != YFilter.not_set or
+                        self.output_packet_rate.yfilter != YFilter.not_set or
+                        self.peak_input_data_rate.yfilter != YFilter.not_set or
+                        self.peak_input_packet_rate.yfilter != YFilter.not_set or
+                        self.peak_output_data_rate.yfilter != YFilter.not_set or
+                        self.peak_output_packet_rate.yfilter != YFilter.not_set or
+                        self.reliability.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "data-rate" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.bandwidth.is_set or self.bandwidth.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bandwidth.get_name_leafdata())
+                    if (self.input_data_rate.is_set or self.input_data_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_data_rate.get_name_leafdata())
+                    if (self.input_load.is_set or self.input_load.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_load.get_name_leafdata())
+                    if (self.input_packet_rate.is_set or self.input_packet_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_packet_rate.get_name_leafdata())
+                    if (self.load_interval.is_set or self.load_interval.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.load_interval.get_name_leafdata())
+                    if (self.output_data_rate.is_set or self.output_data_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_data_rate.get_name_leafdata())
+                    if (self.output_load.is_set or self.output_load.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_load.get_name_leafdata())
+                    if (self.output_packet_rate.is_set or self.output_packet_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_packet_rate.get_name_leafdata())
+                    if (self.peak_input_data_rate.is_set or self.peak_input_data_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.peak_input_data_rate.get_name_leafdata())
+                    if (self.peak_input_packet_rate.is_set or self.peak_input_packet_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.peak_input_packet_rate.get_name_leafdata())
+                    if (self.peak_output_data_rate.is_set or self.peak_output_data_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.peak_output_data_rate.get_name_leafdata())
+                    if (self.peak_output_packet_rate.is_set or self.peak_output_packet_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.peak_output_packet_rate.get_name_leafdata())
+                    if (self.reliability.is_set or self.reliability.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.reliability.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "bandwidth" or name == "input-data-rate" or name == "input-load" or name == "input-packet-rate" or name == "load-interval" or name == "output-data-rate" or name == "output-load" or name == "output-packet-rate" or name == "peak-input-data-rate" or name == "peak-input-packet-rate" or name == "peak-output-data-rate" or name == "peak-output-packet-rate" or name == "reliability"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.bandwidth is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "bandwidth"):
+                        self.bandwidth = value
+                        self.bandwidth.value_namespace = name_space
+                        self.bandwidth.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-data-rate"):
+                        self.input_data_rate = value
+                        self.input_data_rate.value_namespace = name_space
+                        self.input_data_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-load"):
+                        self.input_load = value
+                        self.input_load.value_namespace = name_space
+                        self.input_load.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-packet-rate"):
+                        self.input_packet_rate = value
+                        self.input_packet_rate.value_namespace = name_space
+                        self.input_packet_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "load-interval"):
+                        self.load_interval = value
+                        self.load_interval.value_namespace = name_space
+                        self.load_interval.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-data-rate"):
+                        self.output_data_rate = value
+                        self.output_data_rate.value_namespace = name_space
+                        self.output_data_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-load"):
+                        self.output_load = value
+                        self.output_load.value_namespace = name_space
+                        self.output_load.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-packet-rate"):
+                        self.output_packet_rate = value
+                        self.output_packet_rate.value_namespace = name_space
+                        self.output_packet_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "peak-input-data-rate"):
+                        self.peak_input_data_rate = value
+                        self.peak_input_data_rate.value_namespace = name_space
+                        self.peak_input_data_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "peak-input-packet-rate"):
+                        self.peak_input_packet_rate = value
+                        self.peak_input_packet_rate.value_namespace = name_space
+                        self.peak_input_packet_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "peak-output-data-rate"):
+                        self.peak_output_data_rate = value
+                        self.peak_output_data_rate.value_namespace = name_space
+                        self.peak_output_data_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "peak-output-packet-rate"):
+                        self.peak_output_packet_rate = value
+                        self.peak_output_packet_rate.value_namespace = name_space
+                        self.peak_output_packet_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "reliability"):
+                        self.reliability = value
+                        self.reliability.value_namespace = name_space
+                        self.reliability.value_namespace_prefix = name_space_prefix
 
-                    if self.input_data_rate is not None:
-                        return True
 
-                    if self.input_load is not None:
-                        return True
-
-                    if self.input_packet_rate is not None:
-                        return True
-
-                    if self.load_interval is not None:
-                        return True
-
-                    if self.output_data_rate is not None:
-                        return True
-
-                    if self.output_load is not None:
-                        return True
-
-                    if self.output_packet_rate is not None:
-                        return True
-
-                    if self.peak_input_data_rate is not None:
-                        return True
-
-                    if self.peak_input_packet_rate is not None:
-                        return True
-
-                    if self.peak_output_data_rate is not None:
-                        return True
-
-                    if self.peak_output_packet_rate is not None:
-                        return True
-
-                    if self.reliability is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.DataRate']['meta_info']
-
-
-            class GenericCounters(object):
+            class GenericCounters(Entity):
                 """
                 Generic set of interface counters
                 
@@ -5373,254 +8984,684 @@ class InfraStatistics(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.applique = None
-                    self.availability_flag = None
-                    self.broadcast_packets_received = None
-                    self.broadcast_packets_sent = None
-                    self.bytes_received = None
-                    self.bytes_sent = None
-                    self.carrier_transitions = None
-                    self.crc_errors = None
-                    self.framing_errors_received = None
-                    self.giant_packets_received = None
-                    self.input_aborts = None
-                    self.input_drops = None
-                    self.input_errors = None
-                    self.input_ignored_packets = None
-                    self.input_overruns = None
-                    self.input_queue_drops = None
-                    self.last_data_time = None
-                    self.last_discontinuity_time = None
-                    self.multicast_packets_received = None
-                    self.multicast_packets_sent = None
-                    self.output_buffer_failures = None
-                    self.output_buffers_swapped_out = None
-                    self.output_drops = None
-                    self.output_errors = None
-                    self.output_queue_drops = None
-                    self.output_underruns = None
-                    self.packets_received = None
-                    self.packets_sent = None
-                    self.parity_packets_received = None
-                    self.resets = None
-                    self.runt_packets_received = None
-                    self.seconds_since_last_clear_counters = None
-                    self.seconds_since_packet_received = None
-                    self.seconds_since_packet_sent = None
-                    self.throttled_packets_received = None
-                    self.unknown_protocol_packets_received = None
+                    super(InfraStatistics.Interfaces.Interface.GenericCounters, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "generic-counters"
+                    self.yang_parent_name = "interface"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-statsd-oper:generic-counters'
+                    self.applique = YLeaf(YType.uint32, "applique")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                    self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                    self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                    self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                    self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                    self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                    self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                    self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                    self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                    self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                    self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                    self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                    self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                    self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                    self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                    self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                    self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                    self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                    self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                    self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                    self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                    self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                    self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                    self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                    self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                    self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                    self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                    self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                    self.resets = YLeaf(YType.uint32, "resets")
+
+                    self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                    self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                    self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                    self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+
+                    self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                    self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("applique",
+                                    "availability_flag",
+                                    "broadcast_packets_received",
+                                    "broadcast_packets_sent",
+                                    "bytes_received",
+                                    "bytes_sent",
+                                    "carrier_transitions",
+                                    "crc_errors",
+                                    "framing_errors_received",
+                                    "giant_packets_received",
+                                    "input_aborts",
+                                    "input_drops",
+                                    "input_errors",
+                                    "input_ignored_packets",
+                                    "input_overruns",
+                                    "input_queue_drops",
+                                    "last_data_time",
+                                    "last_discontinuity_time",
+                                    "multicast_packets_received",
+                                    "multicast_packets_sent",
+                                    "output_buffer_failures",
+                                    "output_buffers_swapped_out",
+                                    "output_drops",
+                                    "output_errors",
+                                    "output_queue_drops",
+                                    "output_underruns",
+                                    "packets_received",
+                                    "packets_sent",
+                                    "parity_packets_received",
+                                    "resets",
+                                    "runt_packets_received",
+                                    "seconds_since_last_clear_counters",
+                                    "seconds_since_packet_received",
+                                    "seconds_since_packet_sent",
+                                    "throttled_packets_received",
+                                    "unknown_protocol_packets_received") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(InfraStatistics.Interfaces.Interface.GenericCounters, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(InfraStatistics.Interfaces.Interface.GenericCounters, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.applique.is_set or
+                        self.availability_flag.is_set or
+                        self.broadcast_packets_received.is_set or
+                        self.broadcast_packets_sent.is_set or
+                        self.bytes_received.is_set or
+                        self.bytes_sent.is_set or
+                        self.carrier_transitions.is_set or
+                        self.crc_errors.is_set or
+                        self.framing_errors_received.is_set or
+                        self.giant_packets_received.is_set or
+                        self.input_aborts.is_set or
+                        self.input_drops.is_set or
+                        self.input_errors.is_set or
+                        self.input_ignored_packets.is_set or
+                        self.input_overruns.is_set or
+                        self.input_queue_drops.is_set or
+                        self.last_data_time.is_set or
+                        self.last_discontinuity_time.is_set or
+                        self.multicast_packets_received.is_set or
+                        self.multicast_packets_sent.is_set or
+                        self.output_buffer_failures.is_set or
+                        self.output_buffers_swapped_out.is_set or
+                        self.output_drops.is_set or
+                        self.output_errors.is_set or
+                        self.output_queue_drops.is_set or
+                        self.output_underruns.is_set or
+                        self.packets_received.is_set or
+                        self.packets_sent.is_set or
+                        self.parity_packets_received.is_set or
+                        self.resets.is_set or
+                        self.runt_packets_received.is_set or
+                        self.seconds_since_last_clear_counters.is_set or
+                        self.seconds_since_packet_received.is_set or
+                        self.seconds_since_packet_sent.is_set or
+                        self.throttled_packets_received.is_set or
+                        self.unknown_protocol_packets_received.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.applique.yfilter != YFilter.not_set or
+                        self.availability_flag.yfilter != YFilter.not_set or
+                        self.broadcast_packets_received.yfilter != YFilter.not_set or
+                        self.broadcast_packets_sent.yfilter != YFilter.not_set or
+                        self.bytes_received.yfilter != YFilter.not_set or
+                        self.bytes_sent.yfilter != YFilter.not_set or
+                        self.carrier_transitions.yfilter != YFilter.not_set or
+                        self.crc_errors.yfilter != YFilter.not_set or
+                        self.framing_errors_received.yfilter != YFilter.not_set or
+                        self.giant_packets_received.yfilter != YFilter.not_set or
+                        self.input_aborts.yfilter != YFilter.not_set or
+                        self.input_drops.yfilter != YFilter.not_set or
+                        self.input_errors.yfilter != YFilter.not_set or
+                        self.input_ignored_packets.yfilter != YFilter.not_set or
+                        self.input_overruns.yfilter != YFilter.not_set or
+                        self.input_queue_drops.yfilter != YFilter.not_set or
+                        self.last_data_time.yfilter != YFilter.not_set or
+                        self.last_discontinuity_time.yfilter != YFilter.not_set or
+                        self.multicast_packets_received.yfilter != YFilter.not_set or
+                        self.multicast_packets_sent.yfilter != YFilter.not_set or
+                        self.output_buffer_failures.yfilter != YFilter.not_set or
+                        self.output_buffers_swapped_out.yfilter != YFilter.not_set or
+                        self.output_drops.yfilter != YFilter.not_set or
+                        self.output_errors.yfilter != YFilter.not_set or
+                        self.output_queue_drops.yfilter != YFilter.not_set or
+                        self.output_underruns.yfilter != YFilter.not_set or
+                        self.packets_received.yfilter != YFilter.not_set or
+                        self.packets_sent.yfilter != YFilter.not_set or
+                        self.parity_packets_received.yfilter != YFilter.not_set or
+                        self.resets.yfilter != YFilter.not_set or
+                        self.runt_packets_received.yfilter != YFilter.not_set or
+                        self.seconds_since_last_clear_counters.yfilter != YFilter.not_set or
+                        self.seconds_since_packet_received.yfilter != YFilter.not_set or
+                        self.seconds_since_packet_sent.yfilter != YFilter.not_set or
+                        self.throttled_packets_received.yfilter != YFilter.not_set or
+                        self.unknown_protocol_packets_received.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "generic-counters" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.applique.is_set or self.applique.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.applique.get_name_leafdata())
+                    if (self.availability_flag.is_set or self.availability_flag.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.availability_flag.get_name_leafdata())
+                    if (self.broadcast_packets_received.is_set or self.broadcast_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.broadcast_packets_received.get_name_leafdata())
+                    if (self.broadcast_packets_sent.is_set or self.broadcast_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.broadcast_packets_sent.get_name_leafdata())
+                    if (self.bytes_received.is_set or self.bytes_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bytes_received.get_name_leafdata())
+                    if (self.bytes_sent.is_set or self.bytes_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.bytes_sent.get_name_leafdata())
+                    if (self.carrier_transitions.is_set or self.carrier_transitions.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.carrier_transitions.get_name_leafdata())
+                    if (self.crc_errors.is_set or self.crc_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.crc_errors.get_name_leafdata())
+                    if (self.framing_errors_received.is_set or self.framing_errors_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.framing_errors_received.get_name_leafdata())
+                    if (self.giant_packets_received.is_set or self.giant_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.giant_packets_received.get_name_leafdata())
+                    if (self.input_aborts.is_set or self.input_aborts.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_aborts.get_name_leafdata())
+                    if (self.input_drops.is_set or self.input_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_drops.get_name_leafdata())
+                    if (self.input_errors.is_set or self.input_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_errors.get_name_leafdata())
+                    if (self.input_ignored_packets.is_set or self.input_ignored_packets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_ignored_packets.get_name_leafdata())
+                    if (self.input_overruns.is_set or self.input_overruns.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_overruns.get_name_leafdata())
+                    if (self.input_queue_drops.is_set or self.input_queue_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.input_queue_drops.get_name_leafdata())
+                    if (self.last_data_time.is_set or self.last_data_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.last_data_time.get_name_leafdata())
+                    if (self.last_discontinuity_time.is_set or self.last_discontinuity_time.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.last_discontinuity_time.get_name_leafdata())
+                    if (self.multicast_packets_received.is_set or self.multicast_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.multicast_packets_received.get_name_leafdata())
+                    if (self.multicast_packets_sent.is_set or self.multicast_packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.multicast_packets_sent.get_name_leafdata())
+                    if (self.output_buffer_failures.is_set or self.output_buffer_failures.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_buffer_failures.get_name_leafdata())
+                    if (self.output_buffers_swapped_out.is_set or self.output_buffers_swapped_out.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_buffers_swapped_out.get_name_leafdata())
+                    if (self.output_drops.is_set or self.output_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_drops.get_name_leafdata())
+                    if (self.output_errors.is_set or self.output_errors.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_errors.get_name_leafdata())
+                    if (self.output_queue_drops.is_set or self.output_queue_drops.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_queue_drops.get_name_leafdata())
+                    if (self.output_underruns.is_set or self.output_underruns.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.output_underruns.get_name_leafdata())
+                    if (self.packets_received.is_set or self.packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.packets_received.get_name_leafdata())
+                    if (self.packets_sent.is_set or self.packets_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.packets_sent.get_name_leafdata())
+                    if (self.parity_packets_received.is_set or self.parity_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.parity_packets_received.get_name_leafdata())
+                    if (self.resets.is_set or self.resets.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.resets.get_name_leafdata())
+                    if (self.runt_packets_received.is_set or self.runt_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.runt_packets_received.get_name_leafdata())
+                    if (self.seconds_since_last_clear_counters.is_set or self.seconds_since_last_clear_counters.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds_since_last_clear_counters.get_name_leafdata())
+                    if (self.seconds_since_packet_received.is_set or self.seconds_since_packet_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds_since_packet_received.get_name_leafdata())
+                    if (self.seconds_since_packet_sent.is_set or self.seconds_since_packet_sent.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.seconds_since_packet_sent.get_name_leafdata())
+                    if (self.throttled_packets_received.is_set or self.throttled_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.throttled_packets_received.get_name_leafdata())
+                    if (self.unknown_protocol_packets_received.is_set or self.unknown_protocol_packets_received.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.unknown_protocol_packets_received.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "applique" or name == "availability-flag" or name == "broadcast-packets-received" or name == "broadcast-packets-sent" or name == "bytes-received" or name == "bytes-sent" or name == "carrier-transitions" or name == "crc-errors" or name == "framing-errors-received" or name == "giant-packets-received" or name == "input-aborts" or name == "input-drops" or name == "input-errors" or name == "input-ignored-packets" or name == "input-overruns" or name == "input-queue-drops" or name == "last-data-time" or name == "last-discontinuity-time" or name == "multicast-packets-received" or name == "multicast-packets-sent" or name == "output-buffer-failures" or name == "output-buffers-swapped-out" or name == "output-drops" or name == "output-errors" or name == "output-queue-drops" or name == "output-underruns" or name == "packets-received" or name == "packets-sent" or name == "parity-packets-received" or name == "resets" or name == "runt-packets-received" or name == "seconds-since-last-clear-counters" or name == "seconds-since-packet-received" or name == "seconds-since-packet-sent" or name == "throttled-packets-received" or name == "unknown-protocol-packets-received"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.applique is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "applique"):
+                        self.applique = value
+                        self.applique.value_namespace = name_space
+                        self.applique.value_namespace_prefix = name_space_prefix
+                    if(value_path == "availability-flag"):
+                        self.availability_flag = value
+                        self.availability_flag.value_namespace = name_space
+                        self.availability_flag.value_namespace_prefix = name_space_prefix
+                    if(value_path == "broadcast-packets-received"):
+                        self.broadcast_packets_received = value
+                        self.broadcast_packets_received.value_namespace = name_space
+                        self.broadcast_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "broadcast-packets-sent"):
+                        self.broadcast_packets_sent = value
+                        self.broadcast_packets_sent.value_namespace = name_space
+                        self.broadcast_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bytes-received"):
+                        self.bytes_received = value
+                        self.bytes_received.value_namespace = name_space
+                        self.bytes_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "bytes-sent"):
+                        self.bytes_sent = value
+                        self.bytes_sent.value_namespace = name_space
+                        self.bytes_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "carrier-transitions"):
+                        self.carrier_transitions = value
+                        self.carrier_transitions.value_namespace = name_space
+                        self.carrier_transitions.value_namespace_prefix = name_space_prefix
+                    if(value_path == "crc-errors"):
+                        self.crc_errors = value
+                        self.crc_errors.value_namespace = name_space
+                        self.crc_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "framing-errors-received"):
+                        self.framing_errors_received = value
+                        self.framing_errors_received.value_namespace = name_space
+                        self.framing_errors_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "giant-packets-received"):
+                        self.giant_packets_received = value
+                        self.giant_packets_received.value_namespace = name_space
+                        self.giant_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-aborts"):
+                        self.input_aborts = value
+                        self.input_aborts.value_namespace = name_space
+                        self.input_aborts.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-drops"):
+                        self.input_drops = value
+                        self.input_drops.value_namespace = name_space
+                        self.input_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-errors"):
+                        self.input_errors = value
+                        self.input_errors.value_namespace = name_space
+                        self.input_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-ignored-packets"):
+                        self.input_ignored_packets = value
+                        self.input_ignored_packets.value_namespace = name_space
+                        self.input_ignored_packets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-overruns"):
+                        self.input_overruns = value
+                        self.input_overruns.value_namespace = name_space
+                        self.input_overruns.value_namespace_prefix = name_space_prefix
+                    if(value_path == "input-queue-drops"):
+                        self.input_queue_drops = value
+                        self.input_queue_drops.value_namespace = name_space
+                        self.input_queue_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "last-data-time"):
+                        self.last_data_time = value
+                        self.last_data_time.value_namespace = name_space
+                        self.last_data_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "last-discontinuity-time"):
+                        self.last_discontinuity_time = value
+                        self.last_discontinuity_time.value_namespace = name_space
+                        self.last_discontinuity_time.value_namespace_prefix = name_space_prefix
+                    if(value_path == "multicast-packets-received"):
+                        self.multicast_packets_received = value
+                        self.multicast_packets_received.value_namespace = name_space
+                        self.multicast_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "multicast-packets-sent"):
+                        self.multicast_packets_sent = value
+                        self.multicast_packets_sent.value_namespace = name_space
+                        self.multicast_packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-buffer-failures"):
+                        self.output_buffer_failures = value
+                        self.output_buffer_failures.value_namespace = name_space
+                        self.output_buffer_failures.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-buffers-swapped-out"):
+                        self.output_buffers_swapped_out = value
+                        self.output_buffers_swapped_out.value_namespace = name_space
+                        self.output_buffers_swapped_out.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-drops"):
+                        self.output_drops = value
+                        self.output_drops.value_namespace = name_space
+                        self.output_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-errors"):
+                        self.output_errors = value
+                        self.output_errors.value_namespace = name_space
+                        self.output_errors.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-queue-drops"):
+                        self.output_queue_drops = value
+                        self.output_queue_drops.value_namespace = name_space
+                        self.output_queue_drops.value_namespace_prefix = name_space_prefix
+                    if(value_path == "output-underruns"):
+                        self.output_underruns = value
+                        self.output_underruns.value_namespace = name_space
+                        self.output_underruns.value_namespace_prefix = name_space_prefix
+                    if(value_path == "packets-received"):
+                        self.packets_received = value
+                        self.packets_received.value_namespace = name_space
+                        self.packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "packets-sent"):
+                        self.packets_sent = value
+                        self.packets_sent.value_namespace = name_space
+                        self.packets_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "parity-packets-received"):
+                        self.parity_packets_received = value
+                        self.parity_packets_received.value_namespace = name_space
+                        self.parity_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "resets"):
+                        self.resets = value
+                        self.resets.value_namespace = name_space
+                        self.resets.value_namespace_prefix = name_space_prefix
+                    if(value_path == "runt-packets-received"):
+                        self.runt_packets_received = value
+                        self.runt_packets_received.value_namespace = name_space
+                        self.runt_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds-since-last-clear-counters"):
+                        self.seconds_since_last_clear_counters = value
+                        self.seconds_since_last_clear_counters.value_namespace = name_space
+                        self.seconds_since_last_clear_counters.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds-since-packet-received"):
+                        self.seconds_since_packet_received = value
+                        self.seconds_since_packet_received.value_namespace = name_space
+                        self.seconds_since_packet_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "seconds-since-packet-sent"):
+                        self.seconds_since_packet_sent = value
+                        self.seconds_since_packet_sent.value_namespace = name_space
+                        self.seconds_since_packet_sent.value_namespace_prefix = name_space_prefix
+                    if(value_path == "throttled-packets-received"):
+                        self.throttled_packets_received = value
+                        self.throttled_packets_received.value_namespace = name_space
+                        self.throttled_packets_received.value_namespace_prefix = name_space_prefix
+                    if(value_path == "unknown-protocol-packets-received"):
+                        self.unknown_protocol_packets_received = value
+                        self.unknown_protocol_packets_received.value_namespace = name_space
+                        self.unknown_protocol_packets_received.value_namespace_prefix = name_space_prefix
 
-                    if self.availability_flag is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.interface_name.is_set or
+                    (self.cache is not None and self.cache.has_data()) or
+                    (self.data_rate is not None and self.data_rate.has_data()) or
+                    (self.generic_counters is not None and self.generic_counters.has_data()) or
+                    (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_data()) or
+                    (self.latest is not None and self.latest.has_data()) or
+                    (self.protocols is not None and self.protocols.has_data()) or
+                    (self.total is not None and self.total.has_data()))
 
-                    if self.broadcast_packets_received is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.interface_name.yfilter != YFilter.not_set or
+                    (self.cache is not None and self.cache.has_operation()) or
+                    (self.data_rate is not None and self.data_rate.has_operation()) or
+                    (self.generic_counters is not None and self.generic_counters.has_operation()) or
+                    (self.interfaces_mib_counters is not None and self.interfaces_mib_counters.has_operation()) or
+                    (self.latest is not None and self.latest.has_operation()) or
+                    (self.protocols is not None and self.protocols.has_operation()) or
+                    (self.total is not None and self.total.has_operation()))
 
-                    if self.broadcast_packets_sent is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interface" + "[interface-name='" + self.interface_name.get() + "']" + path_buffer
 
-                    if self.bytes_received is not None:
-                        return True
+                return path_buffer
 
-                    if self.bytes_sent is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.carrier_transitions is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.interface_name.is_set or self.interface_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.interface_name.get_name_leafdata())
 
-                    if self.crc_errors is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.framing_errors_received is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.giant_packets_received is not None:
-                        return True
+                if (child_yang_name == "cache"):
+                    if (self.cache is None):
+                        self.cache = InfraStatistics.Interfaces.Interface.Cache()
+                        self.cache.parent = self
+                        self._children_name_map["cache"] = "cache"
+                    return self.cache
 
-                    if self.input_aborts is not None:
-                        return True
+                if (child_yang_name == "data-rate"):
+                    if (self.data_rate is None):
+                        self.data_rate = InfraStatistics.Interfaces.Interface.DataRate()
+                        self.data_rate.parent = self
+                        self._children_name_map["data_rate"] = "data-rate"
+                    return self.data_rate
 
-                    if self.input_drops is not None:
-                        return True
+                if (child_yang_name == "generic-counters"):
+                    if (self.generic_counters is None):
+                        self.generic_counters = InfraStatistics.Interfaces.Interface.GenericCounters()
+                        self.generic_counters.parent = self
+                        self._children_name_map["generic_counters"] = "generic-counters"
+                    return self.generic_counters
 
-                    if self.input_errors is not None:
-                        return True
+                if (child_yang_name == "interfaces-mib-counters"):
+                    if (self.interfaces_mib_counters is None):
+                        self.interfaces_mib_counters = InfraStatistics.Interfaces.Interface.InterfacesMibCounters()
+                        self.interfaces_mib_counters.parent = self
+                        self._children_name_map["interfaces_mib_counters"] = "interfaces-mib-counters"
+                    return self.interfaces_mib_counters
 
-                    if self.input_ignored_packets is not None:
-                        return True
+                if (child_yang_name == "latest"):
+                    if (self.latest is None):
+                        self.latest = InfraStatistics.Interfaces.Interface.Latest()
+                        self.latest.parent = self
+                        self._children_name_map["latest"] = "latest"
+                    return self.latest
 
-                    if self.input_overruns is not None:
-                        return True
+                if (child_yang_name == "protocols"):
+                    if (self.protocols is None):
+                        self.protocols = InfraStatistics.Interfaces.Interface.Protocols()
+                        self.protocols.parent = self
+                        self._children_name_map["protocols"] = "protocols"
+                    return self.protocols
 
-                    if self.input_queue_drops is not None:
-                        return True
+                if (child_yang_name == "total"):
+                    if (self.total is None):
+                        self.total = InfraStatistics.Interfaces.Interface.Total()
+                        self.total.parent = self
+                        self._children_name_map["total"] = "total"
+                    return self.total
 
-                    if self.last_data_time is not None:
-                        return True
+                return None
 
-                    if self.last_discontinuity_time is not None:
-                        return True
-
-                    if self.multicast_packets_received is not None:
-                        return True
-
-                    if self.multicast_packets_sent is not None:
-                        return True
-
-                    if self.output_buffer_failures is not None:
-                        return True
-
-                    if self.output_buffers_swapped_out is not None:
-                        return True
-
-                    if self.output_drops is not None:
-                        return True
-
-                    if self.output_errors is not None:
-                        return True
-
-                    if self.output_queue_drops is not None:
-                        return True
-
-                    if self.output_underruns is not None:
-                        return True
-
-                    if self.packets_received is not None:
-                        return True
-
-                    if self.packets_sent is not None:
-                        return True
-
-                    if self.parity_packets_received is not None:
-                        return True
-
-                    if self.resets is not None:
-                        return True
-
-                    if self.runt_packets_received is not None:
-                        return True
-
-                    if self.seconds_since_last_clear_counters is not None:
-                        return True
-
-                    if self.seconds_since_packet_received is not None:
-                        return True
-
-                    if self.seconds_since_packet_sent is not None:
-                        return True
-
-                    if self.throttled_packets_received is not None:
-                        return True
-
-                    if self.unknown_protocol_packets_received is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                    return meta._meta_table['InfraStatistics.Interfaces.Interface.GenericCounters']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.interface_name is None:
-                    raise YPYModelError('Key property interface_name is None')
-
-                return '/Cisco-IOS-XR-infra-statsd-oper:infra-statistics/Cisco-IOS-XR-infra-statsd-oper:interfaces/Cisco-IOS-XR-infra-statsd-oper:interface[Cisco-IOS-XR-infra-statsd-oper:interface-name = ' + str(self.interface_name) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cache" or name == "data-rate" or name == "generic-counters" or name == "interfaces-mib-counters" or name == "latest" or name == "protocols" or name == "total" or name == "interface-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.interface_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "interface-name"):
+                    self.interface_name = value
+                    self.interface_name.value_namespace = name_space
+                    self.interface_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.interface:
+                if (c.has_data()):
                     return True
-
-                if self.cache is not None and self.cache._has_data():
-                    return True
-
-                if self.data_rate is not None and self.data_rate._has_data():
-                    return True
-
-                if self.generic_counters is not None and self.generic_counters._has_data():
-                    return True
-
-                if self.interfaces_mib_counters is not None and self.interfaces_mib_counters._has_data():
-                    return True
-
-                if self.latest is not None and self.latest._has_data():
-                    return True
-
-                if self.protocols is not None and self.protocols._has_data():
-                    return True
-
-                if self.total is not None and self.total._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-                return meta._meta_table['InfraStatistics.Interfaces.Interface']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-statsd-oper:infra-statistics/Cisco-IOS-XR-infra-statsd-oper:interfaces'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.interface is not None:
-                for child_ref in self.interface:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.interface:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "interfaces" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interface"):
+                for c in self.interface:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = InfraStatistics.Interfaces.Interface()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.interface.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interface"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-            return meta._meta_table['InfraStatistics.Interfaces']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (self.interfaces is not None and self.interfaces.has_data())
 
-        return '/Cisco-IOS-XR-infra-statsd-oper:infra-statistics'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.interfaces is not None and self.interfaces.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics" + path_buffer
 
-    def _has_data(self):
-        if self.interfaces is not None and self.interfaces._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "interfaces"):
+            if (self.interfaces is None):
+                self.interfaces = InfraStatistics.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+            return self.interfaces
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "interfaces"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_statsd_oper as meta
-        return meta._meta_table['InfraStatistics']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = InfraStatistics()
+        return self._top_entity
 

@@ -18,21 +18,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class SubscriberManager(object):
+class SubscriberManager(Entity):
     """
     iEdge subscriber manager configuration
     
@@ -54,13 +48,24 @@ class SubscriberManager(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(SubscriberManager, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "subscriber-manager"
+        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
+
         self.accounting = SubscriberManager.Accounting()
         self.accounting.parent = self
+        self._children_name_map["accounting"] = "accounting"
+        self._children_yang_names.add("accounting")
+
         self.srg = SubscriberManager.Srg()
         self.srg.parent = self
+        self._children_name_map["srg"] = "srg"
+        self._children_yang_names.add("srg")
 
 
-    class Accounting(object):
+    class Accounting(Entity):
         """
         iEdge accounting feature
         
@@ -82,14 +87,23 @@ class SubscriberManager(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(SubscriberManager.Accounting, self).__init__()
+
+            self.yang_name = "accounting"
+            self.yang_parent_name = "subscriber-manager"
+
             self.interim = SubscriberManager.Accounting.Interim()
             self.interim.parent = self
+            self._children_name_map["interim"] = "interim"
+            self._children_yang_names.add("interim")
+
             self.send_stop = SubscriberManager.Accounting.SendStop()
             self.send_stop.parent = self
+            self._children_name_map["send_stop"] = "send-stop"
+            self._children_yang_names.add("send-stop")
 
 
-        class SendStop(object):
+        class SendStop(Entity):
             """
             Accounting send stop feature
             
@@ -106,31 +120,85 @@ class SubscriberManager(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.setup_failure = None
+                super(SubscriberManager.Accounting.SendStop, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "send-stop"
+                self.yang_parent_name = "accounting"
 
-                return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/Cisco-IOS-XR-iedge4710-cfg:accounting/Cisco-IOS-XR-iedge4710-cfg:send-stop'
+                self.setup_failure = YLeaf(YType.str, "setup-failure")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("setup_failure") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SubscriberManager.Accounting.SendStop, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SubscriberManager.Accounting.SendStop, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.setup_failure is not None:
+            def has_data(self):
+                return self.setup_failure.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.setup_failure.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "send-stop" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.setup_failure.is_set or self.setup_failure.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.setup_failure.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "setup-failure"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-                return meta._meta_table['SubscriberManager.Accounting.SendStop']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "setup-failure"):
+                    self.setup_failure = value
+                    self.setup_failure.value_namespace = name_space
+                    self.setup_failure.value_namespace_prefix = name_space_prefix
 
 
-        class Interim(object):
+        class Interim(Entity):
             """
             interim accounting related
             
@@ -147,12 +215,18 @@ class SubscriberManager(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(SubscriberManager.Accounting.Interim, self).__init__()
+
+                self.yang_name = "interim"
+                self.yang_parent_name = "accounting"
+
                 self.variation = SubscriberManager.Accounting.Interim.Variation()
                 self.variation.parent = self
+                self._children_name_map["variation"] = "variation"
+                self._children_yang_names.add("variation")
 
 
-            class Variation(object):
+            class Variation(Entity):
                 """
                 variation of first session or service interim
                 record from configured timeout
@@ -174,74 +248,191 @@ class SubscriberManager(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.maximum_percentage_variation = None
+                    super(SubscriberManager.Accounting.Interim.Variation, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "variation"
+                    self.yang_parent_name = "interim"
 
-                    return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/Cisco-IOS-XR-iedge4710-cfg:accounting/Cisco-IOS-XR-iedge4710-cfg:interim/Cisco-IOS-XR-iedge4710-cfg:variation'
+                    self.maximum_percentage_variation = YLeaf(YType.uint32, "maximum-percentage-variation")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("maximum_percentage_variation") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(SubscriberManager.Accounting.Interim.Variation, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(SubscriberManager.Accounting.Interim.Variation, self).__setattr__(name, value)
 
-                def _has_data(self):
-                    if self.maximum_percentage_variation is not None:
+                def has_data(self):
+                    return self.maximum_percentage_variation.is_set
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.maximum_percentage_variation.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "variation" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/interim/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.maximum_percentage_variation.is_set or self.maximum_percentage_variation.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.maximum_percentage_variation.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "maximum-percentage-variation"):
                         return True
-
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-                    return meta._meta_table['SubscriberManager.Accounting.Interim.Variation']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "maximum-percentage-variation"):
+                        self.maximum_percentage_variation = value
+                        self.maximum_percentage_variation.value_namespace = name_space
+                        self.maximum_percentage_variation.value_namespace_prefix = name_space_prefix
 
-            @property
-            def _common_path(self):
+            def has_data(self):
+                return (self.variation is not None and self.variation.has_data())
 
-                return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/Cisco-IOS-XR-iedge4710-cfg:accounting/Cisco-IOS-XR-iedge4710-cfg:interim'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.variation is not None and self.variation.has_operation()))
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "interim" + path_buffer
 
-            def _has_data(self):
-                if self.variation is not None and self.variation._has_data():
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "variation"):
+                    if (self.variation is None):
+                        self.variation = SubscriberManager.Accounting.Interim.Variation()
+                        self.variation.parent = self
+                        self._children_name_map["variation"] = "variation"
+                    return self.variation
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "variation"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-                return meta._meta_table['SubscriberManager.Accounting.Interim']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.interim is not None and self.interim.has_data()) or
+                (self.send_stop is not None and self.send_stop.has_data()))
 
-            return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/Cisco-IOS-XR-iedge4710-cfg:accounting'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.interim is not None and self.interim.has_operation()) or
+                (self.send_stop is not None and self.send_stop.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "accounting" + path_buffer
 
-        def _has_data(self):
-            if self.interim is not None and self.interim._has_data():
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "interim"):
+                if (self.interim is None):
+                    self.interim = SubscriberManager.Accounting.Interim()
+                    self.interim.parent = self
+                    self._children_name_map["interim"] = "interim"
+                return self.interim
+
+            if (child_yang_name == "send-stop"):
+                if (self.send_stop is None):
+                    self.send_stop = SubscriberManager.Accounting.SendStop()
+                    self.send_stop.parent = self
+                    self._children_name_map["send_stop"] = "send-stop"
+                return self.send_stop
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "interim" or name == "send-stop"):
                 return True
-
-            if self.send_stop is not None and self.send_stop._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-            return meta._meta_table['SubscriberManager.Accounting']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Srg(object):
+    class Srg(Entity):
         """
         SRG specific config
         
@@ -258,54 +449,145 @@ class SubscriberManager(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.sync_account_session_id = None
+            super(SubscriberManager.Srg, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "srg"
+            self.yang_parent_name = "subscriber-manager"
 
-            return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/Cisco-IOS-XR-iedge4710-cfg:srg'
+            self.sync_account_session_id = YLeaf(YType.empty, "sync-account-session-id")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("sync_account_session_id") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SubscriberManager.Srg, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SubscriberManager.Srg, self).__setattr__(name, value)
 
-        def _has_data(self):
-            if self.sync_account_session_id is not None:
+        def has_data(self):
+            return self.sync_account_session_id.is_set
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.sync_account_session_id.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "srg" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.sync_account_session_id.is_set or self.sync_account_session_id.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.sync_account_session_id.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "sync-account-session-id"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-            return meta._meta_table['SubscriberManager.Srg']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "sync-account-session-id"):
+                self.sync_account_session_id = value
+                self.sync_account_session_id.value_namespace = name_space
+                self.sync_account_session_id.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.accounting is not None and self.accounting.has_data()) or
+            (self.srg is not None and self.srg.has_data()))
 
-        return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-manager'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.accounting is not None and self.accounting.has_operation()) or
+            (self.srg is not None and self.srg.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager" + path_buffer
 
-    def _has_data(self):
-        if self.accounting is not None and self.accounting._has_data():
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "accounting"):
+            if (self.accounting is None):
+                self.accounting = SubscriberManager.Accounting()
+                self.accounting.parent = self
+                self._children_name_map["accounting"] = "accounting"
+            return self.accounting
+
+        if (child_yang_name == "srg"):
+            if (self.srg is None):
+                self.srg = SubscriberManager.Srg()
+                self.srg.parent = self
+                self._children_name_map["srg"] = "srg"
+            return self.srg
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "accounting" or name == "srg"):
             return True
-
-        if self.srg is not None and self.srg._has_data():
-            return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-        return meta._meta_table['SubscriberManager']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = SubscriberManager()
+        return self._top_entity
 
-class SubscriberFeaturette(object):
+class SubscriberFeaturette(Entity):
     """
     subscriber featurette
     
@@ -322,12 +604,40 @@ class SubscriberFeaturette(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.identity_change = YList()
-        self.identity_change.parent = self
-        self.identity_change.name = 'identity_change'
+        super(SubscriberFeaturette, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "subscriber-featurette"
+        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
+
+        self.identity_change = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(SubscriberFeaturette, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(SubscriberFeaturette, self).__setattr__(name, value)
 
 
-    class IdentityChange(object):
+    class IdentityChange(Entity):
         """
         enable identity change processing
         
@@ -353,59 +663,156 @@ class SubscriberFeaturette(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.identity_change = None
-            self.enable = None
+            super(SubscriberFeaturette.IdentityChange, self).__init__()
 
-        @property
-        def _common_path(self):
-            if self.identity_change is None:
-                raise YPYModelError('Key property identity_change is None')
+            self.yang_name = "identity-change"
+            self.yang_parent_name = "subscriber-featurette"
 
-            return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette/Cisco-IOS-XR-iedge4710-cfg:identity-change[Cisco-IOS-XR-iedge4710-cfg:identity-change = ' + str(self.identity_change) + ']'
+            self.identity_change = YLeaf(YType.str, "identity-change")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.enable = YLeaf(YType.int32, "enable")
 
-        def _has_data(self):
-            if self.identity_change is not None:
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("identity_change",
+                            "enable") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SubscriberFeaturette.IdentityChange, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SubscriberFeaturette.IdentityChange, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.identity_change.is_set or
+                self.enable.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.identity_change.yfilter != YFilter.not_set or
+                self.enable.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "identity-change" + "[identity-change='" + self.identity_change.get() + "']" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.identity_change.is_set or self.identity_change.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.identity_change.get_name_leafdata())
+            if (self.enable.is_set or self.enable.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.enable.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "identity-change" or name == "enable"):
                 return True
-
-            if self.enable is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-            return meta._meta_table['SubscriberFeaturette.IdentityChange']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "identity-change"):
+                self.identity_change = value
+                self.identity_change.value_namespace = name_space
+                self.identity_change.value_namespace_prefix = name_space_prefix
+            if(value_path == "enable"):
+                self.enable = value
+                self.enable.value_namespace = name_space
+                self.enable.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if self.identity_change is not None:
-            for child_ref in self.identity_change:
-                if child_ref._has_data():
-                    return True
-
+    def has_data(self):
+        for c in self.identity_change:
+            if (c.has_data()):
+                return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-        return meta._meta_table['SubscriberFeaturette']['meta_info']
+    def has_operation(self):
+        for c in self.identity_change:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette" + path_buffer
 
-class IedgeLicenseManager(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "identity-change"):
+            for c in self.identity_change:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = SubscriberFeaturette.IdentityChange()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.identity_change.append(c)
+            return c
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "identity-change"):
+            return True
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = SubscriberFeaturette()
+        return self._top_entity
+
+class IedgeLicenseManager(Entity):
     """
     iedge license manager
     
@@ -422,12 +829,40 @@ class IedgeLicenseManager(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.node = YList()
-        self.node.parent = self
-        self.node.name = 'node'
+        super(IedgeLicenseManager, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "iedge-license-manager"
+        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
+
+        self.node = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(IedgeLicenseManager, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(IedgeLicenseManager, self).__setattr__(name, value)
 
 
-    class Node(object):
+    class Node(Entity):
         """
         Location. For eg., 0/1/CPU0
         
@@ -460,63 +895,167 @@ class IedgeLicenseManager(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.node_name = None
-            self.session_limit = None
-            self.session_threshold = None
+            super(IedgeLicenseManager.Node, self).__init__()
 
-        @property
-        def _common_path(self):
-            if self.node_name is None:
-                raise YPYModelError('Key property node_name is None')
+            self.yang_name = "node"
+            self.yang_parent_name = "iedge-license-manager"
 
-            return '/Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager/Cisco-IOS-XR-iedge4710-cfg:node[Cisco-IOS-XR-iedge4710-cfg:node-name = ' + str(self.node_name) + ']'
+            self.node_name = YLeaf(YType.str, "node-name")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+            self.session_limit = YLeaf(YType.int32, "session-limit")
 
-        def _has_data(self):
-            if self.node_name is not None:
+            self.session_threshold = YLeaf(YType.int32, "session-threshold")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("node_name",
+                            "session_limit",
+                            "session_threshold") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(IedgeLicenseManager.Node, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(IedgeLicenseManager.Node, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.node_name.is_set or
+                self.session_limit.is_set or
+                self.session_threshold.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.node_name.yfilter != YFilter.not_set or
+                self.session_limit.yfilter != YFilter.not_set or
+                self.session_threshold.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "node" + "[node-name='" + self.node_name.get() + "']" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.node_name.get_name_leafdata())
+            if (self.session_limit.is_set or self.session_limit.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.session_limit.get_name_leafdata())
+            if (self.session_threshold.is_set or self.session_threshold.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.session_threshold.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "node-name" or name == "session-limit" or name == "session-threshold"):
                 return True
-
-            if self.session_limit is not None:
-                return True
-
-            if self.session_threshold is not None:
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-            return meta._meta_table['IedgeLicenseManager.Node']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "node-name"):
+                self.node_name = value
+                self.node_name.value_namespace = name_space
+                self.node_name.value_namespace_prefix = name_space_prefix
+            if(value_path == "session-limit"):
+                self.session_limit = value
+                self.session_limit.value_namespace = name_space
+                self.session_limit.value_namespace_prefix = name_space_prefix
+            if(value_path == "session-threshold"):
+                self.session_threshold = value
+                self.session_threshold.value_namespace = name_space
+                self.session_threshold.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if self.node is not None:
-            for child_ref in self.node:
-                if child_ref._has_data():
-                    return True
-
+    def has_data(self):
+        for c in self.node:
+            if (c.has_data()):
+                return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-        return meta._meta_table['IedgeLicenseManager']['meta_info']
+    def has_operation(self):
+        for c in self.node:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager" + path_buffer
 
-class SubManager(object):
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "node"):
+            for c in self.node:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = IedgeLicenseManager.Node()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.node.append(c)
+            return c
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "node"):
+            return True
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = IedgeLicenseManager()
+        return self._top_entity
+
+class SubManager(Entity):
     """
     sub manager
     
@@ -533,12 +1072,40 @@ class SubManager(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.location = YList()
-        self.location.parent = self
-        self.location.name = 'location'
+        super(SubManager, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "sub-manager"
+        self.yang_parent_name = "Cisco-IOS-XR-iedge4710-cfg"
+
+        self.location = YList(self)
+
+    def __setattr__(self, name, value):
+        self._check_monkey_patching_error(name, value)
+        with _handle_type_error():
+            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                    "Please use list append or extend method."
+                                    .format(value))
+            if isinstance(value, Enum.YLeaf):
+                value = value.name
+            if name in () and name in self.__dict__:
+                if isinstance(value, YLeaf):
+                    self.__dict__[name].set(value.get())
+                elif isinstance(value, YLeafList):
+                    super(SubManager, self).__setattr__(name, value)
+                else:
+                    self.__dict__[name].set(value)
+            else:
+                if hasattr(value, "parent") and name != "parent":
+                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                        value.parent = self
+                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                        value.parent = self
+                super(SubManager, self).__setattr__(name, value)
 
 
-    class Location(object):
+    class Location(Entity):
         """
         Select location
         
@@ -567,14 +1134,47 @@ class SubManager(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.location1 = None
-            self.history = None
+            super(SubManager.Location, self).__init__()
+
+            self.yang_name = "location"
+            self.yang_parent_name = "sub-manager"
+
+            self.location1 = YLeaf(YType.str, "location1")
+
+            self.history = YLeaf(YType.empty, "history")
+
             self.trace = SubManager.Location.Trace()
             self.trace.parent = self
+            self._children_name_map["trace"] = "trace"
+            self._children_yang_names.add("trace")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("location1",
+                            "history") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SubManager.Location, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SubManager.Location, self).__setattr__(name, value)
 
 
-        class Trace(object):
+        class Trace(Entity):
             """
             Subscriber manager trace
             
@@ -593,79 +1193,204 @@ class SubManager(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.trace_level = None
+                super(SubManager.Location.Trace, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
+                self.yang_name = "trace"
+                self.yang_parent_name = "location"
 
-                return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-cfg:trace'
+                self.trace_level = YLeaf(YType.int32, "trace-level")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("trace_level") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SubManager.Location.Trace, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SubManager.Location.Trace, self).__setattr__(name, value)
 
-            def _has_data(self):
-                if self.trace_level is not None:
+            def has_data(self):
+                return self.trace_level.is_set
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.trace_level.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "trace" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.trace_level.is_set or self.trace_level.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.trace_level.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "trace-level"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-                return meta._meta_table['SubManager.Location.Trace']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "trace-level"):
+                    self.trace_level = value
+                    self.trace_level.value_namespace = name_space
+                    self.trace_level.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-            if self.location1 is None:
-                raise YPYModelError('Key property location1 is None')
+        def has_data(self):
+            return (
+                self.location1.is_set or
+                self.history.is_set or
+                (self.trace is not None and self.trace.has_data()))
 
-            return '/Cisco-IOS-XR-iedge4710-cfg:sub-manager/Cisco-IOS-XR-iedge4710-cfg:location[Cisco-IOS-XR-iedge4710-cfg:location1 = ' + str(self.location1) + ']'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.location1.yfilter != YFilter.not_set or
+                self.history.yfilter != YFilter.not_set or
+                (self.trace is not None and self.trace.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "location" + "[location1='" + self.location1.get() + "']" + path_buffer
 
-        def _has_data(self):
-            if self.location1 is not None:
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-iedge4710-cfg:sub-manager/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.location1.is_set or self.location1.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.location1.get_name_leafdata())
+            if (self.history.is_set or self.history.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.history.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "trace"):
+                if (self.trace is None):
+                    self.trace = SubManager.Location.Trace()
+                    self.trace.parent = self
+                    self._children_name_map["trace"] = "trace"
+                return self.trace
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "trace" or name == "location1" or name == "history"):
                 return True
-
-            if self.history is not None:
-                return True
-
-            if self.trace is not None and self.trace._has_data():
-                return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-            return meta._meta_table['SubManager.Location']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "location1"):
+                self.location1 = value
+                self.location1.value_namespace = name_space
+                self.location1.value_namespace_prefix = name_space_prefix
+            if(value_path == "history"):
+                self.history = value
+                self.history.value_namespace = name_space
+                self.history.value_namespace_prefix = name_space_prefix
 
-    @property
-    def _common_path(self):
-
-        return '/Cisco-IOS-XR-iedge4710-cfg:sub-manager'
-
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return True
-
-    def _has_data(self):
-        if self.location is not None:
-            for child_ref in self.location:
-                if child_ref._has_data():
-                    return True
-
+    def has_data(self):
+        for c in self.location:
+            if (c.has_data()):
+                return True
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_cfg as meta
-        return meta._meta_table['SubManager']['meta_info']
+    def has_operation(self):
+        for c in self.location:
+            if (c.has_operation()):
+                return True
+        return self.yfilter != YFilter.not_set
 
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-iedge4710-cfg:sub-manager" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "location"):
+            for c in self.location:
+                segment = c.get_segment_path()
+                if (segment_path == segment):
+                    return c
+            c = SubManager.Location()
+            c.parent = self
+            local_reference_key = "ydk::seg::%s" % segment_path
+            self._local_refs[local_reference_key] = c
+            self.location.append(c)
+            return c
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "location"):
+            return True
+        return False
+
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
+
+    def clone_ptr(self):
+        self._top_entity = SubManager()
+        return self._top_entity
 

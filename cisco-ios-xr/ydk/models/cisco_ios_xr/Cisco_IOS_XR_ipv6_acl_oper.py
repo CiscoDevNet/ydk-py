@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AclAce1Enum(Enum):
+class AclAce1(Enum):
     """
-    AclAce1Enum
+    AclAce1
 
     ACE Types
 
@@ -44,22 +38,16 @@ class AclAce1Enum(Enum):
 
     """
 
-    normal = 0
+    normal = Enum.YLeaf(0, "normal")
 
-    remark = 1
+    remark = Enum.YLeaf(1, "remark")
 
-    abf = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclAce1Enum']
+    abf = Enum.YLeaf(2, "abf")
 
 
-class AclAce1Enum(Enum):
+class AclAce1(Enum):
     """
-    AclAce1Enum
+    AclAce1
 
     ACE Types
 
@@ -77,22 +65,16 @@ class AclAce1Enum(Enum):
 
     """
 
-    normal = 0
+    normal = Enum.YLeaf(0, "normal")
 
-    remark = 1
+    remark = Enum.YLeaf(1, "remark")
 
-    abf = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclAce1Enum']
+    abf = Enum.YLeaf(2, "abf")
 
 
-class AclActionEnum(Enum):
+class AclAction(Enum):
     """
-    AclActionEnum
+    AclAction
 
     Acl action
 
@@ -122,28 +104,22 @@ class AclActionEnum(Enum):
 
     """
 
-    deny = 0
+    deny = Enum.YLeaf(0, "deny")
 
-    permit = 1
+    permit = Enum.YLeaf(1, "permit")
 
-    encrypt = 2
+    encrypt = Enum.YLeaf(2, "encrypt")
 
-    bypass = 3
+    bypass = Enum.YLeaf(3, "bypass")
 
-    fallthrough = 4
+    fallthrough = Enum.YLeaf(4, "fallthrough")
 
-    invalid = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclActionEnum']
+    invalid = Enum.YLeaf(5, "invalid")
 
 
-class AclLogEnum(Enum):
+class AclLog(Enum):
     """
-    AclLogEnum
+    AclLog
 
     Acl log
 
@@ -161,22 +137,16 @@ class AclLogEnum(Enum):
 
     """
 
-    log_none = 0
+    log_none = Enum.YLeaf(0, "log-none")
 
-    log = 1
+    log = Enum.YLeaf(1, "log")
 
-    log_input = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclLogEnum']
+    log_input = Enum.YLeaf(2, "log-input")
 
 
-class AclPortOperatorEnum(Enum):
+class AclPortOperator(Enum):
     """
-    AclPortOperatorEnum
+    AclPortOperator
 
     Acl port operator
 
@@ -214,32 +184,26 @@ class AclPortOperatorEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    eq = 1
+    eq = Enum.YLeaf(1, "eq")
 
-    gt = 2
+    gt = Enum.YLeaf(2, "gt")
 
-    lt = 3
+    lt = Enum.YLeaf(3, "lt")
 
-    neq = 4
+    neq = Enum.YLeaf(4, "neq")
 
-    range = 5
+    range = Enum.YLeaf(5, "range")
 
-    onebyte = 8
+    onebyte = Enum.YLeaf(8, "onebyte")
 
-    twobytes = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclPortOperatorEnum']
+    twobytes = Enum.YLeaf(9, "twobytes")
 
 
-class AclPortOperatorEnum(Enum):
+class AclPortOperator(Enum):
     """
-    AclPortOperatorEnum
+    AclPortOperator
 
     Acl port operator
 
@@ -277,32 +241,26 @@ class AclPortOperatorEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    eq = 1
+    eq = Enum.YLeaf(1, "eq")
 
-    gt = 2
+    gt = Enum.YLeaf(2, "gt")
 
-    lt = 3
+    lt = Enum.YLeaf(3, "lt")
 
-    neq = 4
+    neq = Enum.YLeaf(4, "neq")
 
-    range = 5
+    range = Enum.YLeaf(5, "range")
 
-    onebyte = 8
+    onebyte = Enum.YLeaf(8, "onebyte")
 
-    twobytes = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclPortOperatorEnum']
+    twobytes = Enum.YLeaf(9, "twobytes")
 
 
-class AclPortOperatorEnum(Enum):
+class AclPortOperator(Enum):
     """
-    AclPortOperatorEnum
+    AclPortOperator
 
     Acl port operator
 
@@ -340,32 +298,26 @@ class AclPortOperatorEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    eq = 1
+    eq = Enum.YLeaf(1, "eq")
 
-    gt = 2
+    gt = Enum.YLeaf(2, "gt")
 
-    lt = 3
+    lt = Enum.YLeaf(3, "lt")
 
-    neq = 4
+    neq = Enum.YLeaf(4, "neq")
 
-    range = 5
+    range = Enum.YLeaf(5, "range")
 
-    onebyte = 8
+    onebyte = Enum.YLeaf(8, "onebyte")
 
-    twobytes = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclPortOperatorEnum']
+    twobytes = Enum.YLeaf(9, "twobytes")
 
 
-class AclPortOperatorEnum(Enum):
+class AclPortOperator(Enum):
     """
-    AclPortOperatorEnum
+    AclPortOperator
 
     Acl port operator
 
@@ -403,32 +355,26 @@ class AclPortOperatorEnum(Enum):
 
     """
 
-    none = 0
+    none = Enum.YLeaf(0, "none")
 
-    eq = 1
+    eq = Enum.YLeaf(1, "eq")
 
-    gt = 2
+    gt = Enum.YLeaf(2, "gt")
 
-    lt = 3
+    lt = Enum.YLeaf(3, "lt")
 
-    neq = 4
+    neq = Enum.YLeaf(4, "neq")
 
-    range = 5
+    range = Enum.YLeaf(5, "range")
 
-    onebyte = 8
+    onebyte = Enum.YLeaf(8, "onebyte")
 
-    twobytes = 9
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclPortOperatorEnum']
+    twobytes = Enum.YLeaf(9, "twobytes")
 
 
-class AclTcpflagsOperatorEnum(Enum):
+class AclTcpflagsOperator(Enum):
     """
-    AclTcpflagsOperatorEnum
+    AclTcpflagsOperator
 
     Acl tcpflags operator
 
@@ -450,24 +396,45 @@ class AclTcpflagsOperatorEnum(Enum):
 
     """
 
-    match_none = 0
+    match_none = Enum.YLeaf(0, "match-none")
 
-    match_all = 1
+    match_all = Enum.YLeaf(1, "match-all")
 
-    match_any_old = 2
+    match_any_old = Enum.YLeaf(2, "match-any-old")
 
-    match_any = 3
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['AclTcpflagsOperatorEnum']
+    match_any = Enum.YLeaf(3, "match-any")
 
 
-class BagAclNhAtStatusEnum(Enum):
+class BagAclNh(Enum):
     """
-    BagAclNhAtStatusEnum
+    BagAclNh
+
+    Bag acl nh
+
+    .. data:: nexthop_none = 0
+
+    	Next Hop None
+
+    .. data:: nexthop_default = 1
+
+    	Nexthop Default
+
+    .. data:: nexthop = 2
+
+    	Nexthop
+
+    """
+
+    nexthop_none = Enum.YLeaf(0, "nexthop-none")
+
+    nexthop_default = Enum.YLeaf(1, "nexthop-default")
+
+    nexthop = Enum.YLeaf(2, "nexthop")
+
+
+class BagAclNhAtStatus(Enum):
+    """
+    BagAclNhAtStatus
 
     Bag acl nh at status
 
@@ -493,59 +460,20 @@ class BagAclNhAtStatusEnum(Enum):
 
     """
 
-    unknown = 0
+    unknown = Enum.YLeaf(0, "unknown")
 
-    up = 1
+    up = Enum.YLeaf(1, "up")
 
-    down = 2
+    down = Enum.YLeaf(2, "down")
 
-    not_present = 3
+    not_present = Enum.YLeaf(3, "not-present")
 
-    max = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['BagAclNhAtStatusEnum']
+    max = Enum.YLeaf(4, "max")
 
 
-class BagAclNhEnum(Enum):
+class BagAclNhStatus(Enum):
     """
-    BagAclNhEnum
-
-    Bag acl nh
-
-    .. data:: nexthop_none = 0
-
-    	Next Hop None
-
-    .. data:: nexthop_default = 1
-
-    	Nexthop Default
-
-    .. data:: nexthop = 2
-
-    	Nexthop
-
-    """
-
-    nexthop_none = 0
-
-    nexthop_default = 1
-
-    nexthop = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['BagAclNhEnum']
-
-
-class BagAclNhStatusEnum(Enum):
-    """
-    BagAclNhStatusEnum
+    BagAclNhStatus
 
     Bag acl nh status
 
@@ -571,25 +499,19 @@ class BagAclNhStatusEnum(Enum):
 
     """
 
-    not_present = 0
+    not_present = Enum.YLeaf(0, "not-present")
 
-    unknown = 1
+    unknown = Enum.YLeaf(1, "unknown")
 
-    down = 2
+    down = Enum.YLeaf(2, "down")
 
-    up = 3
+    up = Enum.YLeaf(3, "up")
 
-    max = 4
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['BagAclNhStatusEnum']
+    max = Enum.YLeaf(4, "max")
 
 
 
-class Ipv6AclAndPrefixList(object):
+class Ipv6AclAndPrefixList(Entity):
     """
     Root class of IPv6 Oper schema tree
     
@@ -611,13 +533,24 @@ class Ipv6AclAndPrefixList(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Ipv6AclAndPrefixList, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ipv6-acl-and-prefix-list"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv6-acl-oper"
+
         self.access_list_manager = Ipv6AclAndPrefixList.AccessListManager()
         self.access_list_manager.parent = self
+        self._children_name_map["access_list_manager"] = "access-list-manager"
+        self._children_yang_names.add("access-list-manager")
+
         self.oor = Ipv6AclAndPrefixList.Oor()
         self.oor.parent = self
+        self._children_name_map["oor"] = "oor"
+        self._children_yang_names.add("oor")
 
 
-    class AccessListManager(object):
+    class AccessListManager(Entity):
         """
         AccessListManager containing ACLs and prefix
         lists
@@ -645,16 +578,28 @@ class Ipv6AclAndPrefixList(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Ipv6AclAndPrefixList.AccessListManager, self).__init__()
+
+            self.yang_name = "access-list-manager"
+            self.yang_parent_name = "ipv6-acl-and-prefix-list"
+
             self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
             self.accesses.parent = self
+            self._children_name_map["accesses"] = "accesses"
+            self._children_yang_names.add("accesses")
+
             self.prefixes = Ipv6AclAndPrefixList.AccessListManager.Prefixes()
             self.prefixes.parent = self
+            self._children_name_map["prefixes"] = "prefixes"
+            self._children_yang_names.add("prefixes")
+
             self.usages = Ipv6AclAndPrefixList.AccessListManager.Usages()
             self.usages.parent = self
+            self._children_name_map["usages"] = "usages"
+            self._children_yang_names.add("usages")
 
 
-        class Prefixes(object):
+        class Prefixes(Entity):
             """
             Table of prefix lists
             
@@ -671,13 +616,39 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.prefix = YList()
-                self.prefix.parent = self
-                self.prefix.name = 'prefix'
+                super(Ipv6AclAndPrefixList.AccessListManager.Prefixes, self).__init__()
+
+                self.yang_name = "prefixes"
+                self.yang_parent_name = "access-list-manager"
+
+                self.prefix = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6AclAndPrefixList.AccessListManager.Prefixes, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6AclAndPrefixList.AccessListManager.Prefixes, self).__setattr__(name, value)
 
 
-            class Prefix(object):
+            class Prefix(Entity):
                 """
                 Name of the prefix list
                 
@@ -701,13 +672,44 @@ class Ipv6AclAndPrefixList(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.prefix_list_name = None
+                    super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix, self).__init__()
+
+                    self.yang_name = "prefix"
+                    self.yang_parent_name = "prefixes"
+
+                    self.prefix_list_name = YLeaf(YType.str, "prefix-list-name")
+
                     self.prefix_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences()
                     self.prefix_list_sequences.parent = self
+                    self._children_name_map["prefix_list_sequences"] = "prefix-list-sequences"
+                    self._children_yang_names.add("prefix-list-sequences")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("prefix_list_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix, self).__setattr__(name, value)
 
 
-                class PrefixListSequences(object):
+                class PrefixListSequences(Entity):
                     """
                     Table of all the SequenceNumbers per prefix
                     list
@@ -725,13 +727,39 @@ class Ipv6AclAndPrefixList(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.prefix_list_sequence = YList()
-                        self.prefix_list_sequence.parent = self
-                        self.prefix_list_sequence.name = 'prefix_list_sequence'
+                        super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences, self).__init__()
+
+                        self.yang_name = "prefix-list-sequences"
+                        self.yang_parent_name = "prefix"
+
+                        self.prefix_list_sequence = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences, self).__setattr__(name, value)
 
 
-                    class PrefixListSequence(object):
+                    class PrefixListSequence(Entity):
                         """
                         Sequence Number of a prefix list entry
                         
@@ -764,7 +792,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_ace_type
                         
                         	ACE type (acl, remark)
-                        	**type**\:   :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1Enum>`
+                        	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1>`
                         
                         .. attribute:: is_address_in_numbers
                         
@@ -788,12 +816,12 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_length_operator
                         
                         	Port Operator
-                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
                         
                         .. attribute:: is_packet_allow_or_deny
                         
                         	Grant value permit/deny 
-                        	**type**\:   :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclActionEnum>`
+                        	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAction>`
                         
                         .. attribute:: is_packet_maximum_length
                         
@@ -817,150 +845,377 @@ class Ipv6AclAndPrefixList(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.sequence_number = None
-                            self.acl_name = None
-                            self.hits = None
-                            self.is_ace_sequence_number = None
-                            self.is_ace_type = None
-                            self.is_address_in_numbers = None
-                            self.is_address_mask_length = None
-                            self.is_comment_for_entry = None
-                            self.is_length_operator = None
-                            self.is_packet_allow_or_deny = None
-                            self.is_packet_maximum_length = None
-                            self.is_packet_minimum_length = None
+                            super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.sequence_number is None:
-                                raise YPYModelError('Key property sequence_number is None')
+                            self.yang_name = "prefix-list-sequence"
+                            self.yang_parent_name = "prefix-list-sequences"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-sequence[Cisco-IOS-XR-ipv6-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
+                            self.sequence_number = YLeaf(YType.uint32, "sequence-number")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.acl_name = YLeaf(YType.str, "acl-name")
+
+                            self.hits = YLeaf(YType.uint32, "hits")
+
+                            self.is_ace_sequence_number = YLeaf(YType.uint32, "is-ace-sequence-number")
+
+                            self.is_ace_type = YLeaf(YType.enumeration, "is-ace-type")
+
+                            self.is_address_in_numbers = YLeaf(YType.str, "is-address-in-numbers")
+
+                            self.is_address_mask_length = YLeaf(YType.uint32, "is-address-mask-length")
+
+                            self.is_comment_for_entry = YLeaf(YType.str, "is-comment-for-entry")
+
+                            self.is_length_operator = YLeaf(YType.enumeration, "is-length-operator")
+
+                            self.is_packet_allow_or_deny = YLeaf(YType.enumeration, "is-packet-allow-or-deny")
+
+                            self.is_packet_maximum_length = YLeaf(YType.uint32, "is-packet-maximum-length")
+
+                            self.is_packet_minimum_length = YLeaf(YType.uint32, "is-packet-minimum-length")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("sequence_number",
+                                            "acl_name",
+                                            "hits",
+                                            "is_ace_sequence_number",
+                                            "is_ace_type",
+                                            "is_address_in_numbers",
+                                            "is_address_mask_length",
+                                            "is_comment_for_entry",
+                                            "is_length_operator",
+                                            "is_packet_allow_or_deny",
+                                            "is_packet_maximum_length",
+                                            "is_packet_minimum_length") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.sequence_number.is_set or
+                                self.acl_name.is_set or
+                                self.hits.is_set or
+                                self.is_ace_sequence_number.is_set or
+                                self.is_ace_type.is_set or
+                                self.is_address_in_numbers.is_set or
+                                self.is_address_mask_length.is_set or
+                                self.is_comment_for_entry.is_set or
+                                self.is_length_operator.is_set or
+                                self.is_packet_allow_or_deny.is_set or
+                                self.is_packet_maximum_length.is_set or
+                                self.is_packet_minimum_length.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.sequence_number.yfilter != YFilter.not_set or
+                                self.acl_name.yfilter != YFilter.not_set or
+                                self.hits.yfilter != YFilter.not_set or
+                                self.is_ace_sequence_number.yfilter != YFilter.not_set or
+                                self.is_ace_type.yfilter != YFilter.not_set or
+                                self.is_address_in_numbers.yfilter != YFilter.not_set or
+                                self.is_address_mask_length.yfilter != YFilter.not_set or
+                                self.is_comment_for_entry.yfilter != YFilter.not_set or
+                                self.is_length_operator.yfilter != YFilter.not_set or
+                                self.is_packet_allow_or_deny.yfilter != YFilter.not_set or
+                                self.is_packet_maximum_length.yfilter != YFilter.not_set or
+                                self.is_packet_minimum_length.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "prefix-list-sequence" + "[sequence-number='" + self.sequence_number.get() + "']" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.sequence_number.is_set or self.sequence_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sequence_number.get_name_leafdata())
+                            if (self.acl_name.is_set or self.acl_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.acl_name.get_name_leafdata())
+                            if (self.hits.is_set or self.hits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.hits.get_name_leafdata())
+                            if (self.is_ace_sequence_number.is_set or self.is_ace_sequence_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_ace_sequence_number.get_name_leafdata())
+                            if (self.is_ace_type.is_set or self.is_ace_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_ace_type.get_name_leafdata())
+                            if (self.is_address_in_numbers.is_set or self.is_address_in_numbers.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_address_in_numbers.get_name_leafdata())
+                            if (self.is_address_mask_length.is_set or self.is_address_mask_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_address_mask_length.get_name_leafdata())
+                            if (self.is_comment_for_entry.is_set or self.is_comment_for_entry.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_comment_for_entry.get_name_leafdata())
+                            if (self.is_length_operator.is_set or self.is_length_operator.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_length_operator.get_name_leafdata())
+                            if (self.is_packet_allow_or_deny.is_set or self.is_packet_allow_or_deny.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_packet_allow_or_deny.get_name_leafdata())
+                            if (self.is_packet_maximum_length.is_set or self.is_packet_maximum_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_packet_maximum_length.get_name_leafdata())
+                            if (self.is_packet_minimum_length.is_set or self.is_packet_minimum_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_packet_minimum_length.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "sequence-number" or name == "acl-name" or name == "hits" or name == "is-ace-sequence-number" or name == "is-ace-type" or name == "is-address-in-numbers" or name == "is-address-mask-length" or name == "is-comment-for-entry" or name == "is-length-operator" or name == "is-packet-allow-or-deny" or name == "is-packet-maximum-length" or name == "is-packet-minimum-length"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.sequence_number is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "sequence-number"):
+                                self.sequence_number = value
+                                self.sequence_number.value_namespace = name_space
+                                self.sequence_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "acl-name"):
+                                self.acl_name = value
+                                self.acl_name.value_namespace = name_space
+                                self.acl_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "hits"):
+                                self.hits = value
+                                self.hits.value_namespace = name_space
+                                self.hits.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-ace-sequence-number"):
+                                self.is_ace_sequence_number = value
+                                self.is_ace_sequence_number.value_namespace = name_space
+                                self.is_ace_sequence_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-ace-type"):
+                                self.is_ace_type = value
+                                self.is_ace_type.value_namespace = name_space
+                                self.is_ace_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-address-in-numbers"):
+                                self.is_address_in_numbers = value
+                                self.is_address_in_numbers.value_namespace = name_space
+                                self.is_address_in_numbers.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-address-mask-length"):
+                                self.is_address_mask_length = value
+                                self.is_address_mask_length.value_namespace = name_space
+                                self.is_address_mask_length.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-comment-for-entry"):
+                                self.is_comment_for_entry = value
+                                self.is_comment_for_entry.value_namespace = name_space
+                                self.is_comment_for_entry.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-length-operator"):
+                                self.is_length_operator = value
+                                self.is_length_operator.value_namespace = name_space
+                                self.is_length_operator.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-packet-allow-or-deny"):
+                                self.is_packet_allow_or_deny = value
+                                self.is_packet_allow_or_deny.value_namespace = name_space
+                                self.is_packet_allow_or_deny.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-packet-maximum-length"):
+                                self.is_packet_maximum_length = value
+                                self.is_packet_maximum_length.value_namespace = name_space
+                                self.is_packet_maximum_length.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-packet-minimum-length"):
+                                self.is_packet_minimum_length = value
+                                self.is_packet_minimum_length.value_namespace = name_space
+                                self.is_packet_minimum_length.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.prefix_list_sequence:
+                            if (c.has_data()):
                                 return True
-
-                            if self.acl_name is not None:
-                                return True
-
-                            if self.hits is not None:
-                                return True
-
-                            if self.is_ace_sequence_number is not None:
-                                return True
-
-                            if self.is_ace_type is not None:
-                                return True
-
-                            if self.is_address_in_numbers is not None:
-                                return True
-
-                            if self.is_address_mask_length is not None:
-                                return True
-
-                            if self.is_comment_for_entry is not None:
-                                return True
-
-                            if self.is_length_operator is not None:
-                                return True
-
-                            if self.is_packet_allow_or_deny is not None:
-                                return True
-
-                            if self.is_packet_maximum_length is not None:
-                                return True
-
-                            if self.is_packet_minimum_length is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                            return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-sequences'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.prefix_list_sequence is not None:
-                            for child_ref in self.prefix_list_sequence:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.prefix_list_sequence:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                        return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "prefix-list-sequences" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                        return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences']['meta_info']
+                        return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.prefix_list_name is None:
-                        raise YPYModelError('Key property prefix_list_name is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:prefixes/Cisco-IOS-XR-ipv6-acl-oper:prefix[Cisco-IOS-XR-ipv6-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
+                        leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                def _has_data(self):
-                    if self.prefix_list_name is not None:
-                        return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                    if self.prefix_list_sequences is not None and self.prefix_list_sequences._has_data():
-                        return True
+                        if (child_yang_name == "prefix-list-sequence"):
+                            for c in self.prefix_list_sequence:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.prefix_list_sequence.append(c)
+                            return c
 
-                    return False
+                        return None
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                    return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:prefixes'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.prefix is not None:
-                    for child_ref in self.prefix:
-                        if child_ref._has_data():
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "prefix-list-sequence"):
                             return True
+                        return False
 
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.prefix_list_name.is_set or
+                        (self.prefix_list_sequences is not None and self.prefix_list_sequences.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.prefix_list_name.yfilter != YFilter.not_set or
+                        (self.prefix_list_sequences is not None and self.prefix_list_sequences.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "prefix" + "[prefix-list-name='" + self.prefix_list_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/prefixes/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.prefix_list_name.is_set or self.prefix_list_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix_list_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "prefix-list-sequences"):
+                        if (self.prefix_list_sequences is None):
+                            self.prefix_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences()
+                            self.prefix_list_sequences.parent = self
+                            self._children_name_map["prefix_list_sequences"] = "prefix-list-sequences"
+                        return self.prefix_list_sequences
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "prefix-list-sequences" or name == "prefix-list-name"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "prefix-list-name"):
+                        self.prefix_list_name = value
+                        self.prefix_list_name.value_namespace = name_space
+                        self.prefix_list_name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.prefix:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Prefixes']['meta_info']
+            def has_operation(self):
+                for c in self.prefix:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prefixes" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "prefix"):
+                    for c in self.prefix:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Ipv6AclAndPrefixList.AccessListManager.Prefixes.Prefix()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.prefix.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "prefix"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Usages(object):
+        class Usages(Entity):
             """
             Table of Usage statistics of ACLs at different
             nodes
@@ -978,13 +1233,39 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.usage = YList()
-                self.usage.parent = self
-                self.usage.name = 'usage'
+                super(Ipv6AclAndPrefixList.AccessListManager.Usages, self).__init__()
+
+                self.yang_name = "usages"
+                self.yang_parent_name = "access-list-manager"
+
+                self.usage = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6AclAndPrefixList.AccessListManager.Usages, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6AclAndPrefixList.AccessListManager.Usages, self).__setattr__(name, value)
 
 
-            class Usage(object):
+            class Usage(Entity):
                 """
                 Usage statistics of an ACL at a node
                 
@@ -998,7 +1279,7 @@ class Ipv6AclAndPrefixList(object):
                 .. attribute:: application_id
                 
                 	Application ID
-                	**type**\:   :py:class:`AclUsageAppIdEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnumEnum>`
+                	**type**\:   :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
                 
                 .. attribute:: node_name
                 
@@ -1022,65 +1303,176 @@ class Ipv6AclAndPrefixList(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.access_list_name = None
-                    self.application_id = None
-                    self.node_name = None
-                    self.usage_details = None
+                    super(Ipv6AclAndPrefixList.AccessListManager.Usages.Usage, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "usage"
+                    self.yang_parent_name = "usages"
 
-                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:usages/Cisco-IOS-XR-ipv6-acl-oper:usage'
+                    self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.application_id = YLeaf(YType.enumeration, "application-id")
+
+                    self.node_name = YLeaf(YType.str, "node-name")
+
+                    self.usage_details = YLeaf(YType.str, "usage-details")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("access_list_name",
+                                    "application_id",
+                                    "node_name",
+                                    "usage_details") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6AclAndPrefixList.AccessListManager.Usages.Usage, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6AclAndPrefixList.AccessListManager.Usages.Usage, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.access_list_name.is_set or
+                        self.application_id.is_set or
+                        self.node_name.is_set or
+                        self.usage_details.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.access_list_name.yfilter != YFilter.not_set or
+                        self.application_id.yfilter != YFilter.not_set or
+                        self.node_name.yfilter != YFilter.not_set or
+                        self.usage_details.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "usage" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/usages/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                    if (self.application_id.is_set or self.application_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.application_id.get_name_leafdata())
+                    if (self.node_name.is_set or self.node_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.node_name.get_name_leafdata())
+                    if (self.usage_details.is_set or self.usage_details.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.usage_details.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "access-list-name" or name == "application-id" or name == "node-name" or name == "usage-details"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.access_list_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "access-list-name"):
+                        self.access_list_name = value
+                        self.access_list_name.value_namespace = name_space
+                        self.access_list_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "application-id"):
+                        self.application_id = value
+                        self.application_id.value_namespace = name_space
+                        self.application_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "node-name"):
+                        self.node_name = value
+                        self.node_name.value_namespace = name_space
+                        self.node_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "usage-details"):
+                        self.usage_details = value
+                        self.usage_details.value_namespace = name_space
+                        self.usage_details.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.usage:
+                    if (c.has_data()):
                         return True
-
-                    if self.application_id is not None:
-                        return True
-
-                    if self.node_name is not None:
-                        return True
-
-                    if self.usage_details is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                    return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages.Usage']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:usages'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.usage is not None:
-                    for child_ref in self.usage:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.usage:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "usages" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "usage"):
+                    for c in self.usage:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Ipv6AclAndPrefixList.AccessListManager.Usages.Usage()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.usage.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "usage"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Usages']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class Accesses(object):
+        class Accesses(Entity):
             """
             ACL class displaying Usage and Entries
             
@@ -1097,13 +1489,39 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.access = YList()
-                self.access.parent = self
-                self.access.name = 'access'
+                super(Ipv6AclAndPrefixList.AccessListManager.Accesses, self).__init__()
+
+                self.yang_name = "accesses"
+                self.yang_parent_name = "access-list-manager"
+
+                self.access = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses, self).__setattr__(name, value)
 
 
-            class Access(object):
+            class Access(Entity):
                 """
                 Name of the Access List
                 
@@ -1127,13 +1545,44 @@ class Ipv6AclAndPrefixList(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.access_list_name = None
+                    super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access, self).__init__()
+
+                    self.yang_name = "access"
+                    self.yang_parent_name = "accesses"
+
+                    self.access_list_name = YLeaf(YType.str, "access-list-name")
+
                     self.access_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences()
                     self.access_list_sequences.parent = self
+                    self._children_name_map["access_list_sequences"] = "access-list-sequences"
+                    self._children_yang_names.add("access-list-sequences")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("access_list_name") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access, self).__setattr__(name, value)
 
 
-                class AccessListSequences(object):
+                class AccessListSequences(Entity):
                     """
                     Table of all the sequence numbers per ACL
                     
@@ -1150,13 +1599,39 @@ class Ipv6AclAndPrefixList(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.access_list_sequence = YList()
-                        self.access_list_sequence.parent = self
-                        self.access_list_sequence.name = 'access_list_sequence'
+                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, self).__init__()
+
+                        self.yang_name = "access-list-sequences"
+                        self.yang_parent_name = "access"
+
+                        self.access_list_sequence = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in () and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, self).__setattr__(name, value)
 
 
-                    class AccessListSequence(object):
+                    class AccessListSequence(Entity):
                         """
                         Sequence number of an ACL entry
                         
@@ -1221,7 +1696,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_ace_type
                         
                         	ACE type (acl, remark)
-                        	**type**\:   :py:class:`AclAce1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1Enum>`
+                        	**type**\:   :py:class:`AclAce1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAce1>`
                         
                         .. attribute:: is_comment_for_entry
                         
@@ -1245,7 +1720,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_destination_operator
                         
                         	eq, ne, lt, etc..
-                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
                         
                         .. attribute:: is_destination_port1
                         
@@ -1313,12 +1788,12 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_log_option
                         
                         	IsLogOption
-                        	**type**\:   :py:class:`AclLogEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclLogEnum>`
+                        	**type**\:   :py:class:`AclLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclLog>`
                         
                         .. attribute:: is_packet_allow_or_deny
                         
                         	Grant value permit/deny 
-                        	**type**\:   :py:class:`AclActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclActionEnum>`
+                        	**type**\:   :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclAction>`
                         
                         .. attribute:: is_packet_length_end
                         
@@ -1330,7 +1805,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_packet_length_operator
                         
                         	Match if routing header is presant
-                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
                         
                         .. attribute:: is_packet_length_start
                         
@@ -1356,7 +1831,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_protocol_operator
                         
                         	Protocol operator
-                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
                         
                         .. attribute:: is_source_address_in_numbers
                         
@@ -1375,7 +1850,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_source_operator
                         
                         	eq, ne, lt, etc..
-                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
                         
                         .. attribute:: is_source_port1
                         
@@ -1408,7 +1883,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_tcp_bits_operator
                         
                         	IsTCPBitsOperator
-                        	**type**\:   :py:class:`AclTcpflagsOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclTcpflagsOperatorEnum>`
+                        	**type**\:   :py:class:`AclTcpflagsOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclTcpflagsOperator>`
                         
                         .. attribute:: is_time_to_live_end
                         
@@ -1420,7 +1895,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: is_time_to_live_operator
                         
                         	IsTimeToLiveOperator
-                        	**type**\:   :py:class:`AclPortOperatorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperatorEnum>`
+                        	**type**\:   :py:class:`AclPortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.AclPortOperator>`
                         
                         .. attribute:: is_time_to_live_start
                         
@@ -1437,7 +1912,7 @@ class Ipv6AclAndPrefixList(object):
                         .. attribute:: next_hop_type
                         
                         	Next hop type
-                        	**type**\:   :py:class:`BagAclNhEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhEnum>`
+                        	**type**\:   :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh>`
                         
                         .. attribute:: no_stats
                         
@@ -1493,68 +1968,194 @@ class Ipv6AclAndPrefixList(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.sequence_number = None
-                            self.acl_name = None
-                            self.capture = None
-                            self.counter_name = None
-                            self.destination_mask = None
-                            self.destination_port_group = None
-                            self.destination_prefix_group = None
-                            self.hits = None
+                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, self).__init__()
+
+                            self.yang_name = "access-list-sequence"
+                            self.yang_parent_name = "access-list-sequences"
+
+                            self.sequence_number = YLeaf(YType.uint32, "sequence-number")
+
+                            self.acl_name = YLeaf(YType.str, "acl-name")
+
+                            self.capture = YLeaf(YType.boolean, "capture")
+
+                            self.counter_name = YLeaf(YType.str, "counter-name")
+
+                            self.destination_mask = YLeaf(YType.str, "destination-mask")
+
+                            self.destination_port_group = YLeaf(YType.str, "destination-port-group")
+
+                            self.destination_prefix_group = YLeaf(YType.str, "destination-prefix-group")
+
+                            self.hits = YLeaf(YType.uint64, "hits")
+
+                            self.is_ace_sequence_number = YLeaf(YType.uint32, "is-ace-sequence-number")
+
+                            self.is_ace_type = YLeaf(YType.enumeration, "is-ace-type")
+
+                            self.is_comment_for_entry = YLeaf(YType.str, "is-comment-for-entry")
+
+                            self.is_destination_address_in_numbers = YLeaf(YType.str, "is-destination-address-in-numbers")
+
+                            self.is_destination_address_prefix_length = YLeaf(YType.uint32, "is-destination-address-prefix-length")
+
+                            self.is_destination_operator = YLeaf(YType.enumeration, "is-destination-operator")
+
+                            self.is_destination_port1 = YLeaf(YType.uint32, "is-destination-port1")
+
+                            self.is_destination_port2 = YLeaf(YType.uint32, "is-destination-port2")
+
+                            self.is_dscp_present = YLeaf(YType.int32, "is-dscp-present")
+
+                            self.is_dscp_valu = YLeaf(YType.uint32, "is-dscp-valu")
+
+                            self.is_flow_id = YLeaf(YType.uint32, "is-flow-id")
+
+                            self.is_header_matches = YLeaf(YType.uint32, "is-header-matches")
+
+                            self.is_icmp_message_off = YLeaf(YType.int32, "is-icmp-message-off")
+
+                            self.is_ipv6_protocol2_type = YLeaf(YType.int32, "is-ipv6-protocol2-type")
+
+                            self.is_ipv6_protocol_type = YLeaf(YType.int32, "is-ipv6-protocol-type")
+
+                            self.is_log_option = YLeaf(YType.enumeration, "is-log-option")
+
+                            self.is_packet_allow_or_deny = YLeaf(YType.enumeration, "is-packet-allow-or-deny")
+
+                            self.is_packet_length_end = YLeaf(YType.uint32, "is-packet-length-end")
+
+                            self.is_packet_length_operator = YLeaf(YType.enumeration, "is-packet-length-operator")
+
+                            self.is_packet_length_start = YLeaf(YType.uint32, "is-packet-length-start")
+
+                            self.is_precedence_present = YLeaf(YType.int32, "is-precedence-present")
+
+                            self.is_precedence_value = YLeaf(YType.uint32, "is-precedence-value")
+
+                            self.is_protocol_operator = YLeaf(YType.enumeration, "is-protocol-operator")
+
+                            self.is_source_address_in_numbers = YLeaf(YType.str, "is-source-address-in-numbers")
+
+                            self.is_source_address_prefix_length = YLeaf(YType.uint32, "is-source-address-prefix-length")
+
+                            self.is_source_operator = YLeaf(YType.enumeration, "is-source-operator")
+
+                            self.is_source_port1 = YLeaf(YType.uint32, "is-source-port1")
+
+                            self.is_source_port2 = YLeaf(YType.uint32, "is-source-port2")
+
+                            self.is_tcp_bits = YLeaf(YType.uint32, "is-tcp-bits")
+
+                            self.is_tcp_bits_mask = YLeaf(YType.uint32, "is-tcp-bits-mask")
+
+                            self.is_tcp_bits_operator = YLeaf(YType.enumeration, "is-tcp-bits-operator")
+
+                            self.is_time_to_live_end = YLeaf(YType.uint32, "is-time-to-live-end")
+
+                            self.is_time_to_live_operator = YLeaf(YType.enumeration, "is-time-to-live-operator")
+
+                            self.is_time_to_live_start = YLeaf(YType.uint32, "is-time-to-live-start")
+
+                            self.next_hop_type = YLeaf(YType.enumeration, "next-hop-type")
+
+                            self.no_stats = YLeaf(YType.int32, "no-stats")
+
+                            self.qos_group = YLeaf(YType.uint16, "qos-group")
+
+                            self.sequence_str = YLeaf(YType.str, "sequence-str")
+
+                            self.source_mask = YLeaf(YType.str, "source-mask")
+
+                            self.source_port_group = YLeaf(YType.str, "source-port-group")
+
+                            self.source_prefix_group = YLeaf(YType.str, "source-prefix-group")
+
+                            self.undetermined_transport = YLeaf(YType.boolean, "undetermined-transport")
+
                             self.hw_next_hop_info = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
                             self.hw_next_hop_info.parent = self
-                            self.is_ace_sequence_number = None
-                            self.is_ace_type = None
-                            self.is_comment_for_entry = None
-                            self.is_destination_address_in_numbers = None
-                            self.is_destination_address_prefix_length = None
-                            self.is_destination_operator = None
-                            self.is_destination_port1 = None
-                            self.is_destination_port2 = None
-                            self.is_dscp_present = None
-                            self.is_dscp_valu = None
-                            self.is_flow_id = None
-                            self.is_header_matches = None
-                            self.is_icmp_message_off = None
-                            self.is_ipv6_protocol2_type = None
-                            self.is_ipv6_protocol_type = None
-                            self.is_log_option = None
-                            self.is_packet_allow_or_deny = None
-                            self.is_packet_length_end = None
-                            self.is_packet_length_operator = None
-                            self.is_packet_length_start = None
-                            self.is_precedence_present = None
-                            self.is_precedence_value = None
-                            self.is_protocol_operator = None
-                            self.is_source_address_in_numbers = None
-                            self.is_source_address_prefix_length = None
-                            self.is_source_operator = None
-                            self.is_source_port1 = None
-                            self.is_source_port2 = None
-                            self.is_tcp_bits = None
-                            self.is_tcp_bits_mask = None
-                            self.is_tcp_bits_operator = None
-                            self.is_time_to_live_end = None
-                            self.is_time_to_live_operator = None
-                            self.is_time_to_live_start = None
-                            self.next_hop_info = YList()
-                            self.next_hop_info.parent = self
-                            self.next_hop_info.name = 'next_hop_info'
-                            self.next_hop_type = None
-                            self.no_stats = None
-                            self.qos_group = None
-                            self.sequence_str = None
-                            self.source_mask = None
-                            self.source_port_group = None
-                            self.source_prefix_group = None
-                            self.udf = YList()
-                            self.udf.parent = self
-                            self.udf.name = 'udf'
-                            self.undetermined_transport = None
+                            self._children_name_map["hw_next_hop_info"] = "hw-next-hop-info"
+                            self._children_yang_names.add("hw-next-hop-info")
+
+                            self.next_hop_info = YList(self)
+                            self.udf = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("sequence_number",
+                                            "acl_name",
+                                            "capture",
+                                            "counter_name",
+                                            "destination_mask",
+                                            "destination_port_group",
+                                            "destination_prefix_group",
+                                            "hits",
+                                            "is_ace_sequence_number",
+                                            "is_ace_type",
+                                            "is_comment_for_entry",
+                                            "is_destination_address_in_numbers",
+                                            "is_destination_address_prefix_length",
+                                            "is_destination_operator",
+                                            "is_destination_port1",
+                                            "is_destination_port2",
+                                            "is_dscp_present",
+                                            "is_dscp_valu",
+                                            "is_flow_id",
+                                            "is_header_matches",
+                                            "is_icmp_message_off",
+                                            "is_ipv6_protocol2_type",
+                                            "is_ipv6_protocol_type",
+                                            "is_log_option",
+                                            "is_packet_allow_or_deny",
+                                            "is_packet_length_end",
+                                            "is_packet_length_operator",
+                                            "is_packet_length_start",
+                                            "is_precedence_present",
+                                            "is_precedence_value",
+                                            "is_protocol_operator",
+                                            "is_source_address_in_numbers",
+                                            "is_source_address_prefix_length",
+                                            "is_source_operator",
+                                            "is_source_port1",
+                                            "is_source_port2",
+                                            "is_tcp_bits",
+                                            "is_tcp_bits_mask",
+                                            "is_tcp_bits_operator",
+                                            "is_time_to_live_end",
+                                            "is_time_to_live_operator",
+                                            "is_time_to_live_start",
+                                            "next_hop_type",
+                                            "no_stats",
+                                            "qos_group",
+                                            "sequence_str",
+                                            "source_mask",
+                                            "source_port_group",
+                                            "source_prefix_group",
+                                            "undetermined_transport") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, self).__setattr__(name, value)
 
 
-                        class HwNextHopInfo(object):
+                        class HwNextHopInfo(Entity):
                             """
                             HW Next hop info
                             
@@ -1575,7 +2176,7 @@ class Ipv6AclAndPrefixList(object):
                             .. attribute:: type
                             
                             	The next\-hop type
-                            	**type**\:   :py:class:`BagAclNhEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhEnum>`
+                            	**type**\:   :py:class:`BagAclNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNh>`
                             
                             .. attribute:: vrf_name
                             
@@ -1592,45 +2193,119 @@ class Ipv6AclAndPrefixList(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.next_hop = None
-                                self.table_id = None
-                                self.type = None
-                                self.vrf_name = None
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "hw-next-hop-info"
+                                self.yang_parent_name = "access-list-sequence"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:hw-next-hop-info'
+                                self.next_hop = YLeaf(YType.str, "next-hop")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.table_id = YLeaf(YType.uint32, "table-id")
+
+                                self.type = YLeaf(YType.enumeration, "type")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("next_hop",
+                                                "table_id",
+                                                "type",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.next_hop.is_set or
+                                    self.table_id.is_set or
+                                    self.type.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.next_hop.yfilter != YFilter.not_set or
+                                    self.table_id.yfilter != YFilter.not_set or
+                                    self.type.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "hw-next-hop-info" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.next_hop.is_set or self.next_hop.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.next_hop.get_name_leafdata())
+                                if (self.table_id.is_set or self.table_id.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.table_id.get_name_leafdata())
+                                if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.type.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "next-hop" or name == "table-id" or name == "type" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.next_hop is not None:
-                                    return True
-
-                                if self.table_id is not None:
-                                    return True
-
-                                if self.type is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo']['meta_info']
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "next-hop"):
+                                    self.next_hop = value
+                                    self.next_hop.value_namespace = name_space
+                                    self.next_hop.value_namespace_prefix = name_space_prefix
+                                if(value_path == "table-id"):
+                                    self.table_id = value
+                                    self.table_id.value_namespace = name_space
+                                    self.table_id.value_namespace_prefix = name_space_prefix
+                                if(value_path == "type"):
+                                    self.type = value
+                                    self.type.value_namespace = name_space
+                                    self.type.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
 
-                        class NextHopInfo(object):
+                        class NextHopInfo(Entity):
                             """
                             Next hop info
                             
@@ -1644,7 +2319,7 @@ class Ipv6AclAndPrefixList(object):
                             .. attribute:: at_status
                             
                             	The next hop at status
-                            	**type**\:   :py:class:`BagAclNhAtStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhAtStatusEnum>`
+                            	**type**\:   :py:class:`BagAclNhAtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhAtStatus>`
                             
                             .. attribute:: next_hop
                             
@@ -1656,7 +2331,7 @@ class Ipv6AclAndPrefixList(object):
                             .. attribute:: status
                             
                             	The next hop status
-                            	**type**\:   :py:class:`BagAclNhStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhStatusEnum>`
+                            	**type**\:   :py:class:`BagAclNhStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_oper.BagAclNhStatus>`
                             
                             .. attribute:: track_name
                             
@@ -1680,53 +2355,141 @@ class Ipv6AclAndPrefixList(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.acl_nh_exist = None
-                                self.at_status = None
-                                self.next_hop = None
-                                self.status = None
-                                self.track_name = None
-                                self.vrf_name = None
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "next-hop-info"
+                                self.yang_parent_name = "access-list-sequence"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:next-hop-info'
+                                self.acl_nh_exist = YLeaf(YType.int32, "acl-nh-exist")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.at_status = YLeaf(YType.enumeration, "at-status")
+
+                                self.next_hop = YLeaf(YType.str, "next-hop")
+
+                                self.status = YLeaf(YType.enumeration, "status")
+
+                                self.track_name = YLeaf(YType.str, "track-name")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("acl_nh_exist",
+                                                "at_status",
+                                                "next_hop",
+                                                "status",
+                                                "track_name",
+                                                "vrf_name") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.acl_nh_exist.is_set or
+                                    self.at_status.is_set or
+                                    self.next_hop.is_set or
+                                    self.status.is_set or
+                                    self.track_name.is_set or
+                                    self.vrf_name.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.acl_nh_exist.yfilter != YFilter.not_set or
+                                    self.at_status.yfilter != YFilter.not_set or
+                                    self.next_hop.yfilter != YFilter.not_set or
+                                    self.status.yfilter != YFilter.not_set or
+                                    self.track_name.yfilter != YFilter.not_set or
+                                    self.vrf_name.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "next-hop-info" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.acl_nh_exist.is_set or self.acl_nh_exist.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.acl_nh_exist.get_name_leafdata())
+                                if (self.at_status.is_set or self.at_status.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.at_status.get_name_leafdata())
+                                if (self.next_hop.is_set or self.next_hop.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.next_hop.get_name_leafdata())
+                                if (self.status.is_set or self.status.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.status.get_name_leafdata())
+                                if (self.track_name.is_set or self.track_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.track_name.get_name_leafdata())
+                                if (self.vrf_name.is_set or self.vrf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.vrf_name.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "acl-nh-exist" or name == "at-status" or name == "next-hop" or name == "status" or name == "track-name" or name == "vrf-name"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.acl_nh_exist is not None:
-                                    return True
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "acl-nh-exist"):
+                                    self.acl_nh_exist = value
+                                    self.acl_nh_exist.value_namespace = name_space
+                                    self.acl_nh_exist.value_namespace_prefix = name_space_prefix
+                                if(value_path == "at-status"):
+                                    self.at_status = value
+                                    self.at_status.value_namespace = name_space
+                                    self.at_status.value_namespace_prefix = name_space_prefix
+                                if(value_path == "next-hop"):
+                                    self.next_hop = value
+                                    self.next_hop.value_namespace = name_space
+                                    self.next_hop.value_namespace_prefix = name_space_prefix
+                                if(value_path == "status"):
+                                    self.status = value
+                                    self.status.value_namespace = name_space
+                                    self.status.value_namespace_prefix = name_space_prefix
+                                if(value_path == "track-name"):
+                                    self.track_name = value
+                                    self.track_name.value_namespace = name_space
+                                    self.track_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "vrf-name"):
+                                    self.vrf_name = value
+                                    self.vrf_name.value_namespace = name_space
+                                    self.vrf_name.value_namespace_prefix = name_space_prefix
 
-                                if self.at_status is not None:
-                                    return True
 
-                                if self.next_hop is not None:
-                                    return True
-
-                                if self.status is not None:
-                                    return True
-
-                                if self.track_name is not None:
-                                    return True
-
-                                if self.vrf_name is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo']['meta_info']
-
-
-                        class Udf(object):
+                        class Udf(Entity):
                             """
                             UDF
                             
@@ -1759,322 +2522,829 @@ class Ipv6AclAndPrefixList(object):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                self.parent = None
-                                self.udf_mask = None
-                                self.udf_name = None
-                                self.udf_value = None
+                                super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, self).__init__()
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                self.yang_name = "udf"
+                                self.yang_parent_name = "access-list-sequence"
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:udf'
+                                self.udf_mask = YLeaf(YType.uint32, "udf-mask")
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
+                                self.udf_name = YLeaf(YType.str, "udf-name")
+
+                                self.udf_value = YLeaf(YType.uint32, "udf-value")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("udf_mask",
+                                                "udf_name",
+                                                "udf_value") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, self).__setattr__(name, value)
+
+                            def has_data(self):
+                                return (
+                                    self.udf_mask.is_set or
+                                    self.udf_name.is_set or
+                                    self.udf_value.is_set)
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.udf_mask.yfilter != YFilter.not_set or
+                                    self.udf_name.yfilter != YFilter.not_set or
+                                    self.udf_value.yfilter != YFilter.not_set)
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "udf" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.udf_mask.is_set or self.udf_mask.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.udf_mask.get_name_leafdata())
+                                if (self.udf_name.is_set or self.udf_name.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.udf_name.get_name_leafdata())
+                                if (self.udf_value.is_set or self.udf_value.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.udf_value.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "udf-mask" or name == "udf-name" or name == "udf-value"):
+                                    return True
                                 return False
 
-                            def _has_data(self):
-                                if self.udf_mask is not None:
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "udf-mask"):
+                                    self.udf_mask = value
+                                    self.udf_mask.value_namespace = name_space
+                                    self.udf_mask.value_namespace_prefix = name_space_prefix
+                                if(value_path == "udf-name"):
+                                    self.udf_name = value
+                                    self.udf_name.value_namespace = name_space
+                                    self.udf_name.value_namespace_prefix = name_space_prefix
+                                if(value_path == "udf-value"):
+                                    self.udf_value = value
+                                    self.udf_value.value_namespace = name_space
+                                    self.udf_value.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.next_hop_info:
+                                if (c.has_data()):
                                     return True
-
-                                if self.udf_name is not None:
+                            for c in self.udf:
+                                if (c.has_data()):
                                     return True
+                            return (
+                                self.sequence_number.is_set or
+                                self.acl_name.is_set or
+                                self.capture.is_set or
+                                self.counter_name.is_set or
+                                self.destination_mask.is_set or
+                                self.destination_port_group.is_set or
+                                self.destination_prefix_group.is_set or
+                                self.hits.is_set or
+                                self.is_ace_sequence_number.is_set or
+                                self.is_ace_type.is_set or
+                                self.is_comment_for_entry.is_set or
+                                self.is_destination_address_in_numbers.is_set or
+                                self.is_destination_address_prefix_length.is_set or
+                                self.is_destination_operator.is_set or
+                                self.is_destination_port1.is_set or
+                                self.is_destination_port2.is_set or
+                                self.is_dscp_present.is_set or
+                                self.is_dscp_valu.is_set or
+                                self.is_flow_id.is_set or
+                                self.is_header_matches.is_set or
+                                self.is_icmp_message_off.is_set or
+                                self.is_ipv6_protocol2_type.is_set or
+                                self.is_ipv6_protocol_type.is_set or
+                                self.is_log_option.is_set or
+                                self.is_packet_allow_or_deny.is_set or
+                                self.is_packet_length_end.is_set or
+                                self.is_packet_length_operator.is_set or
+                                self.is_packet_length_start.is_set or
+                                self.is_precedence_present.is_set or
+                                self.is_precedence_value.is_set or
+                                self.is_protocol_operator.is_set or
+                                self.is_source_address_in_numbers.is_set or
+                                self.is_source_address_prefix_length.is_set or
+                                self.is_source_operator.is_set or
+                                self.is_source_port1.is_set or
+                                self.is_source_port2.is_set or
+                                self.is_tcp_bits.is_set or
+                                self.is_tcp_bits_mask.is_set or
+                                self.is_tcp_bits_operator.is_set or
+                                self.is_time_to_live_end.is_set or
+                                self.is_time_to_live_operator.is_set or
+                                self.is_time_to_live_start.is_set or
+                                self.next_hop_type.is_set or
+                                self.no_stats.is_set or
+                                self.qos_group.is_set or
+                                self.sequence_str.is_set or
+                                self.source_mask.is_set or
+                                self.source_port_group.is_set or
+                                self.source_prefix_group.is_set or
+                                self.undetermined_transport.is_set or
+                                (self.hw_next_hop_info is not None and self.hw_next_hop_info.has_data()))
 
-                                if self.udf_value is not None:
+                        def has_operation(self):
+                            for c in self.next_hop_info:
+                                if (c.has_operation()):
                                     return True
+                            for c in self.udf:
+                                if (c.has_operation()):
+                                    return True
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.sequence_number.yfilter != YFilter.not_set or
+                                self.acl_name.yfilter != YFilter.not_set or
+                                self.capture.yfilter != YFilter.not_set or
+                                self.counter_name.yfilter != YFilter.not_set or
+                                self.destination_mask.yfilter != YFilter.not_set or
+                                self.destination_port_group.yfilter != YFilter.not_set or
+                                self.destination_prefix_group.yfilter != YFilter.not_set or
+                                self.hits.yfilter != YFilter.not_set or
+                                self.is_ace_sequence_number.yfilter != YFilter.not_set or
+                                self.is_ace_type.yfilter != YFilter.not_set or
+                                self.is_comment_for_entry.yfilter != YFilter.not_set or
+                                self.is_destination_address_in_numbers.yfilter != YFilter.not_set or
+                                self.is_destination_address_prefix_length.yfilter != YFilter.not_set or
+                                self.is_destination_operator.yfilter != YFilter.not_set or
+                                self.is_destination_port1.yfilter != YFilter.not_set or
+                                self.is_destination_port2.yfilter != YFilter.not_set or
+                                self.is_dscp_present.yfilter != YFilter.not_set or
+                                self.is_dscp_valu.yfilter != YFilter.not_set or
+                                self.is_flow_id.yfilter != YFilter.not_set or
+                                self.is_header_matches.yfilter != YFilter.not_set or
+                                self.is_icmp_message_off.yfilter != YFilter.not_set or
+                                self.is_ipv6_protocol2_type.yfilter != YFilter.not_set or
+                                self.is_ipv6_protocol_type.yfilter != YFilter.not_set or
+                                self.is_log_option.yfilter != YFilter.not_set or
+                                self.is_packet_allow_or_deny.yfilter != YFilter.not_set or
+                                self.is_packet_length_end.yfilter != YFilter.not_set or
+                                self.is_packet_length_operator.yfilter != YFilter.not_set or
+                                self.is_packet_length_start.yfilter != YFilter.not_set or
+                                self.is_precedence_present.yfilter != YFilter.not_set or
+                                self.is_precedence_value.yfilter != YFilter.not_set or
+                                self.is_protocol_operator.yfilter != YFilter.not_set or
+                                self.is_source_address_in_numbers.yfilter != YFilter.not_set or
+                                self.is_source_address_prefix_length.yfilter != YFilter.not_set or
+                                self.is_source_operator.yfilter != YFilter.not_set or
+                                self.is_source_port1.yfilter != YFilter.not_set or
+                                self.is_source_port2.yfilter != YFilter.not_set or
+                                self.is_tcp_bits.yfilter != YFilter.not_set or
+                                self.is_tcp_bits_mask.yfilter != YFilter.not_set or
+                                self.is_tcp_bits_operator.yfilter != YFilter.not_set or
+                                self.is_time_to_live_end.yfilter != YFilter.not_set or
+                                self.is_time_to_live_operator.yfilter != YFilter.not_set or
+                                self.is_time_to_live_start.yfilter != YFilter.not_set or
+                                self.next_hop_type.yfilter != YFilter.not_set or
+                                self.no_stats.yfilter != YFilter.not_set or
+                                self.qos_group.yfilter != YFilter.not_set or
+                                self.sequence_str.yfilter != YFilter.not_set or
+                                self.source_mask.yfilter != YFilter.not_set or
+                                self.source_port_group.yfilter != YFilter.not_set or
+                                self.source_prefix_group.yfilter != YFilter.not_set or
+                                self.undetermined_transport.yfilter != YFilter.not_set or
+                                (self.hw_next_hop_info is not None and self.hw_next_hop_info.has_operation()))
 
-                                return False
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "access-list-sequence" + "[sequence-number='" + self.sequence_number.get() + "']" + path_buffer
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf']['meta_info']
+                            return path_buffer
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.sequence_number is None:
-                                raise YPYModelError('Key property sequence_number is None')
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:access-list-sequence[Cisco-IOS-XR-ipv6-acl-oper:sequence-number = ' + str(self.sequence_number) + ']'
+                            leaf_name_data = LeafDataList()
+                            if (self.sequence_number.is_set or self.sequence_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sequence_number.get_name_leafdata())
+                            if (self.acl_name.is_set or self.acl_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.acl_name.get_name_leafdata())
+                            if (self.capture.is_set or self.capture.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.capture.get_name_leafdata())
+                            if (self.counter_name.is_set or self.counter_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.counter_name.get_name_leafdata())
+                            if (self.destination_mask.is_set or self.destination_mask.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_mask.get_name_leafdata())
+                            if (self.destination_port_group.is_set or self.destination_port_group.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_port_group.get_name_leafdata())
+                            if (self.destination_prefix_group.is_set or self.destination_prefix_group.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.destination_prefix_group.get_name_leafdata())
+                            if (self.hits.is_set or self.hits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.hits.get_name_leafdata())
+                            if (self.is_ace_sequence_number.is_set or self.is_ace_sequence_number.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_ace_sequence_number.get_name_leafdata())
+                            if (self.is_ace_type.is_set or self.is_ace_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_ace_type.get_name_leafdata())
+                            if (self.is_comment_for_entry.is_set or self.is_comment_for_entry.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_comment_for_entry.get_name_leafdata())
+                            if (self.is_destination_address_in_numbers.is_set or self.is_destination_address_in_numbers.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_destination_address_in_numbers.get_name_leafdata())
+                            if (self.is_destination_address_prefix_length.is_set or self.is_destination_address_prefix_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_destination_address_prefix_length.get_name_leafdata())
+                            if (self.is_destination_operator.is_set or self.is_destination_operator.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_destination_operator.get_name_leafdata())
+                            if (self.is_destination_port1.is_set or self.is_destination_port1.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_destination_port1.get_name_leafdata())
+                            if (self.is_destination_port2.is_set or self.is_destination_port2.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_destination_port2.get_name_leafdata())
+                            if (self.is_dscp_present.is_set or self.is_dscp_present.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_dscp_present.get_name_leafdata())
+                            if (self.is_dscp_valu.is_set or self.is_dscp_valu.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_dscp_valu.get_name_leafdata())
+                            if (self.is_flow_id.is_set or self.is_flow_id.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_flow_id.get_name_leafdata())
+                            if (self.is_header_matches.is_set or self.is_header_matches.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_header_matches.get_name_leafdata())
+                            if (self.is_icmp_message_off.is_set or self.is_icmp_message_off.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_icmp_message_off.get_name_leafdata())
+                            if (self.is_ipv6_protocol2_type.is_set or self.is_ipv6_protocol2_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_ipv6_protocol2_type.get_name_leafdata())
+                            if (self.is_ipv6_protocol_type.is_set or self.is_ipv6_protocol_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_ipv6_protocol_type.get_name_leafdata())
+                            if (self.is_log_option.is_set or self.is_log_option.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_log_option.get_name_leafdata())
+                            if (self.is_packet_allow_or_deny.is_set or self.is_packet_allow_or_deny.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_packet_allow_or_deny.get_name_leafdata())
+                            if (self.is_packet_length_end.is_set or self.is_packet_length_end.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_packet_length_end.get_name_leafdata())
+                            if (self.is_packet_length_operator.is_set or self.is_packet_length_operator.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_packet_length_operator.get_name_leafdata())
+                            if (self.is_packet_length_start.is_set or self.is_packet_length_start.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_packet_length_start.get_name_leafdata())
+                            if (self.is_precedence_present.is_set or self.is_precedence_present.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_precedence_present.get_name_leafdata())
+                            if (self.is_precedence_value.is_set or self.is_precedence_value.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_precedence_value.get_name_leafdata())
+                            if (self.is_protocol_operator.is_set or self.is_protocol_operator.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_protocol_operator.get_name_leafdata())
+                            if (self.is_source_address_in_numbers.is_set or self.is_source_address_in_numbers.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_source_address_in_numbers.get_name_leafdata())
+                            if (self.is_source_address_prefix_length.is_set or self.is_source_address_prefix_length.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_source_address_prefix_length.get_name_leafdata())
+                            if (self.is_source_operator.is_set or self.is_source_operator.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_source_operator.get_name_leafdata())
+                            if (self.is_source_port1.is_set or self.is_source_port1.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_source_port1.get_name_leafdata())
+                            if (self.is_source_port2.is_set or self.is_source_port2.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_source_port2.get_name_leafdata())
+                            if (self.is_tcp_bits.is_set or self.is_tcp_bits.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_tcp_bits.get_name_leafdata())
+                            if (self.is_tcp_bits_mask.is_set or self.is_tcp_bits_mask.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_tcp_bits_mask.get_name_leafdata())
+                            if (self.is_tcp_bits_operator.is_set or self.is_tcp_bits_operator.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_tcp_bits_operator.get_name_leafdata())
+                            if (self.is_time_to_live_end.is_set or self.is_time_to_live_end.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_time_to_live_end.get_name_leafdata())
+                            if (self.is_time_to_live_operator.is_set or self.is_time_to_live_operator.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_time_to_live_operator.get_name_leafdata())
+                            if (self.is_time_to_live_start.is_set or self.is_time_to_live_start.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.is_time_to_live_start.get_name_leafdata())
+                            if (self.next_hop_type.is_set or self.next_hop_type.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.next_hop_type.get_name_leafdata())
+                            if (self.no_stats.is_set or self.no_stats.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.no_stats.get_name_leafdata())
+                            if (self.qos_group.is_set or self.qos_group.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.qos_group.get_name_leafdata())
+                            if (self.sequence_str.is_set or self.sequence_str.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.sequence_str.get_name_leafdata())
+                            if (self.source_mask.is_set or self.source_mask.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_mask.get_name_leafdata())
+                            if (self.source_port_group.is_set or self.source_port_group.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_port_group.get_name_leafdata())
+                            if (self.source_prefix_group.is_set or self.source_prefix_group.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.source_prefix_group.get_name_leafdata())
+                            if (self.undetermined_transport.is_set or self.undetermined_transport.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.undetermined_transport.get_name_leafdata())
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            if (child_yang_name == "hw-next-hop-info"):
+                                if (self.hw_next_hop_info is None):
+                                    self.hw_next_hop_info = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo()
+                                    self.hw_next_hop_info.parent = self
+                                    self._children_name_map["hw_next_hop_info"] = "hw-next-hop-info"
+                                return self.hw_next_hop_info
+
+                            if (child_yang_name == "next-hop-info"):
+                                for c in self.next_hop_info:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.next_hop_info.append(c)
+                                return c
+
+                            if (child_yang_name == "udf"):
+                                for c in self.udf:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.udf.append(c)
+                                return c
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "hw-next-hop-info" or name == "next-hop-info" or name == "udf" or name == "sequence-number" or name == "acl-name" or name == "capture" or name == "counter-name" or name == "destination-mask" or name == "destination-port-group" or name == "destination-prefix-group" or name == "hits" or name == "is-ace-sequence-number" or name == "is-ace-type" or name == "is-comment-for-entry" or name == "is-destination-address-in-numbers" or name == "is-destination-address-prefix-length" or name == "is-destination-operator" or name == "is-destination-port1" or name == "is-destination-port2" or name == "is-dscp-present" or name == "is-dscp-valu" or name == "is-flow-id" or name == "is-header-matches" or name == "is-icmp-message-off" or name == "is-ipv6-protocol2-type" or name == "is-ipv6-protocol-type" or name == "is-log-option" or name == "is-packet-allow-or-deny" or name == "is-packet-length-end" or name == "is-packet-length-operator" or name == "is-packet-length-start" or name == "is-precedence-present" or name == "is-precedence-value" or name == "is-protocol-operator" or name == "is-source-address-in-numbers" or name == "is-source-address-prefix-length" or name == "is-source-operator" or name == "is-source-port1" or name == "is-source-port2" or name == "is-tcp-bits" or name == "is-tcp-bits-mask" or name == "is-tcp-bits-operator" or name == "is-time-to-live-end" or name == "is-time-to-live-operator" or name == "is-time-to-live-start" or name == "next-hop-type" or name == "no-stats" or name == "qos-group" or name == "sequence-str" or name == "source-mask" or name == "source-port-group" or name == "source-prefix-group" or name == "undetermined-transport"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.sequence_number is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "sequence-number"):
+                                self.sequence_number = value
+                                self.sequence_number.value_namespace = name_space
+                                self.sequence_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "acl-name"):
+                                self.acl_name = value
+                                self.acl_name.value_namespace = name_space
+                                self.acl_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "capture"):
+                                self.capture = value
+                                self.capture.value_namespace = name_space
+                                self.capture.value_namespace_prefix = name_space_prefix
+                            if(value_path == "counter-name"):
+                                self.counter_name = value
+                                self.counter_name.value_namespace = name_space
+                                self.counter_name.value_namespace_prefix = name_space_prefix
+                            if(value_path == "destination-mask"):
+                                self.destination_mask = value
+                                self.destination_mask.value_namespace = name_space
+                                self.destination_mask.value_namespace_prefix = name_space_prefix
+                            if(value_path == "destination-port-group"):
+                                self.destination_port_group = value
+                                self.destination_port_group.value_namespace = name_space
+                                self.destination_port_group.value_namespace_prefix = name_space_prefix
+                            if(value_path == "destination-prefix-group"):
+                                self.destination_prefix_group = value
+                                self.destination_prefix_group.value_namespace = name_space
+                                self.destination_prefix_group.value_namespace_prefix = name_space_prefix
+                            if(value_path == "hits"):
+                                self.hits = value
+                                self.hits.value_namespace = name_space
+                                self.hits.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-ace-sequence-number"):
+                                self.is_ace_sequence_number = value
+                                self.is_ace_sequence_number.value_namespace = name_space
+                                self.is_ace_sequence_number.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-ace-type"):
+                                self.is_ace_type = value
+                                self.is_ace_type.value_namespace = name_space
+                                self.is_ace_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-comment-for-entry"):
+                                self.is_comment_for_entry = value
+                                self.is_comment_for_entry.value_namespace = name_space
+                                self.is_comment_for_entry.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-destination-address-in-numbers"):
+                                self.is_destination_address_in_numbers = value
+                                self.is_destination_address_in_numbers.value_namespace = name_space
+                                self.is_destination_address_in_numbers.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-destination-address-prefix-length"):
+                                self.is_destination_address_prefix_length = value
+                                self.is_destination_address_prefix_length.value_namespace = name_space
+                                self.is_destination_address_prefix_length.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-destination-operator"):
+                                self.is_destination_operator = value
+                                self.is_destination_operator.value_namespace = name_space
+                                self.is_destination_operator.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-destination-port1"):
+                                self.is_destination_port1 = value
+                                self.is_destination_port1.value_namespace = name_space
+                                self.is_destination_port1.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-destination-port2"):
+                                self.is_destination_port2 = value
+                                self.is_destination_port2.value_namespace = name_space
+                                self.is_destination_port2.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-dscp-present"):
+                                self.is_dscp_present = value
+                                self.is_dscp_present.value_namespace = name_space
+                                self.is_dscp_present.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-dscp-valu"):
+                                self.is_dscp_valu = value
+                                self.is_dscp_valu.value_namespace = name_space
+                                self.is_dscp_valu.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-flow-id"):
+                                self.is_flow_id = value
+                                self.is_flow_id.value_namespace = name_space
+                                self.is_flow_id.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-header-matches"):
+                                self.is_header_matches = value
+                                self.is_header_matches.value_namespace = name_space
+                                self.is_header_matches.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-icmp-message-off"):
+                                self.is_icmp_message_off = value
+                                self.is_icmp_message_off.value_namespace = name_space
+                                self.is_icmp_message_off.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-ipv6-protocol2-type"):
+                                self.is_ipv6_protocol2_type = value
+                                self.is_ipv6_protocol2_type.value_namespace = name_space
+                                self.is_ipv6_protocol2_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-ipv6-protocol-type"):
+                                self.is_ipv6_protocol_type = value
+                                self.is_ipv6_protocol_type.value_namespace = name_space
+                                self.is_ipv6_protocol_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-log-option"):
+                                self.is_log_option = value
+                                self.is_log_option.value_namespace = name_space
+                                self.is_log_option.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-packet-allow-or-deny"):
+                                self.is_packet_allow_or_deny = value
+                                self.is_packet_allow_or_deny.value_namespace = name_space
+                                self.is_packet_allow_or_deny.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-packet-length-end"):
+                                self.is_packet_length_end = value
+                                self.is_packet_length_end.value_namespace = name_space
+                                self.is_packet_length_end.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-packet-length-operator"):
+                                self.is_packet_length_operator = value
+                                self.is_packet_length_operator.value_namespace = name_space
+                                self.is_packet_length_operator.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-packet-length-start"):
+                                self.is_packet_length_start = value
+                                self.is_packet_length_start.value_namespace = name_space
+                                self.is_packet_length_start.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-precedence-present"):
+                                self.is_precedence_present = value
+                                self.is_precedence_present.value_namespace = name_space
+                                self.is_precedence_present.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-precedence-value"):
+                                self.is_precedence_value = value
+                                self.is_precedence_value.value_namespace = name_space
+                                self.is_precedence_value.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-protocol-operator"):
+                                self.is_protocol_operator = value
+                                self.is_protocol_operator.value_namespace = name_space
+                                self.is_protocol_operator.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-source-address-in-numbers"):
+                                self.is_source_address_in_numbers = value
+                                self.is_source_address_in_numbers.value_namespace = name_space
+                                self.is_source_address_in_numbers.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-source-address-prefix-length"):
+                                self.is_source_address_prefix_length = value
+                                self.is_source_address_prefix_length.value_namespace = name_space
+                                self.is_source_address_prefix_length.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-source-operator"):
+                                self.is_source_operator = value
+                                self.is_source_operator.value_namespace = name_space
+                                self.is_source_operator.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-source-port1"):
+                                self.is_source_port1 = value
+                                self.is_source_port1.value_namespace = name_space
+                                self.is_source_port1.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-source-port2"):
+                                self.is_source_port2 = value
+                                self.is_source_port2.value_namespace = name_space
+                                self.is_source_port2.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-tcp-bits"):
+                                self.is_tcp_bits = value
+                                self.is_tcp_bits.value_namespace = name_space
+                                self.is_tcp_bits.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-tcp-bits-mask"):
+                                self.is_tcp_bits_mask = value
+                                self.is_tcp_bits_mask.value_namespace = name_space
+                                self.is_tcp_bits_mask.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-tcp-bits-operator"):
+                                self.is_tcp_bits_operator = value
+                                self.is_tcp_bits_operator.value_namespace = name_space
+                                self.is_tcp_bits_operator.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-time-to-live-end"):
+                                self.is_time_to_live_end = value
+                                self.is_time_to_live_end.value_namespace = name_space
+                                self.is_time_to_live_end.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-time-to-live-operator"):
+                                self.is_time_to_live_operator = value
+                                self.is_time_to_live_operator.value_namespace = name_space
+                                self.is_time_to_live_operator.value_namespace_prefix = name_space_prefix
+                            if(value_path == "is-time-to-live-start"):
+                                self.is_time_to_live_start = value
+                                self.is_time_to_live_start.value_namespace = name_space
+                                self.is_time_to_live_start.value_namespace_prefix = name_space_prefix
+                            if(value_path == "next-hop-type"):
+                                self.next_hop_type = value
+                                self.next_hop_type.value_namespace = name_space
+                                self.next_hop_type.value_namespace_prefix = name_space_prefix
+                            if(value_path == "no-stats"):
+                                self.no_stats = value
+                                self.no_stats.value_namespace = name_space
+                                self.no_stats.value_namespace_prefix = name_space_prefix
+                            if(value_path == "qos-group"):
+                                self.qos_group = value
+                                self.qos_group.value_namespace = name_space
+                                self.qos_group.value_namespace_prefix = name_space_prefix
+                            if(value_path == "sequence-str"):
+                                self.sequence_str = value
+                                self.sequence_str.value_namespace = name_space
+                                self.sequence_str.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source-mask"):
+                                self.source_mask = value
+                                self.source_mask.value_namespace = name_space
+                                self.source_mask.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source-port-group"):
+                                self.source_port_group = value
+                                self.source_port_group.value_namespace = name_space
+                                self.source_port_group.value_namespace_prefix = name_space_prefix
+                            if(value_path == "source-prefix-group"):
+                                self.source_prefix_group = value
+                                self.source_prefix_group.value_namespace = name_space
+                                self.source_prefix_group.value_namespace_prefix = name_space_prefix
+                            if(value_path == "undetermined-transport"):
+                                self.undetermined_transport = value
+                                self.undetermined_transport.value_namespace = name_space
+                                self.undetermined_transport.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.access_list_sequence:
+                            if (c.has_data()):
                                 return True
-
-                            if self.acl_name is not None:
-                                return True
-
-                            if self.capture is not None:
-                                return True
-
-                            if self.counter_name is not None:
-                                return True
-
-                            if self.destination_mask is not None:
-                                return True
-
-                            if self.destination_port_group is not None:
-                                return True
-
-                            if self.destination_prefix_group is not None:
-                                return True
-
-                            if self.hits is not None:
-                                return True
-
-                            if self.hw_next_hop_info is not None and self.hw_next_hop_info._has_data():
-                                return True
-
-                            if self.is_ace_sequence_number is not None:
-                                return True
-
-                            if self.is_ace_type is not None:
-                                return True
-
-                            if self.is_comment_for_entry is not None:
-                                return True
-
-                            if self.is_destination_address_in_numbers is not None:
-                                return True
-
-                            if self.is_destination_address_prefix_length is not None:
-                                return True
-
-                            if self.is_destination_operator is not None:
-                                return True
-
-                            if self.is_destination_port1 is not None:
-                                return True
-
-                            if self.is_destination_port2 is not None:
-                                return True
-
-                            if self.is_dscp_present is not None:
-                                return True
-
-                            if self.is_dscp_valu is not None:
-                                return True
-
-                            if self.is_flow_id is not None:
-                                return True
-
-                            if self.is_header_matches is not None:
-                                return True
-
-                            if self.is_icmp_message_off is not None:
-                                return True
-
-                            if self.is_ipv6_protocol2_type is not None:
-                                return True
-
-                            if self.is_ipv6_protocol_type is not None:
-                                return True
-
-                            if self.is_log_option is not None:
-                                return True
-
-                            if self.is_packet_allow_or_deny is not None:
-                                return True
-
-                            if self.is_packet_length_end is not None:
-                                return True
-
-                            if self.is_packet_length_operator is not None:
-                                return True
-
-                            if self.is_packet_length_start is not None:
-                                return True
-
-                            if self.is_precedence_present is not None:
-                                return True
-
-                            if self.is_precedence_value is not None:
-                                return True
-
-                            if self.is_protocol_operator is not None:
-                                return True
-
-                            if self.is_source_address_in_numbers is not None:
-                                return True
-
-                            if self.is_source_address_prefix_length is not None:
-                                return True
-
-                            if self.is_source_operator is not None:
-                                return True
-
-                            if self.is_source_port1 is not None:
-                                return True
-
-                            if self.is_source_port2 is not None:
-                                return True
-
-                            if self.is_tcp_bits is not None:
-                                return True
-
-                            if self.is_tcp_bits_mask is not None:
-                                return True
-
-                            if self.is_tcp_bits_operator is not None:
-                                return True
-
-                            if self.is_time_to_live_end is not None:
-                                return True
-
-                            if self.is_time_to_live_operator is not None:
-                                return True
-
-                            if self.is_time_to_live_start is not None:
-                                return True
-
-                            if self.next_hop_info is not None:
-                                for child_ref in self.next_hop_info:
-                                    if child_ref._has_data():
-                                        return True
-
-                            if self.next_hop_type is not None:
-                                return True
-
-                            if self.no_stats is not None:
-                                return True
-
-                            if self.qos_group is not None:
-                                return True
-
-                            if self.sequence_str is not None:
-                                return True
-
-                            if self.source_mask is not None:
-                                return True
-
-                            if self.source_port_group is not None:
-                                return True
-
-                            if self.source_prefix_group is not None:
-                                return True
-
-                            if self.udf is not None:
-                                for child_ref in self.udf:
-                                    if child_ref._has_data():
-                                        return True
-
-                            if self.undetermined_transport is not None:
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                            return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence']['meta_info']
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-acl-oper:access-list-sequences'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
                         return False
 
-                    def _has_data(self):
-                        if self.access_list_sequence is not None:
-                            for child_ref in self.access_list_sequence:
-                                if child_ref._has_data():
-                                    return True
+                    def has_operation(self):
+                        for c in self.access_list_sequence:
+                            if (c.has_operation()):
+                                return True
+                        return self.yfilter != YFilter.not_set
 
-                        return False
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "access-list-sequences" + path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                        return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences']['meta_info']
+                        return path_buffer
 
-                @property
-                def _common_path(self):
-                    if self.access_list_name is None:
-                        raise YPYModelError('Key property access_list_name is None')
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:accesses/Cisco-IOS-XR-ipv6-acl-oper:access[Cisco-IOS-XR-ipv6-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
+                        leaf_name_data = LeafDataList()
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                def _has_data(self):
-                    if self.access_list_name is not None:
-                        return True
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
 
-                    if self.access_list_sequences is not None and self.access_list_sequences._has_data():
-                        return True
+                        if (child_yang_name == "access-list-sequence"):
+                            for c in self.access_list_sequence:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.access_list_sequence.append(c)
+                            return c
 
-                    return False
+                        return None
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                    return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses.Access']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager/Cisco-IOS-XR-ipv6-acl-oper:accesses'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.access is not None:
-                    for child_ref in self.access:
-                        if child_ref._has_data():
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "access-list-sequence"):
                             return True
+                        return False
 
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        pass
+
+                def has_data(self):
+                    return (
+                        self.access_list_name.is_set or
+                        (self.access_list_sequences is not None and self.access_list_sequences.has_data()))
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.access_list_name.yfilter != YFilter.not_set or
+                        (self.access_list_sequences is not None and self.access_list_sequences.has_operation()))
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "access" + "[access-list-name='" + self.access_list_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/accesses/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.access_list_name.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "access-list-sequences"):
+                        if (self.access_list_sequences is None):
+                            self.access_list_sequences = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences()
+                            self.access_list_sequences.parent = self
+                            self._children_name_map["access_list_sequences"] = "access-list-sequences"
+                        return self.access_list_sequences
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "access-list-sequences" or name == "access-list-name"):
+                        return True
+                    return False
+
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "access-list-name"):
+                        self.access_list_name = value
+                        self.access_list_name.value_namespace = name_space
+                        self.access_list_name.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.access:
+                    if (c.has_data()):
+                        return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager.Accesses']['meta_info']
+            def has_operation(self):
+                for c in self.access:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
-        @property
-        def _common_path(self):
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "accesses" + path_buffer
 
-            return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:access-list-manager'
+                return path_buffer
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/access-list-manager/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "access"):
+                    for c in self.access:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Ipv6AclAndPrefixList.AccessListManager.Accesses.Access()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.access.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "access"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
+
+        def has_data(self):
+            return (
+                (self.accesses is not None and self.accesses.has_data()) or
+                (self.prefixes is not None and self.prefixes.has_data()) or
+                (self.usages is not None and self.usages.has_data()))
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.accesses is not None and self.accesses.has_operation()) or
+                (self.prefixes is not None and self.prefixes.has_operation()) or
+                (self.usages is not None and self.usages.has_operation()))
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "access-list-manager" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "accesses"):
+                if (self.accesses is None):
+                    self.accesses = Ipv6AclAndPrefixList.AccessListManager.Accesses()
+                    self.accesses.parent = self
+                    self._children_name_map["accesses"] = "accesses"
+                return self.accesses
+
+            if (child_yang_name == "prefixes"):
+                if (self.prefixes is None):
+                    self.prefixes = Ipv6AclAndPrefixList.AccessListManager.Prefixes()
+                    self.prefixes.parent = self
+                    self._children_name_map["prefixes"] = "prefixes"
+                return self.prefixes
+
+            if (child_yang_name == "usages"):
+                if (self.usages is None):
+                    self.usages = Ipv6AclAndPrefixList.AccessListManager.Usages()
+                    self.usages.parent = self
+                    self._children_name_map["usages"] = "usages"
+                return self.usages
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "accesses" or name == "prefixes" or name == "usages"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.accesses is not None and self.accesses._has_data():
-                return True
-
-            if self.prefixes is not None and self.prefixes._has_data():
-                return True
-
-            if self.usages is not None and self.usages._has_data():
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-            return meta._meta_table['Ipv6AclAndPrefixList.AccessListManager']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Oor(object):
+    class Oor(Entity):
         """
         Out Of Resources, Limits to the resources
         allocatable
@@ -2112,20 +3382,38 @@ class Ipv6AclAndPrefixList(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
+            super(Ipv6AclAndPrefixList.Oor, self).__init__()
+
+            self.yang_name = "oor"
+            self.yang_parent_name = "ipv6-acl-and-prefix-list"
+
             self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
             self.access_list_summary.parent = self
+            self._children_name_map["access_list_summary"] = "access-list-summary"
+            self._children_yang_names.add("access-list-summary")
+
             self.details = Ipv6AclAndPrefixList.Oor.Details()
             self.details.parent = self
+            self._children_name_map["details"] = "details"
+            self._children_yang_names.add("details")
+
             self.oor_accesses = Ipv6AclAndPrefixList.Oor.OorAccesses()
             self.oor_accesses.parent = self
+            self._children_name_map["oor_accesses"] = "oor-accesses"
+            self._children_yang_names.add("oor-accesses")
+
             self.oor_prefixes = Ipv6AclAndPrefixList.Oor.OorPrefixes()
             self.oor_prefixes.parent = self
+            self._children_name_map["oor_prefixes"] = "oor-prefixes"
+            self._children_yang_names.add("oor-prefixes")
+
             self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
             self.prefix_list_summary.parent = self
+            self._children_name_map["prefix_list_summary"] = "prefix-list-summary"
+            self._children_yang_names.add("prefix-list-summary")
 
 
-        class Details(object):
+        class Details(Entity):
             """
             Details of the overall out of resource limit
             
@@ -2193,59 +3481,163 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.is_current_configured_ac_ls = None
-                self.is_current_configured_aces = None
-                self.is_current_maximum_configurable_aces = None
-                self.is_current_maximum_configurable_acls = None
-                self.is_default_maximum_configurable_ac_es = None
-                self.is_default_maximum_configurable_ac_ls = None
-                self.is_maximum_configurable_ac_es = None
-                self.is_maximum_configurable_ac_ls = None
+                super(Ipv6AclAndPrefixList.Oor.Details, self).__init__()
 
-            @property
-            def _common_path(self):
+                self.yang_name = "details"
+                self.yang_parent_name = "oor"
 
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:details'
+                self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
+
+                self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
+
+                self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
+
+                self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
+                self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+
+                self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("is_current_configured_ac_ls",
+                                "is_current_configured_aces",
+                                "is_current_maximum_configurable_aces",
+                                "is_current_maximum_configurable_acls",
+                                "is_default_maximum_configurable_ac_es",
+                                "is_default_maximum_configurable_ac_ls",
+                                "is_maximum_configurable_ac_es",
+                                "is_maximum_configurable_ac_ls") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6AclAndPrefixList.Oor.Details, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6AclAndPrefixList.Oor.Details, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.is_current_configured_ac_ls.is_set or
+                    self.is_current_configured_aces.is_set or
+                    self.is_current_maximum_configurable_aces.is_set or
+                    self.is_current_maximum_configurable_acls.is_set or
+                    self.is_default_maximum_configurable_ac_es.is_set or
+                    self.is_default_maximum_configurable_ac_ls.is_set or
+                    self.is_maximum_configurable_ac_es.is_set or
+                    self.is_maximum_configurable_ac_ls.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.is_current_configured_ac_ls.yfilter != YFilter.not_set or
+                    self.is_current_configured_aces.yfilter != YFilter.not_set or
+                    self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set or
+                    self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set or
+                    self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                    self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set or
+                    self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                    self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "details" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.is_current_configured_ac_ls.is_set or self.is_current_configured_ac_ls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_current_configured_ac_ls.get_name_leafdata())
+                if (self.is_current_configured_aces.is_set or self.is_current_configured_aces.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_current_configured_aces.get_name_leafdata())
+                if (self.is_current_maximum_configurable_aces.is_set or self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_current_maximum_configurable_aces.get_name_leafdata())
+                if (self.is_current_maximum_configurable_acls.is_set or self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_current_maximum_configurable_acls.get_name_leafdata())
+                if (self.is_default_maximum_configurable_ac_es.is_set or self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_default_maximum_configurable_ac_es.get_name_leafdata())
+                if (self.is_default_maximum_configurable_ac_ls.is_set or self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_default_maximum_configurable_ac_ls.get_name_leafdata())
+                if (self.is_maximum_configurable_ac_es.is_set or self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_maximum_configurable_ac_es.get_name_leafdata())
+                if (self.is_maximum_configurable_ac_ls.is_set or self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.is_maximum_configurable_ac_ls.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "is-current-configured-ac-ls" or name == "is-current-configured-aces" or name == "is-current-maximum-configurable-aces" or name == "is-current-maximum-configurable-acls" or name == "is-default-maximum-configurable-ac-es" or name == "is-default-maximum-configurable-ac-ls" or name == "is-maximum-configurable-ac-es" or name == "is-maximum-configurable-ac-ls"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.is_current_configured_ac_ls is not None:
-                    return True
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "is-current-configured-ac-ls"):
+                    self.is_current_configured_ac_ls = value
+                    self.is_current_configured_ac_ls.value_namespace = name_space
+                    self.is_current_configured_ac_ls.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-current-configured-aces"):
+                    self.is_current_configured_aces = value
+                    self.is_current_configured_aces.value_namespace = name_space
+                    self.is_current_configured_aces.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-current-maximum-configurable-aces"):
+                    self.is_current_maximum_configurable_aces = value
+                    self.is_current_maximum_configurable_aces.value_namespace = name_space
+                    self.is_current_maximum_configurable_aces.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-current-maximum-configurable-acls"):
+                    self.is_current_maximum_configurable_acls = value
+                    self.is_current_maximum_configurable_acls.value_namespace = name_space
+                    self.is_current_maximum_configurable_acls.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-default-maximum-configurable-ac-es"):
+                    self.is_default_maximum_configurable_ac_es = value
+                    self.is_default_maximum_configurable_ac_es.value_namespace = name_space
+                    self.is_default_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-default-maximum-configurable-ac-ls"):
+                    self.is_default_maximum_configurable_ac_ls = value
+                    self.is_default_maximum_configurable_ac_ls.value_namespace = name_space
+                    self.is_default_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-maximum-configurable-ac-es"):
+                    self.is_maximum_configurable_ac_es = value
+                    self.is_maximum_configurable_ac_es.value_namespace = name_space
+                    self.is_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                if(value_path == "is-maximum-configurable-ac-ls"):
+                    self.is_maximum_configurable_ac_ls = value
+                    self.is_maximum_configurable_ac_ls.value_namespace = name_space
+                    self.is_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
 
-                if self.is_current_configured_aces is not None:
-                    return True
 
-                if self.is_current_maximum_configurable_aces is not None:
-                    return True
-
-                if self.is_current_maximum_configurable_acls is not None:
-                    return True
-
-                if self.is_default_maximum_configurable_ac_es is not None:
-                    return True
-
-                if self.is_default_maximum_configurable_ac_ls is not None:
-                    return True
-
-                if self.is_maximum_configurable_ac_es is not None:
-                    return True
-
-                if self.is_maximum_configurable_ac_ls is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.Oor.Details']['meta_info']
-
-
-        class PrefixListSummary(object):
+        class PrefixListSummary(Entity):
             """
             Summary of the prefix Lists resource
             utilization
@@ -2263,12 +3655,18 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(Ipv6AclAndPrefixList.Oor.PrefixListSummary, self).__init__()
+
+                self.yang_name = "prefix-list-summary"
+                self.yang_parent_name = "oor"
+
                 self.details = Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details()
                 self.details.parent = self
+                self._children_name_map["details"] = "details"
+                self._children_yang_names.add("details")
 
 
-            class Details(object):
+            class Details(Entity):
                 """
                 Summary Detail of the prefix list Resource
                 Utilisation
@@ -2337,79 +3735,211 @@ class Ipv6AclAndPrefixList(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.is_current_configured_ac_ls = None
-                    self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_aces = None
-                    self.is_current_maximum_configurable_acls = None
-                    self.is_default_maximum_configurable_ac_es = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_maximum_configurable_ac_es = None
-                    self.is_maximum_configurable_ac_ls = None
+                    super(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "details"
+                    self.yang_parent_name = "prefix-list-summary"
 
-                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-summary/Cisco-IOS-XR-ipv6-acl-oper:details'
+                    self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
+
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
+
+                    self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+
+                    self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("is_current_configured_ac_ls",
+                                    "is_current_configured_aces",
+                                    "is_current_maximum_configurable_aces",
+                                    "is_current_maximum_configurable_acls",
+                                    "is_default_maximum_configurable_ac_es",
+                                    "is_default_maximum_configurable_ac_ls",
+                                    "is_maximum_configurable_ac_es",
+                                    "is_maximum_configurable_ac_ls") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.is_current_configured_ac_ls.is_set or
+                        self.is_current_configured_aces.is_set or
+                        self.is_current_maximum_configurable_aces.is_set or
+                        self.is_current_maximum_configurable_acls.is_set or
+                        self.is_default_maximum_configurable_ac_es.is_set or
+                        self.is_default_maximum_configurable_ac_ls.is_set or
+                        self.is_maximum_configurable_ac_es.is_set or
+                        self.is_maximum_configurable_ac_ls.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.is_current_configured_ac_ls.yfilter != YFilter.not_set or
+                        self.is_current_configured_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "details" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/prefix-list-summary/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.is_current_configured_ac_ls.is_set or self.is_current_configured_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_ac_ls.get_name_leafdata())
+                    if (self.is_current_configured_aces.is_set or self.is_current_configured_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_aces.is_set or self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_acls.is_set or self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_acls.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_es.is_set or self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_ls.is_set or self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_ls.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_es.is_set or self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_ls.is_set or self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_ls.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "is-current-configured-ac-ls" or name == "is-current-configured-aces" or name == "is-current-maximum-configurable-aces" or name == "is-current-maximum-configurable-acls" or name == "is-default-maximum-configurable-ac-es" or name == "is-default-maximum-configurable-ac-ls" or name == "is-maximum-configurable-ac-es" or name == "is-maximum-configurable-ac-ls"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.is_current_configured_ac_ls is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "is-current-configured-ac-ls"):
+                        self.is_current_configured_ac_ls = value
+                        self.is_current_configured_ac_ls.value_namespace = name_space
+                        self.is_current_configured_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-configured-aces"):
+                        self.is_current_configured_aces = value
+                        self.is_current_configured_aces.value_namespace = name_space
+                        self.is_current_configured_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-aces"):
+                        self.is_current_maximum_configurable_aces = value
+                        self.is_current_maximum_configurable_aces.value_namespace = name_space
+                        self.is_current_maximum_configurable_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-acls"):
+                        self.is_current_maximum_configurable_acls = value
+                        self.is_current_maximum_configurable_acls.value_namespace = name_space
+                        self.is_current_maximum_configurable_acls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-es"):
+                        self.is_default_maximum_configurable_ac_es = value
+                        self.is_default_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-ls"):
+                        self.is_default_maximum_configurable_ac_ls = value
+                        self.is_default_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-es"):
+                        self.is_maximum_configurable_ac_es = value
+                        self.is_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-ls"):
+                        self.is_maximum_configurable_ac_ls = value
+                        self.is_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
 
-                    if self.is_current_configured_aces is not None:
-                        return True
+            def has_data(self):
+                return (self.details is not None and self.details.has_data())
 
-                    if self.is_current_maximum_configurable_aces is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.details is not None and self.details.has_operation()))
 
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "prefix-list-summary" + path_buffer
 
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
+                return path_buffer
 
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.is_maximum_configurable_ac_es is not None:
-                        return True
+                leaf_name_data = LeafDataList()
 
-                    if self.is_maximum_configurable_ac_ls is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    return False
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details']['meta_info']
+                if (child_yang_name == "details"):
+                    if (self.details is None):
+                        self.details = Ipv6AclAndPrefixList.Oor.PrefixListSummary.Details()
+                        self.details.parent = self
+                        self._children_name_map["details"] = "details"
+                    return self.details
 
-            @property
-            def _common_path(self):
+                return None
 
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:prefix-list-summary'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.details is not None and self.details._has_data():
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "details"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.Oor.PrefixListSummary']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class OorAccesses(object):
+        class OorAccesses(Entity):
             """
             Resource occupation details for ACLs
             
@@ -2426,13 +3956,39 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.oor_access = YList()
-                self.oor_access.parent = self
-                self.oor_access.name = 'oor_access'
+                super(Ipv6AclAndPrefixList.Oor.OorAccesses, self).__init__()
+
+                self.yang_name = "oor-accesses"
+                self.yang_parent_name = "oor"
+
+                self.oor_access = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6AclAndPrefixList.Oor.OorAccesses, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6AclAndPrefixList.Oor.OorAccesses, self).__setattr__(name, value)
 
 
-            class OorAccess(object):
+            class OorAccess(Entity):
                 """
                 Resource occupation details for a particular
                 ACL
@@ -2508,87 +4064,231 @@ class Ipv6AclAndPrefixList(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.access_list_name = None
-                    self.is_current_configured_ac_ls = None
-                    self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_aces = None
-                    self.is_current_maximum_configurable_acls = None
-                    self.is_default_maximum_configurable_ac_es = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_maximum_configurable_ac_es = None
-                    self.is_maximum_configurable_ac_ls = None
+                    super(Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.access_list_name is None:
-                        raise YPYModelError('Key property access_list_name is None')
+                    self.yang_name = "oor-access"
+                    self.yang_parent_name = "oor-accesses"
 
-                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-accesses/Cisco-IOS-XR-ipv6-acl-oper:oor-access[Cisco-IOS-XR-ipv6-acl-oper:access-list-name = ' + str(self.access_list_name) + ']'
+                    self.access_list_name = YLeaf(YType.str, "access-list-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
+
+                    self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
+
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
+
+                    self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+
+                    self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("access_list_name",
+                                    "is_current_configured_ac_ls",
+                                    "is_current_configured_aces",
+                                    "is_current_maximum_configurable_aces",
+                                    "is_current_maximum_configurable_acls",
+                                    "is_default_maximum_configurable_ac_es",
+                                    "is_default_maximum_configurable_ac_ls",
+                                    "is_maximum_configurable_ac_es",
+                                    "is_maximum_configurable_ac_ls") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.access_list_name.is_set or
+                        self.is_current_configured_ac_ls.is_set or
+                        self.is_current_configured_aces.is_set or
+                        self.is_current_maximum_configurable_aces.is_set or
+                        self.is_current_maximum_configurable_acls.is_set or
+                        self.is_default_maximum_configurable_ac_es.is_set or
+                        self.is_default_maximum_configurable_ac_ls.is_set or
+                        self.is_maximum_configurable_ac_es.is_set or
+                        self.is_maximum_configurable_ac_ls.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.access_list_name.yfilter != YFilter.not_set or
+                        self.is_current_configured_ac_ls.yfilter != YFilter.not_set or
+                        self.is_current_configured_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "oor-access" + "[access-list-name='" + self.access_list_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/oor-accesses/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.access_list_name.is_set or self.access_list_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.access_list_name.get_name_leafdata())
+                    if (self.is_current_configured_ac_ls.is_set or self.is_current_configured_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_ac_ls.get_name_leafdata())
+                    if (self.is_current_configured_aces.is_set or self.is_current_configured_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_aces.is_set or self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_acls.is_set or self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_acls.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_es.is_set or self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_ls.is_set or self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_ls.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_es.is_set or self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_ls.is_set or self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_ls.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "access-list-name" or name == "is-current-configured-ac-ls" or name == "is-current-configured-aces" or name == "is-current-maximum-configurable-aces" or name == "is-current-maximum-configurable-acls" or name == "is-default-maximum-configurable-ac-es" or name == "is-default-maximum-configurable-ac-ls" or name == "is-maximum-configurable-ac-es" or name == "is-maximum-configurable-ac-ls"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.access_list_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "access-list-name"):
+                        self.access_list_name = value
+                        self.access_list_name.value_namespace = name_space
+                        self.access_list_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-configured-ac-ls"):
+                        self.is_current_configured_ac_ls = value
+                        self.is_current_configured_ac_ls.value_namespace = name_space
+                        self.is_current_configured_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-configured-aces"):
+                        self.is_current_configured_aces = value
+                        self.is_current_configured_aces.value_namespace = name_space
+                        self.is_current_configured_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-aces"):
+                        self.is_current_maximum_configurable_aces = value
+                        self.is_current_maximum_configurable_aces.value_namespace = name_space
+                        self.is_current_maximum_configurable_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-acls"):
+                        self.is_current_maximum_configurable_acls = value
+                        self.is_current_maximum_configurable_acls.value_namespace = name_space
+                        self.is_current_maximum_configurable_acls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-es"):
+                        self.is_default_maximum_configurable_ac_es = value
+                        self.is_default_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-ls"):
+                        self.is_default_maximum_configurable_ac_ls = value
+                        self.is_default_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-es"):
+                        self.is_maximum_configurable_ac_es = value
+                        self.is_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-ls"):
+                        self.is_maximum_configurable_ac_ls = value
+                        self.is_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.oor_access:
+                    if (c.has_data()):
                         return True
-
-                    if self.is_current_configured_ac_ls is not None:
-                        return True
-
-                    if self.is_current_configured_aces is not None:
-                        return True
-
-                    if self.is_current_maximum_configurable_aces is not None:
-                        return True
-
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    if self.is_maximum_configurable_ac_es is not None:
-                        return True
-
-                    if self.is_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-accesses'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.oor_access is not None:
-                    for child_ref in self.oor_access:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.oor_access:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "oor-accesses" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "oor-access"):
+                    for c in self.oor_access:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Ipv6AclAndPrefixList.Oor.OorAccesses.OorAccess()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.oor_access.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "oor-access"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorAccesses']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class OorPrefixes(object):
+        class OorPrefixes(Entity):
             """
             Resource occupation details for prefix lists
             
@@ -2605,13 +4305,39 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.oor_prefix = YList()
-                self.oor_prefix.parent = self
-                self.oor_prefix.name = 'oor_prefix'
+                super(Ipv6AclAndPrefixList.Oor.OorPrefixes, self).__init__()
+
+                self.yang_name = "oor-prefixes"
+                self.yang_parent_name = "oor"
+
+                self.oor_prefix = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in () and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Ipv6AclAndPrefixList.Oor.OorPrefixes, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Ipv6AclAndPrefixList.Oor.OorPrefixes, self).__setattr__(name, value)
 
 
-            class OorPrefix(object):
+            class OorPrefix(Entity):
                 """
                 Resource occupation details for a particular
                 prefix list
@@ -2687,87 +4413,231 @@ class Ipv6AclAndPrefixList(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.prefix_list_name = None
-                    self.is_current_configured_ac_ls = None
-                    self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_aces = None
-                    self.is_current_maximum_configurable_acls = None
-                    self.is_default_maximum_configurable_ac_es = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_maximum_configurable_ac_es = None
-                    self.is_maximum_configurable_ac_ls = None
+                    super(Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.prefix_list_name is None:
-                        raise YPYModelError('Key property prefix_list_name is None')
+                    self.yang_name = "oor-prefix"
+                    self.yang_parent_name = "oor-prefixes"
 
-                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-prefixes/Cisco-IOS-XR-ipv6-acl-oper:oor-prefix[Cisco-IOS-XR-ipv6-acl-oper:prefix-list-name = ' + str(self.prefix_list_name) + ']'
+                    self.prefix_list_name = YLeaf(YType.str, "prefix-list-name")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
+
+                    self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
+
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
+
+                    self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+
+                    self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("prefix_list_name",
+                                    "is_current_configured_ac_ls",
+                                    "is_current_configured_aces",
+                                    "is_current_maximum_configurable_aces",
+                                    "is_current_maximum_configurable_acls",
+                                    "is_default_maximum_configurable_ac_es",
+                                    "is_default_maximum_configurable_ac_ls",
+                                    "is_maximum_configurable_ac_es",
+                                    "is_maximum_configurable_ac_ls") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.prefix_list_name.is_set or
+                        self.is_current_configured_ac_ls.is_set or
+                        self.is_current_configured_aces.is_set or
+                        self.is_current_maximum_configurable_aces.is_set or
+                        self.is_current_maximum_configurable_acls.is_set or
+                        self.is_default_maximum_configurable_ac_es.is_set or
+                        self.is_default_maximum_configurable_ac_ls.is_set or
+                        self.is_maximum_configurable_ac_es.is_set or
+                        self.is_maximum_configurable_ac_ls.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.prefix_list_name.yfilter != YFilter.not_set or
+                        self.is_current_configured_ac_ls.yfilter != YFilter.not_set or
+                        self.is_current_configured_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "oor-prefix" + "[prefix-list-name='" + self.prefix_list_name.get() + "']" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/oor-prefixes/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.prefix_list_name.is_set or self.prefix_list_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.prefix_list_name.get_name_leafdata())
+                    if (self.is_current_configured_ac_ls.is_set or self.is_current_configured_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_ac_ls.get_name_leafdata())
+                    if (self.is_current_configured_aces.is_set or self.is_current_configured_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_aces.is_set or self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_acls.is_set or self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_acls.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_es.is_set or self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_ls.is_set or self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_ls.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_es.is_set or self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_ls.is_set or self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_ls.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "prefix-list-name" or name == "is-current-configured-ac-ls" or name == "is-current-configured-aces" or name == "is-current-maximum-configurable-aces" or name == "is-current-maximum-configurable-acls" or name == "is-default-maximum-configurable-ac-es" or name == "is-default-maximum-configurable-ac-ls" or name == "is-maximum-configurable-ac-es" or name == "is-maximum-configurable-ac-ls"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.prefix_list_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "prefix-list-name"):
+                        self.prefix_list_name = value
+                        self.prefix_list_name.value_namespace = name_space
+                        self.prefix_list_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-configured-ac-ls"):
+                        self.is_current_configured_ac_ls = value
+                        self.is_current_configured_ac_ls.value_namespace = name_space
+                        self.is_current_configured_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-configured-aces"):
+                        self.is_current_configured_aces = value
+                        self.is_current_configured_aces.value_namespace = name_space
+                        self.is_current_configured_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-aces"):
+                        self.is_current_maximum_configurable_aces = value
+                        self.is_current_maximum_configurable_aces.value_namespace = name_space
+                        self.is_current_maximum_configurable_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-acls"):
+                        self.is_current_maximum_configurable_acls = value
+                        self.is_current_maximum_configurable_acls.value_namespace = name_space
+                        self.is_current_maximum_configurable_acls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-es"):
+                        self.is_default_maximum_configurable_ac_es = value
+                        self.is_default_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-ls"):
+                        self.is_default_maximum_configurable_ac_ls = value
+                        self.is_default_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-es"):
+                        self.is_maximum_configurable_ac_es = value
+                        self.is_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-ls"):
+                        self.is_maximum_configurable_ac_ls = value
+                        self.is_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.oor_prefix:
+                    if (c.has_data()):
                         return True
-
-                    if self.is_current_configured_ac_ls is not None:
-                        return True
-
-                    if self.is_current_configured_aces is not None:
-                        return True
-
-                    if self.is_current_maximum_configurable_aces is not None:
-                        return True
-
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
-
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    if self.is_maximum_configurable_ac_es is not None:
-                        return True
-
-                    if self.is_maximum_configurable_ac_ls is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:oor-prefixes'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
                 return False
 
-            def _has_data(self):
-                if self.oor_prefix is not None:
-                    for child_ref in self.oor_prefix:
-                        if child_ref._has_data():
-                            return True
+            def has_operation(self):
+                for c in self.oor_prefix:
+                    if (c.has_operation()):
+                        return True
+                return self.yfilter != YFilter.not_set
 
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "oor-prefixes" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "oor-prefix"):
+                    for c in self.oor_prefix:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Ipv6AclAndPrefixList.Oor.OorPrefixes.OorPrefix()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.oor_prefix.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "oor-prefix"):
+                    return True
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.Oor.OorPrefixes']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
 
-        class AccessListSummary(object):
+        class AccessListSummary(Entity):
             """
             Resource Limits pertaining to ACLs only
             
@@ -2784,12 +4654,18 @@ class Ipv6AclAndPrefixList(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
+                super(Ipv6AclAndPrefixList.Oor.AccessListSummary, self).__init__()
+
+                self.yang_name = "access-list-summary"
+                self.yang_parent_name = "oor"
+
                 self.details = Ipv6AclAndPrefixList.Oor.AccessListSummary.Details()
                 self.details.parent = self
+                self._children_name_map["details"] = "details"
+                self._children_yang_names.add("details")
 
 
-            class Details(object):
+            class Details(Entity):
                 """
                 Details containing the resource limits of the
                 ACLs
@@ -2858,130 +4734,352 @@ class Ipv6AclAndPrefixList(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.is_current_configured_ac_ls = None
-                    self.is_current_configured_aces = None
-                    self.is_current_maximum_configurable_aces = None
-                    self.is_current_maximum_configurable_acls = None
-                    self.is_default_maximum_configurable_ac_es = None
-                    self.is_default_maximum_configurable_ac_ls = None
-                    self.is_maximum_configurable_ac_es = None
-                    self.is_maximum_configurable_ac_ls = None
+                    super(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, self).__init__()
 
-                @property
-                def _common_path(self):
+                    self.yang_name = "details"
+                    self.yang_parent_name = "access-list-summary"
 
-                    return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:access-list-summary/Cisco-IOS-XR-ipv6-acl-oper:details'
+                    self.is_current_configured_ac_ls = YLeaf(YType.uint32, "is-current-configured-ac-ls")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.is_current_configured_aces = YLeaf(YType.uint32, "is-current-configured-aces")
+
+                    self.is_current_maximum_configurable_aces = YLeaf(YType.uint32, "is-current-maximum-configurable-aces")
+
+                    self.is_current_maximum_configurable_acls = YLeaf(YType.uint32, "is-current-maximum-configurable-acls")
+
+                    self.is_default_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-es")
+
+                    self.is_default_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-default-maximum-configurable-ac-ls")
+
+                    self.is_maximum_configurable_ac_es = YLeaf(YType.uint32, "is-maximum-configurable-ac-es")
+
+                    self.is_maximum_configurable_ac_ls = YLeaf(YType.uint32, "is-maximum-configurable-ac-ls")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("is_current_configured_ac_ls",
+                                    "is_current_configured_aces",
+                                    "is_current_maximum_configurable_aces",
+                                    "is_current_maximum_configurable_acls",
+                                    "is_default_maximum_configurable_ac_es",
+                                    "is_default_maximum_configurable_ac_ls",
+                                    "is_maximum_configurable_ac_es",
+                                    "is_maximum_configurable_ac_ls") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Ipv6AclAndPrefixList.Oor.AccessListSummary.Details, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.is_current_configured_ac_ls.is_set or
+                        self.is_current_configured_aces.is_set or
+                        self.is_current_maximum_configurable_aces.is_set or
+                        self.is_current_maximum_configurable_acls.is_set or
+                        self.is_default_maximum_configurable_ac_es.is_set or
+                        self.is_default_maximum_configurable_ac_ls.is_set or
+                        self.is_maximum_configurable_ac_es.is_set or
+                        self.is_maximum_configurable_ac_ls.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.is_current_configured_ac_ls.yfilter != YFilter.not_set or
+                        self.is_current_configured_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set or
+                        self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set or
+                        self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "details" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/access-list-summary/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.is_current_configured_ac_ls.is_set or self.is_current_configured_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_ac_ls.get_name_leafdata())
+                    if (self.is_current_configured_aces.is_set or self.is_current_configured_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_configured_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_aces.is_set or self.is_current_maximum_configurable_aces.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_aces.get_name_leafdata())
+                    if (self.is_current_maximum_configurable_acls.is_set or self.is_current_maximum_configurable_acls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_current_maximum_configurable_acls.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_es.is_set or self.is_default_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_default_maximum_configurable_ac_ls.is_set or self.is_default_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_default_maximum_configurable_ac_ls.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_es.is_set or self.is_maximum_configurable_ac_es.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_es.get_name_leafdata())
+                    if (self.is_maximum_configurable_ac_ls.is_set or self.is_maximum_configurable_ac_ls.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_maximum_configurable_ac_ls.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "is-current-configured-ac-ls" or name == "is-current-configured-aces" or name == "is-current-maximum-configurable-aces" or name == "is-current-maximum-configurable-acls" or name == "is-default-maximum-configurable-ac-es" or name == "is-default-maximum-configurable-ac-ls" or name == "is-maximum-configurable-ac-es" or name == "is-maximum-configurable-ac-ls"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.is_current_configured_ac_ls is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "is-current-configured-ac-ls"):
+                        self.is_current_configured_ac_ls = value
+                        self.is_current_configured_ac_ls.value_namespace = name_space
+                        self.is_current_configured_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-configured-aces"):
+                        self.is_current_configured_aces = value
+                        self.is_current_configured_aces.value_namespace = name_space
+                        self.is_current_configured_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-aces"):
+                        self.is_current_maximum_configurable_aces = value
+                        self.is_current_maximum_configurable_aces.value_namespace = name_space
+                        self.is_current_maximum_configurable_aces.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-current-maximum-configurable-acls"):
+                        self.is_current_maximum_configurable_acls = value
+                        self.is_current_maximum_configurable_acls.value_namespace = name_space
+                        self.is_current_maximum_configurable_acls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-es"):
+                        self.is_default_maximum_configurable_ac_es = value
+                        self.is_default_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-default-maximum-configurable-ac-ls"):
+                        self.is_default_maximum_configurable_ac_ls = value
+                        self.is_default_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_default_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-es"):
+                        self.is_maximum_configurable_ac_es = value
+                        self.is_maximum_configurable_ac_es.value_namespace = name_space
+                        self.is_maximum_configurable_ac_es.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-maximum-configurable-ac-ls"):
+                        self.is_maximum_configurable_ac_ls = value
+                        self.is_maximum_configurable_ac_ls.value_namespace = name_space
+                        self.is_maximum_configurable_ac_ls.value_namespace_prefix = name_space_prefix
 
-                    if self.is_current_configured_aces is not None:
-                        return True
+            def has_data(self):
+                return (self.details is not None and self.details.has_data())
 
-                    if self.is_current_maximum_configurable_aces is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    (self.details is not None and self.details.has_operation()))
 
-                    if self.is_current_maximum_configurable_acls is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "access-list-summary" + path_buffer
 
-                    if self.is_default_maximum_configurable_ac_es is not None:
-                        return True
+                return path_buffer
 
-                    if self.is_default_maximum_configurable_ac_ls is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/oor/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.is_maximum_configurable_ac_es is not None:
-                        return True
+                leaf_name_data = LeafDataList()
 
-                    if self.is_maximum_configurable_ac_ls is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    return False
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                    return meta._meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary.Details']['meta_info']
+                if (child_yang_name == "details"):
+                    if (self.details is None):
+                        self.details = Ipv6AclAndPrefixList.Oor.AccessListSummary.Details()
+                        self.details.parent = self
+                        self._children_name_map["details"] = "details"
+                    return self.details
 
-            @property
-            def _common_path(self):
+                return None
 
-                return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor/Cisco-IOS-XR-ipv6-acl-oper:access-list-summary'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.details is not None and self.details._has_data():
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "details"):
                     return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-                return meta._meta_table['Ipv6AclAndPrefixList.Oor.AccessListSummary']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                pass
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                (self.access_list_summary is not None and self.access_list_summary.has_data()) or
+                (self.details is not None and self.details.has_data()) or
+                (self.oor_accesses is not None and self.oor_accesses.has_data()) or
+                (self.oor_prefixes is not None and self.oor_prefixes.has_data()) or
+                (self.prefix_list_summary is not None and self.prefix_list_summary.has_data()))
 
-            return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/Cisco-IOS-XR-ipv6-acl-oper:oor'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                (self.access_list_summary is not None and self.access_list_summary.has_operation()) or
+                (self.details is not None and self.details.has_operation()) or
+                (self.oor_accesses is not None and self.oor_accesses.has_operation()) or
+                (self.oor_prefixes is not None and self.oor_prefixes.has_operation()) or
+                (self.prefix_list_summary is not None and self.prefix_list_summary.has_operation()))
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "oor" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "access-list-summary"):
+                if (self.access_list_summary is None):
+                    self.access_list_summary = Ipv6AclAndPrefixList.Oor.AccessListSummary()
+                    self.access_list_summary.parent = self
+                    self._children_name_map["access_list_summary"] = "access-list-summary"
+                return self.access_list_summary
+
+            if (child_yang_name == "details"):
+                if (self.details is None):
+                    self.details = Ipv6AclAndPrefixList.Oor.Details()
+                    self.details.parent = self
+                    self._children_name_map["details"] = "details"
+                return self.details
+
+            if (child_yang_name == "oor-accesses"):
+                if (self.oor_accesses is None):
+                    self.oor_accesses = Ipv6AclAndPrefixList.Oor.OorAccesses()
+                    self.oor_accesses.parent = self
+                    self._children_name_map["oor_accesses"] = "oor-accesses"
+                return self.oor_accesses
+
+            if (child_yang_name == "oor-prefixes"):
+                if (self.oor_prefixes is None):
+                    self.oor_prefixes = Ipv6AclAndPrefixList.Oor.OorPrefixes()
+                    self.oor_prefixes.parent = self
+                    self._children_name_map["oor_prefixes"] = "oor-prefixes"
+                return self.oor_prefixes
+
+            if (child_yang_name == "prefix-list-summary"):
+                if (self.prefix_list_summary is None):
+                    self.prefix_list_summary = Ipv6AclAndPrefixList.Oor.PrefixListSummary()
+                    self.prefix_list_summary.parent = self
+                    self._children_name_map["prefix_list_summary"] = "prefix-list-summary"
+                return self.prefix_list_summary
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "access-list-summary" or name == "details" or name == "oor-accesses" or name == "oor-prefixes" or name == "prefix-list-summary"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.access_list_summary is not None and self.access_list_summary._has_data():
-                return True
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-            if self.details is not None and self.details._has_data():
-                return True
+    def has_data(self):
+        return (
+            (self.access_list_manager is not None and self.access_list_manager.has_data()) or
+            (self.oor is not None and self.oor.has_data()))
 
-            if self.oor_accesses is not None and self.oor_accesses._has_data():
-                return True
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.access_list_manager is not None and self.access_list_manager.has_operation()) or
+            (self.oor is not None and self.oor.has_operation()))
 
-            if self.oor_prefixes is not None and self.oor_prefixes._has_data():
-                return True
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list" + path_buffer
 
-            if self.prefix_list_summary is not None and self.prefix_list_summary._has_data():
-                return True
+        return path_buffer
 
-            return False
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-            return meta._meta_table['Ipv6AclAndPrefixList.Oor']['meta_info']
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
 
-    @property
-    def _common_path(self):
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
 
-        return '/Cisco-IOS-XR-ipv6-acl-oper:ipv6-acl-and-prefix-list'
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+        if (child_yang_name == "access-list-manager"):
+            if (self.access_list_manager is None):
+                self.access_list_manager = Ipv6AclAndPrefixList.AccessListManager()
+                self.access_list_manager.parent = self
+                self._children_name_map["access_list_manager"] = "access-list-manager"
+            return self.access_list_manager
+
+        if (child_yang_name == "oor"):
+            if (self.oor is None):
+                self.oor = Ipv6AclAndPrefixList.Oor()
+                self.oor.parent = self
+                self._children_name_map["oor"] = "oor"
+            return self.oor
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "access-list-manager" or name == "oor"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.access_list_manager is not None and self.access_list_manager._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.oor is not None and self.oor._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_acl_oper as meta
-        return meta._meta_table['Ipv6AclAndPrefixList']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Ipv6AclAndPrefixList()
+        return self._top_entity
 

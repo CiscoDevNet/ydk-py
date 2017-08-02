@@ -5,21 +5,15 @@ mechanisms to remotely configure the parameters used
 by an SNMP entity for the generation of SNMP messages.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class SnmpTargetMib(object):
+class SnmpTargetMib(Entity):
     """
     
     
@@ -46,15 +40,29 @@ class SnmpTargetMib(object):
     _revision = '1998-08-04'
 
     def __init__(self):
+        super(SnmpTargetMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "SNMP-TARGET-MIB"
+        self.yang_parent_name = "SNMP-TARGET-MIB"
+
         self.snmptargetaddrtable = SnmpTargetMib.Snmptargetaddrtable()
         self.snmptargetaddrtable.parent = self
+        self._children_name_map["snmptargetaddrtable"] = "snmpTargetAddrTable"
+        self._children_yang_names.add("snmpTargetAddrTable")
+
         self.snmptargetobjects = SnmpTargetMib.Snmptargetobjects()
         self.snmptargetobjects.parent = self
+        self._children_name_map["snmptargetobjects"] = "snmpTargetObjects"
+        self._children_yang_names.add("snmpTargetObjects")
+
         self.snmptargetparamstable = SnmpTargetMib.Snmptargetparamstable()
         self.snmptargetparamstable.parent = self
+        self._children_name_map["snmptargetparamstable"] = "snmpTargetParamsTable"
+        self._children_yang_names.add("snmpTargetParamsTable")
 
 
-    class Snmptargetobjects(object):
+    class Snmptargetobjects(Entity):
         """
         
         
@@ -87,39 +95,108 @@ class SnmpTargetMib(object):
         _revision = '1998-08-04'
 
         def __init__(self):
-            self.parent = None
-            self.snmptargetspinlock = None
-            self.snmpunavailablecontexts = None
-            self.snmpunknowncontexts = None
+            super(SnmpTargetMib.Snmptargetobjects, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "snmpTargetObjects"
+            self.yang_parent_name = "SNMP-TARGET-MIB"
 
-            return '/SNMP-TARGET-MIB:SNMP-TARGET-MIB/SNMP-TARGET-MIB:snmpTargetObjects'
+            self.snmptargetspinlock = YLeaf(YType.int32, "snmpTargetSpinLock")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.snmpunavailablecontexts = YLeaf(YType.uint32, "snmpUnavailableContexts")
+
+            self.snmpunknowncontexts = YLeaf(YType.uint32, "snmpUnknownContexts")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("snmptargetspinlock",
+                            "snmpunavailablecontexts",
+                            "snmpunknowncontexts") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SnmpTargetMib.Snmptargetobjects, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SnmpTargetMib.Snmptargetobjects, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.snmptargetspinlock.is_set or
+                self.snmpunavailablecontexts.is_set or
+                self.snmpunknowncontexts.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.snmptargetspinlock.yfilter != YFilter.not_set or
+                self.snmpunavailablecontexts.yfilter != YFilter.not_set or
+                self.snmpunknowncontexts.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "snmpTargetObjects" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.snmptargetspinlock.is_set or self.snmptargetspinlock.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmptargetspinlock.get_name_leafdata())
+            if (self.snmpunavailablecontexts.is_set or self.snmpunavailablecontexts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpunavailablecontexts.get_name_leafdata())
+            if (self.snmpunknowncontexts.is_set or self.snmpunknowncontexts.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.snmpunknowncontexts.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "snmpTargetSpinLock" or name == "snmpUnavailableContexts" or name == "snmpUnknownContexts"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.snmptargetspinlock is not None:
-                return True
-
-            if self.snmpunavailablecontexts is not None:
-                return True
-
-            if self.snmpunknowncontexts is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMP_TARGET_MIB as meta
-            return meta._meta_table['SnmpTargetMib.Snmptargetobjects']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "snmpTargetSpinLock"):
+                self.snmptargetspinlock = value
+                self.snmptargetspinlock.value_namespace = name_space
+                self.snmptargetspinlock.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpUnavailableContexts"):
+                self.snmpunavailablecontexts = value
+                self.snmpunavailablecontexts.value_namespace = name_space
+                self.snmpunavailablecontexts.value_namespace_prefix = name_space_prefix
+            if(value_path == "snmpUnknownContexts"):
+                self.snmpunknowncontexts = value
+                self.snmpunknowncontexts.value_namespace = name_space
+                self.snmpunknowncontexts.value_namespace_prefix = name_space_prefix
 
 
-    class Snmptargetaddrtable(object):
+    class Snmptargetaddrtable(Entity):
         """
         A table of transport addresses to be used in the generation
         of SNMP messages.
@@ -137,13 +214,39 @@ class SnmpTargetMib(object):
         _revision = '1998-08-04'
 
         def __init__(self):
-            self.parent = None
-            self.snmptargetaddrentry = YList()
-            self.snmptargetaddrentry.parent = self
-            self.snmptargetaddrentry.name = 'snmptargetaddrentry'
+            super(SnmpTargetMib.Snmptargetaddrtable, self).__init__()
+
+            self.yang_name = "snmpTargetAddrTable"
+            self.yang_parent_name = "SNMP-TARGET-MIB"
+
+            self.snmptargetaddrentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SnmpTargetMib.Snmptargetaddrtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SnmpTargetMib.Snmptargetaddrtable, self).__setattr__(name, value)
 
 
-        class Snmptargetaddrentry(object):
+        class Snmptargetaddrentry(Entity):
             """
             A transport address to be used in the generation
             of SNMP operations.
@@ -175,12 +278,12 @@ class SnmpTargetMib(object):
             .. attribute:: snmptargetaddrrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  Until instances of all corresponding columns are appropriately configured, the value of the corresponding instance of the snmpTargetAddrRowStatus column is 'notReady'.  In particular, a newly created row cannot be made active until the corresponding instances of snmpTargetAddrTDomain, snmpTargetAddrTAddress, and snmpTargetAddrParams have all been set.  The following objects may not be modified while the value of this object is active(1)\:     \- snmpTargetAddrTDomain     \- snmpTargetAddrTAddress An attempt to set these objects while the value of snmpTargetAddrRowStatus is active(1) will result in an inconsistentValue error
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: snmptargetaddrstoragetype
             
             	The storage type for this conceptual row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: snmptargetaddrtaddress
             
@@ -216,87 +319,231 @@ class SnmpTargetMib(object):
             _revision = '1998-08-04'
 
             def __init__(self):
-                self.parent = None
-                self.snmptargetaddrname = None
-                self.snmptargetaddrparams = None
-                self.snmptargetaddrretrycount = None
-                self.snmptargetaddrrowstatus = None
-                self.snmptargetaddrstoragetype = None
-                self.snmptargetaddrtaddress = None
-                self.snmptargetaddrtaglist = None
-                self.snmptargetaddrtdomain = None
-                self.snmptargetaddrtimeout = None
+                super(SnmpTargetMib.Snmptargetaddrtable.Snmptargetaddrentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.snmptargetaddrname is None:
-                    raise YPYModelError('Key property snmptargetaddrname is None')
+                self.yang_name = "snmpTargetAddrEntry"
+                self.yang_parent_name = "snmpTargetAddrTable"
 
-                return '/SNMP-TARGET-MIB:SNMP-TARGET-MIB/SNMP-TARGET-MIB:snmpTargetAddrTable/SNMP-TARGET-MIB:snmpTargetAddrEntry[SNMP-TARGET-MIB:snmpTargetAddrName = ' + str(self.snmptargetaddrname) + ']'
+                self.snmptargetaddrname = YLeaf(YType.str, "snmpTargetAddrName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.snmptargetaddrparams = YLeaf(YType.str, "snmpTargetAddrParams")
+
+                self.snmptargetaddrretrycount = YLeaf(YType.int32, "snmpTargetAddrRetryCount")
+
+                self.snmptargetaddrrowstatus = YLeaf(YType.enumeration, "snmpTargetAddrRowStatus")
+
+                self.snmptargetaddrstoragetype = YLeaf(YType.enumeration, "snmpTargetAddrStorageType")
+
+                self.snmptargetaddrtaddress = YLeaf(YType.str, "snmpTargetAddrTAddress")
+
+                self.snmptargetaddrtaglist = YLeaf(YType.str, "snmpTargetAddrTagList")
+
+                self.snmptargetaddrtdomain = YLeaf(YType.str, "snmpTargetAddrTDomain")
+
+                self.snmptargetaddrtimeout = YLeaf(YType.int32, "snmpTargetAddrTimeout")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("snmptargetaddrname",
+                                "snmptargetaddrparams",
+                                "snmptargetaddrretrycount",
+                                "snmptargetaddrrowstatus",
+                                "snmptargetaddrstoragetype",
+                                "snmptargetaddrtaddress",
+                                "snmptargetaddrtaglist",
+                                "snmptargetaddrtdomain",
+                                "snmptargetaddrtimeout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SnmpTargetMib.Snmptargetaddrtable.Snmptargetaddrentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SnmpTargetMib.Snmptargetaddrtable.Snmptargetaddrentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.snmptargetaddrname.is_set or
+                    self.snmptargetaddrparams.is_set or
+                    self.snmptargetaddrretrycount.is_set or
+                    self.snmptargetaddrrowstatus.is_set or
+                    self.snmptargetaddrstoragetype.is_set or
+                    self.snmptargetaddrtaddress.is_set or
+                    self.snmptargetaddrtaglist.is_set or
+                    self.snmptargetaddrtdomain.is_set or
+                    self.snmptargetaddrtimeout.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.snmptargetaddrname.yfilter != YFilter.not_set or
+                    self.snmptargetaddrparams.yfilter != YFilter.not_set or
+                    self.snmptargetaddrretrycount.yfilter != YFilter.not_set or
+                    self.snmptargetaddrrowstatus.yfilter != YFilter.not_set or
+                    self.snmptargetaddrstoragetype.yfilter != YFilter.not_set or
+                    self.snmptargetaddrtaddress.yfilter != YFilter.not_set or
+                    self.snmptargetaddrtaglist.yfilter != YFilter.not_set or
+                    self.snmptargetaddrtdomain.yfilter != YFilter.not_set or
+                    self.snmptargetaddrtimeout.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "snmpTargetAddrEntry" + "[snmpTargetAddrName='" + self.snmptargetaddrname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetAddrTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.snmptargetaddrname.is_set or self.snmptargetaddrname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrname.get_name_leafdata())
+                if (self.snmptargetaddrparams.is_set or self.snmptargetaddrparams.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrparams.get_name_leafdata())
+                if (self.snmptargetaddrretrycount.is_set or self.snmptargetaddrretrycount.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrretrycount.get_name_leafdata())
+                if (self.snmptargetaddrrowstatus.is_set or self.snmptargetaddrrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrrowstatus.get_name_leafdata())
+                if (self.snmptargetaddrstoragetype.is_set or self.snmptargetaddrstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrstoragetype.get_name_leafdata())
+                if (self.snmptargetaddrtaddress.is_set or self.snmptargetaddrtaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrtaddress.get_name_leafdata())
+                if (self.snmptargetaddrtaglist.is_set or self.snmptargetaddrtaglist.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrtaglist.get_name_leafdata())
+                if (self.snmptargetaddrtdomain.is_set or self.snmptargetaddrtdomain.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrtdomain.get_name_leafdata())
+                if (self.snmptargetaddrtimeout.is_set or self.snmptargetaddrtimeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetaddrtimeout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "snmpTargetAddrName" or name == "snmpTargetAddrParams" or name == "snmpTargetAddrRetryCount" or name == "snmpTargetAddrRowStatus" or name == "snmpTargetAddrStorageType" or name == "snmpTargetAddrTAddress" or name == "snmpTargetAddrTagList" or name == "snmpTargetAddrTDomain" or name == "snmpTargetAddrTimeout"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.snmptargetaddrname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "snmpTargetAddrName"):
+                    self.snmptargetaddrname = value
+                    self.snmptargetaddrname.value_namespace = name_space
+                    self.snmptargetaddrname.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrParams"):
+                    self.snmptargetaddrparams = value
+                    self.snmptargetaddrparams.value_namespace = name_space
+                    self.snmptargetaddrparams.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrRetryCount"):
+                    self.snmptargetaddrretrycount = value
+                    self.snmptargetaddrretrycount.value_namespace = name_space
+                    self.snmptargetaddrretrycount.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrRowStatus"):
+                    self.snmptargetaddrrowstatus = value
+                    self.snmptargetaddrrowstatus.value_namespace = name_space
+                    self.snmptargetaddrrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrStorageType"):
+                    self.snmptargetaddrstoragetype = value
+                    self.snmptargetaddrstoragetype.value_namespace = name_space
+                    self.snmptargetaddrstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrTAddress"):
+                    self.snmptargetaddrtaddress = value
+                    self.snmptargetaddrtaddress.value_namespace = name_space
+                    self.snmptargetaddrtaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrTagList"):
+                    self.snmptargetaddrtaglist = value
+                    self.snmptargetaddrtaglist.value_namespace = name_space
+                    self.snmptargetaddrtaglist.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrTDomain"):
+                    self.snmptargetaddrtdomain = value
+                    self.snmptargetaddrtdomain.value_namespace = name_space
+                    self.snmptargetaddrtdomain.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetAddrTimeout"):
+                    self.snmptargetaddrtimeout = value
+                    self.snmptargetaddrtimeout.value_namespace = name_space
+                    self.snmptargetaddrtimeout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.snmptargetaddrentry:
+                if (c.has_data()):
                     return True
-
-                if self.snmptargetaddrparams is not None:
-                    return True
-
-                if self.snmptargetaddrretrycount is not None:
-                    return True
-
-                if self.snmptargetaddrrowstatus is not None:
-                    return True
-
-                if self.snmptargetaddrstoragetype is not None:
-                    return True
-
-                if self.snmptargetaddrtaddress is not None:
-                    return True
-
-                if self.snmptargetaddrtaglist is not None:
-                    return True
-
-                if self.snmptargetaddrtdomain is not None:
-                    return True
-
-                if self.snmptargetaddrtimeout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SNMP_TARGET_MIB as meta
-                return meta._meta_table['SnmpTargetMib.Snmptargetaddrtable.Snmptargetaddrentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SNMP-TARGET-MIB:SNMP-TARGET-MIB/SNMP-TARGET-MIB:snmpTargetAddrTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.snmptargetaddrentry is not None:
-                for child_ref in self.snmptargetaddrentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.snmptargetaddrentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "snmpTargetAddrTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "snmpTargetAddrEntry"):
+                for c in self.snmptargetaddrentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SnmpTargetMib.Snmptargetaddrtable.Snmptargetaddrentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.snmptargetaddrentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "snmpTargetAddrEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMP_TARGET_MIB as meta
-            return meta._meta_table['SnmpTargetMib.Snmptargetaddrtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Snmptargetparamstable(object):
+    class Snmptargetparamstable(Entity):
         """
         A table of SNMP target information to be used
         in the generation of SNMP messages.
@@ -314,13 +561,39 @@ class SnmpTargetMib(object):
         _revision = '1998-08-04'
 
         def __init__(self):
-            self.parent = None
-            self.snmptargetparamsentry = YList()
-            self.snmptargetparamsentry.parent = self
-            self.snmptargetparamsentry.name = 'snmptargetparamsentry'
+            super(SnmpTargetMib.Snmptargetparamstable, self).__init__()
+
+            self.yang_name = "snmpTargetParamsTable"
+            self.yang_parent_name = "SNMP-TARGET-MIB"
+
+            self.snmptargetparamsentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(SnmpTargetMib.Snmptargetparamstable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(SnmpTargetMib.Snmptargetparamstable, self).__setattr__(name, value)
 
 
-        class Snmptargetparamsentry(object):
+        class Snmptargetparamsentry(Entity):
             """
             A set of SNMP target information.
             
@@ -344,12 +617,12 @@ class SnmpTargetMib(object):
             .. attribute:: snmptargetparamsrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  Until instances of all corresponding columns are appropriately configured, the value of the corresponding instance of the snmpTargetParamsRowStatus column is 'notReady'.  In particular, a newly created row cannot be made      active until the corresponding snmpTargetParamsMPModel, snmpTargetParamsSecurityModel, snmpTargetParamsSecurityName, and snmpTargetParamsSecurityLevel have all been set. The following objects may not be modified while the value of this object is active(1)\:     \- snmpTargetParamsMPModel     \- snmpTargetParamsSecurityModel     \- snmpTargetParamsSecurityName     \- snmpTargetParamsSecurityLevel An attempt to set these objects while the value of snmpTargetParamsRowStatus is active(1) will result in an inconsistentValue error
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: snmptargetparamssecuritylevel
             
             	The Level of Security to be used when generating SNMP messages using this entry
-            	**type**\:   :py:class:`SnmpsecuritylevelEnum <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.SnmpsecuritylevelEnum>`
+            	**type**\:   :py:class:`Snmpsecuritylevel <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.Snmpsecuritylevel>`
             
             .. attribute:: snmptargetparamssecuritymodel
             
@@ -366,7 +639,7 @@ class SnmpTargetMib(object):
             .. attribute:: snmptargetparamsstoragetype
             
             	The storage type for this conceptual row
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             
 
@@ -376,101 +649,274 @@ class SnmpTargetMib(object):
             _revision = '1998-08-04'
 
             def __init__(self):
-                self.parent = None
-                self.snmptargetparamsname = None
-                self.snmptargetparamsmpmodel = None
-                self.snmptargetparamsrowstatus = None
-                self.snmptargetparamssecuritylevel = None
-                self.snmptargetparamssecuritymodel = None
-                self.snmptargetparamssecurityname = None
-                self.snmptargetparamsstoragetype = None
+                super(SnmpTargetMib.Snmptargetparamstable.Snmptargetparamsentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.snmptargetparamsname is None:
-                    raise YPYModelError('Key property snmptargetparamsname is None')
+                self.yang_name = "snmpTargetParamsEntry"
+                self.yang_parent_name = "snmpTargetParamsTable"
 
-                return '/SNMP-TARGET-MIB:SNMP-TARGET-MIB/SNMP-TARGET-MIB:snmpTargetParamsTable/SNMP-TARGET-MIB:snmpTargetParamsEntry[SNMP-TARGET-MIB:snmpTargetParamsName = ' + str(self.snmptargetparamsname) + ']'
+                self.snmptargetparamsname = YLeaf(YType.str, "snmpTargetParamsName")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.snmptargetparamsmpmodel = YLeaf(YType.int32, "snmpTargetParamsMPModel")
+
+                self.snmptargetparamsrowstatus = YLeaf(YType.enumeration, "snmpTargetParamsRowStatus")
+
+                self.snmptargetparamssecuritylevel = YLeaf(YType.enumeration, "snmpTargetParamsSecurityLevel")
+
+                self.snmptargetparamssecuritymodel = YLeaf(YType.int32, "snmpTargetParamsSecurityModel")
+
+                self.snmptargetparamssecurityname = YLeaf(YType.str, "snmpTargetParamsSecurityName")
+
+                self.snmptargetparamsstoragetype = YLeaf(YType.enumeration, "snmpTargetParamsStorageType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("snmptargetparamsname",
+                                "snmptargetparamsmpmodel",
+                                "snmptargetparamsrowstatus",
+                                "snmptargetparamssecuritylevel",
+                                "snmptargetparamssecuritymodel",
+                                "snmptargetparamssecurityname",
+                                "snmptargetparamsstoragetype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(SnmpTargetMib.Snmptargetparamstable.Snmptargetparamsentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(SnmpTargetMib.Snmptargetparamstable.Snmptargetparamsentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.snmptargetparamsname.is_set or
+                    self.snmptargetparamsmpmodel.is_set or
+                    self.snmptargetparamsrowstatus.is_set or
+                    self.snmptargetparamssecuritylevel.is_set or
+                    self.snmptargetparamssecuritymodel.is_set or
+                    self.snmptargetparamssecurityname.is_set or
+                    self.snmptargetparamsstoragetype.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.snmptargetparamsname.yfilter != YFilter.not_set or
+                    self.snmptargetparamsmpmodel.yfilter != YFilter.not_set or
+                    self.snmptargetparamsrowstatus.yfilter != YFilter.not_set or
+                    self.snmptargetparamssecuritylevel.yfilter != YFilter.not_set or
+                    self.snmptargetparamssecuritymodel.yfilter != YFilter.not_set or
+                    self.snmptargetparamssecurityname.yfilter != YFilter.not_set or
+                    self.snmptargetparamsstoragetype.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "snmpTargetParamsEntry" + "[snmpTargetParamsName='" + self.snmptargetparamsname.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetParamsTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.snmptargetparamsname.is_set or self.snmptargetparamsname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetparamsname.get_name_leafdata())
+                if (self.snmptargetparamsmpmodel.is_set or self.snmptargetparamsmpmodel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetparamsmpmodel.get_name_leafdata())
+                if (self.snmptargetparamsrowstatus.is_set or self.snmptargetparamsrowstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetparamsrowstatus.get_name_leafdata())
+                if (self.snmptargetparamssecuritylevel.is_set or self.snmptargetparamssecuritylevel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetparamssecuritylevel.get_name_leafdata())
+                if (self.snmptargetparamssecuritymodel.is_set or self.snmptargetparamssecuritymodel.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetparamssecuritymodel.get_name_leafdata())
+                if (self.snmptargetparamssecurityname.is_set or self.snmptargetparamssecurityname.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetparamssecurityname.get_name_leafdata())
+                if (self.snmptargetparamsstoragetype.is_set or self.snmptargetparamsstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.snmptargetparamsstoragetype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "snmpTargetParamsName" or name == "snmpTargetParamsMPModel" or name == "snmpTargetParamsRowStatus" or name == "snmpTargetParamsSecurityLevel" or name == "snmpTargetParamsSecurityModel" or name == "snmpTargetParamsSecurityName" or name == "snmpTargetParamsStorageType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.snmptargetparamsname is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "snmpTargetParamsName"):
+                    self.snmptargetparamsname = value
+                    self.snmptargetparamsname.value_namespace = name_space
+                    self.snmptargetparamsname.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetParamsMPModel"):
+                    self.snmptargetparamsmpmodel = value
+                    self.snmptargetparamsmpmodel.value_namespace = name_space
+                    self.snmptargetparamsmpmodel.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetParamsRowStatus"):
+                    self.snmptargetparamsrowstatus = value
+                    self.snmptargetparamsrowstatus.value_namespace = name_space
+                    self.snmptargetparamsrowstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetParamsSecurityLevel"):
+                    self.snmptargetparamssecuritylevel = value
+                    self.snmptargetparamssecuritylevel.value_namespace = name_space
+                    self.snmptargetparamssecuritylevel.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetParamsSecurityModel"):
+                    self.snmptargetparamssecuritymodel = value
+                    self.snmptargetparamssecuritymodel.value_namespace = name_space
+                    self.snmptargetparamssecuritymodel.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetParamsSecurityName"):
+                    self.snmptargetparamssecurityname = value
+                    self.snmptargetparamssecurityname.value_namespace = name_space
+                    self.snmptargetparamssecurityname.value_namespace_prefix = name_space_prefix
+                if(value_path == "snmpTargetParamsStorageType"):
+                    self.snmptargetparamsstoragetype = value
+                    self.snmptargetparamsstoragetype.value_namespace = name_space
+                    self.snmptargetparamsstoragetype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.snmptargetparamsentry:
+                if (c.has_data()):
                     return True
-
-                if self.snmptargetparamsmpmodel is not None:
-                    return True
-
-                if self.snmptargetparamsrowstatus is not None:
-                    return True
-
-                if self.snmptargetparamssecuritylevel is not None:
-                    return True
-
-                if self.snmptargetparamssecuritymodel is not None:
-                    return True
-
-                if self.snmptargetparamssecurityname is not None:
-                    return True
-
-                if self.snmptargetparamsstoragetype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _SNMP_TARGET_MIB as meta
-                return meta._meta_table['SnmpTargetMib.Snmptargetparamstable.Snmptargetparamsentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/SNMP-TARGET-MIB:SNMP-TARGET-MIB/SNMP-TARGET-MIB:snmpTargetParamsTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.snmptargetparamsentry is not None:
-                for child_ref in self.snmptargetparamsentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.snmptargetparamsentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "snmpTargetParamsTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "snmpTargetParamsEntry"):
+                for c in self.snmptargetparamsentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = SnmpTargetMib.Snmptargetparamstable.Snmptargetparamsentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.snmptargetparamsentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "snmpTargetParamsEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _SNMP_TARGET_MIB as meta
-            return meta._meta_table['SnmpTargetMib.Snmptargetparamstable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.snmptargetaddrtable is not None and self.snmptargetaddrtable.has_data()) or
+            (self.snmptargetobjects is not None and self.snmptargetobjects.has_data()) or
+            (self.snmptargetparamstable is not None and self.snmptargetparamstable.has_data()))
 
-        return '/SNMP-TARGET-MIB:SNMP-TARGET-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.snmptargetaddrtable is not None and self.snmptargetaddrtable.has_operation()) or
+            (self.snmptargetobjects is not None and self.snmptargetobjects.has_operation()) or
+            (self.snmptargetparamstable is not None and self.snmptargetparamstable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "SNMP-TARGET-MIB:SNMP-TARGET-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "snmpTargetAddrTable"):
+            if (self.snmptargetaddrtable is None):
+                self.snmptargetaddrtable = SnmpTargetMib.Snmptargetaddrtable()
+                self.snmptargetaddrtable.parent = self
+                self._children_name_map["snmptargetaddrtable"] = "snmpTargetAddrTable"
+            return self.snmptargetaddrtable
+
+        if (child_yang_name == "snmpTargetObjects"):
+            if (self.snmptargetobjects is None):
+                self.snmptargetobjects = SnmpTargetMib.Snmptargetobjects()
+                self.snmptargetobjects.parent = self
+                self._children_name_map["snmptargetobjects"] = "snmpTargetObjects"
+            return self.snmptargetobjects
+
+        if (child_yang_name == "snmpTargetParamsTable"):
+            if (self.snmptargetparamstable is None):
+                self.snmptargetparamstable = SnmpTargetMib.Snmptargetparamstable()
+                self.snmptargetparamstable.parent = self
+                self._children_name_map["snmptargetparamstable"] = "snmpTargetParamsTable"
+            return self.snmptargetparamstable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "snmpTargetAddrTable" or name == "snmpTargetObjects" or name == "snmpTargetParamsTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.snmptargetaddrtable is not None and self.snmptargetaddrtable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.snmptargetobjects is not None and self.snmptargetobjects._has_data():
-            return True
-
-        if self.snmptargetparamstable is not None and self.snmptargetparamstable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _SNMP_TARGET_MIB as meta
-        return meta._meta_table['SnmpTargetMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = SnmpTargetMib()
+        return self._top_entity
 

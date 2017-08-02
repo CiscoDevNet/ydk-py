@@ -12,22 +12,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class AcRuleStateEnum(Enum):
+class AcRuleState(Enum):
     """
-    AcRuleStateEnum
+    AcRuleState
 
     Ac rule state
 
@@ -47,22 +41,16 @@ class AcRuleStateEnum(Enum):
 
     """
 
-    rule_unapplied = 0
+    rule_unapplied = Enum.YLeaf(0, "rule-unapplied")
 
-    rule_applied = 1
+    rule_applied = Enum.YLeaf(1, "rule-applied")
 
-    rule_applied_all = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-        return meta._meta_table['AcRuleStateEnum']
+    rule_applied_all = Enum.YLeaf(2, "rule-applied-all")
 
 
-class AlAlarmBistateEnum(Enum):
+class AlAlarmBistate(Enum):
     """
-    AlAlarmBistateEnum
+    AlAlarmBistate
 
     Al alarm bistate
 
@@ -80,22 +68,16 @@ class AlAlarmBistateEnum(Enum):
 
     """
 
-    not_available = 0
+    not_available = Enum.YLeaf(0, "not-available")
 
-    active = 1
+    active = Enum.YLeaf(1, "active")
 
-    clear = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-        return meta._meta_table['AlAlarmBistateEnum']
+    clear = Enum.YLeaf(2, "clear")
 
 
-class AlAlarmSeverityEnum(Enum):
+class AlAlarmSeverity(Enum):
     """
-    AlAlarmSeverityEnum
+    AlAlarmSeverity
 
     Al alarm severity
 
@@ -137,33 +119,27 @@ class AlAlarmSeverityEnum(Enum):
 
     """
 
-    unknown = -1
+    unknown = Enum.YLeaf(-1, "unknown")
 
-    emergency = 0
+    emergency = Enum.YLeaf(0, "emergency")
 
-    alert = 1
+    alert = Enum.YLeaf(1, "alert")
 
-    critical = 2
+    critical = Enum.YLeaf(2, "critical")
 
-    error = 3
+    error = Enum.YLeaf(3, "error")
 
-    warning = 4
+    warning = Enum.YLeaf(4, "warning")
 
-    notice = 5
+    notice = Enum.YLeaf(5, "notice")
 
-    informational = 6
+    informational = Enum.YLeaf(6, "informational")
 
-    debugging = 7
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-        return meta._meta_table['AlAlarmSeverityEnum']
+    debugging = Enum.YLeaf(7, "debugging")
 
 
 
-class Suppression(object):
+class Suppression(Entity):
     """
     Suppression operational data
     
@@ -185,13 +161,24 @@ class Suppression(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Suppression, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "suppression"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-correlator-oper"
+
         self.rule_details = Suppression.RuleDetails()
         self.rule_details.parent = self
+        self._children_name_map["rule_details"] = "rule-details"
+        self._children_yang_names.add("rule-details")
+
         self.rule_summaries = Suppression.RuleSummaries()
         self.rule_summaries.parent = self
+        self._children_name_map["rule_summaries"] = "rule-summaries"
+        self._children_yang_names.add("rule-summaries")
 
 
-    class RuleSummaries(object):
+    class RuleSummaries(Entity):
         """
         Table that contains the database of suppression
         rule summary
@@ -209,13 +196,39 @@ class Suppression(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.rule_summary = YList()
-            self.rule_summary.parent = self
-            self.rule_summary.name = 'rule_summary'
+            super(Suppression.RuleSummaries, self).__init__()
+
+            self.yang_name = "rule-summaries"
+            self.yang_parent_name = "suppression"
+
+            self.rule_summary = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Suppression.RuleSummaries, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Suppression.RuleSummaries, self).__setattr__(name, value)
 
 
-        class RuleSummary(object):
+        class RuleSummary(Entity):
             """
             One of the suppression rules
             
@@ -234,7 +247,7 @@ class Suppression(object):
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+            	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
             
             .. attribute:: suppressed_alarms_count
             
@@ -251,67 +264,176 @@ class Suppression(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.rule_name = None
-                self.rule_name_xr = None
-                self.rule_state = None
-                self.suppressed_alarms_count = None
+                super(Suppression.RuleSummaries.RuleSummary, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rule_name is None:
-                    raise YPYModelError('Key property rule_name is None')
+                self.yang_name = "rule-summary"
+                self.yang_parent_name = "rule-summaries"
 
-                return '/Cisco-IOS-XR-infra-correlator-oper:suppression/Cisco-IOS-XR-infra-correlator-oper:rule-summaries/Cisco-IOS-XR-infra-correlator-oper:rule-summary[Cisco-IOS-XR-infra-correlator-oper:rule-name = ' + str(self.rule_name) + ']'
+                self.rule_name = YLeaf(YType.str, "rule-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rule_name_xr = YLeaf(YType.str, "rule-name-xr")
+
+                self.rule_state = YLeaf(YType.enumeration, "rule-state")
+
+                self.suppressed_alarms_count = YLeaf(YType.uint32, "suppressed-alarms-count")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rule_name",
+                                "rule_name_xr",
+                                "rule_state",
+                                "suppressed_alarms_count") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Suppression.RuleSummaries.RuleSummary, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Suppression.RuleSummaries.RuleSummary, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rule_name.is_set or
+                    self.rule_name_xr.is_set or
+                    self.rule_state.is_set or
+                    self.suppressed_alarms_count.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rule_name.yfilter != YFilter.not_set or
+                    self.rule_name_xr.yfilter != YFilter.not_set or
+                    self.rule_state.yfilter != YFilter.not_set or
+                    self.suppressed_alarms_count.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rule-summary" + "[rule-name='" + self.rule_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-summaries/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rule_name.is_set or self.rule_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name.get_name_leafdata())
+                if (self.rule_name_xr.is_set or self.rule_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name_xr.get_name_leafdata())
+                if (self.rule_state.is_set or self.rule_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_state.get_name_leafdata())
+                if (self.suppressed_alarms_count.is_set or self.suppressed_alarms_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.suppressed_alarms_count.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rule-name" or name == "rule-name-xr" or name == "rule-state" or name == "suppressed-alarms-count"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rule_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rule-name"):
+                    self.rule_name = value
+                    self.rule_name.value_namespace = name_space
+                    self.rule_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-name-xr"):
+                    self.rule_name_xr = value
+                    self.rule_name_xr.value_namespace = name_space
+                    self.rule_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-state"):
+                    self.rule_state = value
+                    self.rule_state.value_namespace = name_space
+                    self.rule_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "suppressed-alarms-count"):
+                    self.suppressed_alarms_count = value
+                    self.suppressed_alarms_count.value_namespace = name_space
+                    self.suppressed_alarms_count.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rule_summary:
+                if (c.has_data()):
                     return True
-
-                if self.rule_name_xr is not None:
-                    return True
-
-                if self.rule_state is not None:
-                    return True
-
-                if self.suppressed_alarms_count is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Suppression.RuleSummaries.RuleSummary']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:suppression/Cisco-IOS-XR-infra-correlator-oper:rule-summaries'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rule_summary is not None:
-                for child_ref in self.rule_summary:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rule_summary:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rule-summaries" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:suppression/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rule-summary"):
+                for c in self.rule_summary:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Suppression.RuleSummaries.RuleSummary()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rule_summary.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rule-summary"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Suppression.RuleSummaries']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class RuleDetails(object):
+    class RuleDetails(Entity):
         """
         Table that contains the database of suppression
         rule details
@@ -329,13 +451,39 @@ class Suppression(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.rule_detail = YList()
-            self.rule_detail.parent = self
-            self.rule_detail.name = 'rule_detail'
+            super(Suppression.RuleDetails, self).__init__()
+
+            self.yang_name = "rule-details"
+            self.yang_parent_name = "suppression"
+
+            self.rule_detail = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Suppression.RuleDetails, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Suppression.RuleDetails, self).__setattr__(name, value)
 
 
-        class RuleDetail(object):
+        class RuleDetail(Entity):
             """
             Details of one of the suppression rules
             
@@ -349,7 +497,7 @@ class Suppression(object):
             .. attribute:: alarm_severity
             
             	Severity level to suppress
-            	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverityEnum>`
+            	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
             
             .. attribute:: all_alarms
             
@@ -381,21 +529,55 @@ class Suppression(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.rule_name = None
-                self.alarm_severity = None
-                self.all_alarms = None
-                self.apply_source = YLeafList()
-                self.apply_source.parent = self
-                self.apply_source.name = 'apply_source'
-                self.codes = YList()
-                self.codes.parent = self
-                self.codes.name = 'codes'
+                super(Suppression.RuleDetails.RuleDetail, self).__init__()
+
+                self.yang_name = "rule-detail"
+                self.yang_parent_name = "rule-details"
+
+                self.rule_name = YLeaf(YType.str, "rule-name")
+
+                self.alarm_severity = YLeaf(YType.enumeration, "alarm-severity")
+
+                self.all_alarms = YLeaf(YType.boolean, "all-alarms")
+
+                self.apply_source = YLeafList(YType.str, "apply-source")
+
                 self.rule_summary = Suppression.RuleDetails.RuleDetail.RuleSummary()
                 self.rule_summary.parent = self
+                self._children_name_map["rule_summary"] = "rule-summary"
+                self._children_yang_names.add("rule-summary")
+
+                self.codes = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rule_name",
+                                "alarm_severity",
+                                "all_alarms",
+                                "apply_source") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Suppression.RuleDetails.RuleDetail, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Suppression.RuleDetails.RuleDetail, self).__setattr__(name, value)
 
 
-            class RuleSummary(object):
+            class RuleSummary(Entity):
                 """
                 Rule summary, name, etc
                 
@@ -407,7 +589,7 @@ class Suppression(object):
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+                	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
                 
                 .. attribute:: suppressed_alarms_count
                 
@@ -424,41 +606,108 @@ class Suppression(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.rule_name_xr = None
-                    self.rule_state = None
-                    self.suppressed_alarms_count = None
+                    super(Suppression.RuleDetails.RuleDetail.RuleSummary, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "rule-summary"
+                    self.yang_parent_name = "rule-detail"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-oper:rule-summary'
+                    self.rule_name_xr = YLeaf(YType.str, "rule-name-xr")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.rule_state = YLeaf(YType.enumeration, "rule-state")
+
+                    self.suppressed_alarms_count = YLeaf(YType.uint32, "suppressed-alarms-count")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("rule_name_xr",
+                                    "rule_state",
+                                    "suppressed_alarms_count") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Suppression.RuleDetails.RuleDetail.RuleSummary, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Suppression.RuleDetails.RuleDetail.RuleSummary, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.rule_name_xr.is_set or
+                        self.rule_state.is_set or
+                        self.suppressed_alarms_count.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.rule_name_xr.yfilter != YFilter.not_set or
+                        self.rule_state.yfilter != YFilter.not_set or
+                        self.suppressed_alarms_count.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "rule-summary" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.rule_name_xr.is_set or self.rule_name_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rule_name_xr.get_name_leafdata())
+                    if (self.rule_state.is_set or self.rule_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rule_state.get_name_leafdata())
+                    if (self.suppressed_alarms_count.is_set or self.suppressed_alarms_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.suppressed_alarms_count.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "rule-name-xr" or name == "rule-state" or name == "suppressed-alarms-count"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.rule_name_xr is not None:
-                        return True
-
-                    if self.rule_state is not None:
-                        return True
-
-                    if self.suppressed_alarms_count is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                    return meta._meta_table['Suppression.RuleDetails.RuleDetail.RuleSummary']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "rule-name-xr"):
+                        self.rule_name_xr = value
+                        self.rule_name_xr.value_namespace = name_space
+                        self.rule_name_xr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rule-state"):
+                        self.rule_state = value
+                        self.rule_state.value_namespace = name_space
+                        self.rule_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "suppressed-alarms-count"):
+                        self.suppressed_alarms_count = value
+                        self.suppressed_alarms_count.value_namespace = name_space
+                        self.suppressed_alarms_count.value_namespace_prefix = name_space_prefix
 
 
-            class Codes(object):
+            class Codes(Entity):
                 """
                 Message codes defining the rule.
                 
@@ -485,127 +734,326 @@ class Suppression(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.category = None
-                    self.code = None
-                    self.group = None
+                    super(Suppression.RuleDetails.RuleDetail.Codes, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "codes"
+                    self.yang_parent_name = "rule-detail"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-oper:codes'
+                    self.category = YLeaf(YType.str, "category")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.code = YLeaf(YType.str, "code")
+
+                    self.group = YLeaf(YType.str, "group")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("category",
+                                    "code",
+                                    "group") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Suppression.RuleDetails.RuleDetail.Codes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Suppression.RuleDetails.RuleDetail.Codes, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.category.is_set or
+                        self.code.is_set or
+                        self.group.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.category.yfilter != YFilter.not_set or
+                        self.code.yfilter != YFilter.not_set or
+                        self.group.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "codes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.category.is_set or self.category.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.category.get_name_leafdata())
+                    if (self.code.is_set or self.code.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.code.get_name_leafdata())
+                    if (self.group.is_set or self.group.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "category" or name == "code" or name == "group"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.category is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "category"):
+                        self.category = value
+                        self.category.value_namespace = name_space
+                        self.category.value_namespace_prefix = name_space_prefix
+                    if(value_path == "code"):
+                        self.code = value
+                        self.code.value_namespace = name_space
+                        self.code.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group"):
+                        self.group = value
+                        self.group.value_namespace = name_space
+                        self.group.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.codes:
+                    if (c.has_data()):
                         return True
-
-                    if self.code is not None:
+                for leaf in self.apply_source.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                return (
+                    self.rule_name.is_set or
+                    self.alarm_severity.is_set or
+                    self.all_alarms.is_set or
+                    (self.rule_summary is not None and self.rule_summary.has_data()))
 
-                    if self.group is not None:
+            def has_operation(self):
+                for c in self.codes:
+                    if (c.has_operation()):
                         return True
+                for leaf in self.apply_source.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rule_name.yfilter != YFilter.not_set or
+                    self.alarm_severity.yfilter != YFilter.not_set or
+                    self.all_alarms.yfilter != YFilter.not_set or
+                    self.apply_source.yfilter != YFilter.not_set or
+                    (self.rule_summary is not None and self.rule_summary.has_operation()))
 
-                    return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rule-detail" + "[rule-name='" + self.rule_name.get() + "']" + path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                    return meta._meta_table['Suppression.RuleDetails.RuleDetail.Codes']['meta_info']
+                return path_buffer
 
-            @property
-            def _common_path(self):
-                if self.rule_name is None:
-                    raise YPYModelError('Key property rule_name is None')
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-details/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                return '/Cisco-IOS-XR-infra-correlator-oper:suppression/Cisco-IOS-XR-infra-correlator-oper:rule-details/Cisco-IOS-XR-infra-correlator-oper:rule-detail[Cisco-IOS-XR-infra-correlator-oper:rule-name = ' + str(self.rule_name) + ']'
+                leaf_name_data = LeafDataList()
+                if (self.rule_name.is_set or self.rule_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name.get_name_leafdata())
+                if (self.alarm_severity.is_set or self.alarm_severity.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.alarm_severity.get_name_leafdata())
+                if (self.all_alarms.is_set or self.all_alarms.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.all_alarms.get_name_leafdata())
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data.extend(self.apply_source.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "codes"):
+                    for c in self.codes:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Suppression.RuleDetails.RuleDetail.Codes()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.codes.append(c)
+                    return c
+
+                if (child_yang_name == "rule-summary"):
+                    if (self.rule_summary is None):
+                        self.rule_summary = Suppression.RuleDetails.RuleDetail.RuleSummary()
+                        self.rule_summary.parent = self
+                        self._children_name_map["rule_summary"] = "rule-summary"
+                    return self.rule_summary
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "codes" or name == "rule-summary" or name == "rule-name" or name == "alarm-severity" or name == "all-alarms" or name == "apply-source"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rule_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rule-name"):
+                    self.rule_name = value
+                    self.rule_name.value_namespace = name_space
+                    self.rule_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "alarm-severity"):
+                    self.alarm_severity = value
+                    self.alarm_severity.value_namespace = name_space
+                    self.alarm_severity.value_namespace_prefix = name_space_prefix
+                if(value_path == "all-alarms"):
+                    self.all_alarms = value
+                    self.all_alarms.value_namespace = name_space
+                    self.all_alarms.value_namespace_prefix = name_space_prefix
+                if(value_path == "apply-source"):
+                    self.apply_source.append(value)
+
+        def has_data(self):
+            for c in self.rule_detail:
+                if (c.has_data()):
                     return True
-
-                if self.alarm_severity is not None:
-                    return True
-
-                if self.all_alarms is not None:
-                    return True
-
-                if self.apply_source is not None:
-                    for child in self.apply_source:
-                        if child is not None:
-                            return True
-
-                if self.codes is not None:
-                    for child_ref in self.codes:
-                        if child_ref._has_data():
-                            return True
-
-                if self.rule_summary is not None and self.rule_summary._has_data():
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Suppression.RuleDetails.RuleDetail']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:suppression/Cisco-IOS-XR-infra-correlator-oper:rule-details'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rule_detail is not None:
-                for child_ref in self.rule_detail:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rule_detail:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rule-details" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:suppression/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rule-detail"):
+                for c in self.rule_detail:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Suppression.RuleDetails.RuleDetail()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rule_detail.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rule-detail"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Suppression.RuleDetails']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.rule_details is not None and self.rule_details.has_data()) or
+            (self.rule_summaries is not None and self.rule_summaries.has_data()))
 
-        return '/Cisco-IOS-XR-infra-correlator-oper:suppression'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.rule_details is not None and self.rule_details.has_operation()) or
+            (self.rule_summaries is not None and self.rule_summaries.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-correlator-oper:suppression" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "rule-details"):
+            if (self.rule_details is None):
+                self.rule_details = Suppression.RuleDetails()
+                self.rule_details.parent = self
+                self._children_name_map["rule_details"] = "rule-details"
+            return self.rule_details
+
+        if (child_yang_name == "rule-summaries"):
+            if (self.rule_summaries is None):
+                self.rule_summaries = Suppression.RuleSummaries()
+                self.rule_summaries.parent = self
+                self._children_name_map["rule_summaries"] = "rule-summaries"
+            return self.rule_summaries
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "rule-details" or name == "rule-summaries"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.rule_details is not None and self.rule_details._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.rule_summaries is not None and self.rule_summaries._has_data():
-            return True
+    def clone_ptr(self):
+        self._top_entity = Suppression()
+        return self._top_entity
 
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-        return meta._meta_table['Suppression']['meta_info']
-
-
-class Correlator(object):
+class Correlator(Entity):
     """
     correlator
     
@@ -652,23 +1100,49 @@ class Correlator(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(Correlator, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "correlator"
+        self.yang_parent_name = "Cisco-IOS-XR-infra-correlator-oper"
+
         self.alarms = Correlator.Alarms()
         self.alarms.parent = self
+        self._children_name_map["alarms"] = "alarms"
+        self._children_yang_names.add("alarms")
+
         self.buffer_status = Correlator.BufferStatus()
         self.buffer_status.parent = self
+        self._children_name_map["buffer_status"] = "buffer-status"
+        self._children_yang_names.add("buffer-status")
+
         self.rule_details = Correlator.RuleDetails()
         self.rule_details.parent = self
+        self._children_name_map["rule_details"] = "rule-details"
+        self._children_yang_names.add("rule-details")
+
         self.rule_set_details = Correlator.RuleSetDetails()
         self.rule_set_details.parent = self
+        self._children_name_map["rule_set_details"] = "rule-set-details"
+        self._children_yang_names.add("rule-set-details")
+
         self.rule_set_summaries = Correlator.RuleSetSummaries()
         self.rule_set_summaries.parent = self
+        self._children_name_map["rule_set_summaries"] = "rule-set-summaries"
+        self._children_yang_names.add("rule-set-summaries")
+
         self.rule_summaries = Correlator.RuleSummaries()
         self.rule_summaries.parent = self
+        self._children_name_map["rule_summaries"] = "rule-summaries"
+        self._children_yang_names.add("rule-summaries")
+
         self.rules = Correlator.Rules()
         self.rules.parent = self
+        self._children_name_map["rules"] = "rules"
+        self._children_yang_names.add("rules")
 
 
-    class Rules(object):
+    class Rules(Entity):
         """
         Table that contains the database of correlation
         rules
@@ -686,13 +1160,39 @@ class Correlator(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.rule = YList()
-            self.rule.parent = self
-            self.rule.name = 'rule'
+            super(Correlator.Rules, self).__init__()
+
+            self.yang_name = "rules"
+            self.yang_parent_name = "correlator"
+
+            self.rule = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Correlator.Rules, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Correlator.Rules, self).__setattr__(name, value)
 
 
-        class Rule(object):
+        class Rule(Entity):
             """
             One of the correlation rules
             
@@ -730,7 +1230,7 @@ class Correlator(object):
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+            	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
             
             .. attribute:: timeout
             
@@ -747,23 +1247,56 @@ class Correlator(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.rule_name = None
-                self.apply_context = YLeafList()
-                self.apply_context.parent = self
-                self.apply_context.name = 'apply_context'
-                self.apply_location = YLeafList()
-                self.apply_location.parent = self
-                self.apply_location.name = 'apply_location'
-                self.codes = YList()
-                self.codes.parent = self
-                self.codes.name = 'codes'
-                self.rule_name_xr = None
-                self.rule_state = None
-                self.timeout = None
+                super(Correlator.Rules.Rule, self).__init__()
+
+                self.yang_name = "rule"
+                self.yang_parent_name = "rules"
+
+                self.rule_name = YLeaf(YType.str, "rule-name")
+
+                self.apply_context = YLeafList(YType.str, "apply-context")
+
+                self.apply_location = YLeafList(YType.str, "apply-location")
+
+                self.rule_name_xr = YLeaf(YType.str, "rule-name-xr")
+
+                self.rule_state = YLeaf(YType.enumeration, "rule-state")
+
+                self.timeout = YLeaf(YType.uint32, "timeout")
+
+                self.codes = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rule_name",
+                                "apply_context",
+                                "apply_location",
+                                "rule_name_xr",
+                                "rule_state",
+                                "timeout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Correlator.Rules.Rule, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Correlator.Rules.Rule, self).__setattr__(name, value)
 
 
-            class Codes(object):
+            class Codes(Entity):
                 """
                 Message codes defining the rule.
                 
@@ -790,109 +1323,276 @@ class Correlator(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.category = None
-                    self.code = None
-                    self.group = None
+                    super(Correlator.Rules.Rule.Codes, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "codes"
+                    self.yang_parent_name = "rule"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-oper:codes'
+                    self.category = YLeaf(YType.str, "category")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.code = YLeaf(YType.str, "code")
+
+                    self.group = YLeaf(YType.str, "group")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("category",
+                                    "code",
+                                    "group") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Correlator.Rules.Rule.Codes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Correlator.Rules.Rule.Codes, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.category.is_set or
+                        self.code.is_set or
+                        self.group.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.category.yfilter != YFilter.not_set or
+                        self.code.yfilter != YFilter.not_set or
+                        self.group.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "codes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.category.is_set or self.category.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.category.get_name_leafdata())
+                    if (self.code.is_set or self.code.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.code.get_name_leafdata())
+                    if (self.group.is_set or self.group.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "category" or name == "code" or name == "group"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.category is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "category"):
+                        self.category = value
+                        self.category.value_namespace = name_space
+                        self.category.value_namespace_prefix = name_space_prefix
+                    if(value_path == "code"):
+                        self.code = value
+                        self.code.value_namespace = name_space
+                        self.code.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group"):
+                        self.group = value
+                        self.group.value_namespace = name_space
+                        self.group.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.codes:
+                    if (c.has_data()):
                         return True
-
-                    if self.code is not None:
+                for leaf in self.apply_context.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
-
-                    if self.group is not None:
+                for leaf in self.apply_location.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                return (
+                    self.rule_name.is_set or
+                    self.rule_name_xr.is_set or
+                    self.rule_state.is_set or
+                    self.timeout.is_set)
 
-                    return False
+            def has_operation(self):
+                for c in self.codes:
+                    if (c.has_operation()):
+                        return True
+                for leaf in self.apply_context.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.apply_location.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rule_name.yfilter != YFilter.not_set or
+                    self.apply_context.yfilter != YFilter.not_set or
+                    self.apply_location.yfilter != YFilter.not_set or
+                    self.rule_name_xr.yfilter != YFilter.not_set or
+                    self.rule_state.yfilter != YFilter.not_set or
+                    self.timeout.yfilter != YFilter.not_set)
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                    return meta._meta_table['Correlator.Rules.Rule.Codes']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rule" + "[rule-name='" + self.rule_name.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.rule_name is None:
-                    raise YPYModelError('Key property rule_name is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rules/Cisco-IOS-XR-infra-correlator-oper:rule[Cisco-IOS-XR-infra-correlator-oper:rule-name = ' + str(self.rule_name) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/rules/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.rule_name.is_set or self.rule_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name.get_name_leafdata())
+                if (self.rule_name_xr.is_set or self.rule_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name_xr.get_name_leafdata())
+                if (self.rule_state.is_set or self.rule_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_state.get_name_leafdata())
+                if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                leaf_name_data.extend(self.apply_context.get_name_leafdata())
+
+                leaf_name_data.extend(self.apply_location.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "codes"):
+                    for c in self.codes:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Correlator.Rules.Rule.Codes()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.codes.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "codes" or name == "rule-name" or name == "apply-context" or name == "apply-location" or name == "rule-name-xr" or name == "rule-state" or name == "timeout"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rule_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rule-name"):
+                    self.rule_name = value
+                    self.rule_name.value_namespace = name_space
+                    self.rule_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "apply-context"):
+                    self.apply_context.append(value)
+                if(value_path == "apply-location"):
+                    self.apply_location.append(value)
+                if(value_path == "rule-name-xr"):
+                    self.rule_name_xr = value
+                    self.rule_name_xr.value_namespace = name_space
+                    self.rule_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-state"):
+                    self.rule_state = value
+                    self.rule_state.value_namespace = name_space
+                    self.rule_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "timeout"):
+                    self.timeout = value
+                    self.timeout.value_namespace = name_space
+                    self.timeout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rule:
+                if (c.has_data()):
                     return True
-
-                if self.apply_context is not None:
-                    for child in self.apply_context:
-                        if child is not None:
-                            return True
-
-                if self.apply_location is not None:
-                    for child in self.apply_location:
-                        if child is not None:
-                            return True
-
-                if self.codes is not None:
-                    for child_ref in self.codes:
-                        if child_ref._has_data():
-                            return True
-
-                if self.rule_name_xr is not None:
-                    return True
-
-                if self.rule_state is not None:
-                    return True
-
-                if self.timeout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Correlator.Rules.Rule']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rules'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rule is not None:
-                for child_ref in self.rule:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rule:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rules" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rule"):
+                for c in self.rule:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Correlator.Rules.Rule()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rule.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rule"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Correlator.Rules']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class BufferStatus(object):
+    class BufferStatus(Entity):
         """
         Describes buffer utilization and parameters
         configured
@@ -919,35 +1619,97 @@ class Correlator(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.configured_size = None
-            self.current_size = None
+            super(Correlator.BufferStatus, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "buffer-status"
+            self.yang_parent_name = "correlator"
 
-            return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:buffer-status'
+            self.configured_size = YLeaf(YType.uint32, "configured-size")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.current_size = YLeaf(YType.uint32, "current-size")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("configured_size",
+                            "current_size") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Correlator.BufferStatus, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Correlator.BufferStatus, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.configured_size.is_set or
+                self.current_size.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.configured_size.yfilter != YFilter.not_set or
+                self.current_size.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "buffer-status" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.configured_size.is_set or self.configured_size.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.configured_size.get_name_leafdata())
+            if (self.current_size.is_set or self.current_size.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.current_size.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "configured-size" or name == "current-size"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.configured_size is not None:
-                return True
-
-            if self.current_size is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Correlator.BufferStatus']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "configured-size"):
+                self.configured_size = value
+                self.configured_size.value_namespace = name_space
+                self.configured_size.value_namespace_prefix = name_space_prefix
+            if(value_path == "current-size"):
+                self.current_size = value
+                self.current_size.value_namespace = name_space
+                self.current_size.value_namespace_prefix = name_space_prefix
 
 
-    class Alarms(object):
+    class Alarms(Entity):
         """
         Correlated alarms Table
         
@@ -964,13 +1726,39 @@ class Correlator(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.alarm = YList()
-            self.alarm.parent = self
-            self.alarm.name = 'alarm'
+            super(Correlator.Alarms, self).__init__()
+
+            self.yang_name = "alarms"
+            self.yang_parent_name = "correlator"
+
+            self.alarm = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Correlator.Alarms, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Correlator.Alarms, self).__setattr__(name, value)
 
 
-        class Alarm(object):
+        class Alarm(Entity):
             """
             One of the correlated alarms
             
@@ -1004,15 +1792,50 @@ class Correlator(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.alarm_id = None
+                super(Correlator.Alarms.Alarm, self).__init__()
+
+                self.yang_name = "alarm"
+                self.yang_parent_name = "alarms"
+
+                self.alarm_id = YLeaf(YType.int32, "alarm-id")
+
+                self.context = YLeaf(YType.str, "context")
+
+                self.rule_name = YLeaf(YType.str, "rule-name")
+
                 self.alarm_info = Correlator.Alarms.Alarm.AlarmInfo()
                 self.alarm_info.parent = self
-                self.context = None
-                self.rule_name = None
+                self._children_name_map["alarm_info"] = "alarm-info"
+                self._children_yang_names.add("alarm-info")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("alarm_id",
+                                "context",
+                                "rule_name") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Correlator.Alarms.Alarm, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Correlator.Alarms.Alarm, self).__setattr__(name, value)
 
 
-            class AlarmInfo(object):
+            class AlarmInfo(Entity):
                 """
                 Correlated alarm information
                 
@@ -1051,7 +1874,7 @@ class Correlator(object):
                 .. attribute:: severity
                 
                 	Severity of the alarm
-                	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverityEnum>`
+                	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverity>`
                 
                 .. attribute:: source_id
                 
@@ -1061,7 +1884,7 @@ class Correlator(object):
                 .. attribute:: state
                 
                 	State of the alarm (bistate alarms only)
-                	**type**\:   :py:class:`AlAlarmBistateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmBistateEnum>`
+                	**type**\:   :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmBistate>`
                 
                 .. attribute:: timestamp
                 
@@ -1080,122 +1903,314 @@ class Correlator(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.additional_text = None
-                    self.category = None
-                    self.code = None
-                    self.correlation_id = None
-                    self.group = None
-                    self.is_admin = None
-                    self.severity = None
-                    self.source_id = None
-                    self.state = None
-                    self.timestamp = None
+                    super(Correlator.Alarms.Alarm.AlarmInfo, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "alarm-info"
+                    self.yang_parent_name = "alarm"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-oper:alarm-info'
+                    self.additional_text = YLeaf(YType.str, "additional-text")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.category = YLeaf(YType.str, "category")
+
+                    self.code = YLeaf(YType.str, "code")
+
+                    self.correlation_id = YLeaf(YType.uint32, "correlation-id")
+
+                    self.group = YLeaf(YType.str, "group")
+
+                    self.is_admin = YLeaf(YType.boolean, "is-admin")
+
+                    self.severity = YLeaf(YType.enumeration, "severity")
+
+                    self.source_id = YLeaf(YType.str, "source-id")
+
+                    self.state = YLeaf(YType.enumeration, "state")
+
+                    self.timestamp = YLeaf(YType.uint64, "timestamp")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("additional_text",
+                                    "category",
+                                    "code",
+                                    "correlation_id",
+                                    "group",
+                                    "is_admin",
+                                    "severity",
+                                    "source_id",
+                                    "state",
+                                    "timestamp") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Correlator.Alarms.Alarm.AlarmInfo, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Correlator.Alarms.Alarm.AlarmInfo, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.additional_text.is_set or
+                        self.category.is_set or
+                        self.code.is_set or
+                        self.correlation_id.is_set or
+                        self.group.is_set or
+                        self.is_admin.is_set or
+                        self.severity.is_set or
+                        self.source_id.is_set or
+                        self.state.is_set or
+                        self.timestamp.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.additional_text.yfilter != YFilter.not_set or
+                        self.category.yfilter != YFilter.not_set or
+                        self.code.yfilter != YFilter.not_set or
+                        self.correlation_id.yfilter != YFilter.not_set or
+                        self.group.yfilter != YFilter.not_set or
+                        self.is_admin.yfilter != YFilter.not_set or
+                        self.severity.yfilter != YFilter.not_set or
+                        self.source_id.yfilter != YFilter.not_set or
+                        self.state.yfilter != YFilter.not_set or
+                        self.timestamp.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "alarm-info" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.additional_text.is_set or self.additional_text.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.additional_text.get_name_leafdata())
+                    if (self.category.is_set or self.category.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.category.get_name_leafdata())
+                    if (self.code.is_set or self.code.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.code.get_name_leafdata())
+                    if (self.correlation_id.is_set or self.correlation_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.correlation_id.get_name_leafdata())
+                    if (self.group.is_set or self.group.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group.get_name_leafdata())
+                    if (self.is_admin.is_set or self.is_admin.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.is_admin.get_name_leafdata())
+                    if (self.severity.is_set or self.severity.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.severity.get_name_leafdata())
+                    if (self.source_id.is_set or self.source_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.source_id.get_name_leafdata())
+                    if (self.state.is_set or self.state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.state.get_name_leafdata())
+                    if (self.timestamp.is_set or self.timestamp.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.timestamp.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "additional-text" or name == "category" or name == "code" or name == "correlation-id" or name == "group" or name == "is-admin" or name == "severity" or name == "source-id" or name == "state" or name == "timestamp"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.additional_text is not None:
-                        return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "additional-text"):
+                        self.additional_text = value
+                        self.additional_text.value_namespace = name_space
+                        self.additional_text.value_namespace_prefix = name_space_prefix
+                    if(value_path == "category"):
+                        self.category = value
+                        self.category.value_namespace = name_space
+                        self.category.value_namespace_prefix = name_space_prefix
+                    if(value_path == "code"):
+                        self.code = value
+                        self.code.value_namespace = name_space
+                        self.code.value_namespace_prefix = name_space_prefix
+                    if(value_path == "correlation-id"):
+                        self.correlation_id = value
+                        self.correlation_id.value_namespace = name_space
+                        self.correlation_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group"):
+                        self.group = value
+                        self.group.value_namespace = name_space
+                        self.group.value_namespace_prefix = name_space_prefix
+                    if(value_path == "is-admin"):
+                        self.is_admin = value
+                        self.is_admin.value_namespace = name_space
+                        self.is_admin.value_namespace_prefix = name_space_prefix
+                    if(value_path == "severity"):
+                        self.severity = value
+                        self.severity.value_namespace = name_space
+                        self.severity.value_namespace_prefix = name_space_prefix
+                    if(value_path == "source-id"):
+                        self.source_id = value
+                        self.source_id.value_namespace = name_space
+                        self.source_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "state"):
+                        self.state = value
+                        self.state.value_namespace = name_space
+                        self.state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "timestamp"):
+                        self.timestamp = value
+                        self.timestamp.value_namespace = name_space
+                        self.timestamp.value_namespace_prefix = name_space_prefix
 
-                    if self.category is not None:
-                        return True
+            def has_data(self):
+                return (
+                    self.alarm_id.is_set or
+                    self.context.is_set or
+                    self.rule_name.is_set or
+                    (self.alarm_info is not None and self.alarm_info.has_data()))
 
-                    if self.code is not None:
-                        return True
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.alarm_id.yfilter != YFilter.not_set or
+                    self.context.yfilter != YFilter.not_set or
+                    self.rule_name.yfilter != YFilter.not_set or
+                    (self.alarm_info is not None and self.alarm_info.has_operation()))
 
-                    if self.correlation_id is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "alarm" + "[alarm-id='" + self.alarm_id.get() + "']" + path_buffer
 
-                    if self.group is not None:
-                        return True
+                return path_buffer
 
-                    if self.is_admin is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/alarms/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.severity is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.alarm_id.is_set or self.alarm_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.alarm_id.get_name_leafdata())
+                if (self.context.is_set or self.context.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.context.get_name_leafdata())
+                if (self.rule_name.is_set or self.rule_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name.get_name_leafdata())
 
-                    if self.source_id is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.state is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.timestamp is not None:
-                        return True
+                if (child_yang_name == "alarm-info"):
+                    if (self.alarm_info is None):
+                        self.alarm_info = Correlator.Alarms.Alarm.AlarmInfo()
+                        self.alarm_info.parent = self
+                        self._children_name_map["alarm_info"] = "alarm-info"
+                    return self.alarm_info
 
-                    return False
+                return None
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                    return meta._meta_table['Correlator.Alarms.Alarm.AlarmInfo']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.alarm_id is None:
-                    raise YPYModelError('Key property alarm_id is None')
-
-                return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:alarms/Cisco-IOS-XR-infra-correlator-oper:alarm[Cisco-IOS-XR-infra-correlator-oper:alarm-id = ' + str(self.alarm_id) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "alarm-info" or name == "alarm-id" or name == "context" or name == "rule-name"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.alarm_id is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "alarm-id"):
+                    self.alarm_id = value
+                    self.alarm_id.value_namespace = name_space
+                    self.alarm_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "context"):
+                    self.context = value
+                    self.context.value_namespace = name_space
+                    self.context.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-name"):
+                    self.rule_name = value
+                    self.rule_name.value_namespace = name_space
+                    self.rule_name.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.alarm:
+                if (c.has_data()):
                     return True
-
-                if self.alarm_info is not None and self.alarm_info._has_data():
-                    return True
-
-                if self.context is not None:
-                    return True
-
-                if self.rule_name is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Correlator.Alarms.Alarm']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:alarms'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.alarm is not None:
-                for child_ref in self.alarm:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.alarm:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "alarms" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "alarm"):
+                for c in self.alarm:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Correlator.Alarms.Alarm()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.alarm.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "alarm"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Correlator.Alarms']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class RuleSetSummaries(object):
+    class RuleSetSummaries(Entity):
         """
         Table that contains the ruleset summary info
         
@@ -1212,13 +2227,39 @@ class Correlator(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.rule_set_summary = YList()
-            self.rule_set_summary.parent = self
-            self.rule_set_summary.name = 'rule_set_summary'
+            super(Correlator.RuleSetSummaries, self).__init__()
+
+            self.yang_name = "rule-set-summaries"
+            self.yang_parent_name = "correlator"
+
+            self.rule_set_summary = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Correlator.RuleSetSummaries, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Correlator.RuleSetSummaries, self).__setattr__(name, value)
 
 
-        class RuleSetSummary(object):
+        class RuleSetSummary(Entity):
             """
             Summary of one of the correlation rulesets
             
@@ -1242,59 +2283,154 @@ class Correlator(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.rule_set_name = None
-                self.rule_set_name_xr = None
+                super(Correlator.RuleSetSummaries.RuleSetSummary, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rule_set_name is None:
-                    raise YPYModelError('Key property rule_set_name is None')
+                self.yang_name = "rule-set-summary"
+                self.yang_parent_name = "rule-set-summaries"
 
-                return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-set-summaries/Cisco-IOS-XR-infra-correlator-oper:rule-set-summary[Cisco-IOS-XR-infra-correlator-oper:rule-set-name = ' + str(self.rule_set_name) + ']'
+                self.rule_set_name = YLeaf(YType.str, "rule-set-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.rule_set_name_xr = YLeaf(YType.str, "rule-set-name-xr")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rule_set_name",
+                                "rule_set_name_xr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Correlator.RuleSetSummaries.RuleSetSummary, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Correlator.RuleSetSummaries.RuleSetSummary, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rule_set_name.is_set or
+                    self.rule_set_name_xr.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rule_set_name.yfilter != YFilter.not_set or
+                    self.rule_set_name_xr.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rule-set-summary" + "[rule-set-name='" + self.rule_set_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-set-summaries/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rule_set_name.is_set or self.rule_set_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_set_name.get_name_leafdata())
+                if (self.rule_set_name_xr.is_set or self.rule_set_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_set_name_xr.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rule-set-name" or name == "rule-set-name-xr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rule_set_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rule-set-name"):
+                    self.rule_set_name = value
+                    self.rule_set_name.value_namespace = name_space
+                    self.rule_set_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-set-name-xr"):
+                    self.rule_set_name_xr = value
+                    self.rule_set_name_xr.value_namespace = name_space
+                    self.rule_set_name_xr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rule_set_summary:
+                if (c.has_data()):
                     return True
-
-                if self.rule_set_name_xr is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Correlator.RuleSetSummaries.RuleSetSummary']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-set-summaries'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rule_set_summary is not None:
-                for child_ref in self.rule_set_summary:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rule_set_summary:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rule-set-summaries" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rule-set-summary"):
+                for c in self.rule_set_summary:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Correlator.RuleSetSummaries.RuleSetSummary()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rule_set_summary.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rule-set-summary"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Correlator.RuleSetSummaries']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class RuleSetDetails(object):
+    class RuleSetDetails(Entity):
         """
         Table that contains the ruleset detail info
         
@@ -1311,13 +2447,39 @@ class Correlator(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.rule_set_detail = YList()
-            self.rule_set_detail.parent = self
-            self.rule_set_detail.name = 'rule_set_detail'
+            super(Correlator.RuleSetDetails, self).__init__()
+
+            self.yang_name = "rule-set-details"
+            self.yang_parent_name = "correlator"
+
+            self.rule_set_detail = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Correlator.RuleSetDetails, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Correlator.RuleSetDetails, self).__setattr__(name, value)
 
 
-        class RuleSetDetail(object):
+        class RuleSetDetail(Entity):
             """
             Detail of one of the correlation rulesets
             
@@ -1346,15 +2508,44 @@ class Correlator(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.rule_set_name = None
-                self.rule_set_name_xr = None
-                self.rules = YList()
-                self.rules.parent = self
-                self.rules.name = 'rules'
+                super(Correlator.RuleSetDetails.RuleSetDetail, self).__init__()
+
+                self.yang_name = "rule-set-detail"
+                self.yang_parent_name = "rule-set-details"
+
+                self.rule_set_name = YLeaf(YType.str, "rule-set-name")
+
+                self.rule_set_name_xr = YLeaf(YType.str, "rule-set-name-xr")
+
+                self.rules = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rule_set_name",
+                                "rule_set_name_xr") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Correlator.RuleSetDetails.RuleSetDetail, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Correlator.RuleSetDetails.RuleSetDetail, self).__setattr__(name, value)
 
 
-            class Rules(object):
+            class Rules(Entity):
                 """
                 Rules contained in a ruleset
                 
@@ -1373,7 +2564,7 @@ class Correlator(object):
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+                	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
                 
                 .. attribute:: stateful
                 
@@ -1388,97 +2579,249 @@ class Correlator(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.buffered_alarms_count = None
-                    self.rule_name_xr = None
-                    self.rule_state = None
-                    self.stateful = None
+                    super(Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "rules"
+                    self.yang_parent_name = "rule-set-detail"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-oper:rules'
+                    self.buffered_alarms_count = YLeaf(YType.uint32, "buffered-alarms-count")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.rule_name_xr = YLeaf(YType.str, "rule-name-xr")
+
+                    self.rule_state = YLeaf(YType.enumeration, "rule-state")
+
+                    self.stateful = YLeaf(YType.boolean, "stateful")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("buffered_alarms_count",
+                                    "rule_name_xr",
+                                    "rule_state",
+                                    "stateful") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Correlator.RuleSetDetails.RuleSetDetail.Rules, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.buffered_alarms_count.is_set or
+                        self.rule_name_xr.is_set or
+                        self.rule_state.is_set or
+                        self.stateful.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.buffered_alarms_count.yfilter != YFilter.not_set or
+                        self.rule_name_xr.yfilter != YFilter.not_set or
+                        self.rule_state.yfilter != YFilter.not_set or
+                        self.stateful.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "rules" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.buffered_alarms_count.is_set or self.buffered_alarms_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.buffered_alarms_count.get_name_leafdata())
+                    if (self.rule_name_xr.is_set or self.rule_name_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rule_name_xr.get_name_leafdata())
+                    if (self.rule_state.is_set or self.rule_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rule_state.get_name_leafdata())
+                    if (self.stateful.is_set or self.stateful.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.stateful.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "buffered-alarms-count" or name == "rule-name-xr" or name == "rule-state" or name == "stateful"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.buffered_alarms_count is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "buffered-alarms-count"):
+                        self.buffered_alarms_count = value
+                        self.buffered_alarms_count.value_namespace = name_space
+                        self.buffered_alarms_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rule-name-xr"):
+                        self.rule_name_xr = value
+                        self.rule_name_xr.value_namespace = name_space
+                        self.rule_name_xr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rule-state"):
+                        self.rule_state = value
+                        self.rule_state.value_namespace = name_space
+                        self.rule_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "stateful"):
+                        self.stateful = value
+                        self.stateful.value_namespace = name_space
+                        self.stateful.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.rules:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.rule_set_name.is_set or
+                    self.rule_set_name_xr.is_set)
 
-                    if self.rule_name_xr is not None:
+            def has_operation(self):
+                for c in self.rules:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rule_set_name.yfilter != YFilter.not_set or
+                    self.rule_set_name_xr.yfilter != YFilter.not_set)
 
-                    if self.rule_state is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rule-set-detail" + "[rule-set-name='" + self.rule_set_name.get() + "']" + path_buffer
 
-                    if self.stateful is not None:
-                        return True
+                return path_buffer
 
-                    return False
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-set-details/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                    return meta._meta_table['Correlator.RuleSetDetails.RuleSetDetail.Rules']['meta_info']
+                leaf_name_data = LeafDataList()
+                if (self.rule_set_name.is_set or self.rule_set_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_set_name.get_name_leafdata())
+                if (self.rule_set_name_xr.is_set or self.rule_set_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_set_name_xr.get_name_leafdata())
 
-            @property
-            def _common_path(self):
-                if self.rule_set_name is None:
-                    raise YPYModelError('Key property rule_set_name is None')
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-set-details/Cisco-IOS-XR-infra-correlator-oper:rule-set-detail[Cisco-IOS-XR-infra-correlator-oper:rule-set-name = ' + str(self.rule_set_name) + ']'
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                if (child_yang_name == "rules"):
+                    for c in self.rules:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Correlator.RuleSetDetails.RuleSetDetail.Rules()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.rules.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rules" or name == "rule-set-name" or name == "rule-set-name-xr"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rule_set_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rule-set-name"):
+                    self.rule_set_name = value
+                    self.rule_set_name.value_namespace = name_space
+                    self.rule_set_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-set-name-xr"):
+                    self.rule_set_name_xr = value
+                    self.rule_set_name_xr.value_namespace = name_space
+                    self.rule_set_name_xr.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rule_set_detail:
+                if (c.has_data()):
                     return True
-
-                if self.rule_set_name_xr is not None:
-                    return True
-
-                if self.rules is not None:
-                    for child_ref in self.rules:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Correlator.RuleSetDetails.RuleSetDetail']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-set-details'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rule_set_detail is not None:
-                for child_ref in self.rule_set_detail:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rule_set_detail:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rule-set-details" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rule-set-detail"):
+                for c in self.rule_set_detail:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Correlator.RuleSetDetails.RuleSetDetail()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rule_set_detail.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rule-set-detail"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Correlator.RuleSetDetails']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class RuleDetails(object):
+    class RuleDetails(Entity):
         """
         Table that contains the database of correlation
         rule details
@@ -1496,13 +2839,39 @@ class Correlator(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.rule_detail = YList()
-            self.rule_detail.parent = self
-            self.rule_detail.name = 'rule_detail'
+            super(Correlator.RuleDetails, self).__init__()
+
+            self.yang_name = "rule-details"
+            self.yang_parent_name = "correlator"
+
+            self.rule_detail = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Correlator.RuleDetails, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Correlator.RuleDetails, self).__setattr__(name, value)
 
 
-        class RuleDetail(object):
+        class RuleDetail(Entity):
             """
             Details of one of the correlation rules
             
@@ -1579,28 +2948,70 @@ class Correlator(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.rule_name = None
-                self.apply_context = YLeafList()
-                self.apply_context.parent = self
-                self.apply_context.name = 'apply_context'
-                self.apply_location = YLeafList()
-                self.apply_location.parent = self
-                self.apply_location.name = 'apply_location'
-                self.codes = YList()
-                self.codes.parent = self
-                self.codes.name = 'codes'
-                self.context_correlation = None
-                self.internal = None
-                self.reissue_non_bistate = None
-                self.reparent = None
-                self.root_cause_timeout = None
+                super(Correlator.RuleDetails.RuleDetail, self).__init__()
+
+                self.yang_name = "rule-detail"
+                self.yang_parent_name = "rule-details"
+
+                self.rule_name = YLeaf(YType.str, "rule-name")
+
+                self.apply_context = YLeafList(YType.str, "apply-context")
+
+                self.apply_location = YLeafList(YType.str, "apply-location")
+
+                self.context_correlation = YLeaf(YType.boolean, "context-correlation")
+
+                self.internal = YLeaf(YType.boolean, "internal")
+
+                self.reissue_non_bistate = YLeaf(YType.boolean, "reissue-non-bistate")
+
+                self.reparent = YLeaf(YType.boolean, "reparent")
+
+                self.root_cause_timeout = YLeaf(YType.uint32, "root-cause-timeout")
+
+                self.timeout = YLeaf(YType.uint32, "timeout")
+
                 self.rule_summary = Correlator.RuleDetails.RuleDetail.RuleSummary()
                 self.rule_summary.parent = self
-                self.timeout = None
+                self._children_name_map["rule_summary"] = "rule-summary"
+                self._children_yang_names.add("rule-summary")
+
+                self.codes = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rule_name",
+                                "apply_context",
+                                "apply_location",
+                                "context_correlation",
+                                "internal",
+                                "reissue_non_bistate",
+                                "reparent",
+                                "root_cause_timeout",
+                                "timeout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Correlator.RuleDetails.RuleDetail, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Correlator.RuleDetails.RuleDetail, self).__setattr__(name, value)
 
 
-            class RuleSummary(object):
+            class RuleSummary(Entity):
                 """
                 Rule summary, name, etc
                 
@@ -1619,7 +3030,7 @@ class Correlator(object):
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+                	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
                 
                 .. attribute:: stateful
                 
@@ -1634,45 +3045,119 @@ class Correlator(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.buffered_alarms_count = None
-                    self.rule_name_xr = None
-                    self.rule_state = None
-                    self.stateful = None
+                    super(Correlator.RuleDetails.RuleDetail.RuleSummary, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "rule-summary"
+                    self.yang_parent_name = "rule-detail"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-oper:rule-summary'
+                    self.buffered_alarms_count = YLeaf(YType.uint32, "buffered-alarms-count")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.rule_name_xr = YLeaf(YType.str, "rule-name-xr")
+
+                    self.rule_state = YLeaf(YType.enumeration, "rule-state")
+
+                    self.stateful = YLeaf(YType.boolean, "stateful")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("buffered_alarms_count",
+                                    "rule_name_xr",
+                                    "rule_state",
+                                    "stateful") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Correlator.RuleDetails.RuleDetail.RuleSummary, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Correlator.RuleDetails.RuleDetail.RuleSummary, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.buffered_alarms_count.is_set or
+                        self.rule_name_xr.is_set or
+                        self.rule_state.is_set or
+                        self.stateful.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.buffered_alarms_count.yfilter != YFilter.not_set or
+                        self.rule_name_xr.yfilter != YFilter.not_set or
+                        self.rule_state.yfilter != YFilter.not_set or
+                        self.stateful.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "rule-summary" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.buffered_alarms_count.is_set or self.buffered_alarms_count.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.buffered_alarms_count.get_name_leafdata())
+                    if (self.rule_name_xr.is_set or self.rule_name_xr.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rule_name_xr.get_name_leafdata())
+                    if (self.rule_state.is_set or self.rule_state.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.rule_state.get_name_leafdata())
+                    if (self.stateful.is_set or self.stateful.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.stateful.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "buffered-alarms-count" or name == "rule-name-xr" or name == "rule-state" or name == "stateful"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.buffered_alarms_count is not None:
-                        return True
-
-                    if self.rule_name_xr is not None:
-                        return True
-
-                    if self.rule_state is not None:
-                        return True
-
-                    if self.stateful is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                    return meta._meta_table['Correlator.RuleDetails.RuleDetail.RuleSummary']['meta_info']
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "buffered-alarms-count"):
+                        self.buffered_alarms_count = value
+                        self.buffered_alarms_count.value_namespace = name_space
+                        self.buffered_alarms_count.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rule-name-xr"):
+                        self.rule_name_xr = value
+                        self.rule_name_xr.value_namespace = name_space
+                        self.rule_name_xr.value_namespace_prefix = name_space_prefix
+                    if(value_path == "rule-state"):
+                        self.rule_state = value
+                        self.rule_state.value_namespace = name_space
+                        self.rule_state.value_namespace_prefix = name_space_prefix
+                    if(value_path == "stateful"):
+                        self.stateful = value
+                        self.stateful.value_namespace = name_space
+                        self.stateful.value_namespace_prefix = name_space_prefix
 
 
-            class Codes(object):
+            class Codes(Entity):
                 """
                 Message codes defining the rule.
                 
@@ -1699,121 +3184,309 @@ class Correlator(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.category = None
-                    self.code = None
-                    self.group = None
+                    super(Correlator.RuleDetails.RuleDetail.Codes, self).__init__()
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    self.yang_name = "codes"
+                    self.yang_parent_name = "rule-detail"
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-infra-correlator-oper:codes'
+                    self.category = YLeaf(YType.str, "category")
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                    self.code = YLeaf(YType.str, "code")
+
+                    self.group = YLeaf(YType.str, "group")
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("category",
+                                    "code",
+                                    "group") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(Correlator.RuleDetails.RuleDetail.Codes, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(Correlator.RuleDetails.RuleDetail.Codes, self).__setattr__(name, value)
+
+                def has_data(self):
+                    return (
+                        self.category.is_set or
+                        self.code.is_set or
+                        self.group.is_set)
+
+                def has_operation(self):
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.category.yfilter != YFilter.not_set or
+                        self.code.yfilter != YFilter.not_set or
+                        self.group.yfilter != YFilter.not_set)
+
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "codes" + path_buffer
+
+                    return path_buffer
+
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                    leaf_name_data = LeafDataList()
+                    if (self.category.is_set or self.category.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.category.get_name_leafdata())
+                    if (self.code.is_set or self.code.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.code.get_name_leafdata())
+                    if (self.group.is_set or self.group.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.group.get_name_leafdata())
+
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
+
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "category" or name == "code" or name == "group"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.category is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "category"):
+                        self.category = value
+                        self.category.value_namespace = name_space
+                        self.category.value_namespace_prefix = name_space_prefix
+                    if(value_path == "code"):
+                        self.code = value
+                        self.code.value_namespace = name_space
+                        self.code.value_namespace_prefix = name_space_prefix
+                    if(value_path == "group"):
+                        self.group = value
+                        self.group.value_namespace = name_space
+                        self.group.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.codes:
+                    if (c.has_data()):
                         return True
-
-                    if self.code is not None:
+                for leaf in self.apply_context.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
-
-                    if self.group is not None:
+                for leaf in self.apply_location.getYLeafs():
+                    if (leaf.yfilter != YFilter.not_set):
                         return True
+                return (
+                    self.rule_name.is_set or
+                    self.context_correlation.is_set or
+                    self.internal.is_set or
+                    self.reissue_non_bistate.is_set or
+                    self.reparent.is_set or
+                    self.root_cause_timeout.is_set or
+                    self.timeout.is_set or
+                    (self.rule_summary is not None and self.rule_summary.has_data()))
 
-                    return False
+            def has_operation(self):
+                for c in self.codes:
+                    if (c.has_operation()):
+                        return True
+                for leaf in self.apply_context.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                for leaf in self.apply_location.getYLeafs():
+                    if (leaf.is_set):
+                        return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rule_name.yfilter != YFilter.not_set or
+                    self.apply_context.yfilter != YFilter.not_set or
+                    self.apply_location.yfilter != YFilter.not_set or
+                    self.context_correlation.yfilter != YFilter.not_set or
+                    self.internal.yfilter != YFilter.not_set or
+                    self.reissue_non_bistate.yfilter != YFilter.not_set or
+                    self.reparent.yfilter != YFilter.not_set or
+                    self.root_cause_timeout.yfilter != YFilter.not_set or
+                    self.timeout.yfilter != YFilter.not_set or
+                    (self.rule_summary is not None and self.rule_summary.has_operation()))
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                    return meta._meta_table['Correlator.RuleDetails.RuleDetail.Codes']['meta_info']
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rule-detail" + "[rule-name='" + self.rule_name.get() + "']" + path_buffer
 
-            @property
-            def _common_path(self):
-                if self.rule_name is None:
-                    raise YPYModelError('Key property rule_name is None')
+                return path_buffer
 
-                return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-details/Cisco-IOS-XR-infra-correlator-oper:rule-detail[Cisco-IOS-XR-infra-correlator-oper:rule-name = ' + str(self.rule_name) + ']'
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-details/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                leaf_name_data = LeafDataList()
+                if (self.rule_name.is_set or self.rule_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name.get_name_leafdata())
+                if (self.context_correlation.is_set or self.context_correlation.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.context_correlation.get_name_leafdata())
+                if (self.internal.is_set or self.internal.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.internal.get_name_leafdata())
+                if (self.reissue_non_bistate.is_set or self.reissue_non_bistate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.reissue_non_bistate.get_name_leafdata())
+                if (self.reparent.is_set or self.reparent.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.reparent.get_name_leafdata())
+                if (self.root_cause_timeout.is_set or self.root_cause_timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.root_cause_timeout.get_name_leafdata())
+                if (self.timeout.is_set or self.timeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.timeout.get_name_leafdata())
+
+                leaf_name_data.extend(self.apply_context.get_name_leafdata())
+
+                leaf_name_data.extend(self.apply_location.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "codes"):
+                    for c in self.codes:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = Correlator.RuleDetails.RuleDetail.Codes()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.codes.append(c)
+                    return c
+
+                if (child_yang_name == "rule-summary"):
+                    if (self.rule_summary is None):
+                        self.rule_summary = Correlator.RuleDetails.RuleDetail.RuleSummary()
+                        self.rule_summary.parent = self
+                        self._children_name_map["rule_summary"] = "rule-summary"
+                    return self.rule_summary
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "codes" or name == "rule-summary" or name == "rule-name" or name == "apply-context" or name == "apply-location" or name == "context-correlation" or name == "internal" or name == "reissue-non-bistate" or name == "reparent" or name == "root-cause-timeout" or name == "timeout"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rule_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rule-name"):
+                    self.rule_name = value
+                    self.rule_name.value_namespace = name_space
+                    self.rule_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "apply-context"):
+                    self.apply_context.append(value)
+                if(value_path == "apply-location"):
+                    self.apply_location.append(value)
+                if(value_path == "context-correlation"):
+                    self.context_correlation = value
+                    self.context_correlation.value_namespace = name_space
+                    self.context_correlation.value_namespace_prefix = name_space_prefix
+                if(value_path == "internal"):
+                    self.internal = value
+                    self.internal.value_namespace = name_space
+                    self.internal.value_namespace_prefix = name_space_prefix
+                if(value_path == "reissue-non-bistate"):
+                    self.reissue_non_bistate = value
+                    self.reissue_non_bistate.value_namespace = name_space
+                    self.reissue_non_bistate.value_namespace_prefix = name_space_prefix
+                if(value_path == "reparent"):
+                    self.reparent = value
+                    self.reparent.value_namespace = name_space
+                    self.reparent.value_namespace_prefix = name_space_prefix
+                if(value_path == "root-cause-timeout"):
+                    self.root_cause_timeout = value
+                    self.root_cause_timeout.value_namespace = name_space
+                    self.root_cause_timeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "timeout"):
+                    self.timeout = value
+                    self.timeout.value_namespace = name_space
+                    self.timeout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rule_detail:
+                if (c.has_data()):
                     return True
-
-                if self.apply_context is not None:
-                    for child in self.apply_context:
-                        if child is not None:
-                            return True
-
-                if self.apply_location is not None:
-                    for child in self.apply_location:
-                        if child is not None:
-                            return True
-
-                if self.codes is not None:
-                    for child_ref in self.codes:
-                        if child_ref._has_data():
-                            return True
-
-                if self.context_correlation is not None:
-                    return True
-
-                if self.internal is not None:
-                    return True
-
-                if self.reissue_non_bistate is not None:
-                    return True
-
-                if self.reparent is not None:
-                    return True
-
-                if self.root_cause_timeout is not None:
-                    return True
-
-                if self.rule_summary is not None and self.rule_summary._has_data():
-                    return True
-
-                if self.timeout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Correlator.RuleDetails.RuleDetail']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-details'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rule_detail is not None:
-                for child_ref in self.rule_detail:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rule_detail:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rule-details" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rule-detail"):
+                for c in self.rule_detail:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Correlator.RuleDetails.RuleDetail()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rule_detail.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rule-detail"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Correlator.RuleDetails']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class RuleSummaries(object):
+    class RuleSummaries(Entity):
         """
         Table that contains the database of correlation
         rule summary
@@ -1831,13 +3504,39 @@ class Correlator(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.rule_summary = YList()
-            self.rule_summary.parent = self
-            self.rule_summary.name = 'rule_summary'
+            super(Correlator.RuleSummaries, self).__init__()
+
+            self.yang_name = "rule-summaries"
+            self.yang_parent_name = "correlator"
+
+            self.rule_summary = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(Correlator.RuleSummaries, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(Correlator.RuleSummaries, self).__setattr__(name, value)
 
 
-        class RuleSummary(object):
+        class RuleSummary(Entity):
             """
             One of the correlation rules
             
@@ -1863,7 +3562,7 @@ class Correlator(object):
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+            	**type**\:   :py:class:`AcRuleState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleState>`
             
             .. attribute:: stateful
             
@@ -1878,105 +3577,288 @@ class Correlator(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.rule_name = None
-                self.buffered_alarms_count = None
-                self.rule_name_xr = None
-                self.rule_state = None
-                self.stateful = None
+                super(Correlator.RuleSummaries.RuleSummary, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.rule_name is None:
-                    raise YPYModelError('Key property rule_name is None')
+                self.yang_name = "rule-summary"
+                self.yang_parent_name = "rule-summaries"
 
-                return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-summaries/Cisco-IOS-XR-infra-correlator-oper:rule-summary[Cisco-IOS-XR-infra-correlator-oper:rule-name = ' + str(self.rule_name) + ']'
+                self.rule_name = YLeaf(YType.str, "rule-name")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.buffered_alarms_count = YLeaf(YType.uint32, "buffered-alarms-count")
+
+                self.rule_name_xr = YLeaf(YType.str, "rule-name-xr")
+
+                self.rule_state = YLeaf(YType.enumeration, "rule-state")
+
+                self.stateful = YLeaf(YType.boolean, "stateful")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rule_name",
+                                "buffered_alarms_count",
+                                "rule_name_xr",
+                                "rule_state",
+                                "stateful") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(Correlator.RuleSummaries.RuleSummary, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(Correlator.RuleSummaries.RuleSummary, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.rule_name.is_set or
+                    self.buffered_alarms_count.is_set or
+                    self.rule_name_xr.is_set or
+                    self.rule_state.is_set or
+                    self.stateful.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rule_name.yfilter != YFilter.not_set or
+                    self.buffered_alarms_count.yfilter != YFilter.not_set or
+                    self.rule_name_xr.yfilter != YFilter.not_set or
+                    self.rule_state.yfilter != YFilter.not_set or
+                    self.stateful.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rule-summary" + "[rule-name='" + self.rule_name.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-summaries/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rule_name.is_set or self.rule_name.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name.get_name_leafdata())
+                if (self.buffered_alarms_count.is_set or self.buffered_alarms_count.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.buffered_alarms_count.get_name_leafdata())
+                if (self.rule_name_xr.is_set or self.rule_name_xr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_name_xr.get_name_leafdata())
+                if (self.rule_state.is_set or self.rule_state.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rule_state.get_name_leafdata())
+                if (self.stateful.is_set or self.stateful.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.stateful.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "rule-name" or name == "buffered-alarms-count" or name == "rule-name-xr" or name == "rule-state" or name == "stateful"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.rule_name is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rule-name"):
+                    self.rule_name = value
+                    self.rule_name.value_namespace = name_space
+                    self.rule_name.value_namespace_prefix = name_space_prefix
+                if(value_path == "buffered-alarms-count"):
+                    self.buffered_alarms_count = value
+                    self.buffered_alarms_count.value_namespace = name_space
+                    self.buffered_alarms_count.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-name-xr"):
+                    self.rule_name_xr = value
+                    self.rule_name_xr.value_namespace = name_space
+                    self.rule_name_xr.value_namespace_prefix = name_space_prefix
+                if(value_path == "rule-state"):
+                    self.rule_state = value
+                    self.rule_state.value_namespace = name_space
+                    self.rule_state.value_namespace_prefix = name_space_prefix
+                if(value_path == "stateful"):
+                    self.stateful = value
+                    self.stateful.value_namespace = name_space
+                    self.stateful.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rule_summary:
+                if (c.has_data()):
                     return True
-
-                if self.buffered_alarms_count is not None:
-                    return True
-
-                if self.rule_name_xr is not None:
-                    return True
-
-                if self.rule_state is not None:
-                    return True
-
-                if self.stateful is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-                return meta._meta_table['Correlator.RuleSummaries.RuleSummary']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-infra-correlator-oper:correlator/Cisco-IOS-XR-infra-correlator-oper:rule-summaries'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.rule_summary is not None:
-                for child_ref in self.rule_summary:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.rule_summary:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "rule-summaries" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rule-summary"):
+                for c in self.rule_summary:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = Correlator.RuleSummaries.RuleSummary()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rule_summary.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rule-summary"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-            return meta._meta_table['Correlator.RuleSummaries']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.alarms is not None and self.alarms.has_data()) or
+            (self.buffer_status is not None and self.buffer_status.has_data()) or
+            (self.rule_details is not None and self.rule_details.has_data()) or
+            (self.rule_set_details is not None and self.rule_set_details.has_data()) or
+            (self.rule_set_summaries is not None and self.rule_set_summaries.has_data()) or
+            (self.rule_summaries is not None and self.rule_summaries.has_data()) or
+            (self.rules is not None and self.rules.has_data()))
 
-        return '/Cisco-IOS-XR-infra-correlator-oper:correlator'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.alarms is not None and self.alarms.has_operation()) or
+            (self.buffer_status is not None and self.buffer_status.has_operation()) or
+            (self.rule_details is not None and self.rule_details.has_operation()) or
+            (self.rule_set_details is not None and self.rule_set_details.has_operation()) or
+            (self.rule_set_summaries is not None and self.rule_set_summaries.has_operation()) or
+            (self.rule_summaries is not None and self.rule_summaries.has_operation()) or
+            (self.rules is not None and self.rules.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-infra-correlator-oper:correlator" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "alarms"):
+            if (self.alarms is None):
+                self.alarms = Correlator.Alarms()
+                self.alarms.parent = self
+                self._children_name_map["alarms"] = "alarms"
+            return self.alarms
+
+        if (child_yang_name == "buffer-status"):
+            if (self.buffer_status is None):
+                self.buffer_status = Correlator.BufferStatus()
+                self.buffer_status.parent = self
+                self._children_name_map["buffer_status"] = "buffer-status"
+            return self.buffer_status
+
+        if (child_yang_name == "rule-details"):
+            if (self.rule_details is None):
+                self.rule_details = Correlator.RuleDetails()
+                self.rule_details.parent = self
+                self._children_name_map["rule_details"] = "rule-details"
+            return self.rule_details
+
+        if (child_yang_name == "rule-set-details"):
+            if (self.rule_set_details is None):
+                self.rule_set_details = Correlator.RuleSetDetails()
+                self.rule_set_details.parent = self
+                self._children_name_map["rule_set_details"] = "rule-set-details"
+            return self.rule_set_details
+
+        if (child_yang_name == "rule-set-summaries"):
+            if (self.rule_set_summaries is None):
+                self.rule_set_summaries = Correlator.RuleSetSummaries()
+                self.rule_set_summaries.parent = self
+                self._children_name_map["rule_set_summaries"] = "rule-set-summaries"
+            return self.rule_set_summaries
+
+        if (child_yang_name == "rule-summaries"):
+            if (self.rule_summaries is None):
+                self.rule_summaries = Correlator.RuleSummaries()
+                self.rule_summaries.parent = self
+                self._children_name_map["rule_summaries"] = "rule-summaries"
+            return self.rule_summaries
+
+        if (child_yang_name == "rules"):
+            if (self.rules is None):
+                self.rules = Correlator.Rules()
+                self.rules.parent = self
+                self._children_name_map["rules"] = "rules"
+            return self.rules
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "alarms" or name == "buffer-status" or name == "rule-details" or name == "rule-set-details" or name == "rule-set-summaries" or name == "rule-summaries" or name == "rules"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.alarms is not None and self.alarms._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.buffer_status is not None and self.buffer_status._has_data():
-            return True
-
-        if self.rule_details is not None and self.rule_details._has_data():
-            return True
-
-        if self.rule_set_details is not None and self.rule_set_details._has_data():
-            return True
-
-        if self.rule_set_summaries is not None and self.rule_set_summaries._has_data():
-            return True
-
-        if self.rule_summaries is not None and self.rule_summaries._has_data():
-            return True
-
-        if self.rules is not None and self.rules._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_correlator_oper as meta
-        return meta._meta_table['Correlator']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = Correlator()
+        return self._top_entity
 

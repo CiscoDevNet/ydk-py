@@ -12,21 +12,15 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class EnvironmentalMonitoring(object):
+class EnvironmentalMonitoring(Entity):
     """
     Environmental Monitoring Operational data space
     
@@ -43,11 +37,19 @@ class EnvironmentalMonitoring(object):
     _revision = '2017-01-19'
 
     def __init__(self):
+        super(EnvironmentalMonitoring, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "environmental-monitoring"
+        self.yang_parent_name = "Cisco-IOS-XR-asr9k-sc-envmon-oper"
+
         self.racks = EnvironmentalMonitoring.Racks()
         self.racks.parent = self
+        self._children_name_map["racks"] = "racks"
+        self._children_yang_names.add("racks")
 
 
-    class Racks(object):
+    class Racks(Entity):
         """
         Table of racks
         
@@ -64,13 +66,39 @@ class EnvironmentalMonitoring(object):
         _revision = '2017-01-19'
 
         def __init__(self):
-            self.parent = None
-            self.rack = YList()
-            self.rack.parent = self
-            self.rack.name = 'rack'
+            super(EnvironmentalMonitoring.Racks, self).__init__()
+
+            self.yang_name = "racks"
+            self.yang_parent_name = "environmental-monitoring"
+
+            self.rack = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EnvironmentalMonitoring.Racks, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EnvironmentalMonitoring.Racks, self).__setattr__(name, value)
 
 
-        class Rack(object):
+        class Rack(Entity):
             """
             Number
             
@@ -94,13 +122,44 @@ class EnvironmentalMonitoring(object):
             _revision = '2017-01-19'
 
             def __init__(self):
-                self.parent = None
-                self.rack = None
+                super(EnvironmentalMonitoring.Racks.Rack, self).__init__()
+
+                self.yang_name = "rack"
+                self.yang_parent_name = "racks"
+
+                self.rack = YLeaf(YType.int32, "rack")
+
                 self.slots = EnvironmentalMonitoring.Racks.Rack.Slots()
                 self.slots.parent = self
+                self._children_name_map["slots"] = "slots"
+                self._children_yang_names.add("slots")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("rack") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EnvironmentalMonitoring.Racks.Rack, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EnvironmentalMonitoring.Racks.Rack, self).__setattr__(name, value)
 
 
-            class Slots(object):
+            class Slots(Entity):
                 """
                 Table of slots
                 
@@ -117,13 +176,39 @@ class EnvironmentalMonitoring(object):
                 _revision = '2017-01-19'
 
                 def __init__(self):
-                    self.parent = None
-                    self.slot = YList()
-                    self.slot.parent = self
-                    self.slot.name = 'slot'
+                    super(EnvironmentalMonitoring.Racks.Rack.Slots, self).__init__()
+
+                    self.yang_name = "slots"
+                    self.yang_parent_name = "rack"
+
+                    self.slot = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in () and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(EnvironmentalMonitoring.Racks.Rack.Slots, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(EnvironmentalMonitoring.Racks.Rack.Slots, self).__setattr__(name, value)
 
 
-                class Slot(object):
+                class Slot(Entity):
                     """
                     Name
                     
@@ -147,13 +232,44 @@ class EnvironmentalMonitoring(object):
                     _revision = '2017-01-19'
 
                     def __init__(self):
-                        self.parent = None
-                        self.slot = None
+                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot, self).__init__()
+
+                        self.yang_name = "slot"
+                        self.yang_parent_name = "slots"
+
+                        self.slot = YLeaf(YType.str, "slot")
+
                         self.modules = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules()
                         self.modules.parent = self
+                        self._children_name_map["modules"] = "modules"
+                        self._children_yang_names.add("modules")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("slot") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot, self).__setattr__(name, value)
 
 
-                    class Modules(object):
+                    class Modules(Entity):
                         """
                         Table of modules
                         
@@ -170,13 +286,39 @@ class EnvironmentalMonitoring(object):
                         _revision = '2017-01-19'
 
                         def __init__(self):
-                            self.parent = None
-                            self.module = YList()
-                            self.module.parent = self
-                            self.module.name = 'module'
+                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules, self).__init__()
+
+                            self.yang_name = "modules"
+                            self.yang_parent_name = "slot"
+
+                            self.module = YList(self)
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in () and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules, self).__setattr__(name, value)
 
 
-                        class Module(object):
+                        class Module(Entity):
                             """
                             Name
                             
@@ -205,15 +347,49 @@ class EnvironmentalMonitoring(object):
                             _revision = '2017-01-19'
 
                             def __init__(self):
-                                self.parent = None
-                                self.module = None
+                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module, self).__init__()
+
+                                self.yang_name = "module"
+                                self.yang_parent_name = "modules"
+
+                                self.module = YLeaf(YType.str, "module")
+
                                 self.power = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power()
                                 self.power.parent = self
+                                self._children_name_map["power"] = "power"
+                                self._children_yang_names.add("power")
+
                                 self.sensor_types = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes()
                                 self.sensor_types.parent = self
+                                self._children_name_map["sensor_types"] = "sensor-types"
+                                self._children_yang_names.add("sensor-types")
+
+                            def __setattr__(self, name, value):
+                                self._check_monkey_patching_error(name, value)
+                                with _handle_type_error():
+                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                            "Please use list append or extend method."
+                                                            .format(value))
+                                    if isinstance(value, Enum.YLeaf):
+                                        value = value.name
+                                    if name in ("module") and name in self.__dict__:
+                                        if isinstance(value, YLeaf):
+                                            self.__dict__[name].set(value.get())
+                                        elif isinstance(value, YLeafList):
+                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module, self).__setattr__(name, value)
+                                        else:
+                                            self.__dict__[name].set(value)
+                                    else:
+                                        if hasattr(value, "parent") and name != "parent":
+                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                value.parent = self
+                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                value.parent = self
+                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module, self).__setattr__(name, value)
 
 
-                            class Power(object):
+                            class Power(Entity):
                                 """
                                 Module Power Draw
                                 
@@ -230,12 +406,18 @@ class EnvironmentalMonitoring(object):
                                 _revision = '2017-01-19'
 
                                 def __init__(self):
-                                    self.parent = None
+                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power, self).__init__()
+
+                                    self.yang_name = "power"
+                                    self.yang_parent_name = "module"
+
                                     self.power_bag = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag()
                                     self.power_bag.parent = self
+                                    self._children_name_map["power_bag"] = "power-bag"
+                                    self._children_yang_names.add("power-bag")
 
 
-                                class PowerBag(object):
+                                class PowerBag(Entity):
                                     """
                                     Detailed power bag information
                                     
@@ -317,91 +499,233 @@ class EnvironmentalMonitoring(object):
                                     _revision = '2017-01-19'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.power_accuracy = None
-                                        self.power_admin_state = None
-                                        self.power_current_type = None
-                                        self.power_max_value = None
-                                        self.power_measure_caliber = None
-                                        self.power_oper_state = None
-                                        self.power_origin = None
-                                        self.power_state_enter_reason = None
-                                        self.power_unit_multiplier = None
-                                        self.power_value = None
+                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, self).__init__()
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
+                                        self.yang_name = "power-bag"
+                                        self.yang_parent_name = "power"
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:power-bag'
+                                        self.power_accuracy = YLeaf(YType.uint32, "power-accuracy")
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
+                                        self.power_admin_state = YLeaf(YType.uint32, "power-admin-state")
+
+                                        self.power_current_type = YLeaf(YType.uint32, "power-current-type")
+
+                                        self.power_max_value = YLeaf(YType.int32, "power-max-value")
+
+                                        self.power_measure_caliber = YLeaf(YType.uint32, "power-measure-caliber")
+
+                                        self.power_oper_state = YLeaf(YType.uint32, "power-oper-state")
+
+                                        self.power_origin = YLeaf(YType.uint32, "power-origin")
+
+                                        self.power_state_enter_reason = YLeaf(YType.str, "power-state-enter-reason")
+
+                                        self.power_unit_multiplier = YLeaf(YType.uint32, "power-unit-multiplier")
+
+                                        self.power_value = YLeaf(YType.int32, "power-value")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("power_accuracy",
+                                                        "power_admin_state",
+                                                        "power_current_type",
+                                                        "power_max_value",
+                                                        "power_measure_caliber",
+                                                        "power_oper_state",
+                                                        "power_origin",
+                                                        "power_state_enter_reason",
+                                                        "power_unit_multiplier",
+                                                        "power_value") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag, self).__setattr__(name, value)
+
+                                    def has_data(self):
+                                        return (
+                                            self.power_accuracy.is_set or
+                                            self.power_admin_state.is_set or
+                                            self.power_current_type.is_set or
+                                            self.power_max_value.is_set or
+                                            self.power_measure_caliber.is_set or
+                                            self.power_oper_state.is_set or
+                                            self.power_origin.is_set or
+                                            self.power_state_enter_reason.is_set or
+                                            self.power_unit_multiplier.is_set or
+                                            self.power_value.is_set)
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.power_accuracy.yfilter != YFilter.not_set or
+                                            self.power_admin_state.yfilter != YFilter.not_set or
+                                            self.power_current_type.yfilter != YFilter.not_set or
+                                            self.power_max_value.yfilter != YFilter.not_set or
+                                            self.power_measure_caliber.yfilter != YFilter.not_set or
+                                            self.power_oper_state.yfilter != YFilter.not_set or
+                                            self.power_origin.yfilter != YFilter.not_set or
+                                            self.power_state_enter_reason.yfilter != YFilter.not_set or
+                                            self.power_unit_multiplier.yfilter != YFilter.not_set or
+                                            self.power_value.yfilter != YFilter.not_set)
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "power-bag" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.power_accuracy.is_set or self.power_accuracy.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_accuracy.get_name_leafdata())
+                                        if (self.power_admin_state.is_set or self.power_admin_state.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_admin_state.get_name_leafdata())
+                                        if (self.power_current_type.is_set or self.power_current_type.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_current_type.get_name_leafdata())
+                                        if (self.power_max_value.is_set or self.power_max_value.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_max_value.get_name_leafdata())
+                                        if (self.power_measure_caliber.is_set or self.power_measure_caliber.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_measure_caliber.get_name_leafdata())
+                                        if (self.power_oper_state.is_set or self.power_oper_state.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_oper_state.get_name_leafdata())
+                                        if (self.power_origin.is_set or self.power_origin.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_origin.get_name_leafdata())
+                                        if (self.power_state_enter_reason.is_set or self.power_state_enter_reason.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_state_enter_reason.get_name_leafdata())
+                                        if (self.power_unit_multiplier.is_set or self.power_unit_multiplier.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_unit_multiplier.get_name_leafdata())
+                                        if (self.power_value.is_set or self.power_value.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.power_value.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "power-accuracy" or name == "power-admin-state" or name == "power-current-type" or name == "power-max-value" or name == "power-measure-caliber" or name == "power-oper-state" or name == "power-origin" or name == "power-state-enter-reason" or name == "power-unit-multiplier" or name == "power-value"):
+                                            return True
                                         return False
 
-                                    def _has_data(self):
-                                        if self.power_accuracy is not None:
-                                            return True
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "power-accuracy"):
+                                            self.power_accuracy = value
+                                            self.power_accuracy.value_namespace = name_space
+                                            self.power_accuracy.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-admin-state"):
+                                            self.power_admin_state = value
+                                            self.power_admin_state.value_namespace = name_space
+                                            self.power_admin_state.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-current-type"):
+                                            self.power_current_type = value
+                                            self.power_current_type.value_namespace = name_space
+                                            self.power_current_type.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-max-value"):
+                                            self.power_max_value = value
+                                            self.power_max_value.value_namespace = name_space
+                                            self.power_max_value.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-measure-caliber"):
+                                            self.power_measure_caliber = value
+                                            self.power_measure_caliber.value_namespace = name_space
+                                            self.power_measure_caliber.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-oper-state"):
+                                            self.power_oper_state = value
+                                            self.power_oper_state.value_namespace = name_space
+                                            self.power_oper_state.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-origin"):
+                                            self.power_origin = value
+                                            self.power_origin.value_namespace = name_space
+                                            self.power_origin.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-state-enter-reason"):
+                                            self.power_state_enter_reason = value
+                                            self.power_state_enter_reason.value_namespace = name_space
+                                            self.power_state_enter_reason.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-unit-multiplier"):
+                                            self.power_unit_multiplier = value
+                                            self.power_unit_multiplier.value_namespace = name_space
+                                            self.power_unit_multiplier.value_namespace_prefix = name_space_prefix
+                                        if(value_path == "power-value"):
+                                            self.power_value = value
+                                            self.power_value.value_namespace = name_space
+                                            self.power_value.value_namespace_prefix = name_space_prefix
 
-                                        if self.power_admin_state is not None:
-                                            return True
+                                def has_data(self):
+                                    return (self.power_bag is not None and self.power_bag.has_data())
 
-                                        if self.power_current_type is not None:
-                                            return True
+                                def has_operation(self):
+                                    return (
+                                        self.yfilter != YFilter.not_set or
+                                        (self.power_bag is not None and self.power_bag.has_operation()))
 
-                                        if self.power_max_value is not None:
-                                            return True
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "power" + path_buffer
 
-                                        if self.power_measure_caliber is not None:
-                                            return True
+                                    return path_buffer
 
-                                        if self.power_oper_state is not None:
-                                            return True
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                        if self.power_origin is not None:
-                                            return True
+                                    leaf_name_data = LeafDataList()
 
-                                        if self.power_state_enter_reason is not None:
-                                            return True
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
 
-                                        if self.power_unit_multiplier is not None:
-                                            return True
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
 
-                                        if self.power_value is not None:
-                                            return True
+                                    if (child_yang_name == "power-bag"):
+                                        if (self.power_bag is None):
+                                            self.power_bag = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag()
+                                            self.power_bag.parent = self
+                                            self._children_name_map["power_bag"] = "power-bag"
+                                        return self.power_bag
 
-                                        return False
+                                    return None
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power.PowerBag']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:power'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if self.power_bag is not None and self.power_bag._has_data():
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "power-bag"):
                                         return True
-
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power']['meta_info']
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
 
 
-                            class SensorTypes(object):
+                            class SensorTypes(Entity):
                                 """
                                 Table of sensor types
                                 
@@ -418,13 +742,39 @@ class EnvironmentalMonitoring(object):
                                 _revision = '2017-01-19'
 
                                 def __init__(self):
-                                    self.parent = None
-                                    self.sensor_type = YList()
-                                    self.sensor_type.parent = self
-                                    self.sensor_type.name = 'sensor_type'
+                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes, self).__init__()
+
+                                    self.yang_name = "sensor-types"
+                                    self.yang_parent_name = "module"
+
+                                    self.sensor_type = YList(self)
+
+                                def __setattr__(self, name, value):
+                                    self._check_monkey_patching_error(name, value)
+                                    with _handle_type_error():
+                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                "Please use list append or extend method."
+                                                                .format(value))
+                                        if isinstance(value, Enum.YLeaf):
+                                            value = value.name
+                                        if name in () and name in self.__dict__:
+                                            if isinstance(value, YLeaf):
+                                                self.__dict__[name].set(value.get())
+                                            elif isinstance(value, YLeafList):
+                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes, self).__setattr__(name, value)
+                                            else:
+                                                self.__dict__[name].set(value)
+                                        else:
+                                            if hasattr(value, "parent") and name != "parent":
+                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                    value.parent = self
+                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                    value.parent = self
+                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes, self).__setattr__(name, value)
 
 
-                                class SensorType(object):
+                                class SensorType(Entity):
                                     """
                                     Type of sensor
                                     
@@ -448,13 +798,44 @@ class EnvironmentalMonitoring(object):
                                     _revision = '2017-01-19'
 
                                     def __init__(self):
-                                        self.parent = None
-                                        self.type = None
+                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType, self).__init__()
+
+                                        self.yang_name = "sensor-type"
+                                        self.yang_parent_name = "sensor-types"
+
+                                        self.type = YLeaf(YType.str, "type")
+
                                         self.sensor_names = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames()
                                         self.sensor_names.parent = self
+                                        self._children_name_map["sensor_names"] = "sensor-names"
+                                        self._children_yang_names.add("sensor-names")
+
+                                    def __setattr__(self, name, value):
+                                        self._check_monkey_patching_error(name, value)
+                                        with _handle_type_error():
+                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                    "Please use list append or extend method."
+                                                                    .format(value))
+                                            if isinstance(value, Enum.YLeaf):
+                                                value = value.name
+                                            if name in ("type") and name in self.__dict__:
+                                                if isinstance(value, YLeaf):
+                                                    self.__dict__[name].set(value.get())
+                                                elif isinstance(value, YLeafList):
+                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType, self).__setattr__(name, value)
+                                                else:
+                                                    self.__dict__[name].set(value)
+                                            else:
+                                                if hasattr(value, "parent") and name != "parent":
+                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                        value.parent = self
+                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                        value.parent = self
+                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType, self).__setattr__(name, value)
 
 
-                                    class SensorNames(object):
+                                    class SensorNames(Entity):
                                         """
                                         Table of sensors
                                         
@@ -471,13 +852,39 @@ class EnvironmentalMonitoring(object):
                                         _revision = '2017-01-19'
 
                                         def __init__(self):
-                                            self.parent = None
-                                            self.sensor_name = YList()
-                                            self.sensor_name.parent = self
-                                            self.sensor_name.name = 'sensor_name'
+                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames, self).__init__()
+
+                                            self.yang_name = "sensor-names"
+                                            self.yang_parent_name = "sensor-type"
+
+                                            self.sensor_name = YList(self)
+
+                                        def __setattr__(self, name, value):
+                                            self._check_monkey_patching_error(name, value)
+                                            with _handle_type_error():
+                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                        "Please use list append or extend method."
+                                                                        .format(value))
+                                                if isinstance(value, Enum.YLeaf):
+                                                    value = value.name
+                                                if name in () and name in self.__dict__:
+                                                    if isinstance(value, YLeaf):
+                                                        self.__dict__[name].set(value.get())
+                                                    elif isinstance(value, YLeafList):
+                                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames, self).__setattr__(name, value)
+                                                    else:
+                                                        self.__dict__[name].set(value)
+                                                else:
+                                                    if hasattr(value, "parent") and name != "parent":
+                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                            value.parent = self
+                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                            value.parent = self
+                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames, self).__setattr__(name, value)
 
 
-                                        class SensorName(object):
+                                        class SensorName(Entity):
                                             """
                                             Name of sensor
                                             
@@ -513,16 +920,52 @@ class EnvironmentalMonitoring(object):
                                             _revision = '2017-01-19'
 
                                             def __init__(self):
-                                                self.parent = None
-                                                self.name = None
+                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName, self).__init__()
+
+                                                self.yang_name = "sensor-name"
+                                                self.yang_parent_name = "sensor-names"
+
+                                                self.name = YLeaf(YType.str, "name")
+
+                                                self.value_brief = YLeaf(YType.int32, "value-brief")
+
                                                 self.thresholds = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds()
                                                 self.thresholds.parent = self
-                                                self.value_brief = None
+                                                self._children_name_map["thresholds"] = "thresholds"
+                                                self._children_yang_names.add("thresholds")
+
                                                 self.value_detailed = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed()
                                                 self.value_detailed.parent = self
+                                                self._children_name_map["value_detailed"] = "value-detailed"
+                                                self._children_yang_names.add("value-detailed")
+
+                                            def __setattr__(self, name, value):
+                                                self._check_monkey_patching_error(name, value)
+                                                with _handle_type_error():
+                                                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                            "Please use list append or extend method."
+                                                                            .format(value))
+                                                    if isinstance(value, Enum.YLeaf):
+                                                        value = value.name
+                                                    if name in ("name",
+                                                                "value_brief") and name in self.__dict__:
+                                                        if isinstance(value, YLeaf):
+                                                            self.__dict__[name].set(value.get())
+                                                        elif isinstance(value, YLeafList):
+                                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName, self).__setattr__(name, value)
+                                                        else:
+                                                            self.__dict__[name].set(value)
+                                                    else:
+                                                        if hasattr(value, "parent") and name != "parent":
+                                                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                value.parent = self
+                                                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                value.parent = self
+                                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName, self).__setattr__(name, value)
 
 
-                                            class Thresholds(object):
+                                            class Thresholds(Entity):
                                                 """
                                                 The threshold information
                                                 
@@ -539,13 +982,39 @@ class EnvironmentalMonitoring(object):
                                                 _revision = '2017-01-19'
 
                                                 def __init__(self):
-                                                    self.parent = None
-                                                    self.threshold = YList()
-                                                    self.threshold.parent = self
-                                                    self.threshold.name = 'threshold'
+                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds, self).__init__()
+
+                                                    self.yang_name = "thresholds"
+                                                    self.yang_parent_name = "sensor-name"
+
+                                                    self.threshold = YList(self)
+
+                                                def __setattr__(self, name, value):
+                                                    self._check_monkey_patching_error(name, value)
+                                                    with _handle_type_error():
+                                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                "Please use list append or extend method."
+                                                                                .format(value))
+                                                        if isinstance(value, Enum.YLeaf):
+                                                            value = value.name
+                                                        if name in () and name in self.__dict__:
+                                                            if isinstance(value, YLeaf):
+                                                                self.__dict__[name].set(value.get())
+                                                            elif isinstance(value, YLeafList):
+                                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds, self).__setattr__(name, value)
+                                                            else:
+                                                                self.__dict__[name].set(value)
+                                                        else:
+                                                            if hasattr(value, "parent") and name != "parent":
+                                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                    value.parent = self
+                                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                    value.parent = self
+                                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds, self).__setattr__(name, value)
 
 
-                                                class Threshold(object):
+                                                class Threshold(Entity):
                                                     """
                                                     Types of thresholds
                                                     
@@ -581,15 +1050,50 @@ class EnvironmentalMonitoring(object):
                                                     _revision = '2017-01-19'
 
                                                     def __init__(self):
-                                                        self.parent = None
-                                                        self.type = None
-                                                        self.trap = None
-                                                        self.value_brief = None
+                                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold, self).__init__()
+
+                                                        self.yang_name = "threshold"
+                                                        self.yang_parent_name = "thresholds"
+
+                                                        self.type = YLeaf(YType.str, "type")
+
+                                                        self.trap = YLeaf(YType.boolean, "trap")
+
+                                                        self.value_brief = YLeaf(YType.int32, "value-brief")
+
                                                         self.value_detailed = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed()
                                                         self.value_detailed.parent = self
+                                                        self._children_name_map["value_detailed"] = "value-detailed"
+                                                        self._children_yang_names.add("value-detailed")
+
+                                                    def __setattr__(self, name, value):
+                                                        self._check_monkey_patching_error(name, value)
+                                                        with _handle_type_error():
+                                                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                    "Please use list append or extend method."
+                                                                                    .format(value))
+                                                            if isinstance(value, Enum.YLeaf):
+                                                                value = value.name
+                                                            if name in ("type",
+                                                                        "trap",
+                                                                        "value_brief") and name in self.__dict__:
+                                                                if isinstance(value, YLeaf):
+                                                                    self.__dict__[name].set(value.get())
+                                                                elif isinstance(value, YLeafList):
+                                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold, self).__setattr__(name, value)
+                                                                else:
+                                                                    self.__dict__[name].set(value)
+                                                            else:
+                                                                if hasattr(value, "parent") and name != "parent":
+                                                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                        value.parent = self
+                                                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                        value.parent = self
+                                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold, self).__setattr__(name, value)
 
 
-                                                    class ValueDetailed(object):
+                                                    class ValueDetailed(Entity):
                                                         """
                                                         Detailed sensor threshold
                                                         information
@@ -633,106 +1137,259 @@ class EnvironmentalMonitoring(object):
                                                         _revision = '2017-01-19'
 
                                                         def __init__(self):
-                                                            self.parent = None
-                                                            self.threshold_evaluation = None
-                                                            self.threshold_notification_enabled = None
-                                                            self.threshold_relation = None
-                                                            self.threshold_severity = None
-                                                            self.threshold_value = None
+                                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, self).__init__()
 
-                                                        @property
-                                                        def _common_path(self):
-                                                            if self.parent is None:
-                                                                raise YPYModelError('parent is not set . Cannot derive path.')
+                                                            self.yang_name = "value-detailed"
+                                                            self.yang_parent_name = "threshold"
 
-                                                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:value-detailed'
+                                                            self.threshold_evaluation = YLeaf(YType.boolean, "threshold-evaluation")
 
-                                                        def is_config(self):
-                                                            ''' Returns True if this instance represents config data else returns False '''
+                                                            self.threshold_notification_enabled = YLeaf(YType.boolean, "threshold-notification-enabled")
+
+                                                            self.threshold_relation = YLeaf(YType.uint32, "threshold-relation")
+
+                                                            self.threshold_severity = YLeaf(YType.uint32, "threshold-severity")
+
+                                                            self.threshold_value = YLeaf(YType.uint32, "threshold-value")
+
+                                                        def __setattr__(self, name, value):
+                                                            self._check_monkey_patching_error(name, value)
+                                                            with _handle_type_error():
+                                                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                        "Please use list append or extend method."
+                                                                                        .format(value))
+                                                                if isinstance(value, Enum.YLeaf):
+                                                                    value = value.name
+                                                                if name in ("threshold_evaluation",
+                                                                            "threshold_notification_enabled",
+                                                                            "threshold_relation",
+                                                                            "threshold_severity",
+                                                                            "threshold_value") and name in self.__dict__:
+                                                                    if isinstance(value, YLeaf):
+                                                                        self.__dict__[name].set(value.get())
+                                                                    elif isinstance(value, YLeafList):
+                                                                        super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, self).__setattr__(name, value)
+                                                                    else:
+                                                                        self.__dict__[name].set(value)
+                                                                else:
+                                                                    if hasattr(value, "parent") and name != "parent":
+                                                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                            value.parent = self
+                                                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                            value.parent = self
+                                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed, self).__setattr__(name, value)
+
+                                                        def has_data(self):
+                                                            return (
+                                                                self.threshold_evaluation.is_set or
+                                                                self.threshold_notification_enabled.is_set or
+                                                                self.threshold_relation.is_set or
+                                                                self.threshold_severity.is_set or
+                                                                self.threshold_value.is_set)
+
+                                                        def has_operation(self):
+                                                            return (
+                                                                self.yfilter != YFilter.not_set or
+                                                                self.threshold_evaluation.yfilter != YFilter.not_set or
+                                                                self.threshold_notification_enabled.yfilter != YFilter.not_set or
+                                                                self.threshold_relation.yfilter != YFilter.not_set or
+                                                                self.threshold_severity.yfilter != YFilter.not_set or
+                                                                self.threshold_value.yfilter != YFilter.not_set)
+
+                                                        def get_segment_path(self):
+                                                            path_buffer = ""
+                                                            path_buffer = "value-detailed" + path_buffer
+
+                                                            return path_buffer
+
+                                                        def get_entity_path(self, ancestor):
+                                                            path_buffer = ""
+                                                            if (ancestor is None):
+                                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                            else:
+                                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                            leaf_name_data = LeafDataList()
+                                                            if (self.threshold_evaluation.is_set or self.threshold_evaluation.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.threshold_evaluation.get_name_leafdata())
+                                                            if (self.threshold_notification_enabled.is_set or self.threshold_notification_enabled.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.threshold_notification_enabled.get_name_leafdata())
+                                                            if (self.threshold_relation.is_set or self.threshold_relation.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.threshold_relation.get_name_leafdata())
+                                                            if (self.threshold_severity.is_set or self.threshold_severity.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.threshold_severity.get_name_leafdata())
+                                                            if (self.threshold_value.is_set or self.threshold_value.yfilter != YFilter.not_set):
+                                                                leaf_name_data.append(self.threshold_value.get_name_leafdata())
+
+                                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                            return entity_path
+
+                                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                            if child is not None:
+                                                                return child
+
+                                                            return None
+
+                                                        def has_leaf_or_child_of_name(self, name):
+                                                            if(name == "threshold-evaluation" or name == "threshold-notification-enabled" or name == "threshold-relation" or name == "threshold-severity" or name == "threshold-value"):
+                                                                return True
                                                             return False
 
-                                                        def _has_data(self):
-                                                            if self.threshold_evaluation is not None:
-                                                                return True
+                                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                            if(value_path == "threshold-evaluation"):
+                                                                self.threshold_evaluation = value
+                                                                self.threshold_evaluation.value_namespace = name_space
+                                                                self.threshold_evaluation.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "threshold-notification-enabled"):
+                                                                self.threshold_notification_enabled = value
+                                                                self.threshold_notification_enabled.value_namespace = name_space
+                                                                self.threshold_notification_enabled.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "threshold-relation"):
+                                                                self.threshold_relation = value
+                                                                self.threshold_relation.value_namespace = name_space
+                                                                self.threshold_relation.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "threshold-severity"):
+                                                                self.threshold_severity = value
+                                                                self.threshold_severity.value_namespace = name_space
+                                                                self.threshold_severity.value_namespace_prefix = name_space_prefix
+                                                            if(value_path == "threshold-value"):
+                                                                self.threshold_value = value
+                                                                self.threshold_value.value_namespace = name_space
+                                                                self.threshold_value.value_namespace_prefix = name_space_prefix
 
-                                                            if self.threshold_notification_enabled is not None:
-                                                                return True
+                                                    def has_data(self):
+                                                        return (
+                                                            self.type.is_set or
+                                                            self.trap.is_set or
+                                                            self.value_brief.is_set or
+                                                            (self.value_detailed is not None and self.value_detailed.has_data()))
 
-                                                            if self.threshold_relation is not None:
-                                                                return True
+                                                    def has_operation(self):
+                                                        return (
+                                                            self.yfilter != YFilter.not_set or
+                                                            self.type.yfilter != YFilter.not_set or
+                                                            self.trap.yfilter != YFilter.not_set or
+                                                            self.value_brief.yfilter != YFilter.not_set or
+                                                            (self.value_detailed is not None and self.value_detailed.has_operation()))
 
-                                                            if self.threshold_severity is not None:
-                                                                return True
+                                                    def get_segment_path(self):
+                                                        path_buffer = ""
+                                                        path_buffer = "threshold" + "[type='" + self.type.get() + "']" + path_buffer
 
-                                                            if self.threshold_value is not None:
-                                                                return True
+                                                        return path_buffer
 
-                                                            return False
+                                                    def get_entity_path(self, ancestor):
+                                                        path_buffer = ""
+                                                        if (ancestor is None):
+                                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                        else:
+                                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                                        @staticmethod
-                                                        def _meta_info():
-                                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                                            return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed']['meta_info']
+                                                        leaf_name_data = LeafDataList()
+                                                        if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                                            leaf_name_data.append(self.type.get_name_leafdata())
+                                                        if (self.trap.is_set or self.trap.yfilter != YFilter.not_set):
+                                                            leaf_name_data.append(self.trap.get_name_leafdata())
+                                                        if (self.value_brief.is_set or self.value_brief.yfilter != YFilter.not_set):
+                                                            leaf_name_data.append(self.value_brief.get_name_leafdata())
 
-                                                    @property
-                                                    def _common_path(self):
-                                                        if self.parent is None:
-                                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                                        if self.type is None:
-                                                            raise YPYModelError('Key property type is None')
+                                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                        return entity_path
 
-                                                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:threshold[Cisco-IOS-XR-asr9k-sc-envmon-oper:type = ' + str(self.type) + ']'
+                                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                        if child is not None:
+                                                            return child
 
-                                                    def is_config(self):
-                                                        ''' Returns True if this instance represents config data else returns False '''
+                                                        if (child_yang_name == "value-detailed"):
+                                                            if (self.value_detailed is None):
+                                                                self.value_detailed = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold.ValueDetailed()
+                                                                self.value_detailed.parent = self
+                                                                self._children_name_map["value_detailed"] = "value-detailed"
+                                                            return self.value_detailed
+
+                                                        return None
+
+                                                    def has_leaf_or_child_of_name(self, name):
+                                                        if(name == "value-detailed" or name == "type" or name == "trap" or name == "value-brief"):
+                                                            return True
                                                         return False
 
-                                                    def _has_data(self):
-                                                        if self.type is not None:
+                                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                        if(value_path == "type"):
+                                                            self.type = value
+                                                            self.type.value_namespace = name_space
+                                                            self.type.value_namespace_prefix = name_space_prefix
+                                                        if(value_path == "trap"):
+                                                            self.trap = value
+                                                            self.trap.value_namespace = name_space
+                                                            self.trap.value_namespace_prefix = name_space_prefix
+                                                        if(value_path == "value-brief"):
+                                                            self.value_brief = value
+                                                            self.value_brief.value_namespace = name_space
+                                                            self.value_brief.value_namespace_prefix = name_space_prefix
+
+                                                def has_data(self):
+                                                    for c in self.threshold:
+                                                        if (c.has_data()):
                                                             return True
-
-                                                        if self.trap is not None:
-                                                            return True
-
-                                                        if self.value_brief is not None:
-                                                            return True
-
-                                                        if self.value_detailed is not None and self.value_detailed._has_data():
-                                                            return True
-
-                                                        return False
-
-                                                    @staticmethod
-                                                    def _meta_info():
-                                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold']['meta_info']
-
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:thresholds'
-
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
                                                     return False
 
-                                                def _has_data(self):
-                                                    if self.threshold is not None:
-                                                        for child_ref in self.threshold:
-                                                            if child_ref._has_data():
-                                                                return True
+                                                def has_operation(self):
+                                                    for c in self.threshold:
+                                                        if (c.has_operation()):
+                                                            return True
+                                                    return self.yfilter != YFilter.not_set
 
+                                                def get_segment_path(self):
+                                                    path_buffer = ""
+                                                    path_buffer = "thresholds" + path_buffer
+
+                                                    return path_buffer
+
+                                                def get_entity_path(self, ancestor):
+                                                    path_buffer = ""
+                                                    if (ancestor is None):
+                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                    else:
+                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                    leaf_name_data = LeafDataList()
+
+                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                    return entity_path
+
+                                                def get_child_by_name(self, child_yang_name, segment_path):
+                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                    if child is not None:
+                                                        return child
+
+                                                    if (child_yang_name == "threshold"):
+                                                        for c in self.threshold:
+                                                            segment = c.get_segment_path()
+                                                            if (segment_path == segment):
+                                                                return c
+                                                        c = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds.Threshold()
+                                                        c.parent = self
+                                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                                        self._local_refs[local_reference_key] = c
+                                                        self.threshold.append(c)
+                                                        return c
+
+                                                    return None
+
+                                                def has_leaf_or_child_of_name(self, name):
+                                                    if(name == "threshold"):
+                                                        return True
                                                     return False
 
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds']['meta_info']
+                                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                    pass
 
 
-                                            class ValueDetailed(object):
+                                            class ValueDetailed(Entity):
                                                 """
                                                 Detailed sensor information including
                                                 the sensor value
@@ -829,353 +1486,844 @@ class EnvironmentalMonitoring(object):
                                                 _revision = '2017-01-19'
 
                                                 def __init__(self):
-                                                    self.parent = None
-                                                    self.age_time_stamp = None
-                                                    self.alarm_type = None
-                                                    self.data_type = None
-                                                    self.device_description = None
-                                                    self.device_id = None
-                                                    self.field_validity_bitmap = None
-                                                    self.precision = None
-                                                    self.scale = None
-                                                    self.status = None
-                                                    self.units = None
-                                                    self.update_rate = None
-                                                    self.value = None
+                                                    super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, self).__init__()
 
-                                                @property
-                                                def _common_path(self):
-                                                    if self.parent is None:
-                                                        raise YPYModelError('parent is not set . Cannot derive path.')
+                                                    self.yang_name = "value-detailed"
+                                                    self.yang_parent_name = "sensor-name"
 
-                                                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:value-detailed'
+                                                    self.age_time_stamp = YLeaf(YType.uint32, "age-time-stamp")
 
-                                                def is_config(self):
-                                                    ''' Returns True if this instance represents config data else returns False '''
+                                                    self.alarm_type = YLeaf(YType.uint32, "alarm-type")
+
+                                                    self.data_type = YLeaf(YType.uint32, "data-type")
+
+                                                    self.device_description = YLeaf(YType.str, "device-description")
+
+                                                    self.device_id = YLeaf(YType.uint32, "device-id")
+
+                                                    self.field_validity_bitmap = YLeaf(YType.uint32, "field-validity-bitmap")
+
+                                                    self.precision = YLeaf(YType.uint32, "precision")
+
+                                                    self.scale = YLeaf(YType.uint32, "scale")
+
+                                                    self.status = YLeaf(YType.uint32, "status")
+
+                                                    self.units = YLeaf(YType.str, "units")
+
+                                                    self.update_rate = YLeaf(YType.uint32, "update-rate")
+
+                                                    self.value = YLeaf(YType.uint32, "value")
+
+                                                def __setattr__(self, name, value):
+                                                    self._check_monkey_patching_error(name, value)
+                                                    with _handle_type_error():
+                                                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                                                "Please use list append or extend method."
+                                                                                .format(value))
+                                                        if isinstance(value, Enum.YLeaf):
+                                                            value = value.name
+                                                        if name in ("age_time_stamp",
+                                                                    "alarm_type",
+                                                                    "data_type",
+                                                                    "device_description",
+                                                                    "device_id",
+                                                                    "field_validity_bitmap",
+                                                                    "precision",
+                                                                    "scale",
+                                                                    "status",
+                                                                    "units",
+                                                                    "update_rate",
+                                                                    "value") and name in self.__dict__:
+                                                            if isinstance(value, YLeaf):
+                                                                self.__dict__[name].set(value.get())
+                                                            elif isinstance(value, YLeafList):
+                                                                super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, self).__setattr__(name, value)
+                                                            else:
+                                                                self.__dict__[name].set(value)
+                                                        else:
+                                                            if hasattr(value, "parent") and name != "parent":
+                                                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                                                    value.parent = self
+                                                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                                                    value.parent = self
+                                                            super(EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed, self).__setattr__(name, value)
+
+                                                def has_data(self):
+                                                    return (
+                                                        self.age_time_stamp.is_set or
+                                                        self.alarm_type.is_set or
+                                                        self.data_type.is_set or
+                                                        self.device_description.is_set or
+                                                        self.device_id.is_set or
+                                                        self.field_validity_bitmap.is_set or
+                                                        self.precision.is_set or
+                                                        self.scale.is_set or
+                                                        self.status.is_set or
+                                                        self.units.is_set or
+                                                        self.update_rate.is_set or
+                                                        self.value.is_set)
+
+                                                def has_operation(self):
+                                                    return (
+                                                        self.yfilter != YFilter.not_set or
+                                                        self.age_time_stamp.yfilter != YFilter.not_set or
+                                                        self.alarm_type.yfilter != YFilter.not_set or
+                                                        self.data_type.yfilter != YFilter.not_set or
+                                                        self.device_description.yfilter != YFilter.not_set or
+                                                        self.device_id.yfilter != YFilter.not_set or
+                                                        self.field_validity_bitmap.yfilter != YFilter.not_set or
+                                                        self.precision.yfilter != YFilter.not_set or
+                                                        self.scale.yfilter != YFilter.not_set or
+                                                        self.status.yfilter != YFilter.not_set or
+                                                        self.units.yfilter != YFilter.not_set or
+                                                        self.update_rate.yfilter != YFilter.not_set or
+                                                        self.value.yfilter != YFilter.not_set)
+
+                                                def get_segment_path(self):
+                                                    path_buffer = ""
+                                                    path_buffer = "value-detailed" + path_buffer
+
+                                                    return path_buffer
+
+                                                def get_entity_path(self, ancestor):
+                                                    path_buffer = ""
+                                                    if (ancestor is None):
+                                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                    else:
+                                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                                    leaf_name_data = LeafDataList()
+                                                    if (self.age_time_stamp.is_set or self.age_time_stamp.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.age_time_stamp.get_name_leafdata())
+                                                    if (self.alarm_type.is_set or self.alarm_type.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.alarm_type.get_name_leafdata())
+                                                    if (self.data_type.is_set or self.data_type.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.data_type.get_name_leafdata())
+                                                    if (self.device_description.is_set or self.device_description.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.device_description.get_name_leafdata())
+                                                    if (self.device_id.is_set or self.device_id.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.device_id.get_name_leafdata())
+                                                    if (self.field_validity_bitmap.is_set or self.field_validity_bitmap.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.field_validity_bitmap.get_name_leafdata())
+                                                    if (self.precision.is_set or self.precision.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.precision.get_name_leafdata())
+                                                    if (self.scale.is_set or self.scale.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.scale.get_name_leafdata())
+                                                    if (self.status.is_set or self.status.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.status.get_name_leafdata())
+                                                    if (self.units.is_set or self.units.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.units.get_name_leafdata())
+                                                    if (self.update_rate.is_set or self.update_rate.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.update_rate.get_name_leafdata())
+                                                    if (self.value.is_set or self.value.yfilter != YFilter.not_set):
+                                                        leaf_name_data.append(self.value.get_name_leafdata())
+
+                                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                    return entity_path
+
+                                                def get_child_by_name(self, child_yang_name, segment_path):
+                                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                    if child is not None:
+                                                        return child
+
+                                                    return None
+
+                                                def has_leaf_or_child_of_name(self, name):
+                                                    if(name == "age-time-stamp" or name == "alarm-type" or name == "data-type" or name == "device-description" or name == "device-id" or name == "field-validity-bitmap" or name == "precision" or name == "scale" or name == "status" or name == "units" or name == "update-rate" or name == "value"):
+                                                        return True
                                                     return False
 
-                                                def _has_data(self):
-                                                    if self.age_time_stamp is not None:
-                                                        return True
+                                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                    if(value_path == "age-time-stamp"):
+                                                        self.age_time_stamp = value
+                                                        self.age_time_stamp.value_namespace = name_space
+                                                        self.age_time_stamp.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "alarm-type"):
+                                                        self.alarm_type = value
+                                                        self.alarm_type.value_namespace = name_space
+                                                        self.alarm_type.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "data-type"):
+                                                        self.data_type = value
+                                                        self.data_type.value_namespace = name_space
+                                                        self.data_type.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "device-description"):
+                                                        self.device_description = value
+                                                        self.device_description.value_namespace = name_space
+                                                        self.device_description.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "device-id"):
+                                                        self.device_id = value
+                                                        self.device_id.value_namespace = name_space
+                                                        self.device_id.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "field-validity-bitmap"):
+                                                        self.field_validity_bitmap = value
+                                                        self.field_validity_bitmap.value_namespace = name_space
+                                                        self.field_validity_bitmap.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "precision"):
+                                                        self.precision = value
+                                                        self.precision.value_namespace = name_space
+                                                        self.precision.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "scale"):
+                                                        self.scale = value
+                                                        self.scale.value_namespace = name_space
+                                                        self.scale.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "status"):
+                                                        self.status = value
+                                                        self.status.value_namespace = name_space
+                                                        self.status.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "units"):
+                                                        self.units = value
+                                                        self.units.value_namespace = name_space
+                                                        self.units.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "update-rate"):
+                                                        self.update_rate = value
+                                                        self.update_rate.value_namespace = name_space
+                                                        self.update_rate.value_namespace_prefix = name_space_prefix
+                                                    if(value_path == "value"):
+                                                        self.value = value
+                                                        self.value.value_namespace = name_space
+                                                        self.value.value_namespace_prefix = name_space_prefix
 
-                                                    if self.alarm_type is not None:
-                                                        return True
+                                            def has_data(self):
+                                                return (
+                                                    self.name.is_set or
+                                                    self.value_brief.is_set or
+                                                    (self.thresholds is not None and self.thresholds.has_data()) or
+                                                    (self.value_detailed is not None and self.value_detailed.has_data()))
 
-                                                    if self.data_type is not None:
-                                                        return True
+                                            def has_operation(self):
+                                                return (
+                                                    self.yfilter != YFilter.not_set or
+                                                    self.name.yfilter != YFilter.not_set or
+                                                    self.value_brief.yfilter != YFilter.not_set or
+                                                    (self.thresholds is not None and self.thresholds.has_operation()) or
+                                                    (self.value_detailed is not None and self.value_detailed.has_operation()))
 
-                                                    if self.device_description is not None:
-                                                        return True
+                                            def get_segment_path(self):
+                                                path_buffer = ""
+                                                path_buffer = "sensor-name" + "[name='" + self.name.get() + "']" + path_buffer
 
-                                                    if self.device_id is not None:
-                                                        return True
+                                                return path_buffer
 
-                                                    if self.field_validity_bitmap is not None:
-                                                        return True
+                                            def get_entity_path(self, ancestor):
+                                                path_buffer = ""
+                                                if (ancestor is None):
+                                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                                else:
+                                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                                    if self.precision is not None:
-                                                        return True
+                                                leaf_name_data = LeafDataList()
+                                                if (self.name.is_set or self.name.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.name.get_name_leafdata())
+                                                if (self.value_brief.is_set or self.value_brief.yfilter != YFilter.not_set):
+                                                    leaf_name_data.append(self.value_brief.get_name_leafdata())
 
-                                                    if self.scale is not None:
-                                                        return True
+                                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                                return entity_path
 
-                                                    if self.status is not None:
-                                                        return True
+                                            def get_child_by_name(self, child_yang_name, segment_path):
+                                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                                if child is not None:
+                                                    return child
 
-                                                    if self.units is not None:
-                                                        return True
+                                                if (child_yang_name == "thresholds"):
+                                                    if (self.thresholds is None):
+                                                        self.thresholds = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.Thresholds()
+                                                        self.thresholds.parent = self
+                                                        self._children_name_map["thresholds"] = "thresholds"
+                                                    return self.thresholds
 
-                                                    if self.update_rate is not None:
-                                                        return True
+                                                if (child_yang_name == "value-detailed"):
+                                                    if (self.value_detailed is None):
+                                                        self.value_detailed = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed()
+                                                        self.value_detailed.parent = self
+                                                        self._children_name_map["value_detailed"] = "value-detailed"
+                                                    return self.value_detailed
 
-                                                    if self.value is not None:
-                                                        return True
+                                                return None
 
-                                                    return False
-
-                                                @staticmethod
-                                                def _meta_info():
-                                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName.ValueDetailed']['meta_info']
-
-                                            @property
-                                            def _common_path(self):
-                                                if self.parent is None:
-                                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                                if self.name is None:
-                                                    raise YPYModelError('Key property name is None')
-
-                                                return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:sensor-name[Cisco-IOS-XR-asr9k-sc-envmon-oper:name = ' + str(self.name) + ']'
-
-                                            def is_config(self):
-                                                ''' Returns True if this instance represents config data else returns False '''
+                                            def has_leaf_or_child_of_name(self, name):
+                                                if(name == "thresholds" or name == "value-detailed" or name == "name" or name == "value-brief"):
+                                                    return True
                                                 return False
 
-                                            def _has_data(self):
-                                                if self.name is not None:
+                                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                                if(value_path == "name"):
+                                                    self.name = value
+                                                    self.name.value_namespace = name_space
+                                                    self.name.value_namespace_prefix = name_space_prefix
+                                                if(value_path == "value-brief"):
+                                                    self.value_brief = value
+                                                    self.value_brief.value_namespace = name_space
+                                                    self.value_brief.value_namespace_prefix = name_space_prefix
+
+                                        def has_data(self):
+                                            for c in self.sensor_name:
+                                                if (c.has_data()):
                                                     return True
-
-                                                if self.thresholds is not None and self.thresholds._has_data():
-                                                    return True
-
-                                                if self.value_brief is not None:
-                                                    return True
-
-                                                if self.value_detailed is not None and self.value_detailed._has_data():
-                                                    return True
-
-                                                return False
-
-                                            @staticmethod
-                                            def _meta_info():
-                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                                return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName']['meta_info']
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:sensor-names'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
                                             return False
 
-                                        def _has_data(self):
-                                            if self.sensor_name is not None:
-                                                for child_ref in self.sensor_name:
-                                                    if child_ref._has_data():
-                                                        return True
+                                        def has_operation(self):
+                                            for c in self.sensor_name:
+                                                if (c.has_operation()):
+                                                    return True
+                                            return self.yfilter != YFilter.not_set
 
-                                            return False
+                                        def get_segment_path(self):
+                                            path_buffer = ""
+                                            path_buffer = "sensor-names" + path_buffer
 
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                            return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames']['meta_info']
+                                            return path_buffer
 
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-                                        if self.type is None:
-                                            raise YPYModelError('Key property type is None')
+                                        def get_entity_path(self, ancestor):
+                                            path_buffer = ""
+                                            if (ancestor is None):
+                                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                            else:
+                                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:sensor-type[Cisco-IOS-XR-asr9k-sc-envmon-oper:type = ' + str(self.type) + ']'
+                                            leaf_name_data = LeafDataList()
 
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return False
+                                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                                            return entity_path
 
-                                    def _has_data(self):
-                                        if self.type is not None:
-                                            return True
+                                        def get_child_by_name(self, child_yang_name, segment_path):
+                                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                            if child is not None:
+                                                return child
 
-                                        if self.sensor_names is not None and self.sensor_names._has_data():
-                                            return True
+                                            if (child_yang_name == "sensor-name"):
+                                                for c in self.sensor_name:
+                                                    segment = c.get_segment_path()
+                                                    if (segment_path == segment):
+                                                        return c
+                                                c = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames.SensorName()
+                                                c.parent = self
+                                                local_reference_key = "ydk::seg::%s" % segment_path
+                                                self._local_refs[local_reference_key] = c
+                                                self.sensor_name.append(c)
+                                                return c
 
-                                        return False
+                                            return None
 
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType']['meta_info']
-
-                                @property
-                                def _common_path(self):
-                                    if self.parent is None:
-                                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:sensor-types'
-
-                                def is_config(self):
-                                    ''' Returns True if this instance represents config data else returns False '''
-                                    return False
-
-                                def _has_data(self):
-                                    if self.sensor_type is not None:
-                                        for child_ref in self.sensor_type:
-                                            if child_ref._has_data():
+                                        def has_leaf_or_child_of_name(self, name):
+                                            if(name == "sensor-name"):
                                                 return True
+                                            return False
 
+                                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                                            pass
+
+                                    def has_data(self):
+                                        return (
+                                            self.type.is_set or
+                                            (self.sensor_names is not None and self.sensor_names.has_data()))
+
+                                    def has_operation(self):
+                                        return (
+                                            self.yfilter != YFilter.not_set or
+                                            self.type.yfilter != YFilter.not_set or
+                                            (self.sensor_names is not None and self.sensor_names.has_operation()))
+
+                                    def get_segment_path(self):
+                                        path_buffer = ""
+                                        path_buffer = "sensor-type" + "[type='" + self.type.get() + "']" + path_buffer
+
+                                        return path_buffer
+
+                                    def get_entity_path(self, ancestor):
+                                        path_buffer = ""
+                                        if (ancestor is None):
+                                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                        else:
+                                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                        leaf_name_data = LeafDataList()
+                                        if (self.type.is_set or self.type.yfilter != YFilter.not_set):
+                                            leaf_name_data.append(self.type.get_name_leafdata())
+
+                                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                                        return entity_path
+
+                                    def get_child_by_name(self, child_yang_name, segment_path):
+                                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                        if child is not None:
+                                            return child
+
+                                        if (child_yang_name == "sensor-names"):
+                                            if (self.sensor_names is None):
+                                                self.sensor_names = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType.SensorNames()
+                                                self.sensor_names.parent = self
+                                                self._children_name_map["sensor_names"] = "sensor-names"
+                                            return self.sensor_names
+
+                                        return None
+
+                                    def has_leaf_or_child_of_name(self, name):
+                                        if(name == "sensor-names" or name == "type"):
+                                            return True
+                                        return False
+
+                                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                                        if(value_path == "type"):
+                                            self.type = value
+                                            self.type.value_namespace = name_space
+                                            self.type.value_namespace_prefix = name_space_prefix
+
+                                def has_data(self):
+                                    for c in self.sensor_type:
+                                        if (c.has_data()):
+                                            return True
                                     return False
 
-                                @staticmethod
-                                def _meta_info():
-                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes']['meta_info']
+                                def has_operation(self):
+                                    for c in self.sensor_type:
+                                        if (c.has_operation()):
+                                            return True
+                                    return self.yfilter != YFilter.not_set
 
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-                                if self.module is None:
-                                    raise YPYModelError('Key property module is None')
+                                def get_segment_path(self):
+                                    path_buffer = ""
+                                    path_buffer = "sensor-types" + path_buffer
 
-                                return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:module[Cisco-IOS-XR-asr9k-sc-envmon-oper:module = ' + str(self.module) + ']'
+                                    return path_buffer
 
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return False
+                                def get_entity_path(self, ancestor):
+                                    path_buffer = ""
+                                    if (ancestor is None):
+                                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                    else:
+                                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                            def _has_data(self):
-                                if self.module is not None:
-                                    return True
+                                    leaf_name_data = LeafDataList()
 
-                                if self.power is not None and self.power._has_data():
-                                    return True
+                                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                                    return entity_path
 
-                                if self.sensor_types is not None and self.sensor_types._has_data():
-                                    return True
+                                def get_child_by_name(self, child_yang_name, segment_path):
+                                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                    if child is not None:
+                                        return child
 
-                                return False
+                                    if (child_yang_name == "sensor-type"):
+                                        for c in self.sensor_type:
+                                            segment = c.get_segment_path()
+                                            if (segment_path == segment):
+                                                return c
+                                        c = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes.SensorType()
+                                        c.parent = self
+                                        local_reference_key = "ydk::seg::%s" % segment_path
+                                        self._local_refs[local_reference_key] = c
+                                        self.sensor_type.append(c)
+                                        return c
 
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                                return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module']['meta_info']
+                                    return None
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:modules'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return False
-
-                        def _has_data(self):
-                            if self.module is not None:
-                                for child_ref in self.module:
-                                    if child_ref._has_data():
+                                def has_leaf_or_child_of_name(self, name):
+                                    if(name == "sensor-type"):
                                         return True
+                                    return False
 
+                                def set_value(self, value_path, value, name_space, name_space_prefix):
+                                    pass
+
+                            def has_data(self):
+                                return (
+                                    self.module.is_set or
+                                    (self.power is not None and self.power.has_data()) or
+                                    (self.sensor_types is not None and self.sensor_types.has_data()))
+
+                            def has_operation(self):
+                                return (
+                                    self.yfilter != YFilter.not_set or
+                                    self.module.yfilter != YFilter.not_set or
+                                    (self.power is not None and self.power.has_operation()) or
+                                    (self.sensor_types is not None and self.sensor_types.has_operation()))
+
+                            def get_segment_path(self):
+                                path_buffer = ""
+                                path_buffer = "module" + "[module='" + self.module.get() + "']" + path_buffer
+
+                                return path_buffer
+
+                            def get_entity_path(self, ancestor):
+                                path_buffer = ""
+                                if (ancestor is None):
+                                    raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                                else:
+                                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                                leaf_name_data = LeafDataList()
+                                if (self.module.is_set or self.module.yfilter != YFilter.not_set):
+                                    leaf_name_data.append(self.module.get_name_leafdata())
+
+                                entity_path = EntityPath(path_buffer, leaf_name_data)
+                                return entity_path
+
+                            def get_child_by_name(self, child_yang_name, segment_path):
+                                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                                if child is not None:
+                                    return child
+
+                                if (child_yang_name == "power"):
+                                    if (self.power is None):
+                                        self.power = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.Power()
+                                        self.power.parent = self
+                                        self._children_name_map["power"] = "power"
+                                    return self.power
+
+                                if (child_yang_name == "sensor-types"):
+                                    if (self.sensor_types is None):
+                                        self.sensor_types = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module.SensorTypes()
+                                        self.sensor_types.parent = self
+                                        self._children_name_map["sensor_types"] = "sensor-types"
+                                    return self.sensor_types
+
+                                return None
+
+                            def has_leaf_or_child_of_name(self, name):
+                                if(name == "power" or name == "sensor-types" or name == "module"):
+                                    return True
+                                return False
+
+                            def set_value(self, value_path, value, name_space, name_space_prefix):
+                                if(value_path == "module"):
+                                    self.module = value
+                                    self.module.value_namespace = name_space
+                                    self.module.value_namespace_prefix = name_space_prefix
+
+                        def has_data(self):
+                            for c in self.module:
+                                if (c.has_data()):
+                                    return True
                             return False
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                            return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules']['meta_info']
+                        def has_operation(self):
+                            for c in self.module:
+                                if (c.has_operation()):
+                                    return True
+                            return self.yfilter != YFilter.not_set
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.slot is None:
-                            raise YPYModelError('Key property slot is None')
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "modules" + path_buffer
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:slot[Cisco-IOS-XR-asr9k-sc-envmon-oper:slot = ' + str(self.slot) + ']'
+                            return path_buffer
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return False
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    def _has_data(self):
-                        if self.slot is not None:
-                            return True
+                            leaf_name_data = LeafDataList()
 
-                        if self.modules is not None and self.modules._has_data():
-                            return True
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
 
-                        return False
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                        return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots.Slot']['meta_info']
+                            if (child_yang_name == "module"):
+                                for c in self.module:
+                                    segment = c.get_segment_path()
+                                    if (segment_path == segment):
+                                        return c
+                                c = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules.Module()
+                                c.parent = self
+                                local_reference_key = "ydk::seg::%s" % segment_path
+                                self._local_refs[local_reference_key] = c
+                                self.module.append(c)
+                                return c
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                            return None
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-sc-envmon-oper:slots'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return False
-
-                def _has_data(self):
-                    if self.slot is not None:
-                        for child_ref in self.slot:
-                            if child_ref._has_data():
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "module"):
                                 return True
+                            return False
 
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            pass
+
+                    def has_data(self):
+                        return (
+                            self.slot.is_set or
+                            (self.modules is not None and self.modules.has_data()))
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.slot.yfilter != YFilter.not_set or
+                            (self.modules is not None and self.modules.has_operation()))
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "slot" + "[slot='" + self.slot.get() + "']" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.slot.is_set or self.slot.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.slot.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "modules"):
+                            if (self.modules is None):
+                                self.modules = EnvironmentalMonitoring.Racks.Rack.Slots.Slot.Modules()
+                                self.modules.parent = self
+                                self._children_name_map["modules"] = "modules"
+                            return self.modules
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "modules" or name == "slot"):
+                            return True
+                        return False
+
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "slot"):
+                            self.slot = value
+                            self.slot.value_namespace = name_space
+                            self.slot.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.slot:
+                        if (c.has_data()):
+                            return True
                     return False
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                    return meta._meta_table['EnvironmentalMonitoring.Racks.Rack.Slots']['meta_info']
+                def has_operation(self):
+                    for c in self.slot:
+                        if (c.has_operation()):
+                            return True
+                    return self.yfilter != YFilter.not_set
 
-            @property
-            def _common_path(self):
-                if self.rack is None:
-                    raise YPYModelError('Key property rack is None')
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "slots" + path_buffer
 
-                return '/Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring/Cisco-IOS-XR-asr9k-sc-envmon-oper:racks/Cisco-IOS-XR-asr9k-sc-envmon-oper:rack[Cisco-IOS-XR-asr9k-sc-envmon-oper:rack = ' + str(self.rack) + ']'
+                    return path_buffer
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            def _has_data(self):
-                if self.rack is not None:
-                    return True
+                    leaf_name_data = LeafDataList()
 
-                if self.slots is not None and self.slots._has_data():
-                    return True
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                return False
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-                return meta._meta_table['EnvironmentalMonitoring.Racks.Rack']['meta_info']
+                    if (child_yang_name == "slot"):
+                        for c in self.slot:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = EnvironmentalMonitoring.Racks.Rack.Slots.Slot()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.slot.append(c)
+                        return c
 
-        @property
-        def _common_path(self):
+                    return None
 
-            return '/Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring/Cisco-IOS-XR-asr9k-sc-envmon-oper:racks'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
-
-        def _has_data(self):
-            if self.rack is not None:
-                for child_ref in self.rack:
-                    if child_ref._has_data():
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "slot"):
                         return True
+                    return False
 
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    pass
+
+            def has_data(self):
+                return (
+                    self.rack.is_set or
+                    (self.slots is not None and self.slots.has_data()))
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.rack.yfilter != YFilter.not_set or
+                    (self.slots is not None and self.slots.has_operation()))
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "rack" + "[rack='" + self.rack.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring/racks/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.rack.is_set or self.rack.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.rack.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "slots"):
+                    if (self.slots is None):
+                        self.slots = EnvironmentalMonitoring.Racks.Rack.Slots()
+                        self.slots.parent = self
+                        self._children_name_map["slots"] = "slots"
+                    return self.slots
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "slots" or name == "rack"):
+                    return True
+                return False
+
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "rack"):
+                    self.rack = value
+                    self.rack.value_namespace = name_space
+                    self.rack.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.rack:
+                if (c.has_data()):
+                    return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-            return meta._meta_table['EnvironmentalMonitoring.Racks']['meta_info']
+        def has_operation(self):
+            for c in self.rack:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
-    @property
-    def _common_path(self):
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "racks" + path_buffer
 
-        return '/Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring'
+            return path_buffer
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
-        return False
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-    def _has_data(self):
-        if self.racks is not None and self.racks._has_data():
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "rack"):
+                for c in self.rack:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EnvironmentalMonitoring.Racks.Rack()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.rack.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "rack"):
+                return True
+            return False
+
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
+
+    def has_data(self):
+        return (self.racks is not None and self.racks.has_data())
+
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.racks is not None and self.racks.has_operation()))
+
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "racks"):
+            if (self.racks is None):
+                self.racks = EnvironmentalMonitoring.Racks()
+                self.racks.parent = self
+                self._children_name_map["racks"] = "racks"
+            return self.racks
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "racks"):
             return True
-
         return False
 
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_sc_envmon_oper as meta
-        return meta._meta_table['EnvironmentalMonitoring']['meta_info']
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
+    def clone_ptr(self):
+        self._top_entity = EnvironmentalMonitoring()
+        return self._top_entity
 

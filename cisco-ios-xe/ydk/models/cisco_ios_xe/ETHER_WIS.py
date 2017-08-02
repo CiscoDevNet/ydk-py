@@ -31,21 +31,15 @@ of this MIB module is part of RFC 3637;  see the RFC
 itself for full legal notices.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class EtherWis(object):
+class EtherWis(Entity):
     """
     
     
@@ -77,17 +71,34 @@ class EtherWis(object):
     _revision = '2003-09-19'
 
     def __init__(self):
+        super(EtherWis, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ETHER-WIS"
+        self.yang_parent_name = "ETHER-WIS"
+
         self.etherwisdevicetable = EtherWis.Etherwisdevicetable()
         self.etherwisdevicetable.parent = self
+        self._children_name_map["etherwisdevicetable"] = "etherWisDeviceTable"
+        self._children_yang_names.add("etherWisDeviceTable")
+
         self.etherwisfarendpathcurrenttable = EtherWis.Etherwisfarendpathcurrenttable()
         self.etherwisfarendpathcurrenttable.parent = self
+        self._children_name_map["etherwisfarendpathcurrenttable"] = "etherWisFarEndPathCurrentTable"
+        self._children_yang_names.add("etherWisFarEndPathCurrentTable")
+
         self.etherwispathcurrenttable = EtherWis.Etherwispathcurrenttable()
         self.etherwispathcurrenttable.parent = self
+        self._children_name_map["etherwispathcurrenttable"] = "etherWisPathCurrentTable"
+        self._children_yang_names.add("etherWisPathCurrentTable")
+
         self.etherwissectioncurrenttable = EtherWis.Etherwissectioncurrenttable()
         self.etherwissectioncurrenttable.parent = self
+        self._children_name_map["etherwissectioncurrenttable"] = "etherWisSectionCurrentTable"
+        self._children_yang_names.add("etherWisSectionCurrentTable")
 
 
-    class Etherwisdevicetable(object):
+    class Etherwisdevicetable(Entity):
         """
         The table for Ethernet WIS devices
         
@@ -104,13 +115,39 @@ class EtherWis(object):
         _revision = '2003-09-19'
 
         def __init__(self):
-            self.parent = None
-            self.etherwisdeviceentry = YList()
-            self.etherwisdeviceentry.parent = self
-            self.etherwisdeviceentry.name = 'etherwisdeviceentry'
+            super(EtherWis.Etherwisdevicetable, self).__init__()
+
+            self.yang_name = "etherWisDeviceTable"
+            self.yang_parent_name = "ETHER-WIS"
+
+            self.etherwisdeviceentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EtherWis.Etherwisdevicetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EtherWis.Etherwisdevicetable, self).__setattr__(name, value)
 
 
-        class Etherwisdeviceentry(object):
+        class Etherwisdeviceentry(Entity):
             """
             An entry in the Ethernet WIS device table.  For each
             instance of this object there MUST be a corresponding
@@ -135,12 +172,12 @@ class EtherWis(object):
             .. attribute:: etherwisdevicerxtestpatternmode
             
             	This variable controls the receive test pattern mode. The value none(1) puts the the WIS receive path into the normal operating mode.  The value prbs31(3) puts the WIS receive path into the PRBS31 test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.2.  The value mixedFrequency(4) puts the WIS receive path into the mixed frequency test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.3.  Any attempt to set this object to a value other than none(1) when the corresponding instance of ifAdminStatus has the value up(1) MUST be rejected with the error inconsistentValue, and any attempt to set the corresponding instance of ifAdminStatus to the value up(1) when an instance of this object has a value other than none(1) MUST be rejected with the error inconsistentValue
-            	**type**\:   :py:class:`EtherwisdevicerxtestpatternmodeEnum <ydk.models.cisco_ios_xe.ETHER_WIS.EtherWis.Etherwisdevicetable.Etherwisdeviceentry.EtherwisdevicerxtestpatternmodeEnum>`
+            	**type**\:   :py:class:`Etherwisdevicerxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.EtherWis.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicerxtestpatternmode>`
             
             .. attribute:: etherwisdevicetxtestpatternmode
             
             	This variable controls the transmit test pattern mode. The value none(1) puts the the WIS transmit path into the normal operating mode.  The value squareWave(2) puts the WIS transmit path into the square wave test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.1. The value prbs31(3) puts the WIS transmit path into the PRBS31 test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.2.  The value mixedFrequency(4) puts the WIS transmit path into the mixed frequency test pattern mode described in [IEEE 802.3 Std.] subclause 50.3.8.3. Any attempt to set this object to a value other than none(1) when the corresponding instance of ifAdminStatus has the value up(1) MUST be rejected with the error inconsistentValue, and any attempt to set the corresponding instance of ifAdminStatus to the value up(1) when an instance of this object has a value other than none(1) MUST be rejected with the error inconsistentValue
-            	**type**\:   :py:class:`EtherwisdevicetxtestpatternmodeEnum <ydk.models.cisco_ios_xe.ETHER_WIS.EtherWis.Etherwisdevicetable.Etherwisdeviceentry.EtherwisdevicetxtestpatternmodeEnum>`
+            	**type**\:   :py:class:`Etherwisdevicetxtestpatternmode <ydk.models.cisco_ios_xe.ETHER_WIS.EtherWis.Etherwisdevicetable.Etherwisdeviceentry.Etherwisdevicetxtestpatternmode>`
             
             
 
@@ -150,15 +187,49 @@ class EtherWis(object):
             _revision = '2003-09-19'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.etherwisdevicerxtestpatternerrors = None
-                self.etherwisdevicerxtestpatternmode = None
-                self.etherwisdevicetxtestpatternmode = None
+                super(EtherWis.Etherwisdevicetable.Etherwisdeviceentry, self).__init__()
 
-            class EtherwisdevicerxtestpatternmodeEnum(Enum):
+                self.yang_name = "etherWisDeviceEntry"
+                self.yang_parent_name = "etherWisDeviceTable"
+
+                self.ifindex = YLeaf(YType.str, "ifIndex")
+
+                self.etherwisdevicerxtestpatternerrors = YLeaf(YType.uint32, "etherWisDeviceRxTestPatternErrors")
+
+                self.etherwisdevicerxtestpatternmode = YLeaf(YType.enumeration, "etherWisDeviceRxTestPatternMode")
+
+                self.etherwisdevicetxtestpatternmode = YLeaf(YType.enumeration, "etherWisDeviceTxTestPatternMode")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "etherwisdevicerxtestpatternerrors",
+                                "etherwisdevicerxtestpatternmode",
+                                "etherwisdevicetxtestpatternmode") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EtherWis.Etherwisdevicetable.Etherwisdeviceentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EtherWis.Etherwisdevicetable.Etherwisdeviceentry, self).__setattr__(name, value)
+
+            class Etherwisdevicerxtestpatternmode(Enum):
                 """
-                EtherwisdevicerxtestpatternmodeEnum
+                Etherwisdevicerxtestpatternmode
 
                 This variable controls the receive test pattern mode.
 
@@ -196,22 +267,16 @@ class EtherWis(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                prbs31 = 3
+                prbs31 = Enum.YLeaf(3, "prbs31")
 
-                mixedFrequency = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-                    return meta._meta_table['EtherWis.Etherwisdevicetable.Etherwisdeviceentry.EtherwisdevicerxtestpatternmodeEnum']
+                mixedFrequency = Enum.YLeaf(4, "mixedFrequency")
 
 
-            class EtherwisdevicetxtestpatternmodeEnum(Enum):
+            class Etherwisdevicetxtestpatternmode(Enum):
                 """
-                EtherwisdevicetxtestpatternmodeEnum
+                Etherwisdevicetxtestpatternmode
 
                 This variable controls the transmit test pattern mode.
 
@@ -257,76 +322,145 @@ class EtherWis(object):
 
                 """
 
-                none = 1
+                none = Enum.YLeaf(1, "none")
 
-                squareWave = 2
+                squareWave = Enum.YLeaf(2, "squareWave")
 
-                prbs31 = 3
+                prbs31 = Enum.YLeaf(3, "prbs31")
 
-                mixedFrequency = 4
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-                    return meta._meta_table['EtherWis.Etherwisdevicetable.Etherwisdeviceentry.EtherwisdevicetxtestpatternmodeEnum']
+                mixedFrequency = Enum.YLeaf(4, "mixedFrequency")
 
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.etherwisdevicerxtestpatternerrors.is_set or
+                    self.etherwisdevicerxtestpatternmode.is_set or
+                    self.etherwisdevicetxtestpatternmode.is_set)
 
-                return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisDeviceTable/ETHER-WIS:etherWisDeviceEntry[ETHER-WIS:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.etherwisdevicerxtestpatternerrors.yfilter != YFilter.not_set or
+                    self.etherwisdevicerxtestpatternmode.yfilter != YFilter.not_set or
+                    self.etherwisdevicetxtestpatternmode.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "etherWisDeviceEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ETHER-WIS:ETHER-WIS/etherWisDeviceTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.etherwisdevicerxtestpatternerrors.is_set or self.etherwisdevicerxtestpatternerrors.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwisdevicerxtestpatternerrors.get_name_leafdata())
+                if (self.etherwisdevicerxtestpatternmode.is_set or self.etherwisdevicerxtestpatternmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwisdevicerxtestpatternmode.get_name_leafdata())
+                if (self.etherwisdevicetxtestpatternmode.is_set or self.etherwisdevicetxtestpatternmode.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwisdevicetxtestpatternmode.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "etherWisDeviceRxTestPatternErrors" or name == "etherWisDeviceRxTestPatternMode" or name == "etherWisDeviceTxTestPatternMode"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisDeviceRxTestPatternErrors"):
+                    self.etherwisdevicerxtestpatternerrors = value
+                    self.etherwisdevicerxtestpatternerrors.value_namespace = name_space
+                    self.etherwisdevicerxtestpatternerrors.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisDeviceRxTestPatternMode"):
+                    self.etherwisdevicerxtestpatternmode = value
+                    self.etherwisdevicerxtestpatternmode.value_namespace = name_space
+                    self.etherwisdevicerxtestpatternmode.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisDeviceTxTestPatternMode"):
+                    self.etherwisdevicetxtestpatternmode = value
+                    self.etherwisdevicetxtestpatternmode.value_namespace = name_space
+                    self.etherwisdevicetxtestpatternmode.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.etherwisdeviceentry:
+                if (c.has_data()):
                     return True
-
-                if self.etherwisdevicerxtestpatternerrors is not None:
-                    return True
-
-                if self.etherwisdevicerxtestpatternmode is not None:
-                    return True
-
-                if self.etherwisdevicetxtestpatternmode is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-                return meta._meta_table['EtherWis.Etherwisdevicetable.Etherwisdeviceentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisDeviceTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.etherwisdeviceentry is not None:
-                for child_ref in self.etherwisdeviceentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.etherwisdeviceentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "etherWisDeviceTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ETHER-WIS:ETHER-WIS/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "etherWisDeviceEntry"):
+                for c in self.etherwisdeviceentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EtherWis.Etherwisdevicetable.Etherwisdeviceentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.etherwisdeviceentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "etherWisDeviceEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-            return meta._meta_table['EtherWis.Etherwisdevicetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Etherwissectioncurrenttable(object):
+    class Etherwissectioncurrenttable(Entity):
         """
         The table for the current state of Ethernet WIS sections.
         
@@ -343,13 +477,39 @@ class EtherWis(object):
         _revision = '2003-09-19'
 
         def __init__(self):
-            self.parent = None
-            self.etherwissectioncurrententry = YList()
-            self.etherwissectioncurrententry.parent = self
-            self.etherwissectioncurrententry.name = 'etherwissectioncurrententry'
+            super(EtherWis.Etherwissectioncurrenttable, self).__init__()
+
+            self.yang_name = "etherWisSectionCurrentTable"
+            self.yang_parent_name = "ETHER-WIS"
+
+            self.etherwissectioncurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EtherWis.Etherwissectioncurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EtherWis.Etherwissectioncurrenttable, self).__setattr__(name, value)
 
 
-        class Etherwissectioncurrententry(object):
+        class Etherwissectioncurrententry(Entity):
             """
             An entry in the etherWisSectionCurrentTable.  For each
             instance of this object there MUST be a corresponding
@@ -386,63 +546,165 @@ class EtherWis(object):
             _revision = '2003-09-19'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.etherwissectioncurrentj0received = None
-                self.etherwissectioncurrentj0transmitted = None
+                super(EtherWis.Etherwissectioncurrenttable.Etherwissectioncurrententry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.yang_name = "etherWisSectionCurrentEntry"
+                self.yang_parent_name = "etherWisSectionCurrentTable"
 
-                return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisSectionCurrentTable/ETHER-WIS:etherWisSectionCurrentEntry[ETHER-WIS:ifIndex = ' + str(self.ifindex) + ']'
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.etherwissectioncurrentj0received = YLeaf(YType.str, "etherWisSectionCurrentJ0Received")
+
+                self.etherwissectioncurrentj0transmitted = YLeaf(YType.str, "etherWisSectionCurrentJ0Transmitted")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "etherwissectioncurrentj0received",
+                                "etherwissectioncurrentj0transmitted") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EtherWis.Etherwissectioncurrenttable.Etherwissectioncurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EtherWis.Etherwissectioncurrenttable.Etherwissectioncurrententry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.etherwissectioncurrentj0received.is_set or
+                    self.etherwissectioncurrentj0transmitted.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.etherwissectioncurrentj0received.yfilter != YFilter.not_set or
+                    self.etherwissectioncurrentj0transmitted.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "etherWisSectionCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ETHER-WIS:ETHER-WIS/etherWisSectionCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.etherwissectioncurrentj0received.is_set or self.etherwissectioncurrentj0received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwissectioncurrentj0received.get_name_leafdata())
+                if (self.etherwissectioncurrentj0transmitted.is_set or self.etherwissectioncurrentj0transmitted.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwissectioncurrentj0transmitted.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "etherWisSectionCurrentJ0Received" or name == "etherWisSectionCurrentJ0Transmitted"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisSectionCurrentJ0Received"):
+                    self.etherwissectioncurrentj0received = value
+                    self.etherwissectioncurrentj0received.value_namespace = name_space
+                    self.etherwissectioncurrentj0received.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisSectionCurrentJ0Transmitted"):
+                    self.etherwissectioncurrentj0transmitted = value
+                    self.etherwissectioncurrentj0transmitted.value_namespace = name_space
+                    self.etherwissectioncurrentj0transmitted.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.etherwissectioncurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.etherwissectioncurrentj0received is not None:
-                    return True
-
-                if self.etherwissectioncurrentj0transmitted is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-                return meta._meta_table['EtherWis.Etherwissectioncurrenttable.Etherwissectioncurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisSectionCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.etherwissectioncurrententry is not None:
-                for child_ref in self.etherwissectioncurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.etherwissectioncurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "etherWisSectionCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ETHER-WIS:ETHER-WIS/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "etherWisSectionCurrentEntry"):
+                for c in self.etherwissectioncurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EtherWis.Etherwissectioncurrenttable.Etherwissectioncurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.etherwissectioncurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "etherWisSectionCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-            return meta._meta_table['EtherWis.Etherwissectioncurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Etherwispathcurrenttable(object):
+    class Etherwispathcurrenttable(Entity):
         """
         The table for the current state of Ethernet WIS paths.
         
@@ -459,13 +721,39 @@ class EtherWis(object):
         _revision = '2003-09-19'
 
         def __init__(self):
-            self.parent = None
-            self.etherwispathcurrententry = YList()
-            self.etherwispathcurrententry.parent = self
-            self.etherwispathcurrententry.name = 'etherwispathcurrententry'
+            super(EtherWis.Etherwispathcurrenttable, self).__init__()
+
+            self.yang_name = "etherWisPathCurrentTable"
+            self.yang_parent_name = "ETHER-WIS"
+
+            self.etherwispathcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EtherWis.Etherwispathcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EtherWis.Etherwispathcurrenttable, self).__setattr__(name, value)
 
 
-        class Etherwispathcurrententry(object):
+        class Etherwispathcurrententry(Entity):
             """
             An entry in the etherWisPathCurrentTable.  For each
             instance of this object there MUST be a corresponding
@@ -507,126 +795,174 @@ class EtherWis(object):
             _revision = '2003-09-19'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.etherwispathcurrentj1received = None
-                self.etherwispathcurrentj1transmitted = None
-                self.etherwispathcurrentstatus = EtherWis.Etherwispathcurrenttable.Etherwispathcurrententry.Etherwispathcurrentstatus()
+                super(EtherWis.Etherwispathcurrenttable.Etherwispathcurrententry, self).__init__()
 
-            class Etherwispathcurrentstatus(FixedBitsDict):
-                """
-                Etherwispathcurrentstatus
+                self.yang_name = "etherWisPathCurrentEntry"
+                self.yang_parent_name = "etherWisPathCurrentTable"
 
-                This variable indicates the current status of the
-                path payload with a bit map that can indicate multiple
-                defects at once.  The bit positions are assigned as
-                follows\:
-                
-                etherWisPathLOP(0)
-                   This bit is set to indicate that an
-                   LOP\-P (Loss of Pointer \- Path) defect
-                   is being experienced.  Note\:  when this
-                   bit is set, sonetPathSTSLOP MUST be set
-                   in the corresponding instance of
-                   sonetPathCurrentStatus.
-                
-                etherWisPathAIS(1)
-                   This bit is set to indicate that an
-                   AIS\-P (Alarm Indication Signal \- Path)
-                   defect is being experienced.  Note\:  when
-                   this bit is set, sonetPathSTSAIS MUST be
-                   set in the corresponding instance of
-                   sonetPathCurrentStatus.
-                
-                etherWisPathPLM(1)
-                   This bit is set to indicate that a
-                   PLM\-P (Payload Label Mismatch \- Path)
-                   defect is being experienced.  Note\:  when
-                   this bit is set, sonetPathSignalLabelMismatch
-                   MUST be set in the corresponding instance of
-                   sonetPathCurrentStatus.
-                
-                etherWisPathLCD(3)
-                   This bit is set to indicate that an
-                   LCD\-P (Loss of Codegroup Delination \- Path)
-                   defect is being experienced.  Since this
-                   defect is detected by the PCS and not by
-                   the path layer itself, there is no
-                   corresponding bit in sonetPathCurrentStatus.
-                Keys are:- etherWisPathLCD , etherWisPathLOP , etherWisPathAIS , etherWisPathPLM
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-                """
+                self.etherwispathcurrentj1received = YLeaf(YType.str, "etherWisPathCurrentJ1Received")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'etherWisPathLCD':False,
-                        'etherWisPathLOP':False,
-                        'etherWisPathAIS':False,
-                        'etherWisPathPLM':False,
-                    }
-                    self._pos_map = { 
-                        'etherWisPathLCD':3,
-                        'etherWisPathLOP':0,
-                        'etherWisPathAIS':1,
-                        'etherWisPathPLM':2,
-                    }
+                self.etherwispathcurrentj1transmitted = YLeaf(YType.str, "etherWisPathCurrentJ1Transmitted")
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+                self.etherwispathcurrentstatus = YLeaf(YType.bits, "etherWisPathCurrentStatus")
 
-                return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisPathCurrentTable/ETHER-WIS:etherWisPathCurrentEntry[ETHER-WIS:ifIndex = ' + str(self.ifindex) + ']'
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "etherwispathcurrentj1received",
+                                "etherwispathcurrentj1transmitted",
+                                "etherwispathcurrentstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EtherWis.Etherwispathcurrenttable.Etherwispathcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EtherWis.Etherwispathcurrenttable.Etherwispathcurrententry, self).__setattr__(name, value)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.etherwispathcurrentj1received.is_set or
+                    self.etherwispathcurrentj1transmitted.is_set or
+                    self.etherwispathcurrentstatus.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.etherwispathcurrentj1received.yfilter != YFilter.not_set or
+                    self.etherwispathcurrentj1transmitted.yfilter != YFilter.not_set or
+                    self.etherwispathcurrentstatus.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "etherWisPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ETHER-WIS:ETHER-WIS/etherWisPathCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.etherwispathcurrentj1received.is_set or self.etherwispathcurrentj1received.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwispathcurrentj1received.get_name_leafdata())
+                if (self.etherwispathcurrentj1transmitted.is_set or self.etherwispathcurrentj1transmitted.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwispathcurrentj1transmitted.get_name_leafdata())
+                if (self.etherwispathcurrentstatus.is_set or self.etherwispathcurrentstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwispathcurrentstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "etherWisPathCurrentJ1Received" or name == "etherWisPathCurrentJ1Transmitted" or name == "etherWisPathCurrentStatus"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ifindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisPathCurrentJ1Received"):
+                    self.etherwispathcurrentj1received = value
+                    self.etherwispathcurrentj1received.value_namespace = name_space
+                    self.etherwispathcurrentj1received.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisPathCurrentJ1Transmitted"):
+                    self.etherwispathcurrentj1transmitted = value
+                    self.etherwispathcurrentj1transmitted.value_namespace = name_space
+                    self.etherwispathcurrentj1transmitted.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisPathCurrentStatus"):
+                    self.etherwispathcurrentstatus[value] = True
+
+        def has_data(self):
+            for c in self.etherwispathcurrententry:
+                if (c.has_data()):
                     return True
-
-                if self.etherwispathcurrentj1received is not None:
-                    return True
-
-                if self.etherwispathcurrentj1transmitted is not None:
-                    return True
-
-                if self.etherwispathcurrentstatus is not None:
-                    if self.etherwispathcurrentstatus._has_data():
-                        return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-                return meta._meta_table['EtherWis.Etherwispathcurrenttable.Etherwispathcurrententry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisPathCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.etherwispathcurrententry is not None:
-                for child_ref in self.etherwispathcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.etherwispathcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "etherWisPathCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ETHER-WIS:ETHER-WIS/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "etherWisPathCurrentEntry"):
+                for c in self.etherwispathcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EtherWis.Etherwispathcurrenttable.Etherwispathcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.etherwispathcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "etherWisPathCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-            return meta._meta_table['EtherWis.Etherwispathcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Etherwisfarendpathcurrenttable(object):
+    class Etherwisfarendpathcurrenttable(Entity):
         """
         The table for the current far\-end state of Ethernet WIS
         paths.
@@ -644,13 +980,39 @@ class EtherWis(object):
         _revision = '2003-09-19'
 
         def __init__(self):
-            self.parent = None
-            self.etherwisfarendpathcurrententry = YList()
-            self.etherwisfarendpathcurrententry.parent = self
-            self.etherwisfarendpathcurrententry.name = 'etherwisfarendpathcurrententry'
+            super(EtherWis.Etherwisfarendpathcurrenttable, self).__init__()
+
+            self.yang_name = "etherWisFarEndPathCurrentTable"
+            self.yang_parent_name = "ETHER-WIS"
+
+            self.etherwisfarendpathcurrententry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(EtherWis.Etherwisfarendpathcurrenttable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(EtherWis.Etherwisfarendpathcurrenttable, self).__setattr__(name, value)
 
 
-        class Etherwisfarendpathcurrententry(object):
+        class Etherwisfarendpathcurrententry(Entity):
             """
             An entry in the etherWisFarEndPathCurrentTable.  For each
             instance of this object there MUST be a corresponding
@@ -678,119 +1040,226 @@ class EtherWis(object):
             _revision = '2003-09-19'
 
             def __init__(self):
-                self.parent = None
-                self.ifindex = None
-                self.etherwisfarendpathcurrentstatus = EtherWis.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry.Etherwisfarendpathcurrentstatus()
+                super(EtherWis.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry, self).__init__()
 
-            class Etherwisfarendpathcurrentstatus(FixedBitsDict):
-                """
-                Etherwisfarendpathcurrentstatus
+                self.yang_name = "etherWisFarEndPathCurrentEntry"
+                self.yang_parent_name = "etherWisFarEndPathCurrentTable"
 
-                This variable indicates the current status at the
-                far end of the path using a bit map that can indicate
-                multiple defects at once.  The bit positions are
-                assigned as follows\:
-                
-                etherWisFarEndPayloadDefect(0)
-                   A far end payload defect (i.e., far end
-                   PLM\-P or LCD\-P) is currently being signaled
-                   in G1 bits 5\-7.
-                
-                etherWisFarEndServerDefect(1)
-                   A far end server defect (i.e., far end
-                   LOP\-P or AIS\-P) is currently being signaled
-                   in G1 bits 5\-7.  Note\:  when this bit is set,
-                   sonetPathSTSRDI MUST be set in the corresponding
-                   instance of sonetPathCurrentStatus.
-                Keys are:- etherWisFarEndPayloadDefect , etherWisFarEndServerDefect
+                self.ifindex = YLeaf(YType.str, "ifIndex")
 
-                """
+                self.etherwisfarendpathcurrentstatus = YLeaf(YType.bits, "etherWisFarEndPathCurrentStatus")
 
-                def __init__(self):
-                    self._dictionary = { 
-                        'etherWisFarEndPayloadDefect':False,
-                        'etherWisFarEndServerDefect':False,
-                    }
-                    self._pos_map = { 
-                        'etherWisFarEndPayloadDefect':0,
-                        'etherWisFarEndServerDefect':1,
-                    }
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ifindex",
+                                "etherwisfarendpathcurrentstatus") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(EtherWis.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(EtherWis.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry, self).__setattr__(name, value)
 
-            @property
-            def _common_path(self):
-                if self.ifindex is None:
-                    raise YPYModelError('Key property ifindex is None')
+            def has_data(self):
+                return (
+                    self.ifindex.is_set or
+                    self.etherwisfarendpathcurrentstatus.is_set)
 
-                return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisFarEndPathCurrentTable/ETHER-WIS:etherWisFarEndPathCurrentEntry[ETHER-WIS:ifIndex = ' + str(self.ifindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ifindex.yfilter != YFilter.not_set or
+                    self.etherwisfarendpathcurrentstatus.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "etherWisFarEndPathCurrentEntry" + "[ifIndex='" + self.ifindex.get() + "']" + path_buffer
 
-            def _has_data(self):
-                if self.ifindex is not None:
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "ETHER-WIS:ETHER-WIS/etherWisFarEndPathCurrentTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ifindex.is_set or self.ifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ifindex.get_name_leafdata())
+                if (self.etherwisfarendpathcurrentstatus.is_set or self.etherwisfarendpathcurrentstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.etherwisfarendpathcurrentstatus.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "ifIndex" or name == "etherWisFarEndPathCurrentStatus"):
                     return True
-
-                if self.etherwisfarendpathcurrentstatus is not None:
-                    if self.etherwisfarendpathcurrentstatus._has_data():
-                        return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-                return meta._meta_table['EtherWis.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "ifIndex"):
+                    self.ifindex = value
+                    self.ifindex.value_namespace = name_space
+                    self.ifindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "etherWisFarEndPathCurrentStatus"):
+                    self.etherwisfarendpathcurrentstatus[value] = True
 
-        @property
-        def _common_path(self):
-
-            return '/ETHER-WIS:ETHER-WIS/ETHER-WIS:etherWisFarEndPathCurrentTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.etherwisfarendpathcurrententry:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.etherwisfarendpathcurrententry is not None:
-                for child_ref in self.etherwisfarendpathcurrententry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.etherwisfarendpathcurrententry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "etherWisFarEndPathCurrentTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "ETHER-WIS:ETHER-WIS/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "etherWisFarEndPathCurrentEntry"):
+                for c in self.etherwisfarendpathcurrententry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = EtherWis.Etherwisfarendpathcurrenttable.Etherwisfarendpathcurrententry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.etherwisfarendpathcurrententry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "etherWisFarEndPathCurrentEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-            return meta._meta_table['EtherWis.Etherwisfarendpathcurrenttable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.etherwisdevicetable is not None and self.etherwisdevicetable.has_data()) or
+            (self.etherwisfarendpathcurrenttable is not None and self.etherwisfarendpathcurrenttable.has_data()) or
+            (self.etherwispathcurrenttable is not None and self.etherwispathcurrenttable.has_data()) or
+            (self.etherwissectioncurrenttable is not None and self.etherwissectioncurrenttable.has_data()))
 
-        return '/ETHER-WIS:ETHER-WIS'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.etherwisdevicetable is not None and self.etherwisdevicetable.has_operation()) or
+            (self.etherwisfarendpathcurrenttable is not None and self.etherwisfarendpathcurrenttable.has_operation()) or
+            (self.etherwispathcurrenttable is not None and self.etherwispathcurrenttable.has_operation()) or
+            (self.etherwissectioncurrenttable is not None and self.etherwissectioncurrenttable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "ETHER-WIS:ETHER-WIS" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "etherWisDeviceTable"):
+            if (self.etherwisdevicetable is None):
+                self.etherwisdevicetable = EtherWis.Etherwisdevicetable()
+                self.etherwisdevicetable.parent = self
+                self._children_name_map["etherwisdevicetable"] = "etherWisDeviceTable"
+            return self.etherwisdevicetable
+
+        if (child_yang_name == "etherWisFarEndPathCurrentTable"):
+            if (self.etherwisfarendpathcurrenttable is None):
+                self.etherwisfarendpathcurrenttable = EtherWis.Etherwisfarendpathcurrenttable()
+                self.etherwisfarendpathcurrenttable.parent = self
+                self._children_name_map["etherwisfarendpathcurrenttable"] = "etherWisFarEndPathCurrentTable"
+            return self.etherwisfarendpathcurrenttable
+
+        if (child_yang_name == "etherWisPathCurrentTable"):
+            if (self.etherwispathcurrenttable is None):
+                self.etherwispathcurrenttable = EtherWis.Etherwispathcurrenttable()
+                self.etherwispathcurrenttable.parent = self
+                self._children_name_map["etherwispathcurrenttable"] = "etherWisPathCurrentTable"
+            return self.etherwispathcurrenttable
+
+        if (child_yang_name == "etherWisSectionCurrentTable"):
+            if (self.etherwissectioncurrenttable is None):
+                self.etherwissectioncurrenttable = EtherWis.Etherwissectioncurrenttable()
+                self.etherwissectioncurrenttable.parent = self
+                self._children_name_map["etherwissectioncurrenttable"] = "etherWisSectionCurrentTable"
+            return self.etherwissectioncurrenttable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "etherWisDeviceTable" or name == "etherWisFarEndPathCurrentTable" or name == "etherWisPathCurrentTable" or name == "etherWisSectionCurrentTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.etherwisdevicetable is not None and self.etherwisdevicetable._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.etherwisfarendpathcurrenttable is not None and self.etherwisfarendpathcurrenttable._has_data():
-            return True
-
-        if self.etherwispathcurrenttable is not None and self.etherwispathcurrenttable._has_data():
-            return True
-
-        if self.etherwissectioncurrenttable is not None and self.etherwissectioncurrenttable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _ETHER_WIS as meta
-        return meta._meta_table['EtherWis']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = EtherWis()
+        return self._top_entity
 

@@ -10,21 +10,15 @@ intercepts and CISCO\-USER\-CONNECTION\-TAP\-MIB for
 RADIUS\-based user connection intercepts.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoTap2Mib(object):
+class CiscoTap2Mib(Entity):
     """
     
     
@@ -66,21 +60,44 @@ class CiscoTap2Mib(object):
     _revision = '2009-11-06'
 
     def __init__(self):
+        super(CiscoTap2Mib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-TAP2-MIB"
+        self.yang_parent_name = "CISCO-TAP2-MIB"
+
         self.ctap2debuggroup = CiscoTap2Mib.Ctap2Debuggroup()
         self.ctap2debuggroup.parent = self
+        self._children_name_map["ctap2debuggroup"] = "cTap2DebugGroup"
+        self._children_yang_names.add("cTap2DebugGroup")
+
         self.ctap2debugtable = CiscoTap2Mib.Ctap2Debugtable()
         self.ctap2debugtable.parent = self
+        self._children_name_map["ctap2debugtable"] = "cTap2DebugTable"
+        self._children_yang_names.add("cTap2DebugTable")
+
         self.ctap2debugusertable = CiscoTap2Mib.Ctap2Debugusertable()
         self.ctap2debugusertable.parent = self
+        self._children_name_map["ctap2debugusertable"] = "cTap2DebugUserTable"
+        self._children_yang_names.add("cTap2DebugUserTable")
+
         self.ctap2mediationgroup = CiscoTap2Mib.Ctap2Mediationgroup()
         self.ctap2mediationgroup.parent = self
+        self._children_name_map["ctap2mediationgroup"] = "cTap2MediationGroup"
+        self._children_yang_names.add("cTap2MediationGroup")
+
         self.ctap2mediationtable = CiscoTap2Mib.Ctap2Mediationtable()
         self.ctap2mediationtable.parent = self
+        self._children_name_map["ctap2mediationtable"] = "cTap2MediationTable"
+        self._children_yang_names.add("cTap2MediationTable")
+
         self.ctap2streamtable = CiscoTap2Mib.Ctap2Streamtable()
         self.ctap2streamtable.parent = self
+        self._children_name_map["ctap2streamtable"] = "cTap2StreamTable"
+        self._children_yang_names.add("cTap2StreamTable")
 
 
-    class Ctap2Mediationgroup(object):
+    class Ctap2Mediationgroup(Entity):
         """
         
         
@@ -104,118 +121,95 @@ class CiscoTap2Mib(object):
         _revision = '2009-11-06'
 
         def __init__(self):
-            self.parent = None
-            self.ctap2mediationcapabilities = CiscoTap2Mib.Ctap2Mediationgroup.Ctap2Mediationcapabilities()
-            self.ctap2mediationnewindex = None
+            super(CiscoTap2Mib.Ctap2Mediationgroup, self).__init__()
 
-        class Ctap2Mediationcapabilities(FixedBitsDict):
-            """
-            Ctap2Mediationcapabilities
+            self.yang_name = "cTap2MediationGroup"
+            self.yang_parent_name = "CISCO-TAP2-MIB"
 
-            This object displays the device capabilities with respect to
-            certain fields in Mediation Device table. This may be dependent
-            on hardware capabilities, software capabilities.
-            The following values may be supported\:
-                ipV4SrcInterface\:  SNMP ifIndex Value may be used to select
-                                   the interface (denoted by
-                                   cTap2MediationSrcInterface) on the
-                                   intercepting device from which to
-                                   transmit intercepted data to an IPv4
-                                   address Mediation Device.
-            
-            
-                ipV6SrcInterface\:  SNMP ifIndex Value may be used to select
-                                   the interface (denoted by
-                                   cTap2MediationSrcInterface) on the
-                                   intercepting device from which to
-                                   transmit intercepted data to an IPv6
-                                   address Mediation Device.
-            
-            
-                udp\:               UDP may be used as transport protocol
-                                   (denoted by cTap2MediationTransport) in
-                                   transferring intercepted data to the
-                                   Mediation Device.
-            
-            
-                rtcpNack\:          RTP with Nack resilience may be used
-                                   as transport protocol (denoted by
-                                   cTap2MediationTransport) in transferring
-                                   intercepted data to the Mediation
-                                   Device.
-            
-                tcp\:               TCP may be used as transport protocol
-                                   (denoted by cTap2MediationTransport) in
-                                   transferring intercepted data to the
-                                   Mediation Device.
-            
-            
-                sctp\:              SCTP may be used as transport protocol
-                                   (denoted by cTap2MediationTransport) in
-                                   transferring intercepted data to the
-                                   Mediation Device.
-            
-                rtp\:               RTP may be used as transport protocol
-                                   (denoted by cTap2MediationTransport) in
-                                   transferring intercepted data to the
-                                   Mediation Device. 
-            
-                radius\:            Radius may be used as transport protocol
-                                   (denoted by cTap2MediationTransport) in
-                                   transferring intercepted information to 
-                                   the Mediation Device.
-            Keys are:- tcp , udp , rtpNack , ipV6SrcInterface , radius , rtp , sctp , ipV4SrcInterface
+            self.ctap2mediationcapabilities = YLeaf(YType.bits, "cTap2MediationCapabilities")
 
-            """
+            self.ctap2mediationnewindex = YLeaf(YType.int32, "cTap2MediationNewIndex")
 
-            def __init__(self):
-                self._dictionary = { 
-                    'tcp':False,
-                    'udp':False,
-                    'rtpNack':False,
-                    'ipV6SrcInterface':False,
-                    'radius':False,
-                    'rtp':False,
-                    'sctp':False,
-                    'ipV4SrcInterface':False,
-                }
-                self._pos_map = { 
-                    'tcp':4,
-                    'udp':2,
-                    'rtpNack':3,
-                    'ipV6SrcInterface':1,
-                    'radius':7,
-                    'rtp':6,
-                    'sctp':5,
-                    'ipV4SrcInterface':0,
-                }
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ctap2mediationcapabilities",
+                            "ctap2mediationnewindex") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoTap2Mib.Ctap2Mediationgroup, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoTap2Mib.Ctap2Mediationgroup, self).__setattr__(name, value)
 
-        @property
-        def _common_path(self):
+        def has_data(self):
+            return (
+                self.ctap2mediationcapabilities.is_set or
+                self.ctap2mediationnewindex.is_set)
 
-            return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2MediationGroup'
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ctap2mediationcapabilities.yfilter != YFilter.not_set or
+                self.ctap2mediationnewindex.yfilter != YFilter.not_set)
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return False
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cTap2MediationGroup" + path_buffer
 
-        def _has_data(self):
-            if self.ctap2mediationcapabilities is not None:
-                if self.ctap2mediationcapabilities._has_data():
-                    return True
+            return path_buffer
 
-            if self.ctap2mediationnewindex is not None:
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ctap2mediationcapabilities.is_set or self.ctap2mediationcapabilities.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ctap2mediationcapabilities.get_name_leafdata())
+            if (self.ctap2mediationnewindex.is_set or self.ctap2mediationnewindex.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ctap2mediationnewindex.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cTap2MediationCapabilities" or name == "cTap2MediationNewIndex"):
                 return True
-
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-            return meta._meta_table['CiscoTap2Mib.Ctap2Mediationgroup']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cTap2MediationCapabilities"):
+                self.ctap2mediationcapabilities[value] = True
+            if(value_path == "cTap2MediationNewIndex"):
+                self.ctap2mediationnewindex = value
+                self.ctap2mediationnewindex.value_namespace = name_space
+                self.ctap2mediationnewindex.value_namespace_prefix = name_space_prefix
 
 
-    class Ctap2Debuggroup(object):
+    class Ctap2Debuggroup(Entity):
         """
         
         
@@ -241,35 +235,97 @@ class CiscoTap2Mib(object):
         _revision = '2009-11-06'
 
         def __init__(self):
-            self.parent = None
-            self.ctap2debugage = None
-            self.ctap2debugmaxentries = None
+            super(CiscoTap2Mib.Ctap2Debuggroup, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "cTap2DebugGroup"
+            self.yang_parent_name = "CISCO-TAP2-MIB"
 
-            return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2DebugGroup'
+            self.ctap2debugage = YLeaf(YType.int32, "cTap2DebugAge")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.ctap2debugmaxentries = YLeaf(YType.int32, "cTap2DebugMaxEntries")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("ctap2debugage",
+                            "ctap2debugmaxentries") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoTap2Mib.Ctap2Debuggroup, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoTap2Mib.Ctap2Debuggroup, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.ctap2debugage.is_set or
+                self.ctap2debugmaxentries.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.ctap2debugage.yfilter != YFilter.not_set or
+                self.ctap2debugmaxentries.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cTap2DebugGroup" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.ctap2debugage.is_set or self.ctap2debugage.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ctap2debugage.get_name_leafdata())
+            if (self.ctap2debugmaxentries.is_set or self.ctap2debugmaxentries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.ctap2debugmaxentries.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cTap2DebugAge" or name == "cTap2DebugMaxEntries"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.ctap2debugage is not None:
-                return True
-
-            if self.ctap2debugmaxentries is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-            return meta._meta_table['CiscoTap2Mib.Ctap2Debuggroup']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "cTap2DebugAge"):
+                self.ctap2debugage = value
+                self.ctap2debugage.value_namespace = name_space
+                self.ctap2debugage.value_namespace_prefix = name_space_prefix
+            if(value_path == "cTap2DebugMaxEntries"):
+                self.ctap2debugmaxentries = value
+                self.ctap2debugmaxentries.value_namespace = name_space
+                self.ctap2debugmaxentries.value_namespace_prefix = name_space_prefix
 
 
-    class Ctap2Mediationtable(object):
+    class Ctap2Mediationtable(Entity):
         """
         This table lists the Mediation Devices with which the
         intercepting device communicates. These may be on the same or
@@ -296,13 +352,39 @@ class CiscoTap2Mib(object):
         _revision = '2009-11-06'
 
         def __init__(self):
-            self.parent = None
-            self.ctap2mediationentry = YList()
-            self.ctap2mediationentry.parent = self
-            self.ctap2mediationentry.name = 'ctap2mediationentry'
+            super(CiscoTap2Mib.Ctap2Mediationtable, self).__init__()
+
+            self.yang_name = "cTap2MediationTable"
+            self.yang_parent_name = "CISCO-TAP2-MIB"
+
+            self.ctap2mediationentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoTap2Mib.Ctap2Mediationtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoTap2Mib.Ctap2Mediationtable, self).__setattr__(name, value)
 
 
-        class Ctap2Mediationentry(object):
+        class Ctap2Mediationentry(Entity):
             """
             The entry describes a single session maintained with an
             application on a Mediation Device.
@@ -331,7 +413,7 @@ class CiscoTap2Mib(object):
             .. attribute:: ctap2mediationdestaddresstype
             
             	The type of cTap2MediationDestAddress
-            	**type**\:   :py:class:`InetaddresstypeEnum <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetaddresstypeEnum>`
+            	**type**\:   :py:class:`Inetaddresstype <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.Inetaddresstype>`
             
             .. attribute:: ctap2mediationdestport
             
@@ -383,7 +465,7 @@ class CiscoTap2Mib(object):
             .. attribute:: ctap2mediationstatus
             
             	The status of this conceptual row. This object is used to manage creation, modification and deletion of rows in this table.   cTap2MediationTimeout may be modified at any time (even while the row is active). But when the row is active, the other writable objects may not be modified without setting its value to 'notInService'.   The entry may not be deleted or deactivated by setting its value to 'destroy' or 'notInService' if there is any associated entry in cTap2StreamTable
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ctap2mediationtimeout
             
@@ -393,7 +475,7 @@ class CiscoTap2Mib(object):
             .. attribute:: ctap2mediationtransport
             
             	The protocol used in transferring intercepted data to the Mediation Device. The following protocols may be supported\:            udp\:     PacketCable udp format            rtpNack\: RTP with Nack resilience            tcp\:     TCP with head of line blocking            sctp\:    SCTP with head of line blocking             rtp\:     Realtime Transport Protocol(RTP)                     packet format            radius\:  Use Radius, PacketCable1.5 Event Message                     to transport the intercepted information
-            	**type**\:   :py:class:`Ctap2MediationtransportEnum <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry.Ctap2MediationtransportEnum>`
+            	**type**\:   :py:class:`Ctap2Mediationtransport <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry.Ctap2Mediationtransport>`
             
             
 
@@ -403,25 +485,79 @@ class CiscoTap2Mib(object):
             _revision = '2009-11-06'
 
             def __init__(self):
-                self.parent = None
-                self.ctap2mediationcontentid = None
-                self.ctap2mediationdatatype = None
-                self.ctap2mediationdestaddress = None
-                self.ctap2mediationdestaddresstype = None
-                self.ctap2mediationdestport = None
-                self.ctap2mediationdscp = None
-                self.ctap2mediationnotificationenable = None
-                self.ctap2mediationradiuskey = None
-                self.ctap2mediationretransmittype = None
-                self.ctap2mediationrtcpport = None
-                self.ctap2mediationsrcinterface = None
-                self.ctap2mediationstatus = None
-                self.ctap2mediationtimeout = None
-                self.ctap2mediationtransport = None
+                super(CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry, self).__init__()
 
-            class Ctap2MediationtransportEnum(Enum):
+                self.yang_name = "cTap2MediationEntry"
+                self.yang_parent_name = "cTap2MediationTable"
+
+                self.ctap2mediationcontentid = YLeaf(YType.int32, "cTap2MediationContentId")
+
+                self.ctap2mediationdatatype = YLeaf(YType.int32, "cTap2MediationDataType")
+
+                self.ctap2mediationdestaddress = YLeaf(YType.str, "cTap2MediationDestAddress")
+
+                self.ctap2mediationdestaddresstype = YLeaf(YType.enumeration, "cTap2MediationDestAddressType")
+
+                self.ctap2mediationdestport = YLeaf(YType.uint16, "cTap2MediationDestPort")
+
+                self.ctap2mediationdscp = YLeaf(YType.int32, "cTap2MediationDscp")
+
+                self.ctap2mediationnotificationenable = YLeaf(YType.boolean, "cTap2MediationNotificationEnable")
+
+                self.ctap2mediationradiuskey = YLeaf(YType.str, "cTap2MediationRadiusKey")
+
+                self.ctap2mediationretransmittype = YLeaf(YType.int32, "cTap2MediationRetransmitType")
+
+                self.ctap2mediationrtcpport = YLeaf(YType.uint16, "cTap2MediationRtcpPort")
+
+                self.ctap2mediationsrcinterface = YLeaf(YType.int32, "cTap2MediationSrcInterface")
+
+                self.ctap2mediationstatus = YLeaf(YType.enumeration, "cTap2MediationStatus")
+
+                self.ctap2mediationtimeout = YLeaf(YType.str, "cTap2MediationTimeout")
+
+                self.ctap2mediationtransport = YLeaf(YType.enumeration, "cTap2MediationTransport")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ctap2mediationcontentid",
+                                "ctap2mediationdatatype",
+                                "ctap2mediationdestaddress",
+                                "ctap2mediationdestaddresstype",
+                                "ctap2mediationdestport",
+                                "ctap2mediationdscp",
+                                "ctap2mediationnotificationenable",
+                                "ctap2mediationradiuskey",
+                                "ctap2mediationretransmittype",
+                                "ctap2mediationrtcpport",
+                                "ctap2mediationsrcinterface",
+                                "ctap2mediationstatus",
+                                "ctap2mediationtimeout",
+                                "ctap2mediationtransport") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry, self).__setattr__(name, value)
+
+            class Ctap2Mediationtransport(Enum):
                 """
-                Ctap2MediationtransportEnum
+                Ctap2Mediationtransport
 
                 The protocol used in transferring intercepted data to the
 
@@ -457,110 +593,229 @@ class CiscoTap2Mib(object):
 
                 """
 
-                udp = 1
+                udp = Enum.YLeaf(1, "udp")
 
-                rtpNack = 2
+                rtpNack = Enum.YLeaf(2, "rtpNack")
 
-                tcp = 3
+                tcp = Enum.YLeaf(3, "tcp")
 
-                sctp = 4
+                sctp = Enum.YLeaf(4, "sctp")
 
-                rtp = 5
+                rtp = Enum.YLeaf(5, "rtp")
 
-                radius = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-                    return meta._meta_table['CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry.Ctap2MediationtransportEnum']
+                radius = Enum.YLeaf(6, "radius")
 
 
-            @property
-            def _common_path(self):
-                if self.ctap2mediationcontentid is None:
-                    raise YPYModelError('Key property ctap2mediationcontentid is None')
+            def has_data(self):
+                return (
+                    self.ctap2mediationcontentid.is_set or
+                    self.ctap2mediationdatatype.is_set or
+                    self.ctap2mediationdestaddress.is_set or
+                    self.ctap2mediationdestaddresstype.is_set or
+                    self.ctap2mediationdestport.is_set or
+                    self.ctap2mediationdscp.is_set or
+                    self.ctap2mediationnotificationenable.is_set or
+                    self.ctap2mediationradiuskey.is_set or
+                    self.ctap2mediationretransmittype.is_set or
+                    self.ctap2mediationrtcpport.is_set or
+                    self.ctap2mediationsrcinterface.is_set or
+                    self.ctap2mediationstatus.is_set or
+                    self.ctap2mediationtimeout.is_set or
+                    self.ctap2mediationtransport.is_set)
 
-                return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2MediationTable/CISCO-TAP2-MIB:cTap2MediationEntry[CISCO-TAP2-MIB:cTap2MediationContentId = ' + str(self.ctap2mediationcontentid) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ctap2mediationcontentid.yfilter != YFilter.not_set or
+                    self.ctap2mediationdatatype.yfilter != YFilter.not_set or
+                    self.ctap2mediationdestaddress.yfilter != YFilter.not_set or
+                    self.ctap2mediationdestaddresstype.yfilter != YFilter.not_set or
+                    self.ctap2mediationdestport.yfilter != YFilter.not_set or
+                    self.ctap2mediationdscp.yfilter != YFilter.not_set or
+                    self.ctap2mediationnotificationenable.yfilter != YFilter.not_set or
+                    self.ctap2mediationradiuskey.yfilter != YFilter.not_set or
+                    self.ctap2mediationretransmittype.yfilter != YFilter.not_set or
+                    self.ctap2mediationrtcpport.yfilter != YFilter.not_set or
+                    self.ctap2mediationsrcinterface.yfilter != YFilter.not_set or
+                    self.ctap2mediationstatus.yfilter != YFilter.not_set or
+                    self.ctap2mediationtimeout.yfilter != YFilter.not_set or
+                    self.ctap2mediationtransport.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cTap2MediationEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2MediationTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ctap2mediationcontentid.is_set or self.ctap2mediationcontentid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationcontentid.get_name_leafdata())
+                if (self.ctap2mediationdatatype.is_set or self.ctap2mediationdatatype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationdatatype.get_name_leafdata())
+                if (self.ctap2mediationdestaddress.is_set or self.ctap2mediationdestaddress.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationdestaddress.get_name_leafdata())
+                if (self.ctap2mediationdestaddresstype.is_set or self.ctap2mediationdestaddresstype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationdestaddresstype.get_name_leafdata())
+                if (self.ctap2mediationdestport.is_set or self.ctap2mediationdestport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationdestport.get_name_leafdata())
+                if (self.ctap2mediationdscp.is_set or self.ctap2mediationdscp.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationdscp.get_name_leafdata())
+                if (self.ctap2mediationnotificationenable.is_set or self.ctap2mediationnotificationenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationnotificationenable.get_name_leafdata())
+                if (self.ctap2mediationradiuskey.is_set or self.ctap2mediationradiuskey.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationradiuskey.get_name_leafdata())
+                if (self.ctap2mediationretransmittype.is_set or self.ctap2mediationretransmittype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationretransmittype.get_name_leafdata())
+                if (self.ctap2mediationrtcpport.is_set or self.ctap2mediationrtcpport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationrtcpport.get_name_leafdata())
+                if (self.ctap2mediationsrcinterface.is_set or self.ctap2mediationsrcinterface.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationsrcinterface.get_name_leafdata())
+                if (self.ctap2mediationstatus.is_set or self.ctap2mediationstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationstatus.get_name_leafdata())
+                if (self.ctap2mediationtimeout.is_set or self.ctap2mediationtimeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationtimeout.get_name_leafdata())
+                if (self.ctap2mediationtransport.is_set or self.ctap2mediationtransport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationtransport.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cTap2MediationContentId" or name == "cTap2MediationDataType" or name == "cTap2MediationDestAddress" or name == "cTap2MediationDestAddressType" or name == "cTap2MediationDestPort" or name == "cTap2MediationDscp" or name == "cTap2MediationNotificationEnable" or name == "cTap2MediationRadiusKey" or name == "cTap2MediationRetransmitType" or name == "cTap2MediationRtcpPort" or name == "cTap2MediationSrcInterface" or name == "cTap2MediationStatus" or name == "cTap2MediationTimeout" or name == "cTap2MediationTransport"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ctap2mediationcontentid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cTap2MediationContentId"):
+                    self.ctap2mediationcontentid = value
+                    self.ctap2mediationcontentid.value_namespace = name_space
+                    self.ctap2mediationcontentid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationDataType"):
+                    self.ctap2mediationdatatype = value
+                    self.ctap2mediationdatatype.value_namespace = name_space
+                    self.ctap2mediationdatatype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationDestAddress"):
+                    self.ctap2mediationdestaddress = value
+                    self.ctap2mediationdestaddress.value_namespace = name_space
+                    self.ctap2mediationdestaddress.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationDestAddressType"):
+                    self.ctap2mediationdestaddresstype = value
+                    self.ctap2mediationdestaddresstype.value_namespace = name_space
+                    self.ctap2mediationdestaddresstype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationDestPort"):
+                    self.ctap2mediationdestport = value
+                    self.ctap2mediationdestport.value_namespace = name_space
+                    self.ctap2mediationdestport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationDscp"):
+                    self.ctap2mediationdscp = value
+                    self.ctap2mediationdscp.value_namespace = name_space
+                    self.ctap2mediationdscp.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationNotificationEnable"):
+                    self.ctap2mediationnotificationenable = value
+                    self.ctap2mediationnotificationenable.value_namespace = name_space
+                    self.ctap2mediationnotificationenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationRadiusKey"):
+                    self.ctap2mediationradiuskey = value
+                    self.ctap2mediationradiuskey.value_namespace = name_space
+                    self.ctap2mediationradiuskey.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationRetransmitType"):
+                    self.ctap2mediationretransmittype = value
+                    self.ctap2mediationretransmittype.value_namespace = name_space
+                    self.ctap2mediationretransmittype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationRtcpPort"):
+                    self.ctap2mediationrtcpport = value
+                    self.ctap2mediationrtcpport.value_namespace = name_space
+                    self.ctap2mediationrtcpport.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationSrcInterface"):
+                    self.ctap2mediationsrcinterface = value
+                    self.ctap2mediationsrcinterface.value_namespace = name_space
+                    self.ctap2mediationsrcinterface.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationStatus"):
+                    self.ctap2mediationstatus = value
+                    self.ctap2mediationstatus.value_namespace = name_space
+                    self.ctap2mediationstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationTimeout"):
+                    self.ctap2mediationtimeout = value
+                    self.ctap2mediationtimeout.value_namespace = name_space
+                    self.ctap2mediationtimeout.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2MediationTransport"):
+                    self.ctap2mediationtransport = value
+                    self.ctap2mediationtransport.value_namespace = name_space
+                    self.ctap2mediationtransport.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ctap2mediationentry:
+                if (c.has_data()):
                     return True
-
-                if self.ctap2mediationdatatype is not None:
-                    return True
-
-                if self.ctap2mediationdestaddress is not None:
-                    return True
-
-                if self.ctap2mediationdestaddresstype is not None:
-                    return True
-
-                if self.ctap2mediationdestport is not None:
-                    return True
-
-                if self.ctap2mediationdscp is not None:
-                    return True
-
-                if self.ctap2mediationnotificationenable is not None:
-                    return True
-
-                if self.ctap2mediationradiuskey is not None:
-                    return True
-
-                if self.ctap2mediationretransmittype is not None:
-                    return True
-
-                if self.ctap2mediationrtcpport is not None:
-                    return True
-
-                if self.ctap2mediationsrcinterface is not None:
-                    return True
-
-                if self.ctap2mediationstatus is not None:
-                    return True
-
-                if self.ctap2mediationtimeout is not None:
-                    return True
-
-                if self.ctap2mediationtransport is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-                return meta._meta_table['CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2MediationTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ctap2mediationentry is not None:
-                for child_ref in self.ctap2mediationentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ctap2mediationentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cTap2MediationTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cTap2MediationEntry"):
+                for c in self.ctap2mediationentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoTap2Mib.Ctap2Mediationtable.Ctap2Mediationentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ctap2mediationentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cTap2MediationEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-            return meta._meta_table['CiscoTap2Mib.Ctap2Mediationtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ctap2Streamtable(object):
+    class Ctap2Streamtable(Entity):
         """
         The Intercept Stream Table lists the traffic streams to be
         intercepted. The same data stream may be required by multiple 
@@ -604,13 +859,39 @@ class CiscoTap2Mib(object):
         _revision = '2009-11-06'
 
         def __init__(self):
-            self.parent = None
-            self.ctap2streamentry = YList()
-            self.ctap2streamentry.parent = self
-            self.ctap2streamentry.name = 'ctap2streamentry'
+            super(CiscoTap2Mib.Ctap2Streamtable, self).__init__()
+
+            self.yang_name = "cTap2StreamTable"
+            self.yang_parent_name = "CISCO-TAP2-MIB"
+
+            self.ctap2streamentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoTap2Mib.Ctap2Streamtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoTap2Mib.Ctap2Streamtable, self).__setattr__(name, value)
 
 
-        class Ctap2Streamentry(object):
+        class Ctap2Streamentry(Entity):
             """
             A stream entry indicates a single data stream to be
             intercepted to a Mediation Device. Many selected data
@@ -669,12 +950,12 @@ class CiscoTap2Mib(object):
             .. attribute:: ctap2streamstatus
             
             	The status of this conceptual row. This object manages creation, modification, and deletion of rows in this table. cTap2StreamInterceptEnable may be modified any time even the value of this entry rowStatus object is 'active'.  When other rows must be changed, cTap2StreamStatus must be first set to 'notInService'
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ctap2streamtype
             
             	Identifies the type of intercept filter associated to this generic stream. The following types of streams are supported\:        ip\:             The specific filter is an IP filter                         with same indices as that of this                         table. The exact filter is a row in                         citapStreamTable of CISCO\-IP\-TAP\-MIB.        mac\:            The specific filter is a MAC filter                        with same indices as that of this table.                        The exact filter is a row in                         c8tapStreamTable of CISCO\-802\-TAP\-MIB.        userConnecton\:  The specific filter is a user connection                        filter with same indices as that of                         this table. The exact filter is a row                         in cuctTapStreamTable of                         CISCO\-USER\-CONNECTION\-TAP\-MIB.        msPdsn\:         The specific filter is a Mobile Sub                        connection filter with same indices as                        that of this table. The exact filter                        is a row in ccptapStreamTable of                         CISCO\-CDMA\-PDSN\-TAP\-MIB.        mobility\:       The specific filter is a Mobile                         Subscriber connection filter with same                        indices as that of this table. The exact                        filter is a row in cmtapStreamTable of                         CISCO\-MOBILITY\-TAP\-MIB.        voip\:           The specific filter is a VoIP                        Subscriber filter with same                        indices as that of this table. The exact                        filter is a row in cvoiptapStreamTable of                        CISCO\-VOIP\-TAP\-MIB
-            	**type**\:   :py:class:`Ctap2StreamtypeEnum <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry.Ctap2StreamtypeEnum>`
+            	**type**\:   :py:class:`Ctap2Streamtype <ydk.models.cisco_ios_xe.CISCO_TAP2_MIB.CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry.Ctap2Streamtype>`
             
             
 
@@ -684,20 +965,64 @@ class CiscoTap2Mib(object):
             _revision = '2009-11-06'
 
             def __init__(self):
-                self.parent = None
-                self.ctap2mediationcontentid = None
-                self.ctap2streamindex = None
-                self.ctap2streaminterceptdrops = None
-                self.ctap2streaminterceptedhcpackets = None
-                self.ctap2streaminterceptedpackets = None
-                self.ctap2streaminterceptenable = None
-                self.ctap2streamintercepthcdrops = None
-                self.ctap2streamstatus = None
-                self.ctap2streamtype = None
+                super(CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry, self).__init__()
 
-            class Ctap2StreamtypeEnum(Enum):
+                self.yang_name = "cTap2StreamEntry"
+                self.yang_parent_name = "cTap2StreamTable"
+
+                self.ctap2mediationcontentid = YLeaf(YType.str, "cTap2MediationContentId")
+
+                self.ctap2streamindex = YLeaf(YType.int32, "cTap2StreamIndex")
+
+                self.ctap2streaminterceptdrops = YLeaf(YType.uint32, "cTap2StreamInterceptDrops")
+
+                self.ctap2streaminterceptedhcpackets = YLeaf(YType.uint64, "cTap2StreamInterceptedHCPackets")
+
+                self.ctap2streaminterceptedpackets = YLeaf(YType.uint32, "cTap2StreamInterceptedPackets")
+
+                self.ctap2streaminterceptenable = YLeaf(YType.boolean, "cTap2StreamInterceptEnable")
+
+                self.ctap2streamintercepthcdrops = YLeaf(YType.uint64, "cTap2StreamInterceptHCDrops")
+
+                self.ctap2streamstatus = YLeaf(YType.enumeration, "cTap2StreamStatus")
+
+                self.ctap2streamtype = YLeaf(YType.enumeration, "cTap2StreamType")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ctap2mediationcontentid",
+                                "ctap2streamindex",
+                                "ctap2streaminterceptdrops",
+                                "ctap2streaminterceptedhcpackets",
+                                "ctap2streaminterceptedpackets",
+                                "ctap2streaminterceptenable",
+                                "ctap2streamintercepthcdrops",
+                                "ctap2streamstatus",
+                                "ctap2streamtype") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry, self).__setattr__(name, value)
+
+            class Ctap2Streamtype(Enum):
                 """
-                Ctap2StreamtypeEnum
+                Ctap2Streamtype
 
                 Identifies the type of intercept filter associated to this
 
@@ -773,97 +1098,189 @@ class CiscoTap2Mib(object):
 
                 """
 
-                ip = 1
+                ip = Enum.YLeaf(1, "ip")
 
-                mac = 2
+                mac = Enum.YLeaf(2, "mac")
 
-                userConnection = 3
+                userConnection = Enum.YLeaf(3, "userConnection")
 
-                msPdsn = 4
+                msPdsn = Enum.YLeaf(4, "msPdsn")
 
-                mobility = 5
+                mobility = Enum.YLeaf(5, "mobility")
 
-                voip = 6
-
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-                    return meta._meta_table['CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry.Ctap2StreamtypeEnum']
+                voip = Enum.YLeaf(6, "voip")
 
 
-            @property
-            def _common_path(self):
-                if self.ctap2mediationcontentid is None:
-                    raise YPYModelError('Key property ctap2mediationcontentid is None')
-                if self.ctap2streamindex is None:
-                    raise YPYModelError('Key property ctap2streamindex is None')
+            def has_data(self):
+                return (
+                    self.ctap2mediationcontentid.is_set or
+                    self.ctap2streamindex.is_set or
+                    self.ctap2streaminterceptdrops.is_set or
+                    self.ctap2streaminterceptedhcpackets.is_set or
+                    self.ctap2streaminterceptedpackets.is_set or
+                    self.ctap2streaminterceptenable.is_set or
+                    self.ctap2streamintercepthcdrops.is_set or
+                    self.ctap2streamstatus.is_set or
+                    self.ctap2streamtype.is_set)
 
-                return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2StreamTable/CISCO-TAP2-MIB:cTap2StreamEntry[CISCO-TAP2-MIB:cTap2MediationContentId = ' + str(self.ctap2mediationcontentid) + '][CISCO-TAP2-MIB:cTap2StreamIndex = ' + str(self.ctap2streamindex) + ']'
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ctap2mediationcontentid.yfilter != YFilter.not_set or
+                    self.ctap2streamindex.yfilter != YFilter.not_set or
+                    self.ctap2streaminterceptdrops.yfilter != YFilter.not_set or
+                    self.ctap2streaminterceptedhcpackets.yfilter != YFilter.not_set or
+                    self.ctap2streaminterceptedpackets.yfilter != YFilter.not_set or
+                    self.ctap2streaminterceptenable.yfilter != YFilter.not_set or
+                    self.ctap2streamintercepthcdrops.yfilter != YFilter.not_set or
+                    self.ctap2streamstatus.yfilter != YFilter.not_set or
+                    self.ctap2streamtype.yfilter != YFilter.not_set)
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cTap2StreamEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']" + "[cTap2StreamIndex='" + self.ctap2streamindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2StreamTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ctap2mediationcontentid.is_set or self.ctap2mediationcontentid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationcontentid.get_name_leafdata())
+                if (self.ctap2streamindex.is_set or self.ctap2streamindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streamindex.get_name_leafdata())
+                if (self.ctap2streaminterceptdrops.is_set or self.ctap2streaminterceptdrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streaminterceptdrops.get_name_leafdata())
+                if (self.ctap2streaminterceptedhcpackets.is_set or self.ctap2streaminterceptedhcpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streaminterceptedhcpackets.get_name_leafdata())
+                if (self.ctap2streaminterceptedpackets.is_set or self.ctap2streaminterceptedpackets.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streaminterceptedpackets.get_name_leafdata())
+                if (self.ctap2streaminterceptenable.is_set or self.ctap2streaminterceptenable.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streaminterceptenable.get_name_leafdata())
+                if (self.ctap2streamintercepthcdrops.is_set or self.ctap2streamintercepthcdrops.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streamintercepthcdrops.get_name_leafdata())
+                if (self.ctap2streamstatus.is_set or self.ctap2streamstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streamstatus.get_name_leafdata())
+                if (self.ctap2streamtype.is_set or self.ctap2streamtype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2streamtype.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cTap2MediationContentId" or name == "cTap2StreamIndex" or name == "cTap2StreamInterceptDrops" or name == "cTap2StreamInterceptedHCPackets" or name == "cTap2StreamInterceptedPackets" or name == "cTap2StreamInterceptEnable" or name == "cTap2StreamInterceptHCDrops" or name == "cTap2StreamStatus" or name == "cTap2StreamType"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ctap2mediationcontentid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cTap2MediationContentId"):
+                    self.ctap2mediationcontentid = value
+                    self.ctap2mediationcontentid.value_namespace = name_space
+                    self.ctap2mediationcontentid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamIndex"):
+                    self.ctap2streamindex = value
+                    self.ctap2streamindex.value_namespace = name_space
+                    self.ctap2streamindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamInterceptDrops"):
+                    self.ctap2streaminterceptdrops = value
+                    self.ctap2streaminterceptdrops.value_namespace = name_space
+                    self.ctap2streaminterceptdrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamInterceptedHCPackets"):
+                    self.ctap2streaminterceptedhcpackets = value
+                    self.ctap2streaminterceptedhcpackets.value_namespace = name_space
+                    self.ctap2streaminterceptedhcpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamInterceptedPackets"):
+                    self.ctap2streaminterceptedpackets = value
+                    self.ctap2streaminterceptedpackets.value_namespace = name_space
+                    self.ctap2streaminterceptedpackets.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamInterceptEnable"):
+                    self.ctap2streaminterceptenable = value
+                    self.ctap2streaminterceptenable.value_namespace = name_space
+                    self.ctap2streaminterceptenable.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamInterceptHCDrops"):
+                    self.ctap2streamintercepthcdrops = value
+                    self.ctap2streamintercepthcdrops.value_namespace = name_space
+                    self.ctap2streamintercepthcdrops.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamStatus"):
+                    self.ctap2streamstatus = value
+                    self.ctap2streamstatus.value_namespace = name_space
+                    self.ctap2streamstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2StreamType"):
+                    self.ctap2streamtype = value
+                    self.ctap2streamtype.value_namespace = name_space
+                    self.ctap2streamtype.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ctap2streamentry:
+                if (c.has_data()):
                     return True
-
-                if self.ctap2streamindex is not None:
-                    return True
-
-                if self.ctap2streaminterceptdrops is not None:
-                    return True
-
-                if self.ctap2streaminterceptedhcpackets is not None:
-                    return True
-
-                if self.ctap2streaminterceptedpackets is not None:
-                    return True
-
-                if self.ctap2streaminterceptenable is not None:
-                    return True
-
-                if self.ctap2streamintercepthcdrops is not None:
-                    return True
-
-                if self.ctap2streamstatus is not None:
-                    return True
-
-                if self.ctap2streamtype is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-                return meta._meta_table['CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2StreamTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ctap2streamentry is not None:
-                for child_ref in self.ctap2streamentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ctap2streamentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cTap2StreamTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cTap2StreamEntry"):
+                for c in self.ctap2streamentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoTap2Mib.Ctap2Streamtable.Ctap2Streamentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ctap2streamentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cTap2StreamEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-            return meta._meta_table['CiscoTap2Mib.Ctap2Streamtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ctap2Debugtable(object):
+    class Ctap2Debugtable(Entity):
         """
         A table that contains Lawful Intercept debug messages
         generated by the implementing device. This table is used 
@@ -900,13 +1317,39 @@ class CiscoTap2Mib(object):
         _revision = '2009-11-06'
 
         def __init__(self):
-            self.parent = None
-            self.ctap2debugentry = YList()
-            self.ctap2debugentry.parent = self
-            self.ctap2debugentry.name = 'ctap2debugentry'
+            super(CiscoTap2Mib.Ctap2Debugtable, self).__init__()
+
+            self.yang_name = "cTap2DebugTable"
+            self.yang_parent_name = "CISCO-TAP2-MIB"
+
+            self.ctap2debugentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoTap2Mib.Ctap2Debugtable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoTap2Mib.Ctap2Debugtable, self).__setattr__(name, value)
 
 
-        class Ctap2Debugentry(object):
+        class Ctap2Debugentry(Entity):
             """
             A list of the debug messages.
             
@@ -932,7 +1375,7 @@ class CiscoTap2Mib(object):
             .. attribute:: ctap2debugstatus
             
             	The status of this conceptual row. A row in this table is created by the implementing device. A management station cannot modify any of the objects in this row, except deleting the row by setting this object to 'destroy'
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ctap2debugstreamid
             
@@ -949,71 +1392,187 @@ class CiscoTap2Mib(object):
             _revision = '2009-11-06'
 
             def __init__(self):
-                self.parent = None
-                self.ctap2debugindex = None
-                self.ctap2debugmediationid = None
-                self.ctap2debugmessage = None
-                self.ctap2debugstatus = None
-                self.ctap2debugstreamid = None
+                super(CiscoTap2Mib.Ctap2Debugtable.Ctap2Debugentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ctap2debugindex is None:
-                    raise YPYModelError('Key property ctap2debugindex is None')
+                self.yang_name = "cTap2DebugEntry"
+                self.yang_parent_name = "cTap2DebugTable"
 
-                return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2DebugTable/CISCO-TAP2-MIB:cTap2DebugEntry[CISCO-TAP2-MIB:cTap2DebugIndex = ' + str(self.ctap2debugindex) + ']'
+                self.ctap2debugindex = YLeaf(YType.int32, "cTap2DebugIndex")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ctap2debugmediationid = YLeaf(YType.uint32, "cTap2DebugMediationId")
+
+                self.ctap2debugmessage = YLeaf(YType.str, "cTap2DebugMessage")
+
+                self.ctap2debugstatus = YLeaf(YType.enumeration, "cTap2DebugStatus")
+
+                self.ctap2debugstreamid = YLeaf(YType.uint32, "cTap2DebugStreamId")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ctap2debugindex",
+                                "ctap2debugmediationid",
+                                "ctap2debugmessage",
+                                "ctap2debugstatus",
+                                "ctap2debugstreamid") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoTap2Mib.Ctap2Debugtable.Ctap2Debugentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoTap2Mib.Ctap2Debugtable.Ctap2Debugentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ctap2debugindex.is_set or
+                    self.ctap2debugmediationid.is_set or
+                    self.ctap2debugmessage.is_set or
+                    self.ctap2debugstatus.is_set or
+                    self.ctap2debugstreamid.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ctap2debugindex.yfilter != YFilter.not_set or
+                    self.ctap2debugmediationid.yfilter != YFilter.not_set or
+                    self.ctap2debugmessage.yfilter != YFilter.not_set or
+                    self.ctap2debugstatus.yfilter != YFilter.not_set or
+                    self.ctap2debugstreamid.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cTap2DebugEntry" + "[cTap2DebugIndex='" + self.ctap2debugindex.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ctap2debugindex.is_set or self.ctap2debugindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debugindex.get_name_leafdata())
+                if (self.ctap2debugmediationid.is_set or self.ctap2debugmediationid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debugmediationid.get_name_leafdata())
+                if (self.ctap2debugmessage.is_set or self.ctap2debugmessage.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debugmessage.get_name_leafdata())
+                if (self.ctap2debugstatus.is_set or self.ctap2debugstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debugstatus.get_name_leafdata())
+                if (self.ctap2debugstreamid.is_set or self.ctap2debugstreamid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debugstreamid.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cTap2DebugIndex" or name == "cTap2DebugMediationId" or name == "cTap2DebugMessage" or name == "cTap2DebugStatus" or name == "cTap2DebugStreamId"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ctap2debugindex is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cTap2DebugIndex"):
+                    self.ctap2debugindex = value
+                    self.ctap2debugindex.value_namespace = name_space
+                    self.ctap2debugindex.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugMediationId"):
+                    self.ctap2debugmediationid = value
+                    self.ctap2debugmediationid.value_namespace = name_space
+                    self.ctap2debugmediationid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugMessage"):
+                    self.ctap2debugmessage = value
+                    self.ctap2debugmessage.value_namespace = name_space
+                    self.ctap2debugmessage.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugStatus"):
+                    self.ctap2debugstatus = value
+                    self.ctap2debugstatus.value_namespace = name_space
+                    self.ctap2debugstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugStreamId"):
+                    self.ctap2debugstreamid = value
+                    self.ctap2debugstreamid.value_namespace = name_space
+                    self.ctap2debugstreamid.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ctap2debugentry:
+                if (c.has_data()):
                     return True
-
-                if self.ctap2debugmediationid is not None:
-                    return True
-
-                if self.ctap2debugmessage is not None:
-                    return True
-
-                if self.ctap2debugstatus is not None:
-                    return True
-
-                if self.ctap2debugstreamid is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-                return meta._meta_table['CiscoTap2Mib.Ctap2Debugtable.Ctap2Debugentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2DebugTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ctap2debugentry is not None:
-                for child_ref in self.ctap2debugentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ctap2debugentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cTap2DebugTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cTap2DebugEntry"):
+                for c in self.ctap2debugentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoTap2Mib.Ctap2Debugtable.Ctap2Debugentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ctap2debugentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cTap2DebugEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-            return meta._meta_table['CiscoTap2Mib.Ctap2Debugtable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class Ctap2Debugusertable(object):
+    class Ctap2Debugusertable(Entity):
         """
         The User Table lists information of all the users configured
         in the system who are given permission by different Mediation
@@ -1037,13 +1596,39 @@ class CiscoTap2Mib(object):
         _revision = '2009-11-06'
 
         def __init__(self):
-            self.parent = None
-            self.ctap2debuguserentry = YList()
-            self.ctap2debuguserentry.parent = self
-            self.ctap2debuguserentry.name = 'ctap2debuguserentry'
+            super(CiscoTap2Mib.Ctap2Debugusertable, self).__init__()
+
+            self.yang_name = "cTap2DebugUserTable"
+            self.yang_parent_name = "CISCO-TAP2-MIB"
+
+            self.ctap2debuguserentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoTap2Mib.Ctap2Debugusertable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoTap2Mib.Ctap2Debugusertable, self).__setattr__(name, value)
 
 
-        class Ctap2Debuguserentry(object):
+        class Ctap2Debuguserentry(Entity):
             """
             A conceptual row in the cTap2DebugUserTable. Each row
             represents name of user on the router to whom Mediation Device
@@ -1070,12 +1655,12 @@ class CiscoTap2Mib(object):
             .. attribute:: ctap2debuguserstatus
             
             	The status of this conceptual row. This object manages creation, modification, and deletion of rows in this table. cTap2DebugUserTimeout may be modified any time even when the value of this entry rowStatus object is 'active'
-            	**type**\:   :py:class:`RowstatusEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.RowstatusEnum>`
+            	**type**\:   :py:class:`Rowstatus <ydk.models.cisco_ios_xe.SNMPv2_TC.Rowstatus>`
             
             .. attribute:: ctap2debuguserstoragetype
             
             	This object specifies the storage type of this conceptual row. If it is set to 'nonVolatile', this entry can be saved into non\-volatile memory
-            	**type**\:   :py:class:`StoragetypeEnum <ydk.models.cisco_ios_xe.SNMPv2_TC.StoragetypeEnum>`
+            	**type**\:   :py:class:`Storagetype <ydk.models.cisco_ios_xe.SNMPv2_TC.Storagetype>`
             
             .. attribute:: ctap2debugusertimeout
             
@@ -1090,104 +1675,279 @@ class CiscoTap2Mib(object):
             _revision = '2009-11-06'
 
             def __init__(self):
-                self.parent = None
-                self.ctap2mediationcontentid = None
-                self.ctap2debugusername = None
-                self.ctap2debuguserstatus = None
-                self.ctap2debuguserstoragetype = None
-                self.ctap2debugusertimeout = None
+                super(CiscoTap2Mib.Ctap2Debugusertable.Ctap2Debuguserentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.ctap2mediationcontentid is None:
-                    raise YPYModelError('Key property ctap2mediationcontentid is None')
-                if self.ctap2debugusername is None:
-                    raise YPYModelError('Key property ctap2debugusername is None')
+                self.yang_name = "cTap2DebugUserEntry"
+                self.yang_parent_name = "cTap2DebugUserTable"
 
-                return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2DebugUserTable/CISCO-TAP2-MIB:cTap2DebugUserEntry[CISCO-TAP2-MIB:cTap2MediationContentId = ' + str(self.ctap2mediationcontentid) + '][CISCO-TAP2-MIB:cTap2DebugUserName = ' + str(self.ctap2debugusername) + ']'
+                self.ctap2mediationcontentid = YLeaf(YType.str, "cTap2MediationContentId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.ctap2debugusername = YLeaf(YType.str, "cTap2DebugUserName")
+
+                self.ctap2debuguserstatus = YLeaf(YType.enumeration, "cTap2DebugUserStatus")
+
+                self.ctap2debuguserstoragetype = YLeaf(YType.enumeration, "cTap2DebugUserStorageType")
+
+                self.ctap2debugusertimeout = YLeaf(YType.str, "cTap2DebugUserTimeout")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("ctap2mediationcontentid",
+                                "ctap2debugusername",
+                                "ctap2debuguserstatus",
+                                "ctap2debuguserstoragetype",
+                                "ctap2debugusertimeout") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoTap2Mib.Ctap2Debugusertable.Ctap2Debuguserentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoTap2Mib.Ctap2Debugusertable.Ctap2Debuguserentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.ctap2mediationcontentid.is_set or
+                    self.ctap2debugusername.is_set or
+                    self.ctap2debuguserstatus.is_set or
+                    self.ctap2debuguserstoragetype.is_set or
+                    self.ctap2debugusertimeout.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.ctap2mediationcontentid.yfilter != YFilter.not_set or
+                    self.ctap2debugusername.yfilter != YFilter.not_set or
+                    self.ctap2debuguserstatus.yfilter != YFilter.not_set or
+                    self.ctap2debuguserstoragetype.yfilter != YFilter.not_set or
+                    self.ctap2debugusertimeout.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "cTap2DebugUserEntry" + "[cTap2MediationContentId='" + self.ctap2mediationcontentid.get() + "']" + "[cTap2DebugUserName='" + self.ctap2debugusername.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugUserTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.ctap2mediationcontentid.is_set or self.ctap2mediationcontentid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2mediationcontentid.get_name_leafdata())
+                if (self.ctap2debugusername.is_set or self.ctap2debugusername.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debugusername.get_name_leafdata())
+                if (self.ctap2debuguserstatus.is_set or self.ctap2debuguserstatus.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debuguserstatus.get_name_leafdata())
+                if (self.ctap2debuguserstoragetype.is_set or self.ctap2debuguserstoragetype.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debuguserstoragetype.get_name_leafdata())
+                if (self.ctap2debugusertimeout.is_set or self.ctap2debugusertimeout.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.ctap2debugusertimeout.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "cTap2MediationContentId" or name == "cTap2DebugUserName" or name == "cTap2DebugUserStatus" or name == "cTap2DebugUserStorageType" or name == "cTap2DebugUserTimeout"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.ctap2mediationcontentid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "cTap2MediationContentId"):
+                    self.ctap2mediationcontentid = value
+                    self.ctap2mediationcontentid.value_namespace = name_space
+                    self.ctap2mediationcontentid.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugUserName"):
+                    self.ctap2debugusername = value
+                    self.ctap2debugusername.value_namespace = name_space
+                    self.ctap2debugusername.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugUserStatus"):
+                    self.ctap2debuguserstatus = value
+                    self.ctap2debuguserstatus.value_namespace = name_space
+                    self.ctap2debuguserstatus.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugUserStorageType"):
+                    self.ctap2debuguserstoragetype = value
+                    self.ctap2debuguserstoragetype.value_namespace = name_space
+                    self.ctap2debuguserstoragetype.value_namespace_prefix = name_space_prefix
+                if(value_path == "cTap2DebugUserTimeout"):
+                    self.ctap2debugusertimeout = value
+                    self.ctap2debugusertimeout.value_namespace = name_space
+                    self.ctap2debugusertimeout.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.ctap2debuguserentry:
+                if (c.has_data()):
                     return True
-
-                if self.ctap2debugusername is not None:
-                    return True
-
-                if self.ctap2debuguserstatus is not None:
-                    return True
-
-                if self.ctap2debuguserstoragetype is not None:
-                    return True
-
-                if self.ctap2debugusertimeout is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-                return meta._meta_table['CiscoTap2Mib.Ctap2Debugusertable.Ctap2Debuguserentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB/CISCO-TAP2-MIB:cTap2DebugUserTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.ctap2debuguserentry is not None:
-                for child_ref in self.ctap2debuguserentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.ctap2debuguserentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "cTap2DebugUserTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "cTap2DebugUserEntry"):
+                for c in self.ctap2debuguserentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoTap2Mib.Ctap2Debugusertable.Ctap2Debuguserentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.ctap2debuguserentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "cTap2DebugUserEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-            return meta._meta_table['CiscoTap2Mib.Ctap2Debugusertable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.ctap2debuggroup is not None and self.ctap2debuggroup.has_data()) or
+            (self.ctap2debugtable is not None and self.ctap2debugtable.has_data()) or
+            (self.ctap2debugusertable is not None and self.ctap2debugusertable.has_data()) or
+            (self.ctap2mediationgroup is not None and self.ctap2mediationgroup.has_data()) or
+            (self.ctap2mediationtable is not None and self.ctap2mediationtable.has_data()) or
+            (self.ctap2streamtable is not None and self.ctap2streamtable.has_data()))
 
-        return '/CISCO-TAP2-MIB:CISCO-TAP2-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.ctap2debuggroup is not None and self.ctap2debuggroup.has_operation()) or
+            (self.ctap2debugtable is not None and self.ctap2debugtable.has_operation()) or
+            (self.ctap2debugusertable is not None and self.ctap2debugusertable.has_operation()) or
+            (self.ctap2mediationgroup is not None and self.ctap2mediationgroup.has_operation()) or
+            (self.ctap2mediationtable is not None and self.ctap2mediationtable.has_operation()) or
+            (self.ctap2streamtable is not None and self.ctap2streamtable.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-TAP2-MIB:CISCO-TAP2-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "cTap2DebugGroup"):
+            if (self.ctap2debuggroup is None):
+                self.ctap2debuggroup = CiscoTap2Mib.Ctap2Debuggroup()
+                self.ctap2debuggroup.parent = self
+                self._children_name_map["ctap2debuggroup"] = "cTap2DebugGroup"
+            return self.ctap2debuggroup
+
+        if (child_yang_name == "cTap2DebugTable"):
+            if (self.ctap2debugtable is None):
+                self.ctap2debugtable = CiscoTap2Mib.Ctap2Debugtable()
+                self.ctap2debugtable.parent = self
+                self._children_name_map["ctap2debugtable"] = "cTap2DebugTable"
+            return self.ctap2debugtable
+
+        if (child_yang_name == "cTap2DebugUserTable"):
+            if (self.ctap2debugusertable is None):
+                self.ctap2debugusertable = CiscoTap2Mib.Ctap2Debugusertable()
+                self.ctap2debugusertable.parent = self
+                self._children_name_map["ctap2debugusertable"] = "cTap2DebugUserTable"
+            return self.ctap2debugusertable
+
+        if (child_yang_name == "cTap2MediationGroup"):
+            if (self.ctap2mediationgroup is None):
+                self.ctap2mediationgroup = CiscoTap2Mib.Ctap2Mediationgroup()
+                self.ctap2mediationgroup.parent = self
+                self._children_name_map["ctap2mediationgroup"] = "cTap2MediationGroup"
+            return self.ctap2mediationgroup
+
+        if (child_yang_name == "cTap2MediationTable"):
+            if (self.ctap2mediationtable is None):
+                self.ctap2mediationtable = CiscoTap2Mib.Ctap2Mediationtable()
+                self.ctap2mediationtable.parent = self
+                self._children_name_map["ctap2mediationtable"] = "cTap2MediationTable"
+            return self.ctap2mediationtable
+
+        if (child_yang_name == "cTap2StreamTable"):
+            if (self.ctap2streamtable is None):
+                self.ctap2streamtable = CiscoTap2Mib.Ctap2Streamtable()
+                self.ctap2streamtable.parent = self
+                self._children_name_map["ctap2streamtable"] = "cTap2StreamTable"
+            return self.ctap2streamtable
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "cTap2DebugGroup" or name == "cTap2DebugTable" or name == "cTap2DebugUserTable" or name == "cTap2MediationGroup" or name == "cTap2MediationTable" or name == "cTap2StreamTable"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.ctap2debuggroup is not None and self.ctap2debuggroup._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.ctap2debugtable is not None and self.ctap2debugtable._has_data():
-            return True
-
-        if self.ctap2debugusertable is not None and self.ctap2debugusertable._has_data():
-            return True
-
-        if self.ctap2mediationgroup is not None and self.ctap2mediationgroup._has_data():
-            return True
-
-        if self.ctap2mediationtable is not None and self.ctap2mediationtable._has_data():
-            return True
-
-        if self.ctap2streamtable is not None and self.ctap2streamtable._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_TAP2_MIB as meta
-        return meta._meta_table['CiscoTap2Mib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoTap2Mib()
+        return self._top_entity
 

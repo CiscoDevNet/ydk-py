@@ -11,22 +11,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class HwModuleSliceStatusEnum(Enum):
+class HwModuleSliceStatus(Enum):
     """
-    HwModuleSliceStatusEnum
+    HwModuleSliceStatus
 
     Hw module slice status
 
@@ -56,27 +50,21 @@ class HwModuleSliceStatusEnum(Enum):
 
     """
 
-    not_provisioned = 0
+    not_provisioned = Enum.YLeaf(0, "not-provisioned")
 
-    provisioning_in_progress = 1
+    provisioning_in_progress = Enum.YLeaf(1, "provisioning-in-progress")
 
-    provisioned = 2
+    provisioned = Enum.YLeaf(2, "provisioned")
 
-    provisioning_failed = 3
+    provisioning_failed = Enum.YLeaf(3, "provisioning-failed")
 
-    provisioning_scheduled = 4
+    provisioning_scheduled = Enum.YLeaf(4, "provisioning-scheduled")
 
-    reprovisioning_aborted = 5
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-        return meta._meta_table['HwModuleSliceStatusEnum']
+    reprovisioning_aborted = Enum.YLeaf(5, "reprovisioning-aborted")
 
 
 
-class HwModule(object):
+class HwModule(Entity):
     """
     mxp hw\-module command chain
     
@@ -98,13 +86,24 @@ class HwModule(object):
     _revision = '2015-11-09'
 
     def __init__(self):
+        super(HwModule, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "hw-module"
+        self.yang_parent_name = "Cisco-IOS-XR-ncs1k-mxp-oper"
+
         self.slice_all = HwModule.SliceAll()
         self.slice_all.parent = self
+        self._children_name_map["slice_all"] = "slice-all"
+        self._children_yang_names.add("slice-all")
+
         self.slice_ids = HwModule.SliceIds()
         self.slice_ids.parent = self
+        self._children_name_map["slice_ids"] = "slice-ids"
+        self._children_yang_names.add("slice-ids")
 
 
-    class SliceIds(object):
+    class SliceIds(Entity):
         """
         Slice information
         
@@ -121,13 +120,39 @@ class HwModule(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.slice_id = YList()
-            self.slice_id.parent = self
-            self.slice_id.name = 'slice_id'
+            super(HwModule.SliceIds, self).__init__()
+
+            self.yang_name = "slice-ids"
+            self.yang_parent_name = "hw-module"
+
+            self.slice_id = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(HwModule.SliceIds, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(HwModule.SliceIds, self).__setattr__(name, value)
 
 
-        class SliceId(object):
+        class SliceId(Entity):
             """
             Per slice num data
             
@@ -151,14 +176,41 @@ class HwModule(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.slice_num = None
-                self.slice_info = YList()
-                self.slice_info.parent = self
-                self.slice_info.name = 'slice_info'
+                super(HwModule.SliceIds.SliceId, self).__init__()
+
+                self.yang_name = "slice-id"
+                self.yang_parent_name = "slice-ids"
+
+                self.slice_num = YLeaf(YType.int32, "slice-num")
+
+                self.slice_info = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("slice_num") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(HwModule.SliceIds.SliceId, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(HwModule.SliceIds.SliceId, self).__setattr__(name, value)
 
 
-            class SliceInfo(object):
+            class SliceInfo(Entity):
                 """
                 slice info
                 
@@ -196,7 +248,7 @@ class HwModule(object):
                 .. attribute:: hardware_status
                 
                 	HardwareStatus
-                	**type**\:   :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+                	**type**\:   :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
                 
                 .. attribute:: lldp_drop_status
                 
@@ -232,22 +284,65 @@ class HwModule(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.client_port = YList()
-                    self.client_port.parent = self
-                    self.client_port.name = 'client_port'
-                    self.client_rate = None
-                    self.dp_fpga_fw_type = None
-                    self.dp_fpga_fw_ver = None
-                    self.encryption_supported = None
-                    self.hardware_status = None
-                    self.lldp_drop_status = None
-                    self.need_upg = None
-                    self.slice_id = None
-                    self.trunk_rate = None
+                    super(HwModule.SliceIds.SliceId.SliceInfo, self).__init__()
+
+                    self.yang_name = "slice-info"
+                    self.yang_parent_name = "slice-id"
+
+                    self.client_rate = YLeaf(YType.uint32, "client-rate")
+
+                    self.dp_fpga_fw_type = YLeaf(YType.str, "dp-fpga-fw-type")
+
+                    self.dp_fpga_fw_ver = YLeaf(YType.str, "dp-fpga-fw-ver")
+
+                    self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
+
+                    self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
+
+                    self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
+
+                    self.need_upg = YLeaf(YType.uint32, "need-upg")
+
+                    self.slice_id = YLeaf(YType.uint32, "slice-id")
+
+                    self.trunk_rate = YLeaf(YType.uint32, "trunk-rate")
+
+                    self.client_port = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("client_rate",
+                                    "dp_fpga_fw_type",
+                                    "dp_fpga_fw_ver",
+                                    "encryption_supported",
+                                    "hardware_status",
+                                    "lldp_drop_status",
+                                    "need_upg",
+                                    "slice_id",
+                                    "trunk_rate") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(HwModule.SliceIds.SliceId.SliceInfo, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(HwModule.SliceIds.SliceId.SliceInfo, self).__setattr__(name, value)
 
 
-                class ClientPort(object):
+                class ClientPort(Entity):
                     """
                     client port
                     
@@ -278,15 +373,44 @@ class HwModule(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.client_name = None
-                        self.if_index = None
-                        self.trunk_port = YList()
-                        self.trunk_port.parent = self
-                        self.trunk_port.name = 'trunk_port'
+                        super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort, self).__init__()
+
+                        self.yang_name = "client-port"
+                        self.yang_parent_name = "slice-info"
+
+                        self.client_name = YLeaf(YType.str, "client-name")
+
+                        self.if_index = YLeaf(YType.uint32, "if-index")
+
+                        self.trunk_port = YList(self)
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("client_name",
+                                        "if_index") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort, self).__setattr__(name, value)
 
 
-                    class TrunkPort(object):
+                    class TrunkPort(Entity):
                         """
                         trunk port
                         
@@ -319,171 +443,431 @@ class HwModule(object):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            self.parent = None
-                            self.if_index = None
-                            self.percentage = None
-                            self.trunk_name = None
+                            super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort, self).__init__()
 
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
+                            self.yang_name = "trunk-port"
+                            self.yang_parent_name = "client-port"
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-oper:trunk-port'
+                            self.if_index = YLeaf(YType.uint32, "if-index")
 
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
+                            self.percentage = YLeaf(YType.str, "percentage")
+
+                            self.trunk_name = YLeaf(YType.str, "trunk-name")
+
+                        def __setattr__(self, name, value):
+                            self._check_monkey_patching_error(name, value)
+                            with _handle_type_error():
+                                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                        "Please use list append or extend method."
+                                                        .format(value))
+                                if isinstance(value, Enum.YLeaf):
+                                    value = value.name
+                                if name in ("if_index",
+                                            "percentage",
+                                            "trunk_name") and name in self.__dict__:
+                                    if isinstance(value, YLeaf):
+                                        self.__dict__[name].set(value.get())
+                                    elif isinstance(value, YLeafList):
+                                        super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort, self).__setattr__(name, value)
+                                    else:
+                                        self.__dict__[name].set(value)
+                                else:
+                                    if hasattr(value, "parent") and name != "parent":
+                                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                            value.parent = self
+                                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                                            value.parent = self
+                                    super(HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort, self).__setattr__(name, value)
+
+                        def has_data(self):
+                            return (
+                                self.if_index.is_set or
+                                self.percentage.is_set or
+                                self.trunk_name.is_set)
+
+                        def has_operation(self):
+                            return (
+                                self.yfilter != YFilter.not_set or
+                                self.if_index.yfilter != YFilter.not_set or
+                                self.percentage.yfilter != YFilter.not_set or
+                                self.trunk_name.yfilter != YFilter.not_set)
+
+                        def get_segment_path(self):
+                            path_buffer = ""
+                            path_buffer = "trunk-port" + path_buffer
+
+                            return path_buffer
+
+                        def get_entity_path(self, ancestor):
+                            path_buffer = ""
+                            if (ancestor is None):
+                                raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                            else:
+                                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                            leaf_name_data = LeafDataList()
+                            if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.if_index.get_name_leafdata())
+                            if (self.percentage.is_set or self.percentage.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.percentage.get_name_leafdata())
+                            if (self.trunk_name.is_set or self.trunk_name.yfilter != YFilter.not_set):
+                                leaf_name_data.append(self.trunk_name.get_name_leafdata())
+
+                            entity_path = EntityPath(path_buffer, leaf_name_data)
+                            return entity_path
+
+                        def get_child_by_name(self, child_yang_name, segment_path):
+                            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                            if child is not None:
+                                return child
+
+                            return None
+
+                        def has_leaf_or_child_of_name(self, name):
+                            if(name == "if-index" or name == "percentage" or name == "trunk-name"):
+                                return True
                             return False
 
-                        def _has_data(self):
-                            if self.if_index is not None:
+                        def set_value(self, value_path, value, name_space, name_space_prefix):
+                            if(value_path == "if-index"):
+                                self.if_index = value
+                                self.if_index.value_namespace = name_space
+                                self.if_index.value_namespace_prefix = name_space_prefix
+                            if(value_path == "percentage"):
+                                self.percentage = value
+                                self.percentage.value_namespace = name_space
+                                self.percentage.value_namespace_prefix = name_space_prefix
+                            if(value_path == "trunk-name"):
+                                self.trunk_name = value
+                                self.trunk_name.value_namespace = name_space
+                                self.trunk_name.value_namespace_prefix = name_space_prefix
+
+                    def has_data(self):
+                        for c in self.trunk_port:
+                            if (c.has_data()):
                                 return True
+                        return (
+                            self.client_name.is_set or
+                            self.if_index.is_set)
 
-                            if self.percentage is not None:
+                    def has_operation(self):
+                        for c in self.trunk_port:
+                            if (c.has_operation()):
                                 return True
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.client_name.yfilter != YFilter.not_set or
+                            self.if_index.yfilter != YFilter.not_set)
 
-                            if self.trunk_name is not None:
-                                return True
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "client-port" + path_buffer
 
-                            return False
+                        return path_buffer
 
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-                            return meta._meta_table['HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort']['meta_info']
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        leaf_name_data = LeafDataList()
+                        if (self.client_name.is_set or self.client_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.client_name.get_name_leafdata())
+                        if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.if_index.get_name_leafdata())
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-oper:client-port'
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        if (child_yang_name == "trunk-port"):
+                            for c in self.trunk_port:
+                                segment = c.get_segment_path()
+                                if (segment_path == segment):
+                                    return c
+                            c = HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort()
+                            c.parent = self
+                            local_reference_key = "ydk::seg::%s" % segment_path
+                            self._local_refs[local_reference_key] = c
+                            self.trunk_port.append(c)
+                            return c
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "trunk-port" or name == "client-name" or name == "if-index"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.client_name is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "client-name"):
+                            self.client_name = value
+                            self.client_name.value_namespace = name_space
+                            self.client_name.value_namespace_prefix = name_space_prefix
+                        if(value_path == "if-index"):
+                            self.if_index = value
+                            self.if_index.value_namespace = name_space
+                            self.if_index.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.client_port:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.client_rate.is_set or
+                        self.dp_fpga_fw_type.is_set or
+                        self.dp_fpga_fw_ver.is_set or
+                        self.encryption_supported.is_set or
+                        self.hardware_status.is_set or
+                        self.lldp_drop_status.is_set or
+                        self.need_upg.is_set or
+                        self.slice_id.is_set or
+                        self.trunk_rate.is_set)
 
-                        if self.if_index is not None:
+                def has_operation(self):
+                    for c in self.client_port:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.client_rate.yfilter != YFilter.not_set or
+                        self.dp_fpga_fw_type.yfilter != YFilter.not_set or
+                        self.dp_fpga_fw_ver.yfilter != YFilter.not_set or
+                        self.encryption_supported.yfilter != YFilter.not_set or
+                        self.hardware_status.yfilter != YFilter.not_set or
+                        self.lldp_drop_status.yfilter != YFilter.not_set or
+                        self.need_upg.yfilter != YFilter.not_set or
+                        self.slice_id.yfilter != YFilter.not_set or
+                        self.trunk_rate.yfilter != YFilter.not_set)
 
-                        if self.trunk_port is not None:
-                            for child_ref in self.trunk_port:
-                                if child_ref._has_data():
-                                    return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "slice-info" + path_buffer
 
-                        return False
+                    return path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-                        return meta._meta_table['HwModule.SliceIds.SliceId.SliceInfo.ClientPort']['meta_info']
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        raise YPYModelError("ancestor cannot be None as one of the ancestors is a list")
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    leaf_name_data = LeafDataList()
+                    if (self.client_rate.is_set or self.client_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.client_rate.get_name_leafdata())
+                    if (self.dp_fpga_fw_type.is_set or self.dp_fpga_fw_type.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dp_fpga_fw_type.get_name_leafdata())
+                    if (self.dp_fpga_fw_ver.is_set or self.dp_fpga_fw_ver.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.dp_fpga_fw_ver.get_name_leafdata())
+                    if (self.encryption_supported.is_set or self.encryption_supported.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.encryption_supported.get_name_leafdata())
+                    if (self.hardware_status.is_set or self.hardware_status.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.hardware_status.get_name_leafdata())
+                    if (self.lldp_drop_status.is_set or self.lldp_drop_status.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.lldp_drop_status.get_name_leafdata())
+                    if (self.need_upg.is_set or self.need_upg.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.need_upg.get_name_leafdata())
+                    if (self.slice_id.is_set or self.slice_id.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.slice_id.get_name_leafdata())
+                    if (self.trunk_rate.is_set or self.trunk_rate.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.trunk_rate.get_name_leafdata())
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-oper:slice-info'
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "client-port"):
+                        for c in self.client_port:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = HwModule.SliceIds.SliceId.SliceInfo.ClientPort()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.client_port.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "client-port" or name == "client-rate" or name == "dp-fpga-fw-type" or name == "dp-fpga-fw-ver" or name == "encryption-supported" or name == "hardware-status" or name == "lldp-drop-status" or name == "need-upg" or name == "slice-id" or name == "trunk-rate"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.client_port is not None:
-                        for child_ref in self.client_port:
-                            if child_ref._has_data():
-                                return True
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "client-rate"):
+                        self.client_rate = value
+                        self.client_rate.value_namespace = name_space
+                        self.client_rate.value_namespace_prefix = name_space_prefix
+                    if(value_path == "dp-fpga-fw-type"):
+                        self.dp_fpga_fw_type = value
+                        self.dp_fpga_fw_type.value_namespace = name_space
+                        self.dp_fpga_fw_type.value_namespace_prefix = name_space_prefix
+                    if(value_path == "dp-fpga-fw-ver"):
+                        self.dp_fpga_fw_ver = value
+                        self.dp_fpga_fw_ver.value_namespace = name_space
+                        self.dp_fpga_fw_ver.value_namespace_prefix = name_space_prefix
+                    if(value_path == "encryption-supported"):
+                        self.encryption_supported = value
+                        self.encryption_supported.value_namespace = name_space
+                        self.encryption_supported.value_namespace_prefix = name_space_prefix
+                    if(value_path == "hardware-status"):
+                        self.hardware_status = value
+                        self.hardware_status.value_namespace = name_space
+                        self.hardware_status.value_namespace_prefix = name_space_prefix
+                    if(value_path == "lldp-drop-status"):
+                        self.lldp_drop_status = value
+                        self.lldp_drop_status.value_namespace = name_space
+                        self.lldp_drop_status.value_namespace_prefix = name_space_prefix
+                    if(value_path == "need-upg"):
+                        self.need_upg = value
+                        self.need_upg.value_namespace = name_space
+                        self.need_upg.value_namespace_prefix = name_space_prefix
+                    if(value_path == "slice-id"):
+                        self.slice_id = value
+                        self.slice_id.value_namespace = name_space
+                        self.slice_id.value_namespace_prefix = name_space_prefix
+                    if(value_path == "trunk-rate"):
+                        self.trunk_rate = value
+                        self.trunk_rate.value_namespace = name_space
+                        self.trunk_rate.value_namespace_prefix = name_space_prefix
 
-                    if self.client_rate is not None:
+            def has_data(self):
+                for c in self.slice_info:
+                    if (c.has_data()):
                         return True
+                return self.slice_num.is_set
 
-                    if self.dp_fpga_fw_type is not None:
+            def has_operation(self):
+                for c in self.slice_info:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.slice_num.yfilter != YFilter.not_set)
 
-                    if self.dp_fpga_fw_ver is not None:
-                        return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "slice-id" + "[slice-num='" + self.slice_num.get() + "']" + path_buffer
 
-                    if self.encryption_supported is not None:
-                        return True
+                return path_buffer
 
-                    if self.hardware_status is not None:
-                        return True
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-ids/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                    if self.lldp_drop_status is not None:
-                        return True
+                leaf_name_data = LeafDataList()
+                if (self.slice_num.is_set or self.slice_num.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.slice_num.get_name_leafdata())
 
-                    if self.need_upg is not None:
-                        return True
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-                    if self.slice_id is not None:
-                        return True
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
 
-                    if self.trunk_rate is not None:
-                        return True
+                if (child_yang_name == "slice-info"):
+                    for c in self.slice_info:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = HwModule.SliceIds.SliceId.SliceInfo()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.slice_info.append(c)
+                    return c
 
-                    return False
+                return None
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-                    return meta._meta_table['HwModule.SliceIds.SliceId.SliceInfo']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.slice_num is None:
-                    raise YPYModelError('Key property slice_num is None')
-
-                return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/Cisco-IOS-XR-ncs1k-mxp-oper:slice-ids/Cisco-IOS-XR-ncs1k-mxp-oper:slice-id[Cisco-IOS-XR-ncs1k-mxp-oper:slice-num = ' + str(self.slice_num) + ']'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if self.slice_num is not None:
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "slice-info" or name == "slice-num"):
                     return True
-
-                if self.slice_info is not None:
-                    for child_ref in self.slice_info:
-                        if child_ref._has_data():
-                            return True
-
                 return False
 
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-                return meta._meta_table['HwModule.SliceIds.SliceId']['meta_info']
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "slice-num"):
+                    self.slice_num = value
+                    self.slice_num.value_namespace = name_space
+                    self.slice_num.value_namespace_prefix = name_space_prefix
 
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/Cisco-IOS-XR-ncs1k-mxp-oper:slice-ids'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+        def has_data(self):
+            for c in self.slice_id:
+                if (c.has_data()):
+                    return True
             return False
 
-        def _has_data(self):
-            if self.slice_id is not None:
-                for child_ref in self.slice_id:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.slice_id:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "slice-ids" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "slice-id"):
+                for c in self.slice_id:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = HwModule.SliceIds.SliceId()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.slice_id.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "slice-id"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-            return meta._meta_table['HwModule.SliceIds']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
 
-    class SliceAll(object):
+    class SliceAll(Entity):
         """
         Information for all slices
         
@@ -500,13 +884,39 @@ class HwModule(object):
         _revision = '2015-11-09'
 
         def __init__(self):
-            self.parent = None
-            self.slice_info = YList()
-            self.slice_info.parent = self
-            self.slice_info.name = 'slice_info'
+            super(HwModule.SliceAll, self).__init__()
+
+            self.yang_name = "slice-all"
+            self.yang_parent_name = "hw-module"
+
+            self.slice_info = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(HwModule.SliceAll, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(HwModule.SliceAll, self).__setattr__(name, value)
 
 
-        class SliceInfo(object):
+        class SliceInfo(Entity):
             """
             slice info
             
@@ -544,7 +954,7 @@ class HwModule(object):
             .. attribute:: hardware_status
             
             	HardwareStatus
-            	**type**\:   :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+            	**type**\:   :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
             
             .. attribute:: lldp_drop_status
             
@@ -580,22 +990,65 @@ class HwModule(object):
             _revision = '2015-11-09'
 
             def __init__(self):
-                self.parent = None
-                self.client_port = YList()
-                self.client_port.parent = self
-                self.client_port.name = 'client_port'
-                self.client_rate = None
-                self.dp_fpga_fw_type = None
-                self.dp_fpga_fw_ver = None
-                self.encryption_supported = None
-                self.hardware_status = None
-                self.lldp_drop_status = None
-                self.need_upg = None
-                self.slice_id = None
-                self.trunk_rate = None
+                super(HwModule.SliceAll.SliceInfo, self).__init__()
+
+                self.yang_name = "slice-info"
+                self.yang_parent_name = "slice-all"
+
+                self.client_rate = YLeaf(YType.uint32, "client-rate")
+
+                self.dp_fpga_fw_type = YLeaf(YType.str, "dp-fpga-fw-type")
+
+                self.dp_fpga_fw_ver = YLeaf(YType.str, "dp-fpga-fw-ver")
+
+                self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
+
+                self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
+
+                self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
+
+                self.need_upg = YLeaf(YType.uint32, "need-upg")
+
+                self.slice_id = YLeaf(YType.uint32, "slice-id")
+
+                self.trunk_rate = YLeaf(YType.uint32, "trunk-rate")
+
+                self.client_port = YList(self)
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("client_rate",
+                                "dp_fpga_fw_type",
+                                "dp_fpga_fw_ver",
+                                "encryption_supported",
+                                "hardware_status",
+                                "lldp_drop_status",
+                                "need_upg",
+                                "slice_id",
+                                "trunk_rate") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(HwModule.SliceAll.SliceInfo, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(HwModule.SliceAll.SliceInfo, self).__setattr__(name, value)
 
 
-            class ClientPort(object):
+            class ClientPort(Entity):
                 """
                 client port
                 
@@ -626,15 +1079,44 @@ class HwModule(object):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    self.parent = None
-                    self.client_name = None
-                    self.if_index = None
-                    self.trunk_port = YList()
-                    self.trunk_port.parent = self
-                    self.trunk_port.name = 'trunk_port'
+                    super(HwModule.SliceAll.SliceInfo.ClientPort, self).__init__()
+
+                    self.yang_name = "client-port"
+                    self.yang_parent_name = "slice-info"
+
+                    self.client_name = YLeaf(YType.str, "client-name")
+
+                    self.if_index = YLeaf(YType.uint32, "if-index")
+
+                    self.trunk_port = YList(self)
+
+                def __setattr__(self, name, value):
+                    self._check_monkey_patching_error(name, value)
+                    with _handle_type_error():
+                        if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                            raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                "Please use list append or extend method."
+                                                .format(value))
+                        if isinstance(value, Enum.YLeaf):
+                            value = value.name
+                        if name in ("client_name",
+                                    "if_index") and name in self.__dict__:
+                            if isinstance(value, YLeaf):
+                                self.__dict__[name].set(value.get())
+                            elif isinstance(value, YLeafList):
+                                super(HwModule.SliceAll.SliceInfo.ClientPort, self).__setattr__(name, value)
+                            else:
+                                self.__dict__[name].set(value)
+                        else:
+                            if hasattr(value, "parent") and name != "parent":
+                                if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                    value.parent = self
+                                elif value.parent is None and value.yang_name in self._children_yang_names:
+                                    value.parent = self
+                            super(HwModule.SliceAll.SliceInfo.ClientPort, self).__setattr__(name, value)
 
 
-                class TrunkPort(object):
+                class TrunkPort(Entity):
                     """
                     trunk port
                     
@@ -667,157 +1149,423 @@ class HwModule(object):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        self.parent = None
-                        self.if_index = None
-                        self.percentage = None
-                        self.trunk_name = None
+                        super(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, self).__init__()
 
-                    @property
-                    def _common_path(self):
+                        self.yang_name = "trunk-port"
+                        self.yang_parent_name = "client-port"
 
-                        return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/Cisco-IOS-XR-ncs1k-mxp-oper:slice-all/Cisco-IOS-XR-ncs1k-mxp-oper:slice-info/Cisco-IOS-XR-ncs1k-mxp-oper:client-port/Cisco-IOS-XR-ncs1k-mxp-oper:trunk-port'
+                        self.if_index = YLeaf(YType.uint32, "if-index")
 
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
+                        self.percentage = YLeaf(YType.str, "percentage")
+
+                        self.trunk_name = YLeaf(YType.str, "trunk-name")
+
+                    def __setattr__(self, name, value):
+                        self._check_monkey_patching_error(name, value)
+                        with _handle_type_error():
+                            if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                                raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                                    "Please use list append or extend method."
+                                                    .format(value))
+                            if isinstance(value, Enum.YLeaf):
+                                value = value.name
+                            if name in ("if_index",
+                                        "percentage",
+                                        "trunk_name") and name in self.__dict__:
+                                if isinstance(value, YLeaf):
+                                    self.__dict__[name].set(value.get())
+                                elif isinstance(value, YLeafList):
+                                    super(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, self).__setattr__(name, value)
+                                else:
+                                    self.__dict__[name].set(value)
+                            else:
+                                if hasattr(value, "parent") and name != "parent":
+                                    if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                        value.parent = self
+                                    elif value.parent is None and value.yang_name in self._children_yang_names:
+                                        value.parent = self
+                                super(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, self).__setattr__(name, value)
+
+                    def has_data(self):
+                        return (
+                            self.if_index.is_set or
+                            self.percentage.is_set or
+                            self.trunk_name.is_set)
+
+                    def has_operation(self):
+                        return (
+                            self.yfilter != YFilter.not_set or
+                            self.if_index.yfilter != YFilter.not_set or
+                            self.percentage.yfilter != YFilter.not_set or
+                            self.trunk_name.yfilter != YFilter.not_set)
+
+                    def get_segment_path(self):
+                        path_buffer = ""
+                        path_buffer = "trunk-port" + path_buffer
+
+                        return path_buffer
+
+                    def get_entity_path(self, ancestor):
+                        path_buffer = ""
+                        if (ancestor is None):
+                            path_buffer = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/client-port/%s" % self.get_segment_path()
+                        else:
+                            path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                        leaf_name_data = LeafDataList()
+                        if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.if_index.get_name_leafdata())
+                        if (self.percentage.is_set or self.percentage.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.percentage.get_name_leafdata())
+                        if (self.trunk_name.is_set or self.trunk_name.yfilter != YFilter.not_set):
+                            leaf_name_data.append(self.trunk_name.get_name_leafdata())
+
+                        entity_path = EntityPath(path_buffer, leaf_name_data)
+                        return entity_path
+
+                    def get_child_by_name(self, child_yang_name, segment_path):
+                        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                        if child is not None:
+                            return child
+
+                        return None
+
+                    def has_leaf_or_child_of_name(self, name):
+                        if(name == "if-index" or name == "percentage" or name == "trunk-name"):
+                            return True
                         return False
 
-                    def _has_data(self):
-                        if self.if_index is not None:
+                    def set_value(self, value_path, value, name_space, name_space_prefix):
+                        if(value_path == "if-index"):
+                            self.if_index = value
+                            self.if_index.value_namespace = name_space
+                            self.if_index.value_namespace_prefix = name_space_prefix
+                        if(value_path == "percentage"):
+                            self.percentage = value
+                            self.percentage.value_namespace = name_space
+                            self.percentage.value_namespace_prefix = name_space_prefix
+                        if(value_path == "trunk-name"):
+                            self.trunk_name = value
+                            self.trunk_name.value_namespace = name_space
+                            self.trunk_name.value_namespace_prefix = name_space_prefix
+
+                def has_data(self):
+                    for c in self.trunk_port:
+                        if (c.has_data()):
                             return True
+                    return (
+                        self.client_name.is_set or
+                        self.if_index.is_set)
 
-                        if self.percentage is not None:
+                def has_operation(self):
+                    for c in self.trunk_port:
+                        if (c.has_operation()):
                             return True
+                    return (
+                        self.yfilter != YFilter.not_set or
+                        self.client_name.yfilter != YFilter.not_set or
+                        self.if_index.yfilter != YFilter.not_set)
 
-                        if self.trunk_name is not None:
-                            return True
+                def get_segment_path(self):
+                    path_buffer = ""
+                    path_buffer = "client-port" + path_buffer
 
-                        return False
+                    return path_buffer
 
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-                        return meta._meta_table['HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort']['meta_info']
+                def get_entity_path(self, ancestor):
+                    path_buffer = ""
+                    if (ancestor is None):
+                        path_buffer = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/%s" % self.get_segment_path()
+                    else:
+                        path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-                @property
-                def _common_path(self):
+                    leaf_name_data = LeafDataList()
+                    if (self.client_name.is_set or self.client_name.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.client_name.get_name_leafdata())
+                    if (self.if_index.is_set or self.if_index.yfilter != YFilter.not_set):
+                        leaf_name_data.append(self.if_index.get_name_leafdata())
 
-                    return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/Cisco-IOS-XR-ncs1k-mxp-oper:slice-all/Cisco-IOS-XR-ncs1k-mxp-oper:slice-info/Cisco-IOS-XR-ncs1k-mxp-oper:client-port'
+                    entity_path = EntityPath(path_buffer, leaf_name_data)
+                    return entity_path
 
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
+                def get_child_by_name(self, child_yang_name, segment_path):
+                    child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                    if child is not None:
+                        return child
+
+                    if (child_yang_name == "trunk-port"):
+                        for c in self.trunk_port:
+                            segment = c.get_segment_path()
+                            if (segment_path == segment):
+                                return c
+                        c = HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort()
+                        c.parent = self
+                        local_reference_key = "ydk::seg::%s" % segment_path
+                        self._local_refs[local_reference_key] = c
+                        self.trunk_port.append(c)
+                        return c
+
+                    return None
+
+                def has_leaf_or_child_of_name(self, name):
+                    if(name == "trunk-port" or name == "client-name" or name == "if-index"):
+                        return True
                     return False
 
-                def _has_data(self):
-                    if self.client_name is not None:
+                def set_value(self, value_path, value, name_space, name_space_prefix):
+                    if(value_path == "client-name"):
+                        self.client_name = value
+                        self.client_name.value_namespace = name_space
+                        self.client_name.value_namespace_prefix = name_space_prefix
+                    if(value_path == "if-index"):
+                        self.if_index = value
+                        self.if_index.value_namespace = name_space
+                        self.if_index.value_namespace_prefix = name_space_prefix
+
+            def has_data(self):
+                for c in self.client_port:
+                    if (c.has_data()):
                         return True
+                return (
+                    self.client_rate.is_set or
+                    self.dp_fpga_fw_type.is_set or
+                    self.dp_fpga_fw_ver.is_set or
+                    self.encryption_supported.is_set or
+                    self.hardware_status.is_set or
+                    self.lldp_drop_status.is_set or
+                    self.need_upg.is_set or
+                    self.slice_id.is_set or
+                    self.trunk_rate.is_set)
 
-                    if self.if_index is not None:
+            def has_operation(self):
+                for c in self.client_port:
+                    if (c.has_operation()):
                         return True
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.client_rate.yfilter != YFilter.not_set or
+                    self.dp_fpga_fw_type.yfilter != YFilter.not_set or
+                    self.dp_fpga_fw_ver.yfilter != YFilter.not_set or
+                    self.encryption_supported.yfilter != YFilter.not_set or
+                    self.hardware_status.yfilter != YFilter.not_set or
+                    self.lldp_drop_status.yfilter != YFilter.not_set or
+                    self.need_upg.yfilter != YFilter.not_set or
+                    self.slice_id.yfilter != YFilter.not_set or
+                    self.trunk_rate.yfilter != YFilter.not_set)
 
-                    if self.trunk_port is not None:
-                        for child_ref in self.trunk_port:
-                            if child_ref._has_data():
-                                return True
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "slice-info" + path_buffer
 
-                    return False
+                return path_buffer
 
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-                    return meta._meta_table['HwModule.SliceAll.SliceInfo.ClientPort']['meta_info']
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
 
-            @property
-            def _common_path(self):
+                leaf_name_data = LeafDataList()
+                if (self.client_rate.is_set or self.client_rate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.client_rate.get_name_leafdata())
+                if (self.dp_fpga_fw_type.is_set or self.dp_fpga_fw_type.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dp_fpga_fw_type.get_name_leafdata())
+                if (self.dp_fpga_fw_ver.is_set or self.dp_fpga_fw_ver.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.dp_fpga_fw_ver.get_name_leafdata())
+                if (self.encryption_supported.is_set or self.encryption_supported.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.encryption_supported.get_name_leafdata())
+                if (self.hardware_status.is_set or self.hardware_status.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.hardware_status.get_name_leafdata())
+                if (self.lldp_drop_status.is_set or self.lldp_drop_status.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.lldp_drop_status.get_name_leafdata())
+                if (self.need_upg.is_set or self.need_upg.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.need_upg.get_name_leafdata())
+                if (self.slice_id.is_set or self.slice_id.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.slice_id.get_name_leafdata())
+                if (self.trunk_rate.is_set or self.trunk_rate.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.trunk_rate.get_name_leafdata())
 
-                return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/Cisco-IOS-XR-ncs1k-mxp-oper:slice-all/Cisco-IOS-XR-ncs1k-mxp-oper:slice-info'
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                if (child_yang_name == "client-port"):
+                    for c in self.client_port:
+                        segment = c.get_segment_path()
+                        if (segment_path == segment):
+                            return c
+                    c = HwModule.SliceAll.SliceInfo.ClientPort()
+                    c.parent = self
+                    local_reference_key = "ydk::seg::%s" % segment_path
+                    self._local_refs[local_reference_key] = c
+                    self.client_port.append(c)
+                    return c
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "client-port" or name == "client-rate" or name == "dp-fpga-fw-type" or name == "dp-fpga-fw-ver" or name == "encryption-supported" or name == "hardware-status" or name == "lldp-drop-status" or name == "need-upg" or name == "slice-id" or name == "trunk-rate"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.client_port is not None:
-                    for child_ref in self.client_port:
-                        if child_ref._has_data():
-                            return True
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "client-rate"):
+                    self.client_rate = value
+                    self.client_rate.value_namespace = name_space
+                    self.client_rate.value_namespace_prefix = name_space_prefix
+                if(value_path == "dp-fpga-fw-type"):
+                    self.dp_fpga_fw_type = value
+                    self.dp_fpga_fw_type.value_namespace = name_space
+                    self.dp_fpga_fw_type.value_namespace_prefix = name_space_prefix
+                if(value_path == "dp-fpga-fw-ver"):
+                    self.dp_fpga_fw_ver = value
+                    self.dp_fpga_fw_ver.value_namespace = name_space
+                    self.dp_fpga_fw_ver.value_namespace_prefix = name_space_prefix
+                if(value_path == "encryption-supported"):
+                    self.encryption_supported = value
+                    self.encryption_supported.value_namespace = name_space
+                    self.encryption_supported.value_namespace_prefix = name_space_prefix
+                if(value_path == "hardware-status"):
+                    self.hardware_status = value
+                    self.hardware_status.value_namespace = name_space
+                    self.hardware_status.value_namespace_prefix = name_space_prefix
+                if(value_path == "lldp-drop-status"):
+                    self.lldp_drop_status = value
+                    self.lldp_drop_status.value_namespace = name_space
+                    self.lldp_drop_status.value_namespace_prefix = name_space_prefix
+                if(value_path == "need-upg"):
+                    self.need_upg = value
+                    self.need_upg.value_namespace = name_space
+                    self.need_upg.value_namespace_prefix = name_space_prefix
+                if(value_path == "slice-id"):
+                    self.slice_id = value
+                    self.slice_id.value_namespace = name_space
+                    self.slice_id.value_namespace_prefix = name_space_prefix
+                if(value_path == "trunk-rate"):
+                    self.trunk_rate = value
+                    self.trunk_rate.value_namespace = name_space
+                    self.trunk_rate.value_namespace_prefix = name_space_prefix
 
-                if self.client_rate is not None:
+        def has_data(self):
+            for c in self.slice_info:
+                if (c.has_data()):
                     return True
-
-                if self.dp_fpga_fw_type is not None:
-                    return True
-
-                if self.dp_fpga_fw_ver is not None:
-                    return True
-
-                if self.encryption_supported is not None:
-                    return True
-
-                if self.hardware_status is not None:
-                    return True
-
-                if self.lldp_drop_status is not None:
-                    return True
-
-                if self.need_upg is not None:
-                    return True
-
-                if self.slice_id is not None:
-                    return True
-
-                if self.trunk_rate is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-                return meta._meta_table['HwModule.SliceAll.SliceInfo']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/Cisco-IOS-XR-ncs1k-mxp-oper:slice-all'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.slice_info is not None:
-                for child_ref in self.slice_info:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.slice_info:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "slice-all" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "slice-info"):
+                for c in self.slice_info:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = HwModule.SliceAll.SliceInfo()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.slice_info.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "slice-info"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-            return meta._meta_table['HwModule.SliceAll']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.slice_all is not None and self.slice_all.has_data()) or
+            (self.slice_ids is not None and self.slice_ids.has_data()))
 
-        return '/Cisco-IOS-XR-ncs1k-mxp-oper:hw-module'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.slice_all is not None and self.slice_all.has_operation()) or
+            (self.slice_ids is not None and self.slice_ids.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "slice-all"):
+            if (self.slice_all is None):
+                self.slice_all = HwModule.SliceAll()
+                self.slice_all.parent = self
+                self._children_name_map["slice_all"] = "slice-all"
+            return self.slice_all
+
+        if (child_yang_name == "slice-ids"):
+            if (self.slice_ids is None):
+                self.slice_ids = HwModule.SliceIds()
+                self.slice_ids.parent = self
+                self._children_name_map["slice_ids"] = "slice-ids"
+            return self.slice_ids
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "slice-all" or name == "slice-ids"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.slice_all is not None and self.slice_all._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.slice_ids is not None and self.slice_ids._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_oper as meta
-        return meta._meta_table['HwModule']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = HwModule()
+        return self._top_entity
 

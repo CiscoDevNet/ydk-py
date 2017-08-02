@@ -7,22 +7,16 @@ Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
-
-class IsisAddressFamilyEnum(Enum):
+class IsisAddressFamily(Enum):
     """
-    IsisAddressFamilyEnum
+    IsisAddressFamily
 
     Isis address family
 
@@ -36,20 +30,14 @@ class IsisAddressFamilyEnum(Enum):
 
     """
 
-    ipv4 = 0
+    ipv4 = Enum.YLeaf(0, "ipv4")
 
-    ipv6 = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
-        return meta._meta_table['IsisAddressFamilyEnum']
+    ipv6 = Enum.YLeaf(1, "ipv6")
 
 
-class IsisInternalLevelEnum(Enum):
+class IsisInternalLevel(Enum):
     """
-    IsisInternalLevelEnum
+    IsisInternalLevel
 
     Isis internal level
 
@@ -67,22 +55,16 @@ class IsisInternalLevelEnum(Enum):
 
     """
 
-    not_set = 0
+    not_set = Enum.YLeaf(0, "not-set")
 
-    level1 = 1
+    level1 = Enum.YLeaf(1, "level1")
 
-    level2 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
-        return meta._meta_table['IsisInternalLevelEnum']
+    level2 = Enum.YLeaf(2, "level2")
 
 
-class IsisSubAddressFamilyEnum(Enum):
+class IsisSubAddressFamily(Enum):
     """
-    IsisSubAddressFamilyEnum
+    IsisSubAddressFamily
 
     Isis sub address family
 
@@ -96,15 +78,9 @@ class IsisSubAddressFamilyEnum(Enum):
 
     """
 
-    unicast = 0
+    unicast = Enum.YLeaf(0, "unicast")
 
-    multicast = 1
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_clns_isis_datatypes as meta
-        return meta._meta_table['IsisSubAddressFamilyEnum']
+    multicast = Enum.YLeaf(1, "multicast")
 
 
 

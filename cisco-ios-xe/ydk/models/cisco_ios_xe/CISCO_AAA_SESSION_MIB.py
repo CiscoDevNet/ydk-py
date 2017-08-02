@@ -10,21 +10,15 @@ References\:
     The TACACS+ Protocol Version 1.78, Internet Draft
 
 """
-
-
-import re
-import collections
-
-from enum import Enum
-
-from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
-
+from ydk.entity_utils import get_relative_entity_path as _get_relative_entity_path
+from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafList, YList, LeafDataList, Bits, Empty, Decimal64
+from ydk.filters import YFilter
 from ydk.errors import YPYError, YPYModelError
+from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-
-class CiscoAaaSessionMib(object):
+class CiscoAaaSessionMib(Entity):
     """
     
     
@@ -51,15 +45,29 @@ class CiscoAaaSessionMib(object):
     _revision = '2006-03-21'
 
     def __init__(self):
+        super(CiscoAaaSessionMib, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "CISCO-AAA-SESSION-MIB"
+        self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
+
         self.casnactive = CiscoAaaSessionMib.Casnactive()
         self.casnactive.parent = self
+        self._children_name_map["casnactive"] = "casnActive"
+        self._children_yang_names.add("casnActive")
+
         self.casnactivetable = CiscoAaaSessionMib.Casnactivetable()
         self.casnactivetable.parent = self
+        self._children_name_map["casnactivetable"] = "casnActiveTable"
+        self._children_yang_names.add("casnActiveTable")
+
         self.casngeneral = CiscoAaaSessionMib.Casngeneral()
         self.casngeneral.parent = self
+        self._children_name_map["casngeneral"] = "casnGeneral"
+        self._children_yang_names.add("casnGeneral")
 
 
-    class Casnactive(object):
+    class Casnactive(Entity):
         """
         
         
@@ -85,35 +93,97 @@ class CiscoAaaSessionMib(object):
         _revision = '2006-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.casnactivetableentries = None
-            self.casnactivetablehighwatermark = None
+            super(CiscoAaaSessionMib.Casnactive, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "casnActive"
+            self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
 
-            return '/CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/CISCO-AAA-SESSION-MIB:casnActive'
+            self.casnactivetableentries = YLeaf(YType.uint32, "casnActiveTableEntries")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.casnactivetablehighwatermark = YLeaf(YType.uint32, "casnActiveTableHighWaterMark")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("casnactivetableentries",
+                            "casnactivetablehighwatermark") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAaaSessionMib.Casnactive, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAaaSessionMib.Casnactive, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.casnactivetableentries.is_set or
+                self.casnactivetablehighwatermark.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.casnactivetableentries.yfilter != YFilter.not_set or
+                self.casnactivetablehighwatermark.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "casnActive" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.casnactivetableentries.is_set or self.casnactivetableentries.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.casnactivetableentries.get_name_leafdata())
+            if (self.casnactivetablehighwatermark.is_set or self.casnactivetablehighwatermark.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.casnactivetablehighwatermark.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "casnActiveTableEntries" or name == "casnActiveTableHighWaterMark"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.casnactivetableentries is not None:
-                return True
-
-            if self.casnactivetablehighwatermark is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_AAA_SESSION_MIB as meta
-            return meta._meta_table['CiscoAaaSessionMib.Casnactive']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "casnActiveTableEntries"):
+                self.casnactivetableentries = value
+                self.casnactivetableentries.value_namespace = name_space
+                self.casnactivetableentries.value_namespace_prefix = name_space_prefix
+            if(value_path == "casnActiveTableHighWaterMark"):
+                self.casnactivetablehighwatermark = value
+                self.casnactivetablehighwatermark.value_namespace = name_space
+                self.casnactivetablehighwatermark.value_namespace_prefix = name_space_prefix
 
 
-    class Casngeneral(object):
+    class Casngeneral(Entity):
         """
         
         
@@ -139,35 +209,97 @@ class CiscoAaaSessionMib(object):
         _revision = '2006-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.casndisconnectedsessions = None
-            self.casntotalsessions = None
+            super(CiscoAaaSessionMib.Casngeneral, self).__init__()
 
-        @property
-        def _common_path(self):
+            self.yang_name = "casnGeneral"
+            self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
 
-            return '/CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/CISCO-AAA-SESSION-MIB:casnGeneral'
+            self.casndisconnectedsessions = YLeaf(YType.uint32, "casnDisconnectedSessions")
 
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
+            self.casntotalsessions = YLeaf(YType.uint32, "casnTotalSessions")
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in ("casndisconnectedsessions",
+                            "casntotalsessions") and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAaaSessionMib.Casngeneral, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAaaSessionMib.Casngeneral, self).__setattr__(name, value)
+
+        def has_data(self):
+            return (
+                self.casndisconnectedsessions.is_set or
+                self.casntotalsessions.is_set)
+
+        def has_operation(self):
+            return (
+                self.yfilter != YFilter.not_set or
+                self.casndisconnectedsessions.yfilter != YFilter.not_set or
+                self.casntotalsessions.yfilter != YFilter.not_set)
+
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "casnGeneral" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+            if (self.casndisconnectedsessions.is_set or self.casndisconnectedsessions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.casndisconnectedsessions.get_name_leafdata())
+            if (self.casntotalsessions.is_set or self.casntotalsessions.yfilter != YFilter.not_set):
+                leaf_name_data.append(self.casntotalsessions.get_name_leafdata())
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "casnDisconnectedSessions" or name == "casnTotalSessions"):
+                return True
             return False
 
-        def _has_data(self):
-            if self.casndisconnectedsessions is not None:
-                return True
-
-            if self.casntotalsessions is not None:
-                return True
-
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_AAA_SESSION_MIB as meta
-            return meta._meta_table['CiscoAaaSessionMib.Casngeneral']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            if(value_path == "casnDisconnectedSessions"):
+                self.casndisconnectedsessions = value
+                self.casndisconnectedsessions.value_namespace = name_space
+                self.casndisconnectedsessions.value_namespace_prefix = name_space_prefix
+            if(value_path == "casnTotalSessions"):
+                self.casntotalsessions = value
+                self.casntotalsessions.value_namespace = name_space
+                self.casntotalsessions.value_namespace_prefix = name_space_prefix
 
 
-    class Casnactivetable(object):
+    class Casnactivetable(Entity):
         """
         This table contains entries for active AAA accounting
         sessions in the system.
@@ -185,13 +317,39 @@ class CiscoAaaSessionMib(object):
         _revision = '2006-03-21'
 
         def __init__(self):
-            self.parent = None
-            self.casnactiveentry = YList()
-            self.casnactiveentry.parent = self
-            self.casnactiveentry.name = 'casnactiveentry'
+            super(CiscoAaaSessionMib.Casnactivetable, self).__init__()
+
+            self.yang_name = "casnActiveTable"
+            self.yang_parent_name = "CISCO-AAA-SESSION-MIB"
+
+            self.casnactiveentry = YList(self)
+
+        def __setattr__(self, name, value):
+            self._check_monkey_patching_error(name, value)
+            with _handle_type_error():
+                if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                    raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                        "Please use list append or extend method."
+                                        .format(value))
+                if isinstance(value, Enum.YLeaf):
+                    value = value.name
+                if name in () and name in self.__dict__:
+                    if isinstance(value, YLeaf):
+                        self.__dict__[name].set(value.get())
+                    elif isinstance(value, YLeafList):
+                        super(CiscoAaaSessionMib.Casnactivetable, self).__setattr__(name, value)
+                    else:
+                        self.__dict__[name].set(value)
+                else:
+                    if hasattr(value, "parent") and name != "parent":
+                        if hasattr(value, "is_presence_container") and value.is_presence_container:
+                            value.parent = self
+                        elif value.parent is None and value.yang_name in self._children_yang_names:
+                            value.parent = self
+                    super(CiscoAaaSessionMib.Casnactivetable, self).__setattr__(name, value)
 
 
-        class Casnactiveentry(object):
+        class Casnactiveentry(Entity):
             """
             The information regarding a single accounting session.
             
@@ -269,105 +427,285 @@ class CiscoAaaSessionMib(object):
             _revision = '2006-03-21'
 
             def __init__(self):
-                self.parent = None
-                self.casnsessionid = None
-                self.casncalltrackerid = None
-                self.casndisconnect = None
-                self.casnidletime = None
-                self.casnipaddr = None
-                self.casnnasport = None
-                self.casnuserid = None
-                self.casnvaiifindex = None
+                super(CiscoAaaSessionMib.Casnactivetable.Casnactiveentry, self).__init__()
 
-            @property
-            def _common_path(self):
-                if self.casnsessionid is None:
-                    raise YPYModelError('Key property casnsessionid is None')
+                self.yang_name = "casnActiveEntry"
+                self.yang_parent_name = "casnActiveTable"
 
-                return '/CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/CISCO-AAA-SESSION-MIB:casnActiveTable/CISCO-AAA-SESSION-MIB:casnActiveEntry[CISCO-AAA-SESSION-MIB:casnSessionId = ' + str(self.casnsessionid) + ']'
+                self.casnsessionid = YLeaf(YType.uint32, "casnSessionId")
 
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
+                self.casncalltrackerid = YLeaf(YType.uint32, "casnCallTrackerId")
+
+                self.casndisconnect = YLeaf(YType.boolean, "casnDisconnect")
+
+                self.casnidletime = YLeaf(YType.uint32, "casnIdleTime")
+
+                self.casnipaddr = YLeaf(YType.str, "casnIpAddr")
+
+                self.casnnasport = YLeaf(YType.str, "casnNasPort")
+
+                self.casnuserid = YLeaf(YType.str, "casnUserId")
+
+                self.casnvaiifindex = YLeaf(YType.int32, "casnVaiIfIndex")
+
+            def __setattr__(self, name, value):
+                self._check_monkey_patching_error(name, value)
+                with _handle_type_error():
+                    if name in self.__dict__ and isinstance(self.__dict__[name], YList):
+                        raise YPYModelError("Attempt to assign value of '{}' to YList ldata. "
+                                            "Please use list append or extend method."
+                                            .format(value))
+                    if isinstance(value, Enum.YLeaf):
+                        value = value.name
+                    if name in ("casnsessionid",
+                                "casncalltrackerid",
+                                "casndisconnect",
+                                "casnidletime",
+                                "casnipaddr",
+                                "casnnasport",
+                                "casnuserid",
+                                "casnvaiifindex") and name in self.__dict__:
+                        if isinstance(value, YLeaf):
+                            self.__dict__[name].set(value.get())
+                        elif isinstance(value, YLeafList):
+                            super(CiscoAaaSessionMib.Casnactivetable.Casnactiveentry, self).__setattr__(name, value)
+                        else:
+                            self.__dict__[name].set(value)
+                    else:
+                        if hasattr(value, "parent") and name != "parent":
+                            if hasattr(value, "is_presence_container") and value.is_presence_container:
+                                value.parent = self
+                            elif value.parent is None and value.yang_name in self._children_yang_names:
+                                value.parent = self
+                        super(CiscoAaaSessionMib.Casnactivetable.Casnactiveentry, self).__setattr__(name, value)
+
+            def has_data(self):
+                return (
+                    self.casnsessionid.is_set or
+                    self.casncalltrackerid.is_set or
+                    self.casndisconnect.is_set or
+                    self.casnidletime.is_set or
+                    self.casnipaddr.is_set or
+                    self.casnnasport.is_set or
+                    self.casnuserid.is_set or
+                    self.casnvaiifindex.is_set)
+
+            def has_operation(self):
+                return (
+                    self.yfilter != YFilter.not_set or
+                    self.casnsessionid.yfilter != YFilter.not_set or
+                    self.casncalltrackerid.yfilter != YFilter.not_set or
+                    self.casndisconnect.yfilter != YFilter.not_set or
+                    self.casnidletime.yfilter != YFilter.not_set or
+                    self.casnipaddr.yfilter != YFilter.not_set or
+                    self.casnnasport.yfilter != YFilter.not_set or
+                    self.casnuserid.yfilter != YFilter.not_set or
+                    self.casnvaiifindex.yfilter != YFilter.not_set)
+
+            def get_segment_path(self):
+                path_buffer = ""
+                path_buffer = "casnActiveEntry" + "[casnSessionId='" + self.casnsessionid.get() + "']" + path_buffer
+
+                return path_buffer
+
+            def get_entity_path(self, ancestor):
+                path_buffer = ""
+                if (ancestor is None):
+                    path_buffer = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/casnActiveTable/%s" % self.get_segment_path()
+                else:
+                    path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+                leaf_name_data = LeafDataList()
+                if (self.casnsessionid.is_set or self.casnsessionid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casnsessionid.get_name_leafdata())
+                if (self.casncalltrackerid.is_set or self.casncalltrackerid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casncalltrackerid.get_name_leafdata())
+                if (self.casndisconnect.is_set or self.casndisconnect.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casndisconnect.get_name_leafdata())
+                if (self.casnidletime.is_set or self.casnidletime.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casnidletime.get_name_leafdata())
+                if (self.casnipaddr.is_set or self.casnipaddr.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casnipaddr.get_name_leafdata())
+                if (self.casnnasport.is_set or self.casnnasport.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casnnasport.get_name_leafdata())
+                if (self.casnuserid.is_set or self.casnuserid.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casnuserid.get_name_leafdata())
+                if (self.casnvaiifindex.is_set or self.casnvaiifindex.yfilter != YFilter.not_set):
+                    leaf_name_data.append(self.casnvaiifindex.get_name_leafdata())
+
+                entity_path = EntityPath(path_buffer, leaf_name_data)
+                return entity_path
+
+            def get_child_by_name(self, child_yang_name, segment_path):
+                child = self._get_child_by_seg_name([child_yang_name, segment_path])
+                if child is not None:
+                    return child
+
+                return None
+
+            def has_leaf_or_child_of_name(self, name):
+                if(name == "casnSessionId" or name == "casnCallTrackerId" or name == "casnDisconnect" or name == "casnIdleTime" or name == "casnIpAddr" or name == "casnNasPort" or name == "casnUserId" or name == "casnVaiIfIndex"):
+                    return True
                 return False
 
-            def _has_data(self):
-                if self.casnsessionid is not None:
+            def set_value(self, value_path, value, name_space, name_space_prefix):
+                if(value_path == "casnSessionId"):
+                    self.casnsessionid = value
+                    self.casnsessionid.value_namespace = name_space
+                    self.casnsessionid.value_namespace_prefix = name_space_prefix
+                if(value_path == "casnCallTrackerId"):
+                    self.casncalltrackerid = value
+                    self.casncalltrackerid.value_namespace = name_space
+                    self.casncalltrackerid.value_namespace_prefix = name_space_prefix
+                if(value_path == "casnDisconnect"):
+                    self.casndisconnect = value
+                    self.casndisconnect.value_namespace = name_space
+                    self.casndisconnect.value_namespace_prefix = name_space_prefix
+                if(value_path == "casnIdleTime"):
+                    self.casnidletime = value
+                    self.casnidletime.value_namespace = name_space
+                    self.casnidletime.value_namespace_prefix = name_space_prefix
+                if(value_path == "casnIpAddr"):
+                    self.casnipaddr = value
+                    self.casnipaddr.value_namespace = name_space
+                    self.casnipaddr.value_namespace_prefix = name_space_prefix
+                if(value_path == "casnNasPort"):
+                    self.casnnasport = value
+                    self.casnnasport.value_namespace = name_space
+                    self.casnnasport.value_namespace_prefix = name_space_prefix
+                if(value_path == "casnUserId"):
+                    self.casnuserid = value
+                    self.casnuserid.value_namespace = name_space
+                    self.casnuserid.value_namespace_prefix = name_space_prefix
+                if(value_path == "casnVaiIfIndex"):
+                    self.casnvaiifindex = value
+                    self.casnvaiifindex.value_namespace = name_space
+                    self.casnvaiifindex.value_namespace_prefix = name_space_prefix
+
+        def has_data(self):
+            for c in self.casnactiveentry:
+                if (c.has_data()):
                     return True
-
-                if self.casncalltrackerid is not None:
-                    return True
-
-                if self.casndisconnect is not None:
-                    return True
-
-                if self.casnidletime is not None:
-                    return True
-
-                if self.casnipaddr is not None:
-                    return True
-
-                if self.casnnasport is not None:
-                    return True
-
-                if self.casnuserid is not None:
-                    return True
-
-                if self.casnvaiifindex is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xe._meta import _CISCO_AAA_SESSION_MIB as meta
-                return meta._meta_table['CiscoAaaSessionMib.Casnactivetable.Casnactiveentry']['meta_info']
-
-        @property
-        def _common_path(self):
-
-            return '/CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/CISCO-AAA-SESSION-MIB:casnActiveTable'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
             return False
 
-        def _has_data(self):
-            if self.casnactiveentry is not None:
-                for child_ref in self.casnactiveentry:
-                    if child_ref._has_data():
-                        return True
+        def has_operation(self):
+            for c in self.casnactiveentry:
+                if (c.has_operation()):
+                    return True
+            return self.yfilter != YFilter.not_set
 
+        def get_segment_path(self):
+            path_buffer = ""
+            path_buffer = "casnActiveTable" + path_buffer
+
+            return path_buffer
+
+        def get_entity_path(self, ancestor):
+            path_buffer = ""
+            if (ancestor is None):
+                path_buffer = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self.get_segment_path()
+            else:
+                path_buffer = _get_relative_entity_path(self, ancestor, path_buffer)
+
+            leaf_name_data = LeafDataList()
+
+            entity_path = EntityPath(path_buffer, leaf_name_data)
+            return entity_path
+
+        def get_child_by_name(self, child_yang_name, segment_path):
+            child = self._get_child_by_seg_name([child_yang_name, segment_path])
+            if child is not None:
+                return child
+
+            if (child_yang_name == "casnActiveEntry"):
+                for c in self.casnactiveentry:
+                    segment = c.get_segment_path()
+                    if (segment_path == segment):
+                        return c
+                c = CiscoAaaSessionMib.Casnactivetable.Casnactiveentry()
+                c.parent = self
+                local_reference_key = "ydk::seg::%s" % segment_path
+                self._local_refs[local_reference_key] = c
+                self.casnactiveentry.append(c)
+                return c
+
+            return None
+
+        def has_leaf_or_child_of_name(self, name):
+            if(name == "casnActiveEntry"):
+                return True
             return False
 
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xe._meta import _CISCO_AAA_SESSION_MIB as meta
-            return meta._meta_table['CiscoAaaSessionMib.Casnactivetable']['meta_info']
+        def set_value(self, value_path, value, name_space, name_space_prefix):
+            pass
 
-    @property
-    def _common_path(self):
+    def has_data(self):
+        return (
+            (self.casnactive is not None and self.casnactive.has_data()) or
+            (self.casnactivetable is not None and self.casnactivetable.has_data()) or
+            (self.casngeneral is not None and self.casngeneral.has_data()))
 
-        return '/CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB'
+    def has_operation(self):
+        return (
+            self.yfilter != YFilter.not_set or
+            (self.casnactive is not None and self.casnactive.has_operation()) or
+            (self.casnactivetable is not None and self.casnactivetable.has_operation()) or
+            (self.casngeneral is not None and self.casngeneral.has_operation()))
 
-    def is_config(self):
-        ''' Returns True if this instance represents config data else returns False '''
+    def get_segment_path(self):
+        path_buffer = ""
+        path_buffer = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB" + path_buffer
+
+        return path_buffer
+
+    def get_entity_path(self, ancestor):
+        path_buffer = ""
+        if (not ancestor is None):
+            raise YPYModelError("ancestor has to be None for top-level node")
+
+        path_buffer = self.get_segment_path()
+        leaf_name_data = LeafDataList()
+
+        entity_path = EntityPath(path_buffer, leaf_name_data)
+        return entity_path
+
+    def get_child_by_name(self, child_yang_name, segment_path):
+        child = self._get_child_by_seg_name([child_yang_name, segment_path])
+        if child is not None:
+            return child
+
+        if (child_yang_name == "casnActive"):
+            if (self.casnactive is None):
+                self.casnactive = CiscoAaaSessionMib.Casnactive()
+                self.casnactive.parent = self
+                self._children_name_map["casnactive"] = "casnActive"
+            return self.casnactive
+
+        if (child_yang_name == "casnActiveTable"):
+            if (self.casnactivetable is None):
+                self.casnactivetable = CiscoAaaSessionMib.Casnactivetable()
+                self.casnactivetable.parent = self
+                self._children_name_map["casnactivetable"] = "casnActiveTable"
+            return self.casnactivetable
+
+        if (child_yang_name == "casnGeneral"):
+            if (self.casngeneral is None):
+                self.casngeneral = CiscoAaaSessionMib.Casngeneral()
+                self.casngeneral.parent = self
+                self._children_name_map["casngeneral"] = "casnGeneral"
+            return self.casngeneral
+
+        return None
+
+    def has_leaf_or_child_of_name(self, name):
+        if(name == "casnActive" or name == "casnActiveTable" or name == "casnGeneral"):
+            return True
         return False
 
-    def _has_data(self):
-        if self.casnactive is not None and self.casnactive._has_data():
-            return True
+    def set_value(self, value_path, value, name_space, name_space_prefix):
+        pass
 
-        if self.casnactivetable is not None and self.casnactivetable._has_data():
-            return True
-
-        if self.casngeneral is not None and self.casngeneral._has_data():
-            return True
-
-        return False
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xe._meta import _CISCO_AAA_SESSION_MIB as meta
-        return meta._meta_table['CiscoAaaSessionMib']['meta_info']
-
+    def clone_ptr(self):
+        self._top_entity = CiscoAaaSessionMib()
+        return self._top_entity
 
